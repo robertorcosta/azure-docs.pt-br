@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965284"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
@@ -83,7 +83,7 @@ Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de est
 | Capacidade total utilizável* |~ 15 TB |~ 38 TB |
 | Capacidade máxima da solução (incluindo a nuvem) |200 TB |500 TB |
 
-<sup>* </sup>- *A capacidade total utilizável inclui a capacidade disponível para dados, metadados e buffers. Você pode provisionar volumes fixados localmente até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo maior de 8600. Para obter mais informações, vá para [StorSimple volumes fixados localmente](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *A capacidade utilizável total inclui a capacidade disponível para dados, metadados e buffers. Você pode provisionar volumes localmente afixados de até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo 8600 maior. Para obter mais informações, vá para [volumes afixados localmente do StorSimple](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do compartimento e especificações de peso
 
@@ -175,7 +175,7 @@ O dispositivo é compatível com EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação de CA
 
-O plugue e o conjunto completo do cabo de alimentação devem atender aos padrões adequados para o país/região em que o dispositivo está sendo utilizado, e devem ter aprovações de segurança aceitáveis naquele país/região. As tabelas a seguir listam os padrões para os EUA e a Europa.
+O plug e o conjunto completo do cabo de alimentação devem atender aos padrões apropriados para o país/região em que o dispositivo está sendo usado, e eles devem ter aprovações de segurança aceitáveis nesse país/região. As tabelas a seguir listam os padrões para os EUA e a Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação de CA - EUA (devem estar listados no NRTL)
 

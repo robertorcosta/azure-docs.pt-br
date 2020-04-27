@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre configuração
-description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para o Azure App Service.
+description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para Azure App serviço.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869957"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159993"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -35,14 +35,14 @@ Para respostas para perguntas comuns sobre como usar um nome de domínio persona
 Para saber como adquirir e configurar um domínio personalizado para seu aplicativo web do Serviço de Aplicativo, consulte [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo](manage-custom-dns-buy-domain.md).
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>Como faço para carregar e configurar um certificado TLS/SSL existente para o meu aplicativo web?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>Como fazer carregar e configurar um certificado TLS/SSL existente para meu aplicativo Web?
 
-Para saber como carregar e configurar um certificado TLS/SSL personalizado existente, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo App Service](configure-ssl-certificate.md).
+Para saber como carregar e configurar um certificado TLS/SSL personalizado existente, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo do serviço de aplicativo](configure-ssl-certificate.md).
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Como comprar e configurar um novo certificado TLS/SSL no Azure para o meu aplicativo web?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Como fazer comprar e configurar um novo certificado TLS/SSL no Azure para meu aplicativo Web?
 
-Para saber como comprar e configurar um certificado TLS/SSL para o seu aplicativo web App Service, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo App Service](configure-ssl-certificate.md).
+Para saber como comprar e configurar um certificado TLS/SSL para seu aplicativo Web do serviço de aplicativo, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo do serviço de aplicativo](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Como mover recursos do Application Insights?
@@ -65,7 +65,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
     * Valor = *o fuso horário que você deseja*
 3. Clique em **Salvar**.
 
-Para os serviços do App que são executados no Windows, consulte a coluna **Fuso horário** no artigo [Zonas horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para valores aceitos. Para os serviços do App que são executados no Linux, defina o nome do [banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor do fuso horário. Aqui está um exemplo do nome do banco de dados TZ: America/Adak.
+Para os serviços de aplicativos que são executados no Windows, consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos. Para os serviços de aplicativos que são executados no Linux, defina o [nome do banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor de fuso horário. Aqui está um exemplo de nome do banco de dados TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
@@ -84,13 +84,13 @@ Para saber como obter seu endereço IP de saída se seu site estiver hospedado e
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
-Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas no site do aplicativo Azure, instale e configure um certificado TLS/SSL baseado em IP.
+Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas ao site do aplicativo do Azure, instale e configure um certificado TLS/SSL baseado em IP.
 
 Observe que, para usar um endereço IP dedicado ou reservado para chamadas de entrada, o plano do Serviço de Aplicativo deve ser em um plano de serviço básico ou superior.
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Posso exportar meu certificado do Serviço de Aplicativo para uso fora do Azure, como um site hospedado em outro lugar? 
 
-Sim, você pode exportá-los para usar fora do Azure. Para obter mais informações, consulte [Perguntas frequentes para certificados de Serviço de Aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Sim, você pode exportá-los para uso fora do Azure. Para obter mais informações, consulte [Perguntas frequentes para certificados de Serviço de Aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Posso exportar o certificado do Serviço de Aplicativo para usar com outros serviços de nuvem do Azure?
 
@@ -105,7 +105,7 @@ Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo apl
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como remover um cabeçalho de resposta HTTP?
 
-Para remover os cabeçalhos da resposta HTTP, atualize o arquivo web.config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Para remover os cabeçalhos da resposta HTTP, atualize o arquivo Web. config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>O Serviço de Aplicativo é compatível com o PCI Standard 3.0 e 3.1?
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre como usar os slots de implantação, consult
 
 Para examinar os logs do WebJob:
 
-1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Selecione o WebJob.
 3. Selecione o botão **Alternar saída**.
 4. Para baixar o arquivo de saída, selecione o link **Baixar**.
@@ -145,9 +145,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas que desde então foi corrigido. Certifique-se de [atualizar o Gerenciador de Conexões Híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver esse problema.
 
-## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como adicionar uma regra de reescrita de URL?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como fazer adicionar uma regra de regravação de URL?
 
-Para adicionar uma regra de reescrita de URL, crie um arquivo Web.config com as entradas de configuração relevantes na pasta **wwwroot.** Para obter mais informações, consulte [Azure App Services: Entendendo a reescrita de URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, consulte [serviços de Azure App: Noções básicas sobre a regravação de URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como controlar o tráfego de entrada para o Serviço de Aplicativo?
 
@@ -183,7 +183,7 @@ Você tem duas opções para capturar um rastreamento F12:
 ### <a name="f12-console-output"></a>Saída do console F12
 
 1. Selecione a guia **Console**.
-2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não for selecionada, o ícone da guia será cinza ou preto quando você move o cursor para longe dele.
+2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não estiver selecionada, o ícone de guia ficará cinza ou preto quando você mover o cursor para longe dele.
 3. Clique com o botão direito na área de mensagem do painel e, em seguida, selecione **Copiar tudo**.
 4. Cole o texto copiado em um arquivo e, em seguida, salve o arquivo.
 
@@ -282,7 +282,7 @@ Para obter documentação detalhada para autenticação e autorização no Servi
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo web do Azure?
 
-Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *.azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determinar qual versão do .NET versão está instalada no Serviço de Aplicativo?
 

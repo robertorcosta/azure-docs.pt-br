@@ -1,5 +1,5 @@
 ---
-title: Gestão líder para mercado comercial | Azure Marketplace e AppSource
+title: Gerenciamento de leads para Marketplace comercial | Azure Marketplace e AppSource
 description: Uma visão geral dos vários tópicos relacionados a publicação de ofertas e artefatos técnicos para o Azure Marketplace e AppSource
 author: dsindona
 ms.service: marketplace
@@ -7,80 +7,80 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 09b02d043e970c68cdff0e3dc4f97328c9d74c84
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383788"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160538"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Gestão líder para mercado comercial
+# <a name="lead-management-for-commercial-marketplace"></a>Gerenciamento de leads para o Marketplace comercial
 
 
-Os clientes são a essência de qualquer bom negócio. Na transformação das aquisições de produtos atuais, os profissionais de marketing precisam se concentrar em se conectar diretamente com os clientes e construir um relacionamento. Por isso, gerar leads de alta qualidade é uma ferramenta essencial no ciclo de vendas. Depois de listar sua oferta no [Partner Center,](https://partner.microsoft.com/)existem ferramentas habilitadas para que você receba informações de contato do cliente imediatamente após um cliente expressar interesse ou implantar seu produto no mercado. 
+Os clientes são a essência de qualquer bom negócio. Na transformação das aquisições de produtos atuais, os comerciantes precisam se concentrar na conexão com os clientes diretamente e na criação de uma relação. Por isso, gerar leads de alta qualidade é uma ferramenta essencial no ciclo de vendas. Depois de listar sua oferta no [Partner Center](https://partner.microsoft.com/), há ferramentas habilitadas para que você receba programaticamente as informações de contato do cliente imediatamente depois que um cliente expressa o interesse ou implanta seu produto no Marketplace. 
 
 
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Quais são os clientes potenciais no marketplace?
 
-São clientes potenciais de clientes que estão interessados ou implantando seus produtos do Marketplace. Se seu produto está listado no Azure Marketplace ou no AppSource, você poderá receber leads dos clientes assim que ele for configurado corretamente do seu CRM para a lista no Partner Center. 
+São clientes potenciais de clientes que estão interessados ou implantando seus produtos do Marketplace. Se seu produto estiver listado no Azure Marketplace ou AppSource, você poderá receber clientes potenciais de clientes depois que ele for configurado corretamente de seu CRM para sua listagem (s) no Partner Center. 
 
 
-## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Como conectar seu sistema de CRM com o Partner Center
+## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Como conectar seu sistema CRM ao Partner Center
 
-Para começar a obter leads, o conector lead management no Partner Center foi projetado para que ele possa ser facilmente conectado com suas informações de CRM a uma lista de sistemas de CRM disponíveis. Agora você pode aproveitar com facilidade os leads gerados pelo marketplace sem um esforço significativo de engenharia para integração a um sistema externo.
+Para começar a obter clientes potenciais, o conector de gerenciamento de leads no Partner Center foi projetado para que ele possa ser facilmente conectado com suas informações de CRM a uma lista de sistemas CRM disponíveis. Agora você pode aproveitar com facilidade os leads gerados pelo marketplace sem um esforço significativo de engenharia para integração a um sistema externo.
 
 Aqui estão as instruções passo a passo sobre como se conectar a cada um dos destinos possíveis do cliente potencial:
 
-**Dynamics CRM Online** - Consulte [configurar o gerenciamento de leads para o Dynamics 365 para engajamento do cliente para](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) obter instruções sobre como configurar o Dynamics CRM Online para obter leads.
+**Dynamics CRM Online** -consulte [Configurar o gerenciamento de Lead para o Dynamics 365 for Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) para obter instruções sobre como configurar o Dynamics CRM Online para obter clientes potenciais.
 
-**Marketo** - Consulte [configurar o gerenciamento de leads no Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md) para obter instruções sobre a configuração de configuração de lead marketo para obter leads.
+**Marketo** -consulte [Configurar gerenciamento de leads no marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md) para obter instruções sobre como configurar a configuração de cliente potencial do marketo para obter leads.
 
-**Salesforce** - Consulte [configurar o gerenciamento de leads para salesforce para](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md) obter instruções sobre como configurar sua instância de Salesforce para obter leads.
+**Salesforce** -consulte [Configurar o gerenciamento de leads para o Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md) para obter instruções sobre como configurar sua instância do Salesforce para obter clientes potenciais.
 
-**Tabela Azure** - Consulte [configurar o gerenciamento de leads usando uma tabela do Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para obter instruções sobre como configurar sua conta de armazenamento Do Zure para obter leads em uma tabela DoZure.
+**Tabela do Azure** -consulte [Configurar o gerenciamento de leads usando uma tabela do Azure](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) para obter instruções sobre como configurar sua conta de armazenamento do Azure para obter clientes potenciais em uma tabela do Azure.
 
-**Https Endpoint** - Consulte [configurar o gerenciamento de leads usando um ponto final HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) para obter instruções sobre como configurar seu Ponto final https para obter leads.
+**Ponto de extremidade https** -consulte [Configurar o gerenciamento de Lead usando um ponto de extremidade https](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) para obter instruções sobre como configurar seu ponto de extremidade HTTPS para obter clientes potenciais.
 
 Depois de configurar corretamente o destino do lead e acessar Publicar na oferta, validaremos a conexão e enviaremos um lead de teste. Quando você exibe a oferta antes de entrar no ar, pode também testar a conexão do lead tentando adquirir a oferta no ambiente de visualização. É importante verificar se as configurações de cliente potencial estão atualizadas para que você não perca nenhum cliente potencial. Portanto, atualize essas conexões sempre que algo for alterado do seu lado.
 
 ### <a name="what-are-the-next-steps"></a>Quais são as próximas etapas?
 
-Uma vez que a configuração técnica esteja em vigor, você deve incorporar esses leads em sua estratégia de vendas & marketing atual e processos operacionais. Estamos interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer leads de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Deixe-nos saber se você está interessado em fornecer feedback e sugestões para permitir que sua equipe de vendas seja mais bem sucedida com o Marketplace Leads.
+Depois que a configuração técnica estiver em vigor, você deverá incorporar esses leads em suas vendas atuais & estratégia de marketing e processos operacionais. Estamos interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer leads de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Informe-nos se você estiver interessado em fornecer comentários e sugestões para permitir que sua equipe de vendas seja mais bem-sucedida com leads do Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Erros comuns de configuração de chumbo durante a publicação no Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Erros comuns de configuração de leads durante a publicação no Partner Center
 
-**Não foi possível salvar o lead para o Dynamics CRM. Verifique as configurações da conta do CRM Dynamics. LastCRMError: Não é possível fazer login no Dynamics CRM, LastCRMException:** 
+**Não foi possível salvar o cliente potencial no Dynamics CRM. Verifique as configurações de conta do Dynamics CRM. LastCRMError: não é possível entrar no Dynamics CRM, LastCRMException:** 
 
-> Se a autenticação do O365 foi selecionada, verifique se a conta de usuário e senha é válida. Se AAD tiver sido selecionado, verifique a ID de locatário, ID do aplicativo e correspondências de chave secreta do aplicativo que foi configurado no AAD. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se o nome de usuário/senha da conta for válido, certifique-se de que ele tenha acesso ao Dynamics 365 e tenha uma licença atribuída (Etapas 11-15 se usar o Azure Active Directory ou configurações de segurança se estiver usando um usuário do Office). 
+> Se a autenticação do O365 foi selecionada, verifique se a conta de usuário e senha é válida. Se AAD tiver sido selecionado, verifique a ID de locatário, ID do aplicativo e correspondências de chave secreta do aplicativo que foi configurado no AAD. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se o nome de usuário/senha da conta for válido, verifique se ele tem acesso ao Dynamics 365 e tem uma licença atribuída (etapas 11-15 se estiver usando Azure Active Directory ou configurações de segurança se estiver usando um usuário do Office). 
 
-**Não foi possível salvar o lead para o Dynamics CRM. O usuário não tem permissões para o atributo leadsourcecode na entidade líder** 
+**Não foi possível salvar o cliente potencial no Dynamics CRM. O usuário não tem permissões de criação para o atributo leadsourcecode na entidade de cliente potencial** 
 
 > O aplicativo/usuário não tem funções de segurança para o gravador de cliente potencial do Microsoft Marketplace. Siga as etapas 11 a 15 se usando o Microsoft Azure Active Directory ou as configurações de segurança se usar um usuário do Office [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
-**Não foi possível salvar o lead para o Dynamics CRM usando AAD. Exceção:: Inquilino não encontrado. Esta instância pode acontecer se não houver assinaturas ativas para o inquilino.**  
+**Não foi possível salvar o cliente potencial no Dynamics CRM usando o AAD. Exceção:: locatário não encontrado. Essa instância pode ocorrer se não houver nenhuma assinatura ativa para o locatário.**  
 
-> A ID de diretório fornecida na seção de gerenciamento de cliente potencial não é um diretório válido. Por favor, obtenha o ID do Diretório com base nas instruções da Etapa 2 (em Azure Active Directory, a partir [daqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> A ID de diretório fornecida na seção de gerenciamento de cliente potencial não é um diretório válido. Obtenha a [ID do diretório](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)com base nas instruções na etapa 2 (em Azure Active Directory, daqui.
 
-**Não foi possível salvar o lead para o Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser falha - nenhuma função é atribuída ao usuário.**  
+**Não foi possível salvar o cliente potencial no Dynamics CRM. LastCRMError: SecLib:: RetrievePrivilegeForUser falhou-nenhuma função está atribuída ao usuário.**  
 
-> Resolução: atribua a função de segurança para o gravador de cliente potencial do Microsoft Marketplace. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) em Configurações de Segurança.
+> Resolução: atribua a função de segurança para o gravador de cliente potencial do Microsoft Marketplace. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) em configurações de segurança.
 
-**Não foi possível salvar o lead para o Dynamics CRM usando AAD. Exceção:: Aplicativo com identificador não foi encontrado no diretório** 
+**Não foi possível salvar o cliente potencial no Dynamics CRM usando o AAD. Exceção:: o aplicativo com o identificador não foi encontrado no diretório** 
 
 > A Id do aplicativo fornecida na seção de gerenciamento de cliente potencial não é um diretório válido. Obtenha a ID de diretório com base nas instruções da Etapa 8 (no Microsoft Azure Active Directory de [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
 
-**Não foi possível salvar o lead para o Dynamics CRM usando AAD. Exceção:: O identificador de inquilino solicitado não é válido e não é válido formato de domínio externo** 
+**Não foi possível salvar o cliente potencial no Dynamics CRM usando o AAD. Exceção:: o identificador de locatário solicitado não é válido e não é um formato de domínio externo válido** 
 
 > A ID de diretório fornecida na seção de gerenciamento de cliente potencial não é um diretório válido. Obtenha a ID de diretório com base nas instruções da Etapa 2 (no Microsoft Azure Active Directory de [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
 
-**Não foi possível salvar o lead para o Dynamics CRM usando AAD. Exceção:: Verificação de erros credenciais.: O segredo do cliente inválido é fornecido.** 
+**Não foi possível salvar o cliente potencial no Dynamics CRM usando o AAD. Exceção:: erro ao validar as credenciais.: segredo do cliente inválido fornecido.** 
 
-> Resolução: Entre no portal do Azure, verifique se a chave do aplicativo corresponde ao que está na Central de Parceiros. Gere senha com base na instrução na Etapa 10 (no Azure Active Directory), de [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
+> Resolução: entre no portal do Azure, verifique se a chave do aplicativo corresponde ao que está no Partner Center. Gere senha com base na instrução na Etapa 10 (no Azure Active Directory), de [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
 
-**Não foi possível salvar o lead para o Dynamics CRM. LastCRMError: O canal de solicitação se esgotou enquanto aguardava uma resposta após 00:02:00. Aumente o valor de tempo limite passado para a chamada para Solicitar ou aumente o valor de Envio de tempo na Vinculação. O tempo atribuído a esta operação pode ter sido uma parte de um tempo maior.**  
+**Não foi possível salvar o cliente potencial no Dynamics CRM. LastCRMError: o canal de solicitação atingiu o tempo limite ao aguardar uma resposta após 00:02:00. Aumente o valor de tempo limite passado para a chamada para solicitação ou aumente o valor de SendTimeout na associação. O tempo alocado para esta operação pode ter sido uma parte de um tempo limite maior.**  
 
-> Resolução: Entre no Partner Center, verifique os detalhes do Storefront >> o destino principal >> URL, verifique se é uma instância de CRM dinâmico válida.
+> Resolução: entre no Partner Center, verifique os detalhes da vitrine >> URL de destino >> , verifique se é uma instância dinâmica de CRM válida.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -90,7 +90,7 @@ Clientes potenciais são clientes que estão implantando seus produtos usando o 
 
 **Onde posso obter ajuda na configuração de meu destino de cliente potencial?** 
 
-Você pode encontrar a documentação aqui: [Obtenha leads de clientes](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envie um bilhete de suporte através de aka.ms/marketplacepublishersupport selecionar tipo de oferta e gerenciamento de leads. 
+Você pode encontrar a documentação em [obter clientes potenciais](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou enviar um tíquete de suporte em [ajuda e suporte](https://partner.microsoft.com/support/v2/?stage=1). Selecione tipo de oferta e gerenciamento de Lead. 
 
 **É necessário configurar um destino de cliente potencial para publicar uma oferta no Marketplace?**
 
@@ -102,7 +102,7 @@ Depois de configurar sua oferta e o destino do cliente potencial, publique sua o
 
 **Como encontrar o cliente potencial de teste?**
 
-Procure por "MSFT_TEST" em seu destino principal, aqui estão os dados de chumbo do teste de amostra: 
+Pesquise "MSFT_TEST" em seu destino de Lead, aqui está um exemplo de dados de Lead de teste: 
 
 company = MSFT_TEST_636573304831318844 
 
@@ -120,7 +120,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844| \<Oferta> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Nome da oferta> 
 
 oid = 00Do0000000ZHog 
 
@@ -128,18 +128,18 @@ telefone = 1234567890
 
 title = MSFT_TEST_636573304831318844 
 
-**Tenho uma oferta ao vivo, mas não vejo pistas?**
+**Tenho uma oferta ao vivo, mas não estou vendo clientes potenciais?**
 
 Cada cliente potencial terá dados passados nos campos no destino do cliente potencial selecionado, os clientes potenciais virão neste formato: **Ação de origem | Oferta** 
 
-  *Fontes:*
+  *Causas*
 
     "AzureMarketplace", 
     "AzurePortal", 
     "TestDrive",  
     "SPZA" (acronym for AppSource) 
 
-  *Ações:*
+  *Ações*
 
     "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
     "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
@@ -151,7 +151,7 @@ Cada cliente potencial terá dados passados nos campos no destino do cliente pot
     "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
-  *Oferece:*
+  *Ofereça*
 
     "checkpoint.check-point-r77-10sg-byol", 
     "bitnami.openedxcypress", 
@@ -159,7 +159,7 @@ Cada cliente potencial terá dados passados nos campos no destino do cliente pot
 
  
 
-  *Aqui estão os dados de amostra das informações do cliente*
+  *Aqui estão dados de exemplo das informações do cliente*
 
     { 
 
@@ -183,15 +183,15 @@ Saiba mais em [Informações de cliente potencial](./partner-center-portal/comme
 
 **Configurei o BLOB do Azure como meu cliente potencial de destino, por que não vejo o cliente potencial?** 
 
-O cliente potencial só fica gravado quando você seleciona o armazenamento de BLOBs do Azure como destino do lead. Mude para a mesa do Azure para receber o lead em tempo real.
+O cliente potencial só fica gravado quando você seleciona o armazenamento de BLOBs do Azure como destino do lead. Alterne para a tabela do Azure para receber o lead time em tempo real.
 
 **Recebi um email do Marketplace, por que não é possível localizar o cliente potencial no meu CRM?**  
 
-É possível que o domínio de email do usuário final é de. edu. Por razões de privacidade, não passamos dados pessoais identificáveis do domínio .edu. Enviar um [bilhete de suporte](https://aka.ms/marketplacepublishersupport).
+É possível que o domínio de email do usuário final é de. edu. Por motivos de privacidade, não passamos dados de identificação pessoal do domínio. edu. Envie um tíquete de suporte em [ajuda e suporte](https://partner.microsoft.com/support/v2/?stage=1).
 
 **Configurei a Tabela do Azure/BLOB do Azure de acordo com o destino do meu cliente potencial, eu consigo ver os clientes potenciais?** 
 
-Você pode acessar a bolha ou a tabela do portal Azure, ou você pode baixar e instalar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para visualizar as tabelas/blobs da sua conta de armazenamento Azure. 
+Você pode acessar o BLOB ou a tabela de portal do Azure, ou pode baixar e instalar [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para exibir as tabelas/BLOBs da sua conta de armazenamento do Azure. 
 
 **Configurei a tabela do Azure como destino de cliente potencial, posso ser notificado sempre que um novo cliente potencial é enviado pelo Marketplace?** 
 
@@ -201,9 +201,9 @@ Sim, siga as instruções para configurar o backup de tabelas do Azure + funçã
 
 Verifique se a web para o formulário de cliente potencial é um campo obrigatório com base em uma lista de seleção. Em caso afirmativo, alterne o campo para um campo de texto não obrigatório.  
  
-**Houve um problema com meu destino principal, e eu perdi algumas pistas. Posso mandá-los por e-mail?** 
+**Ocorreu um problema com o meu destino de Lead e eu perdi alguns clientes potenciais. Posso tê-los enviados por email?** 
 
-Devido às políticas de privacidade, não podemos compartilhar informações de chumbo por e-mail não seguro. 
+Devido a políticas de privacidade, não podemos compartilhar informações de Lead por meio de emails não seguros. 
 
 **Configurei o Armazenamento do Microsoft Azure (BLOB/Tabela) como meu destino de cliente potencial, quanto isso custará?** 
 

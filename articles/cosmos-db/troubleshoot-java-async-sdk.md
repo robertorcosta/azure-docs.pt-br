@@ -10,14 +10,14 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65519975"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>A solução de problemas ao usar o SDK do Java Assíncrono com as contas de API do Azure Cosmos DB SQL
-Este artigo abrange problemas comuns, solução sem solução, etapas de diagnóstico e ferramentas quando você usa o [Java Async SDK](sql-api-sdk-async-java.md) com contas API Azure Cosmos DB SQL.
+Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas quando você usa o [Java Async SDK](sql-api-sdk-async-java.md) com Azure Cosmos DB contas da API do SQL.
 O SDK do Java Assíncrono fornece uma representação lógica do lado do cliente para acessar a API do Azure Cosmos DB SQL. Este artigo descreve as ferramentas e as abordagens para ajudá-lo se você tiver algum problema.
 
 Comece com esta lista:
@@ -58,15 +58,15 @@ Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure s
     Quando o ponto de extremidade for habilitado, as solicitações não são mais enviadas de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade de sub-rede são enviadas. Essa alteração poderá resultar em quedas de firewall se apenas IPs públicos forem permitidos. Se você usar um firewall, quando você habilitar o ponto de extremidade de serviço, adicione uma sub-rede para o firewall usando as [ACLs de Rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Atribua um IP público à sua VM do Azure.
 
-##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível alcançar o Serviço - firewall
-``ConnectTimeoutException``indica que o SDK não pode alcançar o serviço.
-Você pode ter uma falha semelhante à seguinte ao usar o modo direto:
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não é possível acessar o serviço-Firewall
+``ConnectTimeoutException``indica que o SDK não pode acessar o serviço.
+Você pode obter uma falha semelhante à seguinte ao usar o modo direto:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Se você tiver um firewall em execução na sua máquina de aplicativos, abra a faixa de porta de 10.000 a 20.000 que são usadas pelo modo direto.
-Siga também o [limite de conexão em uma máquina host](#connection-limit-on-host).
+Se você tiver um firewall em execução em seu computador de aplicativo, abra o intervalo de portas 10.000 a 20.000 que são usadas pelo modo direto.
+Além disso, siga o [limite de conexão em um computador host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 
@@ -167,17 +167,17 @@ O certificado HTTPS do emulador do Azure Cosmos DB é autoassinado. Para o SDK f
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-A exceção acima sugere que você tem uma dependência de uma versão mais antiga de RxJava lib (por exemplo, 1.2.2). Nosso SDK conta com o RxJava 1.3.8 que tem APIs não disponíveis na versão anterior do RxJava. 
+A exceção acima sugere que você tenha uma dependência de uma versão mais antiga do RxJava lib (por exemplo, 1.2.2). Nosso SDK se baseia em RxJava 1.3.8, que tem APIs não disponíveis na versão anterior do RxJava. 
 
-A solução para tais issus é identificar qual outra dependência traz em RxJava-1.2.2 e excluir a dependência transitiva do RxJava-1.2.2, e permitir que o CosmosDB SDK traga a versão mais recente.
+A solução alternativa para tal issuses é identificar qual outra dependência traz em RxJava-1.2.2 e excluir a dependência transitiva em RxJava-1.2.2 e permitir que o SDK do CosmosDB traga a versão mais recente.
 
-Para identificar qual biblioteca traz RxJava-1.2.2 execute o seguinte comando ao lado do arquivo project pom.xml:
+Para identificar qual biblioteca apresenta o RxJava-1.2.2, execute o seguinte comando ao lado do arquivo pom. XML do projeto:
 ```bash
 mvn dependency:tree
 ```
-Para obter mais informações, consulte o guia da [árvore de dependência maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Para obter mais informações, consulte o [Guia de árvore de dependência do Maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Uma vez que você identifique rxJava-1.2.2 é dependência transitiva de qual outra dependência do seu projeto, você pode modificar a dependência dessa lib em seu arquivo pom e excluir a dependência transitiva rxJava:
+Depois de identificar o RxJava-1.2.2 é uma dependência transitiva de qual outra dependência do seu projeto, você pode modificar a dependência da lib em seu arquivo POM e excluir RxJava dependência transitiva:
 
 ```xml
 <dependency>
@@ -193,7 +193,7 @@ Uma vez que você identifique rxJava-1.2.2 é dependência transitiva de qual ou
 </dependency>
 ```
 
-Para obter mais informações, consulte o [guia de dependência transitiva de exclusão](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Para obter mais informações, consulte o [guia Excluir dependência transitiva](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Habilitar o log do SDK do cliente
@@ -251,7 +251,7 @@ Muitas conexões para o ponto de extremidade do Azure Cosmos DB podem estar no `
  <!--Anchors-->
 [Problemas comuns e soluções alternativas]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Limite de conexão em uma máquina host]: #connection-limit-on-host
-[Exaustão da porta Azure SNAT (PAT)]: #snat
+[Limite de conexão em um computador host]: #connection-limit-on-host
+[Esgotamento de porta de SNAT do Azure (PAT)]: #snat
 
 

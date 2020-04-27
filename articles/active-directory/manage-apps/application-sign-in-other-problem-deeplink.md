@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65825423"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas para entrar em um aplicativo usando um DeepLink
@@ -57,7 +57,7 @@ DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar
 
 Para verificar se você tem o DeepLink correto, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -67,9 +67,9 @@ Para verificar se você tem o DeepLink correto, siga estas etapas:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
+   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
-6. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
+6. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
 
 7. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -79,7 +79,7 @@ Para verificar se você tem o DeepLink correto, siga estas etapas:
 
 10. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-    * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
+    * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 11. Selecione o aplicativo que você deseja verificar o DeepLink.
 
@@ -101,7 +101,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga estas etapas:
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Faça login no Painel de Acesso e veja se você pode **iniciar** seus aplicativos SSO de senha
+7.  Entre no painel de acesso e veja se você pode **Iniciar** seus aplicativos de SSO de senha
 
 Você também pode baixar a extensão para o Chrome e o Firefox a partir desses links diretos:
 
@@ -121,7 +121,7 @@ Para configurar um aplicativo da galeria do Azure Active Directory, é necessár
 
 Para adicionar um aplicativo da Galeria do Azure Active Directory, siga estas etapas:
 
-1.  Abra o [portal Azure](https://portal.azure.com) e faça login como **administrador global** ou **administrador.**
+1.  Abra o [portal do Azure](https://portal.azure.com) e entre como um **administrador global** ou **coadministrador**.
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -145,7 +145,7 @@ Após um curto período, você poderá ver o painel de configuração do aplicat
 
 Para configurar o logon único para um aplicativo, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -155,7 +155,7 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
+   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -163,7 +163,7 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 8. Selecione o modo **Logon baseado em senha.**
 
-9. [Atribuir usuários ao aplicativo](#how-to-assign-a-user-to-an-application-directly).
+9. [Atribua usuários ao aplicativo](#how-to-assign-a-user-to-an-application-directly).
 
 10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
 
@@ -179,7 +179,7 @@ Para configurar um aplicativo da galeria do Azure Active Directory, é necessár
 
 Para adicionar um aplicativo da Galeria do Azure Active Directory, siga estas etapas:
 
-1.  Abra o [portal Azure](https://portal.azure.com) e faça login como **administrador global** ou **administrador.**
+1.  Abra o [portal do Azure](https://portal.azure.com) e entre como um **administrador global** ou **coadministrador**.
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -199,7 +199,7 @@ Após um curto período, você poderá ver o painel de configuração do aplicat
 
 Para configurar o logon único para um aplicativo, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global** ou **coadministrador.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -209,7 +209,7 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-    1.  Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
+    1.  Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -227,7 +227,7 @@ Para configurar o logon único para um aplicativo, siga estas etapas:
 
 Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -237,7 +237,7 @@ Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapa
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
+   * Se você não vir o aplicativo que deseja exibir aqui, use o controle de **filtro** na parte superior da **lista todos os aplicativos** e defina a opção **Mostrar** como **todos os aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 

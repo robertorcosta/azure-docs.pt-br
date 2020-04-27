@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60877456"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do Java
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
+> * [SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-Aprenda a usar o Azure Data Lake Storage Gen1 Java SDK para executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, etc. Para obter mais informações sobre data lake storage Gen1, consulte [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
+Saiba como usar o SDK do Java Azure Data Lake Storage Gen1 para executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, etc. Para obter mais informações sobre Data Lake Storage Gen1, consulte [Azure data Lake Storage Gen1](data-lake-store-overview.md).
 
 É possível acessar os documentos da API do SDK do Java para Data Lake Storage Gen1 nos [documentos de API do Java do Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Java Development Kit (JDK 7 ou superior, usando Java versão 1.7 ou superior)
 * Conta do Data Lake Storage Gen1. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md).
-* [Maven.](https://maven.apache.org/install.html) Este tutorial usa o Maven para compilação e dependências de projeto. Embora seja possível compilar sem usar um sistema de compilação como Maven ou Gradle, com esses sistemas é muito mais fácil gerenciar dependências.
+* [Maven](https://maven.apache.org/install.html). Este tutorial usa o Maven para compilação e dependências de projeto. Embora seja possível compilar sem usar um sistema de compilação como Maven ou Gradle, com esses sistemas é muito mais fácil gerenciar dependências.
 * (Opcional) E IDE como [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) ou [Eclipse](https://www.eclipse.org/downloads/) ou semelhante.
 
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
@@ -43,7 +43,7 @@ O exemplo de código disponível [no GitHub](https://azure.microsoft.com/documen
 
 1. Crie um projeto do Maven usando [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) na linha de comando ou usando um IDE. Para obter instruções sobre como criar um projeto Java usando IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto usando o Eclipse, veja [aqui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Adicione as dependências a seguir para o arquivo **pom.xml** do Maven. Adicione o seguinte trecho antes da ** \<tag /project>:**
+2. Adicione as dependências a seguir para o arquivo **pom.xml** do Maven. Adicione o seguinte trecho antes da marca de ** \<>/Project** :
    
         <dependencies>
           <dependency>

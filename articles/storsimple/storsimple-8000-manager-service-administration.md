@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
 ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60723299"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usar o serviço de Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple
@@ -37,7 +37,7 @@ Neste artigo, você aprenderá:
 O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Você usa um portal central do Microsoft Azure em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço do StorSimple Device Manager, faça o seguinte.
 
 #### <a name="to-connect-to-the-service"></a>Para conectar-se ao serviço
-1. Navegue [https://portal.azure.com/](https://portal.azure.com/)até .
+1. Navegue até [https://portal.azure.com/](https://portal.azure.com/).
 2. Usando suas credenciais de conta da Microsoft, faça logon no Portal do Microsoft Azure (localizado na parte superior direita do painel).
 3. Role para baixo o painel de navegação esquerdo para acessar o serviço do StorSimple Device Manager.
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Sobre contas de armazenamento</br>Adicionar uma conta de armazenamento</br>Editar uma conta de armazenamento</br>Excluir uma conta de armazenamento</br>Rotação de chave de contas de armazenamento |[Gerenciar contas de armazenamento](storsimple-8000-manage-storage-accounts.md) |
 | Sobre modelos de largura de banda</br>Adicionar um modelo de largura de banda</br>Editar um modelo de largura de banda</br>Excluir um modelo de largura de banda</br>Usar um modelo de largura de banda padrão</br>Criar um modelo de largura de banda de dia inteiro que comece em uma hora especificada |[Gerenciar modelos de largura de banda](storsimple-8000-manage-bandwidth-templates.md) |
 | Sobre os registros de controle de acesso</br>Criar um registro de controle de acesso</br>Editar um registro de controle de acesso</br>Excluir um registro de controle de acesso |[Gerenciar registros de controle de acesso](storsimple-8000-manage-acrs.md) |
-| Exibir detalhes do trabalho</br>Cancelar um trabalho |[Gerencie empregos](storsimple-8000-manage-jobs-u2.md) |
+| Exibir detalhes do trabalho</br>Cancelar um trabalho |[Gerenciar trabalhos](storsimple-8000-manage-jobs-u2.md) |
 | Receber notificações de alerta</br>Gerenciar alertas</br>Revisar alertas |[Exibir e gerenciar alertas do StorSimple](storsimple-8000-manage-alerts.md) |
 | Criar gráficos de monitoramento |[Monitorar o dispositivo StorSimple](storsimple-monitor-device.md) |
 | Adicionar um contêiner de volume</br>Modificar um contêiner de volume</br>Excluir um contêiner de volume |[Gerenciar contêineres de volume](storsimple-8000-manage-volume-containers.md) |

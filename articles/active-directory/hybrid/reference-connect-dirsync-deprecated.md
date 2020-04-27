@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381171"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Atualizar o Windows Azure Active Directory Sync e o Azure Active Directory Sync
@@ -32,7 +32,7 @@ As duas ferramentas de sincronização de identidade que foram preteridas eram o
 A última versão do DirSync foi lançada em julho de 2014 e a última versão do Azure AD Sync foi lançada em maio de 2015.
 
 ## <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect
-O Azure AD Connect é o sucessor do DirSync e do Azure AD Sync. Combina todos os cenários que esses dois apoiaram. Você pode ler mais a respeito em [Como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
+Azure AD Connect é o sucessor do DirSync e Azure AD Sync. Ele combina todos os cenários que esses dois têm suporte. Você pode ler mais a respeito em [Como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="deprecation-schedule"></a>Agenda de preterição
 | Data | Comentário |

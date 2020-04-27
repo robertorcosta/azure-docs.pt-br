@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66241366"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure
 > [!div class="op_single_selector"]
 > * [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md)
-> * [Autenticação serviço-serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+> * [Autenticação serviço a serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 > 
 >  
 
@@ -43,7 +43,7 @@ Crie e configure um aplicativo Web do Azure AD para autenticação de serviço a
 
 Ao seguir as instruções do link anterior, verifique se você selecionou **Aplicativo Web/API** como tipo de aplicativo, conforme mostrado na seguinte captura de tela:
 
-![Criar aplicativo web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Criar um aplicativo Web")
+![Criar aplicativo Web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Criar um aplicativo Web")
 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Etapa 2: Obter a ID do aplicativo, a chave de autenticação e a ID de locatário
 Ao fazer logon por meio de programação, você precisa da ID para seu aplicativo. Se o aplicativo for executado com suas próprias credenciais, você também precisará de uma chave de autenticação.
@@ -58,7 +58,7 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
 1. Entre no [Portal do Azure](https://portal.azure.com). Abra a conta do Data Lake Storage Gen1 que você deseja associar ao aplicativo Azure Active Directory criado anteriormente.
 2. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
    
-    ![Criar diretórios na conta Data Lake Storage Gen1](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "Criar diretórios na conta do Data Lake")
+    ![Criar diretórios na conta de Data Lake Storage Gen1](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "Criar diretórios na conta do Data Lake")
 3. Na folha **Data Explorer**, clique no arquivo ou pasta para o qual você deseja fornecer acesso ao aplicativo do Azure AD e, em seguida, clique em **Acessar**. Para configurar o acesso a um arquivo, você deverá clicar em **Acessar** da folha **Visualização do Arquivo**.
    
     ![Definir ACLs no sistema de arquivos do Data Lake](./media/data-lake-store-authenticate-using-active-directory/adl.acl.1.png "Definir ACLs no sistema de arquivos do Data Lake")
@@ -93,14 +93,14 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
 
 3. Na parte superior da folha Registros do aplicativo, clique em **Pontos de extremidade**.
 
-    ![Ponto final do token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto final do token OAuth")
+    ![Ponto de extremidade de token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto de extremidade de token OAuth")
 
 4. Da lista de pontos de extremidade, copie o ponto de extremidade do token OAuth 2.0.
 
-    ![Ponto final do token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto final do token OAuth")   
+    ![Ponto de extremidade de token OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto de extremidade de token OAuth")   
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você criou um aplicativo web Azure AD e reuniu as informações necessárias em seus aplicativos clientes que você escreveu usando .NET SDK, Java, Python, REST API, etc. Agora você pode prosseguir para os seguintes artigos que falam sobre como usar o aplicativo nativo Azure AD para primeiro autenticar com Data Lake Storage Gen1 e, em seguida, executar outras operações na loja.
+Neste artigo, você criou um aplicativo Web do Azure AD e reuniu as informações necessárias em seus aplicativos cliente que você cria usando o SDK do .NET, Java, Python, API REST, etc. Agora você pode prosseguir para os seguintes artigos que falam sobre como usar o aplicativo nativo do Azure AD para primeiro autenticar com Data Lake Storage Gen1 e, em seguida, executar outras operações no repositório.
 
 * [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md)
 * [Autenticação de serviço a serviço com o Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)

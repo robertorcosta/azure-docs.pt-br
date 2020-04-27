@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60194783"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados do Stream do Blob de armazenamento do Azure em Gen1 de armazenamento do Azure Data Lake usando o Azure Stream Analytics
@@ -25,20 +25,20 @@ Neste artigo, você aprenderá como usar o Azure Data Lake armazenamento Gen1 co
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Conta de armazenamento azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
+* **Conta de armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
   
-* **Uma conta Data Lake Storage Gen1**. Siga as instruções em [Get started com Azure Data Lake Storage Gen1 usando o Portal Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
+* **Uma conta de data Lake Storage Gen1**. Siga as instruções em introdução [ao Azure data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Storage Gen1 chamada **myadlsg1**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
 Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, a fonte é um contêiner de BLOBs do Azure e o destino é Gen1 de armazenamento do Data Lake.
 
-1. Inscreva-se no [Portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No painel à esquerda, clique em **Trabalhos do Stream Analytics** e, em seguida, clique em **Adicionar**.
 
-    ![Crie um trabalho de análise de fluxo](./media/data-lake-store-stream-analytics/create.job.png "Criar um trabalho de Stream Analytics")
+    ![Criar um trabalho de Stream Analytics](./media/data-lake-store-stream-analytics/create.job.png "Criar um trabalho de Stream Analytics")
 
     > [!NOTE]
     > Certifique-se de criar o trabalho na mesma região que a conta de armazenamento, ou você estará sujeito a pagar pelos custos adicionais de mover os dados entre regiões.
@@ -96,9 +96,9 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
     
 ## <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
-1. Para executar um trabalho do Stream Analytics, você deve executar uma consulta na guia **Consulta.** Para este tutorial, você pode executar a consulta de exemplo substituindo os espaços reservados pelos aliases de entrada e saída do trabalho, como mostrado na captura de tela abaixo.
+1. Para executar um trabalho de Stream Analytics, você deve executar uma consulta na guia **consulta** . Para este tutorial, você pode executar a consulta de exemplo substituindo os espaços reservados pelos aliases de entrada e saída do trabalho, conforme mostrado na captura de tela abaixo.
 
-    ![Consulta de execução](./media/data-lake-store-stream-analytics/run.query.png "Executar consulta")
+    ![Executar consulta](./media/data-lake-store-stream-analytics/run.query.png "Executar consulta")
 
 2. Clique em **Salvar** na parte superior da tela e, depois, em **Visão geral**, clique em **Iniciar**. Na caixa de diálogo, selecione **Hora Personalizada** e, em seguida, defina a data e a hora atuais.
 
@@ -118,5 +118,5 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
     No painel Data Explorer, observe que a saída é gravada em um caminho de pasta conforme especificado nas configurações de saída do Data Lake Storage Gen1 (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Criar um cluster de HDInsight para usar o Data Lake armazenamento Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

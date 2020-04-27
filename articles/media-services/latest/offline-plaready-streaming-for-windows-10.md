@@ -1,5 +1,5 @@
 ---
-title: Configure o streaming playready offline com o Azure Media Services v3
+title: Configurar o streaming do PlayReady offline com os serviços de mídia do Azure v3
 description: Esse artigo mostra como configurar sua conta de Serviços de Mídia do Azure para streaming offline de PlayReady para Windows 10.
 services: media-services
 keywords: DASH, DRM, Modo Offline do Widevine, ExoPlayer, Android
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 151aadadb5674f7f144d42b1f9d5115501ed381d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887224"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160232"
 ---
-# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming offline PlayReady para Windows 10 com Serviços de Mídia v3
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming do PlayReady offline para Windows 10 com os serviços de mídia v3
 
 Os serviços de mídia do Azure dão suporte offline ao download/reprodução com a proteção de DRM. Esse artigo aborda o suporte offline dos Serviços de Mídia do Azure para Windows 10 para os clientes do PlayReady. Você pode ler sobre o suporte ao modo offline para FairPlay/iOS e dispositivos Android/Widevine nos seguintes artigos:
 
 - [Streaming de FairPlay Offline para iOS](offline-fairplay-for-ios.md)
-- [Streaming Widevine offline para Android](offline-widevine-for-android.md)
+- [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
 > [!NOTE]
-> O DRM offline só é cobrado por fazer uma única solicitação de licença quando você baixa o conteúdo. Quaisquer erros não são cobrados.
+> O DRM offline é cobrado apenas para fazer uma única solicitação de licença quando você baixa o conteúdo. Quaisquer erros não são cobrados.
 
 ## <a name="overview"></a>Visão geral
 
 Esta seção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente porque:
 
-* Em alguns países/regiões, a disponibilidade e/ou largura de banda da Internet ainda é limitada.Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, mas a limitação da largura de banda. Provedores OTT/OVP solicitando suporte ao modo offline.
+* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada.Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, mas a limitação da largura de banda. Provedores OTT/OVP solicitando suporte ao modo offline.
 * Conforme divulgado na conferência do acionista da Netflix 2016 Q3, fazer o download de conteúdo é um "recurso muito solicitado" e "estamos abertos para que ele" de acordo com Reed Hastings, CEO da Netflix.
-* Alguns provedores de conteúdo podem proibir a entrega de licenças DRM além da fronteira de um país/região. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
+* Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
  
 O desafio que enfrentamos em implementar o modo offline é o seguinte:
 
@@ -60,13 +60,13 @@ Abaixo estão dois conjuntos de ativos de teste, o primeiro deles usa a entrega 
 
 Ativo #1:
 
-* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
-* PlayReady LA_URL (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady da LA_URL (Serviços de Mídia do Azure): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 Ativo #2:
 
 * URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (no local):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* LA_URL PlayReady (local):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Para reprodução de teste, usamos um Aplicativo Universal do Windows no Windows 10. Nas [amostras do Windows 10 Universal](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de player básico chamado [exemplo de Streaming adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Só é necessário adicionar o código para que seja possível escolher o vídeo que foi feito o download e usá-lo como a origem, em vez da origem de streaming adaptável. As alterações estão acontecem ao clicar no botão manipulador de eventos:
 

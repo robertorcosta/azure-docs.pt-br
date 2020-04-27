@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67108309"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
@@ -31,9 +31,9 @@ Há três principais maneiras que um usuário pode obter acesso a um aplicativo 
 
 -   Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
 
--   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que eles entram no aplicativo com sua conta Azure AD Work ou School e permitem que ele tenha acesso a algum conjunto limitado de dados em sua conta.
+-   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que eles entram no aplicativo com sua conta corporativa ou de estudante do Azure AD e permitem que ele tenha acesso a algum conjunto limitado de dados em sua conta.
 
--   Para aplicativos que a Microsoft ou terceiros publica livremente para qualquer pessoa usar, os usuários também podem ter acesso através do **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
+-   Para aplicativos que a Microsoft ou uma terceira parte publica livremente para qualquer pessoa usar, os usuários também podem receber acesso por meio do **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
 Para solucionar o problema, inicie com as [Áreas com Problemas Gerais com o Acesso do Aplicativo a considerar](#general-problem-areas-with-application-access-to-consider) e leia o Passo a passo: Etapas para solucionar problemas de acesso ao aplicativo Microsoft para obter mais detalhes.
 
@@ -61,13 +61,13 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
   * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se existe uma conta de usuário no Azure Active Directory](#problems-with-the-users-account)
 
-  * Certifique-se de que a conta do usuário está **habilitada** para fazer logins. [Verifique o status da conta de um usuário](#problems-with-the-users-account)
+  * Verifique se a conta do usuário está **habilitada** para entradas. [Verifique o status da conta de um usuário](#problems-with-the-users-account)
 
   * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
   * Verifique se a **Autenticação Multifator** não está bloqueando o acesso do usuário. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
-  * Verifique se uma **Política de acesso condicional** ou política de **Proteção de Identidade** não está bloqueando o acesso do usuário. [Verifique uma política específica de acesso condicional](#problems-with-conditional-access-policies) ou verifique a política de acesso condicional de um aplicativo [específico](#check-a-specific-applications-conditional-access-policy) ou [desative uma política específica de acesso condicional](#disable-a-specific-conditional-access-policy)
+  * Verifique se uma **Política de acesso condicional** ou política de **Proteção de Identidade** não está bloqueando o acesso do usuário. [Verificar uma política de acesso condicional específica](#problems-with-conditional-access-policies) ou [verificar a política de acesso condicional de um aplicativo específico](#check-a-specific-applications-conditional-access-policy) ou [desabilitar uma política de acesso condicional específica](#disable-a-specific-conditional-access-policy)
 
   * Verifique se as **informações de contato de autenticação** de um usuário estão atualizadas para permitir a aplicação da Autenticação Multifator ou de políticas de Acesso Condicional. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
@@ -87,7 +87,7 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
 - Para aplicativos **Microsoft** **que não exigem uma licença**, a seguir são apresentadas algumas outras opções a verificar:
 
-  * Se o aplicativo estiver solicitando **permissões de nível de usuário** (por exemplo, "Acessar a caixa de correio deste usuário"), **certifique-se** de que o usuário tenha feito um registro no aplicativo e tenha realizado uma operação de consentimento em nível de usuário para permitir que o aplicativo acesse seus dados.
+  * Se o aplicativo estiver solicitando **permissões no nível do usuário** (por exemplo, "acessar a caixa de correio do usuário"), verifique se o usuário entrou no aplicativo e realizou uma **operação de consentimento no nível do usuário** para permitir que o aplicativo acesse seus dados.
 
   * Se o aplicativo estriver solicitando **permissões de administrador** (por exemplo "Acesso a caixas de correio de todos os usuários"), certifique-se de que um Administrador Global executou uma **operação de consentimento de nível de administrador em nome de todos os usuários** na organização.
 
@@ -117,15 +117,15 @@ O acesso do aplicativo pode ser bloqueado devido a um problema com um usuário a
 
 Para verificar se a conta de um usuário está presente, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -135,19 +135,19 @@ Para verificar se a conta de um usuário está presente, siga estas etapas:
 
 Para verificar o status da conta de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  clique **em Perfil**.
+7.  clique em **perfil**.
 
 8.  Em **Configurações** verifique se **Bloquear entrada** está definido como **Não**.
 
@@ -155,15 +155,15 @@ Para verificar o status da conta de um usuário, siga estas etapas:
 
 Para redefinir a senha de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -187,15 +187,15 @@ Para habilitar a redefinição de senhas por autoatendimento, execute as etapas 
 
 Para verificar o status da Autenticação Multifator de um usuário, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
-5. clique em **Todos os usuários**.
+5. clique em **todos os usuários**.
 
 6. Clique no botão **Autenticação Multifator** na parte inferior do painel.
 
@@ -211,19 +211,19 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 Para verificar as informações de contato de autenticação do usuário usadas para Autenticação Multifator, Acesso Condicional, Proteção de Identidade e Redefinição de Senha, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  clique **em Perfil**.
+7.  clique em **perfil**.
 
 8.  Role a tela para baixo até **Informações de contato de autenticação**.
 
@@ -233,15 +233,15 @@ Para verificar as informações de contato de autenticação do usuário usadas 
 
 Para verificar as associações de grupo de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -251,15 +251,15 @@ Para verificar as associações de grupo de um usuário, siga estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -269,21 +269,21 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 Para atribuir uma licença a um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
 7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
-8.  clique no botão **Atribuir.**
+8.  Clique no botão **atribuir** .
 
 9.  Selecione **um ou mais produtos** da lista de produtos disponíveis.
 
@@ -309,13 +309,13 @@ O acesso a aplicativos pode ser bloqueado devido a um problema com um grupo atri
 
 Para verificar a associação de um grupo, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
@@ -327,13 +327,13 @@ Para verificar a associação de um grupo, siga estas etapas:
 
 Para verificar as associações de grupo dinâmico, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
@@ -347,13 +347,13 @@ Para verificar as associações de grupo dinâmico, siga estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
 5.  clique em **Todos os grupos**.
 
@@ -365,13 +365,13 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
 5. clique em **Todos os grupos**.
 
@@ -390,13 +390,13 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 Para atribuir uma licença a um grupo, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
 5. clique em **Todos os grupos**.
 
@@ -404,7 +404,7 @@ Para atribuir uma licença a um grupo, siga estas etapas:
 
 7. clique em **Licenças** para ver quais licenças o grupo atribuiu atualmente.
 
-8. clique no botão **Atribuir.**
+8. Clique no botão **atribuir** .
 
 9. Selecione **um ou mais produtos** da lista de produtos disponíveis.
 
@@ -419,74 +419,74 @@ Para atribuir uma licença a um grupo, siga estas etapas:
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemas com políticas de acesso condicional
 
-### <a name="check-a-specific-conditional-access-policy"></a>Verifique uma política específica de acesso condicional
+### <a name="check-a-specific-conditional-access-policy"></a>Verificar uma política de acesso condicional específica
 
 Para verificar ou validar uma única política de acesso condicional:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em aplicativos Enterprise** no menu de navegação.
+4. clique em **aplicativos empresariais** no menu de navegação.
 
-5. clique no item de navegação **Acesso Condicional.**
+5. Clique no item de navegação **acesso condicional** .
 
 6. clique na política que você pretende inspecionar.
 
-7. Revise que não há condições específicas, atribuições ou outras configurações que possam estar bloqueando o acesso do usuário.
+7. Examine se não há condições, atribuições ou outras configurações específicas que possam estar bloqueando o acesso do usuário.
 
    >[!NOTE]
-   >Você pode querer desativar temporariamente esta política para garantir que ela não esteja afetando os logins. Para fazer isso, defina o **alternar de diretiva Ativar** para **Não** e clique no botão **Salvar.**
+   >Talvez você queira desabilitar temporariamente essa política para garantir que ela não esteja afetando as entradas. Para fazer isso, defina a alternância **habilitar política** para **não** e clique no botão **salvar** .
    >
    >
 
-### <a name="check-a-specific-applications-conditional-access-policy"></a>Verifique a política de acesso condicional de um aplicativo específico
+### <a name="check-a-specific-applications-conditional-access-policy"></a>Verificar a política de acesso condicional de um aplicativo específico
 
-Para verificar ou validar a política de acesso condicional configurada atualmente por um único aplicativo:
+Para verificar ou validar a política de acesso condicional atualmente configurada de um único aplicativo:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em aplicativos Enterprise** no menu de navegação.
+4.  clique em **aplicativos empresariais** no menu de navegação.
 
 5.  clique em **Todos os aplicativos**.
 
-6.  Procure o aplicativo em que você está interessado, ou o usuário está tentando entrar pelo nome de exibição do aplicativo ou iD do aplicativo.
+6.  Procure o aplicativo no qual você está interessado ou o usuário está tentando entrar no nome de exibição do aplicativo ou na ID do aplicativo.
 
      >[!NOTE]
      >Se você não encontrar o aplicativo que está procurando, clique no botão **Filtrar** e expanda o escopo da lista para **Todos os aplicativos**. Se você quiser ver mais colunas, clique no botão **Colunas** para adicionar detalhes complementares a seus aplicativos.
      >
      >
 
-7.  clique no item de navegação **Acesso Condicional.**
+7.  Clique no item de navegação **acesso condicional** .
 
 8.  clique na política que você pretende inspecionar.
 
 9.  Analise se não há condições, atribuições ou outras configurações específicas que podem estar bloqueando o acesso do usuário.
 
      >[!NOTE]
-     >Você pode querer desativar temporariamente esta política para garantir que ela não esteja afetando os logins. Para fazer isso, defina o **alternar de diretiva Ativar** para **Não** e clique no botão **Salvar.**
+     >Talvez você queira desabilitar temporariamente essa política para garantir que ela não esteja afetando as entradas. Para fazer isso, defina a alternância **habilitar política** para **não** e clique no botão **salvar** .
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Desativar uma política específica de acesso condicional
+### <a name="disable-a-specific-conditional-access-policy"></a>Desabilitar uma política de acesso condicional específica
 
 Para verificar ou validar uma única política de acesso condicional:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em aplicativos Enterprise** no menu de navegação.
+4.  clique em **aplicativos empresariais** no menu de navegação.
 
-5.  clique no item de navegação **Acesso Condicional.**
+5.  Clique no item de navegação **acesso condicional** .
 
 6.  clique na política que você pretende inspecionar.
 

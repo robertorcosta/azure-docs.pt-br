@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65872488"
 ---
 # <a name="test-your-app-in-azure"></a>Teste seu aplicativo no Azure 
-Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, você usa o Visual Studio 2019 para implantar seu aplicativo no compartilhamento de arquivos para que você possa executar o aplicativo na VM no laboratório.  
+Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o DevTest Labs. Primeiro, configure um compartilhamento de arquivo em um laboratório e monte-o como uma unidade em seu computador de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, use o Visual Studio 2019 para implantar seu aplicativo no compartilhamento de arquivos para que você possa executar o aplicativo na VM no laboratório.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,16 +64,16 @@ Este artigo apresenta as etapas para testar seu aplicativo no Azure usando o Dev
 ## <a name="publish-your-app-from-visual-studio"></a>Publique seu aplicativo do Visual Studio
 Nesta seção, você publica seu aplicativo do Visual Studio para uma VM de teste na nuvem.
 
-1. Crie um aplicativo desktop/web usando o Visual Studio 2019.
+1. Crie um aplicativo Web/desktop usando o Visual Studio 2019.
 2. Compile seu aplicativo.
 3. Para publicar seu aplicativo, clique com o botão direito do mouse no projeto em **Gerenciador de Soluções**, e selecione **Publicar**. 
 4. No **Assistente de publicação**, insira a **unidade** mapeada para o compartilhamento de arquivos.
 
-    **Aplicativo para desktop:**
+    **Aplicativo de desktop:**
 
     ![Aplicativo da área de trabalho](media/test-app-in-azure/desktop-app.png)
 
-    **Aplicativo web:**
+    **Aplicativo Web:**
 
     ![Aplicativo Web](media/test-app-in-azure/web-app.png)
 

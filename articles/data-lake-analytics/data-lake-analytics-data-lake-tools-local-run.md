@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "62113928"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Execute scripts do U-SQL em sua máquina local
@@ -57,7 +57,7 @@ As Ferramentas do Azure Data Lake para Visual Studio têm um mecanismo de execu�
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Execuções locais com uma conta de computador Local
 
-Uma conta **Máquina local** é uma conta de computação local compartilhada com uma única pasta raiz de dados local como a conta de loja local. Por padrão, a pasta raiz de dados está localizada em **C:\Users\<nome de usuário > \AppData\Local\USQLDataRoot**. Também é configurável através de**opções e configurações****do lago de** > dados do **Tools.** > 
+Uma conta **Máquina local** é uma conta de computação local compartilhada com uma única pasta raiz de dados local como a conta de loja local. Por padrão, a pasta raiz de dados está localizada em **C:\Users\<nome de usuário > \AppData\Local\USQLDataRoot**. Ele também pode ser configurado por meio de **ferramentas** > **Data Lake** > **Opções e configurações**.
 
 ![Configurar uma pasta raiz de dados local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
@@ -75,7 +75,7 @@ Um projeto U-SQL gerencia o ambiente de execução local isolado por meio de uma
 
 Um projeto U-SQL cria uma pasta raiz de dados local e configura dados para uma conta de **projeto local**. Uma pasta raiz temporária de dados é limpa e recriada no diretório de trabalho do projeto U-SQL toda vez que uma reconstrução e uma execução local ocorrem. Todas as fontes de dados configuradas pelo projeto U-SQL são copiadas para essa pasta raiz de dados local temporária antes da execução da tarefa local. 
 
-Você pode configurar a pasta raiz das suas fontes de dados. Clique com o botão direito **do mouse u-sql projeto** > **Propriedade** > **De testar dados de dados**. Quando você executa um script U-SQL uma **projeto Local** conta, todos os arquivos e subpastas na **fonte de dados de teste** pasta são copiados para a pasta raiz de dados local temporário. Arquivos em subpastas são incluídos. Depois que uma tarefa local é executada, os resultados de saída também podem ser encontrados na pasta raiz de dados locais temporários no diretório de trabalho do projeto. Toda essa saída é excluída e limpa quando o projeto é reconstruído e limpo. 
+Você pode configurar a pasta raiz das suas fontes de dados. Clique com o botão direito do mouse em **U-SQL** > **Propriedade** > do projeto**teste de fonte de dados**. Quando você executa um script U-SQL uma **projeto Local** conta, todos os arquivos e subpastas na **fonte de dados de teste** pasta são copiados para a pasta raiz de dados local temporário. Arquivos em subpastas são incluídos. Depois que uma tarefa local é executada, os resultados de saída também podem ser encontrados na pasta raiz de dados locais temporários no diretório de trabalho do projeto. Toda essa saída é excluída e limpa quando o projeto é reconstruído e limpo. 
 
 ![Configurar a fonte de dados de teste de um projeto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -95,8 +95,8 @@ Mais diferenças entre as contas **Máquina local** e **Projeto local** são mos
 |Ângulo de diferença|Máquina local|Projeto local|
 |----------------|---------------|---------------|
 |Acesso local|Pode ser acessado por todos os projetos.|Apenas o projeto correspondente pode acessar essa conta.|
-|Pasta raiz de dados local|Uma pasta local permanente. Configurado através de **ferramentas** > **Data Lake** > **Options and Settings**.|Uma pasta temporária criada para cada execução local no diretório de trabalho do projeto U-SQL. A pasta é limpa quando uma reconstrução ou reexecução acontece.|
-|Dados de entrada para um script U-SQL|O caminho relativo na pasta raiz de dados locais permanentes.|Defina através da > **propriedade**de projeto **U-SQL**A fonte de dados de teste . Todos os arquivos e subpastas são copiados para a pasta raiz temporária de dados antes de uma execução local.|
+|Pasta raiz de dados local|Uma pasta local permanente. Configurado por meio de **ferramentas** > **Data Lake** > **Opções e configurações**.|Uma pasta temporária criada para cada execução local no diretório de trabalho do projeto U-SQL. A pasta é limpa quando uma reconstrução ou reexecução acontece.|
+|Dados de entrada para um script U-SQL|O caminho relativo na pasta raiz de dados locais permanentes.|Defina por meio da**fonte de dados de teste**de propriedade > do **projeto U-SQL**. Todos os arquivos e subpastas são copiados para a pasta raiz temporária de dados antes de uma execução local.|
 |Dados de saída para um script U-SQL|Caminho relativo sob a pasta raiz de dados locais permanentes.|Saída para a pasta raiz de dados temporários. Os resultados são limpos quando uma reconstrução ou reexecução acontece.|
 |Implantação de banco de dados de referência|Os bancos de dados referenciados não são implantados automaticamente quando executados em uma conta **Máquina local**. É o mesmo para envio para uma conta do Azure Data Lake Analytics.|Os bancos de dados referenciados são implantados na conta **Projeto local** automaticamente antes de uma execução local. Todos os ambientes de banco de dados são limpos e reimplantados, quando uma recompilação ou execute novamente acontece.|
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876201"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
@@ -55,8 +55,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**Diagrama de hierar**
-![simples storSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**StorSimple tiering**
+![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Realize suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -206,7 +206,7 @@ Configure o armazenamento do servidor de backup do host de acordo com estas orie
 
 Configure sua solução de acordo com as diretrizes indicadas nas próximas seções.
 
-### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operacional
+### <a name="operating-system-best-practices"></a>Práticas recomendadas para sistemas operacionais
 
 - Desabilite a criptografia do Windows Server e a eliminação de duplicação do sistema de arquivos NTFS.
 - Desabilite a desfragmentação do Windows Server em volumes do StorSimple.
@@ -265,7 +265,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
 
-1.  No Console de Administração NetBackup, selecione**Pools** > de discos de gerenciamento de mídia **e dispositivos** > **.** No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
+1.  No console de administração do NetBackup, selecione**dispositivos** >  >  **de gerenciamento de mídia e dispositivo****pools de discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
 
     ![Console de Administração do NetBackup, Assistente de Configuração do Pool de Disco](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
     ![Console de Administração do NetBackup, selecionar o disco de volume do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Digite um nome para o destino de backup e, em seguida, **selecione Next** > **Next** para concluir o assistente.
+4.  Insira um nome para o destino de backup e, em seguida, selecione **Avançar** > ao**lado** de concluir o assistente.
 
 5.  Examine as configurações e selecione **Concluir**.
 
@@ -340,7 +340,7 @@ A sequência a seguir pressupõe que NetBackup e o host de destino estão config
 
    ![Console de Administração do NetBackup, frequência e rotação de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecione **Next** > **Next** > **Finish**.  É possível modificar o agendamento depois que a política for criada.
+8. Selecione **próxima** > **próxima** > **conclusão**.  É possível modificar o agendamento depois que a política for criada.
 
 9. Expanda a política que você criou e selecione **Agendamentos**.
 
@@ -430,7 +430,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Para atribuir os volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
 
-1. No Console de administração NetBackup, selecione**Políticas de ciclo de vida de armazenamento de** >  **armazenamento** > **Nova política de ciclo de vida de armazenamento**.
+1. No console de administração do NetBackup, selecione **armazenamento** > **políticas** > de ciclo de vida de armazenamento**nova política de ciclo de vida de armazenamento**.
 
    ![Console de Administração do NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 

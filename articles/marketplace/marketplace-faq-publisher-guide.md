@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 4b166af219c8983e5765ef4c884ced7eb0689f54
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 1cd536f4a7c3751e2b85f40e582c1eb1c5bf2c74
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106671"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160504"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes sobre o marketplace comercial da Microsoft
 
@@ -57,8 +57,9 @@ Com o Azure Marketplace, os clientes podem descobrir aplicativos técnicos compi
 As ofertas do Azure Marketplace podem ser adquiridas por meio de:
 
 * [A vitrine baseada na Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure portal](https://portal.azure.com) <br>
-[!Note] Requer uma conta do Azure. Se você não tiver um, você será redirecionado para a página **Bem-vindo ao Azure** para criar um.  
+* [Azure portal](https://portal.azure.com) <br> 
+>[!Note]
+>Requer uma conta do Azure. Se você não tiver um, você será redirecionado para a página **Bem-vindo ao Azure** para criar um.  
 * [A CLI (interface de linha de comando) do Azure](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -336,7 +337,7 @@ Clientes potenciais são clientes que estão implantando seus produtos usando o 
 
 **Onde posso obter ajuda na configuração de meu destino de cliente potencial?**
 
-Saiba mais no [Partner Center-obtenha](./partner-center-portal/commercial-marketplace-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) suporte por meio da seleção de seu tipo de oferta e gerenciamento de leads.
+Saiba mais no [Partner Center-obtenha](./partner-center-portal/commercial-marketplace-get-customer-leads.md) a documentação de clientes potenciais ou envie um tíquete de suporte por meio de [ajuda e suporte](https://partner.microsoft.com/support/v2/?stage=1) selecionando seu tipo de oferta e gerenciamento de leads.
 
 **É necessário configurar um destino de cliente potencial para publicar uma oferta no Marketplace?**
 

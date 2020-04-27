@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64869488"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas fechadas (e os metadados sobre esses arquivos.)  Uma vez que os arquivos são carregados, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming posteriores.
+No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais.
 
 Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
@@ -34,14 +34,14 @@ Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **Asse
 
 As seguintes considerações se aplicam:
  
- * Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por essa razão, a codificação percentual não é permitida. O valor da propriedade **Name** não pode ter nenhum dos [seguintes caracteres reservados por porcentagem de codificação](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+ * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de porcentagem](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ &= + $,/?% # [] ". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 * Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Ao criar ativos, as opções de criptografia a seguir poderão ser especificadas:
 
-* **None** - nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+* **None** - nenhuma criptografia é usada. Este é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
   Se você pretende enviar um MP4 usando download progressivo, utilize essa opção: 
 * **CommonEncryption** - use essa opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 * **EnvelopeEncrypted** – use essa opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
@@ -53,7 +53,7 @@ Ao criar ativos, as opções de criptografia a seguir poderão ser especificadas
 
 Se você especificar para que o ativo seja criptografado com a opção **CommonEncrypted** ou uma opção **EnvelopeEncrypted**, será necessário associar o ativo a uma **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Se você especificar que seu ativo será criptografado com uma opção **StorageEncrypted,** o Media Services SDK for .NET criará uma **StorageEncrypted** **ContentKey** para o seu ativo.
+Se você especificar para que o ativo seja criptografado com uma opção **StorageEncrypted** , o SDK dos serviços de mídia para .net criará um **ContentKey** **StorageEncrypted** para seu ativo.
 
 Este artigo mostra como usar o SDK de Serviços de Mídia, assim como extensões de SDK do .NET de Serviços de Mídia para carregar arquivos em um ativo de Serviços de Mídia.
 
@@ -92,7 +92,7 @@ O código faz o seguinte:
 
 * Cria um ativo vazio usando o método CreateEmptyAsset definido na etapa anterior.
 * Cria uma instância de **AccessPolicy** que define as permissões e a duração do acesso ao ativo.
-* Cria uma **instância Localizador** que fornece acesso ao ativo.
+* Cria uma instância do **localizador** que fornece acesso ao ativo.
 * Cria uma instância de **BlobTransferClient** . Esse tipo representa um cliente que opera nos blobs do Azure. Neste exemplo, o cliente monitora o progresso do upload. 
 * Enumere os arquivos no diretório especificado e cria uma instância de **AssetFile** para cada arquivo.
 * Carregue os arquivos para os serviços de mídia usando o método **UploadAsync** . 
@@ -308,7 +308,7 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Próxima etapa

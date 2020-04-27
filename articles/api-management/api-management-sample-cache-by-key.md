@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60780812"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Cache personalizado no Gerenciamento de API do Azure
@@ -28,7 +28,7 @@ O serviço de gerenciamento de API do Azure tem suporte interno para [Cache de r
 O serviço de Gerenciamento de API usa um cache de dados compartilhados por locatário para que, à medida que você escalar verticalmente para várias unidades, ainda tenha acesso ao mesmo dados em cache. No entanto, ao trabalhar com uma implantação de várias regiões, existem caches independentes dentro de cada uma das regiões. É importante não tratar o cache como um armazenamento de dados, em que ele é a única fonte de alguma informação. Se posteriormente você decidir se beneficiar da implantação de várias regiões, clientes com usuários que viajam podem perder o acesso aos dados armazenados em cache.
 
 ## <a name="fragment-caching"></a>Cache de fragmento
-Há alguns casos nos quais respostas sendo retornadas contêm uma parte dos dados que é cara de determinar e ainda permanece atualizada por um período razoável. Como exemplo, considere um serviço construído por uma companhia aérea que fornece informações relacionadas a reservas de voo, status de voo, etc. Se o usuário for membro do programa de pontos das companhias aéreas, ele também teria informações relacionadas ao seu status atual e quilometragem acumulada. Essas informações relacionadas ao usuário podem ser armazenadas em um sistema diferente, mas pode ser desejável incluí-las em respostas retornadas sobre reservas e o status de voo. Isso pode ser feito usando um processo chamado cache fragmentado. A representação principal pode ser retornada do servidor de origem usando algum tipo de token para indicar onde as informações relacionadas ao usuário devem ser inseridas. 
+Há alguns casos nos quais respostas sendo retornadas contêm uma parte dos dados que é cara de determinar e ainda permanece atualizada por um período razoável. Por exemplo, considere um serviço criado por uma companhia aérea que fornece informações relacionadas a reservas de voo, status de voo, etc. Se o usuário for membro do programa pontos aéreas, eles também teriam informações relacionadas ao seu status atual e à quilometragem acumulada. Essas informações relacionadas ao usuário podem ser armazenadas em um sistema diferente, mas pode ser desejável incluí-las em respostas retornadas sobre reservas e o status de voo. Isso pode ser feito usando um processo chamado cache fragmentado. A representação principal pode ser retornada do servidor de origem usando algum tipo de token para indicar onde as informações relacionadas ao usuário devem ser inseridas. 
 
 Considere a seguinte resposta JSON de uma API de back-end.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61244222"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET 
@@ -281,7 +281,7 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
 
 Embora todos os exemplos acima tenham discutido como enviar uma tarefa de codificação que produz apenas imagens, também é possível combinar a codificação de vídeo ou áudio com a geração de miniaturas. As predefinições JSON e XML a seguir fazem com que o **Media Encoder Standard** gere uma miniatura durante a codificação.
 
-### <a name="json-preset"></a><a id="json"></a>Pré-definido json
+### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```json
@@ -346,7 +346,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
     }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinido XML
+### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```csharp
@@ -568,9 +568,9 @@ Você pode verificar o [andamento do trabalho](media-services-check-job-progress
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

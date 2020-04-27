@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs
-description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas escolhidas ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
+description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas que você escolhe ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109328"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
@@ -46,7 +46,7 @@ Os cenários descritos acima são:
 * **Identidades federadas**: são identidades existentes no local e na nuvem.  Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.  
 
 > [!NOTE]
-> Para obter mais informações sobre as opções de sincronização, leia [Integrando suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+> Para obter mais informações sobre as opções de sincronização, leia [integrando suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 > 
 > 
 
@@ -55,7 +55,7 @@ A tabela a seguir ajuda a determinar as vantagens e desvantagens de cada uma das
 | Estratégia | Vantagens | Desvantagens |
 | --- | --- | --- |
 | **Identidades de nuvem** |Mais fácil de gerenciar para as organizações de pequeno porte. <br> Nada a instalar localmente. Nenhum hardware adicional necessário<br>Desativado facilmente se o usuário deixar a empresa |Os usuários deverão se conectar ao acessar cargas de trabalho na nuvem <br> As senhas podem ser as mesmas para as identidades locais ou de nuvem |
-| **Sincronizado** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
+| **Realizada** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
 | **Federado** |Os usuários podem fazer SSO  <br>Se um usuário for encerrado ou sair, a conta poderá ser imediatamente desabilitada e o acesso revogado,<br> Com suporte para cenários avançados que não podem ser realizados com sincronização |Mais etapas para definir e configurar <br> Maior manutenção <br> Pode exigir hardware adicional para a infra-estrutura do STS <br> Pode exigir hardware adicional para instalar o servidor de federação. Um software adicional será necessário se o AD FS for utilizado <br> Requer configuração ampla para SSO <br> Ponto de falha crítico se o servidor de federação estiver desativado, os usuários não conseguirão autenticar |
 
 ### <a name="client-experience"></a>Experiência do cliente
@@ -111,14 +111,14 @@ Usamos diversas ferramentas de sincronização para vários cenários ao longo d
 ### <a name="supported-topologies"></a>Topologias com suporte
 Escolha a topologia que vai usar quando definir a estratégia de sincronização. Dependendo das informações indicadas na etapa 2, determine a topologia de utilização mais adequada. A floresta única, topologia exclusiva do AD do Azure, é a mais comum e consiste de uma floresta única do Active Directory e de uma instância única do AD do Azure.  Ela será usada na maioria dos cenários, além de ser a topologia esperada para o uso da instalação expressa do Azure AD Connect Express, como ilustrado na imagem a seguir.
 
-![Topoologias](./media/plan-hybrid-identity-design-considerations/single-forest.png) apoiadas Cenário Florestal Único É comum que organizações grandes e até pequenas tenham múltiplas florestas, como mostra a Figura 5.
+![Cenário de](./media/plan-hybrid-identity-design-considerations/single-forest.png) floresta única de topologias com suporte é comum que organizações grandes e até mesmo pequenas tenham várias florestas, como mostra a Figura 5.
 
 > [!NOTE]
 > Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![topologia multi-floresta](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![topologia de várias florestas](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Cenário de topologia de várias florestas
 
@@ -140,7 +140,7 @@ Se esse for o caso, considere a topologia de várias florestas do Azure AD, caso
 
 Caso a situação descrita anteriormente não se aplique e se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o Azure AD Connect vai escolher uma delas e ignorar as outras.  Se você tiver vinculado caixas de correio, mas não vincular nenhuma outra conta, essas contas não serão exportadas para o AD do Azure e esse usuário não será membro de nenhum grupo.  Com esse processo, diferente da atuação anterior com o DirSync, temos um melhor suporte para os cenários de várias florestas. Confira um cenário de várias florestas na imagem abaixo.
 
-![múltiplos inquilinos Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![vários locatários do Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Cenário de várias florestas do AD do Azure**
 
@@ -148,7 +148,7 @@ Recomendamos ter apenas um único diretório no AD do Azure de uma organização
 
 Temos suporte e você pode se conectar a uma instância local do Active Directory para vários diretórios do AD do Azure, conforme mostrado na figura abaixo:
 
-![filtragem florestal única](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![filtragem de floresta única](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Cenário de filtragem de floresta única**
 
@@ -213,6 +213,6 @@ A autenticação multifator está disponível por padrão para administradores g
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar os requisitos para proteção de dados](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

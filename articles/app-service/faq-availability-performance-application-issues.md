@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre o desempenho do aplicativo
-description: Obtenha respostas para perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicativos no Azure App Service.
+title: Perguntas frequentes sobre desempenho do aplicativo
+description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no serviço Azure App.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259858"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159976"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
 > [!NOTE]
-> Algumas das diretrizes abaixo só podem funcionar no Windows ou Linux App Services. Por exemplo, os Serviços de Aplicativos Linux são executados no modo de 64 bits por padrão.
+> Algumas das diretrizes a seguir podem funcionar apenas nos serviços de aplicativos do Windows ou do Linux. Por exemplo, os serviços de aplicativos do Linux são executados no modo de 64 bits por padrão.
 >
 
 Este artigo apresenta respostas para perguntas frequentes (FAQs) sobre problemas de desempenho de aplicativo da [funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -46,8 +46,8 @@ Você pode usar os cmdlets do PowerShell para gerenciar e manter os aplicativos 
 
 Para exibir logs de eventos do aplicativo web:
 
-1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu, selecione **Debug Console** > **CMD**.
+1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+2. No menu, selecione **console** > de depuração**cmd**.
 3. Abra a pasta **LogFiles**.
 4. Para exibir logs de eventos, selecione o ícone de lápis ao lado de **eventlog.xml**.
 5. Para baixar os logs, execute o cmdlet do PowerShell `Save-AzureWebSiteLog -Name webappname`.
@@ -56,10 +56,10 @@ Para exibir logs de eventos do aplicativo web:
 
 Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 
-1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Selecione o menu **Process Explorer**.
 3. Clique com botão direito no processo **w3wp.exe** ou no seu processo WebJob.
-4. Selecione **Baixar Despejo de** > Memória**Full Dump**.
+4. Selecione **baixar memória** > despejo de despejo**completo**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como exibir informações de nível de processo para meu aplicativo web?
 
@@ -69,7 +69,7 @@ Você tem duas opções para exibir as informações de nível de processo para 
     1. Abra o **Process Explorer** para o aplicativo web.
     2. Para ver os detalhes, selecione o **w3wp.exe** processo.
 *   No console do Kudu:
-    1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Entre no site do **kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Selecione o menu **Process Explorer**.
     3. Para o processo **w3wp.exe**, selecione **Propriedades**.
 
@@ -93,7 +93,7 @@ Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um
 
 1. No portal do Azure, vá para seu aplicativo web.
 2. Selecionar **configuração**
-3. Selecione **Configurações gerais**.
+3. Selecione **configurações gerais**.
 4. Para **Sempre Ativo**, selecione **On**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Como ativar o rastreamento de solicitação com falha?
@@ -101,9 +101,9 @@ Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um
 Para ativar o rastreamento de solicitação com falha:
 
 1. No portal do Azure, vá para seu aplicativo web.
-3. Selecione Todos os**registros de diagnóstico de** **configurações** > .
+3. Selecione **todas as configurações** > **logs de diagnóstico**.
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.
@@ -142,8 +142,8 @@ Para ativar o rastreamento de solicitação com falha:
     </tracing>
     ```
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), vá para seu site.
-15. Selecione **Ferramentas** > **Kudu** > **Go**.
-18. No menu, selecione **Debug Console** > **CMD**.
+15. Selecione **ferramentas** > **kudu** > **ir**para.
+18. No menu, selecione **console** > de depuração**cmd**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.
 
@@ -174,7 +174,7 @@ Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluí
 
 Se você usar o recurso de Cache Local do Serviço de Aplicativo, a estrutura de pasta de arquivos de log e das pastas de dados para a instância do Serviço de Aplicativo serão afetados. Quando o Cache Local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está executando ou foi executado.
 
-Para determinar se você está usando cache local, verifique a guia **de configurações do aplicativo.** Se o cache local estiver `WEBSITE_LOCAL_CACHE_OPTION` sendo usado, a configuração do aplicativo será definida como `Always`.
+Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração `WEBSITE_LOCAL_CACHE_OPTION` do aplicativo será `Always`definida como.
 
 Se você não estiver usando o Cache Local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

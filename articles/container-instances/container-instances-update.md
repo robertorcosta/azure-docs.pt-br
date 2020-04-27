@@ -2,28 +2,37 @@
 title: Atualizar grupo de contêineres
 description: Saiba como atualizar os contêineres em execução nos grupos de contêineres das Instâncias de Contêiner do Azure.
 ms.topic: article
-ms.date: 09/03/2019
-ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533311"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160095"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres nas Instâncias de Contêiner do Azure
 
-Durante o funcionamento normal das instâncias dos contêineres, você pode achar necessário atualizar os contêineres em execução em um [grupo de contêineres](container-instances-container-groups.md). Por exemplo, é recomendável atualizar a versão da imagem, alterar um nome DNS, atualizar as variáveis de ambiente ou atualizar o estado de um contêiner cujo aplicativo falhou.
+Durante a operação normal das instâncias de contêiner, talvez você ache necessário atualizar os contêineres em execução em um [grupo de contêineres](container-instances-container-groups.md). Por exemplo, talvez você queira atualizar uma propriedade, como uma versão de imagem, um nome DNS ou uma variável de ambiente, ou atualizar uma propriedade em um contêiner cujo aplicativo tenha falhado.
+
+Atualize os contêineres em um grupo de contêineres em execução Reimplantando um grupo existente com pelo menos uma propriedade modificada. Quando você atualiza um grupo de contêineres, todos os contêineres em execução no grupo são reiniciados no local, geralmente no mesmo host de contêiner subjacente.
 
 > [!NOTE]
-> Grupos de contêineres encerrados ou excluídos não podem ser atualizados. Uma vez que um grupo de contêineres tenha terminado (está em um estado bem-sucedido ou falho) ou tenha sido excluído, o grupo deve ser implantado como novo.
+> Grupos de contêineres encerrados ou excluídos não podem ser atualizados. Depois que um grupo de contêineres termina (está em um estado de êxito ou de falha) ou foi excluído, o grupo deve ser implantado como novo. Consulte outras [limitações](#limitations).
 
 ## <a name="update-a-container-group"></a>Atualizar um grupo de contêineres
 
-Atualize os contêineres em um grupo de contêineres em execução, reimplantando um grupo existente com pelo menos uma propriedade modificada. Quando você atualiza um grupo de contêineres, todos os contêineres em execução no grupo são reiniciados no local, geralmente no mesmo host de contêiner subjacente.
+Para atualizar um grupo de contêineres existente:
 
-Reimplante um grupo de contêiner existente, emitindo o comando criar (ou use o portal do Azure) e especifique o nome de um grupo existente. Modifique pelo menos uma propriedade válida do grupo quando você emitir o comando criar para ativar a reimplantação e deixar as propriedades restantes inalteradas (ou continuar a usar valores padrão). Nem todas as propriedades do grupo de contêineres são válidas para reimplantação. Consulte as [Propriedades que exigem exclusão](#properties-that-require-container-delete) para obter uma lista de propriedades sem suporte.
+* Emita o comando Create (ou use o portal do Azure) e especifique o nome de um grupo existente 
+* Modifique ou adicione pelo menos uma propriedade do grupo que ofereça suporte à atualização ao reimplantar. Determinadas propriedades [não dão suporte a atualizações](#properties-that-require-container-delete).
+* Defina outras propriedades com os valores que você forneceu anteriormente. Se você não definir um valor para uma propriedade, ele será revertido para seu valor padrão.
 
-O exemplo da CLI do Azure a seguir atualiza um grupo de contêineres com um novo rótulo de nome DNS. Como a propriedade de etiqueta de nome DNS do grupo é aquela que pode ser atualizada, o grupo de contêineres é reimplantado e seus contêineres reiniciados.
+> [!TIP]
+> Um [arquivo YAML](/container-instances-container-groups.md#deployment) ajuda a manter a configuração de implantação de um grupo de contêineres e fornece um ponto de partida para implantar um grupo atualizado. Se você usou um método diferente para criar o grupo, poderá exportar a configuração para YAML usando [AZ container Export][az-container-export], 
+
+### <a name="example"></a>Exemplo
+
+O exemplo da CLI do Azure a seguir atualiza um grupo de contêineres com um novo rótulo de nome DNS. Como a propriedade rótulo do nome DNS do grupo é aquela que pode ser atualizada, o grupo de contêineres é reimplantado e seus contêineres são reiniciados.
 
 Implantação inicial com o rótulo de nome DNS *myapplication-staging*:
 
@@ -33,7 +42,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Atualize o grupo de contêineres com um novo rótulo de nome DNS, *myapplication*e deixe as propriedades restantes inalteradas:
+Atualize o grupo de contêineres com um novo rótulo de nome DNS, *MyApplication*e defina as propriedades restantes com os valores usados anteriormente:
 
 ```azurecli-interactive
 # Update DNS name label (restarts container), leave other properties unchanged
@@ -49,25 +58,21 @@ Aplicativos com base em imagens de contêiner maiores, como o Windows Server Cor
 
 ## <a name="limitations"></a>Limitações
 
-Nem todas as propriedades de um grupo de contêineres dão suporte a atualizações. Para alterar algumas propriedades de um grupo de contêineres, primeiro você deve excluir e, sem seguida, reimplantar o grupo. Para obter detalhes, consulte [Propriedades que exigem exclusão de contêiner](#properties-that-require-container-delete).
-
-Todos os contêineres em um grupo de contêineres são reiniciados quando você atualiza o grupo de contêineres. Não é possível executar uma atualização ou uma reinicialização local de um contêiner específico em um grupo de vários contêineres.
-
-O endereço IP de um contêiner normalmente não será alterado entre as atualizações, mas não há garantia de que permaneça o mesmo. Desde que o grupo de contêineres seja implantado no mesmo host subjacente, o grupo de contêineres retém o endereço IP. Embora seja raro, e enquanto as Instâncias de Contêiner do Azure não poupam esforços para reimplantar no mesmo host, há alguns eventos internos do Azure que podem resultar na reimplantação em um host diferente. Para atenuar esse problema, sempre use um rótulo de nome DNS para as instâncias de contêiner.
-
-Grupos de contêineres encerrados ou excluídos não podem ser atualizados. Após um grupo de contêineres ser interrompido (está no *Terminated*) ou se tiver sido excluído, o grupo será implantado como novo.
+* Nem todas as propriedades de um grupo de contêineres dão suporte a atualizações. Para alterar algumas propriedades de um grupo de contêineres, primeiro você deve excluir e, sem seguida, reimplantar o grupo. Consulte [Propriedades que exigem exclusão de contêiner](#properties-that-require-container-delete).
+* Todos os contêineres em um grupo de contêineres são reiniciados quando você atualiza o grupo de contêineres. Não é possível executar uma atualização ou uma reinicialização local de um contêiner específico em um grupo de vários contêineres.
+* O endereço IP de um grupo de contêineres normalmente é mantido entre as atualizações, mas não é garantido que permaneça o mesmo. Desde que o grupo de contêineres seja implantado no mesmo host subjacente, o grupo de contêineres retém o endereço IP. Embora seja raro, há alguns eventos internos do Azure que podem causar reimplantação em um host diferente. Para atenuar esse problema, é recomendável usar um rótulo de nome DNS para suas instâncias de contêiner.
+* Grupos de contêineres encerrados ou excluídos não podem ser atualizados. Quando um grupo de contêineres é interrompido (está no estado *encerrado* ) ou excluído, o grupo é implantado como novo.
 
 ## <a name="properties-that-require-container-delete"></a>Propriedades que exigem exclusão de contêiner
 
-Como mencionado anteriormente, nem todas as propriedades do grupo de contêineres podem ser atualizadas. Por exemplo, para alterar as portas ou reiniciar a política de um contêiner, primeiro é necessário excluir o grupo de contêineres e criá-lo novamente.
+Nem todas as propriedades do grupo de contêineres podem ser atualizadas. Por exemplo, para alterar a política de reinicialização de um contêiner, primeiro você deve excluir o grupo de contêineres e, em seguida, criá-lo novamente.
 
-Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplantação:
+As alterações nessas propriedades exigem a exclusão do grupo de contêineres antes da reimplantação:
 
 * Tipo do SO
-* CPU
-* Memória
+* Recursos de CPU, memória ou GPU
 * Política de reinicialização
-* Portas
+* Perfil de rede
 
 Ao excluir um grupo de contêineres e recriá-lo, ele não será "reimplantado", mas criado como novo. É efetuado o pull de todas as camadas de imagem atualizadas do registro, não aquelas armazenadas em cache por uma implantação anterior. O endereço IP do contêiner também pode ser alterado por estar sendo implantado em um host subjacente diferente.
 
@@ -79,10 +84,11 @@ Ao excluir um grupo de contêineres e recriá-lo, ele não será "reimplantado",
 
 [Implantar um grupo de multicontêiner](container-instances-multi-container-group.md)
 
-[Pare ou inicie manualmente contêineres em instâncias de contêineres azure](container-instances-stop-start.md)
+[Parar ou iniciar os contêineres manualmente nas instâncias de contêiner do Azure](container-instances-stop-start.md)
 
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-container-export]: /cli/azure/container#az-container-export

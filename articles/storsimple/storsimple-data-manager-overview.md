@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67876112"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
@@ -68,11 +68,11 @@ Recomendamos que:
  - Sua conta de armazenamento de origem (aquela associada ao seu dispositivo do StorSimple) e a conta de armazenamento de destino (onde você deseja os dados em formato nativo) na mesma região do Azure.
  - Você leva sua definição de trabalho e o Gerenciador de Dados na região que contém a conta de armazenamento do StorSimple. Se isso não for possível, coloque o Gerenciador de Dados na região do Azure mais próxima e, em seguida, crie a definição do trabalho na mesma região da sua conta de armazenamento do StorSimple. 
 
-    Se a sua conta de armazenamento StorSimple não estiver nas 26 regiões que suportam a criação de definição de emprego, recomendamos que você não execute o StorSimple Data Manager, pois você vê longas latências e potenciais encargos de saída.
+    Se sua conta de armazenamento do StorSimple não estiver nas 26 regiões que dão suporte à criação de definição de trabalho, recomendamos que você não execute Gerenciador de Dados do StorSimple, pois você verá latências longas e possíveis encargos de saída.
     
-A Microsoft se esforça para garantir que os serviços do Azure estejam sempre disponíveis em todas as regiões. No entanto, paralisações de serviços não planejadas podem ocorrer por curtos períodos em uma determinada região. Nesses casos, você pode trazer um Data Manager e definição de emprego em uma região que não é afetada pela paralisação, e executar o trabalho de transformação. Você pode encontrar alguma latência adicional em tal cenário, mas esta pode ser sua estratégia de recuperação no raro caso de uma paralisação regional.
+A Microsoft se esforça para garantir que os serviços do Azure estejam sempre disponíveis em todas as regiões. No entanto, as interrupções de serviço não planejadas podem ocorrer por períodos curtos em uma determinada região. Nesses casos, você pode abrir uma definição de Gerenciador de Dados e de trabalho em uma região que não é afetada pela interrupção e executar o trabalho de transformação. Você pode encontrar alguma latência adicional nesse cenário, mas essa pode ser a sua estratégia de recuperação no caso raro de uma interrupção regional.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 O Gerenciador de Dados do StorSimple precisa da chave de criptografia de dados de serviço para transformar a partir do formato do StorSimple para um formato nativo. A chave da criptografia de dados do serviço é gerada quando o primeiro dispositivo registra com o serviço do StorSimple. Para obter mais informações sobre essa chave, acesse [Segurança do StorSimple](storsimple-8000-security.md).
 

@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60616478"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
@@ -41,7 +41,7 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
      * Selecione **Transmitir para um Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use essa opção se tiver um pipeline de processamento downstream que esteja analisando logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-     * Selecione __Enviar para o Log Analytics__ para enviar os dados para o serviço Azure Monitor. Use esta opção se quiser usar os registros do Monitor Do Azure para coletar e analisar logs.
+     * Selecione __Enviar para log Analytics__ para enviar os dados para o serviço de Azure monitor. Use esta opção se você quiser usar logs de Azure Monitor para coletar e analisar logs.
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.  Um log de solicitação captura todas as solicitações da API. Um log de auditoria registra todas as operações disparadas pela solicitação de API.
 
    * Para __Arquivar para uma conta de armazenamento__, especifique o número de dias a reter os dados.
@@ -125,7 +125,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -139,7 +139,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
@@ -177,7 +177,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |O identificador do recurso em que a operação ocorreu |
@@ -195,7 +195,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | JobId |String |A ID atribuída ao trabalho |
 | JobName |String |O nome fornecido para o trabalho |
@@ -210,7 +210,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 ## <a name="process-the-log-data"></a>Processar os dados de log
 
-O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)a amostra em .
+O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)

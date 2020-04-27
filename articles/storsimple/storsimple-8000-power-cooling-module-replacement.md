@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60632281"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
@@ -50,7 +50,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
 > Antes de remover o PCM, verifique se você tem uma peça de reposição correta (764 W para o compartimento primário ou 580 W para o compartimento EBOD).
 
 #### <a name="to-remove-a-pcm"></a>Para remover um PCM
-1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes PCM em **componentes compartilhados** para identificar qual PCM falhou:
+1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes do PCM em **componentes compartilhados** para identificar qual PCM falhou:
    
    * Se uma fonte de alimentação no PCM 0 tiver falhado, o status da **Fonte de Alimentação no PCM 0** ficará vermelho.
    * Se uma fonte de alimentação no PCM 1 tiver falhado, o status da **Fonte de Alimentação no PCM 1** ficará vermelho.
@@ -61,7 +61,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 1** Parte frontal do dispositivo  
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    |:--- |:--- |
    | 1 |Botão silenciar |
    | 2 |Energia do sistema |
@@ -74,7 +74,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 2** Parte posterior do PCM com LEDs indicadores
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia CA |
    | 2 |Falha do ventilador |
@@ -88,7 +88,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 3** Parte traseira do dispositivo com módulos de plug-in 
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

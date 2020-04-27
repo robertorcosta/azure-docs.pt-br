@@ -1,6 +1,6 @@
 ---
 title: H264 Taxa de Bits Única 720p para Android | Microsoft Docs
-description: O tópico dá uma visão geral da pré-configuração da taxa de **bits única H264 720p para android.**
+description: O tópico fornece uma visão geral da predefinição de tarefa **H264 taxa de bits única 720p para Android** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: da44cf33882d2658b20f117053d486177117a5a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "61131011"
 ---
 # <a name="h264-single-bitrate-720p-for-android"></a>H264 Taxa de Bits Única 720p para Android

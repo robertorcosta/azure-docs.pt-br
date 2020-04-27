@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69015860"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 
-> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
 > * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
 
@@ -73,14 +73,14 @@ Aqui está um exemplo desse arquivo de manifesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestos dinâmicos
-Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo: 
+Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo:
 
 * Dispositivo específico: entregar apenas as representações especificadas e/ou faixas de idioma especificadas com suporte pelo dispositivo que é usado para reproduzir o conteúdo ("filtragem da representação"). 
 * Redução do manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe").
 * Corte do início de um vídeo ("corte de um vídeo").
 * Ajuste a Janela de Apresentação (DVR) para fornecer uma duração limitada da janela do DVR no leitor ("ajustar a janela de apresentação").
 
-Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo: 
+Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
 
 URL de MPEG DASH com filtro
 
@@ -125,7 +125,7 @@ No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine e
 ![Filtragem de representação][renditions1]
 
 ## <a name="removing-language-tracks"></a>Remover faixas de idiomas
-Seus ativos podem incluir vários idiomas de áudio, como inglês, espanhol, francês, etc. Normalmente, os gerentes do Player SDK são selecionados como faixas de áudio padrão e faixas de áudio disponíveis por seleção do usuário. O desenvolvimento desses SDKs do Player é um desafio, requer diferentes implementações em estruturas de player específicas do dispositivo. Além disso, em algumas plataformas, as APIs do Jogador são limitadas e não incluem recurso de seleção de áudio onde os usuários não podem selecionar ou alterar a faixa de áudio padrão. Com filtros de ativos, você pode controlar o comportamento criando filtros que incluem apenas linguagens de áudio desejadas.
+Seus ativos podem incluir vários idiomas de áudio, como Inglês, espanhol, francês, etc. Normalmente, os gerenciadores do SDK do Player são seleção de faixa de áudio padrão e faixas de áudio disponíveis por seleção de usuário. O desenvolvimento desses SDKs do Player é um desafio, requer diferentes implementações em estruturas de player específicas do dispositivo. Além disso, em algumas plataformas, as APIs do Player são limitadas e não incluem o recurso de seleção de áudio, em que os usuários não podem selecionar ou alterar a faixa de áudio padrão. Com os filtros de ativos, você pode controlar o comportamento Criando filtros que incluem apenas os idiomas de áudio desejados.
 
 ![Filtragem das faixas de idioma][language_filter]
 
@@ -182,7 +182,7 @@ Para combinar os filtros, você precisa definir os nomes dos filtros para a URL 
 
 Você pode combinar até três filtros. 
 
-Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## <a name="know-issues-and-limitations"></a>Conheça os problemas e limitações
 * Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 
@@ -192,10 +192,10 @@ Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral do fornecimento de conteúdo a clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

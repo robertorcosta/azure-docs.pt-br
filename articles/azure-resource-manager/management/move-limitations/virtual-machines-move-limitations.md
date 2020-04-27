@@ -1,47 +1,50 @@
 ---
-title: Mova as VMs do Azure para um novo grupo de assinatura ou recursos
-description: Use o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
+title: Mover VMs do Azure para uma nova assinatura ou grupo de recursos
+description: Use Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 144888c4a66ef68448ae8bc863f6aef0923dfb69
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478656"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160112"
 ---
-# <a name="move-guidance-for-virtual-machines"></a>Mova orientação para máquinas virtuais
+# <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
 
-Este artigo descreve os cenários que não são suportados no momento e as etapas para mover máquinas virtuais com backup.
+Este artigo descreve os cenários que atualmente não têm suporte e as etapas para mover as máquinas virtuais com o backup.
 
-## <a name="scenarios-not-supported"></a>Cenários não suportados
+## <a name="scenarios-not-supported"></a>Cenários sem suporte
 
 Ainda não há suporte para os cenários a seguir:
 
-* Discos gerenciados em Zonas de Disponibilidade não podem ser movidos para uma assinatura diferente.
-* Os conjuntos de escala de máquina virtual com balanceador de carga SKU padrão ou IP público Padrão SKU não podem ser movidos.
-* As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos anexados não podem ser movidas entre grupos de recursos ou assinaturas. Desprovisione a máquina virtual na assinatura atual e implante novamente na nova assinatura.
-* Máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.
-* Máquinas virtuais de baixa prioridade e conjuntos de escala de máquinas virtuais de baixa prioridade não podem ser movidos entre grupos de recursos ou assinaturas.
+* Managed Disks no Zonas de Disponibilidade não podem ser movidos para uma assinatura diferente.
+* Conjuntos de dimensionamento de máquinas virtuais com Load Balancer SKU padrão ou IP público SKU Standard não podem ser movidos.
+* As máquinas virtuais criadas a partir dos recursos do Marketplace com os planos anexados não podem ser movidas entre grupos de recursos ou assinaturas. Desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura.
+* As máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.
+* As máquinas virtuais de baixa prioridade e os conjuntos de dimensionamento de máquinas virtuais de baixa prioridade não podem ser movidos entre grupos de recursos ou assinaturas.
 * As máquinas virtuais em um conjunto de disponibilidade não podem ser movidas individualmente.
 
-## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com backup do Azure
+## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com o backup do Azure
 
-Para mover máquinas virtuais configuradas com o Azure Backup, você deve excluir os pontos de restauração do cofre.
+Para mover as máquinas virtuais configuradas com o backup do Azure, você deve excluir os pontos de restauração do cofre.
 
-Se [a exclusão suave](../../../backup/backup-azure-security-feature-cloud.md) estiver ativada para sua máquina virtual, você não poderá mover a máquina virtual enquanto esses pontos de restauração forem mantidos. Desabilite [a exclusão suave](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) ou espere 14 dias após a exclusão dos pontos de restauração.
+Se a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud.md) estiver habilitada para sua máquina virtual, você não poderá mover a máquina virtual enquanto esses pontos de restauração forem mantidos. Desabilite a [exclusão reversível](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) ou aguarde 14 dias depois de excluir os pontos de restauração.
 
 ### <a name="portal"></a>Portal
 
-1. Selecione a máquina virtual configurada para backup.
+1. Interrompa temporariamente o backup e retenha os dados de backup.
+2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
 
-1. No painel esquerdo, selecione **Backup**.
+   1. Localize o local da sua máquina virtual.
+   2. Localize um grupo de recursos com o seguinte padrão de `AzureBackupRG_<location of your VM>_1`nomenclatura:. Por exemplo, *AzureBackupRG_westus2_1*
+   3. Na portal do Azure, marque **Mostrar tipos ocultos**.
+   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomenclatura.
+   5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+   6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
 
-1. Selecione **Stop backup**.
-
-1. Selecione **Excluir dados de volta**.
-
-1. Depois que a exclusão estiver concluída, você pode mover o cofre e a máquina virtual para a assinatura de destino. Após a mudança, você pode continuar backups.
+3. Mova a VM para o grupo de recursos de destino.
+4. Retome o backup.
 
 ### <a name="powershell"></a>PowerShell
 

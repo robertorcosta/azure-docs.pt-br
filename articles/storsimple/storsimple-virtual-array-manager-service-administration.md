@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "62123798"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usar o serviço do StorSimple Device Manager para administrar o StorSimple Virtual Array
@@ -42,7 +42,7 @@ Após ler este artigo, você saberá como:
 O serviço do StorSimple Device Manager é executado no Microsoft Azure e conecta-se a vários StorSimple Virtual Arrays. Você usa um portal central do Microsoft Azure em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço do StorSimple Device Manager, faça o seguinte.
 
 #### <a name="to-connect-to-the-service"></a>Para conectar-se ao serviço
-1. Vá [https://ms.portal.azure.com](https://ms.portal.azure.com)para.
+1. Ir para [https://ms.portal.azure.com](https://ms.portal.azure.com).
 2. Usando suas credenciais de conta da Microsoft, faça logon no Portal do Microsoft Azure (localizado na parte superior direita do painel).
 3. Navegue para Procurar --> “Filtro” em StorSimple Device Managers para exibir todos os gerenciadores dos seu dispositivo em uma determinada assinatura.
 

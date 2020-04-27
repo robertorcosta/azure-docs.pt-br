@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60456086"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "60456086"
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados à autenticação de passagem do Azure AD.
 
 >[!IMPORTANT]
->Se você está enfrentando problemas de conexão de usuário com a autenticação de passagem, não desabilite o recurso nem desinstale os agentes de autenticação de passagem sem ter uma conta Administrador Global somente de nuvem à qual realizar fallback. Saiba como [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
+>Se você está enfrentando problemas de conexão de usuário com a autenticação de passagem, não desabilite o recurso nem desinstale os agentes de autenticação de passagem sem ter uma conta Administrador Global somente de nuvem à qual realizar fallback. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
 
 ## <a name="general-issues"></a>Problemas gerais
 
@@ -58,7 +58,7 @@ Se o locatário tiver uma licença do Azure AD Premium associada a ele, você ta
 
 ![Centro de administração do Azure Active Directory - relatório Entradas](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Navegue até os**logins** **do Azure Active Directory** -> no [centro de administradores do Azure Active Directory](https://aad.portal.azure.com/) e clique na atividade de login de um usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
+Navegue até **Azure Active Directory** -> **entradas** no [centro de administração do Azure Active Directory](https://aad.portal.azure.com/) e clique em uma atividade de entrada do usuário específico. Procure o campo **CÓDIGO DE ERRO DE LOGON**. Faça o mapeamento do valor desse campo até um motivo da falha e uma resolução usando a tabela a seguir:
 
 |Código de erro de logon|Motivo da falha no logon|Resolução
 | --- | --- | ---
@@ -73,7 +73,7 @@ Navegue até os**logins** **do Azure Active Directory** -> no [centro de adminis
 | 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
 
 >[!IMPORTANT]
->Os agentes de autenticação de passagem autenticam os usuários do Azure AD validando seus nomes de usuário e senhas contra o Active Directory, chamando a [API do Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se você tiver definido a configuração "Logon To" no Active Directory para limitar o acesso ao logon da estação de trabalho, você terá que adicionar servidores que hospedam agentes de autenticação passthrough à lista de servidores "Logon To" também. Não fazer isso impedirá que seus usuários façam login no Azure AD.
+>Os agentes de autenticação de passagem autenticam os usuários do Azure AD Validando seus nomes de usuário e senhas em relação à Active Directory chamando a [API do LogonUser do Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se você tiver definido a configuração "logon para" no Active Directory para limitar o acesso de logon da estação de trabalho, você terá que adicionar servidores que hospedam agentes de autenticação de passagem à lista de "fazer logon em" servidores também. A falha ao fazer isso impedirá que os usuários entrem no Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do Agente de Autenticação
 

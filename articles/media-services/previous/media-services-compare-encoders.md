@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "69016649"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação de codificadores de mídia sob demanda do Azure  
@@ -99,7 +99,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | MP3 (MPEG-1 Audio Layer 3) |Sim |Sim |
 | Áudio do Windows Media |Sim |Sim |
 | WAV/PCM |Sim |Sim |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |Não |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |Não |
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sim |Não |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |Não |
 
@@ -146,7 +146,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados

@@ -3,12 +3,12 @@ title: Integrar um cliente no gerenciamento de recursos delegados do Azure
 description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
 ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9cadab966c4d9ae3ddbc12a75f42f69e0c12f
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146308"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161101"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente no gerenciamento de recursos delegados do Azure
 
@@ -199,6 +199,8 @@ Como essa é uma implantação em nível de assinatura, ela não pode ser inicia
 
 > [!IMPORTANT]
 > Essa implantação em nível de assinatura deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+>
+> Se a assinatura foi criada por meio do [programa CSP (provedor de soluções de nuvem)](../concepts/cloud-solution-provider.md), qualquer usuário que tenha a função [agente de administração](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no locatário do provedor de serviços poderá realizar a implantação.
 
 ### <a name="powershell"></a>PowerShell
 

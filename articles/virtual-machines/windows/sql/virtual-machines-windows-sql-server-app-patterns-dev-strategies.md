@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
 ms.openlocfilehash: cbc2bfbb68910c3eb12352bebb575c4548885a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70124023"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure
@@ -127,7 +127,7 @@ Como prática recomendada, sempre certifique-se de que todas as conexões de Int
 
 Observe que o Balanceador de Carga no Azure funciona de forma semelhante a balanceadores de carga em um ambiente local. Para obter mais informações, veja [Balanceamento de carga para serviços de infraestrutura do Azure](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Além disso, recomendamos que você configure uma rede privada para suas máquinas virtuais usando a Rede Virtual do Azure. Isso permite que elas se comuniquem por meio do endereço IP privado. Para obter mais informações, consulte [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md).
+Além disso, recomendamos que você configure uma rede privada para suas máquinas virtuais usando a Rede Virtual do Azure. Isso permite que elas se comuniquem por meio do endereço IP privado. Para obter mais informações, consulte [rede virtual do Azure](../../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="2-tier-and-3-tier-with-business-tier-scale-out"></a>Duas e três camadas com dimensionamento da camada de negócios
 Nesse padrão de aplicativo, você implanta um aplicativo de banco de dados de duas ou três camadas em máquinas virtuais do Azure colocando cada camada do aplicativo em uma máquina virtual diferente. Além disso, talvez você queira distribuir os componentes do servidor de aplicativos em várias máquinas virtuais devido à complexidade do seu aplicativo.

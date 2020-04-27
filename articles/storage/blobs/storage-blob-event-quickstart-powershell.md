@@ -9,13 +9,13 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "68847163"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Quickstart: Eventos de armazenamento de rota para o ponto final da Web com o PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: rotear eventos de armazenamento para o ponto de extremidade da Web com o PowerShell
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa Azure PowerShell para assinar eventos de Armazenamento de Blobs, acionar um evento e exibir o resultado. 
 
@@ -29,7 +29,7 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este artigo requer que você esteja executando a versão mais recente do Azure PowerShell. Se você precisar instalar ou atualizar, consulte [Instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
+Este artigo requer que você esteja executando a versão mais recente do Azure PowerShell. Se você precisar instalar ou atualizar, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -60,7 +60,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Os eventos de armazenamento de blobs estão disponíveis nas contas de armazenamento de uso geral v2 e nas contas de armazenamento de blobs. Contas de armazenamento **v2 de uso geral** suportam todos os recursos para todos os serviços de armazenamento, incluindo Blobs, Arquivos, Filas e Tabelas. Uma **conta de armazenamento Blob** é uma conta de armazenamento especializada para armazenar seus dados não estruturados como blobs (objetos) no Azure Storage. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+Os eventos de armazenamento de blobs estão disponíveis nas contas de armazenamento de uso geral v2 e nas contas de armazenamento de blobs. As contas de armazenamento de **uso geral v2** dão suporte a todos os recursos para todos os serviços de armazenamento, incluindo BLOBs, arquivos, filas e tabelas. Uma **conta de armazenamento de BLOBs** é uma conta de armazenamento especializada para armazenar dados não estruturados como BLOBs (objetos) no armazenamento do Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 Criar uma conta de armazenamento de Blob com replicação LRS usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) e, em seguida, recupere o contexto da conta de armazenamento que define a conta de armazenamento a ser usada. Ao agir em uma conta de armazenamento, você pode referenciar o contexto em vez de fornecer repetidamente as credenciais. Esse exemplo cria uma conta de armazenamento chamada **gridstorage** com LRS (armazenamento com redundância local). 
 
@@ -103,7 +103,7 @@ Você deve ver o site sem mensagens exibidas no momento.
 
 ## <a name="subscribe-to-your-storage-account"></a>Assinar a sua conta de armazenamento
 
-Você se inscreve em um tópico para dizer ao Event Grid quais eventos deseja acompanhar. O exemplo a seguir se inscreve na conta de armazenamento que você criou e passa a URL do seu aplicativo web como o ponto final para notificação de eventos. O ponto de extremidade para seu aplicativo Web deve incluir o sufixo `/api/updates/`.
+Você assina um tópico para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina a conta de armazenamento que você criou e passa a URL do seu aplicativo Web como o ponto de extremidade para notificação de eventos. O ponto de extremidade para seu aplicativo Web deve incluir o sufixo `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
@@ -161,7 +161,7 @@ Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de 
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se você planeja continuar trabalhando com essa assinatura de evento e conta de armazenamento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados neste artigo.
 
 ```powershell

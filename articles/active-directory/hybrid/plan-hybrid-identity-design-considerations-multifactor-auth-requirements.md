@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - requisitos de autenticação multifator do Azure | Microsoft Docs
-description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas escolhidas ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
+description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas que você escolhe ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67109305"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para sua solução de identidade híbrida
@@ -58,6 +58,6 @@ Depois de responder às perguntas anteriores, você poderá determinar se há au
 ## <a name="next-steps"></a>Próximas etapas
 [Definir uma estratégia de adoção de identidade híbrida](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

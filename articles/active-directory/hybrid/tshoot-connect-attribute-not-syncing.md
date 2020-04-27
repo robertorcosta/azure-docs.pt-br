@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60455873"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Solucionar problemas de um atributo que não está sincronizando no Azure AD Connect
@@ -32,22 +32,22 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 
 ### <a name="terminology"></a>**Terminologia**
 
-* **CS:** Espaço conector, uma tabela no banco de dados.
+* **CS:** Espaço do conector, uma tabela no banco de dados.
 * **MV:** Metaverso, uma tabela no banco de dados.
-* **Anúncio:** Diretório Ativo
-* **AAD:** Diretório Ativo do Azure
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
 
 ### <a name="synchronization-steps"></a>**Etapas de sincronização**
 
-* Importação de AD: Objetos de diretório ativo são trazidos para OD CS.
+* Importar do AD: os objetos do Active Directory são trazidos para o AD CS.
 
-* Importação de AAD: Objetos do Azure Active Directory são trazidos para OAD CS.
+* Importar do AAD: os objetos Azure Active Directory são trazidos para o AAD CS.
 
-* Sincronização: **As regras de sincronização de entrada** e as regras de **sincronização de saída** são executadas na ordem do número de precedência de menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
+* Sincronização: **regras de sincronização de entrada** e **regras de sincronização de saída** são executadas na ordem de precedência número de menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
 
-* Exportar para AD: Após executar a sincronização, os objetos são exportados de CS AD para **Active Directory**.
+* Exportar para o AD: após a execução da sincronização, os objetos são exportados do AD CS para o **Active Directory**.
 
-* Exportar para AAD: Após executar a sincronização, os objetos são exportados do AAD CS para **o Azure Active Directory**.
+* Exportar para o AAD: após a execução da sincronização, os objetos são exportados do AAD CS para o **Azure Active Directory**.
 
 ### <a name="step-by-step-investigation"></a>**Investigação passo a passo**
 
@@ -80,15 +80,15 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 * Da mesma forma, você pode exibir o objeto **Espaço de Conector do Azure Active Directory** e gerar a **Visualização** para exibir o fluxo de atributos de **Metaverso** para o **Espaço de Conector** e vice-versa, dessa forma, você poderá investigar por que um atributo não está sincronizando.
 
 ## <a name="recommended-documents"></a>**Documentos recomendados**
-* [Sincronização do Azure AD Connect: conceitos técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Sincronização de Azure AD Connect: conceitos técnicos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
 * [Sincronização do Azure AD Connect: noções básicas sobre a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
 * [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
 * [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
 * [Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
 * [Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Sincronização Azure AD Connect: Atributos de sombra](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Sincronização de Azure AD Connect: atributos de sombra](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
-- [O que é a identidade híbrida?](whatis-hybrid-identity.md).
+- [Sincronização de Azure ad Connect](how-to-connect-sync-whatis.md).
+- [O que é identidade híbrida?](whatis-hybrid-identity.md).

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68965109"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
@@ -95,7 +95,7 @@ O dispositivo de nuvem tem os seguintes recursos:
 * Você pode criar um número ilimitado de dispositivos de nuvem na nuvem e ativá-los ou desativá-los conforme necessário.
 * Ele pode ajudar a simular ambientes locais em cenários de recuperação de desastre, de desenvolvimento ou teste, e pode ajudar na recuperação no nível do item de backups.
 
-O Dispositivo de Nuvem StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o dispositivo 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (Em níveis locais, o armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium.
+O Dispositivo de Nuvem StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o dispositivo 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (Em camadas locais, o armazenamento Premium do Azure armazena dados no SSDs, enquanto o armazenamento Standard armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento Premium do Azure para usar o armazenamento Premium.
 
 Para obter mais informações sobre o Dispositivo de Nuvem StorSimple, acesse [Implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -208,7 +208,7 @@ A eliminação de duplicação reduz a quantidade geral de dados armazenados, el
 ## <a name="storsimple-workload-summary"></a>Resumo de carga de trabalho do StorSimple
 Confira na tabela abaixo um resumo das cargas de trabalho do StorSimple com suporte.
 
-| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Colaboração |Compartilhamento de arquivos |Sim | |Todas as versões |
 | Colaboração |Compartilhamento de arquivos distribuído |Sim | |Todas as versões |
@@ -235,7 +235,7 @@ As cargas de trabalho a seguir não têm suporte de dispositivos da série StorS
 
 Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSimple.
 
-| Cenário | Carga de trabalho | Com suporte | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportado | Restrições | Versão |
 | --- | --- | --- | --- | --- |
 | Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |

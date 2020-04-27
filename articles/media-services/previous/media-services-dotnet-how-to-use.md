@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64724109"
 ---
 # <a name="media-services-development-with-net"></a>Desenvolvimento de serviços de mídia com o .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este artigo discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET.
 
@@ -43,13 +43,13 @@ Esta seção mostra como usar **NuGet** para adicionar extensões do SDK do .NET
 
 Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia no GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) ou [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Todas as dependências necessárias são baixadas e extraídas automaticamente.
 
-1. No Visual Studio, crie um novo aplicativo de console C#. Digite o **nome,** **localização**e **nome da solução**e clique em OK.
+1. No Visual Studio, crie um novo aplicativo de console C#. Insira o **nome**, o **local**e o **nome da solução**e clique em OK.
 2. Compile a solução.
-3. Use o **NuGet** para instalar e adicionar as **Extensões do SDK do .NET dos Serviços de Mídia do Azure** (**windowsazure.mediaservices.extensions**). Instalando este pacote, também instala **o Media Services .NET SDK** e adiciona todas as outras dependências necessárias.
+3. Use o **NuGet** para instalar e adicionar as **Extensões do SDK do .NET dos Serviços de Mídia do Azure** (**windowsazure.mediaservices.extensions**). A instalação desse pacote também instala o **SDK do .net dos serviços de mídia** e adiciona todas as outras dependências necessárias.
    
     Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](https://nuget.codeplex.com/).
 
-    1. No Solution Explorer, clique com o botão direito do mouse no nome do projeto e escolha **Gerenciar pacotes NuGet**.
+    1. Em Gerenciador de Soluções, clique com o botão direito do mouse no nome do projeto e escolha **gerenciar pacotes NuGet**.
 
     2. A caixa de diálogo Gerenciar Pacotes NuGet será exibida.
 
@@ -57,7 +57,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
    
     4. O projeto é modificado e faz referência às extensões do SDK do .NET dos Serviços de Mídia, ao SDK do .NET dos Serviços de Mídia e a outros assemblies dependentes adicionados.
 4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](https://docs.nuget.org/consume/package-restore).
-5. Adicionar uma referência ao assembly **System.Configuration** . Este conjunto contém o System.Configuration. **Classe ConfigurationManager** que é usada para acessar arquivos de configuração (por exemplo, App.config).
+5. Adicionar uma referência ao assembly **System.Configuration** . Esse assembly contém o System. Configuration. Classe **ConfigurationManager** usada para acessar arquivos de configuração (por exemplo, app. config).
    
     1. Para adicionar referências usando a caixa de diálogo Gerenciar referências, clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções. Em seguida, clique em **Adicionar** e em **Referência...**.
    
@@ -80,7 +80,7 @@ Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serv
         ```
 
 7. Adicionar o **System.Configuration** referência ao seu projeto.
-8. Sobrepor as instruções existentes **usando** o arquivo de Program.cs com o seguinte código:
+8. Substitua as instruções **using** existentes no início do arquivo Program.cs pelo seguinte código:
 
     ```csharp      
             using System;
@@ -141,6 +141,6 @@ Agora [você pode conectar-se à API do AMS](media-services-use-aad-auth-to-acce
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

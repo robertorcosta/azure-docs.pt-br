@@ -1,6 +1,6 @@
 ---
 title: Conceitos dos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma breve visão geral dos conceitos e links do Microsoft Azure Media Services para outros artigos para obter detalhes.
+description: Este artigo fornece uma breve visão geral de Serviços de Mídia do Microsoft Azure conceitos e links para outros artigos para obter detalhes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641663"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160215"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
@@ -49,7 +49,7 @@ Você não deve tentar alterar o conteúdo de contêineres de blob que foram ger
 Dependendo do tipo de conteúdo que você deseja carregar, armazenar e fornecer, o Serviços de Mídia fornece várias opções de criptografia dentre as quais você pode escolher.
 
 >[!NOTE]
->Nenhuma criptografia é usada. Esse é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+>Nenhuma criptografia é usada. Este é o valor padrão. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
 
 Se você pretende enviar um MP4 usando o download progressivo, use essa opção para carregar seu conteúdo.
 
@@ -111,7 +111,7 @@ Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-
 ## <a name="live-streaming"></a>Transmissão ao vivo
 Nos Serviços de Mídia do Azure, um Canal representa um pipeline para processamento de conteúdo de streaming ao vivo. Um Canal recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-* Um codificador local ao vivo envia RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo saída RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision encoders. Os fluxos ingeridos passam por Canais sem qualquer transcodificação e codificação adicionais. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador local ao vivo envia RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: codificadores Adobe Flash Live, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, HaiVision. Os fluxos ingeridos passam por Canais sem qualquer transcodificação e codificação adicionais. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 * Um fluxo de taxa de bits única (em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar a codificação ativa com os Serviços de Mídia. O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 ### <a name="channel"></a>Canal
@@ -123,7 +123,7 @@ Cada conta dos Serviços de Mídia pode conter vários canais, vários programas
 
 ### <a name="program-event"></a>Programa (evento)
 Um [Programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam Programas (eventos). A relação entre Canal e Programa é semelhante à mídia tradicional, em que um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento regulado naquele canal.
-Você pode especificar o número de horas que deseja reter o conteúdo gravado para o programa definindo a propriedade **ArchiveWindowLength.** Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas.
+Você pode especificar o número de horas que deseja manter o conteúdo registrado para o programa, definindo a propriedade **ArchiveWindowLength** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas.
 
 ArchiveWindowLength também determina que a quantidade máxima de clientes de tempo pode buscar de volta no tempo a partir da posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
@@ -133,7 +133,7 @@ Um canal dá suporte a até três programas em execução simultânea, para que 
 
 Para obter mais informações, consulte:
 
-* [Trabalhando com canais habilitados para executar codificação ao vivo com serviços de mídia do Azure](media-services-manage-live-encoder-enabled-channels.md)
+* [Trabalhando com canais habilitados para executar a codificação ativa com os serviços de mídia do Azure](media-services-manage-live-encoder-enabled-channels.md)
 * [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
 * [Cotas e limitações](media-services-quotas-and-limitations.md).
 
@@ -161,17 +161,17 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="delivering"></a>Fornecimento
 ### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
-Ao trabalhar com serviços de mídia, recomenda-se codificar seus arquivos mezaninos em um conjunto MP4 de bitrate adaptativo e, em seguida, converter o conjunto para o formato desejado usando a [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md).
+Ao trabalhar com os serviços de mídia, é recomendável codificar seus arquivos de mezanino em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
-Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente para um aplicativo do player cliente ou para uma CDN (Content Delivery Network, rede de entrega de conteúdo) para distribuição adicional (o Azure Media Services agora fornece a integração CDN do Azure.) O fluxo de saída de um serviço de ponto final de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta de Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
+Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player de cliente ou a uma CDN (rede de distribuição de conteúdo) para distribuição posterior (os serviços de mídia do Azure agora fornecem a integração da CDN do Azure.) O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser um fluxo ao vivo ou um ativo de vídeo sob demanda em sua conta de serviços de mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
 
 O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Os Pontos de Extremidade de Streaming Standard proporcionam flexibilidade para distribuição de conteúdo a praticamente qualquer dispositivo por meio de empacotamento dinâmico em HLS, MPEG-DASH e Smooth Streaming, bem como a criptografia dinâmica para o Microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também são dimensionados para públicos-alvo muito pequenos para muito grandes com milhares de visualizadores simultâneos por meio da integração de CDN do Azure. Se você tiver uma carga de trabalho avançada, ou os requisitos de capacidade de streaming não se ajustarem às metas de taxa de transferência do ponto de extremidade de streaming padrão, ou se você quiser controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda, é recomendável alocar unidades de escala (também conhecidas como unidades de streaming Premium).
 
 É recomendável usar empacotamento dinâmico e/ou criptografia dinâmica.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.** 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
 Para obter mais informações, consulte [este](media-services-portal-manage-streaming-endpoints.md) tópico.
 
@@ -180,7 +180,7 @@ Por padrão, você pode ter até dois pontos de extremidade de streaming em sua 
 Você será cobrado apenas quando seu StreamingEndpoint estiver em estado de execução.
 
 ### <a name="asset-delivery-policy"></a>Política de fornecimento de ativos
-Uma das etapas do fluxo de trabalho de entrega de conteúdo do Media Services é a configuração de [políticas de entrega para ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que você deseja ser transmitido. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
+Uma das etapas no fluxo de trabalho de distribuição de conteúdo dos serviços de mídia é configurar [políticas de entrega para ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que você deseja transmitir. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
 
 Se você tiver um ativo de armazenamento criptografado, antes que possa ser transmitido seu ativo, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia AES (criptografia avançada padrão), defina o tipo de política para DynamicEnvelopeEncryption. Para remover a criptografia de armazenamento e transmitir o ativo claro, defina o tipo de política como NoDynamicEncryption.
 
@@ -192,15 +192,15 @@ O download progressivo permite iniciar a reprodução da mídia antes do arquivo
 
 Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo:
 
-http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+`http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
 ### <a name="streaming-urls"></a>URLs de streaming
 Transmitindo seu conteúdo para clientes. Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo que contém o conteúdo que você deseja transmitir. No entanto, para poder transmitir este conteúdo você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, você deve concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (ISM). Em seguida, anexe um formato apropriado (se necessário) ao caminho do localizador.
 
-Você também pode transmitir seu conteúdo por uma conexão TLS. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.  
+Você também pode transmitir seu conteúdo por uma conexão TLS. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte a TLS com domínios personalizados.  
 
 >[!NOTE]
->Você só pode transmitir através do TLS se o ponto final de streaming a partir do qual você entrega seu conteúdo foi criado após 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). UrLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se sua URL estiver no formato antigo e você quiser ser capaz de transmitir através de TLS, crie um novo ponto final de streaming. Use URLs criados com base no novo ponto final de streaming para transmitir seu conteúdo através de TLS.
+>Você só poderá transmitir por TLS se o ponto de extremidade de streaming do qual você entregar seu conteúdo tiver sido criado após 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a TLS. Se a URL estiver no formato antigo e você quiser ser capaz de transmitir por TLS, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por TLS.
 
 A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos:
 
@@ -208,25 +208,25 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
 {nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 * MPEG DASH
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = MPD-time-CSF)
 
 * Apple HTTP Live Streaming (HLS) V4
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL)
 
 * Apple HTTP Live Streaming (HLS) V3
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl-v3)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL-v3)
 
 ## <a name="additional-notes"></a>Observações adicionais
 
@@ -235,6 +235,6 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

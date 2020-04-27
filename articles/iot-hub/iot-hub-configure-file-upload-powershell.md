@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60318422"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de arquivo do Hub IoT usando o PowerShell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Para usar a [funcionalidade de upload de arquivos no IoT Hub,](iot-hub-devguide-file-upload.md)você deve primeiro associar uma conta de armazenamento Azure ao seu hub IoT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
+Para usar a [funcionalidade de upload de arquivo no Hub IOT](iot-hub-devguide-file-upload.md), primeiro você deve associar uma conta de armazenamento do Azure ao Hub IOT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, você pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [Cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Um Hub IoT do Azure. Se você não tiver um hub de IoT, você pode usar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar um ou usar o portal para [criar um hub de IoT](iot-hub-create-through-portal.md).
+* Um Hub IoT do Azure. Se você não tiver um hub IoT, poderá usar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar um ou usar o portal para [criar um hub IOT](iot-hub-create-through-portal.md).
 
 * Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento do Azure, você pode usar o [cmdlets do PowerShell do armazenamento do Azure](https://docs.microsoft.com/powershell/module/az.storage/) para criar uma ou usar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Entre na sua conta do Azure e selecione sua assinatura.
 
-1. No prompt do PowerShell, execute o cmdlet **Connect-AzAccount:**
+1. No prompt do PowerShell, execute o cmdlet **Connect-AzAccount** :
 
     ```powershell
     Connect-AzAccount
@@ -135,6 +135,6 @@ Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 * [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

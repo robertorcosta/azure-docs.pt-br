@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "64918789"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando uma solução de identidade forte
@@ -80,13 +80,13 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 * funcionalidades internas que permitem que sua empresa esteja em conformidade com esses requisitos regulatórios? 
 
 > [!NOTE]
-> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) irá passar por cima das opções disponíveis e vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
  [Determinar requisitos de gerenciamento de conteúdo](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

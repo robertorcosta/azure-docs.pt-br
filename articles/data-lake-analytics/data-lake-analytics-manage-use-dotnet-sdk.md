@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
-description: Este artigo descreve como usar o Azure .NET SDK para escrever aplicativos que gerenciam trabalhos do Data Lake Analytics, fontes de dados & usuários.
+description: Este artigo descreve como usar o SDK do .NET do Azure para escrever aplicativos que gerenciam Data Lake Analytics trabalhos, fontes de dados & usuários.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60617700"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo .NET
@@ -220,7 +220,7 @@ if (adlaClient.Account.Exists(rg, adla))
 No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Conta de armazenamento do Azure](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Vincular a uma conta de armazenamento do Azure
 
@@ -444,5 +444,5 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Gerencie o Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitore e soluciona problemas do Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Gerenciar Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-manage-use-portal.md)
+* [Monitorar e solucionar problemas de trabalhos do Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60302461"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para exibir os trabalhos para a Matriz Virtual StorSimple
@@ -36,7 +36,7 @@ Você pode localizar rapidamente os trabalhos nos quais está interessado filtra
   * **Status** – Os trabalhos podem ser **Todos**, **Em andamento**, **Concluídos com sucesso**, **Com falha**, ou **Cancelado**.
   * **Entidade** – os trabalhos podem ser associados a um volume, compartilhamento ou dispositivo.
   * **Dispositivo** – o nome do dispositivo no qual o trabalho foi iniciado.
-  * **Começou** – A época em que o trabalho foi iniciado.
+  * **Iniciado em** – a hora em que o trabalho foi iniciado.
   * **Duração** – a duração de execução do trabalho.
 * **Status** – você pode pesquisar todos os trabalhos em execução, concluídos ou com falha.
 * **Tipo de trabalho** – o tipo de trabalho pode ser todos, backup, restauração, failover, baixar atualizações ou instalar atualizações.
@@ -64,5 +64,5 @@ Você verá o seguinte erro: "A hora do dispositivo está fora de sincronia com 
 Essas falhas aplicam-se aos trabalhos de backup, restauração, atualização e failover. Se sua máquina virtual for provisionada no Hyper-V, ela eventualmente sincroniza a hora com o hipervisor. Depois que isso acontece, você pode reiniciar seu trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Aprenda a usar a interface do web local para administrar seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+[Saiba como usar a interface do usuário da Web local para administrar sua matriz virtual StorSimple](storsimple-ova-web-ui-admin.md).
 

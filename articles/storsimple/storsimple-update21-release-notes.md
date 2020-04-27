@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60531043"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de versão da Atualização 2.2 do StorSimple Série 8000
@@ -56,7 +56,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 4 |Criação de instantâneos |Houve problemas relacionados à criação de instantâneos incrementais em cenários com grandes volumes e pouca, ou nenhuma, rotatividade de dados. Esses problemas foram corrigidos nesta versão. |Sim |Sim |
 | 5 |Autenticação Openstack |Ao usar o Openstack como o provedor de serviços de nuvem, o usuário enfrentaria um bug raro relacionado à autenticação, no qual o analisador JSON resultava em uma falha. Esse bug foi corrigido nesta versão. |Sim |Não |
 | 6 |Cópia do host |Nas versões anteriores do software, um bug raro relacionado ao intervalo de ODX foi visto durante a cópia dos dados de um volume para outro. Isso resultaria em um failover de controlador e o sistema potencialmente poderia entrar no modo de recuperação. Esse bug foi corrigido nesta versão. |Sim |Não |
-| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, houve várias\<instâncias de falha de proxy web com a exceção " ManagementException> Falha de carga do Provedor". Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
+| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, havia várias instâncias de falha de proxy Web com a exceção "\<managementexception> carregar falha". Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
 | 8 |Atualizar |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
 | 9 |Pacote de suporte |Nesta versão, houve melhorias na forma como o pacote de suporte é coletado e carregado. |Sim |Sim |
 

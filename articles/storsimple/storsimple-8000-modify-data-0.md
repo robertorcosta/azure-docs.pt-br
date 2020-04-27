@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 3cf136c5ddec8f4998d15c597914e1f806453945
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60631576"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificar as configurações do adaptador de rede DATA 0 no dispositivo StorSimple 8000 series
@@ -38,7 +38,7 @@ Depois de ler este tutorial, você poderá:
 Você pode reconfigurar as definições de rede de DADOS 0 conectando-se à interface do Windows PowerShell de seu dispositivo StorSimple e iniciando uma sessão do assistente de instalação. Execute as etapas a seguir para modificar as configurações de DADOS 0:
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Para modificar as configurações de rede de DADOS 0 por meio do assistente de instalação
-1. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Quando solicitado, forneça a senha do administrador do **dispositivo**. A senha padrão é `Password1`.
+1. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
 2. No prompt de comando, digite:
    
     `Invoke-HcsSetupWizard`

@@ -1,6 +1,6 @@
 ---
 title: Problemas para entrar em um aplicativo de desenvolvimento personalizado | Microsoft Docs
-description: Erros comuns que podem estar fazendo você não ser capaz de entrar em um aplicativo que você desenvolveu com o Azure AD
+description: Erros comuns que podem estar fazendo com que você não consiga entrar em um aplicativo que você desenvolveu com o Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,13 +17,13 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "65825230"
 ---
-# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas ao fazer login em um aplicativo personalizado
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problemas ao entrar em um aplicativo personalizado
 
 Há vários erros que podem estar causando a impossibilidade de entrar em um aplicativo. O principal motivo das pessoas se depararem com esse problema está relacionado com aplicativos configurados incorretamente.
 

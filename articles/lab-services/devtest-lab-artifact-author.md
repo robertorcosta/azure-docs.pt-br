@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "66399212"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
@@ -89,8 +89,8 @@ Os tipos permitidos são:
 * bool (qualquer booliano JSON válido)
 * array (qualquer matriz JSON válida)
 
-## <a name="secrets-as-secure-strings"></a>Segredos como cordas seguras
-Declare segredos como strings seguros. Aqui está a sintaxe para declarar um `parameters` parâmetro de string seguro dentro da seção do arquivo **artifactfile.json:**
+## <a name="secrets-as-secure-strings"></a>Segredos como cadeias de caracteres seguras
+Declare segredos como cadeias de caracteres seguras. Aqui está a sintaxe para declarar um parâmetro de cadeia de caracteres `parameters` segura dentro da seção do arquivo **artefatofile. JSON** :
 
 ```json
 
@@ -102,7 +102,7 @@ Declare segredos como strings seguros. Aqui está a sintaxe para declarar um `pa
     },
 ```
 
-Para o comando instalação de artefatos, execute o script PowerShell que leva a seqüência segura criada usando o comando ConvertTo-SecureString. 
+Para o comando de instalação do artefato, execute o script do PowerShell que usa a cadeia de caracteres segura criada usando o comando ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,9 +110,9 @@ Para o comando instalação de artefatos, execute o script PowerShell que leva a
   }
 ```
 
-Para obter o exemplo completo de artifactfile.json e do artifact.ps1 (script PowerShell), consulte [esta amostra no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Para o exemplo de artefatofile. JSON completo e o artefato. ps1 (script do PowerShell), consulte [Este exemplo no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Outro ponto importante a ser observado é não registrar segredos para o console, pois a saída é capturada para depuração do usuário. 
+Outro ponto importante a ser observado não é registrar os segredos no console, pois a saída é capturada para depuração do usuário. 
 
 ## <a name="artifact-expressions-and-functions"></a>Expressões e funções de artefatos
 Você pode usar expressões e funções para construir o comando de instalação do artefato.
@@ -135,7 +135,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 
 ## <a name="create-a-custom-artifact"></a>Criar um artefato personalizado
 
-1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso [do Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
+1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. É recomendável usar [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e os X.
 2. Obtenha um exemplo de arquivo de definição artifactfile.json. Confira os artefatos criados pela equipe do DevTest Labs em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab). Você criou uma biblioteca avançada artefatos que podem lhe ajudar a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
 3. Faça uso do IntelliSense. Use o IntelliSense para ver os elementos válidos que você pode usar para construir um arquivo de definição de artefato. Você também pode ver as diferentes opções de valores para um elemento. Por exemplo, quando você edita o elemento **targetOsType**, o IntelliSense mostra a você as duas opções, Windows ou Linux.
 4. Armazene o artefato no [repositório público do Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou no [seu próprio repositório Git](devtest-lab-add-artifact-repo.md). No repositório público, você pode exibir os artefatos compartilhados por outras pessoas que você pode usar diretamente ou personalizá-los para atender às suas necessidades.

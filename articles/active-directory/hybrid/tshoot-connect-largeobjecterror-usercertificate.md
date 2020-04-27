@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "62095482"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros LargeObject causados pelo atributo userCertificate
 
 O Azure AD impõe um limite máximo de **15** valores de certificado no atributo **userCertificate**. Se o Azure AD Connect exportar um objeto com mais de 15 valores para o Azure AD, o Azure AD retornará um erro **LargeObject** com a mensagem:
 
->*"O objeto provisionado é muito grande. Corte o número de valores de atributo neste objeto. A operação será repetida novamente no próximo ciclo de sincronização..."*
+>*"O objeto provisionado é muito grande. Corte o número de valores de atributo neste objeto. A operação será repetida no próximo ciclo de sincronização... "*
 
 O erro LargeObject pode ser causado por outros atributos do AD. Para confirmar se ele realmente é causado pelo atributo userCertificate, você precisa verificar o objeto no AD local ou na [Pesquisa de Metaverso do Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
 
@@ -93,9 +93,9 @@ Deve haver uma regra de sincronização existente que é habilitada e configurad
     | Atributo | Valor |
     | --- | --- |
     | Direção |**Saída** |
-    | Tipo de Objeto de MV |**Pessoa** |
+    | Tipo de Objeto de MV |**Person** |
     | Conector |*nome de seu conector do Azure AD* |
-    | Tipo de Objeto de Conector |**Usuário** |
+    | Tipo de Objeto de Conector |**user** |
     | Atributos de MV |**userCertificate** |
 
 3. Se você estiver usando regras de sincronização OOB (integradas) para o conector do Azure AD para exportar o atributo userCertificate de objetos User, deverá retornar à regra *“Saída para AAD – Exchange Online do Usuário”*.
@@ -120,8 +120,8 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
     | Nome | *Fornecer um nome* | Por exemplo, *“Saída para AAD – Substituição personalizado para userCertificate”* |
     | Descrição | *Forneça uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
     | Sistema Conectado | *Selecionar o Azure AD Connector* |
-    | Tipo de Objeto do Sistema Conectado | **Usuário** | |
-    | Tipo de Objeto de Metaverso | **Pessoa** | |
+    | Tipo de Objeto do Sistema Conectado | **user** | |
+    | Tipo de Objeto de Metaverso | **pessoa** | |
     | Tipo de link | **Ingressar** | |
     | Precedência | *Escolher um número entre 1 a 99* | O número escolhido não deve ser usado por nenhuma regra de sincronização existente e tem um valor mais baixo (e, portanto, uma precedência mais alta) que a regra de sincronização existente. |
 
@@ -133,7 +133,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
     | --- | --- |
     | Tipo de Fluxo |**Expressão** |
     | Atributo de Destino |**userCertificate** |
-    | Atributo de Origem |*Use a seguinte expressão:*`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Atributo de Origem |*Use a seguinte expressão*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Clique no botão **Adicionar** para criar a regra de sincronização.
 
@@ -145,7 +145,7 @@ Isso serve para verificar se a regra de sincronização criada está funcionando
 4. Na tela pop-up Visualização, selecione **Sincronização total** e clique em **Confirmar Visualização**.
 5. Feche a tela Visualização e a tela Propriedades de Objeto do Espaço Conector.
 6. Acesse a guia **Conectores** no Synchronization Service Manager.
-7. Clique com o botão direito do mouse no **Conector Ad azure** e selecione **Executar...**
+7. Clique com o botão direito do mouse no **Azure ad** Connector e selecione **executar...**
 8. No pop-up Executar Conector, selecione a etapa **Exportar** e clique em **OK**.
 9. Aguarde até que a etapa Exportar para o Azure AD seja concluída e confirme se não há mais nenhum erro LargeObject nesse objeto específico.
 
@@ -169,7 +169,7 @@ Depois que a regra de sincronização for adicionada, você precisará executar 
 ### <a name="step-7-export-the-changes-to-azure-ad"></a>Etapa 7. Exportar as alterações para o Azure AD
 Para exportar as alterações para o Azure AD:
 1. Acesse a guia **Conectores** no Synchronization Service Manager.
-2. Clique com o botão direito do mouse no **Conector Ad azure** e selecione **Executar...**
+2. Clique com o botão direito do mouse no **Azure ad** Connector e selecione **executar...**
 4. No pop-up Executar Conector, selecione a etapa **Exportar** e clique em **OK**.
 5. Aguarde até que a etapa Exportar para o Azure AD seja concluída e confirme se não há mais erros LargeObject.
 
@@ -182,5 +182,5 @@ Agora que o problema foi resolvido, habilite o agendador de sincronização inte
 > As etapas anteriores só são aplicáveis às versões mais novas (1.1.xxx.x) do Azure AD Connect com o agendador interno. Se você estiver usando versões mais antigas (1.0.xxx.x) do Azure AD Connect que usam o Agendador de Tarefas do Windows ou estiver usando seu próprio agendador personalizado (caso incomum) para disparar a sincronização periódica, precisará desabilitá-las de acordo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 

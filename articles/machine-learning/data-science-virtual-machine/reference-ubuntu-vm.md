@@ -1,21 +1,21 @@
 ---
-title: 'Referência: Ubuntu Data Science Virtual Machine'
+title: 'Referência: Ubuntu Máquina Virtual de Ciência de Dados'
 titleSuffix: Azure Data Science Virtual Machine
-description: Detalhes sobre ferramentas incluídas na Máquina Virtual de Data Science do Ubuntu
+description: Detalhes sobre as ferramentas incluídas no Ubuntu Máquina Virtual de Ciência de Dados
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631359"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161274"
 ---
-# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Data Science
+# <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Ubuntu (Linux) Máquina Virtual de Ciência de Dados
 
 Veja abaixo uma lista de ferramentas disponíveis em sua Máquina Virtual de Ciência de Dados do Ubuntu. 
 
@@ -32,7 +32,7 @@ cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
 cntk configFile=lr_bs.cntk makeMode=false command=Train
 ```
 
-Para obter mais informações, consulte a seção CNTK do [GitHub](https://github.com/Microsoft/CNTK) e a [wiki CNTK](https://github.com/Microsoft/CNTK/wiki).
+Para obter mais informações, consulte a seção CNTK do [GitHub](https://github.com/Microsoft/CNTK) e o [wiki do CNTK](https://github.com/Microsoft/CNTK/wiki).
 
 ### <a name="caffe"></a>Caffe
 
@@ -52,7 +52,7 @@ Alguns blocos de anotações de amostra também estão disponíveis no JupyterHu
 
 H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. 
 
-Para abrir o H2O na linha de comando, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Há várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode querer configurar. Você pode acessar a interface do usuário Web do Flow navegando até http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
+Para abrir o H2O na linha de comando, execute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Há várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode querer configurar. Você pode acessar a interface do usuário Web do Flow navegando até `http://localhost:54321` para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 ### <a name="keras"></a>Keras
 
@@ -66,7 +66,7 @@ MXNet é uma estrutura de aprendizado profunda criada para eficiência e flexibi
 
 O NVIDIA Deep Learning GPU Training System, conhecido como DIGITS, é um sistema para simplificar tarefas comuns de aprendizado profundo. As tarefas incluem gerenciamento de dados, design e treinamento de redes neurais em sistemas GPU e monitoramento de desempenho em tempo real com visualização avançada.
 
-O DIGITS está disponível como um serviço chamado *dígitos*. Inicie o serviço e navegue até http://localhost:5000 para começar.
+Os dígitos estão disponíveis como um serviço chamado *dígitos*. Inicie o serviço e navegue até `http://localhost:5000` para começar.
 
 DIGITS também é instalado como um módulo do Python no ambiente raiz Conda.
 
@@ -137,7 +137,7 @@ Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento
 
 A distribuição do Anaconda também acompanha um notebook Jupyter, um ambiente de compartilhamento de código e de análise. O notebook Jupyter é acessado com o JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
 
-O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Use o ícone de área de trabalho do **Jupyter Notebook** para abrir o navegador e acessar o servidor de notebook. Se você estiver na VM via SSH ou no cliente X2Go, você [https://localhost:8000/](https://localhost:8000/)também pode acessar o servidor de notebook Jupyter em .
+O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Use o ícone de área de trabalho do **Jupyter Notebook** para abrir o navegador e acessar o servidor de notebook. Se você estiver na VM via cliente SSH ou X2Go, também poderá acessar o servidor do Jupyter Notebook em `https://localhost:8000/`.
 
 > [!NOTE]
 > Continue se você obtiver quaisquer avisos de certificado.
@@ -185,7 +185,7 @@ PyCharm, RStudio e IntelliJ são editores gráficos. Para usá-los, você precis
 
 Vim e Emacs são editores baseados em texto. No Emacs, o pacote complementar do ESS facilita o trabalho com R no editor Emacs. Você pode encontrar mais informações no [site do ESS](https://ess.r-project.org/).
 
-O LaTex é instalado através do pacote texlive, juntamente com um pacote adicional Emacs chamado [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Esse pacote simplifica a criação de seus documentos do LaTex no Emacs.  
+O LaTex é instalado por meio do pacote TeXlive, junto com um pacote de complemento Emacs chamado [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). Esse pacote simplifica a criação de seus documentos do LaTex no Emacs.  
 
 ## <a name="databases"></a>Bancos de dados
 
@@ -199,17 +199,17 @@ SQuirrel SQL, um cliente gráfico do SQL, pode conectar-se a vários bancos de d
 
 Antes do primeiro uso, configure os drivers e aliases de banco de dados. Os drivers JDBC estão localizados em /usr/share/java/jdbcdrivers.
 
-Para obter mais informações, consulte [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
+Para obter mais informações, consulte [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 ### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas de linha de comando para acessar o Microsoft SQL Server
 
 O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha de comando:
 
-- **bcp**: A ferramenta bcp copia em massa dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. Você pode usá-la para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela. Ou você deve entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
+- **bcp**: a ferramenta bcp copia dados em massa entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. Você pode usá-la para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela. Ou você deve entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
 
   Para obter mais informações, veja [Como conectar-se com bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-- **sqlcmd**: Você pode inserir instruções Transact-SQL usando a ferramenta sqlcmd. Você também pode inserir procedimentos do sistema e arquivos de script no prompt de comando. Essa ferramenta usa o ODBC para executar lotes do Transact-SQL.
+- **sqlcmd**: você pode inserir instruções TRANSACT-SQL usando a ferramenta sqlcmd. Você também pode inserir procedimentos do sistema e arquivos de script no prompt de comando. Essa ferramenta usa o ODBC para executar lotes do Transact-SQL.
 
   Para saber mais, confira [Conectando-se com o sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -227,21 +227,21 @@ As bibliotecas estão disponíveis em R e Python para acesso do banco de dados:
 
 As ferramentas do Azure a seguir são instaladas na VM:
 
-* **Azure CLI**: Você pode usar a interface de linha de comando no Azure para criar e gerenciar recursos do Azure através de comandos shell. Para abrir as ferramentas do Azure, insira **ajuda do azure**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer é uma ferramenta gráfica que você pode usar para navegar pelos objetos armazenados em sua conta de armazenamento Do Zure e para carregar e baixar dados de e para blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você também pode abri-lo em um prompt do shell inserindo **StorageExplorer**. É necessário estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
-* **Bibliotecas Azure**: A seguir estão algumas das bibliotecas pré-instaladas.
+* **CLI do Azure**: você pode usar a interface de linha de comando no Azure para criar e gerenciar recursos do Azure por meio de comandos do Shell. Para abrir as ferramentas do Azure, insira **ajuda do azure**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Gerenciador de armazenamento do Azure**: Gerenciador de armazenamento do Azure é uma ferramenta gráfica que você pode usar para navegar pelos objetos que você armazenou em sua conta de armazenamento do Azure e para carregar e baixar dados de e para BLOBs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você também pode abri-lo em um prompt do shell inserindo **StorageExplorer**. É necessário estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
+* **Bibliotecas do Azure**: Veja a seguir algumas das bibliotecas pré-instaladas.
   
-  * **Python**: As bibliotecas relacionadas ao Azure em Python são *azul,* *azureml,* *pydocumentdb*e *pyodbc*. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
-  * **R**: As bibliotecas relacionadas ao Azure em R são AzureML e RODBC.
+  * **Python**: as bibliotecas relacionadas ao Azure no Python são *Azure*, *azureml*, *pydocumentdb*e *pyodbc*. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
+  * **R**: as bibliotecas relacionadas ao Azure em R são AZUREML e RODBC.
   * **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
 
-Você pode acessar o [portal Azure](https://portal.azure.com) a partir do navegador Firefox pré-instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
+Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox pré-instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-O Azure Machine Learning é um serviço de nuvem totalmente gerenciado que habilita você a compilar, implantar e compartilhar soluções de análise preditiva. Você pode construir seus experimentos e modelos no estúdio Azure Machine Learning (visualização). Você pode acessá-lo de um navegador da Web na Máquina Virtual de Ciência de Dados acessando o [Microsoft Azure Machine Learning](https://ml.azure.com).
+O Azure Machine Learning é um serviço de nuvem totalmente gerenciado que habilita você a compilar, implantar e compartilhar soluções de análise preditiva. Você pode criar seus experimentos e modelos no Azure Machine Learning Studio (versão prévia). Você pode acessá-lo de um navegador da Web na Máquina Virtual de Ciência de Dados acessando o [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-Depois de entrar no estúdio azure Machine Learning, você pode usar uma tela de experimentação para construir um fluxo lógico para os algoritmos de aprendizado de máquina. Você também tem acesso a um notebook Jupyter que está hospedado no Azure Machine Learning e pode trabalhar perfeitamente com os experimentos no estúdio Azure Machine Learning. 
+Depois de entrar no Azure Machine Learning Studio, você pode usar uma tela de experimentação para criar um fluxo lógico para os algoritmos de aprendizado de máquina. Você também tem acesso a um Jupyter notebook que está hospedado no Azure Machine Learning e pode trabalhar de forma direta com os experimentos no Azure Machine Learning Studio. 
 
 Coloque em operação os modelos de aprendizado de máquina compilados encapsulando-os em uma interface de serviço Web. A operacionalização de modelos de machine learning permite que clientes escritos em qualquer linguagem invoquem previsões desses modelos. Para saber mais, confira a [Documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -261,7 +261,7 @@ A VM vem com ferramentas e algoritmos de aprendizado de máquina que foram pré-
 * **Rattle**: uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
 * **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
 * **LightGBM**: um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
-* **R**: Uma rica biblioteca de funções de aprendizagem de máquina está disponível para R. Bibliotecas pré-instaladas incluem lm, glm, randomForest e rpart. Você pode instalar outras bibliotecas executando este comando:
+* **R**: uma biblioteca avançada de funções de aprendizado de máquina está disponível para R. as bibliotecas pré-instaladas incluem LM, GLM, randomForest e rpart. Você pode instalar outras bibliotecas executando este comando:
   
         install.packages(<lib name>)
 
@@ -329,7 +329,7 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Use as seguint
 > [!NOTE]
 > Se não tiver acesso para instalar o pacote no diretório do sistema (o padrão), você poderá ver uma solicitação na janela do console do R para instalar pacotes na sua biblioteca pessoal. Caso veja essas solicitações, responda **s** .
 
-1. Selecione **Executar**.
+1. Selecione **executar**.
 1. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Selecione **Sim** para carregar o exemplo.
 1. Selecione a guia **Modelo**.
 1. Selecione **Executar** para criar uma árvore de decisão.
@@ -338,11 +338,11 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Use as seguint
 1. Selecione a guia **Avaliar**.
 1. Selecione a opção **Risco** e **Executar** para exibir dois gráficos de desempenho de **Risco (Cumulativo)**.
 1. Selecione a guia **Log** para mostrar o código R gerado para as operações anteriores.
-   (Por causa de um bug na versão atual **#** do Rattle, você precisa inserir um caractere na frente de **Exportar este log** no texto do log.)
+   (Devido a um bug na versão atual do Rattle, você precisa inserir um **#** caractere na frente da **exportação desse log** no texto do log.)
 1. Selecione o botão **Exportar** para salvar o arquivo de script do R chamado *weather_script.R* na pasta base.
 
 Você pode sair do Rattle e do R. Agora, você pode modificar o script de R gerado. Ou você pode usá-lo no estado em que se encontra e executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira, especialmente para iniciantes em R, de fazer análise e aprendizado de máquina rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar ou aprender.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Tem mais dúvidas? Considere criar um [bilhete de suporte](https://azure.microsoft.com/support/create-ticket/).
+Tem mais dúvidas? Considere criar um [tíquete de suporte](https://azure.microsoft.com/support/create-ticket/).

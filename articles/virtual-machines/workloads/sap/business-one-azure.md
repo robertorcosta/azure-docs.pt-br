@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70101407"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Microsoft Azure
@@ -37,7 +37,7 @@ Para usar este guia, você precisa ter um conhecimento básico dos seguintes com
 - [Máquinas Virtuais do Microsoft Azure no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Máquinas Virtuais do Microsoft Azure no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Rede do Azure e gerenciamento de redes virtuais com PowerShelll](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Rede azure e redes virtuais com CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Rede do Azure e redes virtuais com a CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gerenciar discos do Azure com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Mesmo se você estiver interessado somente no Business One, o documento [Planejamento e implementação de Máquinas Virtuais do Microsoft Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) pode ser uma boa fonte de informações.
@@ -149,8 +149,8 @@ Para as estratégias de backup e restauração do SAP HANA, é necessário ler o
 ### <a name="business-one-client-server"></a>Servidor do cliente Business One
 Para esses componentes, considerações de armazenamento não são a principal preocupação. no entanto, você quer ter uma plataforma confiável. Portanto, é necessário usar o Armazenamento Premium do Azure para essa VM, mesmo para o VHD de base. Dimensionar a VM, com os dados fornecidos no [Guia de Requisitos de Hardware do SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário focar e calcular os requisitos estabelecidos no capítulo 2.4 do documento. Ao calcular os requisitos, é necessário compará-los com os documentos a seguir para encontrar a VM ideal às suas necessidades:
 
-- [Tamanhos para máquinas virtuais windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-- [#1928533 nota SAP](https://launchpad.support.sap.com/#/notes/1928533)
+- [Tamanhos das máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Observação SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare o número de CPUs e memória necessários ao que é documentado pela Microsoft. Além disso, lembre-se da taxa de transferência de rede ao escolher as VMs.
 

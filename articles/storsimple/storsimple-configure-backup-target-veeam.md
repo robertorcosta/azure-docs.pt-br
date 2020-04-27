@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67875311"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de backup com o Veeam
@@ -56,8 +56,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**Diagrama de hierar**
-![simples storSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**StorSimple tiering**
+![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 
@@ -207,7 +207,7 @@ Configure o armazenamento do servidor de backup do host de acordo com estas orie
 
 Configure sua solução de acordo com as diretrizes indicadas nas próximas seções.
 
-### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operacional
+### <a name="operating-system-best-practices"></a>Práticas recomendadas para sistemas operacionais
 
 - Desabilite a criptografia do Windows Server e a eliminação de duplicação do sistema de arquivos NTFS.
 - Desabilite a desfragmentação do Windows Server em volumes do StorSimple.

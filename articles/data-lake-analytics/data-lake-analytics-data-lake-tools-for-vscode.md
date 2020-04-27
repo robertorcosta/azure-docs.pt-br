@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60508746"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
@@ -26,7 +26,7 @@ Neste artigo, saiba como usar as Ferramentas do Azure Data Lake para Visual Stud
 
 As ferramentas do Azure Data Lake para VS Code dão suporte para Windows, Linux e macOS.A execução local do U-SQL e a depuração local funcionam somente no Windows.
 
-- [Código visual do estúdio](https://www.visualstudio.com/products/code-vs.aspx)
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
 MacOS e Linux:
 - [SDK 2.0 do .NET Core](https://www.microsoft.com/net/download/core)
@@ -46,7 +46,7 @@ Após a instalação dos pré-requisitos, você pode instalar as Ferramentas do 
 
    Depois de alguns segundos, o botão **Instalar** será alterado para **Recarregar**.
 4. Selecione **Recarregar** para ativar a extensão **Ferramentas do Azure Data Lake**.
-5. Clique em **Recarregar Janela** para confirmar. Você pode ver **a Azure Data Lake Tools** no painel **Extensões.**
+5. Clique em **Recarregar Janela** para confirmar. Você pode ver **Azure data Lake ferramentas** no painel **extensões** .
 
  
 ## <a name="activate-azure-data-lake-tools"></a>Ativar Ferramentas do Azure Data Lake
@@ -121,8 +121,8 @@ Na guia **RESUMO** da exibição do trabalho, é possível ver os detalhes do tr
 3. O arquivo xxx_settings.json é aberto com as propriedades a seguir:
 
    - **conta**: uma conta do Azure Data Lake Analytics na sua assinatura do Azure que é necessária para compilar e executar trabalhos de U-SQL. É necessário configurar a conta de computador antes de compilar e executar trabalhos do U-SQL.
-   - **banco de dados**: Um banco de dados em sua conta. O padrão é **mestre**.
-   - **esquema**: Um esquema em seu banco de dados. O padrão é **dbo**.
+   - **banco de dados**: um banco de dados em sua conta. O padrão é **Master**.
+   - **esquema**: um esquema sob seu banco de dados. O padrão é **dbo**.
    - **optionalSettings**:
         - **prioridade**: o intervalo de prioridade é de 1 a 1000, sendo que 1 é a prioridade mais alta. O valor padrão é **1000**.
         - **degreeOfParallelism**: o intervalo de paralelismo é de 1 a 150. O valor padrão é o paralelismo máximo permitido em sua conta do Azure Data Lake Analytics. 
@@ -172,7 +172,7 @@ Uma forma mais conveniente de disparar o comando **ADL: Registrar Assembly** é 
 1.  Selecione Ctrl + Shift + P para abrir a paleta de comandos.
 2.  Insira **ADL: Registrar Assembly (Avançado)**. 
 3.  Especifique o caminho do assembly local. 
-4.  O arquivo JSON será exibido. Examine e edite as dependências do assembly e os parâmetros de recursos, se necessário. As instruções são exibidas na janela **Saída.** Para prosseguir com o registro do assembly, salve (CTRL+S) o arquivo JSON.
+4.  O arquivo JSON será exibido. Examine e edite as dependências do assembly e os parâmetros de recursos, se necessário. As instruções são exibidas na janela **saída** . Para prosseguir com o registro do assembly, salve (CTRL+S) o arquivo JSON.
 
     ![Arquivo JSON com dependências do assembly e parâmetros de recursos](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
     
@@ -226,7 +226,7 @@ O recurso de depuração local e execução local funciona apenas em ambientes W
 Para obter instruções sobre a execução e a depuração local, confira [Execução local do U-SQL e depuração local com o Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 
-## <a name="connect-to-azure"></a>Conectar-se ao Azure
+## <a name="connect-to-azure"></a>Conecte-se ao Azure
 
 Antes de compilar e executar scripts U-SQL no Data Lake Analytics, você deve se conectar à sua conta do Azure.
 
@@ -370,7 +370,7 @@ Outra maneira de carregar arquivos para armazenamento é pelo menu de atalho no 
 
 **Para baixar os arquivos por meio do comando ADL: Baixar Arquivo (Avançado)**
 1. Clique com o botão direito do mouse no editor de scripts e, depois, selecione **Baixar Arquivo (Avançado)**.
-2. O VS Code exibe um arquivo JSON. É possível inserir os caminhos de arquivo e baixar vários arquivos ao mesmo tempo. As instruções são exibidas na janela **Saída.** Para prosseguir com o download dos arquivos, salve (CTRL+S) o arquivo JSON.
+2. O VS Code exibe um arquivo JSON. É possível inserir os caminhos de arquivo e baixar vários arquivos ao mesmo tempo. As instruções são exibidas na janela **saída** . Para prosseguir com o download dos arquivos, salve (CTRL+S) o arquivo JSON.
 
     ![Arquivo JSON com os caminhos para download de arquivo](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
 
@@ -477,7 +477,7 @@ As Ferramentas do Data Lake para VS Code dão suporte aos seguintes recursos:
  
     ![Tipos de objeto do IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
  
--   **IntelliSense autocompletar em metadados data lake analytics**: Data Lake Tools baixa as informações de metadados do Data Lake Analytics localmente. O recurso IntelliSense preenche automaticamente os objetos de metadados do Data Lake Analytics. Esses objetos incluem o banco de dados, esquema, tabela, exibição, função com valor de tabela, procedimentos e assemblies do C#.
+-   **Preenchimento automático do IntelliSense em metadados de data Lake Analytics**: o data Lake Tools baixa as informações de metadados de data Lake Analytics localmente. O recurso IntelliSense preenche automaticamente os objetos de metadados do Data Lake Analytics. Esses objetos incluem o banco de dados, esquema, tabela, exibição, função com valor de tabela, procedimentos e assemblies do C#.
  
     ![Metadados do IntelliSense](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
 

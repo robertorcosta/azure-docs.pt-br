@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69016783"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
@@ -63,7 +63,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 ### <a name="to-create-a-windows-store-project"></a>Para criar um novo projeto da Windows Store
 
 1. Execute o Visual Studio; há suporte para as versões de 2012 a 2015.
-1. No menu **FILE,** clique em **Novo**e clique em **Projeto**.
+1. No menu **arquivo** , clique em **novo**e em **projeto**.
 1. Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
     | Nome | Valor |
@@ -71,7 +71,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
     | Nome |SSPlayer |
-    | Location |C:\SSTutorials |
+    | Local |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
 
@@ -94,7 +94,7 @@ Depois de adicionar as referências, você deve selecionar a plataforma de desti
 ### <a name="to-design-the-player-user-interface"></a>Para criar a interface do usuário do player
 
 1. No Gerenciador de Soluções, clique duas vezes em **MainPage.xaml** para abri-lo no modo de exibição de design.
-2. Localize ** &lt;&gt; ** as marcas Grade e ** &lt;/Grade&gt; ** do arquivo XAML e cole o seguinte código entre as duas tags:
+2. Localize as ** &lt;marcas&gt; Grid** e ** &lt;/Grid&gt; ** do arquivo XAML e cole o código a seguir entre as duas marcas:
 
    ```xml
          <Grid.RowDefinitions>
@@ -507,7 +507,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
    ```
 
    > [!NOTE]
-   > O CoreDispatcher é usado para fazer alterações no thread da interface do usuário no thread que não é da interface do usuário. Em caso de gargalo no segmento de despachante, o desenvolvedor pode optar por usar o despachante fornecido pelo elemento de ui que eles pretendem atualizar.  Por exemplo: 
+   > O CoreDispatcher é usado para fazer alterações no thread da interface do usuário no thread que não é da interface do usuário. No caso de afunilamento no thread do Dispatcher, o desenvolvedor pode optar por usar o Dispatcher fornecido pelo elemento da interface do usuário que pretende atualizar.  Por exemplo:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -819,7 +819,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 
 Você concluiu a lição 3.  Nesta lição, você adicionará a funcionalidade de escolher fluxos.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: Selecione faixas de streaming suaves
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: selecionar faixas de Smooth Streaming
 
 Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo codificados com diferentes níveis de qualidade (taxas de bits) e resoluções. Nesta lição, você habilitará a seleção de faixas pelos usuários. Esta lição contém os seguintes procedimentos:
 
@@ -847,7 +847,7 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
          </ListBox>
          </StackPanel>
    ```
-3. Pressione **CTRL+S** para salvar as alterações
+3. Pressione **Ctrl + S** para salvar as alterações
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o arquivo code-behind
 
@@ -1027,7 +1027,7 @@ Você concluiu a lição 4.  Nesta lição, você adicionará a funcionalidade d
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Outros recursos:

@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "60381188"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: referência do PowerShell ADSyncConfig
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-objectclass"></a>-ObjectClass
-A classe dos objetos de pesquisa que podem ser '*' (para qualquer classe de objeto), 'usuário', 'grupo', 'contêiner', etc. Por padrão, essa função procurará a classe de objeto 'organizationalUnit'.
+A classe dos objetos a Pesquisar que pode ser ' * ' (para qualquer classe de objeto), ' user ', ' Group ', ' container ', etc. Por padrão, essa função irá procurar a classe de objeto ' organizationalUnit '.
 
 ```yaml
 Type: String

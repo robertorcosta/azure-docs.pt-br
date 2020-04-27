@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67172526"
 ---
-Se o Python encontrar um erro ao iniciar o aplicativo, apenas uma página de erro simples será retornada (por exemplo, "A página não pode ser exibida porque ocorreu um erro interno do servidor.").
+Se o Python encontrar um erro ao iniciar o aplicativo, apenas uma página de erro simples será retornada (por exemplo, "a página não pode ser exibida porque ocorreu um erro interno do servidor.").
 
 Para capturar erros de aplicativo Python:
 

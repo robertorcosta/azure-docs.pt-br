@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 8a287ec5cd33c9f2a96af7ad8162f7c8f54df118
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134163"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160146"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>Benefícios do uso de Azure NetApp Files para automação de design eletrônico
 
@@ -77,9 +77,9 @@ A carga de trabalho completa é uma mistura de fases físicas e funcionais em ex
 
 A fase funcional consiste em especificações iniciais e um design lógico. A fase física ocorre quando o design lógico é convertido em um chip físico. Durante as fases de desconexão e de fita, as verificações finais são concluídas e o design é entregue a um local para fabricação.  
 
-As fases funcionais incluem uma mistura de e/s de leitura e gravação aleatória e sequencial. As fases funcionais são de uso intensivo de metadados, como estatísticas de arquivo e chamadas de acesso. Embora as operações de metadados sejam efetivamente sem tamanho, as operações de leitura e gravação variam entre menos de 1 K e 16 K. A maioria das leituras está entre 4 K e 16 K.  A maioria das gravações é 4 K ou menos.  As fases físicas são compostas de operações de leitura e gravação sequenciais totalmente, com uma mistura de tamanhos de OP de 32 K e 64 K.  
+A fase funcional inclui uma mistura de e/s de leitura e gravação aleatória e sequencial. A fase funcional é de uso intensivo de metadados, como estatísticas de arquivo e chamadas de acesso. Embora as operações de metadados sejam efetivamente sem tamanho, as operações de leitura e gravação variam entre menos de 1 K e 16 K. A maioria das leituras está entre 4 K e 16 K.  A maioria das gravações é 4 K ou menos. A fase física é composta de operações sequenciais de leitura e gravação inteiramente, com uma mistura de tamanhos de OP de 32 K e 64 K.  
 
-Nos grafos acima, a maior parte da taxa de transferência é proveniente das fases físicas sequenciais da carga de trabalho. A e/s vem das pequenas fases funcionais aleatórias e de muitos metadados. Ambas as fases acontecem em paralelo. 
+Nos grafos acima, a maior parte da taxa de transferência é proveniente da fase física sequencial da carga de trabalho. A e/s vem da pequena fase funcional de indisponibilidade de metadados e aleatória. Ambas as fases acontecem em paralelo. 
 
 Concluindo, você pode emparelhar a computação do Azure com Azure NetApp Files para design EDA para obter largura de banda escalonável. 
 

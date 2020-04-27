@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "66159092"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função para StorSimple
@@ -33,7 +33,7 @@ Este artigo se aplica a dispositivos da série StorSimple 8000 executando Atuali
 
 O RBAC pode ser atribuído com base em funções. As funções garantem determinados níveis de permissão com base nos recursos disponíveis no ambiente. Há dois tipos de funções que os usuários do StorSimple podem escolher: internas ou personalizadas.
 
-* **Funções internas** – funções internas podem ser de proprietário, colaborador, leitor ou administrador de acesso do usuário. Para obter mais informações, consulte [Funções incorporadas para controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md).
+* **Funções internas** – funções internas podem ser de proprietário, colaborador, leitor ou administrador de acesso do usuário. Para obter mais informações, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md).
 
 * **Funções personalizadas** – se funções internas não atenderem às suas necessidades, você poderá criar funções personalizadas RBAC para StorSimple. Para criar uma função personalizada RBAC, comece com uma função interna, edite-a e, em seguida, importe-a de volta para o ambiente. O download e o upload da função são gerenciados usando o Azure PowerShell ou a CLI do Azure. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função](../role-based-access-control/custom-roles.md).
 
@@ -42,7 +42,7 @@ Para exibir as diferentes funções disponíveis para um usuário do dispositivo
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Crie uma função personalizada para o Administrador de Infraestrutura do StorSimple
 
-No exemplo a seguir, vamos começar com a função interna de **Leitor** que permite aos usuários exibir todos os escopos de recursos, mas não editá-los nem criar novos. Em seguida, estendemos essa função para criar uma nova função personalizada do storSimple Infrastructure admin. Essa função é atribuída aos usuários que podem gerenciar a infra-estrutura para os dispositivos StorSimple.
+No exemplo a seguir, vamos começar com a função interna de **Leitor** que permite aos usuários exibir todos os escopos de recursos, mas não editá-los nem criar novos. Em seguida, estendemos essa função para criar um novo administrador de infraestrutura do StorSimple de função personalizada. Essa função é atribuída aos usuários que podem gerenciar a infraestrutura para os dispositivos StorSimple.
 
 1. Execute o Windows PowerShell como um administrador.
 
@@ -183,7 +183,7 @@ Uma notificação de **Adicionando usuário** controla o progresso. Depois que o
 
 Quando essa função está criada, você pode exibir as permissões associadas a ela no portal do Azure.
 
-1. Para visualizar as permissões associadas a essa função, vá para **O controle de acesso (IAM) > Funções > StorSimple Infrastructure Admin**. A lista de usuários nesta função é exibida.
+1. Para exibir as permissões associadas a essa função, vá para **controle de acesso (iam) > funções > administrador de infraestrutura do StorSimple**. A lista de usuários nesta função é exibida.
 
 2. Selecione um usuário Administrador de Infraestrutura do StorSimple e clique em **Permissões**.
 
