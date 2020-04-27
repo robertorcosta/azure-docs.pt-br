@@ -24,6 +24,8 @@
       href: private-endpoint-overview.md
     - name: Serviço de Link Privado
       href: private-link-service-overview.md
+    - name: Integração do DNS do Ponto de Extremidade Privado
+      href: private-endpoint-dns.md
 - name: Como
   items:
     - name: Conectar-se de modo privado a uma conta de armazenamento

@@ -1377,7 +1377,7 @@
           href: skillsbase-tutorial.md
         - name: Skills Manager
           href: skillsmanager-tutorial.md
-        - name: Skills Workflow
+        - name: Fluxo de trabalho de habilidades
           href: skills-workflow-tutorial.md
         - name: SkyDesk Email
           href: skydeskemail-tutorial.md
@@ -1828,8 +1828,8 @@
       items:
         - name: Netskope Administrator Console
           href: netskope-administrator-console-provisioning-tutorial.md
-        - name: New Relic (versão limitada)
-          href: new-relic-limited-release-provisioning-tutorial.md
+        - name: New Relic por Organização
+          href: new-relic-by-organization-provisioning-tutorial.md
         - name: Netsuite
           href: netsuite-provisioning-tutorial.md
         - name: OfficeSpace Software

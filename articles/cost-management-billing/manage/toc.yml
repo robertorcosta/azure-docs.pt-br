@@ -107,7 +107,7 @@
       href: billing-troubleshoot-azure-payment-issues.md
     - name: Cartão recusado
       href: troubleshoot-declined-card.md
-    - name: Problemas na inscrição
+    - name: Problemas de inscrição da conta do Azure
       href: troubleshoot-azure-sign-up.md
     - name: Problemas na entrada da assinatura
       href: troubleshoot-sign-in-issue.md

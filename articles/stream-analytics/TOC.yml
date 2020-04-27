@@ -219,7 +219,7 @@
           href: stream-analytics-troubleshoot-output.md
         - name: Lógica da consulta
           href: stream-analytics-troubleshoot-query.md
-        - name: Logs de atividade e diagnóstico
+        - name: Logs de atividade e recursos
           href: stream-analytics-job-diagnostic-logs.md
         - name: Erros de dados
           href: data-errors.md
