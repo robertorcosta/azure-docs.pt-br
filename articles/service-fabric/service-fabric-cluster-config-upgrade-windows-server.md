@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610107"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
@@ -17,9 +17,9 @@ ms.locfileid: "75610107"
 Para qualquer sistema moderno, a capacidade de atualização é fundamental para o sucesso de seu produto a longo prazo. Um cluster do Azure Service Fabric é um recurso que pertence a você. Este artigo descreve como atualizar as definições de configuração do cluster autônomo do Service Fabric.
 
 ## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalizar configurações de cluster no arquivo ClusterConfig.json
-Os clusters autônomos são configurados através do arquivo *ClusterConfig.json.* Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
+Os clusters autônomos são configurados por meio do arquivo *ClusterConfig. JSON* . Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
 
-Você pode adicionar, atualizar ou remover `fabricSettings` configurações na seção na seção [Propriedades Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.json*. 
+Você pode adicionar, atualizar ou remover as configurações na `fabricSettings` seção na seção Propriedades do [cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig. JSON*. 
 
 Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico * em `fabricSettings`:
 
@@ -50,10 +50,10 @@ Ou use este script:
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Algumas configurações não podem ser atualizadas, como pontos finais, nome do cluster, IP de nó, etc. A nova configuração de cluster JSON é testada contra a antiga e lança erros na janela PowerShell se houver um problema.
+Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, IP do nó, etc. O novo JSON de configuração de cluster é testado em relação ao antigo e gera erros na janela do PowerShell se houver um problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
-Para atualizar a atualização da configuração do cluster, execute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de atualização.
+Para atualizar a atualização de configuração de cluster, execute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de atualização.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>

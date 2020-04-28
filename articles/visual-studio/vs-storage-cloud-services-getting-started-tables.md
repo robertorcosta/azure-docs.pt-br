@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento de mesas usando o Visual Studio (serviços em nuvem)
+title: Introdução ao armazenamento de tabelas usando o Visual Studio (serviços de nuvem)
 description: Como começar a usar o armazenamento de Tabela do Azure em um projeto de serviço de nuvem no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72299999"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de tabela do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
@@ -33,7 +33,7 @@ Para começar, primeiramente, você precisa criar uma tabela em sua conta de arm
 **OBSERVAÇÃO:** algumas APIs que executam chamadas para o armazenamento do Azure são assíncronas. Confira [Programação assíncrona com Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) para saber mais. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
 
 * Consulte [Introdução ao Armazenamento de Tabelas do Azure usando .NET](../storage/storage-dotnet-how-to-use-tables.md) para obter mais informações sobre como manipular tabelas com programação.
-* Consulte [a documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o Armazenamento Azure.
+* Consulte a [documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
 * Consulte a [documentação de serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
 * Consulte [ASP.NET](https://www.asp.net) para obter mais informações sobre como programar aplicativos ASP.NET.
 
@@ -151,7 +151,7 @@ Para consultar uma tabela de todas as entidades em uma partição, use um objeto
 
 
 ## <a name="get-a-single-entity"></a>Obter uma única entidade
-Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Esse método retorna apenas uma entidade, em vez de uma coleção, e o valor devolvido no **TableResult.Result** é um objeto **CustomerEntity.** Especificar as teclas de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço **Tabela.**
+Você pode escrever uma consulta para obter uma entidade única e específica. O código a seguir usa um objeto **TableOperation** para especificar o cliente chamado 'Ben Smith'. Esse método retorna apenas uma entidade, em vez de uma coleção, e o valor retornado em **TableResult. Result** é um objeto **CustomerEntity** . Especificar as chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade do serviço **tabela** .
 
     // Create a retrieve operation that takes a customer entity.
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");

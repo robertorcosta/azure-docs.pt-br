@@ -1,32 +1,32 @@
 ---
-title: Tutorial - Implantar grupo de vários contêineres - modelo
-description: Neste tutorial, você aprende a implantar um grupo de contêineres com vários contêineres em Instâncias de Contêiner do Azure usando um modelo do Azure Resource Manager com o Azure CLI.
+title: Tutorial – implantar grupo de vários contêineres-modelo
+description: Neste tutorial, você aprenderá a implantar um grupo de contêineres com vários contêineres em instâncias de contêiner do Azure usando um modelo de Azure Resource Manager com o CLI do Azure.
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
 ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533633"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implante um grupo de vários contêineres usando um modelo de Gerenciador de recursos
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
-> * [Gerenciador de recursos](container-instances-multi-container-group.md)
+> * [Gerenciador de Recursos](container-instances-multi-container-group.md)
 
-As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um sidecar de aplicativo para registro, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo conectado.
+As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
 
-Neste tutorial, você segue etapas para executar uma configuração simples de sidecar de dois contêineres, implantando um modelo do Azure Resource Manager usando o Azure CLI. Você aprenderá como:
+Neste tutorial, você seguirá as etapas para executar uma configuração simples de sidecar de dois contêineres implantando um modelo de Azure Resource Manager usando o CLI do Azure. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Configure um modelo de grupo de vários contêineres
+> * Configurar um modelo de grupo de vários contêineres
 > * Implantar o grupo de contêineres
-> * Veja os registros dos contêineres
+> * Exibir os logs dos contêineres
 
-Um modelo do Gerenciador de recursos pode ser prontamente adaptado para cenários quando você precisar implantar recursos adicionais de serviço do Azure (por exemplo, um compartilhamento de Arquivos Azure ou uma rede virtual) com o grupo de contêineres. 
+Um modelo do Resource Manager pode ser adaptado prontamente para cenários quando você precisar implantar recursos adicionais de serviço do Azure (por exemplo, um compartilhamento de arquivos do Azure ou uma rede virtual) com o grupo de contêineres. 
 
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux. 
@@ -35,9 +35,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="configure-a-template"></a>Configure um modelo
+## <a name="configure-a-template"></a>Configurar um modelo
 
-Comece copiando o JSON a seguir `azuredeploy.json`em um novo arquivo chamado . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Comece copiando o JSON a seguir em um novo arquivo `azuredeploy.json`chamado. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```
 code azuredeploy.json
@@ -145,7 +145,7 @@ Para usar um registro de imagem de contêiner privado, adicione um objeto ao doc
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Crie um grupo de recursos com o comando [az group create.][az-group-create]
+Crie um grupo de recursos com o comando [az group create][az-group-create].
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Exibir logs do contêiner
 
-Veja a saída de log de um contêiner usando o comando [az container logs][az-container-logs]. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, `aci-tutorial-app` o recipiente é especificado.
+Veja a saída de log de um contêiner usando o comando [az container logs][az-container-logs]. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, o `aci-tutorial-app` contêiner é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -192,7 +192,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os registros do contêiner sidecar, execute `aci-tutorial-sidecar` um comando semelhante especificando o contêiner.
+Para ver os logs do contêiner sidecar, execute um comando semelhante especificando o `aci-tutorial-sidecar` contêiner.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -218,20 +218,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como você pode ver, o secundário está periodicamente fazendo uma solicitação HTTP ao aplicativo Web principal por meio da rede local do grupo a fim de garantir que ele esteja em execução. Este exemplo sidecar pode ser expandido para disparar um alerta `200 OK`se ele recebeu um código de resposta HTTP diferente de .
+Como você pode ver, o secundário está periodicamente fazendo uma solicitação HTTP ao aplicativo Web principal por meio da rede local do grupo a fim de garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta `200 OK`http diferente de.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você usou um modelo do Azure Resource Manager para implantar um grupo de vários contêineres no Azure Container Instances. Você aprendeu a:
+Neste tutorial, você usou um modelo de Azure Resource Manager para implantar um grupo de vários contêineres em instâncias de contêiner do Azure. Você aprendeu a:
 
 > [!div class="checklist"]
-> * Configure um modelo de grupo de vários contêineres
+> * Configurar um modelo de grupo de vários contêineres
 > * Implantar o grupo de contêineres
-> * Veja os registros dos contêineres
+> * Exibir os logs dos contêineres
 
-Para obter amostras adicionais de modelos, consulte [os modelos do Azure Resource Manager para instâncias de contêiner do Azure](container-instances-samples-rm.md).
+Para obter exemplos de modelo adicionais, consulte [modelos de Azure Resource Manager para instâncias de contêiner do Azure](container-instances-samples-rm.md).
 
-Você também pode especificar um grupo de vários contêineres usando um [arquivo YAML](container-instances-multi-container-yaml.md). Devido à natureza mais concisa do formato YAML, a implantação com um arquivo YAML é uma boa escolha quando sua implantação inclui apenas instâncias de contêiner.
+Você também pode especificar um grupo de vários contêineres usando um [arquivo YAML](container-instances-multi-container-yaml.md). Devido à natureza mais concisa do formato YAML, a implantação com um arquivo YAML é uma boa opção quando sua implantação inclui apenas instâncias de contêiner.
 
 
 <!-- LINKS - Internal -->

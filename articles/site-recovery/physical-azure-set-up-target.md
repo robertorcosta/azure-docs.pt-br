@@ -1,5 +1,5 @@
 ---
-title: Configure o ambiente de destino para servidores físicos no Azure Site Recovery
+title: Configurar o ambiente de destino para servidores físicos no Azure Site Recovery
 description: Este artigo descreve como configurar o ambiente de destino do Azure para recuperação de desastre de servidores físicos usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73953894"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
@@ -21,7 +21,7 @@ Este artigo descreve como preparar seu ambiente do Azure para iniciar a replica�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo supõe que:
-- Você criou um Cofre dos Serviços de Recuperação para proteger seus servidores físicos. Você pode criar um Cofre de Serviços de Recuperação a partir do [portal Azure](https://portal.azure.com "Portal do Azure").
+- Você criou um Cofre dos Serviços de Recuperação para proteger seus servidores físicos. Você pode criar um cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "Portal do Azure").
 - Você [configurou seu ambiente local](physical-azure-disaster-recovery.md) para replicar servidores físicos no Azure.
 
 ## <a name="prepare-target"></a>Preparar o destino
@@ -40,4 +40,4 @@ Depois que as validações são concluídas com êxito, clique em OK de modo a p
 Caso não tenha uma rede virtual ou conta de armazenamento do Resource Manager compatível, crie uma clicando nos botões **+ Conta de Armazenamento** ou **+ Rede** na parte superior da página.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Definir configurações de replicação](vmware-azure-set-up-replication.md).
+[Defina as configurações de replicação](vmware-azure-set-up-replication.md).

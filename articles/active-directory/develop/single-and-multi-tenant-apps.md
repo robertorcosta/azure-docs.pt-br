@@ -1,5 +1,5 @@
 ---
-title: Aplicativos individuais e multilocatários no Azure AD
+title: Aplicativos únicos e multilocatários no Azure AD
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os recursos e as diferenças entre os aplicativos de locatário único e multilocatário no Azure AD.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881334"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Locatários no Azure Active Directory
@@ -42,7 +42,7 @@ No portal do Azure, você pode configurar seu aplicativo como de locatário úni
 
 A criação de um excelente aplicativo multilocatário pode ser complicada devido à quantidade de políticas diferentes que os administradores de TI podem definir em seus locatários. Se você optar por criar um aplicativo multilocatário, siga estas práticas recomendadas:
 
-* Teste seu aplicativo em um inquilino que configurou [políticas de acesso condicional](../azuread-dev/conditional-access-dev-guide.md).
+* Teste seu aplicativo em um locatário que tenha configurado [políticas de acesso condicional](../azuread-dev/conditional-access-dev-guide.md).
 * Siga o princípio de acesso mínimo do usuário para garantir que o aplicativo solicite apenas as permissões que ele realmente precisa. Evite solicitar permissões que exigem o consentimento do administrador porque isso pode impedir que os usuários adquiram seu aplicativo em algumas organizações. 
 * Forneça nomes e descrições apropriados para as permissões que expõe no aplicativo. Isso ajuda os usuários e os administradores a saber com o que eles estão concordando quando tentam usar as APIs do aplicativo. Para obter mais informações, confira a seção de práticas recomendadas no [guia de permissões](v2-permissions-and-consent.md).
 

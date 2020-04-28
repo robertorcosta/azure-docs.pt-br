@@ -1,13 +1,13 @@
 ---
-title: Acesso a partir de instâncias de contêiner
+title: Acesso de instâncias de contêiner
 description: Saiba como fornecer acesso a imagens em seu registro de contêiner particular das Instâncias de Contêiner do Azure usando uma entidade de serviço do Azure Active Directory.
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456512"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar no Registro de Contêiner do Azure por meio das Instâncias de Contêiner do Azure
@@ -44,8 +44,8 @@ az container create \
 
 Você pode encontrar os scripts de exemplo anteriores para a CLI do Azure no GitHub, bem como versões do Azure PowerShell:
 
-* [Azure CLI][acr-scripts-cli]
-* [Azure PowerShell][acr-scripts-psh]
+* [CLI do Azure][acr-scripts-cli]
+* [PowerShell do Azure][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Próximas etapas
 

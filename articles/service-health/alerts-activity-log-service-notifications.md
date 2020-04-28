@@ -4,10 +4,10 @@ description: Seja notificado por SMS, email ou webhook quando um serviço do Azu
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: d318adc76959ac24f4be9946167965a83053f632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749311"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
@@ -15,7 +15,7 @@ ms.locfileid: "75749311"
 
 Este artigo mostra como configurar alertas do log de atividades para notificações de integridade do serviço usando o portal do Azure.  
 
-Notificações de saúde do serviço são armazenadas no registro de atividades do [Azure](../azure-monitor/platform/platform-logs-overview.md) Dado o volume possivelmente grande de informações armazenadas no registro de atividades, há uma interface de usuário separada para facilitar a visualização e a configuração de alertas sobre notificações de saúde do serviço. 
+As notificações de integridade do serviço são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) , considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas sobre notificações de integridade do serviço. 
 
 Você pode receber um alerta quando o Azure envia notificações de integridade do serviço para sua assinatura do Azure. Você pode configurar o alerta de acordo com:
 
@@ -32,11 +32,11 @@ Também é possível configurar para quem o alerta deve ser enviado:
 - Selecione um grupo de ações existente.
 - Crie um novo grupo de ações (que pode ser usado posteriormente para futuros alertas).
 
-Para saber mais sobre grupos de ação, consulte [Criar e gerenciar grupos de ação](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 Para saber mais sobre como configurar alertas de notificação de integridade do serviço usando modelos do Azure Resource Manager, consulte [modelos do Resource Manager](../azure-monitor/platform/alerts-activity-log.md).
 
-### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Assista a um vídeo sobre a configuração do seu primeiro alerta de saúde do Serviço Azure
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Assista a um vídeo sobre como configurar seu primeiro alerta de integridade do serviço do Azure
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
@@ -66,7 +66,7 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
 1. Selecione o **Grupo de recursos** onde você deseja que o alerta seja salvo.
 
-1. Crie um grupo de ação selecionando **Novo grupo de ação**. Digite um nome na caixa **de nome** do grupo Ação e digite um nome na caixa Nome **Curto.** O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
+1. Crie um grupo de ação selecionando **Novo grupo de ação**. Insira um nome na caixa **nome do grupo de ações** e insira um nome na caixa **nome curto** . O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
 
     ![Criar um novo grupo de ações](media/alerts-activity-log-service-notifications/action-group-creation.png)
 
@@ -90,7 +90,7 @@ Saiba como [Configurar notificações de webhook para sistemas de gerenciamento 
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta com o grupo de ações existente usando o portal do Azure
 
-1. Siga as etapas 1 a 6 na seção anterior para criar a notificação de saúde do seu serviço. 
+1. Siga as etapas 1 a 6 na seção anterior para criar sua notificação de integridade do serviço. 
 
 1. Em **Definir grupo de ação**, clique no botão **Selecionar grupo de ação**. Selecione o grupo de ação apropriado.
 
@@ -197,11 +197,11 @@ Depois de criar um alerta, ele ficará visível na seção **Alertas** do **Moni
 * Desabilite-o ou habilite-o, se desejar interromper temporariamente ou continuar recebendo notificações do alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Conheça as [melhores práticas para a criação de alertas de saúde do Azure Service](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
-- Saiba como [configurar notificações de push móveis para o Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
-- Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes.](service-health-alert-webhook-guide.md)
-- Conheça as [notificações de saúde dos serviços](service-notifications.md).
-- Saiba mais sobre [a limitação da taxa de notificação](../azure-monitor/platform/alerts-rate-limiting.md).
-- Revise o [esquema de webhook](../azure-monitor/platform/activity-log-alerts-webhook.md)de alerta de log de atividade .
+- Saiba mais sobre [as práticas recomendadas para configurar alertas de integridade do serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Saiba como [configurar notificações por push móvel para a integridade do serviço do Azure](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
+- Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
+- Saiba mais sobre as [notificações de integridade do serviço](service-notifications.md).
+- Saiba mais sobre a [limitação da taxa de notificação](../azure-monitor/platform/alerts-rate-limiting.md).
+- Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Obtenha uma [visão geral dos alertas do log de atividades](../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.
-- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).
+- Saiba mais sobre [grupos de ações](../azure-monitor/platform/action-groups.md).

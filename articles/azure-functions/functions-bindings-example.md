@@ -1,20 +1,20 @@
 ---
-title: Azure Funções gatilho e exemplo de vinculação
-description: Aprenda a configurar as vinculações da função Azure
+title: Exemplo de gatilho e Associação de Azure Functions
+description: Saiba como configurar associações de função do Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74227235"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Funções gatilho e exemplo de vinculação
+# <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e Associação de Azure Functions
 
-Este artigo demonstra como configurar um [gatilho e vinculações](./functions-triggers-bindings.md) em uma função Azure.
+Este artigo demonstra como configurar um [gatilho e associações](./functions-triggers-bindings.md) em uma função do Azure.
 
 Suponha que você deseja gravar uma nova linha no Armazenamento de Tabelas do Azure sempre que uma nova mensagem aparece no Armazenamento de Filas do Azure. Esse cenário pode ser implementado usando um gatilho do Armazenamento de Filas do Azure e uma associação de saída do Armazenamento de Tabelas do Azure. 
 
@@ -82,7 +82,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Exemplo de JavaScript
 
-O mesmo arquivo *function.json* pode ser usado com uma função JavaScript:
+O mesmo arquivo *Function. JSON* pode ser usado com uma função JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -100,7 +100,7 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>Exemplo de biblioteca de classe
+## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
 Em uma biblioteca de classes, o mesmo gatilho e informações de associação &mdash; nomes de fila e tabela, contas de armazenamento, parâmetros de função para entrada e saída &mdash; é fornecido por atributos em vez de um arquivo function.json. Aqui está um exemplo:
 
@@ -130,9 +130,9 @@ public class Person
 }
 ```
 
-Agora você tem uma função de trabalho que é acionada por uma fila do Azure e produz dados para o armazenamento da Tabela Azure.
+Agora você tem uma função funcional que é disparada por uma fila do Azure e gera dados para o armazenamento de tabelas do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Funções do Azure vinculam padrões de expressão](./functions-bindings-expressions-patterns.md)
+> [Padrões de expressão de associação de Azure Functions](./functions-bindings-expressions-patterns.md)

@@ -1,5 +1,5 @@
 ---
-title: Adicione um script a um plano de recuperação no Azure Site Recovery
+title: Adicionar um script a um plano de recuperação no Azure Site Recovery
 description: Saiba como adicionar um script do VMM a um plano de recuperação para recuperação de desastre de VMs do Hyper-V em nuvens do VMM.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74084869"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
 Este artigo descreve como criar um script do System Center VMM (Virtual Machine Manager) e adicioná-lo a um plano de recuperação no [Azure Site Recovery](site-recovery-overview.md).
 
-Publique quaisquer comentários ou perguntas no final deste artigo ou no [fórum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Poste comentários ou perguntas na parte inferior deste artigo ou no [Fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
     - Se ocorrer um erro, o restante do script não será executado.
     - Se ocorrer um erro quando você executa um failover não planejado, o plano de recuperação continuará.
     - Se ocorrer um erro quando você executa um failover planejado, o plano de recuperação será interrompido. Corrija o script, verifique se ele funciona conforme esperado e execute novamente o plano de recuperação.
-        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para garantir que toda a saída ** \> ** esteja encanada, use o comando.
+        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para garantir que toda a saída seja canalizada, use o ** \> ** comando.
         - O script expira se não retornar em até 600 segundos.
         - Se nada for escrito em STDERR, o script será classificado como com falha. Essa informação é exibida nos detalhes de execução do script.
 
@@ -77,5 +77,5 @@ Depois que VMs ou grupos de replicação são adicionados a um plano de recupera
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [como executar failovers](site-recovery-failover.md).
+* Saiba mais sobre a [execução de failovers](site-recovery-failover.md).
 

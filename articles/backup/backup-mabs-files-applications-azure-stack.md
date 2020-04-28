@@ -1,13 +1,13 @@
 ---
-title: Fazer backup de arquivos em VMs azure Stack
+title: Fazer backup de arquivos em VMs Azure Stack
 description: Use o Backup do Azure para fazer backup e recuperar aplicativos e arquivos no ambiente do Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 2bcdf7f720708db1487d7d5cdaee41dc93c05728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172329"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
@@ -123,7 +123,7 @@ Se você está usando o MBS (Armazenamento de Backup Moderno), a EUR (recuperaç
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>Visualizar o Servidor de Backup do Azure com um cofre
 
-Para ver as entidades do Azure Backup Server no portal Azure, você pode seguir as seguintes etapas:
+Para exibir Servidor de Backup do Azure entidades no portal do Azure, você pode seguir as seguintes etapas:
 
 1. Abra o cofre dos Serviços de Recuperação.
 2. Clique em Infraestrutura de Backup.

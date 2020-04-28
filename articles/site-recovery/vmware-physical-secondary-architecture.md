@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres físicos de arquitetura-VMware para um site secundário com a recuperação do site do Azure
+title: Arquitetura-recuperação de desastres do VMware/físico para um site secundário com Azure Site Recovery
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura usados durante a recuperação de desastres de VMs VMware locais ou servidores físicos Windows / Linux para um site VMware secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954585"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação do VMware/servidor físico para um site local secundário
@@ -24,7 +24,7 @@ Este artigo descreve a arquitetura e os processos utilizados ao fazer a recupera
 **Área** | **Componente** | **Detalhes**
 --- | --- | ---
 **Azure** | Implante este cenário usando o InMage Scout. | Para obter o InMage Scout, você precisa de uma assinatura do Azure.<br/><br/> Depois de criar um cofre de Serviços de Recuperação, baixe o InMage Scout e instale as atualizações mais recentes para configurar a implantação.
-**Servidor de processos** | Localizado no site primário | Implante o servidor de processo para manipular o caching, a compactação e a otimização de dados.<br/><br/> Ele também trata da instalação por push do Agente Unificado nas máquinas que você deseja proteger.
+**Servidor de processo** | Localizado no site primário | Implante o servidor de processo para manipular o caching, a compactação e a otimização de dados.<br/><br/> Ele também trata da instalação por push do Agente Unificado nas máquinas que você deseja proteger.
 **Servidor de configuração** | Localizado no site secundário | O servidor de configuração gerencia, configura e monitora sua implantação, usando o site de gerenciamento ou o console do vContinuum.
 **Servidor vContinuum** | Opcional. Instalado no mesmo local que o servidor de configuração. | Ele fornece um console para o gerenciamento e monitoramento de seu ambiente protegido.
 **Servidor de destino mestre** | Localizado no site secundário | O servidor de destino mestre armazena os dados replicados. Ele recebe os dados do servidor de processo, cria uma máquina de réplica no site secundário e mantém os pontos de retenção dos dados.<br/><br/> O número de servidores de destino mestre necessário depende do número de máquinas que você está protegendo.<br/><br/> Se você quiser realizar o failback no site primário, também precisará de um servidor de destino mestre nesse local. O Agente Unificado está instalado neste servidor.

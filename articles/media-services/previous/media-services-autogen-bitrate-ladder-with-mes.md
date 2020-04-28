@@ -1,5 +1,5 @@
 ---
-title: Use o Media Encoder Standard para gerar automaticamente uma escada bitrate - Azure | Microsoft Docs
+title: Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits-Azure | Microsoft Docs
 description: Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74896011"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits  
 
 ## <a name="overview"></a>Visão geral
 
@@ -47,7 +47,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -205,9 +205,9 @@ Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66730025"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o PowerShell
@@ -47,13 +47,13 @@ Um grupo de segurança de rede contém regras de segurança. As regras de segura
 
 ### <a name="create-application-security-groups"></a>Criar grupos de segurança de aplicativos
 
-Primeiro crie um grupo de recursos para todos os recursos criados neste artigo com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos no local *eastus*:
+Primeiro, crie um grupo de recursos para todos os recursos criados neste artigo com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos no local *eastus*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Crie um grupo de segurança de aplicativos com [o New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). Um grupo de segurança de aplicativos permite agrupar servidores com requisitos de filtragem de porta semelhantes. O exemplo a seguir cria dois grupos de segurança de aplicativos.
+Crie um grupo de segurança de aplicativo com [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). Um grupo de segurança de aplicativos permite agrupar servidores com requisitos de filtragem de porta semelhantes. O exemplo a seguir cria dois grupos de segurança de aplicativos.
 
 ```azurepowershell-interactive
 $webAsg = New-AzApplicationSecurityGroup `
@@ -69,7 +69,7 @@ $mgmtAsg = New-AzApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>Criar regras de segurança
 
-Crie uma regra de segurança com [o New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra que permite a entrada de tráfego da Internet para o grupo de segurança de aplicativo *myWebServers* pelas portas 80 e 443:
+Crie uma regra de segurança com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). O exemplo a seguir cria uma regra que permite a entrada de tráfego da Internet para o grupo de segurança de aplicativo *myWebServers* pelas portas 80 e 443:
 
 ```azurepowershell-interactive
 $webRule = New-AzNetworkSecurityRuleConfig `
@@ -97,7 +97,7 @@ $mgmtRule = New-AzNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-Neste artigo, o RDP (porta 3389) é exposto à Internet para a VM *myAsgMgmtServers*. Para ambientes de produção, em vez de expor a porta 3389 à internet, é recomendável que você se conecte aos recursos do Azure que você deseja gerenciar usando uma [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou conexão de rede [privada.](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Neste artigo, o RDP (porta 3389) é exposto à Internet para a VM *myAsgMgmtServers*. Para ambientes de produção, em vez de expor a porta 3389 à Internet, é recomendável que você se conecte aos recursos do Azure que deseja gerenciar usando uma conexão [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou de rede [privada](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Crie uma configuração de sub-rede com [o New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)e, em seguida, escreva a configuração da sub-rede para a rede virtual com [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). O exemplo a seguir adiciona uma sub-rede nomeada *mySubnet* à rede virtual e associa o grupo de segurança de rede *myNsg* a ela:
+Crie uma configuração de sub-rede com [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)e, em seguida, grave a configuração de sub-rede na rede virtual com [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). O exemplo a seguir adiciona uma sub-rede nomeada *mySubnet* à rede virtual e associa o grupo de segurança de rede *myNsg* a ela:
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -160,7 +160,7 @@ $publicIpMgmt = New-AzPublicIpAddress `
   -Name myVmMgmt
 ```
 
-Crie duas interfaces de rede com [new-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)e atribua um endereço IP público à interface da rede. O exemplo a seguir cria um adaptador de rede, associa o endereço IP público *myVmWeb* a ele e o transforma em um membro do grupo de segurança de aplicativo *myAsgWebServers*:
+Crie duas interfaces de rede com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)e atribua um endereço IP público à interface de rede. O exemplo a seguir cria um adaptador de rede, associa o endereço IP público *myVmWeb* a ele e o transforma em um membro do grupo de segurança de aplicativo *myAsgWebServers*:
 
 ```powershell-interactive
 $webNic = New-AzNetworkInterface `
@@ -186,7 +186,7 @@ $mgmtNic = New-AzNetworkInterface `
 
 Crie duas VMs na rede virtual para poder validar a filtragem de tráfego em uma etapa posterior.
 
-Crie uma configuração de VM com [New-AzVMConfig,](/powershell/module/az.compute/new-azvmconfig)em seguida, crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM que servirá como um servidor Web. A opção `-AsJob` cria a VM em segundo plano, para que você possa prosseguir para a próxima etapa:
+Crie uma configuração de VM com [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)e crie a VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria uma VM que servirá como um servidor Web. A opção `-AsJob` cria a VM em segundo plano, para que você possa prosseguir para a próxima etapa:
 
 ```azurepowershell-interactive
 # Create user object
@@ -277,7 +277,7 @@ Use o comando a seguir para instalar os Serviços de Informações da Internet d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para ver a tela de boas-vindas do IIS, abra um navegador de internet e navegue até http:\//myVmWeb.
+Após a conclusão da instalação dos Serviços de Informações da Internet, desconecte-se da VM *myVmWeb*, que direciona para a conexão da área de trabalho remota da VM *myVmMgmt*. Para exibir a tela de boas-vindas do IIS, abra um navegador da\/Internet e navegue até http:/myVmWeb.
 
 Desconecte a VM *myVmMgmt*.
 
@@ -292,7 +292,7 @@ Get-AzPublicIpAddress `
 
 Para confirmar se é possível acessar o servidor Web *myVmWeb* de fora do Azure, abra um navegador da Internet no seu computador e navegue até `http://<public-ip-address-from-previous-step>`. É uma conexão com êxito porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* ao qual o adaptador de rede conectado à VM *myVmWeb* está.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

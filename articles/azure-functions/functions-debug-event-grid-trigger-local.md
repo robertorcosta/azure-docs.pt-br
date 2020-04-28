@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74227079"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuração local do gatilho da Grade de Eventos do Azure Functions
@@ -101,7 +101,7 @@ Depois que a Grade de Eventos reconhece que um novo arquivo for carregado para o
 
 ![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste artigo, exclua o contêiner **Testar** em sua conta de armazenamento.
 

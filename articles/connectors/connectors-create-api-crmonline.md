@@ -1,5 +1,5 @@
 ---
-title: Conecte-se à Dinâmica 365
+title: Conectar-se ao Dynamics 365
 description: Criar e gerenciar registros com as APIs REST do Dynamics 365 (online) e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789879"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
@@ -21,7 +21,7 @@ ms.locfileid: "74789879"
 Com os Aplicativos Lógicos do Azure e o conector do Dynamics 365, é possível criar tarefas e fluxos de trabalho automatizados com base nos recursos no Dynamics 365. Os fluxos de trabalho podem criar registros, atualizar itens, retornar registros e muito mais na sua conta do Dynamics 365. É possível incluir ações nos seus aplicativos lógicos que obtêm respostas do Dynamics 365 e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, você pode enviar um email usando o Office 365.
 
 Este tópico mostra como criar um aplicativo lógico que cria uma tarefa no Dynamics 365 sempre que um novo registro de cliente potencial é criado no Dynamics 365.
-Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
+Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
    |----------|----------|-------------|
    | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
    | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
-   | **Freqüência** | Sim | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
+   | **Frequência** | Sim | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
    | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
    ||| 
 
@@ -132,11 +132,11 @@ Expandindo esses tipos de campo, vemos aqui os campos de exemplo em gatilhos e a
 | Campo | Descrição |
 |-------|-------------|
 | **Proprietário** | É preciso ser uma ID de usuário ou ID de registro de equipe válida. |
-| **Tipo de proprietário** | Deve ser `systemusers` `teams`um ou. |
+| **Tipo de proprietário** | Deve ser `systemusers` ou `teams`. |
 | **Relação** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de relação** | Deve ser um tipo de `accounts` `contacts`procuração, como ou . |
+| **Tipo de relação** | Deve ser um tipo de pesquisa, como `accounts` ou `contacts`. |
 | **Cliente** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de cliente** | Deve ser o tipo de `accounts` `contacts`procuração, como ou . |
+| **Tipo de cliente** | Deve ser o tipo de pesquisa, como `accounts` ou `contacts`. |
 |||
 
 Neste exemplo, a ação denominada **Criar um novo registro** cria um novo registro de tarefa:
@@ -159,7 +159,7 @@ Para localizar uma ID de registro, siga estas etapas:
 
 2. Na barra de ferramentas de ações, escolha uma destas etapas:
 
-   * Escolha **Pop Out**. ![disco popout](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Escolha **pop-out**. ![registro de popout](./media/connectors-create-api-crmonline/popout-record.png) 
    * Escolha **LINK POR EMAIL** para que você possa copiar a URL completa no seu programa de email padrão.
 
    A ID do registro é exibida na URL entre os caracteres de codificação `%7b` e `%7d`:

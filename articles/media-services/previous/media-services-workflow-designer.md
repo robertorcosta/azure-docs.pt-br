@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72801948"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho  
@@ -81,16 +81,16 @@ O vídeo do Dia 3 abrange:
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um ticket de suporte navegando para [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-step"></a>Próxima etapa
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

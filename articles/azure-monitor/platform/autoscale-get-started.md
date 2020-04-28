@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75396344"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
@@ -19,7 +19,7 @@ O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descobrir as configurações de dimensionamento automático na sua assinatura
 Você pode descobrir todos os recursos a que o dimensionamento automático se aplica no Azure Monitor. Use as etapas a seguir para obter uma explicação passo a passo:
 
-1. Abra o [portal Azure.][1]
+1. Abra o [portal do Azure.][1]
 1. Clique no ícone do Azure Monitor no painel esquerdo.
   ![Abra o Azure Monitor][2]
 1. Clique em **Dimensionamento automático** para exibir todos os recursos para os quais o dimensionamento automático é aplicável, juntamente com o status atual.

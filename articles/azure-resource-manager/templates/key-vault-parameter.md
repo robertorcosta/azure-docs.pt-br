@@ -1,26 +1,26 @@
 ---
-title: Segredo do Key Vault com modelo
+title: Key Vault segredo com o modelo
 description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458259"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
-Em vez de colocar um valor seguro (como uma senha) diretamente no seu modelo ou arquivo de parâmetros, você pode recuperar o valor de um [Cofre de Chaves do Azure](../../key-vault/general/overview.md) durante uma implantação. Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. O cofre-chave pode existir em uma assinatura diferente do grupo de recursos para o que você está implantando.
+Em vez de colocar um valor seguro (como uma senha) diretamente no seu arquivo de modelo ou parâmetro, você pode recuperar o valor de um [Azure Key Vault](../../key-vault/general/overview.md) durante uma implantação. Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. O cofre de chaves pode existir em uma assinatura diferente do grupo de recursos no qual você está implantando.
 
-Este artigo foca no cenário de passar um valor sensível como parâmetro de modelo. Ele não cobre o cenário de definir uma propriedade de máquina virtual para a URL de um certificado em um Key Vault. Para obter um modelo de início rápido desse cenário, consulte [Instalar um certificado do Azure Key Vault em uma máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
+Este artigo se concentra no cenário de passar um valor confidencial no como um parâmetro de modelo. Ele não aborda o cenário de configuração de uma propriedade de máquina virtual para a URL de um certificado em um Key Vault. Para obter um modelo de início rápido desse cenário, consulte [instalar um certificado de Azure Key Vault em uma máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implantar Key Vaults e segredos
 
-Para acessar um cofre de `enabledForTemplateDeployment` chaves durante a `true`implantação do modelo, defina no cofre de chaves para .
+Para acessar um cofre de chaves durante a implantação do `enabledForTemplateDeployment` modelo, defina no cofre `true`de chaves como.
 
-Se você já tiver um Key Vault, certifique-se de que ele permite implantações de modelo.
+Se você já tiver um Key Vault, verifique se ele permite implantações de modelo.
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -65,7 +65,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 ---
 
-Como dono do cofre de chaves, você automaticamente tem acesso à criação de segredos. Se o usuário que trabalha com segredos não for o proprietário do cofre de chaves, conceda acesso com:
+Como o proprietário do cofre de chaves, você terá acesso automaticamente à criação de segredos. Se o usuário que está trabalhando com segredos não for o proprietário do cofre de chaves, conceda acesso com:
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -89,7 +89,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ---
 
-Para obter mais informações sobre como criar cofres-chave e adicionar segredos, consulte:
+Para obter mais informações sobre como criar cofres de chaves e adicionar segredos, consulte:
 
 - [Definir e recuperar um segredo usando a CLI](../../key-vault/secrets/quick-create-cli.md)
 - [Definir e recuperar um segredo usando o PowerShell](../../key-vault/secrets/quick-create-powershell.md)
@@ -99,7 +99,7 @@ Para obter mais informações sobre como criar cofres-chave e adicionar segredos
 
 ## <a name="grant-access-to-the-secrets"></a>Permitir acesso aos segredos
 
-O usuário que implantar o `Microsoft.KeyVault/vaults/deploy/action` modelo deve ter a permissão para o escopo do grupo de recursos e do cofre de chaves. Ambas as funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre da chave, você é o dono para que você tenha a permissão.
+O usuário que implanta o modelo deve ter a `Microsoft.KeyVault/vaults/deploy/action` permissão para o escopo do grupo de recursos e do cofre de chaves. Ambas as funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) e [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) concedem esse acesso. Se você criou o cofre de chaves, você é o proprietário para que tenha a permissão.
 
 O procedimento a seguir mostra como criar uma função com a permissão mínima e como atribuir o usuário
 
@@ -121,7 +121,7 @@ O procedimento a seguir mostra como criar uma função com a permissão mínima 
       ]
     }
     ```
-    Substitua "00000000-0000-0000-00000000000000000000000000" pelo ID de assinatura.
+    Substitua "00000000-0000-0000-0000-000000000000" pela ID da assinatura.
 
 2. Crie a nova função usando o arquivo JSON:
 
@@ -147,7 +147,7 @@ O procedimento a seguir mostra como criar uma função com a permissão mínima 
 
     ---
 
-    As amostras atribuem a função personalizada ao usuário no nível do grupo de recursos.
+    Os exemplos atribuem a função personalizada ao usuário no nível do grupo de recursos.
 
 Ao usar um Key Vault com o modelo para um [Aplicativo Gerenciado](../managed-applications/overview.md), você precisa conceder acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. Para obter mais informações, confira [Segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure](../managed-applications/key-vault-access.md).
 
@@ -157,9 +157,9 @@ Com esta abordagem, você faz referência ao Key Vault no arquivo de parâmetro,
 
 ![Diagrama de ID estática de integração do Key Vault do Resource Manager](./media/key-vault-parameter/statickeyvault.png)
 
-[Tutorial: Integrar o Azure Key Vault na implantação do Resource Manager Template](./template-tutorial-use-key-vault.md) usa esse método.
+[Tutorial: integrar Azure Key Vault no Gerenciador de recursos implantação de modelo](./template-tutorial-use-key-vault.md) usa esse método.
 
-O modelo a seguir implanta um servidor SQL que inclui uma senha de administrador. O parâmetro de senha é definido como uma cadeia de caracteres segura. Mas, o modelo não especifica de onde vem esse valor.
+O modelo a seguir implanta um SQL Server que inclui uma senha de administrador. O parâmetro de senha é definido como uma cadeia de caracteres segura. No entanto, o modelo não especifica de onde vem esse valor.
 
 ```json
 {
@@ -259,7 +259,7 @@ A seção anterior mostrou como passar uma ID do recurso estático para o segred
 
 Não é possível gerar dinamicamente a ID do recurso no arquivo de parâmetros porque as expressões de modelo não são permitidas no arquivo de parâmetros.
 
-No modelo pai, você adiciona o modelo aninhado e passa em um parâmetro que contém o ID de recurso gerado dinamicamente. A imagem a seguir mostra como um parâmetro no modelo vinculado faz referência ao segredo.
+No modelo pai, você adiciona o modelo aninhado e passa um parâmetro que contém a ID de recurso gerada dinamicamente. A imagem a seguir mostra como um parâmetro no modelo vinculado faz referência ao segredo.
 
 ![ID dinâmica](./media/key-vault-parameter/dynamickeyvault.png)
 

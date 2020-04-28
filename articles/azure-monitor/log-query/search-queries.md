@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660233"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos logs do Azure Monitor
@@ -43,7 +43,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Tabela e coluna de escopo
-Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (chamada *Fonte* no exemplo abaixo), use esta sintaxe:
+Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (denominada *origem* no exemplo abaixo), use esta sintaxe:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. O uso de ':' incluirá registros onde *a Fonte* tem valores como "código de erro 404" ou "Erro".
+> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. Usar ': ' incluirá registros em que a *origem* tem valores como "código de erro 404" ou "erro".
 
 ## <a name="case-sensitivity"></a>Diferenciar maiusculas de minúsculas
 Por padrão, pesquisa de termo diferencia maiusculas de minúsculas, portanto, pesquisar "dns" pode produzir resultados como "DNS", "dns" ou "Dns". Para tornar a pesquisa diferencia maiusculas de minúsculas, use o `kind` opção:

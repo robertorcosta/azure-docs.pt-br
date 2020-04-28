@@ -1,5 +1,5 @@
 ---
-title: Comece com o Azure AD em projetos .NET MVC | Azure
+title: Introdução ao Azure AD em projetos do .NET MVC | Azure
 description: Como começar a usar o Azure Active Directory em projetos do .NET MVC após a conexão ou criação de um AD do Azure usando os serviços conectados do Visual Studio
 author: ghogen
 manager: jillfra
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: fe408e965c528db1d82b73ee7b20bbe3b3933657
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886119"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introdução ao Active Directory do Azure (Projetos do ASP.NET MVC)
@@ -82,5 +82,5 @@ Para adicionar os controles SignIn/SignOut ao modo de exibição, você pode usa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Diretório Ativo do Azure](authentication-scenarios.md)
+- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
 - [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

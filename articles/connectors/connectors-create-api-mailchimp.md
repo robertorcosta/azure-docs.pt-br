@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao MailChimp
+title: Conectar-se ao MailChimp
 description: Criar e gerenciar emails de marketing com as APIs REST do MailChimp e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: a440f702058abc25bb360111418c451d59c3ab1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789646"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Introdução ao conector do MailChimp
 
 O MailChimp é um serviço de SaaS que permite que as empresas gerenciem e automatizem atividades de marketing de email, incluindo envio de emails de marketing, mensagens automatizadas e campanhas direcionadas.
 
-Você pode começar criando um aplicativo Logic agora, consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Você pode começar criando um aplicativo lógico agora, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-mailchimp"></a>Criar uma conexão com o MailChimp
 

@@ -1,15 +1,15 @@
 ---
-title: Instalação em tempo de execução das funções do Azure
+title: Instalação do Azure Functions Runtime
 description: Como instalar a versão prévia 2 do Azure Functions Runtime
 author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74226733"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a versão prévia 2 do Azure Functions Runtime
@@ -47,7 +47,7 @@ O instalador da versão prévia do Azure Functions Runtime orienta você durante
     ![Instalador da versão prévia do Azure Functions Runtime][1]
 
 1. Clique em **Avançar**.
-1. Depois de ler os termos do **EULA,** **verifique a caixa** para aceitar os termos e clique em **Seguir** para avançar.
+1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
 1. Selecione as funções que você deseja instalar no computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e clique em **Avançar**.
 
     ![Instalador da versão prévia do Azure Functions Runtime - seleção de função][3]
@@ -75,19 +75,19 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
     ![Configuração de banco de dados da versão prévia do Azure Functions Runtime][8]
 
-1. Clique na guia **Credenciais.**  Aqui, você deve criar duas novas credenciais para uso com um compartilhamento de arquivos para hospedar todos os seus aplicativos de função.  Especifique combinações de **Nome de usuário** e **Senha** para o **proprietário do compartilhamento de arquivo** e para o **usuário do compartilhamento de arquivo** e clique em **Aplicar**.
+1. Clique na guia **credenciais** .  Aqui, você deve criar duas novas credenciais para uso com um compartilhamento de arquivos para hospedar todos os seus aplicativos de funções.  Especifique combinações de **Nome de usuário** e **Senha** para o **proprietário do compartilhamento de arquivo** e para o **usuário do compartilhamento de arquivo** e clique em **Aplicar**.
 
     ![Credenciais da versão prévia do Azure Functions Runtime][9]
 
-1. Clique na guia **Compartilhar arquivos.**  Aqui você deve especificar os detalhes do local de compartilhamento de arquivos.  O compartilhamento de arquivos pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de Compartilhamento de Arquivos, especifique um diretório para ser usado pelo Azure Functions Runtime.
+1. Clique na guia **compartilhamento de arquivos** .  Aqui você deve especificar os detalhes do local do compartilhamento de arquivos.  O compartilhamento de arquivos pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de Compartilhamento de Arquivos, especifique um diretório para ser usado pelo Azure Functions Runtime.
 
     ![Compartilhamento de arquivo da versão prévia do Azure Functions Runtime][10]
 
-1. Clique na guia **IIS.**  Esta guia mostra os detalhes dos sites no IIS que a ferramenta de configuração Funções do Azure funciona em tempo de execução.  Você pode especificar um nome DNS personalizado aqui para o portal da versão prévia do Azure Functions Runtime.  Clique em **Aplicar** para concluir.
+1. Clique na guia **IIS** .  Essa guia mostra os detalhes dos sites no IIS que a ferramenta de configuração do Azure Functions Runtime cria.  Você pode especificar um nome DNS personalizado aqui para o portal da versão prévia do Azure Functions Runtime.  Clique em **Aplicar** para concluir.
 
     ![IIS da versão prévia do Azure Functions Runtime][11]
 
-1. Clique na guia **Serviços.**  Esta guia mostra o status dos serviços na ferramenta de configuração De tempo de execução de funções do Azure.  Se o **Serviço de Ativação de Host do Azure Functions** não estiver em execução após a configuração inicial, clique em **Iniciar Serviço**.
+1. Clique na guia **Serviços** .  Essa guia mostra o status dos serviços em sua ferramenta de configuração de Azure Functions Runtime.  Se o **Serviço de Ativação de Host do Azure Functions** não estiver em execução após a configuração inicial, clique em **Iniciar Serviço**.
 
     ![Configuração da versão prévia do Azure Functions Runtime concluída][12]
 
@@ -99,13 +99,13 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
 Para criar sua primeira função na versão prévia do Azure Functions Runtime
 
-1. Navegue até o **Portal de Tempo de Execução de Funções do Azure,** por `https://<machinename>.<domain>` exemplo `https://mycomputer.mydomain.com`.
+1. Navegue até o **portal** de Azure Functions Runtime `https://<machinename>.<domain>` como por `https://mycomputer.mydomain.com`exemplo.
 
 1. Você será solicitado a **Entrar**; se implantado em um domínio, use seu nome de usuário da conta do domínio e a senha. Caso contrário, use seu nome de usuário de conta local e a senha para fazer logon no portal.
 
     ![Logon do portal da versão prévia do Azure Functions Runtime][14]
 
-1. Para criar aplicativos de funções, você deve criar uma assinatura.  No canto superior esquerdo do portal, **+** clique na opção ao lado das assinaturas.
+1. Para criar aplicativos de funções, você deve criar uma assinatura.  No canto superior esquerdo do portal, clique na **+** opção ao lado das assinaturas.
 
     ![Assinaturas do portal de versão prévia do Azure Functions Runtime][15]
 

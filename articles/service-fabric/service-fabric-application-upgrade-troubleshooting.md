@@ -1,13 +1,13 @@
 ---
-title: Solucionando atualizações de aplicativos
+title: Solucionando problemas de atualizações de aplicativos
 description: Este artigo aborda alguns problemas comuns em torno da atualização de um aplicativo Service Fabric e como resolvê-los.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75377915"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de atualizações de aplicativo
@@ -212,9 +212,9 @@ O tempo para concluir uma atualização depende das verificações de integridad
 
 Eis uma recapitulação de como os tempos limite interagem com os tempos de atualização:
 
-Upgrades para um domínio de upgrade não podem ser concluídos mais rápido do que *healthCheckWaitDurationHealthCheckStableDuration* + *HealthCheckStableDuration*.
+As atualizações de um domínio de atualização não podem ser concluídas mais rápido do que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-Falha na atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+A falha de atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
 O tempo de atualização para um domínio de atualização é limitado pelo *UpgradeDomainTimeout*.  Se *HealthCheckRetryTimeout* e *HealthCheckStableDuration* são diferentes de zero e a integridade do aplicativo alterna entre boa e ruim, a atualização pode esgotar o tempo limite em *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inicia a contagem regressiva quando a atualização do domínio de atualização atual começa.
 
@@ -222,10 +222,10 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
-[Atualizar seu aplicativo Usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você através de uma atualização de aplicativo usando o PowerShell.
+[Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.
 
-Controle como o aplicativo atualiza usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
+Controle como o aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 
-Torne os upgrades de aplicativos compatíveis, aprendendo como usar [serialização de dados.](service-fabric-application-upgrade-data-serialization.md)
+Faça com que o aplicativo seja atualizado de forma compatível aprendendo a usar a [serialização de dados](service-fabric-application-upgrade-data-serialization.md).
 
-Aprenda a usar funcionalidades avançadas ao atualizar seu aplicativo, referindo-se a [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
+Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando [Tópicos avançados](service-fabric-application-upgrade-advanced.md).

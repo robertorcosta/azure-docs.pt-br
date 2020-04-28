@@ -1,6 +1,6 @@
 ---
 title: Visão Geral do ponto de extremidade de streaming dos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo dá uma visão geral dos pontos finais de streaming do Azure Media Services.
+description: Este artigo fornece uma visão geral dos pontos de extremidade de streaming dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74885612"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 No AMS (Serviços de Mídia do Microsoft Azure), um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo cliente player ou à CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo, um vídeo por demanda ou um download progressivo do seu ativo na conta dos Serviços de Mídia. Cada conta dos Serviços de Mídia do Azure inclui um StreamingEndpoint padrão. StreamingEndpoints adicionais podem ser criados na conta. Há duas versões do StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, todas as contas AMS recém-criadas incluirão a versão 2.0 **padrão** do StreamingEndpoint. Pontos de extremidade de streaming adicionais que você adicionar nessa conta também terão a versão 2.0. Essa alteração não afetará as contas existentes; StreamingEndpoints existente estarão na versão 1.0 e poderão ser atualizados para a versão 2.0. Com essa alteração, haverá alterações de comportamento, cobrança e recurso (para obter mais informações, confira a seção **Tipos e versões de streaming** documentada abaixo).
 
-O Azure Media Services adicionou as seguintes propriedades à entidade Streaming Endpoint: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Os serviços de mídia do Azure adicionaram as seguintes propriedades à entidade de ponto de extremidade de streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Para obter uma visão detalhada dessas propriedades, clique [aqui](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Quando você cria uma conta dos Serviços de Mídia do Azure, um ponto de extremidade de streaming padrão é criado para você no estado **Parado**. Não é possível excluir o ponto de extremidade de streaming padrão. Dependendo da disponibilidade da Azure CDN na região de destino, por padrão, o ponto de extremidade de streaming recém-criado padrão também inclui integração com o provedor de CDN “StandardVerizon”. 
                 
@@ -47,15 +47,15 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.m
 
 ### <a name="standardpremium-types-version-20"></a>Tipos Standard/Premium (versão 2.0)
 
-Começando com o lançamento de janeiro de 2017 dos Serviços de Mídia, você tem dois tipos de streaming: **Standard** (preview) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
+A partir da versão de janeiro de 2017 dos serviços de mídia, você tem dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
 
 |Type|Descrição|
 |--------|--------|  
-|**Standard**|O ponto final de streaming padrão é um tipo **Padrão,** pode ser alterado para o tipo Premium ajustando unidades de streaming.|
-|**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os Endpoints de streaming dedicados vivem em ambiente isolado e não competem por recursos.|
+|**Standard**|O ponto de extremidade de streaming padrão é um tipo **padrão** , pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
+|**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle. Você passa para um tipo **Premium** ajustando unidades de streaming.<br/>Os pontos de extremidade de streaming dedicados residem em um ambiente isolado e não conpetem por recursos.|
 
-Para clientes que procuram fornecer conteúdo para grandes públicos da Internet, recomendamos que você habilite o CDN no Streaming Endpoint.
+Para clientes que procuram fornecer conteúdo a grandes públicos da Internet, recomendamos que você habilite a CDN no ponto de extremidade de streaming.
 
 Para obter mais informações, consulte a seção [Comparar tipos de Streaming](#comparing-streaming-types) a seguir.
 
@@ -78,7 +78,7 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 |Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Clássico|1.0|0|NA|Grátis|
-|Ponto final de streaming padrão (visualização)|2,0|0|Sim|Pago|
+|Ponto de extremidade de streaming padrão (visualização)|2,0|0|Sim|Pago|
 |Unidades de Streaming Premium|1.0|>0|Sim|Pago|
 |Unidades de Streaming Premium|2,0|>0|Sim|Pago|
 
@@ -86,19 +86,19 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 Recurso|Standard|Premium
 ---|---|---
-Produtividade |Até 600 Mbps e pode fornecer um throughput muito maior e eficaz quando um CDN é usado.|200 Mbps por UA (unidade de streaming). Pode fornecer um throughput muito maior e eficaz quando um CDN é usado.
+Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
 Criptografia dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
 Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais.
-Filtragem ip/G20/Host personalizado <sup>1</sup>|Sim|Sim
+Filtragem de IP/G20/host personalizado <sup>1</sup>|Sim|Sim
 Download progressivo|Sim|Sim
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
 
-<sup>1</sup> Usado diretamente no ponto final de streaming quando o CDN não está habilitado no ponto final.<br/>
+<sup>1</sup> é usado somente diretamente no ponto de extremidade de streaming quando a CDN não está habilitada no ponto de extremidade.<br/>
 
-Para obter informações sobre SLA, consulte [Preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
+Para obter informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
@@ -120,6 +120,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

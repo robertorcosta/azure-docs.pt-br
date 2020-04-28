@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento na fila usando o Visual Studio (serviços em nuvem)
+title: Introdução ao armazenamento de filas usando o Visual Studio (serviços de nuvem)
 description: Como começar a usar o armazenamento de Fila do Azure em um projeto de serviço de nuvem no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 603bb2b9a862ad4ed2cbde63e2d82b9a82fbeaa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298783"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução aos serviços conectados do armazenamento de Fila do Azure e Visual Studio (projetos de serviços de nuvem)
@@ -26,12 +26,12 @@ ms.locfileid: "72298783"
 ## <a name="overview"></a>Visão geral
 Este artigo descreve como começar a usar o Armazenamento de Filas do Azure no Visual Studio depois de criar ou consultar uma conta de armazenamento do Azure em um projeto de serviços de nuvem usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
-Mostraremos como criar uma fila em código. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. As amostras são escritas em código C# e usam a [Biblioteca cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Mostraremos como criar uma fila em código. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em código C# e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 A operação **Adicionar Serviços Conectados** instala os pacotes NuGet apropriados para acessar o armazenamento do Azure no seu projeto e adiciona a cadeia de conexão para a conta de armazenamento aos arquivos de configuração do projeto.
 
 * Consulte a [Introdução ao Armazenamento de Filas do Azure usando o .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) para obter mais informações sobre a manipulação de filas no código.
-* Consulte [a documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o Armazenamento Azure.
+* Consulte a [documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
 * Consulte a [documentação de serviços de nuvem](https://azure.microsoft.com/documentation/services/cloud-services/) para obter informações gerais sobre os serviços de nuvem do Azure.
 * Consulte [ASP.NET](https://www.asp.net) para obter mais informações sobre como programar aplicativos ASP.NET.
 
@@ -78,7 +78,7 @@ Aqui está um exemplo que insere a mensagem “Hello, World”.
     messageQueue.AddMessage(message);
 
 ## <a name="read-a-message-in-a-queue"></a>Ler uma mensagem em uma fila
-Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **PeekMessage.**
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **PeekMessage** .
 
     // Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
@@ -86,7 +86,7 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chaman
 ## <a name="read-and-remove-a-message-in-a-queue"></a>Ler e remover uma mensagem em uma fila
 Seu código pode remover uma mensagem de uma fila em duas etapas.
 
-1. Ligue para o **GetMessage** para obter a próxima mensagem em uma fila. Uma mensagem retornada do **GetMessage** torna-se invisível para qualquer outra mensagem de leitura de código desta fila. Por padrão, essa mensagem permanece invisível por 30 segundos.
+1. Chame **GetMessage** para obter a próxima mensagem em uma fila. Uma mensagem retornada de **GetMessage** torna-se invisível para qualquer outra mensagem de leitura de código dessa fila. Por padrão, essa mensagem permanece invisível por 30 segundos.
 2. Para concluir a remoção da mensagem da fila, chame **DeleteMessage**.
 
 Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código a seguir chamará **DeleteMessage** logo depois que a mensagem tiver sido processada.
@@ -104,7 +104,7 @@ Este processo de duas etapas de remover uma mensagem garante que quando o códig
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 
 * Você pode obter um lote de mensagens (até 32).
-* Você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **GetMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **foreach** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos são iniciados para todas as mensagens ao mesmo tempo, então depois de 5 minutos se passaram desde a chamada para **GetMessages**, todas as mensagens que não foram excluídas se tornarão visíveis novamente.
+* Você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **GetMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **foreach** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, após 5 minutos desde a chamada para **GetMessages**, todas as mensagens que não foram excluídas ficarão visíveis novamente.
 
 Aqui está um exemplo:
 
@@ -118,7 +118,7 @@ Aqui está um exemplo:
     }
 
 ## <a name="get-the-queue-length"></a>Obter o tamanho da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **FetchAttributes** pede ao serviço Fila para recuperar os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMethodCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o serviço Fila.
+Você pode obter uma estimativa do número de mensagens em uma fila. O método **fetchattributes** solicita que o serviço fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMethodCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o serviço Fila.
 
     // Fetch the queue attributes.
     messageQueue.FetchAttributes();
@@ -130,7 +130,7 @@ Você pode obter uma estimativa do número de mensagens em uma fila. O método *
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Usar o padrão Async-Await com APIs comuns de fila do Azure
-Este exemplo mostra como usar o padrão Async-Await com APIs comuns de fila do Azure. A amostra chama a versão assincronia de cada um dos métodos dados, isso pode ser visto pela pós-correção **De Sincronismo** de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre o uso do padrão Async-Await em .NET, consulte [Async and Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como usar o padrão Async-Await com APIs comuns de fila do Azure. O exemplo chama a versão assíncrona de cada um dos métodos fornecidos, isso pode ser visto pela postagem **assíncrona** de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão Async-Await no .NET [, consulte Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");

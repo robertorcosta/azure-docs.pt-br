@@ -1,14 +1,14 @@
 ---
-title: Prepare-se para a alteração de endereço IP de entrada
+title: Preparar para alteração de endereço IP de entrada
 description: Se seu endereço IP de entrada vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74672409"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de entrada
@@ -29,7 +29,7 @@ Se você recebeu uma notificação de que o endereço IP de entrada do seu aplic
 
 O novo endereço IP de entrada que está sendo fornecido para o aplicativo está no portal no campo **Endereço IP Virtual**. Esse novo endereço IP e o antigo estão conectados ao seu aplicativo agora, e mais tarde o antigo será desconectado.
 
-1.  Abra o [portal Azure.](https://portal.azure.com)
+1.  Abra o [Portal do Azure](https://portal.azure.com).
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicativos**.
 

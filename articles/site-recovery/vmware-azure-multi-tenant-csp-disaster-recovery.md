@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60460938"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
@@ -65,7 +65,7 @@ Agora você pode executar e gerenciar todas as operações do Site Recovery do l
 ## <a name="assign-tenant-access-to-the-subscription"></a>Atribuir acesso do locatário à assinatura
 
 1. Certifique-se de que a infra-estrutura de recuperação de desastres está configurada. Parceiros acessam as assinaturas de locatários por meio do portal CSP, independentemente de se a recuperação de desastres for gerenciada ou autoatendimento. Configurar seu cofre e registrar a infraestrutura para as assinaturas do locatário.
-2. Forneça ao inquilino a [conta que você criou.](#create-a-tenant-account)
+2. Forneça o locatário com a [conta que você criou](#create-a-tenant-account).
 3. Você pode adicionar um novo usuário à assinatura de locatário por meio do portal do CSP da seguinte maneira:
 
     a) Acesse a página da assinatura do CSP do locatário e selecione a opção **Usuários e licenças**.
@@ -99,6 +99,6 @@ Ao configurar assinaturas de locatários, conforme descrito neste artigo, você 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [o controle de acesso baseado em função](site-recovery-role-based-linked-access-control.md) para gerenciar implantações do Azure Site Recovery.
-- Saiba mais sobre a arquitetura de [replicação](vmware-azure-architecture.md)VMware to Azure .
+- Saiba mais sobre a arquitetura de [replicação](vmware-azure-architecture.md)do VMware para o Azure.
 - [Revise o tutorial](vmware-azure-tutorial.md) para replicar VMs VMware no Azure.
 Saiba mais sobre [ambiantes multilocatários](vmware-azure-multi-tenant-overview.md) para replicar VMware VMs para Azure.

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792362"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -24,7 +24,7 @@ Com o conector de mensagem Decodificar X12, você pode validar o envelope no aco
 Veja os itens necessários:
 
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma conta de [integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de decodificação.
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de decodificação.
 * Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 * Pelo menos dois [contratos X12](logic-apps-enterprise-integration-x12.md) que já estão definidos em sua conta de integração
 
@@ -57,7 +57,7 @@ Veja os itens necessários:
 
     ![conexão com a conta de integração criada](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    Por exemplo: 
+    Por exemplo:
 
     ![Selecione a mensagem de arquivo simples X12 para decodificação](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
@@ -103,5 +103,5 @@ O conector de Decodificação X12 executa as seguintes tarefas:
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Conheça o Enterprise Integration Pack") 
+[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 

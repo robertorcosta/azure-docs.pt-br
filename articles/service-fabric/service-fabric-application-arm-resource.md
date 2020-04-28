@@ -1,13 +1,13 @@
 ---
-title: Implantar e atualizar com o Azure Resource Manager
+title: Implantar e atualizar com Azure Resource Manager
 description: Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610243"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
@@ -56,7 +56,7 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 1. Prepare o modelo do Resource Manager do cluster para implantação. Consulte [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre isso.
 2. Pense em alguns aplicativos que você planeja implantar no cluster. Há algum que estará sempre executando esses outros aplicativos nos quais ele pode assumir dependências? Você planeja implantar qualquer governança de cluster ou aplicativos de configuração? Esses tipos de aplicativos são mais bem gerenciados por meio de um modelo do Resource Manager, como discutido acima. 
 3. Depois que você descobriu quais aplicativos você deseja que sejam implantados dessa forma, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de arquivos. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação.
-4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [API API Swagger Spec](https://aka.ms/sfrpswaggerspec). Observe que isso não substitui os manifestos de aplicativo ou serviço, mas descreve algumas das coisas que estão neles como parte do modelo de Gerenciador de recursos do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
+4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [especificação Swagger da API REST](https://aka.ms/sfrpswaggerspec). Observe que isso não substitui os manifestos do aplicativo ou do serviço, mas descreve alguns dos que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
 
    ```json
    {
@@ -248,20 +248,20 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 
 5. Implante! 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Remover recurso de aplicativo do provedor de recursos do aplicativo de malha de serviço
-O seguinte acionará o pacote do aplicativo a ser desprovisionado a partir do cluster, e isso limpará o espaço de disco usado:
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Remover Service Fabric recurso de aplicativo do provedor de recursos
+O seguinte irá disparar o pacote do aplicativo para ser desprovisionado do cluster, e isso limpará o espaço em disco usado:
 ```powershell
 Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-Simplesmente remover o Microsoft.ServiceFabric/clusters/application do seu modelo ARM não desprovisionará o aplicativo
+A simples remoção de Microsoft. infabric/clusters/aplicativo do modelo do ARM não desprovisionará o aplicativo
 
 >[!NOTE]
-> Uma vez que a remoção esteja concluída, você não deve mais ver a versão do pacote no SFX ou ARM. Não é possível excluir o recurso de versão do tipo de aplicativo com o que o aplicativo está executando; Arm/SFRP evitará isso. Se você tentar desprovisionar o pacote em execução, o tempo de execução do SF o impedirá.
+> Depois que a remoção for concluída, você não verá mais a versão do pacote no SFX ou no ARM. Não é possível excluir o recurso de versão do tipo de aplicativo com o qual o aplicativo está sendo executado; O ARM/SFRP impedirá isso. Se você tentar desprovisionar o pacote em execução, o runtime do it o impedirá.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gerenciar um aplicativo existente por meio do Resource Manager
 
-Se seu cluster já estiver operante e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e implantá-los novamente, será possível usar uma chamada PUT usando as mesmas APIs para que os aplicativos sejam confirmados como recursos do Resource Manager. Para obter informações adicionais, consulte [O que é o modelo de recurso de aplicativo service fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Se seu cluster já estiver operante e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e implantá-los novamente, será possível usar uma chamada PUT usando as mesmas APIs para que os aplicativos sejam confirmados como recursos do Resource Manager. Para obter informações adicionais, consulte o [que é o modelo de recurso de aplicativo Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
 > Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar “maxPercentUnhealthyApplications: 100” na seção “upgradeDescription/healthPolicy”; descrições detalhadas para todas as configurações estão na [Documentação da política de atualização de cluster da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).

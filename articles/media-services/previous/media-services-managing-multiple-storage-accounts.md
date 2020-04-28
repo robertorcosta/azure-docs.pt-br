@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69901773"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciar ativos de Serviços de Mídia por meio de várias contas de armazenamento  
@@ -42,7 +42,7 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 Outras considerações:
 
-Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao criar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por essa razão, a codificação percentual não é permitida. O valor da propriedade Name não pode ter quaisquer dos seguintes [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+Os serviços de mídia usam o valor da propriedade **IAssetFile.Name** ao compilar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade Name não pode ter quaisquer dos seguintes [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 ## <a name="to-attach-storage-accounts"></a>Para anexar contas de armazenamento  
 
@@ -280,6 +280,6 @@ namespace MultipleStorageAccounts
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

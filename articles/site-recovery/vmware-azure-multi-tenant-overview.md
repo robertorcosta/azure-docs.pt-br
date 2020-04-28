@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres multilocatários VMware VM com recuperação do site do Azure
+title: Recuperação de desastre multilocatário de VM VMware com Azure Site Recovery
 description: Apresenta uma visão geral do suporte do Azure Site Recovery para recuperação de desastres do VMWare para o Azure em um programa de ambiente multilocatário (CSP).
 author: mayurigupta13
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083982"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
 
-[O Azure Site Recovery](site-recovery-overview.md) suporta ambientes de vários inquilinos para assinaturas de inquilinos. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft).
+O [Azure site Recovery](site-recovery-overview.md) dá suporte a ambientes de multilocatário para assinaturas de locatário. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft).
 
 Este artigo fornece uma visão geral de implementação e gerenciamento da replicação do VMware no Azure de multilocatário.
 
@@ -72,13 +72,13 @@ Configure o servidor de configuração com uma conta que tem uma função especi
 
 ### <a name="create-a-vcenter-account"></a>Criar uma conta do vCenter
 
-1. Crie uma nova função clonando o papel predefinido somente leitura e, em seguida, *dê-lhe* um nome conveniente (como Azure_Site_Recovery, como mostrado neste exemplo).
+1. Crie uma nova função clonando a função *somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery, conforme mostrado neste exemplo).
 2. Atribua as seguintes permissões a essa função:
 
    * **Repositório de dados**: Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
-   * **Rede**: Atribuição de rede
+   * **Rede**: atribuição de rede
    * **Recurso**: Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
-   * **Tarefas**: Criar tarefa, atualizar tarefa
+   * **Tarefas**: criar tarefa, atualizar tarefa
    * **VM – Configuração**: tudo
    * **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
    * **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
@@ -120,7 +120,7 @@ Para restringir as operações de recuperação de desastre a somente failover (
 
 1. No portal do Azure, no cofre que você criou anteriormente, registre o servidor vCenter para o servidor de configuração, usando a conta do vCenter que você criou.
 2. Conclua o processo de “Preparação da infraestrutura” para o Site Recovery de acordo com o processo normal.
-3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do inquilino são exibidas em**máquinas virtuais** **Replicate** > Select .
+3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário são exibidas em **replicar** > **selecionar máquinas virtuais**.
 
 ## <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
 

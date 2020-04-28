@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d00f740085b15bdb5fe698a069d97f168507f31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451597"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
@@ -30,7 +30,7 @@ Conforme mencionado, o relatório pode ser gerado:
 
 * Na réplica do serviço da Malha de Serviço monitorada.
 * De watchdogs internos implantados como um serviço do Service Fabric (por exemplo, um serviço sem estado do Service Fabric que monitora as condições e emite relatórios). Os watchdogs podem ser implantados em todos os nós ou podem ser relacionados por afinidade com o serviço monitorado.
-* Cães de guarda internos que são executados nos nós do Service Fabric, mas *não* são implementados como serviços de Malha de Serviço.
+* Watchdogs internos que são executados nos nós de Service Fabric, mas *não* são implementados como Service Fabric serviços.
 * De watchdogs externos que testam o recurso de *fora* do cluster do Service Fabric (por exemplo, um serviço de monitoramento, como o Gomez).
 
 > [!NOTE]
@@ -46,18 +46,18 @@ Uma vez o design de relatório de integridade estiver claro, os relatórios de i
 > 
 
 ## <a name="health-client"></a>Cliente de integridade
-Os relatórios de saúde são enviados ao gerente de saúde por meio de um cliente de saúde, que vive dentro do cliente do tecido. O gerente de saúde guarda relatórios na loja de saúde. O cliente de integridade pode ser configurado da seguinte maneira:
+Os relatórios de integridade são enviados para o Gerenciador de integridade por meio de um cliente de integridade, que reside dentro do cliente de malha. O Gerenciador de integridade salva os relatórios no repositório de integridade. O cliente de integridade pode ser configurado da seguinte maneira:
 
-* **HealthReportSendInterval**: O atraso entre o tempo que o relatório é adicionado ao cliente e o tempo que ele é enviado ao gerente de saúde. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
-* **HealthReportRetrySendInterval**: O intervalo em que o cliente de saúde reenvia relatórios de saúde acumulados ao gestor de saúde. Padrão: 30 segundos, mínimo: 1 segundo.
-* **HealthOperationTimeout**: O período de tempo para uma mensagem de relatório enviada ao gestor de saúde. Se uma mensagem for postada, o cliente de saúde tenta até que o gerente de saúde confirme que o relatório foi processado. Padrão: dois minutos.
+* **HealthReportSendInterval**: o atraso entre a hora em que o relatório é adicionado ao cliente e a hora em que ele é enviado para o Gerenciador de integridade. Usado para relatórios de lote em uma única mensagem, em vez de enviar uma mensagem para cada relatório. O envio em lote melhora o desempenho. Padrão: 30 segundos.
+* **HealthReportRetrySendInterval**: o intervalo no qual o cliente de integridade reenvia relatórios de integridade acumulados para o Gerenciador de integridade. Padrão: 30 segundos, mínimo: 1 segundo.
+* **HealthOperationTimeout**: o período de tempo limite para uma mensagem de relatório enviada ao Gerenciador de integridade. Se uma mensagem atingir o tempo limite, o cliente de integridade o tentará novamente até que o Gerenciador de integridade confirme que o relatório foi processado. Padrão: dois minutos.
 
 > [!NOTE]
-> Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o gerente de saúde não puder aplicá-las devido a erros transitórios, o cliente de tecido deve ser mantido vivo por mais tempo para dar-lhe uma chance de tentar novamente.
+> Quando os relatórios são agrupados em lotes, o cliente de malha deve ser mantido em atividade até que, pelo menos, HealthReportSendInterval garanta que eles sejam enviados. Se a mensagem for perdida ou o Gerenciador de integridade não puder aplicá-las devido a erros transitórios, o cliente de malha deverá ser mantido ativo por mais tempo para dar a oportunidade de tentar novamente.
 > 
 > 
 
-O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe, no máximo, um relatório como este na fila do cliente. Se o lote estiver configurado, o número de relatórios enviados ao gerente de saúde é de apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
+O armazenamento em buffer no cliente leva a exclusividade dos relatórios em consideração. Por exemplo, se um relator específico com problemas estiver relatando 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios serão substituídos pela versão mais recente. Existe, no máximo, um relatório como este na fila do cliente. Se o envio em lote estiver configurado, o número de relatórios enviados para o Gerenciador de integridade será apenas um por intervalo de envio. Este relatório é o último adicionado, que reflete o estado mais atual da entidade.
 Os parâmetros de configuração podem ser especificados quando `FabricClient` é criado, passando o [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para as entradas relacionadas à integridade.
 
 O exemplo a seguir cria um cliente de malha e especifica que os relatórios devem ser enviados quando forem adicionados. Em tempos limite e erros que podem ser recuperados, as repetições ocorrem a cada 40 segundos.
@@ -139,7 +139,7 @@ Os relatórios de dentro do serviço monitorado nem sempre são uma opção. Um 
 
 Às vezes, um watchdog em execução no cluster também não é uma opção. Se a condição monitorada for a disponibilidade ou a funcionalidade do serviço como os usuários a veem, é melhor ter os watchdogs no mesmo local que os clientes do usuário. Lá, eles podem testar as operações da mesma forma que os usuários as chamam. Por exemplo, você pode ter um watchdog que reside fora do cluster e emite solicitações para o serviço e, então, verifica a latência e a exatidão do resultado. (Para um serviço de calculadora, por exemplo, 2+2 retorna 4 em um período de tempo razoável?)
 
-Depois que os detalhes do watchdog tiverem sido finalizados, escolha uma ID de origem que o identifique de modo exclusivo. Se vários watchdogs do mesmo tipo são residentes no cluster, eles devem relatar entidades diferentes, ou, se eles relatam na mesma entidade, use ID de origem ou propriedade diferente. Dessa forma, os relatórios poderão coexistir. A propriedade do relatório de integridade deve capturar a condição monitorada. (Para o exemplo acima, a propriedade pode ser **ShareSize**.) Se vários relatórios se aplicarem à mesma condição, a propriedade deve conter algumas informações dinâmicas que permitem que os relatórios coexistam. Por exemplo, se houver vários compartilhamentos que precisem ser monitorados, o nome da propriedade poderá ser **TamanhoDoCompartilhamento-nomedocompartilhamento**.
+Depois que os detalhes do watchdog tiverem sido finalizados, escolha uma ID de origem que o identifique de modo exclusivo. Se vários watchdogs do mesmo tipo são residentes no cluster, eles devem relatar entidades diferentes, ou, se eles relatam na mesma entidade, use ID de origem ou propriedade diferente. Dessa forma, os relatórios poderão coexistir. A propriedade do relatório de integridade deve capturar a condição monitorada. (Para o exemplo acima, a propriedade pode ser **compartilhada**.) Se vários relatórios se aplicarem à mesma condição, a propriedade deverá conter algumas informações dinâmicas que permitem que os relatórios coexistam. Por exemplo, se houver vários compartilhamentos que precisem ser monitorados, o nome da propriedade poderá ser **TamanhoDoCompartilhamento-nomedocompartilhamento**.
 
 > [!NOTE]
 > *Não* use o repositório de integridade para manter informações de status. Apenas informações relacionadas à integridade devem ser relatadas como integridade, uma vez que essas informações afetam a avaliação de integridade de uma entidade. O repositório de integridade não foi desenvolvido como um repositório para fins gerais. Ele usa a lógica de avaliação de integridade para agregar todos os dados no estado de integridade. O envio de informações não relacionadas à integridade (como relatórios de status com um estado de integridade OK) não afetará o estado de integridade agregado, mas poderá afetar negativamente o desempenho do repositório de integridade.
@@ -206,7 +206,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Enviar relatórios de saúde com **O Send-ServiceFabric*EntityType*HealthReport**.
+Envie relatórios de integridade com **Send-Imfabric*EntityType*HealthReport**.
 
 O exemplo a seguir mostra um relatório periódico sobre valores de CPU em um nó. Os relatórios devem ser enviados a cada 30 segundos e têm uma vida útil de dois minutos. Se eles expirarem, o relator está com problemas, de modo que o nó é avaliado com erro. Quando a CPU estiver acima de um limite, o relatório terá um estado de integridade de aviso. Quando a CPU permanece acima de um limite por mais do que o tempo configurado, ela é relatada como um erro. Caso contrário, o relator enviará um estado de integridade OK.
 
@@ -295,7 +295,7 @@ Envie relatórios de integridade usando o REST com solicitações POST que vão 
 ## <a name="next-steps"></a>Próximas etapas
 Com base nos dados de integridade, os criadores de serviço e administradores de cluster/aplicativo podem pensar em maneiras de consumir as informações. Por exemplo, eles podem configurar alertas com base no status de integridade para capturar problemas graves antes que eles provoquem interrupções. Os administradores também podem definir os sistemas de reparo para corrigir problemas automaticamente.
 
-[Introdução ao Monitoramento de Saúde do Tecido de Serviços](service-fabric-health-introduction.md)
+[Introdução ao monitoramento de integridade Service Fabric](service-fabric-health-introduction.md)
 
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 

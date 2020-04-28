@@ -1,15 +1,15 @@
 ---
-title: Gerenciar a carga do aplicativo Azure Service Fabric usando métricas
+title: Gerenciar a carga do aplicativo Service Fabric do Azure usando métricas
 description: Saiba mais sobre como configurar e usar métricas no Service Fabric para gerenciar o consumo de recursos de serviço.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451992"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
@@ -28,7 +28,7 @@ Digamos que você deseja começar a escrever e implantar seu serviço. Neste pon
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alta |
 | ReplicaCount |0 |1 |1 |Médio |
-| Contagem |1 |1 |1 |Baixo |
+| Contagem |1 |1 |1 |Baixa |
 
 
 Para cargas de trabalho básicas, as métricas padrão fornecem uma distribuição razoável de trabalho no cluster. No exemplo a seguir, vamos ver o que acontece quando criamos dois serviços e dependemos das métricas padrão para balanceamento. O primeiro serviço é um serviço com estado com três partições e um tamanho de conjunto de réplicas de destino de três. O segundo serviço é um serviço sem estado com uma partição e uma contagem de instâncias de três.
@@ -135,7 +135,7 @@ Lembre-se: se você quiser usar as métricas padrão, não precisará sequer enc
 Agora, vamos percorrer cada uma dessas configurações mais detalhadamente e falar sobre o comportamento que ela influencia.
 
 ## <a name="load"></a>Carregar
-O objetivo da definição de métricas é representar alguma carga. *Carga* é a quantidade de determinada métrica consumida por alguma instância de serviço ou réplica em determinado nó. A carga pode ser configurada em praticamente qualquer ponto. Por exemplo: 
+O objetivo da definição de métricas é representar alguma carga. *Carga* é a quantidade de determinada métrica consumida por alguma instância de serviço ou réplica em determinado nó. A carga pode ser configurada em praticamente qualquer ponto. Por exemplo:
 
   - A carga pode ser definida quando um serviço é criado. Isso é chamado de _carga padrão_.
   - As informações de métrica, inclusive as cargas padrão, para um serviço podem ser atualizadas depois que o serviço é criado. Isso é chamado de _atualização de um serviço_. 
@@ -233,7 +233,7 @@ Vamos conferir um exemplo de alguns relatórios de carga para ver como os pesos 
 
 <center>
 
-![Exemplo de Peso Métrico e seu impacto em soluções de equilíbrio][Image3]
+![Exemplo de peso de métrica e seu impacto sobre soluções de balanceamento][Image3]
 </center>
 
 Neste exemplo, há quatro serviços diferentes, todos relatando diferentes valores para duas métricas diferentes, Métrica A e Métrica B. Em um caso, todos os serviços definem a Métrica A como a mais importante (Peso = Alto) e a Métrica B como não importante (Peso = Baixo). Nesse caso, vemos que o Gerenciador de Recursos de Cluster dispõe os serviços para que a Métrica A seja mais equilibrada que a Métrica B. "Melhor equilibrada" significa que a Métrica A tem um desvio padrão menor que a Métrica B. No segundo caso, invertemos os pesos de métrica. Como resultado, o Gerenciador de Recursos de Cluster troca os serviços A e B para propor uma alocação em que a Métrica B seja mais equilibrada do que a Métrica A.
@@ -251,7 +251,7 @@ O que aconteceria se o Gerenciador de Recursos de Cluster não se importasse com
 
 <center>
 
-![O impacto de uma solução global única][Image4]
+![O impacto de uma solução somente global][Image4]
 </center>
 
 No exemplo acima, baseado somente em balanceamento global, o cluster como um todo é realmente balanceado. Todos os nós têm a mesma contagem de primárias e o mesmo número total de réplicas. Entretanto, se você examinar o impacto real dessa alocação, isso não é tão bom: a perda de qualquer nó afeta uma determinada carga de trabalho desproporcionalmente, já que leva todos seus primários. Por exemplo, se o primeiro nó falhasse, as três primárias para as três partições diferentes do serviço Círculo seriam todas perdidas. Por outro lado, as partições dos serviços Triangle e Hexagon perdem uma réplica. Isso não causa uma interrupção, só é necessário recuperar a réplica que foi derrubada.
@@ -260,7 +260,7 @@ No exemplo inferior, o Gerenciador de Recursos de Cluster distribuiu as réplica
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre a configuração de serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- Definir Métricas de Desfragmentação é uma maneira de consolidar a carga em nós em vez de espalhá-la. Para saber como configurar a desfragmentação, consulte [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- A definição de métricas de desfragmentação é uma maneira de consolidar a carga em nós em vez de difundir. Para saber como configurar a desfragmentação, consulte [Este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
 - Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)

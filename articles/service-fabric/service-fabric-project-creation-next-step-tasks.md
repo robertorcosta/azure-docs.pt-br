@@ -1,13 +1,13 @@
 ---
-title: Criação de projetos de Malha de Serviços próximos passos
+title: Próximas etapas de criação do projeto Service Fabric
 description: Saiba mais sobre o projeto de aplicativo que você acabou de criar no Visual Studio.  Saiba como criar serviços usando tutoriais e mais sobre como desenvolver serviços para o Service Fabric.
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349406"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>O seu aplicativo do Service Fabric e as próximas etapas
@@ -56,7 +56,7 @@ Você pode usar aplicativos seguros em execução no cluster em contas de usuár
 O aplicativo pode conter informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados em texto sem formatação. Saiba como [gerenciar segredos no aplicativo](service-fabric-application-secret-management.md).
 
 ## <a name="learn-about-the-application-lifecycle"></a>Saiba mais sobre o ciclo de vida do aplicativo.
-Assim como acontece com outras plataformas, um aplicativo do Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, upgrade, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções ao longo das fases do ciclo de vida do aplicativo Service Fabric.
+Assim como acontece com outras plataformas, um aplicativo do Service Fabric geralmente passa pelas seguintes fases: design, desenvolvimento, teste, implantação, upgrade, manutenção e remoção. [Este artigo](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como elas são usadas pelas diferentes funções em todas as fases do ciclo de vida de Service Fabric aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um cluster do Windows no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).

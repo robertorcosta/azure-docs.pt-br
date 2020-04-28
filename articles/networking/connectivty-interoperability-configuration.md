@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68335934"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em recursos de conectividade de backend do Azure: detalhes da configuração do teste
@@ -25,9 +25,9 @@ Este artigo descreve os detalhes de configuração da [configuração do teste][
 
 A figura a seguir mostra os detalhes de emparelhamento DE Rede Virtual do Azure de uma VNet (rede virtual) do spoke. Para saber como configurar o emparelhamento entre duas VNets, consulte [Gerenciar emparelhamento de VNet][VNet-Config]. Se você quiser que a VNet do spoke use os gateways conectados à VNet do hub, selecione **Usar gateways remotos**.
 
-[![1]][1]
+[![uma]][1]
 
-A figura a seguir mostra os detalhes de emparelhamento VNet da VNet do hub. Se você quiser que o VNet do hub permita que o VNet falado use os gateways do hub, selecione **Permitir o trânsito de gateway**.
+A figura a seguir mostra os detalhes de emparelhamento VNet da VNet do hub. Se você quiser que a VNet do Hub permita que a VNet do spoke use os gateways do Hub, selecione **Permitir trânsito do gateway**.
 
 [![2]][2]
 
@@ -51,7 +51,7 @@ A figura a seguir mostra a configuração da conexão entre o circuito do Expres
 
 [![5]][5]
 
-A lista a seguir mostra a configuração do roteador CE primário para conectividade de emparelhamento privado do ExpressRoute. (Os roteadores Cisco ASR1000 são usados como roteadores CE na configuração de teste.) Quando os circuitos VPN e ExpressRoute são configurados em paralelo para conectar uma rede local ao Azure, o Azure prioriza o circuito ExpressRoute por padrão. Para evitar o roteamento assimétrico, a rede local também deverá priorizar a conectividade do ExpressRoute sobre conectividade VPN site a site. A configuração a seguir estabelece a priorização usando o atributo de BGP **local-preference**:
+A lista a seguir mostra a configuração do roteador CE primário para conectividade de emparelhamento privado do ExpressRoute. (Roteadores Cisco ASR1000 são usados como roteadores CE na configuração do teste.) Quando os circuitos VPN site a site e ExpressRoute são configurados em paralelo para conectar uma rede local ao Azure, o Azure prioriza o circuito do ExpressRoute por padrão. Para evitar o roteamento assimétrico, a rede local também deverá priorizar a conectividade do ExpressRoute sobre conectividade VPN site a site. A configuração a seguir estabelece a priorização usando o atributo de BGP **local-preference**:
 
     interface TenGigabitEthernet0/0/0.300
      description Customer 30 private peering to Azure

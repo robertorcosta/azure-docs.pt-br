@@ -1,15 +1,15 @@
 ---
 title: Funcionalidade do sistema operacional
-description: Saiba mais sobre a funcionalidade do Sistema Operacional no Azure App Service no Windows. Descubra quais tipos de arquivo, rede e registro acessam seu aplicativo.
+description: Saiba mais sobre a funcionalidade do sistema operacional no serviço de Azure App no Windows. Descubra os tipos de acesso de arquivo, rede e registro que seu aplicativo obtém.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
 ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671619"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
@@ -51,11 +51,11 @@ Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestru
 - Uma unidade de aplicativo que contém os arquivos cspkg do pacote do Azure usada exclusivamente pelo Serviço de Aplicativo do Azure (e inacessível para os clientes)
 - Uma unidade de "usuário" (unidade C:\), cujo tamanho varia dependendo do tamanho da VM. 
 
-É importante monitorar a sua utilização de disco à medida que seu aplicativo cresce. Se a cota de disco for atingida, isso pode ter efeitos adversos para seu aplicativo. Por exemplo:  
+É importante monitorar a sua utilização de disco à medida que seu aplicativo cresce. Se a cota de disco for atingida, isso pode ter efeitos adversos para seu aplicativo. Por exemplo: 
 
 - O aplicativo pode gerar um erro indicando que não há espaço suficiente no disco.
 - Você poderá ver erros de disco ao navegar para o console do Kudu.
-- A implantação do Azure DevOps `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`ou do Visual Studio pode falhar com .
+- A implantação do Azure DevOps ou do Visual Studio pode `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`falhar com.
 - Seu aplicativo pode sofrer um desempenho lento.
 
 <a id="NetworkDrives"></a>
@@ -76,7 +76,7 @@ Nas unidades locais conectadas à máquina virtual que executa um aplicativo, o 
 
 Dois exemplos de como o Serviço de Aplicativo utiliza o armazenamento local temporário são o diretório para arquivos do ASP.NET temporários e o diretório para arquivos compactados do IIS. O sistema de compilação do ASP.NET usa o diretório "Arquivos do ASP.NET Temporários" como um local de cache de compilação temporária. O IIS usa o diretório "Arquivos Compactados Temporários do IIS" para armazenar a saída de resposta compactada. Os usos desses tipos de arquivo (bem como outros) são remapeados no Serviço de Aplicativo para o armazenamento local temporário por aplicativo. Esse remapeamento garante que a funcionalidade continua conforme esperado.
 
-Cada aplicativo no App Service é executado como uma identidade aleatória de processo de [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)trabalho de baixo privilégio chamada "identidade de pool de aplicativos", descrita aqui: . O código do aplicativo usa essa identidade no acesso somente leitura básico à unidade do sistema operacional (a unidade D:\). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco mais amplo, os mesmos diretórios e arquivos permanecem acessíveis quando você provisiona uma função de trabalho em um serviço hospedado do Azure e ler o conteúdo da unidade. 
+Cada aplicativo no serviço de aplicativo é executado como uma identidade de processo de trabalho de baixo privilégio aleatória exclusiva chamada "identidade do pool de aplicativos" [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities), descrita mais adiante aqui:. O código do aplicativo usa essa identidade no acesso somente leitura básico à unidade do sistema operacional (a unidade D:\). Isso significa que o código do aplicativo pode listar estruturas de diretório comuns e ler arquivos comuns na unidade do sistema operacional. Embora isso possa parecer ser um nível de acesso um pouco mais amplo, os mesmos diretórios e arquivos permanecem acessíveis quando você provisiona uma função de trabalho em um serviço hospedado do Azure e ler o conteúdo da unidade. 
 
 <a name="multipleinstances"></a>
 
@@ -86,7 +86,7 @@ O diretório base apresenta o conteúdo de um aplicativo, e o código do aplicat
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Acesso de rede
-O código do aplicativo pode usar protocolos com base em TCP/IP e UDP para estabelecer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que expõem serviços externos. Os aplicativos podem usar esses mesmos protocolos para se conectar a serviços dentro do Azure, por exemplo, estabelecendo conexões HTTPS ao Banco de Dados SQL.
+O código do aplicativo pode usar protocolos com base em TCP/IP e UDP para estabelecer conexões de rede de saída com pontos de extremidade acessíveis pela Internet que expõem serviços externos. Os aplicativos podem usar esses mesmos protocolos para se conectarem aos serviços no Azure, por exemplo, estabelecendo conexões HTTPS com o banco de dados SQL.
 
 Também existe uma capacidade limitada para que aplicativos estabeleçam uma conexão de loopback local e um aplicativo escute nesse soquete de loopback local. Esse recurso existe principalmente para permitir que os aplicativos escutem em soquetes de loopback locais como parte de sua funcionalidade. Cada aplicativo vê uma conexão de loopback "privada". O aplicativo "A" não consegue escutar um soquete de loopback local estabelecido pelo aplicativo "B".
 

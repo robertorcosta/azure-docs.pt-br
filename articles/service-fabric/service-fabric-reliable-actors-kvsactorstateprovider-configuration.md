@@ -1,15 +1,15 @@
 ---
-title: Alterar configurações do KVSActorStateProvider
+title: Alterar configurações de KVSActorStateProvider
 description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609767"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider

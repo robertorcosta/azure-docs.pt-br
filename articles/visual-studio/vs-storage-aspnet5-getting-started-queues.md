@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento na fila usando o Visual Studio (ASP.NET Core)
+title: Introdução ao armazenamento de filas usando o Visual Studio (ASP.NET Core)
 description: Como começar a usar o armazenamento de filas do Azure em um projeto ASP.NET Core no Visual Studio
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 11/14/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72300031"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET Core)
@@ -67,7 +67,7 @@ Para acessar filas em projetos do ASP.NET Core, inclua os itens a seguir em qual
 
 ### <a name="create-a-queue-in-code"></a>Criar uma fila em código
 
-Para criar a fila do Azure em código, ligue para: `CreateIfNotExistsAsync`
+Para criar a fila do Azure no código, `CreateIfNotExistsAsync`chame:
 
 ```cs
 // Create the CloudQueue if it does not exist.

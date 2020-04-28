@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614308"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Como especificar variáveis de ambiente para serviços no Service Fabric
@@ -46,9 +46,9 @@ Neste exemplo, você pode definir uma variável de ambiente para um contêiner. 
       </ServiceManifestImport>
     ```
 
-## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Especificando variáveis de ambiente dinamicamente usando o Docker Compose
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Especificando variáveis de ambiente dinamicamente usando Docker Compose
 
-O Service Fabric suporta a capacidade de [usar o Docker Compose for Deployment](service-fabric-docker-compose.md#supported-compose-directives). Compor arquivos pode obter variáveis de ambiente a partir do shell. Esse comportamento pode ser usado para substituir os valores do ambiente desejados dinamicamente:
+Service Fabric dá suporte à capacidade de [usar Docker Compose para implantação](service-fabric-docker-compose.md#supported-compose-directives). Os arquivos de composição podem ser variáveis de ambiente de origem do Shell. Esse comportamento pode ser usado para substituir dinamicamente os valores de ambiente desejados:
 
 ```yml
 environment:

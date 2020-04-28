@@ -1,5 +1,5 @@
 ---
-title: O que aconteceu com meu projeto ASP.NET 5 (serviços conectados do Visual Studio)
+title: O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Visual Studio)
 description: Descreve o que acontece após a conexão a uma conta de armazenamento do Azure em um projeto do ASP.NET 5 do Visual Studio usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: be99465a48aaf680834f313e03384a9f0c211502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72300006"
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>O que aconteceu com meu projeto do ASP.NET 5 (serviços conectados do Armazenamento do Azure do Visual Studio)?
@@ -31,7 +31,7 @@ Esse pacote adiciona as referências de .NET a seguir:
 * **Microsoft.WindowsAzure.Configuration**
 * **Microsoft.WindowsAzure.Storage**
 * **Newtonsoft.Json**
-* **System.Data**
+* **System. Data**
 * **System.Spatial**
 
 Além disso, o pacote NuGet **Microsoft.Framework.Configuration.Json** foi adicionado.

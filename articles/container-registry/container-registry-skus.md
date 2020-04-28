@@ -1,13 +1,13 @@
 ---
 title: Níveis de serviço e SKUs
-description: Conheça os recursos e limites nos níveis de serviço Básico, Padrão e Premium (SKUs) do Azure Container Registry.
+description: Saiba mais sobre os recursos e limites nas camadas de serviço básico, Standard e Premium (SKUs) do registro de contêiner do Azure.
 ms.topic: article
 ms.date: 11/05/2019
 ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74456276"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do Registro de Contêiner do Azure
@@ -16,13 +16,13 @@ O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de 
 
 | SKU | Descrição |
 | --- | ----------- |
-| **Basic** | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Os registros básicos têm os mesmos recursos programáticos que o Standard e o Premium (como integração de [autenticação](container-registry-authentication.md#individual-login-with-azure-ad)do Azure Active Directory, [exclusão de imagens][container-registry-delete]e [webhooks).][container-registry-webhook] No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
+| **Basic** | Um ponto de entrada de otimização de custo para desenvolvedores aprendendo sobre o Registro de Contêiner do Azure. Os registros básicos têm os mesmos recursos de programação que o Standard e o Premium (como Azure Active Directory [integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad), [exclusão de imagem][container-registry-delete]e [WebHooks][container-registry-webhook]). No entanto, o armazenamento incluído e a taxa de transferência de imagem são mais apropriados para cenários de uso mais baixos. |
 | **Standard** | Os registros Standard oferecem os mesmos recursos do Básico, com maior armazenamento incluído e taxa de transferência de imagem. Registros Standard devem atender às necessidades da maioria dos cenários de produção. |
-| **Premium** | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. Além do maior throughput de imagem, o Premium adiciona recursos como [geo-replicação][container-registry-geo-replication] para o gerenciamento de um único registro em várias regiões, [confiança de conteúdo](container-registry-content-trust.md) para assinatura de tag de imagem, [firewalls e redes virtuais (visualização)](container-registry-vnet.md) para restringir o acesso ao registro. |
+| **Premium** | Os registros Premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de alto volume. Além da taxa de transferência de imagem mais alta, o Premium adiciona recursos como [replicação geográfica][container-registry-geo-replication] para gerenciar um único registro em várias regiões, [confiança de conteúdo](container-registry-content-trust.md) para assinatura de marca de imagem, [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao registro. |
 
-As SKUs Básicas, Padrão e Premium fornecem os mesmos recursos programáticos. Todos eles também se beneficiam do armazenamento de [imagens][container-registry-storage] gerenciado inteiramente pelo Azure. A escolha de uma SKU de nível mais alto oferece mais desempenho e escala. Com várias camadas de serviço, pode começar com o Básico e depois mudar para o Padrão e o Premium à medida que crescer o uso do registro.
+Todos os SKUs básico, Standard e Premium fornecem os mesmos recursos de programação. Todos eles também se beneficiam do [armazenamento de imagem][container-registry-storage] gerenciado inteiramente pelo Azure. A escolha de uma SKU de nível mais alto oferece mais desempenho e escala. Com várias camadas de serviço, pode começar com o Básico e depois mudar para o Padrão e o Premium à medida que crescer o uso do registro.
 
-## <a name="sku-features-and-limits"></a>Recursos e limites do SKU
+## <a name="sku-features-and-limits"></a>Recursos e limites de SKU
 
 A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de serviço Básico, Standard e Premium.
 
@@ -30,7 +30,7 @@ A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de
 
 ## <a name="changing-skus"></a>Alterando SKUs
 
-Você pode alterar a SKU do registro com o CLI do Azure ou no portal do Azure. Você pode mover-se livremente entre SKUs, desde que o SKU para o seu lado tenha a capacidade máxima de armazenamento necessária. 
+Você pode alterar a SKU do registro com o CLI do Azure ou no portal do Azure. Você pode mover-se livremente entre SKUs, desde que o SKU que você está alternando tenha a capacidade máxima de armazenamento necessária. 
 
 ### <a name="azure-cli"></a>CLI do Azure
 

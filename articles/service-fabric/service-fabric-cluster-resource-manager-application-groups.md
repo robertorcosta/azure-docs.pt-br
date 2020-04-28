@@ -1,15 +1,15 @@
 ---
-title: Gerenciador de recursos de cluster de malha de serviço - Grupos de aplicativos
+title: Gerenciador de recursos de Cluster Service Fabric-grupos de aplicativos
 description: Visão geral da funcionalidade de Grupo de Aplicativos no Gerenciador de Recursos de Cluster do Service Fabric
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75452144"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicativos
@@ -177,7 +177,7 @@ A consulta ApplicationLoad retorna as informações básicas sobre a Capacidade 
 * Capacidade do Aplicativo: valor máximo permitido de Carga do Aplicativo.
 
 ## <a name="removing-application-capacity"></a>Removendo a capacidade do aplicativo
-Depois que os parâmetros de Capacidade do Aplicativo estão definidos para um aplicativo, eles podem ser removidos usando cmdlets de Atualizar APIs de Aplicativo ou PowerShell. Por exemplo: 
+Depois que os parâmetros de Capacidade do Aplicativo estão definidos para um aplicativo, eles podem ser removidos usando cmdlets de Atualizar APIs de Aplicativo ou PowerShell. Por exemplo:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
@@ -206,7 +206,7 @@ As restrições são aplicadas durante a criação e a atualização de aplicati
 - Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
 - Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Para obter mais informações sobre como as métricas funcionam em geral, leia sobre [Métricas de Carga do Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
-- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de malha de serviço](service-fabric-cluster-resource-manager-cluster-description.md)
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre como [descrever um cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60755280"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway  
@@ -72,7 +72,7 @@ Execute as etapas a seguir para editar uma agenda de largura de banda.
 
 Execute as seguintes etapas para excluir uma agenda de largura de banda associada a seu dispositivo de Data Box Gateway.
 
-1. No portal Azure, vá para o recurso Data Box Gateway e, em seguida, vá para **Largura de Banda**.  
+1. Na portal do Azure, vá para o recurso de Gateway do Data Box e, em seguida, vá para **largura de banda**.  
 
 2. Na lista de agendas de largura de banda, selecione uma agenda que você deseja excluir. Clique com o botão direito do mouse para exibir o menu de contexto e clique em **Excluir**. 
 

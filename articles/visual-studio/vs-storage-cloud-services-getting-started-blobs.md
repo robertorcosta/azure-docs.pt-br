@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento blob usando o Visual Studio (serviços em nuvem)
+title: Introdução ao armazenamento de BLOBs usando o Visual Studio (serviços de nuvem)
 description: Como começar a usar o armazenamento de Blob do Azure em um projeto de serviço de nuvem no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298798"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao Armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como começar a usar o Armazenamento de Blobs do Azure depois de ter criado ou referenciado uma conta de Armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio em um projeto de serviços de nuvem do Visual Studio. Mostraremos como acessar e criar contêineres de blob e como executar tarefas comuns, como carregamento, listagem e download de blobs. As amostras são\# escritas em C e usam a [Biblioteca cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Este artigo descreve como começar a usar o Armazenamento de Blobs do Azure depois de ter criado ou referenciado uma conta de Armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio em um projeto de serviços de nuvem do Visual Studio. Mostraremos como acessar e criar contêineres de blob e como executar tarefas comuns, como carregamento, listagem e download de blobs. Os exemplos são escritos em C\# e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 O Armazenamento de Blob do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Um único blob pode ter qualquer tamanho. Blobs podem ser coisas como imagens, arquivos de áudio e vídeo, dados brutos e arquivos de documentos.
 
@@ -88,7 +88,7 @@ Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você 
 ## <a name="upload-a-blob-into-a-container"></a>Carregar um blob em um contêiner
 O Armazenamento do Azure dá suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a ser usado.
 
-Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Uma vez que você tenha uma referência blob, você pode carregar qualquer fluxo de dados para ele chamando o método **UploadFromStream.** Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
+Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Depois de ter uma referência de BLOB, você pode carregar qualquer fluxo de dados para ele chamando o método **UploadFromStream** . Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.
 
     // Retrieve a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
@@ -100,7 +100,7 @@ Para carregar um arquivo em um blob de blocos, obtenha uma referência de contê
     }
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
-Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode usar o método **ListBlobs** do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o rico conjunto de propriedades e métodos para um **IListBlobItem**retornado, você deve lançá-lo para um objeto **CloudBlockBlob,** **CloudPageBlob**ou **CloudBlobDirectory.** Se o tipo for desconhecido, você poderá usar uma verificação de tipo para determinar no qual convertê-lo. O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no contêiner **photos** :
+Para listar blobs em um contêiner, primeiro obtenha uma referência ao contêiner. Você pode usar o método **ListBlobs** do contêiner para recuperar os blobs e/ou diretórios dentro dele. Para acessar o rico conjunto de propriedades e métodos para um **IListBlobItem**retornado, você deve convertê-lo em um objeto **CloudBlockBlob**, **CloudPageBlob**ou **CloudBlobDirectory** . Se o tipo for desconhecido, você poderá usar uma verificação de tipo para determinar no qual convertê-lo. O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no contêiner **photos** :
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -167,7 +167,7 @@ e os resultados:
 Para obter mais informações, consulte [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
 
 ## <a name="download-blobs"></a>Baixar blobs
-Para baixar blobs, primeiro recupere uma referência a um blob e, em seguida, chame o método **DownloadToStream** . O exemplo a seguir usa o método **DownloadToStream** para transferir o conteúdo blob para um objeto de fluxo que você pode persistir em um arquivo local.
+Para baixar blobs, primeiro recupere uma referência a um blob e, em seguida, chame o método **DownloadToStream** . O exemplo a seguir usa o método **DownloadToStream** para transferir o conteúdo do blob para um objeto de fluxo que você pode persistir em um arquivo local.
 
     // Get a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");

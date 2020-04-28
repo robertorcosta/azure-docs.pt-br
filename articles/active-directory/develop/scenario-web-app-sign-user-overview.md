@@ -1,6 +1,6 @@
 ---
-title: Faça login usuários a partir de um aplicativo web - plataforma de identidade da Microsoft | Azure
-description: Saiba como construir um aplicativo web que faça sinais nos usuários (visão geral)
+title: Conectar usuários de um aplicativo Web-plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo Web que faz logon de usuários (visão geral)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 65d254cec5735c54e19f5adfde57fb6aed776a2c
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881478"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Web app que assina em usuários
+# <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicativo Web que assina usuários
 
-Saiba tudo o que você precisa para construir um aplicativo web que usa a plataforma de identidade microsoft para fazer login nos usuários.
+Saiba tudo o que você precisa para criar um aplicativo Web que usa a plataforma de identidade da Microsoft para conectar usuários.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,52 +30,52 @@ Saiba tudo o que você precisa para construir um aplicativo web que usa a plataf
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Se você quiser criar seu primeiro aplicativo web portátil (ASP.NET Core) que faz signatis nos usuários, siga este quickstart:
+Se você quiser criar seu primeiro aplicativo Web portátil (ASP.NET Core) que conecte os usuários, siga este guia de início rápido:
 
 > [!div class="nextstepaction"]
-> [Quickstart: ASP.NET aplicativo web Core que assina em usuários](quickstart-v2-aspnet-core-webapp.md)
+> [Início rápido: ASP.NET Core aplicativo Web que assina usuários](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Se você quiser entender como adicionar login a um aplicativo web ASP.NET existente, tente o seguinte quickstart:
+Se você quiser entender como adicionar a entrada a um aplicativo Web ASP.NET existente, tente o início rápido a seguir:
 
 > [!div class="nextstepaction"]
-> [Quickstart: ASP.NET web app que assina em usuários](quickstart-v2-aspnet-webapp.md)
+> [Início rápido: aplicativo Web ASP.NET que assina usuários](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
-Se você é um desenvolvedor Java, tente o seguinte quickstart:
+Se você for um desenvolvedor de Java, tente o início rápido a seguir:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Adicione login com a Microsoft a um aplicativo web Java](quickstart-v2-java-webapp.md)
+> [Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
-Se você desenvolver com Python, tente o seguinte quickstart:
+Se você desenvolver com Python, experimente o início rápido a seguir:
 
 > [!div class="nextstepaction"]
-> [Quickstart: adicione login com a Microsoft a um aplicativo web Python](quickstart-v2-python-webapp.md)
+> [Início Rápido: Adicionar a opção Entrar com a conta da Microsoft a um aplicativo Web do Python](quickstart-v2-python-webapp.md)
 
 ---
 
 ## <a name="overview"></a>Visão geral
 
-Você adiciona autenticação ao seu aplicativo web para que ele possa fazer login nos usuários. A adição de autenticação permite que seu aplicativo web acesse informações de perfil limitado, a fim de personalizar a experiência para os usuários. 
+Você adiciona autenticação ao seu aplicativo Web para que ele possa conectar usuários. A adição de autenticação permite que seu aplicativo Web acesse informações de perfil limitadas para personalizar a experiência para os usuários. 
 
-Os aplicativos da Web autenticam um usuário em um navegador da Web. Neste cenário, o aplicativo web direciona o navegador do usuário para inscrevê-los no Azure Active Directory (Azure AD). O Azure AD retorna uma resposta de login através do navegador do usuário, que contém reclamações sobre o usuário em um token de segurança. A assinatura de usuários aproveita o protocolo padrão [Open ID Connect,](./v2-protocols-oidc.md) simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)de middleware .
+Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure Active Directory (Azure AD). O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. A entrada de usuários aproveita o protocolo padrão do [Open ID Connect](./v2-protocols-oidc.md) , simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)de middleware.
 
 ![O aplicativo Web conecta usuários](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 
-Como uma segunda fase, você pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário inscrito. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo web que chama APIs web](scenario-web-app-call-api-overview.md).
+Como uma segunda fase, você pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário conectado. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo Web que chama APIs da Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Adicionar login a um aplicativo web é proteger o aplicativo web e validar um token de usuário, que é o que as bibliotecas **de middleware** fazem. No caso do .NET, esse cenário ainda não requer a Microsoft Authentication Library (MSAL), que trata de adquirir um token para chamar APIs protegidas. Bibliotecas de autenticação serão introduzidas no cenário de acompanhamento, quando o aplicativo web precisar chamar APIs da Web.
+> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de **middleware** fazem. No caso do .NET, esse cenário ainda não requer a MSAL (biblioteca de autenticação da Microsoft), que é sobre a aquisição de um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de acompanhamento, quando o aplicativo Web precisar chamar APIs da Web.
 
-## <a name="specifics"></a>Especificidades
+## <a name="specifics"></a>Especificações
 
-- Durante o registro do aplicativo, você precisará fornecer um ou vários (se você implantar seu aplicativo em vários locais) responder URIs. Em alguns casos (ASP.NET e ASP.NET Core), você precisará ativar o token de ID. Finalmente, você vai querer configurar um URI de assinatura para que seu aplicativo reaja aos usuários que se cadasitam.
-- No código para o seu aplicativo, você precisará fornecer a autoridade para a qual seus delegados de aplicativos web se inscrevem. Você pode querer personalizar a validação de tokens (em particular, em cenários de parceiros).
-- Os aplicativos da Web suportam qualquer tipo de conta. Para obter mais informações, consulte [tipos de conta suportados](v2-supported-account-types.md).
+- Durante o registro do aplicativo, você precisará fornecer um ou vários URIs de resposta (se você implantar seu aplicativo em vários locais). Em alguns casos (ASP.NET e ASP.NET Core), você precisará habilitar o token de ID. Por fim, você desejará configurar um URI de saída para que seu aplicativo reaja aos usuários saindo.
+- No código do seu aplicativo, você precisará fornecer a autoridade para a qual seu aplicativo Web delega a entrada. Talvez você queira personalizar a validação de token (em particular, em cenários de parceiros).
+- Os aplicativos Web oferecem suporte a qualquer tipo de conta. Para obter mais informações, consulte [tipos de conta com suporte](v2-supported-account-types.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

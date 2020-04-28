@@ -1,6 +1,6 @@
 ---
 title: Edição facial com o Azure Media Analytics | Microsoft Docs
-description: O Azure Media Redactor é um processador de mídia azure Media Analytics que oferece redação facial escalável na nuvem. Este artigo demonstra como redigir rostos com análises de mídia do Azure.
+description: Azure Media Redactor é um processador de mídia Análise de Mídia do Azure que oferece uma edição facial escalonável na nuvem. Este artigo demonstra como redigir rostos com a análise de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900310"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
 ## <a name="overview"></a>Visão geral
-**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Este artigo fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
 
@@ -145,9 +145,9 @@ Encontre exemplos dos tipos de desfoque abaixo.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Baixo
+#### <a name="low"></a>Baixa
 
-![Baixo](./media/media-services-face-redaction/blur1.png)
+![Baixa](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Med
 
@@ -191,7 +191,7 @@ O programa a seguir mostra como:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -367,7 +367,7 @@ namespace FaceRedaction
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

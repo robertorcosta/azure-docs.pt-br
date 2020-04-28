@@ -1,5 +1,5 @@
 ---
-title: Conecte-se aos feeds RSS dos aplicativos azure logic
+title: Conectar-se a RSS feeds de aplicativos lógicos do Azure
 description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam RSS feeds usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789334"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gerencie RSS feeds usando os Aplicativos Lógicos do Azure
@@ -23,7 +23,7 @@ Com os Aplicativos Lógicos do Azure e o conector de RSS, é possível criar flu
 
 RSS (Rich Site Summary), também chamado de Really Simple Syndication, é um formato popular para sindicalização da Web e é usado para publicar conteúdos atualizados com frequência, como postagens de blog e manchetes de notícias. Muitos editores de conteúdo fornecem um RSS feed para que os usuários possam assinar um determinado conteúdo. 
 
-É possível usar um gatilho RSS que obtém respostas de um RSS feed e disponibiliza a saída para outras ações. Você pode usar uma ação de RSS em seus aplicativos lógicos para executar uma tarefa com o RSS feed. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+É possível usar um gatilho RSS que obtém respostas de um RSS feed e disponibiliza a saída para outras ações. Você pode usar uma ação de RSS em seus aplicativos lógicos para executar uma tarefa com o RSS feed. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

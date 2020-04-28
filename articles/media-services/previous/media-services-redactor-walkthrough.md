@@ -16,23 +16,23 @@ ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
 ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69997687"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
 ## <a name="overview"></a>Visão geral
 
-**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Para obter detalhes sobre o **Azure Media Redactor**, veja o tópico [Visão geral da edição de face](media-services-face-redaction.md).
 
 Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto).
 
-Para mais informações, consulte [este](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
+Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Fluxo de trabalho do Explorador dos Serviços de Mídia do Azure
 
@@ -40,7 +40,7 @@ A maneira mais fácil de começar a usar o Redactor é com a ferramenta de códi
 
 ### <a name="download-and-setup"></a>Download e configuração
 
-1. Baixe a ferramenta AMSE para AMS v2 [daqui](https://aka.ms/amseforv2).
+1. Baixe a ferramenta AMSE para AMS v2 [aqui](https://aka.ms/amseforv2).
 1. Faça logon em sua conta dos Serviços de Mídia usando sua chave de serviço.
 
     Para obter as informações de chave e nome da conta, vá para o [Portal do Azure](https://portal.azure.com/) e selecione sua conta do AMS. Em seguida, selecione Configurações > Chaves. A janela Gerenciar chaves mostra o nome da conta e as chaves primária e secundária são exibidas. Copie os valores do nome da conta e a chave primária.
@@ -125,7 +125,7 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento blob usando o Visual Studio (projetos WebJob)
+title: Introdução ao armazenamento de BLOBs usando o Visual Studio (projetos de trabalho Web)
 description: Como começar a usar o armazenamento de Blob em um projeto WebJob depois de se conectar a um armazenamento do Azure usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72299966"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (projetos WebJob)
@@ -79,7 +79,7 @@ O exemplo de código a seguir altera a extensão do arquivo à medida que ele co
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipos que você pode associar a blobs
 Você pode usar o atributo **BlobTrigger** nos seguintes tipos:
 
-* **String**
+* **cadeia de caracteres**
 * **TextReader**
 * **Fluxo**
 * **ICloudBlob**

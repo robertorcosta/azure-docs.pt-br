@@ -1,6 +1,6 @@
 ---
-title: Notas de lançamento do Azure Data Box Gateway 1905| Microsoft Docs
-description: Descreve problemas e resoluções abertos críticos para o Azure Data Box Gateway em execução da versão geral de disponibilidade.
+title: Notas de versão do Gateway do Azure Data Box 1905 | Microsoft Docs
+description: Descreve problemas e resoluções críticos em aberto para o Gateway do Azure Data Box executando a versão de disponibilidade geral.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,38 +9,38 @@ ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67078606"
 ---
-# <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure Data Box Edge e Azure Data Box Gateway 1905
+# <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Notas de versão do Azure Data Box Edge e Gateway do Azure Data Box 1905
 
 ## <a name="overview"></a>Visão geral
 
-As notas de versão a seguir identificam os problemas abertos críticos e os problemas resolvidos para a versão de 1905 para o Azure Data Box Edge e o Azure Data Box Gateway.
+As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 1905 para Azure Data Box Edge e Gateway do Azure Data Box.
 
-As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar o Data Box Edge/Data Box Gateway, revise cuidadosamente as informações contidas nas notas de versão.
+As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar seu Data Box Edge/Gateway do Data Box, examine atentamente as informações contidas nas notas de versão.
 
-Esta versão corresponde às versões do software:
+Esta versão corresponde às versões de software:
 
-- **Data Box Gateway 1905 (1.6.887.626)**
+- **Gateway do Data Box 1905 (1.6.887.626)**
 - **Data Box Edge 1905 (1.6.887.626)**
 
 > [!NOTE]
-> A atualização 1905 só pode ser aplicada aos dispositivos Data Box Edge que estão executando a versão GA do software.
+> A atualização 1905 pode ser aplicada somente a dispositivos Data Box Edge que estão executando a versão GA do software.
 
-## <a name="whats-new"></a>O que há de novo
+## <a name="whats-new"></a>Novidades
 
-- **Melhorias de registro do Field Programmable Gate Array (FPGA)** - Nesta versão, fizemos aprimoramentos de registro e alerta relacionados ao FPGA. Esta é uma atualização necessária para o Data Box Edge se você estiver usando o recurso de computação Edge com o FPGA. Para obter mais informações, veja como [transformar dados com o Edge compute no data box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Aprimoramentos no log de FPGA (Reprogramable Gate Array)** – nesta versão, fizemos o log e os aprimoramentos de alerta relacionados ao FPGA. Essa é uma atualização necessária para Data Box Edge se você estiver usando o recurso de computação de borda com o FPGA. Para obter mais informações, consulte como [transformar dados com a computação de borda em seu data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
 
-## <a name="known-issues-in-ga-release"></a>Problemas conhecidos na versão ga
+## <a name="known-issues-in-ga-release"></a>Problemas conhecidos na versão GA
 
-Nenhum novo problema é divulgado para esta versão. Todos os problemas de lançamento notáveis foram realizados a partir das versões anteriores. Para ver uma lista de problemas conhecidos, vá para [Problemas conhecidos na versão GA](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+Não foram observados novos problemas para esta versão. Toda a versão observou que os problemas foram transferidos das versões anteriores. Para ver uma lista de problemas conhecidos, vá para [problemas conhecidos na versão GA](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Prepare-se para implantar o Gateway da Caixa de Dados Do Azure](data-box-gateway-deploy-prep.md)
+- [Preparar para implantar Gateway do Azure Data Box](data-box-gateway-deploy-prep.md)
 - [Preparar para implantar o Azure Data Box Edge](data-box-edge-deploy-prep.md)

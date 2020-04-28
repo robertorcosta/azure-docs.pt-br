@@ -1,7 +1,7 @@
 ---
-title: Configure SSO no macOS e iOS
+title: Configurar o SSO no macOS e no iOS
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar o single sign on (SSO) no macOS e iOS.
+description: Saiba como configurar o SSO (logon único) no macOS e no iOS.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,71 +14,71 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80881241"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configurar sSO no macOS e iOS
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: configurar o SSO no macOS e no iOS
 
-A Microsoft Authentication Library (MSAL) para macOS e iOS suporta O SSO (Single Sign-on) entre aplicativos macOS/iOS e navegadores. Este artigo abrange os seguintes cenários do SSO:
+A MSAL (biblioteca de autenticação da Microsoft) para macOS e iOS dá suporte ao SSO (logon único) entre aplicativos e navegadores macOS/iOS. Este artigo aborda os seguintes cenários de SSO:
 
 - [SSO silencioso entre vários aplicativos](#silent-sso-between-apps)
 
-Este tipo de SSO funciona entre vários aplicativos distribuídos pelo mesmo Desenvolvedor Apple. Ele fornece SSO silencioso (ou seja, o usuário não é solicitado para credenciais) lendo tokens de atualização escritos por outros aplicativos do chaveiro e trocando-os por tokens de acesso silenciosamente.  
+Esse tipo de SSO funciona entre vários aplicativos distribuídos pelo mesmo desenvolvedor da Apple. Ele fornece SSO silencioso (ou seja, o usuário não é solicitado a fornecer credenciais) lendo tokens de atualização gravados por outros aplicativos do conjunto de chaves e trocando-os para tokens de acesso silenciosamente.  
 
-- [SSO através do corretor de autenticação](#sso-through-authentication-broker-on-ios)
+- [SSO por meio do agente de autenticação](#sso-through-authentication-broker-on-ios)
 
 > [!IMPORTANT]
 > Esse fluxo não está disponível no macOS.
 
-A Microsoft fornece aplicativos, chamados de corretores, que permitem o SSO entre aplicativos de diferentes fornecedores, desde que o dispositivo móvel esteja registrado no Azure Active Directory (AAD). Este tipo de SSO requer que um aplicativo de corretor seja instalado no dispositivo do usuário.
+A Microsoft fornece aplicativos, chamados de agentes, que habilitam o SSO entre aplicativos de diferentes fornecedores, desde que o dispositivo móvel seja registrado com o Azure Active Directory (AAD). Esse tipo de SSO requer que um aplicativo de agente seja instalado no dispositivo do usuário.
 
 - **SSO entre MSAL e Safari**
 
-O SSO é alcançado através da classe [ASWebAuthenticationSession.](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc) Ele usa o estado de login existente de outros aplicativos e do navegador Safari. Não se limita a aplicativos distribuídos pelo mesmo Apple Developer, mas requer alguma interação do usuário.
+O SSO é obtido por meio da classe [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc) . Ele usa o estado de entrada existente de outros aplicativos e do navegador Safari. Ele não está limitado a aplicativos distribuídos pelo mesmo desenvolvedor da Apple, mas requer alguma interação do usuário.
 
-Se você usar a visualização web padrão em seu aplicativo para fazer login nos usuários, você receberá SSO automático entre aplicativos baseados em MSAL e Safari. Para saber mais sobre as visualizações da Web que o MSAL suporta, visite [Personalizar navegadores e WebViews](customize-webviews.md).
+Se você usar o modo de exibição da Web padrão em seu aplicativo para conectar usuários, obterá SSO automático entre aplicativos baseados em MSAL e Safari. Para saber mais sobre as exibições da Web que o MSAL dá suporte, visite [Personalizar navegadores e Webviews](customize-webviews.md).
 
 > [!IMPORTANT]
-> Este tipo de SSO não está disponível no macOS. O MSAL no macOS só suporta o WKWebView, que não tem suporte ao SSO com o Safari. 
+> Esse tipo de SSO não está disponível no macOS no momento. O MSAL no macOS só dá suporte a WKWebView que não tem suporte a SSO com o Safari. 
 
-- **SSO silencioso entre aplicativos MacOS/iOS MSAL e MSAL**
+- **SSO silencioso entre aplicativos ADAL e MSAL macOS/iOS**
 
-O MSAL Objective-C suporta migração e SSO com aplicativos baseados em Objetivo ADAL. Os aplicativos devem ser distribuídos pelo mesmo Desenvolvedor Apple.
+O MSAL Objective-C dá suporte à migração e ao SSO com aplicativos baseados em Objective-C de ADAL. Os aplicativos devem ser distribuídos pelo mesmo desenvolvedor da Apple.
 
-Consulte [sso entre aplicativos ADAL e MSAL no macOS e iOS](sso-between-adal-msal-apps-macos-ios.md) para obter instruções para SSO cross-app entre aplicativos baseados em ADAL e MSAL.
+Consulte [SSO entre aplicativos Adal e MSAL no MacOS e Ios](sso-between-adal-msal-apps-macos-ios.md) para obter instruções para SSO entre aplicativos entre o Adal e os aplicativos baseados em MSAL.
 
 ## <a name="silent-sso-between-apps"></a>SSO silencioso entre aplicativos
 
-A MSAL suporta o compartilhamento de SSO através de grupos de acesso a chaveiros iOS.
+O MSAL dá suporte ao compartilhamento de SSO por meio de grupos de acesso do iOS.
 
-Para habilitar o SSO em seus aplicativos, você precisará fazer as seguintes etapas, que são explicadas com mais detalhes abaixo:
+Para habilitar o SSO em seus aplicativos, você precisará executar as etapas a seguir, que são explicadas em mais detalhes abaixo:
 
-1. Certifique-se de que todos os seus aplicativos usem o mesmo ID do cliente ou id do aplicativo.
+1. Verifique se todos os seus aplicativos usam a mesma ID de cliente ou ID do aplicativo.
 1. Certifique-se de que todos os aplicativos compartilhem o mesmo certificado de assinatura da Apple para que você possa compartilhar os conjuntos de chaves.
 1. Solicite o mesmo direito de conjunto de chaves para cada um dos seus aplicativos.
-1. Informe os SDKs do MSAL sobre o chaveiro compartilhado que você quer que usemos se for diferente do padrão.
+1. Informe os SDKs do MSAL sobre o conjunto de chaves compartilhado que você deseja que possamos usar se ele for diferente do padrão.
 
-### <a name="use-the-same-client-id-and-application-id"></a>Use o mesmo ID do cliente e id de aplicativo
+### <a name="use-the-same-client-id-and-application-id"></a>Usar a mesma ID do cliente e ID do aplicativo
 
-Para que a plataforma de identidade da Microsoft saiba quais aplicativos podem compartilhar tokens, esses aplicativos precisam compartilhar o mesmo ID do Cliente ou ID do aplicativo. Esse é o identificador exclusivo fornecido para você quando você registrou seu primeiro aplicativo no portal.
+Para que a plataforma de identidade da Microsoft saiba quais aplicativos podem compartilhar tokens, esses aplicativos precisam compartilhar a mesma ID do cliente ou ID do aplicativo. Esse é o identificador exclusivo fornecido para você quando você registrou seu primeiro aplicativo no portal.
 
-A maneira como a plataforma de identidade da Microsoft informa aos aplicativos que usam o mesmo ID de aplicativo à parte é por suas **URIs redirecionadas**. Cada aplicativo pode ter vários URIs de Redirecionamento registrados no portal de integração. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
+A maneira como a plataforma Microsoft Identity informa aos aplicativos que usam a mesma identificação de aplicativo, é por seus **URIs de redirecionamento**. Cada aplicativo pode ter vários URIs de Redirecionamento registrados no portal de integração. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
 
 URI de Redirecionamento do App1: `msauth.com.contoso.mytestapp1://auth`  
 URI de Redirecionamento do App2: `msauth.com.contoso.mytestapp2://auth`  
 URI de Redirecionamento do App3: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
-> O formato de uris de redirecionamento deve ser compatível com o formato msal suporta, que está documentado nos requisitos de [formato URI de redirecionamento MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
+> O formato dos URIs de redirecionamento deve ser compatível com o formato que o MSAL dá suporte, que está documentado em [requisitos de formato de URI de redirecionamento MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
 
-### <a name="setup-keychain-sharing-between-applications"></a>Compartilhamento de chaveiros de configuração entre aplicativos
+### <a name="setup-keychain-sharing-between-applications"></a>Configurar o compartilhamento de conjunto de chaves entre aplicativos
 
-Consulte o artigo ['Recursos de adição'](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) da Apple para permitir o compartilhamento de chaveiros. O importante é que você decida o que quer que seu chaveiro seja chamado e adicione esse recurso a todos os seus aplicativos que estarão envolvidos no SSO.
+Consulte o artigo [recursos de adição](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) da Apple para habilitar o compartilhamento de conjunto de chaves. O que é importante é que você decida o que deseja que seu conjunto de chaves seja chamado e adicione esse recurso a todos os seus aplicativos que estarão envolvidos no SSO.
 
-Quando você tiver os direitos configurados corretamente, `entitlements.plist` você verá um arquivo no diretório do projeto que contém algo como este exemplo:
+Quando os direitos estiverem configurados corretamente, você verá um `entitlements.plist` arquivo no diretório do projeto que contém algo como este exemplo:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -94,19 +94,19 @@ Quando você tiver os direitos configurados corretamente, `entitlements.plist` v
 </plist>
 ```
 
-#### <a name="add-a-new-keychain-group"></a>Adicionar um novo grupo de chaveiros
+#### <a name="add-a-new-keychain-group"></a>Adicionar um novo grupo de conjunto de chaves
 
-Adicione um novo grupo de chaveiros ao seu projeto **Recursos**. O grupo chaveiro deve ser:
+Adicione um novo grupo de conjunto de chaves a seus **recursos**de projeto. O grupo de conjunto de chaves deve ser:
 * `com.microsoft.adalcache`no iOS 
 * `com.microsoft.identity.universalstorage`no macOS.
 
-![exemplo de chaveiro](media/single-sign-on-macos-ios/keychain-example.png)
+![exemplo de conjunto de chaves](media/single-sign-on-macos-ios/keychain-example.png)
 
-Para obter mais informações, consulte [grupos de chaveiros](howto-v2-keychain-objc.md).
+Para obter mais informações, consulte grupos de conjunto de [chaves](howto-v2-keychain-objc.md).
 
-## <a name="configure-the-application-object"></a>Configure o objeto do aplicativo
+## <a name="configure-the-application-object"></a>Configurar o objeto de aplicativo
 
-Uma vez que você tenha o direito do chaveiro ativado em cada um de `MSALPublicClientApplication` seus aplicativos e esteja pronto para usar o SSO, configure com o seu grupo de acesso de chaveiro como no exemplo a seguir:
+Depois que você tiver o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e estiver pronto para usar o SSO `MSALPublicClientApplication` , configure com o grupo de acesso do conjunto de chaves como no exemplo a seguir:
 
 Objective-C:
 
@@ -133,19 +133,19 @@ do {
 ```
 
 > [!WARNING]
-> Quando você compartilha um chaveiro em seus aplicativos, qualquer aplicativo pode excluir usuários ou até mesmo todos os tokens em seu aplicativo.
-> Isso é particularmente impactante se você tiver aplicativos que dependem de tokens para fazer o trabalho de fundo.
-> Compartilhar um chaveiro significa que você deve ter muito cuidado quando seu aplicativo usa o SDK de identidade da Microsoft remover operações.
+> Quando você compartilha um conjunto de chaves em seus aplicativos, qualquer aplicativo pode excluir usuários ou até mesmo todos os tokens em seu aplicativo.
+> Isso é particularmente afetado se você tiver aplicativos que dependem de tokens para fazer trabalho em segundo plano.
+> Compartilhar um conjunto de chaves significa que você deve ser muito cuidadoso quando seu aplicativo usa operações de remoção do SDK do Microsoft Identity.
 
-É isso! O SDK de identidade da Microsoft agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre as instâncias do aplicativo.
+Pronto! O SDK do Microsoft Identity agora compartilhará credenciais em todos os seus aplicativos. A lista de contas também será compartilhada entre instâncias do aplicativo.
 
-## <a name="sso-through-authentication-broker-on-ios"></a>SSO através de corretor de autenticação no iOS
+## <a name="sso-through-authentication-broker-on-ios"></a>SSO por meio do agente de autenticação no iOS
 
-A MSAL oferece suporte para autenticação intermediada com o Microsoft Authenticator. O Microsoft Authenticator fornece SSO para dispositivos registrados em AAD e também ajuda seu aplicativo a seguir as políticas de Acesso Condicional.
+O MSAL fornece suporte para autenticação orientada com Microsoft Authenticator. Microsoft Authenticator fornece SSO para dispositivos registrados no AAD e também ajuda seu aplicativo a seguir políticas de acesso condicional.
 
-As etapas a seguir são como você habilita o SSO usando um corretor de autenticação para o seu aplicativo:
+As etapas a seguir são como habilitar o SSO usando um agente de autenticação para seu aplicativo:
 
-1. Registre um formato URI compatível com corretor para o aplicativo no Info.plist do seu aplicativo. O formato URI de `msauth.<app.bundle.id>://auth`redirecionamento compatível com corretor é . Substitua '<app.bundle.id>'' pelo ID do pacote do seu aplicativo. Por exemplo:
+1. Registre um formato de URI de redirecionamento compatível com o agente para o aplicativo no info. plist do seu aplicativo. O formato do URI de redirecionamento compatível com o agente é `msauth.<app.bundle.id>://auth`. Substitua '<app.bundle.id>' ' pela ID do pacote do seu aplicativo. Por exemplo:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -154,7 +154,7 @@ As etapas a seguir são como você habilita o SSO usando um corretor de autentic
     </array>
     ```
 
-1. Adicione os seguintes esquemas à Info.plist do seu aplicativo em `LSApplicationQueriesSchemes`:
+1. Adicione os seguintes esquemas ao info. plist do seu aplicativo `LSApplicationQueriesSchemes`em:
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -164,7 +164,7 @@ As etapas a seguir são como você habilita o SSO usando um corretor de autentic
     </array>
     ```
 
-1. Adicione o seguinte `AppDelegate.m` ao seu arquivo para lidar com retornos de chamadas:
+1. Adicione o seguinte ao seu `AppDelegate.m` arquivo para manipular retornos de chamada:
 
     Objective-C:
     
@@ -183,7 +183,7 @@ As etapas a seguir são como você habilita o SSO usando um corretor de autentic
     }
     ```
     
-**Se você estiver usando xcode 11,** você deve `SceneDelegate` colocar a chamada msal de volta no arquivo em vez disso.
+**Se você estiver usando o Xcode 11**, deverá posicionar o retorno de `SceneDelegate` chamada MSAL no arquivo em vez disso.
 Se você der suporte a UISceneDelegate e UIApplicationDelegate para compatibilidade com o iOS mais antigo, o retorno de chamada da MSAL precisará ser colocado nos dois arquivos.
 
 Objective-C:

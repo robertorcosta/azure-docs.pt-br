@@ -1,15 +1,15 @@
 ---
-title: Eventos de malha de serviço do Azure
+title: Eventos de Service Fabric do Azure
 description: Saiba mais sobre os eventos do Service Fabric fornecidos para ajudá-lo a monitorar o cluster do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451720"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
@@ -36,7 +36,7 @@ Aqui estão alguns exemplos de cenários para os quais você deve ver eventos em
 ## <a name="how-to-access-events"></a>Como acessar os eventos
 
 Há algumas maneiras diferentes pelas quais os eventos do Service Fabric podem ser acessados:
-* Os eventos são registrados através de canais padrão, como registros de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que suporte esses registros do Monitor Do Azure. Por padrão, os clusters criados no portal têm diagnósticos ligados e têm o agente de diagnósticos do Windows Azure enviando os eventos para o armazenamento de tabela szure, mas você ainda precisa integrá-lo com seu recurso de análise de log. Leia mais sobre a configuração do [agente Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do seu cluster para pegar mais logs ou contadores de desempenho e a [integração de logs do Monitor do Azure](service-fabric-diagnostics-event-analysis-oms.md)
+* Os eventos são registrados por meio de canais padrão, como logs de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que ofereça suporte a esses logs de Azure Monitor. Por padrão, os clusters criados no portal têm o diagnóstico ativado e têm o agente de diagnóstico do Windows Azure enviando os eventos para o armazenamento de tabelas do Azure, mas você ainda precisa integrá-lo com o recurso do log Analytics. Leia mais sobre como configurar o [agente de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster para selecionar mais logs ou contadores de desempenho e a integração de logs de [Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * APIs de Rest do serviço EventStore que permitem que você consulte o cluster diretamente ou por meio da biblioteca de clientes do Service Fabric. Consulte [Consultar APIs do EventStore para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Próximas etapas

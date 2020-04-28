@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890236"
 ---
 # <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais
@@ -53,6 +53,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a CLI do Azure, consulte [a documentação da Cli do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre o CLI do Azure, consulte [CLI do Azure documentação](https://docs.microsoft.com/cli/azure).
 
 Exemplos adicionais de script de CLI de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../cli-samples.md).

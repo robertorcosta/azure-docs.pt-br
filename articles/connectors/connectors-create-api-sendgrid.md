@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao SendGrid a partir de aplicativos de lógica do Azure
+title: Conectar-se ao SendGrid de aplicativos lógicos do Azure
 description: Automatize tarefas e fluxos de trabalho que enviam emails e gerenciam listas de endereçamento no SendGrid usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789300"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envie emails e gerencie listas de endereçamento no SendGrid usando os Aplicativos Lógicos do Azure
@@ -25,7 +25,7 @@ Com os Aplicativos Lógicos do Azure e o conector do SendGrid, você pode criar 
 É possível usar ações do SendGrid em seus aplicativos lógicos para executar essas tarefas. Também é possível fazer com que outras ações usem a saída das ações do SendGrid. 
 
 Esse conector fornece apenas ações, portanto, para iniciar seu aplicativo lógico, use um gatilho separado, como um gatilho de **Recorrência**. Por exemplo, se adiciona destinatários a suas listas regularmente, você poderá enviar emails sobre destinatários e listas usando o conector do Office 365 Outlook ou do Outlook.com.
-Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](
      -ou-
 
    * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, insira "sendgrid" como filtro. Na lista de ações, selecione a ação desejada.
 

@@ -1,23 +1,23 @@
 ---
 title: Solução de problemas comuns
-description: Saiba como solucionar problemas comuns quando implantar, executar ou gerenciar instâncias de contêiner do Azure
+description: Saiba como solucionar problemas comuns ao implantar, executar ou gerenciar instâncias de contêiner do Azure
 ms.topic: article
 ms.date: 09/25/2019
 ms.custom: mvc
 ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533388"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
-Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure. Veja também [perguntas frequentes](container-instances-faq.md).
+Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md).
 
-Se você precisar de suporte adicional, consulte as opções de suporte de **Ajuda + Ajuda** disponíveis no portal [Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se precisar de suporte adicional, consulte Opções de **ajuda + suporte** disponíveis no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="issues-during-container-group-deployment"></a>Problemas durante a implantação do Grupo de Contêineres
+## <a name="issues-during-container-group-deployment"></a>Problemas durante a implantação do grupo de contêineres
 ### <a name="naming-conventions"></a>Convenções de nomenclatura
 
 Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, confira as [convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
@@ -44,7 +44,7 @@ Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azu
 }
 ```
 
-Esse erro é mais frequentemente encontrado ao implantar imagens do Windows baseadas na versão semi-anual do Canal 1709 ou 1803, que não são suportadas. Para obter imagens suportadas do Windows em Instâncias de Contêiner do Azure, consulte [perguntas freqüentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Esse erro é encontrado com mais frequência ao implantar imagens do Windows baseadas na versão do canal semestral 1709 ou 1803, que não tem suporte. Para imagens do Windows com suporte em instâncias de contêiner do Azure, consulte [perguntas](container-instances-faq.md#what-windows-base-os-images-are-supported)frequentes.
 
 ### <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
@@ -95,12 +95,12 @@ Esse erro indica que devido à carga pesada na região em que você está tentan
 * Implantar em uma região diferente do Azure
 * Implantar em um momento posterior
 
-## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de execução do Container Group
+## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de execução do grupo de contêineres
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Contêiner sai e reinicia continuamente (sem processo de longa execução)
 
 A [política de reinicialização](container-instances-restart-policy.md) padrão dos grupos de contêineres é **Sempre**; portanto, o grupo de contêineres sempre reiniciará após ser executado até a conclusão. Talvez seja necessário alterar isso para **OnFailure** ou **Nunca** se você pretende executar contêineres baseados em tarefa. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando start como o seguinte com a implantação do grupo de contêineres para manter o contêiner funcionando.
+Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando Iniciar, como o seguinte, com a implantação do grupo de contêineres para manter o contêiner em execução.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -158,7 +158,7 @@ A API de Instâncias de Contêiner e o portal do Azure incluem uma propriedade `
 
 ### <a name="container-takes-a-long-time-to-start"></a>Contêiner leva muito tempo para iniciar
 
-Os três principais fatores que contribuem para o tempo de inicialização de contêineres no Azure Container Instances são:
+Os três fatores principais que contribuem para o tempo de inicialização do contêiner em instâncias de contêiner do Azure são:
 
 * [Tamanho da imagem](#image-size)
 * [Local da imagem](#image-location)
@@ -186,7 +186,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 #### <a name="cached-images"></a>Imagens armazenadas em cache
 
-O Azure Container Instances usa um mecanismo de cache para ajudar a `nanoserver:1809`acelerar `servercore:ltsc2019`o `servercore:1809`tempo de inicialização do contêiner para imagens construídas em [imagens comuns da base do Windows,](container-instances-faq.md#what-windows-base-os-images-are-supported)incluindo , e . Imagens Linux comumente `ubuntu:1604` usadas, como e `alpine:3.6` também são armazenadas em cache. Para obter uma lista atualizada de imagens e tags em cache, use a API [List Cached Images.][list-cached-images]
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens `nanoserver:1809`criadas `servercore:ltsc2019`em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo, e `servercore:1809`. Imagens do Linux comumente usadas, `ubuntu:1604` como `alpine:3.6` e também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -201,22 +201,22 @@ As Instâncias de Contêiner do Azure não expõem acesso direto para a infraest
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contêineres pode não estar acessível devido a portas incompatíveis
 
-O Azure Container Instances ainda não suporta mapeamento de portas como com a configuração de docker regular. Se você encontrar que o endereço IP de um grupo de contêineres não esteja acessível quando você acredita que deveria `ports` estar, certifique-se de ter configurado sua imagem de contêiner para ouvir as mesmas portas que você expõe em seu grupo de contêineres com a propriedade.
+As instâncias de contêiner do Azure ainda não dão suporte ao mapeamento de porta como com a configuração regular do Docker. Se você achar que o endereço IP de um grupo de contêineres não está acessível quando acreditar que deveria ser, certifique-se de ter configurado sua imagem de contêiner para escutar as mesmas portas que você expõe `ports` em seu grupo de contêineres com a propriedade.
 
-Se você quiser confirmar se as instâncias de contêiner do Azure podem ouvir `aci-helloworld` na porta configurada na imagem do contêiner, teste uma implantação da imagem que expõe a porta. Execute também `aci-helloworld` o aplicativo para que ele ouça na porta. `aci-helloworld`aceita uma variável `PORT` de ambiente opcional para substituir a porta padrão 80 em que ela ouve. Por exemplo, para testar a porta 9000, defina a [variável de ambiente](container-instances-environment-variables.md) ao criar o grupo de contêineres:
+Se você quiser confirmar que as instâncias de contêiner do Azure podem escutar na porta configurada na sua imagem de contêiner, teste uma `aci-helloworld` implantação da imagem que expõe a porta. Execute também o `aci-helloworld` aplicativo para que ele escute na porta. `aci-helloworld`aceita uma variável `PORT` de ambiente opcional para substituir a porta padrão 80 escutada. Por exemplo, para testar a porta 9000, defina a [variável de ambiente](container-instances-environment-variables.md) ao criar o grupo de contêineres:
 
-1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável ambiente. O exemplo é formatado para a concha Bash. Se você preferir outro shell, como PowerShell ou Command Prompt, você precisará ajustar a atribuição variável de acordo.
+1. Configure o grupo de contêineres para expor a porta 9000 e passe o número da porta como o valor da variável de ambiente. O exemplo é formatado para o shell bash. Se preferir outro shell, como o PowerShell ou o prompt de comando, você precisará ajustar a atribuição de variável de forma adequada.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Encontre o endereço IP do grupo de `az container create`contêineres na saída de comando de . Procure o valor de **ip**. 
-1. Depois que o contêiner for provisionado com sucesso, navegue até o `192.0.2.0:9000`endereço IP e a porta do aplicativo de contêiner no seu navegador, por exemplo: . 
+1. Localize o endereço IP do grupo de contêineres na saída de comando `az container create`de. Procure o valor de **IP**. 
+1. Depois que o contêiner for provisionado com êxito, navegue até o endereço IP e a porta do aplicativo de contêiner em seu navegador, por exemplo: `192.0.2.0:9000`. 
 
-    Você deve ver o "Bem-vindo às Instâncias de Contêineres do Azure!" mensagem exibida pelo aplicativo web.
-1. Quando terminar com o recipiente, remova-o usando o `az container delete` comando:
+    Você deve ver o "bem-vindo às instâncias de contêiner do Azure!" mensagem exibida pelo aplicativo Web.
+1. Quando você terminar o contêiner, remova-o usando o `az container delete` comando:
 
     ```azurecli
     az container delete --resource-group myResourceGroup --name mycontainer
@@ -224,7 +224,7 @@ Se você quiser confirmar se as instâncias de contêiner do Azure podem ouvir `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [recuperar registros de contêineres e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
+Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources

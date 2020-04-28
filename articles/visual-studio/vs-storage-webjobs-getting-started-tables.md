@@ -1,5 +1,5 @@
 ---
-title: Começando com armazenamento Azure usando o Visual Studio (projetos WebJob)
+title: Introdução com o armazenamento do Azure usando o Visual Studio (projetos de trabalho Web)
 description: Como começar a usar o armazenamento de Tabela do Azure em um projeto WebJobs no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74707612"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
@@ -33,7 +33,7 @@ Alguns dos snippets de código mostram o atributo **Table** usado nas funções 
 
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
 
-Para adicionar entidades a uma tabela, use o atributo **Tabela** com um **iCollector\<T>** ou **IAsyncCollector\<T>** parâmetro onde **T** especifica o esquema das entidades que deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
+Para adicionar entidades a uma tabela, use o atributo **Table** com um **parâmetro\<ICollector t>** ou **\<IAsyncCollector t>** em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
 
 O exemplo de código a seguir adiciona entidades **Person** a uma tabela denominada *Ingress*.
 
@@ -88,7 +88,7 @@ Quando a função é concluída, a página **Detalhes de Invocação** relata o 
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades de uma tabela
 
-Para ler uma tabela, use o atributo **Tabela** com um parâmetro **de>\<IQueryable T** onde o tipo **T** deriva da **TableEntity** ou implementa **iTableEntity**.
+Para ler uma tabela, use o atributo **Table** com um **parâmetro\<IQueryable T>** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
 
 O seguinte exemplo de código lê e registra em log todas as linhas da tabela **Ingress** :
 

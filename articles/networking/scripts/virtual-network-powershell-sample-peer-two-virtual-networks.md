@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 53af283813500fc93d3e5fb9d4b00a9c3034af2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890198"
 ---
 # <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais
 
 Este script cria e conecta duas redes virtuais na mesma região através da rede do Azure. Depois de executar o script, você criará um emparelhamento entre duas redes virtuais.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada `Connect-AzAccount` no [guia Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)e execute para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

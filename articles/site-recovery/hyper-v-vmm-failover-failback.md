@@ -1,5 +1,5 @@
 ---
-title: Configure failover/failback para um site secundário de Hiper-V com a recuperação do site do Azure
+title: Configurar failover/failback para um site secundário do Hyper-V com Azure Site Recovery
 description: Saiba como fazer o failover de VMs do Hyper-V em seu site local secundário e fazer failback para o site primário, durante a recuperação de desastre com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082597"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Executar failover e failback em VMs do Hyper-V replicadas para o site local secundário
@@ -52,13 +52,13 @@ Você pode executar um failover planejado ou regular para VMs do Hyper-V.
   Este procedimento descreve como executar um failover regular.
 
 
-1. Em **Configurações** > **Itens replicados** clique no **Failover**> VM .
-1. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O Site Recovery também tenta sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continuará mesmo se o desligamento falhar. Você pode acompanhar o progresso do failover na página **Jobs.**
+1. Em **configurações** > **itens replicados** , clique no **failover**da VM >.
+1. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O Site Recovery também tenta sincronizar os dados locais que ainda não foram enviados para o site secundário antes de disparar o failover. Observe que o failover continuará mesmo se o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 2. Agora a VM deve ser exibida na nuvem do VMM secundária.
 3. Depois de verificar se VM, **Confirme** o failover. Essa ação exclui todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancele um failover em andamento**: Antes do failover ser iniciado, a replicação da VM é interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
+> **Não cancelar um failover em andamento**: antes de o failover ser iniciado, a replicação da VM é interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Replicação inversa e failover

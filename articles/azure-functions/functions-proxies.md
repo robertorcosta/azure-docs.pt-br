@@ -1,15 +1,15 @@
 ---
-title: Trabalhe com proxies em Funções Azure
+title: Trabalhar com proxies no Azure Functions
 description: Visão geral de como usar Proxies do Azure Functions
 author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74849183"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
@@ -46,7 +46,7 @@ As solicitações de back-end podem ser modificadas no portal expandindo a seç�
 
 ### <a name="modify-the-response"></a><a name="modify-response"></a>Modificar a resposta
 
-Por padrão, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Você pode fazer alterações no código de status, na frase de motivo, nos cabeçalhos e no corpo da resposta. Os valores [modificados]podem referenciar as configurações do aplicativo, [parâmetros da solicitação original do cliente]e [parâmetros da resposta back-end].
+Por padrão, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Você pode fazer alterações no código de status, na frase de motivo, nos cabeçalhos e no corpo da resposta. Os valores modificados podem referenciar [as configurações do aplicativo], [os parâmetros da solicitação original do cliente]e [os parâmetros da resposta de back-end].
 
 As solicitações de back-end podem ser modificadas no portal expandindo a seção *substituição da resposta* na página de detalhes do proxy. 
 
@@ -61,7 +61,7 @@ Você pode usar `localhost` para fazer referência a uma função diretamente de
 
  
 >[!Note]  
->Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Neste caso, a referência `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` seria como: Recomendamos armazenar essas chaves nas [configurações do aplicativo] e referenciar as de seus proxies. Isso evita armazenar segredos em seu código fonte. 
+>Se sua função usar os níveis de autorização *função, administrador ou sys*, você precisará fornecer o código e o clientId, de acordo com a URL da função original. Nesse caso, a referência ficaria assim: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Recomendamos armazenar essas chaves nas configurações do [aplicativo] e fazer referência a elas em seus proxies. Isso evita o armazenamento de segredos em seu código-fonte. 
 
 ### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Parâmetros de solicitação de referência
 
@@ -76,8 +76,8 @@ Por exemplo, se um proxy tem um modelo de rota como `/pets/{petId}`, a URL do ba
 Além dos parâmetros do modelo de rota, os seguintes valores podem ser usados em valores de configuração:
 
 * **{request.method}**: o método HTTP usado na solicitação original.
-* **{request.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da solicitação original. Substitua * \<\> o Nome do Cabeçalho* pelo nome do cabeçalho que deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
-* **{request.querystring.\<ParameterName\>}**: um parâmetro de cadeia de consulta que pode ser lido por meio da solicitação original. Substitua * \<O\> nome* do parâmetro com o nome do parâmetro que deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{request.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da solicitação original. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{request.querystring.\<ParameterName\>}**: um parâmetro de cadeia de consulta que pode ser lido por meio da solicitação original. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
@@ -85,13 +85,13 @@ Parâmetros de resposta podem ser usados como parte da modificação da resposta
 
 * **{backend.response.statusCode}**: o código de status HTTP retornado na resposta de back-end.
 * **{backend.response.statusReason}**: a frase de motivo HTTP retornada na resposta de back-end.
-* **{backend.response.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua * \<\> o Nome do Cabeçalho* pelo nome do cabeçalho que deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{backend.response.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Configurações do aplicativo de referência
 
-Você também pode referenciar [as configurações do aplicativo definidas para o aplicativo de função,](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) cercando o nome de configuração com sinais por cento (%).
+Você também pode referenciar [as configurações do aplicativo definidas para o aplicativo de funções](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) ao redor do nome da configuração com sinais de porcentagem (%).
 
-Por exemplo, uma URL *https://%ORDER_PROCESSING_HOST%/api/orders* back-end teria "%ORDER_PROCESSING_HOST%" substituído pelo valor da configuração ORDER_PROCESSING_HOST.
+Por exemplo, uma URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders* de teria "% ORDER_PROCESSING_HOST%" substituída pelo valor da configuração de ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que está sempre se comunicando com o back-end correto para aquele ambiente.
@@ -184,8 +184,8 @@ Os proxies leem todas as cadeias de caracteres de um arquivo JSON, usando \ como
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua * \<O\> nome* do parâmetro com o nome do parâmetro que deseja definir. Observe que se a seqüência de string vazia for fornecida, o parâmetro ainda está incluído na solicitação back-end.
-* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua * \<\> o Nome do Cabeçalho* pelo nome do cabeçalho que deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
+* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja definir. Observe que, se a cadeia de caracteres vazia for fornecida, o parâmetro ainda estará incluído na solicitação de back-end.
+* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
 
@@ -217,7 +217,7 @@ O objeto requestOverrides define as alterações feitas à resposta passada nova
 * **response.statusCode**: o código de status HTTP a ser retornado ao cliente.
 * **response.statusReason**: a frase de motivo do HTTP a ser retornada ao cliente.
 * **response.body**: a representação de cadeia de caracteres do corpo a ser retornada ao cliente.
-* **response.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua * \<\> o Nome do Cabeçalho* pelo nome do cabeçalho que deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
+* **response.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
 
 Os valores podem referenciar as configurações do aplicativo, os parâmetros da solicitação original do cliente e os parâmetros da resposta de back-end.
 
@@ -243,7 +243,7 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 > [!NOTE] 
 > Neste exemplo, o corpo da resposta é definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
 
-[Portal Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
@@ -252,4 +252,4 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 [configurações do aplicativo]: #use-appsettings
 [Usar variáveis]: #using-variables
 [parâmetros da solicitação original do cliente]: #request-parameters
-[parâmetros da resposta back-end]: #response-parameters
+[parâmetros da resposta de back-end]: #response-parameters

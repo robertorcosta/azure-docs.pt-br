@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75396104"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Visão geral dos padrões comuns de dimensionamento automático
@@ -50,7 +50,7 @@ Você tem um aplicativo Web (/VMSS/função de serviço de nuvem) e
 
 ## <a name="scale-based-on-custom-metric"></a>Dimensionamento baseado em métrica personalizada
 
-Você tem um front-end web e um nível de API que se comunica com o backend.
+Você tem um front-end da Web e uma camada de API que se comunica com o back-end.
 
 - Você deseja dimensionar a camada de API com base em eventos personalizados no front-end (exemplo: você quer dimensionar seu processo de check-out com base no número de itens no carrinho de compras)
 

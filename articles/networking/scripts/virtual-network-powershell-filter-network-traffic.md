@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: kumud
 ms.openlocfilehash: 46b368220a320679e93024f592d980f2b756c3a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890208"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrar o tráfego de entrada e saída de rede da VM
 
 Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-end. O tráfego de rede de entrada para a sub-rede de front-end é limitado a HTTP e HTTPS, enquanto o tráfego de rede de saída para a Internet da sub-rede de back-end não é permitido. Depois de executar o script, você terá uma máquina virtual com dois NICs. Cada NIC pode estar conectado a uma sub-rede diferente.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada `Connect-AzAccount` no [guia Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)e execute para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

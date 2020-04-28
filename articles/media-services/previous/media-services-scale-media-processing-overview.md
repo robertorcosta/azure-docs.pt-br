@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
 ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70102903"
 ---
 # <a name="scaling-media-processing-overview"></a>Visão geral do dimensionamento do processamento de mídia 
@@ -33,9 +33,9 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 |Tipo de RU|Cenário|Exemplo de resultados para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|A codificação para um único bitrate de resolução Mp4 arquivo usando "H264 Single Bitrate SD 16x9" leva cerca de 7 minutos.|
-| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com predefinido "H264 Single Bitrate 720p" leva cerca de 6 minutos.<br/><br/>A codificação com predefinido "H264 Multiple Bitrate 720p" leva cerca de 12 minutos.|
-| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com predefinido "H264 Single Bitrate 1080p" leva aproximadamente 3 minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|A codificação para o arquivo MP4 de resolução SD de taxa de bits única usando "H264 taxa de bits única SD 16x9" leva cerca de 7 minutos.|
+| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 taxa de bits única 720p" leva cerca de 6 minutos.<br/><br/>A codificação com a predefinição "H264 taxas de bits múltiplas 720p" leva cerca de 12 minutos.|
+| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com a predefinição "H264 taxa de bits única 1080p" leva aproximadamente 3 minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 ## <a name="billing"></a>Cobrança
 
-Você é cobrado com base no número de minutos que as Unidades Reservadas de Mídia são provisionadas em sua conta. Isso ocorre independentemente de haver algum Emprego em execução em sua conta. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
+Você é cobrado com base em quantos minutos as unidades reservadas de mídia são provisionadas em sua conta. Isso ocorre independentemente de qualquer trabalho em execução em sua conta. Para obter uma explicação detalhada, consulte a seção Perguntas frequentes da página [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Cotas e limitações
 Para saber mais sobre as cotas e limitações e sobre como abrir um tíquete de suporte, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
@@ -59,9 +59,9 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
-> * [Resto](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [Php](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
 > [!NOTE]
@@ -71,6 +71,6 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

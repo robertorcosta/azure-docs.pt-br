@@ -1,32 +1,32 @@
 ---
-title: Usando o valor de retorno de uma função Azure
-description: Aprenda a gerenciar valores de devolução para funções do Azure
+title: Usando o valor de retorno de uma função do Azure
+description: Saiba como gerenciar valores de retorno para Azure Functions
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74480583"
 ---
-# <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função Azure
+# <a name="using-the-azure-function-return-value"></a>Usando o valor de retorno da função do Azure
 
 Este artigo explica como os valores de retorno funcionam dentro de uma função.
 
-Em idiomas que possuem um valor de retorno, você pode vincular uma [função de saída vinculada](./functions-triggers-bindings.md#binding-direction) ao valor de retorno:
+Em idiomas que têm um valor de retorno, você pode associar uma [Associação de saída](./functions-triggers-bindings.md#binding-direction) de função ao valor de retorno:
 
 * Em uma biblioteca de classe C#, aplique o atributo de associação de saída para o valor de retorno do método.
-* Em Java, aplique a anotação de vinculação de saída ao método de função.
+* Em Java, aplique a anotação de associação de saída ao método de função.
 * Em outras linguagens, defina a propriedade `name` em *function.json* para `$return`.
 
 Se houver várias associações de saída, use o valor de retorno de apenas um deles.
 
 No C# e script C#, formas alternativas de enviar os dados para uma associação de saída são parâmetros `out` e [objetos de coletor](functions-reference-csharp.md#writing-multiple-output-values).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Aqui está o código C# que usa o valor de retorno para uma associação de saída, seguido por um exemplo de assíncrono:
 
@@ -85,7 +85,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-# <a name="f"></a>[F #](#tab/fsharp)
+# <a name="f"></a>[F#](#tab/fsharp)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -107,7 +107,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Aqui está a associação de saída no arquivo *function.json*:
 
@@ -155,7 +155,7 @@ def main(input: azure.functions.InputStream) -> str:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aqui está o código Java que usa o valor de retorno para uma vinculação de saída:
+Aqui está o código Java que usa o valor de retorno para uma associação de saída:
 
 ```java
 @FunctionName("QueueTrigger")
@@ -176,4 +176,4 @@ public static String run(
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Lidar com erros de vinculação de funções do Azure](./functions-bindings-errors.md)
+> [Manipular erros de associação de Azure Functions](./functions-bindings-errors.md)

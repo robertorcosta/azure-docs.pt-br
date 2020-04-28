@@ -1,21 +1,21 @@
 ---
-title: Restaurar aplicativo de backup
-description: Saiba como restaurar seu aplicativo de um backup. Certos bancos de dados vinculados podem ser restaurados junto com o aplicativo em uma operação.
+title: Restaurar aplicativo do backup
+description: Saiba como restaurar seu aplicativo de um backup. Determinados bancos de dados vinculados podem ser restaurados junto com o aplicativo em uma única operação.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74689240"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
 Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](manage-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
-- [Banco de dados SQL](https://azure.microsoft.com/services/sql-database/)
-- [Banco de dados Azure para MySQL](https://azure.microsoft.com/services/mysql)
+- [Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+- [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
 - [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL no aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -81,8 +81,8 @@ A página de detalhes exibe as informações disponíveis relacionadas à opera�
 
 Para obter exemplos, consulte:
 
-- [Amostras de Azure CLI](samples-cli.md)
-- [Amostras do Azure PowerShell](samples-powershell.md)
+- [Exemplos da CLI do Azure](samples-cli.md)
+- [Exemplos de Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

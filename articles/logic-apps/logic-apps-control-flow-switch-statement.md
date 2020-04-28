@@ -1,5 +1,5 @@
 ---
-title: Adicionar instruções de switch aos fluxos de trabalho
+title: Adicionar instruções switch a fluxos de trabalho
 description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74793244"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
@@ -42,7 +42,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
 1. Para este exemplo, adicione uma instrução switch no final do fluxo de trabalho de amostra. Após a última etapa, escolha **Nova etapa**.
 
-   Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o sinal**+** de **adição** () que aparece e escolha Adicionar uma **ação**.
+   Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o **sinal** de adição**+**() que aparece e, em seguida, escolha **Adicionar uma ação**.
 
 1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Switch – Control**
 
@@ -110,7 +110,7 @@ Agora que você criou um aplicativo lógico usando uma instrução switch, vamos
 }
 ```
 
-| Rótulo | Descrição |
+| Rotular | Descrição |
 |-------|-------------|
 | `"Switch"`         | O nome da instrução de comutação, que pode ser renomeada para facilitar a leitura |
 | `"type": "Switch"` | Especifica que a ação é uma instrução de comutação |

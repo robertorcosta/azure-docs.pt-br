@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64709516"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
@@ -27,10 +27,10 @@ A tabela a seguir lista os códigos de erro que podem ser retornados caso um err
 
 | ErrorDetail.Code | Causas possíveis para erro |
 | --- | --- |
-| Unknown (desconhecido) |Erro desconhecido ao executar a tarefa |
+| Unknown |Erro desconhecido ao executar a tarefa |
 | ErrorDownloadingInputAssetMalformedContent |Categoria de erros que abrange erros ao baixar um ativo de entrada, como nomes de arquivo inválidos, arquivo com comprimento zero, formatos incorretos e assim por diante. |
 | ErrorDownloadingInputAssetServiceFailure |Categoria de erros que aborda problemas no lado do serviço - por exemplo, erros de rede ou armazenamento durante o download. |
-| ErrorParsingConfiguration |Categoria de erros \<onde a tarefa ver cref="MediaTask.PrivateData"/> (configuração) não é válida, por exemplo, a configuração não é uma preconfiguração de sistema válida ou contém XML inválido. |
+| ErrorParsingConfiguration |Categoria de erros em que \<a tarefa vê cref = "MediaTask. privatedata"/> (configuração) não é válida, por exemplo, a configuração não é uma predefinição de sistema válida ou contém XML inválido. |
 | ErrorExecutingTaskMalformedContent |Categoria de erros durante a execução da tarefa em que os problemas de conteúdo nos arquivos de mídia de entrada causam falha. |
 | ErrorExecutingTaskUnsupportedFormat |Categoria de erros em que o processador de mídia não pode processar os arquivos fornecidos - não há suporte para o formato de mídia ou ele não coincide com a Configuração. Por exemplo, tentando produzir uma saída somente de áudio com base em um ativo que tenha apenas vídeo |
 | ErrorProcessingTask |Categoria de outros erros que o processador de mídia encontra durante o processamento da tarefa e que não estão relacionados ao conteúdo. |
@@ -43,7 +43,7 @@ Para obter ajuda da equipe dos **Serviços de Mídia** , abra um [tíquete de su
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados

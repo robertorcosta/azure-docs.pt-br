@@ -1,18 +1,18 @@
 ---
-title: Funções e permissões do RBAC
+title: Funções e permissões de RBAC
 description: Use o controle de acesso baseado nas função do Azure (RBAC) e o gerenciamento de identidades e acesso (IAM) para fornecer permissões refinadas a recursos em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 12/02/2019
 ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74893477"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
-O serviço de registro de contêineres do Azure suporta um conjunto de [funções incorporadas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o [RBAC (Role-Based Access Control, controle de acesso baseado em função](../role-based-access-control/index.yml) do Azure) para atribuir permissões específicas a usuários, diretores de serviço ou outras identidades que precisem interagir com um registro. 
+O serviço de registro de contêiner do Azure dá suporte a um conjunto de [funções internas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o RBAC ( [controle de acesso baseado em função](../role-based-access-control/index.yml) ) do Azure para atribuir permissões específicas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. 
 
 | Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Excluir dados de imagem](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -58,7 +58,7 @@ A capacidade de `docker pull` uma imagem de não quarentena, ou de enviar por pu
 
 ## <a name="delete-image-data"></a>Excluir dados de imagem
 
-A capacidade de [excluir imagens de contêiner](container-registry-delete.md)ou excluir outros artefatos [suportados,](container-registry-image-formats.md) como gráficos helm, de um registro.
+A capacidade de [Excluir imagens de contêiner](container-registry-delete.md)ou excluir outros [artefatos com suporte](container-registry-image-formats.md) , como gráficos Helm, de um registro.
 
 ## <a name="change-policies"></a>Alterar políticas
 
@@ -70,18 +70,18 @@ A capacidade de imagens de entrada normalmente é atribuída a um processo autom
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Assim como outros recursos do Azure, você pode criar suas [próprias funções personalizadas](../role-based-access-control/custom-roles.md) com permissões de grãos finos para o Registro de Contêineres do Azure. Em seguida, atribua as funções personalizadas aos usuários, diretores de serviço ou outras identidades que precisam interagir com um registro. 
+Assim como acontece com outros recursos do Azure, você pode criar suas próprias [funções personalizadas](../role-based-access-control/custom-roles.md) com permissões refinadas para o registro de contêiner do Azure. Em seguida, atribua as funções personalizadas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. 
 
-Para determinar quais permissões se aplicam a uma função personalizada, consulte a lista de [ações](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)do Microsoft.ContainerRegistry, revise as ações permitidas das [funções ACR incorporadas](../role-based-access-control/built-in-roles.md)ou execute o seguinte comando:
+Para determinar quais permissões aplicar a uma função personalizada, consulte a lista de [ações](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)Microsoft. ContainerRegistry, examine as ações permitidas das [funções ACR internas](../role-based-access-control/built-in-roles.md)ou execute o seguinte comando:
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
 ```
 
-Para definir uma função personalizada, consulte [Passos para criar uma função personalizada](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+Para definir uma função personalizada, consulte [etapas para criar uma função personalizada](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 > [!IMPORTANT]
-> Em uma função personalizada, o Azure Container Registry não `Microsoft.ContainerRegistry/*` `Microsoft.ContainerRegistry/registries/*` suporta atualmente curingas como ou que concedem acesso a todas as ações correspondentes. Especifique qualquer ação necessária individualmente na função.
+> Em uma função personalizada, o registro de contêiner do Azure atualmente não dá suporte `Microsoft.ContainerRegistry/*` a `Microsoft.ContainerRegistry/registries/*` curingas como ou que concedem acesso a todas as ações correspondentes. Especifique qualquer ação necessária individualmente na função.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -89,4 +89,4 @@ Para definir uma função personalizada, consulte [Passos para criar uma funçã
 
 * Saiba mais sobre [opções de autenticação](container-registry-authentication.md) para Registro de Contêiner do Azure.
 
-* Saiba como ativar [permissões com escopo de repositório](container-registry-repository-scoped-permissions.md) (visualização) em um registro de contêiner.
+* Saiba como habilitar [permissões no escopo do repositório](container-registry-repository-scoped-permissions.md) (versão prévia) em um registro de contêiner.

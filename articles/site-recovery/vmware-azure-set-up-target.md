@@ -1,5 +1,5 @@
 ---
-title: Prepare o alvo de replicação vmware VMem na recuperação do site do Azure
+title: Preparar o destino de replicação de VM VMware no Azure Site Recovery
 description: Este artigo descreve como preparar o ambiente de destino do Azure para replicação de uma VM do VMware no Azure.
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73693177"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparar o ambiente de destino para recuperação de desastre de VMs VMware ou servidores físicos para o Azure
@@ -22,7 +22,7 @@ Este artigo descreve como configurar o ambiente de destino do Azure para iniciar
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo supõe que:
-- Você criou um cofre de serviços de recuperação no [portal Azure](https://portal.azure.com "Portal do Azure") para proteger suas máquinas de origem
+- Você criou um cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "Portal do Azure") para proteger seus computadores de origem
 - Você configurou seu ambiente local para replicar as [máquinas virtuais do VMware](vmware-azure-set-up-source.md) ou [servidores físicos](physical-azure-set-up-source.md) de origem no Azure.
 
 ## <a name="prepare-target"></a>Preparar o destino
@@ -34,11 +34,11 @@ Depois de concluir a **Etapa 1: Selecionar meta de proteção** e a **Etapa 2: P
 1. **Assinatura:** no menu suspenso, escolha a assinatura na qual deseja replicar suas máquinas virtuais ou servidores físicos.
 2. **Modelo de Implantação:** escolha o modelo de implantação (Clássico ou Resource Manager)
 
-Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma rede virtual na assinatura de destino para replicar e falhar em sua máquina virtual ou servidor físico para.
+Com base no modelo de implantação escolhido, uma validação é executada para garantir que você tenha pelo menos uma rede virtual na assinatura de destino para replicar e fazer failover de sua máquina virtual ou servidor físico para o.
 
 Depois que as validações são concluídas com êxito, clique em OK de modo a passar para a próxima etapa.
 
-Se você não tiver uma rede virtual, você pode criar uma clicando no botão **+ Rede** na parte superior da página.
+Se você não tiver uma rede virtual, poderá criar uma clicando no botão **+ rede** na parte superior da página.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Definir configurações de replicação](vmware-azure-set-up-replication.md).
+[Defina as configurações de replicação](vmware-azure-set-up-replication.md).

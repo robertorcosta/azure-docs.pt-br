@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
 ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670127"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de logs do Log Analytics para os logs do Azure Monitor
@@ -53,7 +53,7 @@ Na Pesquisa de Logs, você pode clicar em uma linha em uma consulta resumida par
 
 ![Busca detalhada de Pesquisa de Log](media/log-search-transition/drilldown-search.png)
 
-Nos logs do Azure Monitor, você deve modificar a consulta para retornar esses registros. Expanda uma das linhas nos resultados **+** e clique no próximo ao valor para adicioná-lo à consulta. Em seguida, comente o comando **resumir** e execute a consulta novamente.
+Nos logs do Azure Monitor, você deve modificar a consulta para retornar esses registros. Expanda uma das linhas nos resultados e clique em ao **+** lado do valor para adicioná-lo à consulta. Em seguida, comente o comando **resumir** e execute a consulta novamente.
 
 ![Busca detalhada de logs do Azure Monitor](media/log-search-transition/drilldown-logs.png)
 

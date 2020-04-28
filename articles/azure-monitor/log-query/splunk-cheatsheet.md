@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75397757"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
@@ -70,8 +70,8 @@ No Splunk, você pode omitir a palavra-chave `search` e especificar uma cadeia d
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **pequisa** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Azure Monitor | **Encontrar** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Splunk | **procurando** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filtrar
@@ -79,7 +79,7 @@ As consultas de log do Azure Monitor iniciam em um conjunto de resultados tabula
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **pequisa** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| Splunk | **procurando** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
 | Azure Monitor | **where** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 | | |
 
@@ -89,8 +89,8 @@ Consultas de log do Azure Monitor também dão suporte a `take` como um alias pa
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Cabeça** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
-| Azure Monitor | **Limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
+| Splunk | **principal** | <code>Event.Rule=330009.2<br>&#124; head 100</code> |
+| Azure Monitor | **limite** | <code>Office_Hub_OHubBGTaskError<br>&#124; limit 100</code> |
 | | |
 
 
@@ -100,7 +100,7 @@ Para obter os resultados finais, use `tail` no Splunk. No Azure Monitor, você p
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Cabeça** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
+| Splunk | **principal** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
 | Azure Monitor | **Início** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 | | |
 
@@ -113,17 +113,17 @@ O Splunk também tem uma função `eval`, que não é comparável ao operador `e
 | |  | |
 |:---|:---|:---|
 | Splunk | **eval** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
-| Azure Monitor | **Estender** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
+| Azure Monitor | **estender** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 | | |
 
 
 ### <a name="rename"></a>Renomear 
-O Azure `project-rename` Monitor usa o operador para renomear um campo. `project-rename`permite que a consulta aproveite quaisquer índices pré-construídos para um campo. Splunk tem `rename` um operador para fazer o mesmo.
+Azure Monitor usa o `project-rename` operador para renomear um campo. `project-rename`permite que a consulta aproveite todos os índices criados previamente para um campo. Splunk tem um `rename` operador para fazer o mesmo.
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Renomear** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
-| Azure Monitor | **projeto-renome** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
+| Splunk | **rename** |  <code>Event.Rule=330009.2<br>&#124; rename Date.Exception as execption</code> |
+| Azure Monitor | **projeto-renomear** | <code>Office_Hub_OHubBGTaskError<br>&#124; project-rename exception = Date_Exception</code> |
 | | |
 
 
@@ -134,8 +134,8 @@ O Splunk não parece ter um operador semelhante a `project-away`. Você pode usa
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Tabela** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Azure Monitor | **Projeto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Azure Monitor | **projeto**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 
@@ -146,7 +146,7 @@ Confira as [Agregações em consultas de log do Azure Monitor](aggregations.md) 
 | |  | |
 |:---|:---|:---|
 | Splunk | **Estatísticas** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
-| Azure Monitor | **Resumir** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
+| Azure Monitor | **resumir** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 | | |
 
 
@@ -156,8 +156,8 @@ Unir-se ao Splunk tem limitações significativas. A subconsulta tem um limite d
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Juntar** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
-| Azure Monitor | **Juntar** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| Splunk | **em** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Azure Monitor | **em** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 
 
@@ -167,8 +167,8 @@ No Splunk, para classificar em ordem crescente, você deve usar o operador `reve
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **Tipo** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
-| Azure Monitor | **ordem por** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
+| Splunk | **sort** |  <code>Event.Rule=120103<br>&#124; sort Data.Hresult<br>&#124; reverse</code> |
+| Azure Monitor | **ordenar por** | <code>Office_Hub_OHubBGTaskError<br>&#124; order by Data_Hresult,  desc</code> |
 | | |
 
 
@@ -202,7 +202,7 @@ Você pode usar `summarize arg_min()` para inverter a ordem da qual o registro �
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **dedup** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
+| Splunk | **eliminação** |  <code>Event.Rule=330009.2<br>&#124; dedup device_id sortby -batterylife</code> |
 | Azure Monitor | **summarize arg_max()** | <code>Office_Excel_BI_PivotTableCreate<br>&#124; summarize arg_max(batterylife, *) by device_id</code> |
 | | |
 

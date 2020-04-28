@@ -1,6 +1,6 @@
 ---
-title: Acesse, monitore e gerencie seu repo do GitHub
-description: Monitore os eventos do GitHub e gerencie seu repo do GitHub criando fluxos de trabalho automatizados com aplicativos azure logic
+title: Acesse, monitore e gerencie seu repositório GitHub
+description: Monitorar eventos do GitHub e gerenciar seu repositório GitHub criando fluxos de trabalho automatizados com aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378442"
 ---
-# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitore e gerencie seu repo do GitHub usando aplicativos azure logic
+# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorar e gerenciar seu repositório GitHub usando aplicativos lógicos do Azure
 
 O GitHub é um serviço de hospedagem de repositório Git baseado na Web que oferece toda a funcionalidade de controle de revisão distribuída e SCM (gerenciamento código-fonte) do Git mais outros recursos.
 
@@ -35,7 +35,7 @@ Após criar a conexão, será possível executar as ações e ouvir os gatilhos 
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição OpenAPI (anteriormente Swagger) do conector, revise a [página de referência do conector](/connectors/github/).
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência do conector](/connectors/github/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

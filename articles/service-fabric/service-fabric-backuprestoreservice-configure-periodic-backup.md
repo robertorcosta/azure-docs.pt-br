@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
 ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75610141"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
@@ -89,7 +89,7 @@ Uma política de backup é composta pelas seguintes configurações:
         }
         ```
 
-    2. **Compartilhamento de arquivos**: Esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar backup de dados no local. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
+    2. **Compartilhamento de arquivos**: esse tipo de armazenamento deve ser selecionado para clusters _autônomos_ quando a necessidade é armazenar o backup de dados no local. Uma descrição desse tipo de armazenamento requer um caminho de compartilhamento de arquivos para o qual os backups precisam ser carregados. O acesso ao compartilhamento de arquivos pode ser configurado usando uma das seguintes opções
         1. _Autenticação Integrada do Windows_, em que o acesso ao compartilhamento de arquivos é fornecido a todos os computadores que pertencem ao cluster do Service Fabric. Nesse caso, defina os campos a seguir para configurar o armazenamento de backup baseado no _compartilhamento de arquivos_.
 
             ```json
@@ -118,8 +118,8 @@ Uma política de backup é composta pelas seguintes configurações:
 > Certifique-se de que a confiabilidade do armazenamento atenda aos requisitos de confiabilidade dos dados de backup ou os exceda.
 >
 
-* **Política de retenção**: Especifica a política de reter backups no armazenamento configurado. Há suporte para a Política de Retenção Básica.
-    1. **Política básica de retenção**: Esta política de retenção permite garantir a utilização ideal do armazenamento removendo arquivos de backup que não são mais necessários. `RetentionDuration` pode ser especificado para definir o período de tempo para os quais backups são necessários para ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para certificar-se de que o número especificado de backups é sempre retido independentemente de `RetentionDuration`. O exemplo abaixo ilustra a configuração para manter os backups para _10_ dias e não permite que o número de backups caia para baixo de _20_.
+* **Política de retenção**: especifica a política para reter backups no armazenamento configurado. Há suporte para a Política de Retenção Básica.
+    1. **Política de retenção básica**: essa política de retenção permite garantir a utilização de armazenamento ideal removendo arquivos de backup que não são mais necessários. `RetentionDuration` pode ser especificado para definir o período de tempo para os quais backups são necessários para ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para certificar-se de que o número especificado de backups é sempre retido independentemente de `RetentionDuration`. O exemplo abaixo ilustra a configuração para manter os backups para _10_ dias e não permite que o número de backups caia para baixo de _20_.
 
         ```json
         {

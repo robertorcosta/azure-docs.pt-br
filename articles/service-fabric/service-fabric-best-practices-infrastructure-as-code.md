@@ -1,15 +1,15 @@
 ---
-title: Infra-estrutura de malha de serviço do Azure como Práticas Recomendadas de Código
-description: As melhores práticas e considerações de design para gerenciar o Azure Service Fabric como infra-estrutura como código.
+title: Infraestrutura de Service Fabric do Azure como práticas recomendadas de código
+description: Práticas recomendadas e considerações de design para gerenciar o Azure Service Fabric como uma infraestrutura como código.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551804"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
@@ -90,8 +90,8 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração automática de atualização automática do sistema operacional da máquina virtual do Azure 
-Atualizar suas máquinas virtuais é uma operação iniciada pelo usuário, e é recomendável que você use o upgrade automático do sistema operacional do conjunto de [escala de máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para o gerenciamento de patches de host de clusters azure Service Fabric; Patch Orchestration Application é uma solução alternativa que se destina quando hospedada fora do Azure, embora o POA possa ser usado no Azure, com a sobrecarga de hospedagem de POA no Azure sendo uma razão comum para preferir o Upgrade Automático do Sistema Operacional da Máquina Virtual em vez de POA. A seguir estão as propriedades do algoritmo de gerenciamento de recursos do Set de escala de máquina sumido para permitir a atualização do auto-sistema operacional:
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração de atualização automática do sistema operacional da máquina virtual do Azure 
+A atualização de suas máquinas virtuais é uma operação iniciada pelo usuário e é recomendável que você use a [atualização do sistema operacional automático do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para o gerenciamento de patches do host do Azure Service Fabric clusters; O aplicativo de orquestração de patch é uma solução alternativa destinada a quando hospedado fora do Azure, embora POA possa ser usado no Azure, com sobrecarga de Hospedagem de POA no Azure sendo um motivo comum para preferir a atualização automática do sistema operacional da máquina virtual em POA. A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para habilitar a atualização automática do sistema operacional:
 
 ```json
 "upgradePolicy": {
@@ -102,11 +102,11 @@ Atualizar suas máquinas virtuais é uma operação iniciada pelo usuário, e é
     }
 },
 ```
-Ao usar upgrades automáticos do sistema operacional com malha de serviço, a nova imagem do SISTEMA OPERACIONAL é lançada um Domínio de Atualização por vez para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric, o cluster deve ser configurado para usar a camada de durabilidade Prata ou superior.
+Ao usar atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é distribuída em um domínio de atualização por vez para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric, o cluster deve ser configurado para usar a camada de durabilidade Prata ou superior.
 
-Certifique-se de que a seguinte chave de registro está definida como falsa para evitar que suas máquinas host do Windows institem atualizações descoordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Verifique se a seguinte chave do registro está definida como false para impedir que suas máquinas host do Windows iniciem atualizações não coordenadas: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-A seguir estão as propriedades do algoritmo de gerenciamento de recursos do Set de escala de máquina satisfaz as propriedades do Gerenciador de recursos da Compute Virtual Machine Para definir a chave de registro do WindowsUpdate como falsa:
+A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para definir a chave do registro do WindowsUpdate como false:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -119,12 +119,12 @@ A seguir estão as propriedades do algoritmo de gerenciamento de recursos do Set
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de atualização do cluster de malha de serviço do Azure
-A seguir está a propriedade de modelo service fabric cluster Resource Manager para habilitar o upgrade automático:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de atualização de cluster do Azure Service Fabric
+A seguir está a Service Fabric propriedade de modelo do Gerenciador de recursos de cluster para habilitar a atualização automática:
 ```json
 "upgradeMode": "Automatic",
 ```
-Para atualizar manualmente seu cluster, baixe a distribuição de cabine/deb para uma máquina virtual de cluster e, em seguida, invoque o seguinte PowerShell:
+Para atualizar manualmente o cluster, baixe a distribuição cab/Deb para uma máquina virtual de cluster e, em seguida, invoque o PowerShell a seguir:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
@@ -135,4 +135,4 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 
 * Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Criar um cluster em VMs ou em computadores que estejam executando o Linux: [Criar um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-* Conheça as [opções de suporte ao Service Fabric](service-fabric-support.md)
+* Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md)

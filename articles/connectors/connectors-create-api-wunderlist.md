@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao Wunderlist a partir de aplicativos azure logic
+title: Conectar-se ao Wunderlist de aplicativos lógicos do Azure
 description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam listas, tarefas e lembretes, entre outros, em sua conta do Wunderlist usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5ac13595bd77238aaede5fa3bdc3a35ef69e8504
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789113"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Monitore e gerencie o Wunderlist usando os Aplicativos Lógicos do Azure
@@ -23,7 +23,7 @@ Com os Aplicativos Lógicos do Azure e o conector do Wunderlist, você pode cria
 * Configurar lembretes.
 * Obter listas, tarefas, subtarefas, lembretes, arquivos, observações, comentários e muito mais.
 
-O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a planejar, gerenciar e concluir seus projetos, tarefas e listas de tarefas pendentes em qualquer dispositivo e qualquer lugar. Você pode usar gatilhos que obtêm respostas de sua conta do Wunderlist e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Wunderlist. Você também pode fazer com que outras ações usem a saída das ações do Wunderlist. Por exemplo, quando novas tarefas atingem o prazo definido, você pode postar mensagens com o conector do Slack. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a planejar, gerenciar e concluir seus projetos, tarefas e listas de tarefas pendentes em qualquer dispositivo e qualquer lugar. Você pode usar gatilhos que obtêm respostas de sua conta do Wunderlist e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Wunderlist. Você também pode fazer com que outras ações usem a saída das ações do Wunderlist. Por exemplo, quando novas tarefas atingem o prazo definido, você pode postar mensagens com o conector do Slack. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ O [Wunderlist](https://www.wunderlist.com/) é um serviço que ajuda você a pla
        -ou-
 
      * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
-     Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
+     Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
      
        Na caixa de pesquisa, digite "wunderlist" como filtro. 
        Na lista de ações, selecione a ação desejada.

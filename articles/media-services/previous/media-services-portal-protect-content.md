@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74978195"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).   > Nenhum novo recursos ou funcionalidade está sendo adicionado ao Media Services v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Com os Serviços de Mídia do Azure, você pode proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. É possível usar os Serviços de Mídia para distribuir o conteúdo criptografado dinamicamente com a criptografia AES usando chaves de criptografia de 128 bits. Você também pode usá-los com criptografia comum (CENC) usando o PlayReady e/ou gerenciamento de direitos digitais (DRM) do Widevine e o FairPlay da Apple. 
@@ -38,7 +38,7 @@ Para usar o portal para configurar a proteção de conteúdo global usando sua c
 
 1. No [portal](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia.
 
-1. Selecione **Configurações** > **Proteção de conteúdo**.
+1. Selecione **configurações** > **proteção de conteúdo**.
 
     ![Proteção de conteúdo](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -90,7 +90,7 @@ Para habilitar a criptografia do FairPlay, selecione **Configuração do FairPla
 Para aproveitar a criptografia dinâmica, codifique o arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecionar o ativo que você deseja criptografar
-Para ver todos os seus ativos, selecione **Configurações** > **ativos**.
+Para ver todos os seus ativos, selecione **configurações** > **ativos**.
 
 ![Opção de ativos](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
@@ -115,7 +115,7 @@ A criptografia da chave de limpeza do AES é habilitada em todos os protocolos d
     
     e. **FairPlay apenas com HLS** – criptografa dinamicamente seu stream HLS com o FairPlay.
 
-1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Em seguida, selecione o **certificado app**e digite a **chave secreta**do aplicativo .
+1. Para ativar a criptografia de FairPlay, na folha **Configurações Globais de Proteção de Conteúdo**, selecione **Configuração do FairPlay**. Em seguida, selecione o **certificado do aplicativo**e insira a **chave secreta do aplicativo**.
 
     ![Tipo de criptografia](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
@@ -131,6 +131,6 @@ A criptografia da chave de limpeza do AES é habilitada em todos os protocolos d
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

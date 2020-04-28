@@ -1,5 +1,5 @@
 ---
-title: Configure a recuperação de desastres Citrix XenDesktop/XenApp com a recuperação do site do Azure
+title: Configurar a recuperação de desastre do Citrix XenDesktop/XenApp com o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastres para implantações do Citrix XenDesktop e do XenApp usando o Azure Site Recovery.
 author: ponatara
 manager: abhemraj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74084548"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
@@ -54,10 +54,10 @@ Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais
 
 ### <a name="source-and-target"></a>Origem e destino
 
-**Cenário** | **Para um site secundário** | **Para Azure**
+**Cenário** | **Para um site secundário** | **Para o Azure**
 --- | --- | ---
 **Hyper-V** | Não está no escopo | Sim
-**Vmware** | Não está no escopo | Sim
+**VMware** | Não está no escopo | Sim
 **Servidor físico** | Não está no escopo | Sim
 
 ### <a name="versions"></a>Versões
@@ -156,7 +156,7 @@ O plano de recuperação personalizado parece com o seguinte:
    >[!NOTE]     
    >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Ação manual ou de script do grupo 3: Desligue o Master VDA VM.
+4. Ação manual do grupo 3 ou script: desligar a VM VDA mestra.
 A VM do VDA Master estará em um estado de execução quando houver failover. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
 
 5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront

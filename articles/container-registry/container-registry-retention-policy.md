@@ -1,54 +1,54 @@
 ---
-title: Política de retenção de manifestos não marcados
-description: Saiba como ativar uma política de retenção no registro de contêiner do Azure, para exclusão automática de manifestos não marcados após um período definido.
+title: Política para reter manifestos não marcados
+description: Saiba como habilitar uma política de retenção no registro de contêiner do Azure para exclusão automática de manifestos não marcados após um período definido.
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74454819"
 ---
-# <a name="set-a-retention-policy-for-untagged-manifests"></a>Defina uma política de retenção para manifestos não marcados
+# <a name="set-a-retention-policy-for-untagged-manifests"></a>Definir uma política de retenção para manifestos não marcados
 
-O Azure Container Registry oferece a opção de definir uma *política de retenção* para manifestos de imagem armazenados que não tenham nenhuma tag *(manifestos não marcados).* Quando uma política de retenção é ativada, os manifestos não marcados no registro são automaticamente excluídos após vários dias definidos. Esse recurso impede que o registro se enchia de artefatos que não são necessários e ajuda a economizar nos custos de armazenamento. Se `delete-enabled` o atributo de um manifesto `false`não marcado for definido para , o manifesto não pode ser excluído e a política de retenção não se aplica.
+O registro de contêiner do Azure oferece a opção de definir uma *política de retenção* para manifestos de imagem armazenados que não têm marcas associadas (*manifestos não marcados*). Quando uma política de retenção é habilitada, os manifestos não marcados no registro são automaticamente excluídos após um número de dias que você definir. Esse recurso impede que o registro se preencha com artefatos que não são necessários e ajuda você a economizar em custos de armazenamento. Se o `delete-enabled` atributo de um manifesto não marcado for definido como `false`, o manifesto não poderá ser excluído e a política de retenção não se aplicará.
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do Azure CLI para executar os exemplos de comando neste artigo. Se você quiser usá-lo localmente, a versão 2.0.74 ou posterior é necessária. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli].
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos de comando neste artigo. Se você quiser usá-lo localmente, a versão 2.0.74 ou posterior será necessária. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
 > [!IMPORTANT]
-> Esse recurso está na versão prévia no momento; algumas [limitações se aplicam](#preview-limitations). As visualizações são disponibilizadas para você com a condição de que você concorde com os [termos de uso suplementar][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+> Esse recurso está na versão prévia no momento; algumas [limitações se aplicam](#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 > [!WARNING]
-> Defina uma política de retenção com cuidado - os dados de imagem excluídos são IRRECUPERÁVEIS. Se você tem sistemas que puxam imagens por digestão manifesto (ao contrário do nome da imagem), você não deve definir uma política de retenção para manifestos não marcados. A exclusão de imagens não marcadas impedirá esses sistemas de puxar as imagens do seu registro. Em vez de receber pelo manifesto, considerar a adoção de uma *marcação exclusiva* esquema, um [melhor prática recomendada](container-registry-image-tag-version.md).
+> Definir uma política de retenção com cuidado-os dados da imagem excluída são irrecuperáveis. Se você tiver sistemas que extraem imagens por Resumo do manifesto (em oposição ao nome da imagem), você não deve definir uma política de retenção para manifestos não marcados. A exclusão de imagens não marcadas impedirá esses sistemas de puxar as imagens do seu registro. Em vez de receber pelo manifesto, considerar a adoção de uma *marcação exclusiva* esquema, um [melhor prática recomendada](container-registry-image-tag-version.md).
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* Apenas um registro de contêiner **Premium** pode ser configurado com uma política de retenção. Para obter informações sobre os níveis de serviço de registro, consulte [As SKUs de registro de contêiner do Azure](container-registry-skus.md).
+* Somente um registro de contêiner **Premium** pode ser configurado com uma política de retenção. Para obter informações sobre as camadas de serviço do registro, consulte [SKUs do registro de contêiner do Azure](container-registry-skus.md).
 * Você só pode definir uma política de retenção para manifestos não marcados.
-* Atualmente, a política de retenção se aplica apenas a manifestações que não são marcadas *após* a ativação da diretiva. Os manifestos não marcados existentes no registro não estão sujeitos à política. Para excluir manifestos não marcados existentes, consulte exemplos em [Excluir imagens de contêiner no Registro de Contêineres do Azure](container-registry-delete.md).
+* A política de retenção atualmente se aplica apenas a manifestos que não são marcados *após* a política ser habilitada. Os manifestos não marcados existentes no registro não estão sujeitos à política. Para excluir os manifestos não marcados existentes, consulte exemplos em [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
 
 ## <a name="about-the-retention-policy"></a>Sobre a política de retenção
 
-O Registro de Contêineres do Azure faz a contagem de referência para manifestações no registro. Quando um manifesto é desmarcado, ele verifica a política de retenção. Se uma política de retenção estiver ativada, uma operação de exclusão manifesto será enfileirada, com uma data específica, de acordo com o número de dias definido na diretiva.
+O registro de contêiner do Azure faz referência à contagem de manifestos no registro. Quando um manifesto é desmarcado, ele verifica a política de retenção. Se uma política de retenção estiver habilitada, uma operação de exclusão de manifesto será enfileirada, com uma data específica, de acordo com o número de dias definido na política.
 
-Um trabalho separado de gerenciamento de filas processa constantemente mensagens, dimensionando conforme necessário. Como exemplo, suponha que você desmarcou dois manifestos, com uma hora de intervalo, em um registro com uma política de retenção de 30 dias. Duas mensagens estariam na fila. Então, 30 dias depois, aproximadamente 1 hora de intervalo, as mensagens seriam recuperadas da fila e processadas, assumindo que a apólice ainda estava em vigor.
+Um trabalho de gerenciamento de filas separado processa mensagens constantemente, dimensionando conforme necessário. Por exemplo, suponhamos que você não marcou dois manifestos, 1 hora, em um registro com uma política de retenção de 30 dias. Duas mensagens seriam enfileiradas. Em seguida, 30 dias depois, aproximadamente 1 hora, as mensagens seriam recuperadas da fila e processadas, supondo que a política ainda estava em vigor.
 
-## <a name="set-a-retention-policy---cli"></a>Defina uma política de retenção - CLI
+## <a name="set-a-retention-policy---cli"></a>Definir uma política de retenção-CLI
 
-O exemplo a seguir mostra como usar o Azure CLI para definir uma política de retenção para manifestos não marcados em um registro.
+O exemplo a seguir mostra como usar o CLI do Azure para definir uma política de retenção para manifestos não marcados em um registro.
 
-### <a name="enable-a-retention-policy"></a>Habilite uma política de retenção
+### <a name="enable-a-retention-policy"></a>Habilitar uma política de retenção
 
-Por padrão, nenhuma política de retenção é definida em um registro de contêiner. Para definir ou atualizar uma política de retenção, execute o comando [az acr config retention update][az-acr-config-retention-update] no Azure CLI. Você pode especificar um número de dias entre 0 e 365 para manter os manifestos não marcados. Se você não especificar um número de dias, o comando definirá um padrão de 7 dias. Após o período de retenção, todos os manifestos não marcados no registro são automaticamente excluídos.
+Por padrão, nenhuma política de retenção é definida em um registro de contêiner. Para definir ou atualizar uma política de retenção, execute o comando [AZ ACR config Retention Update][az-acr-config-retention-update] no CLI do Azure. Você pode especificar um número de dias entre 0 e 365 para manter os manifestos não marcados. Se você não especificar um número de dias, o comando definirá um padrão de 7 dias. Após o período de retenção, todos os manifestos não marcados no registro são excluídos automaticamente.
 
-O exemplo a seguir estabelece uma política de retenção de 30 dias para manifestos não marcados no *meu registro*de registro :
+O exemplo a seguir define uma política de retenção de 30 dias para manifestos não marcados no registro *myregistry*:
 
 ```azurecli
 az acr config retention update --registry myregistry --status enabled --days 30 --type UntaggedManifests
 ```
 
-O exemplo a seguir define uma política para excluir qualquer manifesto no registro assim que ele não for marcado. Crie esta diretiva definindo um período de retenção de 0 dias. 
+O exemplo a seguir define uma política para excluir qualquer manifesto no registro assim que ele não estiver marcado. Crie essa política definindo um período de retenção de 0 dias. 
 
 ```azurecli
 az acr config retention update --registry myregistry --status enabled --days 0 --type UntaggedManifests
@@ -56,53 +56,53 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 ### <a name="validate-a-retention-policy"></a>Validar uma política de retenção
 
-Se você habilitar a diretiva anterior com um período de retenção de 0 dias, você poderá verificar rapidamente se os manifestos não marcados são excluídos:
+Se você habilitar a política anterior com um período de retenção de 0 dias, poderá verificar rapidamente se os manifestos não marcados são excluídos:
 
-1. Empurre uma `hello-world:latest` imagem de teste para o seu registro ou substitua outra imagem de teste de sua escolha.
-1. Desmarcar `hello-world:latest` a imagem, por exemplo, usando o comando [az acr repositório untag.][az-acr-repository-untag] O manifesto não marcado permanece no registro.
+1. Envie uma imagem de `hello-world:latest` imagem de teste por push para o registro ou substitua outra imagem de teste de sua escolha.
+1. Desmarcar a `hello-world:latest` imagem, por exemplo, usando o comando [AZ ACR Repository][az-acr-repository-untag] parando. O manifesto não marcado permanece no registro.
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest
     ```
-1. Em poucos segundos, o manifesto não marcado é excluído. Você pode verificar a exclusão listando manifestos no repositório, por exemplo, usando o comando [az acr repositório show-manifests.][az-acr-repository-show-manifests] Se a imagem de teste foi a única no repositório, o próprio repositório será excluído.
+1. Em alguns segundos, o manifesto não marcado é excluído. Você pode verificar a exclusão listando manifestos no repositório, por exemplo, usando o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] . Se a imagem de teste foi a única no repositório, o repositório em si será excluído.
 
-### <a name="disable-a-retention-policy"></a>Desativar uma política de retenção
+### <a name="disable-a-retention-policy"></a>Desabilitar uma política de retenção
 
-Para ver a política de retenção definida em um registro, execute o comando [az acr config retention show:][az-acr-config-retention-show]
+Para ver a política de retenção definida em um registro, execute o comando [AZ ACR config Retention show][az-acr-config-retention-show] :
 
 ```azurecli
 az acr config retention show --registry myregistry
 ```
 
-Para desativar uma diretiva de retenção em um registro, execute o `--status disabled`comando [az acr config retention update][az-acr-config-retention-update] e set :
+Para desabilitar uma política de retenção em um registro, execute o comando [AZ ACR config Retention Update][az-acr-config-retention-update] e defina `--status disabled`:
 
 ```azurecli
 az acr config retention update --registry myregistry --status disabled --type UntaggedManifests
 ```
 
-## <a name="set-a-retention-policy---portal"></a>Definir uma política de retenção - portal
+## <a name="set-a-retention-policy---portal"></a>Definir uma política de retenção-Portal
 
-Você também pode definir a política de retenção de um registro no [portal Azure](https://portal.azure.com). O exemplo a seguir mostra como usar o portal para definir uma política de retenção de manifestos não marcados em um registro.
+Você também pode definir a política de retenção de um registro no [portal do Azure](https://portal.azure.com). O exemplo a seguir mostra como usar o portal para definir uma política de retenção para manifestos não marcados em um registro.
 
-### <a name="enable-a-retention-policy"></a>Habilite uma política de retenção
+### <a name="enable-a-retention-policy"></a>Habilitar uma política de retenção
 
-1. Navegue até o registro de contêineres do Azure. Em **Políticas,** selecione **Retenção** (Visualização).
-1. Em **Status,** **selecione Ativado**.
-1. Selecione um número de dias entre 0 e 365 para manter os manifestos não marcados. Selecione **Salvar**.
+1. Navegue até o registro de contêiner do Azure. Em **políticas**, selecione **retenção** (versão prévia).
+1. Em **status**, selecione **habilitado**.
+1. Selecione um número de dias entre 0 e 365 para manter os manifestos não marcados. Clique em **Salvar**.
 
-![Habilite uma política de retenção no portal Azure](media/container-registry-retention-policy/container-registry-retention-policy01.png)
+![Habilitar uma política de retenção no portal do Azure](media/container-registry-retention-policy/container-registry-retention-policy01.png)
 
-### <a name="disable-a-retention-policy"></a>Desativar uma política de retenção
+### <a name="disable-a-retention-policy"></a>Desabilitar uma política de retenção
 
-1. Navegue até o registro de contêineres do Azure. Em **Políticas,** selecione **Retenção** (Visualização).
-1. Em **Status,** **selecione Disabled**. Selecione **Salvar**.
+1. Navegue até o registro de contêiner do Azure. Em **políticas**, selecione **retenção** (versão prévia).
+1. Em **status**, selecione **desabilitado**. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre opções para [excluir imagens e repositórios](container-registry-delete.md) no Registro de Contêineres do Azure
+* Saiba mais sobre as opções para [Excluir imagens e repositórios](container-registry-delete.md) no registro de contêiner do Azure
 
-* Saiba como [limpar automaticamente](container-registry-auto-purge.md) imagens selecionadas e manifestos de um registro
+* Saiba como [limpar automaticamente](container-registry-auto-purge.md) as imagens e os manifestos selecionados de um registro
 
-* Saiba mais sobre opções de [bloqueio de imagens e manifestos](container-registry-image-lock.md) em um registro
+* Saiba mais sobre as opções para [Bloquear imagens e manifestos](container-registry-image-lock.md) em um registro
 
 <!-- LINKS - external -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

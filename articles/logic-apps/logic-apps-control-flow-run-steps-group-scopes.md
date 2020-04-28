@@ -1,19 +1,19 @@
 ---
-title: Grupo e executar ações por escopo
-description: Crie ações escopo que são executadas com base no status do grupo no Azure Logic Apps
+title: Agrupar e executar ações por escopo
+description: Criar ações com escopo executadas com base no status do grupo nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74791498"
 ---
-# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Execute ações com base no status do grupo usando escopos em Aplicativos de Lógica do Azure
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando escopos em aplicativos lógicos do Azure
 
 Para executar ações somente após um outro grupo de ações ter êxito ou falhar, agrupe essas ações em um *escopo*. Essa estrutura é útil quando deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo concluem a execução, o escopo também obtém seu próprio status. Por exemplo, é possível usar escopos quando você quiser implementar [tratamento de erro e exceção](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
@@ -48,7 +48,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
 É possível salvar o aplicativo lógico a qualquer momento, portanto, salve seu trabalho frequentemente.
 
-1. Faça login no <a href="https://portal.azure.com" target="_blank">portal Azure,</a>se você ainda não fez. Criar um aplicativo lógico em branco.
+1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, se ainda não tiver feito isso. Criar um aplicativo lógico em branco.
 
 1. Adicione o gatilho **Agenda - Recorrência** com estas configurações: **Intervalo** = "1" e **Frequência** = "Minuto"
 
@@ -63,8 +63,8 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       | Configuração | Valor | Descrição |
       | ------- | ----- | ----------- |
-      | **Nome da conexão** | BingMapsConnection | Forneça um nome para a conexão. | 
-      | **Chave de API** | <*seu-Bing-Maps-key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. | 
+      | **Nome da Conexão** | BingMapsConnection | Forneça um nome para a conexão. | 
+      | **Chave de API** | <*seu-Bing-Maps-Key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. | 
       ||||  
 
    1. Configure a ação **Obter rota**, conforme mostrado na tabela abaixo da imagem:
@@ -75,10 +75,10 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       | Configuração | Valor | Descrição |
       | ------- | ----- | ----------- |
-      | **Ponto de passagem 1** | <*Começar*> | Insira a origem da rota. | 
-      | **Ponto de passagem 2** | <*Final*> | Insira o destino da rota. | 
+      | **Ponto de passagem 1** | <*Comece*> | Insira a origem da rota. | 
+      | **Ponto de passagem 2** | <*completo*> | Insira o destino da rota. | 
       | **Evite** | Nenhum | Insira os itens a serem evitados na rota, como rodovias, pedágios, e assim por diante. Para possíveis valores, consulte [Calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com informações de trânsito atuais, e assim por diante. Esse exemplo usa este valor: "timeWithTraffic" | 
+      | **Formato** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com informações de trânsito atuais, e assim por diante. Esse exemplo usa este valor: "timeWithTraffic" | 
       | **Unidade de distância** | <*sua preferência*> | Insira a unidade de distância para calcular a rota. Esse exemplo usa este valor: "Milha" | 
       | **Modo de viagem** | Automóvel | Insira o modo de viagem para a rota. Esse exemplo usa este valor "Automóvel" | 
       | **Data /Hora de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
@@ -96,7 +96,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
    1. Na caixa do meio, selecione este operador: **é maior que**
 
-   1. Na coluna mais à direita, digite este valor de comparação, que é em segundos e equivalente a 10 minutos: **600**
+   1. Na coluna mais à direita, insira esse valor de comparação, que é em segundos e equivalente a 10 minutos: **600**
 
       Ao concluir, a sua condição será semelhante a este exemplo:
 
@@ -130,7 +130,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
 
       ![Selecionar "Tráfego de Duração do Tráfego"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. Depois que o campo resolver para o formato JSON, adicione ```60``` uma **comma** (```,```) seguida do número para que você converta o valor no Tráfego de Duração de **Tráfego** de segundos para minutos. 
+   1. Depois que o campo for resolvido para o formato JSON, adicione **comma** uma vírgula```,```() seguida pelo número ```60``` para que você converta o valor no **tráfego de duração de tráfego** de segundos para minutos. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -143,7 +143,7 @@ Primeiro, crie esse aplicativo lógico de exemplo para que seja possível adicio
    1. Quando terminar, escolha **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Depois que a expressão for resolvida, adicione este texto com um espaço de liderança:``` minutes```
+   1. Depois que a expressão for resolvida, adicione este texto com um espaço à esquerda:``` minutes```
   
        O campo **Corpo** agora é semelhante a este exemplo:
 
@@ -161,7 +161,7 @@ Em seguida, adicione um escopo para que seja possível agrupar ações específi
 1. Adicione um escopo na localização do fluxo de trabalho desejado. Por exemplo, para adicionar um escopo entre etapas existentes no fluxo de trabalho de aplicativo lógico, siga estas etapas: 
 
    1. Mova o ponteiro sobre a seta onde você deseja adicionar o escopo. 
-   Escolha o sinal**+** **mais** ( ) > Adicionar uma **ação**.
+   Escolha o **sinal** de adição**+**() > **Adicionar uma ação**.
 
       ![Adicionar um escopo](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

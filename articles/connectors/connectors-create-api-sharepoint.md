@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao SharePoint a partir de aplicativos de lógica do Azure
+title: Conectar-se ao SharePoint por meio de aplicativos lógicos do Azure
 description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam recursos no SharePoint Online ou SharePoint Server local usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789249"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorar e gerenciar recursos do SharePoint com os Aplicativos Lógicos do Azure
@@ -31,7 +31,7 @@ Com os Aplicativos Lógicos do Azure e o conector do SharePoint, você pode cria
 * Obter valores de entidade.
 
 Você pode usar gatilhos que obtêm respostas do SharePoint e disponibilizar a saída para outras ações. Você pode usar ações nos aplicativos lógicos para executar tarefas no SharePoint. Você também pode fazer com que outras ações usem a saída das ações do SharePoint. Por exemplo, se você buscar regularmente arquivos do SharePoint, poderá enviar mensagens para a sua equipe usando o conector do Slack.
-Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,9 +66,9 @@ Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](
    Na lista de ações, selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. Quando for solicitado que você entre, forneça as informações de conexão necessárias. Se estiver usando o SharePoint Server, **certifique-se**de selecionar Conectar via gateway de dados no local . Quando terminar, escolha **Criar**.
+1. Quando for solicitado que você entre, forneça as informações de conexão necessárias. Se você estiver usando o SharePoint Server, certifique-se de selecionar **conectar por meio do gateway de dados local**. Quando terminar, escolha **Criar**.
 
 1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 

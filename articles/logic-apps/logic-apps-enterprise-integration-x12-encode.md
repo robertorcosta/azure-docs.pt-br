@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: c87a61dc77e656a1cfe667ce87f852303a0cc486
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74792357"
 ---
 # <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Codificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -25,7 +25,7 @@ Para usar esse conector, você deve adicionar o conector para um gatilho existen
 Veja os itens necessários:
 
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma conta de [integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de codificação.
+* Uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) que já está definida e associada à sua assinatura do Azure. Você precisa ter uma conta de integração para usar o conector de mensagem X12 de codificação.
 * Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já estão definidos em sua conta de integração
 * Pelo menos dois [contratos X12](logic-apps-enterprise-integration-x12.md) que já estão definidos em sua conta de integração
 
@@ -91,5 +91,5 @@ O conector de Codificação X12 executa as seguintes tarefas:
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Conheça o Enterprise Integration Pack") 
+[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 

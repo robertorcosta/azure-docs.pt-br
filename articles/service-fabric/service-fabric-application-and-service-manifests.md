@@ -1,13 +1,13 @@
 ---
-title: Descrevendo aplicativos e serviços de malha de serviço do Azure
+title: Descrevendo aplicativos e serviços do Azure Service Fabric
 description: Descreve como os manifestos são usados para descrever serviços e aplicativos do Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75349976"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestos de serviço e aplicativo do Service Fabric
@@ -61,9 +61,9 @@ O manifesto do serviço declarativamente define o tipo de serviço e a versão. 
 
 **ServiceTypes** declara para quais tipos de serviço há suporte pelos **CodePackages** neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados com a execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte no tempo de execução. Os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Assim, quando há vários pacotes de código, eles são todos ativados sempre que o sistema procurar por qualquer um dos tipos de serviço declarados.
 
-O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa duração. **SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais da Malha do Serviço (normalmente, a conta *LocalSystem* ) antes de qualquer outro ponto de entrada.  A presença de um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado após a saída do **SetupEntryPoint** com sucesso. Se o processo terminar ou falhar, o processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) .  
+O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa duração. **SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais da Malha do Serviço (normalmente, a conta *LocalSystem* ) antes de qualquer outro ponto de entrada.  A presença de um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que **SetupEntryPoint** é encerrado com êxito. Se o processo terminar ou falhar, o processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) .  
 
-Cenários típicos de uso do **SetupEntryPoint** quando você executa um executável antes do início do serviço ou você executa uma operação com privilégios elevados. Por exemplo: 
+Cenários típicos de uso do **SetupEntryPoint** quando você executa um executável antes do início do serviço ou você executa uma operação com privilégios elevados. Por exemplo:
 
 * Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado a apenas executáveis gravados usando os modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
 * Configurando o controle de acesso, instalando certificados de segurança.
@@ -74,7 +74,7 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 
 **DataPackage** (não definido no exemplo anterior) declara uma pasta nomeada pelo atributo **Name**, que contém dados estáticos arbitrários a serem consumidos pelo processo no tempo de execução.
 
-**ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo de configurações contém seções de configurações de par chave-valor, definido pelo usuário, que o processo lê de volta no tempo de execução. Durante a atualização, se apenas a **versão do ** **ConfigPackage** tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo *de arquivo Settings.xml:*
+**ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo de configurações contém seções de configurações de par chave-valor, definido pelo usuário, que o processo lê de volta no tempo de execução. Durante a atualização, se apenas a **versão do ** **ConfigPackage** tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo de arquivo *Settings. xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -85,11 +85,11 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 </Settings>
 ```
 
-Um ponto **final** de serviço de malha de serviço é um exemplo de um recurso de malha de serviço. Um recurso de malha de serviço pode ser declarado/alterado sem alterar o código compilado. O acesso aos recursos do Service Fabric que são especificados no manifesto do serviço pode ser controlado por meio do **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Leia mais sobre [especificar ou substituir os recursos de endpoint](service-fabric-service-manifest-resources.md).
+Um ponto de **extremidade** de serviço Service Fabric é um exemplo de um recurso de Service Fabric. Um recurso de Service Fabric pode ser declarado/alterado sem alterar o código compilado. O acesso aos recursos do Service Fabric que são especificados no manifesto do serviço pode ser controlado por meio do **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Leia mais sobre [especificar ou substituir os recursos de endpoint](service-fabric-service-manifest-resources.md).
 
  
 > [!WARNING]
-> Por design, as portas estáticas não devem se sobrepor à faixa de porta de aplicativo especificada no ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo da porta de aplicação, caso contrário, resultará em conflitos de porta. Com a liberação 6.5CU2 emitiremos um **Aviso de Saúde** quando detectarmos tal conflito, mas deixamos a implantação continuar em sincronia com o comportamento 6.5 enviado. No entanto, podemos impedir a implantação do aplicativo das próximas grandes versões.
+> As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
 >
 
 <!--
@@ -157,12 +157,12 @@ Manifestos de serviço, como atributos **Versão** , são cadeias de caracteres 
 
 **Certificados** (não definido no exemplo anterior) declara os certificados usados para [configurar endpoints HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [criptografar segredos no manifesto do aplicativo](service-fabric-application-secret-management.md).
 
-**Restrições de colocação** são as declarações que definem onde os serviços devem ser executados. Essas instruções são anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrições de colocação e sintaxe de propriedade de nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+As **restrições de posicionamento** são as instruções que definem onde os serviços devem ser executados. Essas instruções são anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrição de posicionamento e sintaxe de propriedade de nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
-**As políticas** (não definidas no exemplo anterior) descrevem a coleta de registros, as políticas de acesso [padrão,](service-fabric-application-runas-security.md) [de saúde](service-fabric-health-introduction.md#health-policies)e de [segurança](service-fabric-application-runas-security.md) a serem definidas no nível do aplicativo, incluindo se os serviços têm acesso ao tempo de execução do Service Fabric.
+**As políticas** (não definidas no exemplo anterior) descrevem a coleta de log, [execução padrão](service-fabric-application-runas-security.md), [integridade](service-fabric-health-introduction.md#health-policies)e políticas de [acesso de segurança](service-fabric-application-runas-security.md) para definir no nível do aplicativo, incluindo se os serviços têm acesso ao tempo de execução de Service Fabric.
 
 > [!NOTE] 
-> Por padrão, os aplicativos service fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto final aceitando solicitações específicas de aplicativos e variáveis de ambiente apontando para caminhos de arquivo no host contendo arquivos específicos de malha e aplicativos . Considere desativar esse acesso quando o aplicativo hospeda código não confiável (ou seja, código cuja procedência é desconhecida ou que o proprietário do aplicativo sabe que não é seguro para ser executado). Para obter mais informações, consulte [as práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto de extremidade que aceita solicitações específicas do aplicativo e variáveis de ambiente apontando para caminhos de arquivo no host que contém arquivos específicos de aplicativo e de malha. Considere desabilitar esse acesso quando o aplicativo hospedar código não confiável (ou seja, código cuja comprovação é desconhecida ou que o proprietário do aplicativo sabe que não deve ser seguro de ser executado). Para obter mais informações, consulte [práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Entidades** (não definido no exemplo anterior) descrevem as entidades de segurança (usuários ou grupos) necessárias para [executar serviços e proteger recursos do serviço](service-fabric-application-runas-security.md).  As entidades de segurança são referenciadas nas seções de **Políticas**.
@@ -184,7 +184,7 @@ For more information about other features supported by application manifests, re
 - [Empacotar um aplicativo](service-fabric-package-apps.md) e prepará-lo para a implantação.
 - [Implantar e remover aplicativos](service-fabric-deploy-remove-applications.md).
 - [Configurar parâmetros e variáveis de ambiente para instâncias diferentes do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md).
-- [Configure políticas de segurança para seu aplicativo](service-fabric-application-runas-security.md).
+- [Configure as políticas de segurança para seu aplicativo](service-fabric-application-runas-security.md).
 - [Configurar endpoints HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
 - [Criptografar segredos no manifesto do aplicativo](service-fabric-application-secret-management.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao Slack a partir de aplicativos de lógica do Azure
+title: Conectar-se à margem de atraso dos aplicativos lógicos do Azure
 description: Automatize fluxos de trabalho e tarefas que monitoram arquivos e gerenciam canais, grupos e mensagens em sua conta do Slack usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789164"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitore e gerencie o Slack com os Aplicativos Lógicos do Azure
@@ -23,7 +23,7 @@ Com os Aplicativos Lógicos do Azure e o conector do Slack, você pode criar flu
 * Postar mensagens.
 * Criar grupos e configurar “Não perturbar".
 
-Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Slack. Você também pode fazer com que outras ações usem a saída de ações do Slack. Por exemplo, quando um novo arquivo é criado, você pode enviar um email com o conector do Office 365 Outlook. Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Slack. Você também pode fazer com que outras ações usem a saída de ações do Slack. Por exemplo, quando um novo arquivo é criado, você pode enviar um email com o conector do Office 365 Outlook. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Slack e disponibil
    Na lista de ações, selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal**+** de adição () que aparece e, em seguida, **selecione Adicionar uma ação**.
+   Escolha o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se for solicitado que você entre no Slack, entre em seu workspace do Slack. 
 

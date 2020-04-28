@@ -4,10 +4,10 @@ description: Conheça os novos recursos do Servidor de Backup do Azure. Este art
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74172369"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
@@ -18,7 +18,7 @@ O Servidor de Backup do Azure V2 (ou posterior) é compatível com o Armazenamen
 > Para usar o Armazenamento de Backup Moderno, você deve executar o Servidor de Backup V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
 > Se você executar o Backup Server V2 em uma versão anterior do Windows Server, o Servidor de Backup do Azure não poderá aproveitar o Armazenamento de Backup Moderno. Em vez disso, ele protege as cargas de trabalho como acontece com o Backup Server V1. Para obter mais informações, consulte a versão do servidor de Backup [matriz proteção](backup-mabs-protection-matrix.md).
 >
-> Para obter desempenhos de backup aprimorados, recomendamos implantar o MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo do DPM "[Configurar MBS com armazenamento hierárquico](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter etapas para configurar o armazenamento hierárquico.
+> Para obter desempenho de backup aprimorado, recomendamos implantar o MABS v3 com armazenamento em camadas no Windows Server 2019. Veja o artigo do DPM "[Configurar MBS com armazenamento em camadas](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter as etapas para configurar o armazenamento em camadas.
 
 ## <a name="volumes-in-backup-server"></a>Volumes no servidor de Backup
 
@@ -36,7 +36,7 @@ O servidor de Backup do Microsoft Azure V2 ou posterior aceita volumes de armaze
 
 Usar o Backup Server V2 ou posterior com volumes como armazenamento em disco pode ajudá-lo a manter o controle sobre o armazenamento. Um volume pode ser um único disco. No entanto, se você quiser estender o armazenamento no futuro, crie um volume fora de um disco criado usando espaços de armazenamento. Isso pode ajudar se você quiser expandir o volume de armazenamento de backup. Esta seção oferece as práticas recomendadas para a criação de um volume com esta instalação.
 
-1. No Gerenciador de servidores, selecione **Pools** > de armazenamento**de volumes de volumes** > de**arquivos**e de armazenamento . Em **DISCOS FÍSICOS**, selecione **novo Pool de armazenamento**.
+1. Em Gerenciador do servidor, > selecione **serviços de arquivo e armazenamento****volumes** > **pools de armazenamento**. Em **DISCOS FÍSICOS**, selecione **novo Pool de armazenamento**.
 
     ![Crie um novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -56,7 +56,7 @@ Usar o Backup Server V2 ou posterior com volumes como armazenamento em disco pod
 
     ![Criar um novo volume](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. No diálogo **Selecione o servidor e disco**, selecione o servidor e o novo disco. Em seguida, selecione **Next**.
+6. No diálogo **Selecione o servidor e disco**, selecione o servidor e o novo disco. Em seguida, selecione **Avançar**.
 
     ![Selecione o servidor e disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -77,7 +77,7 @@ Com o armazenamento com reconhecimento de carga de trabalho, você pode selecion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o PowerShell cmdlet Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de backup do Azure.
+Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure.
 
 Sintaxe:
 
@@ -119,7 +119,7 @@ Se você quiser usar armazenamento herdado com o Servidor de Backup, talvez seja
 
 Para adicionar armazenamento em disco:
 
-1. No console do administrador, selecione Adicionar**armazenamento em** > disco**de** **gerenciamento** > .
+1. No console do administrador, selecione **Gerenciamento** > **armazenamento em disco** > **Adicionar**.
 
     ![Adicionar caixa de diálogo de Armazenamento em Disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 

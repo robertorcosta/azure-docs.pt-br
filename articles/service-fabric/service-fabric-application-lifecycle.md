@@ -1,13 +1,13 @@
 ---
-title: Ciclo de vida do aplicativo no tecido de serviço
+title: Ciclo de vida do aplicativo em Service Fabric
 description: Descreve o desenvolvimento, implantação, testes, atualização, manutenção e remoção de aplicativos da Service Fabric.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75377997"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida do aplicativo Service Fabric
@@ -18,7 +18,7 @@ Semelhante a outras plataformas, um aplicativo no Azure Service Fabric geralment
 ## <a name="service-model-roles"></a>Funções do modelo de serviço
 As funções do modelo de serviço são:
 
-* **Desenvolvedor de**serviços : Desenvolve serviços modulares e genéricos que podem ser reaproveitados e usados em vários aplicativos do mesmo tipo ou tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
+* **Desenvolvedor de serviço**: desenvolve serviços modulares e genéricos que podem ser adaptados e usados em vários aplicativos do mesmo tipo ou tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
 * **Desenvolvedor de aplicativos**: cria aplicativos integrando uma coleção de serviços para atender a determinados requisitos ou cenários. Por exemplo, um site de comércio eletrônico pode integrar o “Serviço de Front-End JSON sem Monitoração de Estado”, "Serviço de Monitoração de Estado do Leilão" e "Serviço de Monitoração de Estado da Fila" para criar uma solução de leilão.
 * **Administrador do aplicativo**: toma decisões sobre a configuração do aplicativo (preenchendo os parâmetros de configuração do modelo), implantação (mapeamento os recursos disponíveis) e qualidade do serviço. Por exemplo, um administrador do aplicativo decide a localidade do idioma do aplicativo (inglês para os EUA ou japonês para o Japão, por exemplo). Outro aplicativo implantado pode ter configurações diferentes.
 * **Operador**: implanta os aplicativos baseados na configuração do aplicativo e nos requisitos especificados pelo administrador do aplicativo. Por exemplo, um operador provisiona, implanta o aplicativo e verifica se ele está em execução no Azure. Os operadores de monitoram as informações de integridade e de desempenho do aplicativo e mantêm a infra-estrutura física conforme necessário.
@@ -83,5 +83,5 @@ Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativo
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
-* [Atualização de aplicativos](service-fabric-application-upgrade.md)
+* [Atualização de aplicativo](service-fabric-application-upgrade.md)
 * [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)

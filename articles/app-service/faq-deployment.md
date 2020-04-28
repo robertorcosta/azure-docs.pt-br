@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74671679"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
@@ -31,16 +31,16 @@ Estas são algumas opções para publicar seu código do aplicativo Web:
 
 Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de Aplicativo](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Recebi uma mensagem de erro ao tentar implantar por meio do Visual Studio. Como resolvo esse erro?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Recebi uma mensagem de erro ao tentar implantar por meio do Visual Studio. Como fazer resolver esse erro?
 
-Se você receber a seguinte mensagem de erro, talvez você esteja usando uma versão mais antiga do SDK: “Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: a assinatura não está registrada para o tipo de recurso 'components' na localização 'EUA Central'. Recadastramento para este provedor para ter acesso a este local." 
+Se você receber a seguinte mensagem de erro, talvez você esteja usando uma versão mais antiga do SDK: “Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: a assinatura não está registrada para o tipo de recurso 'components' na localização 'EUA Central'. Registre-se novamente para esse provedor para ter acesso a esse local. " 
 
 Para resolver esse erro, atualize para o [último SDK](https://azure.microsoft.com/downloads/). Se você receber essa mensagem e tiver o último SDK, envie uma solicitação de suporte.
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Como fazer para implantar um aplicativo ASP.NET por meio do Visual Studio no Serviço de Aplicativo?
 <a id="deployasp"></a>
 
-O tutorial [Crie seu primeiro aplicativo web ASP.NET no Azure em cinco minutos](app-service-web-get-started-dotnet.md) mostra como implantar um aplicativo web ASP.NET em um aplicativo web no App Service usando o Visual Studio.
+O tutorial [criar seu primeiro aplicativo web ASP.net no Azure em cinco minutos](app-service-web-get-started-dotnet.md) mostra como implantar um aplicativo Web ASP.net em um aplicativo Web no serviço de aplicativo usando o Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
 
@@ -52,7 +52,7 @@ Para obter informações sobre a estrutura de arquivos do aplicativo do Serviço
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Como fazer para resolver o “Erro de FTP 550 – não há espaço suficiente em disco” quando tento usar o FTP para meus arquivos?
 
-Se você vir esta mensagem, é provável que você esteja correndo para uma cota de disco no plano de serviço para o seu aplicativo web. Talvez você precise escalar verticalmente para uma camada de serviço superior de acordo com suas necessidades de espaço em disco. Para obter mais informações sobre planos de preços e limites de recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
+Se você vir essa mensagem, é provável que você esteja executando uma cota de disco no plano de serviço para seu aplicativo Web. Talvez você precise escalar verticalmente para uma camada de serviço superior de acordo com suas necessidades de espaço em disco. Para obter mais informações sobre planos de preços e limites de recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como fazer para configurar a implantação contínua em meu aplicativo Web do Serviço de Aplicativo?
 
@@ -66,7 +66,7 @@ Para obter ajuda sobre como investigar problemas com a implantação contínua d
 
 Para resolver problemas de FTP:
 
-1. Verifique se você está inserindo o nome e credenciais corretos do host. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como usá-los, consulte [Credenciais de implantação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Verifique se você está inserindo o nome de host e as credenciais corretas. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como usá-los, consulte [Credenciais de implantação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Verifique se as portas FTP não estão bloqueadas por um firewall. As portas devem ter essas configurações:
     * Porta de conexão de controle FTP: 21
     * Porta de conexão de dados FTP: 989, 10001-10300
@@ -83,7 +83,7 @@ Para saber mais sobre as circunstâncias nas quais uma implantação de aplicati
 
 Você tem duas opções para usar a implantação contínua com o Azure DevOps:
 
-*   Use um projeto Git. Conecte-se via App Service usando o Centro de Implantação.
+*   Use um projeto Git. Conecte-se por meio do serviço de aplicativo usando o centro de implantação.
 *   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de build do Serviço de Aplicativo.
 
 A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, consulte estes artigos: 

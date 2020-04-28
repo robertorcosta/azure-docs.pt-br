@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71937280"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorar eventos dos Serviços de Mídia com a Grade de Eventos usando a CLI do Azure
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Este serviço usa [assinaturas de eventos](../../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de eventos aos assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
 
 Neste artigo, você usará a CLI do Azure para assinar eventos da sua conta de Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, você enviará eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
     Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
 
@@ -59,7 +59,7 @@ az account set --subscription mySubscriptionId
 
 ## <a name="subscribe-to-media-services-events"></a>Assinar eventos de serviços de mídia
 
-Você assina um artigo para dizer ao Event Grid quais eventos deseja acompanhar. O exemplo a seguir assina a conta de Serviços de Mídia que você criou e passa a URL do site que você criou como o ponto final para a notificação do evento. 
+Você assina um artigo para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina a conta dos serviços de mídia que você criou e passa a URL do site que você criou como o ponto de extremidade para notificação de eventos. 
 
 Substitua `<event_subscription_name>` por um nome exclusivo para a assinatura de evento. Para `<resource_group_name>` e `<ams_account_name>`, use os valores que você escolheu ao criar a conta de Serviços de Mídia. Para o `<endpoint_URL>`, forneça a URL do seu aplicativo Web e adicione `api/updates` à URL da página inicial. Ao especificar um ponto de extremidade durante a assinatura, a Grade de Eventos manipula o roteamento dos eventos para esse ponto de extremidade. 
 
@@ -69,7 +69,7 @@ Substitua `<event_subscription_name>` por um nome exclusivo para a assinatura de
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    Por exemplo: 
+    Por exemplo:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ Substitua `<event_subscription_name>` por um nome exclusivo para a assinatura de
     --endpoint <endpoint_URL>
     ```
 
-    Por exemplo: 
+    Por exemplo:
 
     ```
     az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

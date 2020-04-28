@@ -1,5 +1,5 @@
 ---
-title: Alterações feitas em projetos webAPI ao se conectar ao Azure AD
+title: Alterações feitas em projetos do WebAPI ao se conectar ao Azure AD
 description: Descreve o que acontece com seu projeto WebAPI quando você se conecta ao Azure AD usando o Visual Studio
 author: ghogen
 manager: jillfra
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: 46fb0ad37b872a1d7ca72114f2f263df776aabf1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886051"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto WebAPI (serviço conectado do Visual Studio do Azure Active Directory)
@@ -123,9 +123,9 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 - Criado um Aplicativo do Azure AD no domínio que você selecionou ao adicionar o serviço conectado.
 - Atualizado o aplicativo para incluir a permissão **Ler dados do diretório** se essa opção foi selecionada.
 
-[Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+[Saiba mais sobre Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Diretório Ativo do Azure](authentication-scenarios.md)
+- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
 - [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

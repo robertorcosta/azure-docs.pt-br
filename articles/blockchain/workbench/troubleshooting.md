@@ -1,24 +1,24 @@
 ---
 title: Solução de problemas do Azure Blockchain Workbench
-description: Como solucionar problemas de um aplicativo de visualização de bancada de banco de trabalho do Azure Blockchain.
+description: Como solucionar problemas de um aplicativo de visualização do Azure Blockchain Workbench.
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74324294"
 ---
-# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solução de problemas da bancada de trabalho do Azure Blockchain
+# <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solução de problemas de visualização do Azure Blockchain Workbench
 
 Um script do PowerShell está disponível para auxiliar na depuração de desenvolvedor ou suporte. O script gera um resumo e coleta logs detalhados para solução de problemas. Os logs coletados incluem:
 
 * Rede de Blockchain, como Ethereum
 * Microservices Blockchain Workbench
 * Application Insights
-* Monitoramento do Azure (logs do Monitor Do Azure)
+* Monitoramento do Azure (logs de Azure Monitor)
 
 Você pode usar as informações para determinar as próximas etapas e determinar a causa raiz de problemas.
 
@@ -35,22 +35,22 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Executar o script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Execute o `collectBlockchainWorkbenchTroubleshooting.ps1` script para coletar logs e criar um arquivo ZIP que contém uma pasta de informações de solução de problemas. Por exemplo: 
+Execute o `collectBlockchainWorkbenchTroubleshooting.ps1` script para coletar logs e criar um arquivo ZIP que contém uma pasta de informações de solução de problemas. Por exemplo:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
 ```
 Este script aceita os seguintes parâmetros:
 
-| Parâmetro  | Descrição | Obrigatório |
+| Parâmetro  | Descrição | Necessária |
 |---------|---------|----|
 | SubscriptionID | SubscriptionID para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do grupo de recursos do Azure onde o Blockchain Workbench foi implantado. | Sim |
 | OutputDirectory | Caminho para criar a saída do arquivo ZIP. Se não for especificado, o diretório atual é o padrão. | Não |
 | LookbackHours | Número de horas a utilizar ao efetuar pull de telemetria. O valor padrão é de 24 horas. O valor máximo é de 90 horas | Não |
-| OmsSubscriptionId | O ID de assinatura onde os logs do Azure Monitor são implantados. Só passe esse parâmetro se os logs do Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench.| Não |
-| OmsResourceGroup |O grupo de recursos onde os logs do Monitor do Azure são implantados. Só passe esse parâmetro se os logs do Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench.| Não |
-| OmsWorkspaceName | O nome do espaço de trabalho do Log Analytics. Só passe esse parâmetro se os logs do Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench | Não |
+| OmsSubscriptionId | A ID da assinatura na qual os logs do Azure Monitor são implantados. Passe esse parâmetro somente se os logs de Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench.| Não |
+| OmsResourceGroup |O grupo de recursos em que os logs do Azure Monitor são implantados. Passe esse parâmetro somente se os logs de Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench.| Não |
+| OmsWorkspaceName | O nome do espaço de trabalho do Log Analytics. Passe esse parâmetro somente se os logs de Azure Monitor para a rede blockchain forem implantados fora do grupo de recursos do Blockchain Workbench | Não |
 
 ## <a name="what-is-collected"></a>O que é coletado?
 

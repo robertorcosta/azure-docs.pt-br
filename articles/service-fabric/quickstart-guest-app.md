@@ -4,10 +4,10 @@ description: Use um cluster do Azure Service Fabric para hospedar um aplicativo 
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614835"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
@@ -16,7 +16,7 @@ Este guia de início rápido ajuda a implantar um aplicativo existente (Node.js 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você [configurou o ambiente de desenvolvimento](service-fabric-get-started.md). O que inclui a instalação do Service Fabric SDK e do Visual Studio 2019 ou 2015.
+Antes de começar, verifique se você [configurou o ambiente de desenvolvimento](service-fabric-get-started.md). Que inclui a instalação do Service Fabric SDK e do Visual Studio 2019 ou 2015.
 
 Você também precisa ter um aplicativo Node.js existente para a implantação. Este guia de início rápido usa um site Node.js simples que pode ser baixado [aqui][download-sample]. Extraia esse arquivo para a pasta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` depois de criar o projeto na próxima etapa.
 
@@ -33,7 +33,7 @@ Na caixa de diálogo **Novo Projeto**, escolha **Nuvem > Aplicativo do Service F
 Nomeie o aplicativo **MyGuestApp** e pressione **OK**.
 
 >[!IMPORTANT]
->O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, você pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para ativar longos caminhos de arquivo no Windows 10.
+>O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, você pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para habilitar caminhos de arquivo longos no Windows 10.
    
 ![Caixa de diálogo Novo projeto no Visual Studio][new-project]
 
@@ -43,7 +43,7 @@ Nomeie o serviço **MyGuestService** e defina as opções à direita com os segu
 
 | Configuração                   | Valor |
 | ------------------------- | ------ |
-| Pasta do Pacote de Código       | _&lt;a pasta com seu aplicativo Node.js&gt;_ |
+| Pasta do Pacote de Código       | _&lt;a pasta com seu aplicativo node. js&gt;_ |
 | Comportamento do Pacote de Código     | Copiar o conteúdo da pasta para o projeto |
 | Programa                   | node.exe |
 | Argumentos                 | server.js |
@@ -55,7 +55,7 @@ Pressione **OK**.
 
 O Visual Studio cria o projeto de aplicativo e o projeto de serviço ator e os exibe no Gerenciador de Soluções.
 
-O projeto do aplicativo (**MyGuestApp**) não contém nenhum código diretamente. O projeto faz referência a um conjunto de projetos de serviços. Além disso, contém três outros tipos de conteúdo:
+O projeto de aplicativo (**MyGuestApp**) não contém nenhum código diretamente. O projeto faz referência a um conjunto de projetos de serviço. Além disso, ele contém três outros tipos de conteúdo:
 
 * **Perfis de publicação**  
 Preferências de ferramentas para ambientes diferentes.
@@ -72,7 +72,7 @@ Para obter uma visão geral do conteúdo do projeto de serviço, confira [Introd
 
 O exemplo de aplicativo Node.js que estamos implantando usa a porta **80**, e precisamos dizer ao Service Fabric que precisamos dessa porta exposta.
 
-Abra o arquivo **ServiceManifest.xml** no projeto. Na parte inferior do manifesto, `<Resources> \ <Endpoints>` há um com uma entrada já definida. Modifique a entrada para adicionar `Port`, `Protocol` e `Type`. 
+Abra o arquivo **ServiceManifest.xml** no projeto. Na parte inferior do manifesto, há um `<Resources> \ <Endpoints>` com uma entrada já definida. Modifique a entrada para adicionar `Port`, `Protocol` e `Type`. 
 
 ```xml
   <Resources>
@@ -97,13 +97,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se você já não fez isso, escolha uma conta do Azure para implantação. Se você ainda não tiver uma conta, [inscreva-se][create-account].
 
-Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione ** &lt;Criar novo cluster... &gt; ** que abre a janela do navegador da Web para o portal Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione ** &lt;criar novo cluster... &gt; ** que abre a janela do navegador da Web para a Portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando você cria o cluster do Service Fabric, defina a configuração **Pontos de extremidade personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com o ponto de extremidade personalizado][custom-endpoint]
 
-A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Uma vez criado, volte para a caixa ** &lt;de&gt;** diálogo publicar e selecione Atualizar . O novo cluster está listado na caixa suspensa. Selecione-o.
+A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Depois que ele tiver sido criado, volte para a caixa de diálogo de publicação e selecione ** &lt;atualizar&gt;**. O novo cluster está listado na caixa suspensa. Selecione-o.
 
 Pressione **Publicar** e aguarde até que a implantação seja concluída.
 
@@ -119,11 +119,11 @@ Verifique a folha de visão geral do endereço do serviço. Use o nome de domín
 
 ![Folha de visão geral do Service Fabric no portal do Azure][overview]
 
-Navegue até este endereço onde `HELLO WORLD` você verá a resposta.
+Navegue até esse endereço, onde você verá a `HELLO WORLD` resposta.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 
-Não se esqueça de excluir todos os recursos que você criou para este início rápido, pois você é cobrado por esses recursos.
+Não se esqueça de excluir todos os recursos que você criou para este guia de início rápido, pois você é cobrado por esses recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Leia mais sobre [executáveis convidados](service-fabric-guest-executables-introduction.md).

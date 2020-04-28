@@ -1,6 +1,6 @@
 ---
 title: Configurar ASE v1
-description: Configuração, gerenciamento e monitoramento do Ambiente de Serviço de Aplicativo v1. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687253"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [Introdução ao Ambiente de Serviço do Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 > 
 
 ## <a name="overview"></a>Visão geral
@@ -125,13 +125,13 @@ Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de 
 ### <a name="settings"></a>Configurações
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
-**Propriedades das configurações** > **Properties**: A lâmina **de configurações** abre automaticamente quando você levanta a lâmina ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
+**Settings** > **Propriedades**de configurações: a folha **configurações** é aberta automaticamente quando você abre sua folha ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
 
 ![Folha Configurações e propriedades][4]
 
-**Configurações endereços** > **IP**: Quando você cria um aplicativo SSL (IP Secure Sockets Layer) em seu ASE, você precisa de um endereço SSL IP. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
+**Configurações** > **endereços IP**: ao criar um aplicativo de protocolo SSL IP (SSL) em seu ASE, você precisa de um endereço de IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
 
-**Configurações Pools** > **de trabalhadores do**pool front**end** / : Cada uma dessas lâminas de pool de recursos oferece a capacidade de ver informações apenas nesse pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
+**Configurações** > pools de**front-end** / **grupos de trabalho**: cada uma dessas folhas de pool de recursos oferece a capacidade de ver informações somente no pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
 
 A folha base de cada pool de recursos oferece um gráfico com métricas para o pool de recursos. Assim como acontece com os gráficos da folha ASE, você pode entrar no gráfico e configurar alertas como desejado. A configuração de um alerta da folha ASE para um pool de recursos específico é igual à configuração feita do pool de recursos. Da folha **Configurações** do pool de trabalho, você tem acesso a todos os Aplicativos ou os Planos do Serviço de Aplicativo em execução nesse pool de trabalho.
 
@@ -154,7 +154,7 @@ Para usar a operação Escala na folha ASE, arraste o controle deslizante até a
 
 ![Interface do usuário de escala][6]
 
-Para usar os recursos manuais ou de escala automática em um pool de recursos específico, vá para **Configurações** > **Front End Pool** / **Worker Pools** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **Configurações** > **Escalade ou** Escala de **Configurações** > **.** A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
+Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **configurações** > pool de**front-end** / **pools de trabalho** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **configurações** > **scale out** ou **configurações** > **escalar verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
 
 ![Interface do usuário de configurações de escala][7]
 
@@ -185,7 +185,7 @@ Se você deseja excluir um ambiente do serviço de aplicativo, simplesmente use 
 ![Interface do usuário Excluir um Ambiente de Serviço de Aplicativo][9]  
 
 ## <a name="getting-started"></a>Introdução
-Para começar com o App Service Environments, consulte [Como criar um ambiente de serviço de aplicativos.](app-service-web-how-to-create-an-app-service-environment.md)
+Para começar a usar os ambientes do serviço de aplicativo, consulte [como criar um ambiente do serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
