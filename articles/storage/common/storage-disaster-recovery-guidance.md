@@ -1,5 +1,5 @@
 ---
-title: Failover da conta de recuperação e armazenamento de desastres (visualização)
+title: Failover de conta de armazenamento e recuperação de desastre (versão prévia)
 titleSuffix: Azure Storage
 description: O armazenamento do Azure dá suporte ao failover de conta (versão prévia) para contas de armazenamento com redundância geográfica. Com o failover de conta, é possível iniciar o processo de failover da conta de armazenamento, se o ponto de extremidade primário ficar indisponível.
 services: storage
@@ -10,16 +10,16 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7340f419912324e488dc38e5aa0d884b150a44b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79365334"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176372"
 ---
-# <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (visualização)
+# <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (versão prévia)
 
-A Microsoft se empenha em garantir que os serviços do Azure estejam sempre disponíveis. No entanto, podem ocorrer interrupções imprevistas do serviço. Se o seu aplicativo exigir resiliência, a Microsoft recomenda o uso de armazenamento geo-redundante, para que seus dados sejam copiados para uma segunda região. Além disso, os clientes devem dispor de um plano de recuperação de desastre para lidar com uma interrupção regional do serviço. Uma parte importante de um plano de recuperação de desastre é a preparação de um failover para o ponto de extremidade secundário caso o ponto de extremidade primário fique indisponível.
+A Microsoft se empenha em garantir que os serviços do Azure estejam sempre disponíveis. No entanto, podem ocorrer interrupções imprevistas do serviço. Se seu aplicativo exigir resiliência, a Microsoft recomenda usar o armazenamento com redundância geográfica, para que os dados sejam copiados para uma segunda região. Além disso, os clientes devem dispor de um plano de recuperação de desastre para lidar com uma interrupção regional do serviço. Uma parte importante de um plano de recuperação de desastre é a preparação de um failover para o ponto de extremidade secundário caso o ponto de extremidade primário fique indisponível.
 
 O armazenamento do Azure dá suporte ao failover de conta (versão prévia) para contas de armazenamento com redundância geográfica. Com o failover de conta, é possível iniciar o processo de failover da conta de armazenamento, se o ponto de extremidade primário ficar indisponível. O failover atualiza o ponto de extremidade secundário para torná-lo um ponto de extremidade primário de sua conta de armazenamento. Quando o failover estiver concluído, os clientes poderão começar a gravar no novo ponto de extremidade primário.
 
@@ -31,31 +31,31 @@ Este artigo descreve os conceitos e o processo envolvidos em um failover de cont
 
 ## <a name="choose-the-right-redundancy-option"></a>Escolhendo a opção de redundância correta
 
-O Azure Storage mantém várias cópias da sua conta de armazenamento para garantir durabilidade e alta disponibilidade. A opção de redundância que será escolhida para sua conta dependerá do grau de resiliência que você precisa. Para proteção contra interrupções regionais, escolha o armazenamento com redundância geográfica, com ou sem a opção de acesso de leitura proveniente da região secundária:  
+O armazenamento do Azure mantém várias cópias da sua conta de armazenamento para garantir durabilidade e alta disponibilidade. A opção de redundância que será escolhida para sua conta dependerá do grau de resiliência que você precisa. Para proteção contra interrupções regionais, escolha o armazenamento com redundância geográfica, com ou sem a opção de acesso de leitura proveniente da região secundária:  
 
-**O armazenamento geo-redundante (GRS) ou o gzrs (preview) (visualização) copiaseus** dados de forma assíncrona em duas regiões geográficas que estão a pelo menos centenas de quilômetros de distância. Se a região primária sofrer uma interrupção, a região secundária funcionará como uma fonte redundante para seus dados. É possível iniciar um failover para transformar o ponto de extremidade secundário no ponto de extremidade primário.
+O **armazenamento com redundância geográfica (GRS) ou o armazenamento com redundância de zona geográfica (GZRS) (visualização)** copia seus dados de forma assíncrona em duas regiões geográficas que têm pelo menos centenas de quilômetros de distância. Se a região primária sofrer uma interrupção, a região secundária funcionará como uma fonte redundante para seus dados. É possível iniciar um failover para transformar o ponto de extremidade secundário no ponto de extremidade primário.
 
-**O armazenamento geo-redundante de acesso de leitura (RA-GRS) ou o armazenamento geo-redundante de acesso de leitura (RA-GZRS) (preview)** fornecem armazenamento geo-redundante com o benefício adicional do acesso à leitura ao ponto final secundário. Se ocorrer uma interrupção no ponto de extremidade primário, os aplicativos configurados para o RA-GRS e projetados para alta disponibilidade poderão continuar a ler os dados a partir do ponto de extremidade secundário. A Microsoft recomenda o RA-GRS para garantir a máxima resiliência de seus aplicativos.
+O **armazenamento com redundância geográfica com acesso de leitura (ra-grs) ou armazenamento com redundância de zona geográfica com acesso de leitura (ra-GZRS) (visualização)** fornece armazenamento com redundância geográfica com o benefício adicional de acesso de leitura para o ponto de extremidade secundário. Se ocorrer uma interrupção no ponto de extremidade primário, os aplicativos configurados para o RA-GRS e projetados para alta disponibilidade poderão continuar a ler os dados a partir do ponto de extremidade secundário. A Microsoft recomenda o RA-GRS para garantir a máxima resiliência de seus aplicativos.
 
-Para obter mais informações sobre redundância no Azure Storage, consulte [a redundância do Azure Storage](storage-redundancy.md).
+Para obter mais informações sobre redundância no armazenamento do Azure, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
 
 > [!WARNING]
-> O Armazenamento com redundância geográfica envolve risco de perda de dados. Os dados são copiados para a região secundária de forma assíncrona, o que significa que há um atraso entre quando os dados gravados para a região primária são gravados para a região secundária. Em caso de paralisação, as operações de gravação para o ponto final primário que ainda não foram copiadas para o ponto final secundário serão perdidas.
+> O Armazenamento com redundância geográfica envolve risco de perda de dados. Os dados são copiados para a região secundária de forma assíncrona, o que significa que há um atraso entre o momento em que os dados gravados na região primária são gravados na região secundária. No caso de uma interrupção, as operações de gravação para o ponto de extremidade primário que ainda não foram copiadas para o ponto de extremidade secundário serão perdidas.
 
 ## <a name="design-for-high-availability"></a>Projetando para a alta disponibilidade
 
 É importante projetar seu aplicativo para ter uma alta disponibilidade desde o início. Consulte estes recursos do Azure para obter orientações sobre como projetar seu aplicativo e sobre o planejamento para a recuperação de desastre:
 
-- [Projetando aplicativos resilientes para o Azure](/azure/architecture/checklist/resiliency-per-service): Uma visão geral dos conceitos-chave para arquitetar aplicações altamente disponíveis no Azure.
-- [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service): Uma lista de verificação para verificar se seu aplicativo implementa as melhores práticas de design para alta disponibilidade.
-- [Projetando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md): Orientação de design para aplicativos de construção para tirar proveito do RA-GRS.
-- [Tutorial: Crie um aplicativo altamente disponível com armazenamento Blob](../blobs/storage-create-geo-redundant-storage.md): Um tutorial que mostra como construir um aplicativo altamente disponível que alterna automaticamente entre pontos finais à medida que falhas e recuperações são simuladas. 
+- [Criando aplicativos resilientes para o Azure](/azure/architecture/checklist/resiliency-per-service): uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
+- [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service): uma lista de verificação para verificar se o aplicativo implementa as melhores práticas de design para alta disponibilidade.
+- [Criando aplicativos altamente disponíveis usando o Ra-grs](storage-designing-ha-apps-with-ragrs.md): diretrizes de design para a criação de aplicativos para tirar proveito do Ra-grs.
+- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md): um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
 
 Além disso, tenha em mente essas práticas recomendadas a fim de manter a alta disponibilidade de seus dados de armazenamento no Azure:
 
-- **Discos:** Use [o Backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos VM usados por suas máquinas virtuais Do Azure. Considere também usar o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs em caso de desastre regional.
-- **Bolhas de bloco:** Ative a [exclusão suave](../blobs/storage-blob-soft-delete.md) para proteger contra exclusões e substituições em nível de objeto ou copiar blobs de bloco para outra conta de armazenamento em uma região diferente usando [AzCopy,](storage-use-azcopy.md) [Azure PowerShell](storage-powershell-guide-full.md)ou a [biblioteca Azure Data Movement](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-- **Arquivos:** Use [o AzCopy](storage-use-azcopy.md) ou [o Azure PowerShell](storage-powershell-guide-full.md) para copiar seus arquivos para outra conta de armazenamento em uma região diferente.
+- **Discos:** Use o [backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos de VM usados por suas máquinas virtuais do Azure. Considere também usar o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs em caso de desastre regional.
+- **Blobs de blocos:** Ative a [exclusão reversível](../blobs/storage-blob-soft-delete.md) para proteger contra exclusões em nível de objeto e substituições ou copie blobs de blocos para outra conta de armazenamento em uma região diferente usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Arquivos:** Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
 - **Tabelas:** use o [AzCopy](storage-use-azcopy.md) para exportar os dados de tabela para outra conta de armazenamento em uma região diferente.
 
 ## <a name="track-outages"></a>Acompanhar interrupções
@@ -70,7 +70,7 @@ O failover de conta gerenciada pelo cliente (versão prévia) permite fazer fail
 
 ### <a name="how-an-account-failover-works"></a>Como o failover de conta funciona
 
-Em circunstâncias normais, um cliente grava dados em uma conta do Azure Storage na região principal, e esses dados são copiados assíncronamente para a região secundária. A imagem a seguir mostra o cenário quando a região primária está disponível:
+Em circunstâncias normais, um cliente grava dados em uma conta de armazenamento do Azure na região primária e esses dados são copiados assincronamente para a região secundária. A imagem a seguir mostra o cenário quando a região primária está disponível:
 
 ![Os clientes gravam os dados na conta de armazenamento na região primária](media/storage-disaster-recovery-guidance/primary-available.png)
 
@@ -94,9 +94,9 @@ O acesso à gravação é restaurado nas contas de GRS e de RA-GRS depois que a 
 > [!CAUTION]
 > Um failover de conta geralmente envolve alguma perda de dados. É importante entender as implicações de iniciar um failover de conta.  
 
-Como os dados são escritos assíncronamente da região primária para a região secundária, há sempre um atraso antes que uma gravação para a região primária seja copiada para a região secundária. Se a região primária ficar indisponível, as gravações mais recentes podem ainda não ter sido copiadas para a região secundária.
+Como os dados são gravados de forma assíncrona da região primária para a região secundária, sempre há um atraso antes que uma gravação na região primária seja copiada para a região secundária. Se a região primária ficar indisponível, as gravações mais recentes talvez ainda não tenham sido copiadas para a região secundária.
 
-Ao forçar um failover, todos os dados na região primária são perdidos uma vez que a região secundária se torna a nova região primária e a conta de armazenamento é configurada para ser localmente redundante. Todos os dados já copiados para o secundário são mantidos quando o failover acontece. No entanto, todos os dados escritos para o primário que também não foram copiados para o secundário são perdidos permanentemente.
+Ao forçar um failover, todos os dados na região primária são perdidos uma vez que a região secundária se torna a nova região primária e a conta de armazenamento é configurada para ser localmente redundante. Todos os dados já copiados para o secundário são mantidos quando o failover ocorre. No entanto, todos os dados gravados no primário que também não foram copiados para o secundário são perdidos permanentemente.
 
 A propriedade **Hora da última sincronização** indica o momento mais recente em que os dados da região primária foram certamente gravados na região secundária. Todos os dados gravados antes da hora da última sincronização estarão disponíveis na região secundária, enquanto os dados gravados após esse momento podem não terem sido gravados na região secundária e terem sido perdidos. Use essa propriedade caso ocorra uma interrupção para estimar a quantidade de perda de dados que poderá incorrer ao iniciar um failover de conta.
 
@@ -104,9 +104,9 @@ Como prática recomendada, projete seu aplicativo de modo que seja possível usa
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Tendo cuidados ao realizar o fail back para a região primária original
 
-Após realizar o failover da região primária para a região secundária, a conta de armazenamento estará configurada para ser localmente redundante na nova região primária. É possível configurar a conta para a redundância geográfica novamente, atualizando-a para usar o GRS ou o RA-GRS. Quando a conta é configurada para geo-redundância novamente após um failover, a nova região primária imediatamente começa a copiar dados para a nova região secundária, que era a principal antes do failover original. No entanto, pode levar algum tempo até que os dados existentes no primário sejam totalmente copiados para o novo secundário.
+Após realizar o failover da região primária para a região secundária, a conta de armazenamento estará configurada para ser localmente redundante na nova região primária. É possível configurar a conta para a redundância geográfica novamente, atualizando-a para usar o GRS ou o RA-GRS. Quando a conta é configurada para redundância geográfica novamente após um failover, a nova região primária começa imediatamente a copiar dados para a nova região secundária, que era a primária antes do failover original. No entanto, pode levar algum tempo antes que os dados existentes no primário sejam totalmente copiados para o novo secundário.
 
-Depois que a conta de armazenamento for reconfigurada para a redundância geográfica, será possível iniciar outro failover da nova região primária de volta para a nova região secundária. Nesse caso, a região primária original antes do failover se tornará novamente a região primária e estará configurada para ser localmente redundante. Todos os dados na região primária após o failover (a região secundária original) serão perdidos. Se a maioria dos dados na conta de armazenamento não tiver sido copiada para o novo secundário antes de você falhar, você pode sofrer uma grande perda de dados.
+Depois que a conta de armazenamento for reconfigurada para a redundância geográfica, será possível iniciar outro failover da nova região primária de volta para a nova região secundária. Nesse caso, a região primária original antes do failover se tornará novamente a região primária e estará configurada para ser localmente redundante. Todos os dados na região primária após o failover (a região secundária original) serão perdidos. Se a maioria dos dados na conta de armazenamento não tiver sido copiada para o novo secundário antes de realizar o failback, você poderá sofrer uma grande perda de dados.
 
 Para evitar uma grande perda de dados, verifique o valor da propriedade **Hora da última sincronização** antes de realizar o fail back. Compare a hora da última sincronização com os momentos das últimas vezes que os dados foram gravados na nova região primária a fim de avaliar a perda de dados esperada. 
 
@@ -116,7 +116,7 @@ Para evitar uma grande perda de dados, verifique o valor da propriedade **Hora d
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
-O failover da conta está disponível na pré-visualização para todos os clientes que usam GRS ou RA-GRS com implantações do Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover da conta está disponível atualmente em todas as regiões públicas. O failover da conta não está disponível em nuvens soberanas/nacionais no momento.
+O failover de conta está disponível em versão prévia para todos os clientes que usam GRS ou RA-GRS com implantações Azure Resource Manager. Há suporte para uso geral v1, uso geral v2 e os tipos de conta de armazenamento de Blob. O failover de conta está disponível atualmente em todas as regiões públicas. O failover de conta não está disponível em nuvens soberanas/nacionais no momento.
 
 A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
 
@@ -124,19 +124,19 @@ A versão prévia é destinada apenas para uso não produtivo. SLAs (Contratos d
 
 Examine as considerações adicionais descritas nesta seção para entender como seus aplicativos e serviços podem ser afetados quando você força um failover durante o período da versão prévia.
 
-#### <a name="storage-account-containing-archived-blobs"></a>Conta de armazenamento contendo blobs arquivados
+#### <a name="storage-account-containing-archived-blobs"></a>Conta de armazenamento que contém BLOBs arquivados
 
-Contas de armazenamento que contêm blobs arquivados suportam failover de conta. Uma vez que o failover esteja concluído, para converter a conta de volta para GRS ou RA-GRS, todas as bolhas arquivadas precisam ser rehidratadas para um nível on-line primeiro.
+As contas de armazenamento que contêm BLOBs arquivados dão suporte a failover de conta. Depois que o failover for concluído, para converter a conta de volta em GRS ou RA-GRS, todos os BLOBs arquivados precisarão ser alimentados primeiro para uma camada online.
 
 #### <a name="storage-resource-provider"></a>Provedor de recursos de armazenamento
 
-Depois que um failover for concluído, os clientes poderão ler e gravar novamente os dados do Azure Storage na nova região principal. No entanto, o provedor de recursos do Azure Storage não falha, portanto, as operações de gerenciamento de recursos ainda devem ocorrer na região principal. Se a região primária não estiver disponível, você não poderá executar operações de gerenciamento na conta de armazenamento.
+Depois que um failover for concluído, os clientes poderão ler novamente e gravar dados do armazenamento do Azure na nova região primária. No entanto, o provedor de recursos de armazenamento do Azure não faz failover, portanto, as operações de gerenciamento de recursos ainda devem ocorrer na região primária. Se a região primária não estiver disponível, você não poderá executar operações de gerenciamento na conta de armazenamento.
 
-Como o provedor de recursos do Azure Storage não falha, a propriedade [Local](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) retornará o local principal original após o failover ser concluído.
+Como o provedor de recursos de armazenamento do Azure não faz failover, a propriedade [Location](/dotnet/api/microsoft.azure.management.storage.models.trackedresource.location) retornará o local primário original após a conclusão do failover.
 
 #### <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
-As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) específica para máquinas virtuais no Azure.
+As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md) específicas para máquinas virtuais no Azure.
 
 #### <a name="azure-unmanaged-disks"></a>Discos não gerenciados do Azure
 
@@ -155,22 +155,22 @@ Os discos não gerenciados são armazenadas como blobs de páginas no Armazename
 
 Tenha em mente que todos os dados armazenados em um disco temporário serão perdidos quando a VM for desligada.
 
-### <a name="unsupported-features-and-services"></a>Recursos e serviços não suportados
+### <a name="unsupported-features-and-services"></a>Recursos e serviços sem suporte
 
-Os seguintes recursos e serviços não são suportados para failover de conta para a versão de pré-visualização:
+Os seguintes recursos e serviços não têm suporte para failover de conta para a versão de visualização:
 
 - A Sincronização de Arquivos do Azure não oferece suporte ao failover de conta de armazenamento. Não deve ser realizado o failover das contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estejam sendo usadas como pontos de extremidade de nuvem na Sincronização de Arquivos do Azure. Se isso for feito, a sincronização deixará de funcionar e poderá causar a perda inesperada de dados no caso de arquivos recentes em camadas.
-- As contas de armazenamento ADLS Gen2 (contas que têm namespace hierárquico ativado) não são suportadas no momento.
+- ADLS Gen2 contas de armazenamento (contas que têm o namespace hierárquico habilitado) não têm suporte no momento.
 - Não é possível realizar failover em uma conta de armazenamento que contenha blob de blocos premium. As contas de armazenamento que dão suporte a blobs de bloco premium atualmente não são compatíveis com a redundância geográfica.
-- Uma conta de armazenamento contendo qualquer [política de imutabilidade worm](../blobs/storage-blob-immutable-storage.md) habilitada para contêineres não pode ser falhada. As políticas de retenção ou retenção de tempo desbloqueadas/bloqueadas evitam o failover para manter a conformidade.
-- Depois que o failover estiver concluído, os seguintes recursos podem parar de funcionar se originalmente [ativados: assinaturas de eventos,](../blobs/storage-blob-event-overview.md) [feed de alterações,](../blobs/storage-blob-change-feed.md) [políticas de ciclo de vida](../blobs/storage-lifecycle-management-concepts.md)e registro de análise de [armazenamento.](storage-analytics-logging.md)
+- Não é possível fazer failover de uma conta de armazenamento contendo contêineres habilitados da [política de imutabilidade do worm](../blobs/storage-blob-immutable-storage.md) . A retenção baseada em tempo desbloqueada/bloqueada ou as políticas de manutenção legal impedem o failover para manter a conformidade.
+- Após a conclusão do failover, os recursos a seguir podem parar de funcionar se originalmente habilitados: [assinaturas de evento](../blobs/storage-blob-event-overview.md), [feed de alterações](../blobs/storage-blob-change-feed.md), políticas de ciclo de [vida](../blobs/storage-lifecycle-management-concepts.md)e [log de análise de armazenamento](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiando dados como uma alternativa ao failover
 
-Se sua conta de armazenamento estiver configurada para o RA-GRS, você terá acesso de leitura aos seus dados usando o ponto de extremidade secundário. Se você preferir não realizar o failover no caso de uma interrupção na região primária, será possível usar ferramentas como o [AzCopy](storage-use-azcopy.md), o [Azure PowerShell](storage-powershell-guide-full.md) ou a [Biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar os dados de sua conta de armazenamento na região secundária para outra conta de armazenamento em uma região não afetada. Você poderá, então, direcionar os aplicativos para essa conta de armazenamento para a disponibilidade de leitura e de gravação.
+Se sua conta de armazenamento estiver configurada para o RA-GRS, você terá acesso de leitura aos seus dados usando o ponto de extremidade secundário. Se você preferir não realizar o failover no caso de uma interrupção na região primária, será possível usar ferramentas como o [AzCopy](storage-use-azcopy.md), o [Azure PowerShell](/powershell/module/az.storage/) ou a [Biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar os dados de sua conta de armazenamento na região secundária para outra conta de armazenamento em uma região não afetada. Você poderá, então, direcionar os aplicativos para essa conta de armazenamento para a disponibilidade de leitura e de gravação.
 
 > [!CAUTION]
-> Um failover de conta não deve ser usado como parte de sua estratégia de migração de dados.
+> Um failover de conta não deve ser usado como parte da sua estratégia de migração de dados.
 
 
 ## <a name="microsoft-managed-failover"></a>Failover gerenciado pela Microsoft
@@ -180,5 +180,5 @@ Em circunstâncias extremas em que uma região for perdida devido a um desastre 
 ## <a name="see-also"></a>Confira também
 
 - [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
-- [Projetando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: Construa um aplicativo altamente disponível com armazenamento Blob](../blobs/storage-create-geo-redundant-storage.md) 
+- [Criando aplicativos altamente disponíveis usando o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 

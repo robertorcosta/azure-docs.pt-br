@@ -1,31 +1,31 @@
 ---
-title: Use os modelos do Azure Resource Manager para criar a conta de automação | Microsoft Docs
-description: Você pode usar um modelo do Azure Resource Manager para criar uma conta de Automação Azure.
+title: Usar modelos de Azure Resource Manager para criar uma conta de automação | Microsoft Docs
+description: Você pode usar um modelo de Azure Resource Manager para criar uma conta de automação do Azure.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/15/2020
-ms.openlocfilehash: efe51fbada8ac70b24c16a5c7c1e0e91879e5e9f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.date: 04/24/2020
+ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618679"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165817"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Criar conta de automação usando o modelo do Azure Resource Manager
+# <a name="create-automation-account-using-azure-resource-manager-template"></a>Criar conta de automação usando o modelo de Azure Resource Manager
 
-Você pode usar [os modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para criar uma conta de Automação Azure em seu grupo de recursos. Este artigo fornece um modelo de exemplo que automatiza o seguinte:
+Você pode usar [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para criar uma conta de automação do Azure em seu grupo de recursos. Este artigo fornece um modelo de exemplo que automatiza o seguinte:
 
-* Criação de um espaço de trabalho do Azure Monitor Log Analytics.
-* Criação de uma conta do Azure Automation.
-* Vincula a conta de Automação ao espaço de trabalho do Log Analytics.
+* Criação de um Azure Monitor espaço de trabalho Log Analytics.
+* Criação de uma conta de automação do Azure.
+* Vincula a conta de automação ao espaço de trabalho Log Analytics.
 
-O modelo não automatiza o onboarding de uma ou mais VMs Azure ou não-Azure, ou soluções. 
+O modelo não automatiza a integração de uma ou mais VMs do Azure ou não Azure, ou soluções. 
 
 >[!NOTE]
->Criação da conta 'Executar a operação 'Executar a automação Como' não é suportada ao usar um modelo do Azure Resource Manager. Para criar uma conta Run As manualmente no portal ou com o PowerShell, consulte [Gerenciar a conta Run As](manage-runas-account.md).
+>Não há suporte para a criação da conta Executar como de automação ao usar um modelo de Azure Resource Manager. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [gerenciar conta Executar como](manage-runas-account.md).
 
 ## <a name="api-versions"></a>Versões de API
 
@@ -38,31 +38,36 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
 
-Se você optar por instalar e usar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá o módulo Azure PowerShell AZ. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure. Com o Azure PowerShell, a implantação usa [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.1.0 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, essa implantação usa [a criação de implantação de grupo AZ](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando o CLI do Azure versão 2.1.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com CLI do Azure, essa implantação usa [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para solicitar:
 
 * O nome do workspace
-* A região para criar o espaço de trabalho em
-* O nome da conta automação
-* A região para criar a conta em
+* A região na qual criar o espaço de trabalho
+* O nome da conta de automação
+* A região na qual criar a conta
 
-O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado em sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [Implantar recursos com modelos do Gerenciador de Recursos e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
-
-Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho do Log Analytics:
+Os seguintes parâmetros no modelo são definidos com um valor padrão para o espaço de trabalho Log Analytics:
 
 * SKU – assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018
-* retenção de dados - padrão para trinta dias
-* reserva de capacidade - padrão para 100 GB
+* retenção de dados-padrão para trinta dias
+* Reserva de capacidade – o padrão é de 100 GB
 
 >[!WARNING]
 >Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.
 >
 
->[!NOTE]
->Antes de usar este modelo, revise [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender completamente as opções de configuração do espaço de trabalho, como modo de controle de acesso, nível de pricing, retenção e nível de reserva de capacidade. Se você é novo nos registros do Azure Monitor e ainda não implantou um espaço de trabalho, você deve rever a orientação de design do [espaço de trabalho](../azure-monitor/platform/design-logs-deployment.md) para aprender sobre controle de acesso e uma compreensão das estratégias de implementação de design que recomendamos para sua organização.
+O modelo JSON especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. Você pode armazenar o modelo em uma conta de armazenamento do Azure para acesso compartilhado em sua organização. Para obter mais informações sobre como trabalhar com modelos, consulte [implantar recursos com modelos do Resource Manager e CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
+
+É importante entender os seguintes detalhes de configuração se você for novo na automação do Azure e Azure Monitor, a fim de evitar erros ao tentar criar, configurar e usar um espaço de trabalho do Log Analytics vinculado à sua nova conta de automação.
+
+* Examine os [detalhes adicionais](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) para entender totalmente as opções de configuração do espaço de trabalho, como modo de controle de acesso, tipo de preço, retenção e nível de reserva de capacidade.
+
+* Como apenas determinadas regiões têm suporte para vincular um Log Analytics espaço de trabalho e uma conta de automação em sua assinatura, examine os [mapeamentos de espaço de trabalho](how-to/region-mappings.md) para especificar as regiões com suporte embutidas ou em um arquivo de parâmetros.
+
+* Se você for novo no Azure Monitor logs e ainda não tiver implantado um espaço de trabalho, examine as diretrizes de [design do espaço de trabalho](../azure-monitor/platform/design-logs-deployment.md) para saber mais sobre o controle de acesso e entenda as estratégias de implementação de design recomendadas para sua organização.
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -112,32 +117,6 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -307,11 +286,11 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
     }
     ```
 
-2. Edite o modelo para atender às suas necessidades. Considere criar um [arquivo de parâmetros do Gerenciador](../azure-resource-manager/templates/parameter-files.md) de recursos em vez de passar parâmetros como valores inline.
+2. Edite o modelo para atender às suas necessidades. Considere a criação de um [arquivo de parâmetros do Resource Manager](../azure-resource-manager/templates/parameter-files.md) em vez de passar parâmetros como valores embutidos.
 
-3. Salve este arquivo como deployAzAutomationAccttemplate.json em uma pasta local.
+3. Salve esse arquivo como deployAzAutomationAccttemplate. JSON em uma pasta local.
 
-4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou o Azure CLI. Quando você for solicitado para um nome de conta de espaço de trabalho e automação, forneça um nome que seja globalmente único em todas as assinaturas do Azure.
+4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou o CLI do Azure. Quando for solicitado um nome de espaço de trabalho e de conta de automação, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
 
     **PowerShell**
 
@@ -331,4 +310,4 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem uma conta de Automação, você pode criar runbooks e automatizar processos manuais.
+Agora que você tem uma conta de automação, pode criar runbooks e automatizar processos manuais.

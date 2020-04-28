@@ -1,7 +1,7 @@
 ---
-title: Use o PowerShell para gerenciar dados em nuvens independentes do Azure
+title: Usar o PowerShell para gerenciar dados em nuvens independentes do Azure
 titleSuffix: Azure Storage
-description: Gerenciamento de armazenamento na nuvem da China, nuvem do governo e nuvem alemã usando o Azure PowerShell.
+description: Gerenciamento de armazenamento na nuvem da China, na nuvem governamental e na nuvem alemã usando o Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bc8da02a523479c3c543eff28a376136e29098f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74895228"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176202"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
 A maioria das pessoas usa a Nuvem Pública do Azure em suas implantações globais do Azure. Há também algumas implantações independentes do Microsoft Azure por motivos de soberania e assim por diante. Essas implantações independentes são chamadas de “ambientes”. A lista a seguir fornece detalhes sobre as nuvens independentes disponíveis no momento.
 
 * [Nuvem do Azure Governamental](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet Cloud operado pela 21Vianet na China](http://www.windowsazure.cn/)
+* [Nuvem do Azure China 21Vianet operada pela 21Vianet na China](http://www.windowsazure.cn/)
 * [Nuvem Alemã do Azure](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -60,7 +60,7 @@ Get-AzLocation | select Location, DisplayName
 
 A tabela a seguir mostra os locais retornados para a Nuvem alemã.
 
-|Location | Nome de exibição |
+|Local | Nome de exibição |
 |----|----|
 | `germanycentral` | Alemanha Central|
 | `germanynortheast` | Nordeste da Alemanha |
@@ -74,7 +74,7 @@ O sufixo de ponto de extremidade para cada um desses ambientes é diferente do p
 
 Recupere o sufixo de ponto de extremidade usando [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). O ponto de extremidade é a propriedade *StorageEndpointSuffix* do ambiente.
 
-Os seguintes trechos de código mostram como recuperar o sufixo de ponto final. Todos esses comandos retornam algo como "core.cloudapp.net" ou "core.cloudapi.de", etc. Anexar o sufixo ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
+Os trechos de código a seguir mostram como recuperar o sufixo do ponto de extremidade. Todos esses comandos retornam algo como "core.cloudapp.net" ou "core.cloudapi.de", etc. Acrescente o sufixo ao serviço de armazenamento para acessar esse serviço. Por exemplo, “queue.core.cloudapi.de” acessará o serviço Fila na nuvem alemã.
 
 Este snippet de código recupera todos os ambientes e o sufixo do ponto de extremidade para cada um.
 
@@ -125,7 +125,7 @@ Esse comando retorna as informações a seguir:
 
 ### <a name="get-endpoint-from-a-storage-account"></a>Obter o ponto de extremidade de uma conta de armazenamento
 
-Você também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos finais:
+Você também pode examinar as propriedades de uma conta de armazenamento para recuperar os pontos de extremidade:
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-Para uma conta de armazenamento na Nuvem do Governo, este comando retorna a seguinte saída:
+Para uma conta de armazenamento na nuvem governamental, esse comando retorna a seguinte saída:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -152,9 +152,9 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>Após configurar o ambiente
 
-Daqui em diante, você poderá usar o mesmo PowerShell utilizado para gerenciar suas contas de armazenamento e acessar o plano de dados, conforme descrito no artigo [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md).
+Agora você pode usar o PowerShell para gerenciar suas contas de armazenamento e acessar dados de BLOB, fila, arquivo e tabela. Para obter mais informações, consulte [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um novo grupo de recursos e uma conta de armazenamento para este exercício, você pode remover ambos os ativos excluindo o grupo de recursos. A exclusão do grupo de recursos exclui todos os recursos contidos nele.
 
@@ -165,7 +165,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Persistência de logons de usuário nas sessões do PowerShell](/powershell/azure/context-persistence)
-* [Armazenamento do governo azure](../../azure-government/documentation-government-services-storage.md)
+* [Armazenamento do Azure governamental](../../azure-government/documentation-government-services-storage.md)
 * [Guia do Desenvolvedor do Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
-* [Notas do desenvolvedor para aplicativos Azure China 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Notas do desenvolvedor para aplicativos da 21Vianet do Azure na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentação do Azure Alemanha](../../germany/germany-welcome.md)

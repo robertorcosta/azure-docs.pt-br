@@ -1,6 +1,6 @@
 ---
-title: Chame uma api web de um aplicativo web - plataforma de identidade da Microsoft | Azure
-description: Aprenda a criar um aplicativo web que chama APIs da Web (chamando uma API web protegida)
+title: Chamar uma API da Web de um aplicativo Web-plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo Web que chama APIs da Web (chamando uma API Web protegida)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,20 +11,24 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 84df33137566445015848655cfecb87ba67ef123
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868726"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181674"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo web que chama APIs da Web: Chame uma API web
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo Web que chama APIs da Web: chamar uma API da Web
 
-Agora que você tem um token, você pode chamar uma API da Web protegida.
+Agora que você tem um token, você pode chamar uma API Web protegida.
+
+## <a name="call-a-protected-web-api"></a>Chamar uma API Web protegida
+
+Chamar uma API Web protegida depende do idioma e da estrutura de sua escolha:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está um código simplificado `HomeController`para a ação do . Este código recebe um token para chamar microsoft graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como uma API REST. A URL da API do Microsoft Graph é fornecida no arquivo appsettings.json e é lida em uma variável chamada `webOptions`:
+Aqui está o código simplificado para a ação `HomeController`do. Esse código obtém um token para chamar Microsoft Graph. O código foi adicionado para mostrar como chamar Microsoft Graph como uma API REST. A URL para a API de Microsoft Graph é fornecida no arquivo appSettings. JSON e é lida em uma variável chamada `webOptions`:
 
 ```json
 {
@@ -40,48 +44,33 @@ Aqui está um código simplificado `HomeController`para a ação do . Este códi
 ```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token.
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account.
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+ // Use the access token to call a protected web API.
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ 
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- // Special case for guest users, because the guest ID / tenant ID are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+   var content = await response.Content.ReadAsStringAsync();
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+   dynamic me = JsonConvert.DeserializeObject(content);
+   return me;
+  }
 
- // Calls the web API (Microsoft Graph in this case).
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
-
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  ViewData["Me"] = me;
+  return View();
 }
 ```
 
 > [!NOTE]
-> Você pode usar o mesmo princípio para chamar qualquer API web.
+> Você pode usar o mesmo princípio para chamar qualquer API da Web.
 >
-> A maioria das APIs web do Azure fornece um SDK que simplifica a chamada da API. Isso também é verdade no Microsoft Graph. No próximo artigo, você aprenderá onde encontrar um tutorial que ilustra o uso da API.
+> A maioria das APIs da Web do Azure fornece um SDK que simplifica a chamada da API. Isso também é verdadeiro para Microsoft Graph. No próximo artigo, você aprenderá onde encontrar um tutorial que ilustra o uso da API.
 
 # <a name="java"></a>[Java](#tab/java)
 

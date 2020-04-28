@@ -1,21 +1,18 @@
 ---
 title: Migre suas VMs do Windows para o Armazenamento Premium do Azure com a recuperação do site do Azure
 description: Migre máquinas virtuais existentes para o Armazenamento Premium do Azure usando o Site Recovery. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
-services: virtual-machines-windows,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: bd5f9fc787a6299e8d7c14f4b99f6f4d59cf78af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 071596557de00c9dfb2afaa5751d9331c21ada99
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74819069"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866270"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -76,7 +73,7 @@ Você pode usar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou 
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Etapa 1: criar um cofre dos Serviços de Recuperação
 
-1. Abra o [portal Azure.](https://portal.azure.com)
+1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Criar um OMS (Resource** > **Management** > **Backup and Site Recovery, backup e recuperação de site)** de gerenciamento de recursos . Alternativamente, você pode selecionar **Procurar** > **serviços de recuperação de cofre** > **adicionar**.
    >[!NOTE]
    >Backup e Recuperação de Site foi anteriormente parte da [OMS suite](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
@@ -220,7 +217,7 @@ Para cenários específicos de migração de máquinas virtuais, consulte as seg
 
 Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azure e as Máquinas Virtuais do Azure:
 
-* [Armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

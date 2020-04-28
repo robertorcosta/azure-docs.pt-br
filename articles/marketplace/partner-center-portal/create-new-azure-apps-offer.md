@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730610"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867278"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -221,6 +221,9 @@ Na seção **de contato de suporte,** você também deve fornecer a **URL de sup
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usadas ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato .png.
 
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
+
 #### <a name="store-logos"></a>Logotipos da Loja
 
 Forneça o logotipo da sua oferta em três tamanhos: **Pequeno (48 x 48)**, **Médio (90 X 90)** e **Grande (216 x 216)**.
@@ -355,7 +358,7 @@ Se você já definiu os preços para o seu plano em Dólares dos Estados Unidos 
 
 Forneça o preço mensal para este plano.  Este preço é além de qualquer infra-estrutura do Azure ou custos de software pay-as-you-go incorridos pelos recursos implantados por esta solução.
 
-Os preços definidos em moeda local (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados usando as taxas de câmbio atuais disponíveis durante a configuração. Valide esses preços antes de publicar exportando a planilha de preços e revisando o preço em cada mercado. Se você quiser definir preços personalizados em um mercado individual, modifique e importe a planilha de preços. 
+Os preços definidos em USD (USD = Dólar dos Estados Unidos) são convertidos na moeda local de todos os mercados selecionados usando as taxas de câmbio atuais quando salvos. Valide esses preços antes de publicar exportando a planilha de preços e revisando o preço em cada mercado. Se você quiser definir preços personalizados em um mercado individual, modifique e importe a planilha de preços. 
 
 >[!Note]
 >Primeiro, você deve salvar suas alterações de preços para permitir a exportação de dados de preços.
@@ -397,7 +400,16 @@ Todos os pacotes de plano de aplicativos do Azure devem incluir esses dois arqui
 
 * Uma definição de interface de usuário para a experiência de criação de aplicativos do Azure chamada [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Os tamanhos máximos de arquivo suportados são:
+
+* Até 1 Gb no `.zip` tamanho total do arquivo comprimido
+
+* Até 1 Gb para qualquer arquivo individual `.zip` não compactado dentro do arquivo  
+
 Todas as novas ofertas de aplicativos do Azure também devem incluir uma atribuição de uso do [cliente parceiro Do Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID.
+
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
 
 ### <a name="previously-published-packages"></a>Pacotes publicados anteriormente 
 

@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/05/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72756395"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866430"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -76,6 +76,18 @@ O email inclui quatro blocos:
 | **Atribuições de função fora do PIM** | Número de vezes que os usuários são atribuídos a uma função permanente fora do Gerenciamento de Identidade Privilegiada (dentro do Azure AD). |
 
 A seção **Visão geral das principais funções** lista as cinco principais funções no locatário com base no número total de administradores permanentes e qualificados para cada função. O link **Executar ação** abre o [assistente do PIM](pim-security-wizard.md), onde é possível converter administradores permanentes em administradores qualificados em lotes.
+
+## <a name="email-timing-for-activation-approvals"></a>Tempo de e-mail para aprovações de ativação
+
+Quando os usuários ativam sua função e a configuração da função requer aprovação, os aprovadores receberão três e-mails para cada aprovação:
+
+- Solicitação para aprovar ou negar a solicitação de ativação do usuário (enviada pelo mecanismo de aprovação de solicitação)
+- A solicitação do usuário é aprovada (enviada pelo mecanismo de aprovação de solicitação)
+- A função do usuário é ativada (enviada pelo Gerenciamento de Identidade Privilegiada)
+
+Os dois primeiros e-mails enviados pelo mecanismo de aprovação de solicitações podem ser atrasados. Atualmente, 90% dos e-mails levam de três a dez minutos, mas para 1% dos clientes pode ser muito mais longo, até quinze minutos.
+
+Se uma solicitação de aprovação for aprovada no portal azure antes do primeiro e-mail ser enviado, o primeiro e-mail não será mais acionado e outros aprovadores não serão notificados por e-mail da solicitação de aprovação. Pode parecer que eles não foram enviados um e-mail, mas é o comportamento esperado.
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Emails do PIM para funções de recurso do Azure
 

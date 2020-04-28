@@ -1,6 +1,6 @@
 ---
-title: Use o portal Azure para configurar chaves gerenciadas pelo cliente para o serviço de importação/exportação
-description: Saiba como usar o portal Azure para configurar chaves gerenciadas pelo cliente com o Azure Key Vault para o serviço de importação/exportação do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desativar e revogar controles de acesso.
+title: Usar o portal do Azure para configurar chaves gerenciadas pelo cliente para o serviço de importação/exportação
+description: Saiba como usar o portal do Azure para configurar chaves gerenciadas pelo cliente com Azure Key Vault para o serviço de importação/exportação do Azure. As chaves gerenciadas pelo cliente permitem criar, girar, desabilitar e revogar controles de acesso.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456491"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176321"
 ---
-# <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Use chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação
+# <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação
 
-O Azure Import/Export protege as chaves do BitLocker usadas para bloquear os drives por meio de uma chave de criptografia. Por padrão, as chaves do BitLocker são criptografadas com chaves gerenciadas pela Microsoft. Para obter controle adicional sobre as chaves de criptografia, você também pode fornecer chaves gerenciadas pelo cliente.
+A importação/exportação do Azure protege as chaves do BitLocker usadas para bloquear as unidades por meio de uma chave de criptografia. Por padrão, as chaves do BitLocker são criptografadas com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você também pode fornecer chaves gerenciadas pelo cliente.
 
-As chaves gerenciadas pelo cliente devem ser criadas e armazenadas em um Cofre de Chaves Do Azure. Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
+As chaves gerenciadas pelo cliente devem ser criadas e armazenadas em um Azure Key Vault. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 
-Este artigo mostra como usar chaves gerenciadas pelo cliente com o serviço Importação/Exportação no [portal Azure](https://portal.azure.com/).
+Este artigo mostra como usar chaves gerenciadas pelo cliente com o serviço de importação/exportação no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,82 +29,81 @@ Antes de começar, verifique se:
 
 1. Você criou um trabalho de importação ou exportação de acordo com as instruções em:
 
-    - [Crie um trabalho de importação para blobs](storage-import-export-data-to-blobs.md).
+    - [Crie um trabalho de importação para BLOBs](storage-import-export-data-to-blobs.md).
     - [Crie um trabalho de importação para arquivos](storage-import-export-data-to-files.md).
-    - [Crie um trabalho de exportação para blobs](storage-import-export-data-from-blobs.md)
+    - [Criar um trabalho de exportação para BLOBs](storage-import-export-data-from-blobs.md)
 
-2. Você tem um Azure Key Vault existente com uma chave que você pode usar para proteger sua chave BitLocker. Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../../key-vault/secrets/quick-create-portal.md).
+2. Você tem um Azure Key Vault existente com uma chave que pode ser usada para proteger sua chave do BitLocker. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/secrets/quick-create-portal.md).
 
-    - **O soft delete** e **o Não expurgo** são definidos no cofre de chaves existente. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, consulte as seções intituladas **Habilitando a exclusão suave** e habilitando a **proteção contra expurgo** em um dos seguintes artigos:
+    - A **exclusão reversível** e **não a limpeza** são definidas em seu Key Vault existente. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, consulte as seções intituladas **habilitando a exclusão reversível** e **habilitando a proteção de limpeza** em um dos seguintes artigos:
 
-        - [Como usar soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
-        - [Como usar soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
-    - O cofre-chave existente deve ter uma chave RSA de tamanho 2048 ou mais. Para obter mais informações sobre as chaves, consulte **as chaves do Key Vault** em [chaves, segredos e certificados sobre o Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-    - O cofre-chave deve estar na mesma região que a conta de armazenamento de seus dados.  
-    - Se você não tiver um Azure Key Vault existente, você também pode criá-lo inline conforme descrito na seção a seguir.
+        - [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Como usar a exclusão reversível com a CLI](../../key-vault/general/soft-delete-cli.md).
+    - O cofre de chaves existente deve ter uma chave RSA de tamanho de 2048 ou mais. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+    - O Key Vault deve estar na mesma região que a conta de armazenamento para seus dados.  
+    - Se você não tiver um Azure Key Vault existente, também poderá criá-lo em linha, conforme descrito na seção a seguir.
 
 ## <a name="enable-keys"></a>Habilitar chaves
 
-A configuração da chave gerenciada pelo cliente para o serviço importação/exportação é opcional. Por padrão, o serviço Importação/Exportação usa uma chave gerenciada pela Microsoft para proteger sua chave BitLocker. Para habilitar as chaves gerenciadas pelo cliente no portal Azure, siga estas etapas:
+A configuração da chave gerenciada pelo cliente para o serviço de importação/exportação é opcional. Por padrão, o serviço de importação/exportação usa uma chave gerenciada da Microsoft para proteger sua chave do BitLocker. Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
 
-1. Vá para a lâmina **visão geral** para o seu trabalho de importação.
-2. No painel direito, selecione **Escolha como suas teclas do BitLocker são criptografadas**.
+1. Vá para a folha de **visão geral** do trabalho de importação.
+2. No painel direito, selecione **escolher como as chaves do BitLocker são criptografadas**.
 
-    ![Escolha a opção de criptografia](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
+    ![Escolher opção de criptografia](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
-3. Na **lâmina Criptografia,** você pode visualizar e copiar a tecla BitLocker do dispositivo. Em **Tipo de Criptografia,** você pode escolher como deseja proteger sua chave BitLocker. Por padrão, uma chave gerenciada pela Microsoft é usada.
+3. Na folha **criptografia** , você pode exibir e copiar a chave do BitLocker do dispositivo. Em **tipo de criptografia**, você pode escolher como deseja proteger sua chave do BitLocker. Por padrão, uma chave gerenciada da Microsoft é usada.
 
-    ![Exibir a tecla BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
+    ![Exibir chave do BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. Você tem a opção de especificar uma chave gerenciada pelo cliente. Depois de selecionar a chave gerenciada pelo cliente, **selecione o cofre de chaves e uma chave**.
+4. Você tem a opção de especificar uma chave gerenciada pelo cliente. Depois de selecionar a chave gerenciada pelo cliente, **selecione Key Vault e uma chave**.
 
-    ![Selecione a chave gerenciada pelo cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
+    ![Selecionar chave gerenciada pelo cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
-5. Na **tecla Select do Azure Key Vault** blade, a assinatura é preenchida automaticamente. Para **o cofre chave,** você pode selecionar um cofre de chaves existente na lista de isto.
+5. Na folha **selecionar chave de Azure Key Vault** , a assinatura é preenchida automaticamente. Para o **Key Vault**, você pode selecionar um cofre de chaves existente na lista suspensa.
 
-    ![Selecione ou crie o Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
+    ![Selecionar ou criar Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Você também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na **lâmina do cofre de chaves Criar,** digite o grupo de recursos e o nome do cofre de chaves. Aceite todos os outros padrões. Selecione **Examinar + criar**.
+6. Você também pode selecionar **criar novo** para criar um novo cofre de chaves. Na **folha criar cofre de chaves**, insira o grupo de recursos e o nome do cofre de chaves. Aceite todos os outros padrões. Selecione **Examinar + criar**.
 
-    ![Criar novo Cofre chave Azure](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
+    ![Criar novo Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Revise as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para que a criação do cofre principal seja concluída.
+7. Examine as informações associadas ao cofre de chaves e selecione **criar**. Aguarde alguns minutos para que a criação do cofre de chaves seja concluída.
 
     ![Criar Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. Na **tecla Select do Azure Key Vault,** você pode selecionar uma chave no cofre de chaves existente.
+8. Na **Azure Key Vault selecionar chave de**, você pode selecionar uma chave no cofre de chaves existente.
 
-9. Se você criou um novo cofre de chaves, selecione **Criar novo** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
+9. Se você criou um novo cofre de chaves, selecione **criar novo** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
 
-    ![Crie nova chave no Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
+    ![Criar nova chave no Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
 
-    Se a proteção de exclusão e purga suave não estiver ativada quando você criar o cofre de chaves, o cofre de chaves será atualizado para ter proteção de exclusão e purga suave ativada.
+    Se a exclusão reversível e a proteção de limpeza não estiverem habilitadas quando você criar o cofre de chaves, o cofre de chaves será atualizado para ter a exclusão reversível e a proteção de limpeza habilitada.
 
-10. Forneça o nome da sua chave, aceite os outros padrões e selecione **Criar**.
+10. Forneça o nome da sua chave, aceite os outros padrões e selecione **criar**.
 
     ![Criar nova chave](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Selecione a **versão** e, em seguida, escolha **Selecionar**. Você é notificado de que uma chave é criada em seu cofre de chaves.
+11. Selecione a **versão** e escolha **selecionar**. Você será notificado de que uma chave é criada no cofre de chaves.
 
     ![Nova chave criada no cofre de chaves](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
-Na **lâmina Criptografia,** você pode ver o cofre de chaves e a chave selecionada para a chave gerenciada pelo cliente.
+Na folha **criptografia** , você pode ver o cofre de chaves e a chave selecionada para a chave gerenciada pelo cliente.
 
-## <a name="disable-keys"></a>Desativar chaves
+## <a name="disable-keys"></a>Desabilitar chaves
 
-Você só pode desativar as chaves gerenciadas pela Microsoft e passar para chaves gerenciadas pelo cliente em qualquer fase do trabalho de importação/exportação. No entanto, não é possível desativar a chave gerenciada pelo cliente depois de criá-la.
+Você só pode desabilitar chaves gerenciadas da Microsoft e mover para chaves gerenciadas pelo cliente em qualquer estágio do trabalho de importação/exportação. No entanto, você não pode desabilitar a chave gerenciada pelo cliente depois de criá-la.
 
-## <a name="troubleshoot-customer-managed-key-errors"></a>Solucionar problemas gerenciados pelo cliente
+## <a name="troubleshoot-customer-managed-key-errors"></a>Solucionar erros de chave gerenciada pelo cliente
 
-Se você receber quaisquer erros relacionados à chave gerenciada pelo cliente, use a tabela a seguir para solucionar problemas:
+Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabela a seguir para solucionar problemas:
 
-| Código do erro     |Detalhes     | Recuperáveis?    |
+| Código do erro     |Detalhes     | Recuperado?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevogado | Aplicou uma chave gerenciada pelo cliente, mas o acesso à chave é atualmente revogado. Para obter mais informações, consulte como [ativar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, veja se: <ol><li>O cofre-chave ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, embrulhar, desembrulhar.</li><li>Se o cofre de chaves estiver em um vNet atrás do firewall, verifique se **o Allow Microsoft Trusted Services** está ativado.</li></ol>                                                                                            |
-| CmkErrorDisabled      | Aplicou uma chave gerenciada pelo cliente, mas a chave está desativada. Para obter mais informações, consulte como [ativar a chave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, ativando a versão-chave     |
-| CmkErrorNãoencontrado      | Aplicou uma chave gerenciada pelo cliente, mas não consigo encontrar a chave. <br>Se a chave for excluída e eliminada após o período de retenção, você não poderá recuperar a chave. Se você fez backup da chave, você pode restaurar a chave para resolver esse problema. | Não, a chave foi excluída e também foi eliminada após o período de retenção. <br>Sim, só se o cliente tiver a chave apoiada e restaurá-la.  |
-| CmkErrorVaultNãoencontrado | Aplicou uma chave gerenciada pelo cliente, mas não consegue encontrar o cofre de chaves associado à chave.<br>Se você excluiu o cofre da chave, não poderá recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um inquilino diferente, consulte [Alterar um ID de inquilino do cofre chave após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Não, se o cliente apagou o cofre da chave.<br> Sim, se o cofre-chave sofreu uma migração de inquilinos, então faça um de: <ol><li>mover de volta o cofre chave para o antigo inquilino.</li><li>definir Identidade = Nenhum e, em seguida, voltar para Identidade = SistemaAtribuído, isso exclui e recria a identidade</li></ol>|
+| CmkErrorAccessRevoked | Aplicou uma chave gerenciada pelo cliente, mas o acesso à chave está atualmente revogado. Para obter mais informações, consulte como [habilitar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, verifique se: <ol><li>O cofre de chaves ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, encapsular, desencapsular.</li><li>Se o Key Vault estiver em uma vNet por trás do firewall, verifique se **permitir que os serviços confiáveis da Microsoft** estejam habilitados.</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | Uma chave gerenciada pelo cliente foi aplicada, mas a chave está desabilitada. Para obter mais informações, consulte como [habilitar a chave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, habilitando a versão de chave     |
+| CmkErrorKeyNotFound      | Uma chave gerenciada pelo cliente foi aplicada, mas não foi possível localizar o cofre de chaves associado à chave.<br>Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o `Identity = SystemAssigned`valor de volta para. Isso exclui e recria a identidade depois que a nova identidade é criada. `Get`Habilite `Wrap`as permissões `Unwrap` , e para a nova identidade na política de acesso do Key Vault.</li></ol>|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

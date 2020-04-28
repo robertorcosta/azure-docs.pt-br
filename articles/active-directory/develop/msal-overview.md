@@ -1,7 +1,7 @@
 ---
-title: Conheça o MSAL | Azure
+title: Saiba mais sobre o MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: A Microsoft Authentication Library (MSAL) permite que os desenvolvedores de aplicativos adquiram tokens para chamar APIs da Web seguras. Essas APIs da Web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs da Web de terceiros ou sua própria API web. A MSAL dá suporte a várias arquiteturas de aplicativos e plataformas.
+description: A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos adquiram tokens para chamar APIs da Web protegidas. Essas APIs da Web podem ser as Microsoft Graph, outras APIs da Microsoft, APIs Web de terceiros ou sua própria API Web. A MSAL dá suporte a várias arquiteturas de aplicativos e plataformas.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 89c5117e59f7856c3bd572bbea297a836b5ad589
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7aa7dea65df507c0bb35a30bf2a68049a7625137
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536209"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181776"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Visão geral da MSAL (Biblioteca de Autenticação da Microsoft)
-A Microsoft Authentication Library (MSAL) permite que os desenvolvedores adquiram [tokens](developer-glossary.md#security-token) do ponto final da plataforma de identidade microsoft, a fim de acessar APIs da Web seguras. Essas APIs da Web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs da Web de terceiros ou sua própria API web. A MSAL está disponível para .NET, JavaScript, Android e iOS, que dão suporte a várias arquiteturas de aplicativos e plataformas diferentes.
+A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores adquiram [tokens](developer-glossary.md#security-token) do ponto de extremidade da plataforma Microsoft Identity para acessar APIs da Web protegidas. Essas APIs da Web podem ser as Microsoft Graph, outras APIs da Microsoft, APIs Web de terceiros ou sua própria API Web. A MSAL está disponível para .NET, JavaScript, Android e iOS, que dão suporte a várias arquiteturas de aplicativos e plataformas diferentes.
 
 A MSAL oferece muitas maneiras de obter tokens, com uma API consistente para várias plataformas. O uso da MSAL oferece os seguintes benefícios:
 
@@ -42,8 +42,8 @@ A MSAL pode ser usada em muitos cenários de aplicativos, incluindo os seguintes
 * [Aplicativo Web que conecta um usuário e chama uma API Web em nome dele](scenario-web-app-call-api-overview.md)
 * [Proteção de uma API Web, de modo que somente os usuários autenticados possam acessá-la](scenario-protected-web-api-overview.md)
 * [API Web que chama outra API Web downstream em nome do usuário conectado](scenario-web-api-call-api-overview.md)
-* [Aplicativo de desktop chamando uma API web em nome do usuário inscrito](scenario-desktop-overview.md)
-* [Aplicativo móvel chamando uma API web em nome do usuário que está conectado interativamente](scenario-mobile-overview.md).
+* [Aplicativo de desktop chamando uma API da Web em nome do usuário conectado](scenario-desktop-overview.md)
+* [Aplicativo móvel chamando uma API da Web em nome do usuário que está conectado interativamente](scenario-mobile-overview.md).
 * [Aplicativo daemon da área de trabalho/de serviço que chama uma API Web em seu próprio nome](scenario-daemon-overview.md)
 
 ## <a name="languages-and-frameworks"></a>Linguagens e estruturas
@@ -51,11 +51,11 @@ A MSAL pode ser usada em muitos cenários de aplicativos, incluindo os seguintes
 | Biblioteca | Plataformas e estruturas compatíveis|
 | --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Plataforma Universal do Windows|
-| [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Estruturas JavaScript/TypeScript como AngularJS, Ember.js ou Durandal.js|
+| [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Estruturas JavaScript/TypeScript como AngularJS, Ember.js ou Durandal.js|
 | [MSAL para Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL para iOS e macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS e macOS|
-| [MSAL Java (visualização)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
-| [MSAL Python (visualização)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
+| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
+| [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Windows, macOS, Linux|
 
 ## <a name="differences-between-adal-and-msal"></a>Diferenças entre a ADAL e a MSAL
 

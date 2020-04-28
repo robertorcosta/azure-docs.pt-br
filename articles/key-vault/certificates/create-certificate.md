@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430949"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866247"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 
@@ -80,10 +80,10 @@ A chave endereçável e o segredo obtêm seus atributos dos atributos do certifi
 ## <a name="partnered-ca-providers"></a>Provedores de autoridade de certificação parceiros
 A criação de certificado pode ser concluída manualmente ou usando um emissor próprio (“Auto”). O Key Vault também possui parceria com determinados provedores de emissor para simplificar a criação de certificados. Os seguintes tipos de certificados podem ser solicitados ao cofre de chaves com esses provedores de emissor parceiros.  
 
-|Provedor|Tipo de certificado|  
-|--------------|----------------------|  
-|DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert|
-|GlobalSign|O Key Vault oferece certificados SSL OV ou EV com GlobalSign|
+|Provedor|Tipo de certificado|Configuração de configuração  
+|--------------|----------------------|------------------|  
+|DigiCert|O Key Vault oferece certificados SSL OV ou EV com DigiCert| [Guia de Integração](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|O Key Vault oferece certificados SSL OV ou EV com GlobalSign| [Guia de Integração](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Um emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d083ba757004fa477038750ad6210e4bb30659ee
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120750"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176593"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
 
@@ -140,7 +140,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 ### <a name="110-document-traffic-configuration-rules"></a>1,10: regras de configuração de tráfego do documento
 
-**Orientação**: use marcas para NSG (grupos de segurança de rede) e outros recursos relacionados à segurança de rede e ao fluxo de tráfego. Para regras NSG individuais, use o campo "Descrição" para especificar a necessidade de negócios e/ou duração (etc.) para qualquer regra que permita o tráfego de/para uma rede. Use qualquer uma das definições de política internas do Azure relacionadas à marcação, como "exigir marca e seu valor" para garantir que todos os recursos sejam criados com marcas e notificá-lo de recursos não marcados existentes. Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas. 
+**Orientação**: use marcas para NSG (grupos de segurança de rede) e outros recursos relacionados à segurança de rede e ao fluxo de tráfego. Para regras NSG individuais, use o campo "Descrição" para especificar a necessidade de negócios e/ou duração (etc.) para qualquer regra que permita o tráfego de/para uma rede. Use qualquer uma das definições de Azure Policy internas relacionadas à marcação, como "exigir marca e seu valor" para garantir que todos os recursos sejam criados com marcas e notificá-lo de recursos não marcados existentes. Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas. 
 
 - [Como criar e usar marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -687,7 +687,7 @@ Além disso, use a proteção avançada contra ameaças para o armazenamento do 
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6,5: monitorar os recursos do Azure não aprovados
 
-**Orientação**: Use a política do Azure para colocar restrições no tipo de recursos que podem ser criados em assinaturas do cliente usando as seguintes definições de política interna: 
+**Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em assinaturas do cliente usando as seguintes definições de política interna: 
 
  - Tipos de recursos não permitidos 
  - Tipos de recursos permitidos 
@@ -730,7 +730,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 ### <a name="69-use-only-approved-azure-services"></a>6,9: usar somente os serviços do Azure aprovados
 
-**Orientação**: Use a política do Azure para colocar restrições no tipo de recursos que podem ser criados em assinaturas do cliente usando as seguintes definições de política interna: 
+**Diretrizes**: Use Azure Policy para colocar restrições no tipo de recursos que podem ser criados em assinaturas do cliente usando as seguintes definições de política interna: 
 
 - Tipos de recursos não permitidos 
 - Tipos de recursos permitidos 
@@ -783,7 +783,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: estabelecer configurações seguras para todos os recursos do Azure
 
-**Orientação**: use aliases de Azure Policy no namespace "Microsoft. Storage" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias de conta de armazenamento. Você também pode usar definições internas de política do Azure para a conta de armazenamento do Azure, como: 
+**Orientação**: use aliases de Azure Policy no namespace "Microsoft. Storage" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias de conta de armazenamento. Você também pode usar definições de Azure Policy internas para a conta de armazenamento do Azure, como: 
 
 Auditoria de acesso irrestrito à rede para contas de armazenamento implantar proteção avançada contra ameaças em contas de armazenamento contas de armazenamento devem ser migradas para novos Azure Resource Manager recursos a transferência segura para contas de armazenamento deve ser habilitada 
 
@@ -807,7 +807,7 @@ Use as recomendações da central de segurança do Azure como uma linha de base 
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7,3: manter configurações seguras para todos os recursos do Azure
 
-**Orientação**: Use a política do Azure [negar] e [implantar se não existir] para impor configurações seguras em seus recursos de conta de armazenamento. 
+**Orientação**: Use Azure Policy [Deny] e [implantar se não existir] para impor configurações seguras em seus recursos de conta de armazenamento. 
 
 - [Como configurar e gerenciar Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

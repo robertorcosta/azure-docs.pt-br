@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401a39d4a65c7aee67d62ed0a6ba77893a11c2d1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101137"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181283"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -645,7 +645,7 @@ Pode executar tarefas comuns de relacionadas à cobrança, como atualizar inform
 | Microsoft. Directory/Organization/Basic/Update | Atualize as propriedades básicas em organização no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
-| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos de cobrança do Office 365. |
+| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos da cobrança. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
@@ -755,7 +755,7 @@ Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que us
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerencie todos os aspectos da proteção de informações do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
-| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos de cobrança do Office 365. |
+| microsoft.commerce.billing/allEntities/allTasks | Gerencie todos os aspectos da cobrança. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
 | Microsoft.office365.complianceManager/allEntities/allTasks | Gerenciar todos os aspectos do Gerenciador de conformidade do Office 365 |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerenciar todos os aspectos da Análise de Área de Trabalho. |
@@ -1048,7 +1048,7 @@ Pode ler tudo o que um administrador global pode, mas não editar nada.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft. Commerce. cobrança/entidades/leitura    | Leia todos os aspectos da cobrança do Office 365. |
+| Microsoft. Commerce. cobrança/entidades/leitura    | Leia todos os aspectos da cobrança. |
 | Microsoft. Directory/administrativeUnits/Basic/Read    | Ler as propriedades básicas em administrativeUnits no Azure Active Directory. |
 | Microsoft. Directory/administrativeUnits/Members/Read    | Ler a propriedade Administrativeunits no Azure Active Directory. |
 | Microsoft. Directory/Applications/Basic/Read    | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
@@ -1829,7 +1829,7 @@ Usuários de Dispositivo | Usuários do dispositivo | d405c6df-0af8-4e3b-95e4-4d
 Leitores de Diretório | Leitores de diretórios | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Contas de sincronização de diretório | Contas de sincronização de diretório | d29b2b05-8046-44ba-8758-1e26182fcf32
 Gravadores de diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2a00bac4301
-Administrador de serviços do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrador de serviços do Exchange | Administradores do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrador do provedor de identidade externo | Administrador do provedor de identidade externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Leitor global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrador de grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 
@@ -1866,7 +1866,7 @@ Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comu
 Especialista em Suporte de Comunicações do Teams | Especialista em Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de Serviços do Teams | Administrador de Serviços do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Usuário | Usuário | a0b1b346-4d3e-4e8b-98f8-753987be4970
-Administrador da conta de usuário | Administrador de usuários | fe930be7-5e62-47db-91af-98c3a49a38b1
+Administrador da conta de usuário | Administrador do usuário | fe930be7-5e62-47db-91af-98c3a49a38b1
 Ingresso no Dispositivo no Local de Trabalho | Ingresso no dispositivo do local de trabalho | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Funções preteridas
@@ -1885,7 +1885,7 @@ As seguintes funções não devem ser usadas. Eles foram preteridos e serão rem
 
 Nem todas as funções retornadas pelo PowerShell ou pelo MS API do Graph são visíveis no portal do Azure. A tabela a seguir organiza essas diferenças.
 
-Nome da API | Nome do portal do Azure | Observações
+Nome da API | Nome do portal do Azure | Anotações
 -------- | ------------------- | -------------
 Administradores de Empresa | Administrador global | [Nome alterado para maior clareza](directory-assign-admin-roles.md#role-template-ids)
 Administrador de serviços do CRM | Administrador do Dynamics 365 | [Reflete a identidade visual atual do produto](directory-assign-admin-roles.md#role-template-ids)

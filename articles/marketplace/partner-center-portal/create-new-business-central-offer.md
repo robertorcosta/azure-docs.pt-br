@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 10fa16767061506eccf212c182e738246dc9fe7b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115274"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867221"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crie uma nova oferta da Dynamics 365 Business Central
 
@@ -192,6 +192,9 @@ Forneça pelo menos um (e até três) documentos de marketing relacionados aqui,
 ### <a name="marketplace-images"></a>Imagens de mercado
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usadas ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato .png. Carregue seu logotipo de oferta em dois tamanhos: **Pequeno (48 x 48)** e **Grande (216 x 216)**.
+
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
 
 #### <a name="screenshots"></a>Capturas de tela
 

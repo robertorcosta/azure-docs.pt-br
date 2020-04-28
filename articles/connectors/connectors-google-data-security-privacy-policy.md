@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 01121612c5574544ef6985d33f56f3e334f8d37c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8c2ef8d174e8449b88f2257074bee69c3f45c6d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82120646"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181932"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para o Google Connectors em aplicativos lógicos do Azure
 
@@ -34,13 +34,13 @@ Se você tiver aplicativos lógicos que usam o conector do Gmail, receberá um e
 
 Nessa política, quando você usa uma conta de consumidor do Gmail, você pode usar o conector do Gmail com apenas serviços específicos do Google aprovados, que estão sujeitos a alterações. Nossas equipes de engenharia continuam trabalhando com o Google para adicionar mais serviços a essa lista. Por enquanto, aqui estão os gatilhos, as ações e os conectores aprovados pelo Google que você pode usar no mesmo fluxo de trabalho do aplicativo lógico com o conector do gmail ao usar uma conta de consumidor do Gmail:
 
-* Gatilhos e ações internos de aplicativos lógicos: lote, controle, operações de dados, data e hora, arquivo simples, Liquid, solicitação, agendamento, variáveis e XML
+* Gatilhos e ações internos de aplicativos lógicos: lote, controle, operações de dados, data e hora, arquivo simples, HTTP, Liquid, solicitação, agenda, variáveis e XML
 
 * Serviços do Google: gmail, Google Agenda, contatos do Google, Google Drive, Google sheets e tarefas do Google
 
 * Serviços da Microsoft aprovados: Dynamics 365, Excel online, Microsoft Teams, Office 365, OneDrive e SharePoint Online
 
-* Conectores para fontes de dados gerenciadas pelo cliente: FTP, HTTP, RSS, SFTP, SMTP e SQL Server
+* Conectores para fontes de dados gerenciadas pelo cliente: FTP, RSS, SFTP, SMTP e SQL Server
 
 Para obter as informações mais recentes, consulte a [documentação de referência técnica do conector do Gmail](https://docs.microsoft.com/connectors/gmail/).
 

@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403730"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769882"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: usar a Visão Personalizada com um dispositivo IoT para relatar estados visuais
 
 Este exemplo de aplicativo ilustra como usar a Visão Personalizada para treinar um dispositivo com uma câmera para detectar estados visuais. Você pode executar esse cenário de detecção em um dispositivo IoT usando um modelo ONNX exportado.
 
-Um estado visual descreve o conteúdo de uma imagem: uma sala vazia ou uma sala com pessoas, uma entrada de garagem vazia com um caminhão e assim por diante. Na imagem abaixo, você pode ver que o aplicativo detecta quando um banana ou uma maçã é colocada na frente da câmera.
+Um estado visual descreve o conteúdo de uma imagem: uma sala vazia ou uma sala com pessoas, uma garagem vazia ou uma garagem com um caminhão, e assim por diante. Na imagem abaixo, você pode ver que o aplicativo detecta quando um banana ou uma maçã é colocada na frente da câmera.
 
 ![Animação de uma interface do usuário rotulando as frutas na frente da câmera](./media/iot-visual-alerts-tutorial/scoring.gif)
 

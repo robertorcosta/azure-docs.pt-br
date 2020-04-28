@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 586b8d25a9f391487640e9b1f8adb3be0e4be6db
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277767"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166165"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com ELK
 
@@ -28,11 +28,11 @@ Neste artigo, demonstraremos como implantar a pilha ELK (Elasticsearch, Logstash
 ELK pilha é uma combinação de Elasticsearch, Logstash e Kibana que fornece uma pilha de ponta a ponta que pode ser usada para monitorar e analisar os logs no cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurar a pilha ELK em um cluster de DC/sistema operacional
-Acesse sua UI DC/OS via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navegar para o **Universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
+Acessar a interface do usuário do DC/sistema operacional por meio de `http://localhost:80/` uma vez na interface do usuário do controlador de domínio/sistema operacional, navegue até **Universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
-Uma vez os contêineres ELK e está em funcionamento, você precisa habilitar Kibana para serem acessados pelo maratona LB. Navegue até **serviços** > **kibana**e clique **em Editar** como mostrado abaixo.
+Uma vez os contêineres ELK e está em funcionamento, você precisa habilitar Kibana para serem acessados pelo maratona LB. Navegue até **Serviços** > **kibana**e clique em **Editar** , conforme mostrado abaixo.
 
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 

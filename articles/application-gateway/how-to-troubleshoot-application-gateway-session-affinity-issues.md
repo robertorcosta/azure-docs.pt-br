@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: aa3617b30fe1ef9b4d4a6c5fe5aac51bff95bb92
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047979"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866683"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solucionar problemas de afinidade de sessão do Azure Application Gateway
 
@@ -83,7 +83,7 @@ Para identificar este problema, siga as instruções:
     **Dica** Se você não sabe como usar o Fiddler, verifique a opção "**Eu quero coletar tráfego de rede e analisá-lo usando web depurador**" na parte inferior.
 
 2. Verifique e analise os registros da sessão, para determinar se os cookies fornecidos pelo cliente têm os detalhes do ARRAffinity. Se você não encontrar os detalhes do ARRAffinity, como "**ARRAffinity=** *ARRAffinityValue*" dentro do conjunto de cookies, isso significa que o cliente não está respondendo com o cookie ARRA, que é fornecido pelo Gateway de aplicativo.
-    Por exemplo: 
+    Por exemplo:
 
     ![solução de problemas-sessão-afinidade-questões-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
@@ -97,7 +97,7 @@ Esse problema ocorre porque o Internet Explorer e outros navegadores podem não 
 
 #### <a name="resolution"></a>Resolução
 
-Para corrigir esse problema, acesse o Gateway de Aplicativo usando um FQDN. Por exemplo, [http://website.com](https://website.com/) [http://appgw.website.com](http://appgw.website.com/) use ou .
+Para corrigir esse problema, acesse o Gateway de Aplicativo usando um FQDN. Por exemplo, [http://website.com](https://website.com/) [http://appgw.website.com](http://website.com/) use ou .
 
 ## <a name="additional-logs-to-troubleshoot"></a>Registros adicionais para solucionar problemas
 

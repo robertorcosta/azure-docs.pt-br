@@ -1,107 +1,107 @@
 ---
-title: Balanceamento de métricas subagrupadas
-description: O efeito das restrições de colocação no equilíbrio e como lidar com isso
+title: Balanceamento de métricas de subcluster
+description: O efeito de restrições de posicionamento no balanceamento e como tratá-la
 author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430637"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183102"
 ---
-# <a name="balancing-of-subclustered-metrics"></a>Balanceamento de métricas subagrupadas
+# <a name="balancing-of-subclustered-metrics"></a>Balanceamento de métricas de subcluster
 
-## <a name="what-is-subclustering"></a>O que é subclustering
+## <a name="what-is-subclustering"></a>O que é o subclustering
 
-O subclustering acontece quando serviços com diferentes restrições de colocação têm uma métrica comum e ambos relatam carga para ele. Se a carga relatada pelos serviços difere significativamente, a carga total nos nós terá um grande desvio padrão e pareceria que o cluster está desequilibrado, mesmo quando tiver o melhor equilíbrio possível.
+O agrupamento ocorre quando os serviços com restrições de posicionamento diferentes têm uma métrica comum e ambos relatam carga para ele. Se a carga relatada pelos serviços diferir significativamente, a carga total nos nós terá um grande desvio padrão e parecerá que o cluster está desequilibrado, mesmo quando ele tiver o melhor equilíbrio possível.
 
-## <a name="how-subclustering-affects-load-balancing"></a>Como o subclustering afeta o balanceamento de carga
+## <a name="how-subclustering-affects-load-balancing"></a>Como os subclusters afetam o balanceamento de carga
 
-Se a carga relatada pelos serviços em diferentes nós difere significativamente, pode parecer que há um grande desequilíbrio onde não há nenhum. Além disso, se o falso desequilíbrio causado pelo subclustering for maior do que o desequilíbrio real, ele tem o potencial de confundir o algoritmo de balanceamento do Resource Manager e produzir equilíbrio abaixo do ideal no cluster.
+Se a carga relatada pelos serviços em nós diferentes diferir significativamente, pode parecer que há um grande desequilíbrio onde não há nenhum. Além disso, se o desequilíbrio falso causado pelo subclustering for maior do que o desequilíbrio real, ele terá o potencial de confundir o algoritmo de balanceamento do Gerenciador de recursos e produzir um saldo abaixo do ideal no cluster.
 
-Por exemplo, digamos que temos quatro serviços e todos relatam uma carga para métrica métrica1:
+Por exemplo, digamos que temos quatro serviços e todos eles relatam uma carga para a métrica Metric1:
 
-* Serviço A – tem uma restrição de colocação "NodeType=Type1", relata uma carga de 10
-* Serviço B – tem uma restrição de colocação "NodeType=Type1", relata uma carga de 10
-* Serviço C – tem uma restrição de colocação "NodeType=Type2", relata uma carga de 100
-* Serviço D – tem uma restrição de colocação "NodeType=Type2", relata uma carga de 100
-* E nós temos quatro nós. Dois deles têm nodeType definido como "Type1" e os outros dois são "Type2"
+* Serviço A – tem uma restrição de posicionamento "NodeType = = frontend", relata uma carga de 10
+* Serviço B – tem uma restrição de posicionamento "NodeType = = frontend", relata uma carga de 10
+* Serviço C – tem uma restrição de posicionamento "NodeType = = backend", relata uma carga de 100
+* Serviço D – tem uma restrição de posicionamento "NodeType = = backend", relata uma carga de 100
+* E temos quatro nós. Dois deles têm NodeType definido como "frontend" e os outros dois são "back-end"
 
-E temos a seguinte colocação:
+E temos o seguinte posicionamento:
 
 <center>
 
-![Exemplo de colocação subclustered][Image1]
+![Exemplo de posicionamento de subcluster][Image1]
 </center>
 
-O cluster pode parecer desequilibrado, temos uma grande carga nos nós 3 e 4, mas essa colocação cria o melhor equilíbrio possível nesta situação.
+O cluster pode parecer desbalanceado, temos uma grande carga nos nós 3 e 4, mas esse posicionamento cria o melhor equilíbrio possível nessa situação.
 
-O Resource Manager pode reconhecer situações de subclustering e, em quase todos os casos, pode produzir o equilíbrio ideal para a situação dada.
+O Resource Manager pode reconhecer situações de subclustering e, em quase todos os casos, ele pode produzir o equilíbrio ideal para a situação em questão.
 
-Para algumas situações excepcionais, quando o Resource Manager não é capaz de equilibrar de forma otimizada uma métrica subclustered, ele ainda detectará subclustering e gerará um relatório de saúde para aconselhá-lo a corrigir o problema.
+Para algumas situações excepcionais, quando o Gerenciador de recursos não puder balancear de forma ideal uma métrica subclusterizada, ele ainda detectará o subclustering e gerará um relatório de integridade para avisá-lo para que você possa corrigir o problema.
 
 ## <a name="types-of-subclustering-and-how-they-are-handled"></a>Tipos de subclustering e como eles são tratados
 
-As situações de subagrupamento podem ser classificadas em três categorias diferentes. A categoria de uma situação específica de subclustering determina como ela será tratada pelo Gerenciador de Recursos.
+As situações de subclustering podem ser classificadas em três categorias diferentes. A categoria de uma situação de agrupamento específica determina como ela será manipulada pelo Resource Manager.
 
-### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Primeira categoria – subagrupamento plano com grupos de nó desarticulado
+### <a name="first-category--flat-subclustering-with-disjoint-node-groups"></a>Primeira categoria – subclustering simples com grupos de nós não contíguos
 
-Esta categoria tem a forma mais simples de subagrupamento onde os nados podem ser separados em grupos diferentes e cada serviço só pode ser colocado em nós em um desses grupos. Cada nó pertence a um grupo e apenas a um grupo. A situação descrita acima pertence a esta categoria, assim como a maioria das situações de subagrupamento. 
+Essa categoria tem a forma mais simples de subclustering em que os nós podem ser separados em grupos diferentes e cada serviço só pode ser colocado em nós em um desses grupos. Cada nó pertence a apenas um grupo e um grupo. A situação descrita acima pertence a essa categoria como a maioria das situações de subclustering. 
 
-Para as situações desta categoria, o Gestor de Recursos pode produzir o equilíbrio ideal e nenhuma intervenção adicional é necessária.
+Para as situações nessa categoria, o Gerenciador de recursos pode produzir o equilíbrio ideal e nenhuma outra intervenção é necessária.
 
-### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Segunda categoria – subagrupamento com grupos de nó hierárquico
+### <a name="second-category--subclustering-with-hierarchical-node-groups"></a>Segunda categoria – subclustering com grupos de nós hierárquicos
 
-Essa situação acontece quando um grupo de nódulos permitidos para um serviço é um subconjunto do grupo de nódulos permitidos para outro serviço. O exemplo mais comum dessa situação é quando algum serviço tem uma restrição de colocação definida e outro serviço não tem restrição de colocação e pode ser colocado em qualquer nó.
+Essa situação ocorre quando um grupo de nós permitidos para um serviço é um subconjunto do grupo de nós permitido para outro serviço. O exemplo mais comum dessa situação é quando algum serviço tem uma restrição de posicionamento definida e outro serviço não tem nenhuma restrição de posicionamento e pode ser colocado em qualquer nó.
 
 Exemplo:
 
-* Serviço A: sem restrição de colocação
-* Serviço B: restrição de colocação "NodeType=Type1"
-* Serviço C: restrição de colocação "NodeType=Type2"
+* Serviço A: sem restrição de posicionamento
+* Serviço B: restrição de posicionamento "NodeType = = frontend"
+* Serviço C: restrição de posicionamento "NodeType = = back-end"
 
-Essa configuração cria uma relação subconjunto-superset entre grupos de nós para diferentes serviços.
+Essa configuração cria uma relação de superconjunto de subconjunto entre grupos de nós para diferentes serviços.
 
 <center>
 
-![Subconjunto de subaglomerados][Image2]
+![Subconjuntos de superconjuntos][Image2]
 </center>
 
-Nesta situação, há uma chance de que um equilíbrio subótimo seja feito.
+Nessa situação, há uma chance de que um saldo ideal seja feito.
 
-O Gerenciador de Recursos reconhecerá essa situação e produzirá um relatório de saúde aconselhando-o a dividir o Serviço A em dois serviços – Serviço A1 que pode ser colocado em nós Tipo1 e Serviço A2 que podem ser colocados em nós Tipo2. Isso nos levará de volta à situação da primeira categoria que pode ser equilibrada de forma ideal.
+O Resource Manager reconhecerá essa situação e produzirá um relatório de integridade que aconselha você a dividir o serviço A em dois serviços – o serviço a1 que pode ser colocado em nós de front-end e no serviço a2 que pode ser colocado em nós de back-end. Isso nos levará de volta à primeira situação de categoria, que pode ser equilibrada de forma ideal.
 
-### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Terceira categoria – subagrupamento com sobreposição parcial entre conjuntos de nós
+### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Terceira categoria – subclustering com sobreposição parcial entre conjuntos de nós
 
-Essa situação acontece quando há uma sobreposição parcial entre conjuntos de nós sobre os quais alguns serviços podem ser colocados.
+Essa situação ocorre quando há uma sobreposição parcial entre conjuntos de nós nos quais alguns serviços podem ser colocados.
 
-Por exemplo, se temos uma propriedade de nós chamada NodeColor e temos três nós:
+Por exemplo, se tivermos uma propriedade node chamada NodeColor e tivermos três nós:
 
-* Nó 1: NodeColor=Red
-* Nó 2: NodeColor=Blue
-* Nó 2: NodeColor=Green
+* Nó 1: NodeColor = vermelho
+* Nó 2: NodeColor = azul
+* Nó 2: NodeColor = verde
 
 E temos dois serviços:
 
-* Serviço A: com restrição de colocação "Color==Red || Cor==Azul"
-* Serviço B: com restrição de colocação "Color==Blue || Cor==Verde"
+* Serviço A: com a restrição de posicionamento "cor = = vermelho | | Cor = = azul "
+* Serviço B: com a restrição de posicionamento "cor = = azul | | Cor = = verde "
 
-Por causa disso, o Serviço A pode ser colocado nos nós 1 e 2 e o Serviço B pode ser colocado nos nós 2 e 3.
+Por isso, o serviço A pode ser colocado nos nós 1 e 2 e o serviço B pode ser colocado nos nós 2 e 3.
 
-Nesta situação, há uma chance de que um equilíbrio subótimo seja feito.
+Nessa situação, há uma chance de que um saldo ideal seja feito.
 
-O Gestor de Recursos reconhecerá essa situação e produzirá um relatório de saúde aconselhando-o a dividir alguns dos serviços.
+O Resource Manager reconhecerá essa situação e produzirá um relatório de integridade que aconselha você a dividir alguns dos serviços.
 
-Para essa situação, o Gestor de Recursos não é capaz de dar uma proposta de como dividir os serviços, uma vez que várias divisões podem ser feitas e não há como estimar qual seria o caminho ideal para dividir os serviços.
+Para essa situação, o Gerenciador de recursos não pode fornecer uma proposta como dividir os serviços, já que várias divisões podem ser feitas e não há como estimar qual é a melhor maneira de dividir os serviços.
 
-## <a name="configuring-subclustering"></a>Configuração de subclustering
+## <a name="configuring-subclustering"></a>Configurando o agrupamento
 
-O comportamento do Gerenciador de recursos sobre subclustering pode ser modificado modificando os seguintes parâmetros de configuração:
-* SubclusteringEnabled - parâmetro determina se o Gerenciador de recursos levará em conta o subclustering ao fazer o balanceamento de carga. Se esse parâmetro for desligado, o Resource Manager ignorará o subclustering e tentará obter o equilíbrio ideal em um nível global. O valor padrão deste parâmetro é falso.
-* SubclusteringReportingPolicy - determina como o Resource Manager emite relatórios de saúde para subagrupamento hierárquico e parcialmente sobreposto. Um valor de zero significa que os relatórios de saúde sobre subclustering são desligados, "1" significa que os relatórios de saúde de advertência serão produzidos para situações de subaglomeração subótimas e um valor de "2" produzirá relatórios de saúde "OK". O valor padrão para este parâmetro é "1".
+O comportamento do Gerenciador de recursos sobre os subclusters pode ser modificado modificando os seguintes parâmetros de configuração:
+* SubclusteringEnabled-Parameter determina se o Gerenciador de recursos levará o agrupamento em conta ao fazer o balanceamento de carga. Se esse parâmetro for desativado, o Gerenciador de recursos ignorará o subclustering e tentará obter o equilíbrio ideal em um nível global. O valor padrão desse parâmetro é false.
+* SubclusteringReportingPolicy-determina como o Gerenciador de recursos emitirá relatórios de integridade para subclusters hierárquicos e de sobreposição parcial. Um valor de zero significa que os relatórios de integridade sobre os subclusters estão desativados, "1" significa que os relatórios de integridade de aviso serão produzidos para situações de subclustering de qualidade inferior e um valor de "2" produzirá relatórios de integridade "OK". O valor padrão para esse parâmetro é "1".
 
 ClusterManifest.xml:
 
@@ -134,7 +134,7 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
-* Para saber como seus serviços podem ser limitados a serem colocados apenas em certos nódulos, consulte [propriedades do Nó e restrições de colocação](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+* Para descobrir como os serviços podem ser restritos apenas para serem colocados em determinados nós [, consulte Propriedades de nó e restrições de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 [Image1]:./media/cluster-resource-manager-subclustering/subclustered-placement.png
 [Image2]:./media/cluster-resource-manager-subclustering/subset-superset-nodes.png
