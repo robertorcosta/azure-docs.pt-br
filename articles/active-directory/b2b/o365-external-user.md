@@ -1,5 +1,5 @@
 ---
-title: Compartilhamento externo do Office 365 e colaboração B2B - Azure AD
+title: Compartilhamento externo do Office 365 e colaboração B2B – Azure AD
 description: Discute o compartilhamento de recursos com os parceiros externos usando a colaboração B2B do Microsoft Azure Active Directory e de O365.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272262"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory
@@ -45,7 +45,7 @@ Esse recurso pode ser habilitado usando a configuração 'ShowPeoplePickerSugges
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
+* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)
 * [Delegação de convites de colaboração B2B](delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](use-dynamic-groups.md)

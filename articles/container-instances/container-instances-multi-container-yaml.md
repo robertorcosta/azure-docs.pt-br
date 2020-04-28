@@ -1,30 +1,30 @@
 ---
-title: Tutorial - Implantar grupo multi-contêiner - YAML
-description: Neste tutorial, você aprende a implantar um grupo de contêineres com vários contêineres em Instâncias de Contêiner do Azure usando um arquivo YAML com o Cli do Azure.
+title: Tutorial – implantar grupo de vários contêineres-YAML
+description: Neste tutorial, você aprenderá a implantar um grupo de contêineres com vários contêineres em instâncias de contêiner do Azure usando um arquivo YAML com o CLI do Azure.
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74533601"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implante um grupo de vários contêineres usando um arquivo YAML
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: implantar um grupo de vários contêineres usando um arquivo YAML
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
-> * [Gerenciador de recursos](container-instances-multi-container-group.md)
+> * [Gerenciador de Recursos](container-instances-multi-container-group.md)
 >
 
-As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um sidecar de aplicativo para registro, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo conectado.
+As Instâncias de Contêiner do Azure são compatíveis com a implantação de vários contêineres em um único host utilizando um [grupo de contêineres](container-instances-container-groups.md). Um grupo de contêineres é útil ao criar um aplicativo sidecar para registro em log, monitoramento ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
 
-Neste tutorial, você segue etapas para executar uma configuração simples de sidecar de dois contêineres, implantando um [arquivo YAML](container-instances-reference-yaml.md) usando o Cli do Azure. Um arquivo YAML fornece um formato conciso para especificar as configurações de instância. Você aprenderá como:
+Neste tutorial, você seguirá as etapas para executar uma configuração simples de sidecar de dois contêineres implantando um [arquivo YAML](container-instances-reference-yaml.md) usando o CLI do Azure. Um arquivo YAML fornece um formato conciso para especificar as configurações de instância. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Configure um arquivo YAML
+> * Configurar um arquivo YAML
 > * Implantar o grupo de contêineres
-> * Veja os registros dos contêineres
+> * Exibir os logs dos contêineres
 
 > [!NOTE]
 > Grupos com vários contêineres são atualmente restritos a contêineres do Linux.
@@ -33,17 +33,17 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="configure-a-yaml-file"></a>Configure um arquivo YAML
+## <a name="configure-a-yaml-file"></a>Configurar um arquivo YAML
 
-Para implantar um grupo de vários contêineres com o comando [az container create][az-container-create] no Azure CLI, você deve especificar a configuração do grupo de contêineres em um arquivo YAML. Em seguida, passe o arquivo YAML como um parâmetro para o comando.
+Para implantar um grupo de vários contêineres com o comando [AZ container Create][az-container-create] no CLI do Azure, você deve especificar a configuração do grupo de contêineres em um arquivo YAML. Em seguida, passe o arquivo YAML como um parâmetro para o comando.
 
-Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml**. No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Comece copiando o YAML a seguir em um novo arquivo chamado **deploy-aci.yaml**. No Azure Cloud Shell, você pode usar Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```
 code deploy-aci.yaml
 ```
 
-Esse arquivo YAML define um grupo de contêineres nomeado "myContainerGroup" com dois contêineres, um endereço IP público e duas portas expostas. Os contêineres são implantados a partir de imagens públicas da Microsoft. O primeiro contêiner no grupo executa um aplicativo Web voltado para a Internet. O segundo contêiner, o secundário, faz periodicamente solicitações HTTP para o aplicativo Web em execução no primeiro contêiner por meio da rede local do grupo de contêiner.
+Esse arquivo YAML define um grupo de contêineres nomeado "myContainerGroup" com dois contêineres, um endereço IP público e duas portas expostas. Os contêineres são implantados de imagens públicas da Microsoft. O primeiro contêiner no grupo executa um aplicativo Web voltado para a Internet. O segundo contêiner, o secundário, faz periodicamente solicitações HTTP para o aplicativo Web em execução no primeiro contêiner por meio da rede local do grupo de contêiner.
 
 ```YAML
 apiVersion: 2018-10-01
@@ -80,7 +80,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para usar um registro privado `imageRegistryCredentials` de imagem de contêiner, adicione a propriedade ao grupo de contêineres, com valores modificados para o seu ambiente:
+Para usar um registro de imagem de contêiner privado, `imageRegistryCredentials` adicione a propriedade ao grupo de contêineres, com valores modificados para o seu ambiente:
 
 ```YAML
   imageRegistryCredentials:
@@ -91,7 +91,7 @@ Para usar um registro privado `imageRegistryCredentials` de imagem de contêiner
 
 ## <a name="deploy-the-container-group"></a>Implantar o grupo de contêineres
 
-Crie um grupo de recursos com o comando [az group create][az-group-create]:
+Crie um grupo de recursos com o comando [AZ Group Create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -123,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Exibir logs do contêiner
 
-Veja a saída de log de um contêiner usando o comando [az container logs][az-container-logs]. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, `aci-tutorial-app` o recipiente é especificado.
+Veja a saída de log de um contêiner usando o comando [az container logs][az-container-logs]. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, o `aci-tutorial-app` contêiner é especificado.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -138,7 +138,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Para ver os registros do contêiner sidecar, execute `aci-tutorial-sidecar` um comando semelhante especificando o contêiner.
+Para ver os logs do contêiner sidecar, execute um comando semelhante especificando o `aci-tutorial-sidecar` contêiner.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -164,18 +164,18 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Como você pode ver, o secundário está periodicamente fazendo uma solicitação HTTP ao aplicativo Web principal por meio da rede local do grupo a fim de garantir que ele esteja em execução. Este exemplo sidecar pode ser expandido para disparar um alerta `200 OK`se ele recebeu um código de resposta HTTP diferente de .
+Como você pode ver, o secundário está periodicamente fazendo uma solicitação HTTP ao aplicativo Web principal por meio da rede local do grupo a fim de garantir que ele esteja em execução. Este exemplo de sidecar poderia ser expandido para disparar um alerta se ele recebeu um código de resposta `200 OK`http diferente de.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você usou um arquivo YAML para implantar um grupo de vários contêineres em Instâncias de Contêiner do Azure. Você aprendeu a:
+Neste tutorial, você usou um arquivo YAML para implantar um grupo de vários contêineres em instâncias de contêiner do Azure. Você aprendeu a:
 
 > [!div class="checklist"]
-> * Configure um arquivo YAML para um grupo de vários contêineres
+> * Configurar um arquivo YAML para um grupo de vários contêineres
 > * Implantar o grupo de contêineres
-> * Veja os registros dos contêineres
+> * Exibir os logs dos contêineres
 
-Você também pode especificar um grupo de vários contêineres usando um [modelo de Gerenciador de recursos](container-instances-multi-container-group.md). Um modelo de Gerenciador de recursos pode ser prontamente adaptado para cenários quando você precisar implantar recursos adicionais de serviço do Azure com o grupo de contêineres.
+Você também pode especificar um grupo de vários contêineres usando um [modelo do Resource Manager](container-instances-multi-container-group.md). Um modelo do Resource Manager pode ser adaptado prontamente para cenários quando você precisar implantar recursos de serviço do Azure adicionais com o grupo de contêineres.
 
 <!-- LINKS - External -->
 

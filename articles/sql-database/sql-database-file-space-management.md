@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de espaço de arquivos de bancos de dados únicos/agrupados
+title: Gerenciamento de espaço de arquivo de bancos de dados individuais/em pool
 description: Esta página descreve como gerenciar o espaço no arquivo com bancos de dados individuais e em pool no Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisará reduzir um banco de dados individual ou em pool, além de como executar uma operação de redução do banco de dados.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 007bbffbd7c4fcad339f88eb78991eb39fb829e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74420974"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados individuais e em pool no Banco de Dados SQL do Azure
@@ -49,7 +49,7 @@ No entanto, as seguintes APIs também medem o tamanho do espaço alocado para os
 
 ### <a name="shrinking-data-files"></a>Redução de arquivos de dados
 
-O serviço de Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir os arquivos de dados por meio de autoatendimento no momento de sua escolha, seguindo as etapas descritas no [reclaim espaço alocado não utilizado](#reclaim-unused-allocated-space).
+O serviço de Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir os arquivos de dados por meio de autoatendimento em um determinado momento de sua escolha seguindo as etapas descritas em [recuperar espaço alocado não utilizado](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados.
@@ -140,12 +140,12 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de pool elástico alocado e espaço alocado não usado
 
-Modifique os exemplos a seguir para retornar uma tabela listando o espaço alocado e o espaço alocado não utilizado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
+Modifique os exemplos a seguir para retornar uma tabela que lista o espaço alocado e o espaço alocado não utilizado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados desses bancos de dados com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
 
 Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
 > [!IMPORTANT]
-> O módulo RM (PowerShell Azure Resource Manager, gerente de recursos do Azure) ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará recebendo correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [Introduzindo o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
 
 O script do PowerShell requer o módulo do SQL Server PowerShell - consulte [Download do módulo do PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 

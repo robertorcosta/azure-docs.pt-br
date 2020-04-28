@@ -1,6 +1,6 @@
 ---
 title: PowerShell para alias DNS
-description: Cmdlets do PowerShell, como o New-AzSqlServerDNSAlias, permitem que você redirecione novas conexões de cliente para um servidor de banco de dados Azure SQL diferente, sem ter que tocar em nenhuma configuração do cliente.
+description: Os cmdlets do PowerShell, como New-AzSqlServerDNSAlias, permitem que você redirecione novas conexões de cliente para um servidor de banco de dados SQL do Azure diferente, sem precisar tocar em nenhuma configuração de cliente.
 keywords: banco de dados sql dns
 ms.custom: seo-lt-2019
 services: sql-database
@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ms.openlocfilehash: 9232a99ddd29201e6743c09455d79e9ba22b3b9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74420411"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell para alias do DNS para o Banco de Dados SQL do Azure
@@ -24,9 +24,9 @@ ms.locfileid: "74420411"
 Este artigo fornece um script do PowerShell que demonstra como você gerencia um alias de DNS para o Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Este artigo foi atualizado para usar o módulo Azure PowerShell Az ou o Azure CLI. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020.
+> Este artigo foi atualizado para usar o módulo Azure PowerShell AZ ou CLI do Azure. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020.
 >
-> Para saber mais sobre o módulo Az e a compatibilidade com o AzureRM, consulte [Introduzindo o módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Para obter instruções de instalação, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps) ou [instalar o Azure CLI](/cli/azure/install-azure-cli).
+> Para saber mais sobre o módulo AZ e a compatibilidade do AzureRM, consulte [apresentando o módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az). Para obter instruções de instalação, consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps) ou [instalar CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="dns-alias-in-connection-string"></a>Alias de DNS na cadeia de conexão
 
@@ -38,27 +38,27 @@ Para se conectar a um servidor do Banco de Dados SQL do Azure específico, um cl
 
 Se você deseja executar o script de demonstração do PowerShell fornecido neste artigo, os seguintes pré-requisitos se aplicam:
 
-- Uma assinatura e conta do Azure, para avaliação gratuita, veja [os testes do Azure](https://azure.microsoft.com/free/)
-- Dois servidores de banco de dados Azure SQL
+- Uma assinatura e conta do Azure, para avaliação gratuita, consulte [avaliações do Azure](https://azure.microsoft.com/free/)
+- Dois servidores de banco de dados SQL do Azure
 
 ## <a name="example"></a>Exemplo
 
 O exemplo de código a seguir começa atribuindo valores literais a várias variáveis.
 
-Para executar o código, edite os valores do espaço reservado para corresponder aos valores reais em seu sistema.
+Para executar o código, edite os valores de espaço reservado para corresponder aos valores reais em seu sistema.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets utilizados são os seguintes:
+Os cmdlets usados são os seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um alias DNS no sistema de serviço sql de banco de dados Do Azure SQL. O alias refere-se ao servidor de banco de dados 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e liste todos os aliases atribuídos ao servidor SQL DB 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor ao que o alias está configurado para se referir, do servidor 1 ao servidor 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o alias do servidor de banco de dados 2, usando o nome do alias.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases atribuídos ao servidor de banco de BD SQL 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 ao servidor 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove o alias do servidor de banco de dados 2, usando o nome do alias.
 
 Para instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
-Use `Get-Module -ListAvailable Az` em *powershell\_ise.exe*, para encontrar a versão.
+Use `Get-Module -ListAvailable Az` no *PowerShell\_ISE. exe*para localizar a versão.
 
 ```powershell
 $subscriptionName = '<subscriptionName>';
@@ -93,14 +93,14 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
     -Name $sqlServerDnsAliasName;
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Os comandos utilizados são os seguintes:
+Os comandos usados são os seguintes:
 
-- [az sql server dns-alias criar](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um alias DNS no sistema de serviço de banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados 1.
-- [az sql server dns-alias mostrar](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obter e listar todos os aliases atribuídos ao servidor SQL DB 1.
-- [az sql server dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor ao que o alias está configurado para se referir, do servidor 1 ao servidor 2.
-- [az sql server dns-alias excluir](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o alias do servidor de banco de dados 2, usando o nome do alias.
+- [AZ SQL Server DNS-Create alias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): cria um alias DNS no sistema de serviço do banco de dados SQL do Azure. O alias refere-se ao servidor de banco de dados 1.
+- [AZ SQL Server DNS-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obter e listar todos os aliases atribuídos ao servidor de banco de BD SQL 1.
+- [AZ SQL Server DNS-alias Set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica o nome do servidor ao qual o alias está configurado para se referir, do servidor 1 para o servidor 2.
+- [AZ SQL Server DNS-alias Delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o alias do servidor de banco de dados 2, usando o nome do alias.
 
 Para instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -141,4 +141,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma explicação completa do recurso de alias DNS para Banco de Dados SQL, consulte [alias DNS para banco de dados Azure SQL](dns-alias-overview.md).
+Para obter uma explicação completa do recurso de alias de DNS para o banco de dados SQL, consulte [alias DNS para o banco de dados SQL do Azure](dns-alias-overview.md).

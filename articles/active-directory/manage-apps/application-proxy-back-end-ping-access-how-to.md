@@ -1,5 +1,5 @@
 ---
-title: Como configurar um aplicativo proxy de aplicativo para usar o PingAccess
+title: Como configurar um aplicativo de proxy de aplicativo para usar o PingAccess
 description: Saiba como usar o PingAccess para estender os benefícios do Application Proxy em aplicativos que usam autenticação baseada em cabeçalho
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c852c69b6f64b59845b551202bd1a25646a49eb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74275650"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar um aplicativo de Application Proxy para usar o PingAccess

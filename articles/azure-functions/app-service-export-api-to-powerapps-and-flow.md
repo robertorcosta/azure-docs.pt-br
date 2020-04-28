@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.reviewer: sunayv
 ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74233085"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
@@ -18,7 +18,7 @@ O [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introduci
 Da mesma forma, os desenvolvedores que desejam expor suas APIs mais amplamente dentro da organização podem querer disponibilizá-las para construtores de aplicativos e fluxos. Este tópico mostra como exportar uma API criada com o [Azure Functions](../azure-functions/functions-overview.md) ou o [Serviço de Aplicativo do Azure](../app-service/overview.md). A API exportada torna-se um *conector personalizado*, usado no PowerApps e no Microsoft Flow, assim como um conector interno.
 
 > [!IMPORTANT]
-> A funcionalidade de definição de API mostrada neste artigo só é suportada para [a versão 1.x dos aplicativos Azure Functions runtime](functions-versions.md#creating-1x-apps) e App Services. A versão 2.x de Funções integra-se ao Gerenciamento de API para criar e manter definições de OpenAPI. Para saber mais, consulte [Criar uma definição OpenAPI para uma função com o Gerenciamento de API do Azure](functions-openapi-definition.md). 
+> A funcionalidade de definição de API mostrada neste artigo só tem suporte para [a versão 1. x dos aplicativos de tempo de execução de Azure Functions](functions-versions.md#creating-1x-apps) e serviços de aplicativos. A versão 2. x das funções integra-se ao gerenciamento de API para criar e manter definições de OpenAPI. Para saber mais, confira [criar uma definição de openapi para uma função com o gerenciamento de API do Azure](functions-openapi-definition.md). 
 
 ## <a name="create-and-export-an-api-definition"></a>Criar e exportar uma definição de API
 Antes de exportar uma API, é necessário descrevê-la usando uma definição OpenAPI (anteriormente conhecida como um arquivo [Swagger](https://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados. O PowerApps e o Microsoft Flow podem criar conectores personalizados para qualquer definição OpenAPI 2.0. O Serviço de Aplicativo do Azure e o Azure Functions têm suporte integrado para criação, hospedagem e gerenciamento de definições OpenAPI. Para obter mais informações, consulte [Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure](../app-service/app-service-web-tutorial-rest-api.md).

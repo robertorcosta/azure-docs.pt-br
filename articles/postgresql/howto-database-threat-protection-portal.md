@@ -1,5 +1,5 @@
 ---
-title: Use proteção avançada contra ameaças - Banco de dados Azure para PostgreSQL - Servidor Único
+title: Usar a proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
 description: A Proteção contra Ameaças detecta as atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: rachel-msft
 ms.author: raagyema
@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 8b7f52ea318432e97a450a54526f6481b14139c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74776136"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças para banco de dados Azure para PostgreSQL - Servidor Único
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL-servidor único
 
 A Proteção Avançada contra Ameaças para o Banco de Dados do Azure para PostgreSQL detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
@@ -27,7 +27,7 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para PostgreSQL é implantado para servidores de Uso Geral e Otimizado para Memória.
 
 ## <a name="set-up-threat-detection"></a>Configurar detecção de ameaças
-1. Inicie o portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até a página de configuração do servidor do Banco de Dados do Azure para PostgreSQL que deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)**.
 3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)**:
 

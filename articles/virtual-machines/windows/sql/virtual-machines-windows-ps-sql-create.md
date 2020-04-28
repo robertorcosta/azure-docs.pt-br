@@ -16,10 +16,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74790640"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell
@@ -337,7 +337,7 @@ A máquina virtual é criada.
 > Se você receber um erro sobre o diagnóstico de inicialização, ignore-o. Uma conta de armazenamento padrão é criada para o diagnóstico de inicialização, pois a conta de armazenamento especificada para o disco da máquina virtual é uma conta de armazenamento premium.
 
 ## <a name="install-the-sql-iaas-agent"></a>Instalar o SQL IaaS Agent
-As máquinas virtuais do SQL Server suportam funcionalidades de gerenciamento automático com a [Extensão SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM e registrá-lo no provedor de recursos, execute o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) após a criação da máquina virtual. Especifique o tipo de licença para o VM do servidor SQL, escolhendo entre pay-as-you-go ou bring-your-own-license através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre licenciamento, consulte [o modelo de licenciamento](virtual-machines-windows-sql-ahb.md). 
+As máquinas virtuais do SQL Server suportam funcionalidades de gerenciamento automático com a [Extensão SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente na nova VM e registrá-lo com o provedor de recursos, execute o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) depois que a máquina virtual for criada. Especifique o tipo de licença para sua VM SQL Server, escolhendo entre pagamento conforme o uso ou traga sua própria licença por meio do [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre licenciamento, consulte [modelo de licenciamento](virtual-machines-windows-sql-ahb.md). 
 
 
    ```powershell

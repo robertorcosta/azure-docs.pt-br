@@ -1,23 +1,23 @@
 ---
-title: Cenários da Loja de Consulta - Banco de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve alguns cenários para a Query Store no Azure Database for PostgreSQL - Single Server.
+title: Cenários de Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve alguns cenários para o Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768343"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Cenários de uso de Store de consulta
 
-**Aplica-se a:** Banco de dados Azure para PostgreSQL - Single Server versões 9.6, 10, 11
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
 
-Você pode usar o Query Store em uma ampla variedade de cenários, nos quais o acompanhamento e a manutenção do desempenho previsível da carga de trabalho são essenciais. Considere os exemplos a seguir: 
+Você pode usar o Query Store em uma ampla variedade de cenários, nos quais o acompanhamento e a manutenção do desempenho previsível da carga de trabalho são essenciais. Considere os seguintes exemplos: 
 - Identificar e ajustar consultas caras superior 
 - Testes de A/B 
 - Mantendo o desempenho estável durante as atualizações 

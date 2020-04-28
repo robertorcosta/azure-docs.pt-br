@@ -1,5 +1,5 @@
 ---
-title: Apache Spark & Apache Kafka com Cosmos DB - Azure HDInsight
+title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
 description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 04faafca0811e60ded47d1e91a82054a1c1cdb25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74406167"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
 Saiba como usar o Fluxo Estruturado do [Apache Spark](https://spark.apache.org/) [ para ler ](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)dados do [Apache Kafka](https://kafka.apache.org/) no Azure HDInsight, e em seguida, armazenar os dados no Microsoft Azure Cosmos DB.
 
-[O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um banco de dados multi-modelo distribuído globalmente. Este exemplo usa um modelo de banco de dados de API do SQL. Para obter mais informações, consulte o documento [Bem-vindo ao Azure Cosmos DB](../cosmos-db/introduction.md).
+O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é um banco de dados de vários modelos distribuído globalmente. Este exemplo usa um modelo de banco de dados de API do SQL. Para obter mais informações, consulte o documento [Bem-vindo ao Azure Cosmos DB](../cosmos-db/introduction.md).
 
 O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite expressar cálculos de streaming do mesmo modo que cálculos de lote em dados estáticos. Para saber mais sobre Streaming Estruturado, confira o [Guia de programação de streaming estruturado](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) em Apache.org.
 
@@ -32,7 +32,7 @@ O streaming estruturado do Spark é um mecanismo de processamento de fluxo basea
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso aos corretores Kafka pela internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+Apache Kafka no HDInsight não fornece acesso aos agentes Kafka pela Internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
 
@@ -47,7 +47,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
-    O modelo do Azure Resource Manager está localizado no repositório GitHub para este projeto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
+    O modelo de Azure Resource Manager está localizado no repositório GitHub para este projeto ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
     Este modelo cria os seguintes recursos:
 
@@ -68,15 +68,15 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
     |---|---|
     |Subscription|Selecione sua assinatura do Azure.|
     |Resource group|Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.|
-    |Nome da conta do Cosmos DB|este valor é usado como o nome da conta do Cosmos DB. O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
-    |Nome do cluster base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
+    |Nome da conta de Cosmos DB|este valor é usado como o nome da conta do Cosmos DB. O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
+    |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, inserir **myhdi** cria um cluster Spark chamado__spark-myhdi__ e um cluster Kafka chamado **kafka-myhdi**.|
     |Versão do cluster|a versão do cluster do HDInsight. Este exemplo é testado com 3.6 HDInsight e pode não funcionar com outros tipos de cluster.|
     |Nome de usuário de logon do cluster|O nome do usuário administrador dos clusters Spark e Kafka.|
     |Senha de logon do cluster|A senha do usuário administrador dos clusters Spark e Kafka.|
-    |Nome do usuário SSH|O usuário SSH para criar para os clusters Spark e Kafka.|
-    |Senha Ssh|A senha para o usuário SSH dos clusters Kafka e Spark.|
+    |Nome de Usuário SSH|O usuário SSH para criar para os clusters Spark e Kafka.|
+    |Senha SSH|A senha para o usuário SSH dos clusters Kafka e Spark.|
 
-    ![Valores de implantação personalizados do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    ![Valores de implantação personalizada do HDInsight](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
 1. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
@@ -128,7 +128,7 @@ O ponto de extremidade do documento e as informações de chave primária são s
 
 ## <a name="get-the-notebooks"></a>Obter os blocos de anotações
 
-O código para o exemplo descrito [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)neste documento está disponível em .
+O código para o exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb).
 
 ## <a name="upload-the-notebooks"></a>Carregar os blocos de anotações
 
@@ -156,7 +156,7 @@ Na home page do [Jupyter Notebook](https://jupyter.org/), selecione a entrada __
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar o Apache Spark Structured Streaming, consulte os seguintes documentos para saber mais sobre como trabalhar com Apache Spark, Apache Kafka e Azure Cosmos DB:
+Agora que você aprendeu a usar Apache Spark streaming estruturado, consulte os documentos a seguir para saber mais sobre como trabalhar com Apache Spark, Apache Kafka e Azure Cosmos DB:
 
 * [Como usar o fluxo do Apache Spark (DStream) com o Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Iniciar com o Jupyter Notebook e Apache Spark no HDInsight](spark/apache-spark-jupyter-spark-sql.md)

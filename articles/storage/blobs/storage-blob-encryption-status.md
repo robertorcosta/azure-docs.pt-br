@@ -1,6 +1,6 @@
 ---
-title: Verifique o status de criptografia de uma bolha - Armazenamento Azure
-description: Saiba como usar o portal Azure, o PowerShell ou o Azure CLI para verificar se uma determinada bolha está criptografada. Se uma bolha não estiver criptografada, aprenda a usar o AzCopy para forçar a criptografia baixando e recarregando o blob.
+title: Verificar o status de criptografia de um blob-armazenamento do Azure
+description: Saiba como usar portal do Azure, PowerShell ou CLI do Azure para verificar se um determinado blob está criptografado. Se um BLOB não for criptografado, saiba como usar o AzCopy para forçar a criptografia baixando e recarregando o blob.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,36 +10,36 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74707590"
 ---
-# <a name="check-the-encryption-status-of-a-blob"></a>Verifique o status de criptografia de uma bolha
+# <a name="check-the-encryption-status-of-a-blob"></a>Verificar o status de criptografia de um blob
 
-Cada bolha de bloco, bolha de apêndice ou bolha de página que foi escrita no Azure Storage após 20 de outubro de 2017 é criptografada com criptografia de armazenamento Azure. Blobs criados antes desta data continuam a ser criptografados por um processo em segundo plano.
+Todo blob de blocos, BLOB de acréscimo ou BLOB de páginas que foi gravado no armazenamento do Azure após 20 de outubro de 2017 é criptografado com a criptografia de armazenamento do Azure. Os BLOBs criados antes dessa data continuam a ser criptografados por um processo em segundo plano.
 
-Este artigo mostra como determinar se uma determinada bolha foi criptografada.
+Este artigo mostra como determinar se um determinado blob foi criptografado.
 
-## <a name="check-a-blobs-encryption-status"></a>Verifique o status de criptografia de uma bolha
+## <a name="check-a-blobs-encryption-status"></a>Verificar o status de criptografia de um blob
 
-Use o portal Azure, PowerShell ou Azure CLI para determinar se uma bolha é criptografada sem código.
+Use o portal do Azure, o PowerShell ou o CLI do Azure para determinar se um blob é criptografado sem código.
 
-### <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Para usar o portal Azure para verificar se uma bolha foi criptografada, siga estas etapas:
+Para usar o portal do Azure para verificar se um blob foi criptografado, siga estas etapas:
 
 1. No portal do Azure, navegue até sua conta de armazenamento.
-1. Selecione **Contêineres** para navegar até uma lista de contêineres na conta.
-1. Localize a bolha e exiba sua **guia Visão Geral.**
-1. Exibir a propriedade **Server Encrypted.** Se **True**, como mostrado na imagem a seguir, então a bolha é criptografada. Observe que as propriedades da bolha também incluem a data e a hora em que a bolha foi criada.
+1. Selecione **contêineres** para navegar para uma lista de contêineres na conta.
+1. Localize o blob e exiba sua guia **visão geral** .
+1. Exiba a propriedade **criptografada do servidor** . Se for **true**, conforme mostrado na imagem a seguir, o blob será criptografado. Observe que as propriedades do blob também incluem a data e a hora em que o blob foi criado.
 
-    ![Captura de tela mostrando como verificar a propriedade criptografada do Servidor no portal Azure](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
+    ![Captura de tela mostrando como verificar a propriedade criptografada do servidor no portal do Azure](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
 
-### <a name="powershell"></a>[Powershell](#tab/powershell)
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para usar o PowerShell para verificar se uma bolha foi criptografada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
+Para usar o PowerShell para verificar se um blob foi criptografado, verifique a propriedade **IsServerEncrypted** do blob. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -50,15 +50,15 @@ $blob = Get-AzStorageBlob -Context $account.Context `
 $blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
-Para determinar quando a bolha foi criada, verifique o valor da propriedade **Criada:**
+Para determinar quando o blob foi criado, verifique o valor da propriedade **criada** :
 
 ```powershell
 $blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+### <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para usar o Azure CLI para verificar se uma bolha foi criptografada, verifique a propriedade **IsServerEncrypted** da blob. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
+Para usar CLI do Azure para verificar se um blob foi criptografado, verifique a propriedade **IsServerEncrypted** do blob. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```azurecli-interactive
 az storage blob show \
@@ -68,15 +68,15 @@ az storage blob show \
     --query "properties.serverEncrypted"
 ```
 
-Para determinar quando a bolha foi criada, verifique o valor da propriedade **criada.**
+Para determinar quando o blob foi criado, verifique o valor da propriedade **criada** .
 
 ---
 
-## <a name="force-encryption-of-a-blob"></a>Forçar a criptografia de uma bolha
+## <a name="force-encryption-of-a-blob"></a>Forçar a criptografia de um blob
 
-Se uma bolha que foi criada antes de 20 de outubro de 2017 ainda não foi criptografada pelo processo de fundo, você pode forçar a criptografia a ocorrer imediatamente baixando e recarregando a bolha. Uma maneira simples de fazer isso é com o AzCopy.
+Se um blob criado antes de 20 de outubro de 2017 ainda não tiver sido criptografado pelo processo em segundo plano, você poderá forçar a criptografia a ocorrer imediatamente baixando e recarregando o blob. Uma maneira simples de fazer isso é com o AzCopy.
 
-Para baixar uma bolha no sistema de arquivos local com o AzCopy, use a seguinte sintaxe:
+Para baixar um blob em seu sistema de arquivos local com o AzCopy, use a seguinte sintaxe:
 
 ```
 azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'
@@ -85,7 +85,7 @@ Example:
 azcopy copy 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt' 'C:\temp\blob1.txt'
 ```
 
-Para recarregar a bolha no Azure Storage com o AzCopy, use a seguinte sintaxe:
+Para carregar novamente o blob no armazenamento do Azure com o AzCopy, use a seguinte sintaxe:
 
 ```
 azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'
@@ -94,7 +94,7 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-Para obter mais informações sobre o uso do AzCopy para copiar dados blob, consulte [Transferir dados com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
+Para obter mais informações sobre como usar o AzCopy para copiar dados de BLOB, consulte [transferir dados com o armazenamento de BLOBs e AzCopy](../common/storage-use-azcopy-blobs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

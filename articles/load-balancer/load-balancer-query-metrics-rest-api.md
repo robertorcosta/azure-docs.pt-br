@@ -1,7 +1,7 @@
 ---
 title: Recuperar métricas com a API REST
 titleSuffix: Azure Load Balancer
-description: Neste artigo, comece a usar as APIs Azure REST para coletar métricas de saúde e uso para o Azure Load Balancer.
+description: Neste artigo, comece a usar as APIs REST do Azure para coletar métricas de integridade e uso para Azure Load Balancer.
 services: sql-database
 author: asudbring
 manager: KumudD
@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74225251"
 ---
-# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtenha métricas de uso do Balancer de carga usando a API REST
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obter Load Balancer métricas de uso usando a API REST
 
-Coletar o número de bytes processados por um [Balanceador](/azure/load-balancer/load-balancer-standard-overview) de Carga Padrão por um intervalo de tempo usando a [API Azure REST](/rest/api/azure/).
+Coletar o número de bytes processados por um [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) para um intervalo de tempo usando a [API REST do Azure](/rest/api/azure/).
 
 A documentação de referência completa e os exemplos adicionais da API REST estão disponíveis na [referência de REST do Azure Monitor](/rest/api/monitor). 
 
@@ -31,25 +31,25 @@ Use a seguinte solicitação GET para coletar a [métrica ByteCount](/azure/load
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Os cabeçalhos a seguir são necessários: 
 
 |Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Obrigatórios. Defina como `application/json`.|  
+|*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
 |*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
 | Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor por meio da API do Azure Resource Manager, da CLI ou do portal. |
 | loadBalancerName | O nome do Azure Load Balancer. |
-| nomes métricos | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| nomes de métrica | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento abrange a versão da API `2018-01-01`, incluída na URL acima.  |
-| TimeSpan | O período de tempo da consulta. É uma seqüência com `startDateTime_ISO/endDateTime_ISO`o seguinte formato. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
+| TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o formato `startDateTime_ISO/endDateTime_ISO`a seguir. Este parâmetro opcional está configurado para retornar dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo da solicitação

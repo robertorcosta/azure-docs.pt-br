@@ -1,6 +1,6 @@
 ---
-title: Dependências de serviços de acesso condicional - Diretório Ativo do Azure
-description: Saiba como as condições são usadas no Azure Active Directory Conditional Access para acionar uma política.
+title: Dependências do serviço de acesso condicional-Azure Active Directory
+description: Saiba como as condições são usadas em Azure Active Directory acesso condicional para disparar uma política.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,54 +12,54 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74380022"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory Conditional Access? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
 
-Com políticas de acesso condicional, você pode especificar os requisitos de acesso a sites e serviços. Por exemplo, seus requisitos de acesso podem incluir a necessidade de autenticação multifatorial (MFA) ou [dispositivos gerenciados](require-managed-devices.md). 
+Com as políticas de acesso condicional, você pode especificar os requisitos de acesso para sites e serviços. Por exemplo, seus requisitos de acesso podem incluir a exigência de autenticação multifator (MFA) ou de [dispositivos gerenciados](require-managed-devices.md). 
 
-Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada é normalmente fácil de avaliar. Por exemplo, se você tiver uma política que exija que o MFA para o SharePoint Online seja configurado, o MFA será aplicado para cada login no portal web SharePoint. No entanto, nem sempre é direto avaliar o impacto de uma política porque existem aplicativos em nuvem com dependências para outros aplicativos em nuvem. Por exemplo, as equipes da Microsoft podem fornecer acesso aos recursos no SharePoint Online. Assim, quando você acessa as Equipes Microsoft em nosso cenário atual, você também está sujeito à política do SharePoint MFA.   
+Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada normalmente é fácil de avaliar. Por exemplo, se você tiver uma política que requer MFA para SharePoint Online configurado, a MFA será imposta para cada entrada no portal da Web do SharePoint. No entanto, nem sempre é um avanço direto para avaliar o impacto de uma política, pois há aplicativos de nuvem com dependências para outros aplicativos de nuvem. Por exemplo, o Microsoft Teams pode fornecer acesso a recursos no SharePoint Online. Portanto, ao acessar o Microsoft Teams em nosso cenário atual, você também está sujeito à política do SharePoint MFA.   
 
 ## <a name="policy-enforcement"></a>Aplicação de políticas 
 
-Se você tiver uma dependência de serviço configurada, a diretiva pode ser aplicada usando a aplicação antecipada ou vinculada tardia. 
+Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
 
-- **A aplicação antecipada da diretiva** significa que um usuário deve satisfazer a política de serviço dependente antes de acessar o aplicativo de chamada. Por exemplo, um usuário deve satisfazer a política do SharePoint antes de entrar em Equipes MS. 
-- **A aplicação da diretiva vinculada tardia** ocorre após o usuário entrar no aplicativo de chamada. A aplicação é adiada para quando se chama solicitações de aplicativos, um token para o serviço downstream. Exemplos incluem equipes MS acessando Planner e Office.com acessando o SharePoint. 
+- A **imposição de diretiva de ligação antecipada** significa que um usuário deve satisfazer a política de serviço dependente antes de acessar o aplicativo de chamada. Por exemplo, um usuário deve satisfazer a política do SharePoint antes de entrar no MS Teams. 
+- A **imposição de política de ligação tardia** ocorre depois que o usuário entra no aplicativo de chamada. A imposição é adiada ao chamar solicitações de aplicativo, um token para o serviço downstream. Exemplos incluem MS Teams acessando o Planner e o Office.com acessando o SharePoint. 
 
-O diagrama abaixo ilustra as dependências de serviço das Equipes MS. Setas sólidas indicam a aplicação antecipada da seta tracejada para Planner indica a aplicação tardia. 
+O diagrama a seguir ilustra as dependências do MS Teams Service. Setas sólidas indicam a imposição de ligação inicial a seta tracejada para o planejador indica a imposição de associação tardia. 
 
-![MS Equipes de dependências de serviço](./media/service-dependencies/01.png)
+![Dependências de serviço do MS Teams](./media/service-dependencies/01.png)
 
-Como uma prática recomendada, você deve definir políticas comuns em aplicativos e serviços relacionados sempre que possível. Ter uma postura de segurança consistente proporciona a você a melhor experiência de usuário. Por exemplo, definir uma política comum no Exchange Online, SharePoint Online, Microsoft Teams e Skype para negócios reduz significativamente os pedidos inesperados que podem surgir de diferentes políticas que estão sendo aplicadas a serviços a jusante. 
+Como prática recomendada, você deve definir políticas comuns entre aplicativos e serviços relacionados sempre que possível. Ter uma postura de segurança consistente fornece a melhor experiência do usuário. Por exemplo, a definição de uma política comum no Exchange Online, no SharePoint Online, no Microsoft Teams e no Skype for Business reduz significativamente as solicitações inesperadas que podem surgir de políticas diferentes sendo aplicadas aos serviços downstream. 
 
-A tabela abaixo lista dependências adicionais de serviço, onde os aplicativos clientes devem satisfazer  
+A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativos cliente devem satisfazer  
 
-| Aplicativos cliente         | Serviço a jusante                          | Imposição |
+| Aplicativos cliente         | Serviço downstream                          | Imposição |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Gerenciamento do Microsoft Azure (portal e API) | Início |
-| Sala de aula da Microsoft | Exchange                                    | Início |
-|                     | SharePoint                                  | Início |
-| Equipes da Microsoft     | Exchange                                    | Início |
-|                     | Planejador de MS                                  | Tarde-bound  |
-|                     | SharePoint                                  | Início |
-|                     | Skype for Business Online                   | Início |
-| Portal do Escritório       | Exchange                                    | Tarde-bound  |
-|                     | SharePoint                                  | Tarde-bound  |
-| Grupos do Outlook      | Exchange                                    | Início |
-|                     | SharePoint                                  | Início |
-| PowerApps           | Gerenciamento do Microsoft Azure (portal e API) | Início |
-|                     | Windows Azure Active Directory              | Início |
-| Project             | Dynamics CRM                                | Início |
-| Skype for Business  | Exchange                                    | Início |
-| Visual Studio       | Gerenciamento do Microsoft Azure (portal e API) | Início |
-| Microsoft Forms     | Exchange                                    | Início |
-|                     | SharePoint                                  | Início |
-| Microsoft To-Do     | Exchange                                    | Início |
+| Azure Data Lake     | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
+| Sala de aula da Microsoft | Exchange                                    | Associação antecipada |
+|                     | SharePoint                                  | Associação antecipada |
+| Equipes da Microsoft     | Exchange                                    | Associação antecipada |
+|                     | Planejador MS                                  | Associação tardia  |
+|                     | SharePoint                                  | Associação antecipada |
+|                     | Skype for Business Online                   | Associação antecipada |
+| Portal do Office       | Exchange                                    | Associação tardia  |
+|                     | SharePoint                                  | Associação tardia  |
+| Grupos do Outlook      | Exchange                                    | Associação antecipada |
+|                     | SharePoint                                  | Associação antecipada |
+| PowerApps           | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
+|                     | Windows Azure Active Directory              | Associação antecipada |
+| Projeto             | Dynamics CRM                                | Associação antecipada |
+| Skype for Business  | Exchange                                    | Associação antecipada |
+| Visual Studio       | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
+| Microsoft Forms     | Exchange                                    | Associação antecipada |
+|                     | SharePoint                                  | Associação antecipada |
+| Microsoft To-Do     | Exchange                                    | Associação antecipada |
 
 ## <a name="next-steps"></a>Próximas etapas
 

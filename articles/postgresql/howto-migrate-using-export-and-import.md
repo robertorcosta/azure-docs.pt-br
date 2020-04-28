@@ -1,5 +1,5 @@
 ---
-title: Migrar um banco de dados - Banco de Dados Azure para PostgreSQL - Servidor Único
+title: Migrar um banco de dados-banco de dados do Azure para PostgreSQL-servidor único
 description: Descreve como extrair um banco de dados PostgreSQL para um arquivo de script e importar os dados para o banco de dados de destino desse arquivo.
 author: rachel-msft
 ms.author: raagyema
@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: f7cf5d245383b8a58f03e2e3610750866a2f4b5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770196"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar seu banco de dados PostgreSQL usando exportar e importar
@@ -29,7 +29,7 @@ Para exportar seu banco de dados PostgreSQL existente localmente ou em uma VM pa
 ```bash
 pg_dump –-host=<host> --username=<name> --dbname=<database name> --file=<database>.sql
 ```
-Por exemplo, se você tiver um servidor local e um banco de dados chamado **testdb** nele:
+Por exemplo, se você tiver um servidor local e um banco de dados chamado **TestDB** nele:
 ```bash
 pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sql
 ```
@@ -45,5 +45,5 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para migrar um banco de dados PostgreSQL usando dump e restore, consulte [Migrar seu banco de dados PostgreSQL usando dump e restore](howto-migrate-using-dump-and-restore.md).
+- Para migrar um banco de dados PostgreSQL usando despejo e restauração, consulte [migrar seu banco de dados PostgreSQL usando despejo e restauração](howto-migrate-using-dump-and-restore.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para PostgreSQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration). 

@@ -1,14 +1,14 @@
 ---
-title: Use mensagens para se integrar ao Azure Blockchain Workbench
-description: Visão geral do uso de mensagens para integrar o Azure Blockchain Workbench Preview com outros sistemas.
+title: Usar mensagens para integrar com o Azure Blockchain Workbench
+description: Visão geral do uso de mensagens para integrar a visualização do Azure Blockchain Workbench a outros sistemas.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74324501"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
@@ -59,7 +59,7 @@ Blockchain Workbench retorna uma resposta com os seguintes campos:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID do cliente fornecido |
 | userId                | ID do usuário que foi criado |
-| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **on-chain** do usuário. |
+| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **na cadeia** do usuário. |
 | ConnectionId          | Identificador exclusivo para a conexão blockchain|
 | messageSchemaVersion  | Versão do esquema de mensagens |
 | messageName           | **CreateUserUpdate** |
@@ -369,7 +369,7 @@ Os Tópicos do Barramento de Serviço podem ser usados para notificar os usuári
 
 ## <a name="notification-message-reference"></a>Referência da mensagem de notificação
 
-Dependendo da **mensagemName,** as mensagens de notificação têm um dos seguintes tipos de mensagem.
+Dependendo do **, as**mensagens de notificação têm um dos tipos de mensagem a seguir.
 
 ### <a name="block-message"></a>Mensagem de bloco
 
@@ -550,7 +550,7 @@ Exemplo de uma *ContractMessage* do Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>Mensagem de evento: Invocação da função do contrato
+### <a name="event-message-contract-function-invocation"></a>Mensagem de evento: invocação de função de contrato
 
 Contém informações sobre quando uma função de contrato é invocada, como o nome da função, a entrada de parâmetros e o chamador da função.
 
@@ -630,7 +630,7 @@ Exemplo de uma *EventMessage ContractFunctionInvocation* do Blockchain Workbench
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>Mensagem de evento: Ingestão de aplicativos
+### <a name="event-message-application-ingestion"></a>Mensagem de evento: ingestão de aplicativos
 
 Contém informações sobre quando um aplicativo é carregado no Workbench, como o nome e a versão do aplicativo carregado.
 
@@ -824,7 +824,7 @@ Exemplo de uma *EventMessage ApplicationIngestion* do Blockchain Workbench:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>Mensagem de evento: Atribuição de função
+### <a name="event-message-role-assignment"></a>Mensagem de evento: atribuição de função
 
 Contém informações sobre quando um usuário recebe uma função no Workbench, como quem executou a atribuição de função e o nome da função e o aplicativo correspondente.
 

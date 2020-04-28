@@ -5,15 +5,15 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: c94e7d1fb5c42a0246b38c88eb097c75ec8ca4e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789830"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta [no Facebook](https://www.facebook.com/) 
+* Uma conta do [Facebook](https://www.facebook.com/) 
 
 Antes de usar sua conta do Facebook em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Facebook. Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure. 
 

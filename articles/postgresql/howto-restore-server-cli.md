@@ -1,6 +1,6 @@
 ---
-title: Backup e restauração - Azure CLI - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Saiba como definir configurações de backup e restaurar um servidor no Banco de Dados Azure para PostgreSQL - Servidor Único usando o Cli do Azure.
+title: Backup e restauração-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como definir configurações de backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74775684"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados Azure para PostgreSQL - Servidor Único usando o Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
-- Um [banco de dados azure para servidor e banco de dados PostgreSQL](quickstart-create-server-database-azure-cli.md)
+- Um [banco de dados do Azure para servidor PostgreSQL e banco de dados](quickstart-create-server-database-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -79,9 +79,9 @@ Quando você restaura um servidor para um ponto anterior no tempo, é criado um 
 
 Os valores de local e tipo de preço para o servidor restaurado permanecem iguais aos do servidor de origem. 
 
-Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de login e senha do servidor que era válido para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou pontos finais de serviço VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para este novo servidor.
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
 ## <a name="geo-restore"></a>Restauração geográfica
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para PostgreSQL esteja disponível.  
@@ -118,11 +118,11 @@ O comando `az postgres server georestore` exige os seguintes parâmetros:
 
 Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
 
-Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de login e senha do servidor que era válido para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou pontos finais de serviço VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para este novo servidor.
+O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço
-- Conheça [as réplicas](concepts-read-replicas.md)
-- Saiba mais sobre as opções [de continuidade de negócios](concepts-business-continuity.md)
+- Saiba mais sobre [réplicas](concepts-read-replicas.md)
+- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)

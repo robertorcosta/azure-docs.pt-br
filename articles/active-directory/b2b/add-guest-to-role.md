@@ -1,5 +1,5 @@
 ---
-title: Adicione um usuário de colaboração B2B a uma função - Azure Active Directory
+title: Adicionar um usuário de colaboração B2B a uma função-Azure Active Directory
 description: Adicionar um usuário convidado a uma função no Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74268547"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões a usuários de organizações parceiras em seu locatário do Azure Active Directory
@@ -33,9 +33,9 @@ Os usuários da colaboração B2B do Azure AD (Azure Active Directory) são adic
 
 ## <a name="limited-administrator-role"></a>Função Administrador Limitado
 
-![Captura de tela mostrando a função de administrador limitado](./media/add-guest-to-role/limited-admin-role.png)
+![Captura de tela mostrando a função de administrador limitada](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
+- [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Propriedades de usuário de colaboração B2B](user-properties.md)

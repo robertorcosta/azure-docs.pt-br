@@ -1,6 +1,6 @@
 ---
 title: Segurança em camadas v1
-description: Saiba como implementar uma arquitetura de segurança em camadas no ambiente App Service. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+description: Saiba como implementar uma arquitetura de segurança em camadas em seu ambiente do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74688794"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementando uma arquitetura de segurança em camadas com Ambientes do Serviço de Aplicativo

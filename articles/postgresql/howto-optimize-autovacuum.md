@@ -1,19 +1,19 @@
 ---
-title: Otimizar o vácuo automático - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve como você pode otimizar o vácuo automático em um banco de dados Azure para PostgreSQL - Single Server
+title: Otimizar o autovácuo-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode otimizar a vácuo autoaspira em um banco de dados do Azure para PostgreSQL-servidor único
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74770179"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo automático em um banco de dados Azure para PostgreSQL - Single Server
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Otimizar o vácuo autoaspirar em um banco de dados do Azure para PostgreSQL-servidor único
 Este artigo descreve como otimizar de maneira eficaz o vácuo automático em um Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="overview-of-autovacuum"></a>Visão geral do vácuo automático

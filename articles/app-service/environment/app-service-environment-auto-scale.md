@@ -1,6 +1,6 @@
 ---
-title: Autoscaling v1
-description: Autoscaling e Ambiente de Serviço de Aplicativo v1. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+title: Dimensionamento automático v1
+description: Dimensionamento automático e Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: btardif
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687290"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [Introdução ao Ambiente de Serviço do Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 > 
 
 Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
@@ -55,7 +55,7 @@ O dimensionamento automático de um ambiente de Serviço de Aplicativo pode ser 
 Este artigo explica todas as considerações necessárias ao configurar o dimensionamento automático. Este artigo aborda as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
 
 ### <a name="scenario-introduction"></a>Introdução ao cenário
-Frank é um sysadmin para uma empresa que migrou uma parte das cargas de trabalho que eles gerenciam para um ambiente de Serviço de Aplicativo.
+Frank é um sysadmin para uma empresa que migrou uma parte das cargas de trabalho que eles gerenciam para um ambiente do serviço de aplicativo.
 
 O ambiente do Serviço de Aplicativo está configurado para a escala manual da seguinte maneira:
 
@@ -68,7 +68,7 @@ O pool de trabalho 1 é usado para cargas de trabalho de produção, embora o po
 
 Os Planos do Serviço de Aplicativo para controle de qualidade e desenvolvimento são configurados para escala manual. O Plano do Serviço de Aplicativo de produção é definido para dimensionamento automático para lidar com variações de carga e tráfego.
 
-Matheus está familiarizado com o aplicativo. Eles sabem que os horários de pico de carga são entre 9:00 e 18:00 porque este é um aplicativo de linha de negócios (LOB) que os funcionários usam enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo remotamente, usando seus dispositivos móveis ou computadores domésticos. O plano do Serviço de Aplicativo de produção já está configurado para dimensionamento automático com base no uso de CPU com as seguintes regras:
+Matheus está familiarizado com o aplicativo. Eles sabem que o horário de pico para carga está entre 9:00 e 6:00, pois esse é um aplicativo de linha de negócios (LOB) que os funcionários usam enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo remotamente, usando seus dispositivos móveis ou computadores domésticos. O plano do Serviço de Aplicativo de produção já está configurado para dimensionamento automático com base no uso de CPU com as seguintes regras:
 
 ![Configurações específicas para o aplicativo LOB.][asp-scale]
 

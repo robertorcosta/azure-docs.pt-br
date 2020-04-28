@@ -1,6 +1,6 @@
 ---
-title: Opções de implantação para contêineres Linux
-description: Decida entre a implantação personalizada de contêineres Docker, vários contêineres e uma estrutura de aplicativos incorporada para o App Service no Linux.
+title: Opções de implantação para contêineres do Linux
+description: Decida entre a implantação de contêiner do Docker personalizada, o contêiner de múltiplos e uma estrutura de aplicativo interna para o serviço de aplicativo no Linux.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, oss
 author: msangapu-msft
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687507"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Imagem personalizada, vários contêineres ou imagem da plataforma interna?
@@ -19,7 +19,7 @@ ms.locfileid: "74687507"
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) oferece três caminhos diferentes para publicar aplicativos na Web:
 
 - **Implantação de imagem personalizada**: transforme seu aplicativo em Docker em uma imagem do Docker que contém todos os arquivos e as dependências em um pacote pronto para execução.
-- **Implantação de vários contêineres**: "Dockerize" seu aplicativo em vários contêineres usando um arquivo de configuração Docker Compose.
+- **Implantação de vários contêineres**: "encaixe" seu aplicativo em vários contêineres usando um arquivo de configuração Docker Compose.
 - **Implantação de aplicativo com uma imagem de plataforma interna**: nossas imagens de plataforma interna contêm runtimes de aplicativo Web comuns e dependências, como o Node e PHP. Use qualquer um dos [métodos de implantação do Serviço de Aplicativo do Azure](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implantar seu aplicativo no armazenamento de seu aplicativo Web e, em seguida, use uma imagem de plataforma interna para executá-lo.
 
 ## <a name="which-method-is-right-for-your-app"></a>Qual método é adequado para seu aplicativo? 
@@ -40,13 +40,13 @@ Os principais fatores a considerar são:
 Contêiner personalizado:
 * [Executar contêiner personalizado](quickstart-docker-go.md)
 
-Multicontêiner:
+Vários contêineres:
 * [Criar aplicativo com vários contêineres](quickstart-multi-container.md)
 
-Os seguintes artigos começam a você com o App Service no Linux com uma imagem de plataforma incorporada:
+Os artigos a seguir o ajudarão a começar a usar o serviço de aplicativo no Linux com uma imagem de plataforma interna:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [Php](quickstart-php.md)
+* [PHP](quickstart-php.md)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

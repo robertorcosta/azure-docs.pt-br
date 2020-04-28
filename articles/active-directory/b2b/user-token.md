@@ -1,5 +1,5 @@
 ---
-title: Entenda os tokens de usuário na colaboração B2B - Azure AD
+title: Entender os tokens de usuário na colaboração B2B – Azure AD
 description: Referência ao token de usuário para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74271771"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Noções básicas sobre tokens de usuário na colaboração B2B do Azure AD
 
-Se você quiser saber qual é a aparência do token para um usuário de colaboração B2B, estes são os detalhes do token de portador e do conteúdo do token para um convidado do Azure AD (Azure Active Directory) e um convidado de conta da Microsoft no locatário de recursos (para tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo json web token [https://jwt.io/](https://jwt.io/) (JWT), use ou [https://jwt.ms/](https://jwt.ms/).
+Se você quiser saber qual é a aparência do token para um usuário de colaboração B2B, estes são os detalhes do token de portador e do conteúdo do token para um convidado do Azure AD (Azure Active Directory) e um convidado de conta da Microsoft no locatário de recursos (para tenantid:04dcc6ab-388a-4559-b527-fbec656300ea). Para ver o conteúdo do JSON Web token (JWT), [https://jwt.io/](https://jwt.io/) use [https://jwt.ms/](https://jwt.ms/)ou.
 
 ## <a name="azure-ad-guest-token"></a>Token de convidado do Azure AD
 ```
@@ -34,7 +34,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
+* [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Propriedades de usuário de colaboração B2B](user-properties.md)
 * [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)
 

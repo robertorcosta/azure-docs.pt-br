@@ -1,5 +1,5 @@
 ---
-title: Instalar extensão do navegador do painel de acesso ao aplicativo - Azure AD
+title: Instalar extensão do navegador do painel de acesso do aplicativo-Azure AD
 description: Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74275850"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
@@ -89,8 +89,8 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
        
 * Para usar URLs internas da empresa ao remoto, faça o seguinte:
-    1. [Configure proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) em seu inquilino
-    2. [Publique o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL através do Proxy do aplicativo
+    1. [Configurar o proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) em seu locatário
+    2. [Publicar o aplicativo e a](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) URL por meio do proxy de aplicativo
     3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
     4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 
@@ -128,4 +128,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[O que é acesso ao aplicativo e logon único com o Azure Active Directory?](what-is-single-sign-on.md)
+[O que é o acesso a aplicativos e logon único com o Azure Active Directory?](what-is-single-sign-on.md)

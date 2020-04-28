@@ -1,5 +1,5 @@
 ---
-title: 'Desempenho de sintonia: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2 Storm
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,20 +9,20 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327912"
 ---
-# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho de sintonia: Storm, HDInsight & Azure Data Lake Storage Gen2
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2
 
 Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia Storm do Azure. Por exemplo, é importante compreender as características do trabalho feito pelos spouts e bolts (se o trabalho está com uso intensivo de memória ou de E/S). Este artigo abrange uma gama de diretrizes de ajuste de desempenho, incluindo a solução de problemas comuns.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Azure Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento para análise](data-lake-storage-quickstart-create-account.md).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de Azure data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento para análise](data-lake-storage-quickstart-create-account.md).
 * **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Consulte [Usar o Azure Data Lake Storage Gen2 com clusters de HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Executando um cluster do Storm no Data Lake Storage Gen2**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).   
@@ -95,11 +95,11 @@ Enquanto a topologia estiver em execução, você pode monitorá-la na interface
 
 * **Número de falhas.** Refere-se ao número de tuplas que deixaram de ser completamente processadas antes que atingissem o tempo limite.
 
-* **Capacidade.** Medida da ocupação do sistema. Se esse número é 1, os bolts estão trabalhando tão rápido quanto possível. Se for menor que 1, aumente o paralelismo. Se for maior que 1, reduza o paralelismo.
+* **Recurso.** Medida da ocupação do sistema. Se esse número é 1, os bolts estão trabalhando tão rápido quanto possível. Se for menor que 1, aumente o paralelismo. Se for maior que 1, reduza o paralelismo.
 
 ## <a name="troubleshoot-common-problems"></a>Solução de problemas comuns
 Eis alguns cenários comuns de solução de problemas.
-* **Muitas tuplas estão cronometrando.** Olhe para cada nó na topologia para determinar onde está o gargalo. O motivo mais comum para isso é que os bolts não estão conseguindo acompanhar os spouts. Isso faz com que as tuplas congestionem os buffers internos que estão aguardando para ser processados. Considere aumentar o valor de tempo limite ou diminuir o máx. de spouts pendentes.
+* **Muitas tuplas estão atingindo o tempo limite.** Examine cada nó na topologia para determinar onde está o afunilamento. O motivo mais comum para isso é que os bolts não estão conseguindo acompanhar os spouts. Isso faz com que as tuplas congestionem os buffers internos que estão aguardando para ser processados. Considere aumentar o valor de tempo limite ou diminuir o máx. de spouts pendentes.
 
 * **Há uma latência alta de execução do processo total, mas uma latência baixa de processo do bolt.** Nesse caso, é possível que as tuplas não estejam sendo reconhecidas rápido o suficiente. Verifique se há um número suficiente de confirmadores. Outra possibilidade é que estejam aguardando na fila por tempo demais antes que os bolts comecem a processá-las. Diminua o máx. de spouts pendentes.
 
@@ -110,7 +110,7 @@ Se atingir os limites de largura de banda fornecidos pelo Data Lake Storage Gen2
 
 Para verificar se há problemas de limitação, habilite o log de depuração no lado do cliente:
 
-1. Em **Ambari** > **Storm** > **Config** > Advanced**storm-worker-log4j**, altere ** &lt;o nível raiz="info"&gt; ** para ** &lt;root level="debug"&gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
+1. Em **Ambari** > **Storm** > **Config**config > **avançado Storm-Worker-Log4J**, altere ** &lt;raiz Level = "info"&gt; ** para ** &lt;root Level = "debug"&gt;**. Reinicie todos os nós/serviços para que a configuração entre em vigor.
 2. Monitore logs de topologia do Storm em nós de trabalho (em /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para ver as exceções de limitação do Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
-title: Conecte-se ao back-end v1
-description: Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+title: Conectar ao back-end v1
+description: Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74687305"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conectar-se com segurança a recursos de back-end em um Ambiente do Serviço de Aplicativo

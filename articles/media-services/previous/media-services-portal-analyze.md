@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74462623"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure 
 
 > [!IMPORTANT]
-> Reveja os planos de [aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
 
 ## <a name="overview"></a>Visão geral
 A Análise dos Serviços de Mídia do Azure é uma coleção de componentes de fala e visão (em escala empresarial, conformidade, segurança e alcance global) que facilitam para as organizações e empresas obterem ideias práticas de seus arquivos de vídeo. Para maiores detalhes da Análise de Serviços de Mídia do Azure consulte [esse](media-services-analytics-overview.md) tópico. 
@@ -49,7 +49,7 @@ O processador de mídia do **Azure Media Indexer** permite tornar conteúdo e ar
 
 ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 O idioma natural a ser reconhecido no arquivo de multimídia. Por exemplo, inglês ou espanhol. 
 
 ### <a name="captions"></a>Legendas
@@ -142,5 +142,5 @@ Exibir os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

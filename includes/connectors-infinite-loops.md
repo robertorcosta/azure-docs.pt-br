@@ -5,11 +5,11 @@ author: ecfan
 ms.author: estfan
 ms.date: 09/18/2019
 ms.openlocfilehash: 805bf1d4dab9883c049d4d33c7d0e9633db315f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789385"
 ---
 > [!IMPORTANT]
-> Tenha cuidado ao selecionar um gatilho e uma ação que tenham o mesmo tipo de conector e usá-los para trabalhar com a mesma entidade, como uma fila de mensagens ou assinatura de tópicos. Essa combinação pode criar um loop infinito, o que resulta em um aplicativo lógico que nunca termina.
+> Tenha cuidado ao selecionar um gatilho e uma ação que tenham o mesmo tipo de conector e usá-los para trabalhar com a mesma entidade, como uma fila de mensagens ou uma assinatura de tópico. Essa combinação pode criar um loop infinito, o que resulta em um aplicativo lógico que nunca termina.

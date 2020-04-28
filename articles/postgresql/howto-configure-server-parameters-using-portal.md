@@ -1,19 +1,19 @@
 ---
-title: Configurar parâmetros de servidor - Portal Azure - Banco de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve como configurar os parâmetros do Postgres no Banco de Dados Azure para PostgreSQL através do portal Azure.
+title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como configurar os parâmetros postgres no banco de dados do Azure para PostgreSQL por meio do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74763667"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configure parâmetros de servidor no Banco de Dados Azure para PostgreSQL - Servidor Único através do portal Azure 
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para PostgreSQL-servidor único por meio do portal do Azure 
 Você pode listar, exibir e atualizar os parâmetros de configuração de um Banco de Dados do Azure para servidor PostgreSQL via portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -21,7 +21,7 @@ Para seguir este guia de instruções, você precisa:
 - [Servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="viewing-and-editing-parameters"></a>Exibir e editar parâmetros
-1. Abra o [portal Azure.](https://portal.azure.com)
+1. Abra o [Portal do Azure](https://portal.azure.com).
 
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL.
 

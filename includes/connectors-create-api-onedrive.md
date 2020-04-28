@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: 951ab2300aa4ffed2c5f1039ff993cd7f6af543f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74789680"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -24,7 +24,7 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 2. Se você não tiver criado quaisquer conexões OneDrive anteriormente, será solicitado a entrar usando suas credenciais do OneDrive:  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Selecione **Entrar** e insira seu nome de usuário e senha. Selecione **Entrar**:  
+3. Selecione **Entrar** e insira seu nome de usuário e senha. Selecione **entrar**:  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
     Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do OneDrive e usá-los. 

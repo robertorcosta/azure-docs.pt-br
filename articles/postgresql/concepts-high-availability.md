@@ -1,19 +1,19 @@
 ---
-title: Alta disponibilidade - Banco de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo fornece informações sobre alta disponibilidade no Banco de Dados Azure para PostgreSQL - Single Server.
+title: Alta disponibilidade-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo fornece informações sobre alta disponibilidade no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 80229ff78c4570db583f1218d5d2f72da2dec388
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768564"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Conceitos de alta disponibilidade no Banco de Dados Azure para PostgreSQL - Servidor Único
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Conceitos de alta disponibilidade no banco de dados do Azure para PostgreSQL-servidor único
 O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
 
 ## <a name="high-availability"></a>Alta disponibilidade

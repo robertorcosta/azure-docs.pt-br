@@ -1,5 +1,5 @@
 ---
-title: Permitir ou bloquear convites para organizações específicas - Azure AD
+title: Permitir ou bloquear convites para organizações específicas-Azure AD
 description: Mostra como um administrador pode usar o Portal do Azure ou o PowerShell para definir um acesso ou negar lista para permitir ou impedir usuários B2B de determinados domínios.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74273417"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
@@ -27,7 +27,7 @@ Você pode usar uma lista de permissões ou uma lista de negações para permiti
 
 - Você pode criar uma lista de permissões ou uma lista de negações. Você não pode configurar os dois tipos de listas. Por padrão, qualquer domínio que ão esteja na lista de permissão ou na lista de negação, e vice-versa. 
 - Você pode criar apenas uma política por organização. Você pode atualizar a política para incluir mais domínios ou você pode excluir a política para criar uma nova. 
-- O número de domínios que você pode adicionar a uma lista de desemifique ou negar é limitado apenas pelo tamanho da diretiva. O tamanho máximo de toda a diretiva é de 25 KB (25.000 caracteres), o que inclui a lista de desembaraçoou ou negar lista e quaisquer outros parâmetros configurados para outros recursos.
+- O número de domínios que você pode adicionar a uma lista de permissões ou lista de negações é limitado apenas pelo tamanho da política. O tamanho máximo de toda a política é 25 KB (25.000 caracteres), que inclui a lista de permissões ou a lista de negações e quaisquer outros parâmetros configurados para outros recursos.
 - Esta lista funciona independentemente das listas de permissão/bloqueio do OneDrive for Business e SharePoint Online. Se você quiser restringir o compartilhamento de arquivos no SharePoint Online, será necessário configurar uma lista de permissão ou negação para o One Drive for Business e para o SharePoint Online. Para obter mais informações, consulte [Compartilhamento de domínios restritos no SharePoint Online e OneDrive for Business ](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - A lista não se aplica a usuários externos que já resgataram o convite. A lista será aplicada depois que for configurada. Se um convite do usuário estiver em um estado pendente e você definir uma política que bloqueia seu domínio, a tentativa do usuário para resgatar o convite falhará.
 
@@ -41,11 +41,11 @@ Esse é o cenário mais comum, onde sua organização deseja trabalhar com quase
 
 Adicionar uma lista de negações:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. Selecione as configurações de **usuário do azure active** > **Users** > **directory**.
-3. Em **usuários externos,** **selecione Gerenciar configurações de colaboração externa**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Selecione **Azure Active Directory** > **configurações de usuário****dos usuários** > .
+3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Negar convites para os domínios especificados**.
-5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo: 
+5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
 
    ![Mostra a opção de negar com domínios adicionados](./media/allow-deny-list/DenyListSettings.png)
  
@@ -62,11 +62,11 @@ Se você quiser usar uma lista de permissões, certifique-se de avaliar completa
 
 Para adicionar uma lista de permissões:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. Selecione as configurações de **usuário do azure active** > **Users** > **directory**.
-3. Em **usuários externos,** **selecione Gerenciar configurações de colaboração externa**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Selecione **Azure Active Directory** > **configurações de usuário****dos usuários** > .
+3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Permitir convites somente para os domínios especificados (mais restritivos)**.
-5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo: 
+5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
 
    ![Mostra a opção de permitir com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
  
@@ -83,7 +83,7 @@ Se você alternar de uma política para o outra, isso descartará a configuraç�
 ### <a name="prerequisite"></a>Pré-requisito
 
 > [!Note]
-> O Módulo AzureADPreview não é um módulo totalmente suportado como está na pré-visualização. 
+> O módulo AzureADPreview não é um módulo totalmente suportado, pois está em versão prévia. 
 
 Para definir a lista de permissão ou negação usando o PowerShell, você deve instalar a versão de visualização do Microsoft Azure Active Directory para Windows PowerShell. Especificamente, instale a versão do módulo AzureADPreview versão 2.0.0.98 ou posterior.
 
@@ -140,19 +140,19 @@ O mesmo exemplo é exibido a seguir, mas com de definição da política embutid
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
+Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obter a política, use o cmdlet [AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
+Para obter a política, use o cmdlet [AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para remover a política, use o cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
+Para remover a política, use o cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -161,7 +161,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral do Azure AD B2B, consulte [O que é a colaboração do Azure AD B2B?](what-is-b2b.md)
-- Para obter informações sobre acesso condicional e colaboração B2B, consulte [Acesso Condicional para usuários de colaboração B2B](conditional-access.md).
+- Para obter informações sobre acesso condicional e colaboração B2B, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).
 
 
 

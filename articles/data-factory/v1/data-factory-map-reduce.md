@@ -13,23 +13,23 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74703147"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Chamar Programas MapReduce da Data Factory
-> [!div class="op_single_selector" title1="Atividades de Transformação"]
-> * [Atividade colmeia](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="Atividades de transformação"]
+> * [Atividade do hive](data-factory-hive-activity.md) 
 > * [Atividade Pig](data-factory-pig-activity.md)
-> * [Mapearreduzir a atividade](data-factory-map-reduce.md)
-> * [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de execução em lote de aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -135,7 +135,7 @@ Primeiro, crie um serviço vinculado para vincular o armazenamento do Azure que 
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
-Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsight do Azure para a fábrica de dados do Azure. Se você copiar/colar o seguinte código, substitua o nome do **cluster HDInsight** pelo nome do seu cluster HDInsight e altere os valores de nome de usuário e senha.   
+Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsight do Azure para a fábrica de dados do Azure. Se você copiar/colar o código a seguir, substitua o **nome do cluster hdinsight** pelo nome do seu cluster hdinsight e altere os valores de nome de usuário e senha.   
 
 ```JSON
 {
@@ -245,10 +245,10 @@ Você pode usar a atividade MapReduce para executar programas Spark no cluster H
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Consulte também
-* [Atividade colmeia](data-factory-hive-activity.md)
+## <a name="see-also"></a>Consulte Também
+* [Atividade do hive](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
-* [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
+* [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

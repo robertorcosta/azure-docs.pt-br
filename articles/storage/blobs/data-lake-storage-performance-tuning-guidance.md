@@ -9,13 +9,13 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74327935"
 ---
-# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar o Azure Data Lake Storage Gen2 para obter desempenho
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
 O Azure Data Lake Storage Gen2 dá suporte a alta taxa de transferência para movimentação de dados e análise com uso intensivo de E/S.  No Data Lake Storage Gen2, usar toda a taxa de transferência disponível – a quantidade de dados que podem ser lidos ou gravados por segundo – é importante para obter o melhor desempenho.  Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
 
@@ -80,7 +80,7 @@ Novamente, a escolha que você fizer com a pasta e organização do arquivo deve
 Trabalhos se enquadram em uma destas três categorias:
 
 * **Com uso intensivo de CPU.**  Esses trabalhos têm tempos de computação longos com tempos de E/S mínimos.  Exemplos incluem aprendizado de máquina e trabalhos de processamento de linguagem natural.  
-* **Memória intensiva.**  Estes trabalhos usam muita memória.  Exemplos incluem PageRank e trabalhos de análise em tempo real.  
+* **Uso intensivo de memória.**  Estes trabalhos usam muita memória.  Exemplos incluem PageRank e trabalhos de análise em tempo real.  
 * **Com uso intensivo de E/S.**  Esses trabalhos passam a maior parte do tempo fazendo E/S.  Um exemplo comum é um trabalho de cópia que realiza somente operações de leitura e gravação.  Outros exemplos incluem trabalhos de preparação de dados que leem muitos dados, executam alguma transformação de dados e, em seguida, gravam os dados de volta para o repositório.  
 
 As diretrizes a seguir são aplicáveis somente a trabalhos com uso intensivo de E/S.

@@ -1,21 +1,21 @@
 ---
-title: Loja de Consulta - Banco de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve o recurso Query Store no Banco de Dados Azure para PostgreSQL - Single Server.
+title: Repositório de Consultas-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve o recurso Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768258"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorar o desempenho com o Repositório de Consultas
 
-**Aplica-se a:** Banco de dados Azure para PostgreSQL - Single Server versões 9.6, 10, 11
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
 
 O recurso de Repositório de Consultas no Banco de Dados do Azure para PostgreSQL fornece uma maneira de acompanhar o desempenho de consultas ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de runtime e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Os dados de todos os usuários, bancos de dados e consultas são armazenados em um banco de dados chamado **azure_sys** na instância do Banco de Dados do Azure para PostgreSQL.
 
@@ -29,14 +29,14 @@ O Repositório de Consultas é um recurso que requer aceitação, portanto, ele 
 1. Entre no portal do Azure e selecione seu servidor do Banco de Dados do Azure para PostgreSQL.
 2. Selecione **Parâmetros de Servidor** na seção **Configurações** do menu.
 3. Pesquise o parâmetro `pg_qs.query_capture_mode`.
-4. Defina o `TOP` valor e **economize**.
+4. Defina o valor como `TOP` e **salve**.
 
-Para habilitar estatísticas de espera em sua loja de consultas: 
+Para habilitar as estatísticas de espera no seu Repositório de Consultas: 
 1. Pesquise o parâmetro `pgms_wait_sampling.query_capture_mode`.
-1. Defina o `ALL` valor e **economize**.
+1. Defina o valor como `ALL` e **salve**.
 
 
-Alternativamente, você pode definir esses parâmetros usando o Azure CLI.
+Como alternativa, você pode definir esses parâmetros usando o CLI do Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -58,9 +58,9 @@ Os cenários comuns para usar o Repositório de Consultas incluem:
 
 Para minimizar o uso de espaço, as estatísticas de execução de runtime no repositório de estatísticas de runtime são agregadas em uma janela de tempo fixa configurável. As informações nesses repositórios são visíveis consultando as exibições do repositório de consultas.
 
-## <a name="access-query-store-information"></a>Informações da Loja de Consulta de Acesso
+## <a name="access-query-store-information"></a>Informações de Repositório de Consultas de acesso
 
-Os dados do Query Store são armazenados no banco de dados azure_sys no servidor Postgres. 
+Os dados de Repositório de Consultas são armazenados no banco azure_sys no servidor Postgres. 
 
 A consulta a seguir retorna informações sobre consultas no Repositório de Consultas:
 ```sql
@@ -72,7 +72,7 @@ Ou essa consulta para estatísticas de espera:
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
 
-Você também pode emitir dados da Query Store para [o Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) para análise e alerta, Hubs de eventos para streaming e Armazenamento Azure para arquivamento. As categorias de log a configurar são **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. Para saber mais sobre a configuração, visite o artigo de configurações de diagnóstico do [Azure Monitor.](../azure-monitor/platform/diagnostic-settings.md)
+Você também pode emitir Repositório de Consultas dados para [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md) para análise e alertas, hubs de eventos para streaming e armazenamento do Azure para arquivamento. As categorias de log a serem configuradas são **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**. Para saber mais sobre a instalação, visite o artigo [Azure monitor configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) .
 
 
 ## <a name="finding-wait-queries"></a>Localizando consultas de espera
@@ -91,7 +91,7 @@ Quando o Repositório de Consultas está habilitado, ele salva dados em janelas 
 
 As opções a seguir estão disponíveis para configurar os parâmetros do Repositório de Consultas.
 
-| **Parâmetro** | **Descrição** | **Padrão** | **Gama**|
+| **Parâmetro** | **Descrição** | **Os** | **Amplitude**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Define quais instruções são rastreadas. | none | none, top, all |
 | pg_qs.max_query_text_length | Define o comprimento máximo de consulta que pode ser salvo. Consultas mais longas serão truncadas. | 6000 | 100 a 10 mil |
@@ -100,7 +100,7 @@ As opções a seguir estão disponíveis para configurar os parâmetros do Repos
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Padrão** | **Gama**|
+| **Parâmetro** | **Descrição** | **Os** | **Amplitude**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Define quais instruções são rastreadas para as estatísticas de espera. | none | none, all|
 | Pgms_wait_sampling.history_period | Define a frequência, em milissegundos, com a qual são realizadas amostras dos eventos de espera. | 100 | 1 a 600000 |
@@ -127,8 +127,8 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 |query_id   |BIGINT  || Código hash interno, computado da árvore de análise da instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Consultas diferentes com a mesma estrutura são agrupadas. Este texto é o da primeira das consultas no cluster.|
 |plan_id    |BIGINT |   |ID do plano correspondente a essa consulta, ainda não disponível|
-|start_time | timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
-|end_time   | timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
+|start_time |timestamp  ||  Consultas são agregadas por buckets de tempo: o período de um bucket é de 15 minutos por padrão. Essa é a hora de início correspondente ao bucket de tempo para esta entrada.|
+|end_time   |timestamp  ||  Hora de término correspondente ao bucket de tempo para esta entrada.|
 |chamadas  |BIGINT  || Número de vezes que a consulta foi executada|
 |total_time |double precision   ||  Tempo total de execução da consulta em milissegundos|
 |min_time   |double precision   ||  Tempo mínimo de execução da consulta em milissegundos|
@@ -182,7 +182,7 @@ Query_store.staging_data_reset() retorna void
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 - Se um servidor PostgreSQL tem o parâmetro default_transaction_read_only ativo, o Repositório de Consultas não é capaz de capturar dados.
 - A funcionalidade do Repositório de Consultas poderá ser interrompida se ele encontrar consultas Unicode longas (> = 6.000 bytes).
-- [Leia réplicas](concepts-read-replicas.md) replicam dados da Query Store do servidor mestre. Isso significa que a Loja de Consulta de uma réplica de leitura não fornece estatísticas sobre consultas executadas na réplica de leitura.
+- As [réplicas de leitura](concepts-read-replicas.md) replicam dados de repositório de consultas do servidor mestre. Isso significa que a Repositório de Consultas de uma réplica de leitura não fornece estatísticas sobre as consultas executadas na réplica de leitura.
 
 
 ## <a name="next-steps"></a>Próximas etapas

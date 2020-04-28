@@ -1,26 +1,26 @@
 ---
-title: Proteção avançada contra ameaças - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Saiba como usar o Advanced Threat Protection para detectar atividades anômalas de banco de dados que indiquem possíveis ameaças à segurança no banco de dados.
+title: Proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como usar a proteção avançada contra ameaças para detectar atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74768734"
 ---
-# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças no banco de dados Azure para PostgreSQL - Servidor Único
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças no banco de dados do Azure para PostgreSQL-servidor único
 
 A Proteção Avançada contra Ameaças para o Banco de Dados do Azure para PostgreSQL detecta atividades anômalas, indicando tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
 > [!NOTE]
-> O Advanced Threat Protection está em pré-visualização pública.
+> A proteção avançada contra ameaças está em visualização pública.
 
-A Proteção contra Ameaças faz parte da oferta de ATP (Proteção Avançada contra Ameaças), que é um pacote unificado para funcionalidades avançadas de segurança. O Advanced Threat Protection pode ser acessado e gerenciado através do [portal Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/postgresql/serversecurityalertpolicies). O recurso está disponível para servidores gerais otimizados para propósitos e memória.
+A Proteção contra Ameaças faz parte da oferta de ATP (Proteção Avançada contra Ameaças), que é um pacote unificado para funcionalidades avançadas de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/postgresql/serversecurityalertpolicies). O recurso está disponível para servidores Uso Geral e com otimização de memória.
 
 > [!NOTE]
 > A funcionalidade de Proteção Avançada contra Ameaças **não** está disponível nestas regiões de nuvem soberana e do Azure Governamental: US Gov – Texas, US Gov – Arizona, US Gov Iowa, US Gov – Virgínia, Leste do US DoD, Região Central do US DoD, Região Central da Alemanha, Norte da Alemanha, Leste da China e Leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para ver a disponibilidade geral do produto.

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar regras de firewall - Azure CLI - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve como criar e gerenciar regras de firewall no Banco de Dados Azure para PostgreSQL - Servidor Único usando a linha de comando Azure CLI.
+title: Gerenciar regras de firewall-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como criar e gerenciar regras de firewall no banco de dados do Azure para PostgreSQL-servidor único usando CLI do Azure linha de comando.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4af0fb288961689fb051bab8091c838f793cfcc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74765640"
 ---
-# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Crie e gerencie regras de firewall no Banco de Dados Do Azure para PostgreSQL - Servidor Único usando o Azure CLI
-As regras de firewall em nível de servidor podem ser usadas para gerenciar o acesso a um banco de dados Do Zure para O Servidor PostgreSQL a partir de um endereço IP específico ou uma gama de endereços IP. Usando comandos convenientes da CLI do Azure, você pode criar, atualizar, excluir, listar e mostrar as regras de firewall para gerenciar o servidor. Para obter uma visão geral do Banco de Dados Do Azure para as regras de firewall postgreSQL, consulte [O Banco de Dados Do Azure para as regras de firewall do PostgreSQL Server](concepts-firewall-rules.md).
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerenciar regras de firewall no banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
+As regras de firewall no nível de servidor podem ser usadas para gerenciar o acesso a um banco de dados do Azure para o servidor PostgreSQL de um endereço IP ou intervalo de endereços IP específico. Usando comandos convenientes da CLI do Azure, você pode criar, atualizar, excluir, listar e mostrar as regras de firewall para gerenciar o servidor. Para obter uma visão geral das regras de firewall do banco de dados do Azure para PostgreSQL, consulte [regras de firewall do banco de dados do Azure para PostgreSQL](concepts-firewall-rules.md).
 
-As regras da Rede Virtual (VNet) também podem ser usadas para garantir o acesso ao seu servidor. Saiba mais sobre [a criação e gerenciamento de pontos finais e regras de serviços da Rede Virtual usando o Azure CLI](howto-manage-vnet-using-cli.md).
+As regras de rede virtual (VNet) também podem ser usadas para proteger o acesso ao seu servidor. Saiba mais sobre como [criar e gerenciar pontos de extremidade de serviço de rede virtual e regras usando o CLI do Azure](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
@@ -81,5 +81,5 @@ Após o êxito, não haverá saída. Em caso de falha, o texto da mensagem de er
 ## <a name="next-steps"></a>Próximas etapas
 - Da mesma forma, é possível usar um navegador da Web para [Criar e gerenciar as regras de firewall do Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-manage-firewall-using-portal.md).
 - Entenda mais sobre as [Regras de firewall do servidor de Banco de Dados do Azure para PostgreSQL](concepts-firewall-rules.md).
-- Mais acesso seguro ao seu [servidor, criando e gerenciando pontos finais e regras de serviço da Rede Virtual usando o Azure CLI](howto-manage-vnet-using-cli.md).
+- Proteja ainda mais o acesso ao seu servidor [criando e gerenciando pontos de extremidade de serviço de rede virtual e regras usando o CLI do Azure](howto-manage-vnet-using-cli.md).
 - Para obter ajuda com a conexão com um servidor do Banco de Dados do Azure para PostgreSQL, consulte [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).

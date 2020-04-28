@@ -1,5 +1,5 @@
 ---
-title: Desative logins de usuário para um aplicativo corporativo no Azure AD
+title: Desabilitar as entradas de usuário para um aplicativo empresarial no Azure AD
 description: Como desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,29 +17,29 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74274083"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desabilitar entradas de usuário em um aplicativo empresarial no Azure Active Directory
 
-É fácil desativar um aplicativo corporativo para que nenhum usuário possa fazer login nele no Azure Active Directory (Azure AD). Você precisa das permissões apropriadas para gerenciar o aplicativo corporativo. E, você deve ser o diretor global para o diretório.
+É fácil desabilitar um aplicativo empresarial para que nenhum usuário possa entrar nele no Azure Active Directory (AD do Azure). Você precisa das permissões apropriadas para gerenciar o aplicativo empresarial. E você deve ser administrador global para o diretório.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Como desabilitar entradas de usuário?
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-1. Selecione **Todos os serviços,** **digite o Diretório Ativo do Azure** na caixa de texto e, em seguida, **selecione Enter**.
-1. No painel de nome do -  ***diretório*** ativo do **Azure**(ou seja, o painel Azure AD para o diretório que você está gerenciando), selecione **aplicativos Corporativos**.
-1. Nos **aplicativos Enterprise - Todos os aplicativos** pane, você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
+1. Selecione **todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
+1. No painel **Azure Active Directory** -  ***DirectoryName*** (ou seja, o painel do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
+1. No painel **aplicativos empresariais – todos os aplicativos** , você vê uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
 1. No painel ***nomedoaplicativo*** (ou seja, o painel com o nome do aplicativo selecionado no título), selecione **Propriedades**.
-1. No painel**propriedades** do ***aplicativo,*** - selecione **Não** para **Habilitar para os usuários fazerem login?**.
+1. No painel ***appname*** - **Propriedades** de AppName, selecione **não** para **habilitado para os usuários entrarem?**.
 1. Escolha o comando **Salvar** .
 
-## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Use o Azure AD PowerShell para desativar um aplicativo não listado
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Usar o PowerShell do Azure AD para desabilitar um aplicativo não listado
 
-Se você conhece o AppId de um aplicativo que não aparece na lista de aplicativos da Enterprise (por exemplo, porque você excluiu o aplicativo ou o diretor do serviço ainda não foi criado devido ao aplicativo ser pré-autorizado pela Microsoft), você pode criar manualmente o principal de serviço para o aplicativo e, em seguida, desativá-lo usando [o cmdlet AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+Se você souber a AppId de um aplicativo que não aparece na lista de aplicativos empresariais (por exemplo, porque você excluiu o aplicativo ou a entidade de serviço ainda não foi criada porque o aplicativo está autorizado previamente pela Microsoft), você poderá criar manualmente a entidade de serviço para o aplicativo e, em seguida, desabilitá-lo usando o [cmdlet do PowerShell do AzureAD](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
 
 ```PowerShell
 # The AppId of the app to be disabled

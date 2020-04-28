@@ -1,6 +1,6 @@
 ---
-title: Exigir MFA de redes não confiáveis - Azure Active Directory
-description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para tentativas de acesso de redes não confiáveis.
+title: Exigir MFA de redes não confiáveis-Azure Active Directory
+description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para para tentativas de acesso de redes não confiáveis.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,30 +12,30 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cedec7f0bd51460796d8138f8d481d2982098f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74379998"
 ---
-# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir mfa para acesso de redes não confiáveis com acesso condicional   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
 O Azure AD (Azure Active Directory) permite o logon único em dispositivos, aplicativos e serviços em qualquer lugar. Os usuários podem acessar seus aplicativos na nuvem não apenas na rede de sua organização, mas também em qualquer localização não confiável da Internet. Uma melhor prática comum para acesso em redes não confiáveis é exigir o MFA (autenticação multifator).
 
-Este artigo fornece as informações necessárias para configurar uma política de acesso condicional que requer MFA para acesso a redes não confiáveis. 
+Este artigo fornece as informações necessárias para configurar uma política de acesso condicional que requer MFA para acesso de redes não confiáveis. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você esteja familiarizado com: 
 
-- Os [conceitos básicos](overview.md) do Azure AD Conditional Access 
-- As [melhores práticas](best-practices.md) para configurar políticas de Acesso Condicional no portal Azure
+- Os [conceitos básicos](overview.md) do acesso condicional do Azure AD 
+- As [práticas recomendadas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Para dominar o equilíbrio entre segurança e produtividade, pode ser suficiente que você apenas exija uma senha para entradas na rede de sua organização. No entanto, para o acesso em uma localização de rede não confiável, há um risco maior de que as entradas não sejam feitas por usuários legítimos. Para resolver esse problema, você pode bloquear o acesso em redes não confiáveis. Como alternativa, também é possível exigir MFA (autenticação multifator) para obter garantia adicional de que uma tentativa foi feita pelo proprietário legítimo da conta. 
 
-Com o Azure AD Conditional Access, você pode resolver esse requisito com uma única política que concede acesso: 
+Com o acesso condicional do Azure AD, você pode atender a esse requisito com uma única política que concede acesso: 
 
 - Para aplicativos na nuvem selecionados
 - Para usuários e grupos selecionados  
@@ -45,23 +45,23 @@ Com o Azure AD Conditional Access, você pode resolver esse requisito com uma ú
 
 ## <a name="implementation"></a>Implementação
 
-O desafio deste cenário é traduzir o *acesso de um local de rede não confiável* para uma condição de Acesso Condicional. Em uma política de acesso condicional, você pode configurar a condição de [local](location-condition.md) para abordar cenários relacionados aos locais da rede. A condição de locais permite que você selecione locais nomeados, que são agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
+O desafio desse cenário é converter o *acesso de um local de rede não confiável* em uma condição de acesso condicional. Em uma política de acesso condicional, você pode configurar a [condição de locais](location-condition.md) para tratar de cenários relacionados a locais de rede. A condição de locais permite que você selecione locais nomeados, que são agrupamentos lógicos de intervalos de endereços IP, países e regiões.  
 
-Normalmente, sua organização possui uma ou mais faixas de endereço, por exemplo, 199.30.16.0 - 199.30.16.15.
+Normalmente, sua organização possui um ou mais intervalos de endereços, por exemplo, 199.30.16.0-199.30.16.15.
 É possível configurar um local nomeado por:
 
-- Especificando este intervalo (199.30.16.0/28) 
+- Especificando esse intervalo (199.30.16.0/28) 
 - Atribuindo um nome descritivo, como **Rede Corporativa** 
 
 Em vez de tentar definir quais são todos os locais confiáveis ou não confiáveis, é possível:
 
 - Incluir qualquer localização 
 
-   ![Acesso Condicional](./media/untrusted-networks/02.png)
+   ![Acesso condicional](./media/untrusted-networks/02.png)
 
 - Excluir todos os locais confiáveis 
 
-   ![Acesso Condicional](./media/untrusted-networks/01.png)
+   ![Acesso condicional](./media/untrusted-networks/01.png)
 
 ## <a name="policy-deployment"></a>Implantação de política
 
@@ -69,4 +69,4 @@ Com a abordagem descrita neste artigo, agora você pode configurar uma política
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você gostaria de saber mais sobre o Conditional Access, veja [o que é acesso condicional no Diretório Ativo do Azure?](../active-directory-conditional-access-azure-portal.md)
+Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)

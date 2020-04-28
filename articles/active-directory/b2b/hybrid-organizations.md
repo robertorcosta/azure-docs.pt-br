@@ -1,5 +1,5 @@
 ---
-title: Colaboração B2B para organizações híbridas - Azure AD
+title: Colaboração B2B para organizações híbridas-Azure AD
 description: Fornece aos parceiros acesso a ambos os recursos locais e na nuvem com a colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427f7ad4d6a1b9839b1197ef9f7ca15400ea0f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74272482"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboração B2B do Azure Active Directory para organizações híbridas
@@ -48,6 +48,6 @@ Para obter detalhes sobre a implementação, consulte [Conceder às contas de pa
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais](hybrid-cloud-to-on-premises.md)
-- [Conceda acesso a contas de parceiros gerenciadas localmente a recursos na nuvem usando a colaboração Azure AD B2B](hybrid-on-premises-to-cloud.md)
+- [Conceder acesso às contas de parceiros gerenciadas localmente aos recursos de nuvem usando a colaboração B2B do Azure AD](hybrid-on-premises-to-cloud.md)
 
 

@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de latência usando logs da Análise de Armazenamento
-description: Identifique e soluciona problemas de latência usando logs do Azure Storage Analytic e otimize o aplicativo cliente.
+description: Identificar e solucionar problemas de latência usando logs analíticos do armazenamento do Azure e otimizar o aplicativo cliente.
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
@@ -11,25 +11,25 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74196515"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solucionar problemas de latência usando logs da Análise de Armazenamento
 
-Diagnosticar e solucionar problemas é uma habilidade fundamental para construir e apoiar aplicativos de clientes com o Azure Storage.
+Diagnosticar e solucionar problemas é uma importante habilidade para criar e dar suporte a aplicativos cliente com o armazenamento do Azure.
 
-Devido à natureza distribuída de um aplicativo Azure, diagnosticar e solucionar problemas de erros e desempenho pode ser mais complexo do que em ambientes tradicionais.
+Devido à natureza distribuída de um aplicativo do Azure, o diagnóstico e a solução de problemas de erros e de desempenho podem ser mais complexos do que em ambientes tradicionais.
 
-As etapas a seguir demonstram como identificar e solucionar problemas de latência usando logs do Azure Storage Analytic e otimizar o aplicativo cliente.
+As etapas a seguir demonstram como identificar e solucionar problemas de latência usando logs analíticos do armazenamento do Azure e otimizar o aplicativo cliente.
 
 ## <a name="recommended-steps"></a>Etapas recomendadas
 
-1. Baixe os [registros do Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Baixe os [logs de análise de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
-2. Use o seguinte script PowerShell para converter os logs de formato bruto em formato tabular:
+2. Use o seguinte script do PowerShell para converter os logs de formato bruto em formato tabular:
 
    ```Powershell
    $Columns = 
@@ -70,99 +70,99 @@ As etapas a seguir demonstram como identificar e solucionar problemas de latênc
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
 
-3. O script iniciará uma janela de GUI onde você pode filtrar as informações por colunas, conforme mostrado abaixo.
+3. O script iniciará uma janela de GUI na qual você pode filtrar as informações por colunas, conforme mostrado abaixo.
 
-   ![Janela do analisador de log de armazenamento](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
+   ![Janela analisador do log analítico de armazenamento](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
  
-4. Reduza as entradas de registro com base em "tipo de operação" e procure a entrada de registro criada durante o período de tempo do problema.
+4. Restrinja as entradas de log com base em "tipo de operação" e procure a entrada de log criada durante o período de tempo do problema.
 
-   ![Entradas de log tipo operação](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
+   ![Entradas de log de tipo de operação](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
-5. Durante o período em que ocorreu o problema, os seguintes valores são importantes:
+5. Durante o tempo em que o problema ocorreu, os seguintes valores são importantes:
 
-   * Tipo de operação = GetBlob
-   * status de solicitação = SASNetworkError
-   * End-to-End-Latency-In-Ms = 8453
-   * Servidor-Latência-em-Ms = 391
+   * Operação-tipo = getBlob
+   * solicitação-status = SASNetworkError
+   * Latência de ponta a ponta em MS = 8453
+   * Servidor-latência-in-MS = 391
 
    A latência de ponta a ponta é calculada usando a seguinte equação:
 
-   * Latência de ponta a ponta = Latência do servidor + latência do cliente
+   * Latência de ponta a ponta = latência de servidor + latência de cliente
 
-   Calcular a Latência do Cliente usando a entrada de log:
+   Calcule a latência do cliente usando a entrada de log:
 
-   * Latência do cliente = Latência de ponta a ponta - Latência do servidor
+   * Latência de cliente = latência de ponta a ponta – latência de servidor
 
           * Example: 8453 – 391 = 8062ms
 
-   A tabela a seguir fornece informações sobre os resultados do OperationType e requestStatus de alta latência:
+   A tabela a seguir fornece informações sobre o OperationType de alta latência e os resultados de RequestStatus:
 
-   |   |Status de solicitação=<br>Sucesso|Status de solicitação=<br>(SAS) Erro de rede|Recomendação|
+   |   |RequestStatus =<br>Êxito|RequestStatus =<br>RÍGIDO NetworkError|Recomendação|
    |---|---|---|---|
-   |GetBlob|Sim|Não|[**Operação GetBlob:** Status de solicitação = Sucesso](#getblob-operation-requeststatus--success)|
-   |GetBlob|Não|Sim|[**Operação GetBlob:** Status de solicitação = (SAS)Erro de rede](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Sim|Não|[**Operação de colocação:** Status de solicitação = Sucesso](#put-operation-requeststatus--success)|
-   |PutBlob|Não|Sim|[**Operação de colocação:** Status de solicitação = (SAS)Erro de rede](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Sim|Não|[**Operação getBlob:** RequestStatus = êxito](#getblob-operation-requeststatus--success)|
+   |GetBlob|Não|Sim|[**Operação getBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Sim|Não|[**Operação Put:** RequestStatus = êxito](#put-operation-requeststatus--success)|
+   |PutBlob|Não|Sim|[**Operação Put:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Resultados de status
 
-### <a name="getblob-operation-requeststatus--success"></a>Operação GetBlob: RequestStatus = Sucesso
+### <a name="getblob-operation-requeststatus--success"></a>Operação getBlob: RequestStatus = êxito
 
-Verifique os valores a seguir mencionados na etapa 5 da seção "Etapas recomendadas":
+Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência do servidor
-* Latência cliente-cliente
+* Latência de servidor
+* Latência do cliente
 
-Em uma **operação GetBlob** com **RequestStatus = Sucesso**, se Max **Time** for gasto em **Latência cliente,** isso indica que o Azure Storage está gastando um grande volume de tempo escrevendo dados para o cliente. Esse atraso indica um problema do lado do cliente.
+Em uma **operação getBlob** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o armazenamento do Azure está gastando um grande volume de tempo gravando dados no cliente. Esse atraso indica um problema do lado do cliente.
 
 **Recomendação:**
 
-* Investigue o código do seu cliente.
-* Use Wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente. 
+* Investigue o código em seu cliente.
+* Use o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente. 
 
-### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>Operação GetBlob: Status de solicitação = (SAS)Erro de rede
+### <a name="getblob-operation-requeststatus--sasnetworkerror"></a>Operação getBlob: RequestStatus = (SAS) NetworkError
 
-Verifique os valores a seguir mencionados na etapa 5 da seção "Etapas recomendadas":
-
-* Latência de ponta a ponta
-* Latência do servidor
-* Latência cliente-cliente
-
-Em uma **operação GetBlob** com **RequestStatus = (SAS)NetworkError**, se **Max Time** for gasto em **Latência cliente,** o problema mais comum é que o cliente está desconectando antes que um tempo expirar no serviço de armazenamento.
-
-**Recomendação:**
-
-* Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento.
-* Use Wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente. 
-
-### <a name="put-operation-requeststatus--success"></a>Operação de colocar: RequestStatus = Sucesso
-
-Verifique os valores a seguir mencionados na etapa 5 da seção "Etapas recomendadas":
+Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
 
 * Latência de ponta a ponta
-* Latência do servidor
-* Latência cliente-cliente
+* Latência de servidor
+* Latência do cliente
 
-Em uma **Operação de Put** com **RequestStatus = Sucesso**, se Max **Time** for gasto em **Latência cliente,** isso indica que o Cliente está levando mais tempo para enviar dados para o Armazenamento Azure. Esse atraso indica um problema do lado do cliente.
-
-**Recomendação:**
-
-* Investigue o código do seu cliente.
-* Use Wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente. 
-
-### <a name="put-operation-requeststatus--sasnetworkerror"></a>Operação de colocar: RequestStatus = (SAS)NetworkError
-
-Verifique os valores a seguir mencionados na etapa 5 da seção "Etapas recomendadas":
-
-* Latência de ponta a ponta
-* Latência do servidor
-* Latência cliente-cliente
-
-Em uma **operação PutBlob** com **RequestStatus = (SAS)NetworkError**, se **Max Time** for gasto em **Latência cliente,** o problema mais comum é que o cliente está desconectando antes que um tempo expirar no serviço de armazenamento.
+Em uma **operação getBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
 
 **Recomendação:**
 
 * Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento.
-* Use Wireshark, Microsoft Message Analyzer ou Tcping para investigar problemas de conectividade de rede do cliente.
+* Use o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente. 
+
+### <a name="put-operation-requeststatus--success"></a>Operação Put: RequestStatus = êxito
+
+Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
+
+* Latência de ponta a ponta
+* Latência de servidor
+* Latência do cliente
+
+Em uma **operação Put** com **RequestStatus = Success**, se o **tempo máximo** for gasto na **latência do cliente**, isso indica que o cliente está demorando mais tempo para enviar dados para o armazenamento do Azure. Esse atraso indica um problema do lado do cliente.
+
+**Recomendação:**
+
+* Investigue o código em seu cliente.
+* Use o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente. 
+
+### <a name="put-operation-requeststatus--sasnetworkerror"></a>Operação Put: RequestStatus = (SAS) NetworkError
+
+Verifique os valores a seguir, conforme mencionado na etapa 5 da seção "etapas recomendadas":
+
+* Latência de ponta a ponta
+* Latência de servidor
+* Latência do cliente
+
+Em uma **operação PutBlob** com **REQUESTSTATUS = (SAS) NetworkError**, se o **tempo máximo** for gasto na **latência do cliente**, o problema mais comum é que o cliente está desconectando antes que o tempo limite expire no serviço de armazenamento.
+
+**Recomendação:**
+
+* Investigue o código no cliente para entender porque e quando o cliente desconecta do serviço de armazenamento.
+* Use o Wireshark, o Microsoft Message Analyzer ou o Tcping para investigar problemas de conectividade de rede do cliente.
 
