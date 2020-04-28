@@ -1,16 +1,16 @@
 ---
-title: Implantar cache do Azure para Redis com o Gerenciador de Recursos do Azure
-description: Aprenda a usar um modelo do Azure Resource Manager para implantar um recurso Do Azure Cache for Redis. Modelos são fornecidos para cenários comuns.
+title: Implantar o cache do Azure para Redis com o Azure Resource Manager
+description: Saiba como usar um modelo de Azure Resource Manager para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75412400"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um Cache Redis do Azure usando um modelo
@@ -30,7 +30,7 @@ Para obter o modelo completo, consulte [Modelo do Cache Redis do Azure](https://
 > 
 > * [Criar um Cache do Azure para Redis Premium com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Criar um Cache Redis do Azure Premium com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Criar cache Premium Redis implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Criar um cache Redis Premium implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Azure Cache for Redis`.
 > 

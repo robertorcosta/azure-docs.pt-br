@@ -1,5 +1,5 @@
 ---
-title: Problemas de disponibilidade de aplicativos e serviços FAQ
+title: Perguntas frequentes sobre problemas de disponibilidade de aplicativos e serviços
 titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre o aplicativo e a disponibilidade do serviço para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386911"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
@@ -46,4 +46,4 @@ Os documentos a seguir ajudarão você a entender e atenuar esse problema:
 
 Se você quiser alterar o comportamento padrão do IIS, precisará usar as tarefas de inicialização, porque se você aplicar as alterações manualmente às instâncias de Função Web, as alterações acabarão sendo perdidas.
 
-Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço em nuvem.](cloud-services-startup-tasks.md)
+Para obter mais informações, consulte [como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).

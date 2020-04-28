@@ -1,5 +1,5 @@
 ---
-title: Rastreie o fluxo no Aplicativo de Serviços em Nuvem com o Azure Diagnostics
+title: Rastrear o fluxo no aplicativo de serviços de nuvem com Diagnóstico do Azure
 titleSuffix: Azure Cloud Services
 description: Adicione mensagens de rastreamento a um aplicativo do Azure para ajudar a depurar, medir o desempenho, monitorar, realizar a análise de tráfego e muito mais.
 services: cloud-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: tagore
 ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75386503"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure
@@ -65,8 +65,8 @@ Para obter mais informações sobre ouvintes, veja [Ouvintes de rastreamento](/d
 Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar instruções de rastreamento ao código.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Para adicionar a instrução de rastreamento ao código
-1. Abra um arquivo de origem para o aplicativo. Por exemplo, \<o arquivo RoleName>.cs para a função do trabalhador ou função web.
-2. Adicione a seguinte diretiva de uso se ela ainda não tiver sido adicionada:
+1. Abra um arquivo de origem para o aplicativo. Por exemplo, o \<arquivo roleName>. cs para a função de trabalho ou função Web.
+2. Adicione a seguinte diretiva using se ela ainda não tiver sido adicionada:
     ```
         using System.Diagnostics;
     ```

@@ -1,6 +1,6 @@
 ---
 title: Enviar trabalhos do Apache Hadoop no HDInsight
-description: Envie trabalhos do Apache Hadoop no Azure HDInsight usando o Microsoft .NET SDK, curl ou PowerShell
+description: Enviar Apache Hadoop trabalhos no Azure HDInsight usando o SDK Microsoft .NET, a rotação ou o PowerShell
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435705"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos do Apache Hadoop no HDInsight
@@ -21,14 +21,14 @@ Você pode enviar tarefas do Apache Hadoop no HDInsight do Azure usando o Micros
 
 ## <a name="resources"></a>Recursos
 
-- **SDK .NET**:
+- **SDK do .net**:
 
   - [Criar aplicativos .NET de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Executar consultas Apache Hive usando o SDK .NET do HDInsight](apache-hadoop-use-hive-dotnet-sdk.md)
   - [Executar tarefas do Apache Sqoop usando o SDK do .NET para o Apache Hadoop no HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [Executar trabalhos MapReduce usando o SDK .NET do HDInsight](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **enrolar:**
+- **ondulação**:
 
   - [Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-hive-curl.md)
   - [Executar trabalhos do Apache Sqoop com o Apache Hadoop no HDInsight usando a curl](apache-hadoop-use-sqoop-curl.md)

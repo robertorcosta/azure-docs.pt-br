@@ -1,5 +1,5 @@
 ---
-title: Crie pipelines de dados usando o Azure .NET SDK
+title: Criar pipelines de dados usando o SDK do .NET do Azure
 description: Aprenda como criar, monitorar e gerenciar as data factories do Azure programaticamente usando o SDK da Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931325"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Azure Data Factory
@@ -33,7 +33,7 @@ Você pode criar, monitorar e gerenciar as Data Factory do Azure programaticamen
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012 ou 2013 ou 2015.
-* Baixe e [instale o Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Baixe e instale o [SDK do .net do Azure](https://azure.microsoft.com/downloads/).
 * PowerShell do Azure. Siga as instruções no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador. Você pode usar o Azure PowerShell para criar um aplicativo do Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar um aplicativo no Azure Active Directory
@@ -50,7 +50,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
     ```powershell
     Get-AzSubscription
     ```
-4. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua ** &lt;NameOfAzureSubscription** &gt; pelo nome da sua assinatura do Azure.
+4. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua ** &lt;nameofazuresubscription pelo** &gt; pelo nome da sua assinatura do Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -109,14 +109,14 @@ No passo a passo, você cria um data factory com um pipeline que contém uma ati
 A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A atividade é habilitada por um serviço globalmente disponível que pode copiar dados entre vários repositórios de dados de forma segura, confiável e escalonável. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.
 
 1. Usando o Visual Studio 2012/2013/2015, crie um aplicativo de console C# .NET.
-   1. Lançamento **visual studio** 2012/2013/2015.
+   1. Inicie o **Visual Studio** 2012/2013/2015.
    2. Clique em **Arquivo**, aponte para **Novo** e clique em **Projeto**.
-   3. Expandir **modelos**e selecionar **Visual C#**. Neste passo a passo, você usa C#, mas você pode usar qualquer linguagem .NET.
+   3. Expanda **modelos**e selecione **Visual C#**. Neste passo a passo, você usa C#, mas você pode usar qualquer linguagem .NET.
    4. Selecione **Aplicativo de console** na lista de tipos de projetos à direita.
    5. Digite **DataFactoryAPITestApp** como o Nome.
    6. Selecione **C:\ADFGetStarted** como o Local.
    7. Clique em **OK** para criar o projeto.
-2. Clique **em Ferramentas,** aponte para **O Gerenciador de Pacotes NuGet**e clique **em Console do Gerenciador de pacotes**.
+2. Clique em **ferramentas**, aponte para **Gerenciador de pacotes NuGet**e clique em **console do Gerenciador de pacotes**.
 3. No **Console do Gerenciador de Pacotes**, realize as seguintes etapas:
    1. Execute o seguinte comando para instalar o pacote de Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (use a API do Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
@@ -137,7 +137,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
         </appSettings>
     </configuration>
     ```
-5. No arquivo App.Config, atualize os valores para ** &lt;&gt;ID de aplicativo,** ** &lt;senha,&gt;** ** &lt;ID&gt;de assinatura**e ** &lt;ID do&gt; inquilino** com seus próprios valores.
+5. No arquivo app. config, atualize os valores para ** &lt;ID&gt;do aplicativo**, ** &lt;&gt;senha**, ** &lt;ID&gt;da assinatura**e ** &lt;ID&gt; do locatário** com seus próprios valores.
 6. Adicione as seguintes instruções **using** ao arquivo **Program.cs** no projeto.
 
     ```csharp
@@ -453,7 +453,7 @@ A atividade de cópia realiza a movimentação de dados no Azure Data Factory. A
     John, Doe
     Jane, Doe
     ```
-17. Execute a amostra clicando **em Depurar** -> **Depuração** no menu. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
+17. Execute o exemplo clicando em **depurar** -> **Iniciar Depuração** no menu. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
 18. Use o Portal do Azure para verificar se a data factory **APITutorialFactory** foi criada com os seguintes artefatos:
     * Serviço vinculado: **AzureStorageLinkedService**
     * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.

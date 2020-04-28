@@ -1,6 +1,6 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT – conceitos de provisionamento automático
-description: Este artigo fornece uma visão geral conceitual das fases do provisionamento automático do dispositivo, usando DPS (IoT Device Provisioning Service, Serviço de Provisionamento de Dispositivos IoT), IoT Hub e SDKs de clientes.
+description: Este artigo fornece uma visão geral conceitual das fases do provisionamento automático do dispositivo, usando o DPS (serviço de provisionamento de dispositivos IoT), o Hub IoT e os SDKs do cliente.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975322"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de provisionamento automático
@@ -28,7 +28,7 @@ O provisionamento automático do Azure IoT pode ser dividido em três fases:
    > [!NOTE]
    > Independentemente do tamanho da sua solução de IoT, mesmo se você planejar oferecer suporte a milhões de dispositivos, essa será uma **configuração única**.
 
-2. **Registro de dispositivo** – o processo de tornar a instância do Serviço de Provisionamento de Dispositivos ciente dos dispositivos que tentarão se registrar no futuro. [A inscrição](concepts-service.md#enrollment) é realizada configurando informações de identidade do dispositivo no serviço de provisionamento, como uma "inscrição individual" para um único dispositivo ou uma "matrícula em grupo" para vários dispositivos. A identidade baseia-se no [mecanismo de atestado](concepts-security.md#attestation-mechanism) que o dispositivo foi projetado para usar, que permite que o serviço de provisionamento confirme a autenticidade do dispositivo durante o registro:
+2. **Registro de dispositivo** – o processo de tornar a instância do Serviço de Provisionamento de Dispositivos ciente dos dispositivos que tentarão se registrar no futuro. O [registro](concepts-service.md#enrollment) é realizado com a configuração de informações de identidade do dispositivo no serviço de provisionamento, como um "registro individual" para um único dispositivo ou um "registro de grupo" para vários dispositivos. A identidade baseia-se no [mecanismo de atestado](concepts-security.md#attestation-mechanism) que o dispositivo foi projetado para usar, que permite que o serviço de provisionamento confirme a autenticidade do dispositivo durante o registro:
 
    - **TPM**: configurado como um "registro individual", a identidade do dispositivo baseia-se na ID de registro de TPM e a chave de endosso público. Considerando que TPM é uma [especificação](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), o serviço só espera confirmar a especificação, independentemente da implementação do TPM (hardware ou software). Consulte [Provisionamento de dispositivo: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado em TPM. 
 
@@ -41,7 +41,7 @@ O provisionamento automático do Azure IoT pode ser dividido em três fases:
 
 ## <a name="roles-and-operations"></a>Funções e operações
 
-As fases discutidas na seção anterior podem se estender por semanas ou meses, devido a realidades de produção como tempo de fabricação, expedição, processo aduaneiro, etc. Além disso, eles podem abranger atividades em múltiplas funções, dadas as diversas entidades envolvidas. Esta seção faz uma análise mais profunda sobre as várias funções e operações relacionadas a cada fase e ilustra o fluxo em um diagrama de sequência. 
+As fases discutidas na seção anterior podem abranger semanas ou meses, devido a realidades de produção, como tempo de fabricação, envio, processo alfandegário etc. Além disso, eles podem abranger atividades em várias funções dadas as várias entidades envolvidas. Esta seção faz uma análise mais profunda sobre as várias funções e operações relacionadas a cada fase e ilustra o fluxo em um diagrama de sequência. 
 
 O provisionamento automático também coloca requisitos no fabricante do dispositivo específicos para habilitar o mecanismo de atestado. As operações de manufatura também podem ocorrer independentemente do cronograma das fases de provisionamento automático, especialmente em casos em que os novos dispositivos são obtidos depois que o provisionamento automático já tiver sido estabelecido.
 
@@ -59,7 +59,7 @@ Uma série de tutoriais são fornecidos no sumário à esquerda para ajudar a ex
 
 O diagrama a seguir resume as funções e o sequenciamento das operações durante o provisionamento automático do dispositivo:
 <br><br>
-[![Seqüência de provisionamento automático para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
+[![Sequência de provisionamento automático para um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Opcionalmente, o fabricante também pode executar a operação "Registrar a identidade do dispositivo" usando as APIs do Serviço de Provisionamento de Dispositivos (em vez de por meio do operador). Para obter uma discussão detalhada sobre esse sequenciamento e muito mais, veja o [Registro sem toque de dispositivos com vídeo IoT do Azure](https://youtu.be/cSbDRNg72cU?t=2460) (começando no marcador 41:00)
@@ -76,9 +76,9 @@ O fabricante introduz a segurança em módulos de segurança de hardware (HSMs).
 
 Nesse cenário, pode haver duas contas do Azure envolvidas:
 
-- **Conta #1**: Provavelmente compartilhado entre as funções do operador e do desenvolvedor até certo ponto. Essa parte pode adquirir os chips do HSM do fabricante. Esses chips foram apontados para instâncias DPS associadas à Conta n º 1. Com registros de DPS, essa parte pode conceder a dispositivos para vários clientes de nível dois reconfigurando as configurações de registro de dispositivo no DPS. Esta parte também pode ter hubs de IoT alocados para sistemas back-end de usuário final para interagir, a fim de acessar a telemetria do dispositivo etc. Neste último caso, uma segunda conta pode não ser necessária.
+- **#1 de conta**: provavelmente compartilhado entre as funções de operador e de desenvolvedor em algum grau. Essa parte pode adquirir os chips do HSM do fabricante. Esses chips foram apontados para instâncias DPS associadas à Conta n º 1. Com registros de DPS, essa parte pode conceder a dispositivos para vários clientes de nível dois reconfigurando as configurações de registro de dispositivo no DPS. Essa parte também pode ter hubs IoT alocados para que os sistemas de back-end do usuário final se desorganizem para acessar a telemetria do dispositivo etc. Neste último caso, uma segunda conta pode não ser necessária.
 
-- **#2 de conta**: Usuários finais, os clientes de nível dois podem ter seus próprios hubs de IoT. Parte associada com a Conta N. 1 apenas aponta dispositivos concedidos para o hub correto nessa conta. Essa configuração requer a vinculação de hubs de IoT DPS entre contas do Azure, que podem ser feitas com modelos do Azure Resource Manager.
+- **Conta #2**: usuários finais, os clientes de nível dois podem ter seus próprios hubs IOT. Parte associada com a Conta N. 1 apenas aponta dispositivos concedidos para o hub correto nessa conta. Essa configuração requer a vinculação de hubs de IoT DPS entre contas do Azure, que podem ser feitas com modelos do Azure Resource Manager.
 
 #### <a name="all-in-one-oem"></a>OEM todos-em-um
 
@@ -98,15 +98,15 @@ Pode ser útil marcar este artigo como um ponto de referência, enquanto você a
 Comece concluindo o Início Rápido "Configurar o provisionamento automático" que melhor se adapte a sua preferência de ferramenta de gerenciamento durante a fase de "Configuração do serviço":
 
 - [Configurar provisionamento automático usando CLI do Azure](quick-setup-auto-provision-cli.md)
-- [Configurar o provisionamento automático usando o portal Azure](quick-setup-auto-provision.md)
+- [Configurar o provisionamento automático usando o portal do Azure](quick-setup-auto-provision.md)
 - [Configurar o provisionamento automático usando um modelo do Resource Manager](quick-setup-auto-provision-rm.md)
 
 Em seguida, continue com um Início Rápido "Provisionamento automático de um dispositivo simulado" que atenda às seu mecanismo de atestado do dispositivo e a preferência de idioma/SDK do Serviço de Provisionamento de Dispositivos. Neste Início Rápido, você examina as fases "Registro do dispositivo" e "Registro e configuração do dispositivo": 
 
 |  | Mecanismo de atestado do dispositivo simulado | SDK/idioma do Início Rápido |  |
 |--|--|--|--|
-|  | TPM (Trusted Platform Module) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C #](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certificado X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C #](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+|  | TPM (Trusted Platform Module) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
+|  | Certificado X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
 
 
 

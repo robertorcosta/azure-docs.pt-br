@@ -1,16 +1,16 @@
 ---
 title: Como configurar vários mestres no Azure Cosmos DB
-description: Aprenda a configurar multi-master para seus aplicativos usando diferentes SDKs no Azure Cosmos DB.
+description: Saiba como configurar vários mestres para seus aplicativos usando SDKs diferentes no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873634"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres nos aplicativos que usam o Azure Cosmos DB
@@ -20,7 +20,7 @@ Quando uma conta tiver sido criada com várias regiões de gravação habilitada
 > [!Note]
 > Contas do Cosmos configuradas inicialmente com uma região de gravação podem ser configuradas para várias regiões de gravação (ou seja, vários mestres) sem nenhum tempo de inatividade. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
 
-## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK do .NET v2
 
 Para habilitar vários mestres em seu aplicativo, defina `UseMultipleWriteLocations` como `true`. Além disso, defina `SetCurrentLocation` como a região na qual o aplicativo está sendo implantado e em que o Azure Cosmos DB está replicado:
 
@@ -111,7 +111,7 @@ Leia os seguintes artigos:
 * [Alta disponibilidade no Azure Cosmos DB](high-availability.md)
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 * [Escolher o nível de consistência correto no Azure Cosmos DB](consistency-levels-choosing.md)
-* [Negociações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compensações de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
-* [Distribuição global: o capô](global-dist-under-the-hood.md)
+* [Distribuição global: nos bastidores](global-dist-under-the-hood.md)

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364213"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
@@ -43,11 +43,11 @@ Neste passo a passo, usamos [Azure Resource Manager](https://resources.azure.com
 
 4. Eis um cenário hipotético de dimensionamento que usaremos para este passo a passo.
 
-   * **Baseado em carga** - eu gostaria de dimensionar ou entrar com base na carga no meu aplicativo hospedado no meu conjunto de escalas.*
+   * **Baseado em carga** – eu gostaria de escalar horizontalmente ou com base na carga no meu aplicativo hospedado no meu conjunto de dimensionamento. *
    * **Tamanho da fila de mensagem** - usei uma fila do Barramento de Serviço para as mensagens recebidas pelo meu aplicativo. Uso contagem de mensagens da fila e o percentual de CPU e configuro um perfil padrão para disparar uma ação de escala se a contagem de mensagens ou CPU atingir o limite.\*
    * **Dia e hora da semana** ‑ Desejo ter um perfil baseado na “hora do dia” recorrente semanal chamado “Horas da manhã de dias da semana”. Com base nos dados históricos, sei que é melhor ter determinado número de instâncias de VM para lidar com a carga do meu aplicativo durante esse período.\*
    * **Datas especiais** ‑ Adicionei um perfil de “Dia de lançamento de produto”. Planejo com antecedência em relação a datas específicas para que meu aplicativo esteja pronto para lidar com a carga devido a anúncios de marketing e quando colocamos um novo produto no aplicativo.\*
-   * *Os dois últimos perfis também podem ter outras regras baseadas em métricas de desempenho dentro deles. Neste caso, decidi não ter uma e, em vez disso, confiar nas regras baseadas em métrica de desempenho padrão. As regras são opcionais para os perfis recorrentes e baseados em datas.*
+   * *Os dois últimos perfis também podem ter outras regras baseadas em métrica de desempenho dentro deles. Nesse caso, decidi não ter um e, em vez disso, contar com as regras baseadas em métrica de desempenho padrão. As regras são opcionais para os perfis de recorrência e baseados em data.*
 
      A priorização de perfis e regras do mecanismo de dimensionamento automático também é vista no artigo [Práticas recomendadas de dimensionamento automático](autoscale-best-practices.md).
      Para obter uma lista de métricas comuns para dimensionamento automático, confira [Métricas comuns para o dimensionamento automático](autoscale-common-metrics.md)
@@ -58,7 +58,7 @@ Neste passo a passo, usamos [Azure Resource Manager](https://resources.azure.com
 
 6. Clique em Editar. **Substitua** o elemento “perfis” na configuração de dimensionamento automático pela seguinte configuração:
 
-    ![perfis](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -234,7 +234,7 @@ Use estes links para saber mais sobre o dimensionamento automático.
 
 [Solucionar problemas de autoescala com conjuntos de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-[Métricas comuns para autoescala](autoscale-common-metrics.md)
+[Métricas comuns para dimensionamento automático](autoscale-common-metrics.md)
 
 [Práticas Recomendadas para o Serviço de Aplicativo do Azure](autoscale-best-practices.md)
 

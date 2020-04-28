@@ -1,19 +1,19 @@
 ---
-title: Constantes sql no Azure Cosmos DB
-description: Saiba como as constantes de consulta SQL no Azure Cosmos DB são usadas para representar um valor de dados específico
+title: Constantes do SQL no Azure Cosmos DB
+description: Saiba mais sobre como as constantes de consulta SQL no Azure Cosmos DB são usadas para representar um valor de dados específico
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873413"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL query constants  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta do Azure Cosmos DB SQL  
 
  Uma constante, também conhecida como uma literal ou um valor escalar, é um símbolo que representa um valor de dados específico. O formato de uma constante depende do tipo de dados do valor que representa.  
   
@@ -22,11 +22,11 @@ ms.locfileid: "74873413"
 |**Tipo**|**Ordem de valores**|  
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
-|**Null**|Valor único: **nulo**|  
+|**Nulo**|Valor único: **nulo**|  
 |**Boolean**|Valores: **falso**, **verdadeiro**.|  
-|**Número**|Um número de ponto flutuante de precisão dupla, padrão IEEE 754.|  
+|**Automática**|Um número de ponto flutuante de precisão dupla, padrão IEEE 754.|  
 |**Cadeia de caracteres**|Uma sequência de zero ou mais caracteres Unicode. As cadeias de caracteres devem ser colocadas entre aspas simples ou duplas.|  
-|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **Indefinido**.|  
+|**Variedade**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
 |**Objeto**|Um conjunto ordenado de zero ou mais pares de nome/valor. Nome é uma cadeia de caracteres Unicode; o valor pode ser de qualquer tipo de dados escalares, exceto **Indefinido**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxe

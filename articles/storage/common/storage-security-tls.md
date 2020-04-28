@@ -1,7 +1,7 @@
 ---
-title: Habilite TLS seguros com .NET
+title: Habilitar TLS seguro com .NET
 titleSuffix: Azure Storage
-description: Saiba como ativar o TLS 1.2 usando a biblioteca de clientes .NET para armazenamento Azure.
+description: Saiba como habilitar o TLS 1,2 usando a biblioteca de cliente .NET para o armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75371795"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure

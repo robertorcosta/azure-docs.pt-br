@@ -1,5 +1,5 @@
 ---
-title: Exibir e atribuir permissões de função de administrador - Azure AD | Microsoft Docs
+title: Exibir e atribuir permissões de função de administrador – Azure AD | Microsoft Docs
 description: Agora, você pode ver e gerenciar os membros de uma função de administrador do Azure AD no portal. Para aqueles que gerenciam atribuições de função com frequência.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74900894"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Exibir e atribuir funções de administrador no Azure Active Directory
@@ -26,7 +26,7 @@ Agora, você pode ver e gerenciar todos os membros das funções de administrado
 
 ## <a name="view-all-roles"></a>Exibir todas as funções
 
-Pesquise **Azure Active Directory** e selecione-o. Selecione **Funções e administradores** para ver a lista de todas as funções disponíveis.
+Pesquise **Azure Active Directory** e selecione-o. Selecione **funções e administradores** para ver a lista de todas as funções disponíveis.
 
 Clique nas reticências à direita de cada linha para abrir a descrição detalhada da função.
 

@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 507afad294e8233ea4de4130795f29925870fcdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74888046"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure 
 
 Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para os Serviços de Mídia do Azure. Os Serviços de Mídia fornecem um serviço de transmissão ao vivo, que os clientes podem usar para transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas para criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
 
-## <a name="1-conformance-notation"></a>1. Notação de conformidade
+## <a name="1-conformance-notation"></a>1. notação de conformidade
 As palavras-chave “DEVE”, “NÃO DEVE”, “OBRIGATÓRIO”, “RECOMENDADO”, “PODE” E “OPCIONAL” neste documento devem ser interpretadas conforme descritas na RFC 2119.
 
-## <a name="2-service-diagram"></a>2. Diagrama de serviço
+## <a name="2-service-diagram"></a>2. diagrama de serviço
 O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmissão ao vivo nos Serviços de Mídia:
 
 1. Um codificador dinâmico envia por push feeds dinâmicos para os canais que são criados e provisionados pelo SDK dos Serviços de Mídia do Azure.
@@ -38,7 +38,7 @@ O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmiss
 
 ![fluxo de ingestão][image1]
 
-## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato bitstream – ISO 14496-12 MP4 fragmentado
+## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. formato fragmentado – MP4 fragmentado ISO 14496-12
 O formato de conexão para ingestão de transmissão ao vivo abordado neste documento se baseia no [ISO-14496-12]. Para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Definições de formato de ingestão ao vivo
@@ -53,7 +53,7 @@ A lista a seguir descreve as definições de formato especial que se aplicam à 
 1. A duração do fragmento MP4 DEVE estar entre segundos 2 e 6 segundos, aproximadamente.
 1. Os carimbos de data/hora e índices do fragmento MP4 (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` e `fragment_index`) DEVEM chegar na ordem crescente. Embora os Serviços de Mídia sejam resilientes a fragmentos duplicados, sua capacidade de reordenar os fragmentos de acordo com a linha do tempo da mídia é limitada.
 
-## <a name="4-protocol-format--http"></a>4. Formato de protocolo – HTTP
+## <a name="4-protocol-format--http"></a>4. formato de protocolo – HTTP
 A ingestão dinâmica com base no MP4 fragmentado ISO para Serviços de Mídia usa uma solicitação HTTP POST padrão de longa execução para transmitir ao serviço dados de mídia codificados que são empacotados no formato MP4 fragmentado. Cada HTTP POST envia um fluxo de bits (“fluxo”) MP4 fragmentado completo, começando do início com as caixas de cabeçalho (caixas **ftyp**, **Live Server Manifest Box** e **moov**) e continuando com uma sequência de fragmentos (caixas **moof** e **mdat**). Para obter a sintaxe de URL para a solicitação HTTP POST, consulte a seção 9.2 em [1]. Veja um exemplo de URL de POST: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -69,10 +69,10 @@ Veja os requisitos em detalhes:
 1. O codificador NÃO DEVE usar o substantivo `Events()`, conforme descrito na seção 9.2 em [1] para ingestão dinâmica nos Serviços de Mídia.
 1. Se a solicitação HTTP POST termina ou o tempo limite é ultrapassado com um erro TCP antes do término do fluxo, o codificador DEVE emitir uma nova solicitação POST usando uma nova conexão e seguindo os requisitos anteriores. Além disso, o codificador DEVE reenviar os dois fragmentos de MP4 anteriores para cada faixa no fluxo e continuar sem introduzir uma descontinuidade na linha do tempo da mídia. O reenvio dos dois últimos fragmentos MP4 de cada faixa garante que não haja perda de dados. Em outras palavras, se um fluxo contiver uma faixa de áudio e vídeo, e a solicitação POST atual falhar, o codificador deverá se reconectar e reenviar os últimos dois fragmentos da faixa de áudio, que anteriormente foram enviadas com êxito, e os dois últimos fragmentos da faixa de vídeo, que anteriormente foram enviadas com êxito, para garantir que não haja nenhuma perda de dados. O codificador DEVE manter um buffer de “avanço” da mídia de fragmentos, que ele reenvia quando se reconecta.
 
-## <a name="5-timescale"></a>5. Escala de tempo
+## <a name="5-timescale"></a>5. escala de time-Scale
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descreve o uso da escala de tempo para **SmoothStreamingMedia** (Seção 2.2.2.1), **StreamElement** (Seção 2.2.2.3), **StreamFragmentElement** (2.2.2.6) e **LiveSMIL** (Seção 2.2.7.3.1). Se o valor da escala de tempo não estiver presente, o valor padrão usado será 10.000.000 (10 MHz). Embora a especificação de formato Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações de codificador usa esse valor padrão (10 MHz) para gerar dados de ingestão de Streaming Suave. Devido ao recurso [Empacotamento Dinâmico de Mídia do Azure](media-services-dynamic-packaging-overview.md), é recomendável que você use a escala de tempo de 90 kHz para fluxos de vídeo e 44,1 KHz ou 48,1 KHz para fluxos de áudio. Se diferentes valores de escala de tempo forem usados para diferentes fluxos, a escala de tempo do nível de fluxo DEVERÁ ser enviada. Para obter mais informações, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
-## <a name="6-definition-of-stream"></a>6. Definição de "fluxo"
+## <a name="6-definition-of-stream"></a>6. definição de "fluxo"
 Fluxo é a unidade básica da operação na ingestão dinâmica para compor apresentações ao vivo e tratar do failover de streaming e cenários de redundância. Fluxo é definido como um único fluxo de bits MP4 fragmentado exclusivo que pode conter uma única faixa ou várias faixas. Uma apresentação ao vivo completa pode conter um ou mais fluxos, dependendo da configuração dos codificadores dinâmicos. Os exemplos a seguir ilustram as várias opções de uso de fluxos para compor uma apresentação ao vivo completa.
 
 **Exemplo:** 
@@ -99,9 +99,9 @@ Nessa opção, o cliente escolhe agrupar a faixa de áudio com a faixa de vídeo
 ![Fluxos com faixas de áudio e vídeo][image4]
 
 ### <a name="summary"></a>Resumo
-Essa não é uma lista completa de todas as opções possíveis de ingestão para este exemplo. Na verdade, qualquer agrupamento de faixas em fluxos tem suporte da ingestão dinâmica. Os clientes e fornecedores de codificadores podem escolher suas próprias implementações com base na complexidade de engenharia, na capacidade do codificador e nas considerações de failover e redundância. No entanto, na maioria dos casos, há apenas uma faixa de áudio para toda a apresentação ao vivo. Por isso, é importante garantir a saúde do fluxo de ingestão que contém a faixa de áudio. Essa consideração muitas vezes resulta em colocar a faixa de áudio em seu próprio fluxo (como na Opção 2) ou apodá-la com a faixa de vídeo de menor bitrate (como na Opção 3). Além disso, para melhor redundância e tolerância a falhas, enviar a mesma faixa de áudio em dois fluxos diferentes (Opção 2 com faixas de áudio redundantes) ou agrupar a faixa de áudio com pelo menos duas faixas de vídeo de taxa de bits mais baixa (Opção 3 com áudio agrupado em pelo menos dois fluxos de vídeo) é altamente recomendável para ingestão dinâmica nos Serviços de Mídia.
+Essa não é uma lista completa de todas as opções possíveis de ingestão para este exemplo. Na verdade, qualquer agrupamento de faixas em fluxos tem suporte da ingestão dinâmica. Os clientes e fornecedores de codificadores podem escolher suas próprias implementações com base na complexidade de engenharia, na capacidade do codificador e nas considerações de failover e redundância. No entanto, na maioria dos casos, há apenas uma faixa de áudio para toda a apresentação ao vivo. Portanto, é importante garantir a integridade do fluxo de ingestão que contém a faixa de áudio. Essa consideração geralmente resulta na colocação da faixa de áudio em seu próprio fluxo (como na opção 2) ou no agrupamento com a faixa de vídeo de taxa de bits mais baixa (como na opção 3). Além disso, para melhor redundância e tolerância a falhas, enviar a mesma faixa de áudio em dois fluxos diferentes (Opção 2 com faixas de áudio redundantes) ou agrupar a faixa de áudio com pelo menos duas faixas de vídeo de taxa de bits mais baixa (Opção 3 com áudio agrupado em pelo menos dois fluxos de vídeo) é altamente recomendável para ingestão dinâmica nos Serviços de Mídia.
 
-## <a name="7-service-failover"></a>7. Failover de serviço
+## <a name="7-service-failover"></a>7. failover de serviço
 Dada a natureza da transmissão ao vivo, o bom suporte ao failover é essencial para garantir a disponibilidade do serviço. Os Serviços de Mídia foram desenvolvidos para tratar os vários tipos de falha, incluindo erros de rede, erros de servidor e problemas de armazenamento. Quando usado em conjunto com a lógica apropriada de failover do lado do codificador dinâmico, os clientes podem obter um serviço de transmissão ao vivo altamente confiável da nuvem.
 
 Nesta seção, abordamos os cenários de failover de serviço. Nesse caso, a falha ocorre em algum lugar dentro do serviço e ela se manifesta como um erro de rede. Veja algumas recomendações de implementação do codificador para tratamento de failover de serviço:
@@ -121,7 +121,7 @@ Nesta seção, abordamos os cenários de failover de serviço. Nesse caso, a fal
     d. Os dois últimos fragmentos enviados para cada faixa deverão ser reenviados e o streaming retomado sem introdução de uma descontinuidade na linha do tempo da mídia. Os carimbos de data/hora do fragmento MP4 devem aumentar continuamente, mesmo entre as solicitações HTTP POST.
 1. O codificador DEVERÁ encerrar a solicitação HTTP POST se os dados não estiverem sendo enviados a uma taxa proporcional à duração do fragmento MP4.  Uma solicitação HTTP POST que não envia dados pode impedir que os Serviços de Mídia se desconectem rapidamente do codificador no caso de uma atualização de serviço. Por esse motivo, o HTTP POST para faixas esparsas (sinal de anúncio) DEVE ser curto, terminando assim que o fragmento esparso é enviado.
 
-## <a name="8-encoder-failover"></a>8. Failover do codificador
+## <a name="8-encoder-failover"></a>8. failover do codificador
 O failover de codificador é o segundo tipo de cenário de failover que precisa ser resolvido para entrega de transmissão ao vivo completa. Nesse cenário, a condição de erro ocorre no lado do codificador. 
 
 ![failover do codificador][image5]
@@ -135,7 +135,7 @@ As expectativas a seguir aplicam-se do ponto de extremidade da ingestão dinâmi
 1. O novo fluxo DEVE ser semanticamente equivalente ao fluxo anterior e intercambiável nos níveis de cabeçalho e fragmento.
 1. O novo codificador DEVE tentar minimizar a perda de dados. O `fragment_absolute_time` e o `fragment_index` dos fragmentos de mídia DEVEM aumentar do ponto em que o codificador parou pela última vez. O `fragment_absolute_time` e o `fragment_index` DEVEM aumentar de forma contínua, mas é permitida a introdução de uma descontinuidade se necessário. Os Serviços de Mídia ignoram os fragmentos já foram recebidos e processados, então é melhor errar no reenvio de fragmentos do que introduzir descontinuidades na linha do tempo da mídia. 
 
-## <a name="9-encoder-redundancy"></a>9. Redundância do codificador
+## <a name="9-encoder-redundancy"></a>9. redundância do codificador
 Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência ainda mais altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
 
 ![redundância do codificador][image6]
@@ -144,12 +144,12 @@ Conforme ilustrado neste diagrama, dois grupos de codificadores enviam por push 
 
 Os requisitos para esse cenário são quase os mesmos que os requisitos no caso de “Failover de Codificador”, com a exceção de que o segundo conjunto de codificadores é executado ao mesmo tempo que os codificadores primários.
 
-## <a name="10-service-redundancy"></a>10. Redundância de serviço
+## <a name="10-service-redundancy"></a>10. redundância de serviço
 Para distribuição global altamente redundante, às vezes, você precisa ter backup entre regiões para lidar com desastres regionais. Ao expandir a topologia “Redundância do codificador”, os clientes podem optar por ter uma implantação de serviço redundante em uma região diferente, que seja conectada com o segundo conjunto de codificadores. Os clientes também podem trabalhar com um provedor de Rede de Distribuição de Conteúdo para implantar um Gerenciador de Tráfego Global na frente das duas implantações de serviços para rotear diretamente o tráfego do cliente. Os requisitos para os codificadores são o mesmo que o caso de "Redundância de codificador". A única exceção é que o segundo conjunto de codificadores precisa ser apontado para outro ponto de extremidade de ingestão dinâmica. O diagrama a seguir mostra essa configuração:
 
 ![redundância de serviço][image7]
 
-## <a name="11-special-types-of-ingestion-formats"></a>11. Tipos especiais de formatos de ingestão
+## <a name="11-special-types-of-ingestion-formats"></a>11. tipos especiais de formatos de ingestão
 Esta seção aborda tipos especiais de formatos de ingestão dinâmica que foram desenvolvidos para tratar cenários específicos.
 
 ### <a name="sparse-track"></a>Faixa esparsa
@@ -158,7 +158,7 @@ Ao realizar uma apresentação para transmissão ao vivo com uma experiência de
 As etapas a seguir são uma implementação recomendada para ingestão de faixa esparsa:
 
 1. Crie um fluxo de bits MP4 fragmentado separado que contenha apenas faixas esparsas sem faixas de áudio/vídeo.
-1. Na **Caixa de Manifesto** do Servidor Vivo, conforme definido na Seção 6 em [1], use o parâmetro *parentTrackName* para especificar o nome da faixa pai. Para obter mais informações, consulte a seção 4.2.1.2.1.2 em [1].
+1. Na **caixa manifesto do Live Server** , conforme definido na seção 6 em [1], use o parâmetro *parentTrackName* para especificar o nome da faixa pai. Para obter mais informações, consulte a seção 4.2.1.2.1.2 em [1].
 1. Em **Live Server Manifest Box**, **manifestOutput** DEVE ser definido como **true**.
 1. Devido à natureza esparsa do evento de sinalização, recomendamos o seguinte:
    
@@ -187,13 +187,13 @@ Para resolver esse problema, os Serviços de Mídia oferecem suporte à ingestã
 A implementação a seguir é recomendada para faixas de áudio redundantes:
 
 1. Envie cada faixa de áudio exclusiva em um fluxo por si só. Envie também um fluxo redundante para cada um desses fluxos de faixa de áudio, onde o segundo fluxo difere do primeiro apenas no identificador na URL de HTTP POST: {protocolo}://{endereço do servidor}/{caminho do ponto de publicação}/Fluxos({identificador}).
-1. Use fluxos separados para enviar as duas taxas de bits de vídeo mais baixas. Cada um desses fluxos deve conter também uma cópia de cada faixa de áudio exclusiva. Por exemplo, quando vários idiomas são suportados, esses fluxos DEVEM conter faixas de áudio para cada idioma.
+1. Use fluxos separados para enviar as duas taxas de bits de vídeo mais baixas. Cada um desses fluxos também deve conter uma cópia de cada faixa de áudio exclusiva. Por exemplo, quando há suporte para vários idiomas, esses fluxos devem conter faixas de áudio para cada idioma.
 1. Use instâncias de servidor (codificador) separadas para codificar e enviar os fluxos redundantes mencionados em (1) e (2). 
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

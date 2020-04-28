@@ -1,6 +1,6 @@
 ---
-title: Conecte-se às suas máquinas virtuais através de um navegador - Azure | Microsoft Docs
-description: Aprenda a se conectar às suas máquinas virtuais através de um navegador.
+title: Conectar-se às suas máquinas virtuais por meio de um navegador – Azure | Microsoft Docs
+description: Saiba como se conectar às suas máquinas virtuais por meio de um navegador.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,29 +14,29 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
 ms.openlocfilehash: 4549ee0f50c06040b70307c96b5ca96cd4162214
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974268"
 ---
-# <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conecte-se às suas máquinas virtuais através de um navegador 
+# <a name="connect-to-your-virtual-machines-through-a-browser"></a>Conectar-se às suas máquinas virtuais por meio de um navegador 
 
-O DevTest Labs [integra-se ao Azure Bastion](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais através de um navegador. Para obter informações sobre como habilitar esse recurso no DevTest Labs, consulte [Habilitar a conexão do navegador em máquinas virtuais de laboratório](enable-browser-connection-lab-virtual-machines.md).
+O DevTest Labs integra-se à [bastiões do Azure](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Para obter informações sobre como habilitar esse recurso no DevTest Labs, consulte [habilitar conexão do navegador em máquinas virtuais do laboratório](enable-browser-connection-lab-virtual-machines.md).
 
-Uma vez que a *conexão do Navegador* esteja ativada, os usuários de laboratório podem acessar máquinas virtuais através de um navegador.  
+Quando o *navegador conectar* estiver habilitado, os usuários do laboratório poderão acessar as máquinas virtuais por meio de um navegador.  
 
-## <a name="create-a-lab-virtual-machine"></a>Crie uma máquina virtual de laboratório
+## <a name="create-a-lab-virtual-machine"></a>Criar uma máquina virtual do laboratório
 
-Primeiro você precisa criar a máquina virtual de laboratório dentro de uma rede virtual que tenha Bastion configurado nela. Selecione a segunda **sub-rede** que você criou, não a AzureBastionSubnet. Você pode selecionar uma rede virtual durante a criação de máquinas virtuais indo para a guia **Configurações Avançadas.**
+Primeiro, você precisa criar a máquina virtual do laboratório em uma rede virtual que tenha a bastiões configurada nela. Selecione a segunda **sub-rede** que você criou, não o AzureBastionSubnet. Você pode selecionar uma rede virtual durante a criação da máquina virtual acessando a guia **Configurações avançadas** .
 
 ![Criar máquina virtual](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 
-## <a name="launch-virtual-machine-in-a-browser"></a>Inicie a máquina virtual em um navegador
+## <a name="launch-virtual-machine-in-a-browser"></a>Iniciar máquina virtual em um navegador
 
-Uma vez que a máquina virtual é criada, você pode lançá-la em um navegador clicando no botão *de conexão do Navegador* e digitando seu nome de usuário e senha para a máquina.  
+Depois que a máquina virtual for criada, você poderá iniciá-la em um navegador clicando no botão *conectar do navegador* e inserindo seu nome de usuário e senha para o computador.  
 
-![Lançamento em um navegador](./media/connect-virtual-machine-through-browser/browser-connect.png)
+![Iniciar em um navegador](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

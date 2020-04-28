@@ -1,6 +1,6 @@
 ---
-title: Conexões híbridas do Relé Azure - WebSockets em .NET
-description: Escreva um aplicativo de console C# para WebSockets de conexões híbridas do Azure Relay.
+title: Retransmissão do Azure Conexões Híbridas-WebSockets no .NET
+description: Escreva um aplicativo de console em C# para retransmissão do Azure Conexões Híbridas WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75355189"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no .NET
@@ -64,7 +64,7 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Parabéns, você criou um aplicativo completo de Conexões Híbridas!
+Parabéns, você criou um aplicativo de Conexões Híbridas completo!
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste Início Rápido, você criou aplicativos de cliente e servidor do .NET que usavam WebSockets para enviar e receber mensagens. O recurso Conexões Híbridas de Retransmissão do Azure também dá suporte ao uso de HTTP para enviar e receber mensagens. Para saber como usar HTTP com as Conexões Híbridas de Retransmissão do Azure, consulte o [Início Rápido do HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).

@@ -1,69 +1,69 @@
 ---
-title: Ver monitor azure para implantações de contêineres (pré-visualização) | Microsoft Docs
-description: Este artigo descreve a visão em tempo real das Implantações kubernetes sem usar kubectl no Azure Monitor para contêineres.
+title: Exibir Azure Monitor para implantações de contêineres (visualização) | Microsoft Docs
+description: Este artigo descreve a exibição em tempo real de implantações do kubernetes sem usar o kubectl no Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75404767"
 ---
-# <a name="how-to-view-deployments-preview-in-real-time"></a>Como visualizar implantações (visualização) em tempo real
+# <a name="how-to-view-deployments-preview-in-real-time"></a>Como exibir implantações (visualização) em tempo real
 
-Com o Azure Monitor para contêineres, o recurso View Deployments (preview) emula o acesso `kubeclt get deployments` `kubectl describe deployment {your deployment}` direto aos objetos de implantação do Kubernetes em tempo real, expondo os comandos e os comandos. 
-
->[!NOTE]
->Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esse recurso. Esse recurso depende de acessar diretamente a API do Kubernetes através de um servidor proxy do seu navegador. Permitir a segurança de rede para bloquear a API do Kubernetes a partir deste proxy bloqueará esse tráfego. 
+Com Azure Monitor para contêineres, o recurso Exibir implantações (versão prévia) emula o acesso direto aos objetos de implantação kubernetes em tempo real `kubeclt get deployments` , `kubectl describe deployment {your deployment}` expondo os comandos e. 
 
 >[!NOTE]
->Este recurso está disponível em todas as regiões do Azure, incluindo o Azure China. Atualmente, não está disponível no Governo dos EUA do Azure.
+>Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego. 
 
-Para saber mais, revise a documentação do Kubernetes sobre [Implantações.](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) 
+>[!NOTE]
+>Esse recurso está disponível em todas as regiões do Azure, incluindo o Azure China. No momento, ele não está disponível no Azure no governo dos EUA.
+
+Para saber mais, examine a documentação do kubernetes sobre [implantações](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O recurso Live Data (visualização) acessa diretamente a API do Kubernetes, e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-O recurso Implantações (visualização) executa uma carga única (atualizável) contra o ponto `/apis/apps/v1/deployments`final das implantações . Ele permite selecionar uma determinada implantação e carregar os detalhes descrever `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`para essa implantação específica no ponto final de implantação . 
+O recurso implantações (versão prévia) executa uma carga única (atualizável) no ponto de extremidade `/apis/apps/v1/deployments`de implantações. Ele permite que você selecione uma determinada implantação e carregue os detalhes da descrição para essa implantação específica no ponto de `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`extremidade de implantação. 
 
-Selecionar **Atualizar** no canto superior esquerdo da página atualiza a lista de implantação. Isso simula re-executar `kubectl` o comando. 
+Selecionar **Atualizar** na parte superior esquerda da página atualiza a lista de implantação. Isso simula a execução do `kubectl` comando novamente. 
 
 >[!IMPORTANT]
->Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante a sessão são excluídas quando você fecha seu navegador ou navega para longe dele.  
+>Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante a sessão são excluídas quando você fecha o navegador ou navega para fora dela.  
 
 >[!NOTE]
->Não é possível fixar dados de dados de live (Visualização) do console em um painel do Azure.
+>Não é possível fixar dados dinâmicos (versão prévia) do console do em um painel do Azure.
 
-## <a name="deployments-describe"></a>Implantações descrevem
+## <a name="deployments-describe"></a>Descrever implantações
 
-Para exibir descrever detalhes para uma `kubectl describe deployment`implantação, que é o equivalente a , executar as seguintes etapas.
+Para exibir detalhes de descrição de uma implantação, que é o equivalente `kubectl describe deployment`a, execute as etapas a seguir.
 
-1. No portal Azure, navegue até o grupo de recursos do cluster AKS e selecione seu recurso AKS.
+1. Na portal do Azure, navegue até o grupo de recursos de cluster AKS e selecione o recurso AKS.
 
-2. No painel de cluster AKS, em **Monitoramento** no lado esquerdo, escolha **Insights**. 
+2. No painel do cluster AKS, em **monitoramento** no lado esquerdo, escolha **insights**. 
 
-3. Selecione a guia **Implantações (visualização).**
+3. Selecione a guia **implantações (visualização)** .
 
-    ![Visualizações de implantações no portal Azure](./media/container-insights-livedata-deployments/deployment-view.png)
+    ![Exibição de implantações no portal do Azure](./media/container-insights-livedata-deployments/deployment-view.png)
 
-A exibição mostra uma lista de todas as implantações em execução, juntamente `kubectl get deployments –all-namespaces`com o namespace e outras informações detalhadas, emulando a execução do comando . Você pode classificar os resultados selecionando qualquer uma das colunas. 
+A exibição mostra uma lista de todas as implantações em execução junto com o namespace e outras informações detalhadas, emulando a execução `kubectl get deployments –all-namespaces`do comando. Você pode classificar os resultados selecionando qualquer uma das colunas. 
 
-![Implantações propriedades detalhes do painel](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
+![Detalhes do painel de propriedades de implantações](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
-Quando você seleciona uma implantação da lista, um painel de propriedade é exibido automaticamente no lado direito da página. Ele mostra informações relacionadas à implantação selecionada que `kubectl describe deployment {deploymentName}`você visualizaria se executasse o comando . Você deve ter notado que a informação descrita está faltando alguns detalhes. Mais notavelmente **o Modelo** está faltando. A seleção da guia **Raw** permite que você navegue até os detalhes não analisados descrever.  
+Quando você seleciona uma implantação na lista, um painel de propriedades é exibido automaticamente no lado direito da página. Ele mostra informações relacionadas à implantação selecionada que você exibirá se executou o comando `kubectl describe deployment {deploymentName}`. Talvez você tenha notado que estão faltando alguns detalhes nas informações de descrição. Muito notavelmente, o **modelo** está ausente. A seleção da guia **RAW** permite que você navegue até os detalhes de descrição não analisados.  
 
-![Implantações propriedades pane detalhes brutos](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
+![Painel de propriedades de implantações detalhes brutos](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
 
-Enquanto você analisa os detalhes da implantação, você pode ver registros de contêineres e eventos em tempo real. Selecione o **console Show live** e o painel de console Live Data (preview) aparecerá abaixo da grade de dados de implantações onde você pode visualizar dados de log ao vivo em uma transmissão contínua. Se o indicador de status de busca mostrar uma marca de seleção verde, que está no extremo direito do painel, significa que os dados podem ser recuperados e ele começa a transmitir para o seu console.
+Ao examinar os detalhes da implantação, você pode ver os logs de contêiner e os eventos em tempo real. Selecione o painel **Mostrar console ao vivo** e os dados dinâmicos (versão prévia) serão exibidos abaixo da grade de dados de implantações, em que você pode exibir dados de log dinâmicos em um fluxo contínuo. Se o indicador de status de busca mostrar uma marca de seleção verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começam a transmitir para o console.
 
-Você também pode filtrar por namespace ou eventos de nível de cluster. Para saber mais sobre os dados de visualização em tempo real no console, consulte [Exibir dados ao vivo (visualização) com o Azure Monitor para contêineres](container-insights-livedata-overview.md). 
+Você também pode filtrar por eventos de namespace ou de nível de cluster. Para saber mais sobre a exibição de dados em tempo real no console, consulte [exibir dados dinâmicos (versão prévia) com Azure monitor para contêineres](container-insights-livedata-overview.md). 
 
-![Implantações visualizam dados ao vivo no console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
+![As implantações exibem dados dinâmicos no console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para continuar aprendendo a usar o Azure Monitor e monitorar outros aspectos do cluster do AKS, confira [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
 
-- Exibir [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas e exemplos predefinidos para criar alertas, visualizações ou realizar uma análise adicional de seus clusters.
+- Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para criar alertas, visualizações ou executar análise adicional de seus clusters.

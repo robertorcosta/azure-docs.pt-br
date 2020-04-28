@@ -1,6 +1,6 @@
 ---
-title: Como provisionar dispositivos para multi-locação no Serviço de Provisionamento de Dispositivos Hub Azure IoT
-description: Como provisionar dispositivos para multilocação com a instância do DPS (Device Provisioning Service, serviço de provisionamento de dispositivos)
+title: Como provisionar dispositivos para multilocação no serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como provisionar dispositivos para multilocação com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75434746"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
@@ -191,7 +191,7 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará a configuração de cada região do dispositivo de um locatário.
 
-1. Para cada VM, instale **CMake,** **g++**, **gcc**e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
+1. Para cada VM, instale **CMake**, **g + +**, **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
     sudo apt-get update
@@ -398,7 +398,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
 
@@ -420,8 +420,8 @@ Para excluir o grupo de recursos por nome:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais Reprovisionamento, consulte conceitos de [reprovisionamento do Dispositivo Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram provisionados automaticamente](how-to-unprovision-devices.md) 
+- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

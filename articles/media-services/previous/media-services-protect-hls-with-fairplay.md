@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 873bc4ab5e435b91ff4400a39c92db0d0bb9baa8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74968758"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).   > Nenhum novo recursos ou funcionalidade está sendo adicionado ao Media Services v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:  
 
 * **Chave de limpeza do envelope AES-128**
 
-    A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte nativo do iOS e player OSX. Para obter mais informações, consulte [Usando criptografia dinâmica AES-128 e serviço de entrega de chaves](media-services-protect-with-aes128.md).
+    A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte nativo do iOS e player OSX. Para obter mais informações, consulte [usando o serviço de distribuição de chaves e criptografia dinâmica AES-128](media-services-protect-with-aes128.md).
 * **Apple FairPlay**
 
     Os exemplos de áudio e vídeo individuais são criptografados usando o modo **AES-128 CBC**. **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface EME (Extensões de Mídia Criptografada).
@@ -51,7 +51,7 @@ Este artigo demonstra como usar os Serviços de Mídia para criptografar dinamic
 
 Veja a seguir o que é necessário ao usar os Serviços de Mídia para distribuir HLS criptografado com o FairPlay e distribuir licenças do FairPlay:
 
-  * Uma conta do Azure. Para obter detalhes, consulte [a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Uma conta do Azure. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Uma conta dos Serviços de Mídia. Para criar uma, confira [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](media-services-portal-create-account.md).
   * Inscreva-se no [Programa de Desenvolvimento da Apple](https://developer.apple.com/).
   * A Apple exige que o proprietário do conteúdo obtenha o [pacote de implantação](https://developer.apple.com/contact/fps/). Declare que você já implementou o KSM (Módulo de Segurança de Chave) com os Serviços de Mídia e que está solicitando o pacote final do FPS. Há instruções no pacote final do FPS para gerar certificação e obter a ASK (Chave de Segredo do Aplicativo). Você usa a ASK para configurar o FairPlay.
@@ -143,13 +143,13 @@ As seguintes considerações se aplicam:
 * O tipo de criptografia não precisa ser especificado na URL se apenas uma criptografia foi aplicada no ativo.
 * O tipo de criptografia não diferencia letras maiúsculas de minúsculas.
 * Os seguintes tipos de criptografia podem ser especificados:  
-  * **cenc**: Criptografia comum (PlayReady ou Widevine)
+  * **Cenc**: criptografia comum (PlayReady ou Widevine)
   * **cbcs-aapl**: FairPlay
-  * **cbc**: Criptografia de envelope AES
+  * **CBC**: criptografia de envelope AES
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 2. Adicione os seguintes elementos para **appSettings** definidos no seu arquivo app.config:
 
     ```xml
@@ -562,5 +562,5 @@ namespace DynamicEncryptionWithFairPlay
 ## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

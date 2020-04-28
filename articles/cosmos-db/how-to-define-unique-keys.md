@@ -1,16 +1,16 @@
 ---
 title: Definir chaves exclusivas para um contêiner do Azure Cosmos
-description: Saiba como definir chaves exclusivas para um contêiner Azure Cosmos usando o portal Azure, PowerShell, .Net, Java e vários outros SDKs.
+description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure usando portal do Azure, PowerShell, .net, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74872104"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner do Azure Cosmos
@@ -19,7 +19,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma conta existente.
 
@@ -37,7 +37,7 @@ Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](uniq
 
 ## <a name="use-powershell"></a>Usar o Powershell
 
-Para criar um contêiner com chaves exclusivas veja, [crie um contêiner Azure Cosmos com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
+Para criar um contêiner com chaves exclusivas, consulte [criar um contêiner Cosmos do Azure com chave exclusiva e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET V2
 
@@ -59,9 +59,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Use o .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Usar o SDK do .NET v3
 
-Ao criar um novo contêiner usando o [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use a API fluente do SDK para declarar chaves únicas de forma concisa e legível.
+Ao criar um novo contêiner usando o [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use a API Fluent do SDK para declarar chaves exclusivas de maneira concisa e legível.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [particionamento](partition-data.md)
+- Saiba mais sobre o [particionamento](partition-data.md)
 - Explore [como funciona a indexação](index-overview.md)

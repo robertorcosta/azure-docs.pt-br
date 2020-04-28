@@ -1,5 +1,5 @@
 ---
-title: Mapeamento de colunas de conjunto de dados na fábrica de dados do Azure
+title: Mapeando colunas do conjunto de linhas no Azure Data Factory
 description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74923878"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino
@@ -135,7 +135,7 @@ O JSON a seguir define uma atividade de cópia em um pipeline. As colunas da fon
         }
 }
 ```
-**Fluxo de mapeamento de colunas:**
+**Fluxo de mapeamento de coluna:**
 
 ![Fluxo de mapeamento de coluna](./media/data-factory-map-columns/column-mapping-flow.png)
 

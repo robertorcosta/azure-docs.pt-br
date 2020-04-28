@@ -1,6 +1,6 @@
 ---
-title: Crie um ASE externo
-description: Aprenda a criar um ambiente de Serviço de Aplicativo com um aplicativo nele ou crie um ASE autônomo (vazio).
+title: Criar um ASE externo
+description: Saiba como criar um ambiente do serviço de aplicativo com um aplicativo nele ou criar um ASE (vazio) autônomo.
 author: ccompy
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75430508"
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo
@@ -19,7 +19,7 @@ ms.locfileid: "75430508"
 O Ambiente do Serviço de Aplicativo do Azure é uma implantação do Serviço de Aplicativo do Azure em uma sub-rede de uma VNet (rede virtual) do Azure.
 
 > [!NOTE]
-> Cada Ambiente de Serviço de Aplicativo possui um IP Virtual (VIP), que pode ser usado para entrar em contato com o Ambiente de Serviço do Aplicativo.
+> Cada Ambiente do Serviço de Aplicativo tem um VIP (IP virtual), que pode ser usado para contatar o Ambiente do Serviço de Aplicativo.
 
 Há duas maneiras de implantar um ASE (ambiente do serviço de aplicativo):
 
@@ -32,7 +32,7 @@ Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE
 
 Depois de criar o seu ASE, você não pode alterar os seguintes itens:
 
-- Location
+- Local
 - Subscription
 - Resource group
 - VNET usada
@@ -59,7 +59,7 @@ O plano do Serviço de Aplicativo é um contêiner de aplicativos. Ao criar um a
 
 Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione Criar um aplicativo**Web + Mobile** > **Web de** **recurso.** > 
+1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso** > **Web + celular** > **aplicativo Web**.
 
     ![Criação de um aplicativo Web][1]
 
@@ -149,7 +149,7 @@ Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrer�
 
 1. Selecione sua assinatura. Todos os aplicativos no ASE também usarão essa mesma assinatura. Você não pode colocar o seu ASE em uma VNet que está em outra assinatura.
 
-1. Selecione ou especifique um novo grupo de recursos. Use o mesmo grupo de recursos no seu ASE que você usou na sua VNet. Se você selecionar uma VNet existente, a seleção do grupo de recursos para o ASE será atualizada para refletir a sua VNet. *Para criar um ASE com um grupo de recursos diferente do grupo de recursos da VNet, use um modelo do Resource Manager.* Para criar um ASE a partir de um modelo, consulte [Criar um ambiente de serviço de aplicativo a partir de um modelo][MakeASEfromTemplate].
+1. Selecione ou especifique um novo grupo de recursos. Use o mesmo grupo de recursos no seu ASE que você usou na sua VNet. Se você selecionar uma VNet existente, a seleção do grupo de recursos para o ASE será atualizada para refletir a sua VNet. *Para criar um ASE com um grupo de recursos diferente do grupo de recursos da VNet, use um modelo do Resource Manager.* Para criar um ASE a partir de um modelo, consulte [criar um ambiente do serviço de aplicativo por meio de um modelo][MakeASEfromTemplate].
 
     ![Seleção de grupo de recursos][6]
 
@@ -163,7 +163,7 @@ Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrer�
     
       * Ao selecionar **Interno** para o **Tipo de VIP**, você deve especificar o domínio usado pelo seu ASE. Você pode implantar um ASE em uma VNet que usa os intervalos de endereço público ou privado. Para usar uma VNet com um intervalo de endereços públicos, você precisa criar a VNet antecipadamente. 
     
-    * Ao selecionar uma VNet existente, uma nova sub-rede é criada quando o ASE é criado. *Você não pode usar uma sub-rede pré-criada no portal. Você pode criar um ASE com uma sub-rede existente se você usar um modelo de Gerenciador de recursos.* Para criar um ASE com base em um modelo, confira [Como criar um ambiente do serviço de aplicativo com base em um modelo][MakeASEfromTemplate].
+    * Ao selecionar uma VNet existente, uma nova sub-rede é criada quando o ASE é criado. *Você não pode usar uma sub-rede criada previamente no Portal. Você pode criar um ASE com uma sub-rede existente se usar um modelo do Resource Manager.* Para criar um ASE com base em um modelo, confira [Como criar um ambiente do serviço de aplicativo com base em um modelo][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1
 

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar pontos de extremidade de streaming com o portal do Azure | Microsoft Docs
-description: Este artigo demonstra como gerenciar os pontos finais de streaming com o portal Azure.
+description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74900876"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerenciar pontos de extremidade de streaming com o portal do Azure 
@@ -55,7 +55,7 @@ Para adicionar\excluir um ponto de extremidade de streaming usando o portal do A
     Você talvez queira ter vários Pontos de Extremidade de Streaming se planeja ter diferentes CDNs ou uma CDN e acesso direto.
 
 2. Para excluir um ponto de extremidade de streaming, pressione o botão **Excluir** .      
-3. Clique no botão **Iniciar** para iniciar o ponto final de streaming.
+3. Clique no botão **Iniciar** para iniciar o ponto de extremidade de streaming.
    
     ![ponto de extremidade de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
@@ -97,7 +97,7 @@ Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streamin
 
 A integração da CDN é habilitada em todos os datacenters do Azure, exceto nas regiões da China e do Governo Federal.
 
-Uma vez habilitada, a configuração **de autenticação Access Control**, **Custom hostname e **Akamai Signature** é desativada.
+Depois de habilitado, o **controle de acesso**, * * nome de host personalizado e configuração de **autenticação de assinatura Akamai** são desabilitados.
  
 > [!IMPORTANT]
 > A integração dos Serviços de Mídia do Azure à CDN do Azure é implementada da **Verizon na CDN do Azure** para pontos de extremidade de streaming padrão. Os pontos de extremidade de streaming Premium podem ser configurados usando todos os **tipos de preço e provedores da CDN do Azure**. Para obter mais informações sobre os recursos da CDN do Azure, consulte [Visão geral da CDN](../../cdn/cdn-overview.md).
@@ -120,6 +120,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

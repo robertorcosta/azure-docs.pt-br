@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360762"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
@@ -27,7 +27,7 @@ Abaixo, uma captura de tela do aplicativo concluído:
 ## <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes produtos e versões estão instalados para concluir com êxito o exemplo deste artigo:
 
-* Instale [o Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
+* Instalar o [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * Instale o [Node.js](https://nodejs.org/download/)
 * Instale o [Python versão 2.7.10](https://www.python.org/)
 
@@ -106,9 +106,9 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
    > [!NOTE]
    > Se você encontrar problemas ao iniciar o emulador, por exemplo: Start-AzureEmulator: ocorreu um erro inesperado.  Detalhes: encontrado um erro inesperado O objeto de comunicação, System.ServiceModel.Channels.ServiceChannel, não pode ser usado para comunicação porque está no estado Com falha.
    > 
-   > Reinstale o AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2.7 - certifique-se de que a versão corresponda.
+   > Reinstale o AzureAuthoringTools v 2.7.1 e o AzureComputeEmulator v 2,7-Verifique se a versão corresponde.
 
-2. Abra um navegador **http://127.0.0.1**e navegue para .
+2. Abra um navegador e navegue até **http://127.0.0.1**.
 3. Quando a janela do navegador for aberta, digite um apelido e, em seguida, pressione enter.
    Isso permitirá que você poste mensagens usando um apelido específico. Para testar a funcionalidade de vários usuários, abra janelas adicionais do navegador usando a mesma URL e digite apelidos diferentes.
    
@@ -116,7 +116,7 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
 4. Depois de testar o aplicativo, pare o emulador, emitindo o comando a seguir:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Para implantar o aplicativo no Azure, use o cmdlet **Publish-AzureServiceProject** . Por exemplo: 
+5. Para implantar o aplicativo no Azure, use o cmdlet **Publish-AzureServiceProject** . Por exemplo:
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

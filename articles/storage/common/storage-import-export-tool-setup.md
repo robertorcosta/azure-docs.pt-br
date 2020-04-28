@@ -9,10 +9,10 @@ ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74979029"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurando a Ferramenta de Importação/Exportação do Azure
@@ -49,7 +49,7 @@ Se estiver tentando **reparar uma exportação** com falha parcial, é necessár
 
 ## <a name="installing-the-azure-importexport-tool"></a>Instalando a ferramenta de Importação/Exportação do Azure
 
-Primeiro, [baixe a Ferramenta de Importação/Exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e `c:\WAImportExport`extraia-a para um diretório no seu computador, por exemplo .
+Primeiro, [Baixe a ferramenta de importação/exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e extraia-a para um diretório em seu `c:\WAImportExport`computador, por exemplo.
 
 A Ferramenta de Importação/Exportação do Azure consiste nos seguintes arquivos:
 

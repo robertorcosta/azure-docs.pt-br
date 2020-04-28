@@ -1,6 +1,6 @@
 ---
-title: Reprovisionde dispositivos no Serviço de Provisionamento de Dispositivos Hub Azure IoT
-description: Saiba como reprovisionar dispositivos com a instância dps (Device Provisioning Service, serviço de provisionamento de dispositivos) e por que você pode precisar fazer isso.
+title: Reprovisionar dispositivos no serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Saiba como reprovisionar dispositivos com sua instância do DPS (serviço de provisionamento de dispositivos) e por que talvez seja necessário fazer isso.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974897"
 ---
 # <a name="how-to-reprovision-devices"></a>Como reprovisionar dispositivos
@@ -26,7 +26,7 @@ Durante o ciclo de vida de uma solução IoT, é comum mover dispositivos entre 
 
 * **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está com defeito, comprometido ou desatualizado pode ser reatribuído a um Hub IoT em que tudo o que ele pode fazer é atualizar e voltar em conformidade. Depois que o dispositivo estiver funcionando corretamente, ele é migrado de volta a seu hub principal.
 
-Para obter uma visão geral mais detalhada do reprovisionamento, consulte conceitos de [reprovisionamento do Dispositivo Hub IoT](concepts-device-reprovision.md).
+Para obter mais uma visão geral mais detalhada do reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurar a política de alocação de registro
@@ -71,7 +71,7 @@ As seguintes etapas configuram a política de alocação para o registro do disp
 
     * **Reprovisionar e migrar dados**: esta política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Todas as informações de estado do dispositivo do hub IoT inicial serão migradas para o novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuindo**
 
-    * **Reprovisionar e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **Atribuição**.
+    * **Reprovisionar e redefinir a configuração inicial**: Essa política entra em ação quando os dispositivos associados com a entrada de registro enviam uma nova solicitação de provisionamento. Dependendo da configuração de entrada de registro, o dispositivo pode ser reatribuído a outro hub IoT. Se o dispositivo estiver mudando entre hubs IoT, o registro de dispositivo com o hub IoT inicial será removido. Os dados de configuração inicial que a instância de serviço de provisionamento recebeu quando o dispositivo foi provisionado são fornecidos ao novo Hub IoT. Durante a migração, o status do dispositivo será relatado como **atribuição**.
 
 4. Clique em **Salvar** para habilitar o reprovisionamento do dispositivo com base em suas alterações.
 
@@ -92,8 +92,8 @@ Para encontrar um código de exemplo do envio de solicitações de provisionamen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais Reprovisionamento, consulte conceitos de [reprovisionamento do Dispositivo Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram provisionados automaticamente](how-to-unprovision-devices.md) 
+- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

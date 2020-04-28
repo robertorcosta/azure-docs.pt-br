@@ -1,33 +1,33 @@
 ---
-title: Começando com consultas SQL no Azure Cosmos DB
-description: Saiba como usar consultas SQL para consultar dados do Azure Cosmos DB. Você pode carregar dados de amostra para um contêiner no Azure Cosmos DB e consulta-los.
+title: Introdução às consultas SQL no Azure Cosmos DB
+description: Saiba como usar consultas SQL para consultar dados de Azure Cosmos DB. Você pode carregar dados de exemplo em um contêiner em Azure Cosmos DB e consultá-los.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74873328"
 ---
 # <a name="getting-started-with-sql-queries"></a>Guia de Introdução a consultas SQL
 
-As contas api do Azure Cosmos DB SQL suportam a consulta de itens usando o SQL (Structured Query Language, linguagem de consulta estruturada) como uma linguagem de consulta JSON. Os objetivos de design da linguagem de consulta azure Cosmos DB são:
+Azure Cosmos DB contas da API do SQL dão suporte à consulta de itens usando linguagem SQL (SQL) como uma linguagem de consulta JSON. As metas de design da linguagem de consulta Azure Cosmos DB são:
 
-* Suporte sql, um dos idiomas de consulta mais familiares e populares, em vez de inventar uma nova linguagem de consulta. O SQL fornece um modelo formal de programação para consultas ricas sobre itens JSON.  
+* Suporte ao SQL, uma das linguagens de consulta mais conhecidas e populares, em vez de inventar uma nova linguagem de consulta. O SQL fornece um modelo de programação formal para consultas avançadas sobre itens JSON.  
 
-* Use o modelo de programação do JavaScript como base para a linguagem de consulta. O sistema de tipo javaScript, avaliação de expressão e invocação de função são as raízes da API SQL. Essas raízes fornecem um modelo natural de programação para recursos como projeções relacionais, navegação hierárquica em itens JSON, auto-adesão, consultas espaciais e invocação de funções definidas pelo usuário (UDFs) escritas inteiramente em JavaScript.
+* Use o modelo de programação do JavaScript como base para a linguagem de consulta. O sistema de tipos, a avaliação de expressão e a invocação de função do JavaScript são as raízes da API do SQL. Essas raízes fornecem um modelo de programação natural para recursos como projeções relacionais, navegação hierárquica em itens JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) escritas inteiramente em JavaScript.
 
-## <a name="upload-sample-data"></a>Carregar dados de amostra
+## <a name="upload-sample-data"></a>Carregar dados de exemplo
 
-Em sua conta SQL API Cosmos `Families`DB, crie um contêiner chamado . Crie dois itens JSON simples no recipiente. Você pode executar a maioria das consultas de exemplo nos docs de consulta do Azure Cosmos DB usando este conjunto de dados.
+Na sua API do SQL Cosmos DB conta, crie um contêiner `Families`chamado. Crie dois itens JSON simples no contêiner. Você pode executar a maioria das consultas de exemplo no Azure Cosmos DB documentos de consulta usando esse conjunto de dados.
 
 ### <a name="create-json-items"></a>Criar itens JSON
 
-O código a seguir cria dois itens JSON simples sobre famílias. Os itens json simples para as famílias Andersen e Wakefield incluem pais, crianças e seus animais de estimação, endereço e informações de registro. O primeiro item tem strings, números, booleanos, matrizes e propriedades aninhadas.
+O código a seguir cria dois itens JSON simples sobre famílias. Os itens JSON simples para as famílias Andersen e Barros incluem pais, filhos e seus animais de estimação, endereço e informações de registro. O primeiro item tem cadeias de caracteres, números, Boolianos, matrizes e propriedades aninhadas.
 
 
 ```json
@@ -52,7 +52,7 @@ O código a seguir cria dois itens JSON simples sobre famílias. Os itens json s
 }
 ```
 
-O segundo `givenName` item `familyName` usa `firstName` `lastName`e em vez de e .
+O segundo item usa `givenName` e `familyName` em vez `firstName` de `lastName`e.
 
 ```json
 {
@@ -86,9 +86,9 @@ O segundo `givenName` item `familyName` usa `firstName` `lastName`e em vez de e 
 
 ### <a name="query-the-json-items"></a>Consultar os itens JSON
 
-Tente algumas consultas com os dados JSON para entender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB.
+Experimente algumas consultas em relação aos dados JSON para entender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB.
 
-A consulta a seguir retorna os `id` itens `AndersenFamily`onde o campo corresponde . Como é uma `SELECT *` consulta, a saída da consulta é o item JSON completo. Para obter mais informações sobre a sintaxe SELECT, consulte [a declaração SELECT](sql-query-select.md). 
+A consulta a seguir retorna os itens nos `id` quais o `AndersenFamily`campo corresponde. Como é uma `SELECT *` consulta, a saída da consulta é o item JSON completo. Para obter mais informações sobre a sintaxe SELECT, consulte [Select Statement](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +118,7 @@ Os resultados da consulta são:
     }]
 ```
 
-A consulta a seguir reformata a saída JSON em uma forma diferente. A consulta projeta um novo `Family` objeto JSON `Name` `City`com dois campos selecionados, e , quando o endereço da cidade é o mesmo que o estado. "NY, NY" combina com este caso.
+A consulta a seguir reformata a saída JSON em uma forma diferente. A consulta projeta um novo objeto `Family` JSON com dois campos selecionados `Name` e `City`, quando a cidade do endereço é igual ao estado. "NY, NY" corresponde a esse caso.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -137,7 +137,7 @@ Os resultados da consulta são:
     }]
 ```
 
-A consulta a seguir retorna todos os nomes `id` `WakefieldFamily`dadas de crianças da família cujos fósforos , ordenados pela cidade.
+A consulta a seguir retorna todos os nomes de filhos na família cujas `id` correspondências `WakefieldFamily`são ordenadas por cidade.
 
 ```sql
     SELECT c.givenName
@@ -160,13 +160,13 @@ Os resultados são:
 
 Os exemplos anteriores mostram vários aspectos da linguagem de consulta Cosmos DB:  
 
-* Como a API SQL funciona com valores JSON, ela lida com entidades em forma de árvore em vez de linhas e colunas. Você pode se referir aos nódulos de árvore `Node1.Node2.Node3…..Nodem`em qualquer profundidade arbitrária, `<table>.<column>` como , semelhante à referência em duas partes do ANSI SQL.
+* Como a API do SQL funciona em valores JSON, ela lida com entidades em formato de árvore em vez de linhas e colunas. Você pode consultar os nós de árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhante à referência de duas partes do `<table>.<column>` no SQL ANSI.
 
-* Como a linguagem de consulta funciona com dados sem esquema, o sistema de tipo deve ser vinculado dinamicamente. A mesma expressão pode obter tipos diferentes em itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido ser de um esquema fixo.  
+* Como a linguagem de consulta funciona com dados sem esquema, o sistema de tipos deve ser vinculado dinamicamente. A mesma expressão pode obter tipos diferentes em itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido que seja de um esquema fixo.  
 
-* O Azure Cosmos DB dá suporte somente a itens JSON estritos. O sistema de tipo e as expressões são restritos a lidar apenas com tipos JSON. Para obter mais informações, consulte a [especificação JSON](https://www.json.org/).  
+* O Azure Cosmos DB dá suporte somente a itens JSON estritos. O sistema de tipos e as expressões são restritos para lidar apenas com tipos JSON. Para obter mais informações, consulte a [especificação JSON](https://www.json.org/).  
 
-* Um contêiner Cosmos é uma coleção sem esquemas de itens JSON. As relações dentro e entre os itens de contêineres são implicitamente capturadas pela contenção, não por chave primária e relações de chave estrangeira. Este recurso é importante para as junções intra-item discutidas mais tarde neste artigo.
+* Um contêiner cosmos é uma coleção sem esquemas de itens JSON. As relações dentro e entre os itens de contêiner são capturadas implicitamente por contenção, não pelas relações de chave primária e chave estrangeira. Esse recurso é importante para as junções intra-item discutidas posteriormente neste artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

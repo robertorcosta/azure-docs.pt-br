@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360711"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
@@ -33,7 +33,7 @@ Este artigo oferece uma visão geral do uso das funções Web e de trabalho do P
 ## <a name="what-are-python-web-and-worker-roles"></a>O que são funções Web e de Trabalho do Python?
 O Azure fornece três modelos de computação para a execução de aplicativos: [Recurso de Aplicativos Web no Serviço de Aplicativo do Azure][execution model-web sites], [Máquinas Virtuais do Azure][execution model-vms] e [Serviços de Nuvem do Azure][execution model-cloud services]. Todos os três modelos oferecem suporte ao Python. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função Web fornece um servidor web dos Serviços de Informações da Internet (IIS) dedicado para hospedar aplicativos web de front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de longa execução ou perpétuas independentes de interação com o usuário ou de entrada.
 
-Para obter mais informações, consulte [O que é um Serviço em Nuvem?].
+Para obter mais informações, consulte [o que é um serviço de nuvem?].
 
 > [!NOTE]
 > *Procurando desenvolver um site simples?*
@@ -333,10 +333,10 @@ Para obter informações mais detalhadas sobre como usar funções Web e de trab
 Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funções Web e de trabalho, como o uso do Armazenamento ou Barramento de Serviço do Azure, consulte os artigos a seguir:
 
 * [Serviço Blob][Blob Service]
-* [Serviço de mesa][Table Service]
-* [Serviço de fila][Queue Service]
-* [Filas de Barramento de Serviço][Service Bus Queues]
-* [Tópicos de ônibus de serviço][Service Bus Topics]
+* [Serviço tabela][Table Service]
+* [Serviço fila][Queue Service]
+* [Filas do barramento de serviço][Service Bus Queues]
+* [Tópicos do barramento de serviço][Service Bus Topics]
 
 <!--Link references-->
 

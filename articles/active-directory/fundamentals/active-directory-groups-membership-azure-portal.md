@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou remover um grupo de outro grupo - Azure AD
+title: Adicionar ou remover um grupo de outro grupo-Azure AD
 description: Instruções sobre como adicionar ou remover um grupo de outro grupo usando o Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75423075"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Adicionar ou remover um grupo de outro grupo usando o Azure Active Directory
@@ -30,7 +30,7 @@ Este artigo explica como adicionar e remover um grupo de outro grupo usando o Az
 É possível adicionar um grupo de segurança existente a outro grupo de segurança existente (também conhecido como grupos aninhados), criando um grupo de membros (subgrupo) e um grupo pai. O grupo de membros herda os atributos e propriedades do grupo pai, economizando tempo de configuração.
 
 >[!Important]
->No momento, não há suporte para:<ul><li>Adição de grupos a um grupo sincronizado com o Active Directory local.</li><li>Adição de grupos de segurança a grupos do Office 365.</li><li>Adição de grupos do Office 365 a grupos de segurança ou outros grupos do Office 365.</li><li>Atribuição de aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionando grupos de distribuição em cenários de aninhamento.</li></ul>
+>No momento, não há suporte para:<ul><li>Adição de grupos a um grupo sincronizado com o Active Directory local.</li><li>Adição de grupos de segurança a grupos do Office 365.</li><li>Adição de grupos do Office 365 a grupos de segurança ou outros grupos do Office 365.</li><li>Atribuição de aplicativos a grupos aninhados.</li><li>Aplicação de licenças a grupos aninhados.</li><li>Adicionar grupos de distribuição em cenários de aninhamento.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Para adicionar um grupo como membro de outro grupo
 

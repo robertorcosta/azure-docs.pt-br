@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74970118"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Usando o Azure Media Packager para realizar tarefas de empacotamento estáticas  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 
 ## <a name="overview"></a>Visão geral
 
 Para fornecer vídeo digital pela Internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para serem fornecidos pela Internet ou exibidos corretamente nos dispositivos dos clientes. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia. Quando um vídeo tiver sido codificado, ele poderá ser colocado em contêineres de arquivo diferentes. O processo de posicionar mídia codificada em um contêiner é chamado de empacotamento. Por exemplo, você pode pegar um arquivo MP4 e convertê-lo em conteúdo do Smooth Streaming ou do HLS usando o Azure Media Packager. 
 
-O Serviços de Mídia oferece suporte ao empacotamento dinâmico e estático. Ao usar o empacotamento estático, você precisará criar uma cópia do seu conteúdo em cada formato necessário aos seus clientes. Com a embalagem dinâmica, tudo o que você precisa é criar um ativo que contenha um conjunto de arquivos mp4 ou smooth streaming adaptativos. Em seguida, com base no formato especificado na solicitação de fragmento ou de manifesto, o servidor de Streaming Sob Demanda garante que seus usuários recebam o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente.
+O Serviços de Mídia oferece suporte ao empacotamento dinâmico e estático. Ao usar o empacotamento estático, você precisará criar uma cópia do seu conteúdo em cada formato necessário aos seus clientes. Com o empacotamento dinâmico, tudo o que você precisa é criar um ativo que contenha um conjunto de arquivos MP4 ou Smooth Streaming de taxa de bits adaptável. Em seguida, com base no formato especificado na solicitação de fragmento ou de manifesto, o servidor de Streaming Sob Demanda garante que seus usuários recebam o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente.
 
 > [!NOTE]
 > É recomendável usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
@@ -81,7 +81,7 @@ Para validar seus arquivos MP4 com o Media Services Packager, você deverá cria
     </smil>
 ```
 
-Uma vez que você tenha o conjunto mp4 de bitrate adaptativo, você pode tirar proveito da Embalagem Dinâmica. O Empacotamento Dinâmico permite distribuir fluxos no protocolo especificado sem empacotamento adicional. Para saber mais, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+Depois de ter o conjunto de MP4 de taxa de bits adaptável, você pode aproveitar o empacotamento dinâmico. O Empacotamento Dinâmico permite distribuir fluxos no protocolo especificado sem empacotamento adicional. Para saber mais, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 O exemplo de código a seguir usa Extensões do SDK do .NET dos Serviços de Mídia do Azure.  Atualize o código para apontar para a pasta onde seus arquivos MP4 de entrada e o arquivo .ism estão localizados. E também onde o arquivo MediaPackager_ValidateTask.xml está localizado. Esse arquivo XML é definido no artigo [Predefinição de Tarefa para o Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
@@ -717,7 +717,7 @@ Se você deseja criptografar seu HLS com o AES-128, terá a opção de usar a cr
 > [!NOTE]
 > Para converter o conteúdo em HLS, primeiro você deverá converter/codificar seu conteúdo em Smooth Streaming.
 > Além disso, para que o HLS seja criptografado com o AES, defina as propriedades a seguir em seu arquivo MediaPackager_SmoothToHLS.xml: defina a propriedade de criptografia como verdadeira, defina o valor da chave e o valor de keyuri para apontar para seu servidor de autenticação/autorização.
-> O Media Services cria um arquivo-chave e o coloca no contêiner de ativos. Copie o arquivo /asset-containerguid/\*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo \*.key do contêiner do ativo.
+> Os serviços de mídia criam um arquivo de chave e os colocam no contêiner de ativos. Copie o arquivo /asset-containerguid/\*.key para seu servidor (ou crie seu próprio arquivo de chave) e, em seguida, exclua o arquivo \*.key do contêiner do ativo.
 > 
 > 
 
@@ -1486,6 +1486,6 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

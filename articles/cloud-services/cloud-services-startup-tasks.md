@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75360303"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
@@ -104,7 +104,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
-* **Simples**  
+* **único**  
   As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef] . Quando uma tarefa de inicialização **simples**termina com um **errorlevel** zero, a próxima tarefa de inicialização **simples** é executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
   
   > [!NOTE]
@@ -113,7 +113,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
   > 
   
     Para garantir que o arquivo em lote terminará com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do arquivo em lote.
-* **Fundo**  
+* **seguindo**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
 * **primeiro plano**  
    As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e **segundo plano** é que uma tarefa em **primeiro plano** evita que a função recicle ou finalize até que a tarefa seja concluída. As tarefas em **segundo plano** não têm essa restrição.
@@ -153,13 +153,13 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 
 [Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.  
 
-[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[Webdefinition. csdef]: cloud-services-model-and-package.md#csdef
 [Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Inicialização]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValueInstância]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
 

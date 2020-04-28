@@ -1,13 +1,13 @@
 ---
-title: Unidade testando serviços estaduais em Fabric de Serviço Azure
+title: Serviços com estado de teste de unidade no Azure Service Fabric
 description: Aprenda sobre os conceitos e práticas de testes unitários do Service Fabric Stateful Services.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433920"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade testando serviços com estado no Service Fabric
@@ -40,8 +40,8 @@ Além disso, ter várias instâncias permite que os testes mudem as funções de
 O Gerente de Estado deve ser tratado como um recurso remoto e, portanto, ridicularizado. Ao ridicularizar o gerente de estado, é preciso haver algum armazenamento na memória subjacente para rastrear o que é salvo no gerenciador de estado, para que ele possa ser lido e verificado. Uma maneira simples de conseguir isso é criar instâncias de simulação de cada um dos tipos de coleções confiáveis. Dentro desses mocks, use um tipo de dados que se alinha de perto com as operações executadas nessa coleção. A seguir estão alguns tipos de dados sugeridos para cada coleta confiável
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
-- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
+- IReliableQueue\<T>-> System. Collections. Generic. Queue\<T>
+- IReliableConcurrentQueue\<t>-> System. Collections. Current. ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Muitas instâncias do gerenciador de estado, armazenamento único
 Como mencionado anteriormente, o Gerenciador de Estado e as Coleções Confiáveis devem ser tratados como um recurso remoto. Portanto, esses recursos devem e serão ridicularizados nos testes de unidade. No entanto, ao executar várias instâncias de um serviço com estado, será um desafio manter cada gerenciador de estado ridicularizado em sincronia entre diferentes instâncias de serviço com estado. Quando o serviço com estado está sendo executado no cluster, o Service Fabric cuida de manter o gerenciador de estado de cada réplica secundária consistente com a réplica primária. Portanto, os testes devem se comportar da mesma forma que possam simular mudanças de função.
@@ -74,9 +74,9 @@ Este teste afirma que os dados que estão sendo capturados em uma réplica estã
 #### <a name="mimic-service-fabric-replica-orchestration"></a>Imitar a orquestração de réplica do Service Fabric
 Ao gerenciar várias instâncias de serviço, os testes devem inicializar e desmontar esses serviços da mesma maneira que a orquestração do Service Fabric. Por exemplo, quando um serviço é criado em uma nova réplica primária, o Service Fabric invoca CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync e RunAsync. Os eventos do ciclo de vida estão documentados nos seguintes artigos:
 
-- [Startup de serviços stateful](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Desligamento do Serviço Estadual](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Swaps primários de serviço séns](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Inicialização do serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Desligamento de serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Trocas primárias de serviço com estado](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
 #### <a name="run-replica-role-changes"></a>Executar alterações de função de réplica
 Os testes de unidade devem alterar as funções das instâncias de serviço da mesma maneira que a orquestração do Service Fabric. A máquina de estado da função está documentada no seguinte artigo:

@@ -1,5 +1,5 @@
 ---
-title: Invoque o procedimento armazenado a partir da atividade de cópia da fábrica de dados do Azure
+title: Invocar procedimento armazenado de Azure Data Factory atividade de cópia
 description: Saiba como invocar um procedimento armazenado no Banco de Dados SQL do Azure ou SQL Server de uma atividade de cópia do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74924092"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado de atividade de cópia no Azure Data Factory
@@ -93,5 +93,5 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ## <a name="next-steps"></a>Próximas etapas
 Examine os artigos sobre conector a seguir para obter exemplos de JSON completos: 
 
-- [Banco de dados SQL do Azure](data-factory-azure-sql-connector.md)
+- [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

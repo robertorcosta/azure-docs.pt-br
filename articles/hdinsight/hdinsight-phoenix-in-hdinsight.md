@@ -1,6 +1,6 @@
 ---
 title: Apache Phoenix no HDInsight - Azure HDInsight
-description: Visão geral de Apache Phoenix
+description: Visão geral do Apache Phoenix
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435489"
 ---
-# <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix em Azure HDInsight
+# <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix no Azure HDInsight
 
 O [Apache Phoenix](https://phoenix.apache.org/) é um banco de dados relacional de software livre altamente paralelo criado no [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite que você use consultas SQL em HBase. O Phoenix usa drivers JDBC abaixo para permitir aos usuários criar, excluir, alterar tabelas SQL, índices, exibições e as sequências e linhas upsert individualmente e em massa. O Phoenix usa compilação nativa noSQL, em vez de usar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre HBase. O Phoenix adiciona coprocessadores para oferecer suporte à execução de código fornecido pelo cliente no espaço de endereço do servidor, executando o código colocalizado junto com os dados. Essa abordagem minimiza a transferência de dados do cliente/servidor.
 
@@ -37,7 +37,7 @@ Criar um índice secundário com o comando `CREATE INDEX`:
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Essa abordagem pode produzir um aumento significativo de desempenho executando consultas únicas indexadas. Esse tipo de índice secundário é um **índice de cobertura**, que contém todas as colunas incluídas na consulta. Portanto, a consulta de tabela não é necessária e o índice satisfaz toda a consulta.
+Essa abordagem pode produzir um aumento significativo de desempenho executando consultas únicas indexadas. Esse tipo de índice secundário é um **índice de cobertura**, que contém todas as colunas incluídas na consulta. Portanto, a pesquisa de tabela não é necessária e o índice satisfaz a consulta inteira.
 
 ### <a name="views"></a>Exibições
 
@@ -70,7 +70,7 @@ Para adicionar mais colunas posteriormente, use a instrução `ALTER VIEW`.
 
 Verificação de ignorar usa uma ou mais colunas de um índice composto para localizar valores distintos. Ao contrário de uma verificação de intervalo, verificação de ignorar implementa verificação intralinha, produzindo [melhor desempenho](https://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente será ignorado junto com o índice até o próximo valor ser encontrado.
 
-Uma verificação de ignorar usa a enumeração `SEEK_NEXT_USING_HINT` do filtro HBase. Usando `SEEK_NEXT_USING_HINT`, a verificação de ignorar mantém o controle do conjunto de chaves ou intervalos de chaves, que estão sendo pesquisados para cada coluna. A varredura de salto então pega uma chave que foi passada para ele durante a avaliação do filtro, e determina se é uma das combinações. Caso contrário, a verificação de ignorar avalia a próxima chave mais alta a ser avaliada.
+Uma verificação de ignorar usa a enumeração `SEEK_NEXT_USING_HINT` do filtro HBase. Usando `SEEK_NEXT_USING_HINT`, a verificação de ignorar mantém o controle do conjunto de chaves ou intervalos de chaves, que estão sendo pesquisados para cada coluna. Em seguida, a verificação de ignorar usa uma chave que foi passada durante a avaliação do filtro e determina se ela é uma das combinações. Caso contrário, a verificação de ignorar avalia a próxima chave mais alta a ser avaliada.
 
 ### <a name="transactions"></a>Transactions
 
@@ -97,7 +97,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 ### <a name="salted-tables"></a>Tabelas Distribuídas
 
-*O hotspotde servidor de região* pode ocorrer ao escrever registros com chaves seqüenciais no HBase. Embora você tenha vários servidores de região no seu cluster, suas gravações estão ocorrendo em apenas um. Essa concentração cria o problema de hotspotting onde, em vez de sua carga de trabalho de gravação ser distribuída em todos os servidores de região disponíveis, apenas um deles está controlando a carga. Uma vez que cada região tem um tamanho máximo predefinido, quando uma região atinge esse limite de tamanho, ela é dividida em duas pequenas regiões. Quando isso acontece, uma nova região tem todos os novos registros, tornando-se o novo ponto de acesso.
+O *hotspotting do servidor de região* pode ocorrer ao gravar registros com chaves sequenciais no HBase. Embora você tenha vários servidores de região no seu cluster, suas gravações estão ocorrendo em apenas um. Essa concentração cria o problema de hotspotting onde, em vez de sua carga de trabalho de gravação ser distribuída em todos os servidores de região disponíveis, apenas um deles está controlando a carga. Como cada região tem um tamanho máximo predefinido, quando uma região atinge esse limite de tamanho, ela é dividida em duas regiões pequenas. Quando isso acontece, uma nova região tem todos os novos registros, tornando-se o novo ponto de acesso.
 
 Para atenuar esse problema e obter melhor desempenho, pré-dividir tabelas de modo que todos os servidores de região são igualmente usados. Phoenix fornece*tabelas distribuídas*, de modo transparente adicionando o byte salting para a chave de linha para uma tabela específica. A tabela é previamente dividida em limites salt byte para garantir a distribuição de carga entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando a gravação e o desempenho de leitura. Para distribuir uma tabela, especifique a `SALT_BUCKETS` propriedade de tabela quando a tabela for criada:
 
@@ -138,4 +138,4 @@ Um cluster HDInsight HBase inclui a [interface de usuário do Ambari](hdinsight-
 
 * [Usar o Apache Phoenix com clusters do HBase baseados em Linux no HDInsight](hbase/apache-hbase-query-with-phoenix.md)
 
-* [Use o Apache Zeppelin para executar consultas apache phoenix sobre Apache HBase no Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)
+* [Usar o Apache Zeppelin para executar consultas de Apache Phoenix sobre o Apache HBase no Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

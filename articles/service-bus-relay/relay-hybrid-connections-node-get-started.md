@@ -1,5 +1,5 @@
 ---
-title: Conexões híbridas do Relé Azure - WebSockets no nó
+title: Retransmissão do Azure Conexões Híbridas-WebSockets no nó
 description: Escreva um aplicativo de console Node.js para as Websockets de Conexões Híbridas de Retransmissão do Azure
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 818db4db082a441877b573fd52361e63becce374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75352665"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no Node.js
@@ -37,7 +37,7 @@ Neste início rápido, você segue os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Node.js.](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/).
 - Uma assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-namespace"></a>Criar um namespace

@@ -13,23 +13,23 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74931638"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
-> [!div class="op_single_selector" title1="Atividades de Transformação"]
-> * [Atividade colmeia](data-factory-hive-activity.md)
+> [!div class="op_single_selector" title1="Atividades de transformação"]
+> * [Atividade do hive](data-factory-hive-activity.md)
 > * [Atividade Pig](data-factory-pig-activity.md)
-> * [Mapearreduzir a atividade](data-factory-map-reduce.md)
-> * [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Atividade MapReduce](data-factory-map-reduce.md)
+> * [Atividade de streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de execução em lote de aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
-> * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lote de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Atualização de Recursos do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
+> * [Data Lake Analytics atividade U-SQL](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
@@ -84,21 +84,21 @@ O passo a passo a seguir usa a Atividade de Procedimento Armazenado em um pipeli
     ```
 
    > [!IMPORTANT]
-   > O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline ou da atividade. Na definição do procedimento **\@** armazenado, certifique-se de que é usado como um prefixo para o parâmetro.
+   > O **nome** e o **uso de maiúsculas** do parâmetro (DateTime, neste exemplo) devem corresponder àqueles do parâmetro especificado no JSON do pipeline ou da atividade. Na definição do procedimento armazenado, certifique- **\@** se de que é usado como um prefixo para o parâmetro.
 
 ### <a name="create-a-data-factory"></a>Criar uma data factory
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Faça logon no [portal do Azure](https://portal.azure.com/).
 2. Clique em **NOVO** no menu à esquerda, clique em **Inteligência + Análise** e em **Data Factory**.
 
     ![Novo data factory](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. Na folha **Novo data factory**, insira **SProcDF** como o Nome. Os nomes do Azure Data Factory são **globalmente exclusivos**. É preciso prefixar o nome do data factory com seu nome, para habilitar a criação bem-sucedida de fábrica.
 
    ![Novo data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
-4. Selecione **sua assinatura do Azure**.
-5. Para **o Grupo de Recursos,** faça uma das seguintes etapas:
+4. Selecione sua **assinatura do Azure**.
+5. Para o **grupo de recursos**, execute uma das seguintes etapas:
    1. Clique em **Criar novo** e insira um nome para o grupo de recursos.
    2. Clique em **Usar existente** e selecione um grupo de recursos existente.
-6. Selecione a **localização** da fábrica de dados.
+6. Selecione o **local** para o data Factory.
 7. Selecione **Fixar no painel** para ver o data factory no painel no próximo logon.
 8. Clique em **Criar** na folha **Novo data factory**.
 9. Você vê o data factory sendo criado no **painel** do portal do Azure. Após o data factory ter sido criado com êxito, você verá a página do data factory, que exibe seu conteúdo.
@@ -125,9 +125,9 @@ Depois de criar o data factory, crie um serviço vinculado do SQL do Azure que v
     ![modo de exibição de árvore com serviço vinculado](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
-É necessário especificar um conjunto de dados de saída para uma atividade de procedimento armazenado, mesmo que o procedimento armazenado não produza dados. Isso ocorre porque é o conjunto de dados de saída que controla o agendamento da atividade (a frequência com que a atividade é executada – por hora, diária, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. O conjunto de dados de saída pode servir como uma forma de passar o resultado do procedimento armazenado para posterior processamento por outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício** (um conjunto de dados que aponta para uma tabela que realmente não contém a saída do procedimento armazenado). Esse conjunto de dados fictício é usado somente para especificar o agendamento para a execução da atividade de procedimento armazenado.
+É necessário especificar um conjunto de dados de saída para uma atividade de procedimento armazenado, mesmo que o procedimento armazenado não produza dados. Isso ocorre porque é o conjunto de dados de saída que controla o agendamento da atividade (a frequência com que a atividade é executada – por hora, diária, etc.). O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. O conjunto de resultados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento subsequente por outra atividade ([encadeando atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício** (um conjunto de dados que aponta para uma tabela que realmente não contém a saída do procedimento armazenado). Esse conjunto de dados fictício é usado somente para especificar o agendamento para a execução da atividade de procedimento armazenado.
 
-1. Clique **em ... Mais** na barra de ferramentas, clique em **Novo conjunto de dados**e clique em **Azure SQL**. **Novo conjunto de dados** na barra de comandos e selecione **SQL Azure**.
+1. Clique em... ** Mais** na barra de ferramentas, clique em **novo conjunto**de informações e clique em **SQL do Azure**. **Novo conjunto de dados** na barra de comandos e selecione **SQL Azure**.
 
     ![modo de exibição de árvore com serviço vinculado](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copie/cole o script JSON a seguir no editor de JSON.
@@ -161,7 +161,7 @@ Observe as seguintes propriedades:
 - O **storedProcedureName** nas propriedades de tipo está definido como **usp_sample** (nome do procedimento armazenado).
 - A seção **storedProcedureParameters** contém um parâmetro chamado **DateTime**. O nome e o uso de maiúsculas e minúsculas do parâmetro no JSON devem corresponder ao nome e ao uso de maiúsculas e minúsculas do parâmetro na definição de procedimento armazenado. Se você precisar passar nulo para um parâmetro, use a sintaxe: `"param1": null` (todas as letras minúsculas).
 
-1. Clique **em ... Mais** na barra de comando e clique em **Novo pipeline**.
+1. Clique em... ** Mais** na barra de comandos e clique em **novo pipeline**.
 2. Copie/cole o seguinte snippet de código JSON:
 
     ```JSON
@@ -303,13 +303,13 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A seguinte tabela descreve essas propriedades JSON:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 | --- | --- | --- |
 | name | Nome da atividade |Sim |
 | descrição |Texto que descreve qual a utilidade da atividade |Não |
 | type | Deve ser definido como: **SqlServerStoredProcedure** | Sim |
 | inputs | Opcional. Se você especificar um conjunto de dados de entrada, ele deverá estar disponível (no status 'Pronto') para a atividade de procedimento armazenado a ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Ele só é usado para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
-| outputs | Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica a **agenda** da atividade de procedimento armazenado (por hora, semana, mês, etc.). <br/><br/>O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. <br/><br/>O conjunto de dados de saída pode servir como uma forma de passar o resultado do procedimento armazenado para posterior processamento por outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é usado apenas para especificar o agendamento para execução da atividade de procedimento armazenado. |Sim |
+| outputs | Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica a **agenda** da atividade de procedimento armazenado (por hora, semana, mês, etc.). <br/><br/>O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. <br/><br/>O conjunto de resultados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento subsequente por outra atividade ([encadeando atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é usado apenas para especificar o agendamento para execução da atividade de procedimento armazenado. |Sim |
 | storedProcedureName |Especifique o nome do procedimento armazenado no banco de dados SQL do Azure, no SQL Data Warehouse do Azure ou no banco de dados do SQL Server que é representado pelo serviço vinculado utilizado pela tabela de saída. |Sim |
 | storedProcedureParameters |Especifique valores para parâmetros de procedimento armazenado. Se você precisar passar null para um parâmetro, use a sintaxe: "param1": null (todas as letras minúsculas). Veja o exemplo a seguir para saber mais sobre como usar essa propriedade. |Não |
 
@@ -318,7 +318,7 @@ Agora, vamos considerar adicionar outra coluna denominada 'Cenário' na tabela q
 
 ![Dados de exemplo 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-**Tabela:**
+**Tabela**
 
 ```SQL
 CREATE TABLE dbo.sampletable2
@@ -345,7 +345,7 @@ BEGIN
 END
 ```
 
-Agora, passe o parâmetro **Cenário** e o valor da atividade do procedimento armazenado. A seção **typeProperties** na amostra anterior parece o seguinte trecho:
+Agora, passe o parâmetro de **cenário** e o valor da atividade de procedimento armazenado. A seção **typeproperties** no exemplo anterior é semelhante ao seguinte trecho:
 
 ```JSON
 "typeProperties":

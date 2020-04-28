@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75433390"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o Cache Redis do Azure usando um modelo
@@ -79,7 +79,7 @@ O modelo cria o cache no mesmo local que o grupo de recursos.
 ### <a name="web-app"></a>Aplicativo Web
 Cria o aplicativo Web com o nome especificado na variável **webSiteName** .
 
-Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis do Azure. Essas configurações do aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
+Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis do Azure. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
 
     {
       "apiVersion": "2015-08-01",

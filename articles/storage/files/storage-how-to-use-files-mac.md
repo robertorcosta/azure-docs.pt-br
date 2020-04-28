@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 0e3420e469b117d90efb2949dab828021bfedcb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74924702"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montagem do compartilhamento de arquivos do Azure no SMB com macOS
@@ -27,7 +27,7 @@ ms.locfileid: "74924702"
 >    ```
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Pré-requisitos para montar um compartilhamento de arquivos do Azure no macOS
-* **Nome da conta de armazenamento**: Para montar um compartilhamento de arquivos Do Zure, você precisará do nome da conta de armazenamento.
+* **Nome da conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, será necessário o nome da conta de armazenamento.
 
 * **Chave de conta de armazenamento**: Para montar um compartilhamento de arquivos do Azure, você precisará da chave de armazenamento primária (ou secundária). Atualmente, as chaves SAS não têm suporte para montagem.
 
@@ -37,11 +37,11 @@ ms.locfileid: "74924702"
 1. **Abrir o Localizador**: o Localizador é aberto no macOS por padrão, mas você pode garantir que ele é o aplicativo selecionado clicando no "ícone de rosto do macOS" no encaixe:  
     ![O ícone de rosto do macOS](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Selecione "Conectar-se ao servidor" no menu "Go":** Usando o caminho UNC dos`\\`pré-requisitos, converta a barra invertida inicial ( ) para `smb://` e todas as outras barras de corte ()`\`para cortes para frente ().`/` O link deve ser semelhante ao seguinte: ![a caixa de diálogo "Conectar ao servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **Selecione "conectar ao servidor" no menu "ir"**`\\`: usando o caminho UNC dos pré-requisitos, converta a barra invertida dupla inicial () para `smb://` e todas as barras invertidas (`\`) para encaminhar barras (`/`). O link deve ser semelhante ao seguinte: ![a caixa de diálogo "Conectar ao servidor"](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use o nome da conta de armazenamento e a chave da conta de armazenamento quando solicitado a fornecer um nome de usuário e senha**: ao clicar em "Conectar" na caixa de diálogo "Conectar ao servidor", você será solicitado a fornecer o nome de usuário e senha (Isso será preenchido automaticamente com seu nome de usuário macOS). Você tem a opção de colocar a chave da conta de armazenamento/nome da conta de armazenamento em seu conjunto de chaves do macOS.
 
-4. **Use o compartilhamento de arquivos do Azure conforme desejado**: Depois de substituir a chave de nome de compartilhamento e conta de armazenamento para o nome de usuário e senha, o compartilhamento será montado. Você pode usar isso como você normalmente usa um compartilhamento de arquivo/pasta local, incluindo a opção de arrastar e soltar arquivos no compartilhamento de arquivos:
+4. **Use o compartilhamento de arquivos do Azure conforme desejado**: depois de substituir o nome do compartilhamento e a chave da conta de armazenamento em para o nome de usuário e a senha, o compartilhamento será montado. Você pode usar isso como você normalmente usa um compartilhamento de arquivo/pasta local, incluindo a opção de arrastar e soltar arquivos no compartilhamento de arquivos:
 
     ![Um instantâneo de um compartilhamento de arquivos montado do Azure](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "74924702"
     mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
     ```
 
-2. **Use o compartilhamento de arquivos Do Zure conforme desejado**: O compartilhamento de arquivos Azure será montado no ponto de montagem especificado pelo comando anterior.  
+2. **Use o compartilhamento de arquivos do Azure conforme desejado**: o compartilhamento de arquivos do Azure será montado no ponto de montagem especificado pelo comando anterior.  
 
     ![Um instantâneo do compartilhamento de arquivos montado do Azure](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
@@ -60,6 +60,6 @@ ms.locfileid: "74924702"
 Veja estes links para obter mais informações sobre o Arquivos do Azure.
 
 * [Artigo de suporte da Apple - Como conectar-se com o compartilhamento de arquivos em seu Mac](https://support.apple.com/HT204445)
-* [Perguntas Frequentes](../storage-files-faq.md)
+* [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solução de problemas no Linux](storage-troubleshoot-linux-file-connection-problems.md)    

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74806653"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Use o SDK .NET para Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Usar o SDK do .NET para o Apache HBase
 
 O [HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com seus dados: [consultas no Hive e chamadas à API RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Você pode trabalhar diretamente com a API REST usando o comando `curl` ou um utilitário semelhante.
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Esta nova tabela tem famílias de duas colunas, t1 e t2. Como as famílias de colunas são armazenadas separadamente em HFiles diferentes, faz sentido ter uma família de colunas separada para os dados consultados com frequência. No exemplo [Inserir dados](#insert-data) a seguir, colunas são adicionadas à família de colunas t1.
+Essa nova tabela tem famílias de duas colunas, T1 e T2. Como as famílias de colunas são armazenadas separadamente em HFiles diferentes, faz sentido ter uma família de colunas separada para os dados consultados com frequência. No exemplo [Inserir dados](#insert-data) a seguir, colunas são adicionadas à família de colunas t1.
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
 
@@ -112,9 +112,9 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-O HBase implementa [o Cloud BigTable,](https://cloud.google.com/bigtable/)de modo que o formato de dados se parece com a seguinte imagem:
+O HBase implementa o [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante à imagem a seguir:
 
-![Saída de dados de amostra apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+![Saída de dados de exemplo do Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Selecionar dados
 

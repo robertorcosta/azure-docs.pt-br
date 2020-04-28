@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74973876"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de um trabalho de importação
@@ -32,15 +32,15 @@ Os seguintes parâmetros podem ser especificados com **RepairImport**:
   
 |||  
 |-|-|  
-|**/r:**<RepairFile\>|**Necessário.** Caminho até o arquivo de reparo, que controla o progresso do reparo e permite que você retome um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Ao iniciar o reparo de uma determinada unidade, você passa no caminho até um arquivo de reparo que ainda não existe. Para retomar um reparo interrompido, você deve passar no nome de um arquivo de reparo existente. O arquivo de reparo que corresponde à unidade de destino deve sempre ser especificado.|  
-|**/logdir:**<LogDirectory\>|**Opcional.** O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  
+|**/r:**<repairfile\>|**Necessário.** Caminho até o arquivo de reparo, que controla o progresso do reparo e permite que você retome um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Ao iniciar o reparo de uma determinada unidade, você passa no caminho até um arquivo de reparo que ainda não existe. Para retomar um reparo interrompido, você deve passar no nome de um arquivo de reparo existente. O arquivo de reparo que corresponde à unidade de destino deve sempre ser especificado.|  
+|**/logdir:**<LogDirectory\>|**Adicional.** O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  
 |**/d:**<TargetDirectories\>|**Necessário.** Um ou mais diretórios separados por ponto e vírgula que contêm os arquivos originais que foram importados. A unidade de importação também pode ser usada, mas não será necessária se houver locais alternativos dos arquivos originais.|  
-|**/bk:**<BitLockerKey\>|**Opcional.** Você deve especificar a chave do BitLocker se quiser que a ferramenta desbloqueie uma unidade criptografada na qual os arquivos originais estão disponíveis.|  
+|**/BK:**<BitLockerKey\>|**Adicional.** Você deve especificar a chave do BitLocker se quiser que a ferramenta desbloqueie uma unidade criptografada na qual os arquivos originais estão disponíveis.|  
 |**/sn:**<StorageAccountName\>|**Necessário.** O nome da conta de armazenamento do trabalho de importação.|  
-|**/sk:**<StorageAccountKey\>|**Necessário** se e somente se não for especificado um contêiner SAS. A chave de conta da conta de armazenamento do trabalho de importação.|  
+|**/SK:**<StorageAccountKey\>|**Necessário** se e somente se não for especificado um contêiner SAS. A chave de conta da conta de armazenamento do trabalho de importação.|  
 |**/csas:**<ContainerSas\>|**Necessário** se e somente se a chave da conta de armazenamento não for especificada. O SAS do contêiner para acessar os blobs associados ao trabalho de importação.|  
 |**/CopyLogFile:**<DriveCopyLogFile\>|**Necessário.** Caminho até o arquivo de log de cópia da unidade (log detalhado ou de erro). O arquivo é gerado pelo serviço de Importação/Exportação do Windows Azure e pode ser baixado do armazenamento de blobs associado ao trabalho. O arquivo de log de cópia contém informações sobre arquivos ou blobs com falha que devem ser reparados.|  
-|**/PathMapFile:**<DrivePathMapFile\>|**Opcional.** Caminho até um arquivo de texto que pode ser usado para resolver ambiguidades se você tiver vários arquivos com o mesmo nome que foram importados no mesmo trabalho. Na primeira vez que a ferramenta é executada, ela pode preencher esse arquivo com todos os nomes ambíguos. Execuções subsequentes da ferramenta usam esse arquivo para resolver as ambiguidades.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**Adicional.** Caminho até um arquivo de texto que pode ser usado para resolver ambiguidades se você tiver vários arquivos com o mesmo nome que foram importados no mesmo trabalho. Na primeira vez que a ferramenta é executada, ela pode preencher esse arquivo com todos os nomes ambíguos. Execuções subsequentes da ferramenta usam esse arquivo para resolver as ambiguidades.|  
   
 ## <a name="using-the-repairimport-command"></a>Usando o comando RepairImport  
 Para reparar a dados de importação transmitindo os dados pela rede, você deve especificar os diretórios que contêm os arquivos originais importados usando o parâmetro `/d`. Você também deve especificar o arquivo de log de cópia que você baixou da sua conta de armazenamento. Uma linha de comando típica para reparar um trabalho de importação com falhas parciais é semelhante a:  
@@ -99,7 +99,7 @@ Depois de disponibilizar os arquivos necessários para a ferramenta, ou atualiza
   
 ## <a name="next-steps"></a>Próximas etapas
  
-* [Configuração da ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
+* [Configurando a ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   

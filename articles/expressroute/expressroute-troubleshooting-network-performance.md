@@ -1,5 +1,5 @@
 ---
-title: 'Solucionar problemas no desempenho do link de rede: Azure'
+title: 'Solucionar problemas de desempenho de link de rede: Azure'
 description: Esta página fornece um método padronizado de teste de desempenho de link de rede do Azure.
 services: expressroute
 author: tracsman
@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74869639"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
@@ -160,7 +160,7 @@ Configuração do teste:
  - Um circuito Premium do ExpressRoute de 10 Gbps no local identificado, com o Emparelhamento privado habilitado.
  - Uma Rede Virtual do Azure com um gateway UltraPerformance na região especificada.
  - Uma VM DS5v2 executando o Windows Server 2016 na Rede Virtual. A VM era não ingressada no domínio, criada com base na imagem padrão do Azure (sem otimização ou personalização), com o AzureCT instalado.
- - Todos os testes usaram o comando Get-LinkPerformance do AzureCT com um teste de carga de 5 minutos para cada uma das seis execuções de teste. Por exemplo: 
+ - Todos os testes usaram o comando Get-LinkPerformance do AzureCT com um teste de carga de 5 minutos para cada uma das seis execuções de teste. Por exemplo:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -179,7 +179,7 @@ Configuração do teste:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
+|ExpressRoute<br/>Local|Azure<br/>Região|Estimada (km)<br/>Distância|Latency|Sessão 1<br/>Largura de banda|Máximo<br/>Largura de banda|
 | Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
@@ -198,14 +198,14 @@ Configuração do teste:
 \* A latência até o Brasil é um bom exemplo em que a distância em linha reta difere significativamente da distância que a fibra percorre. Eu esperava que a latência seria de cerca de 160 ms, mas é de 189 ms na realidade. Essa diferença em relação a minha expectativa poderia indicar um problema de rede em algum lugar, mas é mais provável que o caminho da fibra não vá até o Brasil em uma linha reta e tenha cerca de 1.000 km a mais para chegar até o Brasil, partindo de Seattle.
 
 ## <a name="next-steps"></a>Próximas etapas
-1. Baixe o Kit de Ferramentas de Conectividade do Azure do GitHub em[https://aka.ms/AzCT][ACT]
+1. Baixe o kit de ferramentas de conectividade do Azure do GitHub em[https://aka.ms/AzCT][ACT]
 2. Siga as instruções para [teste de desempenho de link][Performance Doc]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componentes da rede azure"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Solução de problemas da ExpressRoute"
+[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componentes de rede do Azure"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Solução de problemas do ExpressRoute"
 [3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Ambiente de teste perf"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Saída powershell"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Saída do PowerShell"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

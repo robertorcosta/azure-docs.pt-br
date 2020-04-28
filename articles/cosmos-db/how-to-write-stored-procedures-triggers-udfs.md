@@ -1,5 +1,5 @@
 ---
-title: Escreva procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
+title: Gravar procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
 description: Saiba como definir procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75441727"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
@@ -23,7 +23,7 @@ Para chamar um procedimento armazenado, um gatilho e uma função definida pelo 
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. O escopo dos procedimentos armazenados sempre é uma chave de partição. Itens que têm um valor de chave de partição diferente não estarão visíveis para o procedimento armazenado. Isso também aplica-se a gatilhos.
 
 > [!Tip]
-> A Cosmos suporta a implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, [consulte Criar um contêiner Azure Cosmos DB com funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
+> O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
@@ -51,11 +51,11 @@ Uma vez escrito, o procedimento armazenado deve ser registrado com uma coleção
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Criar um item usando o procedimento armazenado
 
-Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Azure Cosmos e um ID para o item recém-criado é devolvido. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o runtime do Azure Cosmos DB gerará um erro. 
+Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o runtime do Azure Cosmos DB gerará um erro. 
 
 O procedimento armazenado também inclui um parâmetro para definir a descrição; é um valor booliano. Quando o parâmetro é definido como true e a descrição está ausente, o procedimento armazenado gerará uma exceção. Caso contrário, o restante do procedimento armazenado continuará em execução.
 
-O procedimento armazenado a seguir toma um novo item do Azure Cosmos como entrada, insere-o no contêiner Azure Cosmos e devolve o ID para o item recém-criado. Neste exemplo, estamos usando o exemplo ToDoList da [API do SQL .NET do Início Rápido](create-sql-api-dotnet.md)
+O procedimento armazenado de exemplo a seguir usa um novo item Cosmos do Azure como entrada, insere-o no contêiner Cosmos do Azure e retorna a ID para o item recém-criado. Neste exemplo, estamos usando o exemplo ToDoList da [API do SQL .NET do Início Rápido](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -319,7 +319,7 @@ Para obter exemplos de como registrar e usar uma função definida pelo usuário
 
 ## <a name="logging"></a>Registrando em log 
 
-Ao usar o procedimento armazenado, gatilhos ou funções definidas `console.log()` pelo usuário, você pode registrar as etapas usando o comando. Este comando concentrará uma seqüência de configuração para depuração quando `EnableScriptLogging` for definido como verdadeiro, como mostrado no exemplo a seguir:
+Ao usar procedimentos armazenados, gatilhos ou funções definidas pelo usuário, você pode registrar as etapas usando `console.log()` o comando. Este comando irá concentrar uma cadeia de caracteres para `EnableScriptLogging` depuração quando for definido como true, conforme mostrado no exemplo a seguir:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

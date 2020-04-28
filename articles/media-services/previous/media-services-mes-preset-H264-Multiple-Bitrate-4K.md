@@ -1,6 +1,6 @@
 ---
 title: Predefinição do Media Encoder Standard H264 Taxa de Bits Múltiplas 4K - Azure | Microsoft Docs
-description: O artigo fornece uma visão geral da preconfiguração da tarefa Task Task Task Multi Bitrate 4K do Media Encoder Standard **H264.**
+description: O artigo fornece uma visão geral da predefinição de tarefa Media Encoder Standard **H264 taxas de bits múltiplas 4K** .
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887010"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Taxas de Bits Múltiplas 4K

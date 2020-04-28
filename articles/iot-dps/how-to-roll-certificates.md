@@ -1,6 +1,6 @@
 ---
-title: Roll X.509 certificados no Serviço de Provisionamento de Dispositivos Hub Azure IoT
-description: Como rodar certificados X.509 com a instância dps (Device Provisioning Service, serviço de provisionamento de dispositivos)
+title: Distribuir certificados X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como distribuir certificados X. 509 com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74974880"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
@@ -108,7 +108,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 1. Clique o **certificados** guia para sua instância de serviço de provisionamento de dispositivos.
 
-2. Clique no certificado comprometido na lista e, em seguida, clique no botão **Excluir**. Confirme a exclusão digitando o nome do certificado e clique **em OK**. Repita esse processo para todos os certificados comprometidos.
+2. Clique no certificado comprometido na lista e, em seguida, clique no botão **Excluir**. Confirme a exclusão inserindo o nome do certificado e clique em **OK**. Repita esse processo para todos os certificados comprometidos.
 
     ![Excluir o certificado de Autoridade de Certificação](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -116,7 +116,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 4. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique **em Salvar**. 
+5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **salvar**. 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +162,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 2. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
-3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique **em Salvar**. 
+3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **salvar**. 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

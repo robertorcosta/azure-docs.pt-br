@@ -1,6 +1,6 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – Atestado de TPM
-description: Este artigo fornece uma visão geral conceitual do fluxo de atestação TPM usando o Serviço de Provisionamento de Dispositivos IoT (DPS).
+description: Este artigo fornece uma visão geral conceitual do fluxo de atestado do TPM usando o DPS (serviço de provisionamento de dispositivos IoT).
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975271"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
@@ -21,7 +21,7 @@ O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar
 
 Este artigo descreve um processo de atestado de identidade ao usar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de HSM (módulo de segurança de hardware). Este artigo pressupõe que você está usando um TPM discreto, de firmware ou integrado. Os TPMs emulados para software são adequados para fazer protótipos ou teste, mas não oferecem o mesmo nível de segurança que os TPMs discretos, de firmware ou integrados oferecem. Não recomendamos usar TPMs de software em produção. Para obter mais informações sobre os tipos de TPMs, consulte [Uma breve introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
-Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. TPM é um padrão ISO em todo o setor do Grupo de Computação Confiável, e você pode ler mais sobre TPM na [especificação TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) ou na [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também assume que você está familiarizado com pares de chaves públicas e privadas, e como eles são usados para criptografia.
+Este artigo só é relevante para dispositivos que usam o TPM 2.0 com suporte à chave HMAC e suas chaves de endosso. Não é para dispositivos que usam certificados X.509 para autenticação. O TPM é um padrão ISO, de todo o setor, da Trusted Computing Group, e você pode ler mais sobre o TPM na [especificação completa do tpm 2,0](https://trustedcomputinggroup.org/tpm-library-specification/) ou a [Especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que você esteja familiarizado com pares de chaves pública e privada e como eles são usados para criptografia.
 
 Os SDKs do dispositivo do Serviço de Provisionamento de Dispositivos lidam com tudo que foi descrito neste artigo para você. Não será necessário implementar mais nada se você estiver usando os SDKs em seus dispositivos. Este artigo ajuda a entender conceitualmente o que está acontecendo com seu chip de segurança do TPM quando seu dispositivo é provisionado e por que ele é tão seguro.
 

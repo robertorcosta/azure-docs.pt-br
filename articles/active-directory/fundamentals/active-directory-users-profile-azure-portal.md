@@ -1,5 +1,5 @@
 ---
-title: Adicionar ou atualizar informações do perfil do usuário - Azure AD
+title: Adicionar ou atualizar informações de perfil do usuário-Azure AD
 description: Instruções sobre como adicionar informações a um perfil de usuário no Azure Active Directory, incluindo detalhes de uma imagem e o trabalho.
 services: active-directory
 author: msaburnley
@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75422872"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Como adicionar ou atualizar as informações do perfil de um usuário usando o Azure Active Directory
@@ -26,7 +26,7 @@ Adicione informações de perfil de usuário, incluindo uma imagem do perfil, in
 Como você verá, há mais informações disponíveis no perfil de um usuário do que você pode adicionar durante a criação do usuário. Todas essas informações adicionais são opcionais e podem ser adicionadas conforme a necessidade da sua organização.
 
 ## <a name="to-add-or-change-profile-information"></a>Para adicionar ou as alterar informações do perfil
-1. Faça login no [portal Azure](https://portal.azure.com/) como administrador de usuário da organização.
+1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário para a organização.
 
 2. Selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, selecione um usuário. Por exemplo, _Alain Charon_.
 
@@ -40,17 +40,17 @@ Como você verá, há mais informações disponíveis no perfil de um usuário d
 
     - **Imagem do perfil.** Selecione uma imagem em miniatura para a conta do usuário. Esta imagem aparece no Azure Active Directory e nas páginas pessoais do usuário, como a página myapps.microsoft.com.
 
-    - **Identidade.** Adicione ou atualize um valor de identidade adicional para o usuário, como um sobrenome casado. Você pode definir este nome independentemente dos valores de Primeiro nome e Sobrenome. Por exemplo, você pode usá-lo para incluir iniciais, um nome de empresa ou para alterar a seqüência de nomes mostrados. Em outro exemplo, para dois usuários cujos nomes são 'Chris Green' você pode usar a seqüência Identity para definir seus nomes para 'Chris B. Green' 'Chris R. Green (Contoso).'
+    - **Identidade.** Adicione ou atualize um valor de identidade adicional para o usuário, como um sobrenome casado. Você pode definir esse nome independentemente dos valores de First Name e Last Name. Por exemplo, você pode usá-lo para incluir iniciais, um nome de empresa ou alterar a sequência de nomes mostrados. Em outro exemplo, para dois usuários cujos nomes são "Chris Green", você pode usar a cadeia de caracteres de identidade para definir seus nomes como "Chris B. Green" "Chris R. Green (contoso)."
 
-    - **Informações de trabalho.** Adicione qualquer informação relacionada ao trabalho como cargo, departamento ou gerente do usuário.
+    - **Informações do trabalho.** Adicione qualquer informação relacionada ao trabalho como cargo, departamento ou gerente do usuário.
 
     - **Configurações.** Decida se o usuário pode entrar no locatário do Azure Active Directory. Você também pode especificar a localização global do usuário.
 
-    - **Informações de contato.** Adicione quaisquer informações de contato relevantes para o usuário, exceto para algumas informações de contato do telefone ou celular de algum usuário (apenas um administrador global pode atualizar para usuários em funções de administrador).
+    - **Informações de contato.** Adicione quaisquer informações de contato relevantes para o usuário, exceto para algumas informações de contato móvel ou telefone do usuário (somente um administrador global pode atualizar para usuários em funções de administrador).
 
     - **Informações de contato de autenticação.** Verifique essas informações para certificar-se de que há um número de telefone e um endereço de email ativos para o usuário. Essas informações são usadas pelo Azure Active Directory para garantir que o usuário seja realmente o usuário durante a entrada. As informações de contato de autenticação somente podem ser atualizadas por um administrador global.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
     Todas as alterações são salvas para o usuário.
 

@@ -1,5 +1,5 @@
 ---
-title: Use dados de referência do Banco de Dados SQL em um trabalho do Azure Stream Analytics
+title: Usar dados de referência de banco de dado SQL em um trabalho Azure Stream Analytics
 description: Este artigo descreve como usar um Banco de Dados SQL como entrada de dados de referência para um trabalho do Azure Stream Analytics no portal do Azure e no Visual Studio.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426492"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Use dados de referência de um banco de dados SQL para um trabalho do Azure Stream Analytics
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de um banco de dado SQL para um trabalho Azure Stream Analytics
 
 O Azure Stream Analytics dá suporte ao Banco de Dados SQL do Azure como uma fonte de entrada para dados de referência. É possível usar o Banco de Dados SQL como dados de referência para o trabalho do Stream Analytics no portal do Azure e no Visual Studio com as ferramentas do Stream Analytics. Este artigo monstra como realizar ambos os métodos.
 
@@ -115,7 +115,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Abra o arquivo SQL no editor e grave a consulta SQL.
 
-5. Se você estiver usando o Visual Studio 2019 e tiver instalado ferramentas de dados do SQL Server, você pode testar a consulta clicando em **Executar**. Uma janela de assistente será exibida para ajudá-lo a se conectar ao Banco de Dados SQL, e o resultado da consulta será exibido na parte inferior da janela.
+5. Se você estiver usando o Visual Studio 2019 e tiver instalado o SQL Server Data Tools, poderá testar a consulta clicando em **executar**. Uma janela de assistente será exibida para ajudá-lo a se conectar ao Banco de Dados SQL, e o resultado da consulta será exibido na parte inferior da janela.
 
 ### <a name="specify-storage-account"></a>Especificar a conta de armazenamento
 
@@ -131,7 +131,7 @@ Antes de implantar o trabalho no Azure, você poderá testar a lógica de consul
 
 Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados SQL do Azure](../sql-database/sql-database-temporal-tables.md).
 
-1. Crie uma tabela temporal no Banco de Dados SQL do Azure.
+1. Crie uma tabela temporal no banco de dados SQL do Azure.
    
    ```SQL 
       CREATE TABLE DeviceTemporal 
@@ -147,7 +147,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
    ```
 2. Crie a consulta de instantâneo. 
 
-   Use ** \@** o parâmetro snapshotTime para instruir o tempo de execução do Stream Analytics para obter o conjunto de dados de referência da tabela temporal do banco de dados SQL válido no momento do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
+   Use o ** \@parâmetro SnapshotTime** para instruir o tempo de execução do Stream Analytics a obter o conjunto de dados de referência da tabela temporal do banco de dado SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,7 +156,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
  
 2. Crie a consulta delta. 
    
-   Esta consulta recupera todas as linhas do banco de dados SQL que foram inseridas ou excluídas dentro de um tempo de início, ** \@deltaStartTime**e um ** \@deltaEndTime**de tempo final . A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha está inserida ou excluída entre ** \@deltaStartTime** e ** \@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. 
+   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas em uma hora de início, ** \@deltaStartTime**e uma hora ** \@** de término deltaEndTime. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha é inserida ou excluída entre ** \@deltaStartTime** e ** \@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. 
 
    Quanto aos registros que foram atualizados, a tabela temporal faz a contabilidade, capturando uma operação de inserção e exclusão. O runtime do Stream Analytics aplicará os resultados da consulta delta para o instantâneo anterior a fim de manter os dados de referência atualizados. Veja a seguir um exemplo de consulta delta:
 
@@ -173,7 +173,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
    O runtime do Stream Analytics pode executar periodicamente a consulta de instantâneo além da consulta delta para armazenar pontos de verificação.
 
 ## <a name="test-your-query"></a>Testar a consulta
-   É importante verificar se sua consulta está retornando o conjunto de dados esperado que o trabalho do Stream Analytics usará como dados de referência. Para testar sua consulta, vá para a seção Entrada em Topologia de Trabalho no portal. Em seguida, você pode selecionar Dados de amostra na entrada de referência do banco de dados SQL. Depois que a amostra estiver disponível, você pode baixar o arquivo e verificar se os dados que estão sendo devolvidos são como esperado. Se você quiser otimizar seu desenvolvimento e testar iterações, recomenda-se usar as [ferramentas stream analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Você também pode qualquer outra ferramenta de sua preferência para primeiro garantir que a consulta está retornando os resultados certos de seu Banco de Dados SQL Do Azure e, em seguida, usá-lo em seu trabalho de Stream Analytics. 
+   É importante verificar se a consulta está retornando o conjunto de dados esperado que o trabalho de Stream Analytics será usado como dado de referência. Para testar sua consulta, vá para entrada na seção topologia de trabalho no Portal. Em seguida, você pode selecionar dados de exemplo em sua entrada de referência de banco do dados SQL. Depois que o exemplo for disponibilizado, você poderá baixar o arquivo e verificar se os dados que estão sendo retornados são os esperados. Se você quiser otimizar seu desenvolvimento e iterações de teste, é recomendável usar as [ferramentas de Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Você também pode qualquer outra ferramenta de sua preferência para garantir que a consulta esteja retornando os resultados certos do banco de dados SQL do Azure e, em seguida, usá-la em seu trabalho de Stream Analytics. 
 
 ## <a name="faqs"></a>Perguntas frequentes
 
@@ -183,10 +183,10 @@ Não há [custos por unidade de streaming](https://azure.microsoft.com/pricing/d
 
 **Como saber se o instantâneo de dados de referência está sendo consultado pelo Banco de Dados SQL e está sendo usado no trabalho do Azure Stream Analytics?**
 
-Existem duas métricas filtradas pelo Logical Name (em Metrics Azure Portal) que você pode usar para monitorar a saúde da entrada de dados de referência do banco de dados SQL.
+Há duas métricas filtradas pelo nome lógico (no portal do Azure de métricas) que você pode usar para monitorar a integridade da entrada de dados de referência do banco do dados SQL.
 
-   * InputEvents: Esta métrica mede o número de registros carregados do conjunto de dados de referência do banco de dados SQL.
-   * InputEventBytes: Essa métrica mede o tamanho do instantâneo de dados de referência carregado na memória do trabalho do Stream Analytics. 
+   * InputEvents: essa métrica mede o número de registros carregados no do conjunto de dados de referência do banco de dado SQL.
+   * InputEventBytes: essa métrica mede o tamanho do instantâneo de dados de referência carregado na memória do trabalho de Stream Analytics. 
 
 A combinação de ambas as métricas pode ser usada para inferir se o trabalho é a consulta do Banco de Dados SQL para buscar o conjunto de dados de referência e, então, carregá-lo na memória.
 

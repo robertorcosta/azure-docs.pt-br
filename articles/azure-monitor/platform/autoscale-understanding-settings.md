@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75364298"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
@@ -91,12 +91,12 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 | Configuração | name | O nome da configuração de dimensionamento automático. |
 | Configuração | local | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
 | properties | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
-| properties | perfis | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
-| Perfil | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
-| Perfil | Capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
-| Perfil | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |
-| Perfil | Capacity.default | Se houver algum problema ao ler a métrica do recurso (nesse caso, a CPU de "vmss1") e a capacidade atual estiver abaixo do padrão, a Autoescala escalará horizontalmente de acordo com o padrão. Isso serve para garantir a disponibilidade do recurso. Se a capacidade atual já é maior do que a capacidade padrão, a Autoescala não reduz horizontalmente. |
-| Perfil | regras | A Autoescala dimensiona automaticamente entre as capacidades máximas e mínimas usando as regras do perfil. Pode haver várias regras em um perfil. Normalmente há duas regras: uma para determinar quando escalar horizontalmente e outra para determinar quando reduzir horizontalmente. |
+| properties | profiles | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| perfil | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
+| perfil | Capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
+| perfil | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |
+| perfil | Capacity.default | Se houver algum problema ao ler a métrica do recurso (nesse caso, a CPU de "vmss1") e a capacidade atual estiver abaixo do padrão, a Autoescala escalará horizontalmente de acordo com o padrão. Isso serve para garantir a disponibilidade do recurso. Se a capacidade atual já é maior do que a capacidade padrão, a Autoescala não reduz horizontalmente. |
+| perfil | regras | A Autoescala dimensiona automaticamente entre as capacidades máximas e mínimas usando as regras do perfil. Pode haver várias regras em um perfil. Normalmente há duas regras: uma para determinar quando escalar horizontalmente e outra para determinar quando reduzir horizontalmente. |
 | regra | metricTrigger | Define a condição de métrica da regra. |
 | metricTrigger | metricName | O nome da métrica. |
 | metricTrigger |  metricResourceUri | A ID do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o do recurso que está sendo dimensionado. Em alguns casos, ela pode ser diferente. Por exemplo, você pode escalonar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens em uma fila de armazenamento. |
@@ -301,9 +301,9 @@ Por exemplo, digamos que há um conjunto de dimensionamento de máquinas virtuai
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a Autoescala consultando o seguinte:
 
-* [Visão geral da escala automática](../../azure-monitor/platform/autoscale-overview.md)
+* [Visão geral do dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md)
 * [Métricas comuns de dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Use ações de autoescala para enviar notificações de alerta de e-mail e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 

@@ -1,6 +1,6 @@
 ---
 title: Como cortar vídeos com o Media Encoder Standard - Azure | Microsoft Docs
-description: Corte é o processo de seleção de uma janela retangular no quadro de vídeo e codificação apenas dos pixels nessa janela. Este artigo demonstra como cortar vídeos com o Media Encoder Standard.
+description: Corte é o processo de seleção de uma janela retangular no quadro de vídeo e codificação apenas dos pixels nessa janela. Este artigo demonstra como cortar vídeos com Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 059816284e39c65bb772bd02f066d73da624722f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74887757"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Cortar vídeos com o Codificador de Mídia Padrão  
@@ -128,7 +128,7 @@ No exemplo mostrado no diagrama:
 
 
 ## <a name="restrictions-on-cropping"></a>Restrições de corte
-O recurso de corte deve ser manual. Você precisaria carregar seu vídeo de entrada em uma ferramenta de edição adequada que permite selecionar quadros de interesse, posicionar o cursor para determinar deslocamentos para o retângulo de corte, para determinar a preconfiguração de codificação que está sintonizada para esse vídeo em particular, etc. Esse recurso não é feito para habilitar coisas como: detecção automática e remoção de bordas de caixa de correio/caixa de pilares em seu vídeo de entrada.
+O recurso de corte deve ser manual. Você precisaria carregar seu vídeo de entrada em uma ferramenta de edição adequada que permita selecionar quadros de interesse, posicionar o cursor para determinar deslocamentos para o retângulo de corte, para determinar a predefinição de codificação ajustada para esse vídeo específico, etc. Esse recurso não deve permitir coisas como: detecção automática e remoção de bordas Letterbox/pillarbox pretas em seu vídeo de entrada.
 
 As restrições a seguir se aplicam ao recurso de corte. Se elas não forem atendidas, a Tarefa de codificação poderá falhar ou produzir uma saída inesperada.
 
@@ -137,7 +137,7 @@ As restrições a seguir se aplicam ao recurso de corte. Se elas não forem aten
 3. O corte se aplica aos vídeos capturados no modo paisagem (ou seja, não se aplica aos vídeos gravados com um smartphone mantido verticalmente ou no modo retrato)
 4. Funciona melhor com vídeo progressivo capturado com pixels quadrados
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Próxima etapa

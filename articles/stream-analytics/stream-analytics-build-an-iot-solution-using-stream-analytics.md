@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75426454"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
@@ -113,7 +113,7 @@ Para completar essa solução, você precisará de uma assinatura do Microsoft A
 Siga as etapas na seção "Limpar sua conta do Azure" no final deste artigo para que você possa fazer o melhor uso de seu crédito do Azure.
 
 ## <a name="deploy-the-sample"></a>Implantar o exemplo
-Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução está hospedada no repositório GitHub em [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+Há vários recursos que podem ser facilmente implantados em um grupo de recursos com alguns cliques. A definição da solução é hospedada no repositório [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp)do GitHub em.
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implantar o modelo do TollApp no Portal do Azure
 1. Para implantar o ambiente do TollApp no Azure, use esse link para [Implantar modelo do TollApp do Azure ](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -171,7 +171,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
    - O **Registro** é uma conexão do Armazenamento de Blobs do Azure, apontando para um arquivo registration.json estático usado para pesquisas, conforme necessário. Essa entrada de dados de referência é usada em variações posteriores da sintaxe de consulta.
 
 4. Examinar as Saídas do trabalho de exemplo do TollApp.
-   - A saída **do Cosmos DB** é um contêiner de banco de dados cosmos que recebe os eventos de dissipação de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
+   - **Cosmos DB** saída é um contêiner de banco de dados cosmos que recebe os eventos de coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:
@@ -189,7 +189,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda os documentos **de tollAppDatabase** > **tollAppCollection** > **Documents**.
+4. Expanda os**documentos**do **tollAppDatabase** > **tollAppCollection** > .
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 
@@ -283,7 +283,7 @@ Saída de exemplo:
 ```
 
 ## <a name="scale-out-the-job"></a>Escalar horizontalmente o trabalho
-O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta do Azure Stream Analytics pode usar uma cláusula **PARTITION BY** para dizer ao sistema que essa etapa é dimensionada. **PartitionId** é uma coluna especial que o sistema adiciona para corresponder ao ID de partição da entrada (hub de eventos).
+O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta Azure Stream Analytics pode usar uma cláusula **Partition by** para informar ao sistema que essa etapa escala horizontalmente. **PartitionID** é uma coluna especial que o sistema adiciona para corresponder à ID de partição da entrada (Hub de eventos).
 
 Para escalar horizontalmente a consulta para partições, edite a sintaxe de consulta para o código a seguir:
 ```sql
@@ -303,7 +303,7 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 

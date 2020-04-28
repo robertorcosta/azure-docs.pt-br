@@ -1,5 +1,5 @@
 ---
-title: Regras baseadas em limiar sindíveis no Azure Stream Analytics
+title: Regras baseadas em limite configuráveis no Azure Stream Analytics
 description: Este artigo descreve como usar dados de referência para obter uma solução de alerta com regras de limite configurável com base no Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75369704"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras de limite configurável com base no Azure Stream Analytics

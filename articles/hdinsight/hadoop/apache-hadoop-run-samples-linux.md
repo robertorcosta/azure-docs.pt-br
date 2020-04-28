@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435745"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight
@@ -23,7 +23,7 @@ Saiba como executar os exemplos de MapReduce incluídos com Apache Hadoop no HDI
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Veja [Get Started com hdinsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster do Apache Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,38 +35,38 @@ Os exemplos a seguir estão contidos neste arquivo:
 
 |Amostra |Descrição |
 |---|---|
-|contagem de palavras agregadas|Conta as palavras nos arquivos de entrada.|
-|agregadowordhist|Calcula o histograma das palavras nos arquivos de entrada.|
-|Bbp|Usa Bailey-Borwein-Plouffe para calcular dígitos exatos de Pi.|
-|dbcount|Conta os registros de pageview armazenados em um banco de dados.|
-|distbbp|Usa uma fórmula do tipo BBP para calcular bits exatos de Pi.|
-|grep|Conta os fósforos de um regex na entrada.|
-|join|Executa uma parte sobre conjuntos de dados ordenados e igualmente particionados.|
+|aggregatewordcount|Conta as palavras nos arquivos de entrada.|
+|aggregatewordhist|Computa o histograma das palavras nos arquivos de entrada.|
+|BBP|Usa Bailey-Borwein-Plouffe para computar os dígitos exatos de PI.|
+|dbcount|Conta os logs de Pageview armazenados em um banco de dados.|
+|distbbp|Usa uma fórmula de tipo BBP para computar bits exatos de PI.|
+|grep|Conta as correspondências de um Regex na entrada.|
+|join|Executa uma junção sobre conjuntos de valores classificados e particionados igualmente.|
 |multifilewc|Conta palavras de vários arquivos.|
-|pentomino|Programa de colocação de telhas para encontrar soluções para problemas pentominos.|
-|pi|Estima Pi usando um método quase-Monte Carlo.|
-|randomtextwriter|Grava 10 GB de dados texulos aleatórios por nó.|
-|escritor aleatório|Grava 10 GB de dados aleatórios por nó.|
-|secundário|Define um tipo secundário para a fase de redução.|
-|sort|Classifica os dados escritos pelo escritor aleatório.|
+|pentomino|Programa de layout de bloco para encontrar soluções para problemas de pentomino.|
+|pi|Estima PI usando um método de Carlo quase monte.|
+|randomtextwriter|Grava 10 GB de dados textuais aleatórios por nó.|
+|randomwriter|Grava 10 GB de dados aleatórios por nó.|
+|SecondarySort|Define uma classificação secundária para a fase de redução.|
+|sort|Classifica os dados gravados pelo gravador aleatório.|
 |Sudoku|Um solucionador de sudoku.|
 |teragen|Gera dados para o terasort.|
 |terasort|Executa o terasort.|
-|teravalid|Verificação dos resultados do terasort.|
-|Wordcount|Conta as palavras nos arquivos de entrada.|
-|palavramédia|Conta o comprimento médio das palavras nos arquivos de entrada.|
-|wordmedian|Conta o comprimento médio das palavras nos arquivos de entrada.|
-|wordstandarddesvio|Conta o desvio padrão do comprimento das palavras nos arquivos de entrada.|
+|teravalidate|Verificação dos resultados do terasort.|
+|WordCount|Conta as palavras nos arquivos de entrada.|
+|wordmean|Conta o comprimento médio das palavras nos arquivos de entrada.|
+|wordmedian|Conta o comprimento mediano das palavras nos arquivos de entrada.|
+|wordstandarddeviation|Conta o desvio padrão do comprimento das palavras nos arquivos de entrada.|
 
 ## <a name="run-the-wordcount-example"></a>Executar o exemplo de wordcount
 
-1. Conecte-se ao HDInsight usando o SSH. Substitua pelo `CLUSTER` nome do seu cluster e digite o seguinte comando:
+1. Conecte-se ao HDInsight usando o SSH. Substitua `CLUSTER` pelo nome do cluster e, em seguida, insira o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Na sessão SSH, use o seguinte comando para listar as amostras:
+2. Na sessão SSH, use o seguinte comando para listar os exemplos:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -88,7 +88,7 @@ Os exemplos a seguir estão contidos neste arquivo:
 
     Essa mensagem indica que você pode fornecer vários caminhos de entrada para os documentos de origem. O caminho final é o local em que a saída (contagem de palavras em documentos de origem) está armazenada.
 
-4. Use o seguinte para contar todas as palavras nos Cadernos de Leonardo da Vinci, que são fornecidos como dados de amostra com o seu cluster:
+4. Use o seguinte para contar todas as palavras nos blocos de anotações do Leonardo da Vinci, que são fornecidas como dados de exemplo com o cluster:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -154,7 +154,7 @@ Os resultados são semelhantes ao texto a seguir:
 
 ## <a name="pi--example"></a>Exemplo de pi (π)
 
-O exemplo do pi usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi. Pontos são colocados aleatoriamente em um quadrado de unidade. O quadrado também contém um círculo. A probabilidade de que os pontos caiam dentro do círculo é igual à área do círculo, pi/4. O valor de pi pode ser estimado do valor de 4R. R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
+O exemplo do pi usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi. Pontos são colocados aleatoriamente em um quadrado de unidade. O quadrado também contém um círculo. A probabilidade de os pontos ficarem dentro do círculo é igual à área do círculo, PI/4. O valor de pi pode ser estimado do valor de 4R. R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
 Use o seguinte comando para executar o exemplo. O comando usa 16 mapas com 10.000.000 amostras cada um para estimar o valor de pi:
 
@@ -164,17 +164,17 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 O valor retornado por este comando deve ser semelhante a **3,14159155000000000000**. Para referência, as 10 primeiras casas decimais de pi são 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Exemplo graysort de 10 GB
+## <a name="10-gb-graysort-example"></a>exemplo de GraySort de 10 GB
 
 GraySort é um tipo de parâmetro de comparação. A métrica é a taxa de classificação (TB/minuto) que é obtida durante a classificação de grandes quantidades de dados, geralmente um mínimo de 100 TB.
 
-Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos de MapReduce desenvolvidos por Owen O'Malley e Arun Murthy. Essas aplicações ganharam o benchmark anual de terabytes de propósito geral ("Daytona") em 2009, com uma taxa de 0,578 TB/min (100 TB em 173 minutos). Para obter mais informações sobre este e outros benchmarks de classificação, consulte o site [Do Sort Benchmark.](https://sortbenchmark.org/)
+Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos de MapReduce desenvolvidos por Owen O'Malley e Arun Murthy. Esses aplicativos ganharam o parâmetro de comparação anual de classificação de terabytes de uso geral ("Daytona") em 2009, com uma taxa de 0,578 TB/min (100 TB em 173 minutos). Para obter mais informações sobre esse e outros parâmetros de comparação de classificação, consulte o site de [comparação de classificação](https://sortbenchmark.org/) .
 
 Este exemplo usa três conjuntos de programas MapReduce:
 
 * **TeraGen**: um programa de MapReduce que gera linhas de dados para classificar
 
-* **TeraSort**: Amostra os dados de entrada e usa mapReduce para classificar os dados em uma ordem total
+* **TeraSort**: amostra os dados de entrada e usa o MapReduce para classificar os dados em uma ordem total
 
     A TeraSort é uma classificação de MapReduce padrão, exceto por um particionador personalizado. O particionador usa uma lista classificada de N-1 chaves amostradas que definem o intervalo de chave para cada redução. Em particular, todas as chaves dessa amostra[i-1] <= chave < amostra[i] são enviadas para reduzir i. Esse particionador garante que as saídas da redução i sejam todas menores do que a saída da redução i+1.
 

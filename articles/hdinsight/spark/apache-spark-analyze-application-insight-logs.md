@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 6fd7682f56fbe446904a4acdb39e78525f2523a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435238"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analise os logs de telemetria do Application Insights com o Apache Spark no HDInsight
@@ -39,7 +39,7 @@ Os recursos a seguir foram usados para desenvolvimento e testes deste documento:
 
 O diagrama a seguir ilustra a arquitetura de serviço deste exemplo:
 
-![Dados fluindo de Insights de aplicativos para armazenamento blob, em seguida, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+![Dados que fluem de Application Insights para o armazenamento de BLOBs, em seguida, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
@@ -60,7 +60,7 @@ O Application Insights fornece informações para [exportar o modelo de dados](.
 
 ## <a name="export-telemetry-data"></a>Exportar dados de telemetria
 
-Siga as etapas em [Configurar exportação contínua](../../azure-monitor/app/export-telemetry.md) para configurar seus Insights de aplicativo para exportar informações de telemetria para um blob de armazenamento Azure.
+Siga as etapas em [Configurar exportação contínua](../../azure-monitor/app/export-telemetry.md) para configurar seu Application insights para exportar informações de telemetria para um blob de armazenamento do Azure.
 
 ## <a name="configure-hdinsight-to-access-the-data"></a>Configurar o HDInsight para acessar os dados
 
@@ -70,7 +70,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 
 ## <a name="analyze-the-data-pyspark"></a>Analisar os dados: PySpark
 
-1. A partir de um `https://CLUSTERNAME.azurehdinsight.net/jupyter` navegador da Web, navegue até onde CLUSTERNAME é o nome do seu cluster.
+1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net/jupyter` até onde ClusterName é o nome do cluster.
 
 2. No canto superior direito da página Jupyter, selecione **Novo**, então, **PySpark**. Uma nova guia do navegador que contém um Bloco de Notas Jupyter com base em Python é aberta.
 
@@ -92,7 +92,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. `CONTAINER` Substitua `STORAGEACCOUNT` e com o nome da conta do Azure Storage e o nome do contêiner blob que contenha dados do Application Insights.
+5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. Substitua `CONTAINER` e `STORAGEACCOUNT` pelo nome da conta de armazenamento do Azure e pelo nome do contêiner de BLOB que contém dados de Application insights.
 
    ```python
    %%bash
@@ -104,7 +104,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    O caminho de wasbs retornado é a localização dos dados de telemetria do Application Insights. Altere `hdfs dfs -ls` a linha na célula para usar o caminho de wasbs retornado e, em seguida, use **SHIFT+ENTER** para executar a célula novamente. Desta vez, os resultados devem exibir os diretórios que contêm dados de telemetria.
+    O caminho wasbs retornado é o local do Application Insights dados de telemetria. Altere a `hdfs dfs -ls` linha na célula para usar o caminho wasbs retornado e, em seguida, use **Shift + Enter** para executar a célula novamente. Desta vez, os resultados devem exibir os diretórios que contêm dados de telemetria.
 
    > [!NOTE]  
    > Para o restante das etapas desta seção, foi usado o diretório `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. A estrutura de diretório pode ser diferente.
@@ -194,7 +194,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
    df.show()
    ```
 
-    Esta consulta retorna as informações da cidade para os 20 principais registros onde context.location.city não é nulo.
+    Essa consulta retorna as informações de cidade dos primeiros 20 registros em que Context. Location. City não é nulo.
 
    > [!NOTE]  
    > A estrutura de contexto está presente em toda a telemetria registrada pelo Application Insights. O elemento de cidade não pode ser preenchido em seus logs. Use o esquema para identificar outros elementos que você possa consultar e que possam conter dados para seus logs.
@@ -213,7 +213,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
 
 ## <a name="analyze-the-data-scala"></a>Analisar os dados: Scala
 
-1. A partir de um `https://CLUSTERNAME.azurehdinsight.net/jupyter` navegador da Web, navegue até onde CLUSTERNAME é o nome do seu cluster.
+1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net/jupyter` até onde ClusterName é o nome do cluster.
 
 2. No canto superior direito da página Jupyter, selecione **Novo**, então, **Scala**. Uma nova guia do navegador contendo um Bloco de anotações do Jupyter com base em Scala é exibida.
 
@@ -235,7 +235,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
 
-5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. `CONTAINER` Substitua `STORAGEACCOUNT` e com o nome da conta do Azure Storage e o nome do contêiner blob que contém registros do Application Insights.
+5. Uma nova célula é criada abaixo da primeira. Digite o texto a seguir na nova célula. Substitua `CONTAINER` e `STORAGEACCOUNT` pelo nome da conta de armazenamento do Azure e pelo nome do contêiner de BLOB que contém logs de Application insights.
 
    ```scala
    %%bash
@@ -247,7 +247,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
         Found 1 items
         drwxrwxrwx   -          0 1970-01-01 00:00 wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_2bededa61bc741fbdee6b556571a4831
 
-    O caminho de wasbs retornado é a localização dos dados de telemetria do Application Insights. Altere `hdfs dfs -ls` a linha na célula para usar o caminho de wasbs retornado e, em seguida, use **SHIFT+ENTER** para executar a célula novamente. Desta vez, os resultados devem exibir os diretórios que contêm dados de telemetria.
+    O caminho wasbs retornado é o local do Application Insights dados de telemetria. Altere a `hdfs dfs -ls` linha na célula para usar o caminho wasbs retornado e, em seguida, use **Shift + Enter** para executar a célula novamente. Desta vez, os resultados devem exibir os diretórios que contêm dados de telemetria.
 
    > [!NOTE]  
    > Para o restante das etapas desta seção, foi usado o diretório `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. Este diretório pode não existir, a menos que os dados de telemetria sejam para um aplicativo Web.
@@ -338,7 +338,7 @@ Para adicionar a Conta de armazenamento do Azure a um cluster existente, use as 
    var city = sqlContext.sql("select context.location.city from requests where context.location.city isn't null limit 10").show()
    ```
 
-    Esta consulta retorna as informações da cidade para os 20 principais registros onde context.location.city não é nulo.
+    Essa consulta retorna as informações de cidade dos primeiros 20 registros em que Context. Location. City não é nulo.
 
    > [!NOTE]  
    > A estrutura de contexto está presente em toda a telemetria registrada pelo Application Insights. O elemento de cidade não pode ser preenchido em seus logs. Use o esquema para identificar outros elementos que você possa consultar e que possam conter dados para seus logs.

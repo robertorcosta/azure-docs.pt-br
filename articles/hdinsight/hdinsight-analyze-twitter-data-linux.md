@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75435608"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Apache Hive e Apache Hadoop no HDInsight
@@ -28,7 +28,7 @@ O Twitter permite que você recupere os dados de cada tweet como um documento JS
 
 ### <a name="create-a-twitter-application"></a>Criar um aplicativo do Twitter
 
-1. A partir de um [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)navegador web, faça login para . Selecione o link **De inscrição agora** se você não tiver uma conta no Twitter.
+1. Em um navegador da Web, entre no [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Selecione o link **inscrever-se agora** se você não tiver uma conta do Twitter.
 
 2. Selecione **Criar novo aplicativo**.
 
@@ -40,15 +40,15 @@ O Twitter permite que você recupere os dados de cada tweet como um documento JS
    | Descrição |MyHDInsightApp |
    | Site |`https://www.myhdinsightapp.com` |
 
-4. Selecione **Sim, eu concordo**e selecione **Criar seu aplicativo do Twitter**.
+4. Selecione **Sim, concordo**e, em seguida, selecione **criar seu aplicativo do Twitter**.
 
-5. Selecione a guia **Permissões.** A permissão padrão é **somente Leitura**.
+5. Selecione a guia **permissões** . A permissão padrão é **somente leitura**.
 
 6. Selecione a guia **Chaves e Tokens de Acesso** .
 
-7. Selecione **Criar meu token de acesso**.
+7. Selecione **criar meu token de acesso**.
 
-8. Selecione **Teste OAuth** no canto superior direito da página.
+8. Selecione **testar OAuth** no canto superior direito da página.
 
 9. Anote a **chave do consumidor**, o **Segredo do consumidor**, o **Token de acesso** e o **Segredo do token de acesso**.
 
@@ -59,13 +59,13 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
 > [!NOTE]  
 > As etapas a seguir são executadas no cluster HDInsight, já que o Python já está instalado.
 
-1. Use [o comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao seu cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Use os seguintes comandos para instalar [Tweepy,](https://www.tweepy.org/) [Barra de Progresso](https://pypi.python.org/pypi/progressbar/2.2)e outros pacotes necessários:
+1. Use os comandos a seguir para instalar o [tweepy](https://www.tweepy.org/), a [barra de progresso](https://pypi.python.org/pypi/progressbar/2.2)e outros pacotes necessários:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -84,7 +84,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
    nano gettweets.py
    ```
 
-1. Edite o código `Your consumer secret`abaixo `Your consumer key` `Your access token`substituindo `Your access token secret` , e com as informações relevantes do seu aplicativo do twitter. Em seguida, cole o código editado como o conteúdo do arquivo **gettweets.py.**
+1. Edite o código a seguir `Your consumer secret`substituindo, `Your consumer key`, `Your access token`e `Your access token secret` pelas informações relevantes do seu aplicativo do Twitter. Em seguida, Cole o código editado como o conteúdo do arquivo **gettweets.py** .
 
    ```python
    #!/usr/bin/python
@@ -154,7 +154,7 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
     Aparece um indicador de progresso. Ele conta até 100%, conforme os tweets são baixados.
 
    > [!NOTE]  
-   > Se estiver demorando muito tempo para a barra de progresso Avançar, você deverá alterar o filtro para rastrear os tópicos mais populares. Quando há muitos tweets sobre o tópico em seu filtro, você pode obter rapidamente os 100 tweets necessários.
+   > Se estiver demorando muito tempo para a barra de progresso Avançar, você deverá alterar o filtro para rastrear os tópicos mais populares. Quando há muitos tweets sobre o tópico em seu filtro, você pode rapidamente obter os tweets 100 necessários.
 
 ### <a name="upload-the-data"></a>Carregar os dados
 
@@ -169,7 +169,7 @@ Esses comandos armazenam os dados em um local que todos os nós no cluster podem
 
 ## <a name="run-the-hiveql-job"></a>Executar o trabalho HiveQL
 
-1. Use o seguinte comando para criar um arquivo contendo instruções [hiveql:](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+1. Use o comando a seguir para criar um arquivo que contém instruções [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) :
 
    ```bash
    nano twitter.hql
@@ -310,7 +310,7 @@ Esses comandos armazenam os dados em um local que todos os nós no cluster podem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você aprendeu como transformar um conjunto de dados JSON não estruturado em uma mesa estruturada [da Colmeia Apache.](https://hive.apache.org/) Para saber mais sobre o Hive no HDInsight, consulte os documentos a seguir:
+Você aprendeu como transformar um conjunto de dados JSON não estruturado em uma tabela [Apache Hive](https://hive.apache.org/) estruturada. Para saber mais sobre o Hive no HDInsight, consulte os documentos a seguir:
 
 * [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analisar dados de atraso de voo usando o HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75350581"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de roteamento da máquina virtual
@@ -36,9 +36,9 @@ As etapas a seguir pressupõem que há uma VM existente para visualizar as rotas
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta do Azure que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 2. Na parte superior do portal do Azure, insira o nome de uma VM que esteja em estado de execução, na caixa de pesquisa. Quando o nome da VM aparecer nos resultados da pesquisa, selecione-o.
-3. Em **Configurações** à esquerda, selecione **Rede**e navegue até o recurso de interface de rede selecionando seu nome.
+3. Em **configurações** à esquerda, selecione **rede**e navegue até o recurso de interface de rede selecionando seu nome.
      ![Exibir interfaces de rede](./media/diagnose-network-routing-problem/view-nics.png)
-4. À esquerda, selecione **Rotas eficazes**. As rotas eficazes para uma interface de rede chamada **myVMNic1** são mostradas, na imagem a seguir: ![Exibir rotas eficazes](./media/diagnose-network-routing-problem/view-effective-routes.png)
+4. À esquerda, selecione **rotas efetivas**. As rotas efetivas para uma interface de rede denominada **myVMNic1** são mostradas na figura ![a seguir: Exibir rotas efetivas](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     Se houver vários adaptadores de rede conectados à VM, você poderá exibir as rotas efetivas para qualquer adaptador de rede, selecionando-a. Como cada adaptador de rede pode estar em uma sub-rede diferente, cada adaptador de rede pode ter diferentes rotas efetivas.
 
@@ -52,9 +52,9 @@ Embora as rotas efetivas tenham sido exibidas na VM nas etapas anteriores, você
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell a partir do seu computador, você precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obtenha as rotas eficazes para uma interface de rede com [get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). O exemplo a seguir obtém as rotas eficazes para uma interface de rede chamada *myVMNic1*, que está em um grupo de recursos chamado *myResourceGroup*:
+Obtenha as rotas efetivas para uma interface de rede com [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1*, que está em um grupo de recursos chamado *MyResource*Group:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -85,9 +85,9 @@ Na saída anterior, o nome da interface de rede é *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosticar usando a CLI do Azure
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI no computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` e fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI no computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` e fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obtenha as rotas efetivas para um adaptador de rede com [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas eficazes para uma interface de rede chamada *myVMNic1* que está em um grupo de recursos chamado *myResourceGroup*:
+Obtenha as rotas efetivas para um adaptador de rede com [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). O exemplo a seguir obtém as rotas efetivas para uma interface de rede chamada *myVMNic1* que está em um grupo de recursos chamado *MyResource*Group:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
@@ -125,7 +125,7 @@ Considere os pontos a seguir ao solucionar problemas de comunicação:
 - Se você criou uma rota para 0.0.0.0/0, todo o tráfego de saída da Internet será roteado para o próximo salto especificado, como um gateway de VPN ou NVA. A criação dessa rota é muitas vezes referida como túnel forçado. Conexões remotas usando os protocolos RDP ou SSH da Internet para a VM podem não funcionar com essa rota, dependendo de como o próximo salto lida com o tráfego. O túnel forçado pode ser habilitado:
     - Ao usar VPN site a site, crie uma rota com um tipo do próximo salto de *Gateway de VPN*. Saiba mais sobre [configuração de túnel forçado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - Se um 0.0.0.0/0 (rota padrão) for anunciado pelo BGP através de um gateway de rede virtual ao usar VPN de site a site ou um circuito ExpressRoute. Saiba mais sobre como usar BGP com [VPN site a site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering).
-- Para que o tráfego de emparelhamento de rede virtual funcione corretamente, uma rota do sistema com um tipo do próximo salto do *Emparelhamento de VNet* deve existir para o intervalo de prefixo da rede virtual emparelhada. Se essa rota não existir e o link de peering de rede virtual estiver **conectado:**
+- Para que o tráfego de emparelhamento de rede virtual funcione corretamente, uma rota do sistema com um tipo do próximo salto do *Emparelhamento de VNet* deve existir para o intervalo de prefixo da rede virtual emparelhada. Se essa rota não existir e o link de emparelhamento de rede virtual estiver **conectado**:
     - Aguarde alguns segundos e tente novamente. Se for um link de emparelhamento estabelecido recentemente, ocasionalmente levará mais tempo para propagar rotas a todos os adaptadores de rede em uma sub-rede. Para saber mais sobre emparelhamento de rede virtual, consulte [Visão geral do emparelhamento de rede virtual](virtual-network-peering-overview.md) e [gerenciar emparelhamento de rede virtual](virtual-network-manage-peering.md).
     - As regras do grupo de segurança de rede podem estar afetando a comunicação. Para obter mais informações, consulte [ Diagnosticar um problema no filtro de tráfego de máquina virtual](diagnose-network-traffic-filter-problem.md).
 - Embora o Azure atribua rotas padrão a cada adaptador de rede do Azure, se houver vários adaptadores de rede anexados à VM, somente o adaptador de rede principal receberá uma rota padrão (0.0.0.0/0), ou gateway, dentro do sistema operacional da VM. Saiba como criar uma rota padrão para adaptadores de rede secundários anexados a uma VM [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics). Saiba mais sobre [adaptadores de rede primários e secundários](virtual-network-network-interface-vm.md#constraints).

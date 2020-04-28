@@ -7,33 +7,33 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75416141"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT
 
-Para ajustar as configurações do cluster e monitorar o cluster, use o Painel de Controle Avere. O painel de controle do Avere é uma interface gráfica baseada em navegador para o cluster.
+Para ajustar as configurações de cluster e monitorar o cluster, use o painel de controle avere. O painel de controle do Avere é uma interface gráfica baseada em navegador para o cluster.
 
 Como o cluster vFXT fica dentro de uma rede virtual privada, você deve criar um túnel SSH ou usar outro método para alcançar o endereço IP de gerenciamento do cluster.
 
 Há duas etapas básicas:
 
-1. Crie uma conexão entre sua estação de trabalho e a rede virtual privada
+1. Criar uma conexão entre a estação de trabalho e a rede virtual privada
 1. Carregar o painel de controle do cluster em um navegador da Web
 
 > [!NOTE]
-> Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Este artigo descreve como usar essa VM como um host para acessar o cluster. Se você estiver usando uma VPN ou ExpressRoute para acesso à rede virtual, pule [para conectar-se ao Painel de Controle avere](#connect-to-the-avere-control-panel-in-a-browser).
+> Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Este artigo descreve como usar essa VM como um host para acessar o cluster. Se você estiver usando uma VPN ou ExpressRoute para acesso à rede virtual, pule para [conectar-se ao painel de controle do avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda. Se você usou uma senha em vez de uma chave pública, você será solicitado a inseri-la quando você se conectar.
+Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda. Se você usou uma senha em vez de uma chave pública, será solicitado a inseri-la ao se conectar.
 
 ## <a name="create-an-ssh-tunnel"></a>Criar um túnel SSH
 
-Você pode criar um túnel SSH a partir da linha de comando de um sistema cliente baseado em Linux ou Windows 10.
+Você pode criar um túnel SSH na linha de comando de um sistema cliente baseado em Linux ou Windows 10.
 
-Use um comando de tunelamento SSH com este formulário:
+Use um comando de túnel SSH com este formulário:
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -49,7 +49,7 @@ A autenticação será automática se você tiver usado sua chave pública SSH p
 
 ## <a name="connect-to-the-avere-control-panel-in-a-browser"></a>Conectar-se ao painel de controle do Avere em um navegador
 
-Esta etapa usa um navegador web para se conectar ao utilitário de configuração no cluster vFXT.
+Esta etapa usa um navegador da Web para se conectar ao utilitário de configuração no cluster vFXT.
 
 * Para uma conexão de túnel SSH, abra seu navegador da Web e navegue até `https://127.0.0.1:8443`.
 
@@ -67,4 +67,4 @@ Clique em **Logon** ou pressione enter no teclado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de ter conectado ao painel de controle do cluster, habilite o [suporte](avere-vfxt-enable-support.md).
+Depois de fazer logon no painel de controle do cluster, habilite o [suporte](avere-vfxt-enable-support.md).

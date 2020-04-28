@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75392823"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e conexões no Serviço do Azure SignalR
@@ -20,7 +20,7 @@ O modelo de cobrança do Serviço do Azure SignalR é baseado no número de cone
 
 ## <a name="message-formats"></a>Formatos de mensagem 
 
-O Azure SignalR Service suporta os mesmos formatos do ASP.NET Core SignalR: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
+O serviço de Signaler do Azure dá suporte aos mesmos formatos que ASP.NET Core Signalr: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
 ## <a name="message-size"></a>Tamanho da mensagem
 
@@ -40,15 +40,15 @@ Por exemplo, imagine que você tem três clientes e um servidor de aplicativos. 
 
 ## <a name="how-connections-are-counted"></a>Como as conexões são contadas
 
-Existem conexões de servidor e conexões com o Azure SignalR Service. Por padrão, cada servidor de aplicativo começa com cinco conexões iniciais por hub, e cada cliente tem uma conexão com o cliente.
+Há conexões de servidor e conexões de cliente com o serviço de Signaler do Azure. Por padrão, cada servidor de aplicativos começa com cinco conexões iniciais por Hub e cada cliente tem uma conexão de cliente.
 
 A contagem de conexões mostrada no portal do Azure inclui conexões de servidor e de cliente.
 
-Por exemplo, suponha que você tem dois servidores de aplicativos e que você define cinco hubs no código. A contagem de conexões do servidor será de 50: 2 servidores de aplicativos * 5 hubs * 5 conexões por hub.
+Por exemplo, suponha que você tem dois servidores de aplicativos e que você define cinco hubs no código. A contagem de conexões do servidor será 50:2 servidores de aplicativos * 5 hubs * 5 conexões por Hub.
 
-O ASP.NET SignalR calcula conexões de servidor de maneira diferente. Ele inclui um hub padrão, além dos hubs que você definir. Por padrão, cada servidor de aplicativo precisa de mais cinco conexões iniciais do servidor. A contagem inicial de conexão para o hub padrão permanece consistente com a dos outros hubs.
+O ASP.NET SignalR calcula conexões de servidor de maneira diferente. Ele inclui um hub padrão, além dos hubs que você definir. Por padrão, cada servidor de aplicativos precisa de mais cinco conexões de servidor iniciais. A contagem de conexões inicial para o Hub padrão permanece consistente com o dos outros hubs.
 
-Durante a vida útil do servidor de aplicativos, o serviço e o servidor de aplicativos mantêm o status de conexão de sincronização e fazem ajuste nas conexões do servidor para melhor desempenho e estabilidade do serviço. Assim, você pode ver as alterações do número de conexão do servidor de tempos em tempos.
+Durante o tempo de vida do servidor de aplicativos, o serviço e o servidor de aplicativos mantêm o status da conexão de sincronização e fazem ajustes nas conexões do servidor para melhorar o desempenho e a estabilidade do serviço. Portanto, você pode ver o número de conexão do servidor ser alterado de tempos em tempos.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Como o tráfego de entrada/saída é contado
 

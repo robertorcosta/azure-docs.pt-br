@@ -1,5 +1,5 @@
 ---
-title: Conexões híbridas do Relé Azure - solicitações HTTP em .NET
+title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no .NET
 description: Escreva um aplicativo de console C# para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em .NET.
 services: service-bus-relay
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75355159"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no .NET
@@ -67,7 +67,7 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 1. Execute o aplicativo cliente. Você verá `hello!` na janela do cliente. O cliente enviou uma solicitação HTTP para o servidor e o servidor respondeu com um `hello!`. 
 3. Agora, para fechar as janelas do console, pressione **ENTER** nas duas janelas do console. 
 
-Parabéns, você criou um aplicativo completo de Conexões Híbridas!
+Parabéns, você criou um aplicativo de Conexões Híbridas completo!
 
 ## <a name="next-steps"></a>Próximas etapas
 
