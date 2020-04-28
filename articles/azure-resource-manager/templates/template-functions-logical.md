@@ -1,24 +1,24 @@
 ---
-title: Funções de modelo - lógica
+title: Funções de modelo – lógica
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156303"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192307"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Resource Manager fornece várias funções para fazer comparações em seus modelos ARM (Azure Resource Manager).
+O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
 
-* [E](#and)
+* [e](#and)
 * [bool](#bool)
 * [if](#if)
-* [Não](#not)
-* [Ou](#or)
+* [válido](#not)
+* [or](#or)
 
 ## <a name="and"></a>e
 
@@ -28,7 +28,7 @@ Verifica se todos os valores de parâmetros são verdadeiros.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -80,7 +80,7 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
@@ -134,7 +134,7 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | condition |Sim |booleano |O valor para verificar se é verdadeiro ou falso. |
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
@@ -146,7 +146,7 @@ Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso cont
 
 ### <a name="remarks"></a>Comentários
 
-Quando a condição é **Verdadeira,** apenas o valor verdadeiro é avaliado. Quando a condição é **falsa,** apenas o valor falso é avaliado. Com a função **if,** você pode incluir expressões que só são condicionadas. Por exemplo, você pode referenciar um recurso que existe uma condição, mas não a outra condição. Um exemplo de avaliação condicional das expressões é mostrado na seção a seguir.
+Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a função **If** , você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
 
 ### <a name="examples"></a>Exemplos
 
@@ -183,7 +183,7 @@ O resultado do exemplo anterior é:
 | noOutput | String | não |
 | objectOutput | Objeto | { "test": "value1" } |
 
-O [modelo a seguir](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) mostra como usar essa função com expressões que são apenas condicionadas.
+O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar essa função com expressões que são apenas condicionalmente válidas.
 
 ```json
 {
@@ -239,7 +239,7 @@ Converte o valor booliano em seu valor oposto.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O valor a ser convertido. |
 
@@ -295,6 +295,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 O resultado do exemplo anterior é:
@@ -303,7 +304,7 @@ O resultado do exemplo anterior é:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>ou
+## <a name="or"></a>ou o
 
 `or(arg1, arg2, ...)`
 
@@ -311,7 +312,7 @@ Verifica se qualquer valor do parâmetro é verdadeiro.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -357,8 +358,5 @@ O resultado do exemplo anterior é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções em um modelo do Azure Resource Manager, consulte [Os modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, consulte [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
+* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 

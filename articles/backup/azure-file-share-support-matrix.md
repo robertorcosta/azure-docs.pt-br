@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de compartilhamento de arquivos do Azure
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de compartilhamentos de arquivos do Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: e74d04cf8ae9010a860b8467d0de771524bd3f3a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 03190c6b83fceec88442583a57ff46756cfe6221
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82103198"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195682"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de compartilhamento de arquivos do Azure
 
@@ -20,13 +20,13 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 | Regiões de GA | Regiões com suporte, mas não GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Leste da Austrália (AE), centro do Canadá (CNC), Oeste EUA Central (WCUS), sul da Índia (INS), norte EUA Central (NCUS), leste do Japão (JPE), sul do Brasil (BRS)                                                     |Sudeste da Austrália (ASE), leste do Canadá (CE), EUA Central (CUS), Ásia Oriental (EA), leste dos EUA (EUS), leste dos EUA 2 (EUS2), oeste do Japão (JPW), Índia central (INC), Coreia central (KRC), sul da Coreia (KRS), Europa Setentrional (NE), Sul EUA Central (SCUS), Sul Ásia Oriental (SEA), Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW), Europa Ocidental (nós), oeste dos EUA (WUS), US Gov Arizona (UGA), US Gov Texas (UGT) , US Gov-Virgínia (UGV), Austrália Central (ACL), Índia ocidental (INW), norte da África do Sul (SAN), Norte dos EAU (UAN), França central (FRC), Norte da Alemanha (GN), Centro-oeste da Alemanha (GWC), oeste da África do Sul (visto), EAU Central (UAC), leste da Noruega (né), Noruega West (NWW), Norte da Suíça (SZN), oeste dos EUA 2             |
+| Sudeste da Austrália (ASE), centro-Canadá (CNC), Oeste EUA Central (WCUS), oeste dos EUA 2 (WUS 2), sul da Índia (INS), norte EUA Central (NCUS), leste do Japão (JPE), sul do Brasil (BRS), Sul Ásia Oriental (SEA)                                                     |Leste da Austrália (AE), leste do Canadá (CE), Ásia Oriental (EA), leste dos EUA (EUS), leste dos EUA 2 (EUS2), oeste do Japão (JPW), Índia central (INC), Coreia central (KRC), sul da Coreia (KRS), Europa Setentrional (NE), Sul EUA Central (SCUS), Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW), Europa Ocidental (nós), oeste dos EUA (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov-Virgínia (UGV), central da Austrália (ACL) , Índia ocidental (INW), norte da África do Sul (SAN), Norte dos EAU (UAN), França central (FRC), Norte da Alemanha (GN), Centro-oeste da Alemanha (GWC), África do Sul Oeste (visto), EAU Central (UAC), leste da Noruega (né), Noruega ocidental (NWW), Norte da Suíça (SZN), EUA Central (CUS)           |
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de conta            | O backup do Azure dá suporte a compartilhamentos de arquivos do Azure nas contas de armazenamento de uso geral v1 e de uso geral v2 |
+| Tipo de conta            | O backup do Azure dá suporte a compartilhamentos de arquivos do Azure presentes no uso geral v1, de uso geral V2 e do tipo de compartilhamento de arquivo contas de armazenamento |
 | Desempenho              | O backup do Azure dá suporte a compartilhamentos de arquivos nas contas de armazenamento Standard e Premium |
 | Replicação              | Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento com qualquer tipo de replicação |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69dc34c3989adee3af69613617368c29072a7650
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244934"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186094"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir um adaptador de rede
 
@@ -35,9 +35,9 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
-- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
-A conta em que você faz login ou se conecta ao Azure deve ser atribuída à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) da rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída às ações apropriadas listadas nas [Permissões.](#permissions)
+A conta que você faz logon ou conecta-se ao Azure com o, deve ser atribuída à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações apropriadas listadas em [permissões](#permissions).
 
 ## <a name="create-a-network-interface"></a>Criar um adaptador de rede
 
@@ -47,9 +47,9 @@ Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptad
 2. Selecione **+ Adicionar** em **interfaces de Rede**.
 3. Insira ou selecione valores para as seguintes configurações e selecione **Criar**:
 
-    |Configuração|Obrigatório?|Detalhes|
+    |Setting|Necessário?|Detalhes|
     |---|---|---|
-    |Nome|Sim|O nome deve ser exclusivo no grupo de recursos selecionado. Ao longo do tempo, você provavelmente terá vários adaptadores de rede em sua assinatura do Azure. Para sugestões ao criar uma convenção de nomenclatura para facilitar o gerenciamento de vários adaptadores de rede, veja [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). O nome não pode ser alterado após a criação do adaptador de rede.|
+    |Name|Sim|O nome deve ser exclusivo no grupo de recursos selecionado. Ao longo do tempo, você provavelmente terá vários adaptadores de rede em sua assinatura do Azure. Para sugestões ao criar uma convenção de nomenclatura para facilitar o gerenciamento de vários adaptadores de rede, veja [Convenções de nomenclatura](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming). O nome não pode ser alterado após a criação do adaptador de rede.|
     |Rede virtual|Sim|Selecione a rede virtual para o adaptador de rede. Você só pode atribuir um adaptador de rede a uma rede virtual que exista na mesma assinatura e local que o adaptador de rede. Após a criação de um adaptador de rede, não será possível alterar a rede virtual à qual ele foi atribuído. A máquina virtual à qual você adiciona o adaptador de rede também deve existir no mesmo local e assinatura que o adaptador de rede.|
     |Sub-rede|Sim|Selecione uma sub-rede na rede virtual selecionada. Depois de criar o adaptador de rede, você pode alterar a sub-rede na qual ele foi atribuído.|
     |Atribuição de endereço IP privado|Sim| Nessa configuração, você está escolhendo o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **Dinâmico:** ao selecionar essa opção, o Azure atribui automaticamente o próximo endereço disponível do espaço de endereços da sub-rede selecionada. **Estático:** ao selecionar essa opção, você deve atribuir manualmente um endereço IP disponível de dentro do espaço de endereço da sub-rede selecionada. Endereços estáticos e dinâmicos não mudam até que você os altere ou o adaptador de rede seja excluído. Você pode alterar o método de atribuição após a criação do adaptador de rede. O servidor DHCP do Azure atribui esse endereço ao adaptador de rede dentro do sistema operacional da máquina virtual.|
@@ -58,7 +58,7 @@ Ao criar uma máquina virtual usando o Portal do Azure, o portal cria um adaptad
     |Endereço IP privado (IPv6)|Não| Se você marcar essa caixa de seleção, um endereço IPv6 será atribuído ao adaptador de rede, além do endereço IPv4 atribuído ao adaptador de rede. Confira a seção IPv6 deste artigo para obter informações importantes sobre o uso de IPv6 com adaptadores de rede. Não é possível selecionar um método de atribuição para o endereço IPv6. Se você optar por atribuir um endereço IPv6, ele será atribuído com o método dinâmico.
     |O nome do IPv6 (aparece somente quando a caixa de seleção **Endereço IP privado (IPv6)** estiver marcada) |Sim, se a caixa de seleção **Endereço IP privado (IPv6)** estiver marcada.| Esse nome é atribuído a uma configuração de IP secundária para o adaptador de rede. Saiba mais sobre as configurações de IP em [Exibir configurações de adaptador de rede](#view-network-interface-settings).|
     |Resource group|Sim|Selecione um [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) existente ou crie um. Um adaptador de rede pode existir no mesmo grupo, ou em um grupo de recursos diferente, da máquina virtual à qual ele foi anexado ou da rede virtual à qual você o conectou.|
-    |Location|Sim|A máquina virtual que você anexa a um adaptador de rede, e a rede virtual à qual você se conecta, devem existir no mesmo [local](https://azure.microsoft.com/regions), também conhecido como região.|
+    |Local|Sim|A máquina virtual que você anexa a um adaptador de rede, e a rede virtual à qual você se conecta, devem existir no mesmo [local](https://azure.microsoft.com/regions), também conhecido como região.|
 
 O portal não oferece a opção de atribuir um endereço IP público ao adaptador de rede durante sua criação, apesar de o portal criar um endereço IP público e atribuí-lo a um adaptador de rede quando você cria uma máquina virtual usando o portal. Para saber como adicionar um endereço IP público ao adaptador de rede após criá-lo, veja [Gerenciar endereços IP](virtual-network-network-interface-addresses.md). Se você quiser criar um adaptador de rede com um endereço IP público, use a CLI ou o PowerShell para criar o adaptador de rede.
 
@@ -81,16 +81,16 @@ Você pode exibir e alterar a maioria das configurações de um adaptador de red
 1. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 2. Selecione o adaptador de rede que você deseja exibir ou alterar as configurações da lista.
 3. Os itens a seguir são listados para o adaptador de rede selecionado:
-   - **Visão geral:** fornece informações sobre o adaptador de rede, como os endereços IP atribuídos a ele, a rede virtual/sub-rede à qual o adaptador de rede foi atribuído e a máquina virtual à qual o adaptador de rede está conectado (se estiver conectado a uma). A imagem a seguir mostra as configurações de visão geral ![de uma interface de rede chamada **mywebserver256**: Visão geral da interface de rede](./media/virtual-network-network-interface/nic-overview.png)
+   - **Visão geral:** fornece informações sobre o adaptador de rede, como os endereços IP atribuídos a ele, a rede virtual/sub-rede à qual o adaptador de rede foi atribuído e a máquina virtual à qual o adaptador de rede está conectado (se estiver conectado a uma). A imagem a seguir mostra as configurações de visão geral de uma **mywebserver256**interface de ![rede chamada mywebserver256: visão geral da interface de rede](./media/virtual-network-network-interface/nic-overview.png)
 
-     Você pode mover uma interface de rede para um grupo de recursos ou assinatura diferente selecionando **(alterar)** ao lado do **grupo Recurso** ou nome **de assinatura**. Se você mover o adaptador de rede, deverá mover todos os recursos relacionados a ele. Se o adaptador de rede estiver conectado a uma máquina virtual, por exemplo, você também deverá mover a máquina virtual e outros recursos relacionados à máquina virtual. Para mover um adaptador de rede, veja [Mover um recurso para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista os pré-requisitos e ensina a mover recursos usando o portal do Azure, o PowerShell e a CLI do Azure.
+     Você pode mover uma interface de rede para um grupo de recursos ou assinatura diferente selecionando (**alterar**) ao lado do **grupo de recursos** ou **nome da assinatura**. Se você mover o adaptador de rede, deverá mover todos os recursos relacionados a ele. Se o adaptador de rede estiver conectado a uma máquina virtual, por exemplo, você também deverá mover a máquina virtual e outros recursos relacionados à máquina virtual. Para mover um adaptador de rede, veja [Mover um recurso para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista os pré-requisitos e ensina a mover recursos usando o portal do Azure, o PowerShell e a CLI do Azure.
    - **Configurações de IP:** os endereços IPv4 e IPv6 públicos e privados atribuídos a configurações de IP estão relacionados aqui. Se um endereço IPv6 for atribuído a uma configuração de IP, o endereço não será exibido. Para saber mais sobre as configurações de IP e como adicionar e remover endereços IP, veja [Configurar endereços IP para um adaptador de rede do Azure](virtual-network-network-interface-addresses.md). Encaminhamento de IP e a atribuição de sub-rede também são configurados nesta seção. Para saber mais sobre essas configurações, veja [Habilitar/desabilitar encaminhamento de IP](#enable-or-disable-ip-forwarding) e [Alterar atribuição de sub-rede](#change-subnet-assignment).
    - **Servidores DNS:** pelos servidores DHCP do Azure, você pode especificar em qual servidor DNS quer atribuir um adaptador de rede. O adaptador de rede pode herdar a configuração da rede virtual à qual foi atribuído, ou ter uma configuração personalizada que substitui a configuração da rede virtual à qual foi atribuído. Para modificar o que é exibido, consulte [servidores DNS de alteração](#change-dns-servers).
    - **NSG (grupo de segurança de rede):** exibe o NSG que está associado ao adaptador de rede (se houver algum). Um NSG contém regras de entrada e saída para filtrar o tráfego de rede para o adaptador de rede. Se houver um NSG associado ao adaptador de rede, o nome do NSG associado será exibido. Para modificar o que é exibido, consulte [Associar ou desassociar um Grupo de Segurança de Rede](#associate-or-dissociate-a-network-security-group).
    - **Propriedades:** exibe as principais configurações do adaptador de rede, incluindo seu endereço MAC (em branco, se o adaptador de rede não estiver anexado a uma máquina virtual) e a assinatura na qual ele existe.
    - **Regras de segurança efetiva:** as regras de segurança serão listadas se o adaptador de rede estiver anexado a uma máquina virtual em execução, e houver um NSG associado ao adaptador de rede, à sub-rede na qual foi atribuído, ou ambos. Para saber mais sobre o que é exibido, consulte [Exibir regras de segurança em vigor](#view-effective-security-rules). Para saber mais sobre NSGs, confira [Grupos de segurança de rede](security-overview.md).
    - **Rotas efetivas:** as rotas são listadas se o adaptador de rede estiver anexado a uma máquina virtual em execução. As rotas são uma combinação de todas as rotas padrão do Azure, qualquer rota definida pelo usuário e rotas BGP que podem existir para a sub-rede à qual o adaptador de rede foi atribuído. Para saber mais sobre o que é exibido, consulte [Exibir rotas em vigor](#view-effective-routes). Para saber mais sobre as rotas padrão do Azure e as rotas definidas pelo usuário, consulte [Visão geral de rotas](virtual-networks-udr-overview.md).
-Configurações comuns do Gerenciador de recursos do Azure: Para saber mais sobre as configurações comuns do Gerenciador de Recursos do Azure, consulte [o registro de atividades,](../azure-monitor/platform/platform-logs-overview.md)o controle de [acesso (IAM)](../role-based-access-control/overview.md), [tags,](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) [bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/templates/export-template-portal.md).
+Configurações comuns de Azure Resource Manager: para saber mais sobre configurações comuns de Azure Resource Manager, consulte [log de atividades](../azure-monitor/platform/platform-logs-overview.md), [controle de acesso (iam)](../role-based-access-control/overview.md), [marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -99,7 +99,7 @@ Se um endereço IPv6 for atribuído a um adaptador de rede, a saída do PowerShe
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic list](/cli/azure/network/nic) para exibir os adaptadores de rede na assinatura; [az network nic show](/cli/azure/network/nic) para exibir as configurações de um adaptador de rede|
-|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) para visualizar interfaces de rede nas configurações de assinatura ou visualização de uma interface de rede|
+|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) para exibir os adaptadores de rede na assinatura ou exibir as configurações de uma interface de rede|
 
 ## <a name="change-dns-servers"></a>Alterar os servidores DNS
 
@@ -112,7 +112,7 @@ O servidor DNS é atribuído pelo servidor DHCP do Azure ao adaptador de rede de
    - **Herdar de rede virtual**: escolha essa opção para herdar a configuração do servidor DNS definida para a máquina virtual à qual o adaptador de rede foi atribuído. No nível da rede virtual, é definido um servidor DNS personalizado ou um servidor DNS fornecido pelo Azure. O servidor DNS fornecido pelo Azure pode resolver nomes de host para recursos atribuídos à mesma rede virtual. FQDN deve ser usado para resolver recursos atribuídos a redes virtuais diferentes.
    - **Personalizado**: você pode configurar seu próprio servidor DNS para resolver nomes entre diversas redes virtuais. Digite o endereço IP do servidor que você deseja usar como servidor DNS. O endereço do servidor DNS especificado é atribuído somente a esse adaptador de rede e substitui qualquer configuração de DNS para a rede virtual à qual o adaptador de rede foi atribuído.
      >[!Note]
-     >Se a VM usar uma NIC que faz parte de um conjunto de disponibilidade, todos os servidores DNS especificados para cada um dos VMs de todas as NICs que fazem parte do conjunto de disponibilidade serão herdados.
+     >Se a VM usar uma NIC que faz parte de um conjunto de disponibilidade, todos os servidores DNS especificados para cada uma das VMs de todas as NICs que fazem parte do conjunto de disponibilidade serão herdados.
 5. Selecione **Salvar**.
 
 **Comandos**
@@ -168,7 +168,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual o adaptador de r
 Você só pode adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Você só pode usar o PowerShell ou a CLI do Azure para adicionar ou remover um adaptador de rede de um grupo de segurança de aplicativo usando o portal quando o adaptador de rede está conectado a uma máquina virtual. Saiba mais sobre [Grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [criar um grupo de segurança de aplicativo](manage-network-security-group.md).
 
 1. Na caixa *Pesquisar recursos, serviços e documentos* na parte superior do portal, comece a digitar o nome de uma máquina virtual que tem o adaptador de rede que você deseja adicionar a ou remover de um grupo de segurança de aplicativo. Quando o nome da VM for exibido nos resultados da pesquisa, selecione-o.
-2. Em **CONFIGURAÇÕES**, selecione **Rede**.  Selecione **Grupos de segurança de aplicativos** e **configure os grupos**de segurança do aplicativo para os grupos de segurança de aplicativos aos que deseja adicionar a interface de rede ou desmarque os grupos de segurança do aplicativo dos que deseja remover a interface de rede e selecione **Salvar**. Somente os adaptadores de rede que existem na mesma rede virtual podem ser adicionados ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo precisa existir no mesmo local que o adaptador de rede.
+2. Em **CONFIGURAÇÕES**, selecione **Rede**.  Selecione **grupos de segurança de aplicativo** e **Configure os grupos de segurança de aplicativo**, escolha os grupos de segurança de aplicativo aos quais você deseja adicionar o adaptador de rede ou desmarque os grupos de segurança de aplicativo dos quais deseja remover o adaptador de rede e, em seguida, selecione **salvar**. Somente os adaptadores de rede que existem na mesma rede virtual podem ser adicionados ao mesmo grupo de segurança de aplicativo. O grupo de segurança do aplicativo precisa existir no mesmo local que o adaptador de rede.
 
 **Comandos**
 
@@ -189,15 +189,15 @@ Você só pode adicionar ou remover um adaptador de rede de um grupo de seguran�
 **Comandos**
 
 - CLI do Azure: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
-- PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
+- PowerShell: [set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## <a name="delete-a-network-interface"></a>Excluir um adaptador de rede
 
 Você pode excluir um adaptador de rede desde que ele não esteja conectado a uma máquina virtual. Se um adaptador de rede estiver anexado a uma máquina virtual, será necessário primeiro colocar a máquina virtual no estado parado (desalocado) para então desanexar o adaptador de rede dela. Para desanexar um adaptador de rede de uma máquina virtual, conclua as etapas na seção [Desanexar um adaptador de rede de uma máquina virtual](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Não será possível desanexar um adaptador de rede de uma máquina virtual se este for o único anexado a ela. Uma máquina virtual no Azure sempre precisa ter pelo menos um adaptador de rede anexado. A exclusão da máquina virtual desconecta todos os adaptadores de rede conectados a ela, mas não exclui os adaptadores de rede.
 
 1. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
-2. Selecione a interface de rede na lista que deseja excluir.
-3. Em **visão geral,** selecione **'Excluir ''''''''''''**
+2. Selecione a interface de rede na lista que você deseja excluir.
+3. Em **visão geral** , selecione **excluir**.
 4. Selecione **Sim** para confirmar a exclusão do adaptador de rede.
 
 Quando você exclui um adaptador de rede, os endereços MAC ou IP atribuídos a ele são liberados.
@@ -218,7 +218,7 @@ Se não for possível se comunicar com uma máquina virtual, as rotas ou regras 
 As regras de segurança em vigor para cada adaptador de rede anexado a uma máquina virtual são uma combinação das regras que você criou em um Grupo de Segurança de Rede e das [regras de segurança padrão](security-overview.md#default-security-rules). Compreender as regras de segurança em vigor para um adaptador de rede pode ajudar você a determinar porque não é possível comunicar-se com uma máquina virtual. Você pode exibir as regras em vigor para qualquer adaptador de rede anexado a uma máquina virtual em execução.
 
 1. Na caixa de pesquisa na parte superior do portal, digite o nome de uma máquina virtual cujas regras de segurança em vigor você deseja exibir. Se você não souber o nome de uma máquina virtual, insira *máquinas virtuais* na caixa de pesquisa. Quando **Máquinas virtuais** aparecer nos resultados da pesquisa, selecione essa opção e uma máquina virtual da lista.
-2. Selecione **Rede** em **CONFIGURAÇÕES**.
+2. Selecione **rede** em **configurações**.
 3. Selecione o nome de um adaptador de rede.
 4. Selecione **Regras de segurança em vigor** em **SUPORTE + SOLUÇÃO DE PROBLEMAS**.
 5. Examine a lista de regras de segurança em vigor para determinar se as regras corretas existem para a comunicação de entrada e saída necessária. Saiba mais sobre o que é mostrado na lista em [Bisão geral de Grupo de Segurança de Rede](security-overview.md).
@@ -235,7 +235,7 @@ O recurso de verificação de fluxo IP do Observador de Rede do Azure também po
 As rotas em vigor para os adaptadores de rede anexados a uma máquina virtual são uma combinação de rotas padrão, rotas criadas por você e quaisquer rotas propagadas de redes locais via BGP por meio de um gateway de Rede Virtual do Azure. Compreender as rotas de segurança em vigor para um adaptador de rede pode ajudar você a determinar porque não é possível comunicar-se com uma máquina virtual. Você pode exibir as rotas em vigor para qualquer adaptador de rede anexado a uma máquina virtual em execução.
 
 1. Na caixa de pesquisa na parte superior do portal, digite o nome de uma máquina virtual cujas regras de segurança em vigor você deseja exibir. Se você não souber o nome de uma máquina virtual, insira *máquinas virtuais* na caixa de pesquisa. Quando **Máquinas virtuais** aparecer nos resultados da pesquisa, selecione essa opção e uma máquina virtual da lista.
-2. Selecione **Rede** em **CONFIGURAÇÕES**.
+2. Selecione **rede** em **configurações**.
 3. Selecione o nome de um adaptador de rede.
 4. Selecione **Rotas em vigor** em **SUPORTE + SOLUÇÃO DE PROBLEMAS**.
 5. Examine a lista de rotas em vigor para determinar se as rotas corretas existem para a comunicação de entrada e saída necessária. Saiba mais sobre o que é mostrado na lista em [Visão geral de roteamento](virtual-networks-udr-overview.md).
@@ -251,7 +251,7 @@ O recurso de próximo salto do Observador de Rede do Azure também pode ajudar a
 
 Para executar tarefas em interfaces de rede, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as permissões apropriadas listadas na tabela a seguir:
 
-| Ação                                                                     | Nome                                                      |
+| Ação                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | Obter interface de rede                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar uma placa de interface de rede                        |
@@ -273,4 +273,4 @@ Para executar tarefas em interfaces de rede, sua conta deve ser atribuída à fu
 - Criar uma VM NIC com vários endereços IPv4 usando a [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md) ou [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 - Criar uma VM de NIC único com um endereço IPv6 privado (atrás de um Azure Load Balancer) usando a [CLI do Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou o [modelo do Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Criar uma interface de rede usando o [PowerShell](powershell-samples.md), os scripts de exemplo da [CLI do Azure](cli-samples.md) ou os modelos do [Azure Resource Manager](template-samples.md)
-- Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais
+- Criar e atribuir [definições de Azure Policy](policy-samples.md) para redes virtuais

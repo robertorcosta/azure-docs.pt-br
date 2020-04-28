@@ -1,5 +1,5 @@
 ---
-title: Use a política do Azure para restringir a instalação de extensão de VM
+title: Usar Azure Policy para restringir a instalação da extensão de VM
 description: Use a política do Azure para restringir as implantações de extensão VM.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c660f7e05af43c2aad6f7283e32cfc1d85571ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52a08661ffa25bf2105791c1217cfc460034502a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066838"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188562"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar a política do Azure para restringir a instalação de extensões nas VMs do Linux
 
-Se você quiser impedir o uso ou a instalação de certas extensões de suas VMs do Linux, você pode criar uma política do Azure usando o CLI para restringir as extensões de máquinas virtuais dentro de um grupo de recursos. 
+Se você quiser impedir o uso ou a instalação de determinadas extensões em suas VMs do Linux, poderá criar uma definição de Azure Policy usando a CLI para restringir as extensões para VMs em um grupo de recursos. 
 
-Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli). 
+Este tutorial usa o CLI dentro da Cloud Shell do Azure, que é constantemente atualizada para a versão mais recente. Se você deseja executar a CLI do Azure localmente, você precisa instalar a versão 2.0.26 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 

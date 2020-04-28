@@ -1,16 +1,16 @@
 ---
-title: Configure seu ambiente de dev no macOS
+title: Configurar seu ambiente de desenvolvimento no macOS
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir essa configuração, você estará pronto para criar aplicativos no macOS.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308977"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193387"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
     
     >[!NOTE]
     >
-    >Modificar o daemon diretamente no Docker é recomendado porque a localização do arquivo daemon.json pode variar de máquina para máquina. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >É recomendável modificar o daemon diretamente no Docker porque o local do arquivo daemon. JSON pode variar de um computador para o computador. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -76,7 +76,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
     >Por exemplo, adicionar `RUN apt-get install nodejs -y` permitirá o suporte para aplicativos `nodejs` como executáveis convidados.
     
     >[!TIP]
-    > Por padrão, isso busca a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Por padrão, isso busca a imagem com a versão mais recente do Service Fabric. Para obter revisões específicas, visite a página do [Hub do Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
 3. Para criar sua imagem reutilizável a partir de `Dockerfile`, abra um terminal e `cd` para o que está diretamente mantendo seu `Dockerfile`, depois execute:
 
@@ -101,7 +101,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. O cluster levará algum tempo para iniciar. Quando estiver em execução, você pode visualizar logs usando o seguinte [http://localhost:19080](http://localhost:19080)comando ou pular para o painel de controle para visualizar a saúde dos clusters :
+5. O cluster levará algum tempo para iniciar. Quando estiver sendo executado, será possível exibir logs usando o comando a seguir ou ir até o painel para exibir a integridade dos clusters `http://localhost:19080`:
 
     ```bash 
     docker logs sftestcluster
@@ -166,7 +166,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
     ```
 
     > [!IMPORTANT]
-    > As versões atuais podem `brew cask install java` instalar uma versão mais recente do JDK.
+    > As versões atuais `brew cask install java` do podem instalar uma versão mais recente do JDK.
     > Certifique-se de instalar o JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Implantar seu aplicativo no Mac desde o terminal

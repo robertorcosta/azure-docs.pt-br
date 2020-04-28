@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb0941a6cdde5b60b71da6f58ea6b0fd2ccbb262
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d64307c4f91839c466b5f3f495cad8d7410ed364
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160968"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Active Directory com o Splunk Enterprise e o Splunk Cloud
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Splunk Enterprise e Splunk Clou
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<splunkserver>/saml/acs`
 
     > [!NOTE]
-    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -121,7 +121,7 @@ Para configurar o logon único do Azure AD com o Splunk Enterprise e Splunk Clou
 
 ### <a name="configure-splunk-enterprise-and-splunk-cloud-single-sign-on"></a>Configurar o Logon Único do Splunk Enterprise e Splunk Cloud
 
-Para configurar o logon único no lado do **Splunk Enterprise e Splunk Cloud**, você precisará enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Splunk Enterprise e Splunk Cloud**, você precisará enviar o **XML de Metadados de Federação** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -176,7 +176,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Criar um usuário de teste do Splunk Enterprise e Splunk Cloud
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Splunk Enterprise e no Splunk Cloud. Trabalhe com a [equipe de suporte do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/about-us/contact.html#tabs/customer-support) para adicionar os usuários à plataforma Splunk Enterprise e Splunk Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Splunk Enterprise e no Splunk Cloud. Trabalhe com a [equipe de suporte do Splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para adicionar os usuários à plataforma Splunk Enterprise e Splunk Cloud. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

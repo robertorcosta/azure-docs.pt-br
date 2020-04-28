@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: a03ace1553bd845d8a221e458fd47f3d8aa3d611
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: de680e7cb542e7606b80ad46934f4ad7256bfb92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146530"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186060"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
 
@@ -51,7 +51,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 3. Em **endereço IP público**, selecione **Criar**.
 4. Insira, ou selecione os valores para as configurações a seguir em **Criar endereço IP público**, em seguida, selecione **Criar**:
 
-   |Configuração|Obrigatório?|Detalhes|
+   |Setting|Necessário?|Detalhes|
    |---|---|---|
    |Versão IP|Sim| Selecione IPv4 ou IPv6 ou ambos. A seleção de ambos resultará em dois endereços IP públicos sendo criados-1 endereço IPv4 e 1 endereço IPv6. Saiba mais sobre o [IPv6 no Azure VNETs](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sim|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU **básico** . Você não pode alterar a SKU depois que o endereço IP público é criado. Uma máquina virtual autônoma, máquinas virtuais em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais podem usar SKUs Básicos ou Standard. Não é permitido misturar SKUs entre máquinas virtuais em conjuntos de disponibilidade ou conjuntos de dimensionamento ou VMs autônomas. SKU **Básico**: se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Nenhuma* por padrão. Os IPs públicos básicos não dão suporte a zonas de disponibilidade. SKU **Standard**: um IP público de SKU Standard pode ser associado a uma máquina virtual ou a um front-end de balanceador de carga. Se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Com redundância de zona* por padrão. Para obter informações sobre zonas de disponibilidade, consulte configuração **Zona de disponibilidade**. O SKU padrão será necessário se você associar o endereço a um Load Balancer Standard. Para saber mais sobre os Load Balancers Standard, consulte [SKU Standard do Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.|
@@ -118,4 +118,4 @@ Para executar tarefas em endereços IP públicas, sua conta deve ser atribuída 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Criar um endereço IP público usando os scripts de exemplo do [PowerShell](powershell-samples.md) ou da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)
-- Criar e aplicar a [Política do Azure](policy-samples.md) para endereços IP públicos
+- Criar e atribuir [definições de Azure Policy](policy-samples.md) para endereços IP públicos

@@ -1,33 +1,33 @@
 ---
-title: FAQ - Backup de VMs Azure
-description: Neste artigo, descubra respostas para perguntas comuns sobre o backup de VMs do Azure com o serviço de backup do Azure.
+title: Perguntas frequentes-fazendo backup de VMs do Azure
+description: Neste artigo, descubra respostas para perguntas comuns sobre como fazer backup de VMs do Azure com o serviço de backup do Azure.
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: accfc57055f70254814c889de875f5360878bcd9
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81757461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190088"
 ---
-# <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Backup de VMs Azure
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
-Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o serviço de backup do [Azure.](backup-introduction-to-azure-backup.md)
+Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o serviço de [backup do Azure](backup-introduction-to-azure-backup.md) .
 
 ## <a name="backup"></a>Backup
 
-### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens vm podem ser habilitadas para backup quando eu criá-las?
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens de VM podem ser habilitadas para backup quando eu as crio?
 
-Ao criar uma VM, você pode habilitar o backup para VMs executando [sistemas operacionais suportados.](backup-support-matrix-iaas.md#supported-backup-actions)
+Ao criar uma VM, você pode habilitar o backup para VMs que executam [sistemas operacionais com suporte](backup-support-matrix-iaas.md#supported-backup-actions).
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de backup está incluído no custo da VM?
 
-Não. Os custos de backup são separados dos custos de uma VM. Saiba mais sobre [os preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+Não. Os custos de backup são separados dos custos de uma VM. Saiba mais sobre os [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Quais permissões são necessárias para habilitar o backup de uma VM?
 
-Se você é um colaborador de VM, você pode habilitar o backup na VM. Se você estiver usando uma função personalizada, você precisa das seguintes permissões para ativar o backup na VM:
+Se você for um colaborador de VM, poderá habilitar o backup na VM. Se você estiver usando uma função personalizada, precisará das seguintes permissões para habilitar o backup na VM:
 
 - Microsoft.RecoveryServices/Vaults/write
 - Microsoft.RecoveryServices/Vaults/read
@@ -39,15 +39,15 @@ Se você é um colaborador de VM, você pode habilitar o backup na VM. Se você 
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write
 
-Se o cofre dos Serviços de Recuperação e a VM tiverem diferentes grupos de recursos, certifique-se de ter permissões de gravação no grupo de recursos para o cofre dos Serviços de Recuperação.  
+Se o cofre e a VM dos serviços de recuperação tiverem grupos de recursos diferentes, verifique se você tem permissões de gravação no grupo de recursos para o cofre dos serviços de recuperação.  
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>O trabalho de backup sob demanda usa o mesmo agendamento de retenção que os backups agendados?
 
-Não. Especifique o intervalo de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
+Não. Especifique o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado de um portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Eu recentemente habilitei a Criptografia de Disco do Azure em algumas VMs. Meus backups continuarão a funcionar?
 
-Forneça permissões para o Azure Backup acessar o Key Vault. Especifique as permissões no PowerShell, conforme descrito na seção **Habilitar backup** na documentação do [PowerShell do Backup do Azure](backup-azure-vms-automation.md).
+Forneça permissões para o backup do Azure acessar o Key Vault. Especifique as permissões no PowerShell, conforme descrito na seção **Habilitar backup** na documentação do [PowerShell do Backup do Azure](backup-azure-vms-automation.md).
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei os discos de uma VM para os discos gerenciados. Meus backups continuarão a funcionar?
 
@@ -63,17 +63,17 @@ Sim. Os backups são executados quando um computador é desligado. O ponto de re
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de backup em andamento?
 
-Sim. Você pode cancelar o trabalho de backup em um estado **de tirar instantâneos.** Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
+Sim. Você pode cancelar o trabalho de backup em um estado de **captura de instantâneo** . Você não poderá cancelar um trabalho se a transferência de dados do instantâneo estiver em andamento.
 
-### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Habilitei um bloqueio no grupo de recursos criado pelo `AzureBackupRG_<geo>_<number>`Azure Backup Service (por exemplo, ). Meus backups continuarão a funcionar?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Habilitei um bloqueio no grupo de recursos criado pelo serviço de backup do Azure (por `AzureBackupRG_<geo>_<number>`exemplo,). Meus backups continuarão a funcionar?
 
-Se você bloquear o grupo de recursos criado pelo Serviço de Backup do Azure, os backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
+Se você bloquear o grupo de recursos criado pelo serviço de backup do Azure, os backups começarão a falhar, pois há um limite máximo de 18 pontos de restauração.
 
-Remova o bloqueio e limpe a coleta de pontos de restauração desse grupo de recursos para tornar os backups futuros bem-sucedidos. [Siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleta de pontos de restauração.
+Remova o bloqueio e desmarque a coleção de pontos de restauração desse grupo de recursos para que os backups futuros sejam bem-sucedidos. [Siga estas etapas](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de pontos de restauração.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O backup do Azure suporta discos ssd padrão?
+### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O backup do Azure dá suporte a discos gerenciados por SSD padrão?
 
-Sim, o Azure Backup suporta [discos ssd padrão.](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)
+Sim, o backup do Azure dá suporte a [discos gerenciados SSD padrão](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer backup de uma VM com um disco ativado pelo Acelerador de Gravação?
 
@@ -83,38 +83,38 @@ Os instantâneos não podem ser criados no disco habilitado pelo Acelerador de G
 
 O Backup do Azure não pode fazer backup do disco habilitado pelo Acelerador de Gravação, mas pode excluí-lo do backup. No entanto, o backup não fornecerá a consistência do banco de dados porque não são feitos backups de informações do disco habilitado pelo Acelerador de Gravação. Você pode fazer backup de discos com essa configuração se desejar o backup em disco do sistema operacional e o backup dos discos que não são habilitados pelo Acelerador de Gravação.
 
-O Azure Backup fornece uma solução de backup de streaming para bancos de dados SAP HANA com um RPO de 15 minutos. É certificado pelo Backint pela SAP para fornecer um suporte de backup nativo aproveitando as APIs nativas do SAP HANA. Saiba mais [sobre o backup de bancos de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+O backup do Azure fornece uma solução de backup de streaming para bancos de dados SAP HANA com um RPO de 15 minutos. BACKINT certificado pela SAP para fornecer um suporte de backup nativo, aproveitando as APIs nativas do SAP HANA. Saiba mais [sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
 
-### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual é o atraso máximo que posso esperar no tempo de início de backup a partir do tempo de backup programado que definai na minha política de backup da VM?
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual é o atraso máximo que posso esperar na hora de início do backup a partir do horário agendado, defini em minha política de backup da VM?
 
-O backup programado será acionado dentro de 2 horas do horário de backup programado. Por exemplo, se 100 VMs tiverem seu horário de início de backup agendado às 2:00 AM, então às 4:00 AM no mais tardar todas as 100 VMs terão seu trabalho de backup em andamento. Se os backups programados tiverem sido pausados por causa de uma paralisação e retomados ou julgados novamente, então o backup pode começar fora desta janela programada de duas horas.
+O backup agendado será disparado dentro de 2 horas da hora do backup agendado. Por exemplo, se as VMs 100 tiverem a hora de início do backup agendada às 2:00 AM, por 4:00 A.M. às mais recentes, todas as 100 serão o trabalho de backup em andamento. Se os backups agendados tiverem sido pausados devido a uma interrupção e retomados ou tentarem novamente, o backup poderá ser iniciado fora dessa janela de duas horas agendada.
 
-### <a name="what-is-the-minimum-allowed-retention-range-for-a-daily-backup-point"></a>Qual é o intervalo mínimo de retenção permitido para um ponto de backup diário?
+### <a name="what-is-the-minimum-allowed-retention-range-for-a-daily-backup-point"></a>Qual é o período de retenção mínimo permitido para um ponto de backup diário?
 
-A política de backup da Azure Virtual Machine suporta uma faixa mínima de retenção de sete dias até 9999 dias. Qualquer modificação em uma política de backup vm existente com menos de sete dias exigirá uma atualização para atender ao intervalo mínimo de retenção de sete dias.
+A política de backup de máquina virtual do Azure dá suporte a um período de retenção mínimo de sete dias até 9999 dias. Qualquer modificação em uma política de backup de VM existente com menos de sete dias exigirá uma atualização para atender ao período de retenção mínimo de sete dias.
 
-### <a name="what-happens-if-i-change-the-case-of-the-name-of-my-vm-or-my-vm-resource-group"></a>O que acontece se eu mudar o caso do nome da minha VM ou do meu grupo de recursos VM?
+### <a name="what-happens-if-i-change-the-case-of-the-name-of-my-vm-or-my-vm-resource-group"></a>O que acontece se eu alterar o caso do nome da minha VM ou meu grupo de recursos de VM?
 
-Se você alterar o caso (para superior ou inferior) do grupo de recursos VM ou VM, o caso do nome do item de backup não mudará. No entanto, é esperado o comportamento do Azure Backup. A alteração do caso não aparecerá no item de backup, mas será atualizada no backend.
+Se você alterar o caso (para superior ou inferior) do seu grupo de recursos de VM ou VM, o caso do nome do item de backup não será alterado. No entanto, esse é o comportamento do backup do Azure esperado. A alteração de caso não aparecerá no item de backup, mas será atualizada no back-end.
 
-### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Posso fazer backup ou restaurar discos seletivos conectados a uma VM?
+### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Posso fazer backup ou restaurar discos seletivos anexados a uma VM?
 
-O Azure Backup agora suporta backup e restauração de disco seletivo usando a solução de backup da Máquina Virtual do Azure.
+O backup do Azure agora oferece suporte a backup e restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.
 
-Hoje, o Azure Backup suporta backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup da Máquina Virtual. Com a funcionalidade de exclusão de disco, você tem a opção de fazer backup de um ou poucos dos muitos discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite ainda que você tenha um subconjunto de discos restaurado do ponto de recuperação dado durante a operação de restauração. Isso se aplica para restaurar tanto a partir do instantâneo quanto do cofre.
+Hoje, o backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM em conjunto usando a solução de backup de máquina virtual. Com a funcionalidade excluir disco, você obtém uma opção para fazer backup de um ou alguns dos vários discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém dados dos discos incluídos na operação de backup, o que permite que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica à restauração tanto do instantâneo quanto do cofre.
 
-Para se inscrever para a pré-visualização, escreva para nós emAskAzureBackupTeam@microsoft.com
+Para se inscrever na versão prévia, escreva-nos emAskAzureBackupTeam@microsoft.com
 
 ## <a name="restore"></a>Restaurar
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Como faço para decidir se quero restaurar somente a discos ou uma VM completa?
 
-Pense na restauração da VM como uma opção de criação rápida para uma VM do Azure. Essa opção altera nomes de discos, contêineres usados pelos discos, endereços IP públicos e nomes de interface de rede. A alteração mantém recursos exclusivos quando uma VM é criada. A VM não é adicionada ao conjunto de disponibilidade.
+Pense na restauração da VM como uma opção de criação rápida para uma VM do Azure. Essa opção altera os nomes de disco, contêineres usados pelos discos, endereços IP públicos e nomes de interface de rede. A alteração mantém recursos exclusivos quando uma VM é criada. A VM não é adicionada ao conjunto de disponibilidade.
 
 Você pode usar a opção de disco de restauração se você quer:
 
-- Personalizar a VM que é criada. Por exemplo, mude o tamanho.
-- Adicionar configurações que não estavam lá no momento do backup.
+- Personalizar a VM que é criada. Por exemplo, altere o tamanho.
+- Adicione definições de configuração que não estavam lá no momento do backup.
 - Controlar a convenção de nomenclatura para os recursos que são criados.
 - Adicionar a VM a um grupo de disponibilidade.
 - Adicione qualquer outra configuração que deva ser configurada usando o PowerShell ou um modelo.
@@ -125,31 +125,31 @@ Sim, você pode usar os backups feitos antes de migrar os discos de não gerenci
 
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Como faço para restaurar uma VM em um ponto de restauração antes que a VM seja migrada para os discos gerenciados?
 
-O processo de restauração permanece o mesmo. Se o ponto de recuperação for de um ponto no tempo em que a VM tivesse discos não gerenciados, você pode [restaurar discos como não gerenciados](tutorial-restore-disk.md#unmanaged-disks-restore). Se a VM tivesse discos gerenciados, então você pode [restaurar discos como discos gerenciados](tutorial-restore-disk.md#managed-disk-restore). Então você pode [criar uma VM a partir desses discos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+O processo de restauração permanece o mesmo. Se o ponto de recuperação for de um ponto no tempo em que a VM tinha discos não gerenciados, você poderá [restaurar discos como não gerenciados](tutorial-restore-disk.md#unmanaged-disks-restore). Se a VM tiver discos gerenciados, você poderá [restaurar discos como discos gerenciados](tutorial-restore-disk.md#managed-disk-restore). Em seguida, você pode [criar uma VM a partir desses discos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Saiba mais](backup-azure-vms-automation.md#restore-an-azure-vm) sobre como fazer isso no PowerShell.
 
 ### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Posso restaurar a VM que foi excluída?
 
-Sim. Mesmo se você excluir a VM, você pode ir para o item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+Sim. Mesmo se você excluir a VM, poderá ir para o item de backup correspondente no cofre e restaurar de um ponto de recuperação.
 
-### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como restaurar uma VM para os mesmos conjuntos de disponibilidade?
+### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como fazer restaurar uma VM para os mesmos conjuntos de disponibilidade?
 
-Para VMs do Disco Gerenciado, a restauração dos conjuntos de disponibilidade é ativada fornecendo uma opção no modelo enquanto restaura como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade**.
+Para as VMs do Azure de disco gerenciado, a restauração para os conjuntos de disponibilidade é habilitada fornecendo uma opção no modelo durante a restauração como discos gerenciados. Este modelo tem o parâmetro de entrada chamado **Conjuntos de disponibilidade**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como conseguimos desempenhos de restauração mais rápidos?
 
-O recurso [de restauração instantânea](backup-instant-restore-capability.md) ajuda com backups mais rápidos e restaurações instantâneas a partir dos snapshots.
+A capacidade de [restauração instantânea](backup-instant-restore-capability.md) ajuda com backups e restaurações instantâneas mais rápidos a partir dos instantâneos.
 
-### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>O que acontece quando mudamos as configurações do cofre da chave para a VM criptografada?
+### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>O que acontece quando alteramos as configurações do cofre de chaves para a VM criptografada?
 
-Depois de alterar as configurações do cofre de chaves para a VM criptografada, os backups continuarão a funcionar com o novo conjunto de detalhes. No entanto, após a restauração de um ponto de recuperação antes da mudança, você terá que restaurar os segredos em um cofre de chaves antes de poder criar a VM a partir dele. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+Depois de alterar as configurações do cofre de chaves para a VM criptografada, os backups continuarão a funcionar com o novo conjunto de detalhes. No entanto, após a restauração de um ponto de recuperação antes da alteração, você precisará restaurar os segredos em um cofre de chaves antes de poder criar a VM a partir dele. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
 
-Operações como o capotamento secreto/chave não exigem essa etapa e o mesmo KeyVault pode ser usado após a restauração.
+Operações como segredo/chave de sobreposição não exigem essa etapa e o mesmo keyvault pode ser usado após a restauração.
 
-### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM ter relações quebradas com o controlador de domínio?
+### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM que está tendo uma relação quebrada com o controlador de domínio?
 
-Sim, você acessa a VM uma vez restaurada devido a uma VM ter relações quebradas com o controlador de domínio. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 
@@ -162,12 +162,21 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 
 ### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>Como faço para mover uma VM com backup feito pelo Backup do Azure para um grupo de recursos diferente?
 
-1. Pare temporariamente o backup e mantenha os dados de backup.
-2. Mova a VM para o grupo de recursos de destino.
-3. Reativar o backup no mesmo ou novo cofre.
+1. Interrompa temporariamente o backup e retenha os dados de backup.
+2. Para mover as máquinas virtuais configuradas com o backup do Azure, execute as seguintes etapas:
+
+   1. Localize o local da sua máquina virtual.
+   2. Localize um grupo de recursos com o seguinte padrão de `AzureBackupRG_<location of your VM>_1`nomenclatura:. Por exemplo, *AzureBackupRG_westus2_1*
+   3. Na portal do Azure, marque **Mostrar tipos ocultos**.
+   4. Localize o recurso com o tipo **Microsoft. Compute/restorePointCollections** que tem o padrão `AzureBackup_<name of your VM that you're trying to move>_###########`de nomenclatura.
+   5. Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+   6. Depois que a operação de exclusão for concluída, você poderá mover sua máquina virtual.
+
+3. Mova a VM para o grupo de recursos de destino.
+4. Retome o backup.
 
 Você pode restaurar a VM a partir dos pontos de restauração disponíveis que foram criados antes da operação de migração.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Existe um limite no número de VMs que podem ser associados à mesma política de backup?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Há um limite para o número de VMs que podem ser associadas à mesma política de backup?
 
-Sim, há um limite de 100 VMs que podem ser associados à mesma política de backup do portal. Recomendamos que para mais de 100 VMs, crie várias políticas de backup com o mesmo horário ou horário diferente.
+Sim, há um limite de 100 VMs que podem ser associadas à mesma política de backup do Portal. Recomendamos que, para mais de 100 VMs, crie várias políticas de backup com o mesmo agendamento ou agendamento diferente.

@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bc47fe6e1f0730bcff49e138df92f85ba3ef1a8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 607cebca3e6e8ddd95900ecdbd7041e5f7bb50cc
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114472"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82165766"
 ---
 # <a name="workspace-mappings"></a>Mapeamentos de workspace
 
 Ao habilitar Gerenciamento de Atualizações, Controle de Alterações e inventário ou Iniciar/Parar VMs fora do horário comercial, somente determinadas regiões têm suporte para vincular um espaço de trabalho Log Analytics e uma conta de automação em sua assinatura. Esse mapeamento só se aplica à conta de automação e ao espaço de trabalho Log Analytics. O espaço de trabalho Log Analytics e a conta de automação devem estar na mesma assinatura, mas podem estar em grupos de recursos diferentes implantados na mesma região.
 
-Para obter mais informações, consulte [log Analytics espaço de trabalho e conta de automação](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account).
+Para obter mais informações, consulte [log Analytics espaço de trabalho e conta de automação](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapeamentos com suporte
 

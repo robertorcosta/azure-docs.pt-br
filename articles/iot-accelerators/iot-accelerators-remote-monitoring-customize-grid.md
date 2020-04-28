@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e27c1c4303129467c0bd05152570e26f129585a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447090"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186281"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
 
@@ -35,7 +35,7 @@ Para concluir as etapas neste guia de instruções, você precisa ter o seguinte
 
 Você deve concluir as etapas nos seguintes artigos antes de continuar:
 
-- [Adicione uma página personalizada à ui web do acelerador de soluções de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
+- [Adicione uma página personalizada à interface do usuário Web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
 - [Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Adicionar uma grade
@@ -182,7 +182,7 @@ Se a interface do usuário da web ainda não estiver em execução localmente, e
 npm start
 ```
 
-O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em . Navegue até a página **Exemplo** para ver os dados de exibição da grade do serviço.
+O comando anterior é executado localmente na interface do usuário em `http://localhost:3000/dashboard`. Navegue até a página **Exemplo** para ver os dados de exibição da grade do serviço.
 
 ## <a name="select-rows"></a>Selecionar linhas
 

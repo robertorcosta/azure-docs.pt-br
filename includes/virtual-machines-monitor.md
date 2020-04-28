@@ -1,19 +1,21 @@
 ---
+title: incluir arquivo
+description: incluir arquivo
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea9696316723a2750be6fc1e13001224320324
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75752466"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81865618"
 ---
 Com o crescimento significativo das VMs hospedadas no Azure, é importante identificar problemas de desempenho e saúde que impactam aplicativos e serviços de infraestrutura que eles suportam. O monitoramento básico é entregue por padrão com o Azure pelos tipos métricos de uso da CPU, utilização do disco, utilização da memória e tráfego de rede coletadopelo hipervisor host. Dados métricos e de registro adicionais podem ser coletados usando [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar diagnósticos em suas VMs do sistema operacional convidado.
 
-Para detectar e ajudar a diagnosticar problemas de desempenho e saúde com o sistema operacional convidado, componentes de aplicativos web baseados em .NET ou Java em execução dentro da VM, o Azure Monitor oferece monitoramento centralizado com recursos abrangentes, como o Monitor Azure para VMs e Insights de aplicativos.
+Para detectar e ajudar a diagnosticar problemas de desempenho e saúde com o sistema operacional convidado, componentes de aplicativos web baseados em .NET ou Java em execução dentro da VM, o Azure Monitor oferece monitoramento centralizado com recursos abrangentes, como o Monitor Azure para VMs e Insights de Aplicativos.
 
 ## <a name="diagnostics-and-metrics"></a>Diagnóstico e métrica 
 
@@ -68,7 +70,7 @@ Algumas coisas que você pode fazer com os logs de diagnóstico incluem:
 
 Para a visibilidade do aplicativo ou serviço suportado pelos conjuntos de escala de VM e máquinavirtual do Azure VM, identificação de problemas com o Sistema Operacional convidado ou carga de trabalho em execução na VM para entender se está afetando a disponibilidade ou o desempenho do aplicativo, ou se é um problema com o aplicativo, habilite tanto o [Monitor Azure para VMs](../articles/azure-monitor/insights/vminsights-overview.md) quanto [insights de aplicativos.](../articles/azure-monitor/app/app-insights-overview.md)
 
-O Azure Monitor for VMs monitora suas máquinas virtuais do Azure (VM) em escala, analisando o desempenho e a saúde de seus VMs Windows e Linux, incluindo os diferentes processos e dependências interconectadas de outros recursos e processos externos que ele Descobre. Ele inclui vários gráficos de desempenho de tendência para ajudar durante a investigação de problemas e avaliar a capacidade de suas VMs. O mapa de dependência mostra máquinas monitoradas e não monitoradas, conexões de rede falhadas e ativas entre processos e essas máquinas e mostra gráficos de tendências com métricas de conexão de rede padrão. Combinado com o Application Insights, você monitora seu aplicativo e captura telemetria, como solicitações HTTP, exceções, etc. para que você possa correlacionar problemas entre as VMs e seu aplicativo. Configure [os alertas do Azure Monitor](../articles/azure-monitor/platform/alerts-overview.md) para alertá-lo sobre condições importantes detectadas a partir de dados de monitoramento coletados pelo Monitor Azure para VMs.
+O Azure Monitor for VMs monitora suas máquinas virtuais Do Zure (VM) em escala, analisando o desempenho e a saúde de seus VMs Windows e Linux, incluindo os diferentes processos e dependências interconectadas de outros recursos e processos externos que ele descobre. Ele inclui vários gráficos de desempenho de tendência para ajudar durante a investigação de problemas e avaliar a capacidade de suas VMs. O mapa de dependência mostra máquinas monitoradas e não monitoradas, conexões de rede falhadas e ativas entre processos e essas máquinas e mostra gráficos de tendências com métricas de conexão de rede padrão. Combinado com o Application Insights, você monitora seu aplicativo e captura telemetria, como solicitações HTTP, exceções, etc. para que você possa correlacionar problemas entre as VMs e seu aplicativo. Configure [os alertas do Azure Monitor](../articles/azure-monitor/platform/alerts-overview.md) para alertá-lo sobre condições importantes detectadas a partir de dados de monitoramento coletados pelo Monitor Azure para VMs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

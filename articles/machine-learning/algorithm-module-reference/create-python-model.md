@@ -1,7 +1,7 @@
 ---
-title: 'Criar modelo Python: referência do módulo'
+title: 'Criar modelo Python: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Criar modelo Python no Azure Machine Learning para criar um módulo personalizado de modelagem ou processamento de dados.
+description: Saiba como usar o módulo criar modelo Python no Azure Machine Learning para criar um módulo personalizado de modelagem ou processamento de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682814"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189847"
 ---
-# <a name="create-python-model-module"></a>Criar módulo de modelo Python
+# <a name="create-python-model-module"></a>Criar módulo de modelo do Python
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Aprenda a usar o módulo Criar modelo python para criar um modelo não treinado a partir de um script Python. Você pode basear o modelo em qualquer aluno que esteja incluído em um pacote Python no ambiente de designer de Machine Learning do Azure. 
+Saiba como usar o módulo criar modelo Python para criar um modelo não treinado a partir de um script Python. Você pode basear o modelo em qualquer aprendiz que esteja incluído em um pacote do Python no ambiente do Azure Machine Learning designer. 
 
-Depois de criar o modelo, você pode usar o [Modelo de Trem](train-model.md) para treinar o modelo em um conjunto de dados, como qualquer outro aluno no Azure Machine Learning. O modelo treinado pode ser passado para [o Score Model](score-model.md) para fazer previsões. Em seguida, você pode salvar o modelo treinado e publicar o fluxo de trabalho de pontuação como um serviço web.
+Depois de criar o modelo, você pode usar [treinar modelo](train-model.md) para treinar o modelo em um conjunto de informações, como qualquer outro aprendiz no Azure Machine Learning. O modelo treinado pode ser passado para o [modelo de Pontuação](score-model.md) para fazer previsões. Em seguida, você pode salvar o modelo treinado e publicar o fluxo de trabalho de Pontuação como um serviço Web.
 
 > [!WARNING]
-> Atualmente, não é possível passar os resultados pontuais de um modelo Python para [Avaliar Modelo](evaluate-model.md). Se você precisar avaliar um modelo, você pode escrever um script Python personalizado e executá-lo usando o módulo [Execute Python Script.](execute-python-script.md)  
+> Atualmente, não é possível passar os resultados pontuados de um modelo Python para avaliar o [modelo](evaluate-model.md). Se você precisar avaliar um modelo, poderá escrever um script Python personalizado e executá-lo usando o módulo [Executar script Python](execute-python-script.md) .  
 
 
-## <a name="configure-the-module"></a>Configure o módulo
+## <a name="configure-the-module"></a>Configurar o módulo
 
-O uso deste módulo requer conhecimento intermediário ou especializado de Python. O módulo suporta o uso de qualquer aluno incluído nos pacotes Python já instalados no Azure Machine Learning. Veja a lista de pacotes Python pré-instalados no [Execute Python Script](execute-python-script.md).
-
-> [!NOTE]
-> Por favor, tenha muito cuidado ao escrever seu script e certifique-se de que não há erro de sintaxe, como o uso de um objeto não declarado ou um módulo não importado.
+O uso deste módulo requer conhecimento intermediário ou especializado do Python. O módulo dá suporte ao uso de qualquer aprendiz que esteja incluído nos pacotes do Python já instalados no Azure Machine Learning. Consulte a lista de pacotes do Python pré-instalado em [Executar script Python](execute-python-script.md).
 
 > [!NOTE]
-Também preste atenção extra à lista de módulos pré-instalados no [Execute Python Script](execute-python-script.md). Apenas importar módulos pré-instalados. Por favor, não instale pacotes extras como "pip install xgboost" neste script, caso contrário, erros serão levantados ao ler modelos em módulos de fluxo baixo.
+> Tenha cuidado ao escrever seu script e verifique se não há nenhum erro de sintaxe, como usar um objeto não declarado ou um módulo não importado.
+
+> [!NOTE]
+> Além disso, preste atenção extra à lista de módulos pré-instalados em [Executar script Python](execute-python-script.md). Importe somente os módulos pré-instalados. Não instale pacotes extras, como "PIP install xgboost" nesse script; caso contrário, erros serão gerados durante a leitura de modelos nos módulos de fluxo inferiores.
   
-Este artigo mostra como usar **o Create Python Model** com um pipeline simples. Aqui está um diagrama do oleoduto:
+Este artigo mostra como usar **criar modelo Python** com um pipeline simples. Aqui está um diagrama do pipeline:
 
-![Diagrama de Criar Modelo Python](./media/module/create-python-model.png)
+![Diagrama de criar modelo Python](./media/module/create-python-model.png)
 
-1. Selecione **Criar modelo python**e edite o script para implementar seu processo de modelagem ou gerenciamento de dados. Você pode basear o modelo em qualquer aluno que esteja incluído em um pacote Python no ambiente Azure Machine Learning.
+1. Selecione **criar modelo do Python**e edite o script para implementar o processo de modelagem ou gerenciamento de dados. Você pode basear o modelo em qualquer aprendiz que esteja incluído em um pacote do Python no ambiente de Azure Machine Learning.
 
 > [!NOTE]
-> Por favor, preste atenção extra aos comentários no código de exemplo do script e certifique-se de que seu script siga rigorosamente o requisito, incluindo o nome da classe, os métodos, bem como a assinatura do método. A violação levará a exceções. 
+> Preste atenção extra aos comentários no código de exemplo do script e verifique se o script segue estritamente o requisito, incluindo o nome da classe, os métodos, bem como a assinatura do método. A violação levará a exceções. 
 
-   O seguinte código de amostra do classificador De Bayes ingênuo de duas classes usa o popular pacote *sklearn:*
+   O seguinte código de exemplo do classificador Naive Bayes de duas classes usa o popular pacote *sklearn* :
 
    ```Python
 
@@ -88,11 +88,11 @@ Este artigo mostra como usar **o Create Python Model** com um pipeline simples. 
 
    ```
 
-1. Conecte o módulo **Criar modelo Python** que você acabou de criar para treinar **modelo** e modelo **de pontuação**.
+2. Conecte o módulo **criar modelo do Python** que você acabou de criar para **treinar o modelo** e o modelo de **Pontuação**.
 
-1. Se você precisar avaliar o modelo, adicione um módulo [Execute Python Script](execute-python-script.md) e edite o script Python.
+3. Se você precisar avaliar o modelo, adicione um módulo [Executar script Python](execute-python-script.md) e edite o script Python.
 
-   O seguinte script é o código de avaliação da amostra:
+   O script a seguir é um código de avaliação de exemplo:
 
    ```Python
 
@@ -103,7 +103,7 @@ Este artigo mostra como usar **o Create Python Model** com um pipeline simples. 
    # imports up here can be used to 
    import pandas as pd
 
-   # The entry point function can contain up to two input arguments:
+   # The entry point function MUST have two input arguments:
    #   Param<dataframe1>: a pandas.DataFrame
    #   Param<dataframe2>: a pandas.DataFrame
    def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -133,4 +133,4 @@ Este artigo mostra como usar **o Create Python Model** com um pipeline simples. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

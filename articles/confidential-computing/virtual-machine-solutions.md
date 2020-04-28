@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8db477f87f344b28e8941e185c70c81d9b860a72
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149470"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187878"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais do Azure
 
-Este artigo aborda informações sobre a implantação de VMs (máquinas virtuais) de computação confidencial do Azure que executam processadores Intel apoiados pelo Intel SGX (Intel [software Extension Guard](https://software.intel.com/sgx) ). 
+Este artigo aborda informações sobre a implantação de VMs (máquinas virtuais) de computação confidencial do Azure que executam processadores Intel com suporte da extensão Intel® [software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
 ## <a name="azure-confidential-computing-vm-sizes"></a>Tamanhos de VM de computação confidencial do Azure
 
@@ -148,5 +148,5 @@ Em **Propriedades**, você também precisará fazer referência a uma imagem em 
 
 Neste artigo, você aprendeu sobre as qualificações e configurações necessárias ao criar uma máquina virtual de computação confidencial. Agora você pode ir para o Azure Marketplace para implantar uma VM da série DCsv2.
 
-[!div class=”nextstepaction”]
-[Implantar uma máquina virtual da série DCsv2 no Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Implantar uma máquina virtual da série DCsv2 no Azure Marketplace](quick-create-marketplace.md)

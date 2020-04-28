@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: bd4dabe1d5fbc4722d03f31492d2118802292df2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82111939"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188116"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -508,19 +508,7 @@ Para usar o ACI em uma rede virtual para seu espaço de trabalho, use as seguint
 
 ## <a name="use-azure-firewall"></a>Usar o Firewall do Azure
 
-Ao usar o Firewall do Azure, você deve configurar uma regra de rede para permitir o tráfego de e para os seguintes endereços:
-
-- `*.batchai.core.windows.net`
-- `ml.azure.com`
-- `*.azureml.ms`
-- `*.experiments.azureml.net`
-- `*.modelmanagement.azureml.net`
-- `mlworkspace.azure.ai`
-- `*.aether.ms`
-
-Ao adicionar a regra, defina o __protocolo__ como qualquer e as portas para `*`.
-
-Para obter mais informações sobre como configurar uma regra de rede, consulte [implantar e configurar o Firewall do Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+Para obter informações sobre como usar Azure Machine Learning com o Firewall do Azure, consulte [usar o espaço de trabalho Azure Machine Learning por trás do firewall do Azure](how-to-access-azureml-behind-firewall.md).
 
 ## <a name="use-azure-container-registry"></a>Usar o Registro de Contêiner do Azure
 

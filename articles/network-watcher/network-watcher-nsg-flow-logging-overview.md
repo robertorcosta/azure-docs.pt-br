@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: a1674f51d5b877a1296e9a457c6acf61a507c82e
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82131365"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189796"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -51,7 +51,7 @@ Os logs de fluxo são a fonte de verdade para todas as atividades de rede em seu
 - Os logs são coletados por meio da plataforma do Azure e não afetam os recursos do cliente ou o desempenho da rede de alguma forma.
 - Os logs são gravados no formato JSON e mostram os fluxos de entrada e saída em uma base regra por NSG.
 - Cada registro de log contém a NIC (interface de rede) que o fluxo aplica a informações de 5 tuplas, a decisão de tráfego & (versão 2 somente) informações de taxa de transferência. Veja o _formato de log_ abaixo para obter detalhes completos.
-- Os logs de fluxo têm um recurso de retenção que permite excluir automaticamente os logs de até um ano após sua criação
+- Os logs de fluxo têm um recurso de retenção que permite excluir automaticamente os logs de até um ano após a criação. **Observação**: a retenção estará disponível somente se você usar [contas de armazenamento v2 de uso geral (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Conceitos principais**
 
@@ -365,13 +365,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="troubleshooting-common-issues"></a>Solução de problemas comuns
 
-### <a name="i-could-not-enable-nsg-flow-logs"></a>**Não consegui habilitar os logs de fluxo do NSG**
+**Não consegui habilitar os logs de fluxo do NSG**
 
 - O provedor de recursos **Microsoft. insights** não está registrado
 
 Se você recebeu um erro _AuthorizationFailed_ ou _GatewayAuthenticationFailed_, talvez não tenha habilitado o provedor de recursos do Microsoft Insights em sua assinatura. [Siga as instruções](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) para habilitar o provedor do Microsoft insights.
 
-### <a name="i-have-enabled-nsg-flow-logs-but-do-not-see-data-in-my-storage-account"></a>**Habilitei os logs de fluxo do NSG, mas não vejo nenhum dado em minha conta de armazenamento**
+**Habilitei os logs de fluxo do NSG, mas não vejo nenhum dado em minha conta de armazenamento**
 
 - **Hora da configuração**
 
@@ -381,21 +381,21 @@ Os logs de fluxo do NSG podem levar até 5 minutos para aparecer em sua conta de
 
 Às vezes, você não verá logs porque suas VMs não estão ativas ou há filtros upstream em um Gateway de Aplicativo ou outros dispositivos que estão bloqueando o tráfego para seus NSGs.
 
-### <a name="i-want-to-automate-nsg-flow-logs"></a>**Quero automatizar os logs de fluxo do NSG**
+**Quero automatizar os logs de fluxo do NSG**
 
 O suporte para automação por meio de modelos do Resource Manager não está disponível atualmente para logs de fluxo NSG. Leia o [anúncio do recurso](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) para obter mais informações.
 
 ## <a name="faq"></a>Perguntas frequentes
 
-### <a name="what-does-nsg-flow-logs-do"></a>**O que os logs de fluxo do NSG fazem?**
+**O que os logs de fluxo do NSG fazem?**
 
 Os recursos de rede do Azure podem ser combinados e gerenciados por meio [de NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview). Os logs de fluxo do NSG permitem que você registre informações de fluxo de 5 tuplas sobre todo o tráfego por meio de seu NSGs. Os logs de fluxo brutos são gravados em uma conta de armazenamento do Azure de onde eles podem ser processados, analisados, consultados ou exportados conforme necessário.
 
-### <a name="does-using-flow-logs-impact-my-network-latency-or-performance"></a>**O uso de logs de fluxo afeta a latência ou o desempenho da rede?**
+**O uso de logs de fluxo afeta a latência ou o desempenho da rede?**
 
 Os dados de logs de fluxo são coletados fora do caminho do tráfego de rede e, portanto, não afetam a taxa de transferência ou latência da rede. Você pode criar ou excluir logs de fluxo sem nenhum risco de impacto no desempenho da rede.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>**Como fazer usar logs de fluxo NSG com uma conta de armazenamento por trás de um firewall?**
+**Como fazer usar logs de fluxo NSG com uma conta de armazenamento por trás de um firewall?**
 
 Para usar uma conta de armazenamento por trás de um firewall, você precisa fornecer uma exceção para que os serviços confiáveis da Microsoft acessem sua conta de armazenamento:
 
@@ -407,11 +407,11 @@ Para usar uma conta de armazenamento por trás de um firewall, você precisa for
 
 Você pode verificar os logs de armazenamento após alguns minutos, você deve ver um carimbo de data/hora atualizado ou um novo arquivo JSON criado.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>**Como fazer usar logs de fluxo NSG com uma conta de armazenamento por trás de um ponto de extremidade de serviço?**
+**Como fazer usar logs de fluxo NSG com uma conta de armazenamento por trás de um ponto de extremidade de serviço?**
 
 Os logs de fluxo NSG são compatíveis com pontos de extremidade de serviço sem a necessidade de nenhuma configuração extra. Consulte o [tutorial sobre como habilitar pontos de extremidade de serviço](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) em sua rede virtual.
 
-### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>**Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?**
+**Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?**
 
 Os logs de fluxo versão 2 apresentam o conceito de _estado de fluxo_ & armazena informações sobre bytes e pacotes transmitidos. [Leia mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 

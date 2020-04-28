@@ -1,5 +1,5 @@
 ---
-title: Use a política do Azure para restringir a instalação de extensão de VM
+title: Usar Azure Policy para restringir a instalação da extensão de VM
 description: Use a Azure Policy para restringir as implantações de extensão.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b86429c90f436007116a45c6dbab443d6cc889e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073107"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188545"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar a Azure Policy para restringir a instalação de extensões nas VMs do Windows
 
-Se você quiser impedir o uso ou a instalação de certas extensões de suas VMs do Windows, você pode criar uma política do Azure usando o PowerShell para restringir as extensões de máquinas virtuais dentro de um grupo de recursos. 
+Se você quiser impedir o uso ou a instalação de determinadas extensões em suas VMs do Windows, poderá criar uma definição de Azure Policy usando o PowerShell para restringir as extensões para VMs em um grupo de recursos. 
 
 Este tutorial usa o Azure PowerShell na Cloud Shell, que é constantemente atualizada para a versão mais recente. 
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Para testar a política, tente usar a extensão de acesso da VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension : Resource 'myVMAccess' foi desautorizado pela diretiva."
+Para testar a política, tente usar a extensão de acesso da VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension: o recurso ' myVMAccess ' não foi permitido pela política."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

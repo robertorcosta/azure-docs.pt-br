@@ -4,12 +4,12 @@ description: Azure Policy é um serviço no Azure que você usa para criar, atri
 ms.topic: article
 ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74c087031a024b0c50d6c40057a4e2eda554be6f
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: a160de1277afea026a16f470c8f76cdc2ec1733f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116070"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184258"
 ---
 # <a name="integration-with-azure-policy"></a>Integração com o Azure Policy
 
@@ -26,7 +26,7 @@ As definições de política descrevem as condições que precisam ser atendidas
 
 Os recursos exigidos pelo lote incluem: conta, nó de computação, pool, trabalho e tarefa. Portanto, você usaria aliases de propriedade para acessar propriedades específicas para esses recursos. Saiba mais sobre [aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-Para certificar-se de que você conhece os aliases atuais e examinar seus recursos e políticas, use a extensão de política do Azure para Visual Studio Code. Ele pode ser instalado em todas as plataformas com suporte pelo Visual Studio Code. Esse suporte inclui Windows, Linux e macOS. Consulte as [diretrizes de instalação](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
+Para certificar-se de que você conhece os aliases atuais e examinar seus recursos e políticas, use a extensão Azure Policy para Visual Studio Code. Ele pode ser instalado em todas as plataformas com suporte pelo Visual Studio Code. Esse suporte inclui Windows, Linux e macOS. Consulte as [diretrizes de instalação](https://docs.microsoft.com/azure/governance/policy/how-to/extension-for-vscode).
 
 
 

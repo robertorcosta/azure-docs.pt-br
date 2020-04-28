@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 2d6cae3a7a41eae05783d3bcc12ec2bfe8220c4c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82148317"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192826"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra para Azure Cosmos DB
 
 ## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Quais são algumas das principais diferenças entre o Apache Cassandra e o API do Cassandra?
 
-- O Apache Cassandra recomenda um limite de 100 MB no tamanho de uma chave de partição. O API do Cassandra para Azure Cosmos DB permite até 10 GB por partição.
+- O Apache Cassandra recomenda um limite de 100 MB no tamanho de uma chave de partição. O API do Cassandra para Azure Cosmos DB permite até 20 GB por partição.
 - O Apache Cassandra permite que você desabilite confirmações duráveis. Você pode ignorar a gravação no log de confirmação e ir diretamente para o memtables. Isso pode levar à perda de dados se o nó falhar antes que memtables sejam liberados para SSTables no disco. Azure Cosmos DB sempre faz confirmações duráveis para ajudar a evitar a perda de dados.
 - O Apache Cassandra pode ver um desempenho reduzido se a carga de trabalho envolve muitas substituições ou exclusões. O motivo é a marca para exclusão que a carga de trabalho de leitura precisa ignorar para buscar os dados mais recentes. A API do Cassandra não verá um desempenho de leitura reduzido quando a carga de trabalho tiver muitas substituições ou exclusões.
 - Durante cenários de cargas de trabalho de substituição altas, a compactação precisa ser executada para mesclar SSTables no disco. (Uma mesclagem é necessária porque as gravações do Apache Cassandra são acrescentadas somente. Várias atualizações são armazenadas como entradas de SSTable individuais que precisam ser mescladas periodicamente). Essa situação também pode levar a um desempenho de leitura reduzido durante a compactação. Esse impacto no desempenho não ocorre na API do Cassandra porque a API não implementa a compactação.

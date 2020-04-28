@@ -1,144 +1,144 @@
 ---
-title: Analise registros e métricas no Azure Spring Cloud | Microsoft Docs
+title: Analisar logs e métricas no Azure Spring Cloud | Microsoft Docs
 description: Saiba como analisar dados de diagnóstico no Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81870399"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176780"
 ---
-# <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registros e métricas com configurações de diagnóstico
+# <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
 
-Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analisar logs e métricas com qualquer um dos seguintes serviços:
+Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analisar os logs e as métricas com qualquer um dos seguintes serviços:
 
-* Use o Azure Log Analytics, onde os dados são gravados no Azure Storage. Há um atraso na exportação de logs para o Log Analytics.
-* Salve logs em uma conta de armazenamento para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias).
-* Faça logs de stream no seu hub de eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada.
+* Use o Azure Log Analytics, onde os dados são gravados no armazenamento do Azure. Há um atraso ao exportar logs para Log Analytics.
+* Salve os logs em uma conta de armazenamento para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias).
+* Transmita logs para o Hub de eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada.
 
-Escolha a categoria de log e a categoria métrica que deseja monitorar.
+Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 > [!TIP]
-> Só quer transmitir seus registros? Confira este [comando Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Logs
 
 |Log | Descrição |
 |----|----|
-| **Console de aplicativos** | Registro de console de todos os aplicativos do cliente. | 
-| **Logs de sistema** | Atualmente, apenas [o Spring Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) faz lognesta categoria. |
+| **ApplicationConsole** | Log do console de todos os aplicativos do cliente. |
+| **SystemLogs** | Atualmente, somente os logs do [servidor de configuração do Spring Cloud](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |
 
 ## <a name="metrics"></a>Métricas
 
-Para obter uma lista completa de métricas, consulte [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Para obter uma lista completa de métricas, consulte [métricas de nuvem Spring](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
-Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre a configuração do Log Analytics, consulte [Iniciar com o Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
+Para começar, habilite um desses serviços para receber os dados. Para saber mais sobre como configurar Log Analytics, consulte [introdução ao log Analytics no Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 
-## <a name="configure-diagnostics-settings"></a>Configure as configurações de diagnóstico
+## <a name="configure-diagnostics-settings"></a>Definir configurações de diagnóstico
 
-1. No portal Azure, vá para a sua instância Azure Spring Cloud.
-1. Selecione a opção **Configurações diagnósticos** e selecione **Adicionar configuração Diagnóstico**.
-1. Digite um nome para a configuração e escolha para onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções a seguir:
+1. Na portal do Azure, acesse sua instância do Azure Spring Cloud.
+1. Selecione a opção **configurações de diagnóstico** e, em seguida, selecione **Adicionar configuração de diagnóstico**.
+1. Insira um nome para a configuração e escolha para onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções a seguir:
     * **Arquivar em uma conta de armazenamento**
-    * **Fluxo para um hub de eventos**
+    * **Transmitir para um hub de eventos**
     * **Enviar para o Log Analytics**
 
-1. Escolha qual categoria de log e categoria métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica apenas à conta de armazenamento.
+1. Escolha qual categoria de log e categoria de métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica somente à conta de armazenamento.
 1. Clique em **Salvar**.
 
 > [!NOTE]
-> Pode haver uma lacuna de até 15 minutos entre quando logs ou métricas são emitidos e quando eles aparecem em sua conta de armazenamento, seu hub de eventos ou Log Analytics.
+> 1. Pode haver um intervalo de até 15 minutos entre o momento em que os logs ou as métricas são emitidos e quando aparecem na sua conta de armazenamento, no Hub de eventos ou Log Analytics.
+> 1. Se a instância do Azure Spring Cloud for excluída ou movida, a operação não será colocada em cascata para os recursos de **configurações de diagnóstico** . Os recursos de **configurações de diagnóstico** precisam ser excluídos manualmente antes da operação em relação ao seu pai, ou seja, a instância do Azure Spring Cloud. Caso contrário, se uma nova instância do Azure Spring Cloud for provisionada com a mesma ID de recurso que a excluída, ou se a instância do Azure Spring Cloud for movida de volta, os recursos anteriores de **configurações de diagnóstico** continuarão a estendê-la.
 
-## <a name="view-the-logs-and-metrics"></a>Veja os registros e métricas
-Existem vários métodos para visualizar logs e métricas conforme descrito nos seguintes títulos.
+## <a name="view-the-logs-and-metrics"></a>Exibir os logs e as métricas
+Há vários métodos para exibir os logs e as métricas, conforme descrito nos cabeçalhos a seguir.
 
-### <a name="use-logs-blade"></a>Use a lâmina Logs
+### <a name="use-the-logs-blade"></a>Usar a folha logs
 
-1. No portal Azure, vá para a sua instância Azure Spring Cloud.
-1. Para abrir o painel **Log Search,** selecione **Logs**.
-1. Na caixa de pesquisa **Log**
-   * Para exibir logs, digite uma consulta simples como:
+1. Na portal do Azure, acesse sua instância do Azure Spring Cloud.
+1. Para abrir o painel **pesquisa de logs** , selecione **logs**.
+1. Na caixa de pesquisa **tabelas**
+   * Para exibir os logs, insira uma consulta simples, como:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
-   * Para visualizar métricas, digite uma consulta simples como:
+   * Para exibir as métricas, insira uma consulta simples, como:
 
     ```sql
     AzureMetrics
     | limit 50
     ```
-1. Para visualizar o resultado da pesquisa, **selecione Executar**.
+1. Para exibir o resultado da pesquisa, selecione **executar**.
 
 ### <a name="use-log-analytics"></a>Usar o Log Analytics
 
-1. No portal Azure, no painel esquerdo, selecione **Log Analytics**.
-1. Selecione o espaço de trabalho do Log Analytics que você escolheu ao adicionar suas configurações de diagnóstico.
-1. Para abrir o painel **Log Search,** selecione **Logs**.
-1. Na caixa de pesquisa **Log,**
-   * para exibir logs, inserir uma consulta simples, como:
+1. No portal do Azure, no painel esquerdo, selecione **log Analytics**.
+1. Selecione o espaço de trabalho Log Analytics que você escolheu ao adicionar as configurações de diagnóstico.
+1. Para abrir o painel **pesquisa de logs** , selecione **logs**.
+1. Na caixa de pesquisa **tabelas** ,
+   * para exibir os logs, insira uma consulta simples, como:
 
     ```sql
     AppPlatformLogsforSpring
     | limit 50
     ```
-    * para visualizar métricas, insira uma consulta simples, como:
+    * para exibir as métricas, insira uma consulta simples, como:
 
     ```sql
     AzureMetrics
     | limit 50
     ```
 
-1. Para visualizar o resultado da pesquisa, **selecione Executar**.
-1. Você pode pesquisar os registros do aplicativo ou instância específico definindo uma condição de filtro:
+1. Para exibir o resultado da pesquisa, selecione **executar**.
+1. Você pode pesquisar os logs do aplicativo ou da instância específica definindo uma condição de filtro:
 
     ```sql
     AppPlatformLogsforSpring
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]  
-> `==`é sensível a `=~` casos, mas não é.
+> [!NOTE]
+> `==`diferencia maiúsculas de minúsculas, mas `=~` não é.
 
-Para saber mais sobre o idioma de consulta usado no Log Analytics, consulte [consultas de log do Azure Monitor](../azure-monitor/log-query/query-language.md).
+Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](../azure-monitor/log-query/query-language.md).
 
-### <a name="use-your-storage-account"></a>Use sua conta de armazenamento 
+### <a name="use-your-storage-account"></a>Usar sua conta de armazenamento
 
-1. No portal Azure, no painel esquerdo, selecione **Contas de armazenamento**.
+1. No portal do Azure, localize **contas de armazenamento** no painel de navegação esquerdo ou na caixa de pesquisa.
+1. Selecione a conta de armazenamento que você escolheu ao adicionar as configurações de diagnóstico.
+1. Para abrir o painel **contêiner de blob** , selecione **BLOBs**.
+1. Para examinar os logs de aplicativo, procure um contêiner chamado **insights-logs-applicationconsole**.
+1. Para revisar as métricas do aplicativo, procure um contêiner chamado **insights-métricas-PT1M**.
 
-1. Selecione a conta de armazenamento escolhida ao adicionar suas configurações de diagnóstico.
-1. Para abrir o painel **do recipiente Blob,** selecione **Blobs**.
-1. Para revisar os registros de aplicativos, procure por um contêiner chamado **insights-logs-applicationconsole**.
-1. Para revisar as métricas do aplicativo, procure um contêiner chamado **insights-metrics-pt1m**.
+Para saber mais sobre como enviar informações de diagnóstico para uma conta de armazenamento, consulte [armazenar e exibir dados de diagnóstico no armazenamento do Azure](../storage/common/storage-introduction.md).
 
-Para saber mais sobre o envio de informações de diagnóstico para uma conta de armazenamento, consulte [Armazenar e visualizar dados de diagnóstico no Azure Storage](../storage/common/storage-introduction.md).
+### <a name="use-your-event-hub"></a>Usar seu hub de eventos
 
-### <a name="use-your-event-hub"></a>Use seu hub de eventos
+1. No portal do Azure, localize **hubs de eventos** no painel de navegação esquerdo ou na caixa de pesquisa.
 
-1. No portal Azure, no painel esquerdo, selecione **Event Hubs**.
+1. Pesquise e selecione o Hub de eventos que você escolheu quando adicionou as configurações de diagnóstico.
+1. Para abrir o painel **lista de Hub de eventos** , selecione hubs de **eventos**.
+1. Para examinar os logs de aplicativo, procure um hub de eventos chamado **insights-logs-applicationconsole**.
+1. Para revisar as métricas do aplicativo, procure um hub de eventos chamado **insights-métricas-PT1M**.
 
-1. Procure e selecione o centro de eventos que você escolheu ao adicionar suas configurações de diagnóstico.
-1. Para abrir o painel **Event Hub List,** selecione **Event Hubs**.
-1. Para revisar os registros de aplicativos, procure um hub de eventos chamado **insights-logs-applicationconsole**.
-1. Para revisar as métricas do aplicativo, procure um hub de eventos chamado **insights-metrics-pt1m**.
+Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, confira [Streaming diagnóstico do Azure dados no Hot Path usando os hubs de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
 
-Para saber mais sobre como enviar informações de diagnóstico para um hub de eventos, consulte [os dados do Streaming Azure Diagnostics no caminho quente usando hubs de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+## <a name="analyze-the-logs"></a>Analisar os logs
 
-## <a name="analyze-the-logs"></a>Analisar os registros
+O Log Analytics do Azure está em execução com um mecanismo de Kusto para que você possa consultar seus logs para análise. Para obter uma breve introdução à consulta de logs usando o Kusto, consulte o [tutorial de log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
-O Azure Log Analytics está sendo executado com um mecanismo Kusto para que você possa consultar seus registros para análise. Para uma rápida introdução aos registros de consulta usando Kusto, revise o [tutorial do Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+Os logs de aplicativo fornecem informações críticas e logs detalhados sobre a integridade, o desempenho e muito mais do aplicativo. Nas próximas seções estão algumas consultas simples para ajudá-lo a entender os Estados atuais e antigos do seu aplicativo.
 
-Os registros de aplicativos fornecem informações críticas e registros verbosos sobre a saúde, o desempenho e muito mais do seu aplicativo. Nas próximas seções há algumas consultas simples para ajudá-lo a entender os estados atuais e passados do seu aplicativo.
+### <a name="show-application-logs-from-azure-spring-cloud"></a>Mostrar logs de aplicativo do Azure Spring Cloud
 
-### <a name="show-application-logs-from-azure-spring-cloud"></a>Mostrar registros de aplicativos do Azure Spring Cloud
-
-Para rever uma lista de registros de aplicativos do Azure Spring Cloud, classificados por tempo com os registros mais recentes mostrados primeiro, execute a seguinte consulta:
+Para examinar uma lista de logs de aplicativo do Azure Spring Cloud, classificados por tempo com os logs mais recentes mostrados primeiro, execute a seguinte consulta:
 
 ```sql
 AppPlatformLogsforSpring
@@ -148,7 +148,7 @@ AppPlatformLogsforSpring
 
 ### <a name="show-logs-entries-containing-errors-or-exceptions"></a>Mostrar entradas de logs contendo erros ou exceções
 
-Para revisar entradas de log não classificadas que mencionam um erro ou exceção, execute a seguinte consulta:
+Para examinar as entradas de log não classificadas que mencionam um erro ou uma exceção, execute a seguinte consulta:
 
 ```sql
 AppPlatformLogsforSpring
@@ -156,11 +156,11 @@ AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 ```
 
-Use esta consulta para encontrar erros ou modificar os termos da consulta para encontrar códigos de erro ou exceções específicas. 
+Use essa consulta para localizar erros ou modificar os termos da consulta para localizar códigos de erro ou exceções específicas.
 
-### <a name="show-the-number-of-errors-and-exceptions-reported-by-your-application-over-the-last-hour"></a>Mostre o número de erros e exceções relatados pelo seu aplicativo na última hora
+### <a name="show-the-number-of-errors-and-exceptions-reported-by-your-application-over-the-last-hour"></a>Mostrar o número de erros e exceções relatados pelo seu aplicativo na última hora
 
-Para criar um gráfico de tortas que exibe o número de erros e exceções registrados pelo seu aplicativo na última hora, execute a seguinte consulta:
+Para criar um gráfico de pizza que exibe o número de erros e exceções registrados pelo seu aplicativo na última hora, execute a seguinte consulta:
 
 ```sql
 AppPlatformLogsforSpring
@@ -171,6 +171,6 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-### <a name="learn-more-about-querying-application-logs"></a>Saiba mais sobre a consulta de logs de aplicativos
+### <a name="learn-more-about-querying-application-logs"></a>Saiba mais sobre como consultar logs de aplicativos
 
-O Azure Monitor oferece amplo suporte para consulta de logs de aplicativos usando o Log Analytics. Para saber mais sobre este serviço, consulte [Comece com consultas de log no Azure Monitor](../azure-monitor/log-query/get-started-queries.md). Para obter mais informações sobre consultas de construção para analisar os registros de aplicativos, consulte [Visão geral das consultas de log no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+O Azure Monitor fornece amplo suporte para consultar logs de aplicativos usando Log Analytics. Para saber mais sobre esse serviço, confira [introdução às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md). Para obter mais informações sobre como criar consultas para analisar os logs do aplicativo, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).

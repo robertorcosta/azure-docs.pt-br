@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840614"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189038"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -52,11 +52,11 @@ Sua conta deve atender a uma das seguintes opções para ativar a análise de tr
         
 Para verificar funções atribuídas a um usuário para uma inscrição:
 
-1. Faça login no Azure usando **login-AzAccount**. 
+1. Entre no Azure usando **login-AzAccount**. 
 
 2. Selecione a assinatura necessária usando **Select-AzSubscription**. 
 
-3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzRoleAssignment -SignInName [e-mail do usuário] -IncluirAdministradores Clássicos**. 
+3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzRoleAssignment-SignInName [email do usuário]-IncludeClassicAdministrators**. 
 
 Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -126,7 +126,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [os logs do Azure Monitor atualizados para uma nova pesquisa de log](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
@@ -134,7 +134,7 @@ Sim, sua conta de Armazenamento do Microsoft Azure pode estar em uma assinatura 
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar logs brutos em uma assinatura diferente?
 
-Não. Você pode armazenar logs brutos em qualquer conta de armazenamento em que um NSG está habilitado para logs de fluxo. No entanto, a conta de armazenamento e os logs brutos devem estar na mesma assinatura e região.
+Sim. Você pode configurar os logs de fluxo do NSG para serem enviados a uma conta de armazenamento localizada em uma assinatura diferente, desde que você tenha os privilégios apropriados e que a conta de armazenamento esteja localizada na mesma região que o NSG. O NSG e a conta de armazenamento de destino também devem compartilhar o mesmo locatário Azure Active Directory.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro "Não encontrado"?
 
@@ -176,7 +176,7 @@ Você está vendo a informação de recursos no painel, no entanto, não há est
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego usando o PowerShell ou um modelo ou cliente do Azure Resource Manager?
 
-Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o registro de fluxo e a análise de tráfego para um NSG específico usando o set cmdlet, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o status de registro de fluxo e análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o log de fluxo e a análise de tráfego para um NSG específico usando o cmdlet Set, consulte [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o log de fluxo e o status da análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Atualmente, você não pode usar um modelo do Azure Resource Manager para configurar a análise de tráfego.
 
@@ -248,23 +248,23 @@ A Análise de Tráfego é limitada. A medição é baseada no processamento de d
 
 Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que freqüência o Traffic Analytics processa dados?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência Análise de Tráfego processar dados?
 
-Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) em Esquema de Análise de Tráfego e Documento de Agregação de Dados
+Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como o Traffic Analytics decide que um IP é malicioso? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como Análise de Tráfego decidir que um IP é mal-intencionado? 
 
-O Traffic Analytics conta com sistemas internos de inteligência de ameaças da Microsoft para julgar um IP como malicioso. Esses sistemas aproveitam diversas fontes de telemetria, como produtos e serviços da Microsoft, a Unidade de Crimes Digitais (DCU) da Microsoft, o Microsoft Security Response Center (MSRC) e feeds externos e constroem muita inteligência em cima dele. Alguns desses dados são da Microsoft Internal. Se um IP conhecido estiver sendo sinalizado como malicioso, por favor, crie um bilhete de suporte para saber os detalhes.
+Análise de Tráfego se baseia nos sistemas internos de inteligência contra ameaças da Microsoft para considerar um IP como mal-intencionado. Esses sistemas aproveitam fontes de telemetria diferentes, como produtos e serviços da Microsoft, a DCU (unidade de crimes digitais da Microsoft), o MSRC (Microsoft Security Response Center) e os feeds externos e criam uma grande quantidade de inteligência sobre ele. Alguns desses dados são internos da Microsoft. Se um IP conhecido estiver sendo sinalizado como mal-intencionado, gere um tíquete de suporte para saber os detalhes.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Como posso definir alertas sobre dados do Traffic Analytics?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Como posso definir alertas em Análise de Tráfego dados?
 
-O Traffic Analytics não tem suporte embutido para alertas. No entanto, como os dados do Traffic Analytics são armazenados no Log Analytics, você pode escrever consultas personalizadas e definir alertas sobre eles. Passos:
-- Você pode usar o shortlink para Log Analytics no Traffic Analytics. 
+Análise de Tráfego não tem suporte interno para alertas. No entanto, como Análise de Tráfego dados são armazenados em Log Analytics você pode escrever consultas personalizadas e definir alertas neles. Tarefas
+- Você pode usar o Shortlink para Log Analytics no Análise de Tráfego. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever suas consultas 
-- Clique em "Nova regra de alerta" para criar o alerta
+- Clique em "nova regra de alerta" para criar o alerta
 - Consulte a [documentação de alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para criar o alerta
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Como verificar quais VMs estão recebendo mais tráfego no local
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Como fazer verificar quais VMs estão recebendo a maioria do tráfego no local
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -286,9 +286,9 @@ O Traffic Analytics não tem suporte embutido para alertas. No entanto, como os 
             | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
             | render timechart
 
-Para tempo, use o formato : yyyy-mm-dd 00:00:00
+Para o tempo, use o formato: aaaa-mm-dd 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Como verificar o desvio padrão no tráfego recebido pelas minhas VMs de máquinas on-premise
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Como fazer verificar o desvio padrão no tráfego recebido pelas minhas VMs de computadores locais
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ Para IPs:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Como verificar quais portas são acessíveis (ou bocked) entre pares ip com regras NSG
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Como fazer verificar quais portas estão acessíveis (ou bocked) entre pares de IP com regras de NSG
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -324,8 +324,8 @@ Para IPs:
 
 A página do mapa geográfico contém duas seções principais:
     
-- **Banner**: O banner na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países/regiões e Malicioso). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
-- **Mapa**: Abaixo do banner, a seção mapa mostra a distribuição de tráfego entre data centers do Azure e países/regiões.
+- **Faixa**: a faixa na parte superior do mapa geográfico fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, implantação, tráfego de países/regiões e mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
+- **Mapa**: abaixo da faixa, a seção mapa mostra a distribuição de tráfego entre data centers do Azure e países/regiões.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     

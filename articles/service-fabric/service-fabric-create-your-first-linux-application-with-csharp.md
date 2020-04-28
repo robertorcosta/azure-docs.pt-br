@@ -1,14 +1,14 @@
 ---
-title: 'Crie seu primeiro aplicativo Azure Service Fabric no Linux usando C #'
+title: 'Criar seu primeiro aplicativo de Service Fabric do Azure no Linux usando C #'
 description: Saiba como criar e implantar um aplicativo do Service Fabric usando C# e .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458130"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193642"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ A implantação do aplicativo interno é igual a qualquer outro aplicativo do Se
 
 Os parâmetros para esses comandos podem ser encontrados nos manifestos gerados dentro do pacote de aplicativos.
 
-Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em `http://localhost:19080/Explorer`. Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
 > Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o runtime do Service Fabric. Isso permite que os serviços de Reliable Services se comuniquem com as APIs de runtime do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
@@ -97,7 +97,7 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.
 
-   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient no mesmo local dentro do contêiner, executando os seguintes comandos adicionais.
+   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient para o mesmo local dentro do contêiner executando os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -123,7 +123,7 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Interação com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
-* Conheça as [opções de suporte ao Service Fabric](service-fabric-support.md)
+* Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

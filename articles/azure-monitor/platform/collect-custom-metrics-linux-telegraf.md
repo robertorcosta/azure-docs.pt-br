@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c5ea32fb198a61391e1be3648d1d2d2e829a7214
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82137256"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186434"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -33,6 +33,9 @@ Para este tutorial, podemos implantar uma VM do Linux que executa o sistema oper
 
 Entre no [portal do Azure](https://portal.azure.com).
 
+> [!NOTE]  
+> Se você quiser migrar as regras de alerta clássicas e usar uma máquina virtual do Linux existente, verifique se o computador do virtual tem uma identidade atribuída pelo sistema definida como **ativada**.
+
 Crie uma nova VM do Linux: 
 
 1. Selecione a opção **criar um recurso** no painel de navegação à esquerda. 
@@ -41,7 +44,7 @@ Crie uma nova VM do Linux:
 1. Forneça um nome de VM como **MyTelegrafVM**.  
 1. Deixe o tipo de disco como **SSD**. Em seguida, forneça um **nome de usuário**, como **azureuser**. 
 1. Para **tipo de autenticação**, selecione **senha**. Insira uma senha que você usará posteriormente para SSH para essa VM. 
-1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Depois, selecione **OK**. 
+1. Escolha **criar novo grupo de recursos**. Em seguida, forneça um nome, como **MyResource**. Escolha seu **local**. Em seguida, selecione **OK**. 
 
     ![Criar uma VM do Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -108,7 +111,7 @@ Agora o agente coletará as métricas de cada um dos plug-ins de entrada especif
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Plotar as métricas do Telegraf no portal do Azure 
 
-1. Abra o [Portal do Azure](https://portal.azure.com). 
+1. Abra o [portal do Azure](https://portal.azure.com). 
 
 1. Navegue até a nova guia **Monitor** . Em seguida, selecione **métricas**.  
 

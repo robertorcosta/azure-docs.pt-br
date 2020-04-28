@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c90f4166bf88a8df18a93e84903c93461b904d2c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240257"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187255"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em .
+O comando anterior é executado localmente na interface do usuário em `http://localhost:3000/dashboard`.
 
 Sem se conectar a sua instância local da web da interface do usuário para uma instância implantada do acelerador da solução, você verá erros no painel. Esses erros não afetam sua capacidade de testar sua nova página.
 
@@ -154,15 +154,15 @@ Opcionalmente, você pode conectar sua cópia local de execução da web da inte
 
 1. Implante uma instância **básica** do acelerador de solução usando a CLI **pcs**. Anote o nome da sua implantação e as credenciais fornecidas para a máquina virtual. Para saber mais, veja [Implantar usando a CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Use o portal Azure ou o [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para permitir o acesso SSH à máquina virtual que hospeda os microsserviços em sua solução. Por exemplo: 
+1. Use o portal do Azure ou a [CLI do AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar o acesso SSH à máquina virtual que hospeda os microserviços em sua solução. Por exemplo:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você ativar o SSH, [você deve desabilitá-lo novamente o mais rápido possível](../security/fundamentals/network-best-practices.md).
+    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você habilitar o SSH, [deverá desabilitá-lo novamente](../security/fundamentals/network-best-practices.md)assim que possível.
 
-1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo: 
+1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

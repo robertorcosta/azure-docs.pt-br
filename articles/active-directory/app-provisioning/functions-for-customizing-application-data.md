@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612149"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866596"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -29,7 +29,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 * A expressão inteira deve ser definida em termos de funções, que consistem em um nome seguido pelos argumentos entre parênteses:  <br>
   *FunctionName(`<<argument 1>>``<<argument N>>`, )*
-* Você pode aninhar funções dentro umas das outras. Por exemplo:  <br> *FunctionOne (FunctionTwo())`<<argument1>>`*
+* Você pode aninhar funções dentro umas das outras. Por exemplo: <br> *FunctionOne (FunctionTwo())`<<argument1>>`*
 * Você pode passar três tipos diferentes de argumentos em funções:
   
   1. Atributos, que devem ser colocados entre colchetes. Por exemplo: [attributeName]
@@ -38,7 +38,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome \\da\\empresa: "Contoso""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Apêndice](#append) &nbsp; &nbsp; &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Count](#count) &nbsp; [CBool](#cbool) &nbsp; &nbsp; &nbsp; [CStr](#cstr) [Coalesce](#coalesce) &nbsp; &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; CBool &nbsp; &nbsp; &nbsp; Coalesce &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) ConvertToBase64 ConvertToUTF8Hex Count CStr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Guid](#guid) &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; &nbsp; [InStr](#instr) [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) [IIF](#iif) &nbsp; DateFromnum &nbsp; &nbsp; formatDateTime &nbsp; &nbsp; [IsNull](#isnull) Guid &nbsp; IIF Instr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [IsPresent](#ispresent) &nbsp; &nbsp; &nbsp; [IsString](#isstring) &nbsp; &nbsp; [Left](#left) [Mid](#mid) [Join](#join) [Not](#not) [Item](#item) &nbsp; [NormalizeDiacritics](#normalizediacritics) IsString &nbsp; &nbsp; Item &nbsp; Join &nbsp; Left &nbsp; Mid &nbsp; NormalizeDiacritics Not &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; [RemoveDuplicates](#removeduplicates) &nbsp; &nbsp; [Split](#split) [Replace](#replace) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) RemoveDuplicate'SSubstituir &nbsp; &nbsp; SelectSingleValue&nbsp; &nbsp; SingleAppRoleAssignment&nbsp; Split&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ Stripspaces](#stripspaces) &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; [Word](#word) [Switch](#switch) &nbsp; mudar&nbsp; &nbsp; para palavra mais&nbsp; baixa para jantar&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+[Apêndice](#append) &nbsp; &nbsp; &nbsp; &nbsp; [BitAnd](#bitand) &nbsp; &nbsp; &nbsp; &nbsp; [CBool](#cbool) &nbsp; &nbsp; &nbsp; &nbsp; [Count](#count) &nbsp; &nbsp; &nbsp; [Guid](#guid) &nbsp; &nbsp; [Left](#left) [Not](#not) [Mid](#mid) [CStr](#cstr) &nbsp; &nbsp; [InStr](#instr) &nbsp; &nbsp; [Replace](#replace) [RemoveDuplicates](#removeduplicates) [Join](#join) [Coalesce](#coalesce) &nbsp; [SelectUniqueValue](#selectuniquevalue) [FormatDateTime](#formatdatetime) &nbsp; &nbsp; [IIF](#iif) &nbsp; &nbsp; [DateFromNum](#datefromnum) &nbsp; &nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp; [NormalizeDiacritics](#normalizediacritics) [IsNull](#isnull) &nbsp; [Item](#item) &nbsp; [IsString](#isstring) &nbsp; [IsPresent](#ispresent) &nbsp; [ConvertToBase64](#converttobase64) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp; &nbsp; &nbsp; &nbsp; CBool &nbsp; &nbsp; Coalesce &nbsp; &nbsp; &nbsp; &nbsp; ConvertToBase64 &nbsp; &nbsp; &nbsp; ConvertToUTF8Hex Count &nbsp; CStr &nbsp; &nbsp; &nbsp; DateFromNum &nbsp; FormatDateTime &nbsp; &nbsp; Guid &nbsp; IIF IsNull &nbsp; IsNullOrEmpty &nbsp; IsPresent IsThePresent &nbsp; Item &nbsp; Join Left &nbsp; Mid &nbsp; NormalizeDiacritics Not RemoveDuplicate SelectUniqueValue &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch) [Split](#split)&nbsp; [Word](#word) [StripSpaces](#stripspaces) &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; [ToUpper](#toupper) [ToLower](#tolower) SingleAppRoleassignment &nbsp; &nbsp; Split &nbsp; &nbsp; Stripspaces&nbsp; Switch&nbsp; toLower&nbsp; toupper word&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
 
 ---
 ### <a name="append"></a>Acrescentar
@@ -311,7 +311,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Atributo** |Obrigatório |Atributo |Atributo multi-valorizado a ser pesquisado |
-| **index** |Obrigatório |Integer | Indexar a um item na cadeia de valor esporu multivalorizada|
+| **Índice** |Obrigatório |Integer | Indexar a um item na cadeia de valor esporu multivalorizada|
 
 **Exemplo:**<br>
 Item([proxyAddresses], 1)
@@ -363,7 +363,7 @@ Retorna "Joh"
 | --- | --- | --- | --- |
 | **Fonte** |Obrigatório |String |Geralmente o nome do atributo. |
 | **start** |Obrigatório |inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **comprimento** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -461,7 +461,7 @@ Retorna um atributo proxy sanitizadoEndereço onde todos os valores duplicados f
 | **regexGroupName** |Opcional |String |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
 | **replacementValue** |Opcional |String |Novo valor com o qual substituir um antigo. |
 | **replacementAttributeName** |Opcional |String |Nome do atributo a ser usado para o valor de substituição |
-| **template** |Opcional |String |Quando o valor **do modelo** for fornecido, procuraremos o **oldValue** dentro do modelo e o substituiremos pelo valor **de origem.** |
+| **Modelo** |Opcional |String |Quando o valor **do modelo** for fornecido, procuraremos o **oldValue** dentro do modelo e o substituiremos pelo valor **de origem.** |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -469,11 +469,11 @@ Retorna um atributo proxy sanitizadoEndereço onde todos os valores duplicados f
 
 **Descrição:**<br> Requer um mínimo de dois argumentos, que são definidas usando expressões de regras de geração de valor exclusivo. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade no aplicativo/diretório de destino. O primeiro valor exclusivo encontrado será retornado o um. Se todos os valores já existem no destino, a entrada será obter mantida em garantia e o motivo pelo qual obtém registrado nos logs de auditoria. Não há nenhum limite superior para o número de argumentos que podem ser fornecidos.
 
-> [!NOTE]
-> - Essa é uma função de nível superior, ele não pode ser aninhado.
-> - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.  
-> - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
-> - Atualmente, essa função só é compatível com "Provisionamento de usuário do Workday para o Active Directory". Ele não pode ser usado com outros aplicativos de provisionamento. 
+
+ - Essa é uma função de nível superior, ele não pode ser aninhado.
+ - Esta função não pode ser aplicada a atributos que têm uma precedência correspondente.   
+ - Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
+ - Atualmente, essa função só é compatível com "Provisionamento de usuário do Workday para o Active Directory". Ele não pode ser usado com outros aplicativos de provisionamento. 
 
 
 **Parâmetros:**<br> 
@@ -532,7 +532,7 @@ Retorna um atributo proxy sanitizadoEndereço onde todos os valores duplicados f
 | --- | --- | --- | --- |
 | **Fonte** |Obrigatório |String |**Source** a atualizar. |
 | **defaultValue** |Opcional |String |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **Chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **chave** |Obrigatório |String |Parâmetro **key** com o qual comparar o valor de **source**. |
 | **value** |Obrigatório |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ---
@@ -546,7 +546,7 @@ Retorna um atributo proxy sanitizadoEndereço onde todos os valores duplicados f
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto de source |
-| **Cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -559,7 +559,7 @@ Retorna um atributo proxy sanitizadoEndereço onde todos os valores duplicados f
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-| **Cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="word"></a>Word
