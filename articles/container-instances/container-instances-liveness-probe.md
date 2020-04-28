@@ -1,25 +1,25 @@
 ---
-title: Configure o teste de vivacidade na instância do contêiner
+title: Configurar investigação de vida na instância de contêiner
 description: Saiba como configurar investigações de atividade para reiniciar contêineres não íntegros em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76934159"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
-As aplicações em contêiner podem funcionar por longos períodos de tempo, resultando em estados quebrados que podem precisar ser reparados reiniciando o contêiner. O Azure Container Instances suporta testes de vida para que você possa configurar seus contêineres dentro do grupo de contêineres para reiniciar se a funcionalidade crítica não estiver funcionando. A sonda de vida se comporta como uma [sonda kubernetes.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+Os aplicativos em contêineres podem ser executados por longos períodos de tempo, resultando em Estados desfeitos que talvez precisem ser reparados reiniciando o contêiner. As instâncias de contêiner do Azure dão suporte a investigações de vida para que você possa configurar seus contêineres dentro do grupo de contêineres para reiniciar se a funcionalidade crítica não estiver funcionando. A investigação de tempo de vida se comporta como uma [investigação de vida kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de atividade, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
 
-O Azure Container Instances também suporta [testes de prontidão,](container-instances-readiness-probe.md)que você pode configurar para garantir que o tráfego chegue a um contêiner somente quando estiver pronto para ele.
+As instâncias de contêiner do Azure também dão suporte a [investigações de preparação](container-instances-readiness-probe.md), que podem ser configuradas para garantir que o tráfego atinja um contêiner somente quando ele estiver pronto para ele.
 
 > [!NOTE]
-> Atualmente, você não pode usar um teste de vida em um grupo de contêineres implantado em uma rede virtual.
+> No momento, você não pode usar uma investigação de vida em um grupo de contêineres implantado em uma rede virtual.
 
 ## <a name="yaml-deployment"></a>Implantação do YAML
 
@@ -61,11 +61,11 @@ Execute o seguinte comando para implantar esse grupo de contêineres com a confi
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Comando inicial
+### <a name="start-command"></a>Comando Iniciar
 
-A implantação inclui `command` uma propriedade definindo um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Esta propriedade aceita uma matriz de strings. Este comando simula o recipiente entrando em um estado insalubre.
+A implantação inclui uma `command` propriedade que define um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Essa propriedade aceita uma matriz de cadeias de caracteres. Esse comando simula o contêiner entrando em um estado não íntegro.
 
-Primeiro, ele começa uma sessão de `healthy` bash `/tmp` e cria um arquivo chamado dentro do diretório. Em seguida, dorme por 30 segundos antes de excluir o arquivo e, em seguida, entra em um sono de 10 minutos:
+Primeiro, ele inicia uma sessão de bash e cria um arquivo `healthy` chamado dentro `/tmp` do diretório. Em seguida, ele é suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entra em uma suspensão de 10 minutos:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
@@ -73,31 +73,31 @@ Primeiro, ele começa uma sessão de `healthy` bash `/tmp` e cria um arquivo cha
 
 ### <a name="liveness-command"></a>Comando de atividade
 
-Essa implantação define `livenessProbe` um que `exec` suporta um comando de vida que age como a verificação de vida. Se este comando sair com um valor não zero, o contêiner `healthy` é morto e reiniciado, sinalizando que o arquivo não poderia ser encontrado. Se este comando sair com sucesso com o código de saída 0, nenhuma ação será tomada.
+Essa implantação define um `livenessProbe` que dá suporte `exec` a um comando de vida que atua como a verificação de tempo de vida. Se esse comando for encerrado com um valor diferente de zero, o contêiner será eliminado e reiniciado, o sinalização do `healthy` arquivo não poderá ser encontrado. Se esse comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
 
 A propriedade `periodSeconds` indica que o comando deve ser executado a cada cinco segundos.
 
 ## <a name="verify-liveness-output"></a>Verificar a saída da atividade
 
-Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando liveness `healthy` verifica a existência do arquivo, o código de status retorna 0, sinalizando sucesso, de modo que não ocorre reinicialização.
+Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de tempo de vida verifica `healthy` a existência do arquivo, o código de status retorna 0, sinalizando êxito, portanto, não ocorrerá nenhuma reinicialização.
 
-Após 30 segundos, o `cat /tmp/healthy` comando começa a falhar, causando eventos insalubres e matando.
+Após 30 segundos, o `cat /tmp/healthy` comando começa a falhar, causando a ocorrência de eventos não íntegros e de eliminação.
 
 Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure.
 
 ![Evento não íntegro no portal][portal-unhealthy]
 
-Ao visualizar os eventos no portal Azure, eventos do tipo `Unhealthy` são acionados após a falha do comando liveness. O evento subseqüente é do tipo, `Killing`significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner aumenta cada vez que este evento ocorre.
+Exibindo os eventos no portal do Azure, os eventos do tipo `Unhealthy` são disparados após a falha do comando de vida. O evento subsequente é do tipo `Killing`, significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
 
-As reinicializações são concluídas no local para que recursos como endereços IP públicos e conteúdos específicos de nós sejam preservados.
+As reinicializações são concluídas no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
 ![Reinicialização de contador do portal][portal-restart]
 
-Se o teste de vida falhar continuamente e desencadear muitas reinicializações, o contêiner entra em um atraso exponencial de recuo.
+Se a investigação de tempo de vida falhar continuamente e disparar muitas reinicializações, o contêiner entrará em um atraso de retirada exponencial.
 
 ## <a name="liveness-probes-and-restart-policies"></a>Políticas de investigação de atividade e reinicialização
 
-As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se `restartPolicy = Never` você definir um *teste de* vida e uma sonda de vida, o grupo de contêineres não reiniciará por causa de uma verificação de vida com falha. Em vez disso, o grupo de contêineres `Never`adere à política de reinicialização do grupo de contêineres .
+As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. O grupo de contêineres está em conformidade com a política de reinicialização do grupo de contêineres do `Never`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

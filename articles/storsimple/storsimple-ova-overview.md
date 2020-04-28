@@ -1,5 +1,5 @@
 ---
-title: Visão geral do Microsoft Azure StorSimple Virtual Array
+title: Visão geral de Microsoft Azure StorSimple matriz virtual
 description: Descreve a Matriz Virtual do StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre uma matriz virtual local e o armazenamento em nuvem do Microsoft Azure.
 author: alkohli
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76273880"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
@@ -82,7 +82,7 @@ Quando vários usuários simultâneos acessam a matriz virtual, todos eles compa
 
 A Matriz Virtual StorSimple não é adequada para cargas de trabalho que exigem alta disponibilidade. A matriz virtual é um dispositivo de nó único que apresenta o tempo de inatividade quando as atualizações de software são instaladas. Os administradores devem planejar uma janela de manutenção de 30 minutos de três a quatro vezes por ano.
 
-## <a name="workflows"></a>Fluxos de trabalho
+## <a name="workflows"></a>Fluxos de Trabalho
 
 A StorSimple Virtual Array é particularmente adequada para os fluxos de trabalho a seguir:
 
@@ -96,14 +96,14 @@ Você pode usar o serviço Gerenciador de Dispositivos StorSimple em execução 
 ![Gerenciamento de armazenamento baseado em nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Backup independente de local
-Com a matriz virtual, os instantâneos de nuvem fornecem uma cópia pontual de um volume ou compartilhamento, independente de local. Instantâneos de nuvem são habilitados por padrão e não podem ser desabilitados. Todos os volumes e ações são backup ao mesmo tempo através de uma única política diária de backup, e você pode obter backups adicionais ad hoc sempre que necessário.
+Com a matriz virtual, os instantâneos de nuvem fornecem uma cópia pontual de um volume ou compartilhamento, independente de local. Instantâneos de nuvem são habilitados por padrão e não podem ser desabilitados. Todos os volumes e compartilhamentos são backups ao mesmo tempo por meio de uma única política de backup diário, e você pode fazer backups ad hoc adicionais sempre que necessário.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Recuperação de desastre e proteção de dados
 A matriz virtual dá suporte aos seguintes cenários de proteção de dados e recuperação de desastre:
 
 * **Restauração de volume ou compartilhamento** – use a restauração como um novo fluxo de trabalho para recuperar um volume ou compartilhamento. Use essa abordagem para recuperar o compartilhamento ou volume inteiro.
-* **Recuperação no nível de item** – compartilhamentos permitem acesso simplificado aos backups recentes. Você pode facilmente recuperar um arquivo individual de uma pasta *especial .backup* disponível na nuvem. Essa funcionalidade de restauração é controlada pelo usuário e nenhuma intervenção administrativa é necessária.
-* **Recuperação de desastres** – Use o recurso failover para recuperar todos os volumes ou compartilhamentos para uma nova matriz virtual. Crie a nova matriz virtual e registre-a com o serviço Gerenciador de Dispositivos StorSimple, depois realize o failover da matriz virtual original. A nova matriz virtual assumirá os recursos provisionados.
+* **Recuperação no nível de item** – compartilhamentos permitem acesso simplificado aos backups recentes. Você pode recuperar facilmente um arquivo individual de uma pasta *. backup* especial disponível na nuvem. Essa funcionalidade de restauração é controlada pelo usuário e nenhuma intervenção administrativa é necessária.
+* **Recuperação de desastres** – use o recurso de failover para recuperar todos os volumes ou compartilhamentos para uma nova matriz virtual. Crie a nova matriz virtual e registre-a com o serviço Gerenciador de Dispositivos StorSimple, depois realize o failover da matriz virtual original. A nova matriz virtual assumirá os recursos provisionados.
 
 ## <a name="storsimple-virtual-array-components"></a>Componentes da Matriz Virtual do StorSimple
 
@@ -168,7 +168,7 @@ Além da matriz virtual e outros componentes, a solução StorSimple usa as tecn
 * [Backups agendados e sob demanda](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>Camadas de armazenamento automático
-A matriz virtual usa um novo mecanismo de distribuição em camadas para gerenciar dados armazenados na matriz virtual e na nuvem. Há apenas duas camadas: a matriz virtual local e o armazenamento em nuvem do Azure. A StorSimple Virtual Array organiza os dados nas camadas com base em um mapa de calor, que controla o uso atual, idade e relações com outros dados. Dados mais ativos (mais quentes) são armazenados localmente, enquanto dados menos ativos e inativos são migrados automaticamente para a nuvem. (Todos os backups são armazenados na nuvem.) O StorSimple ajusta e reorganiza as atribuições de dados e armazenamento à medida que os padrões de uso mudam. Por exemplo, algumas informações poderão ficar menos ativas ao longo do tempo. Conforme elas se tornam cada vez menos ativas, são removidas da camada e enviadas para a nuvem. Se esses mesmos dados ficarem ativos novamente, passarão por uma nova transferência de camada indo para a matriz de armazenamento.
+A matriz virtual usa um novo mecanismo de distribuição em camadas para gerenciar dados armazenados na matriz virtual e na nuvem. Há apenas duas camadas: a matriz virtual local e o armazenamento em nuvem do Azure. A StorSimple Virtual Array organiza os dados nas camadas com base em um mapa de calor, que controla o uso atual, idade e relações com outros dados. Dados mais ativos (mais quentes) são armazenados localmente, enquanto dados menos ativos e inativos são migrados automaticamente para a nuvem. (Todos os backups são armazenados na nuvem.) O StorSimple ajusta e reorganiza as atribuições de dados e armazenamento conforme os padrões de uso mudam. Por exemplo, algumas informações poderão ficar menos ativas ao longo do tempo. Conforme elas se tornam cada vez menos ativas, são removidas da camada e enviadas para a nuvem. Se esses mesmos dados ficarem ativos novamente, passarão por uma nova transferência de camada indo para a matriz de armazenamento.
 
 Dados de um determinado compartilhamento em camadas ou o volume têm garantido seu próprio espaço de camada local (aproximadamente 10% do total de espaço configurado para esse compartilhamento ou volume). Enquanto isso reduz o armazenamento disponível na matriz virtual para esse compartilhamento ou volume, garante que camadas para um compartilhamento ou volume não serão afetadas pelas necessidades de distribuição em camadas de outros volumes ou compartilhamentos. Portanto, uma carga de trabalho muito ocupada em um compartilhamento ou volume não pode forçar todas as outras cargas de trabalho para a nuvem.
 
@@ -208,8 +208,8 @@ O StorSimple Device Manager para séries virtuais coleta informações pessoais 
  - Configurações de usuário de alerta em que os endereços de email dos usuários são configurados. Essas informações podem ser apagadas pelo administrador. 
  - Usuários que podem acessar os dados que residem nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento é exibida e pode ser exportada. Essa lista também será excluída quando os compartilhamentos são excluídos.
 
-Para obter mais informações, revise a política de privacidade da [Microsoft no Trust Center](https://www.microsoft.com/trustcenter).
+Para obter mais informações, consulte a [política de privacidade da Microsoft na central de confiabilidade](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a [preparar o portal de matrizvirtual](storsimple-virtual-array-deploy1-portal-prep.md).
+Saiba como [preparar o portal da matriz virtual](storsimple-virtual-array-deploy1-portal-prep.md).

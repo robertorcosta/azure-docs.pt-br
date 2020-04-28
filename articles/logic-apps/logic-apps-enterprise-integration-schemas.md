@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979369"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -31,7 +31,7 @@ Para obter os limites relacionados aos artefatos e as contas de integração com
   Para adicionar esse esquema à sua conta de integração, você pode vincular a conta de armazenamento à sua conta de integração. 
   Aqui estão os itens necessários para essa tarefa: 
 
-  * [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) na qual você cria um contêiner de blob para o esquema. Saiba como [criar uma conta de armazenamento.](../storage/common/storage-account-create.md) 
+  * [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) na qual você cria um contêiner de blob para o esquema. Saiba como [criar uma conta de armazenamento](../storage/common/storage-account-create.md). 
 
   * Contêiner de blob para armazenar o esquema. Saiba como [criar um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md). 
   Posteriormente, você precisará do URI do conteúdo do contêiner ao adicionar o esquema na conta de integração.
@@ -44,7 +44,7 @@ Para obter os limites relacionados aos artefatos e as contas de integração com
 
     * Para obter a versão da área de trabalho, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). 
     Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
-    Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+    Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 Não é necessário um aplicativo lógico durante a criação e adição de esquemas. No entanto, para usar um esquema, o aplicativo lógico precisa ser vinculado a conta de integração na qual esse esquema está armazenado. Saiba mais [como vincular aplicativos lógicos a contas de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Se você ainda não tiver um aplicativo lógico, saiba [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -87,7 +87,7 @@ Com base no tamanho do arquivo de esquema (.xsd), siga as etapas para carregar u
 
 ### <a name="add-schemas-more-than-2-mb"></a>Adicionar esquemas com mais de 2 MB
 
-Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. Seus passos para adicionar esquemas diferem com base se o seu recipiente blob tem acesso de leitura pública. Então, primeiro, verifique se o seu recipiente blob tem acesso público de leitura seguindo estas etapas: [Defina o nível de acesso público para o contêiner blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para adicionar esquemas maiores, você pode carregar seu esquema em um contêiner de blob do Azure na conta de armazenamento do Azure. Suas etapas para adicionar esquemas diferem se o seu contêiner de blob tem acesso de leitura público. Primeiro, verifique se seu contêiner de BLOBs tem acesso de leitura público seguindo estas etapas: [definir o nível de acesso público para o contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Verificar o nível de acesso do contêiner
 
@@ -97,11 +97,11 @@ Para adicionar esquemas maiores, você pode carregar seu esquema em um contêine
 
 1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-   * Se o seu recipiente blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas mais tarde nesta página: [Faça upload para contêineres com acesso público](#public-access)
+   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access)
 
      ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se o seu contêiner blob não tiver acesso público, escolha **Cancelar**e siga estas etapas mais tarde nesta página: [Faça upload para contêineres sem acesso público](#public-access)
+   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#public-access)
 
      ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 

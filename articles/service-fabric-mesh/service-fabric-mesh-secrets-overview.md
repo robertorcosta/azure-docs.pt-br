@@ -1,15 +1,15 @@
 ---
-title: Armazenamento e uso de segredos de aplicativos de malha de malha de serviço do Azure
-description: A Malha do Service Fabric dá suporte aos Segredos como recursos do Azure. Veja como armazenar e gerenciar segredos com seus aplicativos service fabric mesh.
+title: Armazenando e usando os segredos do aplicativo de malha de Service Fabric do Azure
+description: A Malha do Service Fabric dá suporte aos Segredos como recursos do Azure. Veja como armazenar e gerenciar segredos com seus aplicativos de Service Fabric malha.
 author: erikadoyle
 ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: da4eaa34840f14714616b85e24fd62cf65602b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277629"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segredos do aplicativo de Malha do Fabric Mesh

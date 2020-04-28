@@ -1,7 +1,7 @@
 ---
-title: Configure provedores de identidade (MSAL iOS/macOS) | Azure
+title: Configurar provedores de identidade (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda a usar diferentes autoridades, como B2C, nuvens soberanas e usuários convidados, com MSAL para iOS e macOS.
+description: Saiba como usar autoridades diferentes, como B2C, nuvens soberanas e usuários convidados, com MSAL para iOS e macOS.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,32 +14,32 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77085217"
 ---
-# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como: Configurar msal para iOS e macOS para usar diferentes provedores de identidade
+# <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Como configurar o MSAL para iOS e macOS para usar provedores de identidade diferentes
 
-Este artigo mostrará como configurar seu aplicativo de biblioteca de autenticação da Microsoft para iOS e macOS (MSAL) para diferentes autoridades, como Azure Active Directory (Azure AD), Business-to-Consumer (B2C), nuvens soberanas e usuários convidados.  Ao longo deste artigo, você geralmente pode pensar em uma autoridade como um provedor de identidade.
+Este artigo mostrará como configurar seu aplicativo de biblioteca de autenticação da Microsoft para iOS e macOS (MSAL) para autoridades diferentes, como Azure Active Directory (Azure AD), B2C (Business-to-consumidor), nuvens soberanas e usuários convidados.  Ao longo deste artigo, você geralmente pode considerar uma autoridade como um provedor de identidade.
 
 ## <a name="default-authority-configuration"></a>Configuração de autoridade padrão
 
-`MSALPublicClientApplication`é configurado com uma `https://login.microsoftonline.com/common`URL de autoridade padrão de , que é adequada para a maioria dos cenários do Azure Active Directory (AAD). A menos que você esteja implementando cenários avançados como nuvens nacionais, ou trabalhando com B2C, você não precisará mudá-lo.
+`MSALPublicClientApplication`é configurado com uma URL de autoridade padrão `https://login.microsoftonline.com/common`do, que é adequada para a maioria dos cenários de Azure Active Directory (AAD). A menos que você esteja implementando cenários avançados como nuvens nacionais ou trabalhando com B2C, você não precisará alterá-lo.
 
 > [!NOTE]
-> A autenticação moderna com os Serviços ativos da Federação de Diretórios como provedor de identidade (ADFS) não é suportada (consulte [ADFS para desenvolvedores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para obter detalhes). A ADFS é apoiada através da federação.
+> Não há suporte para a autenticação moderna com Serviços de Federação do Active Directory (AD FS) como provedor de identidade (ADFS) (consulte [ADFS para desenvolvedores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) para obter detalhes). O ADFS tem suporte por meio da Federação.
 
 ## <a name="change-the-default-authority"></a>Alterar a autoridade padrão
 
-Em alguns cenários, como o business-to-consumer (B2C), você pode precisar mudar a autoridade padrão.
+Em alguns cenários, como B2C (Business-to-Consumer), talvez seja necessário alterar a autoridade padrão.
 
 ### <a name="b2c"></a>B2C
 
-Para trabalhar com o B2C, a [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) requer uma configuração de autoridade diferente. A MSAL reconhece o formato de URL de uma autoridade como B2C por si só. O formato de autoridade `https://<host>/tfp/<tenant>/<policy>`B2C `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`reconhecido é, por exemplo. No entanto, você também pode usar quaisquer outras URLs de autoridade B2C suportadas declarando autoridade como autoridade B2C explicitamente.
+Para trabalhar com o B2C, a [MSAL (biblioteca de autenticação da Microsoft)](reference-v2-libraries.md) requer uma configuração de autoridade diferente. O MSAL reconhece o formato de URL de uma autoridade como B2C por si só. O formato de autoridade B2C reconhecido `https://<host>/tfp/<tenant>/<policy>`é, por `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SignInPolicy`exemplo. No entanto, você também pode usar qualquer outra URL de autoridade B2C com suporte, declarando autoridade como autoridade B2C explicitamente.
 
-Para suportar um formato de URL `MSALB2CAuthority` arbitrário para B2C, pode ser definido com uma URL arbitrária, como esta:
+Para dar suporte a um formato de URL arbitrário `MSALB2CAuthority` para B2C, o pode ser definido com uma URL arbitrária, como esta:
 
 Objective-C
 ```objc
@@ -56,9 +56,9 @@ guard let authorityURL = URL(string: "arbitrary URL") else {
 let b2cAuthority = try MSALB2CAuthority(url: authorityURL)
 ```
 
-Todas as autoridades B2C que não usam o formato padrão de autoridade B2C devem ser declaradas como autoridades conhecidas.
+Todas as autoridades B2C que não usam o formato de autoridade B2C padrão devem ser declaradas como autoridades conhecidas.
 
-Adicione cada autoridade B2C diferente à lista de autoridades conhecidas, mesmo que as autoridades só diferam na política.
+Adicione cada autoridade B2C diferente à lista de autoridades conhecidas, mesmo se as autoridades só diferirem na política.
 
 Objective-C
 ```objc
@@ -74,9 +74,9 @@ let b2cApplicationConfig = MSALPublicClientApplicationConfig(clientId: "your-cli
 b2cApplicationConfig.knownAuthorities = [b2cAuthority]
 ```
 
-Quando seu aplicativo solicita uma nova diretiva, a URL de autoridade precisa ser alterada porque a URL da autoridade é diferente para cada política. 
+Quando seu aplicativo solicita uma nova política, a URL da autoridade precisa ser alterada porque a URL da autoridade é diferente para cada política. 
 
-Para `@property MSALAuthority *authority` configurar um aplicativo B2C, defina com uma ocorrência de in `MSALB2CAuthority` `MSALPublicClientApplicationConfig` antes de criar, `MSALPublicClientApplication`como esta:
+Para configurar um aplicativo B2C, defina `@property MSALAuthority *authority` com uma instância do `MSALB2CAuthority` em `MSALPublicClientApplicationConfig` antes de `MSALPublicClientApplication`criar, desta forma:
 
 Objective-C
 ```ObjC
@@ -129,7 +129,7 @@ do{
 
 ### <a name="sovereign-clouds"></a>Nuvens soberanas
 
-Se o aplicativo for executado em uma nuvem soberana, `MSALPublicClientApplication`talvez seja necessário alterar a URL de autoridade no . O exemplo a seguir define a URL de autoridade para trabalhar com a nuvem AAD alemã:
+Se seu aplicativo for executado em uma nuvem do soberanas, talvez seja necessário alterar a URL da autoridade `MSALPublicClientApplication`no. O exemplo a seguir define a URL da autoridade para trabalhar com a nuvem do AAD em alemão:
 
 Objective-C
 ```objc
@@ -174,17 +174,17 @@ do{
 }
 ```
 
-Você pode precisar passar diferentes escopos para cada nuvem soberana. Quais escopos enviar depende do recurso que você está usando. Por exemplo, você `"https://graph.microsoft.com/user.read"` pode usar `"https://graph.microsoft.de/user.read"` em nuvem mundial, e em nuvem alemã.
+Talvez seja necessário passar escopos diferentes para cada nuvem soberanas. Quais escopos enviar depende do recurso que você está usando. Por exemplo, você pode usar `"https://graph.microsoft.com/user.read"` na nuvem mundial e `"https://graph.microsoft.de/user.read"` na nuvem em alemão.
 
-### <a name="signing-a-user-into-a-specific-tenant"></a>Assinar um usuário em um inquilino específico
+### <a name="signing-a-user-into-a-specific-tenant"></a>Assinando um usuário em um locatário específico
 
-Quando a URL de `"login.microsoftonline.com/common"`autoridade estiver definida para, o usuário será conectado ao seu inquilino doméstico. No entanto, alguns aplicativos podem precisar assinar com o usuário em um inquilino diferente e alguns aplicativos só funcionam com um único inquilino.
+Quando a URL da autoridade for definida `"login.microsoftonline.com/common"`como, o usuário será conectado ao seu locatário inicial. No entanto, alguns aplicativos podem precisar conectar o usuário em um locatário diferente e alguns aplicativos só funcionam com um único locatário.
 
-Para assinar com o usuário um `MSALPublicClientApplication` inquilino específico, configure-o com uma autoridade específica. Por exemplo: 
+Para conectar o usuário a um locatário específico, configure `MSALPublicClientApplication` com uma autoridade específica. Por exemplo:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
-A seguir, mostra como assinar um usuário em um inquilino específico:
+O seguinte mostra como assinar um usuário em um locatário específico:
 
 Objective-C
 ```objc
@@ -228,23 +228,23 @@ do{
 }
 ```
 
-## <a name="supported-authorities"></a>Autoridades apoiadas
+## <a name="supported-authorities"></a>Autoridades com suporte
 
 ### <a name="msalauthority"></a>MSALAuthority
 
-A `MSALAuthority` classe é a classe abstrata base para as classes de autoridade msal. Não tente criar uma instância `alloc` dele `new`usando ou . Em vez disso, crie uma`MSALAADAuthority`de `MSALB2CAuthority`suas subclasses `authorityWithURL:error:` diretamente () ou use o método de fábrica para criar subclasses usando uma URL de autoridade.
+A `MSALAuthority` classe é a classe abstrata base para as classes de autoridade MSAL. Não tente criar uma instância dela usando `alloc` ou. `new` Em vez disso, crie uma de suas subclasses diretamente`MSALAADAuthority`( `MSALB2CAuthority`,) ou use o método `authorityWithURL:error:` de fábrica para criar subclasses usando uma URL de autoridade.
 
-Use `url` a propriedade para obter uma URL de autoridade normalizada. Parâmetros extras e componentes de caminho ou fragmentos que não fazem parte da autoridade não estarão na URL de autoridade normalizada devolvida.
+Use a `url` propriedade para obter uma URL de autoridade normalizada. Os parâmetros extras e componentes de caminho ou fragmentos que não fazem parte da autoridade não estarão na URL de autoridade normalizada retornada.
 
-As seguintes subclasses que `MSALAuthority` você pode instanciar dependendo da autoridade deseja usar.
+Veja a seguir as subclasses `MSALAuthority` de que você pode criar uma instância dependendo da autoridade que deseja usar.
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`representa uma autoridade AAD. A url de autoridade deve estar `<port>` no seguinte formato, onde é opcional:`https://<host>:<port>/<tenant>`
+`MSALAADAuthority`representa uma autoridade do AAD. A URL da autoridade deve estar no seguinte formato, em `<port>` que é opcional:`https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`representa uma autoridade B2C. Por padrão, a url de autoridade B2C `<port>` deve estar `https://<host>:<port>/tfp/<tenant>/<policy>`no seguinte formato, onde é opcional: . No entanto, a MSAL também suporta outros formatos arbitrários de autoridade B2C.
+`MSALB2CAuthority`representa uma autoridade B2C. Por padrão, a URL da autoridade B2C deve estar no seguinte formato, em `<port>` que é opcional `https://<host>:<port>/tfp/<tenant>/<policy>`:. No entanto, o MSAL também dá suporte a outros formatos de autoridade B2C arbitrárias.
 
 ## <a name="next-steps"></a>Próximas etapas
 

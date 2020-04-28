@@ -8,10 +8,10 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271078"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(PRETERIDO) Usar o Helm para implantar contêineres em um cluster Kubernetes
@@ -30,7 +30,7 @@ O Helm tem dois componentes:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Crie um cluster Kubernetes](container-service-kubernetes-walkthrough.md) no Serviço de Contêineres Do Azure
+* [Criar um cluster kubernetes](container-service-kubernetes-walkthrough.md) no serviço de contêiner do Azure
 
 * [Instalar e configurar o `kubectl`](../container-service-connect.md) em um computador local
 

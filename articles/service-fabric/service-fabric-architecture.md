@@ -1,14 +1,14 @@
 ---
-title: Arquitetura do Tecido de Serviço do Azure
-description: Este artigo explica a arquitetura do Service Fabric, uma plataforma de sistemas distribuídos usada para construir aplicativos escaláveis, confiáveis e de fácil gerenciamento para a nuvem.
+title: Arquitetura do Azure Service Fabric
+description: Este artigo explica a arquitetura do Service Fabric, uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem.
 services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76024699"
 ---
 # <a name="service-fabric-architecture"></a>Arquitetura do Service Fabric
@@ -40,7 +40,7 @@ O subsistema de confiabilidade fornece o mecanismo para manter o estado de um se
 
 * O Replicador garante que as alterações de estado da réplica principal serviço automaticamente serão replicadas para réplicas secundárias, mantendo a consistência entre as réplicas primárias e secundárias em um conjunto de réplicas do serviço. O replicador é responsável pelo gerenciamento de quorum entre as réplicas no conjunto de réplicas. Ele interage com a unidade de failover para obter a lista de operações a replicar, e o agente de reconfiguração fornece-a com a configuração do conjunto de réplicas. Essa configuração indica em quais réplicas as operações devem ser replicadas. O Service Fabric fornece um replicador padrão chamado Fabric Replicator, que pode ser usado pela API de modelo de programação para tornar o estado do serviço altamente disponível e confiável.
 * O Gerenciador de Failover garante que quando os nós forem adicionados ou removidos do cluster, a carga será automaticamente redistribuída entre os nós disponíveis. Se um nó do cluster falhar, o cluster automaticamente reconfigurará as réplicas de serviço para manter a disponibilidade.
-* O Gerenciador de recursos coloca réplicas de serviço em domínios de falha no cluster e garante que todas as unidades de failover estejam operacionais. O Gerenciador de Recursos também faz o balanceamento de recursos de serviço no pool compartilhado subjacente de nós de cluster para atingir a distribuição de carga uniforme ideal.
+* O Gerenciador de recursos coloca réplicas de serviço entre domínios de falha no cluster e garante que todas as unidades de failover estejam operacionais. O Gerenciador de Recursos também faz o balanceamento de recursos de serviço no pool compartilhado subjacente de nós de cluster para atingir a distribuição de carga uniforme ideal.
 
 ## <a name="management-subsystem"></a>Subsistema de gerenciamento
 

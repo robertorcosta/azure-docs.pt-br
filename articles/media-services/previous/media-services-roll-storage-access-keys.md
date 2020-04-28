@@ -16,17 +16,17 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981952"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento 
 
 Ao criar uma nova conta do AMS (Serviços de Mídia do Azure), você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Você pode adicionar mais de uma conta de armazenamento à sua conta dos Serviços de Mídia. Este artigo mostra como rotacionar chaves de armazenamento. Também mostra como adicionar contas de armazenamento a uma conta de mídia. 
 
-Para executar as ações descritas neste artigo, é necessário usar [APIs do Gerenciador de Recursos do Azure](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [Como gerenciar os recursos do Azure com o PowerShell e o Resource Manager](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
+Para executar as ações descritas neste artigo, é necessário usar [APIs do Gerenciador de Recursos do Azure](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerenciar recursos do Azure com o PowerShell e o Gerenciador de recursos](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
 ## <a name="steps-to-rotate-storage-keys"></a>Etapas para revezar as chaves de armazenamento 
  
  1. Altere a Chave primária da conta de armazenamento por meio do cmdlet do powershell ou do Portal do [Azure](https://portal.azure.com/).
- 2. Chamada Sync-AzMediaServiceStorageKeys cmdlet com params apropriados para forçar a conta de mídia a pegar as chaves da conta de armazenamento
+ 2. Chame o cmdlet Sync-AzMediaServiceStorageKeys com os parâmetros apropriados para forçar a conta de mídia a escolher as chaves da conta de armazenamento
  
     O exemplo a seguir mostra como sincronizar chaves para contas de armazenamento.
   
@@ -53,7 +53,7 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
   
  3. Aguarde uma hora mais ou menos. Verifique se os cenários de transmissão estão funcionando.
  4. Altere a chave secundária da conta de armazenamento por meio do cmdlet do powershell ou do portal do Azure.
- 5. Chamada Sync-AzMediaServiceStorageKeys powershell com params apropriados para forçar a conta de mídia a pegar novas chaves da conta de armazenamento. 
+ 5. Chame Sync-AzMediaServiceStorageKeys PowerShell com os parâmetros apropriados para forçar a conta de mídia a escolher novas chaves de conta de armazenamento. 
  6. Aguarde uma hora mais ou menos. Verifique se os cenários de transmissão estão funcionando.
  
 ### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet do powershell 
@@ -76,7 +76,7 @@ O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos

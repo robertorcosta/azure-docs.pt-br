@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063373"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
@@ -77,7 +77,7 @@ Cada um dos seus aplicativos pode ter requisitos de autenticação diferentes. C
 Com o Proxy de Aplicativo do AD do Microsoft Azure, você pode fornecer acesso a aplicativos localizados em sua rede privada com segurança, de qualquer lugar e em qualquer dispositivo. Depois de instalar um conector de proxy de aplicativo em seu ambiente, ele pode ser facilmente configurado com o Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrando aplicativos personalizados
-Se você está escrevendo um novo aplicativo e deseja ajudar os desenvolvedores a aproveitar o poder do Azure AD, consulte [desenvolvedores orientadores](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Se você estiver escrevendo um novo aplicativo e quiser ajudar os desenvolvedores a aproveitar o poder do Azure AD, consulte [orientando os desenvolvedores](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do Azure, veja [“Traga seu próprio aplicativo” com a configuração do SAML por autoatendimento do AD do Azure](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -91,11 +91,11 @@ Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o ace
 * [Compartilhando contas](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações detalhadas, você pode baixar os planos de implantação do Azure Active Directory do [GitHub](https://aka.ms/deploymentplans). Para aplicativos de galeria, você pode baixar planos de implantação para logon único, Acesso Condicional e provisionamento de usuários através do [portal Azure](https://portal.azure.com). 
+Para obter informações detalhadas, você pode baixar os planos de implantação do Azure Active Directory do [GitHub](https://aka.ms/deploymentplans). Para aplicativos da galeria, você pode baixar planos de implantação para logon único, acesso condicional e provisionamento de usuário por meio do [portal do Azure](https://portal.azure.com). 
 
 Para baixar um plano de implantação do portal do Azure:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. Selecione **aplicativos corporativos** | **Escolha um plano de** | **implantação de aplicativos.**
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Selecione **aplicativos** | **empresariais escolher um plano de implantação de aplicativo** | **Deployment Plan**.
 
 Forneça comentários sobre planos de implantação executando a [Pesquisa de plano de implantação](https://aka.ms/DeploymentPlanFeedback).

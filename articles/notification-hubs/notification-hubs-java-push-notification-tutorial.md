@@ -1,5 +1,5 @@
 ---
-title: Como usar hubs de notificação do Azure com Java
+title: Como usar os hubs de notificação do Azure com Java
 description: Aprenda a usar Hubs de notificação do Azure de um back-end do Java.
 services: notification-hubs
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263856"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar os Hubs de notificação do Java
@@ -41,7 +41,7 @@ O SDK atualmente oferece suporte para:
 * Envio regular
 * Envio agendado
 * Operações assíncronas via NIO Java
-* Plataformas suportadas: APNS (iOS), FCM (Android), WNS (aplicativos windows store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem serviços google)
+* Plataformas com suporte: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem Google Services)
 
 ## <a name="sdk-usage"></a>Uso do SDK
 
@@ -372,7 +372,7 @@ O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns méto
 
 A execução do código Java agora deve produzir uma notificação que aparece no dispositivo de destino.
 
-## <a name="next-steps"></a><a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a><a name="next-steps"></a>Próximas etapas
 
 Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. Nela você pode:
 

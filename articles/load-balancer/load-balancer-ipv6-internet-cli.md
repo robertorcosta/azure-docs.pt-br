@@ -1,7 +1,7 @@
 ---
 title: Criar um balanceador de carga público com IPv6 - CLI do Azure
 titleSuffix: Azure Load Balancer
-description: Com esse caminho de aprendizado, comece a criar um balanceador de carga pública com o IPv6 usando o Azure CLI.
+description: Com este roteiro de aprendizagem, comece a criar um balanceador de carga público com IPv6 usando CLI do Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045416"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com IPv6 usando a CLI do Azure
 
 >[!NOTE] 
->Este artigo descreve um recurso Introdutório IPv6 para permitir que balanceadores básicos de carga forneçam conectividade IPv4 e IPv6. A conectividade IPv6 abrangente está agora disponível com [IPv6 para VNETs Azure,](../virtual-network/ipv6-overview.md) que integra a conectividade IPv6 com suas Redes Virtuais e inclui recursos-chave, como regras do IPv6 Network Security Group, roteamento definido pelo usuário IPv6, balanceamento de carga Básico e Padrão IPv6 e muito mais.  IPv6 para VNETs Azure é o padrão recomendado para aplicações IPv6 no Azure. Consulte [IPv6 para implantação do Azure VNET Powershell](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>Este artigo descreve um recurso IPv6 introdutório para permitir que os balanceadores de carga básicos forneçam conectividade IPv4 e IPv6. A conectividade IPv6 abrangente agora está disponível com o [IPv6 para o Azure VNETs](../virtual-network/ipv6-overview.md) , que integra a conectividade IPv6 com suas redes virtuais e inclui recursos importantes, como regras de grupo de segurança de rede IPv6, roteamento definido pelo usuário IPv6, balanceamento de carga básico e padrão e muito mais.  O IPv6 para Azure VNETs é o padrão recomendado para aplicativos IPv6 no Azure. Consulte [IPv6 para implantação do PowerShell de VNET do Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). Os balanceadores de carga fornecem alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço íntegras em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. Os balanceadores de carga também podem apresentar esses serviços em várias portas, em vários endereços IP ou em ambos.
 
@@ -282,7 +282,7 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
     ```
 
     > [!WARNING]
-    > Este exemplo usa o nome de usuário e a senha para as VMs em texto sem formatação. Tome cuidado apropriado ao usar essas credenciais em texto não criptografado. Para obter um método mais seguro de manuseio [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) de credenciais no PowerShell, consulte o cmdlet.
+    > Este exemplo usa o nome de usuário e a senha para as VMs em texto sem formatação. Tome cuidado apropriado ao usar essas credenciais em texto não criptografado. Para obter um método mais seguro de tratamento de credenciais no PowerShell, [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) consulte o cmdlet.
 
 2. Criar o conjunto de disponibilidade:
 

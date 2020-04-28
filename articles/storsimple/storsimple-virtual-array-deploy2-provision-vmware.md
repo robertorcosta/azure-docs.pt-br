@@ -1,5 +1,5 @@
 ---
-title: Provision StorSimple Virtual Array no VMware
+title: Provisionar o StorSimple Virtual Array no VMware
 description: Esse segundo tutorial sobre a série de implantação da StorSimple Virtual Array envolve o provisionamento de um dispositivo virtual no VMware.
 author: alkohli
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76272087"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implantar a StorSimple Virtual Array - Provisionar no VMware
@@ -101,7 +101,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 9. A nova pasta aparece no painel à esquerda do **Navegador do Repositório de Dados**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Clique no ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) ícone Upload e selecione **Upload File**.
+10. Clique no ícone ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) carregar e selecione **carregar arquivo**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Procure e aponte para os arquivos VMDK que você baixou. Existem dois itens. Selecione um arquivo para carregar.
@@ -157,25 +157,25 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 28. Na página **Propriedades de Máquinas Virtuais**, na guia **Hardware**, localize o hardware de dispositivo. Selecione **Novo Disco Rígido**. Clique em **Adicionar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. Você verá uma janela **Adicionar Hardware**. Na página **Tipo de dispositivo,** em **Escolha o tipo de dispositivo que deseja adicionar,** selecione **Disco Rígido**e clique em **Next**.
+29. Você verá uma janela **Adicionar Hardware**. Na página **tipo de dispositivo** , em **escolha o tipo de dispositivo que você deseja adicionar**, selecione **disco rígido**e clique em **Avançar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. Na página **Selecionar um Disco**, escolha **Criar um novo disco virtual**. Clique em **Avançar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Na página **Criar um Disco**, altere o **Tamanho do Disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco para provisão, revise a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Em **Provisionamento de Disco**, selecione **Provisionamento Dinâmico**. Clique em **Avançar**.
+31. Na página **Criar um Disco**, altere o **Tamanho do Disco** para 500 GB (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Em **Provisionamento de Disco**, selecione **Provisionamento Dinâmico**. Clique em **Avançar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Na página **Opções Avançadas** , aceite o padrão.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Na página **Pronto para Concluir** , examine as opções de disco. Clique em **concluir**.
+33. Na página **Pronto para Concluir** , examine as opções de disco. Clique em **Concluir**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Retorne à página Propriedades de Máquina Virtual. Um novo disco rígido é adicionado à sua máquina virtual. Clique em **concluir**.
+34. Retorne à página Propriedades de Máquina Virtual. Um novo disco rígido é adicionado à sua máquina virtual. Clique em **Concluir**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Com sua máquina virtual selecionada no painel direito, navegue até a guia **Resumo.** Revise as configurações da sua máquina virtual.
+35. Com sua máquina virtual selecionada no painel direito, navegue até a guia **Resumo** . Examine as configurações de sua máquina virtual.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -191,7 +191,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
 1. Inicie o dispositivo virtual. No vSphere Configuration Manager, no painel esquerdo, selecione seu dispositivo e clique com o botão direito do mouse para abrir o menu de contexto. Selecione **Ligar/Desligar** e, em seguida, selecione **Ligar**. Isso deve ligar sua máquina virtual. Você pode exibir o status no painel inferior **Tarefas Recentes** do cliente vSphere.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. As tarefas de configuração levarão alguns minutos para serem concluídas. Uma vez que o dispositivo esteja em execução, navegue até a guia **Console.** Envie Ctrl+Alt+Delete para fazer login no dispositivo. Como alternativa, você pode apontar o cursor na janela do console e pressionar Ctrl+Alt+Insert. O usuário padrão é *StorSimpleAdmin* e a senha padrão é *Password1*.
+2. As tarefas de configuração levarão alguns minutos para serem concluídas. Depois que o dispositivo estiver em execução, navegue até a guia **console** . envie Ctrl + Alt + Delete para fazer logon no dispositivo. Como alternativa, você pode apontar o cursor na janela do console e pressionar Ctrl+Alt+Insert. O usuário padrão é *StorSimpleAdmin* e a senha padrão é *Password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Por motivos de segurança, a senha do administrador do dispositivo expira no primeiro logon. Você será solicitado a alterar a senha.
@@ -237,7 +237,7 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, você ve
 
 Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho:
 
-* Execute testes de diagnóstico para [solucionar problemas na configuração da IU web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* Execute testes de diagnóstico para [solucionar problemas de configuração da interface do usuário](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Gere um pacote de log e exiba os arquivos de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Próximas etapas

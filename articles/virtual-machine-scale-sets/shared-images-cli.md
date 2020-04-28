@@ -1,5 +1,5 @@
 ---
-title: Use imagens vm compartilhadas para criar um conjunto de escalas no Azure
+title: Usar imagens de VM compartilhadas para criar um conjunto de dimensionamento no Azure
 description: Saiba como usar a CLI do Azure para criar imagens de VM compartilhadas a usar para implantar Conjuntos de Dimensionamento de Máquinas Virtuais no Azure.
 author: axayjo
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: 83b3d5c904a65b28482acf8b685c939493c8c03b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276279"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Criar e usar imagens personalizadas para Conjuntos de Dimensionamento de Máquinas Virtuais com a CLI do Azure 2.0
@@ -27,7 +27,7 @@ Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Criar um conjunto de dimensionamento a partir da imagem de VM personalizada
-Crie um conjunto [`az vmss create`](/cli/azure/vmss#az-vmss-create)de escalas com . Em vez de uma imagem de plataforma, como *UbuntuLTS* ou *CentOS*, especifique o nome da sua imagem de VM personalizada. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que usa a imagem personalizada denominada *myImage* da etapa anterior:
+Crie um conjunto de dimensionamento com [`az vmss create`](/cli/azure/vmss#az-vmss-create). Em vez de uma imagem de plataforma, como *UbuntuLTS* ou *CentOS*, especifique o nome da sua imagem de VM personalizada. O exemplo a seguir cria um conjunto de dimensionamento chamado *myScaleSet* que usa a imagem personalizada denominada *myImage* da etapa anterior:
 
 ```azurecli-interactive
 az vmss create \
@@ -44,8 +44,8 @@ Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjun
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
-Para remover seu conjunto de escalas e recursos adicionais, exclua o grupo de recursos e todos os seus recursos com [a exclusão do grupo AZ](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
+## <a name="clean-up-resources"></a>Limpar os recursos
+Para remover seu conjunto de dimensionamento e recursos adicionais, exclua o grupo de recursos e todos os seus recursos com [AZ Group Delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

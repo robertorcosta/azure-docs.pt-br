@@ -1,5 +1,5 @@
 ---
-title: Exibir e usar o modelo azure Resource Manager de uma máquina virtual
+title: Exibir e usar o modelo de Azure Resource Manager de uma máquina virtual
 description: Saiba como usar o modelo do Azure Resource Manager de uma máquina virtual para criar outras VMs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169109"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo do Azure Resource Manager 
@@ -30,13 +30,13 @@ Este artigo descreve várias VMs vs. modelos do Resource Manager de VM única e 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Modelos do Resource Manager de várias VMs vs. de uma única VM
-Existem duas maneiras de criar VMs no DevTest Labs usando um modelo de Gerenciador de Recursos: provisionar o recurso Microsoft.DevTestLab/labs/virtualmachines ou provisão o recurso Microsoft.Compute/virtualmachines. Cada um é usado em cenários diferentes e exige permissões diferentes.
+Há duas maneiras de criar VMs no DevTest Labs usando um modelo do Resource Manager: provisione o recurso Microsoft. DevTestLab/Labs/VirtualMachines ou provisione o recurso Microsoft. Compute/VirtualMachines. Cada um é usado em cenários diferentes e exige permissões diferentes.
 
 - Modelos do Resource Manager que usam um tipo de recurso Microsoft.DevTestLab/labs/virtualmachines (conforme declarado na propriedade "recurso" no modelo) podem provisionar VMs de laboratório individuais. Nesse caso, cada VM aparece como um item individual na lista de máquinas virtuais do DevTest Labs:
 
    ![Lista de VMs com itens individuais na lista de máquinas virtuais do DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   Esse tipo de modelo do Gerenciador de recursos pode ser provisionado através do comando Azure PowerShell **New-AzResourceGroupDeployment** ou através da **criação do grupo az group**do comando Azure CLI . Isso requer permissões de administrador, de modo que os usuários a quem uma função de usuário do DevTest Labs é atribuída não são capazes de realizar a implantação. 
+   Esse tipo de modelo do Resource Manager pode ser provisionado por meio do comando Azure PowerShell **New-AzResourceGroupDeployment** ou por meio do comando CLI do Azure **AZ Group Deployment Create**. Isso requer permissões de administrador, de modo que os usuários a quem uma função de usuário do DevTest Labs é atribuída não são capazes de realizar a implantação. 
 
 - Modelos do Resource Manager que usam um tipo de recurso Microsoft.Compute/virtualmachines podem provisionar várias VMs como um único ambiente na lista de máquinas virtuais do DevTest Labs:
 
@@ -51,7 +51,7 @@ O artigo [Práticas recomendadas para criação de modelos do Azure Resource Man
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Exibir e salvar o modelo do Azure Resource Manager de uma máquina virtual
 1. Siga as etapas em [Criar sua primeira VM em um laboratório](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) para começar a criar uma máquina virtual.
 1. Insira as informações necessárias para sua máquina virtual e adicione qualquer artefato que você desejar nessa VM.
-1. Swtich para a guia **Configurações Avançadas.** 
+1. Swtich na guia **Configurações avançadas** . 
 1. Na parte inferior da janela de configurações Configurar, escolha **Exibir modelo ARM**.
 1. Copie e salve o modelo do Resource Manager para usar posteriormente para criar outra máquina virtual.
 
@@ -64,11 +64,11 @@ Depois de salvar o modelo do Resource Manager, você deve atualizar a seção de
 O modelo do Resource Manager já está pronto para usar para [criar uma VM](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="set-expiration-date"></a>Definir a data de validade
-Em cenários como treinamento, demonstrações e testes, você pode querer criar máquinas virtuais e excluí-las automaticamente após uma duração fixa para que você não incorra em custos desnecessários. Você pode criar uma VM de laboratório com uma data de validade especificando a propriedade **expirDate** para a VM. Confira o mesmo modelo de Gerenciador de Recursos em [nosso repositório GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+Em cenários como treinamento, demonstrações e avaliações, talvez você queira criar máquinas virtuais e excluí-las automaticamente após uma duração fixa para que não incorra em custos desnecessários. Você pode criar uma VM de laboratório com uma data de expiração especificando a propriedade **expirationDate** para a VM. Confira o mesmo modelo do Resource Manager em [nosso repositório GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
 
 
 
 ### <a name="next-steps"></a>Próximas etapas
 * Aprenda como [Criar ambientes de várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 * [Implantar um modelo do Resource Manager para criar uma VM](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
-* Explore modelos mais rápidos do Gerenciador de recursos para automação do DevTest Labs a partir do [repo público do DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).
+* Explore mais modelos do Resource Manager de início rápido para a automação do DevTest Labs do [repositório GitHub do Public DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: b9b5d51d0d35284d9854bd048396df84881266d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76771416"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Java: notas de versão e recursos
@@ -27,7 +27,7 @@ ms.locfileid: "76771416"
 |   |   |
 |---|---|
 |**Download do SDK**|[Opções de Download](https://github.com/azure/azure-storage-java#download)|
-|**Documentação de API**|[Documentação de referência de API Java](https://azure.github.io/azure-storage-java/)|
+|**Documentação da API**|[Documentação de referência de API Java](https://azure.github.io/azure-storage-java/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]

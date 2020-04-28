@@ -1,5 +1,5 @@
 ---
-title: Configure MPIO no host StorSimple Linux
+title: Configurar o MPIO no host Linux do StorSimple
 description: Configurar o MPIO no StorSimple conectado a um host Linux que esteja executando o CentOS 6.6
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76278354"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -328,19 +328,19 @@ Esta seção fornece algumas dicas úteis se você tiver algum problema durante 
 
 Q. Não vejo as alterações no arquivo `multipath.conf` entrarem em vigor.
 
-a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando: 
+A. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando: 
 
     service multipathd restart
 
 Q. Habilitei duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no host. Quando eu listo os caminhos disponíveis, vejo apenas dois caminhos. Eu esperava ver quatro caminhos disponíveis.
 
-a. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
+A. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
 
 Q. Quando eu listo os caminhos disponíveis, não vejo nenhuma saída.
 
-a. Normalmente, não ver nenhum caminho multipatizado sugere um problema com o daemon multipathing, `multipath.conf` e é mais provável que qualquer problema aqui esteja no arquivo.
+A. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
 
-Também valeria a pena verificar se você pode realmente ver alguns discos depois de se conectar ao alvo, já que nenhuma resposta das listagens multipath também pode significar que você não tem nenhum disco.
+Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, pois nenhuma resposta das listagens de vários caminhos também pode significar que você não tem discos.
 
 * Use o comando a seguir para examinar novamente o barramento SCSI:
   
@@ -358,7 +358,7 @@ Também valeria a pena verificar se você pode realmente ver alguns discos depoi
   
     `cat /sys/block/<DISK>/device/model`
   
-    Isso retornará uma seqüência de string, que determinará se é um disco StorSimple.
+    Isso retornará uma cadeia de caracteres, que determinará se é um disco StorSimple.
 
 Uma causa menos provável, mas possível, também poderia ser um pid iscsid obsoleto. Use o comando a seguir para fazer logoff das sessões iSCSI:
 
@@ -371,7 +371,7 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
 
 Q. Não sei se meu dispositivo está na lista branca.
 
-a. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+A. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
 
     multipathd -k
     multipathd> show devices
@@ -410,7 +410,7 @@ a. Para verificar se seu dispositivo está na lista branca, use o seguinte coman
     dm-3 devnode blacklisted, unmonitored
 
 
-Para obter mais informações, vá para a [solução de problemas para multipathing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
+Para obter mais informações, acesse [solução de problemas para vários caminhos](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
 | Type | Comando | Descrição |

@@ -1,5 +1,5 @@
 ---
-title: Configure um ouvinte externo para grupos de disponibilidade
+title: Configurar um ouvinte externo para grupos de disponibilidade
 description: Este tutorial explica as etapas de criação de um ouvinte de grupo de disponibilidade AlwaysOn no Azure que é acessível externamente usando o endereço IP virtual público do serviço de nuvem associado.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,23 +16,23 @@ ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978192"
 ---
-# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configure um ouvinte externo para grupos de disponibilidade em VMs do Servidor Azure SQL
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte externo para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
-> * [Ouvinte Interno](../classic/ps-sql-int-listener.md)
-> * [Ouvinte Externo](../classic/ps-sql-ext-listener.md)
+> * [Ouvinte interno](../classic/ps-sql-int-listener.md)
+> * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
 Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade AlwaysOn que está acessível externamente na Internet. Isso se tornou possível associando o endereço **VIP (IP virtual público)** do serviço de nuvem ao ouvinte.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e Classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
 
@@ -53,12 +53,12 @@ Este artigo se concentra na criação de um ouvinte que use o **balanceamento de
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Criar pontos de extremidade da VM com balanceamento de carga com retorno de servidor direto
 O Balanceamento de carga externo usa o endereço IP Virtual público do serviço de nuvem que hospeda suas VMs. Portanto, você não precisa criar ou configurar o balanceador de carga nesse caso.
 
-Você deve criar um ponto de extremidade de carga equilibrada para cada VM que hospeda uma réplica do Azure. Se você tiver réplicas em várias regiões, cada réplica para essa região deve estar no mesmo serviço de nuvem no mesmo VNet. Criação de réplicas do Grupo de Disponibilidade que abrangem várias regiões do Azure requer configurar diversas VNets. Para obter mais informações sobre a configuração da conectividade VNet cruzada, consulte [Configurar o VNet para a conectividade VNet](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Você deve criar um ponto de extremidade de carga equilibrada para cada VM que hospeda uma réplica do Azure. Se você tiver réplicas em várias regiões, cada réplica para essa região deve estar no mesmo serviço de nuvem no mesmo VNet. Criação de réplicas do Grupo de Disponibilidade que abrangem várias regiões do Azure requer configurar diversas VNets. Para obter mais informações sobre como configurar a conectividade entre VNet, consulte [configurar conectividade vnet para vnet](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 1. No portal do Azure, navegue até cada VM hospedando uma réplica e visualize os detalhes.
 2. Clique na guia **Pontos de extremidade** para cada uma das máquinas virtuais.
 3. Verifique se o **Nome** e a **Porta Pública** do ponto de extremidade do ouvinte que você quer usar já não está em uso. No exemplo abaixo, o nome é "MyEndpoint" e a porta é "1433".
-4. Em seu cliente local, baixe e instale [o módulo PowerShell mais recente.](https://azure.microsoft.com/downloads/)
+4. No seu cliente local, baixe e instale [o módulo mais recente do PowerShell](https://azure.microsoft.com/downloads/).
 5. Inicie o **Azure PowerShell**. Uma nova sessão do PowerShell é aberta com os módulos administrativos do Azure carregados.
 6. Executar **Get-AzurePublishSettingsFile**. Esse cmdlet direciona você a um navegador para baixar um arquivo de configurações de publicação para um diretório local. É possível que seja solicitado para inserir as suas credenciais para a assinatura do Aure.
 7. Execute o comando **Import-AzurePublishSettingsFile** com o caminho do arquivo de configurações de publicação que você baixou:
@@ -123,7 +123,7 @@ Crie o ouvinte do grupo de disponibilidade em duas etapas. Primeiro, crie o recu
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testar o ouvinte de grupo de disponibilidade (pela Internet)
-Para acessar o ouvinte de fora da rede virtual, você deve estar usando balanceamento de carga externa/pública (descrito neste tópico) em vez de ILB, que só é acessível dentro do mesmo VNet. Na cadeia de conexão, você deve especificar o nome do serviço de nuvem. Por exemplo, se você tiver um serviço de nuvem com o nome *meuserviçodenuvem*, a instrução sqlcmd seria a seguinte:
+Para acessar o ouvinte de fora da rede virtual, você deve usar o balanceamento de carga externo/público (descrito neste tópico) em vez de ILB, que só pode ser acessado na mesma VNet. Na cadeia de conexão, você deve especificar o nome do serviço de nuvem. Por exemplo, se você tiver um serviço de nuvem com o nome *meuserviçodenuvem*, a instrução sqlcmd seria a seguinte:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 

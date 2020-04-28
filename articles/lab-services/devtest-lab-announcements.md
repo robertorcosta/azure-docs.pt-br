@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75976440"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Postar um comunicado em um laboratório no Azure DevTest Labs
@@ -35,7 +35,7 @@ O recurso de comunicado deve ser usado para notificações temporárias.  Você 
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Etapas para postar um comunicado em um laboratório existente
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços** e selecione **DevTest Labs** na lista. (O laboratório já pode ser exibido no painel, em **Todos os Recursos**).
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja postar um comunicado.
 1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.
@@ -160,11 +160,11 @@ Quando você não quiser mais mostrar esse aviso aos usuários do laboratório, 
 
 É possível implantar um modelo do Azure Resource Manager de uma das seguintes maneiras:
 
-- [Portal Azure](../azure-resource-manager/templates/deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+- [PowerShell do Azure](../azure-resource-manager/templates/deploy-powershell.md)
+- [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
 - [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se você alterar ou definir uma política de laboratório, talvez seja melhor postar um comunicado para informar aos usuários. [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como aplicar as convenções e restrições em sua assinatura usando políticas personalizadas.
-* Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Explore a [Galeria de modelos do DevTest Labs Azure Resource Manager guia de início rápido](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

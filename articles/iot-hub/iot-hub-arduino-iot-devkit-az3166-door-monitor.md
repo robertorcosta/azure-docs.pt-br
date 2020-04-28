@@ -1,5 +1,5 @@
 ---
-title: Envie e-mail quando a porta for aberta usando funções do Azure
+title: Enviar email quando a porta for aberta usando Azure Functions
 description: Monitore o sensor magnético para detectar quando uma porta é aberta e use o Azure Functions para enviar uma notificação por email.
 author: liydu
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75977292"
 ---
-# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta - Usando funções do Azure e SendGrid, envie e-mail quando uma porta for aberta           
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta--usando Azure Functions e SendGrid, enviar email quando uma porta é aberta           
 
 O Kit de Desenvolvimento de IoT MXChip contém um sensor magnético integrado. Neste projeto, você detecta a presença ou ausência de um campo de magnético forte próximo – nesse caso, proveniente de um imã pequeno, permanente.
 
@@ -39,7 +39,7 @@ Siga o [Guia de Introdução](iot-hub-arduino-iot-devkit-az3166-get-started.md) 
 
 Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por meio de um desses métodos:
 
-* Ative uma [conta microsoft azure de teste gratuita de 30 dias](https://azure.microsoft.com/free/).
+* Ative uma [avaliação gratuita de 30 dias Microsoft Azure conta](https://azure.microsoft.com/free/).
 * Declare seu [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você for assinante do MSDN ou o Visual Studio.
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>Implementar o serviço SendGrid no Azure
@@ -53,7 +53,7 @@ Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por
 
 Para provisionar os serviços do Azure, use o botão **Implantar no Azure**. Esse botão permite a implantação rápida e fácil de seus projetos de código-fonte aberto no Microsoft Azure.
 
-Clique no botão **Implantar para Azure** abaixo. 
+Clique no botão **implantar no Azure** abaixo. 
 
 [![Implantar no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
@@ -81,7 +81,7 @@ Depois que implantação for concluída, clique nela e, em seguida, clique no bo
 
 ![Gerenciamento do SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-Na página SendGrid, clique **em Configurações** > **chaves de API** > **Criar tecla de API**.
+Na página SendGrid, clique em **configurações** > **chaves** > de API**criar chave de API**.
 
 ![Criar primeira API do SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -95,7 +95,7 @@ Sua chave de API é exibida apenas uma vez. Certifique-se de copiá-la e armazen
 
 As etapas a seguir provisionarão outros serviços relacionados a IoT do Azure e implantarão Azure Functions para esse projeto.
 
-Clique no botão **Implantar para Azure** abaixo. 
+Clique no botão **implantar no Azure** abaixo. 
 
 [![Implantar no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
@@ -184,9 +184,9 @@ O programa primeiro inicializa quando o Kir de Desenvolvimento está na presenç
 
 Após a inicialização, `Door closed` é exibido na tela. Quando há uma alteração no campo magnético, o estado muda para `Door opened`. Cada vez que o estado da porta mudar, você receberá uma notificação por email. (Essas mensagens de email podem levar até cinco minutos para serem recebidas.)
 
-![Ímãs próximos ao sensor: Porta fechada](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Ímãs próximos ao sensor: Porta fechada")
+![Ímã perto do sensor: porta fechada](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Ímã perto do sensor: porta fechada")
 
-![Ímã se afastou do sensor: Porta Aberta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Ímã se afastou do sensor: Porta Aberta")
+![Ímã afastado do sensor: porta aberta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Ímã afastado do sensor: porta aberta")
 
 ## <a name="problems-and-feedback"></a>Comentários e problemas
 

@@ -9,11 +9,11 @@ ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: ce74966cab3469d59693c59831bb3d4ce625f90e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76159220"
 ---
 >[!NOTE]
->As características descritas neste artigo estão disponíveis apenas no nível padrão do IoT Hub. Para obter mais informações sobre os níveis básico e padrão/livre do IoT Hub, consulte [Escolha o nível certo do IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+>Os recursos descritos neste artigo estão disponíveis apenas na camada standard do Hub IoT. Para obter mais informações sobre as camadas básica e Standard/gratuita do Hub IoT, consulte [escolher a camada certa do Hub IOT](../articles/iot-hub/iot-hub-scaling.md).

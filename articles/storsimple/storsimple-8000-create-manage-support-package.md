@@ -1,5 +1,5 @@
 ---
-title: Crie um pacote de suporte à série StorSimple 8000
+title: Criar um pacote de suporte da série StorSimple 8000
 description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277067"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
@@ -23,7 +23,7 @@ Este tutorial inclui instruções passo a passo para criar e gerenciar o pacote 
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
-Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo: 
+Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo:
 
 * Se você precisar remover informações confidenciais de seus arquivos de log antes de compartilhar com o Microsoft Support.
 * Se você estiver tendo dificuldade para carregar o pacote devido a problemas de conectividade.

@@ -1,6 +1,6 @@
 ---
-title: Configure um ouvinte ILB para grupos de disponibilidade (Classic)
-description: Este tutorial usa recursos criados com o modelo clássico de implantação, e cria um ouvinte de grupo de disponibilidade Always On para um VM do Servidor SQL no Azure que usa um balanceador de carga interna.
+title: Configurar um ouvinte de ILB para grupos de disponibilidade (clássico)
+description: Este tutorial usa recursos criados com o modelo de implantação clássico e cria um ouvinte de grupo de disponibilidade Always On no para uma VM SQL Server no Azure que usa um balanceador de carga interno.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -16,13 +16,13 @@ ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978163"
 ---
-# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configure um ouvinte ILB para grupos de disponibilidade em VMs do Servidor Azure SQL
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte de ILB para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
 > * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
@@ -32,7 +32,7 @@ ms.locfileid: "75978163"
 ## <a name="overview"></a>Visão geral
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager.
 
 Para configurar um ouvinte para um grupo de disponibilidade AlwaysOn no modelo do Resource Manager, veja [Configurar um balanceador de carga para um grupo de disponibilidade AlwaysOn no Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -105,7 +105,7 @@ Crie um ponto de extremidade com carga equilibrada para cada VM que hospeda uma 
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Depois de definir as variáveis, copie o script do editor de texto para sua sessão do PowerShell a fim de executá-lo. Se o prompt **>>** ainda aparecer, pressione Enter novamente para garantir que o script comece a ser executado.
+13. Depois de definir as variáveis, copie o script do editor de texto para sua sessão do PowerShell a fim de executá-lo. Se o prompt ainda mostrar **>>**, pressione Enter novamente para verificar se o script começa a ser executado.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Verifique se KB2854082 está instalado, se necessário
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Crie o ouvinte do grupo de disponibilidade em duas etapas. Primeiro, crie o recu
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script do editor de texto em sua sessão do PowerShell para executá-lo. Se o prompt **>>** ainda for em e-se mostrar, pressione Enter novamente para garantir que o script comece a ser executado.
+3. Depois de definir as variáveis, abra uma janela elevada do Windows PowerShell, cole o script do editor de texto em sua sessão do PowerShell para executá-lo. Se o prompt ainda mostrar **>>**, pressione Enter novamente para ter certeza de que o script começa a ser executado.
 
 4. Repita as etapas anteriores para cada VM.  
     Esse script configura o recurso de endereço IP com o endereço IP do serviço de nuvem e define outros parâmetros, como a porta de investigação. Quando o recurso de endereço IP é colocado online, ele pode responder à sondagem na porta de investigação do ponto de extremidade com balanceamento de carga criado anteriormente.

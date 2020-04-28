@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em tokens (HTTP/2) para APNS em Hubs de Notificação do Azure | Microsoft Docs
+title: Autenticação baseada em token (HTTP/2) para APNS nos hubs de notificação do Azure | Microsoft Docs
 description: Saiba como usar a nova autenticação de token para APNS.
 services: notification-hubs
 documentationcenter: .net
@@ -16,72 +16,72 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76263805"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em tokens (HTTP/2) para APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo explica como usar o novo protocolo APNS HTTP/2 com autenticação baseada em tokens.
+Este artigo explica como usar o novo protocolo HTTP/2 do APNS com autenticação baseada em token.
 
 Os principais benefícios de usar o novo protocolo incluem:
 
-* A geração de tokens é relativamente simples (em comparação com certificados)
+* A geração de tokens é relativamente simples (em comparação com os certificados)
 * Não há mais dadas de expiração – você está no controle dos seus tokens de autenticação e sua revogação
 * O conteúdo agora pode ser de até 4 KB
 * Comentários síncronos
-* Você está no protocolo mais recente da Apple – os certificados ainda usam o protocolo binário, que está marcado para depreciação
+* Você está no protocolo mais recente da Apple – os certificados ainda usam o protocolo binário, que é marcado para substituição
 
-O uso deste novo mecanismo pode ser realizado em duas etapas:
+O uso desse novo mecanismo pode ser executado em duas etapas:
 
-* Obtenha as informações necessárias no portal da conta do Desenvolvedor Apple.
+* Obtenha as informações necessárias no portal da conta de desenvolvedor da Apple.
 * Configure seu hub de notificação com as novas informações.
 
-O Notification Hubs agora está configurado para usar o novo sistema de autenticação com APNS.
+Os hubs de notificação agora estão definidos para usar o novo sistema de autenticação com o APNS.
 
-Observe que se você migrou do uso de credenciais de certificado para APNS, as propriedades do token sobreescrevem seu certificado em nosso sistema, mas seu aplicativo continua recebendo notificações sem problemas.
+Observe que, se você migrar do usando credenciais de certificado para o APNS, as propriedades do token substituirão seu certificado em nosso sistema, mas o aplicativo continuará a receber notificações diretamente.
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Obtendo informações de autenticação da Apple
 
-Para habilitar a autenticação baseada em tokens, você precisa das seguintes propriedades da sua conta do Apple Developer:
+Para habilitar a autenticação baseada em token, você precisa das seguintes propriedades de sua conta de desenvolvedor da Apple:
 
 ### <a name="key-identifier"></a>Identificador de chave
 
-O identificador de chave pode ser obtido na página **Chaves** em **Certificados, Identificadores & Perfis,** em sua conta do Apple Developer:
+O identificador de chave pode ser obtido na página **chaves** em **certificados, identificadores & perfis**, em sua conta de desenvolvedor da Apple:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
 
-### <a name="application-identifier-and-application-name"></a>Identificador de aplicativo e nome do aplicativo
+### <a name="application-identifier-and-application-name"></a>Identificador do aplicativo e nome do aplicativo
 
-O nome e o identificador do aplicativo também estão disponíveis na página **Certificados, Identificadores & Perfis** na conta do desenvolvedor:
+O nome do aplicativo e o identificador também estão disponíveis na página **certificados, identificadores & perfis** na conta de desenvolvedor:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Configure-se através do .NET SDK ou do portal Azure
+### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Configurar por meio do SDK do .NET ou do portal do Azure
 
-Você pode configurar seu hub para usar autenticação baseada em tokenusando nosso [SDK de cliente mais recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)ou no portal Azure. Para habilitar a autenticação baseada em tokens no portal, entre no portal do Azure e acesse o painel **Configurações > Apple (APNS)** do seu hub de notificação. Selecione **Token** na propriedade **Modo de autenticação** para atualizar seu hub com todas as propriedades de token relevantes.
+Você pode configurar seu hub para usar a autenticação baseada em token usando nosso [SDK do cliente mais recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)ou no portal do Azure. Para habilitar a autenticação baseada em token no portal, entre no portal do Azure e vá para as configurações do hub de notificação **> painel da Apple (APNS)** . Selecione o **token** da propriedade **modo de autenticação** para atualizar o Hub com todas as propriedades de token relevantes.
 
 ![Configurar token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-* Digite as propriedades recuperadas de sua conta do Apple Developer.
-* Escolha o modo de aplicação **(Produção** ou **Caixa de Areia).**
-* Clique no botão **Salvar** para atualizar suas credenciais APNS.
+* Insira as propriedades que você recuperou de sua conta de desenvolvedor da Apple.
+* Escolha o modo de aplicativo (**produção** ou **área restrita**).
+* Clique no botão **salvar** para atualizar suas credenciais de APNS.
 
-As credenciais baseadas em tokens são compostas pelos seguintes campos:
+As credenciais baseadas em token são compostas dos seguintes campos:
 
-* **ID de chave**: Identificador da chave privada gerada no portal apple developer; por exemplo, `2USFGKSKLT`.
-* **ID da equipe**: Também chamado de "Prefixo" ou "Prefixo de Aplicativo". Este é o identificador para a organização no portal Apple Developer; por exemplo, `S4V3D7CHJR`.
-* **ID do pacote**: Também chamado de "ID de aplicativo". Este é o identificador de pacote para o aplicativo; por exemplo, `com.microsoft.nhubsample2019`. Observe que você pode usar uma chave para muitos aplicativos. Esse valor mapeia o `apns-topic` cabeçalho HTTP ao enviar uma notificação e é usado para direcionar o aplicativo específico.
-* **Token**: Também chamado de "Chave" ou "Chave Privada". Isso é obtido a partir do arquivo .p8 gerado no portal apple developer. A chave deve ter APNS ativado (que é selecionado no portal apple developer ao gerar a chave). O valor deve ter o cabeçalho/rodapé PEM retirado dele quando você fornecê-lo ao Portal/API do NH.
-* **Ponto final**: Este é um alternador na lâmina portal Notification Hubs e um campo de strings na API. Os valores válidos são `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. O Notification Hubs usa esse valor para o ambiente de produção ou sandbox, para envio de notificações. Isso deve `aps-environment` corresponder ao direito no aplicativo, caso contrário, os tokens de dispositivo APNS gerados não correspondem ao ambiente e as notificações não são enviadas.
+* **ID da chave**: identificador da chave privada gerada no portal do desenvolvedor da Apple; por exemplo, `2USFGKSKLT`.
+* **ID da equipe**: também chamado de "prefixo" ou "prefixo do aplicativo". Este é o identificador para a organização no portal do desenvolvedor da Apple; por exemplo, `S4V3D7CHJR`.
+* **ID do pacote**: também chamado de "ID do aplicativo". Este é o identificador do pacote para o aplicativo; por exemplo, `com.microsoft.nhubsample2019`. Observe que você pode usar uma chave para muitos aplicativos. Esse valor é mapeado para `apns-topic` o cabeçalho HTTP ao enviar uma notificação e é usado para direcionar o aplicativo específico.
+* **Token**: também chamado de "chave" ou "chave privada". Isso é obtido do arquivo. P8 gerado no portal do desenvolvedor da Apple. A chave deve ter o APNS habilitado (que está selecionado no portal do desenvolvedor da Apple ao gerar a chave). O valor deve ter o cabeçalho/rodapé PEM extraído dele ao fornecê-lo ao portal/API do NH.
+* **Ponto de extremidade**: é uma alternância na folha do portal de hubs de notificação e um campo de cadeia de caracteres na API. Os valores válidos são `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. Os hubs de notificação usam esse valor para o ambiente de produção ou área restrita, para enviar notificações. Isso deve corresponder ao `aps-environment` direito no aplicativo, caso contrário, os tokens de dispositivo APNS gerados não corresponderão ao ambiente e as notificações falharão ao enviar.
 
-Aqui está uma amostra de código ilustrando o uso correto:
+Aqui está um exemplo de código que ilustra o uso correto:
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
@@ -98,4 +98,4 @@ nm.UpdateNotificationHubAsync(desc);
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md)
-* [Configure um hub de notificação no portal Azure](create-notification-hub-portal.md)
+* [Configurar um hub de notificação no portal do Azure](create-notification-hub-portal.md)

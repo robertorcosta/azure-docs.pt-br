@@ -1,5 +1,5 @@
 ---
-title: Transforme XML com mapas XSLT
+title: Transformar XML com mapas XSLT
 description: Adicionar mapas XSLT para transformar XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
@@ -9,15 +9,15 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75979400"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
-Para transferir dados XML entre formatos para cenários de integração corporativa no Azure Logic Apps, seu aplicativo lógico pode usar mapas ou, mais especificamente, mapas de transformações de linguagem de estilo extensíveis (XSLT). Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
+Para transferir dados XML entre formatos para cenários de integração corporativa em aplicativos lógicos do Azure, seu aplicativo lógico pode usar mapas ou, mais especificamente, mapas XSLT (transformações de linguagem de folha de estilo extensível). Um mapa é um documento XML que descreve como converter dados de um documento XML para outro formato. 
 
 Por exemplo, suponha que você recebe regularmente pedidos ou faturas B2B de clientes que usam o formato de data AAAAMMDD. No entanto, sua organização usa o formato de data MMDDAAAA. Você pode usar um mapa para transformar o formato de data AAAAMMDD em MMDDAAAA antes de armazenar os detalhes do pedido ou da fatura no banco de dados de atividade do cliente.
 
@@ -29,7 +29,7 @@ Para obter os limites relacionados aos artefatos e às contas de integração co
 
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) na qual você armazena seus mapas e outros artefatos para soluções de business-to-business (B2B) e integração empresarial.
 
-* Se seu mapa faz referência a um assembly externo, você precisa carregar *o assembly e o mapa* na conta de integração. Certifique-se [*de carregar seu conjunto primeiro*](#add-assembly)e, em seguida, carregar o mapa que faz referência ao conjunto.
+* Se seu mapa faz referência a um assembly externo, você precisa carregar *o assembly e o mapa* na conta de integração. Certifique-se de [*carregar o assembly primeiro*](#add-assembly)e, em seguida, carregue o mapa que faz referência ao assembly.
 
   Se o assembly tiver 2 MB ou menos, é possível adicioná-lo na sua conta de integração *diretamente* do portal do Azure. No entanto, se o assembly ou o mapa for maior do que 2 MB, mas não maior que o [limite de tamanho para assemblies ou mapas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), você tem estas opções:
 
@@ -40,7 +40,7 @@ Para obter os limites relacionados aos artefatos e às contas de integração co
     |------|-------------|
     | [Conta de armazenamento do Azure](../storage/common/storage-account-overview.md) | Nessa conta, crie um contêiner de blob do Azure para o assembly. Saiba [como criar uma conta de armazenamento](../storage/common/storage-account-create.md). |
     | Contêiner de blob | Nesse contêiner, você pode carregar seu assembly. Você também precisa da localização desse contêiner ao adicionar o assembly à sua conta de integração. Saiba como [criar um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Explorador de armazenamento azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Essa ferramenta ajuda a gerenciar de maneira mais fácil as contas de armazenamento e contêineres de blob. Para usar o Gerenciador de Armazenamento, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal do Azure, encontre e selecione a conta de armazenamento. No menu da sua conta de armazenamento, selecione **Gerenciador de Armazenamento**. |
+    | [Gerenciador de Armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Essa ferramenta ajuda a gerenciar de maneira mais fácil as contas de armazenamento e contêineres de blob. Para usar o Gerenciador de Armazenamento, [baixe e instale o Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com/). Em seguida, conecte o Gerenciador de Armazenamento à sua conta de armazenamento seguindo as etapas em [Introdução ao Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [início rápido: criar um blob no armazenamento de objetos com o Gerenciador de armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal do Azure, encontre e selecione a conta de armazenamento. No menu da sua conta de armazenamento, selecione **Gerenciador de Armazenamento**. |
     |||
 
   * Para mapas, no momento, você pode adicionar mapas maiores usando a [API de REST de Aplicativos Lógicos do Azure – Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
@@ -75,7 +75,7 @@ Com base no tamanho do arquivo de assembly, siga as etapas para carregar um asse
 Para obter os limites das quantidades de assembly nas contas de integração, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
-> Se você alterar seu conjunto, você também deve atualizar seu mapa se o mapa tem ou não alterações.
+> Se você alterar o assembly, também deverá atualizar seu mapa se o mapa tiver ou não alterações.
 
 <a name="smaller-assembly"></a>
 
@@ -101,7 +101,7 @@ Para obter os limites das quantidades de assembly nas contas de integração, co
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Adicionar assemblies com mais de 2 MB
 
-Para adicionar assemblies maiores, você pode carregar seu assembly em um contêiner de blob do Azure na conta de armazenamento do Azure. Seus passos para adicionar montagens diferem com base se o seu recipiente blob tem acesso de leitura pública. Então, primeiro, verifique se o seu recipiente blob tem acesso público de leitura seguindo estas etapas: [Defina o nível de acesso público para o contêiner blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para adicionar assemblies maiores, você pode carregar seu assembly em um contêiner de blob do Azure na conta de armazenamento do Azure. Suas etapas para adicionar assemblies diferem se o seu contêiner de blob tem acesso de leitura público. Primeiro, verifique se seu contêiner de BLOBs tem acesso de leitura público seguindo estas etapas: [definir o nível de acesso público para o contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Verificar o nível de acesso do contêiner
 
@@ -111,11 +111,11 @@ Para adicionar assemblies maiores, você pode carregar seu assembly em um contê
 
 1. No menu de atalho do seu contêiner de blob, selecione **Definir o nível de acesso público**.
 
-   * Se o seu recipiente blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas mais tarde nesta página: [Faça upload para contêineres com acesso público](#public-access-assemblies)
+   * Se o seu contêiner de blob tiver pelo menos acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres com acesso público](#public-access-assemblies)
 
      ![Acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Se o seu contêiner blob não tiver acesso público, escolha **Cancelar**e siga estas etapas mais tarde nesta página: [Faça upload para contêineres sem acesso público](#no-public-access-assemblies)
+   * Se o seu contêiner de BLOB não tiver acesso público, escolha **Cancelar**e siga estas etapas posteriormente nesta página: [carregar para contêineres sem acesso público](#no-public-access-assemblies)
 
      ![Sem acesso público](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -198,7 +198,7 @@ Depois de carregar todos os assemblies referenciados no mapa, você poderá carr
 
 1. Em **Adicionar mapa**, insira um nome para o mapa. 
 
-1. No **tipo Mapa,** selecione o tipo, por exemplo: **Líquido,** **XSLT,** **XSLT 2.0**ou **XSLT 3.0**.
+1. Em **tipo de mapa**, selecione o tipo, por exemplo **: Liquid**, **XSLT**, **XSLT 2,0**ou **XSLT 3,0**.
 
 1. Mantenha **Arquivo pequeno** marcado. Ao lado da caixa **Mapa**, escolha o ícone de pasta. Localize e selecione o mapa que você está carregando, por exemplo:
 

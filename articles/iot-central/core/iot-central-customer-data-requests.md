@@ -1,6 +1,6 @@
 ---
 title: Recursos de solicitação de dados do cliente no Azure IoT Central | Microsoft Docs
-description: Este artigo descreve a identificação, exclusão e exportação de dados de clientes no aplicativo Azure IoT Central.
+description: Este artigo descreve como identificar, excluir e exportar dados do cliente no aplicativo IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023745"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
@@ -33,7 +33,7 @@ Quando você usa os serviços corporativos da Microsoft, a Microsoft gera alguma
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 
-A capacidade de excluir os dados do usuário só é fornecida por meio da página de administração do IoT Central. Os administradores do aplicativo podem selecionar o usuário a ser excluído e selecionar **Excluir** no canto superior direito do aplicativo para excluir o registro. Os administradores de aplicativos também podem remover contas individuais que não estão mais associadas ao aplicativo em questão.
+A capacidade de excluir os dados do usuário só é fornecida por meio da página de administração do IoT Central. Os administradores de aplicativos podem selecionar o usuário a ser excluído e selecionar **excluir** no canto superior direito do aplicativo para excluir o registro. Os administradores de aplicativos também podem remover contas individuais que não estão mais associadas ao aplicativo em questão.
 
 Depois que um usuário é excluído, nenhum alerta adicional é enviado por email a ele. No entanto, seu endereço de email precisa ser removido individualmente de cada alerta configurado.
 

@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade da região do StorSimple
+title: Disponibilidade de região do StorSimple
 description: Explica as regiões do Azure na qual vários modelos de dispositivo StorSimple estão disponíveis.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76275121"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
@@ -26,7 +26,7 @@ A escolha de uma região do Azure é muito importante e é influenciada por fato
 Para solução StorSimple, a escolha da região é determinada especificamente pelos seguintes fatores:
 
 - Regiões onde o serviço do Gerenciador de Dispositivos do StorSimple está disponível.
-- Os países/regiões onde o dispositivo físico, nuvem ou virtual StorSimple está disponível.
+- Os países/regiões em que o dispositivo físico, nuvem ou virtual StorSimple está disponível.
 - Regiões onde as contas de armazenamento que armazenam os dados do StorSimple devem ser localizadas para render desempenho ideal.
 
 Este tutorial descreve a disponibilidade de região para o serviço do Gerenciador de Dispositivos do StorSimple, os dispositivos físicos locais e na nuvem. As informações contidas neste artigo aplicam-se a dispositivos StorSimple das séries 8000 e 1200.
@@ -55,11 +55,11 @@ Se você está usando um Dispositivo de Nuvem StorSimple, é recomendável que o
 
 ## <a name="availability-of-storsimple-device"></a>Disponibilidade do dispositivo StorSimple
 
-Dependendo do modelo, os dispositivos StorSimple podem estar disponíveis em diferentes geografias ou países/regiões.
+Dependendo do modelo, os dispositivos StorSimple podem estar disponíveis em geografias diferentes ou em países/regiões.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Dispositivo físico StorSimple (modelos 8100/8600)
 
-Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo está disponível nos seguintes países/regiões.
+Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo estará disponível nos seguintes países/regiões.
 
 | #  | País/Região        | #  | País/Região     | #  | País/Região      | #  | País/Região             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -79,12 +79,12 @@ Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo está disp
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietnã                    |
 | 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovênia            | 60 | Croácia                    |
 
-Esta lista muda à medida que mais países/regiões são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Essa lista é alterada à medida que mais países/regiões são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 A Microsoft pode enviar o hardware físico e substituir peças de reposição de hardware para o StorSimple para regiões geográficas na lista anterior.
 
 > [!IMPORTANT]
-> Não coloque um dispositivo físico StorSimple em uma região onde não há suporte para o StorSimple. A Microsoft não poderá enviar nenhuma peça de reposição para países/regiões onde o StorSimple não for suportado.
+> Não coloque um dispositivo físico StorSimple em uma região onde não há suporte para o StorSimple. A Microsoft não será capaz de enviar peças de substituição para países/regiões em que não há suporte para o StorSimple.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>Dispositivo de Nuvem StorSimple (Modelos 8010/8020)
 

@@ -8,10 +8,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76271143"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(PRETERIDO) Usar o rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para compilar e implantar um aplicativo no Kubernetes
@@ -29,7 +29,7 @@ Você pode usar o Rascunho com qualquer registro de imagem do Docker e qualquer 
 ## <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
 Você pode [criar um novo Registro de Contêiner do Azure](../../container-registry/container-registry-get-started-azure-cli.md) facilmente, mas as etapas são as seguintes:
 
-1. Crie um grupo de recursos do Azure para gerenciar seu registro ACR e o cluster Kubernetes no ACS.
+1. Crie um grupo de recursos do Azure para gerenciar seu registro ACR e o cluster kubernetes no ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -202,7 +202,7 @@ Neste caso, o IP externo para o domínio de implantação é `13.64.108.240`. Ag
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Mapear o IP de entrada para um subdomínio personalizado
 
-O Rascunho cria uma versão para cada gráfico do Helm criado, ou seja, cada aplicativo em que você está trabalhando. Cada um obtém um nome gerado que é usado pelo **rascunho** como um _subdomínio_ em cima do domínio de _implantação_ raiz que você controla. (Neste exemplo, usamos `squillace.io` como domínio de implantação.) Para habilitar esse comportamento de subdomínio, `'*.draft'` você deve criar um registro A para em suas entradas De DNS para seu domínio de implantação, para que cada subdomínio gerado seja roteado para o controlador de entrada do cluster Kubernetes. 
+O Rascunho cria uma versão para cada gráfico do Helm criado, ou seja, cada aplicativo em que você está trabalhando. Cada um recebe um nome gerado que é usado pelo **rascunho** como um _subdomínio_ sobre o _domínio de implantação_ raiz que você controla. (Neste exemplo, usamos `squillace.io` como o domínio de implantação.) Para habilitar esse comportamento de subdomínio, você deve criar um registro A `'*.draft'` para em suas entradas DNS para seu domínio de implantação, para que cada subdomínio gerado seja roteado para o controlador de entrada do cluster kubernetes. 
 
 Seu próprio provedor de domínio tem sua própria maneira de atribuir servidores DNS: para [delegar nameservers para seu domínio DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md), execute as seguintes etapas:
 

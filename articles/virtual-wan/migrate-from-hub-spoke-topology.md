@@ -23,7 +23,7 @@ Para obter informações sobre os benefícios que o Azure Virtual WAN permite pa
 ![hub e](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
 falou**Figura: Azure Virtual WAN**
 
-O modelo de conectividade de hub and spoke do Azure Virtual Datacenter (VDC) foi adotado por milhares de nossos clientes para aproveitar o comportamento de roteamento transitivo padrão do Azure Networking, a fim de construir redes de nuvem simples e escaláveis. O Azure Virtual WAN baseia-se nesses conceitos e introduz novos recursos que permitem topologias globais de conectividade, não apenas entre locais locais e Azure, mas também permitindo que os clientes aproveitem a escala da rede Microsoft para aumentar sua redes globais existentes.
+O modelo de conectividade de hub and spoke do Azure Virtual Datacenter (VDC) foi adotado por milhares de nossos clientes para aproveitar o comportamento de roteamento transitivo padrão do Azure Networking, a fim de construir redes de nuvem simples e escaláveis. O Azure Virtual WAN baseia-se nesses conceitos e introduz novos recursos que permitem topologias globais de conectividade, não apenas entre locais locais e Azure, mas também permitindo que os clientes aproveitem a escala da rede Microsoft para aumentar suas redes globais existentes.
 
 Este artigo mostra como migrar um ambiente híbrido existente para a WAN Virtual.
 
@@ -146,7 +146,7 @@ Agora, reprojetamos nossa rede do Azure para tornar o Hub da WAN Virtual o ponto
 ![Antigo hub se torna](./media/migrate-from-hub-spoke-topology/figure6.png)
 Serviços Compartilhados falou**Figura 6: VDC hub-and-spoke para migração WAN virtual**
 
-Como o hub WAN virtual é uma entidade gerenciada e não permite a implantação de recursos personalizados, como máquinas virtuais, o bloco de serviços compartilhados agora existe como uma rede virtual falada e hospeda funções como entrada na Internet via Azure Application Gateway ou aparelho virtualizado de rede. O tráfego entre o ambiente de serviços compartilhados e as máquinas virtuais de back-end agora transita o hub gerenciado da WAN Virtual.
+Como o hub WAN virtual é uma entidade gerenciada e não permite a implantação de recursos personalizados, como máquinas virtuais, o bloco de serviços compartilhados agora existe como uma rede virtual falada e hospeda funções como entrada na Internet via Azure Application Gateway ou dispositivo virtualizado de rede. O tráfego entre o ambiente de serviços compartilhados e as máquinas virtuais de back-end agora transita o hub gerenciado da WAN Virtual.
 
 ### <a name="step-7-optimize-on-premises-connectivity-to-fully-utilize-virtual-wan"></a>Passo 7: Otimize a conectividade no local para utilizar totalmente a WAN Virtual
 

@@ -1,5 +1,5 @@
 ---
-title: Permissões RBAC necessárias para usar recursos
+title: Permissões de RBAC necessárias para usar os recursos
 titleSuffix: Azure Network Watcher
 description: Saiba quais permissões de controle de acesso baseadas em função do Azure são necessárias para trabalhar com os recursos do Observador de Rede.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
 ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840546"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>As permissões de controle de acesso baseadas em função são necessárias para usar os recursos do Observador de Rede.
@@ -102,15 +102,15 @@ O controle de acesso baseado em função (RBAC) do Azure permite que você atrib
 
 Os recursos do Observador de Rede também requerem as seguintes ações:
 
-| Ação(s)                                                           | Descrição                                                    |
+| Ação (ões)                                                           | Descrição                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Usado para buscar atribuições de função RBAC e definições de políticas          |
+| Microsoft.Authorization/\*/Read                                     | Usado para buscar as atribuições de função e as definições de política do RBAC          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Usado para enumerar todos os grupos de recursos em uma assinatura    |
-| Microsoft.Storage/storageAccounts/Read                              | Usado para obter as propriedades para a conta de armazenamento especificada   |
-| Microsoft.Armazenamento/armazenamentoContas/listServiceSas/Action, </br> Microsoft.Armazenamento/armazenamentoContas/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usado para buscar assinaturas de acesso compartilhado (SAS) permitindo [acesso seguro à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e gravar na conta de armazenamento |
-| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usado para fazer login na VM, fazer uma captura de pacote e carregá-lo para a conta de armazenamento|
-| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usado para verificar se a extensão do Observador de rede está presente e instalar se necessário |
-| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usado para acessar conjuntos de escala de máquinas virtuais, fazer capturas de pacotes e enviá-los para a conta de armazenamento|
-| Microsoft.Compute/virtualMachineScaleSets/extensões/Leitura, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Usado para verificar se a extensão do Observador de rede está presente e instalar se necessário |
-| Microsoft.Insights/alertRules/*                                     | Usado para configurar alertas métricos                                     |
-| Microsoft.Support/*                                                 | Usado para criar e atualizar bilhetes de suporte do Network Watcher |
+| Microsoft.Storage/storageAccounts/Read                              | Usado para obter as propriedades da conta de armazenamento especificada   |
+| Microsoft. Storage/storageAccounts/listServiceSas/Action, </br> Microsoft. Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usado para buscar SAS (assinaturas de acesso compartilhado), permitindo o [acesso seguro à conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e gravar na conta de armazenamento |
+| Microsoft. Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usado para fazer logon na VM, fazer uma captura de pacote e carregá-la na conta de armazenamento|
+| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usado para verificar se a extensão do observador de rede está presente e instalar, se necessário |
+| Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usado para acessar conjuntos de dimensionamento de máquinas virtuais, fazer capturas de pacote e carregá-los na conta de armazenamento|
+| Microsoft. Compute/virtualMachineScaleSets/Extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Usado para verificar se a extensão do observador de rede está presente e instalar, se necessário |
+| Microsoft.Insights/alertRules/*                                     | Usado para configurar alertas de métricas                                     |
+| Microsoft.Support/*                                                 | Usado para criar e atualizar tíquetes de suporte do observador de rede |

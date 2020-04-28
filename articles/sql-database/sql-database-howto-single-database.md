@@ -1,5 +1,5 @@
 ---
-title: Como configurar um único banco de dados
+title: Como configurar um banco de dados individual
 description: Saiba como configurar e gerenciar o Banco de Dados SQL do Azure – banco de dados individual
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
 ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76027709"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no Banco de Dados SQL do Azure
@@ -34,7 +34,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Configurar a máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started-portal.md) para proteger seus dados confidenciais.
 - [Configurar a retenção de backup](sql-database-long-term-backup-retention-configure.md) para um banco de dados manter os backups no Armazenamento de Blobs do Azure. Como alternativa, há a abordagem de [Configurar a retenção de backup usando o cofre do Azure (preterido)](sql-database-long-term-backup-retention-configure-vault.md).
 - [Configurar a replicação geográfica](sql-database-geo-replication-portal.md) para manter uma réplica do banco de dados em outra região.
-- [Configure a segurança para geo-réplicas](sql-database-geo-replication-security-config.md).
+- [Configure a segurança para réplicas geográficas](sql-database-geo-replication-security-config.md).
 
 ## <a name="monitor-and-tune-your-database"></a>Monitorar e ajustar o banco de dados
 
@@ -48,26 +48,26 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 ## <a name="query-distributed-data"></a>Consulta de dados distribuídos
 
 - [Consultar dados particionados verticalmente](sql-database-elastic-query-getting-started-vertical.md) entre vários bancos de dados.
-- [Relatório em nível de dados dimensionado](sql-database-elastic-query-horizontal-partitioning.md).
-- [Consulta em mesas com diferentes esquemas.](sql-database-elastic-query-vertical-partitioning.md)
+- [Relatório na camada de dados escalada](sql-database-elastic-query-horizontal-partitioning.md)horizontalmente.
+- [Consulte entre tabelas com esquemas diferentes](sql-database-elastic-query-vertical-partitioning.md).
 
 ## <a name="elastic-database-jobs"></a>Trabalhos de Banco de Dados Elástico
 
-- [Criar e gerenciar](elastic-jobs-powershell.md) Trabalhos elásticos de banco de dados usando powershell.
+- [Criar e gerenciar](elastic-jobs-powershell.md) Trabalhos de banco de dados elástico usando o PowerShell.
 - [Criar e gerenciar](elastic-jobs-tsql.md) trabalhos do Banco de Dados Elástico usando o Transact-SQL.
 - [Migrar de trabalhos Elásticos antigos](elastic-jobs-migrate.md).
 
 ## <a name="database-sharding"></a>Fragmentação do banco de dados
 
-- [Atualizar biblioteca de clientes de banco de dados elástico](sql-database-elastic-scale-upgrade-client-library.md).
-- [Criar aplicativo com fragmentos](sql-database-elastic-scale-get-started.md).
+- [Atualizar biblioteca de cliente do banco de dados elástico](sql-database-elastic-scale-upgrade-client-library.md).
+- [Criar aplicativo fragmentado](sql-database-elastic-scale-get-started.md).
 - [Consultar dados fragmentados horizontalmente](sql-database-elastic-query-getting-started.md).
 - Executar [Consultas com vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
-- [Mova dados fragmentos](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+- [Mover dados fragmentados](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configurar a segurança](sql-database-elastic-scale-split-merge-security-configuration.md) em fragmentos de banco de dados.
 - [Adicionar um fragmento](sql-database-elastic-scale-add-a-shard.md) ao conjunto atual de fragmentos de bancos de dados.
 - [Corrigir problemas de mapa de fragmentos](sql-database-elastic-database-recovery-manager.md).
-- [Migrar db fragmentos](sql-database-elastic-convert-to-use-elastic-tools.md).
+- [Migre o banco de BD fragmentado](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Criar contadores](sql-database-elastic-database-perf-counters.md).
 - [Usar o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) para consultar dados fragmentados.
 - [Usar a estrutura de Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados fragmentados.

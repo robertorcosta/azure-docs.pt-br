@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978042"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estender grupos de disponibilidade AlwaysOn locais para o Azure
@@ -33,15 +33,15 @@ Este tutorial pressupõe que você tenha o seguinte:
 * Conectividade entre a rede local e sua rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [Criar uma conexão site a site usando o portal do Azure (clássico)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e Classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="add-azure-replica-wizard"></a>Assistente de adição de réplica do Azure
 Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** para estender sua solução do grupo de disponibilidade AlwaysOn para incluir réplicas do Azure.
 
 > [!IMPORTANT]
-> O **Assistente para Adicionar uma Réplica do Azure** dá suporte apenas a máquinas virtuais criadas com o modelo de implantação Clássico. As novas implantações de VM devem usar o modelo mais novo do Resource Manager. Se você estiver usando VMs com gerenciador de recursos, então você deve adicionar manualmente a réplica secundária do Azure usando comandos Transact-SQL (não mostrado aqui). Esse assistente não funcionará no cenário do Resource Manager.
+> O **Assistente para Adicionar uma Réplica do Azure** dá suporte apenas a máquinas virtuais criadas com o modelo de implantação Clássico. As novas implantações de VM devem usar o modelo mais novo do Resource Manager. Se você estiver usando VMs com o Resource Manager, deverá adicionar manualmente a réplica secundária do Azure usando comandos Transact-SQL (não mostrados aqui). Esse assistente não funcionará no cenário do Resource Manager.
 
-1. A partir do SQL Server Management Studio, **expanda sempre em** > grupos**de disponibilidade de** > alta disponibilidade **[Nome do seu grupo de disponibilidade].**
+1. Em SQL Server Management Studio, expanda **Always on** > **grupos** > de disponibilidade de alta disponibilidade **[nome do seu grupo de disponibilidade]**.
 2. Clique com o botão direito em **Réplicas de disponibilidade** e, então, clique em **Adicionar réplica**.
 3. Por padrão, o **Assistente de Adição de Réplica ao Grupo de Disponibilidade** é exibido. Clique em **Avançar**.  Se você selecionou a opção **Não mostrar esta página novamente** na parte inferior da página durante uma inicialização anterior do assistente, esta tela não será exibida.
    
@@ -58,15 +58,15 @@ Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** 
    | Configuração | Descrição |
    | --- | --- |
    | **Imagem** |Selecione a combinação desejada de SO e SQL Server |
-   | **Tamanho vm** |Selecione o tamanho da VM que melhor atenda às suas necessidades de negócios |
-   | **Nome VM** |Especifique um nome exclusivo para a nova VM. O nome deve conter entre 3 e 15 caracteres, pode conter apenas letras, números e hifens e precisa começar com uma letra e terminar com uma letra ou número. |
+   | **Tamanho da VM** |Selecione o tamanho da VM que melhor atenda às suas necessidades de negócios |
+   | **Nome da VM** |Especifique um nome exclusivo para a nova VM. O nome deve conter entre 3 e 15 caracteres, pode conter apenas letras, números e hifens e precisa começar com uma letra e terminar com uma letra ou número. |
    | **Nome de usuário da máquina virtual** |Especifique um nome de usuário que se tornará a conta de administrador na VM |
    | **Senha do administrador da VM** |Especifique uma senha para a nova conta |
    | **Confirmar Senha** |Confirme a senha para a nova conta |
    | **Rede Virtual** |Especifique a rede virtual do Azure que a nova VM deve usar. Para obter mais informações sobre redes virtuais, consulte [Visão Geral da Rede Virtual](../../../virtual-network/virtual-networks-overview.md). |
    | **Sub-Rede de Rede Virtual** |Especifique a sub-rede da rede virtual que a nova VM deve usar |
-   | **Domínio** |Confirme se o valor preenchido previamente para o domínio está correto |
-   | **Nome do usuário do domínio** |Especifique uma conta que esteja no grupo de administradores locais em nós do cluster local |
+   | **Controlador** |Confirme se o valor preenchido previamente para o domínio está correto |
+   | **Nome de usuário de domínio** |Especifique uma conta que esteja no grupo de administradores locais em nós do cluster local |
    | **Senha** |Especifique a senha para o nome de usuário do domínio |
 8. Clique em **OK** para validar as configurações de implantação.
 9. Os termos legais são exibidos em seguida. Leia e clique em **OK** se você concordar com tais termos.

@@ -1,6 +1,6 @@
 ---
-title: Crie uma máquina virtual no DevTest Labs com o Azure PowerShell
-description: Aprenda a usar o Azure DevTest Labs para criar e gerenciar máquinas virtuais com o Azure PowerShell.
+title: Criar uma máquina virtual no DevTest Labs com Azure PowerShell
+description: Saiba como usar Azure DevTest Labs para criar e gerenciar máquinas virtuais com Azure PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 13014c39641203bddadf858c34cff67462b3a4b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76167103"
 ---
-# <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Crie uma máquina virtual com devTest Labs usando o Azure PowerShell
-Este artigo mostra como criar uma máquina virtual no Azure DevTest Labs usando o Azure PowerShell. Você pode usar scripts PowerShell para automatizar a criação de máquinas virtuais em um laboratório no Azure DevTest Labs. 
+# <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Criar uma máquina virtual com o DevTest Labs usando o Azure PowerShell
+Este artigo mostra como criar uma máquina virtual no Azure DevTest Labs usando Azure PowerShell. Você pode usar scripts do PowerShell para automatizar a criação de máquinas virtuais em um laboratório no Azure DevTest Labs. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar:
 
-- [Crie um laboratório](devtest-lab-create-lab.md) se você não quiser usar um laboratório existente para testar o script ou comandos neste artigo. 
-- [Instale o Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) ou use o Azure Cloud Shell integrado ao portal Azure. 
+- [Crie um laboratório](devtest-lab-create-lab.md) se você não quiser usar um laboratório existente para testar o script ou os comandos neste artigo. 
+- [Instale o Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) ou use o Azure cloud Shell integrado ao portal do Azure. 
 
 ## <a name="powershell-script"></a>Script do PowerShell
-O script de exemplo nesta seção usa o [cmdlet Invoke-AzResourceAction.](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0)  Este cmdlet leva o ID de recurso do laboratório, nome da ação para realizar (`createEnvironment`), e os parâmetros necessários realizar essa ação. Os parâmetros estão em uma tabela hash que contém todas as propriedades de descrição da máquina virtual. 
+O script de exemplo nesta seção usa o cmdlet [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) .  Esse cmdlet usa a ID de recurso do laboratório, o nome da ação a ser`createEnvironment`executada () e os parâmetros necessários para executar essa ação. Os parâmetros estão em uma tabela de hash que contém todas as propriedades de descrição da máquina virtual. 
 
 ```powershell
 [CmdletBinding()]
@@ -115,29 +115,29 @@ finally {
 }
 ```
 
-As propriedades para a máquina virtual no script acima nos permitem criar uma máquina virtual com o Windows Server 2016 DataCenter como o Sistema Operacional. Para cada tipo de máquina virtual, essas propriedades serão ligeiramente diferentes. A seção [Definir máquina virtual](#define-virtual-machine) mostra como determinar quais propriedades usar neste script.
+As propriedades da máquina virtual no script acima nos permitem criar uma máquina virtual com o Windows Server 2016 datacenter como o sistema operacional. Para cada tipo de máquina virtual, essas propriedades serão um pouco diferentes. A seção [definir máquina virtual](#define-virtual-machine) mostra como determinar quais propriedades usar nesse script.
 
-O comando a seguir fornece um exemplo de execução do script salvo em um nome de arquivo: Create-LabVirtualMachine.ps1. 
+O comando a seguir fornece um exemplo de execução do script salvo em um nome de arquivo: Create-LabVirtualMachine. ps1. 
 
 ```powershell
  PS> .\Create-LabVirtualMachine.ps1 -ResourceGroupName 'MyLabResourceGroup' -LabName 'MyLab' -userName 'AdminUser' -password 'Password1!' -VMName 'MyLabVM'
 ```
 
 ## <a name="define-virtual-machine"></a>Definir máquina virtual
-Esta seção mostra como obter as propriedades específicas para um tipo de máquina virtual que você deseja criar. 
+Esta seção mostra como obter as propriedades que são específicas para um tipo de máquina virtual que você deseja criar. 
 
 ### <a name="use-azure-portal"></a>Usar o portal do Azure
-Você pode gerar um modelo de Gerenciador de Recursos do Azure ao criar uma VM no portal Azure. Você não precisa completar o processo de criação da VM. Você só segue os passos até ver o modelo. Esta é a melhor maneira de obter a descrição JSON necessária se você ainda não tiver um laboratório VM criado. 
+Você pode gerar um modelo de Azure Resource Manager ao criar uma VM no portal do Azure. Você não precisa concluir o processo de criação da VM. Você só seguirá as etapas até ver o modelo. Essa é a melhor maneira de obter a descrição de JSON necessária se você ainda não tiver uma VM de laboratório criada. 
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços** no menu de navegação à esquerda.
-3. Procure e selecione **DevTest Labs** na lista de serviços. 
-4. Na página **do DevTest Labs,** selecione seu laboratório na lista de laboratórios.
-5. Na página inicial do seu laboratório, selecione **+ Adicione** na barra de ferramentas. 
+2. Selecione **todos os serviços** no menu de navegação à esquerda.
+3. Pesquise e selecione **DevTest Labs** na lista de serviços. 
+4. Na página do **DevTest Labs** , selecione seu laboratório na lista de laboratórios.
+5. Na home page para seu laboratório, selecione **+ Adicionar** na barra de ferramentas. 
 6. Selecione uma **imagem base** para a VM. 
-7. Selecione **opções** de automação na parte inferior da página acima do botão **Enviar.** 
-8. Você vê o **modelo do Azure Resource Manager** para criar a máquina virtual. 
-9. O segmento JSON na seção **recursos** tem a definição para o tipo de imagem que você selecionou anteriormente. 
+7. Selecione **Opções de automação** na parte inferior da página acima do botão **Enviar** . 
+8. Você verá o **modelo de Azure Resource Manager** para criar a máquina virtual. 
+9. O segmento JSON na seção de **recursos** tem a definição para o tipo de imagem que você selecionou anteriormente. 
 
     ```json
     {
@@ -177,22 +177,22 @@ Você pode gerar um modelo de Gerenciador de Recursos do Azure ao criar uma VM n
     }
     ```
 
-Neste exemplo, você vê como obter uma definição de uma imagem do Azure Market Place. Você pode obter uma definição de uma imagem personalizada, uma fórmula ou um ambiente da mesma maneira. Adicione quaisquer artefatos necessários para a máquina virtual e defina as configurações avançadas necessárias. Depois de fornecer valores para os campos necessários e quaisquer campos opcionais, antes de selecionar o botão **De opções de Automação.**
+Neste exemplo, você verá como obter uma definição de uma imagem do Azure Market Place. Você pode obter uma definição de uma imagem personalizada, uma fórmula ou um ambiente da mesma maneira. Adicione todos os artefatos necessários para a máquina virtual e defina as configurações avançadas necessárias. Depois de fornecer valores para os campos obrigatórios e quaisquer campos opcionais, antes de selecionar o botão **Opções de automação** .
 
-### <a name="use-azure-rest-api"></a>Use Azure REST API
-O procedimento a seguir dá-lhe etapas para obter propriedades de uma imagem usando a API REST: Essas etapas funcionam apenas para uma VM existente em um laboratório. 
+### <a name="use-azure-rest-api"></a>Usar a API REST do Azure
+O procedimento a seguir fornece as etapas para obter as propriedades de uma imagem usando a API REST: essas etapas funcionam apenas para uma VM existente em um laboratório. 
 
-1. Navegue até a [página máquinas virtuais - lista,](/rest/api/dtl/virtualmachines/list) **selecione Tente o** botão. 
-2. Selecione **sua assinatura do Azure**.
-3. Insira o **grupo de recursos para o laboratório.**
-4. Digite o **nome do laboratório.** 
+1. Navegue até a página [máquinas virtuais – lista](/rest/api/dtl/virtualmachines/list) , selecione o botão **experimentar** . 
+2. Selecione sua **assinatura do Azure**.
+3. Insira o **grupo de recursos para o laboratório**.
+4. Insira o **nome do laboratório**. 
 5. Selecione **Executar**.
-6. Você vê as **propriedades da imagem** com base na qual a VM foi criada. 
+6. Você vê as **Propriedades da imagem** com base na qual a VM foi criada. 
 
 ## <a name="set-expiration-date"></a>Definir a data de validade
-Em cenários como treinamento, demonstrações e testes, você pode querer criar máquinas virtuais e excluí-las automaticamente após uma duração fixa para que você não incorra em custos desnecessários. Você pode definir uma data de validade para uma VM enquanto a cria usando o PowerShell, conforme mostrado na seção [de script PowerShell.](#powershell-script)
+Em cenários como treinamento, demonstrações e avaliações, talvez você queira criar máquinas virtuais e excluí-las automaticamente após uma duração fixa para que não incorra em custos desnecessários. Você pode definir uma data de expiração para uma VM ao criá-la usando o PowerShell, conforme mostrado na seção exemplo de [script do PowerShell](#powershell-script) .
 
-Aqui está um script PowerShell de exemplo que define a data de validade de todas as VMs existentes em um laboratório:
+Aqui está um exemplo de script do PowerShell que define a data de expiração de todas as VMs existentes em um laboratório:
 
 ```powershell
 # Values to change
@@ -225,4 +225,4 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o conteúdo a seguir: [Documentação do Azure PowerShell para a azure DevTest Labs](/powershell/module/az.devtestlabs/)
+Consulte o seguinte conteúdo: [Azure PowerShell documentação para Azure DevTest Labs](/powershell/module/az.devtestlabs/)

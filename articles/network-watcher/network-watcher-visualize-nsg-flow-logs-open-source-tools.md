@@ -1,5 +1,5 @@
 ---
-title: Visualize registros de fluxo NSG - Pilha Elástica
+title: Visualizar logs de fluxo NSG – pilha elástica
 titleSuffix: Azure Network Watcher
 description: Gerencie e analise os Logs de Fluxo do Grupo de Segurança de Rede no Azure usando o Observador de Rede e a Pilha Elástica.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840631"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
@@ -37,7 +37,7 @@ Neste artigo, vamos configurar uma solução que permitirá a visualização dos
 ## <a name="steps"></a>Etapas
 
 ### <a name="enable-network-security-group-flow-logging"></a>Habilitar os registros em logs do fluxo do Grupo de Segurança de Rede
-Nessa situação, você deve habilitar o Registro em Log do Fluxo do Grupo de Segurança de Rede em um ou mais Grupos de Segurança de Rede em sua conta. Para obter instruções sobre como habilitar registros de fluxo de segurança de rede, consulte o artigo seguinte [Introdução ao registro de fluxo para Grupos de Segurança de Rede](network-watcher-nsg-flow-logging-overview.md).
+Nessa situação, você deve habilitar o Registro em Log do Fluxo do Grupo de Segurança de Rede em um ou mais Grupos de Segurança de Rede em sua conta. Para obter instruções sobre como habilitar os logs de fluxo de segurança de rede, consulte o seguinte artigo [introdução ao log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar o Elastic Stack
 Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kibana que nos permitirá pesquisar, criar grafos, analisar e derivar informações de nossos logs.
@@ -157,7 +157,7 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
    }  
    ```
 
-Para obter mais instruções sobre a instalação do Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
+Para obter mais instruções sobre como instalar o Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plugin de entrada do Logstash para o armazenamento de blobs do Azure
 

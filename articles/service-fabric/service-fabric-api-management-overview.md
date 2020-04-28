@@ -1,20 +1,20 @@
 ---
-title: Malha de serviço do Azure com visão geral do gerenciamento de API
+title: Azure Service Fabric com visão geral do gerenciamento de API
 description: Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76028541"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure
 
-Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. Em Service Fabric, um gateway pode ser qualquer serviço apátrida, como um [aplicativo ASP.NET Core,](service-fabric-reliable-services-communication-aspnetcore.md)ou outro serviço projetado para entrada de tráfego, como [Hubs de Eventos,](https://docs.microsoft.com/azure/event-hubs/) [Hub IoT](https://docs.microsoft.com/azure/iot-hub/)ou [Gerenciamento de API do Azure.](https://docs.microsoft.com/azure/api-management/)
+Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [hubs de eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IOT](https://docs.microsoft.com/azure/iot-hub/)ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/).
 
 Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric. O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .
 
@@ -45,7 +45,7 @@ O Gerenciamento de API do Azure pode ser usado com qualquer combinação de serv
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Enviar tráfego para um serviço sem estado
 
-No caso mais simples, o tráfego é encaminhado para uma instância de serviço sem estado. Para fazer isso, uma operação de Gerenciamento de API contém uma política de processamento de entrada com um back-end do Service Fabric que mapeia para uma instância de serviço sem estado específica no back-end do Service Fabric. As solicitações enviadas a esse serviço são enviadas para uma instância aleatória do serviço.
+No caso mais simples, o tráfego é encaminhado para uma instância de serviço sem estado. Para fazer isso, uma operação de Gerenciamento de API contém uma política de processamento de entrada com um back-end do Service Fabric que mapeia para uma instância de serviço sem estado específica no back-end do Service Fabric. As solicitações enviadas para esse serviço são enviadas a uma instância aleatória do serviço.
 
 **Exemplo**
 
@@ -77,7 +77,7 @@ Nesse exemplo, uma nova instância de serviço sem estado é criada para cada us
 
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo: 
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo:
 
   - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
   - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`
@@ -96,7 +96,7 @@ Nesse exemplo, uma nova instância de serviço com estado é criada para cada us
 
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo: 
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antecipadamente porque os serviços são criados em resposta à entrada de administrador ou usuário e, portanto, não podem ser codificados em políticas do APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end a partir do valor `name` fornecido no caminho de solicitação da URL. Por exemplo:
 
   - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
   - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`

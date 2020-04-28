@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978153"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
@@ -30,7 +30,7 @@ ms.locfileid: "75978153"
 Antes de começar, considere que agora você pode concluir esta tarefa no modelo do Azure Resource Manager. O modelo do Azure Resource Manager é recomendável para novas implantações. Confira, [Introdução aos grupos de disponibilidade Always On do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo aborda o uso do modelo de implantação clássica.
+> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássica.
 
 As VMs (máquinas virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de um sistema SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando o SQL Server Always On de ponta a ponta dentro de um ambiente do Azure. Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
 
@@ -46,7 +46,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
 
 * Você já tem uma conta do Azure com a assinatura de máquina virtual.
 * Você instalou os [cmdlets do Azure PowerShell](/powershell/azure/overview).
-* Você já tem uma compreensão sólida dos grupos de disponibilidade Always On para soluções locais. Para obter mais informações, consulte [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Você já tem uma compreensão sólida dos grupos de disponibilidade Always On para soluções locais. Para obter mais informações, consulte [grupos de disponibilidade Always on (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Conectar-se à sua assinatura do Azure e criar a rede virtual
 1. Em uma janela do PowerShell no computador local, importe o módulo do Azure, baixe o arquivo de configurações de publicação no seu computador e conecte sua sessão do PowerShell à sua assinatura do Azure importando as configurações de publicação baixadas.
@@ -381,7 +381,7 @@ Nesta seção, você precisa modificar os três servidores que usará no cluster
 
 * Todos os servidores: é necessário instalar o recurso **Clustering de Failover**.
 * Todos os servidores: é necessário adicionar **CORP\Install** como o **administrador** do computador.
-* ContosoSQL1 e ContosoSQL2 apenas: Você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
+* Somente ContosoSQL1 e ContosoSQL2: você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
 * Somente ContosoSQL1 e ContosoSQL2: é necessário adicionar **NT AUTHORITY\System** como uma conexão com as seguintes permissões:
 
   * Alterar qualquer grupo de disponibilidade

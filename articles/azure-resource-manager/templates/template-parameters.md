@@ -1,24 +1,24 @@
 ---
 title: Parâmetros em modelos
-description: Descreve como definir parâmetros em um modelo do Azure Resource Manager.
+description: Descreve como definir parâmetros em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76122416"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros nos modelos do Azure Resource Manager
+# <a name="parameters-in-azure-resource-manager-templates"></a>Parâmetros em modelos de Azure Resource Manager
 
-Este artigo descreve como definir e usar parâmetros no modelo do Azure Resource Manager. Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para diferentes ambientes.
+Este artigo descreve como definir e usar parâmetros em seu modelo de Azure Resource Manager. Ao fornecer valores diferentes para parâmetros, você pode reutilizar um modelo para ambientes diferentes.
 
-O Gerenciador de recursos resolve os valores dos parâmetros antes de iniciar as operações de implantação. Onde quer que o parâmetro seja usado no modelo, o Gerenciador de recursos substitui-o pelo valor resolvido.
+O Resource Manager resolve os valores de parâmetro antes de iniciar as operações de implantação. Sempre que o parâmetro for usado no modelo, o Resource Manager o substituirá pelo valor resolvido.
 
 ## <a name="define-parameter"></a>Definir parâmetro
 
-O exemplo a seguir mostra uma definição de parâmetro simples. Ele define um parâmetro chamado **storageSKU**. O parâmetro é um valor de string, e só aceita valores válidos para o seu uso pretendido. O parâmetro usa um valor padrão quando nenhum valor é fornecido durante a implantação.
+O exemplo a seguir mostra uma definição de parâmetro simples. Ele define um parâmetro chamado **storageSKU**. O parâmetro é um valor de cadeia de caracteres e aceita apenas valores que são válidos para seu uso pretendido. O parâmetro usa um valor padrão quando nenhum valor é fornecido durante a implantação.
 
 ```json
 "parameters": {
@@ -41,7 +41,7 @@ O exemplo a seguir mostra uma definição de parâmetro simples. Ele define um p
 
 ## <a name="use-parameter"></a>Usar parâmetro
 
-No modelo, você faz referência ao valor do parâmetro usando a função [parâmetros.](template-functions-deployment.md#parameters) No exemplo a seguir, o valor do parâmetro é usado para definir SKU para a conta de armazenamento.
+No modelo, você faz referência ao valor do parâmetro usando a função [Parameters](template-functions-deployment.md#parameters) . No exemplo a seguir, o valor do parâmetro é usado para definir a SKU para a conta de armazenamento.
 
 ```json
 "resources": [
@@ -57,7 +57,7 @@ No modelo, você faz referência ao valor do parâmetro usando a função [parâ
 
 ## <a name="template-functions"></a>Funções de modelo
 
-Ao especificar o valor padrão para um parâmetro, você pode usar a maioria das funções de modelo. Você pode usar outro valor de parâmetro para criar um valor padrão. O modelo a seguir demonstra o uso de funções no valor padrão. Quando nenhum nome é fornecido para o site, ele cria um valor de string único e o anexa ao **site**. Quando nenhum nome é fornecido para o plano de host, ele leva o valor para o site e anexa **-plano**.
+Ao especificar o valor padrão para um parâmetro, você pode usar a maioria das funções de modelo. Você pode usar outro valor de parâmetro para criar um valor padrão. O modelo a seguir demonstra o uso de funções no valor padrão. Quando nenhum nome é fornecido para o site, ele cria um valor de cadeia de caracteres exclusivo e o anexa ao **site**. Quando nenhum nome for fornecido para o plano de host, ele usará o valor para o site e acrescentará o **plano**.
 
 ```json
 "parameters": {
@@ -78,7 +78,7 @@ Ao especificar o valor padrão para um parâmetro, você pode usar a maioria das
 }
 ```
 
-Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista](template-functions-resource.md#list) na seção parâmetros. Essas funções recebem o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando os parâmetros são resolvidos.
+Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na seção de parâmetros. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando os parâmetros são resolvidos.
 
 ## <a name="objects-as-parameters"></a>Objetos como parâmetros
 
@@ -114,7 +114,7 @@ O exemplo a seguir mostra um parâmetro que é um objeto. O valor padrão mostra
 },
 ```
 
-Você faz referência às propriedades do objeto usando o operador de ponto.
+Você faz referência às propriedades do objeto usando o operador ponto.
 
 ```json
 "resources": [
@@ -155,11 +155,11 @@ Os exemplos a seguir demonstram cenários para o uso de parâmetros.
 |Modelo  |Descrição  |
 |---------|---------|
 |[parâmetros com funções de valores padrão](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como usar funções de modelo ao definir valores padrão para parâmetros. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
-|[objeto parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como usar um objeto para um parâmetro. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
+|[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como usar um objeto para um parâmetro. O modelo não implanta todos os recursos. Ele cria valores de parâmetro e retorna os valores. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [Entenda a estrutura e a sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
-* Para saber mais sobre a passagem de valores de parâmetros como um arquivo, consulte [Criar arquivo parâmetro do Gerenciador de recursos](parameter-files.md).
-* Para recomendações sobre a criação de [parâmetros,](template-best-practices.md#parameters)consulte Melhores práticas - parâmetros .
+* Para saber mais sobre as propriedades disponíveis para parâmetros, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre a passagem de valores de parâmetro como um arquivo, consulte [criar arquivo de parâmetro do Resource Manager](parameter-files.md).
+* Para obter recomendações sobre como criar parâmetros, consulte [Best Practices-Parameters](template-best-practices.md#parameters).

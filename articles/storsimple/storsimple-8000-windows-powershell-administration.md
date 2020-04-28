@@ -1,5 +1,5 @@
 ---
-title: PowerShell para gerenciamento de dispositivos StorSimple
+title: Gerenciamento de dispositivo do PowerShell para StorSimple
 description: Saiba como usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76277099"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
@@ -89,7 +89,7 @@ A imagem a seguir mostra as várias opções de espaço de execução disponíve
 
 É possível escolher um das seguintes configurações:
 
-1. **Efetuar logon com acesso completo** Essa opção permite que você se conecte (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador que você está acessando atualmente através do console serial do seu dispositivo StorSimple.) Essa opção também pode ser usada para permitir que o Microsoft Support acesse o runspace irrestrito (uma sessão de suporte) para solucionar quaisquer possíveis problemas do dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+1. **Efetuar logon com acesso completo** Essa opção permite que você se conecte (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador local. (O controlador local é o controlador que você está acessando no momento por meio do console serial do seu dispositivo StorSimple.) Essa opção também pode ser usada para permitir que Suporte da Microsoft acessem o runspace irrestrito (uma sessão de suporte) para solucionar possíveis problemas de dispositivo. Depois que você usar a opção 1 para fazer logon, pode permitir que o engenheiro do Suporte da Microsoft acesse o espaço de execução irrestrito ao executar um cmdlet específico. Para obter detalhes, consulte [Iniciar uma sessão de suporte](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
    
 2. **Efetuar logon no controlador de par com acesso completo** Essa opção equivale à opção 1, exceto pelo fato de você poder se conectar (com as credenciais apropriadas) ao espaço de execução **SSAdminConsole** no controlador de par. Como o dispositivo StorSimple é um dispositivo de alta disponibilidade com dois controladores em uma configuração ativo-passivo, par refere-se ao outro controlador no dispositivo que você está acessando por meio do console serial).
    Semelhante à opção 1, essa opção também pode ser usada para permitir que o Suporte da Microsoft acesse o espaço de execução irrestrito em um controlador de par.
@@ -109,12 +109,12 @@ A imagem a seguir mostra as várias opções de espaço de execução disponíve
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Conectar-se remotamente ao StorSimple usando o Windows PowerShell para StorSimple
 
-Você pode usar o Windows PowerShell remotamente para se conectar ao seu dispositivo StorSimple. Ao se conectar dessa maneira, você não verá um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar. Conectar remotamente leva você diretamente ao equivalente a "opção 1 – acesso total" no console serial.) Com o Windows PowerShell remoting, você se conecta a um runspace específico. Também é possível especificar o idioma de exibição.
+Você pode usar o Windows PowerShell remotamente para se conectar ao seu dispositivo StorSimple. Ao se conectar dessa maneira, você não verá um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar. Conectar-se remotamente leva você diretamente ao equivalente de "opção 1 – acesso completo" no console serial.) Com a comunicação remota do Windows PowerShell, você se conecta a um runspace específico. Também é possível especificar o idioma de exibição.
 
 O idioma de exibição é independente do idioma que você define usando a opção **Alterar Idioma** no menu do console serial. O PowerShell remoto selecionará automaticamente a localidade do dispositivo do qual você está se conectando se nenhum for especificado.
 
 > [!NOTE]
-> Se você estiver trabalhando com hosts virtuais do Microsoft Azure e Dispositivos de Nuvem StorSimple, poderá usar o Windows PowerShell remotamente e o host virtual para conectar-se ao dispositivo de nuvem. Se você tiver configurado um local de compartilhamento no host no qual para salvar informações da sessão do Windows PowerShell, você deve estar ciente de que o principal _de Todos_ inclui apenas usuários autenticados. Portanto, se você tiver configurado o compartilhamento para permitir o acesso de _todos_ e se conectar sem especificar credenciais, o principal anônimo não autenticado será usado e você verá um erro. Para corrigir esse problema, no host de compartilhamento, você precisa ativar a conta de convidado e dar à conta de convidado acesso total ao compartilhamento ou especificar credenciais válidas, juntamente com o cmdlet do Windows PowerShell.
+> Se você estiver trabalhando com hosts virtuais do Microsoft Azure e Dispositivos de Nuvem StorSimple, poderá usar o Windows PowerShell remotamente e o host virtual para conectar-se ao dispositivo de nuvem. Se você tiver configurado um local de compartilhamento no host no qual salvar informações da sessão do Windows PowerShell, deverá estar ciente de _que a entidade_ de segurança inclui apenas usuários autenticados. Portanto, se você tiver configurado o compartilhamento para permitir o acesso por _todos_ e se conectar sem especificar credenciais, a entidade anônima não autenticada será usada e você verá um erro. Para corrigir esse problema, no host de compartilhamento, você precisa ativar a conta de convidado e dar à conta de convidado acesso total ao compartilhamento ou especificar credenciais válidas, juntamente com o cmdlet do Windows PowerShell.
 
 
 Você pode usar HTTP ou HTTPS para se conectar por meio de comunicação remota do Windows PowerShell. Use as instruções nos seguintes tutoriais:
@@ -151,7 +151,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 
 No Windows PowerShell para StorSimple, a Ajuda de cmdlet está disponível. Uma versão atualizada online da Ajuda também está disponível, a qual pode ser usada para atualizar a Ajuda em seu sistema.
 
-O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar ajuda para o Windows PowerShell on-line: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
+O Obtendo Ajuda nesta interface é semelhante ao do Windows PowerShell e a maioria dos cmdlets relacionados à Ajuda funcionará. Você pode encontrar ajuda para o Windows PowerShell online: [Microsoft. PowerShell. Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 A seguir é apresentada uma breve descrição dos tipos de Ajuda para essa interface do Windows PowerShell, incluindo como atualizar a Ajuda.
 

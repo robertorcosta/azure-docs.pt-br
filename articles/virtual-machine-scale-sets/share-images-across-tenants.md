@@ -1,6 +1,6 @@
 ---
-title: Compartilhe imagens da galeria entre os inquilinos no Azure
-description: Aprenda a compartilhar imagens de VM entre os inquilinos do Azure usando galerias de imagens compartilhadas.
+title: Compartilhar imagens da Galeria entre locatários no Azure
+description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: a29999102ad8a10d8965145b31a7d804675e0e57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76276331"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria entre os inquilinos do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 ## <a name="create-a-scale-set-using-azure-cli"></a>Criar um conjunto de dimensionamento usando a CLI do Azure
 
-Faça login no principal de serviço para o inquilino 1 usando o appID, a chave do aplicativo e o ID do inquilino 1. Você pode `az account show --query "tenantId"` usar para obter as ids inquilino, se necessário.
+Conecte a entidade de serviço para o locatário 1 usando a appID, a chave do aplicativo e a ID do locatário 1. Você pode usar `az account show --query "tenantId"` para obter as IDs de locatário, se necessário.
 
 ```azurecli-interactive
 az account clear
@@ -30,14 +30,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Faça login no principal de serviço para o inquilino 2 usando o appID, a chave do aplicativo e o ID do inquilino 2:
+Conecte a entidade de serviço para o locatário 2 usando a appID, a chave do aplicativo e a ID do locatário 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-Criar o conjunto de dimensionamento. Substitua as informações no exemplo pelas suas.
+Criar o conjunto de dimensionamento. Substitua as informações no exemplo pelo seu próprio.
 
 ```azurecli-interactive
 az vmss create \

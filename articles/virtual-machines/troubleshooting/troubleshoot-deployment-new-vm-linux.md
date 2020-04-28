@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981413"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
@@ -52,7 +52,7 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 **Solução:**
 
-Para resolver esses dois erros, carregue o VHD original, disponível no local, com a mesma configuração do SISTEMA OPERACIONAL (generalizado/especializado). Para carregar como generalizado, lembre-se de executar -deprovision primeiro.
+Para resolver esses dois erros, carregue o VHD original, disponível no local, com a mesma configuração do sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar -deprovision primeiro.
 
 **Erros de captura:**
 
@@ -74,9 +74,9 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 * Repita a solicitação com um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em Grupos de** > *recursos* > Recursos**Recursos** > sua disponibilidade*definir* > **Máquinas** > Virtuais sua máquina > *virtual***Stop**.
+    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
   * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
-  * Inicie a nova VM primeiro e selecione cada uma das VMs paradas e clique **em Iniciar**.
+  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 
 **Causa 2:** o cluster não tem recursos livres.
 

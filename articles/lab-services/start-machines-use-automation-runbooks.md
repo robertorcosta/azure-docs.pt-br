@@ -1,6 +1,6 @@
 ---
-title: Iniciar máquinas usando runbooks de automação em Azure DevTest Labs
-description: Aprenda a iniciar máquinas virtuais em um laboratório no Azure DevTest Labs usando os runbooks da Azure Automation.
+title: Iniciar computadores usando runbooks de automação no Azure DevTest Labs
+description: Saiba como iniciar máquinas virtuais em um laboratório no Azure DevTest Labs usando runbooks de automação do Azure.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76166305"
 ---
-# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Inicie máquinas virtuais em um laboratório em ordem usando runbooks da Azure Automation
-O recurso de [partida automática](devtest-lab-set-lab-policy.md#set-autostart) do DevTest Labs permite configurar VMs para iniciar automaticamente em um horário especificado. No entanto, esse recurso não suporta máquinas para iniciar em uma ordem específica. Existem vários cenários em que esse tipo de automação seria útil.  Um cenário é onde uma VM Jumpbox dentro de um laboratório precisa ser iniciada primeiro, antes das outras VMs, já que o Jumpbox é usado como ponto de acesso às outras VMs.  Este artigo mostra como configurar uma conta do Azure Automation com um runbook powershell que executa um script. O script usa tags em VMs no laboratório para permitir que você controle a ordem de inicialização sem ter que alterar o script.
+# <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Iniciar máquinas virtuais em um laboratório em ordem usando runbooks de automação do Azure
+O recurso de [inicialização](devtest-lab-set-lab-policy.md#set-autostart) automática do DevTest Labs permite que você configure VMs para iniciar automaticamente em um horário especificado. No entanto, esse recurso não dá suporte a computadores para iniciar em uma ordem específica. Há vários cenários em que esse tipo de automação seria útil.  Um cenário é onde uma VM Jumpbox em um laboratório precisa ser iniciada primeiro, antes das outras VMs, pois o Jumpbox é usado como o ponto de acesso para as outras VMs.  Este artigo mostra como configurar uma conta de automação do Azure com um runbook do PowerShell que executa um script. O script usa marcas em VMs no laboratório para permitir que você controle a ordem de inicialização sem precisar alterar o script.
 
 ## <a name="setup"></a>Instalação
-Neste exemplo, as VMs no laboratório precisam ter a tag **StartupOrder** adicionada com o valor apropriado (0,1,2, etc.). Designe qualquer máquina que não precise ser iniciada como -1.
+Neste exemplo, as VMs no laboratório precisam ter a marca **StartupOrder** adicionada com o valor apropriado (0, 1, 2, etc.). Designe qualquer computador que não precise ser iniciado como-1.
 
 ## <a name="create-an-azure-automation-account"></a>Criar uma conta de Automação do Azure
-Crie uma conta de Automação Azure seguindo instruções [neste artigo](../automation/automation-create-standalone-account.md). Escolha a opção **Executar como contas** ao criar a conta. Uma vez criada a conta de automação, abra a página **Módulos** e selecione **Atualizar módulos Azure** na barra de menus. Os módulos padrão são várias versões antigas e sem a atualização o script pode não funcionar.
+Crie uma conta de automação do Azure seguindo as instruções neste [artigo](../automation/automation-create-standalone-account.md). Escolha a opção **contas Executar como** ao criar a conta. Depois que a conta de automação for criada, abra a página **módulos** e selecione **Atualizar módulos do Azure** na barra de menus. Os módulos padrão são várias versões antigas e sem a atualização o script pode não funcionar.
 
 ## <a name="add-a-runbook"></a>Adicionar um runbook
-Agora, para adicionar um runbook à conta de automação, **selecione Runbooks** no menu esquerdo. Selecione **Adicionar um runbook** no menu e siga as instruções para [criar um runbook PowerShell](../automation/automation-first-runbook-textual-powershell.md).
+Agora, para adicionar um runbook à conta de automação, selecione **Runbooks** no menu à esquerda. Selecione **Adicionar um runbook** no menu e siga as instruções para [criar um runbook do PowerShell](../automation/automation-first-runbook-textual-powershell.md).
 
 ## <a name="powershell-script"></a>Script do PowerShell
-O script a seguir leva o nome da assinatura, o nome do laboratório como parâmetros. O fluxo do script é para obter todas as VMs no laboratório e, em seguida, analisar as informações da tag para criar uma lista dos nomes de VM e sua ordem de inicialização. O script percorre as VMs em ordem e inicia as VMs. Se houver várias VMs em um número de pedido específico, elas serão iniciadas de forma assíncrona usando trabalhos powershell. Para aquelas VMs que não possuem uma tag, definir o valor de inicialização para ser o último (10), eles serão iniciados por último, por padrão.  Se o laboratório não quiser que a VM seja iniciada automaticamente, defina o valor da tag para 11 e ele será ignorado.
+O script a seguir usa o nome da assinatura, o nome do laboratório como parâmetros. O fluxo do script é obter todas as VMs no laboratório e, em seguida, analisar as informações de marca para criar uma lista de nomes de VM e sua ordem de inicialização. O script percorre as VMs na ordem e inicia as VMs. Se houver várias VMs em um número de ordem específico, elas serão iniciadas de forma assíncrona usando trabalhos do PowerShell. Por padrão, para as VMs que não têm uma marca, defina o valor de inicialização como a última (10). elas serão iniciadas por último.  Se o laboratório não quiser que a VM seja iniciada de forma automática, defina o valor da marca como 11 e ela será ignorada.
 
 ```powershell
 #Requires -Version 3.0
@@ -132,10 +132,10 @@ While ($current -le 10) {
 }
 ```
 
-## <a name="create-a-schedule"></a>Crie um cronograma
-Para que esse script seja executado diariamente, [crie um cronograma](../automation/shared-resources/schedules.md#creating-a-schedule) na conta de automação. Uma vez que o cronograma é criado, [vincule-o ao runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+## <a name="create-a-schedule"></a>Criar uma agenda
+Para que esse script seja executado diariamente, [crie uma agenda](../automation/shared-resources/schedules.md#creating-a-schedule) na conta de automação. Depois que o agendamento for criado, [vincule-o ao runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
 
-Em uma situação em grande escala, onde há várias assinaturas com vários laboratórios, armazene as informações do parâmetro em um arquivo para diferentes laboratórios e passe o arquivo para o script em vez dos parâmetros individuais. O script precisaria ser modificado, mas a execução do núcleo seria a mesma. Embora essa amostra use a Automação Azure para executar o script PowerShell, existem outras opções, como usar uma tarefa em um pipeline de compilação/lançamento.
+Em uma situação em larga escala em que há várias assinaturas com vários laboratórios, armazene as informações de parâmetro em um arquivo para diferentes laboratórios e passe o arquivo para o script em vez dos parâmetros individuais. O script precisaria ser modificado, mas a execução principal seria a mesma. Embora este exemplo use a automação do Azure para executar o script do PowerShell, há outras opções, como usar uma tarefa em um pipeline de Build/versão.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o artigo a seguir para saber mais sobre a Automação Azure: [Uma introdução ao Azure Automation](../automation/automation-intro.md).
+Consulte o artigo a seguir para saber mais sobre a automação do Azure: [uma introdução à automação do Azure](../automation/automation-intro.md).

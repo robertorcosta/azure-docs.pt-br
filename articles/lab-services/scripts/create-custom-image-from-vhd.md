@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Crie imagem personalizada do arquivo VHD no Azure Lab Services
+title: PowerShell-criar imagem personalizada do arquivo VHD no Azure Lab Services
 description: Este script do PowerShell cria uma imagem personalizada de um arquivo VHD no Azure Lab Services.
 services: lab-services
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 38383462a665ced1ccb6c6a2f062fab0492eee9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169976"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Usar o PowerShell para criar uma imagem personalizada de um arquivo VHD no Azure Lab Services
@@ -42,7 +42,7 @@ Este script usa os seguintes comandos:
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obter recursos. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para a conta de Armazenamento do Azure. |
-| [Implantação do New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adicione uma implantação do Azure a um grupo de recursos. |
+| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adicione uma implantação do Azure a um grupo de recursos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

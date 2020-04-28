@@ -1,67 +1,67 @@
 ---
-title: Use comandos e recursos de notebook incorporados no Azure Cosmos DB (visualização)
-description: Aprenda a usar comandos e recursos incorporados para fazer operações comuns usando os notebooks embutidos do Azure Cosmos DB.
+title: Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB (versão prévia)
+description: Saiba como usar comandos e recursos internos para realizar operações comuns usando blocos de anotações internos do Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: dech
 ms.openlocfilehash: 61d46bbf0ccdeb5cd2e95e36e19f1aa81cfeeb48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76513392"
 ---
-# <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-preview"></a>Use comandos e recursos de notebook incorporados no Azure Cosmos DB (visualização)
+# <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-preview"></a>Usar comandos e recursos de bloco de anotações internos no Azure Cosmos DB (versão prévia)
 
-Os notebooks Jupyter incorporados no Azure Cosmos DB permitem analisar e visualizar seus dados a partir do portal Azure. Este artigo descreve como usar os recursos e comandos do notebook integrado para realizar operações comuns.
+Os blocos de anotações internos do Jupyter no Azure Cosmos DB permitem que você analise e visualize os dados do portal do Azure. Este artigo descreve como usar os recursos e comandos do notebook integrado para realizar operações comuns.
 
-## <a name="install-a-new-package"></a>Instale um novo pacote
-Depois de habilitar o suporte a notebooks para suas contas do Azure Cosmos, você pode abrir um novo notebook e instalar um pacote.
+## <a name="install-a-new-package"></a>Instalar um novo pacote
+Depois de habilitar o suporte ao Notebook para suas contas do Azure Cosmos, você pode abrir um novo bloco de anotações e instalar um pacote.
 
-Em uma nova célula de código, insira e execute o seguinte código, substituindo-o ``PackageToBeInstalled`` pelo pacote Python desejado.
+Em uma nova célula de código, insira e execute o código a seguir ``PackageToBeInstalled`` , substituindo pelo pacote do Python desejado.
 ```python
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-Este pacote estará disponível para uso a partir de qualquer notebook no espaço de trabalho da conta Azure Cosmos. 
+Este pacote estará disponível para uso em qualquer notebook no espaço de trabalho da conta do Azure Cosmos. 
 
 > [!TIP]
-> Se o seu notebook precisar de um pacote personalizado, recomendamos que você adicione um celular em seu notebook para instalar o pacote, pois os pacotes são removidos se você [redefinir o espaço de trabalho](#reset-notebooks-workspace).  
+> Se o seu notebook exigir um pacote personalizado, recomendamos que você adicione uma célula no bloco de anotações para instalar o pacote, pois os pacotes são removidos se você [redefinir o espaço de trabalho](#reset-notebooks-workspace).  
 
-## <a name="run-a-sql-query"></a>Execute uma consulta SQL
+## <a name="run-a-sql-query"></a>Executar uma consulta SQL
 
-Você pode ``%%sql`` usar o comando magic para executar uma [consulta SQL](sql-query-getting-started.md) contra qualquer contêiner em sua conta. Use a sintaxe:
+Você pode usar o ``%%sql`` comando mágico para executar uma [consulta SQL](sql-query-getting-started.md) em qualquer contêiner em sua conta. Use a sintaxe:
 
 ```bash
 %%sql --database {database_id} --container {container_id}
 {Query text}
 ```
 
-- ``{database_id}`` Substitua ``{container_id}`` e com o nome do banco de dados e contêiner em sua conta Cosmos. Se ``--database`` os ``--container`` argumentos e argumentos não forem fornecidos, a consulta será executada no [banco de dados e contêiner padrão](#set-default-database-for-queries).
-- Você pode executar qualquer consulta SQL válida no Azure Cosmos DB. O texto de consulta deve estar em uma nova linha.
+- Substitua ``{database_id}`` e ``{container_id}`` pelo nome do banco de dados e do contêiner em sua conta do cosmos. Se os ``--database`` argumentos ``--container`` e não forem fornecidos, a consulta será executada no banco de [dados e no contêiner padrão](#set-default-database-for-queries).
+- Você pode executar qualquer consulta SQL que seja válida no Azure Cosmos DB. O texto da consulta deve estar em uma nova linha.
 
-Por exemplo:  
+Por exemplo: 
 ```bash
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
-Corra ```%%sql?``` em uma cela para ver a documentação de ajuda para o comando sql magic no notebook.
+Execute ```%%sql?``` em uma célula para ver a documentação de ajuda do comando mágico do SQL no bloco de anotações.
 
-## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>Execute uma consulta SQL e saída para um DataFrame do Pandas
+## <a name="run-a-sql-query-and-output-to-a-pandas-dataframe"></a>Executar uma consulta SQL e uma saída para um dataframe do pandas
 
-Você pode produzir os ``%%sql`` resultados de uma consulta em um [DataFrame do Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use a sintaxe: 
+Você pode gerar os resultados de uma ``%%sql`` consulta em um [Dataframe do pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use a sintaxe: 
 
 ```bash
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
 {Query text}
 ```
-- ``{database_id}`` Substitua ``{container_id}`` e com o nome do banco de dados e contêiner em sua conta Cosmos. Se ``--database`` os ``--container`` argumentos e argumentos não forem fornecidos, a consulta será executada no [banco de dados e contêiner padrão](#set-default-database-for-queries).
-- Substitua pelo ``{outputDataFrameVar}`` nome da variável DataFrame que conterá os resultados.
-- Você pode executar qualquer consulta SQL válida no Azure Cosmos DB. O texto de consulta deve estar em uma nova linha. 
+- Substitua ``{database_id}`` e ``{container_id}`` pelo nome do banco de dados e do contêiner em sua conta do cosmos. Se os ``--database`` argumentos ``--container`` e não forem fornecidos, a consulta será executada no banco de [dados e no contêiner padrão](#set-default-database-for-queries).
+- Substituir ``{outputDataFrameVar}`` pelo nome da variável dataframe que conterá os resultados.
+- Você pode executar qualquer consulta SQL que seja válida no Azure Cosmos DB. O texto da consulta deve estar em uma nova linha. 
 
-Por exemplo: 
+Por exemplo:
 
 ```bash
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -82,17 +82,17 @@ df_cosmos.head(10)
 8   Viewed  33.00   Tuvalu  Red Top
 9   Viewed  14.00   Cape Verde  Flip Flop Shoes
 ```
-## <a name="upload-json-items-to-a-container"></a>Carregue itens JSON em um contêiner
-Você pode ``%%upload`` usar o comando mágico para carregar dados de um arquivo JSON para um contêiner Azure Cosmos especificado. Use o seguinte comando para carregar os itens:
+## <a name="upload-json-items-to-a-container"></a>Carregar itens JSON em um contêiner
+Você pode usar o ``%%upload`` comando mágico para carregar dados de um arquivo JSON para um contêiner Cosmos do Azure especificado. Use o seguinte comando para carregar os itens:
 
 ```bash
 %%upload --databaseName {database_id} --containerName {container_id} --url {url_location_of_file}
 ```
 
-- ``{database_id}`` Substitua ``{container_id}`` e com o nome do banco de dados e contêiner em sua conta do Azure Cosmos. Se ``--database`` os ``--container`` argumentos e argumentos não forem fornecidos, a consulta será executada no [banco de dados e contêiner padrão](#set-default-database-for-queries).
-- Substitua pela ``{url_location_of_file}`` localização do seu arquivo JSON. O arquivo deve ser uma matriz de objetos JSON válidos e deve ser acessível pela Internet pública.
+- Substitua ``{database_id}`` e ``{container_id}`` pelo nome do banco de dados e do contêiner em sua conta do Azure Cosmos. Se os ``--database`` argumentos ``--container`` e não forem fornecidos, a consulta será executada no banco de [dados e no contêiner padrão](#set-default-database-for-queries).
+- Substituir ``{url_location_of_file}`` pelo local do seu arquivo JSON. O arquivo deve ser uma matriz de objetos JSON válidos e deve ser acessível pela Internet pública.
 
-Por exemplo: 
+Por exemplo:
 
 ```bash
 %%upload --database databaseName --container containerName --url 
@@ -104,26 +104,26 @@ Total number of documents imported : 2654
 Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
-Com as estatísticas de saída, você pode calcular o RU/s efetivo usado para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos ao longo de 38 segundos, o RU/s efetivo é de 25.000 RUs / 38 segundos = 658 RU/s.
+Com as estatísticas de saída, você pode calcular os RU/s efetivos usados para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos em até 38 segundos, a RU/s efetiva é 25.000 RUs/38 segundos = 658 RU/s.
 
 ## <a name="set-default-database-for-queries"></a>Definir banco de dados padrão para consultas
-Você pode definir ```%%sql``` os comandos de banco de dados padrão usados para o notebook. Substitua ```{database_id}``` pelo nome do seu banco de dados.
+Você pode definir os comandos de ```%%sql``` banco de dados padrão que usarão para o bloco de anotações. Substitua ```{database_id}``` pelo nome do seu banco de dados.
 
 ```bash
 %database {database_id}
 ```
-Corra ```%database?``` em uma cela para ver a documentação no caderno.
+Execute ```%database?``` em uma célula para ver a documentação no bloco de anotações.
 
-## <a name="set-default-container-for-queries"></a>Definir o contêiner padrão para consultas
-Você pode definir ```%%sql``` os comandos de contêiner padrão usados para o notebook. Substitua pelo ```{container_id}``` nome do seu recipiente.
+## <a name="set-default-container-for-queries"></a>Definir contêiner padrão para consultas
+Você pode definir que os comandos ```%%sql``` de contêiner padrão usarão para o bloco de anotações. Substitua ```{container_id}``` pelo nome do seu contêiner.
 
 ```bash
 %container {container_id}
 ```
-Corra ```%container?``` em uma cela para ver a documentação no caderno.
+Execute ```%container?``` em uma célula para ver a documentação no bloco de anotações.
 
-## <a name="use-built-in-nteract-data-explorer"></a>Use o explorador de dados nteract incorporado
-Você pode usar o explorador de [dados nteract](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) incorporado para filtrar e visualizar um DataFrame. Para habilitar esse recurso, defina a opção ``pd.options.display.html.table_schema`` para ``pd.options.display.max_rows`` e ``None`` ``True`` ``pd.options.display.max_rows`` para o valor desejado (você pode definir para mostrar todos os resultados).
+## <a name="use-built-in-nteract-data-explorer"></a>Usar o nteract data Explorer interno
+Você pode usar o [nteract data Explorer](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) interno para filtrar e visualizar um dataframe. Para habilitar esse recurso, defina a opção ``pd.options.display.html.table_schema`` como ``True`` e ``pd.options.display.max_rows`` para o valor desejado (você pode definir ``pd.options.display.max_rows`` como ``None`` para mostrar todos os resultados).
 
 ```python
 import pandas as pd
@@ -132,14 +132,14 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![nteract data explorer](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+![Gerenciador de dados do nteract](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
 
-## <a name="use-the-built-in-python-sdk"></a>Use o Python SDK incorporado
-A versão 4 do [Azure Cosmos DB Python SDK para SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) está instalada e incluída no ambiente do notebook para a conta do Azure Cosmos.
+## <a name="use-the-built-in-python-sdk"></a>Usar o SDK do Python interno
+A versão 4 do [SDK Azure Cosmos DB Python para API do SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) é instalada e incluída no ambiente do notebook para a conta do Azure Cosmos.
 
-Use a ``cosmos_client`` instância incorporada para executar qualquer operação SDK. 
+Use a ``cosmos_client`` instância interna para executar qualquer operação do SDK. 
 
-Por exemplo: 
+Por exemplo:
 
 ```python
 ## Import modules as needed
@@ -151,18 +151,18 @@ database = cosmos_client.create_database_if_not_exists('RetailDemo')
 ## Create a new container if it doesn't exist
 container = database.create_container_if_not_exists(id='WebsiteData', partition_key=PartitionKey(path='/CartID'))
 ```
-Veja [as amostras python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples). 
+Consulte [exemplos do SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples). 
 
 > [!IMPORTANT]
-> O SDK Python incorporado só é suportado para contas API SQL (Core). Para outras APIs, você precisará [instalar o driver Python relevante](#install-a-new-package) que corresponde à API. 
+> O SDK do Python interno só tem suporte para contas da API do SQL (núcleo). Para outras APIs, será necessário [instalar o driver Python relevante](#install-a-new-package) que corresponde à API. 
 
-## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância personalizada de``cosmos_client``
-Para obter mais flexibilidade, você ``cosmos_client`` pode criar uma instância personalizada de:
+## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância personalizada do``cosmos_client``
+Para obter mais flexibilidade, você pode criar uma instância personalizada ``cosmos_client`` do para:
 
-- Personalize a [política de conexão](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
-- Executar operações contra uma conta Azure Cosmos diferente da que você está em
+- Personalizar a [política de conexão](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Executar operações em uma conta do Azure Cosmos diferente daquela em que você está
 
-Você pode acessar a seqüência de conexões e a chave principal da conta corrente através das variáveis de [ambiente](#access-the-account-endpoint-and-primary-key-env-variables). 
+Você pode acessar a cadeia de conexão e a chave primária da conta atual por meio das [variáveis de ambiente](#access-the-account-endpoint-and-primary-key-env-variables). 
 
 ```python
 import os
@@ -179,7 +179,7 @@ custom_connection_policy.PreferredLocations = [region_1, region_2] # Set the ord
 # Create a new instance of CosmosClient, getting the endpoint and key from the environment variables
 custom_client = cosmos.CosmosClient(url=os.environ["COSMOS_ENDPOINT"], credential=os.environ["COSMOS_KEY"], connection_policy=custom_connection_policy)
 ```
-## <a name="access-the-account-endpoint-and-primary-key-env-variables"></a>Acesse o ponto final da conta e as variáveis de env principal
+## <a name="access-the-account-endpoint-and-primary-key-env-variables"></a>Acessar as variáveis de ponto de extremidade de conta e chave primária env
 ```python
 import os
 
@@ -187,14 +187,14 @@ endpoint = os.environ["COSMOS_ENDPOINT"]
 primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
-> As ``COSMOS_ENDPOINT`` ``COSMOS_KEY`` variáveis de ambiente e ambiente são aplicáveis apenas para a API SQL. Para outras APIs, encontre o ponto final e a chave na lâmina Strings ou **Keys** de **conexão** na sua conta Do Azure Cosmos.  
+> As ``COSMOS_ENDPOINT`` variáveis ``COSMOS_KEY`` de ambiente e são aplicáveis somente para a API do SQL. Para outras APIs, localize o ponto de extremidade e a chave na folha **cadeias de conexão** ou **chaves** em sua conta do Azure Cosmos.  
 
-## <a name="reset-notebooks-workspace"></a>Redefinir espaços de trabalho de notebooks
-Para redefinir o espaço de trabalho dos notebooks para as configurações padrão, selecione **Redefinir espaço de trabalho** na barra de comando. Isso removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Seus notebooks, arquivos e recursos do Azure Cosmos não serão afetados.  
+## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de blocos de anotações
+Para redefinir o espaço de trabalho de blocos de anotações para as configurações padrão, selecione **redefinir espaço de trabalho** na barra de comandos. Isso removerá todos os pacotes instalados personalizados e reiniciará o servidor Jupyter. Seus blocos de anotações, arquivos e recursos de Cosmos do Azure não serão afetados.  
 
-![Redefinir espaços de trabalho de notebooks](media/use-notebook-features-and-commands/reset-workspace.png)
+![Redefinir espaço de trabalho de blocos de anotações](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conheça os benefícios dos [notebooks Azure Cosmos DB Jupyter](cosmosdb-jupyter-notebooks.md)
-- Conheça o [Azure Cosmos DB Python SDK para API SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+- Saiba mais sobre os benefícios do [Azure Cosmos DB notebooks Jupyter](cosmosdb-jupyter-notebooks.md)
+- Saiba mais sobre o [SDK do Azure Cosmos DB Python para API do SQL](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)

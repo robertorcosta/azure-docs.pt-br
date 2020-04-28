@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981399"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
@@ -75,9 +75,9 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 * Repita a solicitação com um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em Grupos de** > *recursos* > Recursos**Recursos** > sua disponibilidade*definir* > **Máquinas** > Virtuais sua máquina > *virtual***Stop**.
+    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
   * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
-  * Inicie a nova VM primeiro e selecione cada uma das VMs paradas e clique **em Iniciar**.
+  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 
 **Causa 2:** o cluster não tem recursos livres.
 

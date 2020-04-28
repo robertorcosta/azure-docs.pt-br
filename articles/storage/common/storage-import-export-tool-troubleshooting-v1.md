@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 4eeeb538bcd39eed40a92dd45e7ba7bed25558e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75978412"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Solução de problemas da Ferramenta de Importação/Exportação do Azure
@@ -33,7 +33,7 @@ A Ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configuração da ferramenta de importação/exportação azure](../storage-import-export-tool-setup-v1.md)   
+* [Configurando a ferramenta de importação/exportação do Azure](../storage-import-export-tool-setup-v1.md)   
 * [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparando um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   

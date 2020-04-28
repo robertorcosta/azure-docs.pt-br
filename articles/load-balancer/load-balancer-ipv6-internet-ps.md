@@ -1,5 +1,5 @@
 ---
-title: Crie um balanceador de carga voltado para a Internet com IPv6 - Azure PowerShell
+title: Criar um balanceador de carga voltado para a Internet com IPv6-Azure PowerShell
 titleSuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 services: load-balancer
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76045462"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Powershell](load-balancer-ipv6-internet-ps.md)
-> * [Azure CLI](load-balancer-ipv6-internet-cli.md)
+> * [PowerShell](load-balancer-ipv6-internet-ps.md)
+> * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
 >[!NOTE] 
->Este artigo descreve um recurso Introdutório IPv6 para permitir que balanceadores básicos de carga forneçam conectividade IPv4 e IPv6. A conectividade IPv6 abrangente está agora disponível com [IPv6 para VNETs Azure,](../virtual-network/ipv6-overview.md) que integra a conectividade IPv6 com suas Redes Virtuais e inclui recursos-chave, como regras do IPv6 Network Security Group, roteamento definido pelo usuário IPv6, balanceamento de carga Básico e Padrão IPv6 e muito mais.  IPv6 para VNETs Azure é o padrão recomendado para aplicações IPv6 no Azure. Consulte [IPv6 para implantação do Azure VNET Powershell](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>Este artigo descreve um recurso IPv6 introdutório para permitir que os balanceadores de carga básicos forneçam conectividade IPv4 e IPv6. A conectividade IPv6 abrangente agora está disponível com o [IPv6 para o Azure VNETs](../virtual-network/ipv6-overview.md) , que integra a conectividade IPv6 com suas redes virtuais e inclui recursos importantes, como regras de grupo de segurança de rede IPv6, roteamento definido pelo usuário IPv6, balanceamento de carga básico e padrão e muito mais.  O IPv6 para Azure VNETs é o padrão recomendado para aplicativos IPv6 no Azure. Consulte [IPv6 para implantação do PowerShell de VNET do Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
@@ -55,13 +55,13 @@ As etapas a seguir mostram como criar um balanceador de carga para a Internet us
 
 Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 
-* Configuração de IP do Frontend - contém endereços IP públicos para tráfego de rede de entrada.
-* O pool de endereços backend - contém interfaces de rede (NICs) para que as máquinas virtuais recebam tráfego de rede do balanceador de carga.
+* Configuração de IP de front-end-contém endereços IP públicos para o tráfego de rede de entrada.
+* Pool de endereços de back-end – contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
 * Regras de balanceamento de carga – contém regras de mapeamento de uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
 * Regras NAT de entrada – contém regras de mapeamento de uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
 * Investigações – contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
 
-Para obter mais informações, consulte [os componentes do Azure Load Balancer](./concepts-limitations.md#load-balancer-components).
+Para obter mais informações, consulte [Azure Load Balancer Components](./concepts-limitations.md#load-balancer-components).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurar o PowerShell para usar o Gerenciador de Recursos
 
@@ -102,7 +102,7 @@ Verifique se você tem a versão de produção mais recente do módulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Crie recursos de PIP (Endereço IP Público) do Azure para o pool de endereços IP front-end. Certifique-se de alterar `-DomainNameLabel` o valor para antes de executar os seguintes comandos. O valor deve ser único dentro da região do Azure.
+2. Crie recursos de PIP (Endereço IP Público) do Azure para o pool de endereços IP front-end. Certifique-se de alterar o valor `-DomainNameLabel` de antes de executar os comandos a seguir. O valor deve ser exclusivo na região do Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

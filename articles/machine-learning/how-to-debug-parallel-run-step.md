@@ -1,7 +1,7 @@
 ---
-title: Depurar e solucionar problemas ParallelRunStep
+title: Depurar e solucionar problemas de ParallelRunStep
 titleSuffix: Azure Machine Learning
-description: Depurar e solucionar problemas ParallelRunStep em pipelines de aprendizado de máquina no Azure Machine Learning SDK for Python. Aprenda armadilhas comuns para desenvolver com pipelines e dicas para ajudá-lo a depurar seus scripts antes e durante a execução remota.
+description: Depure e solucione problemas do ParallelRunStep em pipelines do Machine Learning no SDK do Azure Machine Learning para Python. Aprenda armadilhas comuns para o desenvolvimento com pipelines e dicas para ajudá-lo a depurar seus scripts antes e durante a execução remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,54 +11,54 @@ ms.author: trmccorm
 author: tmccrmck
 ms.date: 01/15/2020
 ms.openlocfilehash: ca50d70965d5edc4e31606e542ddf163fe3b0741
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76122958"
 ---
-# <a name="debug-and-troubleshoot-parallelrunstep"></a>Depurar e solucionar problemas ParallelRunStep
+# <a name="debug-and-troubleshoot-parallelrunstep"></a>Depurar e solucionar problemas de ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende como depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) do [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+Neste artigo, você aprenderá a depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="testing-scripts-locally"></a>Testando scripts localmente
 
-Consulte a [seção De testes localmente para](how-to-debug-pipelines.md#testing-scripts-locally) obter pipelines de aprendizado de máquina. O ParallelRunStep é executado como um passo nos pipelines ML para que a mesma resposta se aplique a ambos.
+Consulte a [seção testando scripts localmente](how-to-debug-pipelines.md#testing-scripts-locally) para pipelines do Machine Learning. Seu ParallelRunStep é executado como uma etapa em pipelines de ML para que a mesma resposta se aplique a ambos.
 
-## <a name="debugging-scripts-from-remote-context"></a>Depuração de scripts de contexto remoto
+## <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 
-A transição de depurar um script de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre como encontrar seus logs no portal, a [seção de pipelines de aprendizado de máquina sobre a depuração de scripts a partir de um contexto remoto](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). As informações nessa seção também se aplicam a uma etapa paralela.
+A transição da depuração de um script de Pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre como localizar seus logs no portal, a [seção pipelines do Machine Learning em depuração de scripts de um contexto remoto](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). As informações nessa seção também se aplicam a uma etapa paralela executada.
 
-Por exemplo, o `70_driver_log.txt` arquivo de log contém informações do controlador que inicia o código de etapa de execução paralelo.
+Por exemplo, o arquivo `70_driver_log.txt` de log contém informações do controlador que inicia o código de etapa de execução paralela.
 
-Devido à natureza distribuída de trabalhos paralelos, existem registros de várias fontes diferentes. No entanto, dois arquivos consolidados são criados que fornecem informações de alto nível:
+Devido à natureza distribuída de trabalhos de execução paralela, há logs de várias fontes diferentes. No entanto, são criados dois arquivos consolidados que fornecem informações de alto nível:
 
-- `~/logs/overview.txt`: Este arquivo fornece uma informação de alto nível sobre o número de minilotes (também conhecidos como tarefas) criados até agora e o número de minilotes processados até agora. Neste final, mostra o resultado do trabalho. Se o trabalho falhar, ele mostrará a mensagem de erro e onde iniciar a solução de problemas.
+- `~/logs/overview.txt`: Esse arquivo fornece informações de alto nível sobre o número de mini-lotes (também conhecidos como tarefas) criados até o momento e o número de mini-lotes processados até o momento. Nesse final, ele mostra o resultado do trabalho. Se o trabalho tiver falhado, ele mostrará a mensagem de erro e onde iniciar a solução de problemas.
 
-- `~/logs/sys/master.txt`: Este arquivo fornece a visão do nó mestre (também conhecido como orquestrador) do trabalho em execução. Inclui criação de tarefas, monitoramento de progresso, resultado da execução.
+- `~/logs/sys/master.txt`: Esse arquivo fornece a exibição do nó mestre (também conhecido como orquestrador) do trabalho em execução. Inclui a criação de tarefas, o monitoramento de progresso, o resultado da execução.
 
-Os logs gerados a partir do script de entrada usando EntryScript.logger e instruções de impressão serão encontrados nos seguintes arquivos:
+Os logs gerados do script de entrada usando EntryScript. Logger e as instruções PRINT serão encontrados nos seguintes arquivos:
 
-- `~/logs/user/<ip_address>/Process-*.txt`: Este arquivo contém registros escritos de entry_script usando EntryScript.logger. Também contém declaração de impressão (stdout) de entry_script.
+- `~/logs/user/<ip_address>/Process-*.txt`: Esse arquivo contém logs gravados de entry_script usando EntryScript. Logger. Ele também contém a instrução print (stdout) da entry_script.
 
-Quando você precisar de uma compreensão completa de como cada nó executou o script de pontuação, olhe os logs de processo individuais para cada nó. Os registros do processo podem `sys/worker` ser encontrados na pasta, agrupados por nós do trabalhador:
+Quando você precisar de um entendimento completo de como cada nó executou o script de pontuação, examine os logs de processo individuais para cada nó. Os logs de processo podem ser encontrados na `sys/worker` pasta, agrupados por nós de trabalho:
 
-- `~/logs/sys/worker/<ip_address>/Process-*.txt`: Este arquivo fornece informações detalhadas sobre cada minilote à medida que é recolhido ou concluído por um trabalhador. Para cada minilote, este arquivo inclui:
+- `~/logs/sys/worker/<ip_address>/Process-*.txt`: Esse arquivo fornece informações detalhadas sobre cada mini-lote à medida que ele é selecionado ou concluído por um trabalho. Para cada mini-batch, esse arquivo inclui:
 
-    - O endereço IP e o PID do processo do trabalhador. 
-    - O número total de itens, a contagem de itens processados com sucesso e a contagem de itens com falha.
-    - O tempo de início, duração, tempo de processo e tempo de execução do método.
+    - O endereço IP e o PID do processo de trabalho. 
+    - O número total de itens, contagem de itens processados com êxito e contagem de itens com falha.
+    - A hora de início, a duração, o tempo de processamento e o tempo do método de execução.
 
-Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalhador. Essas informações estão no formato CSV `~/logs/sys/perf/<ip_address>/`e estão localizadas em . Para um único nó, os arquivos `~logs/sys/perf`de trabalho estarão disponíveis em . Por exemplo, ao verificar a utilização de recursos, veja os seguintes arquivos:
+Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas `~/logs/sys/perf/<ip_address>/`em. Para um único nó, os arquivos de trabalho estarão disponíveis `~logs/sys/perf`em. Por exemplo, ao verificar a utilização de recursos, examine os seguintes arquivos:
 
-- `Process-*.csv`: Utilização de recursos por processo do trabalhador. 
-- `sys.csv`: Por registro de nó.
+- `Process-*.csv`: Por uso de recursos de processo de trabalho. 
+- `sys.csv`: Log por nó.
 
-### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como faço login do meu script de usuário a partir de um contexto remoto?
-Você pode obter um logger do EntryScript como mostrado no código de amostra abaixo para fazer com que os logs apareçam em **logs/pasta de usuário** no portal.
+### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como fazer log do meu script de usuário a partir de um contexto remoto?
+Você pode obter um agente de EntryScript conforme mostrado no código de exemplo abaixo para fazer os logs aparecerem na pasta **logs/usuário** no Portal.
 
-**Um script de entrada de exemplo usando o logger:**
+**Um script de entrada de exemplo usando o agente:**
 ```python
 from entry_script import EntryScript
 
@@ -80,9 +80,9 @@ def run(mini_batch):
     return mini_batch
 ```
 
-### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Como eu poderia passar uma entrada lateral, como, um arquivo ou arquivo(s) contendo uma tabela de análise, para todos os meus trabalhadores?
+### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Como posso passar uma entrada no lado, como um arquivo ou arquivo (s) contendo uma tabela de pesquisa, para todos os meus trabalhos?
 
-Construa um objeto [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) contendo a entrada lateral e registre-se com seu espaço de trabalho. Depois disso, você pode acessá-lo em seu script de inferência (por exemplo, no seu método init() da seguinte forma:
+Construa um objeto de [conjunto](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) de dados contendo a entrada do lado e registre-se com seu espaço de trabalho. Depois disso, você pode acessá-lo em seu script de inferência (por exemplo, em seu método init ()) da seguinte maneira:
 
 ```python
 from azureml.core.run import Run
@@ -95,6 +95,6 @@ lookup_ds.download(target_path='.', overwrite=True)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a referência sdk para obter ajuda com o pacote [azureml-contrib-pipeline-step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) e a [documentação](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) para a classe ParallelRunStep.
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-contrib-pipeline-Step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) e a [documentação](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) da classe ParallelRunStep.
 
-* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre o uso de pipelines com etapa de execução paralela.
+* Siga o [tutorial avançado](tutorial-pipeline-batch-scoring-classification.md) sobre como usar pipelines com a etapa de execução paralela.

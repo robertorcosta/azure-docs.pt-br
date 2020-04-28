@@ -1,5 +1,5 @@
 ---
-title: Comece com o armazenamento Azure Blob usando o Visual Studio (ASP.NET Core)
+title: Introdução ao armazenamento de BLOBs do Azure usando o Visual Studio (ASP.NET Core)
 description: Como começar a usar o armazenamento de blobs do Azure em um projeto ASP.NET Core no Visual Studio após a conexão a uma conta de armazenamento usando os Serviços Conectados do Visual Studio
 services: storage
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980729"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET Core)
@@ -46,13 +46,13 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. Abra o Visual Studio.
 
-1. No menu principal, selecione **Arquivo** > **Novo** > **Projeto**.
+1. No menu principal, selecione **arquivo** > **novo** > **projeto**.
 
-1. Na caixa de diálogo **Novo Projeto**, selecione **Web** > **Aplicativo Web ASP.NET** > **AspNetCoreStorage**. Em seguida, selecione **OK**.
+1. Na caixa de diálogo **Novo Projeto**, selecione **Web** > **Aplicativo Web ASP.NET** > **AspNetCoreStorage**. Depois, selecione **OK**.
 
     ![Captura de tela da caixa de diálogo Novo Projeto no Visual Studio](./media/vs-storage-aspnet-core-getting-started-blobs/new-project.png)
 
-1. Na caixa de diálogo **Novo Aplicativo Web do ASP.NET Core**, selecione **.NET Core** > **ASP.NET Core 2.0** > **Aplicativo Web (Model-View-Controller)**. Em seguida, selecione **OK**.
+1. Na caixa de diálogo **Novo Aplicativo Web do ASP.NET Core**, selecione **.NET Core** > **ASP.NET Core 2.0** > **Aplicativo Web (Model-View-Controller)**. Depois, selecione **OK**.
 
     ![Captura de tela da caixa de diálogo Novo Aplicativo Web ASP.NET Core](./media/vs-storage-aspnet-core-getting-started-blobs/new-mvc.png)
 
@@ -241,7 +241,7 @@ Quando o [contêiner de blobs for criado](#create-a-blob-container), carregue os
     > [!NOTE]
     > O nome do blob é parte da URL usada para recuperar um blob e pode ser qualquer cadeia de caracteres, incluindo o nome do arquivo.
 
-1. Quando houver uma referência de blob, carregue qualquer fluxo de dados nele chamando o método `UploadFromStream` do objeto de referência do blob. O método `UploadFromStream` criará o blob, se ele não existir, ou o substituirá, se ele já existir. (Alterar * &lt;>de arquivamento para upload* para um caminho totalmente qualificado para um arquivo a ser carregado.)
+1. Quando houver uma referência de blob, carregue qualquer fluxo de dados nele chamando o método `UploadFromStream` do objeto de referência do blob. O método `UploadFromStream` criará o blob, se ele não existir, ou o substituirá, se ele já existir. (Altere * &lt;o arquivo para carregar>* para um caminho totalmente qualificado para um arquivo a ser carregado.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -421,7 +421,7 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Para baixar um blob, use o método `CloudBlockBlob.DownloadToStream`. O código a seguir transfere o conteúdo do blob para um objeto de fluxo. Em seguida, esse objeto é mantido em um arquivo local. (Alterar * &lt;o nome do arquivo local>* para o nome de arquivo totalmente qualificado representando onde a bolha deve ser baixada.) 
+1. Para baixar um blob, use o método `CloudBlockBlob.DownloadToStream`. O código a seguir transfere o conteúdo do blob para um objeto de fluxo. Em seguida, esse objeto é mantido em um arquivo local. (Altere * &lt;o nome do arquivo local>* para o nome de arquivo totalmente qualificado que representa onde o blob será baixado.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -453,7 +453,7 @@ Esta seção ilustra como baixar um blob. Você pode mantê-lo no armazenamento 
     <li><a asp-area="" asp-controller="Blobs" asp-action="DownloadBlob">Download blob</a></li>
     ```
 
-1. Execute o aplicativo e selecione **Baixar blob** para baixar o blob. O blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference` é baixado no local especificado na chamada do método `File.OpenWrite`. O sucesso do *texto!* deve aparecer no navegador. 
+1. Execute o aplicativo e selecione **Baixar blob** para baixar o blob. O blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference` é baixado no local especificado na chamada do método `File.OpenWrite`. O texto *sucesso!* deve aparecer no navegador. 
 
 ## <a name="delete-blobs"></a>Excluir blobs
 
@@ -510,11 +510,11 @@ As seguintes etapas ilustram como excluir um blob:
     <li><a asp-area="" asp-controller="Blobs" asp-action="DeleteBlob">Delete blob</a></li>
     ```
 
-1. Execute o aplicativo e selecione **Excluir blob** para excluir o blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference`. O sucesso do *texto!* deve aparecer no navegador. Selecione o botão **Voltar** do navegador e, em seguida, selecione **Listar blobs** para verificar se o blob não está mais no contêiner.
+1. Execute o aplicativo e selecione **Excluir blob** para excluir o blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference`. O texto *sucesso!* deve aparecer no navegador. Selecione o botão **Voltar** do navegador e, em seguida, selecione **Listar blobs** para verificar se o blob não está mais no contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a armazenar, listar e recuperar blobs no Armazenamento do Azure usando ASP.NET Core. Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
 
-  * [Comece com o armazenamento de mesa do Azure e os serviços conectados ao Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Comece com o armazenamento de fila do Azure e serviços conectados ao Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Introdução ao armazenamento de tabelas do Azure e aos serviços conectados do Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar contas V3 do Azure Media Services | Microsoft Docs
-description: Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Este artigo explica como gerenciar contas V3 do Azure Media Services.
+title: Gerenciar contas dos serviços de mídia do Azure v3 | Microsoft Docs
+description: Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Este artigo explica como gerenciar contas dos serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,34 +12,34 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75980376"
 ---
-# <a name="manage-azure-media-services-v3-accounts"></a>Gerenciar contas V3 do Azure Media Services
+# <a name="manage-azure-media-services-v3-accounts"></a>Gerenciar contas dos serviços de mídia do Azure v3
 
-Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. Para obter mais informações, consulte [Contas de armazenamento](storage-account-concept.md).
+Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. Para obter mais informações, consulte [contas de armazenamento](storage-account-concept.md).
 
-## <a name="moving-a-media-services-account-between-subscriptions"></a>Movimentação de uma conta de Serviços de Mídia entre assinaturas 
+## <a name="moving-a-media-services-account-between-subscriptions"></a>Movendo uma conta dos serviços de mídia entre assinaturas 
 
-Se você precisar mover uma conta do Media Services para uma nova assinatura, você precisa primeiro mover todo o grupo de recursos que contém a conta de Serviços de Mídia para a nova assinatura. Você deve mover todos os recursos anexados: contas de armazenamento azure, perfis de CDN do Azure, etc. Para obter mais informações, consulte [Mover recursos para novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Como acontece com todos os recursos do Azure, as movimentações de grupos de recursos podem levar algum tempo para serem concluídas.
+Se precisar mover uma conta dos serviços de mídia para uma nova assinatura, primeiro você precisará mover todo o grupo de recursos que contém a conta dos serviços de mídia para a nova assinatura. Você deve mover todos os recursos anexados: contas de armazenamento do Azure, perfis da CDN do Azure, etc. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Assim como ocorre com qualquer recurso no Azure, as movimentações do grupo de recursos podem levar algum tempo para serem concluídas.
 
 > [!NOTE]
-> O Media Services v3 suporta o modelo de multi-locação.
+> Os serviços de mídia v3 oferecem suporte ao modelo de multilocação.
 
 ### <a name="considerations"></a>Considerações
 
 * Crie backups de todos os dados em sua conta antes de migrar para uma assinatura diferente.
-* Você precisa parar todos os pontos finais de streaming e recursos de transmissão ao vivo. Seus usuários não poderão acessar seu conteúdo durante a movimentação do grupo de recursos. 
+* Você precisa interromper todos os pontos de extremidade de streaming e recursos de transmissão ao vivo. Os usuários não poderão acessar o conteúdo pela duração da movimentação do grupo de recursos. 
 
 > [!IMPORTANT]
-> Não inicie o Ponto Final de Streaming até que o movimento seja concluído com sucesso.
+> Não inicie o ponto de extremidade de streaming até que a movimentação seja concluída com êxito.
 
-### <a name="troubleshoot"></a>Solução de problemas 
+### <a name="troubleshoot"></a>Solucionar problemas 
 
-Se uma conta de Serviços de Mídia ou uma conta azure de armazenamento associada for "desconectada" após a movimentação do grupo de recursos, tente girar as chaves da conta de armazenamento. Se a rotação das chaves da conta de armazenamento não resolver o status "desconectado" da conta Serviços de Mídia, faça um novo pedido de suporte no menu "Support + troublessolução" na conta Serviços de mídia.  
+Se uma conta dos serviços de mídia ou uma conta de armazenamento do Azure associada se tornar "desconectada" após a movimentação do grupo de recursos, tente girar as chaves da conta de armazenamento. Se a rotação das chaves da conta de armazenamento não resolver o status "desconectado" da conta dos serviços de mídia, faça uma nova solicitação de suporte no menu "suporte + solução de problemas" na conta dos serviços de mídia.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

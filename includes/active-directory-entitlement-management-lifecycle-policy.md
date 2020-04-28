@@ -9,36 +9,36 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76694338"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
-Na **guia Ciclo de vida,** você especifica quando a atribuição de um usuário ao pacote de acesso expira. Você também pode especificar se os usuários podem estender suas atribuições.
+Na guia **ciclo de vida** , você especifica quando a atribuição de um usuário para o pacote de acesso expira. Você também pode especificar se os usuários podem estender suas atribuições.
 
-1. Na seção **Expiração,** as **atribuições do pacote Access expiram** até **a data em que**se tem, número de **dias**ou **nunca**.
+1. Na seção **expiração** , defina as **atribuições de pacote de acesso expiram** como **em data**, **número de dias**ou **nunca**.
 
-    Para **a data on,** selecione uma data de validade no futuro.
+    Para **na data**, selecione uma data de validade no futuro.
 
-    Para **número de dias,** especifique um número entre 0 e 3660 dias.
+    Para **número de dias**, especifique um número entre 0 e 3660 dias.
 
-    Com base na sua seleção, a atribuição de um usuário ao pacote de acesso expira em uma determinada data, um certo número de dias após sua aprovação, ou nunca.
+    Com base na sua seleção, a atribuição de um usuário ao pacote de acesso expira em uma determinada data, um determinado número de dias depois que eles são aprovados ou nunca.
 
-1. Clique **em Mostrar configurações avançadas de expiração** para mostrar configurações adicionais.
+1. Clique em **Mostrar configurações de expiração avançadas** para mostrar configurações adicionais.
 
-    ![Pacote de acesso - Configurações de expiração do ciclo de vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+    ![Pacotes de acesso-configurações de expiração do ciclo de vida](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
 
-1. Para permitir que o usuário amplie suas atribuições, defina **Permitir que os usuários ampliem o acesso** a **Sim**.
+1. Para permitir que o usuário Estenda suas atribuições, defina **permitir que os usuários estendam o acesso** para **Sim**.
 
-    Se as extensões forem permitidas na diretiva, o usuário receberá um e-mail 14 dias e também 1 dia antes de sua atribuição de pacote de acesso expirar, levando-o a estender a atribuição. Se o usuário enviar uma solicitação para estender o acesso, a data de extensão deve ser antes de as atribuições expirarem conforme definido na política que foi usada para conceder ao usuário acesso ao pacote de acesso. Por exemplo, se a diretiva indicar que as atribuições estão definidas para expirar em 30 de junho, a extensão máxima que um usuário pode solicitar é 30 de junho.
+    Se as extensões forem permitidas na política, o usuário receberá um email 14 dias e também um dia antes que sua atribuição de pacote de acesso seja definida para expirar solicitando que estendam a atribuição. Se o usuário enviar uma solicitação para estender o acesso, a data da extensão deverá ser em ou antes que as atribuições expirem conforme definido na política usada para conceder ao usuário acesso ao pacote de acesso. Por exemplo, se a política indicar que as atribuições estão definidas para expirar em 30 de junho, a extensão máxima que um usuário pode solicitar é 30 de junho.
 
     Se o acesso de um usuário for estendido, ele não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do usuário que criou a política).
 
-1. Para exigir aprovação para conceder uma prorrogação, defina **a aprovação necessária para conceder a extensão** ao **Yes**.
+1. Para exigir aprovação para conceder uma extensão, defina **exigir aprovação para conceder a extensão** para **Sim**.
 
-    As mesmas configurações de aprovação especificadas na guia **Solicitações** serão usadas.
+    As mesmas configurações de aprovação que foram especificadas na guia **solicitações** serão usadas.
 
-1. Clique **em Avançar** ou **Atualizar**.
+1. Clique em **Avançar** ou **Atualizar**.

@@ -1,13 +1,13 @@
 ---
 title: Exemplos de modelo do Azure Resource Manager
-description: Encontre amostras de modelo do Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
+description: Localizar exemplos de modelo de Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75981659"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager para Instâncias de Contêiner do Azure
@@ -21,16 +21,16 @@ Para opções de implantação, consulte a [Implantação](#deployment). Se voc�
 | | |
 |-|-|
 | **Aplicativos** ||
-| [Wordpress][app-wp] | Cria um site wordpress e seu banco de dados MySQL em um grupo de contêineres. O conteúdo do site WordPress e o banco de dados MySQL persistem em um compartilhamento do Azure Files. Também cria um gateway de aplicativo para expor o acesso da rede pública ao WordPress. |
+| [WordPress][app-wp] | Cria um site do WordPress e seu banco de dados MySQL em um grupo de contêineres. O conteúdo do site WordPress e o banco de dados MySQL persistem em um compartilhamento do Azure Files. Também cria um gateway de aplicativo para expor o acesso à rede pública ao WordPress. |
 | [NAV MS com SQL Server e IIS][app-nav] | Implanta um único contêiner do Windows com um ambiente Dynamics NAV autossuficiente totalmente equipado / Dynamics 365 Business Central. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório GitHub e monta-o como um volume. |
-| [Segredo][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
+| [RADIUS][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
 | **Rede** ||
 | [Contêiner expostos de UDP][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
 | [Contêiner do Linux com o IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
-| [Implantar um grupo de contêineres com uma rede virtual (visualização)][net-vnet] | Implanta uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres. |
+| [Implantar um grupo de contêineres com uma rede virtual (versão prévia)][net-vnet] | Implanta uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres. |
 | **Recursos do Azure** ||
 | [Criar uma conta de Armazenamento do Microsoft Azure e o compartilhamento de arquivos][az-files] | Usa a CLI do Azure em uma instância de contêiner para criar uma conta de armazenamento e um compartilhamento do Azure Files.
 
@@ -38,11 +38,11 @@ Para opções de implantação, consulte a [Implantação](#deployment). Se voc�
 
 Você tem várias opções para a implantação de recursos com os modelos do Gerenciador de Recursos:
 
-[Azure CLI][deploy-cli]
+[CLI do Azure][deploy-cli]
 
-[Azure PowerShell][deploy-powershell]
+[PowerShell do Azure][deploy-powershell]
 
-[Portal Azure][deploy-portal]
+[Azure portal][deploy-portal]
 
 [REST API][deploy-rest]
 

@@ -1,5 +1,5 @@
 ---
-title: Trabalhe com a API de consulta integrada JavaScript no Azure Cosmos DB Procedimentos armazenados e gatilhos
+title: Trabalhar com API de consulta integrada do JavaScript em Azure Cosmos DB procedimentos armazenados e gatilhos
 description: Este artigo apresenta os conceitos da API de consulta integrada à linguagem do JavaScript para criar procedimentos armazenados e gatilhos no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -8,15 +8,15 @@ ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76901824"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta JavaScript no Azure Cosmos DB
 
-Além de emitir consultas usando a API SQL no Azure Cosmos DB, o [SDK do lado](https://azure.github.io/azure-cosmosdb-js-server/) do servidor Cosmos DB fornece uma interface JavaScript para realizar consultas otimizadas no Cosmos DB Stored Procedures and Triggers. Você não precisa estar ciente da linguagem SQL para usar essa interface JavaScript. A API de consulta do JavaScript permite que você crie consultas de forma programática passando funções de predicado em uma sequência de chamadas de função, com uma sintaxe conhecida para bibliotecas JavaScript internas e populares da matriz do ECMAScript5, como Lodash. As consultas são analisadas no runtime do JavaScript e executadas com eficiência usando índices do Azure Cosmos DB.
+Além de emitir consultas usando a API do SQL no Azure Cosmos DB, o [SDK do lado do servidor do cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) fornece uma interface JavaScript para executar consultas otimizadas em Cosmos DB procedimentos armazenados e gatilhos. Você não precisa estar ciente da linguagem SQL para usar essa interface JavaScript. A API de consulta do JavaScript permite que você crie consultas de forma programática passando funções de predicado em uma sequência de chamadas de função, com uma sintaxe conhecida para bibliotecas JavaScript internas e populares da matriz do ECMAScript5, como Lodash. As consultas são analisadas no runtime do JavaScript e executadas com eficiência usando índices do Azure Cosmos DB.
 
 ## <a name="supported-javascript-functions"></a>Funções do JavaScript com suporte
 
@@ -33,7 +33,7 @@ Além de emitir consultas usando a API SQL no Azure Cosmos DB, o [SDK do lado](h
 
 Quando incluídas em funções de predicado e/ou do seletor, os constructos do JavaScript a seguir são automaticamente otimizados para serem executados diretamente nos índices do Azure Cosmos DB:
 
-- Operadores `=` `+` `-` `*` `/` `%` simples: `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
+- Operadores simples `=` `+` `-` `*` : `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
 - Literais, incluindo o literal de objeto: {}
 - var, return
 
@@ -51,7 +51,7 @@ A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript corr
 > [!NOTE]
 > `__` (sublinhado duplo) é um alias para `getContext().getCollection()` ao usar a API de consulta do JavaScript.
 
-|**SQL**|**API de consulta do JavaScript**|**Descrição**|
+|**SQL**|**API de consulta JavaScript**|**Descrição**|
 |---|---|---|
 |SELECIONAR *<br>FROM docs| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br>});|Resulta em todos os documentos (paginados com token de continuação) no estado em que se encontram.|
 |SELECT <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg,<br>&nbsp;&nbsp;&nbsp;docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|Projeta a ID, a mensagem (com o alias msg) e a ação de todos os documentos.|
@@ -65,7 +65,7 @@ A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript corr
 Conheça mais conceitos e saiba como escrever e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 
 - [Como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript](how-to-write-javascript-query-api.md)
-- [Trabalhando com o Azure Cosmos DB, os procedimentos armazenados, gatilhos e funções definidas pelo usuário](stored-procedures-triggers-udfs.md)
+- [Trabalhando com Azure Cosmos DB procedimentos armazenados, gatilhos e funções definidas pelo usuário](stored-procedures-triggers-udfs.md)
 - [Como usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Referência de API do lado do servidor JavaScript do Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
