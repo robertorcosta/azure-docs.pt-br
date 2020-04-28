@@ -4,14 +4,14 @@ description: Como criar uma instância do Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 4ff31ca6a171beece1672802367f08768676efbc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106484"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195002"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -29,7 +29,7 @@ Em **Detalhes do Serviço**, defina o nome do cache e estes outros atributos:
 
 * Localização – selecione uma das [regiões com suporte](hpc-cache-overview.md#region-availability).
 * Rede virtual – você pode selecionar uma existente ou criar uma nova rede virtual.
-* Sub-rede – escolha ou crie uma sub-rede com pelo menos 64 endereços IP (/24) que serão usados somente para esta instância do Azure HPC Cache.
+* Sub-rede – escolha ou crie uma sub-rede com pelo menos 64 endereços IP (/24). Essa sub-rede deve ser usada somente para esta instância de cache do Azure HPC.
 
 ## <a name="set-cache-capacity"></a>Definir a capacidade de cache
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -45,15 +45,15 @@ Escolha a capacidade definindo estes dois valores:
 
 Escolha um dos valores de taxa de transferência disponíveis e tamanhos de armazenamento em cache.
 
-Tenha em mente que a taxa de transferência de dados real depende da carga de trabalho, das velocidades de rede e do tipo dos destinos de armazenamento. Os valores escolhidos definem a taxa de transferência máxima para todo o sistema de cache, mas uma parte dela é usada para tarefas de sobrecarga. Por exemplo, se um cliente solicitar um arquivo que ainda não está armazenado no cache ou se o arquivo estiver marcado como obsoleto, seu cache usará parte da taxa de transferência para obtê-lo arquivo do armazenamento de back-end.
+Tenha em mente que a taxa de transferência de dados real depende da carga de trabalho, das velocidades de rede e do tipo dos destinos de armazenamento. Os valores escolhidos definem a taxa de transferência máxima para todo o sistema de cache, mas uma parte dela é usada para tarefas de sobrecarga. Por exemplo, se um cliente solicitar um arquivo que ainda não esteja armazenado no cache, ou se o arquivo estiver marcado como obsoleto, seu cache usará parte de sua taxa de transferência para obtê-lo do armazenamento de back-end.
 
-O Azure HPC Cache gerencia quais arquivos são armazenados em cache e pré-carregados para maximizar as tarifas de acesso ao cache. O conteúdo do cache é avaliado continuamente e os arquivos são movidos para o armazenamento de longo prazo quando são acessados com menos frequência. Escolha um tamanho de armazenamento de cache que possa manter confortavelmente o conjunto ativo de arquivos de trabalho com espaço adicional para metadados e outras sobrecargas.
+O Azure HPC Cache gerencia quais arquivos são armazenados em cache e pré-carregados para maximizar as tarifas de acesso ao cache. O conteúdo do cache é avaliado continuamente e os arquivos são movidos para o armazenamento de longo prazo quando são acessados com menos frequência. Escolha um tamanho de armazenamento de cache que possa manter confortavelmente o conjunto ativo de arquivos de trabalho, além de espaço adicional para metadados e outras sobrecargas.
 
 ![captura de tela da página de dimensionamento do cache](media/hpc-cache-create-capacity.png)
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitar criptografia de Azure Key Vault (opcional)
 
-Se o cache estiver em uma região que dá suporte a chaves de criptografia gerenciadas pelo cliente, a página **chaves de criptografia de disco** aparecerá entre as guias **cache** e **marcas** . A partir do momento da publicação, essa opção tem suporte no leste dos EUA, no Sul EUA Central e no oeste dos EUA 2.
+Se o cache estiver em uma região que dá suporte a chaves de criptografia gerenciadas pelo cliente, a página **chaves de criptografia de disco** aparecerá entre as guias **cache** e **marcas** . No momento da publicação, essa opção tem suporte no leste dos EUA, no Sul EUA Central e no oeste dos EUA 2.
 
 Se você quiser gerenciar as chaves de criptografia usadas com o armazenamento de cache, forneça suas Azure Key Vault informações na página **chaves de criptografia de disco** . O cofre de chaves deve estar na mesma região e na mesma assinatura que o cache.
 

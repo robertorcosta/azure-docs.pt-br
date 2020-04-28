@@ -1,55 +1,56 @@
 ---
 title: Modelos do Azure Resource Manager para o Azure Cosmos DB
-description: Use os modelos do Azure Resource Manager para criar e configurar o Azure Cosmos DB.
+description: Use modelos de Azure Resource Manager para criar e configurar Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/27/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 14c3438c5d6e7bed110f9e0dbfcd04655c3e9121
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390870"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193251"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos do Azure Resource Manager para o Azure Cosmos DB
 
-As tabelas a seguir incluem links para modelos do Azure Resource Manager para O Azure Cosmos DB:
+As tabelas a seguir incluem links para modelos de Azure Resource Manager para Azure Cosmos DB:
 
 ## <a name="sql-core-api"></a>API de SQL (Core)
 
 |**Modelo**|**Descrição**|
 |---|---|
-|[Crie uma conta, um banco de dados e um contêiner do Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta API SQL (Core) em duas regiões com dois contêineres com throughput de banco de dados compartilhado e um contêiner com throughput dedicado. O throughput pode ser atualizado reenviando o modelo com valor de propriedade de throughput atualizado. |
-|[Crie uma conta, banco de dados e contêiner do Azure Cosmos com um procedimento armazenado, gatilho e UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta API SQL (Core) em duas regiões com um procedimento armazenado, gatilho e UDF para um contêiner. |
-|[Crie um ponto final privado para uma conta Azure Cosmos existente](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Esse modelo cria um ponto final privado para uma conta API Azure Cosmos SQL existente em uma rede virtual existente. |
+|[Crie uma conta, um banco de dados e um contêiner do Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do SQL (núcleo) em duas regiões com dois contêineres com taxa de transferência de banco de dados compartilhada e um contêiner com taxa de transferência dedicada. A taxa de transferência pode ser atualizada reenviando o modelo com o valor da propriedade de produtividade atualizado. |
+|[Criar uma conta do Azure Cosmos, um banco de dados e um contêiner com um procedimento armazenado, um gatilho e um UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta de API do SQL (núcleo) em duas regiões com um procedimento armazenado, Trigger e UDF para um contêiner. |
+|[Criar um ponto de extremidade privado para uma conta existente do Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Este modelo cria um ponto de extremidade privado para uma conta existente da API do SQL do Azure Cosmos em uma rede virtual existente. |
+|[Criar uma conta de camada gratuita do Azure Cosmos](manage-sql-with-resource-manager.md#free-tier) |  Este modelo cria uma conta de Azure Cosmos DB na camada gratuita. |
 
 ## <a name="mongodb-api"></a>API do MongoDB
 
 |**Modelo**|**Descrição**|
 |---| ---|
-|[Crie uma conta do Azure Cosmos, banco de dados, coleta](manage-mongodb-with-resource-manager.md#create-resource) | Este modelo cria uma conta usando a API DB do Azure Cosmos para O MongoDB em duas regiões com habilitação multimestre. A conta do Azure Cosmos terá dois contêineres que compartilham o throughput em nível de banco de dados. |
+|[Criar uma conta do Azure Cosmos, banco de dados, coleção](manage-mongodb-with-resource-manager.md#create-resource) | Este modelo cria uma conta usando Azure Cosmos DB API para MongoDB em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá dois contêineres que compartilham a taxa de transferência no nível do banco de dados. |
 
 ## <a name="cassandra-api"></a>API Cassandra
 
 |**Modelo**|**Descrição**|
 |---| ---|
-|[Crie uma conta do Azure Cosmos, keyspace, tabela](manage-cassandra-with-resource-manager.md#create-resource) | Este modelo cria uma conta API Cassandra em duas regiões com habilitação multi-mestre. A conta do Azure Cosmos terá duas tabelas que compartilham o throughput de nível de espaço-chave. |
+|[Criar uma conta do Azure Cosmos, keyspace, tabela](manage-cassandra-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do Cassandra em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá duas tabelas que compartilham a taxa de transferência de nível de espaço. |
 
 ## <a name="gremlin-api"></a>API do Gremlin
 
 |**Modelo**|**Descrição**|
 |---| ---|
-|[Crie uma conta do Azure Cosmos, banco de dados, gráfico](manage-gremlin-with-resource-manager.md#create-resource) | Este modelo cria uma conta API Gremlin em duas regiões com habilitação multimestre. A conta do Azure Cosmos terá dois gráficos que compartilham o throughput em nível de banco de dados. |
+|[Criar uma conta do Azure Cosmos, um banco de dados, um grafo](manage-gremlin-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API do Gremlin em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá dois grafos que compartilham a taxa de transferência no nível do banco de dados. |
 
 ## <a name="table-api"></a>API de Tabela
 
 |**Modelo**|**Descrição**|
 |---| ---|
-|[Crie uma conta do Azure Cosmos, tabela](manage-table-with-resource-manager.md#create-resource) | Este modelo cria uma conta De API de tabela em duas regiões com habilitação multimestre. A conta do Azure Cosmos terá uma única tabela. |
+|[Criar uma conta do Azure Cosmos, tabela](manage-table-with-resource-manager.md#create-resource) | Este modelo cria uma conta de API de Tabela em duas regiões com vários mestres habilitados. A conta do Azure Cosmos terá uma única tabela. |
 
 > [!TIP]
-> Para habilitar o throughput compartilhado ao usar a API da tabela, habilite o throughput em nível de conta no Portal Azure.
+> Para habilitar a taxa de transferência compartilhada ao usar API de Tabela, habilite a taxa de transferência no nível da conta no portal do Azure.
 
-Consulte [a referência do Azure Resource Manager para a página do Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) para obter a documentação de referência.
+Consulte [Azure Resource Manager referência para Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) página para obter a documentação de referência.

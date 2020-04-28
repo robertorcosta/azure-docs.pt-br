@@ -1,23 +1,23 @@
 ---
-title: Azure HPC Cache dataing - cópia manual
-description: Como usar comandos cp para mover dados para um alvo de armazenamento Blob no Cache Azure HPC
+title: Ingestão de dados do cache HPC do Azure-cópia manual
+description: Como usar comandos CP para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168492"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194985"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC Cache dataing - manual copy method
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure-método de cópia manual
 
-Este artigo fornece instruções detalhadas para copiar manualmente dados para um contêiner de armazenamento Blob para uso com cache Azure HPC. Ele usa operações paralelas multi-threaded para otimizar a velocidade da cópia.
+Este artigo fornece instruções detalhadas para copiar manualmente os dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure. Ele usa operações paralelas multi-threaded para otimizar a velocidade de cópia.
 
-Para saber mais sobre como mover dados para o armazenamento Blob para o cache Do Azure HPC, leia [Mover dados para o armazenamento Azure Blob](hpc-cache-ingest.md).
+Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
 ## <a name="simple-copy-example"></a>Exemplo de cópia simples
 
@@ -33,11 +33,11 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 Depois de emitir esse comando, o comando `jobs` mostrará se os dois threads estão em execução.
 
-## <a name="copy-data-with-predictable-file-names"></a>Copiar dados com nomes de arquivos previsíveis
+## <a name="copy-data-with-predictable-file-names"></a>Copiar dados com nomes de arquivo previsíveis
 
-Se os nomes dos seus arquivos forem previsíveis, você pode usar expressões para criar segmentos de cópia paralela. 
+Se os nomes de arquivo forem previsíveis, você poderá usar expressões para criar threads de cópia paralela.
 
-Por exemplo, se o diretório contiver 1.000 arquivos numerados consecutivamente de `0001` a `1000`, você poderá usar as expressões a seguir para criar dez threads paralelos que copiam, cada um, 100 arquivos:
+Por exemplo, se seu diretório contiver 1000 arquivos que são numerados sequencialmente `0001` de `1000`para, você poderá usar as seguintes expressões para criar 10 threads paralelos que cada cópia 100 arquivos:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -52,9 +52,9 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-## <a name="copy-data-with-unstructured-file-names"></a>Copiar dados com nomes de arquivos não estruturados
+## <a name="copy-data-with-unstructured-file-names"></a>Copiar dados com nomes de arquivo não estruturados
 
-Se sua estrutura de nomeação de arquivos não for previsível, você pode agrupar arquivos por nomes de diretório. 
+Se a estrutura de nomenclatura de arquivo não for previsível, você poderá agrupar arquivos por nomes de diretório.
 
 Este exemplo coleta diretórios inteiros para enviar a comandos ``cp`` executados como tarefas em segundo plano:
 
@@ -72,18 +72,18 @@ Depois que os arquivos são coletados, você pode executar comandos de cópia pa
 
 ```bash
 cp /mnt/source/* /mnt/destination/
-mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ & 
+mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ &
 cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1c1 via recursion
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
 ## <a name="when-to-add-mount-points"></a>Quando adicionar pontos de montagem
 
-Depois de ter threads paralelos suficientes indo contra um único ponto de montagem do sistema de arquivos de destino, haverá um ponto em que adicionar mais threads não dá mais throughput. (O throughput será medido em arquivos/segundo ou bytes/segundo, dependendo do seu tipo de dados.) Ou pior, o excesso de rosca às vezes pode causar uma degradação de throughput.  
+Depois que você tiver threads paralelos suficientes indo para um único ponto de montagem do sistema de arquivos de destino, haverá um ponto em que a adição de mais threads não oferece mais taxa de transferência. (A taxa de transferência será medida em arquivos/segundo ou em bytes/segundo, dependendo do tipo de dados.) Ou pior, o excesso de threads pode, às vezes, causar uma degradação da taxa de transferência.
 
-Quando isso acontecer, você pode adicionar pontos de montagem do lado do cliente a outros endereços de montagem do Cache Azure HPC, usando o mesmo caminho de montagem do sistema de arquivos remoto:
+Quando isso acontece, você pode adicionar pontos de montagem do lado do cliente a outros endereços de montagem de cache do Azure HPC, usando o mesmo caminho de montagem do sistema de arquivos remoto:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -92,7 +92,7 @@ Quando isso acontecer, você pode adicionar pontos de montagem do lado do client
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Adicionar pontos de montagem do lado do cliente permite que você divida os comandos de cópia para pontos de montagem `/mnt/destination[1-3]` adicionais, obtendo ainda mais paralelismo.  
+Adicionar pontos de montagem do lado do cliente permite que você divida os comandos de cópia para pontos de montagem `/mnt/destination[1-3]` adicionais, obtendo ainda mais paralelismo.
 
 Por exemplo, se os arquivos forem muito grandes, você poderá definir os comandos de cópia para usar caminhos de destino distintos, enviando mais comandos em paralelo do cliente que está executando a cópia.
 
@@ -112,7 +112,7 @@ No exemplo acima, todos os três pontos de montagem de destino estão sendo dire
 
 ## <a name="when-to-add-clients"></a>Quando adicionar clientes
 
-Por fim, quando você tiver atingiu as funcionalidades do cliente, adicionar mais threads de cópia ou pontos de montagem não produzirá mais nenhum aumento de arquivos/s ou bytes/s. Nessa situação, você pode implantar outro cliente com o mesmo conjunto de pontos de montagem que vá executar os próprios conjuntos de processos de cópia de arquivo. 
+Por fim, quando você tiver atingiu as funcionalidades do cliente, adicionar mais threads de cópia ou pontos de montagem não produzirá mais nenhum aumento de arquivos/s ou bytes/s. Nessa situação, você pode implantar outro cliente com o mesmo conjunto de pontos de montagem que vá executar os próprios conjuntos de processos de cópia de arquivo.
 
 Exemplo:
 
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Criar manifestos de arquivista
 
-Depois de entender as abordagens acima (vários threads de cópia por destino, vários destinos por cliente, vários clientes por sistema de arquivos de origem acessível à rede), considere esta recomendação: Construa manifestos de arquivos e, em seguida, use-os com cópia comandos em vários clientes.
+Depois de entender as abordagens acima (vários threads de cópia por destino, vários destinos por cliente, vários clientes por sistema de arquivos de origem acessível por rede), considere esta recomendação: Compilar manifestos de arquivo e usá-los com comandos de cópia entre vários clientes.
 
 Esse cenário usa o comando ``find`` do UNIX para criar manifestos de arquivos ou diretórios:
 
@@ -158,7 +158,7 @@ Redirecione esse resultado para um arquivo: `find . -mindepth 4 -maxdepth 4 -typ
 Em seguida, você pode iterar pelo manifesto, usando comandos BASH para contar arquivos e determinar os tamanhos dos subdiretórios:
 
 ```bash
-ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l`    `du -sh ${i}`"; done
+ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
 244    3.5M    ./atj5b5ab44b7f-02/support/gsi/2018-07-18T00:07:03EDT
 9      172K    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-18T05:01:00UTC
 124    5.8M    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-19T01:01:01UTC
@@ -194,7 +194,7 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Por fim, você deve criar os comandos de cópia de arquivo reais para os clientes.  
+Por fim, você deve criar os comandos de cópia de arquivo reais para os clientes.
 
 Se você tiver quatro clientes, use este comando:
 
@@ -214,7 +214,7 @@ E por seis... Extrapolar conforme necessário.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Você obterá *N* arquivos resultantes, um para cada um dos seus *N* clientes que têm os nomes de caminho para os diretórios de quatro níveis obtidos como parte da saída do comando `find`. 
+Você obterá *N* arquivos resultantes, um para cada um dos seus *N* clientes que têm os nomes de caminho para os diretórios de quatro níveis obtidos como parte da saída do comando `find`.
 
 Use cada arquivo para criar o comando de cópia:
 
@@ -222,6 +222,6 @@ Use cada arquivo para criar o comando de cópia:
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-As opções acima gerará *N* arquivos, cada um com um comando de cópia por linha, que pode ser executado como um script BASH no cliente. 
+As opções acima gerará *N* arquivos, cada um com um comando de cópia por linha, que pode ser executado como um script BASH no cliente.
 
 A meta é executar vários threads desses scripts simultaneamente por cliente em paralelo em vários clientes.

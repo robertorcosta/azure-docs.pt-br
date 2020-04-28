@@ -1,19 +1,19 @@
 ---
-title: Crie um aplicativo Java de atores confiáveis do Azure Service Fabric no Linux
+title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
 description: Saiba como criar e implantar um aplicativo de reliable actors do Java Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458171"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193557"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C#-Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -204,7 +204,7 @@ A implantação do aplicativo interno é igual a qualquer outro aplicativo do Se
 
 Os parâmetros para esses comandos podem ser encontrados nos manifestos gerados dentro do pacote de aplicativos.
 
-Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Depois da implantação do aplicativo, abra um navegador e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em `http://localhost:19080/Explorer`.
 Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
@@ -232,7 +232,7 @@ Atores não fazem nada por conta própria, eles precisam de outro serviço ou cl
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3. A réplica do serviço primária é responsável pelas operações de leitura e gravação.  As alterações no estado de serviço são então replicadas para as réplicas secundárias, sendo executados nos nós 0 e 1 na captura de tela abaixo.
+2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3. A réplica do serviço primária é responsável pelas operações de leitura e gravação.  As alterações no estado do serviço são então replicadas para as réplicas secundárias, em execução nos nós 0 e 1 na captura de tela abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 
@@ -338,9 +338,9 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Como criar seu primeiro aplicativo em Java do Service Fabric no Linux usando o Eclipse](service-fabric-get-started-eclipse.md)
-* [Saiba mais sobre atores confiáveis](service-fabric-reliable-actors-introduction.md)
+* [Saiba mais sobre o Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagir com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
-* Conheça as [opções de suporte ao Service Fabric](service-fabric-support.md)
+* Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

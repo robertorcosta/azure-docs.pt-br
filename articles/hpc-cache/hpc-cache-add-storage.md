@@ -1,163 +1,163 @@
 ---
-title: Adicionar armazenamento a um cache Azure HPC
-description: Como definir alvos de armazenamento para que o cache Do Azure HPC possa usar seu sistema NFS no local ou contêineres Azure Blob para armazenamento de arquivos a longo prazo
+title: Adicionar armazenamento a um cache HPC do Azure
+description: Como definir destinos de armazenamento para que o cache HPC do Azure possa usar seu sistema NFS local ou contêineres de blob do Azure para o armazenamento de arquivos de longo prazo
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
-ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.date: 04/23/2020
+ms.author: v-erkel
+ms.openlocfilehash: dde29d02f3dbf10ca068d6b3f1ef6c326c206370
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537994"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195036"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
-*Os alvos de armazenamento* são o armazenamento back-end para arquivos que são acessados através de um cache Azure HPC. Você pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados no Azure Blob.
+Os *destinos de armazenamento* são armazenamento de back-end para arquivos que são acessados por meio de um cache do HPC do Azure. Você pode adicionar armazenamento NFS (como um sistema de hardware local) ou armazenar dados no blob do Azure.
 
-Você pode definir até dez alvos de armazenamento diferentes para um cache. O cache apresenta todos os alvos de armazenamento em um namespace agregado.
+Você pode definir até dez destinos de armazenamento diferentes para um cache. O cache apresenta todos os destinos de armazenamento em um namespace agregado.
 
-Lembre-se que as exportações de armazenamento devem estar acessíveis a partir da rede virtual do cache. Para armazenamento de hardware no local, talvez seja necessário configurar um servidor DNS que possa resolver nomes de host para acesso ao armazenamento NFS. Leia mais em [acesso ao DNS](hpc-cache-prereqs.md#dns-access).
+Lembre-se de que as exportações de armazenamento devem ser acessíveis da rede virtual do seu cache. Para o armazenamento de hardware local, talvez seja necessário configurar um servidor DNS que possa resolver nomes de host para acesso de armazenamento NFS. Leia mais em [acesso DNS](hpc-cache-prereqs.md#dns-access).
 
-Adicione metas de armazenamento após a criação do cache. O procedimento é ligeiramente diferente dependendo se você está adicionando armazenamento Azure Blob ou uma exportação NFS. Os detalhes para cada um estão abaixo.
+Adicione destinos de armazenamento depois de criar o cache. O procedimento é ligeiramente diferente dependendo se você está adicionando o armazenamento de BLOBs do Azure ou uma exportação de NFS. Os detalhes de cada um estão abaixo.
 
-## <a name="open-the-storage-targets-page"></a>Abra a página de metas de armazenamento
+## <a name="open-the-storage-targets-page"></a>Abrir a página destinos de armazenamento
 
-No portal Azure, abra sua instância de cache e clique em **Alvos de armazenamento** na barra lateral esquerda. A página de destinos de armazenamento lista todos os alvos existentes e dá um link para adicionar um novo.
+No portal do Azure, abra sua instância de cache e clique em **destinos de armazenamento** na barra lateral esquerda. A página destinos de armazenamento lista todos os destinos existentes e fornece um link para adicionar um novo.
 
-![captura de tela do link de alvos de armazenamento na barra lateral, sob o título Configurar, que está entre os títulos de categoria Configurações e Monitoramento](media/hpc-cache-storage-targets-sidebar.png)
+![captura de tela do link de destinos de armazenamento na barra lateral, sob o título configurar, que está entre as configurações de títulos de categoria e o monitoramento](media/hpc-cache-storage-targets-sidebar.png)
 
-## <a name="add-a-new-azure-blob-storage-target"></a>Adicionar um novo alvo de armazenamento Azure Blob
+## <a name="add-a-new-azure-blob-storage-target"></a>Adicionar um novo destino de armazenamento de BLOBs do Azure
 
-Um novo alvo de armazenamento Blob precisa de um contêiner Blob vazio ou de um contêiner preenchido com dados no formato de sistema de arquivos em nuvem Do Cache Azure HPC. Leia mais sobre o pré-carregamento de um contêiner Blob em [dados move para armazenamento Azure Blob](hpc-cache-ingest.md).
+Um novo destino de armazenamento de BLOBs precisa de um contêiner de blob vazio ou um contêiner que é preenchido com dados no formato do sistema de arquivos da nuvem de cache do HPC do Azure. Leia mais sobre pré-carregando um contêiner de BLOBs em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
-Você pode criar um novo contêiner a partir desta página pouco antes de adicioná-lo.
+Você pode criar um novo contêiner desta página logo antes de adicioná-lo.
 
-![captura de tela da página de destino de armazenamento adicionar, preenchida com informações para um novo alvo de armazenamento Azure Blob](media/hpc-cache-add-blob.png)
+![captura de tela da página Adicionar destino de armazenamento, preenchida com informações para um novo destino de armazenamento de BLOBs do Azure](media/hpc-cache-add-blob.png)
 
-Para definir um contêiner Azure Blob, digite essas informações.
+Para definir um contêiner de blob do Azure, insira essas informações.
 
-* **Nome de destino de** armazenamento - Defina um nome que identifique esse destino de armazenamento no cache Do Azure HPC.
-* **Tipo de destino** - Escolha **Blob**.
-* **Conta de armazenamento** - Selecione a conta que deseja usar.
+* **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
+* **Tipo de destino** -escolha **blob**.
+* **Conta de armazenamento** -selecione a conta que você deseja usar.
 
-  Você precisará autorizar a instância de cache para acessar a conta de armazenamento conforme descrito em [Adicionar as funções de acesso](#add-the-access-control-roles-to-your-account).
+  Você precisará autorizar a instância de cache a acessar a conta de armazenamento, conforme descrito em [Adicionar as funções de acesso](#add-the-access-control-roles-to-your-account).
 
-  Para obter informações sobre o tipo de conta de armazenamento que você pode usar, leia [os requisitos de armazenamento Blob](hpc-cache-prereqs.md#blob-storage-requirements).
+  Para obter informações sobre o tipo de conta de armazenamento que você pode usar, leia [requisitos de armazenamento de BLOBs](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Contêiner de armazenamento** - Selecione o recipiente Blob para este destino ou clique **em Criar novo**.
+* **Contêiner de armazenamento** -selecione o contêiner de BLOB para este destino ou clique em **criar novo**.
 
-  ![captura de tela de diálogo para especificar nome e nível de acesso (privado) para novo contêiner](media/add-blob-new-container.png)
+  ![captura de tela da caixa de diálogo para especificar o nome e o nível de acesso (privado) para o novo contêiner](media/add-blob-new-container.png)
 
-* **Caminho de namespace virtual** - Defina o caminho do arquivo voltado para o cliente para esse destino de armazenamento. Leia [Configure namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
+* **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
-Quando terminar, clique em **OK** para adicionar o alvo de armazenamento.
+Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 > [!NOTE]
-> Se o firewall da conta de armazenamento estiver definido para restringir o acesso apenas a "redes selecionadas", use a solução temporária documentada em Trabalhar em [torno das configurações de firewall da conta de armazenamento Blob](hpc-cache-blob-firewall-fix.md).
+> Se o firewall da sua conta de armazenamento estiver definido para restringir o acesso somente a "redes selecionadas", use a solução alternativa temporária documentada em contornar [as configurações de firewall da conta de armazenamento de BLOBs](hpc-cache-blob-firewall-fix.md).
 
-### <a name="add-the-access-control-roles-to-your-account"></a>Adicione as funções de controle de acesso à sua conta
+### <a name="add-the-access-control-roles-to-your-account"></a>Adicionar as funções de controle de acesso à sua conta
 
-O Azure HPC Cache usa [o RBAC (Role-Based Access Control, controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o serviço de cache a acessar sua conta de armazenamento para alvos de armazenamento Do Azure Blob.
+O cache HPC do Azure usa o [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o serviço de cache a acessar sua conta de armazenamento para destinos do armazenamento de BLOBs do Azure.
 
-O proprietário da conta de armazenamento deve adicionar explicitamente as funções [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) e Storage [Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "HPC Cache Resource Provider".
+O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador da [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos de cache do HPC".
 
-Você pode fazer isso com antecedência ou clicando em um link na página onde você adiciona um alvo de armazenamento Blob. Tenha em mente que pode levar até cinco minutos para que as configurações de função se propaguem através do ambiente Azure, então você deve esperar alguns minutos depois de adicionar as funções antes de criar um alvo de armazenamento.
+Você pode fazer isso antecipadamente ou clicando em um link na página em que você adiciona um destino de armazenamento de BLOBs. Tenha em mente que pode levar até cinco minutos para que as configurações de função se propaguem por meio do ambiente do Azure, portanto, você deve aguardar alguns minutos depois de adicionar as funções antes de criar um destino de armazenamento.
 
-Etapas para adicionar as funções RBAC:
+Etapas para adicionar as funções de RBAC:
 
-1. Abra a página **de controle de acesso (IAM)** para a conta de armazenamento. (O link na página **de destino Adicionar armazenamento** abre automaticamente esta página para a conta selecionada.)
+1. Abra a página **controle de acesso (iam)** para a conta de armazenamento. (O link na página **Adicionar destino de armazenamento** abre automaticamente esta página para a conta selecionada.)
 
-1. Clique **+** na parte superior da página e escolha **Adicionar uma atribuição de função**.
+1. Clique no **+** na parte superior da página e escolha **Adicionar uma atribuição de função**.
 
-1. Selecione a função "Contribuinte da conta de armazenamento" na lista.
+1. Selecione a função "colaborador da conta de armazenamento" na lista.
 
-1. No **campo Atribuir acesso ao** campo, deixe o valor padrão selecionado ("Usuário, grupo ou principal de serviço do Azure AD").  
+1. No campo **atribuir acesso a** , deixe o valor padrão selecionado ("usuário do Azure AD, grupo ou entidade de serviço").  
 
-1. No campo **Selecionar,** procure por "hpc".  Essa seqüência deve corresponder a um princípio de serviço, chamado "Provedor de recursos de cache HPC". Clique nesse princípio para selecioná-lo.
+1. No campo **selecionar** , procure "HPC".  Essa cadeia de caracteres deve corresponder a uma entidade de serviço, denominada "provedor de recursos de cache do HPC". Clique nessa entidade para selecioná-la.
 
    > [!NOTE]
-   > Se uma pesquisa por "hpc" não funcionar, tente usar a string "storagecache" em vez disso. Os usuários que participaram de pré-visualizações (antes da GA) podem precisar usar o nome mais antigo para o principal do serviço.
+   > Se uma pesquisa por "HPC" não funcionar, tente usar a cadeia de caracteres "storagecache" em vez disso. Os usuários que participaram de visualizações (antes do GA) talvez precisem usar o nome mais antigo para a entidade de serviço.
 
-1. Clique no botão **Salvar** na parte inferior.
+1. Clique no botão **salvar** na parte inferior.
 
-1. Repita este processo para atribuir a função "Storage Blob Data Contributor".  
+1. Repita esse processo para atribuir a função "colaborador de dados de blob de armazenamento".  
 
 ![captura de tela de adicionar GUI de atribuição de função](media/hpc-cache-add-role.png)
 
-## <a name="add-a-new-nfs-storage-target"></a>Adicionar um novo alvo de armazenamento NFS
+## <a name="add-a-new-nfs-storage-target"></a>Adicionar um novo destino de armazenamento NFS
 
-Um alvo de armazenamento NFS tem mais campos do que o alvo de armazenamento Blob. Esses campos especificam como alcançar a exportação de armazenamento e como armazenar seus dados de forma eficiente. Além disso, um destino de armazenamento NFS permite criar vários caminhos de namespace se o host NFS tiver mais de uma exportação disponível.
+Um destino de armazenamento NFS tem mais campos do que o destino do armazenamento de BLOBs. Esses campos especificam como alcançar a exportação de armazenamento e como armazenar seus dados em cache de forma eficiente. Além disso, um destino de armazenamento NFS permite criar vários caminhos de namespace se o host NFS tiver mais de uma exportação disponível.
 
-![Captura de tela de adicionar página-alvo de armazenamento com destino NFS definido](media/add-nfs-target.png)
+![Captura de tela da página Adicionar destino de armazenamento com o destino NFS definido](media/add-nfs-target.png)
 
 > [!NOTE]
-> Antes de criar um destino de armazenamento NFS, certifique-se de que seu sistema de armazenamento esteja acessível a partir do cache Do Azure HPC e atenda aos requisitos de permissão. A criação do destino de armazenamento falhará se o cache não puder acessar o sistema de armazenamento. Leia [os requisitos de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements) e [problemas de configuração nas e armazenamento NFS para obter detalhes.](troubleshoot-nas.md)
+> Antes de criar um destino de armazenamento NFS, verifique se o sistema de armazenamento está acessível no cache do HPC do Azure e atende aos requisitos de permissão. A criação do destino de armazenamento falhará se o cache não puder acessar o sistema de armazenamento. Leia [requisitos de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements) e solucione problemas de [configuração do nas e destino de armazenamento NFS](troubleshoot-nas.md) para obter detalhes.
 
-Forneça essas informações para um alvo de armazenamento com backup do NFS:
+Forneça essas informações para um destino de armazenamento com backup em NFS:
 
-* **Nome de destino de** armazenamento - Defina um nome que identifique esse destino de armazenamento no cache Do Azure HPC.
+* **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
 
-* **Tipo de destino** - Escolha **NFS**.
+* **Tipo de destino** -escolha **NFS**.
 
-* **Nome do host** - Digite o endereço IP ou o nome de domínio totalmente qualificado para o seu sistema de armazenamento NFS. (Use um nome de domínio somente se o cache tiver acesso a um servidor DNS que possa resolver o nome.)
+* **Hostname** – Insira o endereço IP ou o nome de domínio totalmente qualificado para o sistema de armazenamento NFS. (Use um nome de domínio somente se o cache tiver acesso a um servidor DNS que possa resolver o nome.)
 
-* **Modelo de uso** - Escolha um dos perfis de cache de dados com base no seu fluxo de trabalho, descrito em [Escolha um modelo de uso](#choose-a-usage-model), abaixo.
+* **Modelo de uso** – escolha um dos perfis de cache de dados com base em seu fluxo de trabalho, descrito em [escolher um modelo de uso](#choose-a-usage-model), abaixo.
 
-### <a name="nfs-namespace-paths"></a>Caminhos de namespace do NFS
+### <a name="nfs-namespace-paths"></a>Caminhos de namespace NFS
 
 Um destino de armazenamento NFS pode ter vários caminhos virtuais, desde que cada caminho represente uma exportação ou subdiretório diferente no mesmo sistema de armazenamento.
 
-Crie todos os caminhos a partir de um alvo de armazenamento.
+Crie todos os caminhos de um destino de armazenamento.
 
-Você pode [adicionar e editar caminhos de namespace](hpc-cache-edit-storage.md) em um alvo de armazenamento a qualquer momento.
+Você pode [Adicionar e editar caminhos de namespace](hpc-cache-edit-storage.md) em um destino de armazenamento a qualquer momento.
 
 Preencha esses valores para cada caminho de namespace:
 
-* **Caminho de namespace virtual** - Defina o caminho do arquivo voltado para o cliente para esse destino de armazenamento. Leia [Configure namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
+* **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
-* **Caminho de exportação NFS** - Digite o caminho para a exportação nfs.
+* **Caminho de exportação de NFS** -Insira o caminho para a exportação de NFS.
 
-* **Caminho de subdiretório** - Se você quiser montar um subdiretório específico da exportação, insira-o aqui. Se não, deixe este campo em branco.
+* **Caminho do subdiretório** -se você quiser montar um subdiretório específico da exportação, insira-o aqui. Caso contrário, deixe esse campo em branco.
 
-Quando terminar, clique em **OK** para adicionar o alvo de armazenamento.
+Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
-### <a name="choose-a-usage-model"></a>Escolha um modelo de uso
+### <a name="choose-a-usage-model"></a>Escolher um modelo de uso
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-Quando você cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o modelo de uso para esse destino. Este modelo determina como seus dados são armazenados em cache.
+Ao criar um destino de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o modelo de uso para esse destino. Esse modelo determina como os dados são armazenados em cache.
 
 Há três opções:
 
-* **Leia gravações pesadas e pouco frequentes** - Use esta opção se quiser acelerar o acesso à leitura de arquivos que são estáticos ou raramente alterados.
+* **Ler gravações pesadas e frequentes** – Use essa opção se você quiser acelerar o acesso de leitura para arquivos que são estáticos ou raramente alterados.
 
-  Essa opção armazena arquivos que os clientes lêem, mas passa gravações para o armazenamento back-end imediatamente. Os arquivos armazenados no cache nunca são comparados com os arquivos no volume de armazenamento NFS.
+  Essa opção armazena em cache os arquivos que os clientes lêem, mas passa gravações para o armazenamento de back-end imediatamente. Os arquivos armazenados no cache nunca são comparados aos arquivos no volume de armazenamento NFS.
 
-  Não use essa opção se houver o risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem antes escrevê-lo no cache. Se isso acontecer, a versão armazenada em cache do arquivo nunca será atualizada com alterações do back-end, e o conjunto de dados pode se tornar inconsistente.
+  Não use essa opção se houver um risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem primeiro gravá-lo no cache. Se isso acontecer, a versão armazenada em cache do arquivo nunca será atualizada com alterações do back-end e o conjunto de dados poderá se tornar inconsistente.
 
-* **Maior que 15% de gravações** - Esta opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos através do Cache Azure HPC em vez de montar o armazenamento back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas na parte traseira.
+* **Mais de 15% de gravações** – essa opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas no back-end.
 
-  Neste modelo de uso, os arquivos no cache não são verificados contra os arquivos no armazenamento back-end. A versão armazenada em cache do arquivo é considerada mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento back-end depois de estar no cache por uma hora sem alterações adicionais.
+  Nesse modelo de uso, os arquivos no cache não são verificados em relação aos arquivos no armazenamento de back-end. Pressupõe-se que a versão em cache do arquivo seja mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento de back-end depois que ele está no cache por uma hora sem nenhuma alteração adicional.
 
-* **Os clientes escrevem no destino NFS, ignorando o cache** - Escolha essa opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem antes escrever para o cache. Os arquivos que os clientes solicitam são armazenados em cache, mas quaisquer alterações nesses arquivos do cliente são repassadas imediatamente para o sistema de armazenamento back-end.
+* **Os clientes gravam no destino NFS, ignorando o cache** -escolha esta opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem primeiro gravar no cache. Os arquivos que os clientes solicitam são armazenados em cache, mas quaisquer alterações nesses arquivos do cliente são passadas de volta para o sistema de armazenamento de back-end imediatamente.
 
-  Com este modelo de uso, os arquivos no cache são frequentemente verificados em relação às versões back-end para atualizações. Essa verificação permite que os arquivos sejam alterados fora do cache, mantendo a consistência dos dados.
+  Com esse modelo de uso, os arquivos no cache são verificados frequentemente em relação às versões de back-end para atualizações. Essa verificação permite que os arquivos sejam alterados fora do cache enquanto mantêm a consistência dos dados.
 
 Esta tabela resume as diferenças do modelo de uso:
 
-| Modelo de uso | Modo de cache | Verificação back-end | Atraso máximo de gravação |
+| Modelo de uso | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 | ---- | ---- | ---- | ---- |
-| Leia gravações pesadas e pouco freqüentes | Ler | Never | Nenhum |
-| Maior que 15% escreve | Leitura/gravação | Never | 1 hora |
-| Os clientes contornam o cache | Ler | 30 segundos | Nenhum |
+| Leia gravações pesadas e frequentes | Ler | Never | Nenhum |
+| Mais de 15% de gravações | Leitura/gravação | Never | 1 hora |
+| Clientes ignoram o cache | Ler | 30 segundos | Nenhum |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar metas de armazenamento, considere uma dessas tarefas:
+Depois de criar destinos de armazenamento, considere uma destas tarefas:
 
 * [Montar o Azure HPC Cache](hpc-cache-mount.md)
-* [Mova dados para o armazenamento Do Azure Blob](hpc-cache-ingest.md)
+* [Mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md)
 
-Se você precisar atualizar qualquer configuração, você pode [editar um alvo de armazenamento](hpc-cache-edit-storage.md).
+Se precisar atualizar as configurações, você poderá [Editar um destino de armazenamento](hpc-cache-edit-storage.md).

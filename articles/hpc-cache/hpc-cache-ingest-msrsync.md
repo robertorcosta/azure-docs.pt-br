@@ -1,40 +1,40 @@
 ---
-title: Azure HPC Cache data ingest - msrsync
-description: Como usar o msrsync para mover dados para um alvo de armazenamento Blob no Cache Azure HPC
+title: Ingestão de dados do cache HPC do Azure-msrsync
+description: Como usar o msrsync para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e0442b6aa1404ae5f57445179979496faa09863
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74168431"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194968"
 ---
-# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC Cache data ingest - msrsync method
+# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingestão de dados do cache HPC do Azure – método msrsync
 
-Este artigo fornece instruções ``msrsync`` detalhadas para usar o utilitário para copiar dados para um contêiner de armazenamento Azure Blob para uso com cache Azure HPC.
+Este artigo fornece instruções detalhadas sobre como usar ``msrsync`` o utilitário para copiar dados para um contêiner de armazenamento de BLOBs do Azure para uso com o cache HPC do Azure.
 
-Para saber mais sobre como mover dados para o armazenamento Blob para o cache Do Azure HPC, leia [Mover dados para o armazenamento Azure Blob](hpc-cache-ingest.md).
+Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
-A ``msrsync`` ferramenta pode ser usada para mover dados para um alvo de armazenamento back-end para o Cache Azure HPC. Essa ferramenta é projetada para otimizar o uso de largura de banda, executando vários processos ``rsync`` paralelos. Está disponível no GitHub em https://github.com/jbd/msrsync.
+A ``msrsync`` ferramenta pode ser usada para mover dados para um destino de armazenamento de back-end para o cache do HPC do Azure. Essa ferramenta é projetada para otimizar o uso de largura de banda, executando vários processos ``rsync`` paralelos. Está disponível no GitHub em https://github.com/jbd/msrsync.
 
 ``msrsync`` divide o diretório de origem em "buckets" separados e, em seguida, executa processos ``rsync`` individuais em cada bucket.
 
 Testes preliminares usando uma VM de quatro núcleos mostraram a melhor eficiência ao usar 64 processos. Use a opção ``msrsync````-p`` para definir o número de processos como 64.
 
-Observe que ``msrsync`` pode gravar de e para volumes locais. A origem e o destino devem ser acessíveis como montagens locais na estação de trabalho usada para emitir o comando.
+Observe que ``msrsync`` pode gravar de e para volumes locais. A origem e o destino devem estar acessíveis como montagens locais na estação de trabalho usada para emitir o comando.
 
-Siga estas ``msrsync`` instruções a serem usadas para preencher o armazenamento Do Azure Blob com o Cache Azure HPC:
+Siga estas instruções para usar ``msrsync`` o para preencher o armazenamento de BLOBs do Azure com o cache do HPC do Azure:
 
-1. Instalar ``msrsync`` e seus pré-requisitos (e``rsync`` Python 2.6 ou posterior)
+1. Instalar ``msrsync`` e seus pré-requisitos (``rsync`` e Python 2,6 ou posterior)
 1. Determine o número total de arquivos e diretórios a serem copiados.
 
-   Por exemplo, use ``prime.py`` o ```prime.py --directory /path/to/some/directory``` utilitário com argumentos (disponível para download <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Por exemplo, use o utilitário ``prime.py`` com argumentos ```prime.py --directory /path/to/some/directory``` (disponíveis por download <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   Se não ``prime.py``estiver usando, você pode calcular o ``find`` número de itens com a ferramenta GNU da seguinte forma:
+   Se não estiver ``prime.py``usando o, você poderá calcular o número de itens com ``find`` a ferramenta GNU da seguinte maneira:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -50,6 +50,6 @@ Siga estas ``msrsync`` instruções a serem usadas para preencher o armazenament
    msrsync -P --stats -p64 -f<ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   Por exemplo, este comando foi projetado para mover 11.000 arquivos em 64 processos de /test/source-repository para /mnt/hpccache/repositório:
+   Por exemplo, este comando foi projetado para mover arquivos 11.000 em 64 processos de/Test/Source-Repository para/mnt/hpccache/Repository:
 
    ``mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository``
