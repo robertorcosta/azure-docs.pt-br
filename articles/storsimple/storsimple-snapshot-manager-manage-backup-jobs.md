@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933343"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup
@@ -26,7 +26,7 @@ ms.locfileid: "75933343"
 ## <a name="overview"></a>Visão geral
 O nó **Trabalhos** no painel **Escopo** mostra as tarefas de backup **Agendado**, **Últimas 24 horas** e **Em execução** iniciadas interativamente ou por uma política configurada. 
 
-Este tutorial explica como você pode usar o nó **Trabalhos** para exibir informações sobre os trabalhos de backup agendados, recentes e em execução no momento. (A lista de empregos e informações correspondentes aparece no painel **Resultados.)** Além disso, você pode clicar com o botão direito do mouse em um trabalho listado e ver um menu de contexto que lista as ações disponíveis.
+Este tutorial explica como você pode usar o nó **Trabalhos** para exibir informações sobre os trabalhos de backup agendados, recentes e em execução no momento. (A lista de trabalhos e as informações correspondentes são exibidas no painel de **resultados** .) Além disso, você pode clicar com o botão direito do mouse em um trabalho listado e ver um menu de contexto que lista as ações disponíveis.
 
 ## <a name="view-scheduled-jobs"></a>Ver trabalhos agendados
 Use o procedimento a seguir para exibir os trabalhos de backup agendados.

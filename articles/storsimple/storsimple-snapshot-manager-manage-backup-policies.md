@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933354"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
 ## <a name="overview"></a>Visão geral
-Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode reter um máximo de 64 instantâneos.) Para obter mais informações sobre políticas de backup, consulte [tipos de backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) na série [StorSimple 8000: uma solução de nuvem híbrida](storsimple-overview.md).
+Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode reter um máximo de 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [tipos de backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) no [StorSimple 8000 Series: uma solução de nuvem híbrida](storsimple-overview.md).
 
 Este tutorial explica como:
 

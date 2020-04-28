@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas do desempenho da máquina virtual do Azure no Linux ou Windows
-description: Este artigo descreve a solução genérica de problemas de desempenho da máquina virtual (VM) através do monitoramento e observação de gargalos e fornece possíveis remediações para problemas que possam ocorrer.
+title: Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
+description: Este artigo descreve a solução de problemas de desempenho genérico da VM (máquina virtual) por meio do monitoramento e da observação de afunilamentos e fornece uma possível correção para problemas que possam ocorrer.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -14,242 +14,242 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75772611"
 ---
-# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas do desempenho da máquina virtual do Azure no Linux ou Windows
+# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
 
-Este artigo descreve a solução genérica de problemas de desempenho da máquina virtual (VM) através do monitoramento e observação de gargalos e fornece possíveis remediações para problemas que possam ocorrer. Além do monitoramento, você também pode usar o Perfinsights, que pode fornecer um relatório com recomendações de práticas recomendadas e gargalos principais em torno de IO/CPU/Memory. O Perfinsights está disponível para [VMs Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) no Azure.
+Este artigo descreve a solução de problemas de desempenho genérico da VM (máquina virtual) por meio do monitoramento e da observação de afunilamentos e fornece uma possível correção para problemas que possam ocorrer. Além do monitoramento, você também pode usar o Perfinsights, que pode fornecer um relatório com recomendações de práticas recomendadas e afunilamentos-chave em relação à e/s/CPU/memória. O Perfinsights está disponível para VMs do [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) no Azure.
 
-Este artigo passará por meio do monitoramento para diagnosticar gargalos de desempenho.
+Este artigo abordará o uso do monitoramento para diagnosticar gargalos de desempenho.
 
 ## <a name="enabling-monitoring"></a>Habilitar o monitoramento
 
-### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinavirtual Azure IAAS
+### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinas virtuais IAAS do Azure
 
-Para monitorar a VM convidada, use o Monitor de VM do Azure, que irá alertá-lo para certas condições de recursos de alto nível. Para verificar se você tem os diagnósticos de VM ativados, consulte [a visão geral dos registros do Azure Resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se você ver o seguinte, então provavelmente não terá os diagnósticos ativados:
+Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
 
-![O monitoramento não está ativado](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
+![O monitoramento não está habilitado](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
-### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Habilite os diagnósticos de VM através do portal Microsoft Azure
+### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Habilitar o diagnóstico de VM por meio do Microsoft portal do Azure
 
-Para habilitar diagnósticos em VM:
+Para habilitar o diagnóstico de VM:
 
-1. Vá para a VM
-2. Clique **em Configurações de diagnóstico**
-3. Selecione a conta de armazenamento e clique **em Ativar o monitoramento em nível de hóspedes**.
+1. Ir para a VM
+2. Clique em **configurações de diagnóstico**
+3. Selecione a conta de armazenamento e clique em **habilitar o monitoramento em nível de convidado**.
 
-   ![Clique em Configurações e, em seguida, Diagnósticos](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+   ![Clique em configurações e em diagnóstico](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
 
-Você pode verificar a conta de armazenamento usada para configuração de Diagnóstico a partir da guia **Agente** em **Configurações de Diagnóstico**.
+Você pode verificar a conta de armazenamento usada para a configuração de diagnóstico na guia **agente** em **configurações de diagnóstico**.
 
 ![Verificar conta de armazenamento](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
 
-### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Habilite o diagnóstico da conta de armazenamento através do portal Azure
+### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Habilitar o diagnóstico da conta de armazenamento por meio do portal do Azure
 
-O armazenamento é um nível muito importante quando pretendemos analisar o desempenho de IO para uma máquina virtual no Azure. Para métricas relacionadas ao armazenamento, precisamos habilitar o diagnóstico como um passo adicional. Isso também pode ser habilitado, se quisermos apenas analisar os contadores relacionados ao armazenamento.
+O armazenamento é uma camada muito importante quando pretendemos analisar o desempenho de e/s de uma máquina virtual no Azure. Para métricas relacionadas ao armazenamento, precisamos habilitar o diagnóstico como uma etapa adicional. Isso também pode ser habilitado se quisermos apenas analisar os contadores relacionados ao armazenamento.
 
-1. Identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique **em Configurações**e clique **em Discos:**
+1. Identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique em **configurações**e em **discos**:
 
-   ![Clique em Configurações e, em seguida, discos](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
+   ![Clique em configurações e em discos](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-2. No portal, vá para a conta de armazenamento (ou contas) para a VM e trabalhe através das seguintes etapas:
+2. No portal, vá para a conta de armazenamento (ou contas) para a VM e trabalhe com as seguintes etapas:
 
-   1. Clique em visão geral da conta armazenamento encontrada com o passo acima.
-   2. Métricas padrão seriam mostradas. 
+   1. Clique em visão geral da conta de armazenamento encontrada com a etapa acima.
+   2. As métricas padrão seriam mostradas. 
 
     ![Métricas padrão](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
 
-3. Clique em qualquer uma das métricas, que mostrará outra lâmina com mais opções para configurar e adicionar métricas.
+3. Clique em qualquer uma das métricas, que mostrará outra folha com mais opções para configurar e adicionar métricas.
 
    ![Adicionar Métricas](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
 
 Para configurar essas opções:
 
-1.  Selecione **Métricas**.
-2.  Selecione o **Recurso** (conta de armazenamento).
+1.  Selecione **métricas**.
+2.  Selecione o **recurso** (conta de armazenamento).
 3.  Selecione o **namespace**
-4.  Selecione **Métrica**.
-5.  Selecione o tipo **de Agregação**
-6.  Você pode fixar esta visão no painel.
+4.  Selecione **métrica**.
+5.  Selecione o tipo de **agregação**
+6.  Você pode fixar essa exibição no painel.
 
-## <a name="observing-bottlenecks"></a>Observando gargalos
+## <a name="observing-bottlenecks"></a>Observando afunilamentos
 
-Uma vez que estamos no processo inicial de configuração para métricas necessárias, e postando habilitando os diagnósticos para VM e conta de armazenamento relacionado, podemos mudar para a fase de análise.
+Uma vez que estamos usando o processo inicial de configuração para as métricas necessárias e postando o diagnóstico para a VM e a conta de armazenamento relacionada, podemos mudar para a fase de análise.
 
 ### <a name="accessing-the-monitoring"></a>Acessando o monitoramento
 
-Selecione a VM Azure que deseja investigar e selecione **Monitoramento**.
+Selecione a VM do Azure que você deseja investigar e selecione **monitoramento**.
 
 ![Selecionar monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>Cronogramas de observação
 
-Para identificar se você tem algum gargalo de recursos, revise seus dados. Se você achar que sua máquina está funcionando bem, mas foi relatado que o desempenho foi recentemente degradado, revise um intervalo de tempo de dados que engloba dados métricos de desempenho antes da alteração relatada, durante e após o problema.
+Para identificar se há gargalos de recursos, examine os dados. Se você descobrir que seu computador está funcionando bem, mas foi informado que o desempenho foi degradado recentemente, examine um intervalo de tempo de dados que abrange os dados de métrica de desempenho antes que o relatório seja alterado, durante e após o problema.
 
-### <a name="check-for-cpu-bottleneck"></a>Verifique se há gargalo da CPU
+### <a name="check-for-cpu-bottleneck"></a>Verificar afunilamento de CPU
 
-![Verifique o gargalo da CPU](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
+![Verificar afunilamento de CPU](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
-1. Edite o Gráfico.
+1. Edite o grafo.
 2. Defina o intervalo de tempo.
-3. Em seguida, você precisa adicionar no contador: CPU Percentage Guest OS
+3. Em seguida, você precisa adicionar no contador: sistema operacional convidado do percentual de CPU
 4. Salve.
 
-### <a name="cpu-observe-trends"></a>Cpu observar tendências
+### <a name="cpu-observe-trends"></a>Tendências de observar a CPU
 
-Ao olhar para os problemas de desempenho, esteja ciente das tendências e entenda se elas afetam você. Nas próximas seções, usaremos os gráficos de monitoramento do portal para mostrar tendências. Eles também podem ser úteis para fazer referênciacruzada sustais de comportamentos de recursos no mesmo período de tempo. Para personalizar os gráficos, clique na [plataforma de dados Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+Ao examinar problemas de desempenho, esteja atento às tendências e entenda se elas afetam você. Nas próximas seções, usaremos os gráficos de monitoramento do portal para mostrar as tendências. Eles também podem ser úteis para comportamentos de recursos de diferença de referência cruzada no mesmo período de tempo. Para personalizar os grafos, clique em [Azure monitor plataforma de dados](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
 
-Spiking – Spiking pode estar relacionado a uma tarefa agendada/evento conhecido. Se você puder identificar a tarefa, determine se a tarefa é executada no nível de desempenho necessário. Se o desempenho for aceitável, talvez não seja necessário aumentar os recursos.
+Travado – travado pode estar relacionado a uma tarefa agendada/evento conhecido. Se você puder identificar a tarefa, determine se a tarefa é executada no nível de desempenho necessário. Se o desempenho for aceitável, talvez não seja necessário aumentar os recursos.
 
-Spike up e Constant – Muitas vezes indica uma nova carga de trabalho. Se não for uma carga de trabalho reconhecida, habilite o monitoramento na VM para descobrir qual processo (ou processos) causa o comportamento. Uma vez que o processo é reconhecido, determine se o aumento do consumo está sendo causado por código ineficiente ou consumo normal. Se o consumo normal, decida se o processo opera no nível de desempenho necessário.
+Pico e constante – geralmente indica uma nova carga de trabalho. Se não for uma carga de trabalho reconhecida, habilite o monitoramento na VM para descobrir qual processo (ou processos) causa o comportamento. Depois que o processo for reconhecido, determine se o aumento de consumo está sendo causado por código ineficiente ou consumo normal. Se o consumo normal, decida se o processo opera no nível de desempenho necessário.
 
-Constante – Determine se sua VM sempre foi executada neste nível ou se ela só foi executada nesse nível desde que os diagnósticos foram ativados. Se sim, identifique o processo (ou processos) que causam o problema e considere adicionar mais desse recurso.
+Constante – determine se a VM sempre foi executada nesse nível ou se ela só está sendo executada nesse nível desde que o diagnóstico foi habilitado. Nesse caso, identifique o processo (ou processos) que está causando o problema e considere adicionar mais desse recurso.
 
-Aumentando constantemente – Um aumento constante no consumo é, muitas vezes, um código ineficiente ou um processo que assume mais carga de trabalho do usuário.
+Aumentando constantemente – um aumento constante no consumo geralmente é um código ineficiente ou um processo que assume mais carga de trabalho do usuário.
 
-### <a name="high-cpu-utilization-remediation"></a>Alta remediação de utilização da CPU
+### <a name="high-cpu-utilization-remediation"></a>Alta correção de utilização da CPU
 
-Se o seu aplicativo ou processo não estiver sendo executado no nível correto de desempenho e você estiver vendo 95% + a constante de utilização da CPU, você pode executar qualquer uma das seguintes tarefas:
+Se seu aplicativo ou processo não estiver em execução no nível de desempenho correto e você estiver vendo a constante de utilização de 95% + CPU, poderá executar uma das seguintes tarefas:
 
-* Para alívio imediato - Aumente o tamanho da VM para um tamanho com mais núcleos
-* Entenda o problema – localize o aplicativo/processo e soque-o de acordo.
+* Para a relevo imediata-aumente o tamanho da VM para um tamanho com mais núcleos
+* Entenda o problema – localize o aplicativo/processo e solucione-o de acordo.
 
-Se você aumentou a VM, e a CPU ainda está em execução de 95%, determine se essa configuração está oferecendo melhor desempenho ou maior rendimento do aplicativo a um nível aceitável. Caso assim, soluciona solucionar problemas nesse processo de aplicação individual.
+Se você tiver aumentado a VM e a CPU ainda estiver executando 95%, determine se essa configuração está oferecendo melhor desempenho ou maior taxa de transferência de aplicativo para um nível aceitável. Caso contrário, solucione o problema dessa application\process. individual
 
-Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está impulsionando o consumo de CPU. 
+Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está orientando o consumo de CPU. 
 
-## <a name="check-for-memory-bottleneck"></a>Verifique se há gargalo de memória
+## <a name="check-for-memory-bottleneck"></a>Verificar afunilamento de memória
 
-Para visualizar as métricas:
+Para exibir as métricas:
 
 1. Adicione uma seção.
-2. Adicione um azulejo.
-3. Abra a Galeria.
-4. Selecione o Uso de Memória e arraste. Quando o azulejo estiver encaixado, clique com o botão direito do mouse e selecione **6x4**.
+2. Adicione um bloco.
+3. Abra a galeria.
+4. Selecione o uso de memória e arraste. Quando o bloco estiver encaixado, clique com o botão direito do mouse e selecione **6x4**.
 
-### <a name="memory-observe-trends"></a>Memória observar tendências
+### <a name="memory-observe-trends"></a>Tendências de observar memória
 
-O Uso da Memória mostra quanta memória está sendo consumida com a VM. Entenda a tendência e se ela mapeia até o momento em que você vê problemas. Você deve sempre ter mais de 100 MB de memória disponível.
+O uso de memória mostra a quantidade de memória que está sendo consumida com a VM. Entenda a tendência e se ela é mapeada para o momento em que você vê problemas. Você deve ter sempre mais de 100 MB de memória disponível.
 
-Spike e Consumo Constante Constante - A alta utilização da memória pode não ser a causa do mau desempenho, pois alguns aplicativos, como motores de banco de dados relacionais, alocam uma grande quantidade de memória, e essa utilização pode não ser significativa. No entanto, se houver vários aplicativos com fome de memória, você poderá ver um desempenho ruim da contenção da memória causando corte e paginação/troca em disco. Esse desempenho ruim é muitas vezes uma causa perceptível do impacto no desempenho do aplicativo.
+Consumo estável e constante/constante-a utilização de memória alta pode não ser a causa do mau desempenho, já que alguns aplicativos, como os mecanismos de banco de dados relacional, alocam uma grande quantidade de memória, e essa utilização pode não ser significativa. No entanto, se houver vários aplicativos que exigem muita memória, você poderá ver um baixo desempenho da contenção de memória, causando corte e paginação/troca de disco. Esse baixo desempenho geralmente é uma causa perceptível do impacto no desempenho do aplicativo.
 
-Aumento constante do consumo – Uma possível aplicação de "aquecimento", esse consumo é comum entre os motores de banco de dados que iniciam. No entanto, isso também pode ser um sinal de perda de memória em um aplicativo. Identifique a aplicação e entenda se o comportamento é esperado.
+Consumo cada vez maior – um possível "aquecimento" do aplicativo, esse consumo é comum entre os mecanismos de banco de dados iniciando. No entanto, isso também pode ser um sinal de perda de memória em um aplicativo. Identifique o aplicativo e entenda se o comportamento é esperado.
 
-Página ou Uso de arquivo de swap – Verifique se você está\) usando o arquivo de `/dev/sdb`paginação do Windows (localizado em D: ou o arquivo Linux Swap (localizado) está sendo muito usado. Se você não tiver nada nesses volumes, exceto esses arquivos, verifique se há leitura/gravações altas nesses discos. Esta questão é indicativa de baixas condições de memória.
+Uso de página ou troca de arquivo – Verifique se você está usando o arquivo de paginação do\) Windows (localizado em D: ou `/dev/sdb`se o arquivo de permuta do Linux (localizado em) está sendo usado intensamente. Se você não tiver nada nesses volumes, exceto nesses arquivos, verifique se há altas leituras/gravações nesses discos. Esse problema é um indicativo de condições de memória insuficiente.
 
-### <a name="high-memory-utilization-remediation"></a>Remediação de alta utilização da memória
+### <a name="high-memory-utilization-remediation"></a>Correção de utilização de memória alta
 
-Para resolver a alta utilização da memória, execute qualquer uma das seguintes tarefas:
+Para resolver a alta utilização de memória, execute qualquer uma das seguintes tarefas:
 
-* Para alívio imediato ou uso de página ou arquivo de troca - Aumente o tamanho da VM para uma com mais memória e, em seguida, monitore.
-* Entenda o problema – localize aplicativos/processos e soluciona problemas para identificar aplicativos de memória de alto consumo.
-* Se você conhece o aplicativo, veja se a alocação de memória pode ser tampada.
+* Para reutilização imediata ou página ou uso de arquivo de permuta, aumente o tamanho da VM para uma com mais memória e, em seguida, monitore.
+* Entender o problema – Localize aplicativos/processos e solucione problemas para identificar aplicativos de memória de alto consumo.
+* Se você souber o aplicativo, veja se a alocação de memória pode ser limitada.
 
-Se depois de atualizar para uma VM maior, você descobrir que ainda tem um aumento constante constante até 100%, identifique o aplicativo/processo e solucionem problemas.
+Se, após a atualização para uma VM maior, você descobrir que ainda tem um aumento constante entre 100%, identifique o aplicativo/processo e solucione problemas.
 
-Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está impulsionando o consumo de memória. 
+Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está orientando o consumo de memória. 
 
-## <a name="check-for-disk-bottleneck"></a>Verifique se há gargalo de disco
+## <a name="check-for-disk-bottleneck"></a>Verificar afunilamento de disco
 
-Para verificar o subsistema de armazenamento da VM, verifique os diagnósticos no nível de VM do Azure usando os contadores no VM Diagnostics e também no Storage Account Diagnostics.
+Para verificar o subsistema de armazenamento para a VM, verifique o diagnóstico no nível de VM do Azure usando os contadores em diagnóstico de VM e também o diagnóstico da conta de armazenamento.
 
-Para dentro da solução de problemas específicas da VM, você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux,](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)o que pode ajudar a analisar qual processo está conduzindo os IO's. 
+Para a solução de problemas de VM específica, você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), o que pode ajudar a analisar qual processo está orientando a e/s. 
 
-Observe que não temos contadores para contas de armazenamento redundante e premium. Para questões relacionadas a esses contadores, levante um caso de apoio.
+Observe que não temos contadores para contas de armazenamento com redundância de zona e Premium. Para problemas relacionados a esses contadores, gere um caso de suporte.
 
-### <a name="viewing-storage-account-diagnostics-in-monitoring"></a>Visualização de diagnósticos de contas de armazenamento no monitoramento
+### <a name="viewing-storage-account-diagnostics-in-monitoring"></a>Exibindo o diagnóstico da conta de armazenamento no monitoramento
 
-Para trabalhar nos itens abaixo, vá para a conta de armazenamento da VM no portal:
+Para trabalhar nos itens abaixo, vá para a conta de armazenamento da VM no Portal:
 
-![Visualização de diagnósticos de contas de armazenamento no monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
+![Exibindo o diagnóstico da conta de armazenamento no monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
-1. Edite o Gráfico de Monitoramento.
+1. Edite o grafo de monitoramento.
 2. Defina o intervalo de tempo.
 3. Adicione os contadores descritos nas etapas abaixo.
 4. Salve as alterações.
 
-### <a name="disk-observe-trends-standard-storage-only"></a>Tendências de observação em disco (somente armazenamento padrão)
+### <a name="disk-observe-trends-standard-storage-only"></a>O disco observa tendências (somente armazenamento Standard)
 
-Para identificar problemas com o armazenamento, veja as métricas de desempenho dos Diagnósticos da Conta de Armazenamento e do VM Diagnostics.
+Para identificar problemas de armazenamento, examine as métricas de desempenho do diagnóstico da conta de armazenamento e do diagnóstico da VM.
 
-Para cada verificação abaixo, procure as principais tendências quando os problemas ocorrerem dentro do intervalo de tempo do problema.
+Para cada verificação abaixo, procure tendências-chave quando os problemas ocorrem dentro do intervalo de tempo do problema.
 
-#### <a name="check-azure-storage-availability--add-the-storage-account-metric-availability"></a>Verifique a disponibilidade de armazenamento do Azure – Adicione a métrica da conta de armazenamento: disponibilidade
+#### <a name="check-azure-storage-availability--add-the-storage-account-metric-availability"></a>Verificar a disponibilidade do armazenamento do Azure – adicionar a métrica da conta de armazenamento: disponibilidade
 
-Se você vir uma queda na disponibilidade, pode haver um problema com a plataforma, verifique o [Status do Azure](https://azure.microsoft.com/status/). Se nenhum problema for mostrado lá, levante uma nova solicitação de suporte.
+Se você vir uma queda na disponibilidade, pode haver um problema com a plataforma, verifique o [status do Azure](https://azure.microsoft.com/status/). Se nenhum problema for mostrado lá, gere uma nova solicitação de suporte.
 
-#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>Verifique o tempo de tempo de armazenamento do Azure - Adicione as métricas da conta de armazenamento:
+#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>Verificar o tempo limite do armazenamento do Azure-adicione as métricas da conta de armazenamento:
 
-* Erro de saída de tempo do cliente
-* Erro de saída de tempo do servidor
+* ClientTimeOutError
+* ServerTimeOutError
 * AverageE2ELatency
 * AverageServerLatency
 * TotalRequests
 
-Os valores nas métricas *TimeOutError indicam que uma operação de IO demorou muito tempo e foi cronometrada. Trabalhar nos próximos passos ajudará a identificar possíveis causas.
+Os valores nas métricas * TimeOutError indicam que uma operação de e/s demorou muito e atingiu o tempo limite. O trabalho nas próximas etapas ajudará a identificar possíveis causas.
 
-O AverageServerLatency aumenta ao mesmo tempo no TimeOutErrors pode ser um problema da plataforma. Levante um novo pedido de apoio nesta situação.
+O AverageServerLatency aumenta ao mesmo tempo em que o TimeOutErrors pode ser um problema de plataforma. Gere uma nova solicitação de suporte nessa situação.
 
-AverageE2ELatency representa a latência do cliente. Verifique como o IOPS está sendo executado pelo aplicativo. Procure uma métrica totalrequests de aumento ou constantemente alta. Esta métrica representa o IOPS. Se você está começando a atingir os limites da conta de armazenamento ou vHD único, a latência pode estar relacionada ao estrangulamento.
+AverageE2ELatency representa a latência do cliente. Verifique como o IOPS está sendo executado pelo aplicativo. Procure uma métrica de TotalRequests de aumento ou constante alta. Essa métrica representa IOPS. Se você estiver começando a atingir os limites da conta de armazenamento ou do VHD único, a latência poderá estar relacionada à limitação.
 
-#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Verifique o estrangulamento do armazenamento do Azure - Adicione as métricas da conta de armazenamento: ThrottlingError
+#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Verificar a limitação do armazenamento do Azure – adicione as métricas da conta de armazenamento: ThrottlingError
 
-Os valores para estrangulamento indicam que você está sendo estrangulado no nível da conta de armazenamento, o que significa que você atinge o limite IOPS da conta. Você pode determinar se você está atingindo o limiar de IOPs verificando a métrica **TotalRequests**.
+Os valores para limitação indicam que você está sendo limitado no nível da conta de armazenamento, o que significa que você está atingindo o limite de IOPS da conta. Você pode determinar se está atingindo o limite de IOPs verificando a métrica **TotalRequests**.
 
-Observe que cada VHD tem um limite de 500 IOPS ou 60 MBits, mas está vinculado ao limite cumulativo de 20000 IOPS por conta de armazenamento.
+Observe que cada VHD tem um limite de 500 IOPS ou 60 MBits, mas é associado pelo limite cumulativo de 20000 IOPS por conta de armazenamento.
 
-Com esta métrica, você não pode dizer qual bolha está causando o estrangulamento e quais são afetados por ela. No entanto, ou você está atingindo os limites iOPS ou Ingress/Egress da conta de armazenamento.
+Com essa métrica, você não pode saber qual blob está causando a limitação e quais são afetados por ela. No entanto, você está atingindo os limites de IOPS ou de entrada/saída da conta de armazenamento.
 
-Para identificar se você está atingindo o limite do IOPS, entre no diagnóstico da Conta de Armazenamento e verifique o TotalRequests, procurando se você está se aproximando de 20 mil Solicitações Totais. Identifique uma mudança no padrão, se você está vendo o limite pela primeira vez, ou se esse limite acontece em um determinado momento.
+Para identificar se você está atingindo o limite de IOPS, acesse o diagnóstico da conta de armazenamento e verifique o TotalRequests, procurando ver se você está se aproximando do 20000 TotalRequests. Identifique uma alteração no padrão, independentemente de você estar vendo o limite pela primeira vez ou se esse limite ocorre em um determinado momento.
 
-Com novas ofertas de disco o armazenamento Padrão, os limites de IOPS e Throughput podem diferir, mas o limite cumulativo da conta Standard Storage é o IOPS 20000 (o armazenamento Premium tem limites diferentes na conta ou no nível de disco). Leia mais sobre diferentes ofertas padrão de disco de armazenamento e limites por disco:
+Com novas ofertas de disco no armazenamento Standard, os limites de IOPS e taxa de transferência poderiam ser diferentes, mas o limite cumulativo da conta de armazenamento Standard é de 20000 IOPS (o armazenamento Premium tem limites diferentes no nível de conta ou disco). Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 #### <a name="references"></a>Referências
 
-* [Metas de escalabilidade e desempenho para contas de armazenamento blob de página premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
+* [Escalabilidade e metas de desempenho para contas de armazenamento de blob de página Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
-A largura de banda da conta de armazenamento é medida pelas Métricas da Conta de Armazenamento: TotalIngress e TotalEgress. Você tem diferentes limites para largura de banda, dependendo do tipo de redundância e regiões.
+A largura de banda da conta de armazenamento é medida pelas métricas da conta de armazenamento: TotalIngress e TotalEgress. Você tem limites diferentes de largura de banda, dependendo do tipo de redundância e de regiões.
 
 * [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../../storage/common/scalability-targets-standard-account.md)
 
-Verifique os limites totalingress e totalegress contra os limites de Ingress e Egress para o tipo de redundância da conta de armazenamento e região.
+Verifique o TotalIngress e o TotalEgress nos limites de entrada e saída para a região e o tipo de redundância da conta de armazenamento.
 
-Verifique os limites de throughput dos VHDs anexados à VM. Adicione o disco vm métricas ler e gravar.
+Verifique os limites de taxa de transferência dos VHDs anexados à VM. Adicione as métricas de VM leitura e gravação do disco.
 
-Novas ofertas de disco o armazenamento Padrão têm diferentes limites de IOPS e throughput (IOPS não são expostos por VHD). Veja os dados para ver se você está atingindo os limites de MB de throughput combinado dos VHD(s) no nível de VM usando Leitura e Gravação de Disco e, em seguida, otimizar sua configuração de armazenamento VM para escalar os limites de VHD únicos. Leia mais sobre diferentes ofertas padrão de disco de armazenamento e limites por disco:
+Novas ofertas de disco no armazenamento Standard têm diferentes limites de IOPS e taxa de transferência (IOPS não são expostos por VHD). Examine os dados para ver se você está atingindo os limites de taxa de transferência combinada de MB dos VHD no nível de VM usando leitura e gravação de disco e, em seguida, otimize sua configuração de armazenamento de VM para dimensionar os limites de VHD único. Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
-### <a name="high-disk-utilizationlatency-remediation"></a>Alta utilização/remediação de latência de disco
+### <a name="high-disk-utilizationlatency-remediation"></a>Alta correção de utilização/latência de disco
 
-Reduza a latência do cliente e otimize o IO vm para escalar os limites de VHD passados
+Reduzir a latência do cliente e otimizar a e/s de VM para dimensionar os limites de VHD passados
 
-* [Otimização de IO para Windows no Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Otimizando a e/s para Windows no Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
 
-* [Otimização de IO para Linux no Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Otimizando a e/s para Linux no Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
 
-#### <a name="reduce-throttling"></a>Reduzir o estrangulamento
+#### <a name="reduce-throttling"></a>Reduzir a limitação
 
-Se atingir limites superiores das contas de armazenamento, reequilibre os VHDs entre contas de armazenamento. Consulte [as metas de escalabilidade e desempenho do armazenamento do Azure](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+Se atingir limites superiores de contas de armazenamento, rebalanceie os VHDs entre as contas de armazenamento. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
 
-### <a name="increase-throughput-and-reduce-latency"></a>Aumentar o throughput e reduzir a latência
+### <a name="increase-throughput-and-reduce-latency"></a>Aumentar a taxa de transferência e reduzir a latência
 
-Se você tiver um aplicativo sensível à latência e exigir alta taxa de inscrição, migre seus VHDs para o armazenamento Azure Premium usando a VM da série DS e GS.
+Se você tiver um aplicativo sensível à latência e exigir alta taxa de transferência, migre seus VHDs para o armazenamento Premium do Azure usando a VM da série DS e GS.
 
 Estes artigos discutem os cenários específicos:
 
 * [Migrando para o Armazenamento do Azure Premium](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
 
-* [Use o armazenamento premium do Azure com o SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Usar o armazenamento Premium do Azure com o SQL Server](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você precisar de mais ajuda em qualquer momento deste artigo, entre em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/).
+Se precisar de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/).
 
-Alternativamente, registre um incidente de suporte ao Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.
+Como alternativa, arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

@@ -1,15 +1,15 @@
 ---
-title: Configurar modos de rede para serviços de contêineres
+title: Configurar modos de rede para serviços de contêiner
 description: Saiba como configurar os diferentes modos de rede suportados pelo Azure Service Fabric.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639795"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
@@ -21,7 +21,7 @@ Se você tiver um serviço de contêiner com um ponto de extremidade estático e
 Quando um serviço de contêiner é reiniciado ou movido para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não é recomendável usar o endereço IP atribuído dinamicamente para descobrir os serviços de contêiner. Use somente o Serviço de Nomenclatura do Service Fabric ou o Serviço DNS para a descoberta de serviço. 
 
 >[!WARNING]
->O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêineres (que estão usando o modo Open) não pode exceder 65.356 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga, terão [outras limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) a considerar. Atualmente, até 50 IPs por nó foram testados e comprovadamente estáveis. 
+>O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que estão usando o modo aberto) não podem exceder 65.356 IPs em uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga, terão outras [limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) a serem consideradas. Atualmente, até 50 IPs por nó foram testados e são estáveis em termos de estabilidade. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede Aberto

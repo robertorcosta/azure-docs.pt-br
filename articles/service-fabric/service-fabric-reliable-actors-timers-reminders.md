@@ -1,15 +1,15 @@
 ---
-title: Temporizadores e lembretes de atores confiáveis
-description: Introdução a temporizadores e lembretes para atores confiáveis de malha de serviço, incluindo orientação sobre quando usar cada um.
+title: Reliable Actors temporizadores e lembretes
+description: Introdução a temporizadores e lembretes para Service Fabric Reliable Actors, incluindo diretrizes sobre quando usar cada um deles.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639608"
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
@@ -221,4 +221,4 @@ Como mostrado acima, o método `UnregisterReminderAsync`(C#) ou `unregisterRemin
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre reentrada e eventos de Ator Confiável:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
+* [Reentrância do ator](service-fabric-reliable-actors-reentrancy.md)

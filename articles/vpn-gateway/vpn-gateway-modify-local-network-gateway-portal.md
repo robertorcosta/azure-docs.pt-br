@@ -1,5 +1,5 @@
 ---
-title: 'VPN Gateway: Modifique as configurações do endereço IP do gateway: portal Azure'
+title: 'Gateway de VPN: modificar configurações de endereço IP do gateway: portal do Azure'
 description: Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando o portal do Azure
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: fdb98242cede36f818604a7a5d713f5f7c75daad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864019"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as configurações de gateway de rede local usando o portal do Azure
@@ -21,9 +21,9 @@ ms.locfileid: "75864019"
 Antes de excluir a conexão, convém baixar a configuração dos seus dispositivos de conexão para obter a PSK definida. Dessa forma, não é necessário redefini-la do outro lado.
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-modify-local-network-gateway-portal.md)
-> * [Powershell](vpn-gateway-modify-local-network-gateway.md)
-> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+> * [CLI do Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 

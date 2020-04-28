@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75896133"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
-Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
-Em clusters seguros apoiados pelo Azure Data Lake (Gen1 ou Gen2), quando os usuários de domínio fazem login nos serviços de cluster através do HDI Gateway (como fazer login no portal Apache Ambari), o HDI Gateway tentará obter um token OAuth do Azure Active Directory (Azure AD) primeiro , e, em seguida, obter um bilhete Kerberos de Azure AD DS. A autenticação pode falhar em qualquer um desses estágios. Este artigo visa depurar algumas dessas questões.
+Em clusters seguros apoiados por Azure Data Lake (Gen1 ou Gen2), quando os usuários de domínio entram nos serviços de cluster por meio do gateway do HDI (como entrar no portal do Apache Ambari), o gateway HDI tentará obter um token OAuth do Azure Active Directory (Azure AD) primeiro e, em seguida, obterá um tíquete Kerberos do Azure AD DS. A autenticação pode falhar em qualquer um desses estágios. Este artigo destina-se à depuração de alguns desses problemas.
 
-Quando a autenticação falhar, você será solicitado para obter credenciais. Se você cancelar esta caixa de diálogo, a mensagem de erro será impressa. Aqui estão algumas das mensagens de erro comuns:
+Quando a autenticação falhar, você receberá uma solicitação de credenciais. Se você cancelar essa caixa de diálogo, a mensagem de erro será impressa. Aqui estão algumas das mensagens de erro comuns:
 
 ## <a name="invalid_grant-or-unauthorized_client-50126"></a>invalid_grant ou unauthorized_client, 50126
 
 ### <a name="issue"></a>Problema
 
-O login falha para usuários federados com código de erro 50126 (o login é bem sucedido para usuários de nuvem). A mensagem de erro é semelhante a:
+A entrada falha para usuários federados com o código de erro 50126 (a entrada é bem-sucedida para usuários de nuvem). A mensagem de erro é semelhante a:
 
 ```
 Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 09cc9b95-4354-46b7-91f1-efd92665ae00\r\n Correlation ID: 4209bedf-f195-4486-b486-95a15b70fbe4\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"09cc9b95-4354-46b7-91f1-efd92665ae00","correlation_id":"4209bedf-f195-4486-b486-95a15b70fbe4"}
@@ -34,11 +34,11 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### <a name="cause"></a>Causa
 
-O código de erro Azure AD `AllowCloudPasswordValidation` 50126 significa que a política não foi definida pelo inquilino.
+O código de erro 50126 do Azure `AllowCloudPasswordValidation` ad significa que a política não foi definida pelo locatário.
 
 ### <a name="resolution"></a>Resolução
 
-O administrador da empresa do inquilino Azure AD deve permitir que o Azure AD use hashes de senha para usuários com backup do ADFS.  Aplique `AllowCloudPasswordValidationPolicy` o conforme mostrado no artigo [Use Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+O administrador da empresa do locatário do Azure AD deve habilitar o Azure AD a usar hashes de senha para usuários com suporte do ADFS.  Aplique o `AllowCloudPasswordValidationPolicy` conforme mostrado no artigo [usar Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -46,7 +46,7 @@ O administrador da empresa do inquilino Azure AD deve permitir que o Azure AD us
 
 ### <a name="issue"></a>Problema
 
-O login falha com o código de erro 50034. A mensagem de erro é semelhante a:
+A entrada falha com o código de erro 50034. A mensagem de erro é semelhante a:
 
 ```
 {"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII does not exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: bbb819b2-4c6f-4745-854d-0b72006d6800\r\nCorrelation ID: b009c737-ee52-43b2-83fd-706061a72b41\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"bbb819b2-4c6f-4745-854d-0b72006d6800", "correlation_id":"b009c737-ee52-43b2-83fd-706061a72b41"}
@@ -54,11 +54,11 @@ O login falha com o código de erro 50034. A mensagem de erro é semelhante a:
 
 ### <a name="cause"></a>Causa
 
-O nome do usuário está incorreto (não existe). O usuário não está usando o mesmo nome de usuário que é usado no portal Azure.
+O nome de usuário está incorreto (não existe). O usuário não está usando o mesmo nome de usuário que é usado no portal do Azure.
 
 ### <a name="resolution"></a>Resolução
 
-Use o mesmo nome de usuário que funciona nesse portal.
+Use o mesmo nome de usuário que funciona no Portal.
 
 ---
 
@@ -74,11 +74,11 @@ A conta de usuário está bloqueada, código de erro 50053. A mensagem de erro �
 
 ### <a name="cause"></a>Causa
 
-Muitos assinam tentativas com uma senha incorreta.
+Número excessivo de tentativas de entrada com uma senha incorreta.
 
 ### <a name="resolution"></a>Resolução
 
-Espere por 30 minutos ou mais, pare quaisquer aplicativos que possam estar tentando autenticar.
+Aguarde 30 minutos ou mais, pare todos os aplicativos que possam estar tentando autenticar.
 
 ---
 
@@ -94,11 +94,11 @@ Senha expirada, código de erro 50053. A mensagem de erro é semelhante a:
 
 ### <a name="cause"></a>Causa
 
-A senha está expirada.
+A senha expirou.
 
 ### <a name="resolution"></a>Resolução
 
-Altere a senha no portal Azure (no seu sistema local) e aguarde 30 minutos para a sincronização para atualizar.
+Altere a senha no portal do Azure (no seu sistema local) e aguarde 30 minutos para que a sincronização seja atualizada.
 
 ---
 
@@ -106,33 +106,33 @@ Altere a senha no portal Azure (no seu sistema local) e aguarde 30 minutos para 
 
 ### <a name="issue"></a>Problema
 
-Receber mensagem de `interaction_required`erro .
+Receber mensagem `interaction_required`de erro.
 
 ### <a name="cause"></a>Causa
 
-A política de acesso condicional ou MFA está sendo aplicada ao usuário. Como a autenticação interativa ainda não é compatível, o usuário ou o cluster precisa estar isento de acesso de MFA/condicional. Se você optar por isentar o cluster (política de isenção baseada em endereço IP), certifique-se de que o AD `ServiceEndpoints` esteja habilitado para esse vnet.
+A política de acesso condicional ou MFA está sendo aplicada ao usuário. Como a autenticação interativa ainda não é compatível, o usuário ou o cluster precisa estar isento de acesso de MFA/condicional. Se você optar por isentar o cluster (política de isenção baseada em endereço IP), certifique- `ServiceEndpoints` se de que o AD esteja habilitado para essa vnet.
 
 ### <a name="resolution"></a>Resolução
 
-Use a política de acesso condicional e isenta os clusters HDInisght do MFA, conforme mostrado no [Configure um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
+Use a política de acesso condicional e isentar os clusters HDInisght do MFA, conforme mostrado em [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 ---
 
-## <a name="sign-in-denied"></a>Inscreva-se negado
+## <a name="sign-in-denied"></a>Entrada negada
 
 ### <a name="issue"></a>Problema
 
-O login é negado.
+A entrada foi negada.
 
 ### <a name="cause"></a>Causa
 
-Para chegar a este estágio, sua autenticação OAuth não é um problema, mas a autenticação kerberos é. Se este cluster for apoiado pelo ADLS, o sinal de OAuth foi bem sucedido antes que Kerberos auth seja tentado. Em clusters WASB, o sinal de OAuth não é tentado. Pode haver muitas razões para a falha do Kerberos - como hashes de senha estão fora de sincronia, conta de usuário bloqueada no Azure AD DS, e assim por diante. Os hashes de senha sincronizam somente quando o usuário muda de senha. Quando você cria a ocorrência azure AD DS, ela começará a sincronizar senhas que são alteradas após a criação. Ele não sincronizar retroativamente senhas que foram definidas antes de seu início.
+Para chegar a esse estágio, a autenticação OAuth não é um problema, mas a autenticação Kerberos é. Se esse cluster tiver suporte de ADLS, a entrada OAuth terá êxito antes da tentativa de autenticação Kerberos. Em clusters WASB, a entrada OAuth não é tentada. Pode haver muitas razões para que os hashes de senha do tipo falha de Kerberos fiquem fora de sincronia, conta de usuário bloqueada no Azure AD DS e assim por diante. Os hashes de senha são sincronizados somente quando o usuário altera a senha. Quando você cria a instância de AD DS do Azure, ela começa a sincronizar as senhas que são alteradas após a criação. Ele não sincronizará retroativamente as senhas que foram definidas antes de sua criação.
 
 ### <a name="resolution"></a>Resolução
 
-Se você acha que as senhas podem não estar em sincronia, tente alterar a senha e espere alguns minutos para sincronizar.
+Se você considerar que as senhas podem não estar em sincronia, tente alterar a senha e aguarde alguns minutos para a sincronização.
 
-Tente ssh em um Você precisará tentar autenticar (kinit) usando as mesmas credenciais de usuário, a partir de uma máquina que está juntada ao domínio. SSH na cabeça / nó de borda com um usuário local e, em seguida, executar kinit.
+Tente realizar o SSH em um você precisará tentar autenticar (kinit) usando as mesmas credenciais de usuário, de um computador que tenha ingressado no domínio. SSH no nó de cabeçalho/borda com um usuário local e, em seguida, execute kinit.
 
 ---
 
@@ -140,7 +140,7 @@ Tente ssh em um Você precisará tentar autenticar (kinit) usando as mesmas cred
 
 ### <a name="issue"></a>Problema
 
-Kinit falha.
+Falha de kinit.
 
 ### <a name="cause"></a>Causa
 
@@ -148,17 +148,17 @@ Varia.
 
 ### <a name="resolution"></a>Resolução
 
-Para que o kinit tenha `sAMAccountName` sucesso, você precisa saber o seu (este é o nome da conta curta sem o reino). `sAMAccountName`é geralmente o prefixo `bob@contoso.com`da conta (como bob in ). Para alguns usuários, poderia ser diferente. Você precisará da capacidade de navegar / pesquisar `sAMAccountName`o diretório para aprender o seu .
+Para que o kinit seja bem sucedido, você `sAMAccountName` precisa saber seu (esse é o nome curto da conta sem o realm). `sAMAccountName`geralmente é o prefixo da conta (como Bob `bob@contoso.com`in). Para alguns usuários, ele pode ser diferente. Você precisará da capacidade de procurar/pesquisar no diretório para aprender seu `sAMAccountName`.
 
-Maneiras `sAMAccountName`de encontrar:
+Maneiras de localizar `sAMAccountName`:
 
-* Se você pode fazer login no Ambari usando o admin Ambari local, veja a lista de usuários.
+* Se você puder entrar no Ambari usando o administrador do Ambari local, examine a lista de usuários.
 
-* Se você tiver uma [máquina de windows com um domínio,](../../active-directory-domain-services/manage-domain.md)você pode usar as ferramentas padrão do Windows AD para navegar. Isso requer uma conta de trabalho no domínio.
+* Se você tiver um [computador Windows ingressado no domínio](../../active-directory-domain-services/manage-domain.md), poderá usar as ferramentas padrão do AD do Windows para navegar. Isso requer uma conta de trabalho no domínio.
 
-* A partir do nó da cabeça, você pode usar comandos SAMBA para pesquisar. Isso requer uma sessão de Kerberos válida (kinit bem sucedido). pesquisa de anúncios líquidos "(userPrincipalName=bob*)"
+* No nó de cabeçalho, você pode usar comandos do SAMBA para pesquisar. Isso requer uma sessão Kerberos válida (kinit bem-sucedida). pesquisa do ADS net "(userPrincipalName = Bob *)"
 
-    Os resultados da pesquisa /navegação devem mostrar o atributo. `sAMAccountName` Além disso, você pode olhar `pwdLastSet` `badPasswordTime`para `userPrincipalName` outros atributos como , , etc. para ver se essas propriedades correspondem ao que você espera.
+    Os resultados da pesquisa/procura devem mostrar o `sAMAccountName` atributo. Além disso, você pode examinar outros atributos como `pwdLastSet`, `badPasswordTime`, `userPrincipalName` etc. para ver se essas propriedades correspondem ao que você espera.
 
 ---
 
@@ -166,39 +166,39 @@ Maneiras `sAMAccountName`de encontrar:
 
 ### <a name="issue"></a>Problema
 
-Kinit falha `Preauthentication` com o fracasso.
+Kinit falha com `Preauthentication` falha.
 
 ### <a name="cause"></a>Causa
 
-Nome de usuário ou senha incorreto.
+Nome de usuário ou senha incorretos.
 
 ### <a name="resolution"></a>Resolução
 
-Verifique seu nome de usuário e senha. Verifique também se há outras propriedades descritas acima. Para habilitar a depuração `export KRB5_TRACE=/tmp/krb.log` verbose, execute-a a partir da sessão antes de tentar kinit.
+Verifique seu nome de usuário e senha. Verifique também outras propriedades descritas acima. Para habilitar a depuração detalhada, `export KRB5_TRACE=/tmp/krb.log` execute da sessão antes de tentar kinit.
 
 ---
 
-## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>Falha no comando Job / HDFS devido ao TokenNotFoundException
+## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>Falha no comando Job/HDFS devido a TokenNotFoundException
 
 ### <a name="issue"></a>Problema
 
-O comando Job /HDFS falha devido a `TokenNotFoundException`.
+Falha no comando de trabalho/HDFS `TokenNotFoundException`devido a.
 
 ### <a name="cause"></a>Causa
 
-O token de acesso OAuth necessário não foi encontrado para o trabalho / comando para ter sucesso. O driver ADLS /ABFS tentará recuperar o token de acesso OAuth do serviço de credencial antes de fazer solicitações de armazenamento. Este token é registrado quando você faz login no portal Ambari usando o mesmo usuário.
+O token de acesso OAuth necessário não foi encontrado para que o trabalho/comando tenha êxito. O driver ADLS/ABFS tentará recuperar o token de acesso OAuth do serviço de credencial antes de fazer solicitações de armazenamento. Esse token é registrado quando você entra no portal do Ambari usando o mesmo usuário.
 
 ### <a name="resolution"></a>Resolução
 
-Certifique-se de que você fez login com sucesso no portal Ambari uma vez através do nome de usuário cuja identidade é usada para executar o trabalho.
+Verifique se você fez logon com êxito no portal do Ambari uma vez por meio do nome de usuário cuja identidade é usada para executar o trabalho.
 
 ---
 
-## <a name="error-fetching-access-token"></a>Erro ao buscar token de acesso
+## <a name="error-fetching-access-token"></a>Erro ao buscar o token de acesso
 
 ### <a name="issue"></a>Problema
 
-O usuário `Error fetching access token`recebe mensagem de erro .
+O usuário recebe a `Error fetching access token`mensagem de erro.
 
 ### <a name="cause"></a>Causa
 
@@ -206,9 +206,9 @@ Esse erro ocorre intermitentemente quando os usuários tentam acessar o ADLS Gen
 
 ### <a name="resolution"></a>Resolução
 
-* Para o Azure Data Lake Storage Gen1, limpe o cache do navegador e faça login no Ambari novamente.
+* Para Azure Data Lake Storage Gen1, limpe o cache do navegador e faça logon no Ambari novamente.
 
-* Para o Azure Data Lake `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` Storage Gen2, execute para o usuário que o usuário está tentando fazer login como
+* Por Azure Data Lake Storage Gen2, execute `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` para o usuário ao qual o usuário está tentando fazer logon
 
 ---
 
@@ -216,8 +216,8 @@ Esse erro ocorre intermitentemente quando os usuários tentam acessar o ADLS Gen
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais [detalhadas, consulte Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

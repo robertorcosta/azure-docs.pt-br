@@ -1,15 +1,15 @@
 ---
-title: String de conexão do armazenamento de imagens do azure Service Fabric
-description: Saiba mais sobre a cadeia de conexão do armazenamento de imagens, incluindo seus usos e aplicativos para um cluster Service Fabric.
+title: Cadeia de conexão do repositório de imagens do Azure Service Fabric
+description: Saiba mais sobre a cadeia de conexão do repositório de imagens, incluindo seus usos e aplicativos para um Cluster Service Fabric.
 author: alexwun
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: alexwun
 ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645660"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Noções básicas sobre a configuração ImageStoreConnectionString

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: b67bd5b6310e1f8ce35dc14690757209ef62c9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75660249"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
@@ -23,7 +23,7 @@ O nó de borda de um cluster fornece um local conveniente para se conectar ao cl
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services no Microsoft Azure HDInsight
 
-O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento [Azure Blob,](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") uma Data Lake Store ou no sistema de arquivos Linux local. Como os Serviços ML são construídos em R de código aberto, os aplicativos baseados em R que você constrói podem aplicar qualquer um dos mais de 8000 pacotes R de código aberto. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
+O [ML Services no Microsoft Azure HDInsight](r-server-overview.md) fornece os recursos mais recentes para análises baseadas em R. Ele pode usar dados armazenados em um contêiner Apache Hadoop HDFS em sua conta de armazenamento de [BLOBs do Azure](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") , em um data Lake Store ou no sistema de arquivos Linux local. Como os serviços ML se baseiam no R de software livre, os aplicativos baseados em R que você cria podem aplicar qualquer um dos mais de 8000 pacotes de R de software livre. Eles também podem usar as rotinas no [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), o pacote de análise de Big Data da Microsoft que está incluído no ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
 
@@ -47,7 +47,7 @@ A tabela a seguir resume as várias opções de contexto de computação para de
 
 ## <a name="guidelines-for-deciding-on-a-compute-context"></a>Diretrizes para decidir em um contexto de computação
 
-Qual das três opções que fornecem execução em paralelo você ddeve escolher depende da natureza de seu trabalho de análise, do tamanho e do local dos seus dados. Não há uma fórmula simples que diga a você, que computar o contexto para usar. No entanto, há alguns princípios importantes que podem ajudar você a fazer a escolha certa ou, pelo menos, ajudar a refinar suas escolhas antes de executar um benchmark. Esses princípios básicos incluem:
+Qual das três opções que fornecem execução em paralelo você ddeve escolher depende da natureza de seu trabalho de análise, do tamanho e do local dos seus dados. Não há uma fórmula simples que indique a você, qual contexto de computação usar. No entanto, há alguns princípios importantes que podem ajudar você a fazer a escolha certa ou, pelo menos, ajudar a refinar suas escolhas antes de executar um benchmark. Esses princípios básicos incluem:
 
 - O sistema de arquivos Linux local é mais rápido do que o HDFS.
 - As análises repetidas serão mais rápidas se os dados forem locais e em XDF.
@@ -59,7 +59,7 @@ Com esses princípios, as seções a seguir oferecem algumas regras gerais para 
 
 ### <a name="local"></a>Local
 
-- Se a quantidade de dados a analisar for pequena e não exigir análise repetida, então transmita-as diretamente para a rotina de análise usando *local* ou *localpar*.
+- Se a quantidade de dados a ser analisada for pequena e não exigir análise repetida, transmita-a diretamente para a rotina de análise usando *local* ou *localpar*.
 - Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
@@ -68,7 +68,7 @@ Com esses princípios, as seções a seguir oferecem algumas regras gerais para 
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Map Reduce
 
-- Use o contexto de computação De redução de mapa somente se você se deparar com um problema intransponível com o contexto de computação spark, uma vez que é geralmente mais lento.  
+- Use o contexto de computação de redução de mapa somente se você vir um problema insuperável com o contexto de computação do Spark, pois ele é geralmente mais lento.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Ajuda embutida em rxSetComputeContext
 Para obter mais informações e exemplos de contextos de computação de RevoScaleR, confira a ajuda embutida sobre R no método rxSetComputeContext, por exemplo:

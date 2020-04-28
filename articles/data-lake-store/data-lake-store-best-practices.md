@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75638928"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
@@ -23,7 +23,7 @@ ms.locfileid: "75638928"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -45,7 +45,7 @@ As entidades de serviço do Azure Active Directory normalmente são usadas por s
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Habilitar o firewall do Data Lake Storage Gen1 com acesso à serviços do Azure
 
-Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externas. O Firewall pode ser habilitado na conta Data Lake Storage Gen1 no portal Azure através do **Firewall** > **Enable Firewall (ON)** > Permitir o acesso às opções**de serviços do Azure.**
+Um Data Lake Storage Gen1 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externas. O firewall pode ser habilitado na conta de data Lake Storage Gen1 no portal do Azure por meio do **Firewall** > **habilitar o firewall (ativado)** > **permitir acesso às opções de serviços do Azure** .
 
 ![Configurações de firewall no Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Configurações de firewall no Data Lake Storage Gen1")
 
@@ -86,7 +86,7 @@ Para otimizar o desempenho e reduzir IOPS ao gravar no Data Lake Storage Gen1 us
 
 ## <a name="resiliency-considerations"></a>Considerações de resiliência
 
-Ao arquivar um sistema com Data Lake Storage Gen1 ou qualquer serviço de nuvem, considere os requisitos de disponibilidade e como responder a possíveis interrupções no serviço. Um problema pode ser localizado na instância específica ou mesmo região inteira, portanto, ter um plano para ambos é importante. Dependendo do objetivo do **tempo de recuperação** e do objetivo do ponto de **recuperação** SLAs para sua carga de trabalho, você pode escolher uma estratégia mais ou menos agressiva para alta disponibilidade e recuperação de desastres.
+Ao arquivar um sistema com Data Lake Storage Gen1 ou qualquer serviço de nuvem, considere os requisitos de disponibilidade e como responder a possíveis interrupções no serviço. Um problema pode ser localizado na instância específica ou mesmo região inteira, portanto, ter um plano para ambos é importante. Dependendo do objetivo do **tempo de recuperação** e dos SLAs de **objetivo de ponto de recuperação** para sua carga de trabalho, você pode escolher uma estratégia mais ou menos agressiva para alta disponibilidade e recuperação de desastres.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre
 
@@ -104,7 +104,7 @@ A seguir, são apresentadas as três principais opções recomendadas para orque
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
 |**Orquestração interna**     |  Não (utilize trabalhos cron ou ventilação excessiva Oozie)       | Sim        | Não (utilize a Automação do Azure ou o Agendador de Tarefas do Windows)         |
 |**Com suporte para sistemas de arquivos**     | ADL, HDFS, WASB, S3, GS, CFS        |Vários, consulte [Conectores](../data-factory/connector-azure-blob-storage.md).         | ADL para ADL, WASB para ADL (mesma região somente)        |
-|**Suporte ao SO**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
+|**Suporte do so**     |Qualquer SO executando Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Use o Distcp para movimentação de dados entre dois locais
 
@@ -114,7 +114,7 @@ Trabalhos de cópia podem ser disparados por fluxos de trabalho do Apache Oozie 
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usar Azure Data Factory para agendar trabalhos de cópia
 
-A Fábrica de Dados do Azure também pode ser usada para agendar trabalhos de cópia usando uma **Atividade de Cópia,** e pode até ser configurada em uma frequência através do **Assistente de Cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
+Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma **atividade de cópia**e pode até mesmo ser configurado em uma frequência por meio do **Assistente de cópia**. Tenha em mente que o Azure Data Factory possui um limite de DMUs (unidades de movimentação de dados na nuvem) e, eventualmente, eleva a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, o Azure Data Factory atualmente não oferece atualizações delta entre as contas do Data Lake Storage Gen1, de modo que pastas como as tabelas de Hive exigiriam uma cópia completa para serem replicadas. Consulte o [Guia de ajuste da atividade de cópia](../data-factory/copy-activity-performance.md) para obter mais informações sobre como copiar com o Data Factory.
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -136,11 +136,11 @@ Para obter mais alertas em tempo real e mais controle sobre onde descarregar log
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Ativar log de nível de depuração no HDInsight
 
-Se o envio de logs do Data Lake Storage Gen1 não estiver ativado, o Azure HDInsight também fornecerá uma maneira de ativar o [log no lado do cliente para Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) por meio do log4j. Você deve definir a seguinte propriedade nas configurações **Ambari** > **YARN** > **Config** > Advanced**yarn-log4j**:
+Se o envio de logs do Data Lake Storage Gen1 não estiver ativado, o Azure HDInsight também fornecerá uma maneira de ativar o [log no lado do cliente para Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) por meio do log4j. Você deve definir a seguinte propriedade em **Ambari** > **yarn** > **config** > **Advanced yarn-Log4J configurações**:
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Storage Gen1 será gravado nos logs YARN nos nós (/tmp/\<user\>/yarn.log) e detalhes importantes, como erros ou limitação (código de erro HTTP 429), poderão ser monitorados. Essas mesmas informações também podem ser monitoradas em registros do Monitor do Azure ou onde quer que os registros sejam enviados na lâmina [Diagnósticos](data-lake-store-diagnostic-logs.md) da conta Data Lake Storage Gen1. É recomendável ter pelo menos o log do lado do cliente ativado ou usar a opção de envio de logs com o Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
+Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Storage Gen1 será gravado nos logs YARN nos nós (/tmp/\<user\>/yarn.log) e detalhes importantes, como erros ou limitação (código de erro HTTP 429), poderão ser monitorados. Essas mesmas informações também podem ser monitoradas nos logs de Azure Monitor ou onde os logs são enviados para a folha [diagnóstico](data-lake-store-diagnostic-logs.md) da conta de data Lake Storage Gen1. É recomendável ter pelo menos o log do lado do cliente ativado ou usar a opção de envio de logs com o Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas
 

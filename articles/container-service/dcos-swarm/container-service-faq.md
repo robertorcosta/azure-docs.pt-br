@@ -10,10 +10,10 @@ ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
 ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75887913"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas frequentes sobre o Serviço de Contêiner
@@ -104,7 +104,7 @@ Você pode encontrar a cadeia de conexão no portal do Azure ou usando as ferram
 
 4. Na página **Resumo**, em **Saídas**, são fornecidos vários links de cluster. **SSHMaster0** fornece uma cadeia de conexão SSH para o primeiro mestre no cluster do serviço de contêiner. 
 
-Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo: 
+Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -114,7 +114,7 @@ Para obter mais informações, confira [Conectar-se a um cluster do Serviço de 
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>Minha resolução de nome DNS não está funcionando no Windows. O que devo fazer?
 
-Existem alguns problemas conhecidos de DNS no Windows cujas correções ainda estão sendo ativamente eliminadas. Certifique-se de que você está usando a versão mais atualizada do acs-engine e windows (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa se beneficiar disso. Caso contrário, consulte a tabela abaixo para conhecer as etapas de mitigação:
+Há alguns problemas de DNS conhecidos no Windows cujas correções ainda estão sendo bloqueadas ativamente. Verifique se você está usando a versão mais atualizada do mecanismo ACS e do Windows (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa se beneficiar disso. Caso contrário, consulte a tabela abaixo para conhecer as etapas de mitigação:
 
 | Sintoma de DNS | Solução alternativa  |
 |-------------|-------------|

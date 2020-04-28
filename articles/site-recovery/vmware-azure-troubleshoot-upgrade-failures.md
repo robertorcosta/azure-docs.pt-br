@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de atualização do Provedor de Recuperação do Site do Microsoft Azure
-description: Resolva problemas comuns que ocorrem ao atualizar o provedor de recuperação do site do Microsoft Azure.
+title: Solucionar problemas de atualização do provedor de Site Recovery de Microsoft Azure
+description: Resolva problemas comuns que ocorrem ao atualizar o provedor de Site Recovery de Microsoft Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75893907"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Solucionar problemas de falhas de atualização do provedor do Microsoft Azure Site Recovery
@@ -42,9 +42,9 @@ Para atualizar, execute as etapas a seguir:
 
 1. Retorne à pasta na qual você baixou a Instalação Unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de atualização devido à pasta de terceiros ser renomeada
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha de atualização devido à pasta de terceiros sendo renomeada
 
-Para que a atualização seja bem sucedida, a pasta de terceiros não deve ser renomeada.
+Para que a atualização seja realizada com sucesso, a pasta de terceiros não deve ser renomeada.
 
 Para resolver o problema.
 

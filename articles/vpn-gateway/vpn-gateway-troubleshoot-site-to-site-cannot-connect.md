@@ -1,5 +1,5 @@
 ---
-title: 'Solucionar problemas de uma conexão VPN site-site do Azure que não pode conectar o títuloSuffix: Azure VPN Gateway'
+title: 'Solucionar problemas de uma conexão VPN site a site do Azure que não pode conectar titleSuffix: gateway de VPN do Azure'
 description: Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada.
 services: vpn-gateway
 author: chadmath
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862570"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
@@ -28,7 +28,7 @@ Para resolver o problema, primeiro tente [redefinir o gateway de VPN do Azure](v
 
 Verifique o tipo do gateway de VPN do Azure.
 
-1. Vá para o [portal Azure.](https://portal.azure.com)
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 
 2. Verifique a página **Visão Geral** do gateway de VPN para as informações de tipo.
     
@@ -46,15 +46,15 @@ Compare a chave compartilhada do dispositivo VPN local e VPN de Rede Virtual do 
 
 Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos seguintes métodos:
 
-**Portal Azure**
+**Azure portal**
 
 1. Vá para a conexão site a site do gateway de VPN que você criou.
 
-2. Na seção **Configurações,** clique **em Tecla Compartilhada**.
+2. Na seção **configurações** , clique em **chave compartilhada**.
     
     ![Chave compartilhada](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
-**Azure PowerShell**
+**PowerShell do Azure**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -106,5 +106,5 @@ O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN esti
 
 ## <a name="next-steps"></a>Próximas etapas
 
--   [Configure uma conexão site-a-site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Configurar uma conexão site a site com uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

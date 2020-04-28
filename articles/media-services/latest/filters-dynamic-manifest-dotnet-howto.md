@@ -1,5 +1,5 @@
 ---
-title: Criando filtros com o Azure Media Services v3 .NET SDK
+title: Criando filtros com o SDK do .NET dos serviços de mídia do Azure v3
 description: Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para atingir esse streaming seletivo.
 services: media-services
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779239"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK do .NET dos Serviços de Mídia
 
 Ao entregar seu conteúdo aos clientes (streaming de eventos ao vivo ou Video por Demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
 
-Para obter uma descrição detalhada deste recurso e cenários onde ele é usado, consulte [Manifestos Dinâmicos](filters-dynamic-manifest-overview.md) e [Filtros](filters-concept.md).
+Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
 
 Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia para definir um filtro para um ativo Video por Demanda e criar [Filtros de Conta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Filtros de Ativos](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
-> Certifique-se de revisar a [apresentaçãoTimeRange](filters-concept.md#presentationtimerange).
+> Certifique-se de examinar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -82,11 +82,11 @@ AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associar filtros com localizador de streaming
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros ao localizador de streaming
 
-Você pode especificar uma lista de filtros de ativos ou contas, que se aplicariam ao seu Localizador de Streaming. O [Dynamic Packager (Streaming Endpoint)](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com aqueles que seu cliente especifica na URL. Essa combinação gera um [Manifesto Dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros no URL + filtros que você especifica no Streaming Locator. Recomendamos que você use este recurso se quiser aplicar filtros, mas não quiser expor os nomes dos filtros na URL.
+Você pode especificar uma lista de ativos ou filtros de conta, que se aplicariam ao seu localizador de streaming. O [Gerenciador dinâmico (ponto de extremidade de streaming)](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros que você especificar no localizador de streaming. Recomendamos que você use esse recurso se desejar aplicar filtros, mas não quiser expor os nomes de filtro na URL.
 
-O código C# a seguir mostra como `StreamingLocator.Filters`criar um localizador de streaming e especificar . Esta é uma propriedade `IList<string>` opcional que leva um dos nomes de filtro.
+O código C# a seguir mostra como criar um localizador de streaming `StreamingLocator.Filters`e especificar. Essa é uma propriedade opcional que usa um `IList<string>` dos nomes de filtro.
 
 ```csharp
 IList<string> filters = new List<string>();

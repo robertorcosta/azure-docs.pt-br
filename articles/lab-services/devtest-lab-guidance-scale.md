@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644827"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Expanda sua infraestrutura do Azure DevTest Labs
@@ -46,7 +46,7 @@ Em seguida, podemos destacar os pontos positivos de cada abordagem.
 Geralmente, a abordagem de uma assinatura não é gerenciável em uma grande empresa. No entanto, limitar o número de assinaturas fornece os seguintes benefícios:
 
 - **Previsão** dos custos para a empresa.  Planejar o orçamento torna-se muito mais fácil em uma assinatura única, porque todos os recursos estão em um único pool. Essa abordagem permite tomada de decisões mais simples quanto a quando exercer medidas de controle de custos em qualquer determinado momento em um ciclo de cobrança.
-- **A capacidade** de gerenciamento de VMs, artefatos, fórmulas, configuração de rede, permissões, políticas, etc. é mais fácil, uma vez que todas as atualizações são necessárias apenas em uma assinatura, em vez de fazer atualizações em muitas assinaturas.
+- A **capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, políticas etc. é mais fácil, já que todas as atualizações só são necessárias em uma assinatura em vez de fazer atualizações em várias assinaturas.
 - O esforço referente à **rede** é bastante simplificado em uma assinatura única para empresas em que a conectividade local é um requisito. Conectar redes virtuais entre assinaturas (modelo hub-spoke) é necessário com assinaturas adicionais, o que requer configuração, espaços de endereço IP e gerenciamento adicionais, etc.
 - A **colaboração em equipe** é mais fácil quando todos estão trabalhando na mesma assinatura – por exemplo, é mais fácil reatribuir uma VM para um colega de trabalho, compartilhar recursos de equipe, etc.
 
@@ -62,7 +62,7 @@ Na empresa, pode já haver restrições suficientes nos extremos do espectro. Po
 ## <a name="roles-and-responsibilities"></a>Funções e responsabilidades
 Uma prova de conceito do DevTest Labs tem três funções principais com responsabilidades definidas – proprietário da assinatura, proprietário do DevTest Labs, usuário do DevTest Labs e, opcionalmente, um colaborador.
 
-- **Proprietário de assinatura** – O proprietário da assinatura tem o direito de administrar uma Assinatura Azure, incluindo atribuir usuários, gerenciar políticas, criar & gerenciamento de topologia de rede, solicitar aumentos de cotas, etc. Para obter mais informações, consulte [este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
+- **Proprietário da assinatura** – o proprietário da assinatura tem direitos para administrar uma assinatura do Azure, incluindo a atribuição de usuários, o gerenciamento de políticas, a criação de & o gerenciamento de topologia de rede, a solicitação de aumento de cota, etc. Para obter mais informações, consulte [Este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
 - **Proprietário do DevTest Labs** – o proprietário do DevTest Labs tem acesso administrativo total ao laboratório. Essa pessoa é responsável por adicionar/remover usuários, gerenciar configurações de custo, configurações gerais de laboratório e outras tarefas baseadas em VM/artefato. Um proprietário de laboratório também tem todos os direitos de um usuário do DevTest Labs.
 - **Usuário do DevTest Labs** – pode criar e consumir as máquinas virtuais no laboratório. Esses indivíduos têm algumas capacidades administrativas mínimas nas VMs que eles criam (iniciar/parar/excluir/configurar as respectivas VMs). Os usuários não podem gerenciar VMs de outros usuários.
 

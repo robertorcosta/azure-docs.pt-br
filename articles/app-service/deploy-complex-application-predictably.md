@@ -1,15 +1,15 @@
 ---
-title: Implantar aplicativos previsivelmente com arm
-description: Aprenda a implantar vários aplicativos do Azure App Service como uma única unidade e de forma previsível usando modelos de gerenciamento de recursos do Azure e scripting PowerShell.
+title: Implantar aplicativos de modo previsível com o ARM
+description: Saiba como implantar vários aplicativos de serviço de Azure App como uma única unidade e de forma previsível usando os modelos de gerenciamento de recursos do Azure e o script do PowerShell.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75967389"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
@@ -42,7 +42,7 @@ A partir da versão 0.8.0, a instalação do Azure PowerShell inclui o módulo d
 Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
-Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições de JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a autoria do modelo porque mostra quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [Portal Azure](https://portal.azure.com/)e, em seguida, inspecionar suas definições JSON na ferramenta explorer para ajudá-lo a terplatizar o grupo de recursos.
+Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições de JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a criação de modelos, pois mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [portal do Azure](https://portal.azure.com/)e, em seguida, inspecionar suas definições de JSON na ferramenta do Explorer para ajudá-lo a modelar o grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
 Se você usa GitHub para controle do código-fonte, você pode colocar um [botão Implantar no Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) em seu arquivo LEIAME.MD, que permite uma implantação pronta para uso da interface do usuário para Azure. Embora seja possível fazê-lo para qualquer aplicativo simples, você pode estender isso para habilitar a implantação de um grupo de recursos inteiro, colocando um arquivo azuredeploy.json na raiz do repositório. Esse arquivo JSON, que contém o modelo de grupo de recursos, será usado pelo botão Implantar no Azure para criar o grupo de recursos. Para obter um exemplo, consulte a amostra [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que você usará neste tutorial.
@@ -182,8 +182,8 @@ Novamente, os recursos aninhados devem ter uma hierarquia muito semelhante àque
 ## <a name="deploy-the-resource-group-template-yourself"></a>Implantar o modelo de grupo de recursos por conta própria
 O botão **Implantar no Azure** é ótimo, mas só permite que você implante o modelo de grupo de recursos em azuredeploy.json se você já tiver enviado azuredeploy.json por push para o GitHub. O SDK .NET do Azure também fornece as ferramentas para implantar qualquer arquivo de modelo JSON diretamente do computador local. Para fazer isso, siga as etapas abaixo:
 
-1. No Visual Studio, clique **em Arquivo** > **novo** > **projeto**.
-2. Clique **em Visual C#** > **Cloud** > **Azure Resource Group**e clique em **OK**.
+1. No Visual Studio, clique em **arquivo** > **novo** > **projeto**.
+2. Clique em **Visual C#** > **Cloud** > **Azure Resource Group**e clique em **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Em **Selecionar Modelo do Azure**, selecione **Modelo em Branco** e clique em **OK**.
@@ -209,7 +209,7 @@ O botão **Implantar no Azure** é ótimo, mas só permite que você implante o 
 11. Localize as propriedades `location` e `isEnabled` e defina-as conforme mostrado abaixo. Faça o mesmo para os outros três alertas (lâmpadas roxas).
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. Agora, você está pronto para implantar. Clique com o botão direito do mouse no projeto e **selecione Implantar** > **nova implantação**.
+12. Agora, você está pronto para implantar. Clique com o botão direito do mouse no projeto e selecione **implantar** > **nova implantação**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Faça logon na conta do Azure se ainda não fez isso.
@@ -251,11 +251,11 @@ No DevOps, repetitividade e previsibilidade são essenciais para qualquer implan
 
 ## <a name="more-resources"></a>Mais recursos
 * [Idioma de modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
-* [Autor de modelos de gerenciador de recursos do Azure](../azure-resource-manager/templates/template-syntax.md)
-* [Funções do modelo do gerenciador de recursos do Azure](../azure-resource-manager/templates/template-functions.md)
+* [Criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager funções de modelo](../azure-resource-manager/templates/template-functions.md)
 * [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/deploy-powershell.md)
 * [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Implantaçãos de grupos de recursos de solução de problemas no Azure](../azure-resource-manager/templates/common-deployment-errors.md)
+* [Solucionando problemas de implantações de grupo de recursos no Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -264,7 +264,7 @@ Para saber mais sobre as propriedades e a sintaxe JSON de tipos de recursos impl
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
 * [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
 * [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+* [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)
 * [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
-* [Configurações do Microsoft.Insights/autoscale](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft. insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

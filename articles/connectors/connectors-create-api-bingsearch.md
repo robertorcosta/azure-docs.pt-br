@@ -1,6 +1,6 @@
 ---
 title: Conectar a Pesquisa do Bing
-description: Automatize tarefas e fluxos de trabalho que encontram resultados na Pesquisa bing usando aplicativos de lógica do Azure
+description: Automatizar tarefas e fluxos de trabalho que localizam resultados em Pesquisa do Bing usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75665880"
 ---
-# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados na Pesquisa bing usando aplicativos azure logic
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
 
 Este artigo mostra como é possível encontrar notícias, vídeos e outros itens por meio da Pesquisa do Bing e a partir de um aplicativo lógico com o conector de Pesquisa do Bing. Dessa forma, é possível criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para processar resultados da pesquisa e disponibilizar esses itens para outras ações. 
 
@@ -52,20 +52,20 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*pesquisa-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
-   | Mercado | Sim | <*Localidade*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Consulta de Pesquisa | Sim | <*Pesquisar-palavras*> | Insira os termos de pesquisa que você quer utilizar. |
+   | Market | Sim | <*localidade*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
    | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*valor de salto*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Configurar gatilho](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
 4. Selecione o intervalo e a frequência de quantas vezes você quer que o gatilho verifique os resultados.
 
-5. Quando terminar, na barra de ferramentas do designer, selecione **Salvar**.
+5. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
 
 6. Agora, continue a adicionar uma ou mais ações ao aplicativo lógico para as tarefas que você deseja executar com os resultados do gatilho.
 
@@ -77,23 +77,23 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 1. No portal do Azure ou no Visual Studio, abra o aplicativo lógico no Designer do Aplicativo Lógico. Este exemplo usa o portal do Azure.
 
-2. No gatilho ou ação, selecione **Nova etapa** > **Adicione uma ação**.
+2. No gatilho ou ação, selecione **nova etapa** > **Adicionar uma ação**.
 
    Este exemplo usa este gatilho:
 
-   **Bing Search - Em novo artigo de notícias**
+   **Pesquisa do Bing-no novo artigo de notícias**
 
    ![Adicionar ação](./media/connectors-create-api-bing-search/add-action.png)
 
    Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. 
-   Selecione o**+** sinal de adição () que aparece e **selecione Adicionar uma ação**.
+   Selecione o sinal de adição**+**() que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, insira "Pesquisa do Bing" como seu filtro.
 Na lista de ações, selecione a ação desejada.
 
    Este exemplo usa esta ação:
 
-   **Bing Search - List e notícias por consulta**
+   **Pesquisa do Bing-listar notícias por consulta**
 
    ![Localize a ação da Pesquisa do Bing](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
@@ -103,17 +103,17 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*pesquisa-expressão*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Mercado | Sim | <*Localidade*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
+   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. É possível selecionar os campos ou a lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Market | Sim | <*localidade*> | A localidade de pesquisa. O padrão é "en-US", mas é possível selecionar outro valor. |
    | Salvar pesquisa | Sim | <*nível de pesquisa*> | O nível do filtro para excluir conteúdo adulto. O padrão é "Moderado", mas você seleciona outro nível. |
-   | Contagem | Não | <*contagem de resultados*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
-   | Deslocamento | Não | <*valor de salto*> | O número de resultados para ignorar antes de retornar os resultados |
+   | Contagem | Não | <*resultados-contagem*> | Retornar o número de resultados especificado. O padrão é 20, mas é possível especificar outro valor. O número atual de resultados retornados pode ser menor que o número especificado. |
+   | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
    Por exemplo, suponha que você queira aqueles resultados cuja categoria inclua a palavra "tech".
 
    1. Clique na caixa **Consulta de Pesquisa** para que a lista de conteúdo dinâmico seja exibida. 
-   Nessa lista, selecione **'Expressão'** para que o construtor de expressões seja exibido. 
+   Nessa lista, selecione **expressão** para que o construtor de expressões seja exibido. 
 
       ![Gatilho de Pesquisa do Bing](./media/connectors-create-api-bing-search/bing-search-action.png)
 
@@ -138,7 +138,7 @@ Na lista de ações, selecione a ação desejada.
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Quando terminar, na barra de ferramentas do designer, selecione **Salvar**.
+5. Quando terminar, na barra de ferramentas do designer, selecione **salvar**.
 
 <a name="create-connection"></a>
 
@@ -150,12 +150,12 @@ Na lista de ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Nome da Conexão | Sim | <*nome de conexão*> | O nome a criar para a conexão |
-   | Versão da API | Sim | <*Versão aPI*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
-   | Chave de API | Sim | <*API-key*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Conexão | Sim | <*nome da conexão*> | O nome a criar para a conexão |
+   | Versão da API | Sim | <*Versão da API*> | Por padrão, a versão da API de Pesquisa do Bing é definida para a versão atual. É possível selecionar uma versão anterior, conforme necessário. |
+   | Chave de API | Sim | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Criar conexão](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

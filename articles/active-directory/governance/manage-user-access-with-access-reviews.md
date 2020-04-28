@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o acesso do usuário com avaliações de acesso - Azure AD
+title: Gerenciar o acesso do usuário com revisões de acesso-Azure AD
 description: Saiba como gerenciar o acesso de usuários como membros de um grupo ou a atribuição de um aplicativo com revisões de acesso do Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c307b349144974a4d38f937feeebb98f369d047
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75932409"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestão do acesso do usuário com revisões de acesso do Azure AD
@@ -44,20 +44,20 @@ Você pode ter um ou mais usuários como revisores de uma revisão de acesso.
 
 2. Decida se cada usuário revisará o próprio acesso ou se um ou mais usuários revisarão o acesso de todos.
 
-3. Como administrador global ou administrador de usuário, vá para a [página De Governança de Identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Como administrador global ou administrador de usuários, acesse a [página governança de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Crie a revisão de acesso. Para obter mais informações, consulte [Criar uma revisão de acesso a grupos ou aplicativos](create-access-review.md).
+4. Crie a revisão de acesso. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md).
 
-5. Quando a revisão de acesso começar, solicite que os revisores enviem opiniões. Por padrão, cada um deles recebe um e-mail do Azure AD com um link para o painel de acesso, onde [eles revisam](perform-access-review.md)o acesso a grupos ou aplicativos .
+5. Quando a revisão de acesso começar, solicite que os revisores enviem opiniões. Por padrão, cada um recebe um email do Azure AD com um link para o painel de acesso, no qual eles [revisam o acesso a grupos ou aplicativos](perform-access-review.md).
 
 6. Se os revisores não tiverem fornecido uma avaliação, você pode pedir ao Azure AD para enviar um lembrete a eles. Por padrão, o Azure AD enviará automaticamente um lembrete após passar a metade do tempo para o prazo final para revisores que ainda não responderam.
 
-7. Depois dos revisores enviarem a avaliação, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [Completar uma revisão de acesso a grupos ou aplicativos](complete-access-review.md).
+7. Depois dos revisores enviarem a avaliação, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicativos](complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Crie uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
+[Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 
 
 

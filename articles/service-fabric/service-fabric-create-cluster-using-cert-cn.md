@@ -1,13 +1,13 @@
 ---
-title: Crie um cluster usando o nome comum do certificado
+title: Criar um cluster usando o nome comum do certificado
 description: Saiba como criar um cluster do Service Fabric usando o nome comum do certificado a partir de um modelo.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614546"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implantar um cluster do Service Fabric que usa o nome comum do certificado em vez de impressão digital
@@ -120,7 +120,7 @@ Em seguida, abra o arquivo *azuredeploy.json* em um editor de texto e faça trê
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Em **extensão virtualMachineProfileO**->**extensionProfile**->certificado de**configurações**->->**de**->**extensões**do**profile**, adicionar 
+3. No recurso **Microsoft.Compute/virtualMachineScaleSets**, atualize a extensão de máquina virtual para usar o nome comum em configurações de certificado em vez da impressão digital.  Em **virtualMachineProfile**->**extensionProfile**->**properties**propriedades->de**extensions**extensões->do virtualMachineProfile extensionProfile->**configurações**do**certificado**, adicionar 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
@@ -212,7 +212,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [segurança de clusters](service-fabric-cluster-security.md).
+* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
 * Saiba como [substituir um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e gerenciar certificados do cluster](service-fabric-cluster-security-update-certs-azure.md)
 * Simplifique o gerenciamento de certificados [Alterando o cluster da impressão digital do certificado para o nome comum](service-fabric-cluster-change-cert-thumbprint-to-cn.md)

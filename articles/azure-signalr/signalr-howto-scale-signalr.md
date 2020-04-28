@@ -1,47 +1,47 @@
 ---
-title: Dimensione uma instância do Serviço DeR SignalR do Azure
-description: Aprenda a dimensionar uma instância de Serviço SignalR do Azure para adicionar ou reduzir a capacidade, através do portal Azure ou do Azure CLI.
+title: Dimensionar uma instância do serviço de Signaler do Azure
+description: Saiba como dimensionar uma instância do serviço de Signaler do Azure para adicionar ou reduzir a capacidade, por meio de portal do Azure ou CLI do Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75659280"
 ---
-# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como dimensionar uma instância de serviço do SignalR do Azure?
-Este artigo mostra como dimensionar sua instância do Azure SignalR Service. Há dois cenários para escalar, escalar e escalar.
+# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como dimensionar uma instância do serviço de Signaler do Azure?
+Este artigo mostra como dimensionar sua instância do serviço de Signaler do Azure. Há dois cenários para dimensionar, escalar verticalmente e escalar horizontalmente.
 
-* [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais unidades, conexões, mensagens e muito mais. Você aumentar á escala alterando o nível de preços de Free para Standard.
-* [Escala :](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)Aumente o número de unidades SignalR. Você pode escalar até 100 unidades.
+* [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais unidades, conexões, mensagens e muito mais. Você escala verticalmente alterando o tipo de preço de gratuito para padrão.
+* [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de unidades do signalr. Você pode escalar horizontalmente até 100 unidades.
 
-As configurações de escala levam alguns minutos para serem aplicadas. Em casos raros, pode levar cerca de 30 minutos para ser aplicado. Eles não exigem que você altere seu código ou reimplante seu aplicativo de servidor.
+As configurações de escala levam alguns minutos para serem aplicadas. Em casos raros, pode levar cerca de 30 minutos para ser aplicado. Eles não exigem que você altere seu código ou reimplante o aplicativo do servidor.
 
-Para obter informações sobre os preços e capacidades do Serviço SignalR individual, consulte [Detalhes de preços do serviço Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).  
+Para obter informações sobre os preços e as capacidades do serviço Signalr individual, consulte [detalhes de preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Mudando o SignalR Service de **nível Gratuito** para o nível **Padrão** ou vice-versa, o IP do serviço público será alterado e geralmente leva de 30 a 60 minutos para propagar a alteração para servidores DNS em toda a internet. Seu serviço pode ser inalcançável antes que o DNS seja atualizado. Geralmente não é recomendável mudar seu nível de preços com muita frequência.
+> Alterar o serviço de Signalr da camada **gratuita** para a camada **Standard** ou vice-versa, o IP do serviço público será alterado e geralmente levará de 30-60 minutos para propagar a alteração para servidores DNS em toda a Internet. Seu serviço pode estar inacessível antes de o DNS ser atualizado. Geralmente, não é recomendável alterar seu tipo de preço com muita frequência.
 
 
-## <a name="scale-on-azure-portal"></a>Escala no portal Azure
+## <a name="scale-on-azure-portal"></a>Dimensionar em portal do Azure
 
-1. No seu navegador, abra o [portal Azure](https://portal.azure.com).
+1. No navegador, abra o [portal do Azure](https://portal.azure.com).
 
-2. Na página SignalR Service, no menu esquerdo, selecione **Escala**.
+2. Na página de serviço do Signalr, no menu à esquerda, selecione **escala**.
    
-3. Escolha seu nível de preços e clique em **Selecionar**. Defina a contagem de unidades para **Nível Padrão.**
+3. Escolha seu tipo de preço e, em seguida, clique em **selecionar**. Defina a contagem de unidades para a camada **Standard** .
    
-    ![Escala no Portal](./media/signalr-howto-scale/signalr-howto-scale.png)
+    ![Dimensionar no portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
 4. Clique em **Salvar**.
 
 ## <a name="scale-using-azure-cli"></a>Dimensionar usando a CLI do Azure
 
-Esse script cria um novo recurso signalr service do **Free** Tier e um novo grupo de recursos e o dimensiona para **o Nível Padrão.** 
+Esse script cria um novo recurso de serviço de Signalr da camada **gratuita** e um novo grupo de recursos e o dimensiona para a camada **Standard** . 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -79,15 +79,15 @@ Anote o nome real gerado para o novo grupo de recursos. Você usará esse nome d
 
 ## <a name="compare-pricing-tiers"></a>Comparar tipos de preço
 
-Para obter informações detalhadas, como mensagens incluídas e conexões para cada nível de preço, consulte [Detalhes de preços do serviço SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
+Para obter informações detalhadas, como mensagens e conexões incluídas para cada tipo de preço, consulte [detalhes de preços do serviço de sinalização](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-Para obter uma tabela de limites de serviço, cotas e restrições em cada camada, consulte [os limites do SignalR Service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
+Para obter uma tabela de limites de serviço, cotas e restrições em cada camada, consulte [limites de serviço de sinalização](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia, você aprendeu sobre como dimensionar uma única instância de Serviço SignalR.
+Neste guia, você aprendeu sobre como dimensionar a instância de serviço de sinal único.
 
-Vários pontos finais também são suportados para cenários de escala, fragmentação e região cruzada.
+Vários pontos de extremidade também têm suporte para dimensionamento, fragmentação e cenários entre regiões.
 
 > [!div class="nextstepaction"]
-> [serviço signalR de escala com várias instâncias](./signalr-howto-scale-multi-instances.md)
+> [dimensionar o serviço do Signalr com várias instâncias](./signalr-howto-scale-multi-instances.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurar carteiro para chamadas de API v3 REST do AZURE Media Services
+title: Configurar o postmaster para chamadas da API REST dos serviços de mídia do Azure v3
 description: Este artigo mostra como configurar o Postman para que ele possa ser usado para chamar APIs REST do Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75779630"
 ---
-# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar chamadas de API do Carteiro para Serviços de Mídia v3 REST
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
 
 Este artigo mostra como configurar o **Postman** para que ele possa ser usado para chamar APIs REST do Azure Media Services (AMS). O artigo mostra como importar arquivos de ambiente e coleção para **Postman**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs de REST dos Serviços de Mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
-Antes de começar a desenvolver, [revise o desenvolvimento com apis de serviços de mídia v3](media-services-apis-overview.md).
+Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,10 +32,10 @@ Antes de começar a desenvolver, [revise o desenvolvimento com apis de serviços
 - Obtenha as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
-    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
+    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou o **Fiddler Telerik**. 
 
 > [!IMPORTANT]
-> Revisar [convenções de nomeação](media-services-apis-overview.md#naming-conventions).
+> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="download-postman-files"></a>Baixar arquivos Postman
 
@@ -78,7 +78,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 Antes de começar a manipular os recursos do AMS v3, você precisa obter e definir o token do Azure AD para Autenticação do Principal de Serviço.
 
-1. Na janela esquerda do aplicativo Carteiro, selecione "Passo 1: Obtenha token AAD Auth".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "etapa 1: obter token de autenticação do AAD".
 2. Em seguida, selecione "Obter token do Microsoft Azure AD para autenticação de entidade de serviço".
 3. Pressione **Enviar**.
 
@@ -94,8 +94,8 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 
 ## <a name="troubleshooting"></a>Solução de problemas 
 
-* Se o seu aplicativo falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente definida como um valor diferente da localização esperada da conta do Serviço de Mídia. 
-* Se você tiver um erro de "conta não encontrada", verifique também se a propriedade de localização na mensagem Body JSON está definida como o local em que a conta do Serviço de Mídia está. 
+* Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
+* Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
 ## <a name="see-also"></a>Confira também
 
@@ -106,4 +106,4 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Transmitir arquivos com REST](stream-files-tutorial-with-rest.md).  
-- [Tutorial: Encodifique um arquivo remoto baseado em URL e transmita o vídeo - REST](stream-files-tutorial-with-rest.md)
+- [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)

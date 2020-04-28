@@ -9,17 +9,17 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75750685"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar registro em log com as configurações de diagnóstico
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-1. Faça login no [portal Azure](https://portal.azure.com) e navegue até o seu hub de IoT.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
 
 2. Selecione **configurações de diagnóstico**.
 
@@ -50,7 +50,7 @@ ms.locfileid: "75750685"
    * Métodos diretos  
    * Rastreamento distribuído (versão prévia)
    * Configurações
-   * Fluxos de dispositivos
+   * Fluxos de dispositivo
    * Métricas do dispositivo
 
 6. Salve as novas configurações. 

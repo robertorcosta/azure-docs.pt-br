@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864172"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Passo a passos de ciência de dados do Azure Data Lake usando U-SQL
@@ -27,11 +27,11 @@ Outras instruções passo a passo de ciência de dados que executam o Processo d
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Prever gorjetas de táxi usando U-SQL com Azure Data Lake
 
-O [uso do Azure Data Lake para](data-lake-walkthrough.md) o passo a passo da ciência de dados mostra como usar o Azure Data Lake para fazer tarefas de exploração de dados e classificação binária.  Os dados são uma amostra do conjunto de dados de táxi de NYC.  A tarefa é prever se uma gorjeta é paga ou não por um cliente. 
+A instrução [Use Azure data Lake para a ciência de dados](data-lake-walkthrough.md) mostra como usar Azure data Lake para a exploração de dados e tarefas de classificação binária.  Os dados são um exemplo de NYC táxi.  A tarefa está prevendo se uma gorjeta é paga ou não por um cliente. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral do Processo de Ciência de Dados da Equipe, consulte [visão geral do Processo](overview.md)de Ciência de Dados da Equipe .
+Para obter uma visão geral do processo de ciência de dados de equipe, consulte [visão geral do processo de ciência de dados de equipe](overview.md).
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipe, consulte o ciclo de vida do Processo de [Ciência de Dados da Equipe](lifecycle.md). Este ciclo de vida descreve os passos que os projetos geralmente seguem quando são executados. 
+Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Este ciclo de vida descreve as etapas que os projetos geralmente seguem quando são executados. 

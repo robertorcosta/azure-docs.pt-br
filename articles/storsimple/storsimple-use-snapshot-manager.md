@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: twooley
 ms.custom: ''
 ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75933966"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usar a interface de usuário do StorSimple Snapshot Manager para gerenciar trabalhos de backup e catálogo de backups
@@ -34,7 +34,7 @@ Para exibir a interface do usuário, clique no ícone do StorSimple Snapshot Man
 
 A janela do console tem cinco elementos principais. Clique no link apropriado para obter uma descrição completa de cada elemento.
 
-* [Barra de menu](#menu-bar) 
+* [Barra de menus](#menu-bar) 
 * [Barra de ferramentas](#tool-bar) 
 * [Painel Escopo](#scope-pane) 
 * [Painel de resultados](#results-pane) 
@@ -229,10 +229,10 @@ O painel **Escopo** contém os seguintes nós:
 
 * [Nó Dispositivos](#devices-node) 
 * [Nó Volumes](#volumes-node) 
-* [Nó de grupos de volume](#volume-groups-node) 
+* [Nó grupos de volumes](#volume-groups-node) 
 * [Nó Políticas de Backup](#backup-policies-node) 
 * [Nó Catálogo de Backups](#backup-catalog-node) 
-* [Nó Trabalhos](#jobs-node) 
+* [Nó trabalhos](#jobs-node) 
 
 ### <a name="scope-pane-tasks"></a>Tarefas do painel Escopo
 Você pode usar o painel **Escopo** para completar uma ação em um nó específico. Para selecionar uma tarefa, siga um destes procedimentos:

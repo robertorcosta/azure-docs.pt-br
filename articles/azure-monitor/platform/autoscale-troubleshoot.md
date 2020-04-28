@@ -1,161 +1,161 @@
 ---
-title: Solução de problemas a escala automática do Azure
-description: Rastreando problemas com o autoscaling do Azure usado em malha de serviço, máquinas virtuais, web apps e serviços em nuvem.
+title: Solucionando problemas do dimensionamento automático do Azure
+description: Rastreamento de problemas com o dimensionamento automático do Azure usado em Service Fabric, máquinas virtuais, aplicativos Web e serviços de nuvem.
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75751341"
 ---
-# <a name="troubleshooting-azure-autoscale"></a>Solução de problemas a escala automática do Azure
+# <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
-A escala automática do Azure Monitor ajuda você a ter a quantidade certa de recursos em execução para lidar com a carga em seu aplicativo. Ele permite adicionar recursos para lidar com aumentos de carga e também economizar dinheiro removendo recursos que estão ociosos. Você pode dimensionar com base em um cronograma, data-hora fixa ou métrica de recurso escolhida. Para obter mais informações, consulte [Visão geral de escala automática](autoscale-overview.md).
+Azure Monitor dimensionamento automático ajuda você a ter a quantidade certa de recursos em execução para lidar com a carga em seu aplicativo. Ele permite que você adicione recursos para lidar com aumentos de carga e também economiza dinheiro removendo os recursos que estão ociosos. Você pode dimensionar com base em uma agenda, data/hora fixa ou métrica de recurso que você escolher. Para obter mais informações, consulte [visão geral de dimensionamento automático](autoscale-overview.md).
 
-O serviço de autoescala fornece métricas e registros para entender quais ações de escala ocorreram e a avaliação das condições que levaram a essas ações. Você pode encontrar respostas para perguntas como:
+O serviço de dimensionamento automático fornece métricas e logs para entender quais ações de escala ocorreram e a avaliação das condições que levaram a essas ações. Você pode encontrar respostas para perguntas como:
 
-- Por que minha escala de serviço ou dentro?
-- Por que meu serviço não foi escalado?
-- Por que uma ação em escala automática falhou?
-- Por que uma ação em escala automática está levando tempo para ser dimensionada?
+- Por que o meu serviço se expandiu ou não?
+- Por que meu serviço não foi dimensionado?
+- Por que uma ação de dimensionamento automático falhou?
+- Por que uma ação de dimensionamento automático está levando tempo para ser dimensionada?
   
-## <a name="autoscale-metrics"></a>Métricas de autoescala
+## <a name="autoscale-metrics"></a>Métricas de dimensionamento automático
 
-A autoescala fornece [quatro métricas](metrics-supported.md#microsoftinsightsautoscalesettings) para entender seu funcionamento. 
+O dimensionamento automático fornece [quatro métricas](metrics-supported.md#microsoftinsightsautoscalesettings) para entender sua operação. 
 
-- **Valor métrico observado** - O valor da métrica que você escolheu para tomar a ação de escala, como visto ou computado pelo motor de escala automática. Como uma única configuração de escala automática pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando "fonte métrica" como uma dimensão.
-- **Limite métrico** - O limiar definido para tomar a ação de escala. Como uma única configuração de escala automática pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando "regra métrica" como uma dimensão.
-- **Capacidade Observada** - O número ativo de instâncias do recurso de destino visto pelo motor Autoscale.
-- **Ações de dimensionamento iniciadas** - O número de ações de expansão e redução horizontal iniciadas pelo mecanismo de dimensionamento automático. Você pode filtrar por escala versus escala em ações.
+- **Valor de métrica observado** -o valor da métrica na qual você escolheu realizar a ação de escala, como visto ou calculado pelo mecanismo de dimensionamento automático. Como uma única configuração de dimensionamento automático pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando a "origem da métrica" como uma dimensão.
+- **Limite de métrica** -o limite definido para tomar a ação de escala. Como uma única configuração de dimensionamento automático pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando "regra métrica" como uma dimensão.
+- **Capacidade observada** -o número ativo de instâncias do recurso de destino, como visto pelo mecanismo de dimensionamento automático.
+- **Ações de dimensionamento iniciadas** - O número de ações de expansão e redução horizontal iniciadas pelo mecanismo de dimensionamento automático. Você pode filtrar por escala horizontal versus escala em ações.
 
-Você pode usar o [Metrics Explorer](metrics-getting-started.md) para mapear as métricas acima em um só lugar. O gráfico deve mostrar:
+Você pode usar o [Metrics Explorer](metrics-getting-started.md) para fazer o gráfico das métricas acima em um único lugar. O gráfico deve mostrar:
 
   - a métrica real
-  - a métrica vista/computada pelo motor de autoescala
-  - o limiar para uma ação de escala
-  - a mudança de capacidade 
+  - a métrica como visto/computada pelo mecanismo de dimensionamento automático
+  - o limite para uma ação de escala
+  - a alteração na capacidade 
 
-## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Exemplo 1 - Analisar uma regra simples de escala automática 
+## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Exemplo 1-analisando uma regra de dimensionamento automático simples 
 
-Temos uma configuração de escala automática simples para um conjunto de escala de máquina virtual que:
+Temos uma configuração simples de dimensionamento automático para um conjunto de dimensionamento de máquinas virtuais que:
 
-- escala quando a porcentagem média da CPU de um conjunto é superior a 70% por 10 minutos 
-- escalas quando a porcentagem da CPU do conjunto é inferior a 5% por mais de 10 minutos. 
+- escala horizontalmente quando a porcentagem média de CPU de um conjunto for maior que 70% por 10 minutos 
+- dimensiona quando a porcentagem de CPU do conjunto é inferior a 5% por mais de 10 minutos. 
 
-Vamos rever as métricas do serviço de escala automática.
+Vamos examinar as métricas do serviço de dimensionamento automático.
  
-![Exemplo de cpu de definir em escala de máquina virtual](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
-![Exemplo de cpu de definir em escala de máquina virtual](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
+![Exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a - Métrica percentual da CPU para conjunto de escala de máquina virtual e a métrica de valor métrico observada para configuração de escala automática***
+***Figura 1a-percentual de métrica de CPU para conjunto de dimensionamento de máquinas virtuais e a métrica de valor de métrica observada para configuração de dimensionamento automático***
 
-![Limiar métrico e capacidade observada](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
+![Limite de métrica e capacidade observada](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1b - Limiar métrico e capacidade observada***
+***Figura 1b-limite de métrica e capacidade observada***
 
-Na figura 1b, o **Limiar Métrico** (linha azul claro) para a regra de saída de escala é 70.  A **Capacidade Observada** (linha azul escura) mostra o número de instâncias ativas, que atualmente é de 3. 
+Na figura 1B, o **limite de métrica** (linha azul clara) para a regra de expansão é 70.  A **capacidade observada** (linha azul escura) mostra o número de instâncias ativas, que atualmente são 3. 
 
 > [!NOTE]
-> Você precisará filtrar o **Limiar métrico** pela regra de escala de escala (aumento) da dimensão da regra do gatilho métrico para ver o limiar de saída de escala e pela escala na regra (diminuição). 
+> Você precisará filtrar o **limite de métrica** pela regra de gatilho de métrica dimensão de escala horizontal (aumentar) para ver o limite de expansão e pela regra de dimensionamento (diminuir). 
 
-## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exemplo 2 - Autoscaling avançado para um conjunto de escala de máquina virtual
+## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Exemplo 2-dimensionamento automático avançado para um conjunto de dimensionamento de máquinas virtuais
 
-Temos uma configuração de escala automática que permite que um recurso de conjunto de escala de máquina virtual seja dimensionado com base em sua própria métrica **Outbound Flows**. Observe que a opção **de contagem de métricas por instância** para o limiar métrico é verificada. 
+Temos uma configuração de dimensionamento automático que permite que um recurso de conjunto de dimensionamento de máquinas virtuais Escale horizontalmente com base em seus próprios **fluxos de saída**de métrica. Observe que a opção **dividir métrica por contagem de instâncias** para o limite de métrica está marcada. 
 
-A regra de ação em escala é: 
+A regra de ação de escala é: 
 
-Se o valor de Fluxo de **Saída por instância** for maior que 10, então o serviço de escala automática deve ser dimensionado por 1 instância. 
+Se o valor do **fluxo de saída por instância** for maior que 10, o serviço de dimensionamento automático deverá escalar horizontalmente em 1 instância. 
 
-Neste caso, o valor métrico observado do motor de escala automática é calculado como o valor métrico real dividido pelo número de instâncias. Se o valor métrico observado for menor que o limiar, nenhuma ação de saída de escala será iniciada. 
+Nesse caso, o valor da métrica observada do mecanismo de dimensionamento automático é calculado como o valor de métrica real dividido pelo número de instâncias. Se o valor da métrica observada for menor que o limite, nenhuma ação de expansão será iniciada. 
  
-![Exemplo de gráficos de métricas de escala automática de escala de máquina virtual](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Exemplo de gráficos de métricas de dimensionamento automático do conjunto de escala](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
-![Exemplo de gráficos de métricas de escala automática de escala de máquina virtual](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
+![Exemplo de gráficos de métricas de dimensionamento automático do conjunto de escala](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2 - Exemplo de gráficos de métricas de escala automática da escala da máquina virtual***
+***Figura 2-exemplo de gráficos de métrica de dimensionamento automático do conjunto de dimensionamento de máquinas virtuais***
 
-Na figura 2, você pode ver dois gráficos métricos. 
+Na Figura 2, você pode ver dois gráficos de métricas. 
 
-O gráfico no topo mostra o valor real da métrica **Outbound Flows.** O valor real é 6. 
+O gráfico na parte superior mostra o valor real da métrica de **fluxos de saída** . O valor real é 6. 
 
 O gráfico na parte inferior mostra alguns valores. 
- - O **valor métrico observado** (azul claro) é 3 porque há 2 instâncias ativas e 6 divididas por 2 é 3. 
- - A **Capacidade Observada** (roxo) mostra a contagem de ocorrências vista pelo motor de autoescala. 
- - O **Limiar Métrico** (verde claro) está definido como 10. 
+ - O **valor de métrica observado** (azul claro) é 3 porque há duas instâncias ativas e 6 divididas por 2 são 3. 
+ - A **capacidade observada** (roxo) mostra a contagem de instâncias vista pelo mecanismo de dimensionamento automático. 
+ - O **limite de métrica** (verde claro) é definido como 10. 
 
-Se houver regras de ação em várias escalas, você pode usar a opção de divisão ou a opção **adicionar filtro** no gráfico do explorador métrica para olhar a métrica por uma fonte ou regra específica. Para obter mais informações sobre a divisão de um gráfico métrico, consulte [Recursos avançados de gráficos métricos - divisão](metrics-charts.md#apply-splitting-to-a-chart)
+Se houver várias regras de ação de escala, você poderá usar a opção de divisão ou **Adicionar filtro** no gráfico do Metrics Explorer para examinar a métrica por uma fonte ou regra específica. Para obter mais informações sobre como dividir um gráfico de métricas, consulte [recursos avançados de gráficos de métrica – divisão](metrics-charts.md#apply-splitting-to-a-chart)
 
-## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3 - Entendendo eventos em escala automática
+## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3-noções básicas sobre eventos de dimensionamento automático
 
-Na tela de configuração de escala automática, vá para a guia **Executar histórico** para ver as ações de escala mais recentes. A guia também mostra a mudança na **Capacidade Observada** ao longo do tempo. Para encontrar mais detalhes sobre todas as ações de escala automática, incluindo operações como configurações de atualização/exclusão de escala automática, visualize o registro de atividades e o filtro por operações de escala automática.
+Na tela de configuração de dimensionamento automático, vá para a guia **histórico de execução** para ver as ações de escala mais recentes. A guia também mostra a alteração na **capacidade observada** ao longo do tempo. Para obter mais detalhes sobre todas as ações de dimensionamento automático, incluindo operações como atualizar/excluir dimensionamento automático, exibir o log de atividades e filtrar por operações de dimensionamento automático.
 
-![Configurações de escala automática executam o histórico](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
+![Histórico de execução de configurações de autoescala](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
 
-## <a name="autoscale-resource-logs"></a>Logs de recursos de escala automática
+## <a name="autoscale-resource-logs"></a>Logs de recursos de dimensionamento automático
 
-Mesmo que qualquer outro recurso do Azure, o serviço de autoescala fornece [logs de recursos](platform-logs-overview.md). Existem duas categorias de logs.
+O mesmo que qualquer outro recurso do Azure, o serviço de dimensionamento automático fornece [logs de recursos](platform-logs-overview.md). Há duas categorias de logs.
 
-- **Avaliações em escala automática** - O mecanismo de autoescala registra entradas de registro para cada avaliação de condições cada vez que faz uma verificação.  A entrada inclui detalhes sobre os valores observados das métricas, as regras avaliadas e se a avaliação resultou em uma ação de escala ou não.
+- **Avaliações de dimensionamento automático** -o mecanismo de dimensionamento automático registra entradas de log para cada avaliação de condição única toda vez que faz uma verificação.  A entrada inclui detalhes sobre os valores observados das métricas, as regras avaliadas e se a avaliação resultou em uma ação de escala ou não.
 
-- **Ações de escala de autoescala** - Os eventos de ação em escala de gerenciamento de mecanismos iniciados pelo serviço de autoescala e os resultados dessas ações de escala (sucesso, falha e quanto de dimensionamento ocorreu como visto pelo serviço de autoescala).
+- **Ações de escala de dimensionamento automático** -o mecanismo registra eventos de ação de escala iniciados pelo serviço de dimensionamento automático e os resultados dessas ações de escala (êxito, falha e a quantidade de dimensionamento ocorrida conforme visto pelo serviço de dimensionamento automático).
 
-Como em qualquer serviço suportado pelo Azure Monitor, você pode usar [configurações de diagnóstico](diagnostic-settings.md) para roteirizar esses registros:
+Assim como ocorre com qualquer serviço com suporte Azure Monitor, você pode usar [as configurações de diagnóstico](diagnostic-settings.md) para rotear esses logs:
 
-- ao seu espaço de trabalho do Log Analytics para análise detalhada
-- para Hubs de Eventos e, em seguida, para ferramentas não-Azure
+- para seu espaço de trabalho Log Analytics para análise detalhada
+- para os hubs de eventos e, em seguida, para as ferramentas que não são do Azure
 - para sua conta de armazenamento do Azure para arquivamento  
 
-![Configurações de diagnóstico em escala automática](media/autoscale-troubleshoot/diagnostic-settings.png)
+![Configurações de diagnóstico de dimensionamento automático](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-A imagem anterior mostra as configurações de diagnóstico em escala automática do portal Azure. Lá você pode selecionar a guia Diagnóstico/Registros de recursos e ativar a coleta e o roteamento do log. Você também pode executar a mesma ação usando modelos REST API, CLI, PowerShell, Resource Manager para Configurações de Diagnóstico, escolhendo o tipo de recurso como *Microsoft.Insights/AutoscaleSettings*. 
+A imagem anterior mostra as configurações de diagnóstico de autoescala portal do Azure. Lá, você pode selecionar a guia diagnóstico/recurso logs e habilitar a coleta e o roteamento de logs. Você também pode executar a mesma ação usando a API REST, a CLI, o PowerShell, os modelos do Resource Manager para configurações de diagnóstico, escolhendo o tipo de recurso como *Microsoft. insights/AutoscaleSettings*. 
 
-## <a name="troubleshooting-using-autoscale-logs"></a>Solução de problemas usando logs de escala automática 
+## <a name="troubleshooting-using-autoscale-logs"></a>Solução de problemas usando logs de dimensionamento automático 
 
-Para obter a melhor experiência de solução de problemas, recomendamos o roteamento de seus logs para loganalytics de monitores do Azure (Log Analytics) através de um espaço de trabalho quando você cria a configuração de escala automática. Este processo é mostrado na imagem na seção anterior. Você pode validar melhor as avaliações e dimensionar as ações usando o Log Analytics.
+Para obter a melhor experiência de solução de problemas, é recomendável rotear seus logs para Azure Monitor logs (Log Analytics) por meio de um espaço de trabalho ao criar a configuração de dimensionamento automático. Esse processo é mostrado na imagem na seção anterior. Você pode validar as ações de avaliação e escala melhor usando Log Analytics.
 
-Depois de configurar seus logs de escala automática a serem enviados para o espaço de trabalho do Log Analytics, você pode executar as seguintes consultas para verificar os logs. 
+Depois de configurar os logs de dimensionamento automático para serem enviados para o espaço de trabalho do Log Analytics, você pode executar as consultas a seguir para verificar os logs. 
 
-Para começar, tente esta consulta para visualizar os registros de avaliação de autoescala mais recentes:
+Para começar, tente esta consulta para exibir os logs de avaliação de dimensionamento automático mais recentes:
 
 ```Kusto
 AutoscaleEvaluationsLog
 | limit 50
 ```
 
-Ou tente a seguinte consulta para visualizar os registros de ação de escala mais recentes:
+Ou tente a consulta a seguir para exibir os logs de ação de dimensionamento mais recentes:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | limit 50
 ```
 
-Use as seguintes seções para essas perguntas. 
+Use as seções a seguir para essas perguntas. 
 
-## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>Uma ação em escala ocorreu que eu não esperava
+## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>Ocorreu uma ação de escala que eu não esperava
 
-Primeiro execute a consulta para ação em escala para encontrar a ação de escala na qual você está interessado. Se for a ação de escala mais recente, use a seguinte consulta:
+Primeiro, execute a consulta para a ação de escala para localizar a ação de dimensionamento em que você está interessado. Se for a ação de escala mais recente, use a seguinte consulta:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | take 1
 ```
 
-Selecione o campo CorrelaçãoId no registro de ações de escala. Use o CorrelaçãoId para encontrar o registro de avaliação certo. A execução da consulta abaixo exibirá todas as regras e condições avaliadas levando a essa ação de escala.
+Selecione o campo CorrelationId do log de ações de escala. Use CorrelationId para localizar o log de avaliação correto. A execução da consulta abaixo exibirá todas as regras e condições avaliadas, levando à ação de escala.
 
 ```Kusto
 AutoscaleEvaluationsLog
 | where CorrelationId = "<correliationId>"
 ```
 
-## <a name="what-profile-caused-a-scale-action"></a>Que perfil causou uma ação em escala?
+## <a name="what-profile-caused-a-scale-action"></a>Qual perfil causou uma ação de escala?
 
-Uma ação em escala ocorreu, mas você tem regras e perfis sobrepostos e precisa rastrear o que causou a ação. 
+Ocorreu uma ação dimensionada, mas você tem regras e perfis sobrepostos e precisa rastrear o que causou a ação. 
 
-Encontre a correlaçãoId da ação de escala (conforme explicado no exemplo 1) e execute a consulta nos registros de avaliação para saber mais sobre o perfil.
+Localize a CorrelationId da ação de escala (conforme explicado no exemplo 1) e execute a consulta nos logs de avaliação para saber mais sobre o perfil.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -164,7 +164,7 @@ AutoscaleEvaluationsLog
 | project ProfileEvaluationTime, Profile, ProfileSelected, EvaluationResult
 ```
 
-Toda a avaliação do perfil também pode ser melhor entendida usando a seguinte consulta
+A avaliação completa do perfil também pode ser compreendida melhor usando a consulta a seguir
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -173,13 +173,13 @@ AutoscaleEvaluationsLog
 | project OperationName, Profile, ProfileEvaluationTime, ProfileSelected, EvaluationResult
 ```
 
-## <a name="a-scale-action-did-not-occur"></a>Uma ação em escala não ocorreu
+## <a name="a-scale-action-did-not-occur"></a>Uma ação de escala não ocorreu
 
-Eu esperava uma ação em escala e isso não ocorreu. Pode não haver eventos de ação em escala ou logs.
+Eu esperava uma ação de dimensionamento e ela não ocorreu. Pode não haver nenhum evento de ação de escala ou logs.
 
-Revise as métricas de escala automática se estiver usando uma regra de escala baseada em métricas. É possível que o **valor métrico observado** ou a capacidade **observada** não sejam o que você esperava que fossem e, portanto, a regra da escala não disparou. Você ainda veria avaliações, mas não uma regra de escala. Também é possível que o tempo de resfriamento impediu que uma ação em escala ocorresse. 
+Examine as métricas de dimensionamento automático se você estiver usando uma regra de escala baseada em métrica. É possível que o **valor da métrica observada** ou a **capacidade observada** não sejam o que você esperava e, portanto, a regra de escala não foi acionada. Você ainda verá avaliações, mas não uma regra de expansão. Também é possível que o tempo de resfriamento mantenha a ocorrência de uma ação de dimensionamento. 
 
- Revise os registros de avaliação de escala automática durante o período de tempo que você esperava que a ação de escala ocorresse. Reveja todas as avaliações que fez e por que decidiu não desencadear uma ação em escala.
+ Examine os logs de avaliação de dimensionamento automático durante o período de tempo que você esperava que a ação de dimensionamento ocorra. Examine todas as avaliações que ele fez e por que ele decidiu não disparar uma ação de escala.
 
 
 ```Kusto
@@ -191,7 +191,7 @@ AutoscaleEvaluationsLog
 
 ## <a name="scale-action-failed"></a>Falha na ação de escala
 
-Pode haver um caso em que o serviço de autoescala tomou a ação de escala, mas o sistema decidiu não escalar ou não completar a ação de escala. Use esta consulta para encontrar as ações de escala com falha.
+Pode haver um caso em que o serviço de dimensionamento automático realizou a ação de dimensionamento, mas o sistema decidiu não dimensionar ou falhar para concluir a ação de escala. Use essa consulta para localizar as ações de escala com falha.
 
 ```Kusto
 AutoscaleScaleActionsLog
@@ -199,11 +199,11 @@ AutoscaleScaleActionsLog
 | project ResultDescription
 ```
 
-Crie regras de alerta para ser notificado sobre ações ou falhas em escala automática. Você também pode criar regras de alerta para ser notificado em eventos de escala automática.
+Crie regras de alerta para ser notificado de falhas ou ações de dimensionamento automático. Você também pode criar regras de alerta para ser notificado sobre eventos de dimensionamento automático.
 
-## <a name="schema-of-autoscale-resource-logs"></a>Esquema de logs de recursos em escala automática
+## <a name="schema-of-autoscale-resource-logs"></a>Esquema de logs de recursos de dimensionamento automático
 
-Para obter mais informações, consulte [registros de recursos em escala automática](autoscale-resource-log-schema.md)
+Para obter mais informações, consulte [autoescala logs de recursos](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia informações sobre [as melhores práticas de autoescala.](autoscale-best-practices.md) 
+Leia informações sobre [práticas recomendadas de dimensionamento automático](autoscale-best-practices.md). 

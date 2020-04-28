@@ -1,36 +1,36 @@
 ---
-title: Crie alertas de desempenho para o Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como criar alertas personalizados com base em consultas de log para a utilização de memória e CPU do Azure Monitor para contêineres.
+title: Criar alertas de desempenho para Azure Monitor para contêineres | Microsoft Docs
+description: Este artigo descreve como criar alertas personalizados com base em consultas de log para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75730918"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas no Azure Monitor para problemas de desempenho de contêineres
 
-O Azure Monitor para contêineres monitora o desempenho das cargas de trabalho de contêineres que são implantadas em Instâncias de Contêineres Do Azure ou para clusters Kubernetes gerenciados hospedados no Azure Kubernetes Service (AKS).
+Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner que são implantadas em instâncias de contêiner do Azure ou em clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure).
 
-Este artigo descreve como ativar alertas para as seguintes situações:
+Este artigo descreve como habilitar alertas para as seguintes situações:
 
-- Quando a utilização da CPU ou da memória em nós de cluster excede um limite
+- Quando a utilização de CPU ou memória em nós de cluster excede um limite
 - Quando a utilização de CPU ou memória em qualquer contêiner dentro de um controlador excede um limite em comparação com um limite definido no recurso correspondente
-- Contatos de nó de status *NotReady*
-- *Contagens de*fase de pod *sumidas,* *pendentes,* *desconhecidas* *ou*em execução ou bem sucedidas
+- Contagens de nós de status *não lidos*
+- Contagens de fase-Pod *com falha*, *pendentes*, *desconhecidas*ou *com* *êxito*
 - Quando o espaço livre em disco em nós de cluster excede um limite 
 
-Para alertar para alta utilização de CPU ou memória, ou baixo espaço em disco livre em nós de cluster, use as consultas fornecidas para criar um alerta métrico ou um alerta de medição métrica. Os alertas métricos têm menor latência do que os alertas de registro. Mas os alertas de log fornecem consultas avançadas e maior sofisticação. As consultas de alertas de log comparam uma data com a presente usando o *agora* operador e voltando uma hora. (Monitor azure para lojas de contêineres todas as datas no formato Coordinated Universal Time (UTC).)
+Para alertar sobre alta utilização de CPU ou memória ou pouco espaço livre em disco em nós de cluster, use as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medição de métrica. Os alertas de métrica têm menor latência do que os alertas de log. Mas os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alertas de log comparam um DateTime com o presente usando o operador *Now* e retornam uma hora. (Azure Monitor para contêineres armazena todas as datas no formato UTC (tempo Universal Coordenado).)
 
-Se você não estiver familiarizado com os alertas do Azure Monitor, consulte [Visão geral dos alertas no Microsoft Azure](../platform/alerts-overview.md) antes de iniciar. Para saber mais sobre os alertas que usam consultas de log, consulte [Alertas de log no Azure Monitor](../platform/alerts-unified-log.md). Para obter mais sobre alertas métricos, consulte [Alertas métricos no Azure Monitor](../platform/alerts-metric-overview.md).
+Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../platform/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../platform/alerts-unified-log.md). Para obter mais informações sobre alertas de métrica, consulte [alertas de métrica em Azure monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de pesquisa de log de utilização de recursos
 
-As consultas nesta seção suportam cada cenário de alerta. Eles são usados na etapa 7 da seção [de alerta](#create-an-alert-rule) de criação deste artigo.
+As consultas nesta seção dão suporte a cada cenário de alerta. Eles são usados na etapa 7 da seção [criar alerta](#create-an-alert-rule) deste artigo.
 
-A consulta a seguir calcula a utilização média da CPU como uma média da utilização da CPU dos nodos de membros a cada minuto.  
+A consulta a seguir calcula a utilização média da CPU como uma média da utilização de CPU de nós membros a cada minuto.  
 
 ```kusto
 let endDateTime = now();
@@ -65,7 +65,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-A consulta a seguir calcula a utilização média da memória como uma média da utilização da memória dos nódulos membros a cada minuto.
+A consulta a seguir calcula a utilização média de memória como uma média de utilização de memória dos nós membros a cada minuto.
 
 ```kusto
 let endDateTime = now();
@@ -100,9 +100,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->As consultas a seguir usam \<os valores do \<espaço reservado> e o nome do seu controlador> para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente quando configurar alertas.
+>As consultas a seguir usam os valores \<de espaço reservado Your-cluster- \<Name> e-Controller-Name> para representar o cluster e o controlador. Substitua-os por valores específicos do seu ambiente ao configurar alertas.
 
-A consulta a seguir calcula a utilização média da CPU de todos os recipientes em um controlador como uma média de utilização da CPU de cada instância de contêiner em um controlador a cada minuto. A medição é uma porcentagem do limite estabelecido para um contêiner.
+A consulta a seguir calcula a utilização média da CPU de todos os contêineres em um controlador como uma média da utilização da CPU de cada instância de contêiner em um controlador a cada minuto. A medida é uma porcentagem do limite configurado para um contêiner.
 
 ```kusto
 let endDateTime = now();
@@ -142,7 +142,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-A consulta a seguir calcula a utilização média da memória de todos os recipientes em um controlador como uma média de utilização da memória de cada instância de contêiner em um controlador a cada minuto. A medição é uma porcentagem do limite estabelecido para um contêiner.
+A consulta a seguir calcula a utilização média de memória de todos os contêineres em um controlador como uma média de utilização de memória de cada instância de contêiner em um controlador a cada minuto. A medida é uma porcentagem do limite configurado para um contêiner.
 
 ```kusto
 let endDateTime = now();
@@ -182,7 +182,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-A consulta a seguir retorna todos os nós e contagens que têm um status de *Ready* and *NotReady*.
+A consulta a seguir retorna todos os nós e contagens que têm um status de *pronto* e *não legível*.
 
 ```kusto
 let endDateTime = now();
@@ -209,7 +209,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-A seguinte consulta retorna a fase de retornos conta gensiotas com base em todas as fases: *Failed*, *Pending*, *Unknown*, *Running*ou *Succeeded*.  
+A consulta a seguir retorna contagens de fase de Pod com base em todas as fases: *falha*, *pendente*, *desconhecido*, *em execução ou com* *êxito*.  
 
 ```kusto
 let endDateTime = now();
@@ -246,9 +246,9 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Para alertar sobre determinadas fases do pod, como *Pendente*, *Falha,* ou *Desconhecido,* modifique a última linha da consulta. Por exemplo, para alertar sobre o uso *de Count Falha:* <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Para alertar sobre determinadas fases de Pod, como *pendente*, *com falha*ou *desconhecido*, modifique a última linha da consulta. Por exemplo, para alertar sobre o uso do *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-A consulta a seguir retorna os discos de nó de cluster que excedem 90% do espaço livre utilizado. Para obter o ID do cluster, primeiro execute a `ClusterId` seguinte consulta e copie o valor da propriedade:
+A consulta a seguir retorna discos de nós de cluster que excedem 90% de espaço livre usado. Para obter a ID do cluster, primeiro execute a seguinte consulta e copie o valor da `ClusterId` Propriedade:
 
 ```kusto
 InsightsMetrics
@@ -277,35 +277,35 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Siga essas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log fornecidas anteriormente. Para criar usando um modelo ARM, consulte [criação de alerta de registro de exemplo usando o Modelo de recurso do Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log que foi fornecida anteriormente. Para criar usando um modelo de ARM, consulte [criação de alerta de log de exemplo usando o modelo de recurso do Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
->O procedimento a seguir para criar uma regra de alerta para a utilização de recursos de contêiner exige que você mude para uma nova API de alertas de log, conforme descrito na [preferência da API do Switch para alertas de log](../platform/alerts-log-api-switch.md).
+>O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).
 >
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. No portal Azure, procure e selecione **espaços de trabalho do Log Analytics**.
-3. Na sua lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que suporta o Monitor Azure para contêineres. 
-4. No painel do lado esquerdo, selecione **Logs** para abrir a página de logs do Monitor do Azure. Você usa esta página para escrever e executar consultas do Azure Log Analytics.
-5. Na página **Logs,** cole uma das [consultas fornecidas](#resource-utilization-log-search-queries) anteriormente no campo **de consulta de Pesquisa** e selecione **Executar** para validar os resultados. Se você não executar esta etapa, a opção **+Novo alerta** não está disponível para seleção.
-6. Selecione **+Novo alerta** para criar um alerta de log.
-7. Na seção **Condição,** selecione **"Sempre \<que a pesquisa de log personalizado for lógica indefinida>** condição de log personalizado predefinida. O tipo de sinal **de pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente da página de logs do Azure Monitor.  
-8. Cole uma das [consultas fornecidas](#resource-utilization-log-search-queries) anteriormente no campo **de consulta de pesquisa.**
-9. Configure o alerta da seguinte forma:
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Na portal do Azure, procure e selecione espaços de **trabalho do log Analytics**.
+3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que oferece suporte a Azure Monitor para contêineres. 
+4. No painel no lado esquerdo, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de Log Analytics do Azure.
+5. Na página **logs** , Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo consulta de **pesquisa** e, em seguida, selecione **executar** para validar os resultados. Se você não executar essa etapa, a opção **+ novo alerta** não estará disponível para seleção.
+6. Selecione **+ novo alerta** para criar um alerta de log.
+7. Na seção **condição** , selecione o **sempre que a pesquisa de logs personalizada \<for lógica indefinida>** condição de log personalizado predefinida. O tipo de sinal de **pesquisa de log personalizado** é selecionado automaticamente porque estamos criando uma regra de alerta diretamente na página de logs de Azure monitor.  
+8. Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo de **consulta de pesquisa** .
+9. Configure o alerta da seguinte maneira:
 
-    1. A partir da **lista de** desestatados, selecione **Medição métrica**. Uma medição métrica cria um alerta para cada objeto na consulta que tem um valor acima do nosso limite especificado.
-    1. Para **Condição,** selecione **Maior do que**e digite **75** como um **limiar** inicial de linha de base para os alertas de utilização da CPU e da memória. Para o alerta de espaço em disco baixo, digite **90**. Ou digite um valor diferente que atenda aos seus critérios.
-    1. Na seção **Alerta de gatilho baseado na** seção, **selecione Violações consecutivas**. Na lista de isenções, selecione **Maior do que**e digite **2**.
-    1. Para configurar um alerta para a utilização da CPU ou da memória do contêiner, em **Aggregate,** selecione **ContainerName**. Para configurar o alerta de disco baixo do nó de cluster, selecione **ClusterId**.
-    1. Na **seção Avaliado,** defina o valor do **período** para **60 minutos**. A regra será executada a cada 5 minutos e os registros de retorno que foram criados na última hora a partir do horário atual. Definir o período de tempo como uma ampla janela de contas para uma possível latência de dados. Também garante que a consulta retorne dados para evitar um falso negativo no qual o alerta nunca é acionado.
+    1. Na lista suspensa **com base em** , selecione medição de **métrica**. Uma medida métrica cria um alerta para cada objeto na consulta que tem um valor acima do nosso limite especificado.
+    1. Para **condição**, selecione **maior que**e insira **75** como um **limite** de linha de base inicial para os alertas de utilização de CPU e memória. Para o alerta de pouco espaço em disco, insira **90**. Ou insira um valor diferente que atenda aos seus critérios.
+    1. No **alerta de gatilho com base na** seção, selecione **violações consecutivas**. Na lista suspensa, selecione **maior que**e digite **2**.
+    1. Para configurar um alerta para utilização de CPU ou memória de contêiner, em **agregar em**, selecione **ContainerName**. Para configurar o alerta de baixo disco do nó do cluster, selecione **clusterid**.
+    1. Na seção **avaliado com base em** , defina o valor do **período** como **60 minutos**. A regra será executada a cada 5 minutos e retornará os registros que foram criados na última hora a partir da hora atual. Definir o período de tempo para uma ampla janela de contas para uma possível latência de dados. Ele também garante que a consulta retorne dados para evitar um falso negativo no qual o alerta nunca é acionado.
 
-10. Selecione **Concluído** para completar a regra de alerta.
-11. Digite um nome no campo **Nome da regra Alerta.** Especifique uma **descrição** que forneça detalhes sobre o alerta. E selecione um nível de gravidade apropriado das opções fornecidas.
-12. Para ativar imediatamente a regra de alerta, aceite o valor padrão para **Ativar regra após a criação**.
-13. Selecione um **grupo de ação** existente ou crie um novo grupo. Esta etapa garante que as mesmas ações sejam tomadas sempre que um alerta é acionado. Configure com base em como sua equipe de operações de TI ou DevOps gerencia incidentes.
-14. Selecione **Criar regra de alerta** para completar a regra de alerta. Ela começa a ser executada imediatamente.
+10. Selecione **concluído** para concluir a regra de alerta.
+11. Insira um nome no campo **nome da regra de alerta** . Especifique uma **Descrição** que forneça detalhes sobre o alerta. E selecione um nível de severidade apropriado nas opções fornecidas.
+12. Para ativar imediatamente a regra de alerta, aceite o valor padrão para **habilitar a regra na criação**.
+13. Selecione um **grupo de ações** existente ou crie um novo grupo. Essa etapa garante que as mesmas ações sejam executadas toda vez que um alerta for disparado. Configure com base em como sua equipe de operações de ti ou DevOps gerencia incidentes.
+14. Selecione **criar regra de alerta** para concluir a regra de alerta. Ela começa a ser executada imediatamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Exibir [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas e exemplos pré-definidos para avaliar ou personalizar para alertar, visualizar ou analisar seus clusters.
-- Para saber mais sobre o Azure Monitor e como monitorar outros aspectos do seu cluster Kubernetes, consulte [Ver o desempenho do cluster Kubernetes](container-insights-analyze.md) e visualizar a saúde do cluster [Kubernetes](container-insights-health.md).
+- Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.
+- Para saber mais sobre Azure Monitor e como monitorar outros aspectos do cluster do kubernetes, consulte [Exibir o desempenho do cluster kubernetes](container-insights-analyze.md) e [exibir a integridade do cluster do kubernetes](container-insights-health.md).

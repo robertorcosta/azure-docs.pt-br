@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75658790"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar dumps de heap para serviços do Apache Hadoop no HDInsight baseado em Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Então eles são úteis para diagnosticar problemas que ocorrem em tempo de execução.
+Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são úteis para diagnosticar problemas que ocorrem em tempo de execução.
 
 ## <a name="services"></a>Serviços
 
@@ -37,7 +37,7 @@ Você também pode habilitar despejos de heap para os processos de mapeamento e 
 
 Despejos de heap são habilitados transmitindo opções (às vezes conhecidas como opts, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do [Apache Hadoop](https://hadoop.apache.org/), você pode modificar o script de shell usado para iniciar o serviço para passar essas opções.
 
-Em cada script, há uma exportação para ** \* \_OPTS**, que contém as opções passadas para o JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
+Em cada ** \* \_script, há uma exportação para as**opções, que contém a opção passada para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
 
 Os processos de mapeamento e redução são ligeiramente diferentes, uma vez que essas operações são processos filho do serviço MapReduce. Cada processo de mapeamento ou redução é executado em um contêiner filho, e há duas entradas que contêm as opções de JVM. Contidos em **mapred-site.xml**:
 
@@ -45,7 +45,7 @@ Os processos de mapeamento e redução são ligeiramente diferentes, uma vez que
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
-> Recomendamos o uso [do Apache Ambari](https://ambari.apache.org/) para modificar os scripts e as configurações mapred-site.xml, já que o Ambari manuseia a replicação de alterações entre nós no cluster. Consulte a seção [Usando o Apache Ambari](#using-apache-ambari) para obter etapas específicas.
+> É recomendável usar o [Apache Ambari](https://ambari.apache.org/) para modificar os scripts e as configurações de mapred-site. xml, uma vez que o Ambari lida com a replicação de alterações entre nós no cluster. Consulte a seção [Usando o Apache Ambari](#using-apache-ambari) para obter etapas específicas.
 
 ### <a name="enable-heap-dumps"></a>Habilitar despejos de heap
 
@@ -53,7 +53,7 @@ A seguinte opção habilita os despejos de heap quando ocorre um OutOfMemoryErro
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-O **+** indica que esta opção está ativada. Por padrão, ela fica desabilitada.
+O **+** indica que essa opção está habilitada. Por padrão, ela fica desabilitada.
 
 > [!WARNING]  
 > Despejos de heap não são habilitados para serviços do Hadoop no HDInsight por padrão, pois os arquivos de despejo podem ser grandes. Se você habilitá-los para solução de problemas, lembre-se de desabilitá-los após ter reproduzido o problema e coletado os arquivos de despejo.
@@ -81,7 +81,7 @@ Você também pode disparar um script quando um **OutOfMemoryError** ocorrer. Po
 
 Para modificar a configuração de um serviço, use as seguintes etapas:
 
-1. A partir de um `https://CLUSTERNAME.azurehdinsight.net`navegador `CLUSTERNAME` da Web, navegue até , onde está o nome do seu cluster.
+1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
 
 2. Usando a lista à esquerda, selecione a área de serviço que você deseja modificar. Por exemplo, **HDFS**. Na área central, selecione a guia **Configurações** .
 
@@ -89,11 +89,11 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 3. Usando a entrada **Filtrar...**, insira **opts**. Apenas os itens que contêm esse texto são exibidos.
 
-    ![Lista filtrada da config Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    ![Lista filtrada de configuração do Apache Ambari](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. Encontre ** \* \_** a entrada OPTS para o serviço para o qual deseja habilitar dumps de pilha e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP\_NAMENODE\_OPTS**:
+4. Localize a ** \* \_entrada de** opções para o serviço para o qual você deseja habilitar os despejos de heap e adicione as opções que deseja habilitar. Na imagem a seguir, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à entrada **HADOOP\_NAMENODE\_OPTS**:
 
-    ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    ![Apache Ambari Hadoop-namenode-optas por](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 
    > [!NOTE]  
    > Ao habilitar despejos de heap para o processo filho de mapeamento ou redução, procure os campos denominados **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.
@@ -106,13 +106,13 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 6. Selecione cada serviço que precisa ser reiniciado e use o botão **Ações de Serviço** para **Ativar o Modo de Manutenção**. O modo de manutenção impede que alertas sejam gerados pelo serviço ao reiniciá-lo.
 
-    ![Ativar menu de modo de manutenção hdi](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    ![Ativar o menu do modo de manutenção do HDI](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
 
 7. Após ter habilitado o modo de manutenção, use o botão **Reiniciar** para o serviço **Reiniciar Todos os Afetados**
 
-    ![Apache Ambari Reiniciar todas as entradas afetadas](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    ![Apache Ambari reiniciar todas as entradas afetadas](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
 
    > [!NOTE]  
-   > As entradas para o botão **Reiniciar** podem ser diferentes para outros serviços.
+   > As entradas do botão **reiniciar** podem ser diferentes para outros serviços.
 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.

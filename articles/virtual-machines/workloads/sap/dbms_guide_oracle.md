@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645837"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP
@@ -318,14 +318,14 @@ O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure.
 
 As Notas de SAP a seguir estão relacionadas ao SAP no Azure.
 
-| Número da observação | Title |
+| Número da observação | Título |
 | --- | --- |
-| [1928533] |Aplicações SAP no Azure: produtos suportados e tipos de VM do Azure |
-| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
+| [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [2191498] |SAP no Linux com Azure: Monitoramento aprimorado |
-| [2039619] |Aplicativos SAP no Microsoft Azure usando o banco de dados Oracle: produtos e versões suportados |
+| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
+| [2039619] |Aplicativos SAP em Microsoft Azure usando o banco de dados Oracle: produtos e versões com suporte |
 | [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
 | [2069760] |Atualização e instalação do SAP do Oracle Linux 7.x |
 | [1597355] |Recomendação de troca de espaço para Linux |
@@ -448,7 +448,7 @@ Para os kernels do Oracle Linux UEK, a versão mínima 4 do UEK é necessária p
 
 É altamente recomendável usar os [Azure Managed Disks](../../windows/managed-disks-overview.md). Também é altamente recomendável usar os [SSDs premium do Azure](../../windows/disks-types.md) para suas implantações do Oracle Database.
 
-As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo do Azure não são compatíveis com os arquivos do Oracle Database. Para saber mais, consulte o seguinte:  
+As unidades de rede ou de compartilhamentos remoto como os serviços de arquivo do Azure não são compatíveis com os arquivos do Oracle Database. Para saber mais, consulte o seguinte: 
 
 - [Apresentando o serviço de arquivo do Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -464,10 +464,10 @@ Configuração mínima:
 
 | Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Nenhum | Não é necessário |
-| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Nenhum | Não é necessário |
-| /oracle/\<SID>/sapdata1... N | Premium | Somente leitura | Pode ser usado |
-| /oracle/\<SID>/oraarch | Standard | Nenhum | Não é necessário |
+| /Oracle/\<Sid>/Origlogaa & mirrlogB | Premium | Nenhum | Não é necessário |
+| /Oracle/\<Sid>/Origlogab & mirrlogA | Premium | Nenhum | Não é necessário |
+| /Oracle/\<Sid>/sapdata1... p | Premium | Somente leitura | Pode ser usado |
+| /Oracle/\<Sid>/oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
 
 *Stripping: faixa de LVM ou MDADM usando RAID0
@@ -478,18 +478,18 @@ Configuração de desempenho:
 
 | Componente | Disco | Cache | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium | Nenhum | Pode ser usado  |
-| /oracle/\<SID>/origlogaB | Premium | Nenhum | Pode ser usado |
-| /oracle/\<SID>/mirrlogAB | Premium | Nenhum | Pode ser usado |
-| /oracle/\<SID>/mirrlogBA | Premium | Nenhum | Pode ser usado |
-| /oracle/\<SID>/sapdata1... N | Premium | Somente leitura | Recomendadas  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| /oracle/\<SID>/oraarch* | Premium | Nenhum | Não é necessário |
+| /Oracle/\<Sid>/origlogaa | Premium | Nenhum | Pode ser usado  |
+| /Oracle/\<Sid>/origlogab | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<Sid>/mirrlogab | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<Sid>/mirrlogba | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<Sid>/sapdata1... p | Premium | Somente leitura | Recomendadas  |
+| /Oracle/\<Sid>/sapdata (n + 1) * | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<Sid>/oraarch * | Premium | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | Não é necessário |
 
 *Stripping: faixa de LVM ou MDADM usando RAID0
 
-*(n+1):hosting SYSTEM, TEMP e UNDO tablespaces: O padrão de I/O do System e Undo tablespaces são diferentes de outros espaços de tabela que hospedam dados de aplicativos. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
+* (n + 1): Hospedagem de espaços de tabela, TEMP e desfazer: o padrão de e/s de espaços de tabela de sistema e desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
 
 *oraarch: do ponto de vista do desempenho, o pool de armazenamento não é necessário.
 

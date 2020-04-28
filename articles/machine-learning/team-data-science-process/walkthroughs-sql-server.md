@@ -1,6 +1,6 @@
 ---
 title: Análise de SQL Server com R, Python e T-SQL – Processo de Ciência de Dados da Equipe
-description: Exemplos que percorrem o uso de R, Python e T-SQL no SQL Server para fazer análises preditivas.
+description: Exemplos que orientam o uso de R, Python e T-SQL no SQL Server fazer análises preditivas.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864087"
 ---
-# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Passoa dos passoados de ciência de dados do SQL Server usando R, Python e T-SQL
+# <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruções SQL Server a ciência de dados usando R, Python e T-SQL
 
 Esses passo a passos usam SQL Server, SQL Server R Services e SQL Server Python Services para realizar a análise preditiva. O código em R e Python é implantado em procedimentos armazenados. Eles seguem as etapas descritas no Processo de Ciência de Dados de Equipe. Para obter uma visão geral do Processo de Ciência de Dados de Equipe, veja [Processo de Ciência de Dados](overview.md). 
 
@@ -27,12 +27,12 @@ Outras instruções passo a passo de ciência de dados que executam o Processo d
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Prever gorjetas de táxi usando consultas em Python e SQL com o SQL Server 
 
-O passo a passo [do SQL Server](sql-walkthrough.md) de uso mostra como você constrói e implanta modelos de classificação e regressão de aprendizado de máquina.  Os dados são um conjunto de dados de viagem de táxi e tarifa sumido publicamente disponíveis em NYC.
+O guia de [uso SQL Server](sql-walkthrough.md) mostra como criar e implantar modelos de classificação e regressão do Machine Learning.  Os dados são um conjunto de NYC de corridas e tarifas de táxi disponível publicamente.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prever gorjetas de táxi usando o Microsoft R com o SQL Server 
 
-O passo a passo [do Use SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) mostra como construir e implantar um modelo R no SQL Server. O passo a passo foi projetado para apresentar os desenvolvedores em R ao R Services (no banco de dados).
+A instrução de [uso SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) mostra como criar e implantar um modelo de R para SQL Server. O passo a passo foi projetado para apresentar os desenvolvedores em R ao R Services (no banco de dados).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prever gorjetas de táxi usando R a partir do T-SQL ou de procedimentos armazenados com o SQL Server

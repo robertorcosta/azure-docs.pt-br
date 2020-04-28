@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas Azure Site-to-Site VPN desconecta-se intermitentemente
+title: Solucionar problemas de desconexão de VPN site a site do Azure intermitentemente
 description: Saiba como solucionar o problema em que a conexão VPN Site a Site é desconectada regularmente.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75862553"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução de problemas: desconexão intermitente da VPN Site a Site do Azure
@@ -62,10 +62,10 @@ O Gateway de rede virtual baseado em política tem um limite de 200 pares de sub
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Etapa 7 Verificar se o dispositivo VPN local tem o PFS habilitado
 
-O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiver o **PFS** habilitado, desabilite o recurso. Em [seguida, atualize a diretiva IPsec do gateway de rede virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
+O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiver o **PFS** habilitado, desabilite o recurso. Em seguida, [atualize a política IPsec do gateway de rede virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Configure a política IPsec/IKE para conexões VPN site-to-site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+- [Configurar a política de IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 

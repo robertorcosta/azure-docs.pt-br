@@ -1,15 +1,15 @@
 ---
-title: Elemento De IU da Seção
-description: Descreve o elemento de interface do usuário Microsoft.Common.Section para o Portal do Azure. Use para agrupar elementos no portal para implantar aplicativos gerenciados.
+title: Elemento de interface do usuário da seção
+description: Descreve o elemento de interface do usuário Microsoft.Common.Section para o Portal do Azure. Use o para agrupar elementos no portal para a implantação de aplicativos gerenciados.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75652249"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interface do usuário Microsoft.Common.Section

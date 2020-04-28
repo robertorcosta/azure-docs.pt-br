@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864291"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
-Você pode implantar gateways VPN e ExpressRoute em [Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md). Isso traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure de falhas no nível na zona.
+Você pode implantar gateways VPN e ExpressRoute no [zonas de disponibilidade do Azure](../availability-zones/az-overview.md). Isso traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure de falhas no nível na zona.
 
 ### <a name="zone-redundant-gateways"></a><a name="zrgw"></a>Gateways com redundância de zona
 
@@ -40,9 +40,9 @@ Para implantar gateways em uma zona específica, você pode usar gateways em zon
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>SKUs do Gateway
 
-Os gateways zonais e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual em regiões do Azure AZ. Essas SKUs são semelhantes às SKUs existentes correspondentes para o Gateway de VPN e ExpressRoute, exceto que eles são específicos para gateways com redundância de zona e em zona. Você pode identificar essas SKUs pelo "AZ" no nome SKU.
+Os gateways zonais e com redundância de zona estão disponíveis como novas SKUs de gateway. Adicionamos novas SKUs de gateway de rede virtual em regiões do Azure AZ. Essas SKUs são semelhantes às SKUs existentes correspondentes para o Gateway de VPN e ExpressRoute, exceto que eles são específicos para gateways com redundância de zona e em zona. Você pode identificar essas SKUs pelo "AZ" no nome do SKU.
 
-Para obter informações sobre gateway SKUs, consulte [VPN gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku) e [ExpressRoute gateway SKUs](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
+Para obter informações sobre SKUs de gateway, consulte [SKUs de gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku) e SKUs de gateway de [ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="public-ip-skus"></a><a name="pipskus"></a>SKUs de IP público
 
@@ -75,7 +75,7 @@ Sim, você pode usar o portal do Azure para implantar as novas SKUs. No entanto,
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Quais regiões estão disponíveis para eu usar as novas SKUs?
 
-As novas SKUs estão disponíveis nas regiões azure que possuem Zonas de Disponibilidade Azure - Central EUA, França Central, Europa Norte, Europa Ocidental e Oeste dos EUA 2 regiões, Leste dos EUA, Leste dos EUA 2, Sudeste Asiático, Japão Leste, Reino Unido Sul. No futuro, disponibilizaremos os gateways com redundância de zona em outras Regiões Públicas do Azure.
+As novas SKUs estão disponíveis nas regiões do Azure que têm as regiões Zonas de Disponibilidade do Azure-EUA Central, França central, Europa Setentrional, Europa Ocidental e oeste dos EUA 2, leste dos EUA, leste dos Estados Unidos 2, Sudeste Asiático, leste do Japão, Sul do Reino Unido. No futuro, disponibilizaremos os gateways com redundância de zona em outras Regiões Públicas do Azure.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualizar meus gateways de rede virtual existentes para gateways com redundância de zona ou em zona?
 

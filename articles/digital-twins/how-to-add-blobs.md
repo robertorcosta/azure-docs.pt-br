@@ -1,6 +1,6 @@
 ---
-title: Como adicionar blobs aos objetos - Azure Digital Twins | Microsoft Docs
-description: Aprenda a adicionar blobs aos usuários, dispositivos e espaços no Azure Digital Twins.
+title: Como adicionar BLOBs a objetos – Azure digital gêmeos | Microsoft Docs
+description: Saiba como adicionar BLOBs a usuários, dispositivos e espaços no gêmeos digital do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75929705"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos nos Gêmeos Digitais do Azure
@@ -56,10 +56,10 @@ Metadados de blobs JSON são compatíveis com o seguinte modelo:
 | **parentId** | String | A entidade pai a ser associada ao blob (espaços, dispositivos ou usuários) |
 | **name** |String | Um nome amigável para humanos para o blob |
 | **type** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
-| **typeId** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
+| **Identificação** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
 | **subtype** | String | O subtipo do blob – não é possível usar *subtype* e *subtypeId* |
 | **subtypeId** | Integer | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
-| **Descrição** | String | Descrição personalizada do blob |
+| **ndescrição** | String | Descrição personalizada do blob |
 | **sharing** | String | Se o blob pode ser compartilhado – enum [`None`, `Tree`, `Global`] |
 
 Metadados de blob sempre são fornecidos como a primeira parte, com **Content-Type** `application/json` ou como um arquivo `.json`. Dados de arquivo são fornecidos na segunda parte e podem ser de qualquer tipo MIME com suporte.
@@ -112,13 +112,13 @@ Blobs retornados individualmente estão em conformidade com o seguinte esquema J
 | **name** |String | Um nome amigável para humanos para o blob |
 | **parentId** | String | A entidade pai a ser associada ao blob (espaços, dispositivos ou usuários) |
 | **type** | String | O tipo de blob – não é possível usar *type* e *typeId*  |
-| **typeId** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
+| **Identificação** | Integer | A ID do tipo de blob – não é possível usar *type* e *typeId* |
 | **subtype** | String | O subtipo do blob – não é possível usar *subtype* e *subtypeId* |
 | **subtypeId** | Integer | A ID do subtipo do blob – não é possível usar *subtype* e *subtypeId* |
 | **sharing** | String | Se o blob pode ser compartilhado – enum [`None`, `Tree`, `Global`] |
-| **Descrição** | String | Descrição personalizada do blob |
+| **ndescrição** | String | Descrição personalizada do blob |
 | **contentInfos** | Array | Especifica as informações de metadados não estruturados, incluindo a versão |
-| **Fullname** | String | O nome completo do blob |
+| **fullName** | String | O nome completo do blob |
 | **spacePaths** | String | O caminho de espaço |
 
 Metadados de blob sempre são fornecidos como a primeira parte, com **Content-Type** `application/json` ou como um arquivo `.json`. Dados de arquivo são fornecidos na segunda parte e podem ser de qualquer tipo MIME com suporte.
@@ -196,9 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | A ID do espaço a ser associado ao blob |
 | PATH_TO_FILE | O caminho para seu arquivo de texto |
 
-[![exemplo de cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
+[![exemplo de ondulação](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
-Um POST bem sucedido retorna o ID do novo blob.
+Uma POSTAgem bem-sucedida retorna a ID do novo BLOB.
 
 ## <a name="api-endpoints"></a>Pontos de extremidade de API
 
@@ -278,9 +278,9 @@ Solicitações bem-sucedidas retornam um objeto JSON como [descrito anteriorment
      * `multipart/mixed`
      * `multipart/form-data`
 
-  Além disso, verifique se cada *pedaço de várias partes* tem um **tipo de conteúdo**correspondente apropriado .
+  Além disso, verifique se cada *parte com várias* partes tem um **tipo de conteúdo**correspondente apropriado.
 
-* Um segundo erro comum surge quando várias bolhas são atribuídas ao mesmo recurso em seu [gráfico de inteligência espacial:](concepts-objectmodel-spatialgraph.md)
+* Um segundo erro comum surge quando vários BLOBs são atribuídos ao mesmo recurso em seu grafo de [inteligência espacial](concepts-objectmodel-spatialgraph.md):
 
   ```JSON
   {
@@ -292,11 +292,11 @@ Solicitações bem-sucedidas retornam um objeto JSON como [descrito anteriorment
   ```
 
   > [!NOTE]
-  > O atributo de **mensagem** variará de acordo com o recurso. 
+  > O atributo da **mensagem** variará com base no recurso. 
 
-  Apenas uma bolha (de cada tipo) pode ser anexada a cada recurso dentro do seu gráfico espacial. 
+  Somente um blob (de cada tipo) pode ser anexado a cada recurso dentro de seu grafo espacial. 
 
-  Para resolver esse erro, atualize a bolha existente usando a operação HTTP PATCH da API apropriada. Isso substituirá os dados de blob existentes pelos dados desejados.
+  Para resolver esse erro, atualize o blob existente usando a operação de PATCH HTTP de API apropriada. Isso substituirá os dados de blob existentes pelos dados desejados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

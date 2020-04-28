@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75708348"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
@@ -50,13 +50,13 @@ Para concluir este tutorial:
 
 Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira solicitação feita à operação **GetSpeakers** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
 
-1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até sua instância de APIM.
 3. Selecione a guia **API**.
 4. Clique em **API de Conferência de Demonstração** na sua lista de APIs.
 5. Selecione **GetSpeakers**.
 6. Na parte superior da tela, selecione a guia **Design**.
-7. Na seção **Processamento de entrada**, clique no ícone **</>**.
+7. Na seção **Processamento de entrada**, clique no ícone **</>** .
 
     ![editor de códigos](media/api-management-howto-cache/code-editor.png)
 
@@ -81,7 +81,7 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
 Para ver o cache em funcionamento, chame a operação por meio do portal do desenvolvedor.
 
 1. No portal do Azure, navegue até sua instância do APIM.
-2. Selecione a guia **APIs.**
+2. Selecione a guia **APIs** .
 3. Selecione a API para a qual você adicionou políticas de cache.
 4. Selecione a operação **GetSpeakers**.
 5. Clique na guia **Teste** no menu superior direito.

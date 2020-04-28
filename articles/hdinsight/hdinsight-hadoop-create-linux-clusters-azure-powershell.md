@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 3c93eca493275612ac14a995140b2e91cc40fe98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644657"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Criar clusters baseados em Linux no HDInsight usando o Azure PowerShell
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/install-Az-ps) Módulo Az.
+[Azure PowerShell](/powershell/azure/install-Az-ps) Módulo AZ.
 
 ## <a name="create-cluster"></a>Criar cluster
 
@@ -41,7 +41,7 @@ Para criar um cluster HDInsight usando o Azure PowerShell, siga estes procedimen
 * Crie um cluster HDInsight
 
 > [!NOTE]
-> O uso do PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen2 não é suportado no momento.
+> No momento, não há suporte para o uso do PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen2.
 
 O script a seguir demonstra como criar um novo cluster:
 
@@ -60,7 +60,7 @@ Pode levar até 20 minutos para criar um cluster.
 
 ## <a name="create-cluster-configuration-object"></a>Criar cluster: objeto de configuração
 
-Você também pode criar um [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) objeto de configuração HDInsight usando cmdlet. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, `-Config` use o [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) parâmetro do cmdlet para usar a configuração.
+Você também pode criar um objeto de configuração do [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) HDInsight usando o cmdlet. Será possível, então, modificar esse objeto de configuração para habilitar as opções de configuração adicionais para o cluster. Por fim, use `-Config` o parâmetro do [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet para usar a configuração.
 
 O script a seguir cria um objeto de configuração para configurar um R Server no tipo de cluster HDInsight. A configuração habilita um nó de borda, RStudio e uma conta de armazenamento adicionais.
 
@@ -78,13 +78,13 @@ O script a seguir cria um objeto de configuração para configurar um R Server n
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou com sucesso um cluster HDInsight, use os seguintes recursos para aprender a trabalhar com seu cluster.
+Agora que você criou um cluster HDInsight com êxito, use os recursos a seguir para aprender a trabalhar com o cluster.
 
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 

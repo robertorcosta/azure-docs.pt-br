@@ -1,15 +1,15 @@
 ---
-title: Configure serviços confiáveis da malha de serviço do Azure
-description: Aprenda a configurar serviços confiáveis e stateful em um aplicativo azure Service Fabric globalmente e para um único serviço.
+title: Configurar o Service Fabric do Azure Reliable Services
+description: Saiba como configurar Reliable Services com estado em um aplicativo de Service Fabric do Azure globalmente e para um único serviço.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645507"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar serviços confiáveis com estado
@@ -61,7 +61,7 @@ SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada
 A Configuração padrão dos Reliable Services com estado pode ser modificada por meio do pacote de configuração (Config) ou da implementação do serviço (código).
 
 * **Config** – a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
-* **Código** - A configuração via código é realizada criando um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com as opções apropriadas definidas.
+* O **código** -configuração por meio do código é feito criando um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com as opções apropriadas definidas.
 
 Por padrão, o runtime do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de runtime subjacentes.
 
@@ -116,7 +116,7 @@ ReplicatorConfig
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
 | LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo em vez de apenas no tamanho do log. Essa configuração também força a eliminação de entradas excluídas no dicionário confiável. Por isso, ele pode ser usado para garantir que os itens excluídos sejam removidos em tempo hábil. |
-| HabilitarStableReads |Boolean |Falso |A ativação de leituras estáveis restringe as réplicas secundárias aos valores de devolução que foram saqueados. |
+| EnableStableReads |Boolean |Falso |A habilitação de leituras estáveis restringe as réplicas secundárias para retornar valores que foram confirmado de quorum. |
 
 ### <a name="sample-configuration-via-code"></a>Amostra de configuração via código
 ```csharp

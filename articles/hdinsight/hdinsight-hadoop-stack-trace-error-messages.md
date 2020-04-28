@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
 ms.openlocfilehash: 3987a2d208bb96120d443300068ea739acbb4131
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75680240"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice do Apache Hadoop em artigos de solução de problemas do HDInsight
@@ -21,12 +21,12 @@ Os artigos são organizados por tipos de erro.
 
 ## <a name="out-of-memory-error"></a>Erro de memória insuficiente
 
-* [Corrija uma colméia Apache fora do erro de memória no HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Corrija um erro de memória (OOM) de uma consulta da Colméia. O cenário de cliente inclui uma consulta em várias tabelas grandes.
+* [Corrigir um erro de Apache Hive memória insuficiente no HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrija um erro de memória insuficiente (OOM) de uma consulta de Hive. O cenário de cliente inclui uma consulta em várias tabelas grandes.
 
 ## <a name="apache-hive-query-performance"></a>Desempenho de consulta do Apache Hive
 
-* [Otimize as consultas do Apache Hive para Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md): Este artigo abrange alguns métodos mais comuns de otimização de desempenho da Colmeia que você pode aplicar às consultas da Colmeia.
-* [Solucionando problemas da Colmeia Apache usando o Azure HDInsight](hdinsight-troubleshoot-hive.md).
+* [Otimizar Apache Hive consultas para Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md): Este artigo aborda alguns métodos mais comuns de otimização de desempenho do hive que você pode aplicar a consultas do hive.
+* [Solucionar problemas Apache Hive usando o Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## <a name="more-troubleshooting-articles"></a>Mais artigos de solução de problemas
 

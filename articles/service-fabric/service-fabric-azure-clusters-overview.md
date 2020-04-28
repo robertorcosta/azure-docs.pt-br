@@ -1,5 +1,5 @@
 ---
-title: Criar clusters no Windows Server e Linux
+title: Criar clusters no Windows Server e no Linux
 description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614665"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
@@ -48,9 +48,9 @@ Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma c
 Para saber mais, confira os [tipos de nós do Service Fabric e os conjuntos de dimensionamento de máquina virtual](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo de DNS.  Quando você fornece um cluster com * &lt;nome de&gt;cluster,* o nome DNS, * &lt;nome&gt;de cluster .&lt; localização&gt;.cloudapp.azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de escala.
+As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo de DNS.  Quando você provisiona um cluster com * &lt;ClusterName&gt;*, o nome DNS, * &lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
-As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt;clustername&gt;.&lt; localização&gt;.cloudapp.azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o * &lt;nome&gt;de cluster do rótulo DNS&lt; . localização&gt;.cloudapp.azure.com*, outros tipos de nó têm o * &lt;nó de nome de clusterdetipo&gt;-&lt;&gt;de rótulo DNS .&lt; localização&gt;.cloudapp.azure.com*.
+As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: * &lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo * &lt;DNS&gt;ClusterName&lt; . Location&gt;. cloudapp.Azure.com*, outros tipos de nó têm o rótulo * &lt;DNS&gt;-&lt;ClusterName&gt;NodeType&lt; . Location&gt;. cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 A [conta de armazenamento do Azure](/azure/storage/common/storage-introduction) e os Managed Disks oferecem suporte a cada tipo de nó de cluster.
@@ -96,7 +96,7 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 É possível criar clusters em máquinas virtuais que executem estes sistemas operacionais:
 
-| Sistema operacional | Versão de Malha de Serviço suportada mais antiga |
+| Sistema operacional | Versão de Service Fabric mais antiga com suporte |
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
@@ -106,7 +106,7 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6,0 |
 
-Para obter informações adicionais, consulte [versões de cluster suportadas no Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
+Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
 > Se você decidir implantar o Service Fabric no Windows Server 1709, note que (1) ele não é um branch de manutenção de longo prazo, então, talvez será necessário mover versões futuramente, e (2) se você implantar contêineres, os contêineres compilados no Windows Server 2016 não funcionarão no Windows Server 1709 e vice-versa (será necessário recompilar para implementá-los).

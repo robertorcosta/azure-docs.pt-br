@@ -1,6 +1,6 @@
 ---
 title: Mergulho profundo - Análise avançada - Azure HDInsight
-description: Saiba como a análise avançada usa algoritmos para processar big data no Azure HDInsight.
+description: Saiba como a análise avançada usa algoritmos para processar Big Data no Azure HDInsight.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 6fc6ea9ca0ce3bf82f027b964db94df50f07f2bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646516"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
@@ -23,7 +23,7 @@ O HDInsight fornece a capacidade de obter insights valiosos de grandes quantidad
 
 ## <a name="advanced-analytics-process"></a>Processo de análise Avançada
 
-![Fluxo avançado de processos de análise](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+![Fluxo de processo de análise avançada](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
 Depois de identificar o problema de negócios e começar a coletar e processar seus dados, você precisa criar um modelo que representa a pergunta que deseja prever. O modelo usará um ou mais algoritmos de aprendizado de máquina para fazer o tipo de previsão que melhor atenda às suas necessidades de negócios.  A maioria dos dados deve ser usada para treinar seu modelo, e o restante usado para testá-lo ou avaliá-lo.
 
@@ -33,16 +33,16 @@ Depois de criar, carregar, testar e avaliar o seu modelo, a próxima etapa é im
 
 Soluções de análise avançada fornecem um conjunto de algoritmos de aprendizado de máquina. Aqui está um resumo das categorias de algoritmos e casos de uso de negócios comuns associados.
 
-![Resumos da categoria Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+![Resumos de categoria de Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Além de selecionar os algoritmos mais adequados, você precisa considerar se precisa ou não fornecer dados para treinamento. Algoritmos de aprendizado de máquina são categorizados da seguinte maneira:
 
 * Supervisionado – o algoritmo precisa ser treinado em um conjunto de dados rotulados antes de poder fornecer resultados
-* Semi-supervisionado - algoritmo pode ser aumentado por alvos extras através de consulta interativa por um treinador, que não estavam disponíveis durante a fase inicial do treinamento
-* Não supervisionado - algoritmo não requer dados de treinamento
+* Semisupervisionado-o algoritmo pode ser aumentado por destinos extras por meio de consulta interativa por um instrutor, que não estava disponível durante o estágio inicial de treinamento
+* Não supervisionado-o algoritmo não requer dados de treinamento
 * Reforço – o algoritmo usa os agentes do software para determinar o comportamento ideal em um contexto específico (geralmente usado em robótica)
 
-| Categoria de algoritmo| Use | Tipo de aprendizado | Algoritmos |
+| Categoria de algoritmo| Uso | Tipo de aprendizado | Algoritmos |
 | --- | --- | --- | -- |
 | classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogêneos | Não supervisionado | Modelo de cluster K-means |
@@ -75,7 +75,7 @@ Como parte do HDInsight, é possível criar um cluster do HDInsight com [ML Serv
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e Apache Hive
 
-[O Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) fornece ferramentas para modelar análises preditivas e um serviço totalmente gerenciado que você pode usar para implantar seus modelos preditivos como serviços web prontos para consumir. O Azure Machine Learning fornece ferramentas para criar soluções de análise preditiva completas na nuvem para criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Selecione de uma grande biblioteca de algoritmos, use um estúdio baseado na Web para a criação de modelos e implante facilmente seu modelo como um serviço Web.
+[Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) fornece ferramentas para modelar análises preditivas e um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. O Azure Machine Learning fornece ferramentas para criar soluções de análise preditiva completas na nuvem para criar, testar, operacionalizar e gerenciar modelos preditivos rapidamente. Selecione de uma grande biblioteca de algoritmos, use um estúdio baseado na Web para a criação de modelos e implante facilmente seu modelo como um serviço Web.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark e Aprendizado profundo
 
@@ -85,7 +85,7 @@ O [Aprendizado profundo](https://www.microsoft.com/research/group/dltc/) é uma 
 
 Vamos revisar um exemplo de um pipeline de aprendizado de máquina de análise avançada usando o HDInsight.
 
-Neste cenário, você verá como os DNNs produzidos em uma estrutura de aprendizagem profunda, o Cognitive Toolkit (CNTK) da Microsoft, podem ser operacionalizados para marcar grandes coleções de imagens armazenadas em uma conta do Azure Blob Storage usando pySpark em um cluster HDInsight Spark. Essa abordagem é aplicada a um caso de uso DNN comum, classificação de imagens aéreas e pode ser usada para identificar padrões recentes de desenvolvimento urbano.  Você usará um modelo de classificação de imagem pré-treinado. O modelo é pré-treinado no [conjunto de dados de CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) e foi aplicado a 10.000 imagens retidas.
+Nesse cenário, você verá como DNNs produzidos em uma estrutura de aprendizado profundo, o CNTK (Cognitive Toolkit da Microsoft), pode ser operado para a pontuação de coleções de imagens grandes armazenadas em uma conta de armazenamento de BLOBs do Azure usando o PySpark em um cluster HDInsight Spark. Essa abordagem é aplicada a um caso de uso DNN comum, classificação de imagens aéreas e pode ser usada para identificar padrões recentes de desenvolvimento urbano.  Você usará um modelo de classificação de imagem pré-treinado. O modelo é pré-treinado no [conjunto de dados de CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) e foi aplicado a 10.000 imagens retidas.
 
 Há três tarefas-chave nesse cenário de análise avançada:
 
@@ -95,9 +95,9 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 
-![Imagens de exemplo de Aprendizado de Máquina](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+![Machine Learning imagens de exemplo](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
-Para obter mais informações sobre o conjunto de dados, consulte Alex Krizhevsky's [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
+Para saber mais sobre o conjunto de dados, confira Alex Krizhevsky [aprendendo várias camadas de recursos de imagens pequenas](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf).
 
 O conjunto de dados foi particionado em um conjunto de treinamento de 50.000 imagens e um conjunto de teste de 10.000 imagens. O primeiro conjunto foi usado para treinar um modelo de rede residual (ResNet) convolucional com vinte camadas de profundidade usando o Kit de Ferramentas Cognitivas da Microsoft seguindo [este tutorial](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet) do repositório GitHub do Kit de Ferramentas Cognitivas. As 10.000 imagens restantes foram usadas para testar a precisão do modelo. É aí que a computação distribuída entra em cena: a tarefa de pré-processamento e pontuação das imagens é altamente paralelizável. Com o modelo treinado salvo em mãos, usamos:
 
@@ -108,24 +108,24 @@ O conjunto de dados foi particionado em um conjunto de treinamento de 50.000 ima
 
 Todo o pré-processamento/pontuação das 10.000 imagens leva menos de um minuto em um cluster com 4 nós de trabalho. O modelo prevê com precisão os rótulos de ~ 9.100 (91%) imagens. Uma matriz de confusão ilustra os erros mais comuns de classificação. Por exemplo, a matriz mostra que a classificação errada de cachorros como gatos e vice-versa ocorre mais frequentemente que em outros pares de rótulos.
 
-![Gráfico de resultados do Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+![Machine Learning gráfico de resultados](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Experimente!
 
-Siga [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para implementar esta solução de ponta a ponta: configure um cluster HDInsight Spark, instale o Cognitive Toolkit e execute o Jupyter Notebook que marca 10.000 imagens CIFAR.
+Siga [este tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) para implementar essa solução de ponta a ponta: configurar um cluster HDInsight Spark, instalar cognitive Toolkit e executar o Jupyter notebook que pontua 10.000 imagens CIFAR.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Apache Hive e Azure Machine Learning
 
 * [Apache Hive e Azure Machine Learning de ponta a ponta](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Usando um Cluster Hadoop Azure HDInsight em um conjunto de dados de 1 TB](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
+* [Usando um cluster Azure HDInsight Hadoop em um conjunto de um DataSet de 1 TB](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
 Apache Spark e MLLib
 
 * [Machine Learning com Spark em HDInsight no HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Apache Spark com Machine Learning: Use Apache Spark no HDInsight para analisar a temperatura da construção usando dados HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: use apache spark no HDInsight para prever resultados de inspeção de alimentos](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: Use Apache Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use Apache Spark no HDInsight para prever os resultados da inspeção de alimentos](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Aprendizado Profundo, Kit de Ferramentas Cognitivas e outros
 

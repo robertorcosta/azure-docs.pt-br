@@ -1,19 +1,19 @@
 ---
-title: Gerenciar o estado de malha de serviço do Azure
-description: Aprenda a acessar, salvar e remover o estado para um ator confiável do azure Service Fabric e considerações ao projetar um aplicativo.
+title: Gerenciar o estado de Service Fabric do Azure
+description: Saiba mais sobre como acessar, salvar e remover o estado de um ator confiável do Azure Service Fabric e considerações ao criar um aplicativo.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645626"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acessar, salvar e remover estado dos Reliable Actors
-[Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos single-threaded que podem encapsular a lógica e o estado e manter o estado de forma confiável. Cada instância de ator tem seu próprio [gerente de estado](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena de forma confiável pares de chaves/valor. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-los para armazenar dados, independentemente de qual [configuração](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) de persistência seja usada.
+[Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos single-threaded que podem encapsular a lógica e o estado e manter o estado de forma confiável. Cada instância de ator tem seu próprio [Gerenciador de estado](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena de forma confiável pares de chave/valor. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-lo para armazenar dados, independentemente de qual [configuração de persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) é usada.
 
 As chaves do gerenciador de estado devem ser cadeias de caracteres. Os valores são genéricos e podem ser de qualquer tipo, incluindo tipos personalizados. Os valores armazenados no gerenciador de estado devem ser serializáveis pelo contrato de dados, pois poderão ser transmitidos pela rede a outros nós durante a replicação e gravados em disco, dependendo da configuração de persistência de estado de um ator.
 

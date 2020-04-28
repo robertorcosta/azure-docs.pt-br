@@ -1,5 +1,5 @@
 ---
-title: 'Conecte um VNet a um VNet usando uma conexão VNet-to-VNet: Azure CLI'
+title: 'Conectar uma VNet a uma VNet usando uma conexão VNet a VNet: CLI do Azure'
 description: Conecte redes virtuais usando a conexão de rede virtual a rede virtual e a CLI do Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75834569"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
@@ -22,9 +22,9 @@ Este artigo ajuda você a conectar redes virtuais usando o tipo de conexão de r
 As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e usa a CLI do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -67,11 +67,11 @@ Neste artigo, você verá dois conjuntos diferentes de etapas de conexão VNet p
 
 Para este exercício, você pode combinar as configurações, ou simplesmente escolher aquela com a qual você deseja trabalhar. Todas as configurações usam o tipo de conexão VNet a VNet. O tráfego de rede flui entre as VNets diretamente conectadas umas às outras. Neste exercício, o tráfego de TestVNet4 não roteia para TestVNet5.
 
-* [VNets que residem na mesma assinatura:](#samesub) As etapas para esta configuração usam TestVNet1 e TestVNet4.
+* [VNets que residem na mesma assinatura:](#samesub) As etapas para essa configuração usam TestVNet1 e TestVNet4.
 
   ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [VNets que residem em diferentes assinaturas:](#difsub) As etapas para esta configuração usam TestVNet1 e TestVNet5.
+* [VNets que residem em assinaturas diferentes:](#difsub) As etapas para essa configuração usam TestVNet1 e TestVNet5.
 
   ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -269,7 +269,7 @@ Nesse cenário, conecte TestVNet1 e TestVNet5. As redes virtuais residem em assi
 
 ### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Etapa 5: criar e configurar o TestVNet1
 
-Essas instruções continuam das etapas nas seções anteriores. Você deve completar [o Passo 1](#Connect) e o Passo [2](#TestVNet1) para criar e configurar o TestVNet1 e o Gateway VPN para TestVNet1. Para essa configuração, você não precisa criar a TestVNet4 da seção anterior, mas, se criá-la, ela não entrará em conflito com estas etapas. Depois de concluir as Etapas 1 e 2, continue com a Etapa 6 (abaixo).
+Essas instruções continuam das etapas nas seções anteriores. Você deve concluir a etapa [1](#Connect) e a [etapa 2](#TestVNet1) para criar e configurar o TestVNet1 e o gateway de VPN para TestVNet1. Para essa configuração, você não precisa criar a TestVNet4 da seção anterior, mas, se criá-la, ela não entrará em conflito com estas etapas. Depois de concluir as Etapas 1 e 2, continue com a Etapa 6 (abaixo).
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Etapa 6: verificar os intervalos de endereços IP
 
@@ -292,7 +292,7 @@ Ao criar conexões adicionais, é importante verificar se o espaço de endereço
 
 ### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Etapa 7: criar e configurar TestVNet5
 
-Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre `az account list --all` assinaturas use para listar as assinaturas `az account set --subscription <subscriptionID>` disponíveis em sua conta, use para mudar para a assinatura que você deseja usar.
+Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, `az account set --subscription <subscriptionID>` use para alternar para a assinatura que você deseja usar.
 
 1. Verifique se você está conectado à Assinatura 5 e crie um grupo de recursos.
 
@@ -331,7 +331,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 ### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Etapa 8: criar as conexões
 
-Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre `az account list --all` assinaturas use para listar as assinaturas `az account set --subscription <subscriptionID>` disponíveis em sua conta, use para mudar para a assinatura que você deseja usar.
+Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, `az account set --subscription <subscriptionID>` use para alternar para a assinatura que você deseja usar.
 
 1. **[Assinatura 1]** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 

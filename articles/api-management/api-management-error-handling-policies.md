@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75902453"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
@@ -59,32 +59,32 @@ A seção de política `on-error` pode ser usada em qualquer escopo. Os editores
 
 As políticas a seguir podem ser usadas na seção da política `on-error`.
 
--   [Escolher](api-management-advanced-policies.md#choose)
--   [variável de conjunto](api-management-advanced-policies.md#set-variable)
+-   [escolha](api-management-advanced-policies.md#choose)
+-   [definir variável](api-management-advanced-policies.md#set-variable)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)
 -   [set-status](api-management-advanced-policies.md#SetStatus)
 -   [send-request](api-management-advanced-policies.md#SendRequest)
--   [enviar-um-way-request](api-management-advanced-policies.md#SendOneWayRequest)
+-   [solicitação Send-unidirecional](api-management-advanced-policies.md#SendOneWayRequest)
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
 
 ## <a name="lasterror"></a>lastError
 
-Quando ocorre um erro e `on-error` o controle salta para a seção de diretiva, o erro é armazenado no [contexto. Propriedade LastError,](api-management-policy-expressions.md#ContextVariables) que pode ser acessada por políticas na seção. `on-error` LastError tem as propriedades a seguir.
+Quando ocorre um erro e o controle salta para `on-error` a seção de política, o erro é armazenado no [contexto. Propriedade LastError](api-management-policy-expressions.md#ContextVariables) , que pode ser acessada por políticas `on-error` na seção. LastError tem as propriedades a seguir.
 
 | Nome       | Type   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser uma política ou um nome de passo de pipeline embutido.      | Sim      |
-| `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
-| `Message`  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
-| `Scope`    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
-| `Section`  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".      | Não       |
-| `Path`     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                 | Não       |
-| `PolicyId` | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não       |
+| `Source`   | cadeia de caracteres | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
+| `Reason`   | cadeia de caracteres | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
+| `Message`  | cadeia de caracteres | Descrição de erro legível por humanos.                                                                         | Sim      |
+| `Scope`    | cadeia de caracteres | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
+| `Section`  | cadeia de caracteres | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".      | Não       |
+| `Path`     | cadeia de caracteres | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                 | Não       |
+| `PolicyId` | cadeia de caracteres | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não       |
 
 > [!TIP]
 > É possível acessar o código de status por meio de context.Response.StatusCode.
@@ -101,9 +101,9 @@ Os erros a seguir são predefinidos para condições de erro que podem ocorrer d
 | configuração | O Uri não corresponde a nenhuma API ou Operação | OperationNotFound       | Não é possível corresponder a solicitação recebida a uma operação.                                                                      |
 | autorização | Chave de assinatura não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à ausência da chave de assinatura. Certifique-se de incluir a chave de assinatura ao fazer solicitações para esta API. |
 | autorização | O valor chave e assinatura é inválido         | SubscriptionKeyInvalid  | Acesso negado devido à chave de assinatura inválida. Certifique-se de fornecer uma chave válida para uma assinatura ativa.            |
-| vários | A conexão downstream (de um cliente para um gateway de gerenciamento de API) foi abortada pelo cliente enquanto a solicitação estava pendente | Falha de conexão do cliente | vários |
-| vários | A conexão upstream (de um gateway de gerenciamento de API para um serviço backend) não foi estabelecida ou foi abortada pelo backend | Falha de conexão backend | vários |
-| vários | Exceção de tempo de execução ocorreu durante a avaliação de uma expressão específica | Falha de avaliação de valor de expressão | vários |
+| vários | A conexão downstream (de um cliente para um gateway de gerenciamento de API) foi anulada pelo cliente enquanto a solicitação estava pendente | ClientConnectionFailure | vários |
+| vários | A conexão upstream (de um gateway de gerenciamento de API para um serviço de back-end) não foi estabelecida ou foi anulada pelo back-end | BackendConnectionFailure | vários |
+| vários | Ocorreu uma exceção de tempo de execução durante a avaliação de uma expressão específica | ExpressionValueEvaluationFailure | vários |
 
 ## <a name="predefined-errors-for-policies"></a>Erros predefinidos para políticas
 
@@ -114,21 +114,21 @@ Os erros a seguir são predefinidos para condições de erro que podem ocorrer d
 | rate-limit   | Limite de taxa excedido                                             | RateLimitExceeded         | O limite da taxa foi excedido                                                                                                               |
 | quota        | Cota excedida                                                  | QuotaExceeded             | Fora da cota do volume de chamada. A cota será reposta em xx:xx:xx. – ou – Sem cota de largura de banda. A cota será reposta em xx:xx:xx. |
 | jsonp        | O valor do parâmetro de retorno de chamada é inválido (contém caracteres errados) | CallbackParameterInvalid  | O valor do parâmetro de retorno de chamada {callback-parameter-name} não é um identificador JavaScript válido.                                          |
-| ip-filter    | Falha ao analisar o IP do chamador da solicitação                          | FailedToParseCallerIP     | Falha ao estabelecer o endereço IP para o chamador. Acesso negado.                                                                        |
-| ip-filter    | O IP do chamador não está na lista de permissões                                | CallerIpNotAllowed        | O endereço IP do chamador {ip-address} não é permitido. Acesso negado.                                                                        |
-| ip-filter    | O IP do chamador está na lista de bloqueios                                    | CallerIpBlocked           | O endereço IP do chamador está bloqueado. Acesso negado.                                                                                         |
-| check-header | O cabeçalho necessário não é apresentado ou o valor está ausente               | HeaderNotFound            | O cabeçalho {header-name} não foi encontrado na solicitação. Acesso negado.                                                                    |
-| check-header | O cabeçalho necessário não é apresentado ou o valor está ausente               | HeaderValueNotAllowed     | O valor do cabeçalho {header-name} de {header-value} não é permitido. Acesso negado.                                                          |
-| validate-jwt | O token Jwt está ausente na solicitação                                 | TokenNotFound             | JWT não encontrado na solicitação. Acesso negado.                                                                                         |
-| validate-jwt | Falha na validação da assinatura                                     | TokenSignatureInvalid     | <mensagem da biblioteca jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Público-alvo inválido                                                | TokenAudienceNotAllowed   | <mensagem da biblioteca jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Emissor inválido                                                  | TokenIssuerNotAllowed     | <mensagem da biblioteca jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | Token expirado                                                   | TokenExpired              | <mensagem da biblioteca jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | A chave de assinatura não foi resolvida pela ID                            | TokenSignatureKeyNotFound | <mensagem da biblioteca jwt\>. Acesso negado.                                                                                          |
-| validate-jwt | As declarações necessárias estão ausentes no token                          | TokenClaimNotFound        | O token JWT não tem as seguintes declarações: <c1\>, <c2\>, … Acesso negado.                                                            |
-| validate-jwt | Incompatibilidade de valores de declaração                                           | TokenClaimValueNotAllowed | O valor da declaração {claim-name} de {claim-value} não é permitido. Acesso negado.                                                             |
+| ip-filter    | Falha ao analisar o IP do chamador da solicitação                          | FailedToParseCallerIP     | Falha ao estabelecer o endereço IP para o chamador. Acesso negado                                                                        |
+| ip-filter    | O IP do chamador não está na lista de permissões                                | CallerIpNotAllowed        | O endereço IP do chamador {ip-address} não é permitido. Acesso negado                                                                        |
+| ip-filter    | O IP do chamador está na lista de bloqueios                                    | CallerIpBlocked           | O endereço IP do chamador está bloqueado. Acesso negado                                                                                         |
+| check-header | O cabeçalho necessário não é apresentado ou o valor está ausente               | HeaderNotFound            | O cabeçalho {header-name} não foi encontrado na solicitação. Acesso negado                                                                    |
+| check-header | O cabeçalho necessário não é apresentado ou o valor está ausente               | HeaderValueNotAllowed     | O valor do cabeçalho {header-name} de {header-value} não é permitido. Acesso negado                                                          |
+| validate-jwt | O token Jwt está ausente na solicitação                                 | TokenNotFound             | JWT não encontrado na solicitação. Acesso negado                                                                                         |
+| validate-jwt | Falha na validação da assinatura                                     | TokenSignatureInvalid     | <mensagem da biblioteca jwt\>. Acesso negado                                                                                          |
+| validate-jwt | Público-alvo inválido                                                | TokenAudienceNotAllowed   | <mensagem da biblioteca jwt\>. Acesso negado                                                                                          |
+| validate-jwt | Emissor inválido                                                  | TokenIssuerNotAllowed     | <mensagem da biblioteca jwt\>. Acesso negado                                                                                          |
+| validate-jwt | Token expirado                                                   | TokenExpired              | <mensagem da biblioteca jwt\>. Acesso negado                                                                                          |
+| validate-jwt | A chave de assinatura não foi resolvida pela ID                            | TokenSignatureKeyNotFound | <mensagem da biblioteca jwt\>. Acesso negado                                                                                          |
+| validate-jwt | As declarações necessárias estão ausentes no token                          | TokenClaimNotFound        | O token JWT não tem as seguintes declarações: <c1\>, <c2\>, … Acesso negado                                                            |
+| validate-jwt | Incompatibilidade de valores de declaração                                           | TokenClaimValueNotAllowed | O valor da declaração {claim-name} de {claim-value} não é permitido. Acesso negado                                                             |
 | validate-jwt | Outras falhas de validação                                       | JwtInvalid                | <mensagem da biblioteca jwt\>                                                                                                          |
-| solicitação de encaminhamento ou solicitação de envio | O código de status de resposta HTTP e os cabeçalhos não foram recebidos do backend dentro do tempo normal configurado | Tempo limite | vários |
+| solicitação de encaminhamento ou envio-solicitação | O código e os cabeçalhos de status de resposta HTTP não foram recebidos do back-end dentro do tempo limite configurado | Tempo limite | vários |
 
 ## <a name="example"></a>Exemplo
 

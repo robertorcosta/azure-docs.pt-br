@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas em um trabalho lento ou com falha no cluster Azure HDInsight
-description: Diagnosticar e solucionar problemas em um trabalho lento ou falhado em um cluster Azure HDInsight.
+title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
+description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,25 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75895308"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
 
-Se um aplicativo processando dados em um cluster HDInsight estiver sendo executado lentamente ou falhando com um código de erro, você terá várias opções de solução de problemas. Se os trabalhos estão demorando mais tempo do que o esperado ou se os tempos de resposta estão geralmente lentos, pode haver falhas de upstream do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum desses gargalos é dimensionamento insuficiente. Ao criar um novo cluster HDInsight, selecione os tamanhos de [máquina virtual apropriados](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Se um aplicativo processando dados em um cluster HDInsight estiver sendo executado lentamente ou falhando com um código de erro, você terá várias opções de solução de problemas. Se os trabalhos estão demorando mais tempo do que o esperado ou se os tempos de resposta estão geralmente lentos, pode haver falhas de upstream do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum desses gargalos é dimensionamento insuficiente. Ao criar um novo cluster HDInsight, selecione os tamanhos de [máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)apropriados.
 
 Para diagnosticar um cluster lento ou falhando, colete informações sobre todos os aspectos do ambiente, como Serviços do Azure associados, configuração de cluster e informações de execução do trabalho. Um diagnóstico útil é tentar reproduzir o estado de erro em outro cluster.
 
-* Passo 1: Coletar dados sobre o problema.
-* Passo 2: Valide o ambiente de cluster HDInsight.
-* Passo 3: Veja a saúde do seu cluster.
-* Passo 4: Revise a pilha de ambientes e as versões.
-* Passo 5: Examine os arquivos de registro de cluster.
-* Passo 6: Verifique as configurações de configuração.
-* Passo 7: Reproduzir a falha em um cluster diferente.
+* Etapa 1: coletar dados sobre o problema.
+* Etapa 2: validar o ambiente de cluster HDInsight.
+* Etapa 3: exibir a integridade do cluster.
+* Etapa 4: examinar a pilha e as versões do ambiente.
+* Etapa 5: examinar os arquivos de log do cluster.
+* Etapa 6: verificar as definições de configuração.
+* Etapa 7: reproduzir a falha em um cluster diferente.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Etapa 1: Coletar dados sobre o problema
 
@@ -56,7 +56,7 @@ O Portal do Azure pode fornecer essas informações:
 
 ![Informações do HDInsight do Portal do Azure](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
-Você também pode usar [o Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+Você também pode usar [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -71,16 +71,16 @@ Cada cluster HDInsight baseia-se em vários serviços do Azure e em softwares de
 
 ### <a name="service-details"></a>Detalhes do serviço
 
-* Verifique as versões de versão da biblioteca de código aberto.
-* Verifique se há [paralisações no serviço do Azure](https://azure.microsoft.com/status/).  
-* Verifique se há limites de uso do Azure Service. 
-* Verifique a configuração da sub-rede da Rede Virtual Do Azure.  
+* Verifique as versões de lançamento da biblioteca de código aberto.
+* Verifique se há [interrupções de serviço do Azure](https://azure.microsoft.com/status/).  
+* Verifique os limites de uso do serviço do Azure. 
+* Verifique a configuração de sub-rede da rede virtual do Azure.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração do cluster com a interface de usuário do Ambari
 
 O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. O Ambari está incluído nos clusters HDInsight com base em Linux. Selecione o **Painel do Cluster** na página do HDInsight no Portal do Azure.  Selecione o **painel do cluster HDInsight** para abrir a interface de usuário do Ambari e insira as credenciais de logon do cluster.  
 
-![Visão geral do painel apache ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+![Visão geral do painel do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
 Para abrir uma lista de modos de exibição do serviço, selecione **Modos de exibição do Ambari** na página do Portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você poderá ver o Gerenciador de Fila do YARN, o Modo de Exibição do Hive e o Modo de Exibição do Tez.  Selecione um link de serviço para ver informações de configuração e serviço.
 
@@ -95,7 +95,7 @@ Você pode solicitar que a Microsoft aumente o número de recursos de HDInsight 
 
 #### <a name="check-the-release-version"></a>Verificar a versão de lançamento
 
-Compare a versão de cluster com a versão mais recente do HDInsight. Cada versão do HDInsight inclui aprimoramentos, como novos aplicativos, recursos, patches e correções de bugs. O problema que está afetando o seu cluster pode ter sido corrigido na versão mais recente. Se possível, execute seu cluster usando a versão mais recente do HDInsight e bibliotecas associadas, como Apache HBase, Apache Spark e outras.
+Compare a versão de cluster com a versão mais recente do HDInsight. Cada versão do HDInsight inclui aprimoramentos, como novos aplicativos, recursos, patches e correções de bugs. O problema que está afetando o seu cluster pode ter sido corrigido na versão mais recente. Se possível, execute novamente o cluster usando a versão mais recente do HDInsight e bibliotecas associadas, como Apache HBase, Apache Spark e outros.
 
 #### <a name="restart-your-cluster-services"></a>Reiniciar os serviços de cluster
 
@@ -111,7 +111,7 @@ As seções a seguir descrevem como verificar a integridade de cada nó e do clu
 
 ### <a name="get-a-snapshot-of-the-cluster-health-using-the-ambari-ui-dashboard"></a>Obter um instantâneo da integridade de cluster usando o painel de interface do usuário do Ambari
 
-O [painel ambari UI](#view-cluster-configuration-settings-with-the-ambari-ui) (`https://<clustername>.azurehdinsight.net`) fornece uma visão geral da saúde do cluster, como tempo de atividade, memória, uso de rede e CPU, uso de disco HDFS e assim por diante. Use a Seção de hosts do Ambari para exibir recursos em um nível de host. Você também pode interromper e reiniciar serviços.
+O [painel de interface](#view-cluster-configuration-settings-with-the-ambari-ui) do`https://<clustername>.azurehdinsight.net`usuário do Ambari () fornece uma visão geral da integridade do cluster, como tempo de atividade, memória, rede e uso da CPU, uso de disco do HDFS e assim por diante. Use a Seção de hosts do Ambari para exibir recursos em um nível de host. Você também pode interromper e reiniciar serviços.
 
 ### <a name="check-your-webhcat-service"></a>Verificar seu serviço WebHCat
 
@@ -119,7 +119,7 @@ Um cenário comum para falha nos trabalhos no Apache Hive, Apache Pig ou Apache 
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (código de status 502)
 
-Este código é uma mensagem genérica dos nós de gateway, e é o código de status de falha mais comum. Uma causa possível para isso é o serviço WebHCat estar inativo no nó principal ativo. Para verificar essa possibilidade, use o seguinte comando CURL:
+Esse código é uma mensagem genérica de nós de gateway e são os códigos de status de falha mais comuns. Uma causa possível para isso é o serviço WebHCat estar inativo no nó principal ativo. Para verificar essa possibilidade, use o seguinte comando CURL:
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -127,7 +127,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 O Ambari exibe um alerta que mostra os hosts em que o serviço WebHCat está inativo. Você pode tentar fazer backup do serviço WebHCat reiniciando o serviço em seu host.
 
-![Apache Ambari Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+![Servidor do WebHCat de reinicialização do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
 
 Se um servidor WebHCat ainda não aparecer, verifique o log de operações de mensagens de falha. Para obter mais informações, verifique os arquivos `stderr` e `stdout` referenciados no nó.
 
@@ -176,7 +176,7 @@ No nível do YARN, há dois tipos de tempos limite:
 
     A imagem a seguir mostra a fila joblauncher com um uso excessivo de 714.4%. Isso é aceitável desde que ainda haja capacidade livre para ser emprestada na fila padrão. No entanto, quando o cluster é totalmente utilizado e a memória do YARN está na capacidade máxima de 100%, novos trabalhos devem aguardar, fazendo com os tempos limite expirem.
 
-    ![Visão da fila do lançador de empregos HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    ![Exibição de fila do iniciador de trabalho do HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
 
     Há duas maneiras de resolver esse problema: reduzindo a velocidade de envio de novos trabalhos ou aumentando a velocidade de consumo de trabalhos antigos, aumentando o cluster.
 
@@ -208,7 +208,7 @@ Para diagnosticar esses problemas:
 
 A página da **Pilha e Versão** da interface de usuário do Ambari fornece informações sobre configuração dos serviços de cluster e histórico de versão do serviço.  Versões incorretas da biblioteca de serviço do Hadoop podem ser uma causa de falha no cluster.  Na interface de usuário do Ambari, selecione o menu **Admin** e, em seguida, **Pilhas e Versões**.  Selecione a guia **Versões** na página para ver as informações de versão do serviço:
 
-![Apache Ambari Stack e Versões](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+![Pilha e versões do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
 ## <a name="step-5-examine-the-log-files"></a>Etapa 5: Examinar os arquivos de log
 
@@ -250,19 +250,19 @@ Para obter instruções detalhadas de como otimizar configurações de desempenh
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Etapa 7: Reproduzir a falha em um cluster diferente
 
-Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluster com a mesma configuração e reenvie uma por uma as etapas do trabalho. Verifique os resultados de cada etapa antes de processar a próxima. Este método lhe dá a oportunidade de corrigir e reexecutar uma única etapa com falha. Esse método também tem a vantagem de carregar os dados de entrada apenas uma vez.
+Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluster com a mesma configuração e reenvie uma por uma as etapas do trabalho. Verifique os resultados de cada etapa antes de processar a próxima. Esse método oferece a oportunidade de corrigir e executar novamente uma única etapa com falha. Esse método também tem a vantagem de carregar os dados de entrada apenas uma vez.
 
 1. Crie um novo cluster de teste com a mesma configuração do cluster com falha.
 2. Envie a primeira etapa de trabalho para o cluster de teste.
 3. Quando a etapa concluir o processamento, verifique se há erros nos arquivos de log de etapa. Conecte-se ao nó principal do cluster de teste e visualize os arquivos de log. Os arquivos de log de etapa aparecem somente depois que a etapa é executada por algum tempo, se é concluída, ou se falha.
-4. Se a primeira etapa for bem-sucedida, execute a próxima etapa. Se houver erros, investigue o erro nos arquivos de log. Se foi um erro no seu código, faça a correção e execute a etapa.
+4. Se a primeira etapa for bem-sucedida, execute a próxima etapa. Se houver erros, investigue o erro nos arquivos de log. Se fosse um erro em seu código, faça a correção e execute a etapa novamente.
 5. Continue até que todas as etapas sejam executadas sem erros.
 6. Quando você terminar a depuração do cluster de teste, exclua-o.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar clusters do HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Analise os logs do HDInsight](hdinsight-debug-jobs.md)
-* [Acesse o sinal do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Analisar logs do HDInsight](hdinsight-debug-jobs.md)
+* [Acessar Apache Hadoop entrada do aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar despejos de heap para serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problemas conhecidos para o cluster do Apache Spark no HDInsight](hdinsight-apache-spark-known-issues.md)

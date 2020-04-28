@@ -1,53 +1,53 @@
 ---
-title: Implantar associações para aplicativos gerenciados usando a diretiva
-description: Saiba mais sobre a implantação de associações para um aplicativo gerenciado usando o serviço Azure Policy.
+title: Implantar associações para o aplicativo gerenciado usando a política
+description: Saiba mais sobre como implantar associações para um aplicativo gerenciado usando o serviço Azure Policy.
 author: msHich
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75650936"
 ---
-# <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Implantar associações para um aplicativo gerenciado usando a diretiva do Azure
+# <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Implantar associações para um aplicativo gerenciado usando Azure Policy
 
-As políticas do Azure podem ser usadas para implantar associações para associar recursos a um aplicativo gerenciado. Neste artigo, descrevemos uma política incorporada que implanta associações e como você pode usar essa política.
+As políticas do Azure podem ser usadas para implantar associações para associar recursos a um aplicativo gerenciado. Neste artigo, descrevemos uma política interna que implanta associações e como você pode usar essa política.
 
-## <a name="built-in-policy-to-deploy-associations"></a>Política incorporada para implantar associações
+## <a name="built-in-policy-to-deploy-associations"></a>Política interna para implantar associações
 
-Implantar associações para um aplicativo gerenciado é uma política incorporada que pode ser usada para implantar associação para associar um recurso a um aplicativo gerenciado. A política aceita três parâmetros:
+Implantar associações para um aplicativo gerenciado é uma política interna que pode ser usada para implantar a associação para associar um recurso a um aplicativo gerenciado. A política aceita três parâmetros:
 
-- ID de aplicativo gerenciado - Este ID é o ID de recurso do aplicativo gerenciado ao qual os recursos precisam ser associados.
-- Tipos de recursos para associar - Esses tipos de recursos são a lista de tipos de recursos a serem associados ao aplicativo gerenciado. Você pode associar vários tipos de recursos a um aplicativo gerenciado usando a mesma diretiva.
-- Prefixo nome de associação - Esta string é o prefixo a ser adicionado ao nome do recurso de associação que está sendo criado. O valor padrão é "DeployedByPolicy".
+- ID do aplicativo gerenciado-essa ID é a ID de recurso do aplicativo gerenciado ao qual os recursos precisam ser associados.
+- Tipos de recursos a serem associados-esses tipos de recursos são a lista de tipos de recursos a serem associados ao aplicativo gerenciado. Você pode associar vários tipos de recursos a um aplicativo gerenciado usando a mesma política.
+- Prefixo do nome da Associação-esta cadeia de caracteres é o prefixo a ser adicionado ao nome do recurso de associação que está sendo criado. O valor padrão é "DeployedByPolicy".
 
-A diretiva usa a avaliação DeployIfNotExist. Ele é executado depois que um provedor de recursos lidou com uma solicitação de criação ou atualização de recursos dos tipos de recurso selecionados e a avaliação retornou um código de status de sucesso. Depois disso, o recurso de associação é implantado usando uma implantação de modelo.
-Para obter mais informações sobre associações, consulte [o onboarding de recursos do Azure Custom Providers](../custom-providers/concepts-resource-onboarding.md)
+A política usa a avaliação DeployIfNotExists. Ele é executado depois que um provedor de recursos tratou de uma solicitação criar ou atualizar recurso dos tipos de recursos selecionados e a avaliação tiver retornado um código de status de êxito. Depois disso, o recurso de associação é implantado usando uma implantação de modelo.
+Para obter mais informações sobre associações, consulte [integração de recursos de provedores personalizados do Azure](../custom-providers/concepts-resource-onboarding.md)
 
-## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Como usar a política de implantação de associações incorporadas 
+## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Como usar a política interna implantar associações 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Se o aplicativo gerenciado precisar de permissões para a assinatura para executar uma ação, a implantação de política de recurso de associação não funcionaria sem a concessão das permissões.
+Se o aplicativo gerenciado precisar de permissões para a assinatura para executar uma ação, a implantação de política do recurso de associação não funcionaria sem conceder as permissões.
 
 ### <a name="policy-assignment"></a>Atribuição de política
-Para usar a diretiva incorporada, crie uma atribuição de diretiva e atribua as associações Deimplantação para uma política de aplicativo gerenciada. Uma vez que a política tenha sido atribuída com sucesso, a política identificará recursos não compatíveis e implantará associação para esses recursos.
+Para usar a política interna, crie uma atribuição de política e atribua as associações de implantação para uma política de aplicativo gerenciado. Depois que a política tiver sido atribuída com êxito, a política identificará recursos sem conformidade e implantará a associação para esses recursos.
 
-![Atribuir política incorporada](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)
+![Atribuir política interna](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)
 
 ## <a name="getting-help"></a>Obtendo ajuda
 
-Se você tiver dúvidas sobre o desenvolvimento do Azure Custom Resource Providers, tente perguntar-lhes no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante já pode ter sido respondida, portanto, verifique-a primeiro antes de postá-la. Adicione a marca ```azure-custom-providers``` para obter uma resposta rápida.
+Se você tiver dúvidas sobre o desenvolvimento de provedores de recursos personalizados do Azure, tente solicitá-los em [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante já pode ter sido respondida, portanto, verifique-a primeiro antes de postá-la. Adicione a marca ```azure-custom-providers``` para obter uma resposta rápida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre o uso de política incorporada para implantar associações. Veja estes artigos para saber mais:
+Neste artigo, você aprenderá a usar a política interna para implantar associações. Consulte estes artigos para saber mais:
 
-- [Conceitos: Azure Custom Providers onboarding de recursos](../custom-providers/concepts-resource-onboarding.md)
-- [Tutorial: Onboarding de recursos com provedores personalizados](../custom-providers/tutorial-resource-onboarding.md)
-- [Tutorial: Crie ações e recursos personalizados no Azure](../custom-providers/tutorial-get-started-with-custom-providers.md)
-- [Quickstart: Crie um provedor de recursos personalizado e implante recursos personalizados](../custom-providers/create-custom-provider.md)
-- [Como: Adicionar ações personalizadas a uma API Azure REST](../custom-providers/custom-providers-action-endpoint-how-to.md)
-- [Como: Adicionar recursos personalizados a uma API Azure REST](../custom-providers/custom-providers-resources-endpoint-how-to.md)
+- [Conceitos: integração de recursos de provedores personalizados do Azure](../custom-providers/concepts-resource-onboarding.md)
+- [Tutorial: integração de recursos com provedores personalizados](../custom-providers/tutorial-resource-onboarding.md)
+- [Tutorial: criar ações e recursos personalizados no Azure](../custom-providers/tutorial-get-started-with-custom-providers.md)
+- [Início rápido: criar um provedor de recursos personalizado e implantar recursos personalizados](../custom-providers/create-custom-provider.md)
+- [Como adicionar ações personalizadas a uma API REST do Azure](../custom-providers/custom-providers-action-endpoint-how-to.md)
+- [Como adicionar recursos personalizados a uma API REST do Azure](../custom-providers/custom-providers-resources-endpoint-how-to.md)

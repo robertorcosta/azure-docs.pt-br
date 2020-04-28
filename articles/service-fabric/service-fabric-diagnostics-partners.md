@@ -1,15 +1,15 @@
 ---
 title: Parceiros de Monitoramento do Azure Service Fabric
-description: Saiba como monitorar aplicativos, clusters e infra-estrutura do Azure Service Fabric com soluções de monitoramento de parceiros.
+description: Saiba como monitorar aplicativos, clusters e infraestrutura do Azure Service Fabric com soluções de monitoramento de parceiros.
 author: srrengar
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645711"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de Monitoramento do Azure Service Fabric
@@ -18,7 +18,7 @@ Este artigo ilustra como monitorar seus aplicativos do Microsoft Azure Service F
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Nossa integração com o Dynatrace fornece muitos recursos renovadores para monitorar os clusters do Microsoft Azure Service Fabric. Instalar o OneAgent do Dynatrace em suas instâncias do VMSS fornece contadores de desempenho e uma topologia de sua implantação do Service Fabric no nível do aplicativo. O DynaTrace também é uma ótima opção para o monitoramento no local. Confira mais dos recursos listados no [anúncio](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para ativar o Dynatrace em seu cluster. 
+Nossa integração com o Dynatrace fornece muitos recursos renovadores para monitorar os clusters do Microsoft Azure Service Fabric. Instalar o OneAgent do Dynatrace em suas instâncias do VMSS fornece contadores de desempenho e uma topologia de sua implantação do Service Fabric no nível do aplicativo. O DynaTrace também é uma ótima opção para o monitoramento no local. Confira mais dos recursos listados no [comunicado](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) e [as instruções](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) para habilitar o dynaTrace em seu cluster. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -34,11 +34,11 @@ New Relic é outra ferramenta de gerenciamento de desempenho de aplicativos que 
 
 ## <a name="elk"></a>ELK 
 
-A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Usando essas tecnologias em combinação, você pode coletar, armazenar e analisar dados de monitoramento e diagnóstico do Service Fabric. Temos um tutorial para saber como fazer isso com aplicativos nativos de Java do Service Fabric [aqui](service-fabric-tutorial-java-elk.md). 
+A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Usando essas tecnologias em combinação, você pode coletar, armazenar e analisar Service Fabric dados de monitoramento e diagnóstico. Temos um tutorial para saber como fazer isso com aplicativos nativos de Java do Service Fabric [aqui](service-fabric-tutorial-java-elk.md). 
 
 ## <a name="humio"></a>Humio
 
-O Humio é um serviço de coleta de registros que pode coletar registros de seus aplicativos e eventos da Service Fabric na nuvem ou no local em tempo real. Além da observabilidade ao vivo, o Humio oferece recursos de análise e visualização de última geração para visualização e coleta de informações de seus diagnósticos. Humio tem planos de preços econômicos e é construído para escalar, mantendo sua velocidade de clareamento rápido. Ele se integra diretamente com eventos da plataforma Service Fabric e telemetria de aplicativos. Você pode ler mais sobre a integração Humio e Service Fabric [aqui](https://github.com/humio/service-fabric-humio).
+Humio é um serviço de coleta de log que pode coletar logs de seus aplicativos e eventos de Service Fabric na nuvem ou localmente em tempo real. Além da observação ao vivo, o Humio oferece recursos de análise e visualização de última geração para exibir e coletar informações de seu diagnóstico. O Humio tem planos de preços econômicos e é criado para ser dimensionado enquanto retém a velocidade rápida. Ele integra-se diretamente com Service Fabric eventos da plataforma e telemetria do aplicativo. Você pode ler mais sobre a integração do Humio e do Service Fabric [aqui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Próximas etapas
 

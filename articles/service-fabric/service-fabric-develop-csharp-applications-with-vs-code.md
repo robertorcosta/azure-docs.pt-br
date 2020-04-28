@@ -1,15 +1,15 @@
 ---
-title: Desenvolver aplicações .NET Core com Visual Studio Code
+title: Desenvolva aplicativos .NET Core com Visual Studio Code
 description: Este artigo mostra como compilar, implantar e depurar aplicativos do Microsoft Azure Service Fabric .Net Core usando o Visual Studio Code.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614516"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
@@ -61,22 +61,22 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Quando a implantação estiver concluída, inicie um navegador\/e abra o Service Fabric Explorer: http: /localhost:19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
+4. Quando a implantação for concluída, inicie um navegador e abra Service Fabric Explorer: http:\//localhost: 19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
    ![Aplicativo de serviço de contador no Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Depois de verificar se o aplicativo está sendo executado, inicie\/um navegador e abra esta página: http: /localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
+4. Depois de verificar se o aplicativo está em execução, inicie um navegador e abra esta página: http\/:/localhost: 31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
 
    ![Aplicativo de serviço de contador no navegador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
-## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publique o aplicativo em um cluster de malha de serviço do Azure
-Além de implantar o aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto de malha de serviço do Azure. 
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicar o aplicativo em um cluster de Service Fabric do Azure
+Juntamente com a implantação do aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto Service Fabric do Azure. 
 
-1. Certifique-se de que você construiu sua aplicação usando as instruções acima. Atualize o `Cloud.json` arquivo de configuração gerado com os detalhes do cluster remoto para o que deseja publicar.
+1. Verifique se você criou seu aplicativo usando as instruções acima. Atualize o arquivo `Cloud.json` de configuração gerado com os detalhes do cluster remoto no qual você deseja publicar.
 
-2. Na **paleta de comando,** selecione o **comando Malha de serviço: Publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
+2. Na **paleta de comandos**, selecione o **comando Service Fabric: publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
 
-   ![Publicar comando de aplicativo em código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![Comando publicar aplicativo no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
@@ -93,7 +93,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 
    ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abrir o Service Fabric Explorer\/em um navegador: http: /localhost:19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
+3. Abra Service Fabric Explorer em um navegador: http:\//localhost: 19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 
    ![Nó principal para CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

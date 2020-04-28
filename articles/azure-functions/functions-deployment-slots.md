@@ -1,59 +1,59 @@
 ---
-title: Slots de implantação de funções do Azure
-description: Aprenda a criar e usar slots de implantação com funções do Azure
+title: Azure Functions slots de implantação
+description: Aprenda a criar e usar slots de implantação com Azure Functions
 author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75769210"
 ---
-# <a name="azure-functions-deployment-slots"></a>Slots de implantação de funções do Azure
+# <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
 
-Os slots de implantação do Azure Functions permitem que seu aplicativo de função execute diferentes instâncias chamadas "slots". Os slots são diferentes ambientes expostos através de um ponto final disponível publicamente. Uma instância do aplicativo é sempre mapeada para o slot de produção, e você pode trocar instâncias atribuídas a um slot demanda. Os aplicativos de função em execução o plano Serviço de Aplicativos podem ter vários slots, enquanto no plano de consumo apenas um slot é permitido.
+Azure Functions slots de implantação permitem que seu aplicativo de funções execute diferentes instâncias chamadas "Slots". Os slots são ambientes diferentes expostos por meio de um ponto de extremidade disponível publicamente. Uma instância de aplicativo sempre é mapeada para o slot de produção e você pode trocar instâncias atribuídas a um slot sob demanda. Os aplicativos de funções em execução no plano de serviço de aplicativos podem ter vários slots, enquanto no plano de consumo apenas um slot é permitido.
 
-Os seguintes refletem como as funções são afetadas pela troca de slots:
+O seguinte reflete como as funções são afetadas por slots de permuta:
 
-- O redirecionamento do tráfego é perfeito; nenhum pedido é descartado por causa de uma troca.
-- Se uma função estiver sendo executado durante uma troca, a execução continua e os gatilhos subsequentes serão encaminhados para a instância do aplicativo trocada.
+- O redirecionamento de tráfego é contínuo; nenhuma solicitação foi descartada devido a uma troca.
+- Se uma função estiver em execução durante uma permuta, a execução continuará e os gatilhos subsequentes serão roteados para a instância do aplicativo trocado.
 
 > [!NOTE]
-> Os slots ainda não estão disponíveis para o plano de consumo Linux.
+> No momento, os slots não estão disponíveis para o plano de consumo do Linux.
 
-## <a name="why-use-slots"></a>Por que usar caça-níqueis?
+## <a name="why-use-slots"></a>Por que usar Slots?
 
-Há uma série de vantagens em usar slots de implantação. Os seguintes cenários descrevem usos comuns para caça-níqueis:
+Há várias vantagens em usar slots de implantação. Os cenários a seguir descrevem usos comuns para Slots:
 
-- **Diferentes ambientes para diferentes propósitos**: O uso de diferentes slots lhe dá a oportunidade de diferenciar instâncias do aplicativo antes de trocar para a produção ou um slot de preparação.
-- **Pré-aquecimento**: Implantar em um slot em vez de diretamente para a produção permite que o aplicativo aqueça antes de entrar ao vivo. Além disso, o uso de slots reduz a latência para cargas de trabalho acionadas pelo HTTP. As instâncias são aquecidas antes da implantação, o que reduz o início a frio para funções recém-implantadas.
-- **Recuos fáceis**: Após uma troca com a produção, o slot com um aplicativo anteriormente encenado agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem como você espera, você poderá reverter imediatamente a troca para obter sua "última boa instância conhecida" de volta.
+- **Ambientes diferentes para finalidades diferentes**: usar Slots diferentes oferece a oportunidade de diferenciar instâncias de aplicativo antes de alternar para a produção ou para um slot de preparo.
+- **Preaquecimento**: a implantação em um slot em vez de diretamente na produção permite que o aplicativo fique quente antes de entrar no ar. Além disso, o uso de Slots reduz a latência para cargas de trabalho disparadas por HTTP. As instâncias são ativadas antes da implantação, o que reduz a inicialização a frio para funções implantadas recentemente.
+- **Fallbacks fáceis**: após uma troca com produção, o slot com um aplicativo previamente preparado agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem as esperadas, você poderá reverter a troca imediatamente para obter a "última instância boa conhecida" de volta.
 
-## <a name="swap-operations"></a>Operações de swap
+## <a name="swap-operations"></a>Operações de permuta
 
-Durante uma troca, um slot é considerado a fonte e o outro o alvo. O slot de origem tem a instância do aplicativo que é aplicado ao slot de destino. As etapas a seguir garantem que o slot de destino não tenha tempo de inatividade durante uma troca:
+Durante uma troca, um slot é considerado a origem e o outro destino. O slot de origem tem a instância do aplicativo que é aplicada ao slot de destino. As etapas a seguir garantem que o slot de destino não experimente tempo de inatividade durante uma troca:
 
-1. **Aplicar configurações:** As configurações do slot de destino são aplicadas a todas as instâncias do slot de origem. Por exemplo, as configurações de produção são aplicadas à instância de estadiamento. As configurações aplicadas incluem as seguintes categorias:
-    - [Configurações de](#manage-settings) aplicativo específicas para slot e strings de conexão (se aplicável)
-    - [Configurações de implantação contínua](../app-service/deploy-continuous-deployment.md) (se ativadas)
-    - [Configurações de autenticação do Serviço](../app-service/overview-authentication-authorization.md) de Aplicativos (se ativada)
+1. **Aplicar configurações:** As configurações do slot de destino são aplicadas a todas as instâncias do slot de origem. Por exemplo, as configurações de produção são aplicadas à instância de preparo. As configurações aplicadas incluem as seguintes categorias:
+    - Configurações do aplicativo e cadeias [de conexão específicas do slot](#manage-settings) (se aplicável)
+    - Configurações de [implantação contínua](../app-service/deploy-continuous-deployment.md) (se habilitada)
+    - Configurações de [autenticação do serviço de aplicativo](../app-service/overview-authentication-authorization.md) (se habilitado)
 
-1. **Aguarde as reinicializações e a disponibilidade:** A troca aguarda todas as instâncias no slot de origem para concluir sua reinicialização e estar disponível para solicitações. Se qualquer instância não for reiniciada, a operação de swap reverte todas as alterações no slot de origem e interrompe a operação.
+1. **Aguarde as reinicializações e a disponibilidade:** A permuta espera que cada instância no slot de origem conclua sua reinicialização e esteja disponível para solicitações. Se alguma instância não for reiniciada, a operação de permuta reverterá todas as alterações no slot de origem e interromperá a operação.
 
-1. **Roteamento de atualização:** Se todas as instâncias do slot de origem forem aquecidas com sucesso, os dois slots completam a troca coisando as regras de roteamento. Após essa etapa, o slot de destino (por exemplo, o slot de produção) tem o aplicativo que já foi aquecido no slot de origem.
+1. **Roteamento de atualização:** Se todas as instâncias no slot de origem forem ativadas com êxito, os dois slots concluirão a permuta alternando as regras de roteamento. Após essa etapa, o slot de destino (por exemplo, o slot de produção) tem o aplicativo que foi anteriormente ativado no slot de origem.
 
-1. **Repetir operação:** Agora que o slot de origem tem o aplicativo de pré-swap anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias para o slot de origem.
+1. **Repetir operação:** Agora que o slot de origem tem o aplicativo de pré-permuta anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias do slot de origem.
 
 Tenha em mente os seguintes pontos:
 
-- Em qualquer ponto da operação de swap, a inicialização dos aplicativos trocados acontece no slot de origem. O slot de destino permanece on-line enquanto o slot de origem está sendo preparado, se a troca é bem sucedida ou não.
+- Em qualquer ponto da operação de permuta, a inicialização dos aplicativos trocados ocorre no slot de origem. O slot de destino permanece online enquanto o slot de origem está sendo preparado, se a troca é bem-sucedida ou falha.
 
-- Para trocar um slot de preparação com o slot de produção, certifique-se de que o slot de produção é *sempre* o slot de destino. Dessa forma, a operação de swap não afeta seu aplicativo de produção.
+- Para trocar um slot de preparo pelo slot de produção, verifique se o slot de produção é *sempre* o slot de destino. Dessa forma, a operação de permuta não afeta seu aplicativo de produção.
 
-- As configurações relacionadas a fontes de eventos e vinculações precisam ser configuradas como [configurações de slot de implantação](#manage-settings) *antes de iniciar uma troca*. Marcá-los como "pegajosos" antes do tempo garante que eventos e saídas sejam direcionados para a instância adequada.
+- As configurações relacionadas a origens e associações de eventos precisam ser definidas como [configurações de slot de implantação](#manage-settings) *antes de iniciar uma troca*. Marcá-los como "adesivos" antecipadamente garante que os eventos e as saídas sejam direcionados para a instância apropriada.
 
 ## <a name="manage-settings"></a>Gerenciar configurações
 
@@ -61,128 +61,128 @@ Tenha em mente os seguintes pontos:
 
 ### <a name="create-a-deployment-setting"></a>Criar uma configuração de implantação
 
-Você pode marcar configurações como uma configuração de implantação que a torna "pegajosa". Uma configuração pegajosa não troca com a instância do aplicativo.
+Você pode marcar configurações como uma configuração de implantação que o torna "adesivo". Uma configuração adesiva não alterna com a instância do aplicativo.
 
-Se você criar uma configuração de implantação em um slot, certifique-se de criar a mesma configuração com um valor único em qualquer outro slot envolvido em uma troca. Desta forma, enquanto o valor de uma configuração não muda, os nomes de configuração permanecem consistentes entre os slots. Essa consistência de nome garante que seu código não tente acessar uma configuração definida em um slot, mas não em outro.
+Se você criar uma configuração de implantação em um slot, certifique-se de criar a mesma configuração com um valor exclusivo em qualquer outro slot envolvido em uma troca. Dessa forma, embora o valor de uma configuração não mude, os nomes de configuração permanecem consistentes entre os slots. Essa consistência de nome garante que seu código não tente acessar uma configuração definida em um slot, mas não em outra.
 
 Use as seguintes etapas para criar uma configuração de implantação:
 
-- Navegue até *slots* no aplicativo de função
-- Clique no nome do caça-níquel
-- Em *Plataforma recursos > configurações gerais,* clique em **Configuração**
-- Clique no nome de configuração que deseja ficar com o slot atual
-- Clique na **caixa de slot de implantação**
-- Clique em **OK**.
-- Uma vez que a lâmina de ajuste desapareça, clique **em Salvar** para manter as alterações
+- Navegue até os *Slots* no aplicativo de funções
+- Clique no nome do slot
+- Em *recursos da plataforma > configurações gerais*, clique em **configuração**
+- Clique no nome da configuração que você deseja colocar com o slot atual
+- Clique na caixa de seleção **configuração do slot de implantação**
+- Clique em **OK**
+- Após a definição da folha desaparecer, clique em **salvar** para manter as alterações
 
 ![Configuração do slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
 
 ## <a name="deployment"></a>Implantação
 
-Os slots ficam vazios quando você cria um slot. Você pode usar qualquer uma das tecnologias de [implantação suportadas](./functions-deployment-technologies.md) para implantar seu aplicativo em um slot.
+Os slots ficam vazios quando você cria um slot. Você pode usar qualquer uma das [tecnologias de implantação com suporte](./functions-deployment-technologies.md) para implantar seu aplicativo em um slot.
 
 ## <a name="scaling"></a>Scaling
 
-Todos os caça-níqueis são dimensionados para o mesmo número de trabalhadores que o slot de produção.
+Todos os slots são dimensionados para o mesmo número de trabalhadores que o slot de produção.
 
-- Para planos de consumo, o slot é dimensionado à medida que o aplicativo de função é dimensionado.
-- Para planos de Serviço de Aplicativo, o aplicativo é dimensionado para um número fixo de trabalhadores. Os slots são executados no mesmo número de trabalhadores que o plano do aplicativo.
+- Para planos de consumo, o slot é dimensionado conforme o aplicativo de funções é dimensionado.
+- Para planos do serviço de aplicativo, o aplicativo é dimensionado para um número fixo de trabalhadores. Os slots são executados no mesmo número de trabalhadores que o plano do aplicativo.
 
 ## <a name="add-a-slot"></a>Adicionar um slot
 
-Você pode adicionar um slot através da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou através do portal. As etapas a seguir demonstram como criar um novo slot no portal:
+Você pode adicionar um slot por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou por meio do Portal. As etapas a seguir demonstram como criar um novo slot no Portal:
 
-1. Navegue até o seu aplicativo de função e clique no **sinal de mais** ao lado de *Slots*.
+1. Navegue até seu aplicativo de funções e clique no **sinal de adição** ao lado de *Slots*.
 
-    ![Adicionar slot de implantação de funções do Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+    ![Adicionar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
 
-1. Digite um nome na caixa de texto e pressione o botão **Criar.**
+1. Insira um nome na caixa de texto e pressione o botão **criar** .
 
-    ![Slot de implantação de funções do Nome Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+    ![Nome Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
 
-## <a name="swap-slots"></a>Slots de troca
+## <a name="swap-slots"></a>Slots de permuta
 
-Você pode trocar slots através da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou através do portal. As seguintes etapas demonstram como trocar slots no portal:
+Você pode trocar os slots por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) ou por meio do Portal. As etapas a seguir demonstram como trocar slots no Portal:
 
-1. Navegue até o aplicativo de função
-1. Clique no nome do slot de origem que você deseja trocar
-1. Na *guia Visão geral,* clique ![no slot de implantação **do Swap** Azure Funções](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifique as configurações de configuração para o slot de implantação do **Swap** ![Swap Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Navegue até o aplicativo de funções
+1. Clique no nome do slot de origem que você deseja alternar
+1. Na guia *visão geral* , clique no ![botão **alternar** trocar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Verifique os parâmetros de configuração para sua permuta e clique em **trocar** ![permuta Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
-A operação pode levar um momento enquanto a operação de troca está sendo executada.
+A operação pode demorar um pouco enquanto a operação de permuta está em execução.
 
-## <a name="roll-back-a-swap"></a>Reverter uma troca
+## <a name="roll-back-a-swap"></a>Reverter uma permuta
 
-Se uma troca resultar em um erro ou você simplesmente quiser "desfazer" uma troca, você pode reverter para o estado inicial. Para retornar ao estado pré-trocado, faça outra troca para reverter a troca.
+Se uma troca resultar em um erro ou se você simplesmente quiser "desfazer" uma troca, poderá reverter para o estado inicial. Para retornar ao estado de pré-atualização, faça outra troca para reverter a troca.
 
-## <a name="remove-a-slot"></a>Remova um slot
+## <a name="remove-a-slot"></a>Remover um slot
 
-Você pode remover um slot através da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou através do portal. As etapas a seguir demonstram como remover um slot no portal:
+Você pode remover um slot por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) ou por meio do Portal. As etapas a seguir demonstram como remover um slot no Portal:
 
-1. Navegue até a visão geral do aplicativo de função
+1. Navegue até o aplicativo de funções visão geral
 
-1. Clique no botão **Excluir**
+1. Clique no botão **excluir**
 
-    ![Adicionar slot de implantação de funções do Azure](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+    ![Adicionar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
 
-## <a name="automate-slot-management"></a>Automatize o gerenciamento de slot
+## <a name="automate-slot-management"></a>Automatizar o gerenciamento de Slots
 
-Usando o [Azure CLI,](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)você pode automatizar as seguintes ações para um slot:
+Usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), você pode automatizar as seguintes ações para um slot:
 
-- [Criar](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
-- [Excluir](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [Lista](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [Trocar](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
-- [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
+- [criada](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
+- [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
+- [permuta](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [troca automática](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Alterar plano de serviço de aplicativo
+## <a name="change-app-service-plan"></a>Alterar plano do serviço de aplicativo
 
-Com um aplicativo de função que está sendo executado um plano de Serviço de Aplicativo, você tem a opção de alterar o plano de serviço de aplicativo subjacente para um slot.
+Com um aplicativo de funções que está sendo executado em um plano do serviço de aplicativo, você tem a opção de alterar o plano do serviço de aplicativo subjacente para um slot.
 
 > [!NOTE]
-> Você não pode alterar o plano de Serviço de Aplicativo de um slot o plano de consumo.
+> Não é possível alterar o plano do serviço de aplicativo de um slot no plano de consumo.
 
-Use as seguintes etapas para alterar o plano de serviço de aplicativo de um slot:
+Use as etapas a seguir para alterar o plano do serviço de aplicativo de um slot:
 
-1. Navegue até um slot
+1. Navegar até um slot
 
-1. Em *Recursos de plataforma,* clique em **Todas as configurações**
+1. Em *recursos da plataforma*, clique em **todas as configurações**
 
-    ![Alterar o plano de serviço do aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+    ![Alterar plano do serviço de aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
 
-1. Clique no **plano de serviço de aplicativos**
+1. Clique no **plano do serviço de aplicativo**
 
-1. Selecione um novo plano de serviço de aplicativos ou crie um novo plano
+1. Selecione um novo plano do serviço de aplicativo ou crie um novo plano
 
-1. Clique em **OK**.
+1. Clique em **OK**
 
-    ![Alterar o plano de serviço do aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
+    ![Alterar plano do serviço de aplicativo](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
 
 ## <a name="limitations"></a>Limitações
 
-Os slots de implantação do Azure Functions têm as seguintes limitações:
+Azure Functions slots de implantação têm as seguintes limitações:
 
-- O número de vagas disponíveis para um aplicativo depende do plano. O plano de consumo só é permitido um slot de implantação. Há vagas adicionais disponíveis para aplicativos executados o plano App Service.
-- Trocar um slot redefine chaves por `AzureWebJobsSecretStorageType` aplicativos que `files`tenham uma configuração de aplicativo igual a .
-- Os slots não estão disponíveis para o plano de consumo Linux.
+- O número de slots disponíveis para um aplicativo depende do plano. O plano de consumo só é permitido para um slot de implantação. Slots adicionais estão disponíveis para aplicativos em execução no plano do serviço de aplicativo.
+- A troca de um slot redefine chaves para aplicativos que têm `AzureWebJobsSecretStorageType` uma configuração de aplicativo `files`igual a.
+- Os slots não estão disponíveis para o plano de consumo do Linux.
 
 ## <a name="support-levels"></a>Níveis de suporte
 
-Existem dois níveis de suporte para slots de implantação:
+Há dois níveis de suporte para slots de implantação:
 
-- **Disponibilidade geral (GA)**: Totalmente suportado e aprovado para uso de produção.
-- **Visualização**: Ainda não suportado, mas espera-se que atinja o status de GA no futuro.
+- **Disponibilidade geral (GA)**: suporte completo e aprovado para uso em produção.
+- Versão **prévia**: ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
 
-| Plano de SISTEMA OPERACIONAL/Hospedagem           | Nível de suporte     |
+| Sistema operacional/plano de hospedagem           | Nível de suporte     |
 | ------------------------- | -------------------- |
-| Consumo de Windows       | Disponibilidade Geral |
+| Consumo do Windows       | Disponibilidade Geral |
 | Windows Premium           | Disponibilidade Geral  |
-| Windows Dedicado         | Disponibilidade Geral |
-| Consumo de Linux         | Sem suporte          |
+| Windows dedicado         | Disponibilidade Geral |
+| Consumo do Linux         | Sem suporte          |
 | Linux Premium             | Disponibilidade Geral  |
-| Linux Dedicado           | Disponibilidade Geral |
+| Linux dedicado           | Disponibilidade Geral |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tecnologias de implantação em funções do Azure](./functions-deployment-technologies.md)
+- [Tecnologias de implantação no Azure Functions](./functions-deployment-technologies.md)

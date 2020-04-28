@@ -1,5 +1,5 @@
 ---
-title: 'Gateway Azure VPN: Solucionando problemas de configurações e conexões'
+title: 'Gateway de VPN do Azure: solucionar problemas de configurações e conexões'
 description: Este artigo ajuda-o com links de artigos para solucionar problemas de configuração e conexão de Gateway de VPN e a validar taxa de transferência.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: d73bc8e9c39c14a254e8f7bae1d7b1a96a6c3225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75780157"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Solucionar problemas de Gateway de VPN
@@ -24,7 +24,7 @@ As conexões de Gateway de VPN podem falhar por vários motivos. Este artigo con
 
 * [Configurações do dispositivo de Firewall e VPN](vpn-gateway-third-party-settings.md)<br>Este artigo fornece várias soluções sugeridas para dispositivos de firewall e VPN de terceiros que são usados com Gateway de VPN. O suporte técnico para dispositivos de firewall ou de VPN de terceiros é fornecido pelo fabricante do dispositivo.
 
-* [Conexões ponto a ponto](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Este artigo lista os problemas comuns de conexão de ponto a site que podem ocorrer. Também discute as possíveis causas e soluções para esses problemas.
+* [Conexões Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>Este artigo lista os problemas comuns de conexão de ponto a site que podem ocorrer. Também discute as possíveis causas e soluções para esses problemas.
 
 * [Conexões site a site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema.
 

@@ -14,10 +14,10 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75965619"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solucionar problemas de implantação ao reiniciar ou redimensionar uma VM Windows existente no Azure
@@ -41,7 +41,7 @@ Deve-se tentar fazer a solicitação de início da VM parada no cluster original
 ### <a name="resolution"></a>Resolução
 * Parar todas as VMs no conjunto de disponibilidade e, em seguida, reiniciar cada VM.
   
-  1. Clique **em Grupos de** > *recursos* > Recursos**Recursos** > sua disponibilidade*definir* > **Máquinas** > Virtuais sua máquina > *virtual***Stop**.
+  1. Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
   2. Depois que todas as VMs pararem, selecione cada uma das VMs paradas e clique em Iniciar.
 * Repita a solicitação de reinicialização mais tarde.
 
@@ -57,7 +57,7 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
   
   1. Pare todas as VMs no conjunto de disponibilidade.
      
-     * Clique **em Grupos de** > *recursos* > Recursos**Recursos** > sua disponibilidade*definir* > **Máquinas** > Virtuais sua máquina > *virtual***Stop**.
+     * Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
   3. Selecione a VM redimensionada, clique em **Iniciar**e inicie cada uma das VMs paradas.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Modifique um circuito: PowerShell'
+title: 'Azure ExpressRoute: modificar um circuito: PowerShell'
 description: Criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: ab44d5358154c17622eef68205ac2326e81377a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75770961"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
-> * [Modelo de Gerenciador de recursos do Azure](expressroute-howto-circuit-resource-manager-template.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -37,14 +37,14 @@ Antes de começar a configuração, examine os [pré-requisitos](expressroute-pr
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Criar e provisionar um circuito do ExpressRoute
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Faça login na sua conta do Azure e selecione sua assinatura
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. entre em sua conta do Azure e selecione sua assinatura
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, locais e larguras de banda suportados
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. obter a lista de provedores, locais e larguras de banda com suporte
 Antes de criar um circuito de ExpressRoute você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
-O cmdlet Do PowerShell **Get-AzExpressRouteServiceProvider** retorna essas informações, que você usará em etapas posteriores:
+O cmdlet **Get-AzExpressRouteServiceProvider** do PowerShell retorna essas informações, que você usará em etapas posteriores:
 
 ```azurepowershell-interactive
 Get-AzExpressRouteServiceProvider
@@ -58,7 +58,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito do ExpressRoute.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Crie um circuito ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. criar um circuito do ExpressRoute
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito do ExpressRoute. Faça isso ao executar o seguinte comando:
 
 ```azurepowershell-interactive
@@ -73,8 +73,8 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
-* O nível SKU determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Padrão ou [Premium.](expressroute-faqs.md#expressroute-premium) Você pode especificar *Local,* *Standard* ou *Premium*.
-* A família da SKU determina o tipo de cobrança. Você pode especificar *dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é sempre *dados ilimitados.*
+* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*.
+* A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é sempre *Unlimiteddata*.
 
 > [!IMPORTANT]
 > O circuito do ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
@@ -88,8 +88,8 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Liste todos os circuitos ExpressRoute
-Para obter uma lista de todos os circuitos ExpressRoute que você criou, execute o comando **Get-AzExpressRouteCircuit:**
+### <a name="4-list-all-expressroute-circuits"></a>4. listar todos os circuitos de ExpressRoute
+Para obter uma lista de todos os circuitos do ExpressRoute que você criou, execute o comando **Get-AzExpressRouteCircuit** :
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -151,8 +151,8 @@ A resposta se assemelha à seguinte:
     Peerings                         : []
 
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envie a chave de serviço ao seu provedor de conectividade para provisionamento
-*ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviços. Status fornece o estado no lado da Microsoft. Para saber mais sobre os estados de provisionamento do circuito, consulte [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. enviar a chave de serviço para o provedor de conectividade para provisionamento
+O *ServiceProviderProvisioningState* fornece informações sobre o estado atual do provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre os estados de provisionamento do circuito, consulte [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
 
@@ -171,7 +171,7 @@ Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no se
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o estado e o estado da chave do circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave de circuito
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
 ```azurepowershell-interactive
@@ -203,7 +203,7 @@ A resposta se assemelha à seguinte:
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7-create-your-routing-configuration"></a>7. Crie sua configuração de roteamento
+### <a name="7-create-your-routing-configuration"></a>7. criar sua configuração de roteamento
 Para obter instruções passo a passo, confira o artigo [configuração do roteamento de circuito do ExpressRoute](expressroute-howto-routing-arm.md) para criar e modificar os emparelhamentos de circuito.
 
 > [!IMPORTANT]
@@ -211,11 +211,11 @@ Para obter instruções passo a passo, confira o artigo [configuração do rotea
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincule uma rede virtual a um circuito ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. vincular uma rede virtual a um circuito do ExpressRoute
 Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artigo [Vincular redes virtuais a circuitos do ExpressRoute](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito do ExpressRoute
-Você pode recuperar essas informações a qualquer momento usando o **cmdlet Get-AzExpressRouteCircuit.** Fazer a chamada sem parâmetros listará todos os circuitos.
+Você pode recuperar essas informações a qualquer momento usando o cmdlet **Get-AzExpressRouteCircuit** . Fazer a chamada sem parâmetros listará todos os circuitos.
 
 ```azurepowershell-interactive
 Get-AzExpressRouteCircuit
@@ -375,8 +375,8 @@ Confira as instruções em [Mover os circuitos de ExpressRoute do modelo de impl
 Observe as seguintes informações:
 
 * Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-* Se o provedor de serviços de circuito ExpressRoute for **provisionamento** ou **provisionado,** você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito ao seu lado. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviço tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços está definido como **Não provisionado),** você pode excluir o circuito. Isso interrompe a cobrança pelo circuito.
+* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **não provisionado**), você poderá excluir o circuito. Isso interrompe a cobrança pelo circuito.
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 

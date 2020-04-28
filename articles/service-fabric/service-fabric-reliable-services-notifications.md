@@ -1,15 +1,15 @@
 ---
 title: Notificações do Reliable Services
-description: Documentação conceitual para notificações de Serviços Confiáveis de Malha de Serviços para Gerente de Estado Confiável e Dicionário Confiável
+description: Documentação conceitual para Service Fabric Reliable Services notificações para o Gerenciador de estado confiável e o dicionário confiável
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75639557"
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
@@ -158,7 +158,7 @@ O manipulador de eventos **DictionaryChanged** usa o **NotifyDictionaryChangedEv
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotificarDicionárioChangedAction.Add**: **NotificarDicionárioItemAddedEventArgs**
+* **NotifyDictionaryChangedAction. Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
@@ -207,8 +207,8 @@ Eis aqui algumas coisas que se deve manter em mente:
 * Como parte do processamento do progresso falso, algumas operações podem ser desfeitas. As notificações são geradas para essas operações da ação de desfazer, revertendo o estado da réplica de volta a um ponto estável. Uma diferença importante das notificações de ação de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 estiver sendo desfeita, você verá uma notificação única para Delete(X).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Coleções confiáveis](service-fabric-work-with-reliable-collections.md)
-* [Início rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+* [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)
+* [Início rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

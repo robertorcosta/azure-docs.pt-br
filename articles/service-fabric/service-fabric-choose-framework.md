@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75749540"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Visão geral do modelo de programação do Service Fabric
@@ -24,7 +24,7 @@ Comece a usar executáveis convidados implantando seu primeiro [aplicativo execu
 
 ## <a name="containers"></a>Contêineres
 
-Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em [contêineres](service-fabric-containers-overview.md). Service Fabric suporta a implantação de contêineres Linux e contêineres Windows no Windows Server 2016 e posteriores. As imagens de contêiner podem ser extraídas de qualquer repositório de contêiner e implantadas no computador. Você pode implantar aplicativos existentes como executáveis do convidado, serviços confiáveis ou Reliable Actors do Service Fabric com ou sem estado em contêineres e você pode combinar serviços em processos e serviços em contêineres no mesmo aplicativo.
+Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em [contêineres](service-fabric-containers-overview.md). Service Fabric dá suporte à implantação de contêineres do Linux e contêineres do Windows no Windows Server 2016 e posterior. As imagens de contêiner podem ser extraídas de qualquer repositório de contêiner e implantadas no computador. Você pode implantar aplicativos existentes como executáveis do convidado, serviços confiáveis ou Reliable Actors do Service Fabric com ou sem estado em contêineres e você pode combinar serviços em processos e serviços em contêineres no mesmo aplicativo.
 
 [Saiba mais sobre colocação de seus serviços em contêineres no Windows ou Linux](service-fabric-deploy-container.md)
 
@@ -34,19 +34,19 @@ O Reliable Services é uma estrutura leve para o desenvolvimento de serviços qu
 
 Os Reliable Services podem ser sem estado, semelhantes à maioria das plataformas de serviço, como servidores Web, nas quais todas as instâncias do serviço são criadas de forma igual e o estado é persistido em uma solução externa, como o BD do Azure ou o Armazenamento de Tabelas do Azure.
 
-Exclusivo s a Service Fabric, os Serviços Confiáveis também podem ser estaduais, onde o estado persiste diretamente no próprio serviço usando Coleções Confiáveis. O estado fica altamente disponível por meio de replicação e é distribuído por meio de particionamento, tudo gerenciado automaticamente pelo Service Fabric.
+Exclusivo para Service Fabric, o Reliable Services também pode ser com estado, em que o estado é persistido diretamente no próprio serviço usando coleções confiáveis. O estado fica altamente disponível por meio de replicação e é distribuído por meio de particionamento, tudo gerenciado automaticamente pelo Service Fabric.
 
 [Saiba mais sobre os Reliable Services](service-fabric-reliable-services-introduction.md) ou comece [escrevendo o seu primeiro Reliable Service](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core é uma estrutura de código aberto e multiplataforma para a construção de aplicativos modernos conectados à Internet baseados em nuvem, como aplicativos web, aplicativos IoT e backends móveis. O Service Fabric integra-se com o ASP.NET Core portanto você pode escrever aplicativos ASP.NET Core com e sem estado que se beneficiam das Reliable Collections e das funcionalidades de orquestração avançadas do Service Fabric.
+ASP.NET Core é uma estrutura de plataforma cruzada de software livre para criar aplicativos conectados à Internet modernos baseados em nuvem, como aplicativos Web, aplicativos de IoT e back-ends móveis. O Service Fabric integra-se com o ASP.NET Core portanto você pode escrever aplicativos ASP.NET Core com e sem estado que se beneficiam das Reliable Collections e das funcionalidades de orquestração avançadas do Service Fabric.
 
 [Saiba mais sobre o ASP.NET Core no Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) ou comece [escrevendo seu primeiro aplicativo do Service Fabric do ASP.NET Core](service-fabric-tutorial-create-dotnet-app.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 
-Construído em cima de Serviços Confiáveis, o framework Reliable Actor é uma estrutura de aplicação que implementa o padrão [ator virtual,](https://research.microsoft.com/en-us/projects/orleans/) baseado no [modelo de ator](https://en.wikipedia.org/wiki/Actor_model)computacional . A estrutura do Ator Confiável usa unidades independentes de computação e estado com execução de um único segmento chamados *atores*. A estrutura Reliable Actor fornece comunicação interna para atores e configurações de expansão e persistência de estado predefinido.
+Criado sobre o Reliable Services, a estrutura de ator confiável é uma estrutura de aplicativo que implementa o padrão de [ator virtual](https://research.microsoft.com/en-us/projects/orleans/) , com base no [modelo de ator](https://en.wikipedia.org/wiki/Actor_model)computacional. A estrutura de ator confiável usa unidades independentes de computação e estado com execução de thread único chamada *atores*. A estrutura Reliable Actor fornece comunicação interna para atores e configurações de expansão e persistência de estado predefinido.
 
 Como o Reliable Actors é uma estrutura de aplicativo baseada no Reliable Services, ele é totalmente integrado com a plataforma Service Fabric e se beneficia do conjunto completo de recursos oferecidos pela plataforma.
 
@@ -62,4 +62,4 @@ Como o Reliable Actors é uma estrutura de aplicativo baseada no Reliable Servic
 
 [Visão geral dos Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-[Tecido de serviço e núcleo de ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric e ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)

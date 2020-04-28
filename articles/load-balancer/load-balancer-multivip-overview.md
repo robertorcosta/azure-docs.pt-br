@@ -1,6 +1,6 @@
 ---
-title: Múltiplas frontends - Azure Load Balancer
-description: Com este caminho de aprendizado, comece com uma visão geral de várias frontends no Azure Load Balancer
+title: Vários front-ends-Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece com uma visão geral de vários front-ends no Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75771250"
 ---
-# <a name="multiple-frontends-for-azure-load-balancer"></a>Várias frontends para O Balancer de Carga Do Azure
+# <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
@@ -98,24 +98,24 @@ Para este cenário, todas as VMs no pool de back-end têm três interfaces de re
 * Front-end 1: uma interface de loopback no SO Convidado que está configurado com o endereço IP do Front-end 1
 * Front-end 2: uma interface de loopback no SO Convidado que está configurado com o endereço IP do Front-end 2
 
-Para cada VM no pool de backend, execute os seguintes comandos em um Prompt de comando do Windows.
+Para cada VM no pool de back-end, execute os comandos a seguir em um prompt de comando do Windows.
 
 Para obter a lista de nomes de interface que você tem em sua VM, digite este comando:
 
     netsh interface show interface 
 
-Para o VM NIC (Gerenciado pelo Azure), digite este comando:
+Para a NIC da VM (gerenciado pelo Azure), digite este comando:
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (substitua o nome da interface com o nome desta interface)
+   (substitua InterfaceName pelo nome desta interface)
 
-Para cada interface de loopback adicionada, repita esses comandos:
+Para cada interface de loopback que você adicionou, Repita estes comandos:
 
     netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (substitua o nome da interface com o nome desta interface de loopback)
+   (substitua InterfaceName pelo nome desta interface de loopback)
      
     netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (substitua o nome da interface com o nome desta interface de loopback)
+   (substitua InterfaceName pelo nome desta interface de loopback)
 
 > [!IMPORTANT]
 > A configuração das interfaces de loopback é executada no SO Convidado. Essa configuração não é executada ou gerenciada pelo Azure. Sem essa configuração, as regras não funcionarão. As definições de investigação de integridade usam o DIP da VM em vez da interface de loopback que representa o front-end de DSR. Portanto, o serviço deve fornecer respostas de investigação em uma porta DIP que refletem o status do serviço oferecido na interface de loopback que representa o front-end de DSR.
@@ -151,7 +151,7 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 ## <a name="limitations"></a>Limitações
 
 * Há suporte para várias configurações de front-ends apenas com VMs de IaaS.
-* Com a regra IP flutuante, seu aplicativo deve usar a configuração IP principal para fluxos SNAT de saída. Se o aplicativo se ligar ao endereço IP frontend configurado na interface de loopback no sistema operacional convidado, o SNAT de saída do Azure não está disponível para reescrever o fluxo de saída e o fluxo falhar.  Revisar [cenários de saída](load-balancer-outbound-connections.md).
+* Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos SNAT de saída. Se seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO convidado, o SNAT de saída do Azure não estará disponível para regravar o fluxo de saída e o fluxo falhará.  Examine os [cenários de saída](load-balancer-outbound-connections.md).
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

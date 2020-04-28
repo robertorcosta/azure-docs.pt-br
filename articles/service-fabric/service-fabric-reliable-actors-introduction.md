@@ -1,15 +1,15 @@
 ---
-title: Visão geral dos atores confiáveis do tecido do serviço
-description: Introdução ao modelo de programação Service Fabric Reliable Actors, baseado no padrão Ator Virtual.
+title: Visão geral de Service Fabric Reliable Actors
+description: Introdução ao modelo de programação de Reliable Actors Service Fabric, com base no padrão de ator virtual.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645558"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução aos Reliable Actors do Service Fabric
@@ -97,7 +97,7 @@ A classe `ActorProxy`(C#) / `ActorProxyBase`(Java) do lado do cliente executa a 
 * A entrega de mensagem é o melhor esforço.
 * Os atores podem receber mensagens duplicadas do mesmo cliente.
 
-## <a name="concurrency"></a>Concorrência
+## <a name="concurrency"></a>Simultaneidade
 O runtime dos Reliable Actors fornece um modelo de acesso baseado em turno simples para acessar os métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do objeto de um ator a qualquer momento. O acesso baseado em turno simplifica consideravelmente os sistemas simultâneos, pois não há necessidade de mecanismos de sincronização para o acesso a dados. Isso também significa que os sistemas devem ser projetados com considerações especiais sobre a natureza do acesso single-threaded de cada instância de ator.
 
 * Uma única instância de ator não pode processar mais de uma solicitação por vez. Uma instância de ator poderá causar um gargalo da taxa de transferência se tiver de manipular solicitações simultâneas.

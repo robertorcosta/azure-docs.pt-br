@@ -1,5 +1,5 @@
 ---
-title: Configuração de exemplo para conectar dispositivos Cisco ASA a gateways Azure VPN
+title: Exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure
 description: Este artigo apresenta um exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75778075"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)
@@ -114,10 +114,10 @@ O script fornece um exemplo que tem base na configuração e nos parâmetros des
   - Nome da interface externa: **fora**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
-  - PRE_SHARED_KEY **Pre_Shared_Key**
+  - IKE: **Pre_Shared_Key**
   - Nomes do gateway de rede local e da rede virtual: **VNetName** e **LNGName**
   - **Prefixos** de endereço de rede local e de rede virtual
-  - **Máscaras de rede adequadas**
+  - **Máscaras** de netadequadas
 
 #### <a name="sample-script"></a>Exemplo de script
 

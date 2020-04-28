@@ -1,15 +1,15 @@
 ---
-title: Use o portal Azure para monitorar um aplicativo gerenciado
+title: Usar portal do Azure para monitorar um aplicativo gerenciado
 description: Mostra como usar o portal do Azure para monitorar disponibilidade e alertas para um aplicativo gerenciado.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651742"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorar uma instância implantada de um aplicativo gerenciado
@@ -32,7 +32,7 @@ Depois de implantar um aplicativo gerenciado em sua assinatura do Azure, você p
 
 ## <a name="view-alerts"></a>Exibir alertas
 
-1. Selecione **Alertas**.
+1. Selecione **alertas**.
 
    ![Selecionar alertas](./media/monitor-managed-application-portal/select-alerts.png)
 

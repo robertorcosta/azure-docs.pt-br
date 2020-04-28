@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 5198729cf96fb48c5dcd05096c04ea4d77c26de5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75931485"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
@@ -77,7 +77,7 @@ Use o procedimento a seguir para criar um grupo de volumes.
    1. Na caixa **Nome**, digite um nome exclusivo para o novo grupo de volumes.
    2. Na caixa **Aplicativos** , selecione os aplicativos associados aos volumes que você adicionará ao grupo de volumes.
       
-       A caixa **Aplicativos** lista apenas os aplicativos que usam volumes do StorSimple e que contêm gravadores VSS habilitados. Um gravador VSS será habilitado apenas se todos os volumes de que ele estiver ciente forem volumes do StorSimple. Se a caixa Aplicativos estiver vazia, nenhum aplicativo que usa volumes do Azure StorSimple e oferece suporte a gravadores VSS está instalado. (Atualmente, o Azure StorSimple suporta o Microsoft Exchange e o SQL Server.) Para obter mais informações sobre escritores VSS, consulte [Integração com o Serviço de Cópia de Sombra de Volume do Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
+       A caixa **Aplicativos** lista apenas os aplicativos que usam volumes do StorSimple e que contêm gravadores VSS habilitados. Um gravador VSS será habilitado apenas se todos os volumes de que ele estiver ciente forem volumes do StorSimple. Se a caixa Aplicativos estiver vazia, nenhum aplicativo que usa volumes do Azure StorSimple e oferece suporte a gravadores VSS está instalado. (Atualmente, o Azure StorSimple dá suporte ao Microsoft Exchange e SQL Server.) Para obter mais informações sobre gravadores VSS, consulte [integração com o Windows serviço de cópias de sombra de volume](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
       
        Se você selecionar um aplicativo, todos os volumes associados a ele serão selecionados automaticamente. Por outro lado, se você selecionar volumes associados a um aplicativo específico, o aplicativo será selecionado automaticamente na caixa **Aplicativos** . 
    3. Na caixa **Volumes** , selecione os volumes do StorSimple a serem adicionados ao grupo de volumes. 

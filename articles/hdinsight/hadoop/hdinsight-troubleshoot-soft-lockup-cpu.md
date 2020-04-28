@@ -1,6 +1,6 @@
 ---
-title: Erro de CPU de bloqueio macio watchdog BUG do cluster Azure HDInsight
-description: Watchdog BUG soft lockup CPU aparece em syslogs de kernel do cluster Azure HDInsight
+title: Erro de CPU de travamento suave do Watchdog BUG do cluster HDInsight do Azure
+description: CPU de travamento soft do BUG do Watchdog aparece em syslogs de kernel do cluster HDInsight do Azure
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,58 +8,58 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
 ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75894117"
 ---
-# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Cenário: erro "watchdog: BUG: soft lockup - CPU" de um cluster Azure HDInsight
+# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Cenário: erro "Watchdog: BUG: bloqueio Soft-CPU" de um cluster HDInsight do Azure
 
-Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Os syslogs do kernel `watchdog: BUG: soft lockup - CPU`contêm a mensagem de erro: .
+Os syslogs de kernel contêm a mensagem de `watchdog: BUG: soft lockup - CPU`erro:.
 
 ## <a name="cause"></a>Causa
 
-Um [bug](https://bugzilla.kernel.org/show_bug.cgi?id=199437) no Linux Kernel está causando travamentos suaves da CPU.
+Um [bug](https://bugzilla.kernel.org/show_bug.cgi?id=199437) no kernel do Linux está causando travamentos de CPU.
 
 ## <a name="resolution"></a>Resolução
 
-Aplique patch de kernel. O script abaixo atualiza o kernel linux e reinicializa as máquinas em diferentes momentos ao longo de 24 horas. Execute a ação do script em dois lotes. O primeiro lote está em todos os nós, exceto node. O segundo lote é no nó da cabeça. Não corra em nó de cabeça e outros nódulos ao mesmo tempo.
+Aplique o patch do kernel. O script abaixo atualiza o kernel do Linux e reinicia as máquinas em momentos diferentes em 24 horas. Execute a ação de script em dois lotes. O primeiro lote está em todos os nós, exceto no nó de cabeçalho. O segundo lote está no nó principal. Não execute no nó principal e em outros nós ao mesmo tempo.
 
-1. Navegue até o cluster HDInsight a partir do portal Azure.
+1. Navegue até o cluster HDInsight do portal do Azure.
 
 1. Vá para ações de script.
 
-1. Selecione **Enviar Novo** e digite a entrada a seguir
+1. Selecione **Enviar novo** e insira a entrada da seguinte maneira
 
     | Propriedade | Valor |
     | --- | --- |
     | Tipo de script | -Personalizado |
-    | Nome |Corrigir para problema de bloqueio macio do kernel |
+    | Name |Correção para o problema de bloqueio soft do kernel |
     | URI do script Bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
-    | Tipo(s) de nó |Trabalhador, Zookeeper |
+    | Tipo(s) de nó |Trabalho, Zookeeper |
     | Parâmetros |N/D |
 
-    Selecione **Persistir esta ação de script...** se você quiser executar o script quando novos nós forem adicionados.
+    Selecione **persistir esta ação de script...** se você quiser executar o script quando novos nós forem adicionados.
 
 1. Selecione **Criar**.
 
-1. Espere a execução ter sucesso.
+1. Aguarde até que a execução seja realizada com sucesso.
 
-1. Execute a ação de script no nó Cabeça seguindo os mesmos passos do passo 3, mas desta vez com os tipos de nó: Cabeça.
+1. Execute a ação de script no nó de cabeçalho seguindo as mesmas etapas da etapa 3, mas desta vez com os tipos de nó: Head.
 
-1. Espere a execução ter sucesso.
+1. Aguarde até que a execução seja realizada com sucesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais detalhadas, consulte [Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75864223"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento de projetos do Processo de Ciência de Dados de Equipe
@@ -58,7 +58,7 @@ Use este [repositório de modelos de projetos](https://github.com/Azure/Azure-TD
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa, usando o Processo de Ciência de Dados da Equipe.
+[Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa usando o processo de ciência de dados de equipe.
 
 Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 

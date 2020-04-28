@@ -1,15 +1,15 @@
 ---
-title: UsuárioNomeTextoBox UI elemento
-description: Descreve o elemento Microsoft.Common.UserNameTextBox da interface do usuário para o portal do Azure. Permite que os usuários forneçam nomes de usuários do Windows ou Linux.
+title: Elemento de interface do usuário UserNameTextBox
+description: Descreve o elemento Microsoft.Common.UserNameTextBox da interface do usuário para o portal do Azure. Permite que os usuários forneçam nomes de usuário do Windows ou Linux.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651898"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.UserNameTextBox
@@ -47,10 +47,10 @@ Um controle de caixa de texto com validação interna para nomes de usuário do 
 
 ## <a name="remarks"></a>Comentários
 
-- Se `constraints.required` estiver definido como **true**, a caixa de texto deve ter um valor para validar com êxito. O valor padrão é **verdadeiro.**
+- Se `constraints.required` estiver definido como **true**, a caixa de texto deve ter um valor para validar com êxito. O valor padrão é **true**.
 - `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**.
-- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **null**.
-- `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha a validação especificada por `constraints.regex`. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **null**.
+- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **NULL**.
+- `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha a validação especificada por `constraints.regex`. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **NULL**.
 - Este elemento tem validação interna com base no valor especificado para `osPlatform`. A validação interna pode ser usada juntamente com uma expressão regular personalizada. Se um valor para `constraints.regex` for especificado, as validações internas e personalizadas serão disparadas.
 
 ## <a name="next-steps"></a>Próximas etapas

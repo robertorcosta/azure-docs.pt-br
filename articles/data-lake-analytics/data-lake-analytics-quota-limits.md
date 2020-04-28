@@ -10,15 +10,15 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75644708"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar cotas e limites no Azure Data Lake Analytics
 
-Saiba como ajustar e aumentar as cotas e os limites em contas do ADLA (Azure Data Lake Analytics). Conhecer esses limites ajudará você a entender seu comportamento de trabalho U-SQL. Todos os limites de cota são flexíveis, portanto, é possível aumentar os limites máximos, contatando o suporte do Azure.
+Saiba como ajustar e aumentar as cotas e os limites em contas do ADLA (Azure Data Lake Analytics). Conhecer esses limites ajudará você a entender seu comportamento de trabalho do U-SQL. Todos os limites de cota são flexíveis, portanto, é possível aumentar os limites máximos, contatando o suporte do Azure.
 
 ## <a name="azure-subscriptions-limits"></a>Limites das assinaturas do Azure
 
@@ -32,18 +32,18 @@ Se você deseja ultrapassar esse limite, tente estas opções:
 
 ## <a name="default-adla-account-limits"></a>Limites padrão da conta do ADLA
 
-**Número máximo de Unidades de Análise (UA) por conta:** 250, padrão 32
+**Número máximo de unidades de análise (AUS) por conta:** 250, padrão 32
 
-Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo: 
+Esse é o número máximo de AUs que podem ser executadas simultaneamente em sua conta. Se o número total de AUs em execução em todos os trabalhos exceder esse limite, novos trabalhos serão colocados na fila automaticamente. Por exemplo:
 
 * Caso você tenha um só trabalho em execução com 32 AUs, ao enviar um segundo trabalho, ele permanecerá na fila até que o primeiro trabalho seja concluído.
 * Se você já tiver quatro trabalhos em execução e cada um deles estiver usando 8 AUs, ao adicionar um quinto trabalho que precise de 8 AUs, ele permanecerá na fila até que 8 AUs fiquem disponíveis.
 
-    ![Limites e página de cotas do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
+    ![Azure Data Lake Analytics a página limites e cotas](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-**Número máximo de Unidades de Análise (UA) por trabalho:** 250, padrão 32
+**Número máximo de unidades de análise (AUS) por trabalho:** 250, padrão 32
 
-Este é o número máximo de UA que cada trabalho individual pode ser atribuído em sua conta. Os trabalhos que recebem mais do que esse limite serão rejeitados, a menos que o remetente seja afetado por uma política de computação (limite de envio de trabalho) que forneça uma quantidade maior de AUs por trabalho. O limite superior desse valor é o limite de AU da conta.
+Esse é o número máximo de AUs que cada trabalho individual pode ser atribuído em sua conta. Os trabalhos que recebem mais do que esse limite serão rejeitados, a menos que o remetente seja afetado por uma política de computação (limite de envio de trabalho) que forneça uma quantidade maior de AUs por trabalho. O limite superior desse valor é o limite de AU da conta.
 
 **Número máximo de trabalhos U-SQL simultâneos por conta: ** 20
 
@@ -66,7 +66,7 @@ Encontre mais informações sobre os limites do Azure na [documentação sobre o
 
     ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Selecione o tipo de problema **Cota**.
-3. Selecione sua **Assinatura** (certifique-se de que não é uma assinatura de "teste").
+3. Selecione sua **assinatura** (verifique se ela não é uma assinatura de "avaliação").
 4. Selecione o tipo de cota **Data Lake Analytics**.
 
     ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
@@ -83,4 +83,4 @@ A Microsoft examina sua solicitação e tenta acomodar suas necessidades de neg�
 
 * [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Monitore e soluciona problemas do Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Monitorar e solucionar problemas de trabalhos do Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

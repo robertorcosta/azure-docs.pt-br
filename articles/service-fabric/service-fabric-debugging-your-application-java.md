@@ -1,15 +1,15 @@
 ---
-title: Depurar sua aplicação no Eclipse
+title: Depurar seu aplicativo no Eclipse
 description: Melhore a confiabilidade e o desempenho dos seus serviços desenvolvendo-os e depurando-os no Eclipse em um cluster de desenvolvimento local.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75614478"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar seu aplicativo Java do Service Fabric usando o Eclipse
@@ -42,4 +42,4 @@ Se o aplicativo estiver falhando, talvez seja conveniente habilitar os despejos 
 ### <a name="next-steps"></a>Próximas etapas
 
 * [Coletar logs usando o Diagnóstico do Azure no Linux](service-fabric-diagnostics-how-to-setup-lad.md).
-* [Monitorar e diagnosticar serviços localmente.](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+* [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

@@ -1,30 +1,30 @@
 ---
-title: Dimensione o Azure Cosmos DB em um cronograma usando o temporizador de funções do Azure
-description: Saiba como dimensionar as alterações no throughput no Azure Cosmos DB usando as funções PowerShell e Azure.
+title: Dimensionar Azure Cosmos DB em uma agenda usando o temporizador Azure Functions
+description: Saiba como dimensionar alterações na taxa de transferência em Azure Cosmos DB usando o PowerShell e o Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: 68ba40ea212c061fa5c8bbddc47ea0dfc6d8caa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75935162"
 ---
-# <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Scale Azure Cosmos DB throughput usando o gatilho do temporizador de funções do Azure
+# <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Dimensionar Azure Cosmos DB taxa de transferência usando Azure Functions gatilho de timer
 
-O desempenho de uma conta do Azure Cosmos é baseado na quantidade de throughput provisionado expressa em Unidades de Solicitação por segundo (RU/s). O provisionamento é em uma segunda granularidade e é cobrado com base no maior RU/s por hora. Esse modelo de capacidade provisionada permite que o serviço forneça uma taxa de transferência previsível e consistente, além de garantia de baixa latência e alta disponibilidade. A maioria das cargas de trabalho de produção esses recursos. No entanto, em ambientes de desenvolvimento e teste onde o Azure Cosmos DB é usado apenas durante o horário de trabalho, você pode aumentar a produção pela manhã e reduzir a escala à noite após o horário de trabalho.
+O desempenho de uma conta do Azure cosmos é baseado na quantidade de produtividade provisionada expressa em unidades de solicitação por segundo (RU/s). O provisionamento é de uma granularidade de segundo e é cobrado com base na mais alta RU/s por hora. Esse modelo de capacidade provisionada permite que o serviço forneça uma taxa de transferência previsível e consistente, além de garantia de baixa latência e alta disponibilidade. A maioria das cargas de trabalho de produção esses recursos. No entanto, em ambientes de desenvolvimento e teste em que Azure Cosmos DB é usado somente durante o horário de trabalho, você pode escalar verticalmente a taxa de transferência na manhã e reduzir a velocidade da noite após o horário de trabalho.
 
-Você pode definir o throughput através de Modelos de [Gerenciador de Recursos do Azure,](resource-manager-samples.md) [Azure CLI](cli-samples.md)e [PowerShell](powershell-samples-sql.md), para contas API Core (SQL) ou usando os SDKs Azure Cosmos DB específicos para o idioma. A vantagem de usar modelos de gerenciador de recursos, Azure CLI ou PowerShell é que eles suportam todas as APIs do modelo Azure Cosmos DB.
+Você pode definir a taxa de transferência por meio de [modelos de Azure Resource Manager](resource-manager-samples.md), [CLI do Azure](cli-samples.md)e [PowerShell](powershell-samples-sql.md), para contas de API de núcleo (SQL) ou usando os SDKs de Azure Cosmos DB específicos à linguagem. O benefício de usar modelos do Resource Manager, CLI do Azure ou PowerShell é que eles dão suporte a todas as APIs de modelo de Azure Cosmos DB.
 
-## <a name="throughput-scheduler-sample-project"></a>Projeto de amostra de agendador de throughput
+## <a name="throughput-scheduler-sample-project"></a>Projeto de exemplo do Agendador de produtividade
 
-Para simplificar o processo de escala do Azure Cosmos DB em um cronograma, criamos um projeto de exemplo chamado [Azure Cosmos throughput scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Este projeto é um aplicativo De funções do Azure com dois gatilhos temporizador: "ScaleUpTrigger" e "ScaleDownTrigger". Os gatilhos executam um script PowerShell que define o `resources.json` throughput em cada recurso conforme definido no arquivo em cada gatilho. O ScaleUpTrigger está configurado para ser executado às 8 AM UTC e o ScaleDownTrigger está configurado `function.json` para ser executado a 6 PM UTC e esses tempos podem ser facilmente atualizados dentro do arquivo para cada gatilho.
+Para simplificar o processo de dimensionamento de Azure Cosmos DB em uma agenda, criamos um projeto de exemplo chamado [Agendador de produtividade Cosmos do Azure](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler). Este projeto é um aplicativo Azure Functions com dois gatilhos de temporizador: "ScaleUpTrigger" e "ScaleDownTrigger". Os gatilhos executam um script do PowerShell que define a taxa de transferência em cada `resources.json` recurso, conforme definido no arquivo em cada gatilho. O ScaleUpTrigger é configurado para ser executado às 8:00 UTC e o ScaleDownTrigger é configurado para ser executado às 18:00 UTC e essas horas podem ser facilmente atualizadas dentro `function.json` do arquivo para cada gatilho.
 
-Você pode clonar este projeto localmente, modificá-lo para especificar os recursos do Azure Cosmos DB para escalar e diminuir e o cronograma a ser executado. Mais tarde, você pode implantá-lo em uma assinatura do Azure e protegê-la usando a identidade de serviço gerenciada com permissões RBAC [(Role-based Access Control, controle de acesso baseado em](role-based-access-control.md) função) com a função "Operador Azure Cosmos DB" para definir throughput em suas contas do Azure Cosmos.
+Você pode clonar esse projeto localmente, modificá-lo para especificar os Azure Cosmos DB recursos para escalar verticalmente e para baixo e a agenda para execução. Posteriormente, você pode implantá-lo em uma assinatura do Azure e protegê-lo usando a identidade de serviço gerenciada com permissões de RBAC ( [controle de acesso baseado em função](role-based-access-control.md) ) com a função "operador de Azure Cosmos DB" para definir a taxa de transferência em suas contas do Azure Cosmos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais e baixe a amostra do programador de [throughput do Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler).
+- Saiba mais e baixe o exemplo do [Agendador de taxa de transferência Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler).

@@ -1,6 +1,6 @@
 ---
-title: Conecte-se à caixa
-description: Automatize tarefas e fluxos de trabalho que criam e gerenciam arquivos na Caixa usando aplicativos de lógica do Azure
+title: Conectar ao box
+description: Automatizar tarefas e fluxos de trabalho que criam e gerenciam arquivos no box usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75666764"
 ---
-# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos na Caixa usando aplicativos azure logic
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos no box usando aplicativos lógicos do Azure
 
 Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de dentro de um aplicativo lógico com o conector do Box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
 
@@ -22,7 +22,7 @@ Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de den
 
 * Dispare o fluxo de trabalho e tarefas automatizadas quando um arquivo é criado ou atualizado.
 
-* Execute uma ação que copia um arquivo ou exclua um arquivo.
+* Executar uma ação que copia um arquivo ou exclui um arquivo.
 
   Quando essas ações obtêm uma resposta, elas disponibilizam a saída para outras ações. 
   Por exemplo, quando um arquivo é alterado no Box, você pode enviar esse arquivo em email usando o Office 365.

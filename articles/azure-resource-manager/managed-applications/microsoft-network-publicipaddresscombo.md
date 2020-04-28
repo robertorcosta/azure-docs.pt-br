@@ -1,15 +1,15 @@
 ---
-title: Elemento de UI PublicIpAddressCombo
+title: Elemento de interface do usuário PublicIpAddressCombo
 description: Descreve o elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo para o Portal do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75651911"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo
@@ -80,8 +80,8 @@ Se o usuário não seleciona um endereço IP novo ou existente, o controle retor
 }
 ```
 
-- Quando `options.hideNone` for especificado `newOrExistingOrNone` como **verdadeiro,** só terá um valor **de novo** ou **existente**.
-- Quando `options.hideDomainNameLabel` é especificado `domainNameLabel` como **verdadeiro,** não é declarado.
+- Quando `options.hideNone` for especificado como **true**, `newOrExistingOrNone` terá apenas um valor de **novo** ou **existente**.
+- Quando `options.hideDomainNameLabel` é especificado como **true**, `domainNameLabel` é não declarado.
 
 ## <a name="remarks"></a>Comentários
 

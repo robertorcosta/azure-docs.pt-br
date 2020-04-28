@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b33977ca5184ea07b5651be18e3a132d30ce4b39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75966064"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Orientação de recuperação de desastre para dados no Azure Data Lake Storage Gen1
@@ -42,6 +42,6 @@ Para evitar a exclusão acidental, recomendamos que você primeiro defina as pol
 As organizações também podem habilitar o [log de diagnóstico](data-lake-store-diagnostic-logs.md) para sua conta do Data Lake Storage Gen1 coletar trilhas de auditoria de acesso a dados que forneçam informações sobre quem pode ter excluído ou atualizado um arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Comece com o Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 

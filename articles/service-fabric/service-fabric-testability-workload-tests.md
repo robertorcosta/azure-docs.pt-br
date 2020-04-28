@@ -1,15 +1,15 @@
 ---
-title: Simular falhas em aplicativos de malha de serviço do Azure
-description: Saiba como endurecer seus serviços de malha de serviço do Azure contra falhas graciosas e sem graça.
+title: Simular falhas nos aplicativos Service Fabric do Azure
+description: Saiba mais sobre como proteger seus serviços de Service Fabric do Azure contra falhas normais e não-cortesia.
 author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75645983"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante cargas de trabalho de serviço

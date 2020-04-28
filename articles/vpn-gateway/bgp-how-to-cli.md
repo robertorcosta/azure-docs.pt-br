@@ -1,5 +1,5 @@
 ---
-title: Configure o BGP no Gateway Azure VPN:CLI
+title: 'Configurar o BGP no gateway de VPN do Azure: CLI'
 description: Este artigo mostra como configurar o BGP com um gateways de VPN do Azure utilizando o Azure Resource Manager e a CLI.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75863607"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP em um gateway de VPN do Azure utilizando a CLI
@@ -30,7 +30,7 @@ Este artigo ajuda-o com as seguintes tarefas:
 
   É possível completar uma das seguintes seções, ou as duas:
 
-* [Estabeleça uma conexão entre premissas com o BGP](#crossprembgp)
+* [Estabelecer uma conexão entre instalações com BGP](#crossprembgp)
 * [Estabelecer uma conexão VNet a VNet com BGP](#v2vbgp)
 
 Cada uma dessas três seções é um bloco de construção básico para habilitar o BGP na sua conectividade de rede. Se completar as três seções, a topologia será construída conforme mostrado no diagrama a seguir:
@@ -51,11 +51,11 @@ Instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para sabe
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Etapa 1: Criar e configurar TestVNet1
 
-#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. Conecte-se à sua assinatura
+#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. conectar-se à sua assinatura
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-#### <a name="2-create-a-resource-group"></a>2. Crie um grupo de recursos
+#### <a name="2-create-a-resource-group"></a>2. criar um grupo de recursos
 
 O exemplo a seguir cria um grupo de recursos denominado TestRG1 no local "eastus". Se já tiver um grupo de recursos na região em que deseja criar a rede virtual, você poderá usá-lo.
 
@@ -63,7 +63,7 @@ O exemplo a seguir cria um grupo de recursos denominado TestRG1 no local "eastus
 az group create --name TestBGPRG1 --location eastus
 ```
 
-#### <a name="3-create-testvnet1"></a>3. Criar TestVNet1
+#### <a name="3-create-testvnet1"></a>3. criar TestVNet1
 
 O exemplo a seguir cria uma rede virtual denominada TestVNet1 e três sub-redes: GatewaySubnet, FrontEnd e BackEnd. Ao substituir valores, é importante que você sempre nomeie sua sub-rede de gateway especificamente como GatewaySubnet. Se você usar outro nome, a criação do gateway falhará.
 
@@ -81,7 +81,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPR
 
 ### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Etapa 2: Criar o gateway de VPN para TestVNet1 com parâmetros de BGP
 
-#### <a name="1-create-the-public-ip-address"></a>1. Crie o endereço IP público
+#### <a name="1-create-the-public-ip-address"></a>1. criar o endereço IP público
 
 Solicite um endereço IP público. O endereço IP público será alocado ao gateway de VPN que criado para rede virtual.
 
@@ -89,7 +89,7 @@ Solicite um endereço IP público. O endereço IP público será alocado ao gate
 az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
-#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Crie o gateway VPN com o número AS
+#### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. criar o gateway de VPN com o número as
 
 Crie o gateway de rede virtual para TestVNet1. O BGP requer um gateway de VPN baseado em rota. Além disso, será necessário o parâmetro adicional `-Asn` para definir o ASN (número de sistema autônomo) como TestVNet1. A criação de um gateway pode demorar um pouco (45 minutos ou mais). 
 
@@ -99,7 +99,7 @@ Se você executar esse comando usando o parâmetro `--no-wait`, não receberá n
 az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP -g TestBGPRG1 --vnet TestVNet1 --gateway-type Vpn --sku HighPerformance --vpn-type RouteBased --asn 65010 --no-wait
 ```
 
-#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Obtenha o endereço IP do peer Azure BGP
+#### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. obter o endereço IP do par de BGP do Azure
 
 Após a criação do gateway, você precisará obter o endereço IP do par no nível de protocolo BGP no gateway de VPN do Azure. Esse endereço é necessário para configurar o gateway de VPN como um par no nível de protocolo BGP para os dispositivos VPN locais.
 
@@ -130,7 +130,7 @@ Para estabelecer uma conexão entre instalações, você precisará criar um gat
 Este exercício continua a compilar a configuração mostrada no diagrama. Não se esqueça de substituir os valores com aqueles que você deseja usar para sua configuração. Ao trabalhar com gateways de rede local, lembre-se das seguintes ações:
 
 * O gateway de rede local pode estar no mesmo local e no mesmo grupo de recursos que o gateway de VPN, ou em um local e grupo de recursos diferente. Este exemplo os mostra os gateways em grupos de recursos diferentes em locais diferentes.
-* O prefixo mínimo que você precisa declarar para o gateway de rede local é o endereço de host do seu endereço IP do par no nível de protocolo BGP em seu dispositivo VPN. Neste caso, é um prefixo /32 de 10.51.255.254/32.
+* O prefixo mínimo que você precisa declarar para o gateway de rede local é o endereço de host do seu endereço IP do par no nível de protocolo BGP em seu dispositivo VPN. Nesse caso, é um prefixo/32 de 10.51.255.254/32.
 * Como lembrete, você deve usar ASNs BGP diferentes entre suas redes locais e a rede virtual do Azure. Se eles forem iguais, você precisará alterar seu ASN VNet se os dispositivos VPN locais já utilizam o ASN para emparelhar com outros vizinhos de BGP.
 
 Antes de prosseguir, conclua a seção [Habilitar o BGP para seu gateway de VPN](#enablebgp) deste exercício, verifique se ainda está conectado à Assinatura 1. Observe que, neste exemplo, você cria um novo grupo de recursos. Além disso, observe os dois parâmetros adicionais para o gateway de rede local: `Asn` e `BgpPeerAddress`.
@@ -147,7 +147,7 @@ Nesta etapa, você cria a conexão de TestVNet1 para Site5. É necessário espec
 
 Neste exemplo, o gateway de rede virtual e o gateway de rede local estão em grupos de recursos diferentes. Quando os gateways estiverem em grupos de recursos diferentes, será necessário especificar toda a ID de recurso dos dois gateways para configurar uma conexão entre redes virtuais.
 
-#### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. Obtenha o ID de recurso do VNet1GW
+#### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. obter a ID de recurso de VNet1GW
 
 Utilize o resultado do seguinte comando para obter a ID do recurso para VNet1GW:
 
@@ -180,7 +180,7 @@ Copie os valores após `"id":` em um editor de texto, como o Bloco de Notas, par
 "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
 ```
 
-#### <a name="2-get-the-resource-id-of-site5"></a>2. Obtenha o ID de recurso do Site5
+#### <a name="2-get-the-resource-id-of-site5"></a>2. obter a ID de recurso de site5
 
 Utilize o seguinte comando para obter a ID do recurso do Site5 a partir da saída:
 
@@ -188,7 +188,7 @@ Utilize o seguinte comando para obter a ID do recurso do Site5 a partir da saíd
 az network local-gateway show -n Site5 -g TestBGPRG5
 ```
 
-#### <a name="3-create-the-testvnet1-to-site5-connection"></a>3. Crie a conexão TestVNet1-para-Site5
+#### <a name="3-create-the-testvnet1-to-site5-connection"></a>3. criar a conexão de TestVNet1 para site5
 
 Nesta etapa, você cria a conexão de TestVNet1 para Site5. Conforme discutido anteriormente, é possível ter conexões BGP e conexões que não são de BGP para o mesmo gateway de VPN do Azure. A menos que o BGP esteja habilitado na propriedade de conexão, o Azure não habilitará o BGP para essa conexão, mesmo que parâmetros BGP já estejam configurados em ambos os gateways. Substitua as IDs da assinatura pela sua.
 
@@ -224,13 +224,13 @@ As instruções a seguir continuam a partir das etapas anteriores nas seções a
 
 Neste exemplo, as redes virtuais pertencem à mesma assinatura. Você pode configurar conexões de rede virtual a rede entre assinaturas diferentes. Para saber mais, confira [Configurar uma conexão VNet para VNet](vpn-gateway-howto-vnet-vnet-cli.md). Verifique se você adicionou `-EnableBgp $True` ao criar conexões para habilitar o BGP.
 
-#### <a name="1-create-a-new-resource-group"></a>1. Crie um novo grupo de recursos
+#### <a name="1-create-a-new-resource-group"></a>1. criar um novo grupo de recursos
 
 ```azurecli
 az group create -n TestBGPRG2 -l westus
 ```
 
-#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. Crie testVNet2 no novo grupo de recursos
+#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. criar TestVNet2 no novo grupo de recursos
 
 O primeiro comando cria o espaço de endereçamento front-end e a sub-rede FrontEnd. O segundo comando cria um espaço de endereçamento adicional para a sub-rede de BackEnd. Os comandos terceiro e quarto criam a sub-rede BackEnd e GatewaySubnet.
 
@@ -244,7 +244,7 @@ az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --a
 az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPRG2 --address-prefix 10.22.255.0/27
 ```
 
-#### <a name="3-create-the-public-ip-address"></a>3. Crie o endereço IP público
+#### <a name="3-create-the-public-ip-address"></a>3. criar o endereço IP público
 
 Solicite um endereço IP público. O endereço IP público será alocado ao gateway de VPN que criado para rede virtual.
 
@@ -252,7 +252,7 @@ Solicite um endereço IP público. O endereço IP público será alocado ao gate
 az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynamic
 ```
 
-#### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. Crie o gateway VPN com o número AS
+#### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. criar o gateway de VPN com o número as
 
 Crie o gateway de rede virtual para TestVNet2. Você deve substituir o ASN padrão em seus gateways de VPN do Azure. As ASNs para as redes virtuais conectadas devem ser diferentes para habilitar o BGP e roteamento de tráfego.
  
@@ -266,7 +266,7 @@ Nesta etapa, você cria a conexão de TestVNet1 para Site5. Para habilitar o BGP
 
 No exemplo a seguir, o gateway de rede virtual e o gateway de rede local estão em diferentes grupos de recursos. Quando os gateways estiverem em grupos de recursos diferentes, será necessário especificar toda a ID de recurso dos dois gateways para configurar uma conexão entre redes virtuais. 
 
-#### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. Obtenha o ID de recurso do VNet1GW 
+#### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. obter a ID de recurso de VNet1GW 
 
 Obtenha a ID de recurso de VNet1GW na saída do seguinte comando:
 
@@ -274,7 +274,7 @@ Obtenha a ID de recurso de VNet1GW na saída do seguinte comando:
 az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 ```
 
-#### <a name="2-get-the-resource-id-of-vnet2gw"></a>2. Obtenha o ID de recurso do VNet2GW
+#### <a name="2-get-the-resource-id-of-vnet2gw"></a>2. obter a ID de recurso de VNet2GW
 
 Obtenha a ID de recurso de VNet2GW na saída do seguinte comando:
 
@@ -282,7 +282,7 @@ Obtenha a ID de recurso de VNet2GW na saída do seguinte comando:
 az network vnet-gateway show -n VNet2GW -g TestBGPRG2
 ```
 
-#### <a name="3-create-the-connections"></a>3. Crie as conexões
+#### <a name="3-create-the-connections"></a>3. criar as conexões
 
 Crie a conexão de TestVNet1 para TestVNet2 e a conexão de TestVNet2 para TestVNet1. Substitua as IDs da assinatura pela sua.
 

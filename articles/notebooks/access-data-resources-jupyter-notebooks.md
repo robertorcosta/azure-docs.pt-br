@@ -1,13 +1,13 @@
 ---
-title: Dados de acesso em notebooks Jupyter - Azure Notebooks Preview
-description: Saiba como acessar arquivos, APIs REST, bancos de dados e diferentes recursos de armazenamento Do Zure a partir de um notebook Jupyter.
+title: Acessar dados em notebooks Jupyter-visualização de Azure Notebooks
+description: Saiba como acessar arquivos, APIs REST, bancos de dados e diferentes recursos de armazenamento do Azure em um notebook Jupyter.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75646340"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Acessar dados de nuvem em um notebook
@@ -64,7 +64,7 @@ O Azure Cosmos DB fornece um repositório NoSQL totalmente indexado para documen
 - [Criar um aplicativo Flask com a API do Azure Cosmos DB para MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Criar um banco de dados de grafo usando o Python e o Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Construa um aplicativo de API de tabela com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Criar um aplicativo API de Tabela com Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Ao trabalhar com o Cosmos DB, você pode usar a biblioteca [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/).
 
@@ -75,9 +75,9 @@ O Azure fornece um número de outros tipos de banco de dados que você puder usa
 - [Banco de dados do Azure para PostgreSQL: usar Python para se conectar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Início Rápido: Como usar o Cache Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Banco de Dados do Azure para MySQL: usar Python para se conectar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Fábrica de Dados Azure](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente de Cópia do Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [Como trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
