@@ -8,17 +8,17 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 5b55c457f5e30b1b844aafd0114f73b62bdbcac7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b9b18585aac4e31af05218ff732569912508ce9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067967"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681865"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar a linguagem Go para se conectar e consultar dados
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar a linguagem Go para se conectar e consultar dados
 Este guia de início rápido mostra como se conectar a um Banco de Dados do Azure para MySQL usando código escrito na linguagem [Go](https://golang.org/) em plataformas Windows, Ubuntu Linux e Apple macOS. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Go e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -289,7 +289,7 @@ func main() {
     rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
     checkError(err)
     rowCount, err := rows.RowsAffected()
-    fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+    fmt.Printf("Updated %d row(s) of data.\n", rowCount)
     fmt.Println("Done.")
 }
 ```

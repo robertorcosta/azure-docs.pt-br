@@ -108,6 +108,8 @@
           href: how-to-windows-shutdown.md
         - name: Exibir informações de suporte (instrutor)
           href: lab-creator-support-information.md
+        - name: Acessar VMs do aluno na exibição do instrutor
+          href: instructor-access-virtual-machines.md
     - name: Conectar a VMs nos laboratórios de sala de aula (aluno)
       items:
         - name: Acessar laboratórios de sala de aula

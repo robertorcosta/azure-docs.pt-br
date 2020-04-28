@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c88bdf141e7784837a89c8104574d97c93296dc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768458"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460147"
 ---
 # <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Início Rápido: Criar e treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
@@ -30,11 +31,8 @@ Neste início rápido, você criará e treinará um modelo preditivo usando o R,
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md) com uma [regra de firewall no nível do servidor](sql-database-server-level-firewall-rule.md)
-- [Serviços do Machine Learning](sql-database-machine-learning-services-overview.md) com R habilitado. [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
+- [Serviços do Machine Learning](sql-database-machine-learning-services-overview.md) com R habilitado.
 - SSMS ([SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms))
-
-> [!NOTE]
-> Durante a versão prévia pública, a Microsoft realizará sua integração e habilitará o aprendizado de máquina para seu banco de dados novo ou existente.
 
 Este exemplo usa um modelo de regressão simples para prever a distância de parada de um carro com base na velocidade usando o conjunto de dados de **carros** incluído com o R.
 

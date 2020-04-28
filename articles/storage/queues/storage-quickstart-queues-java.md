@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78199794"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729844"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para Java
 
@@ -366,6 +366,6 @@ Neste guia de início rápido, você aprendeu a criar uma fila e a adicionar men
 Para acessar tutoriais, amostras, inícios rápidos e outras documentações, visite:
 
 > [!div class="nextstepaction"]
-> [Azure para desenvolvedores de nuvem do Java](https://docs.microsoft.com/azure/java/)
+> [Azure para desenvolvedores de nuvem do Java](https://docs.microsoft.com/azure/developer/java/)
 
 * Para ver mais aplicativos de amostra de armazenamento de Filas do Azure, continue para [Amostras da biblioteca de clientes Java do SDK do armazenamento de Filas do Azure v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

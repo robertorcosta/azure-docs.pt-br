@@ -1,17 +1,17 @@
 ---
 title: Gerenciar a consistência no Azure Cosmos DB
-description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando o portal Azure, .Net SDK, Java SDK e vários outros SDKs
+description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando portal do Azure, SDK do .NET, SDK do Java e vários outros SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e18abf5d8e26dba7a48bd1deb7d53102b9971690
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369396"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184275"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
 
@@ -21,42 +21,32 @@ Este artigo explica como gerenciar os níveis de consistência no Azure Cosmos D
 
 ## <a name="configure-the-default-consistency-level"></a>Configurar o nível de consistência padrão
 
-O [nível de consistência padrão](consistency-levels.md) é o nível de coerência que os clientes usam por padrão. Os clientes sempre podem substituí-lo.
+O [nível de consistência padrão](consistency-levels.md) é o nível de coerência que os clientes usam por padrão.
 
 ### <a name="cli"></a>CLI
 
+Crie uma conta do cosmos com consistência de sessão e, em seguida, atualize a consistência padrão.
+
 ```azurecli
-# create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
+# Create a new account with Session consistency
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-Este exemplo cria uma nova conta do Azure Cosmos com várias regiões de gravação habilitadas, nas regiões Leste dos EUA e Oeste dos EUA. O nível de consistência padrão é definido como consistência de *Sessão*.
+Crie uma conta do cosmos com consistência de sessão e, em seguida, atualize a consistência padrão.
 
 ```azurepowershell-interactive
-$locations = @(@{"locationName"="East US"; "failoverPriority"=0},
-             @{"locationName"="West US"; "failoverPriority"=1})
+# Create a new account with Session consistency
+New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Location $locations -Name $accountName -DefaultConsistencyLevel "Session"
 
-$iprangefilter = ""
-
-$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
-
-$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
-                        "locations"=$locations;
-                        "consistencyPolicy"=$consistencyPolicy;
-                        "ipRangeFilter"=$iprangefilter;
-                        "enableMultipleWriteLocations"="true"}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-  -ApiVersion "2015-04-08" `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "East US" `
-  -Name "myCosmosDbAccount" `
-  -Properties $CosmosDBProperties
+# Update an existing account's default consistency
+Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -68,6 +58,9 @@ Para exibir ou modificar o nível de consistência padrão, entre no portal do A
 ## <a name="override-the-default-consistency-level"></a>Substituir o nível de consistência padrão
 
 Os clientes podem substituir o nível de consistência padrão que é definido pelo serviço. O nível de consistência pode ser definido por solicitação, o que substitui o nível de consistência padrão definido no nível da conta.
+
+> [!TIP]
+> A consistência só pode ser **reduzida** no nível da solicitação. Para mudar de uma consistência mais fraca para a mais forte, atualize a consistência padrão para a conta Cosmos.
 
 ### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>SDK do .NET V2
 
@@ -81,7 +74,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -89,8 +82,8 @@ ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = 
 
 var response = await client.GetContainer(databaseName, containerName)
     .CreateItemAsync(
-        item, 
-        new PartitionKey(itemPartitionKey), 
+        item,
+        new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
 
@@ -157,7 +150,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -231,10 +224,9 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorar métrica PBS (Desatualização Limitada Probabilística)
 
-Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **Métricas** e selecione a guia **Consistência.** Veja o gráfico chamado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)**.
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **métricas** e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)**.
 
 ![Gráfico PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: Planeje uma implantação de autenticação sem senha com o Azure AD
-description: Saiba como planejar e implantar uma implementação de autenticação sem senha do Azure Active Directory
+title: Planejar uma implantação de autenticação sem senha com o Azure AD
+description: Saiba como planejar e implantar uma implementação de autenticação com senha Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81451424"
 ---
-# <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeje uma implantação de autenticação sem senha no Azure Active Directory
+# <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
 > [!NOTE]
-> Para criar uma versão offline deste plano de implantação, use a funcionalidade Print to PDF do seu navegador.
+> Para criar uma versão offline desse plano de implantação, use a funcionalidade imprimir para PDF do navegador.
 
 A maioria dos ataques cibernéticos começa com um nome de usuário e senha comprometidos. As organizações tentam combater a ameaça exigindo que os usuários usem uma das seguintes abordagens:
 
@@ -30,64 +30,64 @@ A maioria dos ataques cibernéticos começa com um nome de usuário e senha comp
 - Alterações frequentes de senha
 - Autenticação Multifator (MFA)
 
-A pesquisa da Microsoft [mostra](https://aka.ms/passwordguidance) que esses esforços irritam os usuários e elevam os custos de suporte. Para obter mais informações, consulte [Seu Pa$$word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+A pesquisa da Microsoft [mostra](https://aka.ms/passwordguidance) que esses esforços irritam os usuários e impulsionam os custos de suporte. Para obter mais informações, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
-### <a name="benefits-of-passwordless-authentication"></a>Benefícios da autenticação sem senha
+### <a name="benefits-of-passwordless-authentication"></a>Benefícios da autenticação com senha
 
-- **Maior segurança**. Reduza o risco de ataques de phishing e spray de senha removendo senhas como uma superfície de ataque.
--  **Melhor experiência do usuário.** Dê aos usuários uma maneira conveniente de acessar dados de qualquer lugar. Fornecer fácil acesso a aplicativos e serviços como Outlook, OneDrive ou Office enquanto estiver móvel.
--  **Insights robustos.** Obtenha insights sobre a atividade sem senha dos usuários com registro e auditoria robustos.
+- **Maior segurança**. Reduza o risco de ataques de phishing e de irrigação de senha removendo senhas como uma superfície de ataque.
+-  **Melhor experiência do usuário**. Forneça aos usuários uma maneira conveniente de acessar dados de qualquer lugar. Forneça acesso fácil a aplicativos e serviços, como Outlook, OneDrive ou Office, enquanto estiver móvel.
+-  **Ideias robustas**. Obter informações sobre a atividade de usuários sem senha com log e auditoria robustos.
 
-Com sem senha, a senha é substituída por algo que você tem mais algo que você é ou algo que você sabe. Por exemplo, o Windows Hello for Business pode usar um gesto biométrico como um rosto ou impressão digital, ou um PIN específico do dispositivo que não é transmitido por uma rede.
+Com senha, a senha é substituída por algo que você tem, além de algo que você conhece. Por exemplo, o Windows Hello para empresas pode usar um gesto biométrico como uma face ou impressão digital ou um PIN específico do dispositivo que não é transmitido por uma rede.
 
-## <a name="passwordless-authentication-methods"></a>Métodos de autenticação sem senha
-A Microsoft oferece três opções de autenticação sem senha que cobrem muitos cenários. Esses métodos podem ser usados em conjunto:
+## <a name="passwordless-authentication-methods"></a>Métodos de autenticação com senha
+A Microsoft oferece três opções de autenticação com senha que abrangem muitos cenários. Esses métodos podem ser usados em conjunto:
 
-- [O Windows Hello for Business](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é o melhor para os usuários em seus computadores Windows dedicados.
-- O login da chave de segurança com [as chaves de segurança FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é especialmente útil para usuários que fazem login em máquinas compartilhadas como quiosques, em situações onde o uso de telefones é restrito e para identidades altamente privilegiadas.
-- O login telefônico com o [aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é útil para fornecer uma opção sem senha aos usuários com dispositivos móveis. O aplicativo Authenticator transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha, permitindo que os usuários entrem em qualquer plataforma ou navegador. Os usuários fazem login recebendo uma notificação em seu telefone, correspondendo um número exibido na tela ao do telefone e, em seguida, usando seus dados biométricos ou PIN para confirmar.
+- O [Windows Hello para empresas](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é melhor para os usuários em seus computadores Windows dedicados.
+- A entrada de chave de segurança com [chaves de segurança FIDO2](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é especialmente útil para usuários que se conectam a computadores compartilhados, como quiosques, em situações em que o uso de telefones é restrito e para identidades altamente privilegiadas.
+- A entrada pelo telefone com o [aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) é útil para fornecer uma opção sem senha aos usuários com dispositivos móveis. O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha, permitindo que os usuários entrem em qualquer plataforma ou navegador. Os usuários entram obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando seus dados biométricos ou PIN para confirmar.
 
-### <a name="passwordless-authentication-scenarios"></a>Cenários de autenticação sem senha
+### <a name="passwordless-authentication-scenarios"></a>Cenários de autenticação com senha
 
-Os métodos de autenticação sem senha da Microsoft permitem diferentes cenários. Considere suas necessidades organizacionais, pré-requisitos e os recursos de cada método de autenticação para selecionar sua estratégia de autenticação sem senha. Recomendamos que todas as organizações que usam dispositivos Windows 10 usem o Windows Hello for Business. Em seguida, adicione o login do telefone (com o aplicativo Microsoft Authenticator) ou as chaves de segurança para cenários adicionais.
+Os métodos de autenticação com senha da Microsoft permitem diferentes cenários. Considere suas necessidades organizacionais, pré-requisitos e os recursos de cada método de autenticação para selecionar sua estratégia de autenticação com senha. Recomendamos que todas as organizações que usam dispositivos Windows 10 usem o Windows Hello para empresas. Em seguida, adicione uma entrada do telefone (com o aplicativo Microsoft Authenticator) ou chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação telefônica | Chaves de segurança | Windows Hello for Business |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello for Business |
 | --- | --- | --- | --- |
-| **Login do computador:** <br> Do dispositivo com Windows 10 atribuído | **Não** | **Sim** <br> Com biometria, PIN | **Sim**<br>com reconhecimento biométrico e ou PIN |
-| **Login do computador:** <br> Do dispositivo compartilhado windows 10 | **Não** | **Sim** <br> Com biometria, PIN  | **Não** |
-| **Login do aplicativo web:** <br>a partir de um computador dedicado ao usuário | **Sim** | **Sim** <br> Desde que o login único nos aplicativos seja ativado pelo login do computador | **Sim**<br> Desde que o login único nos aplicativos seja ativado pelo login do computador |
-| **Login do aplicativo web:** <br> de um dispositivo móvel ou não-windows | **Sim** | **Não** | **Não** |
-| **Login do computador:** <br> Computador não Windows | **Não** | **Não** | **Não** |
+| **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
+| **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
+| **Entrada do aplicativo Web**: <br>de um computador dedicado ao usuário | **Sim** | **Sim** <br> O logon único fornecido para os aplicativos está habilitado pela entrada do computador | **Sim**<br> O logon único fornecido para os aplicativos está habilitado pela entrada do computador |
+| **Entrada do aplicativo Web**: <br> de um dispositivo móvel ou não Windows | **Sim** | **Não** | **Não** |
+| **Entrada do computador**: <br> Computador não Windows | **Não** | **Não** | **Não** |
 
-Para obter informações sobre a seleção do melhor método para sua organização, consulte [Decidir um método sem senha](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
+Para obter informações sobre como selecionar o melhor método para sua organização, consulte [decidindo um método com senha](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As organizações devem atender aos seguintes pré-requisitos antes de iniciar uma implantação sem senha:
+As organizações devem atender aos seguintes pré-requisitos antes de iniciar uma implantação com senha:
 
-| Pré-requisito | Aplicativo autenticador | Chaves de segurança FIDO2 |
+| Pré-requisito | Aplicativo autenticador | Chaves de segurança do FIDO2 |
 | --- | --- | --- |
-| [O registro combinado para autenticação multifatorial do Azure e redefinição de senha de autoatendimento (SSPR)](howto-registration-mfa-sspr-combined.md) está habilitado | √ | √ |
-| [Os usuários podem executar a autenticação multifatorial do Azure](howto-mfa-getstarted.md) | √ | √ |
-| [Os usuários se registraram para autenticação multifatorial do Azure e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
-| [Os usuários registraram seus dispositivos móveis no Azure Active Directory](../devices/overview.md) | √ |   |
-| Windows 10 versão 1809 ou superior usando um navegador suportado como Microsoft Edge ou Mozilla Firefox <br> (versão 67 ou superior). <br> *A Microsoft recomenda a versão 1903 ou superior para suporte nativo.* |   | √ |
-| Chaves de segurança FIDO2 compatíveis. Certifique-se de que você está usando um dispositivo de segurança FIDO2 [testado pela Microsoft e verificado,](howto-authentication-passwordless-enable.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
+| O [registro combinado para a autenticação multifator do Azure e a redefinição de senha de autoatendimento (SSPR)](howto-registration-mfa-sspr-combined.md) está habilitado | √ | √ |
+| [Os usuários podem executar a autenticação multifator do Azure](howto-mfa-getstarted.md) | √ | √ |
+| [Os usuários se registraram para a autenticação multifator do Azure e o SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Os usuários registraram seus dispositivos móveis em Azure Active Directory](../devices/overview.md) | √ |   |
+| Windows 10 versão 1809 ou superior usando um navegador com suporte como Microsoft Edge ou Mozilla Firefox <br> (versão 67 ou superior). <br> *A Microsoft recomenda a versão 1903 ou superior para suporte nativo*. |   | √ |
+| Chaves de segurança FIDO2 compatíveis. Verifique se você está usando um dispositivo de segurança FIDO2 [testado e verificado pela Microsoft](howto-authentication-passwordless-enable.md) ou outro dispositivo de segurança FIDO2 compatível. |   | √ |
 
-### <a name="prerequisites-for-windows-hello-for-business"></a>Pré-requisitos para Windows Hello for Business
+### <a name="prerequisites-for-windows-hello-for-business"></a>Pré-requisitos para o Windows Hello para empresas
 
-Os pré-requisitos para o Windows Hello dependem muito se você está implantando em uma configuração no local, híbrida ou somente em nuvem. Para obter mais informações, consulte a [lista completa de pré-requisitos para Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Os pré-requisitos para o Windows Hello são altamente dependentes se você estiver implantando em uma configuração local, híbrida ou somente na nuvem. Para obter mais informações, consulte a [lista completa de pré-requisitos para o Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
-Os usuários registram seu método sem senha como parte do fluxo de registro de autenticação multifatorial do Azure. A autenticação multifatorial com um nome de usuário e senha, juntamente com outro método registrado, pode ser usada como um recuo no caso de não poderem usar o telefone ou a chave de segurança em alguns cenários.
+Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
 
 ### <a name="licensing"></a>Licenciamento 
-Não há custo adicional para autenticação sem senha, embora alguns pré-requisitos possam exigir uma assinatura premium. Para obter informações detalhadas sobre recursos e licenciamento na [página de licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
+Não há nenhum custo adicional para autenticação sem senha, embora alguns pré-requisitos possam exigir uma assinatura premium. Para obter informações detalhadas sobre recursos e licenciamento na [página de licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
-## <a name="develop-a-plan"></a>Desenvolva um plano
+## <a name="develop-a-plan"></a>Desenvolver um plano
 
-Considere as necessidades do seu negócio e os casos de uso para cada método de autenticação. Em seguida, selecione o método que melhor se adequa às suas necessidades.
+Considere suas necessidades de negócios e os casos de uso para cada método de autenticação. Em seguida, selecione o método que melhor atenda às suas necessidades.
 
 ### <a name="use-cases"></a>Casos de uso
 
@@ -95,240 +95,240 @@ A tabela a seguir descreve os casos de uso a serem implementados durante este pr
 
 | Área | Descrição |
 | --- | --- |
-| **Acesso** | O login sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
-| **Auditoria** | Os dados de uso estão disponíveis para os administradores auditar em tempo quase real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
-| **Governança** | O ciclo de vida das atribuições do usuário para o método de autenticação apropriado e os grupos associados é definido e monitorado. |
-| **Segurança** | O acesso ao método de autenticação apropriado é controlado através de atribuições de usuário e grupo. <br> Apenas usuários autorizados podem usar o login sem senha. |
-| **Desempenho** | Os cronogramas de propagação de atribuição de acesso são documentados e monitorados. <br> O sinal é medido para facilitar o uso. |
-| **Experiência do Usuário** | Os usuários estão cientes da compatibilidade móvel. <br> Os usuários podem configurar o login sem senha do aplicativo Authenticator. |
-| **Suporte** | Os usuários estão cientes de como encontrar suporte para problemas de login sem senha. |
+| **Acesso** | A entrada sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
+| **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
+| **Governança** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
+| **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar a entrada sem senha. |
+| **Desempenho** | As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. <br> As horas de entrada são medidas para facilitar o uso. |
+| **Experiência do usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar a entrada sem senha do aplicativo autenticador. |
+| **Suporte** | Os usuários estão cientes de como encontrar suporte para problemas de entrada sem senha. |
 
-### <a name="engage-the-right-stakeholders"></a>Envolva as partes interessadas certas
+### <a name="engage-the-right-stakeholders"></a>Envolva os participantes certos
 
-Quando os projetos de tecnologia falham, é normalmente devido a expectativas incompatíveis sobre impacto, resultados e responsabilidades. Para evitar essas armadilhas, [certifique-se de que você está engajando os stakeholders certos](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) e que os papéis das partes interessadas no projeto são bem compreendidos.
+Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [Verifique se você está participando dos participantes certos](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders) e se as funções de Stakeholder no projeto são bem compreendidas.
 
-### <a name="plan-communications"></a>Planejar comunicações
+### <a name="plan-communications"></a>Planejar a comunicação
 
-A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique proativamente como a experiência dos usuários mudará, quando ela mudará e como ganhar suporte se eles tiverem problemas.
+A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se proativamente como a experiência dos usuários será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
 
-Suas comunicações com usuários finais devem incluir as seguintes informações:
+Suas comunicações com os usuários finais devem incluir as seguintes informações:
 
-- [Habilitando a experiência combinada de registro de segurança](howto-authentication-passwordless-phone.md)
+- [Habilitando a experiência de registro de segurança combinada](howto-authentication-passwordless-phone.md)
 - [Baixando o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md)
-- [Registrando-se no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Fazendo login com seu telefone](../user-help/user-help-auth-app-sign-in.md)
+- [Registrando no aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
+- [Entrar com seu telefone](../user-help/user-help-auth-app-sign-in.md)
 
-A Microsoft fornece [modelos](https://aka.ms/mfatemplates)de comunicação de autenticação multifatorial, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de redefinição de senha de autoatendimento (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a elaborar suas comunicações. Você pode enviar [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) os usuários para se registrar diretamente selecionando os links **de Informações de Segurança** nessa página.
+A Microsoft fornece [modelos de comunicação](https://aka.ms/mfatemplates)da autenticação multifator, [modelos de comunicação](https://www.microsoft.com/download/details.aspx?id=56768)de autoatendimento de redefinição de senha (SSPR) e [documentação do usuário final](../user-help/security-info-setup-signin.md) para ajudar a rascunhar suas comunicações. Você pode enviar os usuários [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) para o para se registrar diretamente selecionando os links de **informações de segurança** na página.
 
-### <a name="plan-to-pilot"></a>Planeje pilotar
+### <a name="plan-to-pilot"></a>Planejar para o piloto
 
-Quando você implanta autenticação sem senha, você deve primeiro ativar um ou mais grupos piloto. Você pode [criar grupos](../fundamentals/active-directory-groups-create-azure-portal.md) especificamente para este fim. Adicione os usuários que participarão do piloto aos grupos. Em seguida, habilite novos métodos de autenticação sem senha para os grupos selecionados.
+Ao implantar a autenticação com senha, você deve primeiro habilitar um ou mais grupos pilotos. Você pode [criar grupos](../fundamentals/active-directory-groups-create-azure-portal.md) especificamente para essa finalidade. Adicione os usuários que farão parte do piloto para os grupos. Em seguida, habilite novos métodos de autenticação com senha para os grupos selecionados.
 
-Os grupos podem ser sincronizados a partir de um diretório local ou do Azure AD. Uma vez que você esteja feliz com os resultados do seu piloto, você pode ligar a autenticação sem senha para todos os usuários.
+Os grupos podem ser sincronizados de um diretório local ou do Azure AD. Quando estiver satisfeito com os resultados do seu piloto, você poderá alternar a autenticação sem senha para todos os usuários.
 
-Consulte [as melhores práticas para um piloto](https://aka.ms/deploymentplans) na página de planos de implantação.
+Consulte [práticas recomendadas para um piloto](https://aka.ms/deploymentplans) na página planos de implantação.
 
-## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planeje autenticação sem senha com o aplicativo Microsoft Authenticator
+## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planejar a autenticação sem senha com o aplicativo Microsoft Authenticator
 
-O aplicativo Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre como baixar o aplicativo Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Faça com que os usuários baixem o aplicativo Microsoft Authenticator. e siga as instruções para ativar o login do telefone. 
+O aplicativo Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre como baixar o aplicativo Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Fazer com que os usuários baixem o aplicativo Microsoft Authenticator. e siga as instruções para habilitar a entrada pelo telefone. 
 
-Ele transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha. Os usuários fazem login em qualquer plataforma ou navegador recebendo uma notificação em seu telefone, correspondendo um número exibido na tela ao do telefone e, em seguida, usando a biometria ou um PIN para confirmar. [Veja detalhes sobre como funciona o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
+Ele transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários entram em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando a biometria ou um PIN para confirmar. [Veja detalhes sobre como o aplicativo Microsoft Authenticator funciona](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
 
-![faça login com o aplicativo Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
+![entre com o aplicativo autenticador](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
 ### <a name="technical-considerations-for-the-microsoft-authenticator-app"></a>Considerações técnicas para o aplicativo Microsoft Authenticator
 
-**Integração AD FS** - Quando um usuário habilita a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário é padrão ao enviar uma notificação para aprovação. Os usuários de um inquilino híbrido são impedidos de serem direcionados ao ADFS para fazer login, a menos que selecionem "Use sua senha em vez disso". Esse processo também ignora quaisquer políticas de acesso condicional no local e fluxos de autenticação de passagem. No entanto, se um *login_hint* for especificado, o usuário é encaminhado para o ADFS e contorna a opção de usar a credencial sem senha.
+**Integração de AD FS** – quando um usuário habilita a Microsoft Authenticator credencial com senha, a autenticação para esse usuário assume o envio de uma notificação para aprovação. Os usuários em um locatário híbrido são impedidos de serem direcionados para o ADFS para entrada, a menos que selecionem "usar sua senha em vez disso". Esse processo também ignora qualquer política de acesso condicional local e fluxos de autenticação de passagem. No entanto, se um *login_hint* for especificado, o usuário será encaminhado para o ADFS e ignorará a opção de usar a credencial sem senha.
 
-**Servidor de autenticação multifatorial do Azure** - Os usuários finais habilitados para autenticação multifatorial através do servidor MFA azure no local da organização podem criar e usar uma única credencial de login de telefone sem senha. Se o usuário tentar atualizar várias instalações (5 ou mais) do Autenticador Microsoft com a credencial, essa alteração pode resultar em um erro.
+**Servidor de autenticação multifator do Azure** -usuários finais habilitados para autenticação multifator por meio do servidor Azure MFA local de uma organização podem criar e usar uma única credencial de entrada de telefone sem senha. Se o usuário tentar atualizar várias instalações (5 ou mais) do Microsoft Authenticator com a credencial, essa alteração poderá resultar em um erro.
 
-**Registro do dispositivo** - Para usar o aplicativo Authenticator para autenticação sem senha, o dispositivo deve ser registrado no inquilino Azure AD e não pode ser um dispositivo compartilhado. Um dispositivo só pode ser registrado em um único inquilino. Esse limite significa que apenas uma conta de trabalho ou escola é suportada para login telefônico usando o aplicativo Authenticator.
+**Registro de dispositivo** -para usar o aplicativo autenticador para autenticação com senha, o dispositivo deve ser registrado no locatário do Azure AD e não pode ser um dispositivo compartilhado. Um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante tem suporte para a entrada pelo telefone usando o aplicativo autenticador.
 
-## <a name="plan-passwordless-authentication-with-fido2-security-keys"></a>Planeje autenticação sem senha com chaves de segurança FIDO2
-Existem três tipos de implantações de login sem senha disponíveis com chaves de segurança:
+## <a name="plan-passwordless-authentication-with-fido2-security-keys"></a>Planejar a autenticação sem senha com as chaves de segurança do FIDO2
+Há três tipos de implantações de entrada sem senha disponíveis com chaves de segurança:
 
--    Aplicativos web do Azure Active Directory em um navegador suportado
--    Azure Active Directory juntou-se aos dispositivos Windows 10
--    Diretório ativo do Azure híbrido juntou-se aos dispositivos Windows 10 (visualização)
-     -    Fornece acesso tanto aos recursos baseados em nuvem quanto aos locais. Para obter mais informações sobre o acesso aos recursos locais, consulte [o SSO para obter recursos no local usando chaves FIDOP2](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
+-    Azure Active Directory aplicativos Web em um navegador com suporte
+-    Azure Active Directory dispositivos Windows 10 associados
+-    Dispositivos Windows 10 ingressados Azure Active Directory híbridos (visualização)
+     -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDOP2](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
 
-Você deve habilitar **chaves de segurança FIDO2 compatíveis**. A Microsoft anunciou [parcerias importantes com os principais fornecedores fido2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
+Você deve habilitar **as chaves de segurança FIDO2 compatíveis**. A Microsoft anunciou as [principais parcerias com os principais fornecedores de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
-**Para aplicativos web Azure AD e Azure AD Windows aderiram aos dispositivos**:
+**Para os aplicativos Web do Azure AD e dispositivos ingressados no Windows do Azure ad**:
 
--    Windows 10 versão 1809 ou superior usando um navegador suportado como Microsoft Edge ou Mozilla Firefox (versão 67 ou superior). 
--    A versão 1809 do Windows 10 suporta o login FIDO2 e pode exigir que o software do fabricante de chaves FIDO2 seja implantado. Recomendamos que você use a versão 1903 ou posterior. 
+-    Windows 10 versão 1809 ou superior usando um navegador com suporte como Microsoft Edge ou Mozilla Firefox (versão 67 ou superior). 
+-    O Windows 10 versão 1809 dá suporte à entrada FIDO2 e pode exigir que o software do fabricante da chave FIDO2 seja implantado. Recomendamos que você use a versão 1903 ou posterior. 
 
-**Para dispositivos de domínio de diretório ativo do Azure híbridos:** 
--    Windows 10 Insider build 18945 ou posterior
--    Servidores de domínio totalmente corrigidos executando o Windows Server 2016 ou 2019.
--    Última versão do Azure AD Connect
+**Para dispositivos ingressados no domínio do Azure Active Directory híbrido**: 
+-    Windows 10 Insider Build 18945 ou posterior
+-    Servidores de domínio totalmente corrigidos que executam o Windows Server 2016 ou 2019.
+-    Versão mais recente do Azure AD Connect
 
-Para obter uma lista completa de requisitos, consulte [Habilitar o login da chave de segurança sem senha para dispositivos Windows 10 com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+Para obter uma lista completa dos requisitos, consulte [Habilitar entrada de chave de segurança sem senha para dispositivos Windows 10 com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
 
 
-### <a name="security-key-life-cycle"></a>Ciclo de vida chave da segurança
+### <a name="security-key-life-cycle"></a>Ciclo de vida da chave de segurança
 
-As chaves de segurança permitem o acesso aos seus recursos, e você deve planejar o gerenciamento desses dispositivos físicos.
+As chaves de segurança habilitam o acesso aos seus recursos e você deve planejar o gerenciamento desses dispositivos físicos.
 
-1. **Distribuição de**chaves : Planeje como prover chaves para sua organização. Você pode ter um processo centralizado de provisionamento ou permitir que os usuários finais comprem chaves compatíveis com FIDO 2.0.
-1. **Ativação da chave**: Os usuários finais devem ativar a chave de segurança. Os usuários finais registram suas chaves de [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) segurança e habilitam o segundo fator (PIN ou biométrico) no primeiro uso.
-1. **Desabilitando uma chave**: Embora a funcionalidade da chave de segurança esteja no estágio de visualização, não há como um administrador remover uma chave de uma conta de usuário. O usuário deve removê-lo. Se uma chave for perdida ou roubada:
-   1. Remova o usuário de qualquer grupo habilitado para autenticação sem senha.
+1. **Distribuição de chaves**: planeje como provisionar chaves para sua organização. Você pode ter um processo de provisionamento centralizado ou permitir que os usuários finais adquiram chaves compatíveis com FIDO 2,0.
+1. **Ativação de chave**: os usuários finais devem ativar a chave de segurança automaticamente. Os usuários finais registram suas chaves [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) de segurança em e habilitam o segundo fator (PIN ou biométrica) no primeiro uso.
+1. **Desabilitando uma chave**: embora a funcionalidade de chave de segurança esteja no estágio de visualização, não há como um administrador remover uma chave de uma conta de usuário. O usuário deve removê-lo. Se uma chave for perdida ou roubada:
+   1. Remova o usuário de qualquer grupo habilitado para autenticação com senha.
    1. Verifique se eles removeram a chave como um método de autenticação.
-   1. Emita uma nova chave. **Substituição da chave**: Os usuários podem habilitar duas chaves de segurança ao mesmo tempo. Ao substituir uma chave de segurança, certifique-se de que o usuário também removeu a chave que está sendo substituída.
+   1. Emitir uma nova chave. **Substituição de chave**: os usuários podem habilitar duas chaves de segurança ao mesmo tempo. Ao substituir uma chave de segurança, verifique se o usuário também removeu a chave que está sendo substituída.
 
-### <a name="enable-windows-10-support"></a>Habilite o suporte ao Windows 10
+### <a name="enable-windows-10-support"></a>Habilitar o suporte do Windows 10
 
-Habilitar o login do Windows 10 usando chaves de segurança FIDO2 requer a habilitação da funcionalidade do provedor de credenciais no Windows 10. Escolha uma destas opções:
+Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a habilitação da funcionalidade do provedor de credenciais no Windows 10. Escolha uma destas opções:
 
-- [Habilitar provedor de credencial com Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+- [Habilitar provedor de credenciais com o Intune](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
    - A implantação do Intune é a opção recomendada.
-- [Habilitar provedor de credencial com um pacote de provisionamento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
-   - Se a implantação do Intune não for possível, os administradores devem implantar um pacote em cada máquina para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser realizada por uma das seguintes opções:
-      - Gerente de diretiva ou configuração de grupo
-      - Instalação local em uma máquina Windows 10
-- [Habilitar provedor de credencial com política de grupo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - Apenas suportado para dispositivos híbridos Azure AD juntou-se.
+- [Habilitar o provedor de credenciais com um pacote de provisionamento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
+   - Se a implantação do Intune não for possível, os administradores deverão implantar um pacote em cada computador para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser executada por uma das seguintes opções:
+      - Política de Grupo ou Configuration Manager
+      - Instalação local em um computador com Windows 10
+- [Habilitar provedor de credenciais com Política de Grupo](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - Somente com suporte para dispositivos ingressados no Azure AD híbrido.
 
-#### <a name="enable-on-premises-integration"></a>Habilite a integração no local
+#### <a name="enable-on-premises-integration"></a>Habilitar a integração local
 
-Para habilitar o acesso aos recursos locais, siga as etapas para habilitar o [login de chave de segurança sem senha aos recursos locais (visualização)](howto-authentication-passwordless-security-key-on-premises.md).
+Para habilitar o acesso a recursos locais, siga as etapas para [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
-> Essas etapas também devem ser concluídas para qualquer dispositivo híbrido Azure AD para utilizar as chaves de segurança FIDO2 para o login do Windows 10.
+> Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.
 
-### <a name="register-security-keys"></a>Registre as chaves de segurança
+### <a name="register-security-keys"></a>Registrar chaves de segurança
 
-Os usuários devem registrar sua chave de segurança em cada um de seus Azure Active Directory junto às máquinas windows 10.
+Os usuários devem registrar sua chave de segurança em cada um de seus Azure Active Directory máquinas com Windows 10 Unidas.
 
-Para obter mais informações, consulte [Registro e gerenciamento de chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
+Para obter mais informações, consulte [registro de usuário e gerenciamento de chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys).
 
 
-## <a name="plan-auditing-security-and-testing"></a>Planejar auditoria, segurança e testes
-O planejamento de auditoria que atenda às suas estruturas organizacionais e de conformidade é uma parte essencial da sua implantação.
+## <a name="plan-auditing-security-and-testing"></a>Planejar a auditoria, a segurança e os testes
+Planejar a auditoria que atenda às suas estruturas organizacionais e de conformidade é uma parte essencial da sua implantação.
 
-### <a name="auditing-passwordless"></a>Auditoria sem senha
+### <a name="auditing-passwordless"></a>Auditando com senha
 
-O Azure AD tem relatórios que fornecem insights técnicos e de negócios. Que seus proprietários de aplicativos comerciais e técnicos assumam a propriedade e consumam esses relatórios com base nas necessidades da sua organização.
+O Azure AD tem relatórios que fornecem informações técnicas e de negócios. Seus proprietários de aplicativos técnicos e de negócios assumem a propriedade e consomem esses relatórios com base nos requisitos da sua organização.
 
-A seção **métodos de autenticação** dentro do portal Azure Active Directory é onde os administradores podem habilitar e gerenciar configurações para credenciais sem senha.
+A seção métodos de **autenticação** no portal de Azure Active Directory é onde os administradores podem habilitar e gerenciar configurações para credenciais com senha.
 
 O Azure AD adiciona entradas aos logs de auditoria quando:
 
-- Um admin faz alterações na seção Métodos de Autenticação.
-- Um usuário faz qualquer tipo de alteração em suas credenciais dentro do Azure Active Directory.
+- Um administrador faz alterações na seção métodos de autenticação.
+- Um usuário faz qualquer tipo de alteração em suas credenciais dentro de Azure Active Directory.
 
-A tabela a seguir fornece alguns exemplos de cenários típicos de relatórios:
+A tabela a seguir fornece alguns exemplos de cenários de relatório típicos:
 
 |   | gerenciar riscos | Aumentar a produtividade | Governança e conformidade |
 | --- | --- | --- | --- |
-| **Tipos de relatório** | Métodos de autenticação- usuários cadastrados para registro de segurança combinado | Métodos de autenticação – usuários cadastrados para notificação de aplicativos | Logins: veja quem está acessando o inquilino e como |
-| **Ações potenciais** | Usuários-alvo ainda não registrados | Impulsionar a adoção do aplicativo Microsoft Authenticator ou chaves de segurança | Revogar o acesso ou impor políticas adicionais de segurança para os admins |
+| **Tipos de relatório** | Métodos de autenticação – usuários registrados para o registro de segurança combinado | Métodos de autenticação – usuários registrados para notificação de aplicativo | Entradas: revise quem está acessando o locatário e como |
+| **Ações potenciais** | Usuários de destino ainda não registrados | Impulsionar a adoção de Microsoft Authenticator aplicativo ou chaves de segurança | Revogar o acesso ou impor políticas de segurança adicionais para administradores |
 
-**O Azure AD mantém** a maioria dos dados de auditoria por 30 dias e disponibiliza os dados através do portal Azure Admin ou API para você baixar em seus sistemas de análise. Se você precisar de retenção mais longa, exporte e consuma logs em uma ferramenta SIEM, como [Azure Sentinel,](../../sentinel/connect-azure-active-directory.md)Splunk ou Sumo Logic. [Saiba mais sobre como visualizar seus relatórios de acesso e uso.](../reports-monitoring/overview-reports.md)
+O **Azure ad mantém a maioria dos dados de auditoria por 30 dias** e disponibiliza os dados por meio do portal de administração do Azure ou da API para que você faça o download em seus sistemas de análise. Se você precisar de mais tempo de retenção, exportação e consumo de logs em uma ferramenta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk ou a lógica do sumido. [Saiba mais sobre como exibir seus relatórios de acesso e uso](../reports-monitoring/overview-reports.md).
 
-Os usuários podem registrar e gerenciar [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)suas credenciais navegando para . Este link direciona os usuários para a experiência de gerenciamento de credenciais do usuário final que foi habilitada através da experiência combinada de registro de autenticação SSPR/Multifatorial. O Azure AD registra o registro de dispositivos de segurança FIDO2 e altera os métodos de autenticação por um usuário.
+Os usuários podem registrar e gerenciar suas credenciais navegando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)até. Esse link direciona os usuários para a experiência de gerenciamento de credenciais do usuário final que foi habilitada por meio da experiência combinada de registro de autenticação SSPR/multifator. O Azure AD registra o registro de dispositivos de segurança FIDO2 e altera os métodos de autenticação por usuários.
 
-### <a name="plan-security"></a>Planejar segurança
-Como parte deste plano de implantação, a Microsoft recomenda que a autenticação sem senha seja habilitada para todas as contas de admin privilegiadas.
+### <a name="plan-security"></a>Segurança do plano
+Como parte desse plano de distribuição, a Microsoft recomenda que a autenticação com senha seja habilitada para todas as contas de administrador privilegiadas.
 
-Quando os usuários ativam ou desativam a conta em uma chave de segurança ou redefinem o segundo fator para a chave de segurança em suas máquinas Windows 10, uma entrada é adicionada ao registro de segurança e estão sob os seguintes IDs de evento: *4670* e *5382*.
+Quando os usuários habilitam ou desabilitam a conta em uma chave de segurança, ou redefinem o segundo fator para a chave de segurança em seus computadores com Windows 10, uma entrada é adicionada ao log de segurança e está sob as seguintes IDs de evento: *4670* e *5382*.
 
 ### <a name="plan-testing"></a>Teste de plano
 
-Em cada etapa de sua implantação, enquanto você testa cenários e adoção, certifique-se de que os resultados são como esperado.
+Em cada estágio de sua implantação conforme os cenários e a adoção de teste, verifique se os resultados são os esperados.
 
 #### <a name="testing-the-microsoft-authenticator-app"></a>Testando o aplicativo Microsoft Authenticator
 
-A seguir estão casos de teste de exemplo para autenticação sem senha com o aplicativo Microsoft Authenticator:
+Veja a seguir exemplos de casos de teste para autenticação sem senha com o aplicativo Microsoft Authenticator:
 
 | Cenário | Resultados esperados |
 | --- | --- |
-| O usuário pode registrar o aplicativo Microsoft Authenticator | O usuário pode cadastrar o aplicativo a partir de aka.ms/mysecurityinfo |
-| O usuário pode ativar o login do telefone | Login telefônico configurado para conta de trabalho |
-| O usuário pode acessar um aplicativo com login de telefone | O usuário passa pelo fluxo de login do telefone e chega ao aplicativo. |
-| Teste reverter o registro de login do telefone desativando o login sem senha do Microsoft Authenticator na tela de métodos de autenticação no portal do Azure Active Directory | Anteriormente, os usuários não podiam usar o login sem senha do Microsoft Authenticator. |
-| Removendo o login do telefone do aplicativo Microsoft Authenticator | Conta de trabalho não está mais disponível no Microsoft Authenticator |
+| O usuário pode registrar Microsoft Authenticator aplicativo | O usuário pode registrar o aplicativo do aka.ms/mysecurityinfo |
+| O usuário pode habilitar a entrada pelo telefone | Entrada pelo telefone configurada para a conta corporativa |
+| O usuário pode acessar um aplicativo com entrada no telefone | O usuário passa pelo fluxo de entrada do telefone e atinge o aplicativo. |
+| Testar o registro de entrada no telefone desligando Microsoft Authenticator entrada sem senha na tela métodos de autenticação no portal Azure Active Directory | Os usuários anteriormente habilitados não podem usar a entrada sem senha no Microsoft Authenticator. |
+| Removendo a entrada pelo telefone do aplicativo Microsoft Authenticator | A conta de trabalho não está mais disponível no Microsoft Authenticator |
 
 #### <a name="testing-security-keys"></a>Testando chaves de segurança
 
-A seguir estão casos de teste de exemplo para autenticação sem senha com chaves de segurança.
+Veja a seguir exemplos de casos de teste para autenticação sem senha com chaves de segurança.
 
-**Login FIDO sem senha para o Azure Active Directory Juntou-se aos dispositivos Windows 10**
+**Conexão FIDO sem senha para Azure Active Directory dispositivos Windows 10 associados**
 
 | Cenário | Resultados esperados |
 | --- | --- |
-| O usuário pode registrar o dispositivo FIDO2 (1809) | O usuário pode registrar o dispositivo FIDO2 usando em Configurações > Contas > fazer login em opções > Chave de Segurança |
+| O usuário pode registrar o dispositivo FIDO2 (1809) | O usuário pode registrar o dispositivo FIDO2 usando as configurações > contas > opções de entrada > chave de segurança |
 | O usuário pode redefinir o dispositivo FIDO2 (1809) | O usuário pode redefinir o dispositivo FIDO2 usando o software do fabricante |
-| O usuário pode fazer login com o dispositivo FIDO2 (1809) | O usuário pode selecionar a chave de segurança na janela de login e fazer login com sucesso. |
-| O usuário pode registrar o dispositivo FIDO2 (1903) | O usuário pode registrar o dispositivo FIDO2 em Configurações > Contas > fazer login > chave de segurança |
-| O usuário pode redefinir o dispositivo FIDO2 (1903) | O usuário pode redefinir o dispositivo FIDO2 em Configurações > Contas > fazer login em opções > Chave de Segurança |
-| O usuário pode fazer login com o dispositivo FIDO2 (1903) | O usuário pode selecionar a chave de segurança na janela de login e fazer login com sucesso. |
+| O usuário pode entrar com o dispositivo FIDO2 (1809) | O usuário pode selecionar a chave de segurança na janela de entrada e entrar com êxito. |
+| O usuário pode registrar o dispositivo FIDO2 (1903) | O usuário pode registrar o dispositivo FIDO2 em configurações > contas > opções de entrada > chave de segurança |
+| O usuário pode redefinir o dispositivo FIDO2 (1903) | O usuário pode redefinir o dispositivo FIDO2 nas configurações > contas > opções de entrada > chave de segurança |
+| O usuário pode entrar com o dispositivo FIDO2 (1903) | O usuário pode selecionar a chave de segurança na janela de entrada e entrar com êxito. |
 
-**Login FIDO sem senha para aplicativos web Azure AD**
+**FIDO sem senha para aplicativos Web do Azure AD**
 
 | Cenário | Resultados esperados |
 | --- | --- |
-| O usuário pode registrar o dispositivo FIDO2 em aka.ms/mysecurityinfo usando o Microsoft Edge | As inscrições devem ter sucesso |
-| O usuário pode registrar o dispositivo FIDO2 em aka.ms/mysecurityinfo usando o Firefox | As inscrições devem ter sucesso |
-| O usuário pode fazer login no OneDrive on-line usando o dispositivo FIDO2 usando o Microsoft Edge | O login deve ter sucesso |
-| O usuário pode fazer login no OneDrive on-line usando o dispositivo FIDO2 usando o Firefox | O login deve ter sucesso |
-| Teste reverter o registro do dispositivo FIDO2 desligando as chaves de segurança FIDO2 na janela do método de autenticação no portal do Diretório Ativo do Azure | Os usuários serão solicitados a fazer login usando sua chave de segurança. Os usuários farão login com sucesso e um erro será exibido: "A política da sua empresa exige que você use um método diferente para fazer login". Os usuários devem então ser capazes de selecionar um método diferente e fazer login com sucesso. Feche a janela e faça login novamente para verificar se eles não vêem a mesma mensagem de erro. |
+| O usuário pode registrar o dispositivo FIDO2 em aka.ms/mysecurityinfo usando o Microsoft Edge | O registro deve ter sucesso |
+| O usuário pode registrar o dispositivo FIDO2 em aka.ms/mysecurityinfo usando o Firefox | O registro deve ter sucesso |
+| O usuário pode entrar no OneDrive online usando o dispositivo FIDO2 usando o Microsoft Edge | A entrada deve ter sucesso |
+| O usuário pode entrar no OneDrive online usando o dispositivo FIDO2 usando o Firefox | A entrada deve ter sucesso |
+| Teste revertendo o registro de dispositivo FIDO2 desativando as chaves de segurança FIDO2 na janela método de autenticação no portal de Azure Active Directory | Os usuários serão solicitados a entrar usando sua chave de segurança. Os usuários entrarão com êxito e um erro será exibido: "a política da empresa requer que você use um método diferente para entrar". Os usuários devem ser capazes de selecionar um método diferente e entrar com êxito. Feche a janela e entre novamente para verificar se elas não veem a mesma mensagem de erro. |
 
 ### <a name="plan-for-rollback"></a>Planejar a reversão
 
-Embora a autenticação sem senha seja um recurso leve com impacto mínimo nos usuários finais, pode ser necessário reverter.
+Embora a autenticação sem senha seja um recurso leve com impacto mínimo sobre os usuários finais, pode ser necessário reverter.
 
-Reverter o retorno requer que o administrador faça login no portal do Diretório Ativo do Azure, selecione os métodos de autenticação fortes desejados e altere a opção ativar para **No**. Esse processo desativa a funcionalidade sem senha para todos os usuários.
+Reverter requer que o administrador entre no portal de Azure Active Directory, selecione os métodos de autenticação forte desejados e altere a opção Habilitar para **não**. Esse processo desativa a funcionalidade de senha para todos os usuários.
 
-Os usuários que já registraram dispositivos de segurança FIDO2 são solicitados a usar o dispositivo de segurança no próximo login e, em seguida, ver o seguinte erro:
+Usuários que já registraram dispositivos de segurança FIDO2 são solicitados a usar o dispositivo de segurança na próxima entrada e, em seguida, ver o seguinte erro:
 
-![escolher uma maneira diferente de assinar](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
+![Escolha uma maneira diferente de entrar](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
-## <a name="deploy-and-troubleshoot-passwordless-authentication"></a>Implantar e solucionar problemas de autenticação sem senha
+## <a name="deploy-and-troubleshoot-passwordless-authentication"></a>Implantar e solucionar problemas de autenticação com senha
 
 Siga as etapas alinhadas ao método escolhido abaixo.
 
-### <a name="required-administrative-roles"></a>Funções administrativas obrigatórias
+### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel Azure AD | Descrição |
+| Função do Azure AD | Descrição |
 | --- | --- |
-| Administrador global|Função menos privilegiada capaz de implementar experiência de registro combinada. |
+| Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
-| Usuário | Função menos privilegiada para configurar o aplicativo Authenticator no dispositivo ou para inscrever dispositivo-chave de segurança para login web ou Windows 10. |
+| Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
 
-### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Implantar login de telefone com o aplicativo Microsoft Authenticator
+### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Implantar a entrada pelo telefone com o aplicativo Microsoft Authenticator
 
-Siga as etapas do artigo, [Habilite o login sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md) para habilitar o aplicativo Microsoft Authenticator como um método de autenticação sem senha em sua organização.
+Siga as etapas no artigo habilitar a [entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md) para habilitar o aplicativo Microsoft Authenticator como um método de autenticação sem senha em sua organização.
 
-### <a name="deploy-fido2-security-key-sign-in"></a>Implantar o login da chave de segurança FIDO2
+### <a name="deploy-fido2-security-key-sign-in"></a>Implantar entrada de chave de segurança FIDO2
 
-Siga as etapas do artigo, [Habilite o login de chave de segurança sem senha para o Azure AD](howto-authentication-passwordless-security-key.md) para habilitar as chaves de segurança FIDO2 como métodos de autenticação sem senha.
+Siga as etapas descritas no artigo [habilitar a entrada de chave de segurança sem senha para o Azure ad](howto-authentication-passwordless-security-key.md) para habilitar as chaves de segurança FIDO2 como métodos de autenticação sem senha.
 
-### <a name="troubleshoot-phone-sign-in"></a>Solucionar problemas no login do telefone
-
-| Cenário | Solução |
-| --- | --- |
-| O usuário não pode realizar o registro combinado. | Certifique-se [de que o registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
-| O usuário não pode ativar o aplicativo autenticador de login de telefone. | Certifique-se de que o usuário está no escopo de implantação. |
-| O usuário NÃO está no escopo para autenticação sem senha, mas é apresentado com opção de login sem senha, que não pode concluir. | Esse cenário ocorre quando o usuário habilita o login telefônico no aplicativo antes da política ser criada. <br> *Para ativar o login*: Adicione o usuário ao escopo dos usuários habilitados para login sem senha. <br> *Para bloquear o login*: faça com que o usuário remova sua credencial desse aplicativo. |
-
-### <a name="troubleshoot-security-key-sign-in"></a>Solucionar problemas na entrada da chave de segurança
+### <a name="troubleshoot-phone-sign-in"></a>Solucionar problemas de entrada pelo telefone
 
 | Cenário | Solução |
 | --- | --- |
-| O usuário não pode realizar o registro combinado. | Certifique-se [de que o registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
-| O usuário não pode adicionar uma chave de segurança em suas [configurações de segurança](https://aka.ms/mysecurityinfo). | Certifique-se de que [as chaves de segurança](howto-authentication-passwordless-security-key.md) estão habilitadas. |
-| O usuário não pode adicionar a chave de segurança nas opções de login do Windows 10. | [Certifique-se de que as chaves de segurança para o Windows entrem](howto-authentication-passwordless-enable.md) |
-| **Mensagem de erro**: Detectamos que este navegador ou sistema operacional não suporta chaves de segurança FIDO2. | Os dispositivos de segurança FIDO2 sem senha só podem ser registrados em navegadores suportados (Microsoft Edge, Firefox versão 67) no Windows 10 versão 1809 ou superior. |
-| **Mensagem de erro**: A política da empresa exige que você use um método diferente para fazer login. | As chaves de segurança inseguras estão habilitadas no inquilino. |
-| Usuário incapaz de gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 exige que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor-chave FIDO2. Entre em contato com o fornecedor para obter suporte. |
-| Acho que minha chave de segurança FIDO2 pode estar com defeito — como posso testá-la. | Navegue [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)para , digite credenciais para uma conta **+** de teste, conecte a chave de segurança suspeita, selecione o botão no canto superior direito da tela, clique em criar e passe pelo processo de criação. Se este cenário falhar, seu dispositivo pode estar com defeito. |
+| O usuário não pode executar o registro combinado. | Verifique se o [registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
+| O usuário não pode habilitar o aplicativo autenticador de entrada do telefone. | Verifique se o usuário está no escopo para implantação. |
+| O usuário não está no escopo para autenticação sem senha, mas é apresentado com a opção de entrada sem senha, que não pode ser concluída. | Esse cenário ocorre quando o usuário habilitou a entrada pelo telefone no aplicativo antes da criação da política. <br> *Para habilitar a entrada*: Adicione o usuário ao escopo de usuários habilitados para entrada sem senha. <br> *Para bloquear a entrada*: faça com que o usuário remova a credencial desse aplicativo. |
+
+### <a name="troubleshoot-security-key-sign-in"></a>Solucionar problemas de entrada de chave de segurança
+
+| Cenário | Solução |
+| --- | --- |
+| O usuário não pode executar o registro combinado. | Verifique se o [registro combinado](concept-registration-mfa-sspr-combined.md) está habilitado. |
+| O usuário não pode adicionar uma chave de segurança em suas [configurações de segurança](https://aka.ms/mysecurityinfo). | Verifique se [as chaves de segurança](howto-authentication-passwordless-security-key.md) estão habilitadas. |
+| O usuário não pode adicionar a chave de segurança nas opções de entrada do Windows 10. | [Verifique se as chaves de segurança para entrar no Windows](howto-authentication-passwordless-enable.md) |
+| **Mensagem de erro**: detectamos que este navegador ou sistema operacional não dá suporte a chaves de segurança FIDO2. | Os dispositivos de segurança FIDO2 sem senha só podem ser registrados em navegadores com suporte (Microsoft Edge, Firefox versão 67) no Windows 10 versão 1809 ou superior. |
+| **Mensagem de erro**: a política da sua empresa requer que você use um método diferente para entrar. | Não se esqueça de que as chaves de segurança estão habilitadas no locatário. |
+| O usuário não pode gerenciar minha chave de segurança no Windows 10 versão 1809 | A versão 1809 requer que você use o software de gerenciamento de chaves de segurança fornecido pelo fornecedor de chave FIDO2. Contate o fornecedor para obter suporte. |
+| Acho que minha chave de segurança do FIDO2 pode ser defeituosa – como posso testá-la. | Navegue até [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), insira as credenciais para uma conta de teste, conecte a chave de segurança suspeita, **+** selecione o botão na parte superior direita da tela, clique em criar e passe pelo processo de criação. Se esse cenário falhar, o dispositivo poderá estar com defeito. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilite chaves de segurança sem senha para fazer login no Azure AD](howto-authentication-passwordless-security-key.md)
-- [Habilite o login sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
-- [Saiba mais sobre métodos de autenticação uso & insights](howto-authentication-methods-usage-insights.md)
+- [Habilitar chaves de segurança sem senha para entrar no Azure AD](howto-authentication-passwordless-security-key.md)
+- [Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md)
+- [Saiba mais sobre o uso de métodos de autenticação & insights](howto-authentication-methods-usage-insights.md)
 

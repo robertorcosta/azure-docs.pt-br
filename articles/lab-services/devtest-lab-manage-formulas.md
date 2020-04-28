@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2020
 ms.author: spelluru
 ms.openlocfilehash: ce980167cd88adfada1aa294aafa885184565799
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641156"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerenciar fórmulas do Azure DevTest Labs
@@ -44,33 +44,33 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
 
 3. Na lista de laboratórios, selecione o laboratório desejado.  
 
-4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)** no menu esquerdo.
+4. Na página do laboratório, selecione **fórmulas (bases reutilizáveis)** no menu à esquerda.
 5. Na página **Fórmulas**, selecione **+ Adicionar**.
    
     ![Adicionar uma fórmula](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. Na **página Escolher uma página base,** selecione a base (imagem personalizada ou imagem de Marketplace) a partir da qual deseja criar a fórmula.
+6. Na página **escolher uma base** , selecione a base (imagem personalizada ou imagem do Marketplace) da qual você deseja criar a fórmula.
 7. Na guia **Configurações básicas** da página **Criar fórmula**, especifique os seguintes valores:
    
     * **Nome da fórmula** – digite um nome para a fórmula. Esse valor será exibido na lista de imagens de base quando você criar uma máquina virtual. O nome é validado durante a digitação e, se não servir, uma mensagem indicará os requisitos para um nome válido.
-    - Digite uma **descrição** opcional para a fórmula. 
+    - Insira uma **Descrição** opcional para a fórmula. 
     * **Nome de usuário** – insira um nome de usuário para receber privilégios de administrador.
     * **Senha** – digite – ou selecione na lista suspensa – um valor associado ao segredo (senha) que você deseja usar para o usuário especificado. Para saber como salvar segredos em um cofre de chaves e usá-los ao criar recursos de laboratório, consulte [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md) (Armazenar segredos no Azure Key Vault).
 
-        Selecione **Usar um segredo salvo** se quiser usar um segredo do Azure Key Vault em vez de usar uma senha. 
-    * **Tamanho da máquina virtual** - Selecione **Tamanho de alteração** para alterar o tamanho da VM. 
-    - **Tipo de disco DO SISTEMA** OPERACIONAL - selecione o tipo de disco que deseja usar (HDD padrão, SSD padrão ou SSD Premium).
+        Selecione **usar um segredo salvo** se desejar usar um segredo de Azure Key Vault em vez de usar uma senha. 
+    * **Tamanho da máquina virtual** – selecione **alterar tamanho** para alterar o tamanho da VM. 
+    - **Tipo de disco do so** -selecione o tipo de disco que você deseja usar (HDD Standard, SSD Standard ou SSD Premium).
     * **Artefatos** – selecione a página **Adicionar ou remover artefatos**, na qual você escolhe e configura os artefatos que deseja adicionar à imagem base. Para obter mais informações sobre os artefatos, consulte [Criar artefatos personalizados para a máquina virtual do Azure DevTest Labs](devtest-lab-artifact-author.md).
 
-        ![Página de configurações básicas](./media/devtest-lab-create-formulas/basic-settings.png)
+        ![Página configurações básicas](./media/devtest-lab-create-formulas/basic-settings.png)
 8. Alterne para a guia **Configurações avançadas** e especifique os seguintes valores:
     - **Rede virtual** – para alterar a rede virtual, selecione **Alterar Vnet**. 
     - **Sub-rede** – para alterar a sub-rede, selecione **Alterar Sub-rede**. 
     - **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para obter mais informações sobre endereços IP compartilhados, consulte [Noções básicas dos endereços IP compartilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
-    - **Data de validade e hora** - Você não pode editar este campo. 
+    - **Data e hora de expiração** -você não pode editar este campo. 
     - **Tornar essa máquina reivindicável** - tornar uma máquina "reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na página do laboratório.  
 
-        ![Página de configurações básicas](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Página configurações básicas](./media/devtest-lab-create-formulas/advanced-settings.png)
 8. Selecione **Enviar** para criar a fórmula.
 
 9. Após a criação da fórmula, ela é exibida na lista da página **Fórmulas**.

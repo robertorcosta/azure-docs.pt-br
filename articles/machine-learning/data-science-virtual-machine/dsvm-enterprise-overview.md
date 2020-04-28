@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 06d05d6d410af13bfbe85f3cb66523c1d48cb77c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70195655"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460538"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente de IA e análise de equipe com base em Máquina Virtual de Ciência de Dados 
 A [DSVM](overview.md) (Máquina Virtual de Ciência de Dados) fornece um ambiente avançado na plataforma Azure com o software predefinido de IA (inteligência artificial) e análise de dados.
@@ -43,7 +43,7 @@ Esta série fornece diretrizes e indicações para cada um dos tópicos anterior
 * [Controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Configuração da política e execução](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Criptografia](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Criptografia](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
 * [Descoberta de dados e governança](https://docs.microsoft.com/azure/data-catalog/)
 
 Por fim, o [Centro de Arquitetura do Azure](https://docs.microsoft.com/azure/architecture/) fornece modelos e arquitetura detalhada de ponta a ponta para criar e gerenciar sua infraestrutura de análise baseado em nuvem.

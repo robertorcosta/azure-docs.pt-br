@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault como fonte da Grade de Eventos
-description: Descreve as propriedades e o esquema fornecidos para eventos do Azure Key Vault com o Azure Event Grid
+title: Azure Key Vault como fonte da grade de eventos
+description: Descreve as propriedades e o esquema fornecido para eventos de Azure Key Vault com a grade de eventos do Azure
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,37 +8,37 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458242"
 ---
-# <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da Grade de Eventos
+# <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da grade de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos no [Azure Key Vault](../key-vault/index.yml), atualmente em pré-visualização. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos no [Azure Key Vault](../key-vault/index.yml), atualmente em visualização. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
-Uma conta do Azure Key Vault gera os seguintes tipos de eventos:
+Uma conta de Azure Key Vault gera os seguintes tipos de evento:
 
 | Nome completo do evento | Nome de exibição do evento | Descrição |
 | ---------- | ----------- |---|
-| Microsoft.KeyVault.CertificateNewVersionCriado | Certificado Nova Versão Criada | Acionado quando um novo certificado ou nova versão de certificado é criado. |
-| Microsoft.KeyVault.CertificateNearExpiry | Certificado perto do vencimento | Acionado quando a versão atual do certificado está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
-| Microsoft.KeyVault.Certificado Expirado | O Certificado Expirou | Acionado quando o certificado expirar. |
-| Microsoft.KeyVault.KeyNewVersionCriado | Chave nova versão criada | Acionado quando uma nova chave ou nova versão-chave é criada. |
-| Microsoft.KeyVault.KeyNearExpiry | Chave perto do vencimento | Acionado quando a versão atual de uma chave está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
-| Microsoft.KeyVault.KeyExpirado | Chave expirada | Acionado quando uma chave expira. |
-| Microsoft.KeyVault.SecretNewVersionCriado | Nova versão secreta criada | Acionado quando um novo segredo ou nova versão secreta é criado. |
-| Microsoft.KeyVault.SecretNearExpiry | Segredo perto do vencimento | Acionado quando a versão atual de um segredo está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
-| Microsoft.KeyVault.SecretExpirado | Segredo Expirado | Acionado quando um segredo expira. |
+| Microsoft. keyvault. CertificateNewVersionCreated | Nova versão de certificado criada | Disparado quando um novo certificado ou nova versão do certificado é criado. |
+| Microsoft. keyvault. CertificateNearExpiry | Certificado próximo à expiração | Disparado quando a versão atual do certificado está prestes a expirar. (O evento é disparado 30 dias antes da data de validade.) |
+| Microsoft. keyvault. CertificateExpired | O Certificado Expirou | Disparado quando o certificado expira. |
+| Microsoft. keyvault. KeyNewVersionCreated | Nova versão de chave criada | Disparado quando uma nova versão de chave ou nova chave é criada. |
+| Microsoft. keyvault. KeyNearExpiry | Chave próxima à expiração | Disparado quando a versão atual de uma chave está prestes a expirar. (O evento é disparado 30 dias antes da data de validade.) |
+| Microsoft. keyvault. keyvenceu | Chave expirada | Disparado quando uma chave expira. |
+| Microsoft. keyvault. SecretNewVersionCreated | Nova versão secreta criada | Disparado quando uma nova versão secreta ou nova secreta é criada. |
+| Microsoft. keyvault. SecretNearExpiry | Segredo próximo da expiração | Disparado quando a versão atual de um segredo está prestes a expirar. (O evento é disparado 30 dias antes da data de validade.) |
+| Microsoft. keyvault. SecretExpired | Segredo expirado | Disparado quando um segredo expira. |
 
 ### <a name="event-examples"></a>Exemplos de eventos
 
-O exemplo a seguir mostra esquema para **Microsoft.KeyVault.SecretNewVersionCriado:**
+O exemplo a seguir mostra o esquema para **Microsoft. keyvault. SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -69,28 +69,28 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | ---------- | ----------- |---|
-| id | string | O ID do objeto que desencadeou este evento |
-| vaultName | string | O nome do cofre chave do objeto que desencadeou este evento |
-| objectType | string | O tipo do objeto que desencadeou este evento |
-| Objectname | string | O nome do objeto que desencadeou este evento |
-| version | string | A versão do objeto que desencadeou este evento |
-| nbf | número | A data não-antes em segundos desde 1970-01-01T00:00:00Z do objeto que desencadeou este evento |
-| exp | número | A data de validade em segundos desde 1970-01-01T00:00:00Z do objeto que desencadeou este evento |
+| id | cadeia de caracteres | A ID do objeto que disparou este evento |
+| vaultName | cadeia de caracteres | O nome do cofre de chaves do objeto que disparou este evento |
+| objectType | cadeia de caracteres | O tipo do objeto que disparou este evento |
+| objectName | cadeia de caracteres | O nome do objeto que disparou este evento |
+| version | cadeia de caracteres | A versão do objeto que disparou este evento |
+| nbf | número | A data de não-antes, em segundos, desde 1970-01-01T00:00:00Z do objeto que disparou este evento |
+| exp | número | A data de validade em segundos desde 1970-01-01T00:00:00Z do objeto que disparou este evento |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title  |Descrição  |
 |---------|---------|
-| [Monitorando eventos do Key Vault com a Grade de Eventos do Azure](../key-vault/general/event-grid-overview.md) | Visão geral da integração do Key Vault com o Event Grid. |
-| [Tutorial: Crie e monitore eventos do Key Vault com a Grade de Eventos](../key-vault/general/event-grid-tutorial.md) | Saiba como configurar notificações do Event Grid para key vault. |
+| [Monitorando Key Vault eventos com a grade de eventos do Azure](../key-vault/general/event-grid-overview.md) | Visão geral da integração de Key Vault com a grade de eventos. |
+| [Tutorial: criar e monitorar eventos de Key Vault com a grade de eventos](../key-vault/general/event-grid-tutorial.md) | Saiba como configurar notificações de grade de eventos para Key Vault. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para uma introdução ao Azure Event Grid, veja [O que é a Grade de Eventos?](overview.md).
-* Para obter mais informações sobre como criar uma assinatura do Azure Event Grid, consulte [o esquema de assinatura do Event Grid](subscription-creation-schema.md).
-* Para saber mais sobre a integração do Key Vault com o Event Grid, consulte [Monitorando key vault com a Grade de Eventos do Azure (visualização).](../key-vault/general/event-grid-overview.md)
-* Para obter um tutorial sobre a integração do Key Vault com o Event Grid, consulte [Receber e responder às notificações principais do cofre com o Azure Event Grid (visualização)](../key-vault/general/event-grid-tutorial.md).
-* Para obter orientação adicional para Key Vault e Azure Automation, consulte:
+* Para obter uma introdução à grade de eventos do Azure, consulte [o que é a grade de eventos?](overview.md).
+* Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).
+* Para saber mais sobre a integração de Key Vault com a grade de eventos, consulte [monitorando Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md).
+* Para obter um tutorial sobre a integração Key Vault com a grade de eventos, consulte [receber e responder a notificações do Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md).
+* Para obter diretrizes adicionais para Key Vault e a automação do Azure, consulte:
     - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
     - [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md)
     - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md)

@@ -1,23 +1,19 @@
 ---
 title: Visão geral das VMs do Linux no Azure
 description: Visão geral das máquinas virtuais do Linux no Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80159465"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759415"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -49,7 +45,7 @@ Todos os recursos criados no Azure são distribuídos entre várias [regiões ge
 
 Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíveis.
 
-| Método | DESCRIÇÃO |
+| Método | Descrição |
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |

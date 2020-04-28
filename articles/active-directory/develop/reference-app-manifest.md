@@ -1,5 +1,5 @@
 ---
-title: Entendendo o manifesto do aplicativo Azure Active Directory
+title: Noções básicas sobre o manifesto do aplicativo Azure Active Directory
 description: A cobertura detalhada do manifesto do aplicativo do Azure Active Directory, que representa a configuração de identidade de um aplicativo em um locatário do Azure AD, e é usado para facilitar a autorização do OAuth, a experiência de consentimento e muito mais.
 services: active-directory
 author: rwike77
@@ -13,33 +13,33 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450864"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
-O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidade da Microsoft. Ele também serve como um mecanismo para atualizar o objeto do aplicativo. Para obter mais informações sobre a entidade do aplicativo e seu esquema, consulte a documentação da [entidade do aplicativo gráfico API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidade da Microsoft. Ele também serve como um mecanismo para atualizar o objeto do aplicativo. Para obter mais informações sobre a entidade de aplicativo e seu esquema, consulte a [documentação da entidade de aplicativo API do Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
-Você pode configurar os atributos de um aplicativo através do portal Azure ou programáticamente usando [a API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou [powerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que você precisará editar o manifesto do aplicativo para configurar o atributo de um aplicativo. Esses cenários incluem:
+Você pode configurar os atributos de um aplicativo por meio da portal do Azure ou programaticamente usando a [API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que você precisará editar o manifesto do aplicativo para configurar o atributo de um aplicativo. Esses cenários incluem:
 
-* Se você registrou o aplicativo como contas azure AD multi-inquilino saqueadas e pessoais da Microsoft, você não poderá alterar as contas da Microsoft suportadas na UI. Em vez disso, você deve usar o editor de manifesto do aplicativo para alterar o tipo de conta suportado.
+* Se você registrou o aplicativo como Azure AD multilocatário e contas pessoais da Microsoft, não será possível alterar as contas da Microsoft com suporte na interface do usuário. Em vez disso, você deve usar o editor de manifesto do aplicativo para alterar o tipo de conta suportado.
 * Se você precisa definir permissões e funções que seu aplicativo suporta, você deve modificar o manifesto do aplicativo.
 
 ## <a name="configure-the-app-manifest"></a>Configurar o manifesto do aplicativo
 
 Para configurar o manifesto do aplicativo:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com). Procure e selecione o serviço diretório ativo do **Azure.**
-1. Selecione **inscrições do Aplicativo**.
+1. Vá para o [Portal do Azure](https://portal.azure.com). Procure e selecione o serviço de **Azure Active Directory** .
+1. Selecione **registros de aplicativo**.
 1. Selecione o aplicativo que você deseja configurar.
 1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto no portal. Opcionalmente, você pode selecionar **Download** para editar o manifesto localmente e usar **Upload** para reaplicá-lo ao seu aplicativo.
 
 ## <a name="manifest-reference"></a>Referência do manifesto
 
-Esta seção descreve os atributos encontrados no manifesto de aplicação.
+Esta seção descreve os atributos encontrados no manifesto do aplicativo.
 
 ### <a name="id-attribute"></a>atributo id
 
@@ -61,13 +61,13 @@ Exemplo:
 | :--- | :--- |
 | accessTokenAcceptedVersion | Int32 anulável |
 
-Especifica a versão do token de acesso esperada pelo recurso. Este parâmetro altera a versão e o formato do JWT produzido independente mente do ponto final ou cliente usado para solicitar o token de acesso.
+Especifica a versão do token de acesso esperada pelo recurso. Esse parâmetro altera a versão e o formato do JWT produzido independentemente do ponto de extremidade ou cliente usado para solicitar o token de acesso.
 
 O ponto de extremidade usado, v1.0 ou v2.0, é escolhido pelo cliente e só afeta a versão do id_tokens. Os recursos precisam configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso com suporte.
 
-Os valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, esse parâmetro será padrão para 1, o que corresponde ao ponto final v1.0.
+Os valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for NULL, esse parâmetro usa como padrão 1, que corresponde ao ponto de extremidade v 1.0.
 
-Se `signInAudience` `AzureADandPersonalMicrosoftAccount`for, o `2`valor deve ser.
+Se `signInAudience` for `AzureADandPersonalMicrosoftAccount`, o valor deverá ser `2`.
 
 Exemplo:
 
@@ -81,7 +81,7 @@ Exemplo:
 | :--- | :--- |
 | addIns | Coleção |
 
-Define o comportamento personalizado que um serviço consumidor pode usar para chamar um aplicativo em contextos específicos. Por exemplo, aplicativos que podem renderizar `addIns` fluxos de arquivos podem definir a propriedade para sua funcionalidade "FileHandler". Esse parâmetro permitirá que serviços como o Office 365 chamem o aplicativo no contexto de um documento em que o usuário está trabalhando.
+Define o comportamento personalizado que um serviço consumidor pode usar para chamar um aplicativo em contextos específicos. Por exemplo, os aplicativos que podem renderizar fluxos de arquivos `addIns` podem definir a propriedade para sua funcionalidade "FileHandler". Esse parâmetro permitirá que serviços como o Office 365 chamem o aplicativo no contexto de um documento no qual o usuário está trabalhando.
 
 Exemplo:
 
@@ -100,13 +100,13 @@ Exemplo:
     ],
 ```
 
-### <a name="allowpublicclient-attribute"></a>permitiraaaaaaaatribuiçãodoPublicClient
+### <a name="allowpublicclient-attribute"></a>atributo allowPublicClient
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| permitirPublicClient | Boolean |
+| allowPublicClient | Boolean |
 
-Especifica o tipo de aplicativo de fallback. O Azure AD infere o tipo de aplicativo do replyUrlsWithType por padrão. Existem certos cenários em que o Azure AD não pode determinar o tipo de aplicativo cliente. Por exemplo, um desses cenários é o fluxo [DE ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) onde a solicitação HTTP acontece sem um redirecionamento de URL). Nesses casos, o Azure AD interpretará o tipo de aplicação com base no valor desta propriedade. Se esse valor for definido como true, o tipo de aplicativo de fallback será definido como cliente público, como um aplicativo instalado em execução em um dispositivo móvel. O valor padrão é false, que significa que o tipo de aplicativo de fallback é cliente confidencial, como o aplicativo Web.
+Especifica o tipo de aplicativo de fallback. O Azure AD infere o tipo de aplicativo do replyUrlsWithType por padrão. Há determinados cenários em que o Azure AD não pode determinar o tipo de aplicativo cliente. Por exemplo, um cenário desse tipo é o fluxo [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) em que a solicitação HTTP ocorre sem um redirecionamento de URL. Nesses casos, o AD do Azure irá interpretar o tipo de aplicativo com base no valor dessa propriedade. Se esse valor for definido como true, o tipo de aplicativo de fallback será definido como cliente público, como um aplicativo instalado em execução em um dispositivo móvel. O valor padrão é false, que significa que o tipo de aplicativo de fallback é cliente confidencial, como o aplicativo Web.
 
 Exemplo:
 
@@ -114,16 +114,16 @@ Exemplo:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>disponívelAtribuiçãoToOtherTenants
+### <a name="availabletoothertenants-attribute"></a>atributo availableToOtherTenants
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | availableToOtherTenants | Boolean |
 
-Definido como verdadeiro se o aplicativo for compartilhado com outros inquilinos; caso contrário, falso.
+Defina como true se o aplicativo for compartilhado com outros locatários; caso contrário, false.
 
 > [!NOTE]
-> Este atributo está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `signInAudience` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Esse atributo está disponível apenas na experiência **registros de aplicativo (herdada)** . Substituído por `signInAudience` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="appid-attribute"></a>atributo appId
 
@@ -139,13 +139,13 @@ Exemplo:
     "appId": "601790de-b632-4f57-9523-ee7cb6ceba95",
 ```
 
-### <a name="approles-attribute"></a>appRoles atributo
+### <a name="approles-attribute"></a>atributo appRoles
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | appRoles | Coleção |
 
-Especifica a coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço. Para obter mais exemplos e informações, consulte [Adicionar funções de aplicativo em seu aplicativo e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md).
+Especifica a coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço. Para obter mais exemplos e informações, consulte [adicionar funções de aplicativo em seu aplicativo e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md).
 
 Exemplo:
 
@@ -173,9 +173,9 @@ Exemplo:
 O nome de exibição do aplicativo.
 
 > [!NOTE]
-> Este atributo está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `name` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Esse atributo está disponível apenas na experiência **registros de aplicativo (herdada)** . Substituído por `name` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
-### <a name="errorurl-attribute"></a>atributo de url de erro
+### <a name="errorurl-attribute"></a>atributo errorUrl
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -201,7 +201,7 @@ Exemplo:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>atributo página inicial
+### <a name="homepage-attribute"></a>atributo homepage
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -210,7 +210,7 @@ Exemplo:
 A URL para a home page do aplicativo.
 
 > [!NOTE]
-> Este atributo está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `signInUrl` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+> Esse atributo está disponível apenas na experiência **registros de aplicativo (herdada)** . Substituído por `signInUrl` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="objectid-attribute"></a>atributo objectId
 
@@ -220,7 +220,7 @@ A URL para a home page do aplicativo.
 
 O identificador exclusivo do aplicativo no diretório.
 
-Isso está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `id` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Isso está disponível apenas na experiência de **registros de aplicativo (herdada)** . Substituído por `id` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 Exemplo:
 
@@ -228,7 +228,7 @@ Exemplo:
     "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
 ```
 
-### <a name="optionalclaims-attribute"></a>Atribuição optionalClaims
+### <a name="optionalclaims-attribute"></a>atributo optionalClaims
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -236,7 +236,7 @@ Exemplo:
 
 As declarações opcionais retornadas no token pelo serviço de token de segurança para este aplicativo específico.
 
-No momento, os aplicativos que oferecem suporte a contas pessoais e ao Azure AD (registrados por meio do portal de registro de aplicativos) não podem usar declarações opcionais. No entanto, os aplicativos registrados apenas para o Azure AD usando o ponto de extremidade v2.0 podem obter as declarações opcionais solicitadas no manifesto. Para obter mais informações, consulte [Reivindicações opcionais](active-directory-optional-claims.md).
+No momento, os aplicativos que oferecem suporte a contas pessoais e ao Azure AD (registrados por meio do portal de registro de aplicativos) não podem usar declarações opcionais. No entanto, os aplicativos registrados apenas para o Azure AD usando o ponto de extremidade v2.0 podem obter as declarações opcionais solicitadas no manifesto. Para obter mais informações, consulte [declarações opcionais](active-directory-optional-claims.md).
 
 Exemplo:
 
@@ -246,7 +246,7 @@ Exemplo:
 
 
 
-### <a name="identifieruris-attribute"></a>identificadorAaUris
+### <a name="identifieruris-attribute"></a>atributo identifierUris
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -264,7 +264,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| Urls informativos | String |
+| informationalUrls | String |
 
 Especifica os links para os termos de serviço e a política de privacidade do aplicativo. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Para obter mais informações, confira [Como adicionar termos de serviço e política de privacidade para aplicativos do Azure AD registrados](howto-add-terms-of-service-privacy-statement.md).
 
@@ -279,13 +279,13 @@ Exemplo:
     },
 ```
 
-### <a name="keycredentials-attribute"></a>keyCredentials atributo
+### <a name="keycredentials-attribute"></a>atributo keycredentials
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | keyCredentials | Coleção |
 
-Contém referências a credenciais, segredos compartilhados com base em cadeia de caracteres e certificados X.509 atribuídos ao aplicativo. Essas credenciais são usadas ao solicitar tokens de acesso (quando o aplicativo está agindo como um cliente, em vez disso, como um recurso).
+Contém referências a credenciais, segredos compartilhados com base em cadeia de caracteres e certificados X.509 atribuídos ao aplicativo. Essas credenciais são usadas ao solicitar tokens de acesso (quando o aplicativo está agindo como um cliente, e não como um recurso).
 
 Exemplo:
 
@@ -303,13 +303,13 @@ Exemplo:
     ],
 ```
 
-### <a name="knownclientapplications-attribute"></a>atributo clientes conhecido
+### <a name="knownclientapplications-attribute"></a>atributo knownClientApplications
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | knownClientApplications | Matriz de cadeia de caracteres |
 
-Usado para agrupamento de consentimento no caso de uma solução que contenha duas partes: um aplicativo cliente e um aplicativo de API Web personalizado. Se você inserir a appID do aplicativo cliente nesse valor, o usuário precisará consentir somente uma vez no aplicativo cliente. O Azure AD saberá que consentir com o cliente significa consentir implicitamente com a API web. Ele irá prover automaticamente os diretores de serviço para o cliente e a API web ao mesmo tempo. O cliente e o aplicativo de API Web precisam ser registrados no mesmo locatário.
+Usado para agrupamento de consentimento no caso de uma solução que contenha duas partes: um aplicativo cliente e um aplicativo de API Web personalizado. Se você inserir a appID do aplicativo cliente nesse valor, o usuário precisará consentir somente uma vez no aplicativo cliente. O AD do Azure saberá que o consentimento para o cliente significa implicitamente consentir a API da Web. Ele provisionará automaticamente as entidades de serviço para o cliente e a API da Web ao mesmo tempo. O cliente e o aplicativo de API Web precisam ser registrados no mesmo locatário.
 
 Exemplo:
 
@@ -317,11 +317,11 @@ Exemplo:
     "knownClientApplications": ["f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"],
 ```
 
-### <a name="logourl-attribute"></a>logotipoAurl
+### <a name="logourl-attribute"></a>atributo logoUrl
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logourl | String |
+| logoUrl | String |
 
 Leia apenas o valor que aponta para a URL da CDN para o logotipo que foi carregado no portal.
 
@@ -331,7 +331,7 @@ Exemplo:
     "logoUrl": "https://MyRegisteredAppLogo",
 ```
 
-### <a name="logouturl-attribute"></a>logoutAurl
+### <a name="logouturl-attribute"></a>atributo logoutUrl
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -359,13 +359,13 @@ Exemplo:
     "name": "MyRegisteredApp",
 ```
 
-### <a name="oauth2allowimplicitflow-attribute"></a>oauth2AllowImplicitFlow atributo
+### <a name="oauth2allowimplicitflow-attribute"></a>atributo oauth2AllowImplicitFlow
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | oauth2AllowImplicitFlow | Boolean |
 
-Especifica se este aplicativo Web pode solicitar tokens de acesso de fluxo implícitos OAuth 2.0. O padrão é false. Este sinalizador é usado para aplicativos baseados em navegador, como aplicativos de página única JavaScript. Para saber mais, digite `OAuth 2.0 implicit grant flow` no sumário e consulte os tópicos sobre fluxo implícito.
+Especifica se este aplicativo Web pode solicitar tokens de acesso de fluxo implícitos OAuth 2.0. O padrão é false. Esse sinalizador é usado para aplicativos baseados em navegador, como aplicativos de página única do JavaScript. Para saber mais, digite `OAuth 2.0 implicit grant flow` no sumário e consulte os tópicos sobre fluxo implícito.
 
 Exemplo:
 
@@ -373,13 +373,13 @@ Exemplo:
     "oauth2AllowImplicitFlow": false,
 ```
 
-### <a name="oauth2allowidtokenimplicitflow-attribute"></a>oauth2AllowIdTokenatributoImplicitFlow
+### <a name="oauth2allowidtokenimplicitflow-attribute"></a>atributo oauth2AllowIdTokenImplicitFlow
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | oauth2AllowIdTokenImplicitFlow | Boolean |
 
-Especifica se este aplicativo Web pode solicitar os tokens de ID de fluxo implícitos OAuth 2.0. O padrão é false. Este sinalizador é usado para aplicativos baseados em navegador, como aplicativos de página única JavaScript.
+Especifica se este aplicativo Web pode solicitar os tokens de ID de fluxo implícitos OAuth 2.0. O padrão é false. Esse sinalizador é usado para aplicativos baseados em navegador, como aplicativos de página única do JavaScript.
 
 Exemplo:
 
@@ -387,7 +387,7 @@ Exemplo:
     "oauth2AllowIdTokenImplicitFlow": false,
 ```
 
-### <a name="oauth2permissions-attribute"></a>oauth2AtributoPermissões
+### <a name="oauth2permissions-attribute"></a>atributo oauth2Permissions
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -412,7 +412,7 @@ Exemplo:
     ],
 ```
 
-### <a name="oauth2requiredpostresponse-attribute"></a>oauth2RequiredPostResponse atributo
+### <a name="oauth2requiredpostresponse-attribute"></a>atributo oauth2RequiredPostResponse
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -426,7 +426,7 @@ Exemplo:
     "oauth2RequirePostResponse": false,
 ```
 
-### <a name="parentalcontrolsettings-attribute"></a>parentalControlConfigurações atributo
+### <a name="parentalcontrolsettings-attribute"></a>atributo parentalControlSettings
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -444,7 +444,7 @@ Exemplo:
     },
 ```
 
-### <a name="passwordcredentials-attribute"></a>Atribuição de senhaS
+### <a name="passwordcredentials-attribute"></a>atributo passwordCredentials
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -466,11 +466,11 @@ Exemplo:
     ],
 ```
 
-### <a name="preauthorizedapplications-attribute"></a>atributo pré-Aplicativos Autorizados
+### <a name="preauthorizedapplications-attribute"></a>atributo preAuthorizedApplications
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| pré-AutorizadosAplicativos | Coleção |
+| preAuthorizedApplications | Coleção |
 
 Lista os aplicativos e as permissões solicitadas para consentimento implícito. Exige que um administrador tenha fornecido o consentimento para o aplicativo. preAuthorizedApplications não exigem que o usuário consinta com as permissões solicitadas. As permissões listadas em preAuthorizedApplications não exigem o consentimento do usuário. No entanto, quaisquer permissões solicitadas adicionais não listadas no preAuthorizedApplications exigem o consentimento do usuário.
 
@@ -495,15 +495,15 @@ Exemplo:
 
 Especifica se esse aplicativo é um cliente público (por exemplo, um aplicativo instalado em execução em um dispositivo móvel). 
 
-Esta propriedade está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `allowPublicClient` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Essa propriedade está disponível apenas na experiência **registros de aplicativo (herdada)** . Substituído por `allowPublicClient` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
-### <a name="publisherdomain-attribute"></a>atributo de domínio do publisher
+### <a name="publisherdomain-attribute"></a>atributo publisherDomain
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| editorDomínio | String |
+| publisherDomain | String |
 
-O domínio do editor verificado para o aplicativo. Somente leitura.
+O domínio do Publicador verificado para o aplicativo. Somente leitura.
 
 Exemplo:
 
@@ -519,20 +519,20 @@ Exemplo:
 
 Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens.
 
-Esta propriedade está disponível apenas na experiência de registros do **App (Legacy).** Substituído pela `replyUrlsWithType` experiência de registro de [aplicativos.](https://go.microsoft.com/fwlink/?linkid=2083908)
+Essa propriedade está disponível apenas na experiência **registros de aplicativo (herdada)** . Substituído por `replyUrlsWithType` na experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
-### <a name="replyurlswithtype-attribute"></a>answerurlsComType atributo
+### <a name="replyurlswithtype-attribute"></a>atributo replyUrlsWithType
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| respostasUrlsComType | Coleção |
+| replyUrlsWithType | Coleção |
 
-Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens. Cada valor URI deve conter um valor de tipo de aplicativo associado. Os valores de tipo suportados são:
+Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens. Cada valor de URI deve conter um valor de tipo de aplicativo associado. Os valores de tipo com suporte são:
 
 - `Web`
 - `InstalledClient`
 
-Para saber mais, consulte [as restrições e limitações da Url de resposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Para saber mais, confira [restrições e limitações do replyUrl](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 
 Exemplo:
 
@@ -545,13 +545,13 @@ Exemplo:
     ],
 ```
 
-### <a name="requiredresourceaccess-attribute"></a>atribuição requiredResourceAccess
+### <a name="requiredresourceaccess-attribute"></a>atributo requiredResourceAccess
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | requiredResourceAccess | Coleção |
 
-Com o consentimento dinâmico, o `requiredResourceAccess` gera a experiência de consentimento do administrador e a experiência de consentimento do usuário para usuários que estão usando o consentimento estático. No entanto, este parâmetro não impulsiona a experiência de consentimento do usuário para o caso geral.
+Com o consentimento dinâmico, o `requiredResourceAccess` gera a experiência de consentimento do administrador e a experiência de consentimento do usuário para usuários que estão usando o consentimento estático. No entanto, esse parâmetro não orienta a experiência de consentimento do usuário para o caso geral.
 
 - `resourceAppId` é o identificador exclusivo do recurso ao qual o aplicativo requer acesso. Esse valor deve ser igual à appId declarada no aplicativo do recurso de destino.
 - `resourceAccess` é uma matriz que lista os escopos de permissão do OAuth2.0 e as funções de aplicativo que o aplicativo exige do recurso especificado. Contém os valores `id` e `type` dos recursos especificados.
@@ -572,7 +572,7 @@ Exemplo:
     ],
 ```
 
-### <a name="samlmetadataurl-attribute"></a>samlMetadataUrl atributo
+### <a name="samlmetadataurl-attribute"></a>atributo samlMetadataUrl
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -600,17 +600,17 @@ Exemplo:
     "signInUrl": "https://MyRegisteredApp",
 ```
 
-### <a name="signinaudience-attribute"></a>signInAudience atributo
+### <a name="signinaudience-attribute"></a>atributo signInAudience
 
 | Chave | Tipo de valor |
 | :--- | :--- |
 | signInAudience | String |
 
 Especifica quais contas da Microsoft são suportadas para o aplicativo atual. Os valores com suporte são:
-- `AzureADMyOrg`- Usuários com uma conta de trabalho ou escola da Microsoft no inquilino Azure AD da minha organização (por exemplo, inquilino único)
-- `AzureADMultipleOrgs`- Usuários com uma conta de trabalho ou escola da Microsoft no inquilino Azure AD de qualquer organização (por exemplo, multi-inquilino)
-- `AzureADandPersonalMicrosoftAccount`- Usuários com uma conta microsoft pessoal, ou uma conta de trabalho ou escola em qualquer inquilino Azure AD de qualquer organização
-- `PersonalMicrosoftAccount`- Contas pessoais que são usadas para fazer login em serviços como Xbox e Skype.
+- `AzureADMyOrg`-Usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD da minha organização (por exemplo, um único locatário)
+- `AzureADMultipleOrgs`-Usuários com uma conta corporativa ou de estudante da Microsoft no locatário do Azure AD de qualquer organização (por exemplo, multilocatário)
+- `AzureADandPersonalMicrosoftAccount`-Usuários com um conta Microsoft pessoal ou uma conta corporativa ou de estudante no locatário do Azure AD de qualquer organização
+- `PersonalMicrosoftAccount`-Contas pessoais que são usadas para entrar em serviços como Xbox e Skype.
 
 Exemplo:
 
@@ -618,7 +618,7 @@ Exemplo:
     "signInAudience": "AzureADandPersonalMicrosoftAccount",
 ```
 
-### <a name="tags-attribute"></a>tags atributo
+### <a name="tags-attribute"></a>atributo Tags
 
 | Chave | Tipo de valor |
 | :--- | :--- |
@@ -636,18 +636,18 @@ Exemplo:
 
 ## <a name="common-issues"></a>Problemas comuns
 
-### <a name="manifest-limits"></a>Limites manifestos
+### <a name="manifest-limits"></a>Limites de manifesto
 
-Um manifesto de aplicação tem vários atributos que são chamados de coleções; por exemplo, appRoles, keyCredentials, knownClientApplications, identifierUris, redirectUris, requiredResourceAccess e oauth2Permissions. Dentro do manifesto de inscrição completo para qualquer aplicação, o número total de entradas em todas as coleções combinadas foi limitado a 1200. Se você especificar anteriormente 100 URIs de redirecionamento no manifesto do aplicativo, então você só fica com 1100 entradas restantes para usar em todas as outras coleções combinadas que compõem o manifesto.
+Um manifesto de aplicativo tem vários atributos que são chamados de coleções; por exemplo, appRoles, keycredentials, knownClientApplications, identifierUris, redirectUris, requiredResourceAccess e oauth2Permissions. No manifesto completo do aplicativo para qualquer aplicativo, o número total de entradas em todas as coleções combinadas tem sido limitado em 1200. Se você especificar anteriormente os URIs de redirecionamento 100 no manifesto do aplicativo, você estará apenas com 1100 entradas restantes para usar em todas as outras coleções combinadas que compõem o manifesto.
 
 > [!NOTE]
-> No caso de você tentar adicionar mais de 1200 entradas no manifesto do aplicativo, você pode ver um erro **"Falha ao atualizar o aplicativo xxxxxx. Detalhes de erro: O tamanho do manifesto excedeu seu limite. Por favor, reduza o número de valores e tente novamente sua solicitação."**
+> Caso você tente adicionar mais de 1200 entradas no manifesto do aplicativo, você poderá ver um erro **"falha ao atualizar o aplicativo xxxxxx. Detalhes do erro: o tamanho do manifesto excedeu seu limite. Reduza o número de valores e repita a solicitação. "**
 
-### <a name="unsupported-attributes"></a>Atributos não suportados
+### <a name="unsupported-attributes"></a>Atributos sem suporte
 
-O manifesto de aplicação representa o esquema do modelo de aplicação subjacente no Azure AD. À medida que o esquema subjacente evolui, o editor do manifesto será atualizado para refletir o novo esquema de tempos em tempos. Como resultado, você pode notar novos atributos aparecendo no manifesto de aplicação. Em raras ocasiões, você pode notar uma mudança sintática ou semântica nos atributos existentes ou você pode encontrar um atributo que existia anteriormente não são suportados mais. Por exemplo, você verá novos atributos nos registros do App, que são [conhecidos](https://go.microsoft.com/fwlink/?linkid=2083908)com um nome diferente na experiência de registros do App (Legacy).
+O manifesto do aplicativo representa o esquema do modelo de aplicativo subjacente no Azure AD. Conforme o esquema subjacente evolui, o editor de manifesto será atualizado para refletir o novo esquema de tempos em tempos. Como resultado, você pode notar novos atributos aparecendo no manifesto do aplicativo. Em raras ocasiões, você pode notar uma alteração sintática ou semântica nos atributos existentes ou pode encontrar um atributo que existia anteriormente não é mais suportado. Por exemplo, você verá novos atributos na [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908), que são conhecidos com um nome diferente na experiência de registros de aplicativo (herdada).
 
-| Registros de aplicativos (Legado)| Registros de aplicativo           |
+| Registros de aplicativo (Herdado)| Registros de aplicativo           |
 |---------------------------|-----------------------------|
 | `availableToOtherTenants` | `signInAudience`            |
 | `displayName`             | `name`                      |
@@ -657,25 +657,25 @@ O manifesto de aplicação representa o esquema do modelo de aplicação subjace
 | `publicClient`            | `allowPublicClient`         |
 | `replyUrls`               | `replyUrlsWithType`         |
 
-Para obter descrições desses atributos, consulte a seção [de referência manifesto.](#manifest-reference)
+Para obter descrições para esses atributos, consulte a seção de [referência do manifesto](#manifest-reference) .
 
-Quando você tenta carregar um manifesto baixado anteriormente, você pode ver um dos seguintes erros. Esse erro é provável porque o editor do manifesto agora suporta uma versão mais recente do esquema, que não corresponde à que você está tentando carregar.
+Ao tentar carregar um manifesto baixado anteriormente, você poderá ver um dos erros a seguir. Esse erro é provável porque o editor de manifesto agora dá suporte a uma versão mais recente do esquema, que não corresponde ao que você está tentando carregar.
 
-* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: identificador de objeto inválido 'indefinido'. []."
-* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: Um ou mais valores de propriedade especificados são inválidos. []."
-* "Falha ao atualizar o aplicativo xxxxxx. Detalhe de erro: Não é permitido definir disponívelToOtherTenants nesta versão api para atualização. []."
-* "Falha ao atualizar o aplicativo xxxxxx. Detalhe de erro: Atualizações para a propriedade 'replyUrls' não são permitidas para este aplicativo. Use a propriedade 'replyUrlsWithType'. []."
-* "Falha ao atualizar o aplicativo xxxxxx. Detalhe de erro: Um valor sem nome de tipo foi encontrado e nenhum tipo esperado está disponível. Quando o modelo é especificado, cada valor na carga deve ter um tipo que pode ser especificado na carga útil, explicitamente pelo chamador ou implicitamente inferido a partir do valor pai. []"
+* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: identificador de objeto ' indefinido ' inválido. []."
+* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: um ou mais valores de propriedade especificados são inválidos. []."
+* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: não é permitido definir availableToOtherTenants nesta versão da API para atualização. []."
+* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: as atualizações para a propriedade ' replyUrls ' não são permitidas para este aplicativo. Use a propriedade ' replyUrlsWithType ' em seu lugar. []."
+* "Falha ao atualizar o aplicativo xxxxxx. Detalhe do erro: um valor sem um nome de tipo foi encontrado e nenhum tipo esperado está disponível. Quando o modelo é especificado, cada valor na carga deve ter um tipo que pode ser especificado na carga, explicitamente pelo chamador ou inferido implicitamente do valor pai. []"
 
-Quando você vê um desses erros, recomendamos as seguintes ações:
+Quando você vir um desses erros, recomendamos as seguintes ações:
 
-1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto baixado anteriormente. Use a tabela [de referência manifesto](#manifest-reference) para entender a sintaxe e semântica de atributos antigos e novos para que você possa editar com sucesso os atributos que você está interessado. 
-1. Se o seu fluxo de trabalho exigir que você salve os manifestos em seu repositório de origem para uso posteriormente, sugerimos reabastecar os manifestos salvos em seu repositório com o que você vê na experiência de registros do **App.**
+1. Edite os atributos individualmente no editor de manifesto em vez de carregar um manifesto baixado anteriormente. Use a tabela de [referência de manifesto](#manifest-reference) para entender a sintaxe e a semântica dos atributos novos e antigos para que você possa editar com êxito os atributos nos quais está interessado. 
+1. Se o fluxo de trabalho exigir que você salve os manifestos no repositório de origem para uso posterior, sugerimos a REBASE dos manifestos salvos em seu repositório com aquele que você vê na experiência de **registros de aplicativo** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre a relação entre o aplicativo de um aplicativo e o objeto principal do serviço, consulte [os principais objetos de aplicação e serviço no Azure AD](app-objects-and-service-principals.md).
-* Consulte o [glossário](developer-glossary.md) de desenvolvedor da plataforma de identidade da Microsoft para obter definições de alguns conceitos principais de desenvolvedores de plataformas de identidade da Microsoft.
+* Para obter mais informações sobre a relação entre o aplicativo de um aplicativo e objetos de entidade de serviço, consulte [objetos de aplicativo e entidade de serviço no Azure ad](app-objects-and-service-principals.md).
+* Consulte o [Glossário de desenvolvedor da plataforma de identidade da Microsoft](developer-glossary.md) para obter definições de alguns conceitos principais de desenvolvedor da plataforma de identidade da Microsoft.
 
 Use a seção de comentários a seguir para dar sua opinião e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

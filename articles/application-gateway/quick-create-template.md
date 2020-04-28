@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/23/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0612371605f6b216eadeef49d9adb1497ba31591
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80148225"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604893"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – modelo do Resource Manager
 
@@ -57,7 +57,7 @@ Implantar o modelo do Resource Manager no Azure:
 
 1. Selecione **Implantar no Azure** para entrar no Azure e abrir o modelo. O modelo cria um gateway de aplicativo, a infraestrutura de rede e duas máquinas virtuais no pool de back-end que executa o IIS.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Selecione ou crie seu grupo de recursos, digite o nome de usuário e a senha do administrador da máquina virtual.
 3. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**. A implantação pode levar 20 minutos ou mais para ser concluída.

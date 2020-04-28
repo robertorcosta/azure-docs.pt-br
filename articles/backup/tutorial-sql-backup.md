@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SQL Server para o Azure
 description: Neste tutorial, saiba como fazer backup em um cofre dos Serviços de Recuperação do Backup do Azure de um banco de dados do SQL Server executado em uma VM do Azure.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171876"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680741"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Fazer backup do banco de dados do SQL Server em uma VM do Azure
 
@@ -64,7 +64,7 @@ Evite usar o seguinte em nomes de banco de dados:
 * Colchete de fechamento ‘]’
 * Nomes de bancos de dados que começam com “F:\”
 
-Temos nomes alternativos para caracteres não compatíveis com a tabela do Azure, mas recomendamos evitá-los. [Saiba mais](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Temos nomes alternativos para caracteres não compatíveis com a tabela do Azure, mas recomendamos evitá-los. [Saiba mais](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
