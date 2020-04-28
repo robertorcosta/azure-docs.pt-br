@@ -1,5 +1,5 @@
 ---
-title: Exportar banco de dados U-SQL- Ferramentas do Lago de Dados Do Azure para O Visual Studio
+title: Exportar banco de dados U-SQL-Ferramentas do Azure Data Lake para Visual Studio
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para exportar um banco de dados U-SQL e importá-lo automaticamente em uma conta local.
 services: data-lake-analytics
 author: yanancai
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71315787"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL

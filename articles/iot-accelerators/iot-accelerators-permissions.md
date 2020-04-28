@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447415"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Usar o site azureiotsolutions.com para implementar o acelerador de solução
@@ -26,9 +26,9 @@ ms.locfileid: "61447415"
 
 É possível implantar os aceleradores de solução nas seguintes configurações:
 
-* **Padrão**: Uma implantação de infra-estrutura expandida para o desenvolvimento de um ambiente de produção. O Serviço de Contêiner do Azure implanta os microsserviços em máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
-* **Básico:** Uma versão de custo reduzido para uma demonstração ou para testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
-* **Local**: Uma implantação de máquina local para testes e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
+* **Standard**: uma implantação de infraestrutura expandida para o desenvolvimento de um ambiente de produção. O Serviço de Contêiner do Azure implanta os microsserviços em máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
+* **Básico**: uma versão de custo reduzida para uma demonstração ou para testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
+* **Local**: uma implantação de máquina local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
 
 Cada um dos aceleradores de solução usa uma combinação diferente de serviços do Azure como o Hub IoT, Azure Stream Analytics e Cosmos DB. Para obter mais informações, visite [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) e selecione um acelerador de solução.
 
@@ -38,14 +38,14 @@ Antes de poder implantar um acelerador de solução, você deverá entrar no Azu
 
 As permissões para implantar aceleradores de solução, gerenciar usuários e gerenciar serviços do Azure dependem da sua função no diretório selecionado. As funções comuns do Azure AD associadas aos aceleradores de solução incluem:
 
-* **Administrador global**: Pode haver muitos [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por inquilino Azure AD:
+* **Administrador global**: pode haver muitos [administradores globais](../active-directory/users-groups-roles/directory-assign-admin-roles.md) por locatário do Azure AD:
 
   * Ao criar um locatário do Azure AD, você será, por padrão, o administrador global desse locatário.
   * O administrador global pode implantar aceleradores de solução padrão e básico.
 
-* **Usuário de domínio**: Pode haver muitos usuários de domínio por inquilino Azure AD. Um usuário de domínio pode implantar um acelerador de solução básico.
+* **Usuário de domínio**: pode haver muitos usuários de domínio por locatário do Azure AD. Um usuário de domínio pode implantar um acelerador de solução básico.
 
-* **Usuário convidado**: Pode haver muitos usuários convidados por inquilino Azure AD. Os usuários convidados não podem implantar um acelerador de solução no locatário do Azure AD.
+* **Usuário convidado**: pode haver muitos usuários convidados por locatário do Azure AD. Os usuários convidados não podem implantar um acelerador de solução no locatário do Azure AD.
 
 Para obter mais informações sobre usuários e funções no Azure AD, consulte os seguintes recursos:
 

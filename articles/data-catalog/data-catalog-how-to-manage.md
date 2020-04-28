@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68736337"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no Catálogo de Dados do Azure
@@ -37,7 +37,7 @@ Quando um ativo de dados no Catálogo de Dados tem um proprietário, apenas usu�
 >
 
 ### <a name="take-ownership"></a>Apropriar-se
-Os usuários podem assumir a propriedade dos ativos de dados selecionando a opção **Assumir propriedade** no portal Catálogo de Dados. Nenhuma permissão especial é necessária para apropriar-se de um ativo de dados sem proprietário. Qualquer usuário pode apropriar-se de um ativo de dados sem proprietário.
+Os usuários podem assumir a propriedade dos ativos de dados selecionando a opção **apropriar-se** no portal do catálogo de dados. Nenhuma permissão especial é necessária para apropriar-se de um ativo de dados sem proprietário. Qualquer usuário pode apropriar-se de um ativo de dados sem proprietário.
 
 ### <a name="add-owners-and-co-owners"></a>Adicionar proprietários e coproprietários
 Se um ativo de dados já tiver um proprietário, outros usuários não poderão simplesmente assumir a propriedade. Eles deverão ser adicionados como coproprietários por um proprietário existente. Qualquer proprietário pode adicionar outros usuários ou grupos de segurança como coproprietários.
@@ -50,7 +50,7 @@ Se um ativo de dados já tiver um proprietário, outros usuários não poderão 
 ### <a name="remove-owners"></a>Remover proprietários
 Assim como qualquer proprietário ativo pode adicionar coproprietários, qualquer proprietário ativo pode remover qualquer coproprietário.
 
-Um proprietário de ativos que se remove como proprietário não pode mais gerenciar o ativo. Se o proprietário do ativo se retirar como proprietário e não houver outros co-proprietários, o ativo reverte para um estado sem dono.
+Um proprietário de ativo que se remove como um proprietário não pode mais gerenciar o ativo. Se o proprietário do ativo se remover como um proprietário e não houver outros coproprietários, o ativo será revertido para um estado sem proprietário.
 
 ## <a name="control-visibility"></a>Controlar a visibilidade
 Os proprietários de ativos de dados podem controlar a visibilidade dos ativos de dados de propriedade eles. Para restringir a visibilidade como o padrão, em que todos os usuários do Catálogo de Dados podem descobrir e exibir o ativo de dados, o proprietário do ativo pode alternar a configuração de visibilidade de **Todos** para **Proprietários e Estes Usuários** nas propriedades do ativo. Em seguida, os proprietários podem adicionar usuários e grupos de segurança específicos.

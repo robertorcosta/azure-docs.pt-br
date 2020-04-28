@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72515825"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: configurar as permissões de Conta do AD DS Connector 
@@ -25,7 +25,7 @@ O novo módulo do PowerShell chamado [ADSyncConfig.psm1](reference-connect-adsyn
 ## <a name="overview"></a>Visão geral 
 Os seguintes cmdlets do PowerShell pode ser usado para configurar as permissões do Active Directory da conta do conector do AD DS, para cada recurso que você seleciona habilitar no Azure AD Connect. Para evitar problemas, você deve preparar permissões do Active Directory com antecedência sempre desejar instalar o Azure AD Connect usando uma conta de domínio personalizado para se conectar à sua floresta. Esse módulo ADSyncConfig também pode ser usado para configurar permissões após a implantação do Azure AD Connect.
 
-![visão geral da conta ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Visão geral da conta do AD DS](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Para a instalação do Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada no Active Directory com todas as permissões necessárias, portanto, não há necessidade de usar este módulo ADSyncConfig, a menos que você bloqueou permissões herdadas em unidades organizacionais ou em objetos específicos do Active Directory que você deseja sincronizar com o Azure AD. 
  
@@ -34,12 +34,12 @@ A tabela a seguir fornece um resumo das permissões necessárias nos objetos do 
 
 | Recurso | Permissões |
 | --- | --- |
-| recurso ms-DS-ConsistencyGuid |Permissões de leitura e gravação para o atributo ms-DS-ConsistencyGuid documentados em [Conceitos de Design - Usando ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| recurso ms-DS-ConsistencyGuid |Permissões de leitura e gravação para o atributo ms-DS-ConsistencyGuid documentado em [conceitos de design – usando MS-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
-| Implantação híbrida do Exchange |Leia e Escreva permissões para os atributos documentados no [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
+| Implantação híbrida do Exchange |Permissões de leitura e gravação para os atributos documentados no [write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| write-back de senha |Leia e Escreva permissões para os atributos documentados em [Iniciar o gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
-| Write-back de dispositivo |Ler e gravar permissões para objetos de dispositivo e recipientes documentados na [gravação do dispositivo](how-to-connect-device-writeback.md). |
+| write-back de senha |Permissões de leitura e gravação para os atributos documentados em [introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
+| Write-back de dispositivo |Permissões de leitura e gravação para objetos de dispositivo e contêineres documentados no [write-back do dispositivo](how-to-connect-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.  Para saber mais, confira [Write-back de grupo](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Usando o módulo ADSyncConfig PowerShell 
@@ -81,7 +81,7 @@ ou,
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 ```
 
-Certifique-se `<ADAccountName>`de `<ADDomainName>` `<ADAccountDN>` substituir e com os valores adequados para o seu ambiente.
+Certifique-se de `<ADAccountName>`substituir `<ADDomainName>` e `<ADAccountDN>` pelos valores adequados para o seu ambiente.
 
 Caso você não quiser modificar permissões no contêiner AdminSDHolder, use a opção `-SkipAdminSdHolders`. 
 
@@ -110,7 +110,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Exibir permissões do AD DS de um objeto 
-Você pode usar o cmdlet abaixo para visualizar a lista de permissões atualmente definidas em um objeto do Active Directory, fornecendo seu DistinguishedName: 
+Você pode usar o cmdlet abaixo para exibir a lista de permissões definidas atualmente em um objeto Active Directory fornecendo seu DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -294,10 +294,10 @@ Esse cmdlet definirá as seguintes permissões:
 
 |Type |Nome |Acesso |Aplica-se A|
 |-----|-----|-----|-----| 
-|Allow |SYSTEM |Controle Total |Este objeto 
-|Allow |Administradores Corporativos |Controle Total |Este objeto 
-|Allow |Administradores de Domínio |Controle Total |Este objeto 
-|Allow |Administradores |Controle Total |Este objeto 
+|Allow |SYSTEM |Controle total |Este objeto 
+|Allow |Administrador corporativo |Controle total |Este objeto 
+|Allow |Administradores do domínio |Controle total |Este objeto 
+|Allow |Administradores |Controle total |Este objeto 
 |Allow |Controladores de Domínio Corporativo |Listar Conteúdo |Este objeto 
 |Allow |Controladores de Domínio Corporativo |Ler Todas as Propriedades |Este objeto 
 |Allow |Controladores de Domínio Corporativo |Permissões de Leitura |Este objeto 

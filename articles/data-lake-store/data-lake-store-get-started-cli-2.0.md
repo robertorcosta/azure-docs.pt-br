@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60885330"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Storage usando a CLI do Azure
@@ -23,12 +23,12 @@ ms.locfileid: "60885330"
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [Powershell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Aprenda a usar o Azure CLI para criar uma conta Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre data lake storage Gen1, consulte [Visão geral do Data Lake Storage Gen1](data-lake-store-overview.md).
+Saiba como usar o CLI do Azure para criar uma conta de Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre Data Lake Storage Gen1, consulte [visão geral do data Lake Storage Gen1](data-lake-store-overview.md).
 
 A CLI do Azure é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. Para obter mais informações, confira [Visão geral da CLI do Azure](https://docs.microsoft.com/cli/azure). Você também pode examinar a [referência da CLI do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxes.
 
@@ -36,7 +36,7 @@ A CLI do Azure é a experiência de linha de comando do Azure para gerenciar rec
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **CLI do Azure** – Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
@@ -134,7 +134,7 @@ A saída desse comando deve ser:
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Renomear, baixar e excluir dados de uma conta do Data Lake Storage Gen1 
 
-* **Para renomear um arquivo,** use o seguinte comando:
+* **Para renomear um arquivo**, use o seguinte comando:
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
@@ -151,7 +151,7 @@ A saída desse comando deve ser:
     > 
     >
 
-* **Para excluir um arquivo,** use o seguinte comando:
+* **Para excluir um arquivo**, use o seguinte comando:
   
     ```azurecli
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv

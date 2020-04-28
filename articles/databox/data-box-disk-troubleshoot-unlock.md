@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Disk problemas de desbloqueio de disco | Microsoft Docs
+title: Disco do Azure Data Box solução de problemas de desbloqueio de disco | Microsoft Docs
 description: Descreve como solucionar os problemas observados no Azure Data Box Disk.
 services: databox
 author: alkohli
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67148277"
 ---
-# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Solucionar problemas de desbloqueio de disco no Disco da Caixa de Dados do Azure
+# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Solucionar problemas de desbloqueio de disco no Disco do Azure Data Box
 
-Este artigo se aplica ao Microsoft Azure Data Box Disk e descreve os fluxos de trabalho usados para solucionar quaisquer problemas ao usar a ferramenta de desbloqueio. 
+Este artigo se aplica a Microsoft Azure Disco do Data Box e descreve os fluxos de trabalho usados para solucionar quaisquer problemas ao usar a ferramenta de desbloqueio. 
 
 
 <!--## Query activity logs
@@ -38,26 +38,26 @@ To figure out who accessed the **Device credentials** blade, you can query the A
 | Não foi possível desbloquear ou verificar os volumes. Contatar Suporte da Microsoft  <br><br>A ferramenta não consegue desbloquear ou verificar qualquer unidade bloqueada. | A ferramenta não conseguiu desbloquear as unidades bloqueadas com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas.                                                |
 | Os volumes a seguir foram desbloqueados e verificados. <br>Letras de unidade de volume: E:<br>Não foi possível desbloquear os volumes com as seguintes chaves de acesso: werwerqomnf, qwerwerqwdfda <br><br>A ferramenta desbloqueia algumas unidades e lista as letras de unidade bem-sucedidas e com falha.| Êxito parcial. Não foi possível desbloquear algumas unidades com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas. |
 | Não foi possível localizar os volumes bloqueados. Verifique se o disco recebido da Microsoft está conectado corretamente e está em estado bloqueado.          | A ferramenta não consegue encontrar unidades bloqueadas. Ou as unidades já estão desbloqueadas ou não foram detectadas. Verifique se as unidades estão conectadas e bloqueadas.                                                           |
-| Erro fatal: parâmetro inválido<br>Nome do parâmetro: nvalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenha essa chave de acesso do pedido do Azure DataBox Disk. A chave de acesso desbloqueia seus discos.<br>/Help:           esta opção fornece ajuda sobre o uso de cmdlet e exemplos.<br>/SystemCheck:    esta opção verifica se o seu sistema atende aos requisitos para executar a ferramenta.<br><br>Pressione qualquer tecla para sair. | Parâmetro inválido inserido. Os únicos parâmetros permitidos são /SystemCheck, /PassKey e /Help.|
+| Erro fatal: parâmetro inválido<br>Nome do parâmetro: nvalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenha essa chave de acesso do pedido do Azure DataBox Disk. A chave de acesso desbloqueia seus discos.<br>/Help:           esta opção fornece ajuda sobre o uso de cmdlet e exemplos.<br>/SystemCheck:    esta opção verifica se o seu sistema atende aos requisitos para executar a ferramenta.<br><br>Pressione qualquer tecla para sair. | Parâmetro inválido inserido. Os únicos parâmetros permitidos são/SystemCheck,/PassKey e/Help.|
 
 
-## <a name="unlock-issues-for-disks-when-using-a-windows-client"></a>Desbloquear problemas para discos ao usar um cliente windows
+## <a name="unlock-issues-for-disks-when-using-a-windows-client"></a>Desbloquear problemas em discos ao usar um cliente Windows
 
-Esta seção detalha alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente do Windows para cópia de dados.
+Esta seção detalha alguns dos principais problemas enfrentados durante a implantação de Disco do Data Box ao usar um cliente Windows para cópia de dados.
 
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade do BitLocker
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: não foi possível desbloquear a unidade do BitLocker
  
-**Causa** 
+**Faz** 
 
 Você usou a senha na caixa de diálogo do BitLocker e tentou desbloquear o disco usando a caixa de diálogo desbloquear unidades do BitLocker. Isso não funcionaria.
 
 **Resolução**
 
-Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure. Para obter mais informações, acesse [Tutorial: Desembale, conecte e desbloqueie o Disco da Caixa de Dados do Azure](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure. Para obter mais informações, acesse [tutorial: desempacotar, conectar e desbloquear disco do Azure data Box](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear ou verificar alguns volumes. Contatar Suporte da Microsoft
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: não foi possível desbloquear ou verificar alguns volumes. Contatar Suporte da Microsoft
  
-**Causa**
+**Faz**
 
 Talvez você veja o seguinte erro no log de erros e não consiga desbloquear nem verificar alguns volumes.
 

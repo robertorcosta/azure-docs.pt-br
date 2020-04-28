@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67080478"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução Connected Factory exibe dados dos servidores OPC UA
 
-A solução Connected Factory agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte o [FAQ da Fábrica Conectada](iot-accelerators-faq-cf.md).
+A solução Connected Factory agrega e exibe dados dos servidores OPC UA conectados à solução. Você pode procurar e enviar comandos para os servidores OPC UA na solução. Para obter mais informações sobre o OPC UA, consulte as [perguntas frequentes sobre a fábrica conectada](iot-accelerators-faq-cf.md).
 
 Exemplos de dados agregados na solução incluem a OEE (Eficiência Geral de Equipamentos) e os KPIs (Indicadores Chave de Desempenho) que podem ser exibidos no painel nos níveis da fábrica, da linha e da estação. A captura de tela a seguir mostra os valores de OEE e KPI da estação **Assembly** na **Linha de produção 1**, na fábrica de **Munique**:
 
@@ -39,7 +39,7 @@ Este artigo descreve:
 
 ## <a name="data-sources"></a>Fontes de dados
 
-A solução Connected Factory exibe dados dos servidores OPC UA conectados à solução. A instalação padrão inclui vários servidores OPC UA que executam uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [conectem-se através de um gateway][lnk-connect-cf] à sua solução.
+A solução Connected Factory exibe dados dos servidores OPC UA conectados à solução. A instalação padrão inclui vários servidores OPC UA que executam uma simulação de fábrica. Você pode adicionar seus próprios servidores OPC UA que [conectem-se por meio de um gateway] [lnk-Connect-CF] à sua solução.
 
 Você pode procurar itens de dados que um servidor OPC UA conectado pode enviar para a solução no painel:
 
@@ -56,7 +56,7 @@ Você pode procurar itens de dados que um servidor OPC UA conectado pode enviar 
 
     ![Itens publicados][img-published]
 
-1. Se você é um *administrador* na solução, você pode optar por publicar um item de dados para torná-lo disponível na solução Fábrica Conectada. Como Administrador, você também pode alterar o valor de itens de dados e chamar métodos no servidor OPC UA.
+1. Se você for um *administrador* na solução, poderá optar por publicar um item de dados para disponibilizá-lo na solução de fábrica conectada. Como Administrador, você também pode alterar o valor de itens de dados e chamar métodos no servidor OPC UA.
 
 ## <a name="map-the-data"></a>Mapear os dados
 
@@ -71,7 +71,7 @@ Para saber mais sobre o mapeamento e a agregação dos dados a fim de atender à
 
 ## <a name="deploy-the-changes"></a>Implantar as alterações
 
-Quando você terminar de fazer alterações no arquivo **ContosoTopologyDescription.json,** você deve reimplantar a solução Connected Factory para sua conta Do Azure.
+Quando terminar de fazer alterações no arquivo **ContosoTopologyDescription. JSON** , você deverá reimplantar a solução de fábrica conectada à sua conta do Azure.
 
 O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do PowerShell que pode ser usado para recompilar e implantar a solução.
 
@@ -80,8 +80,8 @@ O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do
 Saiba mais sobre o acelerador de solução Connected Factory lendo os seguintes artigos:
 
 * [Permissões no site azureiotsolutions.com][lnk-permissions]
-* [Faq de fábrica conectada](iot-accelerators-faq-cf.md)
-* [Perguntas Frequentes][lnk-faq]
+* [Perguntas frequentes da fábrica conectada](iot-accelerators-faq-cf.md)
+* [Perguntas frequentes][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

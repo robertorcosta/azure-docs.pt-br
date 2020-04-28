@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60321651"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
@@ -36,10 +36,10 @@ A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Pre
 
 | ícone | Texto | Informações adicionais |
 |:--- |:--- |:--- |
-| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**Perigo!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
-| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**Aviso!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
-| ![Ícone de cuidado](./media/storsimple-hardware-component-replacement/Caution.png) |**Cuidado!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
-| ![Ícone de observação](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**Aviso:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
+| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**RISCO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
+| ![Ícone de aviso:](./media/storsimple-hardware-component-replacement/Warning.png) |**ALERTA!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Ícone de cuidado](./media/storsimple-hardware-component-replacement/Caution.png) |**ATENÇÃO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
+| ![Ícone de observação](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**OBSERVA** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/storsimple-hardware-component-replacement/Electric.png) |**Risco de choque elétrico** |Indica alta tensão. |
 | ![ícone de peso pesado](./media/storsimple-hardware-component-replacement/Weight.png) |**Peso pesado** | |
 | ![Ícone de nenhuma peça operada pelo usuário](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
@@ -88,11 +88,11 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 
 Os módulos plug-in no dispositivo são realçados nos diagramas frontal e traseiro a seguir. É possível usar esses diagramas para determinar a localização de vários módulos plug-in caso uma substituição seja necessária. O diagrama frontral mostra as unidades de disco e os diagramas traseiros do compartimento EBOD e do compartimento primário mostram os módulos plug-in.
 
-![Painel frontal do dispositivo com drives de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Painel frontal do dispositivo com unidades de disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figura 1** Parte frontal do dispositivo
 
-| Rótulo | Descrição |
+| Rotular | Descrição |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
@@ -102,7 +102,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 2** Parte posterior do compartimento primário
 
-| Rótulo | Descrição |
+| Rotular | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 3** Parte posterior do compartimento EBOD
 
-| Rótulo | Descrição |
+| Rotular | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

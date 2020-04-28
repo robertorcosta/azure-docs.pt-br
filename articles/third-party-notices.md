@@ -1,16 +1,16 @@
 ---
 title: Avisos legais
-description: Avisos legais para documentação do Azure
+description: Avisos legais para a documentação do Azure
 author: SyntaxC4
 ms.author: cfowler
 ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72750418"
 ---
 # <a name="legal-notices"></a>Avisos legais
@@ -19,9 +19,9 @@ A Microsoft e os contribuintes concedem a você uma licença para a documentaç�
 
 Microsoft, Windows, Microsoft Azure e/ou outros produtos e serviços Microsoft mencionados na documentação podem ser marcas comerciais ou registradas da Microsoft nos Estados Unidos e/ou em outros países.
 As licenças para este projeto não concedem direitos para uso de nomes, logotipos ou marcas da Microsoft.
-As diretrizes gerais de marca [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)registrada da Microsoft podem ser encontradas em .
+As diretrizes de marca comercial geral da Microsoft podem [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)ser encontradas em.
 
-Informações de privacidade podem ser encontradas em[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
+As informações de privacidade podem ser encontradas em[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 A Microsoft e os colaboradores reservam todos os outros direitos, sejam sob seus respectivos direitos autorais, patentes ou marcas ou por implicação, preclusão ou de outro modo.
 

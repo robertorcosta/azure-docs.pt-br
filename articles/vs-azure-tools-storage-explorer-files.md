@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60456547"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
@@ -31,7 +31,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 - [Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com/)
 
-- [Conecte-se a uma conta ou serviço de armazenamento do Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Conectar-se a uma conta de armazenamento do Azure ou serviço](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 
@@ -117,7 +117,7 @@ As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma c
 
 ## <a name="get-the-sas-for-a-file-share"></a>Obter a SAS para um compartilhamento de arquivos
 
-Uma [assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos em sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
+Uma [SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos em sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
 
 As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arquivos:+
 
@@ -165,7 +165,7 @@ As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de ace
     
     - **Adicionar uma nova política de acesso** — escolha **Adicionar**. Uma vez gerada, a caixa de diálogo **Políticas de Acesso** exibirá a política de acesso recém-adicionada (com configurações padrão).
 
-    - **Editar uma política de acesso** - Faça todas as edições desejadas e selecione **Salvar**.
+    - **Editar uma política de acesso** -faça as edições desejadas e selecione **salvar**.
 
     - **Remover uma política de acesso** — escolha **Remover** ao lado da política de acesso que você deseja remover.
 
@@ -199,7 +199,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
     - **Carregar arquivos em um compartilhamento de arquivos**
 
-        a.  Na barra de ferramentas do painel principal, selecione **Carregar**e, em seguida, **carregar arquivos** no menu suspenso.
+        a.  Na barra de ferramentas do painel principal, selecione **carregar**e, em seguida, **carregar arquivos** no menu suspenso.
 
         ![Carregar arquivos](media/vs-azure-tools-storage-explorer-files/image18.png)
         
@@ -211,7 +211,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
     - **Carregar uma pasta em um compartilhamento de arquivos**
         
-        a. Na barra de ferramentas do painel principal, selecione **'Carregar'** e, em seguida, **Carregar pasta** no menu suspenso.
+        a. Na barra de ferramentas do painel principal, selecione **carregar**e, em seguida, **carregar pasta** no menu suspenso.
 
         ![Menu Carregar pasta](media/vs-azure-tools-storage-explorer-files/image20.png)
 
@@ -229,7 +229,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
         
         c. Na caixa de diálogo **Especifique onde salvar o arquivo baixado**, especifique o local onde você deseja baixar o arquivo e o nome que deseja dar a ele.
 
-        d. Selecione **Salvar**.
+        d. Clique em **Salvar**.
 
     - **Abrir um arquivo em seu computador local**
         

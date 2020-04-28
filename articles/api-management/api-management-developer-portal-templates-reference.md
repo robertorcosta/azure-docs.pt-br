@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176798"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor
@@ -32,21 +32,21 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 
 ##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modelos de portal do desenvolvedor  
   
--   [Apis](api-management-api-templates.md)  
-    -   [Lista de API](api-management-api-templates.md#APIList)  
+-   [APIs](api-management-api-templates.md)  
+    -   [Lista de APIs](api-management-api-templates.md#APIList)  
     -   [Operação](api-management-api-templates.md#Product)  
     -   [Exemplos de código](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
-        -   [C #](api-management-api-templates.md#CSharp)  
+        -   [C#](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
-        -   [Javascript](api-management-api-templates.md#JavaScript)  
+        -   [JavaScript](api-management-api-templates.md#JavaScript)  
         -   [Objetivo C](api-management-api-templates.md#ObjectiveC)  
-        -   [Php](api-management-api-templates.md#PHP)  
+        -   [PHP](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
-    -   [Product](api-management-product-templates.md#Product)  
+    -   [Remessa](api-management-product-templates.md#Product)  
 -   [Aplicativos](api-management-application-templates.md)  
     -   [Lista de aplicativos](api-management-application-templates.md#ProductList)  
     -   [Aplicativo](api-management-application-templates.md#Application)  

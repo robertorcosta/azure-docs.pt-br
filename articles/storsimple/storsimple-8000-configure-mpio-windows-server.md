@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60363194"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
@@ -50,14 +50,14 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
 
 1. Abra o Gerenciador de Servidores no host do Windows Server. Por padrão, o Gerenciador do Servidor começa quando um membro do grupo Administradores faz logon em um computador que está executando o Windows Server 2012 R2 ou o Windows Server 2012. Se o Gerenciador do Servidor ainda não estiver aberto, clique em **Iniciar > Gerenciador do Servidor**.
    
-   ![Gerenciador de Servidores](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+   ![Gerenciador do Servidor](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 
 2. Clique em **Gerenciador de Servidores > Painel de Controle > Adicionar funções e recursos**. O assistente **Adicionar Funções e Recursos** será aberto.
    
    ![Adicionar Assistente de Funções e Recursos 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. No assistente **Adicionar Funções e Recursos**, execute as seguintes etapas:
    
-   1. Na página **Antes de começar**, clique em **Avançar**.
+   1. Na página **Antes de começar** , clique em **Avançar**.
    2. Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Avançar**.
    
        ![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
@@ -66,7 +66,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
    5. Na página **Selecionar recursos**, selecione **Multipath I/O** e clique em **Avançar**.
    
        ![Adicionar Assistente de Funções e Recursos 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-   6. Na página **Confirmar seleções de instalação,** confirme a seleção e selecione **Reiniciar o servidor de destino automaticamente, se necessário,** conforme mostrado abaixo. Clique em **Instalar**.
+   6. Na página **confirmar seleções de instalação** , confirme a seleção e, em seguida, selecione **reiniciar o servidor de destino automaticamente, se necessário**, conforme mostrado abaixo. Clique em **Instalar**.
    
        ![Adicionar Assistente de Funções e Recursos 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
    7. Você será notificado quando a instalação for concluída. Clique em **Fechar** para fechar o assistente.
@@ -84,7 +84,7 @@ O MPIO deve ser configurado para identificar os volumes StorSimple. Para configu
 3. Selecione **Adicionar suporte para dispositivos iSCSI** e depois clique em **Adicionar**.  
    ![Propriedades do MPIO para Descobrir Vários Caminhos](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicialize o servidor quando solicitado.
-5. Na caixa de diálogo **Propriedades MPIO,** clique na guia **Dispositivos MPIO.** Clique em **Adicionar**.
+5. Na caixa de diálogo **Propriedades do MPIO** , clique na guia **dispositivos do MPIO** . clique em **Adicionar**.
     </br>![Propriedades do MPIO para Dispositivos do MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. Na caixa de diálogo **Adicionar suporte a MPIO**, em **ID de Hardware do Dispositivo**, insira o número de série do dispositivo. Para obter o número de série do dispositivo, acesse o serviço do Gerenciador de Dispositivos do StorSimple. Navegue para **Dispositivos > Painel**. O número de série do dispositivo é exibido no painel **Visão Rápida** à direita do painel do dispositivo.
     </br>
@@ -124,7 +124,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 10. Na caixa de diálogo **Conectar-se ao destino**, marque a caixa de seleção **Habilitar vários caminhos**. Clique em **Avançado**.
 11. Na caixa de diálogo **Configurações avançadas**:
 
-    1. Na lista de paradas do **adaptador Local,** selecione O iniciador Microsoft iSCSI.
+    1. Na lista suspensa **adaptador local** , selecione iniciador iSCSI da Microsoft.
     2. Na lista suspensa **IP do iniciador**, selecione o endereço IP correspondente ao host. Neste caso, você está conectando duas interfaces de rede no dispositivo a uma interface de rede no host. Portanto, essa interface é igual à fornecida para a primeira sessão.
     3. Na lista suspensa **IP do Portal de Destino** , selecione o endereço IP para a segunda interface de dados habilitada no dispositivo.
     4. Clique em **OK** para voltar para a caixa de diálogo Propriedades do Iniciador iSCSI. Você adicionou uma segunda sessão ao destino.
@@ -155,7 +155,7 @@ Para a alta disponibilidade e o balanceamento de carga baseados em vários camin
 **É recomendável ter pelo menos oito sessões paralelas ativas entre o dispositivo e o host do aplicativo.** Isso pode ser obtido habilitando quatro interfaces de rede em seu sistema Windows Server. Use adaptadores de rede físicos ou interfaces virtuais via tecnologias de virtualização de rede no nível de hardware ou sistema operacional no host do Windows Server. Com as duas interfaces de rede no dispositivo, essa configuração resulta em oito sessões ativas. Essa configuração ajuda a otimizar a taxa de transferência do dispositivo e da nuvem.
 
 > [!IMPORTANT]
-> **Recomendamos que você não misture interfaces de rede de 1 GbE e 10 GbE. Se você usar duas interfaces de rede, ambas as interfaces devem ser de um tipo idêntico.**
+> **Recomendamos que você não misture interfaces de rede de 1 GbE e 10 GbE. Se você usar duas interfaces de rede, ambas as interfaces deverão ser de um tipo idêntico.**
 
 O procedimento a seguir descreve como adicionar sessões quando um dispositivo StorSimple com duas interfaces de rede está conectado a um host com duas interfaces de rede. Isso proporciona apenas quatro sessões. Use esse mesmo procedimento com um dispositivo StorSimple com dois adaptadores de rede conectados a um host com quatro adaptadores de rede. Você precisará configurar oito em vez das quatro sessões descritas aqui.
 
@@ -186,7 +186,7 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
    4. Clique em **OK** para voltar à caixa de diálogo **Propriedades do iniciador iSCSI**. Agora, você adicionou uma segunda sessão ao destino.
 10. Repita as Etapas de 8 a 10 para adicionar outras sessões (caminhos) ao destino. Com duas interfaces no host e duas no dispositivo, você pode adicionar um total de quatro sessões.
 11. Após adicionar as sessões desejadas (caminhos), na caixa de diálogo **Propriedades do iniciador iSCSI**, selecione o destino e clique em **Propriedades**. Na guia Sessões da caixa de diálogo **Propriedades** , observe os quatro identificadores da sessão que correspondem às permutações possíveis de caminho. Para cancelar uma sessão, marque a caixa de seleção ao lado de um identificador de sessão e depois clique em **Desconectar**.
-12. Para visualizar os dispositivos apresentados dentro das sessões, selecione a guia **Dispositivos.** Para configurar a diretiva MPIO para um dispositivo selecionado, clique em **MPIO**. A caixa de diálogo **Detalhes do Dispositivo** é exibida. Na guia **MPIO**, selecione as configurações **Política de balanceamento de carga** apropriadas. Você também pode ver o tipo de caminho **Ativo** ou **Em espera**.
+12. Para exibir dispositivos apresentados em sessões, selecione a guia **dispositivos** . Para configurar a política de MPIO para um dispositivo selecionado, clique em **MPIO**. A caixa de diálogo **Detalhes do Dispositivo** é exibida. Na guia **MPIO**, selecione as configurações **Política de balanceamento de carga** apropriadas. Você também pode ver o tipo de caminho **Ativo** ou **Em espera**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

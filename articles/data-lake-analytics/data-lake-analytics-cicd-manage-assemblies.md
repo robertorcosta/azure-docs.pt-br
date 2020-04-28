@@ -1,5 +1,5 @@
 ---
-title: Gerencie montagens u-sql em um pipeline de CI/CD - Azure Data Lake
+title: Gerenciar assemblies U-SQL em um pipeline de CI/CD-Azure Data Lake
 description: Conheça as práticas recomendadas para gerenciar assemblies de C# do U-SQL em um pipeline de CI/CD com o Azure DevOps.
 author: yanancai
 ms.author: yanacai
@@ -7,10 +7,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71315843"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Práticas recomendadas para gerenciar assemblies do U-SQL em um pipeline de CI/CD
@@ -30,12 +30,12 @@ Para gerenciar o código-fonte de assembly C# e os scripts de DDL U-SQL de regis
 Um projeto de banco de dados U-SQL pode fazer referência a um projeto de biblioteca de classes (para aplicativo U-SQL). Você pode criar assemblies registrados no banco de dados U-SQL usando o código-fonte C# referenciado deste projeto de biblioteca de classes (para aplicativo U-SQL).
 
 Siga estas etapas para criar projetos e adicionar referências.
-1. Crie um projeto de biblioteca de classes (para aplicativo U-SQL) selecionando **o projeto File** > **New** > **Project**. O projeto está sob o nó **Azure Data Lake > U-SQL**.
+1. Crie um projeto de biblioteca de classes (para aplicativo U-SQL) selecionando **arquivo** > **novo** > **projeto**. O projeto está sob o nó **Azure Data Lake > U-SQL**.
 
    ![Ferramentas do Data Lake para Visual Studio -- criar um projeto de biblioteca de classes C#](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 1. Adicione seu código C# definido pelo usuário no projeto de biblioteca de classes (para aplicativo U-SQL).
 
-1. Crie um projeto U-SQL selecionando **File** > **New** > **Project**. O projeto está o nó > **U-SQL** do Lago de **Dados Azure.**
+1. Crie um projeto do U-SQL selecionando **arquivo** > **novo** > **projeto**. O projeto está no nó **Azure data Lake** > **U-SQL** .
 
    ![Ferramentas do Data Lake para Visual Studio -- criar um projeto de banco de dados U-SQL](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 1. Adicione uma referência ao projeto de biblioteca de classes C# para o projeto de banco de dados U-SQL.
@@ -54,7 +54,7 @@ Siga estas etapas para criar projetos e adicionar referências.
 
 7. Adicione **Dependências Gerenciadas** e **Arquivos Adicionais**, se houver. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build.
 
-_DeployTempDirectory na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída de compilação. ** \@** Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta.
+_DeployTempDirectory na janela do editor na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída da compilação. ** \@** Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta.
 
 ## <a name="build-a-u-sql-database-project"></a>Compilar um projeto de banco de dados U-SQL
 

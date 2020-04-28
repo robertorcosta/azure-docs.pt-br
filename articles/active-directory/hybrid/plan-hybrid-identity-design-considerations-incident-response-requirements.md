@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109285"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de resposta a incidentes para sua solução de identidade híbrida
@@ -57,7 +57,7 @@ Durante o controle de danos e a fase de redução de riscos, é importante reduz
 
 * Sua empresa tem políticas in-loco para impedir que os usuários acessem a rede se necessário?
   * Em caso afirmativo, a solução atual integra o sistema de gerenciamento de identidade híbrida que vocês adotam?
-* Sua empresa precisa impor o Acesso Condicional para usuários que estão em quarentena? 
+* Sua empresa precisa impor o acesso condicional para usuários que estão em quarentena? 
 
 > [!NOTE]
 > Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e vantagens/desvantagens de cada opção.  Ao responder essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
@@ -67,6 +67,6 @@ Durante o controle de danos e a fase de redução de riscos, é importante reduz
 ## <a name="next-steps"></a>Próximas etapas
 [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

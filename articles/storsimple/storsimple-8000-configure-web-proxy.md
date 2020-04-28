@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65204261"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar proxy da web para seu dispositivo StorSimple
@@ -29,7 +29,7 @@ Este tutorial descreve como usar o Windows PowerShell para StorSimple para confi
 
 As diretrizes deste tutorial se aplicam somente a dispositivos físicos StorSimple da série 8000. Não há suporte para a configuração de proxy Web no Dispositivo de Nuvem StorSimple (8010 e 8020).
 
-O proxy da Web é uma configuração _opcional_ para o seu dispositivo StorSimple. Você pode configurar o proxy Web apenas por meio do Windows PowerShell para StorSimple. A configuração é um processo em duas etapas da seguinte maneira:
+O proxy Web é uma configuração _opcional_ para seu dispositivo StorSimple. Você pode configurar o proxy Web apenas por meio do Windows PowerShell para StorSimple. A configuração é um processo em duas etapas da seguinte maneira:
 
 1. Primeiro, você define as configurações de proxy Web por meio do assistente de instalação ou de cmdlets do Windows PowerShell para StorSimple.
 2. Em seguida, você habilita as configurações de proxy Web definidas por meio de cmdlets do Windows PowerShell para StorSimple.
@@ -71,7 +71,7 @@ Use o assistente de instalação para guiá-lo durante as etapas de configuraç�
 4. Selecione o tipo de autenticação como **NTLM**, **Básico** ou **Nenhum**. Básica é a autenticação menos segura para a configuração do servidor proxy. NTLM (NT LAN Manager) é um protocolo de autenticação complexo e de alta segurança que usa um sistema de mensagens de três vias (às vezes, quatro, se for necessária integridade adicional) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, confira autenticação [Básica](https://hc.apache.org/httpclient-3.x/authentication.html) e [Autenticação NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **No serviço StorSimple Device Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação Básica ou NTLM está ativada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisa garantir que a autenticação esteja definida como NONE.**
+   > **No serviço StorSimple Device Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação básica ou NTLM está habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisa garantir que a autenticação esteja definida como nenhuma.**
   
 5. Se você habilitar a autenticação, forneça um **Nome de Usuário de Proxy Web** e uma **Senha de Proxy Web**. Você também precisará confirmar a senha.
    
@@ -102,7 +102,7 @@ O proxy Web agora está configurado e precisa ser habilitado.
 O proxy Web está desabilitado por padrão. Depois de definir as configurações de proxy Web em seu dispositivo StorSimple, use o Windows PowerShell para StorSimple para habilitar as configurações de proxy Web.
 
 > [!NOTE]
-> **Esta etapa não é necessária se você usou o assistente de configuração para configurar o proxy da Web. O proxy da Web é ativado automaticamente por padrão após uma sessão de assistente de configuração.**
+> **Esta etapa não será necessária se você tiver usado o assistente de instalação para configurar o proxy Web. O proxy Web é habilitado automaticamente por padrão após uma sessão do assistente de instalação.**
 
 
 Execute as seguintes etapas no Windows PowerShell para StorSimple para habilitar o proxy Web em seu dispositivo:

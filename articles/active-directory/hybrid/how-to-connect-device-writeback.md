@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109494"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
@@ -31,10 +31,10 @@ ms.locfileid: "67109494"
 
 A documentação a seguir fornece informações sobre como habilitar o recurso de write-back do dispositivo no Azure AD Connect. Write-back de dispositivo é usado nas seguintes situações:
 
-* Habilite [o Windows Hello for Business usando a implantação de confiança de certificado híbrido](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
-* Habilite o Acesso Condicional com base em dispositivos para aplicativos protegidos ADFS (2012 R2 ou superior) (confiando em fundos partidários).
+* Habilitar o [Windows Hello para empresas usando a implantação de confiança de certificado híbrido](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Habilitar o acesso condicional com base em dispositivos para aplicativos protegidos pelo ADFS (2012 R2 ou superior) (confianças de terceira parte confiável).
 
-Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para obter mais informações sobre o Acesso Condicional, consulte [Gerenciar riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md) e configurar acesso condicional no local usando o registro do dispositivo do diretório ativo do [Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para obter mais informações sobre o acesso condicional, consulte [Gerenciando o risco com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [Configurando o acesso condicional local usando registro de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
@@ -97,7 +97,7 @@ Primeiro as prioridades:
   * No menu Iniciar, abra **Serviço de sincronização**.
   * Abra a guia **Conectores** .
   * Localize o conector com o tipo de Serviços de Domínio do Active Directory e selecione-o.
-  * Em **Ações,** selecione **Propriedades**.
+  * Em **ações**, selecione **Propriedades**.
   * Vá para **Conectar-se à floresta do Active Directory**. Verifique o nome de usuário e domínio especificado nessa correspondência de tela a conta fornecida para o script.
     ![Conta do conector no Sync Service Manager](./media/how-to-connect-device-writeback/connectoraccount.png)
 
@@ -127,8 +127,8 @@ Verifique a configuração no Active Directory:
 
 ## <a name="additional-information"></a>Informações adicionais
 * [Gerenciamento de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Configuração do acesso condicional no local usando o registro do dispositivo do diretório ativo do Azure](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Configurando o acesso condicional local usando Registro de Dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 

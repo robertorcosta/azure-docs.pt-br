@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68985941"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box com segurança
@@ -27,21 +27,21 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 | ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/data-box-safety/warning_icon.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Ícone](./media/data-box-safety/warning_icon.png) de aviso **ATENÇÃO ATENÇÃO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Aviso de](./media/data-box-safety/warning_icon.png) ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/data-box-safety/warning_icon.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png) **Risco de choque elétrico** |Alta tensão. |
 | ![Ícone de peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png) **Peso pesado** | |
 | ![Ícone de nenhuma peça operada pelo usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
-| ![Leia o](./media/data-box-safety/read_safety_and_health_information_icon.png) ícone do aviso de segurança **Leia todas as instruções primeiro** | |
+| ![Ler o ícone](./media/data-box-safety/read_safety_and_health_information_icon.png) de aviso de segurança **Leia todas as instruções primeiro** | |
 | ![Ícone de risco de tombamento](./media/data-box-safety/tip_hazard_icon.png) **Risco de tombamento** | |
 
 ## <a name="handling-precautions"></a>Precauções de manuseio
 
 ![Ícone de Aviso](./media/data-box-safety/warning_icon.png) ![Ícone de Choque Elétrico](./media/data-box-safety/electrical_shock_hazard_icon.png)![Ícone de Nenhuma Peça Operada pelo Usuário](./media/data-box-safety/no_user_serviceable_parts_icon.png) **CUIDADO** 
 
-* Inspecione o dispositivo *da forma como foi recebido* para ver se há danos. Se o gabinete do dispositivo estiver danificado, [entre em contato com](data-box-disk-contact-microsoft-support.md) o Suporte da Microsoft para obter uma substituição. Não tente operar o dispositivo. 
-* O dispositivo está equipado com parafusos à prova de adulteração. Se você suspeitar que o dispositivo está com defeito, [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente reparar o dispositivo. 
+* Inspecione o dispositivo *da forma como foi recebido* para ver se há danos. Se o compartimento do dispositivo estiver danificado, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente operar o dispositivo. 
+* O dispositivo está equipado com parafusos à prova de adulteração. Se você suspeitar de que o dispositivo está com problemas de funcionamento, [entre em contato com suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para obter uma substituição. Não tente reparar o dispositivo. 
 * O dispositivo não contém peças operadas pelo usuário. Níveis de tensão, corrente e energia de risco no aparelho. Não abra. Devolva o dispositivo para a Microsoft para manutenção.
 
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png) ![Ícone de peso pesado](./media/data-box-safety/heavy_weight_hazard_icon.png) **AVISO!** 
@@ -54,7 +54,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 * Coloque o dispositivo em uma superfície plana, estável e rígida para evitar o risco de inclinação.
 * Não use equipamentos montados em rack, como prateleiras ou espaços de trabalho. Não coloque o Data Box em cima de equipamentos montados em rack. Adicionar qualquer tipo de carga a uma unidade montada em rack estendida pode gerar o risco de inclinação, podendo causar lesões, morte ou danos ao produto.
 
-![Ícone](./media/data-box-safety/warning_icon.png) de aviso **ATENÇÃO ATENÇÃO!**
+![Aviso de](./media/data-box-safety/warning_icon.png) ícone de aviso **!**
 
 * Configure o dispositivo em uma área de trabalho, permitindo uma circulação de ar adequada em torno dele.
 * Instale o dispositivo em uma área interna com temperatura controlada e sem contaminantes condutivos, e permita uma circulação de ar adequada em torno dele.
@@ -81,7 +81,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
     - Corrente: 6 A, máximo
     - Frequência: 50 Hz a 60 Hz
 
-![Ícone](./media/data-box-safety/warning_icon.png) de aviso **CUIDADO:**
+![Cuidado com](./media/data-box-safety/warning_icon.png) o ícone de aviso **:**
 
 * este dispositivo contém baterias em forma de moeda. Não tente reparar o dispositivo. As baterias no dispositivo não são peças operadas pelo usuário. 
 * **Somente para a equipe de manutenção**: haverá risco de explosão se a bateria for substituída por um tipo incorreto. Descarte as baterias usadas de acordo com as instruções.
@@ -116,7 +116,7 @@ As alterações ou as modificações feitas no dispositivo não expressamente ap
 
 ![Ícone de observação](./media/data-box-safety/notice_icon.png) **OBSERVAÇÃO:** 
 
-Este equipamento foi testado e considerado em conformidade com os limites de um dispositivo digital Classe A, de acordo com a parte 15 das Regras da FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será obrigado a corrigir a interferência às suas próprias custas.
+Este equipamento foi testado e considerado em conformidade com os limites de um dispositivo digital Classe A, de acordo com a parte 15 das Regras da FCC. Esses limites são projetados para fornecer uma proteção razoável contra interferência prejudicial quando o equipamento é operado em um ambiente comercial. O equipamento gera, usa e pode irradiar energia de radiofrequência. Se não for instalado e usado de acordo com o manual de instruções, poderá causar interferências prejudiciais às comunicações de rádio. A operação deste equipamento em uma área residencial provavelmente causará interferência prejudicial, caso em que o usuário será solicitado a corrigir a interferência por sua própria despesa.
 
 O dispositivo está em conformidade com a parte 15 das Regras da FCC e normas RSS isentas de licença do Canadá. A operação está sujeita a estas duas condições: (1) o dispositivo não pode causar interferência prejudicial e (2) o dispositivo deve aceitar todas as interferências recebidas, inclusive interferências que possam causar uma operação indesejada do dispositivo.
 
@@ -132,7 +132,7 @@ Canadá: (800) 933-4750
 
 **UNIÃO EUROPEIA:**
 
-[Solicite uma cópia da Declaração de Conformidade da UE.](mailto:CSI_Compliance@microsoft.com)
+[Solicite uma cópia da declaração de conformidade da UE](mailto:CSI_Compliance@microsoft.com).
 
 ![Ícone de Aviso](./media/data-box-safety/warning_icon.png) **AVISO:** 
 
@@ -142,7 +142,7 @@ Canadá: (800) 933-4750
 
 ![Ícone de descarte da bateria](./media/data-box-safety/battery_disposal_icon.png)
 
-Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato *com a microsoft.com para\@* obter informações adicionais sobre o WEEE.
+Este símbolo no produto, nas baterias ou embalagem significa que o produto e as baterias contidas não devem ser descartadas no lixo comum. É sua responsabilidade levá-los a um ponto de coleta para reciclagem de baterias e equipamentos eletroeletrônicos. Essa coleta e reciclagem separadas ajudarão a conservar os recursos naturais e impedir possíveis consequências negativas para a saúde humana e o meio ambiente devido à possível existência de substâncias perigosas nas baterias e equipamentos eletroeletrônicos, que podem ser causadas pelo descarte inadequado. Para obter mais informações sobre onde entregar suas baterias e equipamentos eletroeletrônicos, entre em contato com a Prefeitura, com o serviço de coleta seletiva ou a loja que vendeu o produto. Entre em contato com *erecycle\@Microsoft.com* para obter informações adicionais sobre a WEEE.
 
 Este produto contém baterias em forma de moeda.
 

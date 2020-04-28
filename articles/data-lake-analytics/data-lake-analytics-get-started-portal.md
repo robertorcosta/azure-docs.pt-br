@@ -1,5 +1,5 @@
 ---
-title: Criar & consulta Azure Data Lake Analytics - Portal Azure
+title: Criar & Azure Data Lake Analytics de consulta-portal do Azure
 description: Use o portal do Azure para criar uma conta do Azure Data Lake Analytics e enviar um trabalho do U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,10 +9,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71315750"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
@@ -22,14 +22,14 @@ Este artigo descreve como usar o portal do Azure para criar contas do Azure Data
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Antes de iniciar este tutorial, você deve ter uma **assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Criar uma conta da Análise Data Lake
 
 Agora, você criará uma conta do Data Lake Analytics e do Azure Data Lake Storage Gen1 ao mesmo tempo.  Esta etapa é simples e demora apenas 60 segundos para ser concluída.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique **em Criar um recurso** >  **Data + Analytics** > Data Lake**Analytics**.
+2. Clique em **criar um recurso** >  **dados + análise** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens:
    * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
    * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
@@ -63,7 +63,7 @@ OUTPUT @a
 2. Cole o texto do script U-SQL anterior. Dê um nome para o trabalho. 
 3. Selecione o botão **Enviar** para iniciar o trabalho.   
 4. Monitore o **Status** do trabalho e aguarde até que o status do trabalho mude para **Bem-sucedido**.
-5. Selecione a guia **Dados** e selecione a guia `data.csv` **Saídas.** Selecione o arquivo de saída nomeado e visualize os dados de saída.
+5. Selecione a guia **dados** e, em seguida, selecione a guia **saídas** . Selecione o `data.csv` arquivo de saída chamado e exiba os dados de saída.
 
 ## <a name="see-also"></a>Confira também
 

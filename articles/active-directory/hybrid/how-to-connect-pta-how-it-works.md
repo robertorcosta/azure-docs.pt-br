@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60347764"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
-Este artigo descreve como funciona a Autenticação de Passagem do Azure AD (Azure Active Directory). Para obter informações técnicas e de segurança profundas, consulte o artigo [de segurança de mergulho profundo.](how-to-connect-pta-security-deep-dive.md)
+Este artigo descreve como funciona a Autenticação de Passagem do Azure AD (Azure Active Directory). Para obter informações técnicas e de segurança profundas, consulte o artigo aprofundamento sobre [segurança](how-to-connect-pta-security-deep-dive.md) .
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como a Autenticação de Passagem do Azure Active Directory funciona?
 
@@ -52,12 +52,12 @@ O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas:
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
-- [Início rápido](how-to-connect-pta-quick-start.md): Entre e retome na Autenticação de Passagem AD do Azure AD.
+- [Início rápido](how-to-connect-pta-quick-start.md): colocar em funcionamento a autenticação de passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoPTADP) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [Perguntas frequentes](how-to-connect-pta-faq.md): Encontre respostas para perguntas frequentes.
+- [Perguntas](how-to-connect-pta-faq.md)frequentes: Encontre respostas para perguntas frequentes.
 - [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
-- [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas profundas sobre o recurso de autenticação de passagem.
+- [Aprofundamento da segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas aprofundadas sobre o recurso de autenticação de passagem.
 - [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60245498"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
@@ -82,7 +82,7 @@ Os operadores são avaliados da esquerda para a direita e têm a mesma prioridad
 ## <a name="multi-valued-attributes"></a>Atributos de vários valores
 As funções podem operar em atributos de valor único e de vários valores. Para atributos com vários valores, a função opera sobre cada valor e aplica a mesma função para cada valor.
 
-Por exemplo:   
+Por exemplo:  
 `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress.  
 @-sign Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058454"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir os Serviços de Área de Trabalho Remota ou a senha de administrador em uma VM do Windows
@@ -45,7 +45,7 @@ Primeiro, entre no [Portal do Azure](https://portal.azure.com) e selecione **Má
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração dos Serviços de Área de Trabalho Remota**
 
-Esse processo permitirá o serviço de área de trabalho remota na VM e criará uma regra de firewall para a porta RDP padrão 3389.
+Esse processo habilitará Área de Trabalho Remota serviço na VM e criará uma regra de firewall para a porta RDP padrão 3389.
 
 1. Selecione a VM do Windows e, em seguida, selecione **Redefinir senha** em **Suporte + Solução de problemas**. A janela **Redefinir senha** é exibida. 
 
@@ -92,9 +92,9 @@ Primeiro, verifique se você tem o [módulo do PowerShell mais recente instalado
 
 - Se a extensão de acesso à VM do Azure não responder e você não conseguir redefinir a senha, será possível [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Primeiro siga as etapas documentadas neste artigo e somente se essas etapas não funcionarem tente o método de redefinição de senha offline.
 
-- [Conheça as extensões e recursos do Azure VM](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Saiba mais sobre os recursos e extensões de VM do Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Conecte-se a uma máquina virtual Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Conecte-se a uma máquina virtual do Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-- [Solucionar problemas conexões de desktop remotas a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

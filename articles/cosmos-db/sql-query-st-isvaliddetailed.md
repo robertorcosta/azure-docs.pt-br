@@ -1,5 +1,5 @@
 ---
-title: ST_ISVALIDDETAILED no idioma de consulta do Azure Cosmos DB
+title: ST_ISVALIDDETAILED na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_ISVALIDDETAILED no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349344"
 ---
 # <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *spatial_expr*  
-   É um ponto GeoJSON ou expressão polígono.  
+   É uma expressão de ponto ou polígono geojson.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -34,7 +34,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir como verificar a `ST_ISVALIDDETAILED`validade (com detalhes) usando .  
+  O exemplo a seguir como verificar a validade (com detalhes) `ST_ISVALIDDETAILED`usando.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   
@@ -57,5 +57,5 @@ SELECT ST_ISVALIDDETAILED({
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções espaciais Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

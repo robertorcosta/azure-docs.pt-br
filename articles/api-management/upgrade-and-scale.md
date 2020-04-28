@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70018228"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Fazer upgrade e dimensionar uma instância de Gerenciamento de API do Azure  
@@ -54,10 +54,10 @@ A camada **Premium** permite que você distribua uma única instância de Gerenc
 Você pode atualizar e fazer downgrade de e para qualquer camada. Observe que a atualização ou o downgrade pode remover alguns recursos, por exemplo, VNETs ou implantação de várias regiões, ao fazer o downgrade da camada Standard ou Básico para a Premium.
 
 > [!NOTE]
-> O processo de atualização ou escala pode levar de 15 a 45 minutos para ser aplicado. Você é notificado quando estiver pronto.
+> O processo de atualização ou escala pode levar de 15 a 45 minutos para ser aplicado. Você será notificado quando terminar.
 
 > [!NOTE]
-> O serviço de gerenciamento de API no nível **de consumo** é dimensionado automaticamente com base no tráfego.
+> O serviço de gerenciamento de API na camada de **consumo** é dimensionado automaticamente com base no tráfego.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Use o portal do Azure para atualizar e dimensionar
 
@@ -70,8 +70,8 @@ Você pode atualizar e fazer downgrade de e para qualquer camada. Observe que a 
     Se você escolher a camada **Premium**, primeiro precisará selecionar uma região.
 5. Pressione **Salvar**.
 
-## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a escala para cima e para baixo
-Se você estiver escalando de ou para o nível desenvolvedor, haverá tempo de inatividade. Caso contrário, não há tempo de inatividade. 
+## <a name="downtime-during-scaling-up-and-down"></a>Tempo de inatividade durante a expansão e a redução
+Se você estiver dimensionando de ou para a camada de desenvolvedor, haverá tempo de inatividade. Caso contrário, não há nenhum tempo de inatividade. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

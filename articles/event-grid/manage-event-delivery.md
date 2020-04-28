@@ -1,5 +1,5 @@
 ---
-title: Políticas de carta morta e repetição - Azure Event Grid
+title: Mensagens mortas e políticas de repetição – grade de eventos do Azure
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Definir um destino de inatividade e especificar o tempo de entrega novamente.
 services: event-grid
 author: spelluru
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72794030"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e tentar novas políticas
@@ -25,8 +25,8 @@ Ao criar uma assinatura de evento, você pode personalizar as configurações pa
 Para definir um local de mensagens mortas, é necessário ter uma conta de armazenamento para armazenar eventos que não podem ser entregues a um ponto de extremidade. Os exemplos obtêm a ID de recurso de uma conta de armazenamento existente. Eles criam uma assinatura de evento que usa um contêiner na conta de armazenamento para o ponto de extremidade de inatividade.
 
 > [!NOTE]
-> - Crie uma conta de armazenamento e um recipiente blob no armazenamento antes de executar comandos neste artigo.
-> - O serviço Event Grid cria bolhas neste contêiner. Os nomes dos blobs terão o nome da assinatura event grid com todas as letras em maiúsculas. Por exemplo, se o nome da assinatura for My-Blob-Subscription, os nomes das blobs de letras mortas terão MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-1111-1111111111.json). Esse comportamento é para proteger contra diferenças no caso de manipulação entre os serviços do Azure.
+> - Crie uma conta de armazenamento e um contêiner de blob no armazenamento antes de executar os comandos neste artigo.
+> - O serviço de grade de eventos cria BLOBs neste contêiner. Os nomes dos BLOBs terão o nome da assinatura da grade de eventos com todas as letras em maiúsculas. Por exemplo, se o nome da assinatura for meu-blob-Subscription, os nomes dos BLOBs de mensagens mortas terão meu-BLOB-SUBSCRIPTION (myblobcontainer/meu-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Esse comportamento é para proteger contra diferenças na manipulação de casos entre os serviços do Azure.
 
 
 ### <a name="azure-cli"></a>CLI do Azure

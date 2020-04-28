@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - tarefas de gerenciamento do Azure | Microsoft Docs
-description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas escolhidas ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
+description: Com o controle de acesso condicional, o Azure Active Directory verifica as condições específicas que você escolhe ao autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109380"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida de identidade híbrida
@@ -32,7 +32,7 @@ Também é importante ter uma solução de identidade voltada para capacitar seu
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinar tarefas de gerenciamento de identidade híbrida
 A distribuição de tarefas administrativas em sua organização melhora a precisão e a eficiência da administração e melhora o equilíbrio da carga de trabalho de uma organização. A seguir estão os pontos que definem um sistema de gerenciamento de identidade sólido.
 
- ![considerações sobre gestão de identidade](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![considerações sobre gerenciamento de identidade](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Para definir as tarefas de gerenciamento de identidade híbrida, você deve entender algumas características essenciais da organização que adotará identidade híbrida. É importante entender os repositórios atuais que estão sendo usados como fontes de identidade. Conhecendo os principais elementos, você terá os requisitos básicos e, baseado nisso, você precisa fazer perguntas mais sintonizadas que levarão a uma melhor decisão de design para a solução de identidade.  
 
@@ -61,14 +61,14 @@ Ao definir esses requisitos, verifique se pelo menos as seguintes perguntas são
 ## <a name="synchronization-management"></a>Gerenciamento de sincronização
 Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos os provedores de identidade e mantê-los sincronizados. Você mantém os dados sincronizados baseado em um provedor de identidade mestre autoritativo. Em um cenário de identidade híbrida, com um modelo de gerenciamento sincronizado, você gerencia todas as identidades de usuários e de dispositivos em um servidor local, além de sincronizar contas e, opcionalmente, senhas para a nuvem. O usuário insere a mesma senha local que é inserida na nuvem e, no logon, a senha é verificada pela solução de identidade. Esse modelo usa uma ferramenta de sincronização de diretório.
 
-![sincronização](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) do diretório Para projetar adequadamente a sincronização da sua solução de identidade híbrida, certifique-se de que as seguintes perguntas sejam respondidas:
+![sincronização](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) de diretório para projetar adequadamente a sincronização da sua solução de identidade híbrida certifique-se de que as seguintes perguntas sejam respondidas:
 *    Quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
-*    Quais são os recursos de único sinal disponível?
-*    Quais são as opções para federação de identidade entre B2B e B2C?
+*    Quais são os recursos de logon único disponíveis?
+*    Quais são as opções de Federação de identidade entre B2B e B2C?
 
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar a estratégia de adoção do gerenciamento de identidade híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

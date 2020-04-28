@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68608011"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução de Monitoramento Remoto
@@ -31,7 +31,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
 
 1. Implante uma instância **básica** do acelerador de solução usando a CLI **pcs**. Anote o nome da sua implantação e as credenciais fornecidas para a máquina virtual. Para saber mais, veja [Implantar usando a CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Para habilitar o acesso SSH à máquina virtual que hospeda os micros serviços na sua solução, use o portal do Azure Cloud Shell. Por exemplo: 
+1. Para habilitar o acesso SSH à máquina virtual que hospeda os micros serviços na sua solução, use o portal do Azure Cloud Shell. Por exemplo:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
 
     Habilite somente o acesso de SSH durante o desenvolvimento e teste. Se você ativar o SSH, [você deve desativá-lo assim que terminar de usá-lo](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Use o portal do Azure Cloud Shell para encontrar o nome e o endereço IP público da sua máquina virtual. Por exemplo: 
+1. Use o portal do Azure Cloud Shell para encontrar o nome e o endereço IP público da sua máquina virtual. Por exemplo:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -73,11 +73,11 @@ As etapas a seguir descrevem o processo de configurar um ambiente local para o d
     npm start
     ```
 
-1. O comando anterior executa a ui localmente em http:\//localhost:3000/dashboard. Você pode editar o código enquanto o site está em execução e vê-lo ser atualizado dinamicamente.
+1. O comando anterior executa a interface do usuário localmente em\/http:/localhost: 3000/Dashboard. Você pode editar o código enquanto o site está em execução e vê-lo ser atualizado dinamicamente.
 
 ## <a name="customize-the-layout"></a>Personalizar o layout
 
-Cada página na solução de Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **do Painel** é composta por cinco painéis: Visão geral, mapa, alertas, telemetria e análise. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
+Cada página na solução de Monitoramento Remoto é composta de um conjunto de controles, conhecido como *painéis* no código-fonte. A página **painel** é composta de cinco painéis: visão geral, mapa, alertas, telemetria e análise. Você pode encontrar o código-fonte que define cada página e seus painéis no repositório [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) do GitHub. Por exemplo, o código que define a página **Painel**, seu layout e os painéis na página está localizado na pasta [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard).
 
 Como os painéis gerenciam seus próprios layout e dimensionamento, você pode modificar facilmente o layout de uma página. Faça as seguintes alterações no elemento **PageContent** no arquivo `src/components/pages/dashboard/dashboard.js` para:
 
@@ -502,7 +502,7 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a per
 * [Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Para obter informações mais conceituais sobre o acelerador de soluções de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para obter mais informações sobre como personalizar os microsserviços de solução de monitoramento remoto, consulte [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

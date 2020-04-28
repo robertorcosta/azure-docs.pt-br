@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60280453"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
@@ -109,7 +109,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 12. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-13. Clique **em Salvar.**
+13. Clique em **salvar.**
 
 14. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Concur.**
 
@@ -117,13 +117,13 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 16. Para habilitar o serviço de provisionamento do Azure AD para o Concur, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-17. Clique **em Salvar.**
+17. Clique em **salvar.**
 
 Agora você pode criar uma conta de teste. Aguarde 20 minutos para verificar se a conta foi sincronizada com o Concur.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](tutorial-list.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar o único sinal de inscrição](concur-tutorial.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar logon único](concur-tutorial.md)
 

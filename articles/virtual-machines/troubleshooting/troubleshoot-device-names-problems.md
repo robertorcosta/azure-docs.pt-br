@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71058214"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de mudança de nome do dispositivo de VM Linux no Azure
@@ -46,7 +46,7 @@ A maioria das distribuições fornece os parâmetros `fstab` **nofail** ou **nob
 
 Quando o agente Linux do Azure é instalado em uma VM, ele usa regras Udev para construir um conjunto de links simbólicos no caminho /dev/disk/azure. Aplicativos e scripts usam regras Udev para identificar os discos anexados à VM, junto com o tipo de disco e LUNs de disco.
 
-Se você já editou seu fstab de tal forma que sua VM não está inicializando e você não pode fazer ssh para sua VM, você pode usar o [VM Serial Console](./serial-console-linux.md) para entrar no [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar o seu fstab.
+Se você já tiver editado o fstab de forma que sua VM não esteja inicializando e não seja possível usar o SSH para a VM, use o [console serial da VM](./serial-console-linux.md) para entrar no [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar seu fstab.
 
 ### <a name="identify-disk-luns"></a>Identificar LUNs de disco
 
@@ -153,7 +153,7 @@ Para obter as regras de Armazenamento do Azure mais recentes, execute os seguint
 Para obter mais informações, consulte os seguintes artigos:
 
 - [Ubuntu: usando UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Chapéu Vermelho: Nomeação persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Red Hat: nomenclatura persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
 - [Linux: o que UUIDs podem fazer por você](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev: introdução ao gerenciamento de dispositivo no sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

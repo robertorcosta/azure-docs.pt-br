@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68568293"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
@@ -47,7 +47,7 @@ Lembre-se de que as transações de banco de dados elástico não requerem a ins
 
 ### <a name="multi-database-applications"></a>Aplicativos de vários bancos de dados
 
-O exemplo de código a seguir usa a experiência de programação conhecida com o .NET System.Transactions. A classe TransactionScope estabelece uma transação de ambiente no .NET. (Uma "transação ambiental" é aquela que vive no segmento atual.) Todas as conexões abertas dentro do TransactionScope participam da transação. Se diferentes bancos de dados participarem, a transação será elevada automaticamente a uma transação distribuída. O resultado da transação é controlado pela definição do escopo a concluir para indicar uma confirmação.
+O exemplo de código a seguir usa a experiência de programação conhecida com o .NET System.Transactions. A classe TransactionScope estabelece uma transação de ambiente no .NET. (Uma "transação de ambiente" é aquela que reside no thread atual.) Todas as conexões abertas no TransactionScope participam da transação. Se diferentes bancos de dados participarem, a transação será elevada automaticamente a uma transação distribuída. O resultado da transação é controlado pela definição do escopo a concluir para indicar uma confirmação.
 
     using (var scope = new TransactionScope())
     {
@@ -127,14 +127,14 @@ Observe que o instalador do .NET 4.6.1 pode exigir mais armazenamento temporári
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 Há suporte para transações de Banco de Dados Elástico entre diferentes servidores do Banco de Dados SQL no Banco de Dados SQL do Azure. Quando as transações cruzam os limites do servidor do Banco de Dados SQL, os servidores participantes precisam primeiro serem inseridos em uma relação de comunicação comum. Após a relação de comunicação ser estabelecida, qualquer banco de dados em qualquer um dos dois servidores poderá participar de transações elásticas com bancos de dados do outro servidor. Com transações abrangendo mais de dois servidores do Banco de Dados SQL, uma relação de comunicação deve estar em vigor para qualquer par de servidores do Banco de Dados SQL.
 
 Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
 
-* **New-AzSqlServerCommunicationLink**: Use este cmdlet para criar uma nova relação de comunicação entre dois servidores sql database no Banco de Dados Azure SQL. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
-* **Get-AzSqlServerCommunicationLink**: Use este cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
+* **New-AzSqlServerCommunicationLink**: Use este cmdlet para criar uma nova relação de comunicação entre dois servidores de banco de dados SQL no banco de dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
+* **Get-AzSqlServerCommunicationLink**: Use este cmdlet para recuperar relações de comunicação existentes e suas propriedades.
 * **Remove-AzSqlServerCommunicationLink**: Use este cmdlet para remover uma relação de comunicação existente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorando o status da transação

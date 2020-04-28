@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72801887"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
@@ -54,7 +54,7 @@ Aqui estão algumas dicas para ajudá-lo a definir sua visão:
 
 Aqui está uma declaração de visão de exemplo para um plano de adoção do Catálogo de Dados para a empresa fictícia chamada Adventure Works:
 
-**O Azure Data Catalog** capacita a equipe da Adventure Works Finance a colaborar com as principais fontes de dados, para que cada membro da equipe possa facilmente encontrar e usar os dados de que precisa e possa compartilhar seus conhecimentos com a equipe como um todo.
+O **Catálogo de dados do Azure** capacita a equipe de finanças da Adventure Works a colaborar com as principais fontes de dados, para que cada membro da equipe possa localizar e usar facilmente os dados de que precisam e pode compartilhar seu conhecimento com a equipe como um todo.
 
 Depois que tiver uma declaração de visão clara, você deverá identificar um projeto-piloto adequado para o Catálogo de Dados. Geralmente, há vários cenários para o Catálogo de Dados. A próxima seção fornece algumas dicas para identificar casos de uso relevantes.
 
@@ -91,7 +91,7 @@ O plano-piloto deve ter etapas para metas de negócios que você deseja alcança
 
 ### <a name="target-the-right-team"></a>Direcione a equipe certa
 
-Ao escolher o projeto-piloto, selecione uma equipe com os cenários mais atraentes que resolva um problema de negócios existente. Por exemplo, uma analista de negócios cria relatórios de um banco de dados do SQL Server. O problema é que eles tomaram conhecimento da fonte de dados somente depois de conversar com vários colegas. Finalmente, depois de perder tempo tentando encontrar quais fontes de dados usar, eles descobriram sobre uma pasta de trabalho do Excel, que contém uma descrição de cada fonte de dados. Embora a pasta de trabalho do Excel descreva adequadamente as tabelas de que precisam, eles teriam encontrado rapidamente essas fontes de dados se fossem registradas e anotadas no **Catálogo de Dados do Azure**.
+Ao escolher o projeto-piloto, selecione uma equipe com os cenários mais atraentes que resolva um problema de negócios existente. Por exemplo, uma analista de negócios cria relatórios de um banco de dados do SQL Server. O problema é que eles se tornaram cientes da fonte de dados somente depois de conversar com vários colegas. Finalmente, depois de perder tempo tentando encontrar as fontes de dados a serem usadas, elas descobriram sobre uma pasta de trabalho do Excel, que contém uma descrição de cada fonte de dados. Embora a pasta de trabalho do Excel Descreva adequadamente as tabelas de que precisam, elas teriam encontrado rapidamente essas fontes de dados se elas fossem registradas e anotadas no **Catálogo de dados do Azure**.
 
 ### <a name="identify-data-heroes"></a>Identifique os heróis de dados
 
@@ -101,7 +101,7 @@ Seu primeiro projeto-piloto deve ter alguns indivíduos que produzem e consomem 
 
 **Consumidores de dados** são pessoas com especialização no uso dos dados para solucionar problemas de negócios. Por exemplo, Clara é uma analista de negócios que usa fontes de dados do SQL Server da Adventure Works para analisar dados.
 
-Um dos problemas de negócios que o **Catálogo de Dados do Azure** aborda é conectar os **Produtores de dados** aos **Consumidores de dados**. Ele faz isso atuando como um repositório central de informações sobre fontes de dados da empresa. Usando o Catálogo de Dados, Pedro registra as fontes de dados da Adventure Works e do SQL Server. Usando crowdsourcing qualquer usuário que descubra essa fonte de dados pode compartilhar suas opiniões sobre os dados, além de usar os dados que eles descobriram. Por exemplo, Clara descobre as fontes de dados pesquisando o catálogo e compartilha seu conhecimento especializado sobre os dados.  Agora, outras pessoas na organização se beneficiam do conhecimento compartilhado pesquisando o catálogo de dados.
+Um dos problemas de negócios que o **Catálogo de Dados do Azure** aborda é conectar os **Produtores de dados** aos **Consumidores de dados**. Ele faz isso atuando como um repositório central de informações sobre fontes de dados da empresa. Usando o Catálogo de Dados, Pedro registra as fontes de dados da Adventure Works e do SQL Server. Usando o crowdsourcing, qualquer usuário que descobre essa fonte de dados pode compartilhar suas opiniões sobre os dados, além de usar os dados que eles descobriram. Por exemplo, Clara descobre as fontes de dados pesquisando o catálogo e compartilha seu conhecimento especializado sobre os dados.  Agora, outras pessoas na organização se beneficiam do conhecimento compartilhado pesquisando o catálogo de dados.
 
 * Para saber mais sobre como registrar fontes de dados, confira [Registrar fontes de dados](data-catalog-get-started.md).
 * Para saber mais sobre a descoberta de fontes de dados, consulte [Pesquisar fontes de dados](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ A próxima seção descreve um projeto de exemplo da empresa Adventure Works.
 
 ### <a name="an-example-project"></a>Um projeto de exemplo
 
-Neste exemplo, a analista de negócios Clara cria relatórios para sua equipe usando dados de um banco de dados do SQL Server. O problema é que eles tomaram conhecimento da fonte de dados somente depois de conversar com vários colegas. Eles teriam encontrado rapidamente essas fontes de dados se fossem registradas e anotadas em um local central, como **o Azure Data Catalog**.
+Neste exemplo, a analista de negócios Clara cria relatórios para sua equipe usando dados de um banco de dados do SQL Server. O problema é que eles se tornaram cientes da fonte de dados somente depois de conversar com vários colegas. Eles teriam encontrado rapidamente essas fontes de dados se fossem registradas e anotadas em um local central, como o **Catálogo de dados do Azure**.
 
 Para ilustrar a facilidade com que Clara e sua equipe podem localizar dados de alto valor, você pode usar a ferramenta de registro de fonte de dados para popular o Catálogo com informações (metadados) sobre as fontes de dados. Dessa forma, as informações sobre o banco de dados estão disponíveis para a equipe e a empresa, não apenas para alguns indivíduos. Depois que as fontes de dados são registradas no Catálogo de Dados, Clara e sua equipe podem usá-las facilmente. O resultado é um catálogo de dados mais abrangente e relevante para sua equipe e a empresa. À medida que mais equipes adotam o Catálogo de Dados, as fontes de dados corporativos se tornam mais fáceis de localizar e usar, habilitando uma cultura mais centrada nos dados para que seja possível fazer mais com os dados.
 

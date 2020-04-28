@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 675e10101d01d831aad7652c70cbfcf320085a3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70999161"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
@@ -64,16 +64,16 @@ As organizações que não impõem o controle de acesso a dados usando recursos 
 
 Para saber mais sobre o RBAC, consulte:
 
-- [Gerencie o acesso usando o RBAC e o portal Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Gerenciar acesso usando o RBAC e o Portal do Azure](/azure/role-based-access-control/role-assignments-portal)
 - [Funções internas para recursos do Azure](/azure/role-based-access-control/built-in-roles)
-- [Guia de segurança do Azure Storage](/azure/storage/common/storage-security-guide) 
+- [Guia de segurança do Armazenamento do Azure](/azure/storage/common/storage-security-guide) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Use a criptografia do lado do cliente para dados de alto valor
 A criptografia do lado do cliente permite criptografar programaticamente dados em trânsito antes de carregar no Armazenamento do Azure, bem como descriptografar os dados programaticamente ao recuperá-los. Isso fornece criptografia de dados em trânsito, mas também fornece criptografia de dados em repouso. A criptografia do lado do cliente é o método mais seguro de criptografar seus dados, mas ela requer que você faça alterações programáticas em seu aplicativo e implemente processos de gerenciamento de chaves.
 
 A criptografia do lado do cliente também permite que você tenha controle exclusivo sobre suas chaves de criptografia. Você pode gerar e gerenciar suas próprias chaves de criptografia. Ela usa uma técnica de envelope em que a biblioteca de cliente do Armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo) que é encapsulada (criptografada) usando a KEK (chave de criptografia de chave). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica, e pode ser gerenciada localmente ou armazenada no [Azure Key Vault](/azure/key-vault/key-vault-overview).
 
-A criptografia do lado do cliente é interna nas bibliotecas de cliente de armazenamento Java e .NET. Consulte [a criptografia do lado do cliente e o Azure Key Vault para o Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption) para obter informações sobre criptografar dados dentro de aplicativos clientes e gerar e gerenciar suas próprias chaves de criptografia.
+A criptografia do lado do cliente é interna nas bibliotecas de cliente de armazenamento Java e .NET. Consulte [criptografia do lado do cliente e Azure Key Vault para armazenamento do Microsoft Azure](/azure/storage/common/storage-client-side-encryption) para obter informações sobre como criptografar dados em aplicativos cliente e gerar e gerenciar suas próprias chaves de criptografia.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Habilitar Criptografia do Serviço de Armazenamento para dados em repouso
 Quando a [Criptografia do serviço de armazenamento](/azure/storage/common/storage-service-encryption) para o armazenamento de arquivos está habilitada, os dados são criptografados automaticamente usando criptografia AES-256. A Microsoft lida com toda a criptografia, a descriptografia e o gerenciamento de chaves. Este recurso está disponível para os tipos de redundância LRS e GRS.

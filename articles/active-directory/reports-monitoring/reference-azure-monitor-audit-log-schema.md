@@ -1,6 +1,6 @@
 ---
-title: Interprete o esquema de log de auditoria do Azure Active Directory no Monitor Do Azure | Microsoft Docs
-description: Descreva o esquema de log de auditoria do Azure AD para uso no Monitor Azure
+title: Interpretar o Azure Active Directory esquema de log de auditoria no Azure Monitor | Microsoft Docs
+description: Descrever o esquema de log de auditoria do Azure AD para uso no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68987949"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Microsoft Azure Active Directory no Azure Monitor (visualização)
@@ -178,6 +178,6 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Interprete o esquema de logs de login no Monitor Azure](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Logs de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Perguntas frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

@@ -1,5 +1,5 @@
 ---
-title: PI no idioma de consulta do Azure Cosmos DB
+title: PI na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL PI no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 27832008e8922e339a648985192a58b111555bc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71349657"
 ---
 # <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
@@ -44,5 +44,5 @@ SELECT PI() AS pi
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71336814"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: quando você tem um locatário existente
@@ -59,13 +59,13 @@ Para uma nova instalação do Connect, não há nenhuma diferença prática entr
 ### <a name="other-objects-than-users"></a>Outros objetos que não são usuários
 Para grupos habilitados para email e contatos, você pode fazer uma correspondência dinâmica com base no proxyAddresses. Correspondência fixa não se aplica, já que só é possível atualizar o sourceAnchor/immutableID (usando o PowerShell) em Usuários. Para grupos que não estão habilitados para email, no momento não há suporte para correspondência dinâmica nem fixa.
 
-### <a name="admin-role-considerations"></a>Considerações sobre o papel do admin
-Para evitar que usuários não confiáveis no local combinem com um usuário na nuvem que tenha qualquer função de administrador, o Azure AD Connect não combinará objetos de usuário no local com objetos que tenham uma função de administrador. Isso é por padrão. Para contornar esse comportamento, você pode fazer o seguinte:
+### <a name="admin-role-considerations"></a>Considerações de função de administrador
+Para impedir que usuários locais não confiáveis façam a correspondência com um usuário de nuvem que tenha qualquer função de administrador, Azure AD Connect não corresponderá a objetos de usuário locais com objetos que têm uma função de administrador. Isso é por padrão. Para solucionar esse comportamento, você pode fazer o seguinte:
 
-1.  Remova as funções do diretório do objeto de usuário somente na nuvem.
-2.  Se houver uma tentativa de sincronização de usuário com falha, exclua o objeto em quarentena na nuvem.
-3.  Acione uma sincronização.
-4.  Opcionalmente, adicione as funções de diretório de volta ao objeto do usuário na nuvem uma vez que a correspondência tenha ocorrido.
+1.  Remova as funções de diretório do objeto de usuário somente em nuvem.
+2.  Se houvesse uma falha na tentativa de sincronização do usuário, exclua o objeto em quarentena na nuvem.
+3.  Disparar uma sincronização.
+4.  Opcionalmente, adicione as funções de diretório de volta ao objeto de usuário na nuvem assim que a correspondência tiver ocorrido.
 
 
 
@@ -75,4 +75,4 @@ Alguns clientes começam com uma solução somente em nuvem com o Azure AD e nã
 Se oferecer suporte a LOBs (aplicativos de linha de negócios) é o único motivo para adicionar o AD local, considere usar o [Azure AD Domain Services](../../active-directory-domain-services/index.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

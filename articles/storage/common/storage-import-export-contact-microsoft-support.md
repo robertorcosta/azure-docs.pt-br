@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67621050"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um tíquete de suporte para um trabalho de Importação/Exportação
@@ -33,7 +33,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 2. Em **Nova solicitação de suporte**, selecione **Noções Básicas**. Em **Noções Básicas**, execute as seguintes etapas:
     
     1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
-    2. Escolha sua **Assinatura**.
+    2. Escolha sua **assinatura**.
     3. Em **Serviço**, verifique **Meus serviços**. Na lista suspensa, você pode selecionar uma das opções - **Gerenciamento de conta de armazenamento**, **Blob** ou **Arquivo**. 
         - Se você escolher **Gerenciamento de Conta de Armazenamento**, selecione **Recurso** e **Plano de Suporte**.
             ![Escolher o Gerenciamento de Conta de Armazenamento](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
@@ -58,7 +58,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
 4. Em **Nova solicitação de suporte**, clique **Etapa 3 Informações de contato**. Em **Informações de contato**, execute as seguintes etapas:
 
    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-   2. Nas informações de contato, forneça seu nome, e-mail, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte**.
+   2. Nas informações de contato, forneça seu nome, email, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte**.
    3. Clique em **Criar**.
    
        ![Informações de contato](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66427575"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implantar um novo dispositivo simulado
@@ -136,11 +136,11 @@ Agora, é possível usar os modelos de dispositivo personalizado na solução de
 
 1. É possível usar o painel para exibir a telemetria do dispositivo e chamar os métodos de dispositivo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja explorar mais, deixe o acelerador de solução de Monitoramento Remoto implantado.
 
-Se você não precisar mais do acelerador de soluções, exclua-o da página [de soluções provisionadas,](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e, em seguida, clicando **em Excluir solução**.
+Se você não precisar mais do Solution Accelerator, exclua-o da página [soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) , selecionando-o e, em seguida, clicando em **excluir solução**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

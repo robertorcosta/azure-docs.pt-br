@@ -1,6 +1,6 @@
 ---
-title: Alterar a senha da conta do Azure AD Connector | Microsoft Docs
-description: Este tópico documenta como restaurar a conta do Azure AD Connector.
+title: Alterar a senha da conta do conector do Azure AD | Microsoft Docs
+description: Este tópico documenta como restaurar a conta do conector do AD do Azure.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67204524"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a senha da conta do Conector Azure AD
-A conta Azure AD Connector deve ser gratuita. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um administrador global tiver, por engano, redefinirá a senha na conta usando o PowerShell.
+A conta do conector do Azure AD deve ser gratuita pelo serviço. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um administrador global tiver por engano, redefina a senha na conta usando o PowerShell.
 
 ## <a name="reset-the-credentials"></a>Redefinir as credenciais
-Se a conta do Azure AD Connector não puder entrar em contato com o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
+Se a conta do conector do Azure AD não puder contatar o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
 
 1. Entre no servidor de sincronização do Azure AD Connector e inicie o PowerShell.
 2. Execute `Add-ADSyncAADServiceAccount`.  
@@ -37,7 +37,7 @@ Se a conta do Azure AD Connector não puder entrar em contato com o Azure AD dev
 Esse cmdlet redefinirá a senha da conta de serviço e a atualizará no Azure AD e no mecanismo de sincronização.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problemas conhecidos que essas etapas podem resolver
-Esta seção é uma lista de erros relatados pelos clientes que foram corrigidos por uma credenciais redefinidas na conta Azure AD Connector.
+Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição de credenciais na conta do conector do Azure AD.
 
 ---
 Evento 6900  

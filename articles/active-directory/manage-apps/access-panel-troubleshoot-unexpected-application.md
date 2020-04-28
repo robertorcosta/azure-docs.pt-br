@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65784407"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como aplicativos aparecem no painel de acesso
@@ -46,7 +46,7 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por ter sido 
 
 Para verificar se um usuário é atribuído ao aplicativo, execute estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -58,7 +58,7 @@ Para verificar se um usuário é atribuído ao aplicativo, execute estas etapas:
 
 6. **Pesquise** pelo nome do aplicativo em questão.
 
-7. clique **em Usuários e grupos**.
+7. clique em **usuários e grupos**.
 
 8. Verifique se o usuário está atribuído ao aplicativo.
 
@@ -68,15 +68,15 @@ Para verificar se um usuário é atribuído ao aplicativo, execute estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
-5. clique em **Todos os usuários**.
+5. clique em **todos os usuários**.
 
 6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -96,19 +96,19 @@ Um usuário pode estar vendo um aplicativo em seu Painel de Acesso por fazer par
 
 Para verificar a associação de um grupo, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
-5. clique em **Todos os usuários**.
+5. clique em **todos os usuários**.
 
 6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7. clique em **Grupos.**
+7. clique em **grupos.**
 
 8. Verifique se o usuário faz parte de um Grupo atribuído ao aplicativo.
 
@@ -116,19 +116,19 @@ Para verificar a associação de um grupo, siga estas etapas:
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Verificar se um usuário é membro de um grupo atribuído a uma licença
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
-5. clique em **Todos os usuários**.
+5. clique em **todos os usuários**.
 
 6. **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7. clique em **Grupos.**
+7. clique em **grupos.**
 
 8. clique na linha de um grupo específico.
 

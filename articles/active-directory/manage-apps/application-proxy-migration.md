@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108418"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
@@ -46,17 +46,17 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
 | Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
 | Segurança em escala de nuvem | - | - | - | Sim | 
-| Acesso Condicional | - | Sim | - | Sim |
+| Acesso condicional | - | Sim | - | Sim |
 | Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
 | Nenhuma conexão de entrada | - | - | - | Sim |
 
-Para a maioria dos cenários, recomendamos o Azure AD Application Proxy como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
+Para a maioria dos cenários, recomendamos o Azure Proxy de Aplicativo do AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
 
 O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparados a produtos semelhantes, incluindo:
 
 - Extensão do AD do Azure para recursos locais
    - Proteção e segurança em escala de nuvem
-   - Recursos como acesso condicional e autenticação multifatorial são fáceis de habilitar
+   - Recursos como acesso condicional e autenticação multifator são fáceis de habilitar
 - Nenhum componente na zona desmilitarizada
 - Nenhuma conexão de entrada necessária
 - Um painel de acesso em que os usuários poderão procurar todos os aplicativos, incluindo o O365, os aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 

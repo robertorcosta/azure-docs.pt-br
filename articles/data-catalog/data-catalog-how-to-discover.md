@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68736367"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Catálogo de Dados do Azure
 
 ## <a name="introduction"></a>Introdução
 
-O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e descoberta para fontes de dados da empresa. Em outras palavras, o Catálogo de Dados ajuda as pessoas a descobrir, entender e usar fontes de dados. Ele ajuda as organizações a obter mais valor a partir de seus dados existentes. Depois que uma fonte de dados for registrada com o Catálogo de Dados, seus metadados serão indexados pelo serviço de modo que você possa facilmente pesquisar para descobrir os dados de que precisa.
+O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e descoberta para fontes de dados da empresa. Em outras palavras, o catálogo de dados ajuda as pessoas a descobrir, entender e usar fontes de dados. Ele ajuda as organizações a obter mais valor de seus dados existentes. Depois que uma fonte de dados for registrada com o Catálogo de Dados, seus metadados serão indexados pelo serviço de modo que você possa facilmente pesquisar para descobrir os dados de que precisa.
 
 ## <a name="searching-and-filtering"></a>Pesquisando e filtrando
 
@@ -33,7 +33,7 @@ Ao usar uma combinação de pesquisa e filtragem, você pode navegar rapidamente
 
 Embora a pesquisa de texto livre padrão seja simples e intuitiva, você também pode usar a sintaxe de pesquisa do Catálogo de Dados para maior controle sobre os resultados da pesquisa. A pesquisa do Catálogo de Dados dá suporte às seguintes técnicas:
 
-| Técnica | Use | Exemplo |
+| Técnica | Uso | Exemplo |
 | --- | --- | --- |
 | Pesquisa básica |Pesquisa básica que usa um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
 | Escopo de propriedade |Retornar apenas as fontes de dados em que o termo de pesquisa corresponda à propriedade especificada. |`name:finance` |
@@ -50,7 +50,7 @@ Quando você exibe o resultados da pesquisa, todas as propriedades exibidas que 
 > [!NOTE]
 > Para desligar o destaque de ocorrências, use a opção **Destacar** no portal do Catálogo de Dados.
 
-Quando você vê os resultados da pesquisa, pode nem sempre ser óbvio por que um ativo de dados está incluído, mesmo com o destaque de acerto ativado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade no nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias tags e descrições, nem todos os metadados são exibidos na lista de resultados de pesquisa.
+Quando você exibe os resultados da pesquisa, nem sempre pode ser óbvio por que um ativo de dados está incluído, mesmo com o realce de pressionamento de clique habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade no nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, nem todos os metadados são exibidos na lista de resultados da pesquisa.
 
 No modo de exibição em bloco padrão, cada bloco exibido nos resultados da pesquisa inclui um ícone **Exibir correspondências do termo de pesquisa** para que você possa rapidamente exibir o número de correspondências e sua localização e acessá-las, se desejar.
 

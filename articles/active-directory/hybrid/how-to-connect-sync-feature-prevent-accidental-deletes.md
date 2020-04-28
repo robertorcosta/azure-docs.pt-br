@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71827137"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir exclusões acidentais
@@ -58,7 +58,7 @@ Caso isso não seja esperado, investigue e tome medidas corretivas. Para ver qua
 
 ![Pesquisar Espaço do Conector](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Se você não tem certeza de que todas as exclusões são desejadas, e deseja seguir um caminho mais seguro. Você pode usar o cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold` para definir um novo limite em vez de desativar o limiar que poderia permitir exclusões indesejadas. 
+[!NOTE] Se você não tiver certeza de que todas as exclusões são desejadas e deseja descer uma rota mais segura. Você pode usar o cmdlet do PowerShell `Enable-ADSyncExportDeletionThreshold` : para definir um novo limite em vez de desabilitar o limite que pode permitir exclusões indesejadas. 
 
 ## <a name="if-all-deletes-are-desired"></a>Se todas as exclusões forem desejadas
 Se todas as exclusões forem desejadas, siga este procedimento:

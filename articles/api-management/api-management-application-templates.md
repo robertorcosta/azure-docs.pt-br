@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73176915"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no Gerenciamento de API do Azure
@@ -36,10 +36,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="application-list"></a><a name="ProductList"></a>Lista de inscrições  
+##  <a name="application-list"></a><a name="ProductList"></a>Lista de aplicativos  
  O modelo **Lista de aplicativos** permite personalizar o corpo da página de lista de aplicativos no portal do desenvolvedor.  
   
- ![Modelos do portal do desenvolvedor da lista de aplicativos](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Modelos do portal de desenvolvedores da lista de aplicativos da APIM")  
+ ![Página de lista de aplicativos modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Página de lista de aplicativos do APIM modelos do portal do desenvolvedor")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -84,7 +84,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |--------------|----------|-----------------|  
 |`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
 |`Applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos visíveis para o usuário atual.|  
-|`CategoryName`|string|A categoria do aplicativo.|  
+|`CategoryName`|cadeia de caracteres|A categoria do aplicativo.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -140,7 +140,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="application"></a><a name="Application"></a>Aplicativo  
  O modelo **Aplicativos** permite personalizar o corpo da página de aplicativos no portal do desenvolvedor.  
   
- ![Modelos do portal do desenvolvedor da página de aplicativos](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelos do portal de desenvolvedores de páginas de aplicativos da APIM")  
+ ![Página do aplicativo modelos do portal do desenvolvedor](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página do aplicativo APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   

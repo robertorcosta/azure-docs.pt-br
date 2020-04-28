@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67109366"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir estratégia de proteção de dados para sua solução de identidade híbrida
@@ -45,7 +45,7 @@ Dependendo de como você tiver respondido às perguntas em [Determinar requisito
 
 | Opções de proteção de dados | Em repouso na nuvem | Em repouso no local | Em trânsito |
 | --- | --- | --- | --- |
-| Criptografia de Unidade BitLocker |X |X | |
+| Criptografia de Unidade de Disco BitLocker |X |X | |
 | SQL Server para criptografar bancos de dados |X |X | |
 | Criptografia de VM para VM | | |X |
 | SSL/TLS | | |X |
@@ -89,7 +89,7 @@ Uma parte essencial do gerenciamento de conteúdo é entender quem está acessan
 ## <a name="define-access-control-options"></a>Definir opções de controle de acesso
 Ao aproveitar os recursos de autenticação, autorização e controle de acesso disponíveis no Azure Active Directory, você pode permitir que sua empresa use um repositório de identidade central ao mesmo tempo que permite aos usuários e parceiros usarem o SSO (logon único), como mostrado na figura a seguir:
 
-![gestão centralizada](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![gerenciamento centralizado](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Gerenciamento centralizado e integração completa a outros diretórios
 
@@ -106,7 +106,7 @@ O Active Directory do Azure fornece logon único a milhares de aplicativos SaaS 
 >
 >
 
-Usando o suporte do AD do Azure, os aplicativos de negócios móveis podem usar a mesma experiência fácil de autenticação dos Serviços Móveis para permitir que os funcionários entrem em seus aplicativos móveis com as respectivas credenciais corporativas do Active Directory. Com esse recurso, o Azure Active Directory tem suporte como um provedor de identidade nos Serviços Móveis ao lado de outros provedores de identidade já suportados (que incluem Contas da Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se os aplicativos locais usarem a credencial do usuário localizada no AD DS da empresa, o acesso de parceiros e usuários pela nuvem deverá ser transparente. Você pode gerenciar o controle de acesso condicional do usuário para aplicativos web (baseados em nuvem), API web, serviços de nuvem da Microsoft, aplicativos SaaS de terceiros e aplicativos clientes nativos (móveis) e ter os benefícios de segurança, auditoria, relatórios de todos em um Lugar. No entanto, é recomendável validar a implementação em um ambiente que não seja de produção ou com uma quantidade limitada de usuários.
+Usando o suporte do AD do Azure, os aplicativos de negócios móveis podem usar a mesma experiência fácil de autenticação dos Serviços Móveis para permitir que os funcionários entrem em seus aplicativos móveis com as respectivas credenciais corporativas do Active Directory. Com esse recurso, o Azure Active Directory tem suporte como um provedor de identidade nos Serviços Móveis ao lado de outros provedores de identidade já suportados (que incluem Contas da Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se os aplicativos locais usarem a credencial do usuário localizada no AD DS da empresa, o acesso de parceiros e usuários pela nuvem deverá ser transparente. Você pode gerenciar o controle de acesso condicional do usuário para aplicativos Web (baseados em nuvem), API da Web, serviços de nuvem da Microsoft, aplicativos SaaS de terceiros e aplicativos cliente nativos (móveis) e ter os benefícios de segurança, auditoria e relatórios em um único lugar. No entanto, é recomendável validar a implementação em um ambiente que não seja de produção ou com uma quantidade limitada de usuários.
 
 > [!TIP]
 > É importante mencionar que o Azure AD não tem uma Política de Grupo como o AD DS. Para aplicar a política de dispositivos, você precisa de uma solução de gerenciamento de dispositivo móvel, como o [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
@@ -131,7 +131,7 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
    > Se você está criando aplicativos e quer personalizar o controle de acesso para eles, também é possível usar as Funções de Aplicativo do Azure AD para autorização. Examine este [exemplo de WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) em como criar aplicativo para usar esse recurso.
 
 
-3. Acesso Condicional para aplicativos do Office 365 com o Microsoft Intune: os administradores de TI podem provisionar políticas de dispositivos de acesso condicional para proteger recursos corporativos e, ao mesmo tempo, permitir que os trabalhadores de informações em dispositivos compatíveis acessem os serviços. 
+3. Acesso condicional para aplicativos do Office 365 com Microsoft Intune: os administradores de ti podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos e, ao mesmo tempo, permitir que os operadores de informações em dispositivos em conformidade acessem os serviços. 
   
 4. Acesso Condicional para aplicativos SaaS: [esse recurso](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite configurar regras de acesso da autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
 
@@ -171,5 +171,5 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar tarefas de gerenciamento de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)

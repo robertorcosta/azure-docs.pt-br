@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67204136"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell no Azure Cloud Shell para usuários do Windows
@@ -36,7 +36,7 @@ Experiências específicas do PowerShell, como `tab-completing` nomes de cmdlet,
 
 ## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Vs de aliases do Windows PowerShell utilitários Linux
 
-Alguns pseudônimos PowerShell existentes têm os mesmos nomes dos `cat`comandos Linux incorporados, tais como, ,`ls` `sort`, `sleep`, etc. No PowerShell Core 6, os pseudônimos que colidem com comandos Linux incorporados foram removidos.
+Alguns aliases do PowerShell existentes têm os mesmos nomes que os comandos internos do Linux, `cat`como,`ls` `sort` `sleep`,, etc. No PowerShell Core 6, os aliases que colidem com comandos internos do Linux foram removidos.
 Abaixo estão os aliases comuns que foram removidos, bem como seus comandos equivalentes:  
 
 |Alias removido   |Comando equivalente   |

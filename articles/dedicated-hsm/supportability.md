@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881010"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Capacidade de Suporte do HSM Dedicado do Azure
@@ -26,12 +26,12 @@ Os clientes são totalmente responsáveis por aplicativos que usam os HSMs e dev
 
 ## <a name="getting-support"></a>Obtendo suporte
 
-O suporte ao cliente para O HSM Dedicado é um esforço conjunto entre a Microsoft e a Gemalto. Quaisquer problemas de hardware ou de caminho de rede serão resolvidos pela Microsoft, e qualquer coisa a ver com o HSM real, como configuração, software, firmware e desenvolvimento de aplicativos, será abordado pela Gemalto. Este modelo de suporte garante a rota mais rápida para o suporte mais eficaz. Em caso de dúvida com um determinado problema, faça uma solicitação de suporte com a Microsoft e garantiremos que você seja direcionado adequadamente. A Microsoft permanecerá engajada em todos os cenários de suporte e lutará pela melhor experiência de suporte para nossos clientes.
+O atendimento ao cliente para HSM dedicado é um esforço conjunto entre a Microsoft e o Gemalto. Quaisquer problemas de hardware ou de caminho de rede serão abordados pela Microsoft, e qualquer coisa a fazer com o HSM real, como configuração, software, firmware e desenvolvimento de aplicativos, será abordada pelo Gemalto. Esse modelo de suporte garante a rota mais rápida para o suporte mais eficaz. Se estiver em dúvida com um problema específico, gere uma solicitação de suporte com a Microsoft e garantiremos que você será direcionado adequadamente. A Microsoft se manterá envolvida em todos os cenários de suporte e buscará a melhor experiência de suporte para nossos clientes.
 
 ## <a name="gemalto-support"></a>Suporte a Gemalto
 
-Os clientes que usam o serviço Dedicated HSM se qualificam para o suporte da Gemalto de acordo com seu Plano de Suporte Plus. Isso só requer um processo de registro usando o portal de suporte Gemalto. Um ID do cliente e instruções serão fornecidas para isso como parte do compromisso inicial com a Microsoft para obter acesso ao serviço Dedicado HSM. O mecanismo para obter suporte da Gemalto é por meio de seu [portal de suporte do cliente](https://supportportal.gemalto.com/csm/).
-Um ponto-chave de nota é que a Gemalto fornecerá todo o software e documentação necessários para usar o HSM (por exemplo, software de acesso ao cliente e SDKs) através do download no portal de suporte ao cliente.
+Os clientes que usam o serviço HSM dedicado se qualificam para o suporte do Gemalto de acordo com seu plano de suporte Plus. Isso apenas requer um processo de registro usando o portal de suporte do Gemalto. Uma ID de cliente e instruções serão fornecidas para isso como parte do envolvimento inicial com a Microsoft para obter acesso ao serviço HSM dedicado. O mecanismo para obter suporte da Gemalto é por meio de seu [portal de suporte do cliente](https://supportportal.gemalto.com/csm/).
+Um ponto importante de observação é que o Gemalto fornecerá todos os softwares e a documentação necessários para usar o HSM (por exemplo, software de acesso para cliente e SDKs) por meio do download no portal de atendimento ao cliente.
 
 ### <a name="software-components"></a>Componentes de software
 
@@ -55,7 +55,7 @@ Para obter assistência no design, desenvolvimento e implantação de aplicativo
 
 ## <a name="microsoft-support"></a>Suporte da Microsoft
 
-A Microsoft garantirá que os dispositivos HSM físicos sejam acessíveis à rede e em estado operacional para uso exclusivo de um único cliente. Os clientes são responsáveis pela configuração, administração e gerenciamento do dispositivo. As responsabilidades da Microsoft incluem:
+A Microsoft garantirá que os dispositivos HSM físicos estejam acessíveis à rede e em um estado operacional para o uso exclusivo de um único cliente. Os clientes são responsáveis pela configuração, administração e gerenciamento do dispositivo. As responsabilidades da Microsoft incluem:
 
 * Certificar-se que o dispositivo tenha alimentação e resfriamento
 * Manter um estado operacional do HSM (por exemplo, cenários de reparos)
@@ -76,7 +76,7 @@ Depois que um cliente tiver um registro aprovado para o serviço HSM Dedicado, p
 
 ### <a name="hardware-issues"></a>Problemas de hardware
 
-O dispositivo HSM tem fontes de alimentação redundantes e substituíveis e unidades de ventilador.  No entanto, a remoção da unidade do ventilador ainda causará um evento de adulteração. Quando ocorrer uma falha de componente, a Microsoft usará o processo mais apropriado para resolver o problema de nível de componente de forma que faça com o mínimo de interrupção e menor risco a disponibilidade do serviço de nossos clientes.
+O dispositivo HSM tem fontes de alimentação redundantes e substituíveis e unidades de ventilador.  No entanto, a remoção da unidade do ventilador ainda causará um evento de violação. Quando ocorrer uma falha de componente, a Microsoft usará o processo mais apropriado para resolver o problema de nível de componente de forma que faça com o mínimo de interrupção e menor risco a disponibilidade do serviço de nossos clientes.
 Qualquer falha mais grave do dispositivo fará com que o dispositivo seja substituído por um novo do pool livre. O cliente simplesmente inclui o novo dispositivo no par HA existente para sincronizar e retornar para o estado operacional completo. O dispositivo com falha terá seus dados que contêm dispositivos removidos e destruídos no site no data center. Somente o chassi será retornado a Gemalto para reciclagem.
 
 

@@ -1,6 +1,6 @@
 ---
 title: Operacionalizar o ML Services no HDInsight - Azure
-description: Saiba como operacionalizar seu modelo de dados para fazer previsões com os Serviços ML no Azure HDInsight.
+description: Saiba como colocar seu modelo de dados em operação para fazer previsões com os serviços de ML no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71123560"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
@@ -23,7 +23,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 * Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
-* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, consulte [Use SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, consulte [usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster do ML Services com configuração de uma caixa
 
@@ -50,31 +50,31 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 1. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
 
-    ![R servidor Serviço de administração seleciona](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![Seleção do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
 
-    ![Serviço de administração do servidor R operacionalizar](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![Operacionalização do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. Quando solicitado, digite e insira novamente a senha para um usuário de administrador local.
 
 1. Você deve ver sugestões de saídas que a operação foi bem-sucedida. Você também precisará selecionar outra opção de menu. Selecione E para retornar ao menu principal.
 
-    ![R servidor serviço de utilidade de administração](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![Êxito do utilitário de administração do R Server](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Como opção, você pode executar verificações de diagnóstico com um teste de diagnóstico da seguinte forma:
 
     a. No menu principal, selecione **6** para executar testes de diagnóstico.
 
-    ![Diagnóstico de utilidade da administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![Diagnóstico do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. No menu Testes de diagnóstico, selecione **A**. Quando solicitado, digite a senha que você forneceu para o usuário de admin local.
+    b. No menu testes de diagnóstico, selecione **um**. Quando solicitado, insira a senha que você forneceu para o usuário administrador local.
 
-    ![Teste de utilidade da administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![Teste do utilitário de administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verifique se a saída mostra que a integridade geral é uma passagem.
 
-    ![Passe utilitário de administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![Passagem do utilitário de administração do R Server](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. Nas opções de menu apresentadas, insira **E** para retornar ao menu principal e, em seguida, digite **8** para sair do utilitário de administração.
 
@@ -146,17 +146,17 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. Selecione nós de trabalho (para ser desativado).
 
-1. Clique **em Ações** > **Hosts selecionados Hosts** > **Hosts** > **Ativar modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
+1. Clique em **ações** > **hosts** > selecionados**hosts** > **ativar o modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
 
-   ![Modo de manutenção Apache Ambari Turn On](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![O Apache Ambari ativa o modo de manutenção](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selecionar > **ações's Selected Hosts** >  **Actions****DataNodes** > clique em **Descomissionamento**.
-* Selecione > **ações's Selected Hosts** > **NodeManagers** > clique **em Descomissionamento**. **Actions**
-* Selecionar > **ações's Selected Hosts** >  **Actions****DataNodes** > clique em **Parar**.
-* Selecione > **ações's Selected Hosts** >  **Actions****NodeManagers** > clique em **Stop**.
-* Selecione **Ações** > **Hosts selecionados** > **Hosts** > clique em Parar todos os **componentes**.
+* Selecione **ações** > **hosts** > selecionados**datanodes** > clique em **desativar**.
+* Selecione **ações** > **hosts** > selecionados**NodeManagers** > clique em **desativar**.
+* Selecione **ações** > **hosts** > selecionados**nós** de > clique em **parar**.
+* Selecione **ações** > **hosts** > selecionados**NodeManagers** > clique em **parar**.
+* Selecione **ações** > **hosts** > selecionados**hosts** > clique em **parar todos os componentes**.
 * Desmarque os nós de trabalho e selecione os nós de cabeçalho.
-* Selecione **ações** > **Hosts selecionados** > "**Hosts** > **Restart All Components**.
+* Selecione **ações** > **hosts selecionados** > "**hosts** > **reiniciar todos os componentes**.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Etapa 2: Configurar nós de computação em cada nó de trabalho encerrado
 

@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73159687"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede do Kubernetes do Azure
@@ -32,7 +32,7 @@ As políticas de rede fornecem microssegmentação para pods da mesma forma que 
 As políticas de rede do Azure trabalham em conjunto com o Azure CNI, que fornece integração de VNet para contêineres. Atualmente, ele é compatível apenas com nós do Linux. As implementações configuram regras da tabela de IP do Linux com base nas políticas definidas para impor a filtragem de tráfego.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planejar a segurança para o cluster Kubernetes
-Ao implementar a segurança para o seu cluster, use os NSGs (Network Security Groups, grupos de segurança de rede) para filtrar o tráfego Norte-Sul, ou seja, tráfego entrando e saindo da sua sub-rede de cluster e use políticas de rede Kubernetes para tráfego Leste-Oeste, ou seja, tráfego entre pods em seu cluster.
+Ao implementar a segurança para o cluster, use NSGs (grupos de segurança de rede) para filtrar o tráfego Norte-Sul, ou seja, o tráfego que entra e sai da sub-rede do cluster e usa políticas de rede kubernetes para o tráfego East-West, ou seja, o tráfego entre pods no cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Usar as políticas de rede do Kubernetes do Azure
 As políticas de rede do Azure podem ser usadas das maneiras a seguir para fornecer microssegmentação aos pods.
@@ -102,4 +102,4 @@ A solução também é um software livre e o código está disponível no [repos
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md).
 -  Saiba mais sobre [redes de contêiner](container-networking-overview.md).
-- [Implante o plug-in](deploy-container-networking.md) para clusters Kubernetes ou contêineres Docker.
+- [Implante o plug-in](deploy-container-networking.md) para clusters kubernetes ou contêineres do Docker.

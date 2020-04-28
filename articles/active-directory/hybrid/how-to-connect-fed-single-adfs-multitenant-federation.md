@@ -1,5 +1,5 @@
 ---
-title: Federando vários Azure AD com único AD FS - Azure
+title: Federar vários Azure AD com um único AD FS-Azure
 description: Neste documento, você aprenderá a federar vários Azure AD com um único AD FS.
 keywords: federar, ADFS, AD FS, vários locatários, único AD FS, um ADFS, federação multilocatária, adfs de várias florestas, aad connect, federação, federação entre locatários
 services: active-directory
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65137826"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
@@ -66,4 +66,4 @@ Converta o domínio gerenciado fabrikam.com em federado:
 A operação acima vai federar o domínio fabrikam.com com o mesmo AD FS. Você pode verificar as configurações de domínio usando Get-MsolDomainFederationSettings para os dois domínios.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Conecte o Diretório Ativo com o Diretório Ativo do Azure](whatis-hybrid-identity.md)
+[Conectar Active Directory com Azure Active Directory](whatis-hybrid-identity.md)

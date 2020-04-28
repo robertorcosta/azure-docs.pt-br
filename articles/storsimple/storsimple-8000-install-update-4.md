@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60860271"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar a Atualização 4 em seu dispositivo StorSimple
@@ -49,7 +49,7 @@ Verifique se o dispositivo está executando a **Atualização 4 do StorSimple s�
 
 * Agora, você também verá que as atualizações do modo de Manutenção estão disponíveis (essa mensagem pode continuar sendo exibida por até 24 horas após a instalação das atualizações). As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo.
 
-* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas na [instalação e verifique os hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) do modo de manutenção para instalar as atualizações do modo de manutenção.
+* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
 
 ## <a name="install-update-4-as-a-hotfix"></a>Instalar a Atualização 4 como um hotfix
 O método recomendado para instalar a Atualização 4 é pelo Portal do Azure.
@@ -85,7 +85,7 @@ Você também precisa instalar as atualizações de firmware de disco além de t
 
 | Order | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Firmware de disco |Manutenção  <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
+| 3. |KB3121899 |Firmware de disco |Manutenção <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
 
 <br></br>
 

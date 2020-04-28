@@ -16,22 +16,22 @@ ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: cad70169e88e1fafa129c02f30d5288d39e30a9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70102142"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Resource Manager)
 
 > [!div class="op_single_selector"]
-> * [Gerenciador de recursos](virtual-machines-windows-ps-sql-keyvault.md)
+> * [Gerenciador de Recursos](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Clássico](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>Visão geral
-Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [conector sql server](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Azure Key Vault.
+Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [conector do SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) permite que SQL Server use essas chaves de Azure Key Vault.
 
-Se você estiver executando o SQL Server com máquinas locais, [existem etapas que você pode seguir para acessar o Azure Key Vault a partir de sua máquina SQL Server no local.](https://msdn.microsoft.com/library/dn198405.aspx) Mas para o SQL Server em VMs Azure, você pode economizar tempo usando o recurso *Azure Key Vault Integration.*
+Se você estiver executando SQL Server com computadores locais, há [etapas que podem ser seguidas para acessar Azure Key Vault do computador SQL Server local](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para SQL Server em VMs do Azure, você pode economizar tempo usando o recurso de *integração de Azure Key Vault* .
 
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
@@ -49,20 +49,20 @@ Se você estiver provisionando uma nova máquina de virtual do SQL Server com o 
 
 ![Integração do Cofre da Chave do SQL Azure](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-Para obter um passo a passo detalhado do provisionamento, consulte [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+Para obter uma explicação detalhada do provisionamento, consulte [provisionar um SQL Server máquina virtual no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>VMs existentes
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para as máquinas virtuais SQL Server existentes, abra o recurso de [máquinas virtuais SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selecione **Segurança** em **Configurações**. Selecione **Ativar** para ativar a integração do Azure Key Vault. 
+Para máquinas virtuais SQL Server existentes, abra o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) e selecione **segurança** em **configurações**. Selecione **habilitar** para habilitar a integração de Azure Key Vault. 
 
 ![Integração de AKV do SQL para VMs existentes](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-Quando terminar, selecione o botão **Aplicar** na parte inferior da página **Segurança** para salvar suas alterações.
+Quando terminar, selecione o botão **aplicar** na parte inferior da página **segurança** para salvar as alterações.
 
 > [!NOTE]
-> O nome de credencial que criamos aqui será mapeado para um login SQL mais tarde. Isso permite que o logon do SQL acesse o cofre de chaves. 
+> O nome da credencial que criamos aqui será mapeado para um logon do SQL posteriormente. Isso permite que o logon do SQL acesse o cofre de chaves. 
 
 
 > [!NOTE]

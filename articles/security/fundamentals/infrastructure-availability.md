@@ -1,6 +1,6 @@
 ---
-title: Disponibilidade de infra-estrutura do Azure - Segurança do Azure
-description: Este artigo fornece informações sobre o que a Microsoft faz para proteger a infra-estrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes.
+title: Disponibilidade de infraestrutura do Azure-segurança do Azure
+description: Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68727226"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidade da infraestrutura do Azure
-Este artigo fornece informações sobre o que a Microsoft faz para proteger a infra-estrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes. O Azure fornece disponibilidade robusta, com base na redundância abrangente obtida com a tecnologia de virtualização.
+Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes. O Azure fornece disponibilidade robusta, com base na redundância abrangente obtida com a tecnologia de virtualização.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Desastres naturais e interrupções temporárias
 A equipe de Operações e infraestrutura de nuvem da Microsoft projeta, cria, opera e aprimora a segurança da infraestrutura de nuvem. Essa equipe garante que a infraestrutura do Azure esteja fornecendo alta disponibilidade e confiabilidade, alta eficiência e escalabilidade inteligente. A equipe fornece uma nuvem mais segura, privada e confiável.
@@ -50,7 +50,7 @@ Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrut
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

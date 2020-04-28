@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/12/2019
 ms.author: spelluru
 ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65236882"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Entender os endereços IP compartilhados no Azure DevTest Labs
@@ -32,13 +32,13 @@ Quando você cria um laboratório, ele é criado em uma sub-rede de uma rede vir
 
 Em laboratórios existentes, você pode habilitar essa opção selecionando **Políticas e configurações > Redes Virtuais**. Em seguida, selecione uma rede virtual da lista e escolha **HABILITAR IP PÚBLICO COMPARTILHADO** para uma sub-rede selecionada. Você também pode desabilitar essa opção em qualquer laboratório se você não deseja compartilhar um endereço IP público em VMs do laboratório.
 
-Todas as VMs criadas nesse laboratório assumem como padrão o uso de um IP compartilhado.  Ao criar a VM, essa configuração pode ser observada na página **configurações Avançadas** na **configuração de endereço IP**.
+Todas as VMs criadas nesse laboratório assumem como padrão o uso de um IP compartilhado.  Ao criar a VM, essa configuração pode ser observada na página **Configurações avançadas** em **configuração de endereço IP**.
 
 ![Nova VM](media/devtest-lab-shared-ip/new-vm.png)
 
 - **Compartilhado:** todas as VMs criadas como **Compartilhadas** são colocadas em um grupo de recursos (RG). Um único endereço IP será atribuído para esse RG e todas as VMs no RG usarão esse endereço IP.
 - **Público:** cada uma das VMs que você cria tem seu próprio endereço IP e é criada em seu próprio grupo de recursos.
-- **Privado:** todas as VMs que você criar usarão um endereço IP privado. Você não pode se conectar a esta VM diretamente da internet com o Remote Desktop.
+- **Privado:** todas as VMs que você criar usarão um endereço IP privado. Você não pode se conectar a essa VM diretamente da Internet com Área de Trabalho Remota.
 
 Sempre que uma VM com IP compartilhado habilitado é adicionada à sub-rede, o DevTest Labs adiciona automaticamente a VM a um balanceador de carga e atribui um número da porta TCP no endereço IP público, encaminhando para a porta RDP na VM.  
 

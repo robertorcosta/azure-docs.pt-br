@@ -16,10 +16,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67083765"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
@@ -87,7 +87,7 @@ Quando um Desenvolvedor de Aplicativos cria um novo registro de aplicativo, ele 
 
 Para refinar ainda mais a delegação de acesso do aplicativo, é possível atribuir a propriedade para aplicativos empresariais individuais. Isso complementa o suporte existente para atribuir proprietários de registro de aplicativo. A propriedade é atribuída em uma base de aplicativo por empresa na folha Aplicativos Empresariais. A vantagem é que os proprietários podem gerenciar apenas os aplicativos empresariais que possuem. Por exemplo, é possível atribuir um proprietário para o aplicativo Salesforce e esse proprietário pode gerenciar o acesso e a configuração para o Salesforce e nenhum outro aplicativo. Um aplicativo empresarial pode ter vários proprietários e um usuário pode ser o proprietário de muitos aplicativos empresariais. Há duas funções de proprietário de aplicativo:
 
-* A função **Proprietário de Aplicativo Empresarial** concede a capacidade de gerenciar os aplicativos empresariais que o usuário possui, incluindo configurações de logon único, atribuições de usuários e grupos e adicionar mais proprietários. Ele não concede a capacidade de gerenciar configurações de proxy de aplicativos ou acesso condicional.
+* A função **Proprietário de Aplicativo Empresarial** concede a capacidade de gerenciar os aplicativos empresariais que o usuário possui, incluindo configurações de logon único, atribuições de usuários e grupos e adicionar mais proprietários. Ele não concede a capacidade de gerenciar as configurações de proxy de aplicativo ou o acesso condicional.
 * A função **Proprietário de Registro de Aplicativo** concede a capacidade de gerenciar registros de aplicativo para o aplicativo que o usuário possui, incluindo o manifesto do aplicativo e adicionar mais proprietários.
 
 ## <a name="develop-a-security-plan"></a>Desenvolver um plano de segurança
@@ -104,7 +104,7 @@ Os invasores que tomam o controle de contas com privilégios pode causar enorme 
 
 * Administrador global
 * Administrador do SharePoint
-* Administrador do Exchange
+* Administradores do Exchange
 * Administrador de acesso condicional
 * Administrador de segurança
 

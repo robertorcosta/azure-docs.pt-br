@@ -1,62 +1,62 @@
 ---
-title: Crie uma avaliação com a avaliação do servidor azure migrate | Microsoft Docs
-description: Descreve como criar uma avaliação com a ferramenta Azure Migrate Server Assessment
+title: Criar uma avaliação com a avaliação do servidor de migrações para Azure | Microsoft Docs
+description: Descreve como criar uma avaliação com a ferramenta de avaliação de servidor de migrações para Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68229096"
 ---
 # <a name="create-an-assessment"></a>Criar uma avaliação
 
-Este artigo descreve como criar uma avaliação para VMS VMs ou VMs Hyper-V com Azure Migrate: Server Assessment.
+Este artigo descreve como criar uma avaliação para VMs VMware locais ou VMs do Hyper-V com migrações para Azure: avaliação de servidor.
 
-[O Azure Migrate](migrate-services-overview.md) ajuda você a migrar para o Azure. As Migrações para Azure oferecem um hub centralizado para acompanhar a descoberta, a avaliação e a migração de infraestrutura, aplicativos e dados locais para o Azure. O hub fornece ferramentas do Azure para avaliação e migração, além de ofertas de ISV (fornecedor independente de software) de terceiros. 
+As [migrações para Azure](migrate-services-overview.md) ajudam a migrar para o Azure. As Migrações para Azure oferecem um hub centralizado para acompanhar a descoberta, a avaliação e a migração de infraestrutura, aplicativos e dados locais para o Azure. O hub fornece ferramentas do Azure para avaliação e migração, além de ofertas de ISV (fornecedor independente de software) de terceiros. 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Certifique-se de [ter criado](how-to-add-tool-first-time.md) um projeto azure Migrate.
-- Se você já criou um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta Azure Migrate: Server Assessment.
-- Para criar uma avaliação, você precisa configurar um aparelho Azure Migrate para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O aparelho descobre máquinas no local e envia dados de metadados e desempenho para o Azure Migrate: Server Assessment. [Saiba mais](migrate-appliance.md).
+- Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
+- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
+- Para criar uma avaliação, você precisa configurar um dispositivo de migração do Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. [Saiba mais](migrate-appliance.md).
 
 
 ## <a name="assessment-overview"></a>Visão geral da avaliação
-Existem dois tipos de avaliações que você pode criar usando o Azure Migrate: Avaliação do servidor.
+Há dois tipos de avaliações que você pode criar usando as migrações para Azure: avaliação do servidor.
 
 **Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Com base no desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: Com base em dados de utilização de CPU e memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado padrão ou premium)**: Com base no IOPS e no throughput dos discos no local.
-**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: Com base no tamanho da VM no local<br/><br> **Tipo de disco recomendado**: Com base na configuração do tipo de armazenamento selecionado para a avaliação.
+**Com base no desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: com base nos dados de utilização da CPU e de memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : com base na IOPS e na taxa de transferência dos discos locais.
+**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: com base no tamanho da VM local<br/><br> **Tipo de disco recomendado**: com base na configuração de tipo de armazenamento selecionada para a avaliação.
 
-[Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
+[Saiba mais](concepts-assessment-calculation.md) sobre as avaliações.
 
 ## <a name="run-an-assessment"></a>Ler uma avaliação
 
 Execute uma avaliação da seguinte maneira:
 
 1. Examine as [melhores práticas](best-practices-assessment.md) para a criação de avaliações.
-2. Na guia **Servidores,** no **Azure Migrate: Server Assessment** tile, clique **em Avaliar**.
+2. Na guia **servidores** , no bloco **migrações para Azure: avaliação do servidor** , clique em **avaliar**.
 
     ![Avaliar](./media/how-to-create-assessment/assess.png)
 
-2. Em **Avaliar servidores,** especifique um nome para a avaliação.
+2. Em **Avaliar servidores**, especifique um nome para a avaliação.
 3. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
 
     ![Propriedades de avaliação](./media/how-to-create-assessment//view-all.png)
 
-3. Em **Selecionar ou criar um grupo,** **selecione Criar novo**e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
+3. Em **Selecionar ou criar um grupo**, selecione **Criar** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
 4. Em **Adicionar computadores ao grupo**, selecione as VMs a serem adicionadas ao grupo.
 5. Clique em **Criar Avaliação** para criar o grupo e execute a avaliação.
 
     ![Criar uma avaliação](./media/how-to-create-assessment//assessment-create.png)
 
-6. Depois que a avaliação for criada, visualize-a em **Servers** > **Azure Migrate: Server Assessment** > **Assessmentassessments**.
+6. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: Avaliação de Servidor** > **Avaliações**.
 7. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
 
 
@@ -65,13 +65,13 @@ Execute uma avaliação da seguinte maneira:
 
 Uma avaliação descreve:
 
-- **Prontidão**azul : Se as VMs são adequadas para migração para o Azure.
-- **Estimativa mensal de custos**: Os custos mensais estimados de computação e armazenamento para a execução das VMs no Azure.
-- **Estimativa mensal de custos de armazenamento**: Custos estimados para armazenamento em disco após a migração.
+- **Preparação para o Azure**: indica se as VMs são adequadas para a migração para o Azure.
+- **Estimativa de custo mensal**: os custos mensais estimados de computação e armazenamento para execução das VMs no Azure.
+- **Estimativa de custo de armazenamento mensal**: custos estimados para o armazenamento em disco após a migração.
 
 ### <a name="view-an-assessment"></a>Exibir uma avaliação
 
-1. **Servers**Em Servidores de metas >   **de migração,** clique em **Avaliações** no **Azure Migrate: Avaliação do servidor**.
+1. Em **metas** >  de migração**servidores**, clique em **avaliações** em **migrações para Azure: avaliação do servidor**.
 2. Em **Avaliações**, clique em uma avaliação para abri-la.
 
     ![Resumo da avaliação](./media/how-to-create-assessment/assessment-summary.png)
@@ -80,10 +80,10 @@ Uma avaliação descreve:
 
 1. Em **Preparação para o Azure**, verifique se as VMs estão prontas para a migração para o Azure.
 2. Examine o status da VM:
-    - **Pronto para o Azure**: O Azure Migrate recomenda um tamanho de VM e estimativas de custos para VMs na avaliação.
-    - **Pronto com condições**: Mostra problemas e remediação sugerida.
-    - **Não está pronto para o Azure**: Mostra problemas e remediação sugerida.
-    - **Prontidão desconhecida**: Usada quando o Azure Migrate não pode avaliar a prontidão, devido a problemas de disponibilidade de dados.
+    - **Pronto para o Azure**: as Migrações para Azure recomendam um tamanho de VM e estimativas de custo para as VMs na avaliação.
+    - **Pronto com condições**: mostra os problemas e a correção sugerida.
+    - **Não está pronto para o Azure**: mostra os problemas e a correção sugerida.
+    - **Preparação desconhecida**: usado quando as Migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
 
 2. Clique em um status de **Preparação para o Azure**. Você pode exibir os detalhes de preparação da VM e fazer uma busca detalhada para ver os detalhes da VM, incluindo as configurações de computação, armazenamento e rede.
 
@@ -128,5 +128,5 @@ As classificações de confiança para uma avaliação são indicadas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a usar [o mapeamento de dependência](how-to-create-group-machine-dependencies.md) para criar grupos de alta confiança.
+- Saiba como usar o [mapeamento de dependência](how-to-create-group-machine-dependencies.md) para criar grupos de alta confiança.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como as avaliações são calculadas.

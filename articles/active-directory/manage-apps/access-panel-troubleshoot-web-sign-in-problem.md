@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7c6a9c3f26c8939176197a2ecf2fcd6026e9928
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "65784316"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema ao entrar no site do painel de acesso
@@ -39,7 +39,7 @@ Se um usuário tiver uma assinatura do Azure ou Office 365 e estiver usando o Po
 
 ## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro 
 
--   Certifique-se de que o usuário está fazendo login na **URL correta:**<https://myapps.microsoft.com>
+-   Verifique se o usuário está entrando na **URL correta**:<https://myapps.microsoft.com>
 
 -   Verifique se o navegador do usuário adicionou a URL aos seus **sites confiáveis**
 
@@ -98,15 +98,15 @@ O acesso ao Painel de Acesso pode ser bloqueado devido a um problema com a conta
 
 Para verificar se a conta de um usuário está presente, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -116,19 +116,19 @@ Para verificar se a conta de um usuário está presente, siga estas etapas:
 
 Para verificar o status da conta de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  clique **em Perfil**.
+7.  clique em **perfil**.
 
 8.  Em **Configurações** verifique se **Bloquear entrada** está definido como **Não**.
 
@@ -136,15 +136,15 @@ Para verificar o status da conta de um usuário, siga estas etapas:
 
 Para redefinir a senha de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -168,19 +168,19 @@ Para habilitar a redefinição de senha por autoatendimento, siga estas etapas d
 
 Para verificar o status da Autenticação Multifator de um usuário, siga estas etapas:
 
-1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1. Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4. clique **em Usuários e grupos** no menu de navegação.
+4. clique em **usuários e grupos** no menu de navegação.
 
-5. clique em **Todos os usuários**.
+5. clique em **todos os usuários**.
 
 6. Clique no botão **Autenticação Multifator** na parte inferior do painel.
 
-7. Uma vez que o **Portal de Administração de Autenticação multifatorial** seja carregado, certifique-se de que você está na guia **Usuários.**
+7. Depois que o **portal de administração da autenticação multifator** carregar, verifique se você está na guia **usuários** .
 
 8. Encontre o usuário na lista de usuários pesquisando, filtrando ou classificando.
 
@@ -195,19 +195,19 @@ Para verificar o status da Autenticação Multifator de um usuário, siga estas 
 
 Para verificar as informações de contato de autenticação do usuário usadas para Autenticação Multifator, Acesso Condicional, Proteção de Identidade e Redefinição de Senha, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
-7.  clique **em Perfil**.
+7.  clique em **perfil**.
 
 8.  Role a tela para baixo até **Informações de contato de autenticação**.
 
@@ -217,15 +217,15 @@ Para verificar as informações de contato de autenticação do usuário usadas 
 
 Para verificar as associações de grupo de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -235,15 +235,15 @@ Para verificar as associações de grupo de um usuário, siga estas etapas:
 
 Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
@@ -253,21 +253,21 @@ Para verificar as licenças atribuídas de um usuário, siga estas etapas:
 
 Para atribuir uma licença a um usuário, siga estas etapas:
 
-1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
+1.  Abra o [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global.**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique **em Usuários e grupos** no menu de navegação.
+4.  clique em **usuários e grupos** no menu de navegação.
 
-5.  clique em **Todos os usuários**.
+5.  clique em **todos os usuários**.
 
 6.  **Pesquise** pelo usuário no qual você está interessado e **clique na linha** para selecionar.
 
 7.  clique em **Licenças** para ver quais licenças o usuário atribuiu atualmente.
 
-8.  clique no botão **Atribuir.**
+8.  Clique no botão **atribuir** .
 
 9.  Selecione **um ou mais produtos** da lista de produtos disponíveis.
 

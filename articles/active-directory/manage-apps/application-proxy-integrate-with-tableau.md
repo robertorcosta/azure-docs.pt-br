@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65783859"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy e Tableau do Aplicativo do Azure Active Directory 
@@ -50,7 +50,7 @@ Para:
 **Para publicar seu aplicativo**: 
 
 
-1. Faça login no [portal Azure](https://portal.azure.com) como administrador de aplicativos. 
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de aplicativos. 
 
 2. Selecione **Azure Active Directory > Proxy de Aplicativo**. 
 
@@ -62,7 +62,7 @@ Para:
 
     - **URL interna**: Esse aplicativo deve ter um URL interno que seja o próprio URL do Tableau. Por exemplo, `https://adventure-works.tableau.com`. 
 
-    - **Método de pré-autenticação**: Diretório Ativo Azure (recomendado, mas não obrigatório). 
+    - **Método de pré-autenticação**: Azure Active Directory (recomendado, mas não obrigatório). 
 
 6. Selecione **Adicionar** na parte superior da folha. Seu aplicativo é adicionado e abre o menu de início rápido. 
 
@@ -70,11 +70,11 @@ Para:
 
 8. Selecione **Atribuir** para salvar a atribuição do usuário de teste. 
 
-9. (Opcional) Na folha de gerenciamento do aplicativo, selecione** Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Selecione **Salvar**. 
+9. (Opcional) Na folha de gerenciamento do aplicativo, selecione** Logon único**. Escolha **Delegação restrita de Kerberos** no menu suspenso e preencha os campos obrigatórios com base na sua configuração do Tableau. Clique em **Salvar**. 
 
  
 
-## <a name="testing"></a>Testes 
+## <a name="testing"></a>Testando 
 
 Seu aplicativo agora está pronto para teste. Acesse o URL externo que você usou para publicar o Tableau e faça o login como um usuário atribuído aos dois aplicativos.
 

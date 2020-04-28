@@ -8,15 +8,15 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61447570"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
-Este tutorial mostra como editar um dos [microserviços](https://azure.com/microservices) na solução de Monitoramento Remoto, construir uma imagem do seu microserviço, implantar a imagem no seu hub docker e usá-la na solução de Monitoramento Remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
+Este tutorial mostra como editar um dos [microserviços](https://azure.com/microservices) na solução de monitoramento remoto, criar uma imagem do seu microserviço, implantar a imagem no Hub do Docker e, em seguida, usá-la na solução de monitoramento remoto. Para apresentar este conceito, o tutorial usa um cenário básico em que você pode chamar uma API de microsserviço e alterar o status da mensagem de "Alive and Well" para "New Edits Made Here!"
 
 A solução de Monitoramento Remoto usa microsserviços que são criados usando imagens do docker que são extraídas de um hub do docker. 
 
@@ -148,7 +148,7 @@ Finalize reimplantando uma instância local da solução de Monitoramento Remoto
 
 ![Mensagem do Postman New Edits Made Here](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Solucionar problemas
 
 Se você estiver com problemas, tente remover as imagens do docker e os contêineres do computador local.
 

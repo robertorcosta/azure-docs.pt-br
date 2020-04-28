@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60242156"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: práticas recomendadas para alterar a configuração padrão
@@ -29,7 +29,7 @@ O objetivo deste tópico é descrever as alterações com e sem suporte para a s
 A configuração criada pelo Azure AD Connect funciona "da forma como é" para a maioria dos ambientes que sincronizam o Active Directory local com o AD do Azure. No entanto, em alguns casos, é necessário aplicar alterações a uma configuração para atender a uma necessidade ou requisito específico.
 
 ## <a name="changes-to-the-service-account"></a>Alterações na conta de serviço
-A sincronização do Azure AD Connect é executada em uma conta de serviço criada pelo assistente de instalação. Esta conta de serviço contém as chaves de criptografia do banco de dados usado sincronia. Ele é criado com uma senha longa de 127 caracteres e a senha está definida para não expirar.
+A sincronização do Azure AD Connect é executada em uma conta de serviço criada pelo assistente de instalação. Essa conta de serviço contém as chaves de criptografia para o banco de dados usado pela sincronização. Ele é criado com uma senha de 127 caracteres de comprimento e a senha é definida como não expirar.
 
 * **Não há suporte** para alteração ou redefinição da senha da conta de serviço. Isso destruirá as chaves de criptografia e o serviço não poderá acessar o banco de dados e iniciar.
 

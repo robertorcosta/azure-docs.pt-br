@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68965356"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar opções de transferência de dados do StorSimple com a Sincronização de Arquivos do Azure e Data Box Edge 
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
-Este documento fornece uma visão geral das opções de transferência de dados no local para o Azure, comparando: Data Box Edge vs. Azure File Sync vs. StorSimple 8000 series.
+Este documento fornece uma visão geral das opções de transferência de dados locais para o Azure, comparando: Data Box Edge vs. Sincronização de Arquivos do Azure vs. StorSimple 8000 Series.
 
 - **[Edge da caixa de dados](/azure/databox-online/data-box-edge-overview)** - O Data Box Edge é um dispositivo de rede local que move dados para dentro e fora do Azure e tem computação Edge habilitada para IA para pré-processar o upload de dataduring. O Data Box Gateway é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados.
 - **[Sincronização de arquivos do Azure](/azure/storage/files/storage-sync-files-deployment-guide)** - A Sincronização de Arquivos do Azure pode ser usado para centralizar os compartilhamentos de arquivos da organização em arquivos do Azure, mantendo a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. A disponibilidade geral da Sincronização de Arquivos do Azure foi anunciada anteriormente em 2018.

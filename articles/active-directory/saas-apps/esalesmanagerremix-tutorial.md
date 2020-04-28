@@ -17,10 +17,10 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65406967"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
@@ -33,7 +33,7 @@ Ao integrar o E Sales Manager Remix ao Microsoft Azure Active Directory, você o
 - Você pode permitir que seus usuários façam logon automaticamente no E Sales Manager Remix (Logon Único ou SSO) com as respectivas contas do Microsoft Azure Active Directory.
 - Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para saber mais sobre a integração do aplicativo SaaS com o Azure AD, veja [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ Para configurar a integração do Microsoft Azure Active Directory ao E Sales Ma
 
     ![O botão Azure Active Directory][1]
 
-1. Selecione **aplicativos Corporativos** > **Todos os aplicativos**.
+1. Selecione **aplicativos** > empresariais**todos os aplicativos**.
 
     ![A janela “Aplicativos empresariais”][2]
     
@@ -120,7 +120,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     A janela **Editar atributo** é aberta.
 
-1. Copie os valores **Namespace** e **Nome**. Gerar o valor no padrão * \<\<Namespace>/ Name>*, e guarde-o para uso posterior neste tutorial.
+1. Copie os valores **Namespace** e **Nome**. Gere o valor no namespace de padrão * \<>/\<Name>* e salve-o para uso posterior neste tutorial.
 
     ![A janela Editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -132,7 +132,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Na seção **Referência rápida**, copie a URL de saída e a URL do serviço de logon único do SAML.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     ![O botão Salvar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -142,7 +142,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![O comando "Menu Para o Administrador"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. No painel esquerdo, selecione **configurações** > do sistema**Cooperação com o sistema externo**.
+1. No painel esquerdo, selecione **configurações** > do sistema**cooperação com sistema externo**.
 
     ![Os links “Configurações do sistema” e “Cooperação com o sistema externo”](./media/esalesmanagerremix-tutorial/configure5.png)
     
@@ -171,7 +171,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     h. Selecione **Configuração concluída**.
 
 > [!TIP]
-> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo na seção **Active Directory** > **Enterprise Applications,** selecione a guia **Único de Logon** e, em seguida, acesse a documentação incorporada na seção **Configuração** na parte inferior. Para saber mais informações sobre o recurso de documentação inserida, consulte [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo na seção **Active Directory** > **aplicativos empresariais** , selecione a guia **logon único** e, em seguida, acesse a documentação inserida na seção **configuração** na parte inferior. Para saber mais informações sobre o recurso de documentação inserida, consulte [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -180,11 +180,11 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
 ![Criar um usuário de teste do Azure AD][100]
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Active Directory**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O link do Azure Active Directory](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Para exibir uma lista de usuários atuais, selecione **Usuários e grupos** > **Todos os usuários**.
+1. Para exibir uma lista de usuários atuais, selecione **usuários e grupos** > **todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
@@ -214,7 +214,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![Configuração do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selecione **as configurações** > da sua empresa**Manutenção de departamentos e funcionários**e, em seguida, selecione **Funcionários registrados**.
+1. Selecione **as configurações** > da sua empresa**manutenção de departamentos e funcionários**e, em seguida, selecione **funcionários registrados**.
 
     ![A guia "Funcionários registrados"](./media/esalesmanagerremix-tutorial/user1.png)
 
@@ -240,7 +240,7 @@ Nesta seção, você permite que o usuário Brenda Fernandes use o logon único 
 
 ![Atribuir a função de usuário][200] 
 
-1. No portal Azure, abra a exibição **Aplicativos,** vá para a exibição **diretório** e, em seguida, selecione **Aplicativos Corporativos** > **Todos os aplicativos**.
+1. Na portal do Azure, abra a exibição de **aplicativos** , vá para a exibição de **diretório** e, em seguida, selecione **aplicativos** > empresariais**todos os aplicativos**.
 
     ![Os links “Aplicativos empresariais” e “Todos os aplicativos”][201] 
 
@@ -248,7 +248,7 @@ Nesta seção, você permite que o usuário Brenda Fernandes use o logon único 
 
     ![O link do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. No painel esquerdo, selecione **Usuários e grupos**.
+1. No painel esquerdo, selecione **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
@@ -268,12 +268,12 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao selecionar no bloco do E Sales Manager Remix no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo E Sales Manager Remix.
 
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

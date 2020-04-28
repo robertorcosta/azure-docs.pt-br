@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67203151"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
@@ -51,7 +51,7 @@ Por padrão, o usuário que implantou a solução recebe automaticamente a funç
 
 Como um proprietário de aplicativo do Azure Active Directory Domain Services, você pode usar o portal do Azure para adicionar ou remover um usuário de uma função da solução de monitoramento remoto. As etapas a seguir usam o [Aplicativo corporativo do Azure Active Directory Domain Services](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criado quando você implantou a solução de monitoramento remoto.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Verifique o [usuário que está no diretório](../active-directory/fundamentals/add-users-azure-active-directory.md) que você está usando. Você escolheu o diretório a ser usado quando você entrou no site [Aceleradores de Solução de IoT do Microsoft Azure](https://www.azureiotsolutions.com/Accelerators) site. O nome do diretório estará visível no canto superior direito da [página](https://www.azureiotsolutions.com/Accelerators).
 
@@ -247,7 +247,7 @@ Neste artigo, você aprendeu que os controles são implementados no acelerador d
 
 Ver [configurar controles de acesso para o Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre como gerenciar o acesso para o Time Series Insights explorer no acelerador de solução de Monitoramento Remoto.
 
-Para obter informações mais conceituais sobre o acelerador de soluções de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para saber mais sobre como personalizar a solução de Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68728286"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
@@ -46,7 +46,7 @@ Ao iniciar o Threat Modeling Tool, você perceberá alguns itens, como pode ser 
 | **Botão Comentários, Sugestões e Problemas** | Direciona você para o **[Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** em relação a todos os assuntos sobre o SDL. Desse modo, você tem a oportunidade de saber o que os outros usuários estão fazendo, além de encontrar soluções alternativas e recomendações. Caso não encontre o que está procurando, envie um email para tmtextsupport@microsoft.com e nossa equipe de suporte ajudará você                                                                                                                            |
 | **Criar um modelo**                          | Abre uma tela em branco para desenhar seu diagrama. Não se esqueça de escolher o padrão que deseja usar no seu modelo                                                                                                                                                                                                                                                                                                                                                                       |
 | **Padrão para novos modelos**                 | Você deve escolher o padrão a ser usado antes de criar um modelo. Nosso modelo principal é Azure Threat Model Template, que contém estênceis, ameaças e mitigações específicos do Azure. Para modelos genéricos, escolha Base de Dados de Conhecimento de TM do SDL no menu suspenso. Deseja criar seu próprio modelo ou enviar um novo para todos os usuários? Confira nossa Página no GitHub, **[Repositório de Modelos](https://github.com/Microsoft/threat-modeling-templates)**, para saber mais                              |
-| **Abra um modelo**                            | <p>Abre modelos de ameaça salvos anteriormente. Caso você precise abrir os arquivos mais recentes, Modelos Abertos Recentemente é um excelente recurso. Ao passar o mouse sobre a seleção, você verá 2 maneiras de abrir modelos:</p><p><ul><li>Abrir deste Computador – modo clássico de abrir um arquivo usando o armazenamento local</li><li>Abrir do OneDrive – as equipes podem usar pastas no OneDrive para salvar e compartilhar seus modelos de ameaças em um único local, de modo a ajudar a aumentar a produtividade e a colaboração</li></ul></p> |
+| **Abrir um modelo**                            | <p>Abre modelos de ameaça salvos anteriormente. Caso você precise abrir os arquivos mais recentes, Modelos Abertos Recentemente é um excelente recurso. Ao passar o mouse sobre a seleção, você verá 2 maneiras de abrir modelos:</p><p><ul><li>Abrir deste Computador – modo clássico de abrir um arquivo usando o armazenamento local</li><li>Abrir do OneDrive – as equipes podem usar pastas no OneDrive para salvar e compartilhar seus modelos de ameaças em um único local, de modo a ajudar a aumentar a produtividade e a colaboração</li></ul></p> |
 | **Guia de Introdução**                   | Abre a página principal do **[Microsoft Threat Modeling Tool](threat-modeling-tool.md)**                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Seção do modelo

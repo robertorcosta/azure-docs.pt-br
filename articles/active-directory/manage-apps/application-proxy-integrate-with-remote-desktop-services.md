@@ -17,10 +17,10 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67108457"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
@@ -29,7 +29,7 @@ O Serviço de Área de Trabalho Remota e o Proxy de Aplicativo do Azure AD traba
 
 O público-alvo deste artigo é:
 - Os clientes atuais do Proxy de Aplicativo que desejam oferecer mais aplicativos para seus usuários finais publicando aplicativos locais através dos Serviços de Área de Trabalho Remota.
-- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Este cenário fornece um conjunto limitado de verificação em duas etapas e controles de acesso condicional ao RDS.
+- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Esse cenário fornece um conjunto limitado de verificação em duas etapas e controles de acesso condicional para RDS.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de aplicativo se ajusta na implantação do RDS padrão
 
@@ -58,7 +58,7 @@ Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a fun�
 
 - No Internet Explorer, habilite o complemento ActiveX do RDS.
 
-- Para o fluxo de pré-autenticação do Azure AD, os usuários só podem se conectar aos recursos publicados a eles no painel **RemoteApp e Desktops.** Os usuários não podem se conectar a uma área de trabalho usando o Connect a um painel **remoto do PC.**
+- Para o fluxo de pré-autenticação do Azure AD, os usuários podem se conectar somente aos recursos publicados neles no painel **RemoteApp e áreas de trabalho** . Os usuários não podem se conectar a uma área de trabalho usando o painel **conectar-se a um PC remoto** .
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implantar o cenário conjunto de RDS e Proxy de Aplicativo
 
@@ -73,16 +73,16 @@ Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, 
    - Converter cabeçalhos de URL: não
 2. Atribua usuários ao aplicativo de Área de Trabalho Remota publicado. Certifique-se também de que todos eles tenham acesso ao RDS.
 3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**. É solicitado aos usuários que autentiquem uma vez no Azure AD e uma vez para a Web da Área de Trabalho Remota, eles têm logon único para o Gateway de Área de Trabalho Remota.
-4. Selecione **o Azure Active Directory**e, em seguida, **registros de aplicativos**. Escolha seu aplicativo na lista.
-5. Em **Gerenciar,** selecione **Branding**.
-6. Atualize o **campo URL da página** inicial para `https://\<rdhost\>.com/RDWeb`apontar para o ponto final da Web RD (como ).
+4. Selecione **Azure Active Directory**e, em seguida, **registros do aplicativo**. Escolha seu aplicativo na lista.
+5. Em **gerenciar**, selecione **identidade visual**.
+6. Atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da `https://\<rdhost\>.com/RDWeb`Web da área de trabalho remota (como).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego do RDS para o Proxy de Aplicativo
 
 Conecte-se à implantação do RDS como administrador e altere o nome do servidor de Gateway de Área de Trabalho Remota para a implantação. Essa configuração garante que as conexões passem pelo serviço de Proxy de Aplicativo do Azure AD.
 
 1. Conecte-se ao servidor RDS executando a função de Agente de Conexão de Área de Trabalho Remota.
-2. Inicie o **Gerenciador do Servidor**.
+2. Iniciar **Gerenciador do servidor**.
 3. Selecione **Serviços de Área de Trabalho Remota** no painel à esquerda.
 4. Selecione **Visão geral**.
 5. Na seção Visão geral da implantação, selecione o menu suspenso e escolha **Editar propriedades de implantação**.
@@ -91,7 +91,7 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
 
    ![Tela Propriedades de Implantação no RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Execute este comando para cada coleção. Substitua * \<seu\> nome de coleção* e * \<proxyfrontendurl\> * por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
+8. Execute este comando para cada coleção. Substitua * \<yourcollectionname\> * *e \<proxyfrontendurl\> * por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -129,7 +129,7 @@ A configuração descrita neste artigo é para usuários no Windows 7 ou 10, com
 | Pré-autenticação    | Windows 7/10 usando o Internet Explorer + complemento ActiveX do RDS |
 | Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
 
-O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode usar recursos de autenticação do Azure AD, como logon único, acesso condicional e verificação em duas etapas para seus recursos no local. Você também pode garantir que somente tráfego autenticado alcance sua rede.
+O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode usar os recursos de autenticação do Azure AD, como logon único, acesso condicional e verificação em duas etapas para seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
 
 Para usar a autenticação de passagem, há apenas duas modificações às etapas listadas neste artigo:
 1. Na etapa 1, [Publicar o ponto de extremidade do host de RD](#publish-the-rd-host-endpoint), defina o método de pré-autenticação como **Passagem**.

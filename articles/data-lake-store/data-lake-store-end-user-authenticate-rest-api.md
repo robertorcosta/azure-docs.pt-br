@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60877815"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de usuário final com o Azure Data Lake Storage Gen1 usando a API REST
@@ -31,11 +31,11 @@ Neste artigo, você aprende sobre como usar a API REST para fazer a autenticaç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar um aplicativo "Nativo" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação de usuário final com Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Data Lake Storage Gen1.
+* **[ondulação](https://curl.haxx.se/)**. Este artigo usa cURL para demonstrar como fazer chamadas à API REST em uma conta do Data Lake Storage Gen1.
 
 ## <a name="end-user-authentication"></a>Autenticação do usuário final
 A autenticação do usuário final é a abordagem recomendada caso você queira que um usuário entre em seu aplicativo usando o Azure AD. Seu aplicativo será capaz de acessar recursos do Azure com o mesmo nível de acesso do usuário que fez logon. O usuário precisará fornecer as respectivas credenciais periodicamente para que o aplicativo mantenha o acesso.
@@ -86,6 +86,6 @@ Para obter mais informações sobre a autenticação interativa de usuário, con
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a usar a autenticação de serviço a serviço para se autenticar no Armazenamento de Dados do Azure Data Lake usando a API REST. Agora você pode examinar os artigos a seguir que falam sobre como usar a API REST para trabalhar com o Armazenamento de dados do Windows Azure Gen1.
 
-* [Operações de gerenciamento de contas no Data Lake Storage Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
+* [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando a API REST](data-lake-store-get-started-rest-api.md)
 * [Operações de dados no Data Lake Storage Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md)
 

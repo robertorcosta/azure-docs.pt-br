@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66473794"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADConnectivityTools
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIPTION
 
 Executa testes de conectividade de DNS local.
-Para configurar o conector Active Directory, o usuário deve ter tanto a resolução de nomes para a floresta a que está tentando se conectar, bem como nos controladores de domínio associados a esta floresta.
+Para configurar o conector de Active Directory, o usuário deve ter a resolução de nome para a floresta à qual está tentando se conectar, bem como nos controladores de domínio associados a essa floresta.
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se o usuário não estiver usando os serviços DeD fornecidos pelo Site AD / Logon DC, então ele pode querer pular a porta de verificação 53.
-O usuário ainda deve ser capaz de resolver _.ldap._tcp. \<forestfqdn\> para que a configuração do Conector de Diretório Ativo tenha sucesso.
+Se o usuário não estiver usando os serviços DNS fornecidos pelo DC de logon/site do AD, talvez desejam ignorar a verificação da porta 53.
+O usuário ainda deve ser capaz de resolver _. LDAP. _tcp. \<forestfqdn\> para que a configuração do conector de Active Directory seja realizada com sucesso.
 
 ```yml
 Type: SwitchParameter

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71213009"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Como enviar notificações agendadas
@@ -30,7 +30,7 @@ Se você tiver um cenário no qual deseja enviar uma notificação em algum mome
 
 
 ## <a name="schedule-your-notifications"></a>Agendar notificações
-Ao enviar uma notificação, [ `ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) basta usar a classe no SDK de hubs de notificação, conforme mostrado no exemplo a seguir:
+Ao enviar uma notificação, basta usar a [ `ScheduledNotification` classe](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) no SDK dos hubs de notificação, conforme mostrado no exemplo a seguir:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
@@ -54,4 +54,4 @@ Consulte os seguintes tutoriais:
  - [Notificações por push para dispositivos específicos](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [Notificações localizadas por push](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
  - [Notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
- - [Notificações por push com base no local](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+ - [Notificações por push baseadas em localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

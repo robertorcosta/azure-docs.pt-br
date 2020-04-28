@@ -1,5 +1,5 @@
 ---
-title: Criar & consulta Azure Data Lake Analytics - PowerShell
+title: Criar & consulta Azure Data Lake Analytics-PowerShell
 description: Use o Azure PowerShell para criar uma conta do Azure Data Lake Analytics e envie um trabalho do U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,17 +9,17 @@ ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.openlocfilehash: 8b176434ce450382cc6463e7d21d341a74581ed8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71316603"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Saiba como usar o Azure PowerShell para criar contas do Azure Data Lake Analytics e, em seguida, enviar e executar trabalhos do U-SQL. Para obter mais informações sobre o Data Lake Analytics, consulte [a visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Saiba como usar o Azure PowerShell para criar contas do Azure Data Lake Analytics e, em seguida, enviar e executar trabalhos do U-SQL. Para obter mais informações sobre Data Lake Analytics, consulte [Azure data Lake Analytics visão geral](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Saiba como usar o Azure PowerShell para criar contas do Azure Data Lake Analytic
 Antes de começar este tutorial, você deve ter as seguintes informações:
 
 * **Uma conta da Análise Azure Data Lake**. Veja [Introdução ao Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Uma estação de trabalho com o Azure PowerShell**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+* **Uma estação de trabalho com Azure PowerShell**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

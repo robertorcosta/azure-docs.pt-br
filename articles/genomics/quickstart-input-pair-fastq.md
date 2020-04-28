@@ -1,7 +1,7 @@
 ---
 title: Enviar um fluxo de trabalho usando entradas do arquivo FASTQ
 titleSuffix: Microsoft Genomics
-description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seus arquivos de entrada forem um único par de arquivos FASTQ.
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se os arquivos de entrada forem um único par de arquivos FASTQ.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 3806b165e5abb661e53c6a315650d025fd42e17f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72248552"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Enviar um fluxo de trabalho usando entradas de arquivo FASTQ no Microsoft Genomics
 
-Este artigo demonstra como enviar um fluxo de trabalho para o serviço Microsoft Genomics se seus arquivos de entrada forem um único par de arquivos FASTQ. Este tópico pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você tiver enviado com sucesso um fluxo de trabalho usando os dados de amostra fornecidos, você está pronto para prosseguir com este artigo. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se os arquivos de entrada forem um único par de arquivos FASTQ. Este tópico pressupõe que você já instalou e executou o cliente `msgen` e está familiarizado sobre como usar o Armazenamento do Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
 
 ## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Configurar: carregar seu arquivo FASTQ no armazenamento do Azure
 Vamos pressupor que você tem dois arquivos, *reads_1.fq.gz* e *reads_2.fq.gz* e que você os carregou na conta de armazenamento *myaccount* no Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** e **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>**. Você tem a URL da API e sua chave de acesso. Você deseja ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Envie o arquivo `config.txt` com esta invocação: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você carregou um par de arquivos FASTQ no Armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre o envio de fluxo de trabalho e outros comandos que você pode usar com o serviço Microsoft Genomics, consulte nossa [FAQ](frequently-asked-questions-genomics.md). 
+Neste artigo, você carregou um par de arquivos FASTQ no Armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre o envio de fluxo de trabalho e outros comandos que você pode usar com o serviço Microsoft Genomics, consulte nossas [perguntas frequentes](frequently-asked-questions-genomics.md). 

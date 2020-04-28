@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71057980"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível se conectar remotamente a uma máquina virtual Windows Server 2016 no Azure por causa de netvsc.sys.
@@ -25,7 +25,7 @@ Este artigo explica como solucionar um problema em que não há nenhuma conexão
 
 ## <a name="symptoms"></a>Sintomas
 
-Não é possível conectar-se a um VM Do Zure Windows 10 ou Windows Server 2016 usando rdp (Remote Desktop Protocol, protocolo de desktop remoto). Em [Diagnósticos de inicialização](boot-diagnostics.md), a tela mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isso indica que a VM tem sem conectividade depois que o sistema operacional está totalmente carregado.
+Você não pode se conectar a uma VM do Windows 10 ou Windows Server 2016 do Azure usando protocolo RDP (RDP). Em [Diagnósticos de inicialização](boot-diagnostics.md), a tela mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isso indica que a VM tem sem conectividade depois que o sistema operacional está totalmente carregado.
 
 Normalmente, esse problema ocorre no Windows [build 14393](https://support.microsoft.com/help/4093120/) e [build 15063](https://support.microsoft.com/help/4015583/). Se a versão do seu sistema operacional é posterior a essas versões, este artigo não se aplica ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD no [recurso do Serial Access Console](serial-console-windows.md)e, em seguida, execute **Ver**.
 
@@ -36,7 +36,7 @@ Esse problema pode ocorrer se for a versão do arquivo do sistema instalados net
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir essas etapas, [faça um instantâneo do disco do sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como backup. Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do sistema da VM a um VM de recuperação.
+Antes de seguir estas etapas, [tire um instantâneo do disco do sistema](../windows/snapshot-copy-managed-disk.md) da VM afetada como um backup. Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do sistema da VM a um VM de recuperação.
 
 
 ### <a name="use-the-serial-console"></a>Usar o Serial Console
@@ -79,7 +79,7 @@ Conectar-se ao [o Console Serial, abra uma instância do PowerShell](serial-cons
 
 5. Na VM de resgate, inicie o Editor do Registro (regedit.exe).
 
-6. Selecione a **tecla HKEY_LOCAL_MACHINE** e selecione **'Colmeia de carga** de **arquivos'** > no menu.
+6. Selecione a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
 7. Localize o arquivo SYSTEM na pasta **\Windows\System32\config**.
 

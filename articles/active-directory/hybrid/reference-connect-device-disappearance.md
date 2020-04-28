@@ -1,6 +1,6 @@
 ---
-title: Entendendo o Azure AD Connect 1.4.xx.x e o desaparecimento do dispositivo | Microsoft Docs
-description: Este documento descreve um problema que surge com a versão 1.4.xx.x do Azure AD Connect
+title: Entendendo Azure AD Connect 1.4. XX. x e desaparecem o dispositivo | Microsoft Docs
+description: Este documento descreve um problema que surge com a versão 1.4. XX. x de Azure AD Connect
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,38 +11,38 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73176032"
 ---
-# <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Entendendo o Azure AD Connect 1.4.xx.x e o desaparecimento do dispositivo
-Com a versão 1.4.xx.x do Azure AD Connect, alguns clientes podem ver alguns ou todos os seus dispositivos Windows desaparecerem do Azure AD. Isso não é motivo de preocupação, pois essas identidades de dispositivos não são usadas pelo Azure AD durante a autorização de acesso condicional. Essa alteração não excluirá nenhum dispositivo Windows que tenha sido corretamente registrado no Azure AD para Hybrid Azure AD Join.
+# <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Entendendo Azure AD Connect 1.4. XX. x e desaparecem o dispositivo
+Com a versão 1.4. XX. x de Azure AD Connect, alguns clientes podem ver que alguns ou todos os seus dispositivos Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo não são usadas pelo AD do Azure durante a autorização de acesso condicional. Essa alteração não excluirá nenhum dispositivo Windows registrado corretamente com o Azure AD para ingresso híbrido no Azure AD.
 
-Se você vir a exclusão de objetos do dispositivo no Azure AD excedendo o Limite de Exclusão de Exportação, é aconselhável que o cliente permita que as exclusões passem. [Como: permitir que as exclusões fluam quando excedem o limite de exclusão](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+Se você vir a exclusão de objetos de dispositivo no Azure AD excedendo o limite de exclusão de exportação, é recomendável que o cliente permita que as exclusões passem. [Como: permitir que as exclusões fluam quando excederem o limite de exclusão](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
-## <a name="background"></a>Segundo plano
-Os dispositivos Windows registrados como Hybrid Azure AD Joined são representados no Azure AD como objetos de dispositivo. Esses objetos do dispositivo podem ser usados para acesso condicional. Os dispositivos Windows 10 são sincronizados com a nuvem via Azure AD Connect, os dispositivos Windows de nível baixo são registrados diretamente usando AD FS ou logon único sem emendas.
+## <a name="background"></a>Tela de fundo
+Os dispositivos Windows registrados como ingressados no Azure AD híbrido são representados no Azure AD como objetos de dispositivo. Esses objetos de dispositivo podem ser usados para acesso condicional. Os dispositivos Windows 10 são sincronizados com a nuvem por meio de Azure AD Connect, os dispositivos Windows de nível inferior são registrados diretamente usando AD FS ou logon único contínuo.
 
 ## <a name="windows-10-devices"></a>Dispositivos Windows 10
-Apenas dispositivos Windows 10 com um valor de atributo de usuário específico configurado pelo Hybrid Azure AD Join devem ser sincronizados na nuvem pelo Azure AD Connect. Nas versões anteriores do Azure AD Connect, esse requisito não foi rigorosamente aplicado, resultando em objetos desnecessários do dispositivo no Azure AD. Tais dispositivos no Azure AD sempre permaneceram no estado "pendente" porque esses dispositivos não tinham a intenção de ser registrados no Azure AD. 
+Somente dispositivos Windows 10 com um valor de atributo usercertificar específico configurado pelo ingresso híbrido do Azure AD devem ser sincronizados com a nuvem pelo Azure AD Connect. Em versões anteriores do Azure AD Connect esse requisito não era rigorosamente imposto, resultando em objetos de dispositivo desnecessários no Azure AD. Esses dispositivos no Azure AD sempre permaneceram no estado "pendente" porque esses dispositivos não se destinam a serem registrados com o Azure AD. 
 
-Esta versão do Azure AD Connect só sincronizará dispositivos do Windows 10 que estão configurados corretamente para serem O AD Híbrido Azure. Objetos do dispositivo Windows 10 sem o Azure AD se juntar em usuário específicoCertificado será removido do Azure AD.
+Esta versão do Azure AD Connect sincronizará somente dispositivos Windows 10 que estão configurados corretamente para serem ingressados no Azure AD híbrido. Os objetos de dispositivo do Windows 10 sem o ingresso do Azure AD específico de userCertificate serão removidos do Azure AD.
 
-## <a name="down-level-windows-devices"></a>Dispositivos Windows de baixo nível
-O Azure AD Connect nunca deve estar sincronizando [dispositivos Windows de nível baixo](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Todos os dispositivos no Azure AD sincronizados incorretamente serão excluídos do Azure AD. Se o Azure AD Connect está tentando excluir [dispositivos Windows de nível baixo,](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)então o dispositivo não é o que foi criado pelo Microsoft Workplace Join para [computadores não Windows 10 MSI](https://www.microsoft.com/download/details.aspx?id=53554) e não pode ser consumido por qualquer outro recurso do Azure AD.
+## <a name="down-level-windows-devices"></a>Dispositivos Windows de nível inferior
+Azure AD Connect nunca deve estar sincronizando [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Todos os dispositivos no Azure AD anteriormente sincronizados incorretamente agora serão excluídos do Azure AD. Se Azure AD Connect estiver tentando excluir [dispositivos Windows de nível inferior](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices), o dispositivo não será aquele que foi criado pelo [Microsoft Workplace Join para MSI de computadores não Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) e não poderá ser consumido por nenhum outro recurso do Azure AD.
 
-Alguns clientes podem precisar revisitar [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) to get their Windows devices registercorrect correctly and ensure that such devices can full a device-based Conditional Access. 
+Alguns clientes talvez precisem revisitar [como: planejar sua implementação de junção de Azure Active Directory híbrida](../devices/hybrid-azuread-join-plan.md) para colocar seus dispositivos Windows registrados corretamente e garantir que esses dispositivos possam participar totalmente do acesso condicional com base no dispositivo. 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>Como posso verificar quais dispositivos são excluídos com esta atualização?
 
-Para verificar quais dispositivos estão excluídos, você pode usar este script PowerShell:https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+Para verificar quais dispositivos são excluídos, você pode usar este script do PowerShell:https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
 
-Esse script gera um relatório sobre certificados armazenados em objetos do Active Directory Computer, especificamente, certificados emitidos pelo recurso de adesão do Hybrid Azure AD.
-Ele verifica os certificados presentes na propriedade UserCertificate de um objeto de Computador em AD e, para cada certificado não expirado presente, valida se o certificado foi emitido para o recurso de adesão do Azure AD híbrido (ou seja, O Nome do Assunto corresponde a CN={ObjectGUID}).
-Antes, o Azure AD Connect sincronizaria com o Azure AD qualquer computador que contivesse pelo menos um certificado válido, mas a partir da versão 1.4 do Azure AD Connect, o mecanismo de sincronização pode identificar certificados de adesão do Hybrid Azure AD e 'filtrar' a nuvem objeto de computador de sincronização com Azure AD, a menos que haja um certificado de adesão a adesão a azure híbrido válido.
-Os dispositivos Azure AD que já estavam sincronizados com a AD, mas não possuem um certificado de adesão a AD híbrido válido serão excluídos (CloudFiltered=TRUE) pelo mecanismo de sincronização.
+Esse script gera um relatório sobre certificados armazenados em Active Directory objetos de computador, especificamente, certificados emitidos pelo recurso de ingresso híbrido do Azure AD.
+Ele verifica os certificados presentes na propriedade userCertificate de um objeto Computer no AD e, para cada certificado não expirado presente, valida se o certificado foi emitido para o recurso de ingresso híbrido do Azure AD (ou seja, o nome da entidade corresponde a CN = {objectGUID}).
+Antes, Azure AD Connect seria sincronizado com o Azure AD qualquer computador que continha pelo menos um certificado válido, mas começando na versão 1,4 do Azure AD Connect, o mecanismo de sincronização pode identificar certificados de ingresso do Azure AD híbridos e ' cloudfilter ' o objeto de computador da sincronização para o Azure AD, a menos que haja um certificado de ingresso híbrido do Azure AD válido.
+Os dispositivos do Azure AD que já foram sincronizados com o AD, mas que não têm um certificado de ingresso híbrido do Azure AD válido serão excluídos (CloudFiltered = TRUE) pelo mecanismo de sincronização.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Histórico da versão do Azure AD Connect](reference-connect-version-history.md)
+- [Histórico de versão do Azure AD Connect](reference-connect-version-history.md)

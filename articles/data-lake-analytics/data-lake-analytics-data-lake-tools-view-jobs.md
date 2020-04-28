@@ -1,5 +1,5 @@
 ---
-title: Use Job Browser & Job View - Azure Data Lake Analytics
+title: Usar o navegador de trabalhos & exibição de trabalho-Azure Data Lake Analytics
 description: Este artigo descrever como usar o Navegador de Trabalhos e a Exibição de Trabalho para trabalhos do Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309943"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para o Azure Data Lake Analytics
@@ -111,7 +111,7 @@ A Exibição de Trabalho contém:
   * Duração: o tempo que leva um estágio, você precisará carregar o perfil para ver esse valor.
   * Reprodução do Trabalho
     
-      Data Lake Analytics executa trabalhos e arquiva os vértices executando informações dos trabalhos, como quando os vértices são iniciados, parados, fracassados e como eles são repetidos, etc. Todas as informações são automaticamente registradas na loja de consultas e armazenadas em seu Perfil de Trabalho. Você pode baixar o Perfil de Trabalho por meio de "Carregar Perfil" na Exibição de Trabalho, além de poder exibir a Reprodução de Trabalho depois de baixar o Perfil de Trabalho.
+      Data Lake Analytics executa trabalhos e arquiva as informações de execução dos vértices dos trabalhos, como quando os vértices são iniciados, interrompidos, com falha e como são repetidos etc. Todas as informações são registradas automaticamente no repositório de consultas e armazenadas em seu perfil de trabalho. Você pode baixar o Perfil de Trabalho por meio de "Carregar Perfil" na Exibição de Trabalho, além de poder exibir a Reprodução de Trabalho depois de baixar o Perfil de Trabalho.
     
       A Reprodução de Trabalho é uma visualização representativa do que aconteceu no cluster. Ela ajuda você a assistir ao andamento da execução do trabalho e detecte visualmente os gargalos e anomalias no desempenho em um tempo muito curto (geralmente menos de 30s).
   * Exibição de Mapa de Calor do Trabalho 
@@ -131,7 +131,7 @@ A Exibição de Trabalho contém:
     * Taxa de transferência de entrada/saída: o mapa de calor da taxa de transferência de entrada/saída de cada estágio; com isso, você pode confirmar se o seu trabalho é um trabalho associado a E/S.
 * Operações de Metadados
   
-    Você pode executar algumas operações de metadados em seu script U-SQL, como criar um banco de dados, soltar uma tabela, etc. Essas operações são mostradas na Operação Metadados após compilação. Aqui você pode encontrar asserções, além de criar e remover entidades.
+    Você pode executar algumas operações de metadados em seu script U-SQL, como criar um banco de dados, remover uma tabela etc. Essas operações são mostradas na operação de metadados após a compilação. Aqui você pode encontrar asserções, além de criar e remover entidades.
   
     ![Operações de metadados de Exibição de Trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Histórico de Estado
@@ -139,7 +139,7 @@ A Exibição de Trabalho contém:
     O Histórico de Estado também é visualizado no Resumo do Trabalho, mas você pode obter mais detalhes aqui. Você pode encontrar informações mais detalhadas, por exemplo, quando o trabalho é preparado, colocado na fila, quando inicia a execução e quando encerra. Também é possível encontrar quantas vezes o trabalho foi compilado (o CcsAttempts: 1), quando o trabalho é realmente expedido para o cluster (o Detalhe: expedindo o trabalho para cluster), etc.
   
     ![Histórico de Estado de Exibição de Trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
-* Diagnósticos
+* Diagnóstico
   
     A ferramenta diagnostica automaticamente a execução do trabalho. Você receberá alertas quando houver algum erro ou problemas de desempenho em seus trabalhos. Observe que você precisa baixar o Perfil para obter informações completas aqui. 
   
@@ -155,7 +155,7 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
 
 ![Detalhes do trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
-* Script
+* script
   
     O script U-SQL do trabalho é armazenado no repositório de consultas. Você pode exibir o script U-SQL original e reenviá-lo se necessário.
 * Recursos
@@ -163,10 +163,10 @@ Detalhes do Trabalho mostra as informações detalhadas do trabalho, incluindo o
     Você pode encontrar as saídas de compilação de trabalho armazenadas no repositório de consultas por meio de Recursos. Por exemplo, você pode encontrar aqui o "algebra.xml", que é usado para mostrar o Grafo do Trabalho, os assemblies que você registrou, etc.
 * Modo de exibição de execução de vértice
   
-    Mostra detalhes de execução de vértices. O Perfil de Trabalho arquiva todos os registros de execução de vértices, como dados totais lidos/escritos, tempo de execução, estado, etc. Através desta visão, você pode obter mais detalhes sobre como um trabalho correu. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Mostra detalhes de execução de vértices. O perfil de trabalho arquiva cada log de execução de vértice, como total de leitura/gravação de dados, tempo de execução, estado, etc. Por meio dessa exibição, você pode obter mais detalhes sobre como um trabalho foi executado. Para obter mais informações, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para registrar informações de diagnóstico, consulte [Acessar registros de diagnósticos do Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+* Para registrar em log informações de diagnóstico, consulte [acessando logs de diagnóstico para Azure data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar logs de site usando a Análise Data Lake do Azure](data-lake-analytics-analyze-weblogs.md).
 * Para usar o modo de exibição de execução de vértice, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

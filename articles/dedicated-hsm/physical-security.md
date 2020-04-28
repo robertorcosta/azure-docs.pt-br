@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70881033"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Segurança física do HSM dedicado do Azure
@@ -58,5 +58,5 @@ Recomenda-se que todos os principais conceitos do serviço, como alta disponibil
 * [Alta disponibilidade](high-availability.md)
 * [Rede](networking.md)
 * [Capacidade de suporte](supportability.md)
-* <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>Monitoramento<ept i="1000001">&lt;b}</ept>
+* [Monitoring](monitoring.md)
 * [Arquitetura de implantação](deployment-architecture.md)

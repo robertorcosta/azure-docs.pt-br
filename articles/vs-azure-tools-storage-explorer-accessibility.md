@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60457228"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Gerenciador de Armazenamento
@@ -29,9 +29,9 @@ O Gerenciador de Armazenamento dá suporte ao uso de um leitor de tela no Window
 
 Plataforma | Leitor de tela
 ---------|--------------
-Windows  | Nvda
+Windows  | NVDA
 Mac      | Voice over
-Linux    | (leitores de tela não são suportados no Linux)
+Linux    | (os leitores de tela não têm suporte no Linux)
 
 Se você tiver um problema de acessibilidade ao usar o Gerenciador de Armazenamento, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -43,15 +43,15 @@ Você pode ampliar o texto no Gerenciador de Armazenamento usando o recurso de a
 
 A configuração de zoom aumenta o tamanho da maioria dos elementos de interface do usuário. É recomendável também habilitar texto grande e ampliar as configurações para seu sistema operacional para garantir que todos os elementos de interface do usuário são dimensionados corretamente.
 
-## <a name="high-contrast-themes"></a>Temas de alto contraste
+## <a name="high-contrast-themes"></a>Temas de Alto Contraste
 
-O Gerenciador de Armazenamento tem dois temas de alto contraste, **Alto Contraste Claro** e **Alto Contraste Escuro**. Você pode alterar seu tema selecionando no menu Ajuda > Temas.
+O Gerenciador de Armazenamento tem dois temas de alto contraste, **Alto Contraste Claro** e **Alto Contraste Escuro**. Você pode alterar seu tema selecionando no no menu ajuda > temas.
 
 ![Submenu Temas][1]
 
 A configuração de tema altera a cor da maioria dos elementos de interface do usuário. É recomendável habilitar também o tema de alto contraste correspondente do seu sistema operacional para garantir que todos os elementos de interface do usuário sejam coloridos corretamente.
 
-## <a name="shortcut-keys"></a>Teclas de atalho
+## <a name="shortcut-keys"></a>Teclas de Atalho
 
 ### <a name="window-commands"></a>Comandos de janela
 
@@ -80,18 +80,18 @@ Editor anterior        | **Control+Page Up**
 
 Comando  | Atalho do teclado
 ---------|------------------
-Ampliar  | **Controle+=**
-Reduzir | **Controle+-**
+Ampliar  | **Controle + =**
+Reduzir | **Controle +-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandos do Editor de compartilhamento de arquivo e blob
 
 Comando | Atalho do teclado
 --------|--------------------
-Voltar    | **Alt+Seta esquerda**
-Avançar | **Alt+Seta direita**
+Voltar    | **Alt + seta para esquerda**
+Avançar | **Alt + seta para a direita**
 Para cima      | **Alt+Up Arrow**
 
-### <a name="editor-commands"></a>Comandos do Editor
+### <a name="editor-commands"></a>Comandos do editor
 
 Comando | Atalho do teclado
 --------|------------------
@@ -105,7 +105,7 @@ Atualizar  | **Control+R**
 Comando                | Atalho do teclado
 -----------------------|------------------
 Alterar ferramentas para desenvolvedores | **F12**
-Recarregar                 | **Alt+Control+R**
+Recarregar                 | **Alt + Control + R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

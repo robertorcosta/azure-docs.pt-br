@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65900868"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gerenciamento de conta no Armazenamento de Data Lake do Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [SDK .NET](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -32,26 +32,26 @@ Neste artigo, você aprenderá a executar operações de gerenciamento de conta 
 Para obter instruções sobre como executar operações de gerenciamento de dados no Data Lake Storage Gen1 usando o .NET SDK, consulte [Operações do sistema de arquivos no Data Lake Storage Gen1 usando o .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Visual Studio 2013 ou superior**. As instruções abaixo usam Visual Studio 2019.
+* **Visual Studio 2013 ou superior**. As instruções abaixo usam o Visual Studio 2019.
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Criar um aplicativo .NET
-1. No Visual Studio, selecione o menu **Arquivo,** **Novo**e, em seguida, **Projeto**.
-2. Escolha **o aplicativo de console (.NET Framework)** e selecione **Next**.
+1. No Visual Studio, selecione o menu **arquivo** , **novo**e **projeto**.
+2. Escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 3. Em **Nome do projeto**, digite `CreateADLApplication` e, em seguida, selecione **Criar**.
 
 4. Adicione os pacotes NuGet ao seu projeto.
 
    1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
-   2. Na guia **NuGet Package Manager,** certifique-se de que a **fonte do pacote** está definida como **nuget.org** e que a caixa de seleção **de pré-lançamento** include está selecionada.
+   2. Na guia **Gerenciador de pacotes NuGet** , verifique se a **origem do pacote** está definida como **NuGet.org** e se a caixa de seleção **incluir pré-lançamento** está marcada.
    3. Procure e instale os seguintes pacotes NuGet:
 
       * `Microsoft.Azure.Management.DataLake.Store` - este tutorial usa a versão 2.1.3-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial usa a versão v2.2.12.
 
-        ![Adicione uma fonte NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Crie uma nova conta do Azure Data Lake")
-   4. Feche o **NuGet Package Manager**.
+        ![Adicionar uma origem do NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta de Azure Data Lake")
+   4. Feche o **Gerenciador de pacotes NuGet**.
 5. Abra **Program.cs**, exclua o código existente e inclua as instruções a seguir para adicionar referências aos namespaces.
 
         using System;

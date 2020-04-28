@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60400864"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Visão geral do gerenciamento de dispositivos com o Hub IoT
@@ -55,15 +55,15 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
 
 * **Planejamento**: permita que os operadores criem um esquema de metadados de dispositivo que os possibilite consultar de forma fácil e precisa e selecionar um grupo de dispositivos para operações de gerenciamento em massa. Você pode usar o gêmeo de dispositivo para armazenar metadados de dispositivo na forma de marcas e propriedades.
   
-    *Leitura suplementar:* 
-    * [Comece com gêmeos de dispositivo](iot-hub-node-node-twin-getstarted.md)
+    *Leitura adicional*: 
+    * [Introdução a dispositivos gêmeos](iot-hub-node-node-twin-getstarted.md)
     * [Entender os dispositivos gêmeos](iot-hub-devguide-device-twins.md)
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
 * **Provisionar**: provisionar novos dispositivos para o Hub IoT e habilitar operadores descobrir imediatamente os recursos do dispositivo com segurança.  Use o Registro de identidade do Hub IoT para criar as credenciais e identidades flexíveis de dispositivos e executar essa operação em massa usando um trabalho. Crie dispositivos para relatar seus recursos e condições por meio de propriedades do dispositivo no twin de dispositivo.
   
-    *Leitura suplementar:* 
+    *Leitura adicional*: 
     * [Gerenciar identidades do dispositivo](iot-hub-devguide-identity-registry.md)
     * [Gerenciamento em massa de identidades de dispositivo](iot-hub-bulk-identity-mgmt.md)
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
@@ -72,22 +72,22 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
 
 * **Configurar**: facilite as alterações de configuração em massa e atualizações de firmware em dispositivos enquanto mantém a integridade e a segurança. Execute essas operações de gerenciamento de dispositivo em massa usando propriedades desejadas ou com trabalhos de difusão e métodos diretos.
   
-    *Leitura suplementar:*
+    *Leitura adicional*:
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
     * [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
 * **Monitor**: monitorar a integridade geral da coleção de dispositivos, o status das operações em andamento e alertar os operadores para problemas que podem exigir a atenção.  Aplique o twin de dispositivo para permitir que dispositivos relatem condições operacionais em tempo real e o status de operações de atualização. Crie poderosos relatórios de painel que indicam os problemas mais imediatos por meio de consultas ao twin de dispositivo.
   
-    *Leitura suplementar:* 
+    *Leitura adicional*: 
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
     * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
     * [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md)
     * [Práticas recomendadas para configuração do dispositivo em uma solução de IoT](iot-hub-configuration-best-practices.md)
 
-* **Retire:** Substitua ou descomissione dispositivos após uma falha, ciclo de atualização ou no final da vida útil do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
+* **Desativar**: substituir ou encerrar dispositivos após uma falha, ciclo de atualização ou no final do tempo de vida do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
   
-    *Leitura suplementar:* 
+    *Leitura adicional*: 
     * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
     * [Gerenciar identidades do dispositivo](iot-hub-devguide-identity-registry.md)
 

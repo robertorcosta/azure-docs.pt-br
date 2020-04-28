@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71213198"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações por push com os Hubs de Notificação do Azure e o Node.js
@@ -82,7 +82,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenha o valor `connectionstring` de conexão do [portal do Azure] executando as seguintes etapas:
 
 1. No painel de navegação esquerdo, clique em **Procurar**.
-2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar o tutorial do [Windows Store Getting Started](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda para criar um novo Centro de Notificação.
+2. Selecione **Hubs de Notificação**e localize o hub que você deseja usar no exemplo. Você pode consultar o [tutorial de introdução da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) se precisar de ajuda com a criação de um novo hub de notificação.
 3. Selecione **Configurações**.
 4. Clique em **Políticas de Acesso**. Você verá as duas cadeias de conexão de acesso compartilhado e completo.
 
@@ -108,7 +108,7 @@ O objeto `GcmService` fornece um método `send` que pode ser usado para enviar n
 - **Payload** : o JSON ou o conteúdo bruto de cadeia de caracteres da mensagem.
 - **Callback** : a função de retorno de chamada.
 
-Para obter mais informações sobre o formato de carga útil, consulte a [documentação de carga](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Para obter mais informações sobre o formato da carga, consulte a [documentação da carga](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 O código a seguir usa a instância `GcmService` exposta por `NotificationHubService` para enviar uma notificação por push para todos os clientes registrados.
 
@@ -154,7 +154,7 @@ O objeto `MpnsService` fornece um método `send` que pode ser usado para enviar 
 
 - **Tags** : o identificador da etiqueta. Se nenhuma marca for fornecida, a notificação será enviada a todos os clientes.
 - **Payload** : o conteúdo XML da mensagem.
-- **Nome alvo**  -  `toast` para notificações de brindes. `token` para notificações de bloco.
+- **TargetName** -  TargetName`toast` para notificações do sistema. `token` para notificações de bloco.
 - **NotificationClass** : a prioridade da notificação. Veja a seção **Elementos de cabeçalhos HTTP** do documento [Notificações por push de um servidor](https://msdn.microsoft.com/library/hh221551.aspx) para obter os valores válidos.
 - **Options** : cabeçalhos de solicitação opcionais.
 - **Callback** : a função de retorno de chamada.
@@ -202,7 +202,7 @@ Os snippets de código de exemplo acima permitem que você crie com facilidade a
 - Veja a Referência do MSDN para os [Hubs de Notificação do Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 - Visite o repositório [SDK do Azure para o Node] no GitHub para obter mais exemplos e detalhes de implementação.
 
-[SDK do Azure para o Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[SDK do Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
 [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
 [Create a Service Namespace]: #create-a-service-namespace
@@ -232,4 +232,4 @@ Os snippets de código de exemplo acima permitem que você crie com facilidade a
 [webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[Azure Portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68699391"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
@@ -47,7 +47,7 @@ pip install azure-storage-file
 Para métodos de instalação alternativos, visite o [SDK do Armazenamento do Microsoft Azure para Python no GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visualizar o aplicativo de exemplo
-f Para visualizar e executar um aplicativo de exemplo que mostra como usar python com arquivos Azure, consulte [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+f para exibir e executar um aplicativo de exemplo que mostra como usar o Python com os arquivos do Azure, consulte [armazenamento do Azure: introdução com arquivos do Azure em Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-file` e `azure-storage-common`.
 
@@ -73,7 +73,7 @@ file_service.create_share('myshare')
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo criará um subdiretório chamado **sampledir** o diretório raiz.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código a seguir criará um subdiretório chamado **SampleDir** no diretório raiz.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')

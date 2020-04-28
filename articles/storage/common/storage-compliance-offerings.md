@@ -9,10 +9,10 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "61483427"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade do Armazenamento do Azure
@@ -79,7 +79,7 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [ENISA IAF (UE)](https://aka.ms/AzureCompliance)
 * [ENS (Espanha)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [Cláusulas de modelo da UE](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
-* [Escudo de privacidade UE-EUA](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [União Européia-U. S. Privacy Shield](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (China)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)

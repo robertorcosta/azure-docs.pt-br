@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68883091"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desenvolvimento para dispositivos móveis usando SDKs IoT do Azure
@@ -48,7 +48,7 @@ O SDK de Java do Hub IoT do Azure dá suporte à plataforma Android.  Para a ver
 Essas documentações explicam como desenvolver um aplicativo de dispositivo ou de serviço em um dispositivo Android usando o Gradle e o Android Studio:
 
 * [Início Rápido: enviar telemetria de um dispositivo para um hub de IoT](quickstart-send-telemetry-android.md)  
-* [Quickstart: Controle um dispositivo](quickstart-control-device-android.md) 
+* [Início rápido: controlar um dispositivo](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

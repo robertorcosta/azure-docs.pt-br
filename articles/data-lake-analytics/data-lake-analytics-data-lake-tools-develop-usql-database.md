@@ -1,5 +1,5 @@
 ---
-title: Desenvolver um projeto de banco de dados U-SQL - Azure Data Lake
+title: Desenvolver um projeto de banco de dados U-SQL-Azure Data Lake
 description: Saiba como desenvolver um banco de dados U-SQL usando as Ferramentas do Azure Data Lake para Visual Studio.
 author: yanancai
 ms.author: yanacai
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71309921"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Usar um projeto de banco de dados U-SQL para desenvolver o banco de dados U-SQL para o Azure Data Lake
@@ -48,7 +48,7 @@ No objeto assembly, a ferramenta fornece um editor de interface do usuário amig
 
     ![Ferramentas do Data Lake para Visual Studio criam assembly a partir da referência](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-assembly-from-reference.png)
 
-3.  Adicione **dependências gerenciadas** e **arquivos adicionais** se houver algum. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build. 
+3.  Adicione **dependências gerenciadas** e **arquivos adicionais** , se houver. Ao adicionar arquivos adicionais, a ferramenta usará o caminho relativo para garantir que encontrará os assemblies no computador local e no computador de build. 
 
 @_DeployTempDirectory é uma variável predefinida que aponta a ferramenta para a pasta de saída de build. Na pasta de saída de compilação, cada assembly possui uma subpasta nomeada com o nome do assembly. Todas as DLLs e arquivos adicionais estão na subpasta. 
  
@@ -56,7 +56,7 @@ No objeto assembly, a ferramenta fornece um editor de interface do usuário amig
 
 A saída de build do projeto de banco de dados U-SQL é um pacote de implantação do banco de dados U-SQL nomeado com o sufixo `.usqldbpack`. O pacote `.usqldbpack` é um arquivo .zip que inclui todas as instruções DDL em um único script U-SQL na pasta **DDL** e todas as DLLS e arquivos adicionais para assemblies na pasta **Temp**.
 
-Saiba mais sobre [como construir um projeto de banco de dados U-SQL com a linha de comando MSBuild e uma tarefa de construção do Azure DevOps Services](data-lake-analytics-cicd-overview.md).
+Saiba mais sobre [como criar um projeto de banco de dados U-SQL com a linha de comando do MSBuild e uma Azure DevOps Services tarefa de compilação](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Implantar um banco de dados U-SQL
 
@@ -69,7 +69,7 @@ Você pode implantar um banco de dados U-SQL por meio de um projeto de banco de 
 #### <a name="deploy-through-a-u-sql-database-project"></a>Implantar por meio do projeto de banco de dados U-SQL
 
 1.  Clique com o botão direito do mouse no projeto de banco de dados U-SQL e selecione **Implantar**.
-2.  No **Assistente de Banco de Dados Implantar U-SQL,** selecione a **conta ADLA** para a qual deseja implantar o banco de dados. Há suporte para as contas locais e ADLA.
+2.  No **Assistente para implantar banco de dados U-SQL**, selecione a **conta adla** para a qual você deseja implantar o banco de dados. Há suporte para as contas locais e ADLA.
 3.  A **Fonte do Banco de Dados** é preenchida automaticamente apontando para o pacote .usqldbpack na pasta de saída de compilação do projeto.
 4.  Insira um nome em **Nome do Banco de Dados** para criar um banco de dados. Se houver um banco de dados com o mesmo nome na conta do Azure Data Lake Analytics de destino, todos os objetos que são definidos no projeto de banco de dados serão criados sem recriar o banco de dados.
 5.  Para implantar o banco de dados U-SQL, selecione **Enviar**. Todos os recursos (assemblies e arquivos adicionais) serão carregados e um trabalho do U-SQL que inclui todas as instruções DDL será enviado.
@@ -80,7 +80,7 @@ Você pode implantar um banco de dados U-SQL por meio de um projeto de banco de 
 
 #### <a name="deploy-through-a-u-sql-database-deployment-package"></a>Implantar por meio do pacote de implantação do banco de dados U-SQL
 
-1.  Abrir **o Explorador do Servidor**. Em seguida, expanda a conta **Azure Data Lake Analytics**, para a qual você gostaria de implantar o banco de dados.
+1.  Abra **Gerenciador de servidores**. Em seguida, expanda a conta **Azure Data Lake Analytics**, para a qual você gostaria de implantar o banco de dados.
 2.  Clique com o botão direito do mouse nos **Bancos de Dados U-SQL**, e escolha **Implantar Banco de Dados**.
 3.  Defina a **Fonte do Banco de Dados** para o caminho (arquivo .usqldbpack) do pacote de implantação do banco de dados U-SQL.
 4.  Insira o **Nome do Banco de Dados** para criar um banco de dados. Se houver um banco de dados com o mesmo nome na conta do Azure Data Lake Analytics de destino, todos os objetos que são definidos no projeto de banco de dados serão criados sem recriar o banco de dados.
@@ -115,6 +115,6 @@ Um projeto U-SQL pode fazer referência a um projeto de banco de dados U-SQL. A 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como configurar um pipeline de CI/CD para o Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
-- [Como testar seu código Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
+- [Como configurar um pipeline de CI/CD para Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
+- [Como testar seu código de Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
 - [Executar um script U-SQL no computador local](data-lake-analytics-data-lake-tools-local-run.md)
