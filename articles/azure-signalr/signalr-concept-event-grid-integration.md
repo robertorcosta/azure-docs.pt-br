@@ -1,6 +1,6 @@
 ---
-title: Reagir aos eventos do Azure SignalR Service
-description: Use a Grade de Eventos do Azure para assinar eventos do Azure SignalR Service. Outros serviços a jusante podem ser acionados por esses eventos.
+title: Reagir aos eventos do serviço de Signaler do Azure
+description: Use a grade de eventos do Azure para assinar eventos do serviço Signaler do Azure. Outros serviços downstream podem ser disparados por esses eventos.
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: chenyl
@@ -9,35 +9,35 @@ ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74158198"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagindo aos eventos do Serviço do Azure SignalR
 
-Os eventos do Azure SignalR Service permitem que os aplicativos reajam às conexões do cliente conectadas ou desconectadas usando arquiteturas modernas sem servidor. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes.  Em vez disso, os eventos são enviados por push pela [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) aos assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/), ou até mesmo seu próprio ouvinte http personalizado, e você só pague pelo que usa.
+Os eventos do serviço de Signaler do Azure permitem que os aplicativos reajam a conexões de cliente conectadas ou desconectadas usando arquiteturas modernas sem servidor. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes.  Em vez disso, os eventos são enviados por push pela [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) aos assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/), ou até mesmo seu próprio ouvinte http personalizado, e você só pague pelo que usa.
 
-Os eventos do Azure SignalR Service são enviados de forma confiável para o serviço Event Grid, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de reavaliação ricas e entrega de cartas mortas. Para saber mais, consulte [a entrega e a tentativa de mensagens event grid](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Os eventos do serviço de Signaler do Azure são enviados de forma confiável para o serviço de grade de eventos, que fornece serviços de entrega confiáveis para seus aplicativos por meio de políticas de repetição avançadas e entrega de mensagens mortas. Para saber mais, confira [entrega e repetição de mensagem da grade de eventos](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 ![Modelo da Grade de Eventos](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Estado sem servidor
-Os eventos do Azure SignalR Service só estão ativos quando as conexões do cliente estão em estado sem servidor. De um modo geral, se um cliente não encaminha para um servidor de hub, ele vai para o estado sem servidor. O modo clássico só funciona quando o hub, ao que as conexões do cliente se conectam, não tem um servidor de hub. No entanto, o modo sem servidor é recomendado para evitar algum problema. Para saber mais detalhes sobre o modo de serviço, consulte [Como escolher o modo de serviço](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
+Os eventos do serviço de Signaler do Azure estão ativos somente quando as conexões do cliente estão em estado sem servidor. Em geral, se um cliente não rotear para um servidor de Hub, ele entrará no estado sem servidor. O modo clássico funciona somente quando o Hub, ao qual as conexões de cliente se conectam, não tem um servidor de Hub. No entanto, o modo sem servidor é recomendado para evitar algum problema. Para saber mais detalhes sobre o modo de serviço, consulte [como escolher o modo de serviço](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
 
-## <a name="available-azure-signalr-service-events"></a>Eventos disponíveis do Azure SignalR Service
-A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. As assinaturas de eventos do Azure SignalR Service suportam dois tipos de eventos:  
+## <a name="available-azure-signalr-service-events"></a>Eventos do serviço de Signaler do Azure disponíveis
+A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. As assinaturas de evento do serviço de Signaler do Azure dão suporte a dois tipos de eventos:  
 
 |Nome do evento|Descrição|
 |----------|-----------|
-|`Microsoft.SignalRService.ClientConnectionConnected`|Levantada quando uma conexão com o cliente está conectada.|
-|`Microsoft.SignalRService.ClientConnectionDisconnected`|Levantada quando uma conexão com o cliente é desconectada.|
+|`Microsoft.SignalRService.ClientConnectionConnected`|Gerado quando uma conexão de cliente é conectada.|
+|`Microsoft.SignalRService.ClientConnectionDisconnected`|Gerado quando uma conexão de cliente é desconectada.|
 
 ## <a name="event-schema"></a>Esquema do evento
-Os eventos do Azure SignalR Service contêm todas as informações necessárias para responder às alterações em seus dados. Você pode identificar um evento do Azure SignalR Service com a propriedade eventType iniciada com "Microsoft.SignalRService". Informações adicionais sobre o uso de propriedades de eventos event grid são documentadas no [esquema de eventos Event Grid](../event-grid/event-schema.md).  
+Os eventos do serviço de Signaler do Azure contêm todas as informações necessárias para responder às alterações em seus dados. Você pode identificar um evento do serviço de Signaler do Azure com a propriedade eventType começa com "Microsoft. SignalRService". Informações adicionais sobre o uso de propriedades de evento da grade de eventos estão documentadas no [esquema de eventos da grade de eventos](../event-grid/event-schema.md).  
 
-Aqui está um exemplo de um evento conectado à conexão com o cliente:
+Aqui está um exemplo de um evento conectado de conexão de cliente:
 ```json
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/signalr-rg/providers/Microsoft.SignalRService/SignalR/signalr-resource",
@@ -56,12 +56,12 @@ Aqui está um exemplo de um evento conectado à conexão com o cliente:
 }]
 ```
 
-Para obter mais informações, consulte [o esquema de eventos do SignalR Service](../event-grid/event-schema-azure-signalr.md).
+Para obter mais informações, consulte [esquema de eventos do serviço signalr](../event-grid/event-schema-azure-signalr.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a Event Grid e dê aos eventos do Azure SignalR Service uma tentativa:
+Saiba mais sobre a grade de eventos e dê uma tentativa aos eventos do serviço Signaler do Azure:
 
 > [!div class="nextstepaction"]
-> [Experimente uma integração da Grade de Eventos de exemplo com o Azure SignalR Service](./signalr-howto-event-grid-integration.md)
-> [Sobre a Grade de Eventos](../event-grid/overview.md)
+> [Experimente uma integração de grade de eventos de exemplo com o serviço](./signalr-howto-event-grid-integration.md)
+> de signalr do Azure[sobre a grade de eventos](../event-grid/overview.md)

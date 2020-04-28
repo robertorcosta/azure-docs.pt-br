@@ -1,6 +1,6 @@
 ---
-title: Gerenciar contas de administrador de acesso de emergência - Azure AD | Microsoft Docs
-description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar ser bloqueado inadvertidamente fora de sua organização Azure Active Directory (Azure AD).
+title: Gerenciar contas de administrador de acesso de emergência-Azure AD | Microsoft Docs
+description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar que seja bloqueado inadvertidamente da organização do Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 manager: daveba
@@ -14,17 +14,17 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74028139"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
-É importante que você evite ser bloqueado acidentalmente fora da organização Azure Active Directory (Azure AD) porque você não pode fazer login ou ativar a conta de outro usuário como administrador. Você pode mitigar o impacto da falta acidental de acesso administrativo criando duas ou mais *contas de acesso de emergência* em sua organização.
+É importante que você impeça que você seja bloqueado acidentalmente da organização do Azure Active Directory (Azure AD) porque não é possível entrar ou ativar outra conta de usuário como administrador. Você pode mitigar o impacto da falta acidental de acesso administrativo criando duas ou mais *contas de acesso de emergência* em sua organização.
 
-Essas contas de acesso de emergência são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou "quebra de vidro", onde contas administrativas normais não podem ser usadas. Recomendamos que você mantenha uma meta de restringir o uso de conta de emergência apenas às vezes em que é absolutamente necessário.
+Essas contas de acesso de emergência são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou de "interrupção" em que as contas administrativas normais não podem ser usadas. Recomendamos que você mantenha uma meta de restringir o uso da conta de emergência apenas às vezes em que ela é absolutamente necessária.
 
 Este artigo fornece diretrizes para gerenciar contas de acesso de emergência no Microsoft Azure Active Directory.
 
@@ -44,7 +44,7 @@ Crie duas ou mais contas de acesso de emergência. Elas devem ser contas somente
 Ao configurar essas contas, os seguintes requisitos devem ser atendidos:
 
 - As contas de emergência não devem ser associadas a nenhum usuário individual na organização. Certifique-se de que suas contas não estejam conectadas a nenhum telefone celular fornecido pelo funcionário, tokens de hardware que viajam com funcionários específicos ou outras credenciais específicas do funcionário. Essa precaução abrange instâncias em que um funcionário individual está inacessível quando a credencial é necessária. É importante garantir que todos os dispositivos registrados sejam mantidos em uma localização segura e conhecida que tenha vários meios de comunicação com o Azure AD.
-- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se o Azure MFA é sua parte principal de autenticação para suas contas administrativas, então considere uma abordagem diferente para elas, como usar o Conditional Access com um provedor MFA de terceiros.
+- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se o Azure MFA for sua parte principal da autenticação para suas contas administrativas, considere uma abordagem diferente para eles, como usar o acesso condicional com um provedor de MFA de terceiros.
 - O dispositivo ou a credencial não deve expirar ou estar no escopo de limpeza automatizado devido à falta de uso.  
 - A atribuição de função de Administrador Global deve ser permanente para suas contas de acesso de emergência. 
 
@@ -52,13 +52,13 @@ Ao configurar essas contas, os seguintes requisitos devem ser atendidos:
 
 Para reduzir o risco de um ataque resultante de uma senha comprometida, o Microsoft Azure Active Directory recomenda que você exija a autenticação multifator para todos os usuários individuais. Este grupo deve incluir os administradores e todos os outros (por exemplo, gerentes financeiros) cuja conta comprometida teria um impacto significativo.
 
-No entanto, pelo menos uma de suas contas de acesso de emergência não deve ter o mesmo mecanismo de autenticação multifator como outras contas não emergenciais. Isso inclui soluções de autenticação multifator de terceiros. Se você tiver uma política de Acesso Condicional para exigir [autenticação multifatorial para cada administrador](../authentication/howto-mfa-userstates.md) do Azure AD e outros aplicativos de software conectado como um serviço (SaaS), você deve excluir contas de acesso de emergência desse requisito e configurar um mecanismo diferente em vez disso. Além disso, verifique se que as contas não têm uma política de autenticação multifator por usuário.
+No entanto, pelo menos uma de suas contas de acesso de emergência não deve ter o mesmo mecanismo de autenticação multifator como outras contas não emergenciais. Isso inclui soluções de autenticação multifator de terceiros. Se você tiver uma política de acesso condicional para exigir a [autenticação multifator para cada administrador](../authentication/howto-mfa-userstates.md) do Azure AD e outros aplicativos SaaS (software como serviço) conectados, você deverá excluir contas de acesso de emergência desse requisito e configurar um mecanismo diferente. Além disso, verifique se que as contas não têm uma política de autenticação multifator por usuário.
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclua pelo menos uma conta das políticas de acesso condicional
 
-Durante uma emergência, não é desejável uma política para bloquear o acesso para corrigir um problema. Pelo menos uma conta de acesso de emergência deve ser excluída de todas as políticas de Acesso Condicional. Se tiver habilitado uma [política de linha de base](../conditional-access/baseline-protection.md), exclua as contas de acesso de emergência.
+Durante uma emergência, não é desejável uma política para bloquear o acesso para corrigir um problema. Pelo menos uma conta de acesso de emergência deve ser excluída de todas as políticas de acesso condicional. Se tiver habilitado uma [política de linha de base](../conditional-access/baseline-protection.md), exclua as contas de acesso de emergência.
 
-## <a name="federation-guidance"></a>Orientação da Federação
+## <a name="federation-guidance"></a>Diretrizes da Federação
 
 Uma opção adicional para organizações que usam os serviços de domínio do domínio do aplicativo (AD) e do Sistema de Arquivos Distribuído do Azure (ADFS) ou o provedor de identidade semelhante para federar ao Microsoft Azure Active Directory, é configurar uma conta de acesso de emergência cuja declaração da MFA pode ser fornecida por ser um provedor de identidade.  Por exemplo, a conta de acesso de emergência pode ser feita por um certificado e um par de chaves como uma armazenada em um cartão inteligente.  Quando o usuário é autenticado para o AD, o ADFS pode fornecer uma declaração ao Microsoft Azure Active Directory que indica que o usuário atende aos requisitos da MFA.  Mesmo com essa abordagem, as organizações ainda devem ter contas de acesso de emergência baseadas em nuvem no caso da federação não poder ser estabelecida. 
 
@@ -70,72 +70,72 @@ Se usar as senhas, verifique se as contas têm senhas fortes que não façam a s
 
 ## <a name="monitor-sign-in-and-audit-logs"></a>Exibir entradas e logs de auditoria
 
-As organizações devem monitorar a atividade de login e auditoria das contas de emergência e disparar notificações para outros administradores. Quando você monitora a atividade em contas de vidro de quebra, você pode verificar se essas contas são usadas apenas para testes ou emergências reais. Você pode usar o Azure Log Analytics para monitorar os logs de login e ativar alertas de e-mail e SMS para seus administradores sempre que as contas de vidro quebrarem entrar.
+As organizações devem monitorar a atividade de entrada e de log de auditoria das contas de emergência e disparar notificações para outros administradores. Ao monitorar a atividade em contas de vidro, você pode verificar se essas contas são usadas apenas para teste ou emergências reais. Você pode usar o Azure Log Analytics para monitorar os logs de entrada e disparar alertas de email e SMS para seus administradores sempre que as contas de interrupção entrarem.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. [Envie login sinuoso do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) para o Azure Monitor.
+1. [Envie logs de entrada do Azure ad](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) para Azure monitor.
 
-### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obtenha IDs de objeto das contas de vidro de quebra
+### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obter IDs de objeto das contas de interrupção
 
-1. Faça login no [portal Do Zure](https://portal.azure.com) com uma conta atribuída à função de administrador do Usuário.
-1. Selecione usuários de diretório ativo do >  **Azure****.**
-1. Procure a conta de quebra-vidro e selecione o nome do usuário.
-1. Copie e salve o atributo Object ID para que você possa usá-lo mais tarde.
-1. Repita as etapas anteriores para a segunda conta de vidro de quebra.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de administrador de usuários.
+1. Selecione **Azure Active Directory** > **usuários**.
+1. Procure a conta de vidro e selecione o nome do usuário.
+1. Copie e salve o atributo ID de objeto para que você possa usá-lo mais tarde.
+1. Repita as etapas anteriores para a segunda conta de vidro.
 
 ### <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-1. Faça login no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função contribuinte de monitoramento no Monitor Do Azure.
-1. Selecione **Todos os serviços",** digite "análise de log" na Pesquisa e selecione **espaços de trabalho do Log Analytics**.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de colaborador de monitoramento no Azure monitor.
+1. Selecione **todos os serviços**", insira" log Analytics "na pesquisa e, em seguida, selecione **log Analytics espaços de trabalho**.
 1. Selecione um workspace.
-1. Em seu espaço de trabalho, selecione **Alertas** > **Nova regra de alerta**.
-    1. Em **Resource,** verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
-    1. Em **Condição,** selecione **Adicionar**.
-    1. Selecione **pesquisa de log personalizado** com o nome **Signal**.
-    1. Em **Pesquisa de consulta,** digite a seguinte consulta, inserindo os IDs de objeto das duas contas de vidro de quebra.
+1. Em seu espaço de trabalho, selecione **alertas** > **nova regra de alerta**.
+    1. Em **recurso**, verifique se a assinatura é aquela com a qual você deseja associar a regra de alerta.
+    1. Em **condição**, selecione **Adicionar**.
+    1. Selecione **pesquisa de logs personalizada** em **nome do sinal**.
+    1. Em **consulta de pesquisa**, insira a consulta a seguir, inserindo as IDs de objeto das duas contas de vidro de interrupção.
         > [!NOTE]
-        > Para cada conta adicional de vidro de quebra que você deseja incluir, adicione outra "ou UserId == "ObjectGuid"" à consulta.
+        > Para cada conta de vidro adicional que você deseja incluir, adicione outro "ou UserId = =" objectGUID "" à consulta.
 
-        ![Adicione os IDs de objeto das contas de vidro de quebra a uma regra de alerta](./media/directory-emergency-access/query-image1.png)
+        ![Adicionar as IDs de objeto das contas de interrupção a uma regra de alerta](./media/directory-emergency-access/query-image1.png)
 
-    1. Em **lógica de alerta,** digite o seguinte:
+    1. Em **lógica de alerta**, insira o seguinte:
 
         - Baseado em: número de resultados
-        - Operador: Maior que
-        - Valor limite: 0
+        - Operador: maior que
+        - Valor do limite: 0
 
-    1. Em **Avaliação com base em**, selecione o Período **(em minutos)** para quanto tempo deseja que a consulta seja executada e a **Freqüência (em minutos)** para quantas vezes você deseja que a consulta seja executada. A frequência deve ser menor ou igual ao período.
+    1. Em **avaliado com base em**, selecione o **período (em minutos)** para o tempo que você deseja que a consulta seja executada e a **frequência (em minutos)** para a frequência com que você deseja que a consulta seja executada. A frequência deve ser menor ou igual ao período.
 
         ![lógica de alerta](./media/directory-emergency-access/alert-image2.png)
 
-    1. Selecione **Feito**. Agora você pode ver o custo mensal estimado deste alerta.
-1. Selecione um grupo de ação de usuários para ser notificado pelo alerta. Se você quiser criar um, consulte [Criar um grupo de ação](#create-an-action-group).
-1. Para personalizar a notificação de e-mail enviada aos membros do grupo de ação, selecione ações em **Personalizar Ações**.
-1. Em **Detalhes de alerta,** especifique o nome da regra de alerta e adicione uma descrição opcional.
-1. Defina o **nível de gravidade** do evento. Recomendamos que você o configure como **Crítico (Sev 0).**
-1. Em **Enable rule on creation**, leave it set as **yeah**.
-1. Para desativar os alertas por um tempo, selecione a caixa de seleção **Alertas de supressão** e digite a duração de espera antes de alertar novamente e, em seguida, **selecione Salvar**.
+    1. Selecione **Concluído**. Agora você pode exibir o custo mensal estimado deste alerta.
+1. Selecione um grupo de ações de usuários a ser notificado pelo alerta. Se você quiser criar um, consulte [criar um grupo de ação](#create-an-action-group).
+1. Para personalizar a notificação por email enviada aos membros do grupo de ações, selecione ações em **Personalizar ações**.
+1. Em **detalhes do alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
+1. Defina o **nível de severidade** do evento. É recomendável defini-lo como **crítico (Sev 0)**.
+1. Em **Habilitar Regra após a criação**, deixe definida como **Sim**.
+1. Para desativar os alertas por um tempo, marque a caixa de seleção **suprimir alertas** e insira a duração da espera antes de alertar novamente e, em seguida, selecione **salvar**.
 1. Clique em **Criar regra de alerta**.
 
 ### <a name="create-an-action-group"></a>Criar um grupo de ações
 
-1. Selecione **Criar um grupo de ação**.
+1. Selecione **criar um grupo de ação**.
 
-    ![criar um grupo de ação para ações de notificação](./media/directory-emergency-access/action-group-image3.png)
+    ![criar um grupo de ações para ações de notificação](./media/directory-emergency-access/action-group-image3.png)
 
-1. Digite o nome do grupo de ação e um nome curto.
+1. Insira o nome do grupo de ações e um nome curto.
 1. Verifique a assinatura e o grupo de recursos.
-1. Em tipo de ação, selecione **E-mail/SMS/Push/Voice**.
-1. Digite um nome de ação como **Notificar o admin global**.
-1. Selecione o **tipo de ação** como **E-mail/SMS/Push/Voice**.
-1. Selecione **Editar detalhes** para selecionar os métodos de notificação que deseja configurar e inserir as informações de contato necessárias e, em seguida, selecione **Ok** para salvar os detalhes.
-1. Adicione quaisquer ações adicionais que você deseja desencadear.
+1. Em tipo de ação, selecione **email/SMS/Push/voz**.
+1. Insira um nome de ação, como **notificar administrador global**.
+1. Selecione o **tipo de ação** como **email/SMS/Push/voz**.
+1. Selecione **Editar detalhes** para selecionar os métodos de notificação que você deseja configurar e insira as informações de contato necessárias e, em seguida, selecione **OK** para salvar os detalhes.
+1. Adicione quaisquer ações adicionais que você deseja disparar.
 1. Selecione **OK**.
 
 ## <a name="validate-accounts-regularly"></a>Validar contas regularmente
 
-Quando você treina os funcionários para usar contas de acesso de emergência e validar as contas de acesso de emergência, no mínimo faça as seguintes etapas em intervalos regulares:
+Ao treinar os membros da equipe para usar contas de acesso de emergência e validar as contas de acesso de emergência, no mínimo, execute as seguintes etapas em intervalos regulares:
 
 - Certifique-se de que a equipe de monitoramento de segurança esteja ciente de que a atividade de verificação de conta é contínua.
 - Certifique-se de que o processo de quebra de vidro de emergência para usar essas contas é documentado e atual.

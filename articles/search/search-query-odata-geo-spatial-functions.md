@@ -1,7 +1,7 @@
 ---
-title: Referência de função geoespacial OData
+title: Referência de função espacial geográfica do OData
 titleSuffix: Azure Cognitive Search
-description: Sintaxe e documentação de referência para o uso de funções geoespaciais OData, geo.distance e geo.intersects, em consultas de Pesquisa Cognitiva Azure.
+description: A sintaxe e a documentação de referência para o uso de funções geoespaciais, geográficas e geográficas OData. interseccionamentos, nas consultas do Azure Pesquisa Cognitiva.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,24 +20,24 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113166"
 ---
-# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funções geoespaciais OData na Pesquisa `geo.distance` Cognitiva do Azure - e`geo.intersects`
+# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funções geoespaciais OData no Azure Pesquisa Cognitiva- `geo.distance` e`geo.intersects`
 
-O Azure Cognitive Search suporta consultas geoespaciais em `geo.distance` [expressões de filtro OData](query-odata-filter-orderby-syntax.md) através das funções e `geo.intersects` funções. A `geo.distance` função retorna a distância em quilômetros entre dois pontos, sendo um uma variável de campo ou alcance, e um sendo uma constante passada como parte do filtro. A `geo.intersects` função `true` retorna se um determinado ponto estiver dentro de um determinado polígono, onde o ponto é uma variável de campo ou intervalo e o polígono é especificado como uma constante passada como parte do filtro.
+O Azure Pesquisa Cognitiva dá suporte a consultas geoespaciais em [expressões de filtro OData](query-odata-filter-orderby-syntax.md) por meio das `geo.distance` funções e. `geo.intersects` A `geo.distance` função retorna a distância em quilômetros entre dois pontos, um sendo um campo ou uma variável de intervalo, e um é uma constante passada como parte do filtro. A `geo.intersects` função retorna `true` se um determinado ponto estiver dentro de um determinado polígono, em que o ponto é um campo ou uma variável de intervalo e o polígono é especificado como uma constante passada como parte do filtro.
 
-A `geo.distance` função também pode ser usada no parâmetro [ **$orderby** ](search-query-odata-orderby.md) para classificar os resultados da pesquisa por distância de um determinado ponto. A sintaxe para `geo.distance` em **$orderby** é a mesma que em **$filter**. Ao `geo.distance` utilizar em **$orderby,** o campo ao qual `Edm.GeographyPoint` se aplica deve ser do tipo e também deve ser **classificado.**
+A `geo.distance` função também pode ser usada no parâmetro [ **$OrderBy** ](search-query-odata-orderby.md) para classificar os resultados da pesquisa por distância de um determinado ponto. A sintaxe para `geo.distance` em **$orderby** é a mesma que em **$filter**. Ao usar `geo.distance` o no **$OrderBy**, o campo ao qual ele se aplica deve ser `Edm.GeographyPoint` do tipo e também deve ser **classificável**.
 
 > [!NOTE]
-> Ao `geo.distance` usar no parâmetro **$orderby,** o campo que você passar para a função deve conter apenas um único ponto geográfico. Em outras palavras, deve `Edm.GeographyPoint` ser `Collection(Edm.GeographyPoint)`do tipo e não. Não é possível classificar em campos de coleta em Azure Cognitive Search.
+> Ao usar `geo.distance` no parâmetro **$OrderBy** , o campo que você passa para a função deve conter apenas um único ponto geográfico. Em outras palavras, ele deve ser do tipo `Edm.GeographyPoint` e não `Collection(Edm.GeographyPoint)`. Não é possível classificar em campos de coleção no Azure Pesquisa Cognitiva.
 
 ## <a name="syntax"></a>Sintaxe
 
-A Seguinte EBNF[(Formulário Backus-Naur Estendido)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) `geo.distance` define `geo.intersects` a gramática das funções e funções, bem como os valores geoespaciais em que operam:
+O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática `geo.distance` das `geo.intersects` funções e, bem como os valores espaciais geográficos nos quais operam:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -61,69 +61,69 @@ geo_polygon ::=
 lon_lat_list ::= lon_lat(',' lon_lat)*
 ```
 
-Um diagrama interativo de sintaxe também está disponível:
+Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe OData para Pesquisa Cognitiva Azure](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
+> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
 
 > [!NOTE]
-> Consulte [a referência de sintaxe de expressão OData para a Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md) para a EBNF completa.
+> Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-### <a name="geodistance"></a>geo.distância
+### <a name="geodistance"></a>distância geográfica
 
-A `geo.distance` função tem dois `Edm.GeographyPoint` parâmetros `Edm.Double` de tipo e retorna um valor que é a distância entre eles em quilômetros. Isso difere de outros serviços que suportam operações geoespaciais OData, que normalmente retornam distâncias em metros.
+A `geo.distance` função usa dois parâmetros do tipo `Edm.GeographyPoint` e retorna um `Edm.Double` valor que é a distância entre eles em quilômetros. Isso difere de outros serviços que dão suporte a operações geoespaciais OData, que normalmente retornam distâncias em metros.
 
-Um dos parâmetros deve `geo.distance` ser uma constante de ponto de geografia, e o outro deve ser um caminho de `Collection(Edm.GeographyPoint)`campo (ou uma variável de intervalo no caso de um filtro iterado sobre um campo de tipo ). A ordem desses parâmetros não importa.
+Um dos parâmetros `geo.distance` deve ser uma constante de ponto de Geografia e o outro deve ser um caminho de campo (ou uma variável de intervalo no caso de uma iteração de filtro sobre um campo `Collection(Edm.GeographyPoint)`de tipo). A ordem desses parâmetros não importa.
 
-A constante do ponto de `geography'POINT(<longitude> <latitude>)'`geografia é da forma, onde a longitude e a latitude são constantes numéricas.
+A constante de ponto de geografia é do `geography'POINT(<longitude> <latitude>)'`formulário, em que a longitude e a latitude são constantes numéricas.
 
 > [!NOTE]
-> Ao `geo.distance` usar em um filtro, você deve comparar a distância `lt` `le`retornada pela função com uma constante utilização, ou `gt` `ge`. Os operadores `eq` e `ne` não são compatíveis ao comparar as distâncias. Por exemplo, este é `geo.distance`um `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`uso correto de : .
+> Ao usar `geo.distance` em um filtro, você deve comparar a distância retornada pela função com uma constante `lt`usando, `le`, `gt`ou. `ge` Os operadores `eq` e `ne` não são compatíveis ao comparar as distâncias. Por exemplo, esse é um uso correto de `geo.distance`: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.
 
-### <a name="geointersects"></a>geo.intersects
+### <a name="geointersects"></a>interseções geográficas
 
-A `geo.intersects` função pega uma `Edm.GeographyPoint` variável `Edm.GeographyPolygon` de tipo `Edm.Boolean`  --  `true` e uma constante e retorna um se `false` o ponto estiver dentro dos limites do polígono, caso contrário.
+A `geo.intersects` função usa uma variável do tipo `Edm.GeographyPoint` e uma constante `Edm.GeographyPolygon` e retorna um `Edm.Boolean`  --  `true` se o ponto estiver dentro dos limites do polígono, `false` caso contrário.
 
-O polígono é uma superfície bidimensional armazenada como uma seqüência de pontos que definem um anel delimitador (veja os [exemplos](#examples) abaixo). O polígono precisa estar fechado, o que significa que os conjuntos de primeiro e último pontos devem ser os mesmos. [Os pontos em um polígono devem estar no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+O polígono é uma superfície bidimensional armazenada como uma sequência de pontos que define um anel delimitador (consulte os [exemplos](#examples) abaixo). O polígono precisa estar fechado, o que significa que os conjuntos de primeiro e último pontos devem ser os mesmos. [Os pontos em um polígono devem estar no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Consultas geoespaciais e polígonos abrangendo o 180º meridiano
+### <a name="geo-spatial-queries-and-polygons-spanning-the-180th-meridian"></a>Consultas geoespaciais e polígonos abrangendo o meridiano de 180th
 
-Para muitas bibliotecas de consulta geoespacial formular uma consulta que inclui o 180º meridiano (perto da linha de data) está fora dos limites ou requer uma solução, como dividir o polígono em dois, um em cada lado do meridiano.
+Para muitas bibliotecas de consultas geoespaciais formular uma consulta que inclui o meridiano 180th (próximo ao meridiano) está fora dos limites ou requer uma solução alternativa, como dividir o polígono em dois, um em ambos os lados do meridiano.
 
-Na Pesquisa Cognitiva do Azure, as consultas geoespaciais que incluem longitude de 180 graus funcionarão como esperado se a forma de consulta for `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`retangular e suas coordenadas se alinharem a um layout de grade ao longo da longitude e latitude (por exemplo, ). Caso contrário, para formas não retangulares ou desalinhadas, considere a abordagem de polígono dividido.  
+No Azure Pesquisa Cognitiva, as consultas geoespaciais que incluem a longitude de 180 graus funcionarão como esperado se a forma de consulta for retangular e suas coordenadas ficarem alinhadas a um layout de grade ao longo da longitude e `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`da latitude (por exemplo,). Caso contrário, para formas não retangulares ou desalinhadas, considere a abordagem de polígono dividido.  
 
-### <a name="geo-spatial-functions-and-null"></a>Funções geoespaciais e`null`
+### <a name="geo-spatial-functions-and-null"></a>Funções espaciais geográficas e`null`
 
-Como todos os outros campos não-coleta no Azure Cognitive Search, campos de tipo `Edm.GeographyPoint` podem conter `null` valores. Quando o Azure `geo.intersects` Cognitive Search avalia `null`um campo que `false`é, o resultado será sempre . O comportamento `geo.distance` deste caso depende do contexto:
+Como todos os outros campos que não são de coleção no Azure Pesquisa Cognitiva, `Edm.GeographyPoint` os campos `null` do tipo podem conter valores. Quando o Azure Pesquisa Cognitiva é `geo.intersects` avaliado para um campo que `null`é, o resultado sempre será `false`. O comportamento desse `geo.distance` caso depende do contexto:
 
-- Em filtros, `geo.distance` `null` de um `null`campo resulta em . Isso significa que o `null` documento não corresponderá porque, `false`em comparação com qualquer valor não nulo, avalia.
-- Ao classificar os resultados `geo.distance` usando `null` **$orderby,** de um campo resulta na distância máxima possível. Documentos com esse campo serão menores do que `asc` todos os outros quando a direção do `desc`tipo for usada (o padrão) e maior do que todas as outras quando a direção é .
+- Em filtros, `geo.distance` de um `null` campo resulta em `null`. Isso significa que o documento não corresponderá, pois `null` comparado a qualquer valor não nulo é `false`avaliado como.
+- Ao classificar os resultados **$orderby**usando $OrderBy `geo.distance` , de `null` um campo resulta na distância máxima possível. Os documentos com tal campo classificarão menos do que todos os outros quando a `asc` direção de classificação for usada (o padrão) e mais alta do que todas as `desc`outras quando a direção for.
 
 ## <a name="examples"></a>Exemplos
 
 ### <a name="filter-examples"></a>Exemplos de filtro
 
-Encontre todos os hotéis dentro de 10 quilômetros de um `Edm.GeographyPoint`determinado ponto de referência (onde a localização é um campo de tipo ):
+Localiza todos os hotéis em 10 quilômetros de um determinado ponto de referência (onde Location é um campo `Edm.GeographyPoint`do tipo):
 
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
 
-Encontre todos os hotéis dentro de um determinado viewport descrito como `Edm.GeographyPoint`um polígono (onde a localização é um campo de tipo ). Observe que o polígono está fechado (o primeiro e o último pontos devem ser o mesmo) e [os pontos devem estar listados no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Localiza todos os hotéis em um determinado visor descrito como um polígono (onde Location é um campo do `Edm.GeographyPoint`tipo). Observe que o polígono está fechado (o primeiro e o último pontos devem ser o mesmo) e [os pontos devem estar listados no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
 ### <a name="order-by-examples"></a>Exemplos de Order-by
 
-Classificar hotéis descendo, `rating`depois subindo por distância das coordenadas dadas:
+Classifique os hotéis decrescentes por `rating`, em seguida, em ordem crescente por distância das coordenadas fornecidas:
 
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
-Classifique os hotéis `search.score` `rating`em ordem decrescente por e , e, em seguida, em ordem ascendente por distância das coordenadas dadas de modo que entre dois hotéis com classificações idênticas, o mais próximo é listado primeiro:
+Classifique os hotéis em ordem `search.score` decrescente `rating`por e e, em seguida, em ordem crescente por distância das coordenadas fornecidas para que entre dois hotéis com classificações idênticas, o mais próximo é listado primeiro:
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Filtros na Pesquisa Cognitiva do Azure](search-filters.md)
-- [Visão geral da linguagem de expressão oData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;A6Azure Cognitive Search Rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
+- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

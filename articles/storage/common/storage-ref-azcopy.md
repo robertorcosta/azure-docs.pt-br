@@ -1,5 +1,5 @@
 ---
-title: azcópia | Microsoft Docs
+title: azcopy | Microsoft Docs
 description: Este artigo fornece informações de referência para o comando azcopy.
 author: normesta
 ms.service: storage
@@ -9,36 +9,36 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74038083"
 ---
 # <a name="azcopy"></a>azcopy
 
-O AzCopy é uma ferramenta de linha de comando que move dados para dentro e para fora do Azure Storage.
+AzCopy é uma ferramenta de linha de comando que move dados para dentro e fora do armazenamento do Azure.
 
 ## <a name="synopsis"></a>Sinopse
 
 O formato geral dos comandos é: `azcopy [command] [arguments] --[flag-name]=[flag-value]`.
 
-Para relatar problemas ou saber mais [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy)sobre a ferramenta, consulte .
+Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 
-**--cap-mbps uint32**   Limita a taxa de transferência, em megabits por segundo. O throughput momento a momento pode variar ligeiramente da tampa. Se esta opção estiver definida como zero, ou for omitida, o throughput não será limitado.
+**--Cap-Mbps UInt32**   Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
 
-**-h, -- ajuda** Ajuda para azcopy
+**-h,--ajuda** Ajuda para azcopy
       
-**--tipo de saída**  Formato da saída do comando. As opções incluem: texto, json. O valor padrão é 'texto'. (padrão "texto")
+**--tipo de saída**  Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
 
 ## <a name="see-also"></a>Confira também
 

@@ -1,7 +1,7 @@
 ---
-title: Referência do operador de coleta de oData
+title: Referência de operador de coleção OData
 titleSuffix: Azure Cognitive Search
-description: Ao criar expressões de filtro em consultas de pesquisa cognitiva do Azure, use operadores "qualquer" e "todos" em expressões lambda quando o filtro estiver em um campo de coleta ou complexo.
+description: Ao criar expressões de filtro no Azure Pesquisa Cognitiva consultas, use os operadores "any" e "All" em expressões lambda quando o filtro estiver em um campo de coleção ou coleção complexa.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113240"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de coleta de OData `any` em Azure Cognitive Search - e`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de coleção OData no Azure Pesquisa Cognitiva `any` -e`all`
 
-Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com o Azure Cognitive Search, muitas vezes é útil filtrar em campos de coleta. Você pode conseguir `any` isso `all` usando os operadores e operadores.
+Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com o Azure pesquisa cognitiva, geralmente é útil filtrar nos campos de coleção. Você pode conseguir isso usando os `any` operadores `all` e.
 
 ## <a name="syntax"></a>Sintaxe
 
-A Seguinte EBNF[(Extended Backus-Naur Form)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática `any` `all`de uma expressão OData que usa ou .
+O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData `any` que `all`usa ou.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -45,56 +45,56 @@ collection_filter_expression ::=
 lambda_expression ::= identifier ':' boolean_expression
 ```
 
-Um diagrama interativo de sintaxe também está disponível:
+Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe OData para Pesquisa Cognitiva Azure](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> Consulte [a referência de sintaxe de expressão OData para a Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md) para a EBNF completa.
+> Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
-Existem três formas de expressão que filtram coleções.
+Há três formas de expressão que filtram coleções.
 
-- Os dois primeiros iteram sobre um campo de coleta, aplicando um predicado dado na forma de uma expressão lambda a cada elemento da coleção.
-  - Uma expressão `all` `true` usando retorna se o predicado for verdadeiro para cada elemento da coleção.
-  - Uma expressão `any` `true` usando retorna se o predicado for verdadeiro para pelo menos um elemento da coleção.
-- A terceira forma de `any` filtro de coleta usa sem uma expressão lambda para testar se um campo de coleta está vazio. Se a coleção tiver algum `true`elemento, ela retorna. Se a coleção estiver `false`vazia, ela retorna.
+- As duas primeiras iteram em um campo de coleção, aplicando um predicado fornecido na forma de uma expressão lambda para cada elemento da coleção.
+  - Uma expressão que `all` usa `true` retorna se o predicado é verdadeiro para cada elemento da coleção.
+  - Uma expressão que `any` usa `true` retorna se o predicado é true para pelo menos um elemento da coleção.
+- A terceira forma de filtro de coleção `any` usa sem uma expressão lambda para testar se um campo de coleção está vazio. Se a coleção tiver qualquer elemento, ela retornará `true`. Se a coleção estiver vazia, ela retornará `false`.
 
-Uma **expressão lambda** em um filtro de coleção é como o corpo de um loop em uma linguagem de programação. Define uma variável, chamada **variável de intervalo,** que contém o elemento atual da coleção durante a iteração. Também define outra expressão booleana que é o critério de filtro para aplicar à variável de alcance para cada elemento da coleção.
+Uma **expressão lambda** em um filtro de coleção é como o corpo de um loop em uma linguagem de programação. Ele define uma variável, chamada **variável de intervalo**, que contém o elemento atual da coleção durante a iteração. Ele também define outra expressão booliana que é o critério de filtro a ser aplicado à variável de intervalo para cada elemento da coleção.
 
 ## <a name="examples"></a>Exemplos
 
-Coincidir com `tags` documentos cujo campo contém exatamente a string "wifi":
+Corresponder documentos cujo `tags` campo contém exatamente a cadeia de caracteres "WiFi":
 
     tags/any(t: t eq 'wifi')
 
-Coincidir documentos onde cada `ratings` elemento do campo cai entre 3 e 5, inclusive:
+Corresponder documentos em que cada elemento do `ratings` campo cai entre 3 e 5, inclusive:
 
     ratings/all(r: r ge 3 and r le 5)
 
-Coincidir com documentos onde qualquer uma `locations` das coordenadas geográficas no campo está dentro do polígono dado:
+Corresponder documentos em que qualquer uma das coordenadas geográficas no `locations` campo esteja dentro do polígono determinado:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-Coincidir com `rooms` documentos onde o campo está vazio:
+Corresponder documentos onde o `rooms` campo está vazio:
 
     not rooms/any()
 
-Combine documentos onde para `rooms/amenities` todos os cômodos, o campo contém "tv" e `rooms/baseRate` é inferior a 100:
+Corresponder documentos em que para todas as salas `rooms/amenities` , o campo conterá " `rooms/baseRate` TV" e menor que 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 
 ## <a name="limitations"></a>Limitações
 
-Nem todas as características das expressões do filtro estão disponíveis dentro do corpo de uma expressão lambda. As limitações diferem dependendo do tipo de dados do campo de coleta que você deseja filtrar. A tabela a seguir resume as limitações.
+Nem todos os recursos de expressões de filtro estão disponíveis no corpo de uma expressão lambda. As limitações são diferentes dependendo do tipo de dados do campo de coleção que você deseja filtrar. A tabela a seguir resume as limitações.
 
 [!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-Para obter mais detalhes sobre essas limitações, bem como exemplos, consulte [filtros de coleta de solução de problemas na Pesquisa Cognitiva do Azure](search-query-troubleshoot-collection-filters.md). Para obter informações mais detalhadas sobre por que essas limitações existem, consulte [Entendendo filtros de coleta no Azure Cognitive Search](search-query-understand-collection-filters.md).
+Para obter mais detalhes sobre essas limitações, bem como exemplos, consulte [solução de problemas de filtros de coleta no Azure pesquisa cognitiva](search-query-troubleshoot-collection-filters.md). Para obter informações mais detalhadas sobre por que essas limitações existem, consulte [noções básicas sobre filtros de coleta no Azure pesquisa cognitiva](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Filtros na Pesquisa Cognitiva do Azure](search-filters.md)
-- [Visão geral da linguagem de expressão oData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;A6Azure Cognitive Search Rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
+- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

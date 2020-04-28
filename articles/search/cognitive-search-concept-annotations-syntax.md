@@ -1,7 +1,7 @@
 ---
-title: Entradas e saídas de referência em skillsets
+title: Referenciar entradas e saídas em habilidades
 titleSuffix: Azure Cognitive Search
-description: Explica a sintaxe de anotação e como referenciar uma anotação nas entradas e saídas de um skillset em um pipeline de enriquecimento de IA na Azure Cognitive Search.
+description: Explica a sintaxe da anotação e como fazer referência a uma anotação nas entradas e saídas de um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74113861"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como referenciar anotações em um conjunto de habilidades de Pesquisa Cognitiva do Azure
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações em um Azure Pesquisa Cognitiva skillset
 
 Neste artigo, você aprende a referenciar anotações em definições de habilidades usando exemplos para ilustrar diferentes cenários. Conforme o conteúdo de um documento flui por um conjunto de habilidades, ele é enriquecido com anotações. Anotações podem ser usadas como entradas para mais enriquecimento downstream ou podem ser mapeadas para um campo de saída em um índice. 
  
@@ -33,7 +33,7 @@ Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para en
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: referência de anotação simples
 
-No armazenamento Azure Blob, suponha que você tenha uma variedade de arquivos contendo referências aos nomes das pessoas que você deseja extrair usando o reconhecimento da entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
+No armazenamento de BLOBs do Azure, suponha que você tenha uma variedade de arquivos contendo referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
 
 Como o contexto padrão é `"/document"`, a lista de pessoas agora pode ser referenciada como `"/document/people"`. Neste caso específico, `"/document/people"` é uma anotação que agora poderia ser mapeada para um campo em um índice ou usada em outra habilidade do mesmo conjunto de habilidades.
 
@@ -95,7 +95,7 @@ Quando as anotações forem matrizes ou coleções de cadeias de caracteres, tal
 
 Às vezes, você precisa agrupar todas as anotações de um tipo específico para passá-las para uma habilidade específica. Considere uma habilidade personalizada hipotética que identifica o sobrenome mais comum de todos os sobrenomes extraídos no exemplo 2. Para fornecer apenas os sobrenomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 
-Note que a `"/document/people/*/lastname"` cardinalidade de é maior que a do documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
+Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a do documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
 
 ```json
   {

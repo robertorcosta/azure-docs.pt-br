@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo multi-inquilino - Wingtip SaaS
+title: Exemplo de aplicativo multilocatário – Wingtip SaaS
 description: Fornece diretrizes e etapas para instalar e executar o aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo de SaaS do Wingtip Tickets.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74132304"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
@@ -24,7 +24,7 @@ Este artigo contém diretrizes gerais para a execução de aplicativos SaaS de e
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Baixe e desbloqueie os scripts SaaS do Wingtip Tickets
 
-Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo .zip antes de extrair**. Isso garante que os scripts podem ser executados.
+Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo. zip antes de extrair**. Isso garante que os scripts podem ser executados.
 
 1. Navegue até o repositório GitHub de SaaS do Wingtip Tickets para o padrão de locação do banco de dados que você deseja explorar:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -37,7 +37,7 @@ Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando
 6. Clique em **OK**.
 7. Extraia os arquivos.
 
-Os scripts estão localizados no *.. Pasta \\Módulos de Aprendizagem.*
+Os scripts estão localizados no *.. \\* Pasta de módulos de aprendizado.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com scripts do PowerShell do Wingtip Tickets
@@ -89,11 +89,11 @@ Para garantir uma conexão de demonstração bem-sucedida, todos os servidores t
     - **Aplicativo autônomo:** servidores de inquilinos individuais (ex. *contosoconcerthall-&lt;Usuário&gt;.database.windows.net*)
     - **Banco de dados por locatário:** *tenants1-dpt-&lt;Usuário&gt;.database.windows.net*
     - **Banco de dados multilocatário:** *tenants1-mt-&lt;Usuário&gt;.database.windows.net*
-2. Clique **em Conectar** > **mecanismo de banco de dados...**:
+2. Clique em **conectar** > **mecanismo de banco de dados...**:
 
    ![servidor catalog](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: Login = *desenvolvedor*, Senha = *P\@ssword1*
+3. As credenciais de demonstração são: login = *Developer*, password = *P\@ssword1*
 
     A imagem abaixo demonstra o logon para o padrão *Banco de dados por locatário*.
     ![conexão](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

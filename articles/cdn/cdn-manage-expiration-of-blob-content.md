@@ -1,5 +1,5 @@
 ---
-title: Gerenciar a expiração do armazenamento Azure Blob
+title: Gerenciar a expiração do armazenamento de BLOBs do Azure
 titleSuffix: Azure Content Delivery Network
 description: Aprenda sobre as opções para controlar a vida útil de blobs no cache do Azure CDN.
 services: cdn
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083149"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerenciar a expiração do armazenamento de Blobs do Azure na CDN do Azure
 > [!div class="op_single_selector"]
 > * [Conteúdo da Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Armazenamento de BLOBs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -70,13 +70,13 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
  
 **Para definir os cabeçalhos de Controle de Cache do arquivo de blob usando regras de cache personalizadas:**
 
 1. Em **Personalizar regras de cache**, crie duas condições de combinação:
 
-     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 4 na caixa **Horas**.
+     A. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 4 na caixa **Horas**.
 
     B. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/blobcontainer1/blob1.txt` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 2 na caixa **Horas**.
 
@@ -84,7 +84,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo de blob na pasta `/blobcontainer1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo de blob `blob1.txt` e define uma duração de cache de duas horas para isso.
 
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Configurando cabeçalhos de Cache-Control usando Azure PowerShell
@@ -93,7 +93,7 @@ O método preferido para configuração do cabeçalho `Cache-Control` do blob é
 
 [Azure PowerShell](/powershell/azure/overview) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure. Use o cmdlet `Get-AzStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
 
-Por exemplo: 
+Por exemplo:
 
 ```powershell
 # Create a storage context
@@ -117,7 +117,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>Configurando cabeçalhos de Cache-Control usando .NET
 Para especificar o cabeçalho `Cache-Control` de um blob usando o código .NET, use a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) a fim de definir a propriedade [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.azure.storage.blob.blobproperties.cachecontrol).
 
-Por exemplo: 
+Por exemplo:
 
 ```csharp
 class Program
@@ -178,7 +178,7 @@ Você pode usar o [API REST de serviços de armazenamento do Azure](/rest/api/st
    - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Testando o cabeçalho de Controle de Cache
-Você pode facilmente verificar as configurações TTL dos seus blobs. Com as [ferramentas para desenvolvedores](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador, teste se o blob inclui `Cache-Control` no cabeçalho de resposta. Você também pode usar uma ferramenta como [Wget](https://www.gnu.org/software/wget/), [Carteiro](https://www.getpostman.com/)ou [Fiddler](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
+Você pode facilmente verificar as configurações TTL dos seus blobs. Com as [ferramentas para desenvolvedores](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do seu navegador, teste se o blob inclui `Cache-Control` no cabeçalho de resposta. Você também pode usar uma ferramenta como [wget](https://www.gnu.org/software/wget/), [postmaster](https://www.getpostman.com/)ou [Fiddler](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba como gerenciar a expiração do conteúdo do Serviço de Nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)

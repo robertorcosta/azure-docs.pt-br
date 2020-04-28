@@ -1,6 +1,6 @@
 ---
-title: Suporte ao WebSocket no Gateway de aplicativos do Azure
-description: O Gateway de Aplicativo fornece suporte nativo a WebSocket em todos os tamanhos de gateway. Não há configurações configuráveis pelo usuário.
+title: Suporte a WebSocket no gateway Aplicativo Azure
+description: O Gateway de Aplicativo fornece suporte nativo a WebSocket em todos os tamanhos de gateway. Não há configurações definidas pelo usuário.
 author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
@@ -8,10 +8,10 @@ services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74130338"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte para WebSocket no Gateway de Aplicativo
@@ -26,13 +26,13 @@ Ele é usado em aplicativos que se beneficiam de comunicação rápida e em temp
 
 ## <a name="how-does-websocket-work"></a>Como funciona o WebSocket
 
-Para estabelecer uma conexão WebSocket, um aperto de mão específico baseado em HTTP é trocado entre o cliente e o servidor. Em caso de êxito, o protocolo de camada de aplicativo é "atualizado" de HTTP para WebSockets usando a conexão TCP estabelecida anteriormente. Assim que isso ocorre, o HTTP fica totalmente fora de cogitação. Os dados podem ser enviados ou recebidos usando o protocolo WebSocket por ambos os pontos de extremidade até o encerramento da conexão com o WebSocket. 
+Para estabelecer uma conexão WebSocket, um handshake baseado em HTTP específico é trocado entre o cliente e o servidor. Em caso de êxito, o protocolo de camada de aplicativo é "atualizado" de HTTP para WebSockets usando a conexão TCP estabelecida anteriormente. Assim que isso ocorre, o HTTP fica totalmente fora de cogitação. Os dados podem ser enviados ou recebidos usando o protocolo WebSocket por ambos os pontos de extremidade até o encerramento da conexão com o WebSocket. 
 
-![websocket](./media/application-gateway-websocket/websocket.png)
+![WebSocket](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuração do ouvinte
 
-Um ouvinte HTTP existente pode ser usado para dar suporte ao tráfego do WebSocket. A seguir, veja um snippet de um elemento httpListeners de um arquivo de modelo de exemplo. Você precisaria de ouvintes HTTP e HTTPS para oferecer suporte a tráfego WebSocket e WebSocket seguro. Da mesma forma, você pode usar o portal ou o Azure PowerShell para criar um gateway de aplicativo com ouvintes na porta 80/443 para suportar o tráfego do WebSocket.
+Um ouvinte HTTP existente pode ser usado para dar suporte ao tráfego do WebSocket. A seguir, veja um snippet de um elemento httpListeners de um arquivo de modelo de exemplo. Você precisaria de ouvintes HTTP e HTTPS para oferecer suporte a tráfego WebSocket e WebSocket seguro. Da mesma forma, você pode usar o portal ou Azure PowerShell para criar um gateway de aplicativo com ouvintes na porta 80/443 para dar suporte ao tráfego de WebSocket.
 
 ```json
 "httpListeners": [
@@ -68,7 +68,7 @@ Um ouvinte HTTP existente pode ser usado para dar suporte ao tráfego do WebSock
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>Configuração de regra BackendAddressPool, BackendHttpSetting e Routing
 
-Um BackendAddressPool é usado para definir um pool de back-end com servidores habilitados para WebSocket. A backendHttpSetting é definida com uma porta de back-end 80 e 443. O valor de tempo de tempo de solicitação em Configurações HTTP também se aplica à sessão WebSocket. Não é necessária nenhuma alteração na regra de roteamento, que é usada para amarrar o ouvinte apropriado ao pool de endereços backend correspondente. 
+Um BackendAddressPool é usado para definir um pool de back-end com servidores habilitados para WebSocket. A backendHttpSetting é definida com uma porta de back-end 80 e 443. O valor de tempo limite da solicitação em configurações HTTP também se aplica à sessão WebSocket. Não há nenhuma alteração necessária na regra de roteamento, que é usada para vincular o ouvinte apropriado ao pool de endereços de back-end correspondente. 
 
 ```json
 "requestRoutingRules": [{

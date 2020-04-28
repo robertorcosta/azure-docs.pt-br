@@ -1,5 +1,5 @@
 ---
-title: Migrar aplicativos do Serviço de Cache Gerenciado para Redis - Azure
+title: Migrar aplicativos do serviço de cache gerenciado para o Redis-Azure
 description: Saiba como migrar aplicativos do Serviço de Cache Gerenciado e aplicativos de Cache na Função para o Cache do Azure para Redis
 author: yegu-ms
 ms.service: cache
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74122690"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrar do Serviço de Cache Gerenciado para o Cache do Azure para Redis
@@ -54,7 +54,7 @@ O Cache do Microsoft Azure para Redis está disponível nas seguintes camadas:
 
 * **Básico** – um único nó. Vários tamanhos acima de 53 GB.
 * **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
-* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Tamanhos múltiplos de 6 GB a 1,2 TB. Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
+* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 1,2 TB. Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
 
 Cada camada é diferente em termos de recursos e preços. Os recursos são abordados posteriormente neste manual e, para obter mais informações sobre preços, consulte [Detalhes de preços do Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -122,7 +122,7 @@ Adicione o seguinte usando a instrução na parte superior de qualquer arquivo d
 using StackExchange.Redis
 ```
 
-Se esse namespace não for resolvido, certifique-se de que você adicionou o pacote StackExchange.Redis NuGet conforme descrito no [Quickstart: Use o Cache do Azure para Redis com um aplicativo .NET](cache-dotnet-how-to-use-azure-redis-cache.md).
+Se esse namespace não resolver, certifique-se de ter adicionado o pacote NuGet StackExchange. Redis conforme descrito em [início rápido: usar o cache do Azure para Redis com um aplicativo .net](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > Observe que o cliente StackExchange.Redis requer o .NET Framework 4 ou superior.

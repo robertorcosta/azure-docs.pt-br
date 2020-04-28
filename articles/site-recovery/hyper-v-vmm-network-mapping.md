@@ -1,5 +1,5 @@
 ---
-title: Sobre o mapeamento de rede Hyper-V (com VMM) com recuperação de site
+title: Sobre o mapeamento de rede do Hyper-V (com VMM) com Site Recovery
 description: Descreve como preparar o mapeamento de rede para recuperação de desastre de VMs do Hyper-V (gerenciadas em nuvens de VMM) no Azure com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74082568"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento da rede para recuperação de desastre da VM do Hyper-V no Azure
@@ -104,7 +104,7 @@ Se a rede de destino tiver várias sub-redes e uma delas tiver o mesmo nome que 
 Para ver o que acontece no caso de failback (replicação inversa), vamos supor que a VMNetwork1-NewYork seja mapeada para VMNetwork1-Chicago, com as configurações a seguir.
 
 
-**Vm** | **Conectado à rede VM**
+**VM** | **Conectado à rede VM**
 ---|---
 VM1 | VMNetwork1-Rede
 VM2 (réplica de VM1) | VMNetwork1-Chicago

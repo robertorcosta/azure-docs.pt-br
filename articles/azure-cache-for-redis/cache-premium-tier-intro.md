@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74121659"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à camada Premium do Cache do Azure para Redis
@@ -56,8 +56,8 @@ A camada premium permite a reinicialização de um ou mais nós de seu cache sob
 
 * Nó mestre do cache
 * Nó secundário do seu cache
-* Nós primários e secundários do seu cache
-* Ao usar um cache premium com clustering, você pode reinicializar os nós primários, secundários ou ambos os nós para fragmentos individuais no cache
+* Nós primários e secundários do cache
+* Ao usar um cache Premium com clustering, você pode reinicializar os nós primário, secundário ou ambos para fragmentos individuais no cache
 
 Para obter mais informações, consulte [Reinicializar](cache-administration.md#reboot) e [Perguntas frequentes sobre reinicialização](cache-administration.md#reboot-faq).
 

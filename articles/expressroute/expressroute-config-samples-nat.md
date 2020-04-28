@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Amostras de configuração do roteador - NAT'
+title: 'Azure ExpressRoute: exemplos de configuração do roteador-NAT'
 description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74072106"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração do roteador para configurar e gerenciar o NAT
@@ -56,7 +56,7 @@ Esta página fornece exemplos de configuração do NAT para roteadores da série
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-**Configuração:**
+**Configuração**
 
 Pool de NAT:
 
@@ -82,7 +82,7 @@ Comandos de NAT
 
 
 ## <a name="juniper-srx-series-routers"></a>Roteadores da série Juniper SRX
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Crie interfaces Ethernet redundantes para o cluster
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. criar interfaces Ethernet redundantes para o cluster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -114,7 +114,7 @@ Comandos de NAT
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. Crie duas zonas de segurança
+### <a name="2-create-two-security-zones"></a>2. criar duas zonas de segurança
 * A Zona de Confiança para a rede interna e Zona Não Confiável para rede externa de frente para os Roteadores de Extremidade
 * Atribuir as interfaces apropriadas para as zonas
 * Permitir os serviços nas interfaces
@@ -122,7 +122,7 @@ Comandos de NAT
     security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
 
 
-### <a name="3-create-security-policies-between-zones"></a>3. Crie políticas de segurança entre zonas
+### <a name="3-create-security-policies-between-zones"></a>3. criar políticas de segurança entre zonas
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -153,7 +153,7 @@ Comandos de NAT
     }
 
 
-### <a name="4-configure-nat-policies"></a>4. Configure políticas NAT
+### <a name="4-configure-nat-policies"></a>4. configurar políticas de NAT
 * Criar dois pools NAT. Um será usado para a saída de tráfego NAT para a Microsoft e outro da Microsoft para o cliente.
 * Criar o respectivo tráfego de regras de NAT
   
@@ -212,10 +212,10 @@ Comandos de NAT
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configure o BGP para anunciar prefixos seletivos em cada direção
-Consulte as amostras na página ['Amostras de configuração de roteamento'.](expressroute-config-samples-routing.md)
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. configurar o BGP para anunciar prefixos seletivos em cada direção
+Consulte os exemplos na página [exemplos de configuração de roteamento](expressroute-config-samples-routing.md) .
 
-### <a name="6-create-policies"></a>6. Criar políticas
+### <a name="6-create-policies"></a>6. criar políticas
     routing-options {
                   autonomous-system <Customer-ASN>;
     }

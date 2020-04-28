@@ -1,5 +1,5 @@
 ---
-title: Configurar o serviço de aplicativos usando o PowerShell
+title: Configurar o serviço de aplicativo usando o PowerShell
 titleSuffix: Azure Application Gateway
 description: Este artigo oferece orientação sobre como configurar aplicativos Web como hosts back-end em um gateway de aplicativo novo ou existente.
 services: application-gateway
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74089504"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configure o serviço do aplicativo com gateway de aplicativo usando o PowerShell
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurar o serviço de aplicativo com o gateway de aplicativo usando o PowerShell
 
 O Gateway de Aplicativo permite que você tenha um aplicativo do Serviço de Aplicativo ou outro serviço multilocatário como um membro do pool de back-end. Neste artigo, você aprenderá como configurar um aplicativo do Serviço de Aplicativo com Gateway de Aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicativo existente para usar um aplicativo Web como membro do pool de back-ends. O segundo exemplo mostra como criar um novo gateway de aplicativo com um aplicativo Web como membro do pool de back-ends.
 

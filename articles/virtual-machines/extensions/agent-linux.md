@@ -1,5 +1,5 @@
 ---
-title: Visão geral do agente DeSm Do Azure Linux
+title: Visão geral do agente de VM Linux do Azure
 description: Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74073863"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
@@ -51,7 +51,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
   * Configura NUMA virtual (desabilitar para kernel <`2.6.37`)
   * Consome entropia de Hyper-V para /dev/random
   * Configura os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
-* **Diagnostics**
+* **Diagnóstico**
   
   * Redirecionamento de console de porta serial
 * **Implantações SCVMM**
@@ -60,7 +60,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
 * **Extensão de VM**
   
   * Injete o componente criado pela Microsoft e seus Parceiros na VM do Linux (IaaS) para habilitar o software e a automação da configuração
-  * Implementação de referência de extensão vm em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão de VM em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
@@ -72,7 +72,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os sistemas a seguir foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Esta lista pode diferir da lista oficial de sistemas suportados na Plataforma Microsoft Azure, conforme descrito aqui:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Essa lista pode ser diferente da lista oficial de sistemas com suporte na plataforma Microsoft Azure, conforme descrito aqui:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -243,14 +243,14 @@ Default: 10
 ```
 Comprimento de sal aleatório usado ao gerar o hash de senha.
 
-**ResourceDisk.Format:**  
+**ResourceDisk. Format:**  
 ```
 Type: Boolean  
 Default: y
 ```
 Se definido, o disco de recursos fornecido pela plataforma é formatado e montado por waagent se o tipo de sistema de arquivos solicitado pelo usuário em "ResourceDisk.Filesystem" for algo diferente de "ntfs". Uma única partição do tipo Linux (83) é disponibilizada no disco. Esta partição não é formatada se ela pode ser montado com êxito.
 
-**ResourceDisk.Filesystem:**  
+**ResourceDisk. FileSystem:**  
 ```
 Type: String  
 Default: ext4
@@ -278,7 +278,7 @@ Default: n
 ```
 Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recursos e adicionado ao espaço de troca de sistema.
 
-**ResourceDisk.SwapSizeMB:**  
+**ResourceDisk. SwapSizeMB:**  
 ```
 Type: Integer  
 Default: 0
@@ -337,8 +337,8 @@ As Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint**
-  * **ResourceDisk.EnableSwap**
+  * **ResourceDisk. MountPoint**
+  * **ResourceDisk. EnableSwap**
   * **ResourceDisk.SwapSizeMB**
 
 * Para mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:

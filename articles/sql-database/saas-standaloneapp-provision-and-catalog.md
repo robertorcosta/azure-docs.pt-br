@@ -1,5 +1,5 @@
 ---
-title: Tutorial saas de vários inquilinos
+title: Tutorial de SaaS de vários locatários
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74133135"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
@@ -81,7 +81,7 @@ Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar
 * **Provisionar o banco de dados do catálogo** usando um modelo de gerenciamento de recursos do Azure. O banco de dados é inicializado, importando um arquivo bacpac.
 * **Registre os aplicativos de locatário de exemplo** que você implantou anteriormente.  Cada locatário é registrado usando uma chave construída a partir de um hash do nome do locatário.  O nome do locatário também é armazenado em uma tabela de extensão no catálogo.
 
-1. No PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* e atualize o **\<usuário\>** para o valor utilizado ao implementar os três aplicativos de exemplo.  **Salvar o arquivo**.
+1. No PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* e atualize o **\<usuário\>** para o valor utilizado ao implementar os três aplicativos de exemplo.  **Salve o arquivo**.
 1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 1**. Implante o catálogo de locatário e registre os locatários predefinidos.
 
 1. Adicione um ponto de interrupção, colocando o cursor em qualquer lugar na linha indicando, `& $PSScriptRoot\New-Catalog.ps1`, e, em seguida, pressione **F9**.
@@ -98,7 +98,7 @@ Quando o script for concluído, o catálogo existirá e todos os locatários de 
 Agora, analise os recursos que você criou.
 
 1. Abra o [Portal do Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog-\<do usuário \>** anote o servidor de catálogo e o banco de dados.
-1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando Login e digite a Senha = **P\@ssword1**.
+1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e insira a senha = **P\@ssword1**.
 
 
 1. Explore o esquema do banco de dados *tenantcatalog*.

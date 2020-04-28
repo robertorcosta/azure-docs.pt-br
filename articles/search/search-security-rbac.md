@@ -1,7 +1,7 @@
 ---
-title: Defina funções rbac para acesso administrativo do Azure
+title: Definir funções RBAC para acesso administrativo do Azure
 titleSuffix: Azure Cognitive Search
-description: Controle administrativo baseado em funções (RBAC) no portal Azure para controle e delegar tarefas administrativas para o gerenciamento da Pesquisa Cognitiva do Azure.
+description: RBAC (controle administrativo baseado em função) no portal do Azure para controlar e delegar tarefas administrativas para o gerenciamento de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9262d01e35bd03a9116a30b070b023f578f0b15a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74112563"
 ---
-# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Defina funções de RBAC para acesso administrativo à Pesquisa Cognitiva do Azure
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções RBAC para acesso administrativo ao Azure Pesquisa Cognitiva
 
-O Azure fornece um [modelo global de autorização baseado em funções](../role-based-access-control/role-assignments-portal.md) para todos os serviços gerenciados por meio do portal ou nas APIs do Gerenciador de Recursos. As funções proprietário, contribuinte e leitor determinam o nível de administração de *serviços* para usuários, grupos e diretores de segurança do Active Directory atribuídos a cada função. 
+O Azure fornece um [modelo global de autorização baseado em funções](../role-based-access-control/role-assignments-portal.md) para todos os serviços gerenciados por meio do portal ou nas APIs do Gerenciador de Recursos. As funções proprietário, colaborador e leitor determinam o nível de *Administração de serviço* para Active Directory usuários, grupos e entidades de segurança atribuídos a cada função. 
 
 > [!Note]
 > Não há controles de acesso baseados em função para proteger partes de um índice ou um subconjunto de documentos. Para o acesso baseado em identidade sobre os resultados da pesquisa, é possível criar filtros de segurança para cortar resultados por identidade, removendo documentos para os quais o solicitante não deve ter acesso. Para obter mais informações, consulte [Filtros de segurança](search-security-trimming-for-azure-search.md) e [Proteger com Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## <a name="management-tasks-by-role"></a>Tarefas de gerenciamento por função
 
-Para a Pesquisa Cognitiva do Azure, as funções estão associadas a níveis de permissão que suportam as seguintes tarefas de gerenciamento:
+Para Pesquisa Cognitiva do Azure, as funções são associadas a níveis de permissão que dão suporte às seguintes tarefas de gerenciamento:
 
 | Função | Tarefa |
 | --- | --- |
@@ -38,5 +38,5 @@ As funções não concedem direitos de acesso para o ponto de extremidade de ser
 ## <a name="see-also"></a>Confira também
 
 + [Gerenciar usando o PowerShell](search-manage-powershell.md) 
-+ [Desempenho e otimização na Pesquisa Cognitiva do Azure](search-performance-optimization.md)
-+ [Comece com o Controle de Acesso Baseado em Role no portal Azure](../role-based-access-control/overview.md).
++ [Desempenho e otimização no Azure Pesquisa Cognitiva](search-performance-optimization.md)
++ [Introdução ao controle de acesso baseado em função no portal do Azure](../role-based-access-control/overview.md).

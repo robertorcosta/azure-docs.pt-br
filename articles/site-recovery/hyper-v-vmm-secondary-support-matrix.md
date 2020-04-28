@@ -1,5 +1,5 @@
 ---
-title: Suporte a recuperação de desastres matrix-Hyper-V para um site VMM secundário com recuperação do site do Azure
+title: Suporte à matriz-recuperação de desastre do Hyper-V em um site secundário do VMM com Azure Site Recovery
 description: Resume o suporte para a replicação de VM do Hyper-V em nuvens VMM para um site secundário com Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74132952"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastres de VMs do Hyper-V para um site secundário
 
-Este artigo resume o que é suportado quando você usa o serviço [de recuperação de sites do Azure](site-recovery-overview.md) para replicar VMs Hyper-V gerenciados em nuvens VMM (System Center Virtual Machine Manager, gerenciamento de máquinas virtuais) para um site secundário. Se você quer replicar VMs do Hyper-V para o Azure, analise [esta matriz de suporte](hyper-v-azure-support-matrix.md).
+Este artigo resume o que tem suporte quando você usa o serviço de [Azure site Recovery](site-recovery-overview.md) para replicar VMs do Hyper-V gerenciadas em nuvens do System Center Virtual Machine Manager (VMM) para um site secundário. Se você quer replicar VMs do Hyper-V para o Azure, analise [esta matriz de suporte](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > Só é possível replicar para um site secundário quando os hosts do Hyper-V são gerenciados em nuvens VMM.
@@ -24,7 +24,7 @@ Este artigo resume o que é suportado quando você usa o serviço [de recuperaç
 
 ## <a name="host-servers"></a>Servidores de host
 
-**Sistema Operacional** | **Detalhes**
+**Sistema operacional** | **Detalhes**
 --- | ---
 Windows Server 2012 R2 | Os servidores devem estar executando as últimas atualizações.
 Windows Server 2016 |  No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.<br/><br/> Atualmente, não há suporte para implantações atualizadas do System Center 2012 R2 VMM 2012 R2 para System Center 2016.
@@ -34,7 +34,7 @@ Windows Server 2016 |  No momento, não há suporte para nuvens VMM 2016 com uma
 
 A tabela a seguir resume o suporte de sistema operacional para computadores replicados com o Site Recovery. Qualquer carga de trabalho pode ser executada no sistema operacional com suporte.
 
-**Versão do Windows** | **Hiper-V (com VMM)**
+**Versão do Windows** | **Hyper-V (com VMM)**
 --- | ---
 Windows Server 2016 | Qualquer sistema operacional convidado [com suporte do Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) no Windows Server 2016 
 Windows Server 2012 R2 | Qualquer sistema operacional convidado [com suporte do Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) no Windows Server 2012 R2
@@ -51,7 +51,7 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
-**Configuração** | **Suportado**  
+**Configuração** | **Com suporte**  
 --- | --- 
 Host - Agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -68,7 +68,7 @@ VM Convidada - Multi-NIC | Sim
 
 ### <a name="host-storage"></a>Armazenamento de host
 
-**Armazenamento (host)** | **Suportado**
+**Armazenamento (host)** | **Com suporte**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sim
@@ -77,7 +77,7 @@ Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
-**Configuração** | **Suportado**
+**Configuração** | **Com suporte**
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sim (até 16 discos)
@@ -97,7 +97,7 @@ Múltiplos caminhos (MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado**
+**Ação** | **Com suporte**
 --- | --- 
 Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) |  Não
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não
@@ -108,7 +108,7 @@ O Provedor coordena as comunicações entre os servidores VMM.
 
 **Mais recente** | **Atualizações**
 --- | --- 
-5.1.19[(disponível no portal](https://aka.ms/downloaddra) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
+5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Recursos e correções mais recentes](https://support.microsoft.com/kb/3155002)
 
 
 

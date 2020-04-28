@@ -1,6 +1,6 @@
 ---
-title: Personalize as regras usando o CLI - Azure Web Application Firewall
-description: Este artigo fornece informações sobre como personalizar as regras do Firewall de Aplicativos da Web no Application Gateway com o Cli do Azure.
+title: Personalizar regras usando a CLI – Firewall do aplicativo Web do Azure
+description: Este artigo fornece informações sobre como personalizar as regras de firewall do aplicativo Web no gateway de aplicativo com o CLI do Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,15 +8,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 8e8aaa9458619bc937c5bb11c450f3197b92f451
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74048526"
 ---
-# <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personalize as regras do Firewall de Aplicativos da Web usando o Azure CLI
+# <a name="customize-web-application-firewall-rules-using-the-azure-cli"></a>Personalizar regras de firewall do aplicativo Web usando o CLI do Azure
 
-O WAF (Azure Application Gateway Web Application Firewall, firewall de aplicativos web) do Azure Application oferece proteção para aplicativos web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre os grupos e regras de regras específicas, consulte [Lista de grupos e regras do CRS do Firewall de Aplicativos da Web](application-gateway-crs-rulegroups-rules.md).
+O WAF (firewall do aplicativo Web) Aplicativo Azure Gateway fornece proteção para aplicativos Web. Essas proteções são fornecidas pelo CRS (conjunto de regras principais) do OWASP (Open Web Application Security Project). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de Aplicativo possibilita que a capacidade personalize regras e grupos de regras. Para obter mais informações sobre grupos de regras e regras específicas, consulte [lista de regras e grupos de regras CRS de firewall do aplicativo Web](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Exibir grupos de regras e regras
 
@@ -124,20 +124,20 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 ## <a name="mandatory-rules"></a>Regras obrigatórias
 
-A lista a seguir contém condições que fazem com que o WAF bloqueie a solicitação enquanto estiver no modo de prevenção (no modo de detecção eles são registrados como exceções). Estes não podem ser configurados ou desativados:
+A lista a seguir contém condições que fazem com que o WAF bloqueie a solicitação no modo de prevenção (no modo de detecção, elas são registradas como exceções). Eles não podem ser configurados ou desabilitados:
 
-* A não análise do órgão de solicitação resulta no bloqueio da solicitação, a menos que a inspeção corporal seja desligada (XML, JSON, dados de formulário)
-* O comprimento dos dados do corpo de solicitação (sem arquivos) é maior do que o limite configurado
-* O corpo de solicitação (incluindo arquivos) é maior do que o limite
-* Um erro interno aconteceu no motor WAF
+* Falha ao analisar os resultados do corpo da solicitação na solicitação sendo bloqueada, a menos que a inspeção do corpo seja desativada (XML, JSON, dados de formulário)
+* O comprimento de dados do corpo da solicitação (sem arquivos) é maior que o limite configurado
+* O corpo da solicitação (incluindo arquivos) é maior que o limite
+* Ocorreu um erro interno no mecanismo de WAF
 
-CRS 3.x específico:
+Específico do CRS 3. x:
 
-* Pontuação de anomalia de entrada excedeu o limite
+* Limite de Pontuação de anomalias de entrada excedido
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar as regras desabilitadas, você pode aprender como exibir os logs de WAF. Para obter mais informações, consulte [os diagnósticos do Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+Depois de configurar as regras desabilitadas, você pode aprender como exibir os logs de WAF. Para obter mais informações, consulte [diagnóstico do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

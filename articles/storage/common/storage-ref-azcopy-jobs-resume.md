@@ -1,6 +1,6 @@
 ---
-title: currículo de empregos em azcopy | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy jobs resume.
+title: retomada de trabalhos do azcopy | Microsoft Docs
+description: Este artigo fornece informações de referência para o comando retomar trabalhos do azcopy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,15 +9,15 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 3ee7879475801660b5200dddca88a0a81b2b6b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74034151"
 ---
 # <a name="azcopy-jobs-resume"></a>azcopy jobs resume
 
-Retoma o trabalho existente com o dIs de trabalho dado.
+Retoma o trabalho existente com a ID de trabalho fornecida.
 
 ## <a name="synopsis"></a>Sinopse
 
@@ -28,7 +28,7 @@ azcopy jobs resume [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -36,18 +36,18 @@ azcopy jobs resume [jobID] [flags]
 
 |Opção|Descrição|
 |--|--|
-|--destination-sas string|Destino SAS do destino para dado JobId.|
-|--excluir string|Filtro: Exclua essas transferências com falha ao retomar o trabalho. Os arquivos devem ser separados por ';'.|
-|-h, --help|Mostrar conteúdo de ajuda para o comando de currículo.|
-|--incluir string|Filtro: inclua apenas essas transferências com falha ao retomar o trabalho. Os arquivos devem ser separados por ';'.|
-|--seqüência de source-sas |fonte SAS da fonte para dado JobId.|
+|--destino-Cadeia de caracteres SAS|SAS de destino do destino para determinada JobId.|
+|--excluir cadeia de caracteres|Filtro: exclua essas transferências com falha ao retomar o trabalho. Os arquivos devem ser separados por '; '.|
+|-h, --help|Mostra o conteúdo da ajuda para o comando retomar.|
+|--incluir Cadeia de caracteres|Filtro: inclua apenas essas transferências com falha ao retomar o trabalho. Os arquivos devem ser separados por '; '.|
+|--origem – cadeia de caracteres SAS |SAS de origem da origem para determinada JobId.|
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos parentais
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
 |Opção|Descrição|
 |---|---|
-|--cap-mbps uint32|Limita a taxa de transferência, em megabits por segundo. O throughput momento a momento pode variar ligeiramente da tampa. Se esta opção estiver definida como zero, ou for omitida, o throughput não será limitado.|
-|--cadeia de tipo de saída|Formato da saída do comando. As opções incluem: texto, json. O valor padrão é "texto".|
+|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
+|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
 ## <a name="see-also"></a>Confira também
 

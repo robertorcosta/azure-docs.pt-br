@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas Pontos finais do CDN do Azure - código de status 404
+title: Solucionando problemas de pontos de extremidade da CDN do Azure-código de status 404
 description: Solucione problemas nos códigos de resposta 404 com pontos de extremidade da CDN do Azure.
 services: cdn
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c332c6712cdf057491e3039854aa1a29bd54196f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74083124"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solucionando problemas dos pontos de extremidade do Azure CDN que retornam o código de status 404
 Este artigo permite que você solucione problemas com pontos de extremidade de Rede de Distribuição de Conteúdo (CDN) do Microsoft Azure que retornam códigos de status de resposta HTTP 404.
 
-Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
 ## <a name="symptom"></a>Sintoma
 Você criou um perfil CDN e um ponto de extremidade, mas seu conteúdo não parece estar disponível na CDN. Os usuários que tentam acessar seu conteúdo por meio da URL da CDN recebem um código de status HTTP 404. 
@@ -73,7 +73,7 @@ Verifique se os valores do **Tipo de origem** e **Nome do host de origem** estã
 #### <a name="http-and-https-ports"></a>Portas HTTP e HTTPS
 Verifique suas portas **HTTP** e **HTTPS**. Na maioria dos casos, as portas 80 e 443 estão corretas e não será necessária nenhuma alteração.  No entanto, se o servidor de origem estiver escutando em uma porta diferente, isso precisará ser representado aqui. Caso você não tenha certeza, veja a URL do arquivo de origem. As especificações de HTTP e HTTPS usam as portas 80 e 443 como os padrões. Na URL de exemplo, https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, uma porta não é especificada, então o padrão de 443 é considerado e as configurações estão corretas.  
 
-No entanto, suponha que a URL para o arquivo de origem que você testou anteriormente seja http:\//www.contoso.com:8080/file.txt. Observe a parte *:8080* no final do segmento do nome do host. Esse número instrui o navegador a usar a porta 8080 para se conectar ao servidor web em www\.contoso.com, portanto, você precisará inserir *8080* no campo de porta **HTTP.** É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
+No entanto, suponha que a URL para o arquivo de origem que você testou anteriormente seja http:\//www.contoso.com:8080/file.txt. Observe a parte *:8080* no final do segmento do nome do host. Esse número instrui o navegador a usar a porta 8080 para se conectar ao servidor Web em www\.contoso.com, portanto, você precisará inserir *8080* no campo **porta http** . É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
 
 > [!NOTE]
 > **Azure CDN Standard da Akamai** não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, confira [CDN do Azure das Portas de Origem Permitidas Akamai](/previous-versions/azure/mt757337(v=azure.100)).  

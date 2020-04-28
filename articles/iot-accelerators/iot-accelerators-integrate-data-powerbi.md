@@ -1,6 +1,6 @@
 ---
 title: Visualizar dados de monitoramento remoto usando o Power BI – Azure | Microsoft Docs
-description: Este tutorial usa o Power BI Desktop e o Cosmos DB para integrar dados de uma solução de Monitoramento Remoto em uma visualização personalizada. Desse modo, os usuários podem criar seus próprios painéis personalizados e compartilha-los para os usuários que não estão na solução.
+description: Este tutorial usa Power BI Desktop e Cosmos DB para integrar dados de uma solução de monitoramento remoto em uma visualização personalizada. Desse modo, os usuários podem criar seus próprios painéis personalizados e compartilha-los para os usuários que não estão na solução.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74184233"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitoramento remoto usando o Power BI
@@ -22,13 +22,13 @@ Este tutorial explicará como conectar seus dados de solução de Monitoramento 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter uma solução de Monitoramento Remoto em execução
-- Você deve ter acesso ao [portal Azure](https://portal.azure.com) e sua assinatura em que o IoT Hub e a Solução estão executando
+- Você deve ter acesso ao [portal do Azure](https://portal.azure.com) e à sua assinatura na qual o Hub IOT e a solução estão em execução
 - Você deve ter qualquer versão do [Power BI Desktop](https://powerbi.microsoft.com) instalada
 
 
-## <a name="information-needed-from-azure-portal"></a>Informações necessárias do portal Azure
+## <a name="information-needed-from-azure-portal"></a>Informações necessárias do portal do Azure
 
-1. Navegue até [o portal Azure](https://portal.azure.com) e faça login se necessário
+1. Navegue até [portal do Azure](https://portal.azure.com) e entre, se necessário
 
 2. No painel esquerdo, clique em Grupos de recursos
 

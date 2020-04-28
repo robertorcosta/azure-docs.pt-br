@@ -1,5 +1,5 @@
 ---
-title: Habilite a criptografia de dados transparente para o Banco de Dados de Estiramento (T-SQL)
+title: Habilitar Transparent Data Encryption para Stretch Database (T-SQL)
 description: Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74033966"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Habilitar TDE (Transparent Data Encryption) para Stretch Database no Azure (Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Portal Azure](sql-server-stretch-database-encryption-tde.md)
-> * [Tsql](sql-server-stretch-database-tde-tsql.md)
+> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
+> * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
@@ -69,7 +69,7 @@ FROM
 Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.
 
 <!--Anchors-->
-[Criptografia de dados transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Criptografia de Dados Transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
