@@ -1,6 +1,6 @@
 ---
 title: Agendar trabalhos do U-SQL do Azure Data Lake Analytics usando SSIS
-description: Aprenda a usar os Serviços de Integração do Servidor SQL para agendar trabalhos U-SQL com script inline ou em arquivos de consulta U-SQL.
+description: Saiba como usar SQL Server Integration Services para agendar trabalhos U-SQL com script embutido ou arquivos de consulta do U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71672903"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar trabalhos do U-SQL usando SSIS (SQL Server Integration Services)
@@ -93,7 +93,7 @@ No modo de exibição de design do pacote SSIS, adicione uma **Tarefa do Sistema
     
     Para criar essa conexão de arquivo:
 
-   1. Escolha ** \<Nova conexão...>** na configuração FileConnection.
+   1. Escolha ** \<nova conexão... >** na configuração FileConnection.
    2. Defina **Tipo de uso** para **Arquivo existente** e defina o **Arquivo** para o caminho de arquivo de qualquer arquivo existente.
 
        ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ No modo de exibição de design do pacote SSIS, adicione uma **Tarefa do Sistema
 
 É possível usar arquivos do U-SQL no Armazenamento de Blobs do Azure, usando a **Tarefa de Download de Blob do Azure** no Feature Pack do Azure. Essa abordagem permite usar os scripts na nuvem.
 
-As etapas são semelhantes ao [Cenário 2: Use arquivos U-SQL no Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a Tarefa do Sistema de Arquivos do Azure Data Lake Store para Tarefa de Download de Blob do Azure. [Saiba mais sobre a Tarefa de Download de Blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+As etapas são semelhantes ao [cenário 2: usar arquivos U-SQL no Azure data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a Tarefa do Sistema de Arquivos do Azure Data Lake Store para Tarefa de Download de Blob do Azure. [Saiba mais sobre a Tarefa de Download de Blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 O fluxo de controle é conforme abaixo.
 
@@ -137,7 +137,7 @@ Além de usar arquivos do U-SQL armazenados na nuvem, você também poderá usar
 
     ![Adicionar conexão de arquivo ao arquivo local](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. Adicionar a tarefa de análise do lago de dados do **Azure** e:
+4. Adicionar **Azure data Lake Analytics** tarefa e:
     1. Defina **SourceType** para **FileConnection**.
     2. Defina **FileConnection** para a Conexão do Arquivo criada agora.
 

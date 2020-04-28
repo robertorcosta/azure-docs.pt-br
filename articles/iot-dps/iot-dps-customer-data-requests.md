@@ -1,6 +1,6 @@
 ---
-title: Recursos de solicitação de dados do cliente para dispositivos Azure DPS
-description: Para dispositivos gerenciados no Azure Device Provisioning Service (DPS) que são pessoais, este artigo mostra admins como exportar ou excluir dados pessoais.
+title: Recursos de solicitação de dados do cliente para dispositivos do Azure DPS
+description: Para dispositivos gerenciados no DPS (serviço de provisionamento de dispositivos) do Azure que são pessoais, este artigo mostra aos administradores como exportar ou excluir dados pessoais.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890647"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
@@ -62,6 +62,6 @@ Também é possível executar operações de exportação para ambos os tipos de
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-A documentação completa para APIs do [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)Serviço de Provisionamento de Dispositivos está localizada em .
+A documentação completa para APIs do serviço de provisionamento de dispositivos está [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)localizada em.
 
 [Recursos de solicitação de dados do cliente](../iot-hub/iot-hub-customer-data-requests.md) do Hub IoT do Azure.

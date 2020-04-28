@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69032661"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Redefinir a senha de um usuário usando o Azure Active Directory
@@ -33,7 +33,7 @@ Como um administrador, você pode redefinir a senha de um usuário se a senha fo
 
 ## <a name="to-reset-a-password"></a>Para redefinir uma senha
 
-1. Faça login no [portal Azure](https://portal.azure.com/) como administrador de usuário ou administrador de senhas. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador de usuário ou administrador de senha. Para obter mais informações sobre as funções disponíveis, consulte [Atribuindo funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Selecione **Azure Active Directory**, selecione **Usuários**, pesquise e selecione o usuário que precisa da redefinição e, em seguida, selecione **Redefinir Senha**.
 
@@ -44,7 +44,7 @@ Como um administrador, você pode redefinir a senha de um usuário se a senha fo
 3. Na página **Redefinir senha**, selecione **Redefinir senha**.
 
     > [!Note]
-    > Ao usar o Azure Active Directory, uma senha temporária é gerada automaticamente para o usuário. Ao usar o Active Directory no local, você cria a senha para o usuário.
+    > Ao usar Azure Active Directory, uma senha temporária é gerada automaticamente para o usuário. Ao usar Active Directory local, você cria a senha para o usuário.
 
 4. Copie a senha e entregue ao usuário. O usuário será solicitado a alterar a senha durante o próximo processo de entrada.
 

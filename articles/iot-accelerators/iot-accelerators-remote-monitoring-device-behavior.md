@@ -1,5 +1,5 @@
 ---
-title: Dispositivo simulado em solução de monitoramento remoto - Azure | Microsoft Docs
+title: Dispositivo simulado na solução de monitoramento remoto – Azure | Microsoft Docs
 description: Este artigo descreve como usar JavaScript para definir o comportamento de um dispositivo simulado na solução de monitoramento remota.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890857"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementar o comportamento do modelo do dispositivo

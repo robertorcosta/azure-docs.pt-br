@@ -1,5 +1,5 @@
 ---
-title: Implantar solução de monitoramento remoto localmente - VS IDE - Azure | Microsoft Docs
+title: Implantar solução de monitoramento remoto localmente-VS IDE-Azure | Microsoft Docs
 description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local usando o Visual Studio para teste e desenvolvimento.
 author: avneet723
 manager: hegate
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73890880"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implantar o acelerador da solução de monitoramento remoto localmente - Visual Studio
@@ -27,7 +27,7 @@ Se você quiser executar o acelerador de solução de Monitoramento Remoto no Do
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração do computador
 
@@ -83,7 +83,7 @@ Cada serviço Web abre uma janela do navegador e do prompt de comando. No prompt
 Execute estas etapas para iniciar o trabalho do Stream Analytics:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome que você escolheu para sua solução quando executou o script **start.cmd.**
+1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome escolhido para a solução quando você executou o script **Start. cmd** .
 1. Clique no **trabalho do Stream Analytics** na lista de recursos.
 1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Clique em **Iniciar** para iniciar o trabalho.
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Quando a partida estiver concluída, seu navegador exibe a página **\/http: /localhost:3000/dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
+Quando o início for concluído, o navegador exibirá a página **http\/:/localhost: 3000/Dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
 
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
@@ -109,7 +109,7 @@ Para saber mais sobre como executar **nginx**, confira [nginx para Windows](http
 
 ### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para acessar o painel de soluções\/de monitoramento remoto, navegue para http: /localhost:9000 no seu navegador.
+Para acessar o painel da solução de monitoramento remoto, navegue até\/http:/localhost: 9000 em seu navegador.
 
 ## <a name="clean-up"></a>Limpar
 

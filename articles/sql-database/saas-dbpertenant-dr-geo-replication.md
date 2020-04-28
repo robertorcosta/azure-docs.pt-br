@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres para aplicativos SaaS com replicação geo
+title: Recuperação de desastre para aplicativos SaaS com replicação geográfica
 description: Saiba como usar réplicas geográficas do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73811716"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
@@ -91,8 +91,8 @@ Mais tarde, em uma etapa de repatriação separada, você faz failover dos banco
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 1. No navegador da Web, abra o Hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net – substitua &lt;user&gt; com o valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome do servidor de catálogo e a localização no rodapé. A localização é a região em que você implantou o aplicativo.
-    *DICA: Passe o mouse sobre o local para ampliar o display.* 
-    Hub de eventos estado saudável na região ![original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *Dica: passe o mouse sobre o local para ampliar a tela.* 
+    Estado íntegro do hub de eventos na ![região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no locatário Contoso Concert Hall e abra sua página de eventos.
     * No rodapé, observe o nome do servidor de locatário. A localização será igual à localização do servidor de catálogo.
@@ -105,7 +105,7 @@ Antes de iniciar o processo de recuperação, examine o estado de integridade no
 Nesta tarefa, você inicia um processo que sincroniza a configuração dos servidores, dos pools elásticos e dos bancos e dados com o catálogo de locatário. O processo mantém essas informações atualizadas no catálogo.  O processo funciona com o catálogo ativo, se estiver na região original ou na região de recuperação. As informações de configuração são usadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e posteriormente, durante a repatriação para garantir que a região original seja tornada consistente com as alterações feitas no ambiente de recuperação. O catálogo também é usado para controlar o estado de recuperação de recursos de locatário
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa duração são implementados nesses tutoriais como trabalhos ou sessões locais do PowerShell que são executados o login do usuário do cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa execução são implementados nesses tutoriais como trabalhos locais do PowerShell ou sessões que são executadas no logon de usuário do cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. No _ISE do PowerShell_, abra o arquivo ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
@@ -238,7 +238,7 @@ Quando o processo de recuperação for concluída, o aplicativo e todos os locat
    * As versões de recuperação dos servidores de catálogo e locatários1 com o sufixo _-recovery_.  Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
 
    * O servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Este servidor é usado para provisionar novos locatários durante a interrupção.
-   * O Serviço de Aplicativo nomeado, _&lt;&gt;-&lt;usuário de recuperação_de ponta de eventos&gt ;, que é a instância de recuperação do aplicativo Eventos. 
+   * O serviço de aplicativo chamado _Events-Wingtip-DPT&lt;-&gt;-&lt;recoveryregion usuário&gt_;, que é a instância de recuperação do aplicativo de eventos. 
 
      ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     

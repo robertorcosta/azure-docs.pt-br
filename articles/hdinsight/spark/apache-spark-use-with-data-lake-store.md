@@ -1,6 +1,6 @@
 ---
-title: Analisar a azure Data Lake Storage Gen1 com HDInsight Apache Spark
-description: Execute trabalhos apache spark para analisar dados armazenados no Azure Data Lake Storage Gen1
+title: Analisar Azure Data Lake Storage Gen1 com o HDInsight Apache Spark
+description: Executar trabalhos de Apache Spark para analisar os dados armazenados no Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73818176"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage Gen1
 
-Neste artigo, você usa [o Jupyter Notebook](https://jupyter.org/) disponível com clusters HDInsight Spark para executar um trabalho que lê dados de uma conta de Armazenamento do Lago de Dados.
+Neste artigo, você usa [Jupyter Notebook](https://jupyter.org/) disponíveis com clusters do HDInsight Spark para executar um trabalho que lê dados de uma conta de data Lake Storage.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Usar um cluster Spark HDInsight com o Data Lake Storage Gen1
 
-1. A partir do [portal Azure](https://portal.azure.com/), a partir da placa inicial, clique no azulejo para o seu cluster Apache Spark (se você fixou-o no startboard). Você também pode navegar para o seu cluster em **Procurar todos os** > **clusters HDInsight**.
+1. No [portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster apache Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **procurar todos os** > **clusters HDInsight**.
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha **Painel do Cluster**, clique em **Notebook do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -129,4 +129,4 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 * [Criar um aplicativo Scala autônomo para ser executado no cluster do Apache Spark](apache-spark-create-standalone-application.md)
 * [Use as ferramentas do HDInsight no Azure Toolkit for IntelliJ crie aplicativos do Apache Spark para o cluster do HDInsight Spark Linux](apache-spark-intellij-tool-plugin.md)
 * [Use as ferramentas do HDInsight no Azure Toolkit for Eclipse para criar aplicativos Apache Spark para o cluster do HDInsight Spark Linux](apache-spark-eclipse-tool-plugin.md)
-* [Use o Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

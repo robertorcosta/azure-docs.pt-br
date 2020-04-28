@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve as ferramentas usadas para gerenciar tarefas de administração e gerenciamento de um servidor do Azure Analysis Services.
+description: Este artigo descreve as ferramentas usadas para gerenciar tarefas de administração e gerenciamento para um servidor Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572792"
 ---
 # <a name="manage-analysis-services"></a>Gerenciar o Analysis Services
@@ -30,7 +30,7 @@ Conectar-se ao seu servidor no Azure é como se conectar a uma instância de ser
 ### <a name="download-and-install-ssms"></a>Baixar e instalar o SSMS
 Para obter todos os recursos mais recentes e a melhor experiência ao se conectar ao servidor do Azure Analysis Services, certifique-se de que está usando a versão mais recente do SSMS. 
 
-[Baixe o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Baixar SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Para conectar-se com o SSMS
@@ -56,11 +56,11 @@ Para obter todos os recursos mais recentes e a melhor experiência ao se conecta
     ![Conectar-se no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Administradores de servidor e usuários de banco de dados
-Nos Azure Analysis Services, há dois tipos de usuários, administradores de servidor e usuários de banco de dados. Os dois tipos de usuários devem estar no Azure Active Directory e devem ser especificados por endereços de email organizacionais ou UPN. Para saber mais, consulte [Autenticação e permissões de usuário](analysis-services-manage-users.md).
+Nos Azure Analysis Services, há dois tipos de usuários, administradores de servidor e usuários de banco de dados. Os dois tipos de usuários devem estar no Azure Active Directory e devem ser especificados por endereços de email organizacionais ou UPN. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Solucionar problemas de conexão
-Ao conectar usando o SSMS, se você tiver problemas, talvez seja necessário limpar o cache de logon. Nada é armazenado em cache para disco. Para limpar o cache, feche e reinicie o processo de conexão. 
+Ao conectar usando o SSMS, se você tiver problemas, talvez seja necessário limpar o cache de logon. Nada é armazenado em cache no disco. Para limpar o cache, feche e reinicie o processo de conexão. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você ainda não tiver implantado um modelo de tabela em seu novo servidor, agora é um bom momento. Para saber mais, confira [Implantar no Azure Analysis Services](analysis-services-deploy.md).

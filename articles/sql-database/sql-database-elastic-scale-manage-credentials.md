@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de credenciais na biblioteca de clientes de banco de dados elástico
+title: Gerenciando credenciais na biblioteca de cliente do banco de dados elástico
 description: Como definir o nível certo de credenciais de administrador para somente leitura em aplicativos de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91689a32a128584aade8081905e3d1aa3ecb0a97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823572"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico
@@ -74,7 +74,7 @@ Assim como acontece com as credenciais de administrador, não é possível valor
 
 ## <a name="see-also"></a>Confira também
 
-[Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
+[Gerenciando bancos de dados e logons no Azure SQL Database](sql-database-manage-logins.md)
 
 [Protegendo o Banco de Dados SQL](sql-database-security-overview.md)
 

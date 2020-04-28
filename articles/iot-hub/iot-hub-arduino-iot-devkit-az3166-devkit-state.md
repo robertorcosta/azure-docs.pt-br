@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73483943"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -77,7 +77,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 Com o MXChip IoT DevKit conectado ao computador:
 
-1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço de Arduino é compilado e carregado no DevKit.
+1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço Arduino é compilado e carregado no DevKit.
 
 2. Quando o esboço tiver sido carregado com êxito, uma mensagem *Compilar e Carregar Esboço: êxito* será exibida.
 
@@ -106,7 +106,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 ![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver dados brutos do dispositivo twin no\> portal Azure: IoT Hub - dispositivos IoT -\> * \<seu dispositivo\> *  - \> Device Twin.
+> Você pode ver dados brutos de dispositivos de entrada no portal do Azure: Hub\> IOT-dispositivos\> IOT- * \<seu\> * dispositivo de dispositivo - \> .
 
 ## <a name="next-steps"></a>Próximas etapas
 

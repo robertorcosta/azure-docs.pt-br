@@ -10,10 +10,10 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
 ms.openlocfilehash: 26837337b49d79a26404fd6709b036f6907720f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73838848"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer uma pergunta que você possa responder com dados
@@ -31,7 +31,7 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lis
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
 * Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
-* Vídeo 2: [Seus dados estão prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Vídeo 2: [seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
 * Video 3: Faça uma pergunta que você possa responder com dados
 * Vídeo 4: [Preveja uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
@@ -48,7 +48,7 @@ Falamos sobre como a ciência de dados é o processo de usar nomes (também cham
 
 Uma pergunta vaga não precisa ser respondida com um nome ou um número. Uma pergunta inteligente sim.
 
-Imagine que você encontrou uma lâmpada mágica com um gênio que responderá de verdade qualquer pergunta feita. Mas é um gênio travesso, que tentará fazer sua resposta tão vaga e confusa quanto puder em safar-se. Você quer fixá-los com uma pergunta tão hermética que eles não podem ajudar, mas dizer-lhe o que você quer saber.
+Imagine que você encontrou uma lâmpada mágica com um gênio que responderá de verdade qualquer pergunta feita. Mas é um gênio gênio, que tentará fazer suas respostas como vagas e confusas, uma vez que elas podem se afastar. Você deseja fixá-los com uma pergunta tão rígida que eles não podem ajudar, mas informam o que você deseja saber.
 
 Se você fizesse uma pergunta vaga, como: "O que acontecerá com minhas ações?", o gênio poderia responder: "O preço mudará". É uma resposta sincera, mas não é muito útil.
 
@@ -88,8 +88,8 @@ Porém, o mais importante é fazer uma pergunta inteligente - a pergunta que voc
 
 Falamos sobre alguns princípios básicos para fazer uma pergunta que você pode responder com dados.
 
-Não deixe de conferir os outros vídeos em "Data Science for Beginners" do Microsoft Azure Machine Learning Studio (clássico).
+Certifique-se de conferir os outros vídeos em "ciência de dados para iniciantes" em Microsoft Azure Machine Learning Studio (clássico).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Experimente um primeiro experimento de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
+* [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

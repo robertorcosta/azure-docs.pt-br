@@ -1,5 +1,5 @@
 ---
-title: Fluxo de dados do Monitoramento Remoto para Data Lake Store - Azure | Microsoft Docs
+title: Transmitir dados do monitoramento remoto para o Data Lake Store-Azure | Microsoft Docs
 description: Saiba como integrar a solução de Monitoramento Remoto com o Azure Data Lake Store usando um trabalho do Azure Stream Analytics.
 author: philmea
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889244"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store

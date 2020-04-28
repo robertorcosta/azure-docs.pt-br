@@ -1,6 +1,6 @@
 ---
 title: Visão geral do acelerador da solução de Manutenção Preditiva - Azure | Microsoft Docs
-description: Uma visão geral do acelerador de soluções de manutenção preditiva Azure IoT que prevê o ponto em que uma falha provavelmente ocorrerá para um cenário de negócios.
+description: Uma visão geral do acelerador de solução de manutenção preditiva do Azure IoT que prevê o ponto em que uma falha provavelmente ocorrerá para um cenário de negócios.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 0661503dce7ac2707065f60c3952da866ce9dcf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73827423"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Manutenção Preditiva
@@ -62,7 +62,7 @@ O Hub IoT fornece reconhecimento de comando do dispositivo.
 
 ## <a name="azure-stream-analytics-job"></a>Trabalho do Stream Analytics do Azure
 
-**Trabalho: A telemetria** opera no fluxo de telemetria do dispositivo de entrada usando duas declarações:
+**Trabalho: a telemetria** opera no fluxo de telemetria do dispositivo de entrada usando duas instruções:
 
 * O primeiro seleciona toda a telemetria dos dispositivos e envia os dados para o armazenamento de blobs. A partir daqui, ele é visualizado no aplicativo web.
 * A segunda calcula os valores médios do sensor em uma janela deslizante de dois minutos e envia esses dados por meio do Hub de Eventos para um **processador de eventos**.
@@ -71,13 +71,13 @@ O Hub IoT fornece reconhecimento de comando do dispositivo.
 O **host do processador de eventos** é executado em um trabalho de Web do Azure. O **processador de eventos** obtém os valores do sensor médios para um ciclo completo. Em seguida, ele passa esses valores para um modelo treinado que calcula o RUL para um mecanismo. Uma API fornece acesso ao modelo em um workspace do Machine Learning que faz parte da solução.
 
 ## <a name="machine-learning"></a>Machine Learning
-O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o espaço de trabalho de Aprendizado de Máquina a partir do azulejo da sua solução na página [azureiotsolutions.com.][lnk-azureiotsolutions] O bloco fica disponível quando a solução fica no estado **Pronto**.
+O componente de Machine Learning usa um modelo derivado dos dados coletados de mecanismos de aeronave real. Você pode navegar até o espaço de trabalho Machine Learning no bloco da sua solução na página [azureiotsolutions.com][lnk-azureiotsolutions] . O bloco fica disponível quando a solução fica no estado **Pronto**.
 
 O modelo Aprendizado de Máquina está disponível como um modelo que mostra como trabalhar com a telemetria coletada por meio dos serviços aceleradores de solução de IoT. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave baseado em dados<sup>\[1\]</sup> disponíveis ao público e diretrizes passo a passo sobre como usar o modelo.
 
 O acelerador da solução de Manutenção Preditiva de IoT do Azure usa o modelo de regressão criado com base neste modelo. O modelo é implantado em sua assinatura do Azure e disponibilizado por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste para 4 (de um total de 100) motores e os 4 (de um total de 21) fluxos de dados de sensores. Esses dados são suficientes para fornecer um resultado preciso do modelo treinado.
 
-*\[1\] A. Saxena e K. Goebel (2008). "Conjunto de dados de simulação de degradação do motorhttps://c3.nasa.gov/dashlink/resources/139/)turbofan", repositório de dados prognósticos da NASA Ames ( , Centro de Pesquisa da NASA Ames, Campo Moffett, CA*
+*\[1\] A. Saxena e K. Goebel (2008). "Conjunto de dados de simulação de degradação do mecanismo turbofan", repositório de dadoshttps://c3.nasa.gov/dashlink/resources/139/)de NASA Ames Prognostics (, NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você já viu os principais componentes do acelerador de solução de Manutenção Preditiva, convém personalizá-lo.

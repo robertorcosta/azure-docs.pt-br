@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
 ms.openlocfilehash: ae26f669ddbe2cc2c5b6e25a9c1c0229e88dc2e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823918"
 ---
 # <a name="building-scalable-cloud-databases"></a>Criando bancos de dados de nuvem escalonáveis
@@ -29,14 +29,14 @@ Para baixar:
 
 ## <a name="documentation"></a>Documentação
 
-1. [Comece com ferramentas de banco de dados elásticos](sql-database-elastic-scale-get-started.md)
+1. [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)
 2. [Recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)
 3. [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md)
 4. [Migrar bancos de dados existentes para escalar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Consultas com vários fragmentos](sql-database-elastic-scale-multishard-querying.md)
 7. [Adicionando um fragmento usando ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-add-a-shard.md)
-8. [Aplicativos multilocatários com ferramentas de banco de dados elásticas e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+8. [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [Atualizar aplicativos de biblioteca de cliente](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Visão geral de consultas elásticas](sql-database-elastic-query-overview.md)
 11. [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md)

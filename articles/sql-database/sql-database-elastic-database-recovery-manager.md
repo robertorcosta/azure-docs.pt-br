@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 6101e00ab98b0d8d901f2e42bf4083d40d0a3227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823843"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
 
-A classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) fornece aos aplicativos de ADO.NET a capacidade de detectar e corrigir facilmente quaisquer inconsistências entre o mapa global de fragmentos (GSM) e o mapa de fragmentos locais (LSM) em um ambiente de banco de dados com fragmentos.
+A classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) fornece aos aplicativos ADO.net a capacidade de detectar e corrigir facilmente qualquer inconsistência entre o GSM (mapa de fragmentos global) e o LSM (mapa de fragmentos local) em um ambiente de banco de dados fragmentado.
 
 O GSM e o LSM rastreiam o mapeamento de cada banco de dados em um ambiente fragmentado. Ocasionalmente, ocorre uma interrupção entre o GSM e o LSM. Nesse caso, use a classe RecoveryManager para detectar e reparar a interrupção.
 
@@ -37,13 +37,13 @@ Em um ambiente de banco de dados fragmentado, há um locatário por banco de dad
 O GSM e o LSM podem ficar fora de sincronia pelos seguintes motivos:
 
 1. Exclusão de um fragmento cujo intervalo acredita-se não estar mais sendo usado, ou renomeação de um fragmento. A exclusão de um fragmento resulta em um **mapeamento de fragmento órfão**. De modo semelhante, um banco de dados renomeado pode causar um mapeamento de fragmentos órfãos. Dependendo da intenção da alteração, o fragmento pode precisar ser removido ou a localização do fragmento precisa ser atualizada. Para recuperar um banco de dados excluído, consulte [Restaurar um banco de dados excluído](sql-database-recovery-using-backups.md).
-2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do gerenciador do mapa de fragmento no aplicativo e atualizar os detalhes do mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Em caso de um failover geográfico, tal lógica de recuperação deverá ser automatizada no fluxo de trabalho do failover. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber sobre opções para recuperar um banco de dados se houver uma paralisação do data center, consulte [Continuidade de Negócios](sql-database-business-continuity.md) e Recuperação de [Desastres](sql-database-disaster-recovery.md).
+2. Ocorre um evento de failover geográfico. Para continuar, é necessário atualizar o nome do servidor e o nome do banco de dados do gerenciador do mapa de fragmento no aplicativo e atualizar os detalhes do mapeamento de fragmento para todos os fragmentos em um mapa de fragmentos. Em caso de um failover geográfico, tal lógica de recuperação deverá ser automatizada no fluxo de trabalho do failover. A automação das ações de recuperação proporciona capacidade de gerenciamento ininterrupta para bancos de dados habilitados geograficamente e evita ações humanas manuais. Para saber mais sobre as opções para recuperar um banco de dados se houver uma interrupção data center, consulte [continuidade de negócios](sql-database-business-continuity.md) e [recuperação de desastres](sql-database-disaster-recovery.md).
 3. Um fragmento ou o banco de dados ShardMapManager é restaurado para um ponto anterior. Para saber mais sobre recuperação pontual usando backups, consulte [Recuperação usando backups](sql-database-recovery-using-backups.md).
 
 Para saber mais sobre as ferramentas do Banco de dados elástico do Banco de dados SQL do Azure, a Restauração e a Replicação geográfica, consulte os artigos a seguir:
 
-* [Visão geral: Continuidade de negócios na nuvem e recuperação de desastres de banco de dados com banco de dados SQL](sql-database-business-continuity.md)
-* [Comece com ferramentas de banco de dados elásticas](sql-database-elastic-scale-get-started.md)  
+* [Visão geral: continuidade dos negócios de nuvem e recuperação de desastre do banco de dados](sql-database-business-continuity.md)
+* [Introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md)  
 * [Gerenciamento de ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperando o RecoveryManager de um ShardMapManager
@@ -76,7 +76,7 @@ Este exemplo remove fragmentos do mapa do fragmento.
    rm.DetachShard(s.Location, customerMap);
    ```
 
-O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, revise a seção a seguir para detectar inconsistências de fragmentos.) Para se recuperar, consulte [Point in time recovery](sql-database-recovery-using-backups.md).
+O mapa de fragmento reflete a localização do fragmento no GSM antes de sua exclusão. Como o fragmento foi excluído, é pressuposto que isso foi intencional, e o intervalo de chaves de fragmentação não está mais em uso. Se esse não for o caso, você poderá executar a restauração pontual. para recuperar o fragmento de um ponto no tempo anterior. (Nesse caso, examine a seção a seguir para detectar inconsistências de fragmentos.) Para recuperar, consulte [recuperação pontual](sql-database-recovery-using-backups.md).
 
 Uma vez que é pressuposto que a exclusão do banco de dados foi intencional, a ação de limpeza administrativa final é excluir a entrada para o fragmento no gerenciador de mapas de fragmentos. Isso impede que o aplicativo grave informações inadvertidamente em um intervalo não esperado.
 

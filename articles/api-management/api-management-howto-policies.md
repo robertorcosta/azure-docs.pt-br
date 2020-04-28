@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "70072317"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
@@ -25,7 +25,7 @@ No Gerenciamento de API do Azure (APIM), as políticas são uma poderosa funcion
 
 As políticas são aplicadas dentro do gateway que fica entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][Advanced policies] e [expressões políticas][Policy expressions].
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, consulte [políticas avançadas][Advanced policies] e [expressões de política][Policy expressions].
 
 ## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Compreendendo configuração de políticas
 
@@ -66,7 +66,7 @@ Para obter informações sobre como configurar as políticas, confira [Definir o
 
 ## <a name="policy-reference"></a>Referência de política
 
-Consulte a [referência de Política](api-management-policy-reference.md) para obter uma lista completa de declarações de política e suas configurações.
+Consulte a [referência de política](api-management-policy-reference.md) para obter uma lista completa de instruções de política e suas configurações.
 
 ## <a name="policy-samples"></a>Exemplos de política
 

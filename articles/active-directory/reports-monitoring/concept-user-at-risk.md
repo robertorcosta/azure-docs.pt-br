@@ -16,15 +16,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 894d8dfb7f870ec4a2a11f1d75ee0376b25d8c7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014462"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Relatório de usuários sinalizados para risco no portal do Azure
 
-O Azure Active Directory (Azure AD) detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado [de detecção de risco](concept-risk-events.md) é criado.
+O Azure Active Directory (Azure AD) detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado [detecção de risco](concept-risk-events.md) é criado.
 
 Você pode acessar os relatórios de segurança do [portal do Azure](https://portal.azure.com) selecionando a folha **Azure Active Directory** e, em seguida, navegando até a seção **Segurança**. 
 
@@ -34,7 +34,7 @@ As detecções de risco detectadas são usadas para calcular:
 
 - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
-Para saber como configurar as políticas que desencadeiam essas detecções de risco, consulte [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md). 
+Para saber como configurar as políticas que disparam essas detecções de risco, consulte [como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md). 
 
 ![Entradas de risco](./media/concept-user-at-risk/10.png)
 
@@ -45,9 +45,9 @@ Todas as edições do Azure Active Directory fornecem relatórios de usuários s
 
 - Nas **edições do Azure Active Directory Gratuito e Básico**, você obtém uma lista de usuários sinalizados como risco. 
 
-- Além disso, a edição **Azure Active Directory Premium 1** permite examinar algumas das detecções de risco subjacentes que foram detectadas para cada relatório. 
+- Além disso, a edição **Azure Active Directory Premium 1** permite que você examine algumas das detecções de risco subjacentes que foram detectadas para cada relatório. 
 
-- A edição **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todas as detecções de risco subjacentes e também permite configurar políticas de segurança que respondam automaticamente aos níveis de risco configurados.
+- A edição **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todas as detecções de riscos subjacentes e também permite que você configure políticas de segurança que respondem automaticamente aos níveis de risco configurados.
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>O relatório de usuários em risco para as edições gratuita e básica do Azure AD
@@ -73,7 +73,7 @@ O relatório de usuários sinalizados para risco nas edições premium do Azure 
 
 - Uma lista de contas de usuário que pode ter sido comprometida 
 
-- Informações agregadas sobre os [tipos de detecção de risco](concept-risk-events.md) detectados
+- Informações agregadas sobre os [tipos de detecção de risco](concept-risk-events.md) que foram detectados
 
 - Uma opção para baixar o relatório
 
@@ -93,7 +93,7 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 
 ![Entradas de risco](./media/concept-user-at-risk/324.png)
 
-Para investigar uma detecção de risco, selecione uma da lista para abrir a lâmina **Detalhes** para essa detecção de risco. Na lâmina **Detalhes,** você tem a opção de fechar manualmente uma detecção de risco ou reativar uma detecção de risco fechada manualmente. 
+Para investigar uma detecção de risco, selecione uma na lista para abrir a folha de **detalhes** para essa detecção de risco. Na folha **detalhes** , você tem a opção de fechar manualmente uma detecção de risco ou reativar uma detecção de risco fechada manualmente. 
 
 ![Entradas de risco](./media/concept-user-at-risk/325.png)
 

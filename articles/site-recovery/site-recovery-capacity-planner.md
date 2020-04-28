@@ -1,5 +1,5 @@
 ---
-title: Capacidade de plano para recuperação de desastres Hyper-V com recuperação do site do Azure
+title: Planejar a capacidade de recuperação de desastres do Hyper-V com Azure Site Recovery
 description: Use este artigo para estimar a capacidade durante a configuração de recuperação de desastre com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73936037"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planejar a capacidade de recuperação de desastre de VM do Hyper-V 
 
-O [Azure Site Recovery Deployment Planner] (site-recovery-hyper-v-deployment-planner.md) para implantação de Hyper-V para Azure fornece o seguinte:
+O [Planejador de Implantações do Azure Site Recovery] (site-recovery-hyper-v-deployment-planner.md) para a implantação do Hyper-V para o Azure fornece o seguinte:
 
 * Avaliação de qualificação de VM com base em número de discos, tamanho de disco, IOPS, variações e algumas características da VM
 * Avaliação de largura de banda de rede necessária versus RPO
@@ -73,9 +73,9 @@ Você pode executar a ferramenta em dois modos:
    * **Número de discos BLOB necessários**: o número de discos criados no armazenamento do Azure.
    * **Número de contas premium necessárias**: o número total de contas de armazenamento premium necessárias para proteger as VMs. Uma VM de origem com IOPS alto (acima de 20.000 mil) precisa de uma conta de armazenamento premium. Uma conta de armazenamento premium pode armazenar até 80.000 mil IOPS.
    * **IOPS total no armazenamento Premium**: o número é calculado de acordo com o tamanho da unidade de IOPS de 256.000 no total de contas de armazenamento premium. Para o Planejador Rápido, o número é calculado com base em todos os discos de VM de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
-   * **Número de servidores de configuração necessários**: Mostra quantos servidores de configuração são necessários para a implantação.
+   * **Número de servidores de configuração necessários**: mostra quantos servidores de configuração são necessários para a implantação.
    * **Número de servidores em processo adicionais necessários**: mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
-   * **Armazenamento 100% adicional na Fonte**: Mostra se é necessário armazenamento adicional no local de origem.
+   * **100% armazenamento adicional na origem**: mostra se o armazenamento adicional é necessário no local de origem.
 
       ![Saída](./media/site-recovery-capacity-planner/output.png)
 
@@ -89,13 +89,13 @@ Você pode executar a ferramenta em dois modos:
 
 3. Na planilha **Qualificação de Carga de Trabalho**, insira as informações necessárias. Preencha todos os campos marcados.
 
-   a. Em **Núcleos de**processadores, especifique o número total de núcleos em um servidor de origem.
+   a. Em **núcleos de processador**, especifique o número total de núcleos em um servidor de origem.
 
    b. Em **Alocação de memória (em MBs)**, especifique o tamanho da RAM de um servidor de origem.
 
    c. Em **Número de NICs** especifica o número de adaptadores de rede em um servidor de origem.
 
-   d. Em **Total Storage (em GB),** especifique o tamanho total do armazenamento em VM. Por exemplo, se o servidor de origem tiver três discos, cada um com 500 GB, o tamanho total de armazenamento será de 1.500 GB.
+   d. Em **armazenamento total (em GB)**, especifique o tamanho total do armazenamento da VM. Por exemplo, se o servidor de origem tiver três discos, cada um com 500 GB, o tamanho total de armazenamento será de 1.500 GB.
 
    e. Em **Número de discos anexados**, especifique o número total de discos de um servidor de origem.
 
@@ -134,13 +134,13 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
   * A VM5 e a VM6 precisam de uma conta de armazenamento premium e podem usar a mesma conta.
 
     > [!NOTE]
-    > O IOPS no armazenamento standard e premium é calculado no nível da VM e não no nível do disco. Uma VM padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. Se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM estiver dentro dos limites de VM standard do Azure com suporte, o planejador escolherá uma VM standard e não uma da série DS ou GS. (Os limites do Azure VM são o tamanho da VM, número de discos, número de adaptadores, CPU e memória.) Você precisa atualizar manualmente a célula de tamanho do Azure de mapeamento com a VM da série DS ou GS apropriada.
+    > O IOPS no armazenamento standard e premium é calculado no nível da VM e não no nível do disco. Uma VM padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. Se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM estiver dentro dos limites de VM standard do Azure com suporte, o planejador escolherá uma VM standard e não uma da série DS ou GS. (Os limites de VM do Azure são o tamanho da VM, o número de discos, o número de adaptadores, a CPU e a memória.) Você precisa atualizar manualmente a célula de tamanho do Azure de mapeamento com a VM da série DS ou GS apropriada.
 
 
 Depois que todas as informações forem inseridas, selecione **Enviar dados para a ferramenta de planejador** para abrir o Planejador de Capacidade. As cargas de trabalho são realçadas para mostrar se elas estão qualificadas para proteção.
 
 ### <a name="submit-data-in-capacity-planner"></a>Enviar dados no Planejador de Capacidade
-1. Ao abrir o **Planejador de Capacidade**, a planilha é preenchida com base nas configurações que você especificou. A palavra "Carga de Trabalho" aparece na célula **de origem infra entradas** para mostrar que a entrada é a planilha **de qualificação** da carga de trabalho.
+1. Ao abrir o **Planejador de Capacidade**, a planilha é preenchida com base nas configurações que você especificou. A palavra "carga de trabalho" aparece na célula de **origem de entradas** de infraestrutura para mostrar que a entrada é a planilha de qualificação de **carga de trabalho** .
 
 2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho**. Em seguida, selecione **Enviar dados para a ferramenta de planejador** novamente.
 

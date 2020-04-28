@@ -1,6 +1,6 @@
 ---
-title: Exponha um serviço AKS em HTTP ou HTTPS usando o Gateway de aplicativo
-description: Este artigo fornece informações sobre como expor um serviço AKS através de HTTP ou HTTPS usando o Application Gateway.
+title: Expor um serviço AKS por HTTP ou HTTPS usando o gateway de aplicativo
+description: Este artigo fornece informações sobre como expor um serviço AKS por HTTP ou HTTPS usando o gateway de aplicativo.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,41 +8,41 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795583"
 ---
-# <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponha um serviço AKS em HTTP ou HTTPS usando o Gateway de aplicativo 
+# <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Expor um serviço AKS por HTTP ou HTTPS usando o gateway de aplicativo 
 
-Esses tutoriais ajudam a ilustrar o uso do [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) para expor um exemplo de serviço Kubernetes através do [Gateway de aplicativo Azure](https://azure.microsoft.com/services/application-gateway/) em HTTP ou HTTPS.
+Esses tutoriais ajudam a ilustrar o uso de [recursos de entrada do kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) para expor um serviço de kubernetes de exemplo por meio do Gateway de [aplicativo Azure](https://azure.microsoft.com/services/application-gateway/) sobre http ou HTTPS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Gráfico `ingress-azure` de leme instalado.
-  - [**Implantação greenfield**](ingress-controller-install-new.md): Se você estiver começando do zero, consulte estas instruções de instalação, que delineiam etapas para implantar um cluster AKS com o Application Gateway e instalar o controlador de entrada de gateway de aplicativo no cluster AKS.
-  - [**Implantação de campo marrom**](ingress-controller-install-existing.md): Se você tiver um cluster AKS existente e gateway de aplicativo, consulte estas instruções para instalar o controlador de entrada de gateway de aplicativo no cluster AKS.
-- Se você quiser usar HTTPS neste aplicativo, você precisará de um certificado x509 e sua chave privada.
+- Gráfico `ingress-azure` Helm instalado.
+  - [**Implantação do Greenfield**](ingress-controller-install-new.md): se você estiver começando do zero, consulte estas instruções de instalação, que descreve as etapas para implantar um cluster do AKS com o gateway de aplicativo e instalar o controlador de entrada do gateway de aplicativo no cluster AKs.
+  - [**Implantação de Brownfield**](ingress-controller-install-existing.md): se você tiver um cluster AKs e um gateway de aplicativo existentes, consulte estas instruções para instalar o controlador de entrada do gateway de aplicativo no cluster AKs.
+- Se você quiser usar HTTPS neste aplicativo, será necessário um certificado X509 e sua chave privada.
 
 ## <a name="deploy-guestbook-application"></a>Implantar `guestbook` aplicativo
 
-O aplicativo guestbook é um aplicativo canônico kubernetes que compõe um frontend da Web UI, um backend e um banco de dados Redis. Por padrão, `guestbook` expõe sua aplicação através `frontend` de `80`um serviço com nome na porta . Sem um Recurso Kubernetes Ingress, o serviço não é acessível de fora do cluster AKS. Usaremos o aplicativo e a configuração da Ingress Resources para acessar o aplicativo através de HTTP e HTTPS.
+O aplicativo de livro de visitas é um aplicativo kubernetes canônico que compõe o front-end de uma interface do usuário da Web, um backend e um banco de dados Redis. Por padrão, `guestbook` o expõe seu aplicativo por meio de um `frontend` serviço com `80`o nome na porta. Sem um recurso de entrada kubernetes, o serviço não pode ser acessado de fora do cluster AKS. Usaremos o aplicativo e configuraremos os recursos de entrada para acessar o aplicativo por meio de HTTP e HTTPS.
 
-Siga as instruções abaixo para implantar o aplicativo guestbook.
+Siga as instruções abaixo para implantar o aplicativo de livro de visitas.
 
-1. Baixe `guestbook-all-in-one.yaml` [a](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml) partir daqui
-1. Implantar `guestbook-all-in-one.yaml` em seu cluster AKS executando
+1. Baixar `guestbook-all-in-one.yaml` daqui [here](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
+1. Implante `guestbook-all-in-one.yaml` em seu cluster do AKS executando
 
   ```bash
   kubectl apply -f guestbook-all-in-one.yaml
   ```
 
-Agora, `guestbook` a aplicação foi implantada.
+Agora, o `guestbook` aplicativo foi implantado.
 
-## <a name="expose-services-over-http"></a>Expor serviços em HTTP
+## <a name="expose-services-over-http"></a>Expor serviços via HTTP
 
-Para expor o aplicativo guestbook, usaremos o seguinte recurso de ingestão:
+Para expor o aplicativo de livro de visitas, usaremos o seguinte recurso de entrada:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -60,9 +60,9 @@ spec:
           servicePort: 80
 ```
 
-Essa entrada exporá o `frontend` serviço `guestbook-all-in-one` da implantação como um backend padrão do Gateway de aplicativo.
+Essa entrada vai expor o `frontend` serviço da `guestbook-all-in-one` implantação como um back-end padrão do gateway de aplicativo.
 
-Salve o recurso de ingestão acima como `ing-guestbook.yaml`.
+Salve o recurso de entrada acima como `ing-guestbook.yaml`.
 
 1. Implantar `ing-guestbook.yaml` executando:
 
@@ -70,23 +70,23 @@ Salve o recurso de ingestão acima como `ing-guestbook.yaml`.
     kubectl apply -f ing-guestbook.yaml
     ```
 
-1. Verifique o registro do controlador de entrada para obter o status de implantação.
+1. Verifique o status da implantação no log do controlador de entrada.
 
-Agora, `guestbook` a aplicação deve estar disponível. Você pode verificar isso visitando o endereço público do Gateway de aplicativo.
+Agora o `guestbook` aplicativo deve estar disponível. Você pode verificar isso visitando o endereço público do gateway de aplicativo.
 
-## <a name="expose-services-over-https"></a>Expor serviços em HTTPS
+## <a name="expose-services-over-https"></a>Expor serviços via HTTPS
 
-### <a name="without-specified-hostname"></a>Sem nome de host especificado
+### <a name="without-specified-hostname"></a>Sem o nome do host especificado
 
-Sem especificar o nome do host, o serviço de guestbook estará disponível em todos os nomes de host que apontam para o gateway do aplicativo.
+Sem especificar o nome do host, o serviço de livro de visitas estará disponível em todos os nomes de host que apontam para o gateway de aplicativo.
 
-1. Antes de implantar o ingresss, você precisa criar um segredo kubernetes para hospedar o certificado e a chave privada. Você pode criar um segredo kubernetes executando
+1. Antes de implantar a entrada, você precisa criar um segredo kubernetes para hospedar o certificado e a chave privada. Você pode criar um segredo kubernetes executando
 
     ```bash
     kubectl create secret tls <guestbook-secret-name> --key <path-to-key> --cert <path-to-cert>
     ```
 
-1. Defina a seguinte ingestão. Na ingestão, especifique o nome `secretName` do segredo na seção.
+1. Defina a seguinte entrada. Na entrada, especifique o nome do segredo na `secretName` seção.
 
     ```yaml
     apiVersion: extensions/v1beta1
@@ -107,25 +107,25 @@ Sem especificar o nome do host, o serviço de guestbook estará disponível em t
     ```
 
     > [!NOTE] 
-    > Substitua `<guestbook-secret-name>` no recurso de Ingress acima o nome do seu segredo. Armazene o recurso ingresss acima em um nome `ing-guestbook-tls.yaml`de arquivo .
+    > Substitua `<guestbook-secret-name>` no recurso de entrada acima pelo nome do seu segredo. Armazene o recurso de entrada acima em um nome `ing-guestbook-tls.yaml`de arquivo.
 
-1. Implantar-guestbook-tls.yaml executando
+1. Implante o ing-prolivror-TLS. YAML executando
 
     ```bash
     kubectl apply -f ing-guestbook-tls.yaml
     ```
 
-1. Verifique o registro do controlador de entrada para obter o status de implantação.
+1. Verifique o status da implantação no log do controlador de entrada.
 
-Agora, `guestbook` o aplicativo estará disponível tanto em HTTP quanto em HTTPS.
+Agora, `guestbook` o aplicativo estará disponível em http e HTTPS.
 
-### <a name="with-specified-hostname"></a>Com nome de host especificado
+### <a name="with-specified-hostname"></a>Com o nome de host especificado
 
-Você também pode especificar o nome de host na entrada para várias configurações e serviços TLS.
-Ao especificar o nome do host, o serviço de guestbook só estará disponível no host especificado.
+Você também pode especificar o nome do host na entrada para multiplexar configurações e serviços TLS.
+Ao especificar o nome do host, o serviço de livro de visitas estará disponível apenas no host especificado.
 
-1. Defina a seguinte ingestão.
-    Na ingresss, especifique o `secretName` nome do segredo na `hosts` seção e substitua o nome de host na seção de acordo.
+1. Defina a seguinte entrada.
+    Na entrada, especifique o nome do segredo na `secretName` seção e substitua o nome do host na `hosts` seção de forma adequada.
 
     ```yaml
     apiVersion: extensions/v1beta1
@@ -154,13 +154,13 @@ Ao especificar o nome do host, o serviço de guestbook só estará disponível n
     kubectl apply -f ing-guestbook-tls-sni.yaml
     ```
 
-1. Verifique o registro do controlador de entrada para obter o status de implantação.
+1. Verifique o status da implantação no log do controlador de entrada.
 
-Agora, `guestbook` o aplicativo estará disponível tanto em HTTP`<guestbook.contoso.com>` quanto https apenas no host especificado (neste exemplo).
+Agora, `guestbook` o aplicativo estará disponível em http e HTTPS somente no host especificado (`<guestbook.contoso.com>` neste exemplo).
 
 ## <a name="integrate-with-other-services"></a>Integrar com outros serviços
 
-A seguinte entrada permitirá que você adicione caminhos adicionais a essa entrada e redirecione esses caminhos para outros serviços:
+A entrada a seguir permitirá que você adicione caminhos adicionais a essa entrada e redirecione esses caminhos para outros serviços:
 
     ```yaml
     apiVersion: extensions/v1beta1

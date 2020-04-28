@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74007697"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
@@ -66,9 +66,9 @@ A tabela a seguir lista as informações de latência para relatórios de segura
 
 ## <a name="risk-detections"></a>Detecções de risco
 
-O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado **dedetecção de risco**.
+O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado **detecção de risco**.
 
-A tabela a seguir lista as informações de latência para detecções de risco.
+A tabela a seguir lista as informações de latência para as detecções de risco.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
@@ -82,6 +82,6 @@ A tabela a seguir lista as informações de latência para detecções de risco.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Azure AD relata visão geral](overview-reports.md)
+* [Visão geral dos relatórios do Azure AD](overview-reports.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)
-* [Detecções de risco do Azure Active Directory](concept-risk-events.md)
+* [Azure Active Directory de detecções de risco](concept-risk-events.md)

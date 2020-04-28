@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823756"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados em nuvem expandidos (visualização)
@@ -40,9 +40,9 @@ Para bancos de dados não fragmentados, consulte [Query across cloud databases w
 Essas instruções criam a representação de metadados de sua camada de dados fragmentados no banco de dados de consulta elástico.
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CRIAR UMA CREDENCIAL COM ESCOPO DE BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CRIAR UMA FONTE DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
+2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
+4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave mestra do escopo do banco de dados e credenciais
 
@@ -54,7 +54,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     [;]
 
 > [!NOTE]
-> Certifique-se de que o *"\<nome\>de usuário "* não inclua nenhum sufixo " *\@nome de servidor".*
+> Verifique se o *"\<nome de\>usuário"* não inclui nenhum *sufixo\@"servername"* .
 
 ## <a name="12-create-external-data-sources"></a>1.2 Criar fontes de dados externas
 
@@ -142,13 +142,13 @@ As cláusulas SCHEMA\_NAME e OBJECT\_NAME mapeiam a definição da tabela extern
 
 A cláusula DISTRIBUTION especifica a distribuição de dados usada para esta tabela. O processador de consultas utiliza as informações fornecidas na cláusula DISTRIBUTION para criar planos de consulta mais eficientes.
 
-1. **SHARDED** significa que os dados são horizontalmente divididos nos bancos de dados. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>**.
-2. **REPLICAD** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
-3. **ROUND\_ROBIN** significa que a tabela é horizontalmente particionada usando um método de distribuição dependente de aplicativos.
+1. **Fragmentado** significa que os dados são particionados horizontalmente em todos os bancos. A chave de particionamento para a distribuição de dados é o parâmetro **<sharding_column_name>**.
+2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada banco de dados. É sua responsabilidade assegurar que as réplicas sejam idênticas entre os bancos de dados.
+3. **Round\_Robin** significa que a tabela é particionada horizontalmente usando um método de distribuição dependente de aplicativo.
 
 **Referência de camada de dados**: a DDL da tabela externa faz referência a uma fonte de dados externa. A fonte de dados externa especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todos os bancos de dados em sua camada de dados.
 
-### <a name="security-considerations"></a>Considerações sobre segurança
+### <a name="security-considerations"></a>Considerações de segurança
 
 Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Evite a elevação de privilégios indesejada usando credencial da fonte de dados externa. Use GRANT ou REVOKE para uma tabela externa como se fosse uma tabela normal.  
 

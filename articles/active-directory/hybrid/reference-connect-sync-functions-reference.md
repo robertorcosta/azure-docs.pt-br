@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69900038"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
@@ -66,28 +66,28 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
 | [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Data/Hora** | | | | |
-| [Dateadd](#dateadd) |[DateFromNum](#datefromnum) |[Formatdatetime](#formatdatetime) |[Agora](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Agora](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
-| **Diretório** | | | | |
+| **Active** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
 | **Avaliação** | | | | |
-| [IsBitSet](#isbitset) |[Isdate](#isdate) |[Isempty](#isempty) |[IsGuid](#isguid) | |
-| [Isnull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[Isnumeric](#isnumeric) |[IsPresent](#ispresent) | |
+| [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
+| [Énulo](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[IsPresent](#ispresent) | |
 | [IsString](#isstring) | | | | |
 | **Matemática** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **De valores múltiplos** | | | | |
-| [Contém](#contains) |[Contar](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
-| [Ingressar](#join) |[RemoveDuplicates](#removeduplicates) |[Dividir](#split) | | |
+| [Terá](#contains) |[Count](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
+| [Ingressar](#join) |[RemoveDuplicates](#removeduplicates) |[Divisão](#split) | | |
 | **Fluxo do Programa** | | | | |
-| [Erro](#error) |[Iif](#iif) |[Selecionar](#select) |[Interruptor](#switch) | |
-| [Onde](#where) |[Com](#with) | | | |
+| [Erro](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
+| [Posição](#where) |[Por](#with) | | | |
 | **Texto** | | | | |
-| [Guid](#guid) |[Instr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
-| [Deixou](#left) |[Len](#len) |[Ltrim](#ltrim) |[Mid](#mid) | |
-| [Padleft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Substituir](#replace) | |
-| [ReplaceChars](#replacechars) |[Certo](#right) |[Rtrim](#rtrim) |[Guarnição](#trim) | |
-| [Ucase](#ucase) |[Word](#word) | | | |
+| [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
+| [Mantida](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
+| [PadLeft preenche](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Substitua](#replace) | |
+| [ReplaceChars](#replacechars) |[Certo](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
+| [UCase](#ucase) |[Word](#word) | | | |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -99,7 +99,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
 
 * value1, value2: os valores numéricos que devem ser agrupados com AND
 
-**Comentários:**  
+**Comentários**  
  esta função converte ambos os parâmetros na representação binária e define um bit para:
 
 * 0 – se um ou ambos os bits correspondentes em *value1* e *value2* forem 0
@@ -121,7 +121,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 
 * value1, value2: valores numéricos que devem ser agrupados com OR
 
-**Comentários:**  
+**Comentários**  
  esta função converte ambos os parâmetros na representação binária e define um bit para 1 se um ou ambos os bits correspondentes na máscara e no sinalizador são 1; e para 0 se ambos os bits correspondentes são 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
 
 ---
@@ -132,7 +132,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 **Sintaxe:**  
 `bool CBool(exp Expression)`
 
-**Comentários:**  
+**Comentários**  
 Se a expressão é avaliada como um valor diferente de zero, CBool retorna True; caso contrário, retorna False.
 
 **Exemplo:**  
@@ -150,7 +150,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 * Value: uma cadeia de caracteres com uma data, hora e opcionalmente um fuso horário
 
-**Comentários:**  
+**Comentários**  
  a cadeia de caracteres retornada é sempre em UTC.
 
 **Exemplo:**  
@@ -378,7 +378,7 @@ Retorna a versão do formato X.509 de um certificado.
 
 Retorna o índice no atributo com vários valores em que a cadeia de caracteres foi encontrada. Se a cadeia de caracteres não for encontrada, 0 será retornado.
 
-**Comentários:**  
+**Comentários**  
  para os atributos da cadeia de caracteres de valores múltiplos, a pesquisa encontra as subcadeias nos valores.  
 Para atributos de referência, a cadeia de caracteres pesquisada deve corresponder exatamente ao valor para que sejam considerados como uma correspondência.
 
@@ -414,7 +414,7 @@ Ambos os exemplos retornam "*Hello world!*"
 
 * source: cadeia de caracteres codificada em UTF8 de 2 bytes
 
-**Comentários:**  
+**Comentários**  
 A diferença entre essa função e ConvertFromBase64([],UTF8) é que o resultado é amigável para o atributo DN.  
 Esse formato é usado pelo Active Directory do Azure como DN.
 
@@ -443,7 +443,7 @@ Converte o valor de uma matriz de inteiros em sua representação equivalente de
 **Sintaxe:**  
 `str ConvertToUTF8Hex(str source)`
 
-**Comentários:**  
+**Comentários**  
  o formato de saída dessa função é usado pelo Azure Active Directory como o formato do atributo DN.
 
 **Exemplo:**  
@@ -567,7 +567,7 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
  ambos retornam US.
 
 ---
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 **Descrição:**  
  a função Error é usada para retornar um erro personalizado.
 
@@ -601,8 +601,8 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
 * value: um valor no formato DateTime
 * format: uma cadeia de caracteres que representa o formato para o qual converter.
 
-**Comentários:**  
-Os possíveis valores para o formato podem ser encontrados aqui: [Formatos personalizados de data e hora para a função FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+**Comentários**  
+Os valores possíveis para o formato podem ser encontrados aqui: [formatos de data e hora personalizados para a função de formato](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemplo:**  
 
@@ -652,7 +652,7 @@ A função GUID gera um novo GUID aleatório
 * start: posição inicial para se localizar a subcadeia de caracteres
 * compare: vbTextCompare ou vbBinaryCompare
 
-**Comentários:**  
+**Comentários**  
  retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
 
 **Exemplo:**  
@@ -677,7 +677,7 @@ A função GUID gera um novo GUID aleatório
 * start: posição inicial para se localizar a subcadeia de caracteres
 * compare: vbTextCompare ou vbBinaryCompare
 
-**Comentários:**  
+**Comentários**  
  retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
 
 **Exemplo:**  
@@ -706,7 +706,7 @@ A função GUID gera um novo GUID aleatório
 **Sintaxe:**  
 `bool IsDate(var Expression)`
 
-**Comentários:**  
+**Comentários**  
  usada para determinar se CDate() pode ter êxito.
 
 ---
@@ -733,7 +733,7 @@ Retorna verdadeiro se os dados brutos puderem ser serializados no objeto de cert
 **Sintaxe:**  
 `bool IsGuid(str GUID)`
 
-**Comentários:**  
+**Comentários**  
  um GUID é definido como uma cadeia de caracteres seguindo um destes padrões: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 Usada para determinar se CGuid() pode ter êxito.
@@ -750,7 +750,7 @@ Usada para determinar se CGuid() pode ter êxito.
 **Sintaxe:**  
 `bool IsNull(var Expression)`
 
-**Comentários:**  
+**Comentários**  
  para um atributo, um valor Null é expresso pela ausência do atributo.
 
 **Exemplo:**  
@@ -765,7 +765,7 @@ Usada para determinar se CGuid() pode ter êxito.
 **Sintaxe:**  
 `bool IsNullOrEmpty(var Expression)`
 
-**Comentários:**  
+**Comentários**  
  para um atributo, isso seria avaliado como True se o atributo estivesse ausente ou presente, mas fosse uma cadeia de caracteres vazia.  
 O inverso dessa função é chamado de IsPresent.
 
@@ -781,7 +781,7 @@ O inverso dessa função é chamado de IsPresent.
 **Sintaxe:**  
 `bool IsNumeric(var Expression)`
 
-**Comentários:**  
+**Comentários**  
  usada para determinar se CNum() pode ter êxito ao analisar a expressão.
 
 ---
@@ -792,7 +792,7 @@ O inverso dessa função é chamado de IsPresent.
 **Sintaxe:**  
 `bool IsString(var expression)`
 
-**Comentários:**  
+**Comentários**  
  usada para determinar se CStr() pode ter êxito ao analisar a expressão.
 
 ---
@@ -803,7 +803,7 @@ O inverso dessa função é chamado de IsPresent.
 **Sintaxe:**  
 `bool IsPresent(var expression)`
 
-**Comentários:**  
+**Comentários**  
  o inverso dessa função é chamado de IsNullOrEmpty.
 
 **Exemplo:**  
@@ -820,7 +820,7 @@ O inverso dessa função é chamado de IsPresent.
 * attribute: atributo com valores múltiplos
 * index: índice para um item na cadeia de caracteres com vários valores.
 
-**Comentários:**  
+**Comentários**  
  a função Item é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
 
 Gera um erro se o índice está fora dos limites.
@@ -840,7 +840,7 @@ Gera um erro se o índice está fora dos limites.
 * attribute: atributo com valores múltiplos
 * index: índice para um item na cadeia de caracteres com vários valores.
 
-**Comentários:**  
+**Comentários**  
  a função ItemOrNull é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
 
 Se o índice estiver fora dos limites, retornará um valor Null.
@@ -857,7 +857,7 @@ Se o índice estiver fora dos limites, retornará um valor Null.
 * attribute: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
 * delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") é usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
 
-**Observações**  
+**Comentários**  
  há paridade entre as funções Join e Split. A função Join pega uma matriz de cadeias de caracteres e une-as usando uma cadeia de caracteres do delimitador, para retornar uma única cadeia de caracteres. A função Split pega uma cadeia de caracteres e a separa no delimitador, para retornar uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
 
 **Exemplo:**  
@@ -887,7 +887,7 @@ Poderia retornar: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 * string: a cadeia de caracteres da qual retornar caracteres
 * NumChars: um número que identifica o número de caracteres a ser retroando do início (esquerda) da cadeia de caracteres
 
-**Comentários:**  
+**Comentários**  
  uma cadeia de caracteres que contém os primeiros caracteres numChars na cadeia de caracteres:
 
 * Se numChars = 0, retorne a cadeia de caracteres vazia.
@@ -936,7 +936,7 @@ Se a cadeia de caracteres contiver menos caracteres que o número especificado e
 * start: um número que identifica a posição inicial na cadeia de caracteres da qual retornar caracteres
 * NumChars: um número que identifica o número de caracteres a ser retornado da posição
 
-**Comentários:**  
+**Comentários**  
  retorna os caracteres numChars começando na posição inicial da cadeia de caracteres.  
 Uma cadeia de caracteres contendo caracteres numChars desde a posição inicial na cadeia de caracteres:
 
@@ -987,7 +987,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 * length: um inteiro que representa o comprimento da cadeia de caracteres desejado.
 * padCharacter: uma cadeia de caracteres que consiste em um único caractere a ser usado como o caractere de preenchimento
 
-**Comentários:**
+**Comentários**
 
 * Se o comprimento da cadeia de caracteres for menor que length, padCharacter será acrescentado repetidamente ao início (esquerda) da cadeia de caracteres até que ela tenha um comprimento igual a length.
 * PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
@@ -1012,7 +1012,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 * length: um inteiro que representa o comprimento da cadeia de caracteres desejado.
 * padCharacter: uma cadeia de caracteres que consiste em um único caractere a ser usado como o caractere de preenchimento
 
-**Comentários:**
+**Comentários**
 
 * Se o comprimento da cadeia de caracteres for menor que length, padCharacter será acrescentado repetidamente ao final (direita) da cadeia de caracteres até que ela tenha um comprimento igual a length.
 * PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
@@ -1033,7 +1033,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 **Sintaxe:**  
 `String PCase(string)`
 
-**Comentários:**
+**Comentários**
 
 * Essa função atualmente não fornece o uso de maiúsculas apropriado para converter uma palavra que está totalmente em letras maiúsculas, como um acrônimo.
 
@@ -1083,7 +1083,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 * OldValue: a cadeia de caracteres pela qual pesquisar e a qual substituir.
 * NewValue: a cadeia de caracteres a substituir.
 
-**Comentários:**  
+**Comentários**  
  a função reconhece os seguintes monikers especiais:
 
 * \n - Nova linha
@@ -1107,7 +1107,7 @@ Se não houver nenhum caractere numChar restante na cadeia de caracteres a parti
 
 O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em que a origem é o caractere a localizar e destino é a cadeia de caracteres com a qual trabalhar.
 
-**Comentários:**
+**Comentários**
 
 * A função considera cada ocorrência de origens definidas e as substitui pelos destinos.
 * A origem deve ter exatamente um caractere (unicode).
@@ -1138,7 +1138,7 @@ O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em 
 * string: a cadeia de caracteres da qual retornar caracteres
 * NumChars: um número que identifica o número de caracteres a ser retornado  do final (direita) da cadeia de caracteres
 
-**Comentários:**  
+**Comentários**  
  os caracteres de NumChars são retornados a partir da última posição da cadeia de caracteres.
 
 Uma cadeia de caracteres que contém os últimos caracteres numChars na cadeia de caracteres:
@@ -1227,7 +1227,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 * expr: expressão variante que você deseja avaliar.
 * value: valor a ser retornado se a expressão correspondente for True.
 
-**Comentários:**  
+**Comentários**  
  a lista de argumentos da função Switch consiste em pares de expressões e valores. As expressões são avaliadas da esquerda para a direita e o valor associado à primeira expressão avaliada como True é retornado. Se as partes não tiverem pares adequados, ocorrerá um erro em tempo de execução.
 
 Por exemplo, se expr1 for True, o comutador retornará valor1. Se expr-1 for False, mas expr-2 for True, Switch retorna valor-2 e assim por diante.
@@ -1295,7 +1295,7 @@ Retorna os valores do certificado no atributo de valores múltiplos userCertific
 **Descrição:**  
 A função With fornece uma maneira para simplificar uma expressão complexa, usando uma variável para representar uma subexpressão que aparece uma ou mais vezes na expressão complexa.
 
-**Sintaxe:**
+**Sintaxe**
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variable: representa a subexpressão.
 * subExpression: a subexpressão representada pela variável.
@@ -1320,7 +1320,7 @@ Que retorna apenas os valores de certificado não expirados no atributo userCert
 * WordNumber: um número que identifica qual número de palavras deve retornar.
 * delimitadores: uma cadeia de caracteres que representa o delimitador(es) que deve ser usado para identificar palavras
 
-**Comentários:**  
+**Comentários**  
  cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
 
 * Se number < 1, retorna uma cadeia de caracteres vazia.
@@ -1337,5 +1337,5 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização de Azure AD Connect: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)

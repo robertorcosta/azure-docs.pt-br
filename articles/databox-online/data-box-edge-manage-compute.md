@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65953130"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerenciar computação no Azure Data Box Edge
@@ -30,8 +30,8 @@ Neste artigo, você aprenderá como:
 
 Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para o Data Box Edge, os gatilhos podem ser em resposta a eventos de arquivo ou a um agendamento.
 
-- **Arquivo**: Esses gatilhos são em resposta a eventos de arquivo, como criação de um arquivo, modificação de um arquivo.
-- **Agendado**: Esses gatilhos são uma resposta a um cronograma que você pode definir com uma data de início, hora de início e o intervalo de repetição.
+- **Arquivo**: esses gatilhos estão em resposta a eventos de arquivo, como a criação de um arquivo, a modificação de um arquivo.
+- **Agendado**: esses gatilhos estão em resposta a uma agenda que você pode definir com uma data de início, uma hora de início e o intervalo de repetição.
 
 
 ### <a name="add-a-trigger"></a>Adicionar um gatilho
@@ -131,4 +131,4 @@ Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como gerenciar a [rede de computação edge através do portal Azure](data-box-edge-extend-compute-access-modules.md).
+- Saiba como [gerenciar a rede de computação de borda por meio de portal do Azure](data-box-edge-extend-compute-access-modules.md).

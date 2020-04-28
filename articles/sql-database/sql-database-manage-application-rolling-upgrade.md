@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 9c627c3e597fdcd3859ce02ea208fc7a8b5d612b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822867"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerenciar a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
@@ -109,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminar a replicação geografista desconectando o secundário (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa Transact-SQL, mas [o PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+2. Termine a replicação geográfica desconectando o secundário (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa o Transact-SQL, mas o [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -150,8 +150,8 @@ Os dois métodos de atualização descritos no artigo diferem em complexidade e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para uma visão geral da continuidade de negócios e cenários, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md).
-* Para saber mais sobre a replicação ativa do Banco de Dados Azure SQL, consulte [Criar bancos de dados secundários legíveis usando a geo-replicação ativa](sql-database-active-geo-replication.md).
+* Para obter uma visão geral e cenários de continuidade de negócios, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md)
+* Para saber mais sobre a replicação geográfica ativa do banco de dados SQL do Azure, confira [criar bancos de dados secundários legíveis usando a replicação geográfica ativa](sql-database-active-geo-replication.md).
 * Para saber mais sobre grupos de failover automático do Banco de Dados SQL do Azure, confira [Usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
 * Para saber mais sobre os ambientes de preparo no Serviço de Aplicativo do Azure, confira [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../app-service/deploy-staging-slots.md).
 * Para saber mais sobre os perfis do Gerenciador de Tráfego do Azure, confira [Gerenciar um perfil do Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-manage-profiles.md).

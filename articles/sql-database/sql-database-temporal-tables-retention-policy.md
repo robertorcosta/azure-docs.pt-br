@@ -1,5 +1,5 @@
 ---
-title: Gerencie dados históricos em Tabelas Temporais
+title: Gerenciar dados históricos em tabelas temporais
 description: Aprenda a usar a política de retenção temporal para manter dados históricos sob seu controle.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73820678"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerenciar dados históricos em Tabelas Temporais com a política de retenção
@@ -30,11 +30,11 @@ Depois de definir a política de retenção, o Banco de Dados SQL do Azure come�
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ```
 
-No exemplo anterior, assumimos que a coluna **ValidTo** corresponde ao fim de SYSTEM_TIME período.
+No exemplo anterior, supomos que a coluna **ValidTo** corresponde ao final do período de SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Como configurar a política de retenção
 
-Antes de configurar a política de retenção para uma tabela temporal, verifique primeiro se a retenção histórica temporal está ativada *no nível do banco de dados*.
+Antes de configurar a política de retenção para uma tabela temporal, verifique primeiro se a retenção de histórico temporal está habilitada *no nível do banco de dados*.
 
 ```
 SELECT is_temporal_history_retention_enabled, name
@@ -106,7 +106,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 O processo de limpeza depende do layout do índice da tabela de histórico. É importante observar que *somente tabelas de histórico com um índice clusterizado (árvore B ou columnstore) podem ter uma política de retenção finita configurada*. Uma tarefa em segundo plano é criada para executar a limpeza de dados antigos para todas as tabelas temporais com período de retenção finito.
 Lógica de limpeza para o índice clusterizado de rowstore (árvore B) exclui a linha antiga em partes menores (até 10 K), minimizando a pressão no log do banco de dados e o subsistema de E/S. Embora a lógica de limpeza utilize o índice de árvore B necessário, a ordem das exclusões para as linhas mais antigas que o período de retenção não pode ser garantido com certeza. Portanto, *não assuma nenhuma dependência na ordem de limpeza em seus aplicativos*.
 
-A tarefa de limpeza para o columnstore agrupado remove grupos inteiros [de linhas](https://msdn.microsoft.com/library/gg492088.aspx) de uma só vez (normalmente contêm 1 milhão de linhas cada), o que é muito eficiente, especialmente quando os dados históricos são gerados em um ritmo alto.
+A tarefa de limpeza para o columnstore clusterizado remove [grupos de linhas](https://msdn.microsoft.com/library/gg492088.aspx) inteiros de uma vez (normalmente contém 1 milhão de linhas cada), o que é muito eficiente, especialmente quando dados históricos são gerados em um ritmo alto.
 
 ![Retenção de columnstore clusterizado](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
@@ -116,11 +116,11 @@ A excelente compactação de dados e eficiente limpeza da retenção torna o ín
 
 A tarefa de limpeza para tabelas com um índice clusterizado de rowstore requer que um índice inicie a coluna correspondente ao fim do período de SYSTEM_TIME. Se esse índice não existir, você não poderá configurar o período de retenção finito:
 
-*Msg 13765, Nível 16, Estado 1 <br> </br> A configuração do período de retenção finita falhou na tabela temporal 'temporalstagedb.dbo.WebsiteUserInfo' porque a tabela de história 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' não contém índice clustered necessário. Considere criar um índice de coluna de colunas agrupadas ou b-tree começando com a coluna que corresponde ao final do período de SYSTEM_TIME, na tabela história.*
+*MSG 13765, nível 16, estado 1 <br> </br> falha na configuração do período de retenção finito na tabela temporal com controle de versão do sistema ' temporalstagetestdb. dbo. WebsiteUserInfo ' porque a tabela de histórico ' temporalstagetestdb. dbo. WebsiteUserInfoHistory ' não contém o índice clusterizado necessário. Considere criar um índice columnstore ou árvore B clusterizado começando com a coluna que corresponde ao fim do período de SYSTEM_TIME, na tabela de histórico.*
 
 É importante observar que a tabela de histórico padrão criada pelo Banco de Dados SQL do Azure já possui um índice clusterizado compatível com a política de retenção. Se você tentar remover o índice em uma tabela com o período de retenção finito, a operação falhará com o seguinte erro:
 
-*Msg 13766, Nível 16, Estado 1 <br> </br> Não é possível baixar o índice clustered 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' porque está sendo usado para limpeza automática de dados idosos. Considere a configuração HISTORY_RETENTION_PERIOD para INFINITE na tabela temporal com versão do sistema correspondente, se você precisar baixar esse índice.*
+*MSG 13766, nível 16, estado 1 <br> </br> não é possível descartar o índice clusterizado ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' porque ele está sendo usado para limpeza automática de dados antigos. Considere definir HISTORY_RETENTION_PERIOD como infinito na tabela temporal com versão do sistema correspondente se você precisar descartar esse índice.*
 
 A limpeza no índice columnstore clusterizado funciona de maneira ideal se as linhas históricas forem inseridas em ordem crescente (ordenadas no final da coluna do período), que sempre será o caso quando a tabela de histórico for populada exclusivamente pelo mecanismo SYSTEM_VERSIONIOING. Se as linhas da tabela de histórico não forem ordenadas pelo final da coluna do período (o que pode ser o caso se você migrar dados históricos existentes), você deverá recriar o índice columnstore clusterizado além do índice rowstore de árvore B ordenado corretamente para obter o desempenho ideal.
 
@@ -144,7 +144,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 Uma tentativa de executar a instrução acima falhará com o seguinte erro:
 
-*Msg 13772, Nível 16, Estado 1 <br> </br> Não é possível criar índice não agrupado em uma tabela de histórico temporal 'WebsiteUserInfoHistory' uma vez que tem período de retenção finito e índice de colunastore agrupado definido.*
+*MSG 13772, nível 16, estado 1 <br> </br> não é possível criar um índice não clusterizado em uma tabela de histórico temporal ' WebsiteUserInfoHistory ', pois ela tem um período de retenção finito e um índice columnstore clusterizado definido.*
 
 ## <a name="querying-tables-with-retention-policy"></a>Consultando tabelas com a política de retenção
 
@@ -181,7 +181,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar tabelas temporais em seus aplicativos, confira [Getting Started with Temporal Tables in Azure SQL Database](sql-database-temporal-tables.md).
+Para saber como usar tabelas temporais em seus aplicativos, confira [introdução com tabelas temporais no banco de dados SQL do Azure](sql-database-temporal-tables.md).
 
 Visite o Channel 9 para ouvir uma [história de sucesso real de implementação temporal do cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e assista a uma [demonstração temporal dinâmica](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

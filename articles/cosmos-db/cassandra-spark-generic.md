@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70241237"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
@@ -20,16 +20,16 @@ ms.locfileid: "70241237"
 Este artigo está entre uma série de artigos sobre a integração da API do Cassandra do Azure Cosmos DB usando o Spark. Os artigos abordam conectividade, operações de DDL (linguagem de definição de dados), operações de DML (linguagem de manipulação de dados) e integração avançada da API do Cassandra do Azure Cosmos DB usando o Spark. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Provisão de uma conta API Azure Cosmos DB Cassandra.](create-cassandra-dotnet.md#create-a-database-account)
+* [Provisionar uma conta de API do Cassandra Azure Cosmos DB.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Provisão sua escolha de ambiente Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Outros].
+* Provisione sua escolha do ambiente do Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Outros].
 
 ## <a name="dependencies-for-connectivity"></a>Dependências para conectividade
 * **Conector do Spark para Cassandra:** o conector do Spark é usado para se conectar à API do Cassandra do Azure Cosmos DB.  Identifique e use a versão do conector localizada em [central do Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatível com as versões do Spark e do Scala do seu ambiente do Spark.
 
 * **Biblioteca auxiliar do Azure Cosmos DB para API do Cassandra:** além do conector do Spark, você precisa de outra biblioteca chamada [azure-cosmos-cassandra-spark-auxiliar]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) do Azure Cosmos DB. Essa biblioteca contém o connection factory customizado e novas classes de política.
 
-  A política de repetição no Azure Cosmos DB está configurada para lidar com exceções com o código de status HTTP 429 ("Taxa grande de solicitação"). A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra, e você pode repetir com retiradas. Uma vez que o Azure Cosmos DB usa o modelo de taxa de transferência provisionada, exceções de limitação de taxa de solicitação ocorrem quando as taxas de entrada/saída aumentam. A política de repetição protege seus trabalhos de faísca contra picos de dados que excedem momentaneamente o throughput alocado para o seu contêiner.
+  A política de repetição no Azure Cosmos DB está configurada para lidar com exceções com o código de status HTTP 429 ("Taxa grande de solicitação"). A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra, e você pode repetir com retiradas. Uma vez que o Azure Cosmos DB usa o modelo de taxa de transferência provisionada, exceções de limitação de taxa de solicitação ocorrem quando as taxas de entrada/saída aumentam. A política de repetição protege seus trabalhos do Spark contra picos de dados que excedem momentaneamente a taxa de transferência alocada para seu contêiner.
 
   > [!NOTE] 
   > A política de repetição pode proteger seus trabalhos do Spark apenas contra picos momentâneo. Se você não tiver configurado RUs suficientes necessárias para executar sua carga de trabalho, a política de repetição não será aplicável e a classe de política de repetição lançará a exceção novamente.
@@ -46,8 +46,8 @@ A tabela a seguir lista os parâmetros de configuração de taxa de transferênc
 | spark.cassandra.connection.connections_per_executor_max  | Nenhum | Número máximo de conexões por nó por executor. 10*n é equivalente a 10 conexões por nó em um cluster do Cassandra de n nós. Assim, se você precisar de cinco conexões por nó por executor para um cluster do Cassandra de cinco nós, deverá definir essa configuração como 25. Modifique esse valor com base no grau de paralelismo ou no número de executores para os quais seus trabalhos do Spark estão configurados.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Define o número de gravações paralelas que podem ocorrer por executor. Uma vez que você define "batch.size.rows" como 1, aumente esse valor de acordo. Modifique esse valor com base no grau de paralelismo ou na taxa de transferência que você deseja alcançar para sua carga de trabalho. |
 | spark.cassandra.concurrent.reads |  512 | Define o número de leituras paralelas que podem ocorrer por executor. Modifique esse valor com base no grau de paralelismo ou na taxa de transferência que você deseja alcançar para sua carga de trabalho  |
-| spark.cassandra.output.throughput_mb_per_sec  | Nenhum | Define a taxa de transferência de gravação total por executor. Este parâmetro pode ser usado como um limite superior para o seu throughput de trabalho de faísca, e baseá-lo no throughput provisionado do seu contêiner Cosmos.   |
-| spark.cassandra.input.reads_per_sec| Nenhum   | Define a taxa de transferência de leitura total por executor. Este parâmetro pode ser usado como um limite superior para o seu throughput de trabalho de faísca, e baseá-lo no throughput provisionado do seu contêiner Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nenhum | Define a taxa de transferência de gravação total por executor. Esse parâmetro pode ser usado como um limite superior para a taxa de transferência do trabalho do Spark e baseá-lo na taxa de transferência provisionada do seu contêiner Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Nenhum   | Define a taxa de transferência de leitura total por executor. Esse parâmetro pode ser usado como um limite superior para a taxa de transferência do trabalho do Spark e baseá-lo na taxa de transferência provisionada do seu contêiner Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Define o número de lotes por tarefa única do Spark que podem ser armazenados na memória antes do envio à API do Cassandra |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Define o período até o qual as conexões não usadas estão disponíveis. | 
 
@@ -73,7 +73,7 @@ O artigo a seguir aborda o provisionamento do cluster do Azure Databricks, confi
 O artigo a seguir aborda o serviço HDInsight-Spark, provisionamento, configuração do cluster para conexão à API do Cassandra do Azure Cosmos DB e vários blocos de anotações de exemplo que cobrem operações de DDL, operações de DML e muito mais.<BR>
 [Trabalhar com a API do Cassandra do Azure Cosmos DB usando o Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
  
-### <a name="3--spark-environment-in-general"></a>3. Ambiente de faísca em geral
+### <a name="3--spark-environment-in-general"></a>3. ambiente do Spark em geral
 Embora as seções acima fossem específicas para os serviços de PaaS baseados no Spark para Azure, esta seção aborda qualquer ambiente geral do Spark.  Dependências de conector, importações e configuração de sessão do Spark são detalhadas abaixo. A seção "Próximas etapas" aborda os exemplos de código para operações de DDL, operações de DML e muito mais.  
 
 #### <a name="connector-dependencies"></a>Dependências do conector:

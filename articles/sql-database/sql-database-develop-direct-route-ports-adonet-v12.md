@@ -1,5 +1,5 @@
 ---
-title: Portos além de 1433
+title: Portas além de 1433
 description: As conexões cliente do ADO.NET para o Banco de Dados SQL do Azure pode ignorar o proxy e interagir diretamente com o banco de dados usando portas que não a 1433.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
 ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73828071"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
@@ -42,11 +42,11 @@ Esta é a sequência:
 
 1. O ADO.NET 4.5 (ou posterior) inicia uma breve interação com a nuvem do Azure e recebe um número de porta identificado dinamicamente.
 
-   * O número de porta identificado dinamicamente está na faixa de 11000-11999.
+   * O número da porta identificada dinamicamente está no intervalo de 11000-11999.
 2. O ADO.NET conecta-se ao servidor do Banco de Dados SQL diretamente, sem um middleware entre os dois.
 3. As consultas são enviadas diretamente ao banco de dados, e os resultados são retornados diretamente ao cliente.
 
-Certifique-se de que as faixas de porta de 11000-11999 na máquina cliente Do Zure estão disponíveis para ADO.NET interações de clientes de 4,5 com o SQL Database.
+Verifique se os intervalos de porta de 11000-11999 no computador cliente do Azure estão disponíveis para interações de cliente do ADO.NET 4,5 com o banco de dados SQL.
 
 * Em particular, as portas no intervalo devem estar livres de outros bloqueadores de saída.
 * Em sua VM do Azure, o **Firewall do Windows com Segurança Avançada** controla as configurações de porta.

@@ -1,5 +1,5 @@
 ---
-title: Atualize para Azure Search .NET SDK versão 3
+title: Atualizar para Azure Search SDK do .NET versão 3
 titleSuffix: Azure Cognitive Search
 description: Migre o código para o SDK do .NET do Azure Search versão 3 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792974"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Atualize para Azure Search .NET SDK versão 3
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Atualizar para Azure Search SDK do .NET versão 3
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -147,6 +147,6 @@ Se seu aplicativo tiver uma dependência rígida desses recursos, você não pod
 ## <a name="conclusion"></a>Conclusão
 Se precisar de mais detalhes sobre como usar o SDK do .NET do Azure Search, confira o [Tutorial .NET](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se livre para nos pedir ajuda no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
+Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
 
 Obrigado por usar o Azure Search!

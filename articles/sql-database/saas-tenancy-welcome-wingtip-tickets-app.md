@@ -1,5 +1,5 @@
 ---
-title: Bem-vindo ao aplicativo Wingtips
+title: Bem-vindo ao aplicativo wingtips
 description: Saiba mais sobre modelos de aluguel de banco de dados e sobre o aplicativo de exemplo Wingtips SaaS para o Banco de Dados SQL do Azure no ambiente de nuvem.
 keywords: tutorial do banco de dados SQL
 services: sql-database
@@ -13,15 +13,15 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
 ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73818324"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip Tickets SaaS
 
-O mesmo aplicativo SaaS *Wingtip Tickets* é implementado em cada uma das três amostras. O aplicativo é um simples aplicativo SaaS de listagem de eventos e bilheteria saaS voltado para pequenos locais - teatros, clubes, etc. Cada local é um inquilino do aplicativo, e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de ingressos, etc.  O aplicativo, juntamente com os scripts de gerenciamento e tutoriais, mostra um cenário SaaS completo. Isso inclui provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
+O mesmo aplicativo SaaS *Wingtip Tickets* é implementado em cada uma das três amostras. O aplicativo é uma lista de eventos simples e o aplicativo SaaS de tíquetes direcionando pequenos locais – teatros, paus, etc. Cada local é um locatário do aplicativo e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de tíquetes, etc.  O aplicativo, junto com os scripts e tutoriais de gerenciamento, apresenta um cenário de SaaS de ponta a ponta. Isso inclui provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>Três padrões de locatários e aplicativos SaaS
 
@@ -41,15 +41,15 @@ Confira os [tutoriais][docs-tutorials-for-wingtip-sa] e o código no GitHub [...
 
 O padrão de banco de dados por locatário é eficaz para provedores de serviço que se preocupam com isolamento de locatários e desejam executar um serviço centralizado que permite o uso econômico dos recursos compartilhados. Um banco de dados é criado para cada local, ou locatário, e todos os bancos de dados são gerenciados centralmente. Os bancos de dados podem ser hospedados em pools elásticos para fornecer um gerenciamento de desempenho fácil e econômico, que aproveita os padrões de carga de trabalho imprevisíveis dos locatários. O banco de dados de catálogo contém o mapeamento entre locatários e seus bancos de dados. Esse mapeamento é gerenciado usando os recursos de gerenciamento de mapa de fragmento da [Biblioteca de Cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md), que fornece um gerenciamento de conexão eficiente para o aplicativo.
 
-Confira os tutoriais e [códigos][docs-tutorials-for-wingtip-dpt] no GitHub [.../Microsoft/WingtipTicketsSSaAS-DbPerTenant][github-code-for-wingtip-dpt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-dpt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de bancos de dados multilocatários compartilhados
 
 Bancos de dados multilocatários são eficientes para provedores de serviço que buscam um menor custo por locatário e que de acordo com o isolamento de locatários reduzido. Esse padrão permite empacotar grandes números de locatários em um banco de dados individual, reduzindo o custo por locatário. A escala quase infinita é possível pela fragmentação de locatários entre diversos bancos de dados. Um banco de dados do catálogo mapeia os locatários para os bancos de dados.  
 
-Esse padrão também permite um modelo *híbrido* no qual você pode otimizar o custo com vários inquilinos em um banco de dados, ou otimizar para isolamento com um único inquilino em seu próprio banco de dados. A escolha pode ser feita com base em locatário por locatário, seja quando o locatário for provisionado ou mais tarde, sem nenhum impacto no aplicativo.  Esse modelo pode ser usado com eficiência quando grupos de locatários precisam ser tratados de modo diferente. Por exemplo, locatários de baixo custo podem ser atribuídos a bancos de dados compartilhados, enquanto locatários premium podem ser atribuídos a seus próprios bancos de dados. 
+Esse padrão também permite um modelo *híbrido* no qual você pode otimizar o custo com vários locatários em um banco de dados ou otimizar o isolamento com um único locatário em seu próprio banco de dados. A escolha pode ser feita com base em locatário por locatário, seja quando o locatário for provisionado ou mais tarde, sem nenhum impacto no aplicativo.  Esse modelo pode ser usado com eficiência quando grupos de locatários precisam ser tratados de modo diferente. Por exemplo, locatários de baixo custo podem ser atribuídos a bancos de dados compartilhados, enquanto locatários premium podem ser atribuídos a seus próprios bancos de dados. 
 
-Confira os tutoriais e [códigos][docs-tutorials-for-wingtip-mt] no GitHub [.../Microsoft/WingtipTicketsSSaAS-MultiTenantDb][github-code-for-wingtip-mt].
+Confira os [tutoriais][docs-tutorials-for-wingtip-mt] e o código no GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -65,11 +65,11 @@ Confira os tutoriais e [códigos][docs-tutorials-for-wingtip-mt] no GitHub [.../
 
 - Banco de dados por locatário:
     - [Tutoriais do banco de dados por locatário][docs-tutorials-for-wingtip-dpt].
-    - [Código para banco de dados por inquilino, no GitHub][github-code-for-wingtip-dpt].
+    - [Código para banco de dados por locatário, no GitHub][github-code-for-wingtip-dpt].
 
 - Multilocatário fragmentado:
     - [Tutoriais para vários locatários fragmentados][docs-tutorials-for-wingtip-mt].
-    - [Código para multi-inquilino sharded, no GitHub][github-code-for-wingtip-mt].
+    - [Código para multilocatário fragmentado no GitHub][github-code-for-wingtip-mt].
 
 
 

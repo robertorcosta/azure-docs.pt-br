@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72754953"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
-O Azure Cosmos DB oferece armazenamento ilimitado e taxa de transferência. Ao contrário de taxa de transferência, que você precisa provisionar/configurar em seus contêineres do Cosmos do Azure ou bancos de dados, o armazenamento é cobrado com base em uma base de consumo. Você será cobrado somente para o armazenamento lógico que você consumir e não precisa reservar nenhum armazenamento de antemão. O armazenamento aumenta e desce automaticamente com base nos dados que você adiciona ou remove em um contêiner Azure Cosmos.
+O Azure Cosmos DB oferece armazenamento ilimitado e taxa de transferência. Ao contrário de taxa de transferência, que você precisa provisionar/configurar em seus contêineres do Cosmos do Azure ou bancos de dados, o armazenamento é cobrado com base em uma base de consumo. Você será cobrado somente para o armazenamento lógico que você consumir e não precisa reservar nenhum armazenamento de antemão. O armazenamento é dimensionado e reduzido automaticamente com base nos dados que você adiciona ou remove a um contêiner Cosmos do Azure.
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
@@ -39,7 +39,7 @@ Se você quiser armazenar tipos de mídia avançada, por exemplo, vídeos, image
 
 ## <a name="check-storage-consumed"></a>Verificação do armazenamento consumido
 
-Para verificar o consumo de armazenamento de um contêiner do Azure Cosmos, você pode executar uma solicitação HEAD ou GET no contêiner e inspecionar os cabeçalhos `x-ms-request-quota` e o `x-ms-request-usage`. Alternativamente, ao trabalhar com o .NET SDK, você pode usar as propriedades [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUse](https://msdn.microsoft.com/library/azure/dn850324.aspx) para obter o armazenamento consumido.
+Para verificar o consumo de armazenamento de um contêiner do Azure Cosmos, você pode executar uma solicitação HEAD ou GET no contêiner e inspecionar os cabeçalhos `x-ms-request-quota` e o `x-ms-request-usage`. Como alternativa, ao trabalhar com o SDK do .NET, você pode usar as propriedades [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) para obter o armazenamento consumido.
 
 ## <a name="using-sdk"></a>Usando o SDK
 

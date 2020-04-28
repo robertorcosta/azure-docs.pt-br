@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70093720"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como usar o Kubernetes do Azure com o Azure Cosmos DB (versão prévia)
@@ -27,9 +27,9 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
+1. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Você pode baixar a CLI do Azure específica para seu sistema operacional e instalar.
 
-1. Instale a [última versão](https://github.com/Azure/aks-engine/releases) do Mecanismo de Kubernetes do Azure. As instruções de instalação para diferentes sistemas operacionais estão disponíveis na página [Mecanismo de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Você só precisa das etapas da **seção Instalar o Motor AKS** do doc vinculado. Após o download, extraia o arquivo zip.
+1. Instale a [última versão](https://github.com/Azure/aks-engine/releases) do Mecanismo de Kubernetes do Azure. As instruções de instalação para diferentes sistemas operacionais estão disponíveis na página [Mecanismo de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine). Você só precisa das etapas da seção **instalar mecanismo do AKS** do documento vinculado. Após o download, extraia o arquivo zip.
 
    O Mecanismo do Kubernetes do Azure (**aks-engine**) gera os modelos do Azure Resource Manager para clusters do Kubernetes no Azure. A entrada para o aks-engine é um arquivo de definição de cluster que descreve o cluster desejado, incluindo orquestrador, recursos e agentes. A estrutura dos arquivos de entrada é semelhante à API pública do Serviço de Kubernetes do Azure.
 
@@ -139,17 +139,17 @@ Para saber mais sobre a API do etcd no Azure Cosmos DB, veja o artigo de [visão
 
    O Mecanismo de Kubernetes do Azure consome uma definição de cluster que descreve a forma, o tamanho e a configuração desejados do Kubernetes do Azure. Vários recursos podem ser habilitados por meio da definição do cluster. Neste exemplo, você usará os seguintes parâmetros:
 
-   * **id de assinatura:** ID de assinatura do Azure que tem Azure Cosmos DB etcd API ativado.
-   * **id do cliente:** O diretor do serviço está aplique. O `appId` foi retornado como saída na etapa 4.
-   * **Cliente-segredo:** A senha do diretor do serviço ou uma senha gerada aleatoriamente. Esse valor foi retornado como saída no parâmetro 'senha' na etapa 4. 
-   * **dnsPrefix:** Um nome DNS único na região. Esse valor fará parte do nome do host (valores de exemplo são -myprod1, staging).
-   * **localização:**  Local para onde o cluster deve ser implantado, atualmente apenas "centralus" é suportado.
+   * **ID da assinatura:** ID de assinatura do Azure que tem Azure Cosmos DB API etcd habilitada.
+   * **ID do cliente:** A appId da entidade de serviço. O `appId` foi retornado como saída na etapa 4.
+   * **Segredo do cliente:** A senha da entidade de serviço ou uma senha gerada aleatoriamente. Esse valor foi retornado como saída no parâmetro 'senha' na etapa 4. 
+   * **dnsPrefix:** Um nome DNS exclusivo da região. Esse valor fará parte do nome do host (valores de exemplo são -myprod1, staging).
+   * **local:**  Local em que o cluster deve ser implantado, atualmente há suporte apenas para "centralus".
 
    > [!Note]
    > A API do etcd do Azure Cosmos está disponível atualmente para implantação na região de "centralus" apenas. 
  
-   * **modelo api:** Caminho totalmente qualificado para o arquivo de modelo.
-   * **sobrepor a força:** Esta opção é usada para substituir automaticamente os arquivos existentes no diretório de saída.
+   * **API-modelo:** Caminho totalmente qualificado para o arquivo de modelo.
+   * **forçar substituição:** Essa opção é usada para substituir automaticamente os arquivos existentes no diretório de saída.
  
    O comando a seguir mostra um exemplo de implantação:
 

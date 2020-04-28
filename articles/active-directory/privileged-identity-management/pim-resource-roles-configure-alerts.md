@@ -1,5 +1,5 @@
 ---
-title: Configure alertas de segurança para funções de recursos do Azure no Privileged Identity Management - Azure Active Directory | Microsoft Docs
+title: Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
 description: Saiba como configurar alertas de segurança para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74023079"
 ---
-# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de recursos do Azure no Gerenciamento de Identidade Privilegiada
+# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management
 
-O PIM (Privileged Identity Management, gerenciamento de identidade privilegiado) gera alertas quando há atividadesuspeita ou insegura em sua organização Azure Active Directory (Azure AD). Quando um alerta é disparado, ele aparece na página Alertas.
+Privileged Identity Management (PIM) gera alertas quando há atividade suspeita ou não segura em sua organização do Azure Active Directory (AD do Azure). Quando um alerta é disparado, ele aparece na página Alertas.
 
-![Recursos do Azure - Alertas de listagem de página, nível de risco e contagem](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
+![Recursos do Azure-alerta de listagem de página de alertas, nível de risco e contagem](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Revisar alertas
 
-Selecione um alerta para ver um relatório que liste os usuários ou funções que acionaram o alerta, juntamente com a orientação de correção.
+Selecione um alerta para ver um relatório que lista os usuários ou funções que dispararam o alerta, juntamente com diretrizes de correção.
 
-![Relatório de alerta mostrando o tempo da última varredura, descrição, etapas de mitigação, tipo, gravidade, impacto de segurança e como prevenir a próxima vez](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+![Relatório de alertas mostrando a hora da última verificação, descrição, etapas de mitigação, tipo, gravidade, impacto de segurança e como evitar a próxima vez](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertas
 
@@ -52,12 +52,12 @@ Selecione um alerta para ver um relatório que liste os usuários ou funções q
 
 Na página Alertas, vá para **Configurações**.
 
-![Página de alertas com Configurações destacadas](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+![Página de alertas com configurações realçadas](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Personalize configurações nos diferentes alertas para trabalhar com seu ambiente e as metas de segurança.
 
-![Definir página para um alerta para ativar e configurar configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Página de configuração de um alerta para habilitar e definir configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configure as configurações de função de recurso do Azure no Gerenciamento de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
+- [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

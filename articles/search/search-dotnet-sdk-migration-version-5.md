@@ -1,5 +1,5 @@
 ---
-title: Atualize para Azure Search .NET SDK versão 5
+title: Atualizar para Azure Search SDK do .NET versão 5
 titleSuffix: Azure Cognitive Search
 description: Migre o código para o SDK do .NET do Azure Search versão 5 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72793033"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Atualize para Azure Search .NET SDK versão 5
+# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Atualizar para Azure Search SDK do .NET versão 5
 
 Se você estiver usando a visualização da versão 4.0 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 5.
 
@@ -34,7 +34,7 @@ A versão 5 do SDK do .NET do Azure Search contém algumas alterações de vers�
 ## <a name="whats-new-in-version-5"></a>Novidades na versão 5
 A versão 5 do SDK do .NET do Azure Search destina-se à versão mais recente disponível da API REST do Azure Search, especificamente a 2017-11-11. Isso possibilita o uso de vários recursos novos do Azure Search por meio de um aplicativo .NET, incluindo o seguinte:
 
-* [Sinônimos.](search-synonyms.md)
+* [Sinônimos](search-synonyms.md).
 * Você agora pode acessar programaticamente avisos no histórico de execução do indexador (consulte a `Warning` propriedade `IndexerExecutionResult` em [referência do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) para obter mais detalhes).
 * Suporte para .NET Core 2.
 * Oferece suporte à nova estrutura de pacote usando apenas as partes do SDK que você precisa (consulte [alterações significativas na versão 5](#ListOfChanges) para obter detalhes).
@@ -98,6 +98,6 @@ Se seu aplicativo tiver uma dependência rígida desses recursos, você não pod
 ## <a name="conclusion"></a>Conclusão
 Se precisar de mais detalhes sobre como usar o SDK do .NET do Azure Search, confira o [Tutorial .NET](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se livre para nos pedir ajuda no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
+Apreciamos os seus comentários sobre o SDK. Se você encontrar problemas, sinta-se à vontade para nos pedir ajuda sobre [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, você poderá apresentar um problema no [repositório GitHub sobre o SDK do .NET do Azure](https://github.com/Azure/azure-sdk-for-net/issues). Não deixe de colocar o prefixo "[Azure Search]" no título do problema.
 
 Obrigado por usar o Azure Search!

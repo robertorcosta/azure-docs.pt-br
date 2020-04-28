@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73601941"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conecte-se ao Azure Databricks do Excel, Python ou R
@@ -34,30 +34,30 @@ Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dado
 
 1. No workspace do Azure Databricks, navegue até o cluster do Databricks.
 
-    ![Cluster Detijolos abertos](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Cluster Detijolos abertos")
+    ![Abrir cluster do databricks](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "Abrir cluster do databricks")
 
 2. Sob o guia **Configuração**, clique no guia **JDBC/ODBC** e copie os valores para o **Nome do host do servidor** e **Caminho HTTP**. Você precisa desses valores para concluir as etapas neste artigo.
 
-    ![Obtenha a configuração databricks](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Obtenha a configuração databricks")
+    ![Obter configuração do databricks](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "Obter configuração do databricks")
 
 3. Em seu computador, inicie o aplicativo **Fontes de dados ODBC** (32 bits ou 64 bits), dependendo do aplicativo. Para se conectar do Excel, use a versão de 32 bits. Para se conectar do R e Python, use a versão de 64 bits.
 
-    ![Lançar ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "Lançar o aplicativo ODBC")
+    ![Iniciar ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "Iniciar aplicativo ODBC")
 
 4. Sob o guia **DSN do usuário**, clique em **Adicionar**. Na caixa de diálogo **Criar Nova Fonte de Dados**, selecione **Driver ODBC do Simba Spark** e clique em **Concluir**.
 
-    ![Lançar ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "Lançar o aplicativo ODBC")
+    ![Iniciar ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "Iniciar aplicativo ODBC")
 
 5. Na caixa de diálogo **Driver ODBC Simba Spark**, forneça os valores a seguir:
 
-    ![Configurar DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "Configurar DSN")
+    ![Configurar o DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "Configurar o DSN")
 
     A tabela a seguir fornece informações sobre os valores a fornecer na caixa de diálogo.
     
     |Campo  | Valor  |
     |---------|---------|
     |**Nome da fonte de dados**     | Forneça um nome para a fonte de dados.        |
-    |**Host(s)**     | Forneça o valor que você copiou do workspace do Databricks para *nome do host do servidor*.        |
+    |**Host (s)**     | Forneça o valor que você copiou do workspace do Databricks para *nome do host do servidor*.        |
     |**Porta**     | Inserir *443*.        |
     |**Authentication** > **Mecanismo** de autenticação     | Selecione *Nome de usuário e senha*.        |
     |**Nome de usuário**     | Insira o *token*.        |
@@ -78,19 +78,19 @@ Nesta seção, você extrairá dados do Azure Databricks para o Microsoft Excel 
 
 1. Abra uma pasta de trabalho em branco no Microsoft Excel. Da faixa de opções de **Dados**, clique em **Obter dados**. Clique em **De Outras Fontes** e em **Do ODBC**.
 
-    ![Lançar o ODBC do Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Lançar o ODBC do Excel")
+    ![Iniciar ODBC do Excel](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "Iniciar ODBC do Excel")
 
 2. Na caixa de diálogo **Do ODBC**, selecione o DSN que você criou anteriormente e clique em **OK**.
 
-    ![Selecione DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Selecione DSN")
+    ![Selecionar DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Selecionar DSN")
 
 3. Se as credenciais forem solicitadas a você, para o nome de usuário, digite **token**. Para a senha, forneça o valor do token que você recuperou do workspace de Databricks.
 
-    ![Fornecer credenciais para Databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Selecione DSN")
+    ![Fornecer credenciais para databricks](./media/connect-databricks-excel-python-r/excel-databricks-token.png "Selecionar DSN")
 
 4. Na janela do navegador, selecione a tabela no Databricks que você deseja carregar para o Excel e, em seguida, clique em **Carregar**. 
 
-    ![Carregar dta no Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "Carregar dta no Excel")
+    ![Carregar o dta no Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "Carregar o dta no Excel")
 
 Uma vez que você tiver os dados na sua pasta de trabalho do Excel, você pode realizar operações analíticas nela.
 
@@ -102,7 +102,7 @@ Uma vez que você tiver os dados na sua pasta de trabalho do Excel, você pode r
 Nesta seção, você deve usar uma linguagem R IDE para os dados de referência disponíveis no Azure Databricks. Antes de começar, você deve ter os itens a seguir instalados no seu computador.
 
 * Um IDE para a linguagem R. Este artigo usa RStudio para área de trabalho. Você pode instalá-lo a partir do [download do Studio R](https://www.rstudio.com/products/rstudio/download/).
-* Se você usar o RStudio for Desktop como Seu [https://aka.ms/rclient/](https://aka.ms/rclient/)IDE, também instale o Microsoft R Client a partir de . 
+* Se você usar o RStudio para área de trabalho como seu IDE, instale [https://aka.ms/rclient/](https://aka.ms/rclient/)também Microsoft R Client do. 
 
 Abra o RStudio e siga as etapas a seguir:
 
@@ -165,6 +165,6 @@ for row in cursor.fetchall():
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as fontes de onde você pode importar dados para o Azure Databricks, consulte [Fontes de dados do Azure Databricks](/azure/databricks/data/data-sources/index)
+* Para saber mais sobre fontes de onde você pode importar dados para Azure Databricks, consulte [fontes de dados para Azure Databricks](/azure/databricks/data/data-sources/index)
 
 

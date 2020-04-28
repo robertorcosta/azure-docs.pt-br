@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres da VMware com recuperação do site do Azure
+title: Recuperação de desastres do VMware com Azure Site Recovery
 description: Este artigo fornece uma visão geral da recuperação de desastres de VMs VMware para o Azure usando o serviço Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73954387"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de desastres de VMs do VMware para o Azure
@@ -33,7 +33,7 @@ Uma estratégia de continuidade de negócios e recuperação de desastres (BCDR)
     - A análise ajuda a garantir que o failover funcione conforme o esperado quando surge uma necessidade real.
     - A análise executa um failover de teste sem afetar seu ambiente de produção.
 5. Se ocorrer uma interrupção, você executar um failover completo para o Azure. Você pode fazer failover de um único computador, ou você pode criar um plano de recuperação que executa o failover de várias máquinas ao mesmo tempo.
-6. No failover, as VMs do Azure são criadas a partir dos dados da VM em discos gerenciados ou contas de armazenamento. Os usuários podem continuar acessando aplicativos e cargas de trabalho da VM do Azure
+6. No failover, as VMs do Azure são criadas a partir dos dados da VM em Managed disks ou contas de armazenamento. Os usuários podem continuar acessando aplicativos e cargas de trabalho da VM do Azure
 7. Quando seu site local estiver disponível novamente, você fará o failback do Azure.
 8. Depois que você fizer o failback e estiver trabalhando novamente em seu site principal, você começará a replicar as VMs locais para o Azure novamente.
 
@@ -44,7 +44,7 @@ O Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM
 
 - Se você está replicando VMs VMware, está executando as versões corretas dos servidores de virtualização VMware? [Verifique aqui](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
 - São as máquinas que você deseja replicar executando um sistema operacional com suporte? [Verifique aqui](vmware-physical-azure-support-matrix.md#replicated-machines).
-- Para recuperação de desastre do Linux, as máquinas estão executando um sistema de arquivos / armazenamento de convidado com suporte? [Confira aqui](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
+- Para recuperação de desastre do Linux, as máquinas estão executando um sistema de arquivos / armazenamento de convidado com suporte? [Verificar aqui](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)
 - Os computadores que você deseja replicar atendem aos requisitos do Azure? [Verifique aqui](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 - Sua configuração de rede é suportada? [Verifique aqui](vmware-physical-azure-support-matrix.md#network).
 - Há suporte para sua configuração de armazenamento? [Verifique aqui](vmware-physical-azure-support-matrix.md#storage).
@@ -55,12 +55,12 @@ O Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM
 No Azure, você precisa preparar o seguinte:
 
 1. Verifique se sua conta do Azure tem permissões para criar VMs no Azure.
-2. Crie uma rede Azure que as VMs do Azure se juntarão quando forem criadas a partir de contas de armazenamento ou discos gerenciados após failover.
+2. Crie uma rede do Azure que as VMs do Azure ingressarão quando forem criadas a partir de contas de armazenamento ou de discos gerenciados após o failover.
 3. Configure um cofre do Azure Recovery Services para o Site Recovery. O vault reside no portal do Azure e é usado para implantar, configurar, orquestrar, monitorar e solucionar problemas de sua implantação do Site Recovery.
 
 *Precisa de mais ajuda?*
 
-Saiba como configurar o Azure [verificando sua conta,](tutorial-prepare-azure.md#verify-account-permissions)criando uma [rede](tutorial-prepare-azure.md#set-up-an-azure-network)e [configurando um cofre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Saiba como configurar [o Azure verificando sua conta](tutorial-prepare-azure.md#verify-account-permissions), criando uma [rede](tutorial-prepare-azure.md#set-up-an-azure-network)e [Configurando um cofre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -92,12 +92,12 @@ Depois de ter sua infraestrutura do Azure e local em vigor, você pode configura
     - O servidor de configuração é uma única máquina local. Para recuperação de desastre VMware, recomendamos que você a implante como uma VM VMware que pode ser implantada a partir de um modelo OVF para download.
     - O servidor de configuração coordena as comunicações entre o local e o Azure
     - Alguns outros componentes são executados na máquina do servidor de configuração.
-        - O servidor de processos recebe, otimiza e envia dados de replicação para a conta de armazenamento de cache no Azure. Ele também lida com a instalação automática do serviço Mobility em máquinas que você deseja replicar e executa a descoberta automática de VMs em servidores VMware.
+        - O servidor de processo recebe, otimiza e envia dados de replicação para a conta de armazenamento em cache no Azure. Ele também lida com a instalação automática do serviço Mobility em máquinas que você deseja replicar e executa a descoberta automática de VMs em servidores VMware.
         - O servidor de destino mestre lida com os dados de replicação durante o failback do Azure.
     - A configuração inclui o registro do servidor de configuração no cofre, o download do servidor MySQL e do VMware PowerCLI e a especificação das contas criadas para a descoberta automática e a instalação do serviço Mobilidade.
-4. **Ambiente de destino**: Você configura seu ambiente Azure de destino especificando as configurações de assinatura e rede do Azure.
+4. **Ambiente de destino**: configure seu ambiente de destino do Azure especificando suas configurações de rede e sua assinatura do Azure.
 5. **Política de replicação**: você especifica como a replicação deve ocorrer. As configurações incluem a frequência com que os pontos de recuperação são criados e armazenados e se os instantâneos consistentes com o aplicativo devem ser criados.
-6. **Habilitar a replicação**. Você habilita a replicação para máquinas locais. Se você criou uma conta para instalar o serviço Mobility, ela será instalada quando você habilitar a replicação para uma máquina. 
+6. **Habilite a replicação**. Você habilita a replicação para máquinas locais. Se você criou uma conta para instalar o serviço Mobility, ela será instalada quando você habilitar a replicação para uma máquina. 
 
 *Precisa de mais ajuda?*
 

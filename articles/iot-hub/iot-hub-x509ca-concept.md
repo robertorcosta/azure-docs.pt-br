@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "61320061"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
@@ -57,7 +57,7 @@ O uso de AC X.509 é mais bem compreendido em relação a um exemplo concreto. C
 
 A Empresa X tem a opção de adquirir um Certificado de Autoridade de Certificação X.509 de uma autoridade de certificado raiz pública ou criando um através de um processo autoassinado. Uma opção seria ideal em relação à outra, dependendo do cenário da aplicação. Independentemente da opção, o processo envolve duas etapas fundamentais, gerar um par de chaves públicas/privadas e assinar a chave pública em um certificado.
 
-![Fluxo para geração de certificados X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
+![Fluxo para gerar certificados X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 Detalhes sobre como realizar essas etapas diferem com vários provedores de serviço.
 
@@ -109,7 +109,7 @@ Cadeias alternativas podem ter uma interação de AC intermediária com o dispos
 
 Em nosso exemplo, tanto a Fábrica Y quanto o Técnico Z interagem com o Widget inteligente X. Embora a Empresa X seja a proprietária do Widget inteligente X, na verdade, ela não interage fisicamente com ele na cadeia de fornecimento. A cadeia de certificados de confiança para o Widget inteligente X, portanto, é composta pela Empresa X assinando a Fábrica Y, que, por sua vez, assina o Técnico Z, que fornecerá a assinatura final para o Widget inteligente X. A fabricação e a instalação do Widget inteligente X incluem a Fábrica Y e o Técnico Z usando seus respectivos certificados de AC intermediária para assinar cada Widget inteligente X. O resultado final de todo esse processo é Widgets inteligentes X com certificados de dispositivo exclusivos e a cadeia de certificados de confiança avançando até o certificado de Autoridade de certificação da Empresa X.
 
-![Cadeia de confiança desde os certs de uma empresa para os certs de outra empresa](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Cadeia de confiança dos certificados de uma empresa para os certificados de outra empresa](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 Esse é um bom ponto para analisar o valor do método de AC X.509. Em vez de pré-gerar e transmitir os certificados para cada Widget Smart X na cadeia de fornecimento, a Empresa X só precisou assinar a Fábrica Y uma vez. Em vez de precisar controlar todos os dispositivos em todo o ciclo de vida de dispositivos, agora a Empresa X precisa controlar e gerenciar dispositivos por meio de grupos que naturalmente surgem do processo de cadeia de fornecimento, por exemplo, dispositivos instalados pelo Técnico Z depois de julho de algum ano.
 
@@ -127,6 +127,6 @@ Durante o upload da cadeia de certificados, o dispositivo carrega seu certificad
 
 Em nosso exemplo, cada Widget inteligente X deve carregar seu certificado de dispositivo exclusivo junto com certificados de AC X.509 da Fábrica Y e do Técnico Z e, em seguida, responder ao desafio de prova de posse do Hub IoT.
 
-![Fluxo de um cert para outro, desafio pop do hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Fluxo de um certificado para outro, o pop-Challenge do Hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 Observe que a base da confiança depende da proteção de chaves privadas, incluindo as chaves privadas de dispositivo. Portanto, nunca é demais enfatizar a importância de chips de silicone seguros na forma de HSM (Módulos Seguros de Hardware) para proteger as chaves privadas de dispositivo e da prática recomendada geral de nunca compartilhar nenhuma chave privada, como quando uma fábrica confia em outra sua chave privada.

@@ -1,21 +1,21 @@
 ---
-title: Azure Data Lake Storage Gen1 performance tuning - PowerShell
-description: Dicas de como melhorar o desempenho ao usar o Azure PowerShell com o Azure Data Lake Storage Gen1.
+title: Ajuste de desempenho Azure Data Lake Storage Gen1-PowerShell
+description: Dicas sobre como melhorar o desempenho ao usar Azure PowerShell com Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: c975af1799d427651b76bb9fde5ff765afed3f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73904573"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Orientação de ajuste de desempenho para o uso do PowerShell com o Armazenamento de Data Lake do Azure Gen1
 
-Este artigo descreve as propriedades que você pode ajustar para obter melhor desempenho ao usar o PowerShell para trabalhar com data lake storage Gen1.
+Este artigo descreve as propriedades que você pode ajustar para obter melhor desempenho ao usar o PowerShell para trabalhar com Data Lake Storage Gen1.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -40,11 +40,11 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
     -Recurse
 ```
 
-## <a name="how-to-determine-property-values"></a>Como determinar os valores da propriedade
+## <a name="how-to-determine-property-values"></a>Como determinar valores de propriedade
 
 A próxima questão que você pode ter é como determinar qual valor fornecer para as propriedades relacionadas com desempenho. Aqui estão algumas diretrizes que podem ser usadas.
 
-* **Passo 1: Determine a contagem total de segmentos** - Inicie calculando a contagem total de segmentos a ser usado. Como diretriz geral, você deve usar seis threads para cada núcleo físico.
+* **Etapa 1: determinar a contagem total de threads** -início calculando a contagem total de threads a ser usada. Como diretriz geral, você deve usar seis threads para cada núcleo físico.
 
     `Total thread count = total physical cores * 6`
 
@@ -54,7 +54,7 @@ A próxima questão que você pode ter é como determinar qual valor fornecer pa
 
     `Total thread count = 16 cores * 6 = 96 threads`
 
-* **Passo 2: Calcule PerFileThreadCount** - Calculamos nosso PerFileThreadCount com base no tamanho dos arquivos. Para arquivos menores do que 2,5 GB, não é necessário alterar esse parâmetro, pois o padrão de 10 é suficiente. Para arquivos com mais de 2,5 GB, você deve usar 10 threads como a base para os primeiros 2,5 GB e adicionar 1 thread para cada aumento de 256 MB no tamanho do arquivo. Se você estiver copiando uma pasta com uma grande variedade de tamanhos de arquivo, considere agrupá-los em tamanhos de arquivo semelhantes. Ter tamanhos de arquivo diferentes pode fazer com que o desempenho não seja o ideal. Se não for possível agrupar os tamanhos de arquivo semelhantes, você deverá definir PerFileThreadCount com base no maior tamanho do arquivo.
+* **Etapa 2: calcular PerFileThreadCount** – calculamos nosso PerFileThreadCount com base no tamanho dos arquivos. Para arquivos menores do que 2,5 GB, não é necessário alterar esse parâmetro, pois o padrão de 10 é suficiente. Para arquivos com mais de 2,5 GB, você deve usar 10 threads como a base para os primeiros 2,5 GB e adicionar 1 thread para cada aumento de 256 MB no tamanho do arquivo. Se você estiver copiando uma pasta com uma grande variedade de tamanhos de arquivo, considere agrupá-los em tamanhos de arquivo semelhantes. Ter tamanhos de arquivo diferentes pode fazer com que o desempenho não seja o ideal. Se não for possível agrupar os tamanhos de arquivo semelhantes, você deverá definir PerFileThreadCount com base no maior tamanho do arquivo.
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 

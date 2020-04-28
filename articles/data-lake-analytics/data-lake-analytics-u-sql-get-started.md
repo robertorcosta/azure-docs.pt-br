@@ -1,6 +1,6 @@
 ---
 title: Introdução à linguagem U-SQL no Azure Data Lake Analytics
-description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics. Escreva sua primeira consulta usando variáveis para dados extras de arquivos, transforme o conjunto de linhas e agrege dados.
+description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics. Escreva sua primeira consulta usando variáveis para dados adicionais de arquivos, transforme o conjunto de linhas e agregue dados.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71672829"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução à U-SQL no Azure Data Lake Analytics

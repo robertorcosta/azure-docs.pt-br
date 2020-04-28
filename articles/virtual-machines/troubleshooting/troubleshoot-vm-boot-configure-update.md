@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73749629"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure
 
-Este artigo descreve as telas "Preparando-se" e "Preparando o Windows" que você pode encontrar ao inicializar uma máquina virtual do Windows (VM) no Microsoft Azure. Ele fornece as etapas para ajudar você a coletar dados para um tíquete de suporte.
+Este artigo descreve as telas "preparando-se" e "preparando o Windows" que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece as etapas para ajudar você a coletar dados para um tíquete de suporte.
 
  
 
 ## <a name="symptoms"></a>Sintomas
 
-Um Windows VM não inicializa. Quando você usa **diagnóstico de Inicialização** para obter a captura de tela da VM, você pode ver que a VM exibe a mensagem "Preparando-se" ou "Preparando o Windows".
+Uma VM do Windows não é inicializada. Ao usar o **diagnóstico de inicialização** para obter a captura de tela da VM, você pode ver que a VM exibe a mensagem "preparando-se" ou "preparando o Windows".
 
 ![Exemplo de mensagem para o Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -40,19 +40,19 @@ Normalmente, esse problema ocorre quando o servidor está fazendo a reinicializa
 
 ## <a name="collect-an-os-memory-dump"></a>Coletar um despejo de memória do sistema operacional
 
-Se o problema não se resolver depois de esperar que as alterações se processem, você precisará coletar um arquivo de despejo de memória e suporte de contato. Para coletar o arquivo de despejo, siga estas etapas:
+Se o problema não for resolvido depois de aguardar as alterações serem processadas, você precisará coletar um arquivo de despejo de memória e entrar em contato com o suporte. Para coletar o arquivo de despejo, siga estas etapas:
 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 3. Área de trabalho remota para a VM de recuperação. 
-4. Se o disco do SISTEMA OPERACIONAL estiver criptografado, você deve desativar a criptografia antes de passar para o próximo passo. Para obter mais informações, consulte [Descriptografar o disco do SISTEMA OPERACIONAL criptografado na VM que não pode inicializar](troubleshoot-bitlocker-boot-error.md#solution).
+4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](troubleshoot-bitlocker-boot-error.md#solution).
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o arquivo de despejo e envie um tíquete de suporte
 
 1. Na VM de recuperação, vá até a pasta do Windows no disco do SO anexado. Se a letra da unidade atribuída ao disco do SO anexado for F, você precisará ir até F:\Windows.
-2. Localize o arquivo memory.dmp e envie [um bilhete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo. 
+2. Localize o arquivo Memory. dmp e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo. 
 
 Se não encontrar o arquivo de despejo, passe para a próxima etapa para habilitar o log de despejo e o Console Serial.
 
@@ -97,11 +97,11 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
             reg unload HKLM\BROKENSYSTEM
 
-3. [Desconecte o disco do sistema operacional e, em seguida, reconecte o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
-4. Inicie a VM e acesse o Console Serial.
-5. Selecione **Enviar NMI (Non-Maskable Interrupt)** para ativar o despejo de memória.
-    ![a imagem sobre onde enviar Interrupção Não-Mascarada](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
-6. Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação novamente, colete o arquivo de despejo.
+3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
+4. Inicie a VM e acesse o console serial.
+5. Selecione **Enviar NMI (interrupção não mascarada)** para disparar o despejo de memória.
+    ![a imagem sobre onde enviar uma interrupção não mascarável](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
+6. Anexe o disco do sistema operacional a uma VM de recuperação novamente, colete o arquivo de despejo.
 
 ## <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
 

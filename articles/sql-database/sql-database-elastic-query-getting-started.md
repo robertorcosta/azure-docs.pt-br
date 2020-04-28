@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73823786"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
@@ -33,7 +33,7 @@ Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados El�
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um gerenciador de mapa de fragmentos usando o aplicativo de exemplo
 Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários fragmentos, seguido pela inserção de dados nos fragmentos. Se você já tem fragmentos configurados com dados fragmentados, poderá ignorar as etapas a seguir e mover para a próxima seção.
 
-1. Construa e execute o aplicativo de amostra **de ferramentas Do Banco de Dados Elástico** seguindo as etapas da seção de artigo Baixe e execute o aplicativo de [amostra](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de terminar todas as etapas, você verá o seguinte prompt de comando:
+1. Crie e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** seguindo as etapas na seção do artigo [baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de concluir todas as etapas, você verá o seguinte prompt de comando:
 
     ![prompt de comando][1]
 2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
@@ -46,7 +46,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
    Na próxima seção, criaremos um ponto de extremidade de banco de dados de exemplo que dá suporte a consultas mais avançadas de dados entre fragmentos.
 
 ## <a name="create-an-elastic-query-database"></a>Criar um banco de dados de consulta elástico
-1. Abra o [portal Azure](https://portal.azure.com) e faça login.
+1. Abra o [portal do Azure](https://portal.azure.com) e faça logon.
 2. Crie um novo Banco de Dados SQL do Azure no mesmo servidor que a instalação do fragmento. Nomeie o banco de dados como "ElasticDBQuery".
 
     ![Portal do Azure e camada de preços][3]
@@ -68,7 +68,7 @@ Eles são usados para conectar ao gerenciador de mapa de fragmentos e aos fragme
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "nome de usuário" e "senha" devem ser os mesmos que as informações de login usadas na etapa 3 da seção [Baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) no artigo **"Iniciar com ferramentas de banco de dados elástico".**
+    "username" e "password" devem ser iguais às informações de logon usadas na etapa 3 da seção [download e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) no artigo **introdução às ferramentas de banco de dados elástico** .
 
 ### <a name="external-data-sources"></a>Fontes de dados externas
 Para criar uma fonte de dados externa, execute o seguinte comando no banco de dados ElasticDBQuery:
@@ -114,7 +114,7 @@ Você observará que a consulta agrega os resultados de todos os fragmentos e fo
 3. Clique em **De Outras Fontes** e em **Do SQL Server**.
 
    ![Importação de outras fontes para o Excel][5]
-4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Avançar**.
+4. No **Assistente para conexão de dados** , digite as credenciais de logon e nome do servidor. Em seguida, clique em **Próximo**.
 5. Na caixa de diálogo **Selecione o banco de dados que contém os dados que você deseja**, selecione o banco de dados **ElasticDBQuery**.
 6. Selecione a tabela **Clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **Concluir**.
 7. No formulário **Importar Dados** em **Selecione como deseja exibir esses dados na sua pasta de trabalho**, selecione **Tabela** e clique em **OK**.

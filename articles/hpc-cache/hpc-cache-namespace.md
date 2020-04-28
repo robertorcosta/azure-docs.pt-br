@@ -7,58 +7,58 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73582189"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planejar o namespace agregado
 
-O Azure HPC Cache permite que os clientes acessem uma variedade de sistemas de armazenamento através de um namespace virtual que oculta os detalhes do sistema de armazenamento back-end.
+O cache HPC do Azure permite que os clientes acessem uma variedade de sistemas de armazenamento por meio de um namespace virtual que oculta os detalhes do sistema de armazenamento de back-end.
 
-Quando você adiciona um alvo de armazenamento, você define o caminho do arquivo voltado para o cliente. As máquinas clientes montam esse caminho de arquivo e podem fazer solicitações de leitura de arquivos para o cache em vez de montar o sistema de armazenamento diretamente.
+Ao adicionar um destino de armazenamento, você define o caminho do arquivo voltado para o cliente. Os computadores cliente montam esse caminho de arquivo e podem fazer solicitações de leitura de arquivo para o cache em vez de montar o sistema de armazenamento diretamente.
 
-Como o Cache Azure HPC gerencia esse sistema de arquivos virtuais, você pode alterar o destino de armazenamento sem alterar o caminho voltado para o cliente. Por exemplo, você pode substituir um sistema de armazenamento de hardware por armazenamento em nuvem sem precisar reescrever procedimentos voltados para o cliente.
+Como o cache do HPC do Azure gerencia esse sistema de arquivos virtual, você pode alterar o destino de armazenamento sem alterar o caminho voltado para o cliente. Por exemplo, você pode substituir um sistema de armazenamento de hardware pelo armazenamento em nuvem sem a necessidade de reescrever procedimentos voltados para o cliente.
 
 ## <a name="aggregated-namespace-example"></a>Exemplo de namespace agregado
 
-Planeje seu namespace agregado para que as máquinas clientes possam alcançar convenientemente as informações de que precisam e para que os administradores e engenheiros de fluxo de trabalho possam facilmente distinguir os caminhos.
+Planeje o namespace agregado para que os computadores cliente possam acessar convenientemente as informações de que precisam e para que os administradores e engenheiros de fluxo de trabalho possam distinguir facilmente os caminhos.
 
-Por exemplo, considere um sistema onde uma instância de cache Azure HPC está sendo usada para processar dados armazenados no Azure Blob. A análise requer arquivos de modelo que são armazenados em um datacenter no local.
+Por exemplo, considere um sistema em que uma instância de cache do Azure HPC está sendo usada para processar dados armazenados no blob do Azure. A análise requer arquivos de modelo que são armazenados em um datacenter local.
 
-Os dados do modelo são armazenados em um data center e as informações necessárias para este trabalho são armazenadas nesses subdiretórios:
+Os dados do modelo são armazenados em um datacenter e as informações necessárias para esse trabalho são armazenadas nesses subdiretórios:
 
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-O sistema de armazenamento de data center expõe essas exportações:
+O sistema de armazenamento do datacenter expõe essas exportações:
 
     /
     /goldline
     /goldline/templates
 
-Os dados a serem analisados foram copiados para um contêiner de armazenamento Azure Blob chamado "sourcecollection" usando o [utilitário CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
+Os dados a serem analisados foram copiados para um contêiner de armazenamento de BLOBs do Azure denominado "SourceCollection" usando o [utilitário CLFSLoad](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
-Para permitir fácil acesso através do cache, considere criar alvos de armazenamento com esses caminhos de namespace virtuais:
+Para permitir acesso fácil por meio do cache, considere a criação de destinos de armazenamento com estes caminhos de namespace virtual:
 
-| Sistema de armazenamento back-end <br/> (Caminho de arquivo NFS ou recipiente Blob) | Caminho de namespace virtual |
+| Sistema de armazenamento de back-end <br/> (Caminho do arquivo NFS ou contêiner de BLOB) | Caminho do namespace virtual |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
-| fontecollection                        | /fonte/               |
+| SourceCollection                        | /Source               |
 
-Um destino de armazenamento NFS pode ter vários caminhos de namespace virtuais, desde que cada um consulte um caminho de exportação único.
+Um destino de armazenamento NFS pode ter vários caminhos de namespace virtual, desde que cada um faça referência a um caminho de exportação exclusivo.
 
-Como os caminhos de origem do NFS são subdiretórios da mesma exportação, você precisará definir vários caminhos de namespace a partir do mesmo alvo de armazenamento.
+Como os caminhos de origem do NFS são subdiretórios da mesma exportação, você precisará definir vários caminhos de namespace do mesmo destino de armazenamento.
 
-| Nome de host de destino de armazenamento  | Caminho de exportação do NFS      | Caminho do subdiretório | Caminho do namespace    |
+| Nome de host do destino de armazenamento  | Caminho de exportação do NFS      | Caminho do subdiretório | Caminho do namespace    |
 |--------------------------|----------------------|-------------------|-------------------|
-| *Endereço IP ou nome de host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Endereço IP ou nome de host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
+| *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Um aplicativo cliente pode montar o cache e acessar ``/source`` ``/templates/sku798``facilmente ``/templates/sku980``os caminhos agregados de arquivo namespace, e .
+Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos ``/source``de arquivo de namespace agregados, ``/templates/sku980`` ``/templates/sku798``e.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de decidir como configurar seu sistema de arquivos virtual, crie metas de armazenamento para mapear seu armazenamento back-end para os [caminhos](hpc-cache-add-storage.md) de arquivos virtuais voltados para o cliente.
+Depois de decidir como configurar seu sistema de arquivos virtual, [crie destinos de armazenamento](hpc-cache-add-storage.md) para mapear seu armazenamento de back-end para os caminhos de arquivos virtuais voltados para o cliente.

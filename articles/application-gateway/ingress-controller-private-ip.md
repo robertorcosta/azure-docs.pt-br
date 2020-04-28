@@ -1,6 +1,6 @@
 ---
-title: Use o endereço IP privado para roteamento interno para um ponto final de ingestão
-description: Este artigo fornece informações sobre como usar IPs privados para roteamento interno e, assim, expor o ponto final de Ingress dentro de um cluster para o resto do VNet.
+title: Usar endereço IP privado para roteamento interno para um ponto de extremidade de entrada
+description: Este artigo fornece informações sobre como usar IPs privados para roteamento interno e, assim, expor o ponto de extremidade de entrada dentro de um cluster para o restante da VNet.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795485"
 ---
-# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Use IP privado para roteamento interno para um ponto final da Ingress 
+# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usar o IP privado para roteamento interno para um ponto de extremidade de entrada 
 
-Esse recurso permite expor o ponto final `Virtual Network` de ingestão dentro do uso de um IP privado.
+Esse recurso permite expor o ponto de extremidade de entrada dentro `Virtual Network` do usando um IP privado.
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
-Gateway de aplicativo com uma [configuração DE Privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Gateway de aplicativo com uma [configuração de IP privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
 
-Existem duas maneiras de configurar o controlador para usar ip privado para entrada,
+Há duas maneiras de configurar o controlador para usar o IP privado para entrada,
 
-## <a name="assign-to-a-particular-ingress"></a>Atribuir a uma inserção específica
-Para expor uma ingestão específica sobre IP privado, use anotação [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) em Ingress.
+## <a name="assign-to-a-particular-ingress"></a>Atribuir a uma entrada específica
+Para expor uma entrada específica sobre o IP privado, use a [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) anotação na entrada.
 
 ### <a name="usage"></a>Uso
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-Para gateways de aplicativos sem um IP privado, ingressas anotadas serão `appgw.ingress.kubernetes.io/use-private-ip: "true"` ignoradas. Isso será indicado no evento de entrada e no registro de pods AGIC.
+Para gateways de aplicativo sem um IP privado, o insere anotado com `appgw.ingress.kubernetes.io/use-private-ip: "true"` será ignorado. Isso será indicado no evento de entrada e no log Pod AGIC.
 
-* Erro como indicado no Evento de Ingress
+* Erro conforme indicado no evento de entrada
 
     ```bash
     Events:
@@ -43,7 +43,7 @@ Para gateways de aplicativos sem um IP privado, ingressas anotadas serão `appgw
     applicationgateway3026 has a private IP address
     ```
 
-* Erro como indicado nos registros AGIC
+* Erro conforme indicado nos logs do AGIC
 
     ```bash
     E0730 18:57:37.914749       1 prune.go:65] Ingress default/hello-world-ingress requires Application Gateway applicationgateway3026 has a private IP address
@@ -51,7 +51,7 @@ Para gateways de aplicativos sem um IP privado, ingressas anotadas serão `appgw
 
 
 ## <a name="assign-globally"></a>Atribuir globalmente
-No caso, o requisito é restringir todas as Ingresses `appgw.usePrivateIP: true` `helm` a serem expostas sobre IP privado, use em config.
+No caso, o requisito é restringir a exposição de todos os insere sobre o IP privado `appgw.usePrivateIP: true` , `helm` usar na configuração.
 
 ### <a name="usage"></a>Uso
 ```yaml
@@ -62,8 +62,8 @@ appgw:
     usePrivateIP: true
 ```
 
-Isso fará com que o controlador de entrada filtre as configurações do endereço IP para um IP privado ao configurar os ouvintes frontend no Gateway de aplicativo.
-AGIC entrará em `usePrivateIP: true` pânico e falhará se e nenhum IP privado for atribuído.
+Isso fará com que o controlador de entrada filtre as configurações de endereço IP para um IP privado ao configurar os ouvintes de front-end no gateway de aplicativo.
+AGIC entrarão em pane e `usePrivateIP: true` falharão se e nenhum IP privado for atribuído.
 
 > [!NOTE]
-> O Application Gateway v2 SKU requer um IP público. Se você precisar que o Application [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) Gateway seja privado, anexe um na sub-rede do Gateway de aplicativo para restringir o tráfego.
+> O SKU do gateway de aplicativo v2 requer um IP público. Se você precisar que o gateway de aplicativo seja privado, [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) anexe um à sub-rede do gateway de aplicativo para restringir o tráfego.

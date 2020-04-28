@@ -1,5 +1,5 @@
 ---
-title: Tutorial saas de inquilino único
+title: Tutorial de SaaS de locatário único
 description: Implante e explore um aplicativo SaaS autônomo de locatário único que usa o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
 ms.openlocfilehash: e3afc8aa58551b995070ffaca978c8e7c8454da3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822130"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
@@ -24,9 +24,9 @@ Neste tutorial, você implanta e explora o aplicativo de exemplo Wingtip Tickets
 
 O aplicativo autônomo ou um padrão de aplicativo por locatário implanta uma instância de aplicativo para cada locatário.  Cada aplicativo é configurado para um locatário específico e implantado em um grupo de recursos do Azure à parte. Várias instâncias do aplicativo são provisionadas para fornecer uma solução de multilocatário. Esse padrão é mais indicado para números menores, de locatários em que o isolamento é uma prioridade máxima. O Azure tem programas de parceria que permitem que esses recursos sejam implantados na assinatura de um locatário e gerenciados por um provedor de serviços em nome do locatário. 
 
-Neste tutorial, você implantará três aplicativos autônomos para três inquilinos em sua assinatura do Azure.  Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
+Neste tutorial, você implantará três aplicativos autônomos para três locatários em sua assinatura do Azure.  Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo.
 
-O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). O aplicativo foi criado usando o Visual Studio 2015, e não abre e compila com sucesso no Visual Studio 2019 sem atualização.
+O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis no repositório GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). O aplicativo foi criado usando o Visual Studio 2015 e não é aberto e compilado com êxito no Visual Studio 2019 sem atualização.
 
 
 Neste tutorial, você aprende:
@@ -36,7 +36,7 @@ Neste tutorial, você aprende:
 > * Onde obter o código-fonte do aplicativo e scripts de gerenciamento.
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 
-Outros tutoriais serão liberados. Eles permitirão que você explore uma série de cenários de gerenciamento com base neste padrão de aplicação.   
+Outros tutoriais serão liberados. Eles permitirão que você explore uma variedade de cenários de gerenciamento com base nesse padrão de aplicativo.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Implantar o Aplicativo Autônomo SaaS Wingtip Tickets
 
@@ -54,14 +54,14 @@ Implante o aplicativo para os três locatários fornecidos:
     > [!IMPORTANT]
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. **Crie um novo grupo de recursos** para cada implantação de aplicativo.  Não use um grupo de recursos existente. Não use este aplicativo ou todos os recursos que cria, para a produção. Exclua todos os grupos de recursos quando terminar com os aplicativos para interromper a cobrança relacionada.
 
-    É melhor usar apenas letras minúsculas, números e hífens em seus nomes de recursos.
-    * Para Grupo de recursos, selecione Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **\<wingtip-sa-venueO\>-\<\> usuário name** é o padrão recomendado.  Para \<nome\>de local, substitua o nome do local sem espaços. Para \<\>usuário, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
-    * Selecione um **local** na lista de paradas.
+    É melhor usar apenas letras minúsculas, números e hifens em seus nomes de recursos.
+    * Para Grupo de recursos, selecione Criar novo e, em seguida, forneça um Nom para o grupo de recursos (em minúsculas). **Wingtip-SA-\<foroname\>-\<usuário\> ** é o padrão recomendado.  Para \<o LocalName\>, substitua o nome do local sem espaços. Para \<usuário\>, substitua o valor do usuário abaixo.  Com esse padrão, os nomes do grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Selecione um **local** na lista suspensa.
 
     * Para **Usuário** – Recomendamos um valor de usuário curto, como as iniciais mais um dígito: por exemplo, *af1*.
 
 
-3. **Implantar o aplicativo**.
+3. **Implante o aplicativo**.
 
     * Clique se você concordar com os termos e condições.
     * Clique em **Comprar**.
@@ -86,7 +86,7 @@ O aplicativo apresenta locais que organizam eventos.  Os locais são os locatár
 Para controlar a distribuição das solicitações de entrada, o aplicativo usa o [*Gerenciador de Tráfego do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância de aplicativo específica do locatário inclui o nome do locatário como parte do nome de domínio na URL. Todas as URLs de locatário incluem o valor do **Usuário** específico. As URLs seguem este formato:
 - http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
-**A localização** do banco de dados de cada inquilino está incluída nas configurações do aplicativo correspondente.
+O **local** do banco de dados de cada locatário é incluído nas configurações de aplicativo do aplicativo implantado correspondente.
 
 Em um ambiente de produção, normalmente, um registro DNS CNAME é criado para [*apontar um domínio da Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para a URL do perfil do gerenciador de tráfego.
 
@@ -109,7 +109,7 @@ Cada banco de dados de locatários é um banco de dados *autônomo* de 50 DTUs.
 * To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
-- Para saber mais sobre aplicativos SaaS multilocatários, consulte [padrões de design para aplicativos SaaS de vários locatários](saas-tenancy-app-design-patterns.md).
+- Para saber mais sobre aplicativos SaaS multilocatários, consulte [padrões de design para aplicativos SaaS multilocatários](saas-tenancy-app-design-patterns.md).
 
  
 ## <a name="delete-resource-groups-to-stop-billing"></a>Exclua grupos de recursos para parar a cobrança ##
@@ -125,6 +125,6 @@ Neste tutorial, você aprendeu:
 > * Sobre os servidores e bancos de dados que constituem o aplicativo.
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada.
 
-Em seguida, experimente o tutorial [de Provisão e Catálogo](saas-standaloneapp-provision-and-catalog.md) no qual você explorará o uso de um catálogo de inquilinos que permite uma série de cenários entre inquilinos, como gerenciamento de esquemas e análise de inquilinos.
+Em seguida, experimente o tutorial de [provisionamento e catálogo](saas-standaloneapp-provision-and-catalog.md) no qual você explorará o uso de um catálogo de locatários que permite uma variedade de cenários entre locatários, como gerenciamento de esquema e análise de locatário.
  
 

@@ -1,7 +1,7 @@
 ---
 title: Habilidades cognitivas OCR
 titleSuffix: Azure Cognitive Search
-description: Extrair texto de arquivos de imagem usando o OCR (Optical Character Recognition, reconhecimento óptico de caracteres) em um pipeline de enriquecimento no Azure Cognitive Search.
+description: Extraia o texto de arquivos de imagem usando OCR (reconhecimento óptico de caracteres) em um pipeline de enriquecimento no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bdb510113a8d65ac04b54e77158f46d03cccd9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72791920"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
-A habilidade **OCR (Optical character recognition, reconhecimento óptico de caracteres)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de machine learning fornecidos pela [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos Serviços Cognitivos. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
+A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de machine learning fornecidos pela [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos Serviços Cognitivos. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
 
-+ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) é usada para outros idiomas além do inglês. 
-+ Para inglês, a nova API ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
++ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) é usada para idiomas diferentes do inglês. 
++ Para o inglês, a nova API de ["leitura"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
 
 A habilidade **OCR** extrai o texto de arquivos de imagem. Formatos de arquivo com suporte incluem:
 
@@ -29,7 +29,7 @@ A habilidade **OCR** extrai o texto de arquivos de imagem. Formatos de arquivo c
 + .PNG
 + .BMP
 + .GIF
-+ . Tiff
++ . FORMATO
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -45,9 +45,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 |--------------------|-------------|
 | detectOrientation | Habilita a detecção automática da orientação da imagem. <br/> Valores válidos: verdadeiro / falso.|
 |defaultLanguageCode | <p>  Código de idioma do texto de entrada. As linguagens com suporte incluem: <br/> zh-Hans (Chinês Simplificado) <br/> zh-Hant (Chinês Tradicional) <br/>cs (tcheco) <br/>da (dinamarquês) <br/>nl (holandês) <br/>en (em inglês) <br/>fi (finlandês)  <br/>fr (francês) <br/>  de (alemão) <br/>el (Grego) <br/> hu (húngaro) <br/> it (Italiano) <br/>  ja (Japonês) <br/> ko (Coreano) <br/> nb (Norueguês) <br/>   pl (Polonês) <br/> pt (Português) <br/>  ru (Russo) <br/>  es (Espanhol) <br/>  sv (Sueco) <br/>  tr (Turco) <br/> ar (Árabe) <br/> ro (Romeno) <br/> sr-Cyrl (Cirílico sérvio) <br/> SR-Latn (Latim sérvio) <br/>  SK (Eslovaco). <br/>  unk (desconhecido) <br/><br/> Se o código de idioma não for especificado ou for nulo, o idioma será definido como inglês. Se o idioma for definido explicitamente como "unk", o idioma será detectado automaticamente. </p> |
-|lineEnding | O valor a ser usado entre cada linha detectada. Valores possíveis: 'Space','CarriageReturn','LineFeed'.  O padrão é 'Espaço' |
+|lineEnding | O valor a ser usado entre cada linha detectada. Valores possíveis: ' Space ', ' CarriageReturn ', ' alimentação de espaço '.  O padrão é ' Space ' |
 
-Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especificar se a habilidade deveria extrair texto "impresso" ou "manuscrito".  Este parâmetro é preterido e não é mais necessário, pois o mais recente algoritmo de API de leitura é capaz de extrair ambos os tipos de texto ao mesmo tempo.  Se sua definição de habilidade já incluir esse parâmetro, você não precisa removê-lo, mas ele não será mais usado e ambos os tipos de texto serão extraídos daqui para frente, independentemente do que ele esteja definido.
+Anteriormente, havia um parâmetro chamado "textExtractionAlgorithm" para especificar se a habilidade deve extrair texto "impresso" ou "manuscrito".  Esse parâmetro é preterido e não é mais necessário, pois o algoritmo mais recente da API de leitura é capaz de extrair os dois tipos de texto de uma só vez.  Se sua definição de habilidade já incluir esse parâmetro, você não precisará removê-lo, mas ele não será mais usado e os dois tipos de texto serão extraídos no futuro, independentemente do que está definido como.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 

@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60779671"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions
@@ -29,8 +29,8 @@ Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-a
 
 Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por meio de um desses métodos:
 
-* Ativar uma [conta gratuita de 30 dias do Microsoft Azure](https://azure.microsoft.com/free/)
-* Reivindique seu [crédito no Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você é um assinante do MSDN ou do Visual Studio
+* Ativar uma [avaliação gratuita de 30 dias Microsoft Azure conta](https://azure.microsoft.com/free/)
+* Solicite seu [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você for um assinante do MSDN ou do Visual Studio
 
 ## <a name="open-the-project-folder"></a>Abrir a pasta do projeto
 
@@ -151,7 +151,7 @@ Após a inicialização do aplicativo, clique e solte o botão A e, em seguida, 
 - Pressione o botão A novamente e agite para um novo tweet.
 - Pressione o botão B para rolar pelo restante do tweet.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 ![diagrama](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

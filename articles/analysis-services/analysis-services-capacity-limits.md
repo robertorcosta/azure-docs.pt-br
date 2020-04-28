@@ -1,6 +1,6 @@
 ---
 title: Limites de recursos e objetos do Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve os limites de recursos e objetos para um servidor do Azure Analysis Services.
+description: Este artigo descreve os limites de recurso e objeto para um servidor de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73573206"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites de recurso e objeto do Analysis Services
@@ -20,7 +20,7 @@ Este artigo descreve os limites de objeto de recurso e modelo.
 
 ## <a name="tier-limits"></a>Limites de camada
 
-Para limites de QPU e Memória para níveis de desenvolvedor, básico e padrão, consulte a [página de preços dos Serviços de Análise do Azure](https://azure.microsoft.com/pricing/details/analysis-services/).
+Para obter limites de QPU e memória para as camadas de desenvolvedor, básica e Standard, consulte a [página de preços Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="object-limits"></a>Limites do objeto
 

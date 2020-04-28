@@ -1,6 +1,6 @@
 ---
-title: Adicione testes de saúde aos seus pods AKS
-description: Este artigo fornece informações sobre como adicionar testes de saúde (prontidão e/ou vida) a pods AKS com um Gateway de aplicativo.
+title: Adicionar investigações de integridade ao seu pods AKS
+description: Este artigo fornece informações sobre como adicionar investigações de integridade (prontidão e/ou vida) a AKS pods com um gateway de aplicativo.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5d0543a3a43d53e462a6406312faddf37d2653c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73795588"
 ---
-# <a name="add-health-probes-to-your-service"></a>Adicione sondas de saúde ao seu serviço
-Por padrão, o controlador Ingress irá provisionar um teste HTTP GET para os pods expostos.
-As propriedades do teste podem ser personalizadas adicionando um [teste de prontidão ou de vida](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) à sua `deployment` / `pod` especificação.
+# <a name="add-health-probes-to-your-service"></a>Adicionar investigações de integridade ao seu serviço
+Por padrão, o controlador de entrada provisionará uma investigação HTTP GET para o pods exposto.
+As propriedades da investigação podem ser personalizadas com a adição de uma [investigação de preparação ou dinâmica](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) à sua `deployment` / `pod` especificação.
 
 ## <a name="with-readinessprobe-or-livenessprobe"></a>Com `readinessProbe` ou`livenessProbe`
 ```yaml
@@ -45,22 +45,22 @@ spec:
           timeoutSeconds: 1
 ```
 
-Referência da API do Kubernetes:
-* [Sondas de contêineres](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [HttpGet Action](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+Referência da API do kubernetes:
+* [Investigações de contêiner](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
+* [Ação HttpGet](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
 
 > [!NOTE]
-> * `readinessProbe`e `livenessProbe` são suportados quando `httpGet`configurados com .
-> * A sondagem em uma porta diferente da exposta na cápsula não é suportada no momento.
-> * `HttpHeaders`, `InitialDelaySeconds` `SuccessThreshold` não são suportados.
+> * `readinessProbe`e `livenessProbe` têm suporte quando configurado com `httpGet`o.
+> * No momento, não há suporte para investigação em uma porta diferente daquela exposta no pod.
+> * `HttpHeaders`, `InitialDelaySeconds`, `SuccessThreshold` não tem suporte.
 
 ##  <a name="without-readinessprobe-or-livenessprobe"></a>Sem `readinessProbe` ou`livenessProbe`
-Se os testes acima não forem fornecidos, então o Controlador de Ingress faz uma suposição de que o serviço é acessível em `Path` especificado para `backend-path-prefix` anotação `path` `ingress` ou o especificado na definição para o serviço.
+Se as investigações acima não forem fornecidas, o controlador de entrada fará uma suposição de que o serviço pode ser `Path` acessado no `backend-path-prefix` especificado `path` para a anotação `ingress` ou o especificado na definição do serviço.
 
-## <a name="default-values-for-health-probe"></a>Valores padrão para sonda de saúde
-Para qualquer propriedade que não possa ser inferida pelo teste de prontidão/vida, os valores padrão são definidos.
+## <a name="default-values-for-health-probe"></a>Valores padrão para investigação de integridade
+Para qualquer propriedade que não pode ser inferida pela investigação de preparação/vida, os valores padrão são definidos.
 
-| Propriedade do teste do gateway do aplicativo | Valor Padrão |
+| Propriedade de investigação do gateway de aplicativo | Valor Padrão |
 |-|-|
 | `Path` | / |
 | `Host` | localhost |

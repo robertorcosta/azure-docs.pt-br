@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: ee0d990a8959a8d9430ca909a37f6c233afe530d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73748096"
 ---
-As etapas e exemplos deste artigo usam módulos Azure PowerShell Az. Para instalar os módulos Az localmente em seu computador, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para saber mais sobre o novo módulo Az, consulte [Apresentando o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Os cmdlets PowerShell são atualizados com freqüência. Se você não estiver executando a versão mais recente, os valores especificados nas instruções podem falhar. Para encontrar as versões instaladas do `Get-Module -ListAvailable Az` PowerShell em seu sistema, use o cmdlet.
+As etapas e os exemplos neste artigo usam Azure PowerShell módulos AZ. Para instalar os módulos AZ localmente no seu computador, consulte [install Azure PowerShell](/powershell/azure/install-az-ps). Para saber mais sobre o novo módulo AZ, confira [introdução ao novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az). Os cmdlets do PowerShell são atualizados com frequência. Se você não estiver executando a versão mais recente, os valores especificados nas instruções poderão falhar. Para localizar as versões instaladas do PowerShell no seu sistema, use `Get-Module -ListAvailable Az` o cmdlet.

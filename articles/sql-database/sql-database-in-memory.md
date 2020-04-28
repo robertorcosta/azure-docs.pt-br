@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: de60712451d4c2e8a7d931f7a09352f55be05694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73810257"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
@@ -73,7 +73,7 @@ Para obter mais informações, consulte:
 
 - [Visão geral e cenários de uso do OLTP In-Memory](https://msdn.microsoft.com/library/mt774593.aspx) (incluindo referências a estudos de caso de cliente e informações para começar)
 - [Documentação para OLTP in-memory](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Guia de Índices de Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 - HTAP (Processamento Transacional e Analítico Híbrido), também conhecido como [análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
 
 ## <a name="in-memory-oltp"></a>OLTP na memória
@@ -82,13 +82,13 @@ A tecnologia OLTP in-memory fornece operações de acesso de dados, extremamente
 
 - Formato **rowstore com otimização de memória **, em que cada linha é um objeto de memória separado. Esse é um formato clássico de OLTP In-Memory otimizado para cargas de trabalho OLTP de alto desempenho. Há dois tipos de tabelas com otimização de memória que podem ser usados no formato rowstore com otimização de memória:
   - *Tabelas duráveis* (SCHEMA_AND_DATA) em que as linhas colocadas na memória são preservadas após reiniciar o servidor. Esse tipo de tabelas se comporta como uma tabela rowstore tradicional com os benefícios adicionais de otimizações de memória.
-  - *Tabelas não duráveis* (SCHEMA_ONLY) onde as linhas não são preservadas após a reinicialização. Esse tipo de tabela foi projetado para dados temporários (por exemplo, substituição de tabelas temporárias), ou tabelas em que você precisa carregar rapidamente os dados antes de movê-los para alguma tabela persistente (denominadas tabelas de preparo).
+  - *Tabelas não duráveis* (SCHEMA_ONLY) em que as linhas não são preservadas após a reinicialização. Esse tipo de tabela foi projetado para dados temporários (por exemplo, substituição de tabelas temporárias), ou tabelas em que você precisa carregar rapidamente os dados antes de movê-los para alguma tabela persistente (denominadas tabelas de preparo).
 - Formato **columnstore com otimização de memória** em que os dados são organizados em um formato de coluna. Essa estrutura é projetada para cenários HTAP em que você precisa executar consultas analíticas na mesma estrutura de dados onde a carga de trabalho OLTP está em execução.
 
 > [!Note]
 > A tecnologia de OLTP In-Memory foi projetada para as estruturas de dados que podem residir totalmente na memória. Como os dados na memória não podem ser descarregados para o disco, certifique-se de estar usando um banco de dados que tenha memória suficiente. Consulte [Tamanho dos dados e limite de armazenamento do OLTP In-Memory](#data-size-and-storage-cap-for-in-memory-oltp) para obter mais informações.
 
-Um primer rápido no OLTP na memória: [Quickstart 1: Tecnologias OLTP na memória para desempenho t-sql mais rápido](https://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudá-lo a começar)
+Uma rápida introdução sobre OLTP na memória: início rápido [1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx) (outro artigo para ajudá-lo a começar)
 
 Vídeos detalhados sobre as tecnologias:
 
@@ -140,7 +140,7 @@ Porém, fazer downgrade da camada pode afetar negativamente o banco de dados. O 
 
 Antes de fazer o downgrade do banco de dados para Standard/Básico, remova todas as tabelas com otimização de memória e os tipos de tabela, bem como todos os módulos do T-SQL compilados nativamente. 
 
-*Recursos de redimensionamento no nível Business Critical*: Os dados em tabelas otimizadas para memória devem se encaixar no armazenamento OLTP em memória que está associado ao nível do banco de dados ou instância gerenciada, ou está disponível no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
+*Recursos de dimensionamento na camada de comercialmente crítico*: os dados em tabelas com otimização de memória devem se ajustar ao armazenamento OLTP na memória que está associado à camada do banco de dados ou instância gerenciada, ou está disponível no pool elástico. Se você tentar reduzir a camada ou mover o banco de dados para um pool que não tem armazenamento OLTP In-Memory suficiente disponível, a operação falhará.
 
 ## <a name="in-memory-columnstore"></a>Columnstore In-memory
 
@@ -169,7 +169,7 @@ Quando você usa os índices columnstore não clusterizado, a tabela base ainda 
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Alterar camadas de serviço dos bancos de dados contendo índices Columnstore
 
-*A redução do banco de dados único para o Basic ou o Standard* pode não ser possível se o seu nível de destino estiver abaixo do S3. Os índices columnstore só têm suporte no tipo de preço Comercialmente Crítico/Premium e na camada Standard, S3 e superior, e não na camada Básico. Ao fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar de volta para um tipo ou nível com suporte, o índice columnstore será imediatamente disponibilizado para uso novamente.
+O *downgrade de banco de dados individual para básico ou Standard* pode não ser possível se a camada de destino estiver abaixo do S3. Os índices columnstore só têm suporte no tipo de preço Comercialmente Crítico/Premium e na camada Standard, S3 e superior, e não na camada Básico. Ao fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte, seu índice columnstore fica indisponível. O sistema mantém seu índice columnstore, mas nunca utiliza o índice. Se, mais tarde, você atualizar de volta para um tipo ou nível com suporte, o índice columnstore será imediatamente disponibilizado para uso novamente.
 
 Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará indisponível após o downgrade. Portanto, recomendamos que você remova todos os índices columnstore *clusterizado* antes de fazer o downgrade de seu banco de dados para um tipo ou nível sem suporte.
 
@@ -180,8 +180,8 @@ Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Quickstart 1: Tecnologias OLTP na memória para um desempenho t-sql mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
-- [Use OLTP na memória em um aplicativo SQL Azure existente](sql-database-in-memory-oltp-migration.md)
+- [Início rápido 1: tecnologias OLTP em memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Usar o OLTP na memória em um aplicativo SQL do Azure existente](sql-database-in-memory-oltp-migration.md)
 - [Monitorar o armazenamento do OLTP In-Memory](sql-database-in-memory-oltp-monitoring.md) para o OLTP In-Memory
 - [Experimente os recursos In-memory no Banco de Dados SQL do Azure](sql-database-in-memory-sample.md)
 
@@ -199,10 +199,10 @@ Se você tiver um índice columnstore **clusterizado**, a tabela inteira ficará
 ### <a name="application-design"></a>Design do aplicativo
 
 - [OLTP na memória (otimização na memória)](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Use OLTP na memória em um aplicativo SQL Azure existente](sql-database-in-memory-oltp-migration.md)
+- [Usar o OLTP na memória em um aplicativo SQL do Azure existente](sql-database-in-memory-oltp-migration.md)
 
 ### <a name="tools"></a>Ferramentas
 
-- [Portal Azure](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71176681"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
@@ -39,12 +39,12 @@ Esta seção tem três partes:
 
 O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](how-to-connect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
 
-- Uma conta`AZUREADSSOACC`de computador ( ) é criada em seu Active Directory (AD) no local em cada floresta AD que você sincroniza com o Azure AD (usando o Azure AD Connect).
-- Além disso, vários nomes principais de serviço kerberos (SPNs) são criados para serem usados durante o processo de login do Azure AD.
-- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas de Anúncios, cada conta de computador terá sua própria chave de descriptografia Kerberos única.
+- Uma conta de computador`AZUREADSSOACC`() é criada no seu Active Directory local (AD) em cada floresta do AD que você sincroniza com o Azure AD (usando Azure ad Connect).
+- Além disso, um número de nomes de entidade de serviço (SPNs) Kerberos é criado para ser usado durante o processo de entrada do Azure AD.
+- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada conta de computador terá sua própria chave de descriptografia Kerberos exclusiva.
 
 >[!IMPORTANT]
-> A `AZUREADSSOACC` conta do computador precisa ser fortemente protegida por razões de segurança. Apenas os Admins de domínio devem ser capazes de gerenciar a conta do computador. Certifique-se de que a delegação kerberos na conta do computador está desativada, e que nenhuma outra conta no Active Directory tem permissões de delegação na conta do `AZUREADSSOACC` computador.. Armazene a conta do computador em uma Unidade de Organização (OU) onde elas estejam a salvo de exclusões acidentais e onde apenas os Admins de domínio tenham acesso. A chave de descriptografia Kerberos na conta do computador também deve ser tratada como sensível. É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
+> A `AZUREADSSOACC` conta do computador precisa estar fortemente protegida por motivos de segurança. Somente administradores de domínio devem ser capazes de gerenciar a conta de computador. Verifique se a delegação de Kerberos na conta do computador está desabilitada e se nenhuma outra conta no Active Directory tem permissões de `AZUREADSSOACC` delegação na conta do computador. Armazene a conta de computador em uma UO (unidade organizacional) em que elas estão protegidas contra exclusões acidentais e em que somente administradores de domínio têm acesso. A chave de descriptografia Kerberos na conta do computador também deve ser tratada como confidencial. É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](how-to-connect-sso-faq.md) da conta do computador `AZUREADSSOACC` pelo menos a cada 30 dias.
 
 Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows).
 
@@ -96,6 +96,6 @@ O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início Rápido**](how-to-connect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
-- [**Perguntas frequentes**](how-to-connect-sso-faq.md) - Respostas para perguntas frequentes.
-- [**Solução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com o recurso.
+- [**Perguntas**](how-to-connect-sso-faq.md) frequentes-respostas para perguntas frequentes.
+- [**Solução de problemas**](tshoot-connect-sso.md) -saiba como resolver problemas comuns com o recurso.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

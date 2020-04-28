@@ -1,5 +1,5 @@
 ---
-title: Sobre o Monitoramento de Rede nos registros do Monitor do Azure | Microsoft Docs
+title: Sobre o monitoramento de rede em logs de Azure Monitor | Microsoft Docs
 description: Visão geral de soluções de monitoramento de rede, incluindo NPM, para gerenciar redes em nuvens, locais e ambientes híbridos.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67672176"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
@@ -51,9 +51,9 @@ Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes 
 
 Para obter mais informações, consulte os seguintes artigos:
 
-* [Configure uma solução de monitor de desempenho de rede nos registros do Monitor do Azure](../azure-monitor/insights/network-performance-monitor.md) 
-* [Use casos](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-* Atualizações de produtos:
+* [Configurar uma solução de Monitor de Desempenho de Rede em logs de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
+* [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* Atualizações do produto:
   * [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
   * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 

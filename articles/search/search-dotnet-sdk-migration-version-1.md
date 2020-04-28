@@ -1,5 +1,5 @@
 ---
-title: Atualize para Azure Search .NET SDK versão 1.1
+title: Atualizar para Azure Search SDK do .NET versão 1,1
 titleSuffix: Azure Cognitive Search
 description: Migre o código para o SDK do .NET do Azure Search versão 1.1 de versões de API mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 159aaa8424c3d7a711b587464b80696929f02186
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792391"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Atualize para Azure Search .NET SDK versão 1.1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Atualizar para Azure Search SDK do .NET versão 1,1
 
 Se você estiver usando a visualização da versão 1.0.2 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 1.1.
 
@@ -173,7 +173,7 @@ Você poderá alterá-lo para corrigir os erros de compilação:
         };
 
 ### <a name="model-class-changes"></a>Alterações no modelo de classe
-Devido às alterações de assinatura descritas em [Alterações de método de operação](#OperationMethodChanges), várias classes no namespace `Microsoft.Azure.Search.Models` foram renomeadas ou removidas. Por exemplo: 
+Devido às alterações de assinatura descritas em [Alterações de método de operação](#OperationMethodChanges), várias classes no namespace `Microsoft.Azure.Search.Models` foram renomeadas ou removidas. Por exemplo:
 
 * `IndexDefinitionResponse` foi substituído por `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` foi renomeado para `DocumentSearchResult`

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71153565"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Como redefinir a senha local do Linux em VMs do Azure
@@ -33,11 +33,11 @@ Você não consegue fazer logon na VM, e recebe uma mensagem indicando que a sen
 > [!NOTE]
 > As etapas a seguir não se aplicam à VM com disco não gerenciado.
 
-1. Pegue um instantâneo para o disco do SISTEMA OPERACIONAL da VM afetada, crie um disco a partir do snapshot e, em seguida, conecte o disco a uma VM solucionar problemas. Para obter mais informações, consulte [Solucionar problemas de uma VM do Windows anexando o disco do SISTEMA OPERACIONAL a uma VM de recuperação usando o portal Azure](troubleshoot-recovery-disks-portal-linux.md).
+1. Tire um instantâneo do disco do sistema operacional da VM afetada, crie um disco do instantâneo e, em seguida, anexe o disco a uma VM de solução de problemas. Para obter mais informações, consulte [solucionar problemas de uma VM do Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure](troubleshoot-recovery-disks-portal-linux.md).
 
-2. Conecte-se à VM de solução de problemas usando a área de trabalho remota.
+2. Conecte-se à VM de solução de problemas usando Área de Trabalho Remota.
 
-3.  Execute o seguinte comando SSH na VM de solução de problemas para se tornar um super-usuário.
+3.  Execute o seguinte comando SSH na VM de solução de problemas para se tornar um superusuário.
 
     ```bash
     sudo su
@@ -62,7 +62,7 @@ Você não consegue fazer logon na VM, e recebe uma mensagem indicando que a sen
     mkdir /tempmount
     ```
 
-6.  Monte o disco do sistema operacional no ponto de montagem. Você geralmente precisa montar *sdc1* ou *sdc2*. Isso dependerá da partição de hospedagem no diretório */etc* do disco da máquina quebrada.
+6.  Monte o disco do sistema operacional no ponto de montagem. Normalmente, você precisa montar *sdc1* ou *SDC2*. Isso dependerá da partição de hospedagem no diretório */etc* do disco de computador danificado.
 
     ```bash
     mount /dev/sdc1 /tempmount
@@ -101,9 +101,9 @@ Você não consegue fazer logon na VM, e recebe uma mensagem indicando que a sen
     umount /tempmount
     ```
 
-11. No portal Azure, retire o disco da VM de solução de problemas.
+11. Em portal do Azure, desanexe o disco da VM de solução de problemas.
 
-12. [Alterar o disco do SISTEMA OPERACIONAL para a VM afetada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
+12. [Altere o disco do sistema operacional para a VM afetada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Próximas etapas
 

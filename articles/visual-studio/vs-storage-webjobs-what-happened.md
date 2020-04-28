@@ -1,6 +1,6 @@
 ---
-title: O que aconteceu com meu projeto WebJob (Visual Studio Azure Storage)?
-description: Descreve o que aconteceu em um projeto WebJob do Azure depois de se conectar a uma conta de armazenamento usando serviços conectados ao Visual Studio
+title: O que aconteceu com meu projeto WebJob (armazenamento do Azure do Visual Studio)?
+description: Descreve o que aconteceu em um projeto do Azure WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 17861b7c25dfaf9bc9399e5261cdf2a5b43caf21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72298735"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto do WebJob (serviço conectado do Armazenamento do Azure do Visual Studio)?
@@ -31,7 +31,7 @@ Esse pacote adiciona as referências de .NET a seguir:
 * **Microsoft.WindowsAzure.ConfigurationManager**
 * **Microsoft.WindowsAzure.Storage**
 * **Newtonsoft.Json**
-* **System.Data**
+* **System. Data**
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>Cadeia de conexão do Armazenamento do Azure adicionada

@@ -1,5 +1,5 @@
 ---
-title: Executar empregos U-SQL localmente - Azure Data Lake U-SQL SDK
+title: Executar trabalhos do U-SQL localmente-Azure Data Lake o SDK U-SQL
 description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71309691"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
@@ -23,7 +23,7 @@ Se você se preocupa em como executar e depurar o script U-SQL no local manualme
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Instalar o SDK do U-SQL do Azure Data Lake
 
-Você pode obter o Azure Data Lake U-SQL SDK [aqui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) no Nuget.org. E antes de usá-lo, você precisa ter certeza de que você tem dependências da seguinte forma.
+Você pode obter o Azure Data Lake o SDK do U-SQL [aqui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) em NuGet.org. E antes de usá-lo, você precisa verificar se tem dependências da seguinte maneira.
 
 ### <a name="dependencies"></a>Dependências
 
@@ -120,7 +120,7 @@ A execução local do U-SQL precisa de uma raiz de dados especificada como a con
 
     Além de definir a variável de ambiente, você também pode especificar o argumento **-CppSDK** ao usar a linha de comando. Esse argumento substitui a variável de ambiente CppSDK padrão.
 
-- Defina a variável de ambiente **LOCALRUN_DATAROOT.**
+- Defina a variável de ambiente **LOCALRUN_DATAROOT** .
 
     Defina uma nova variável de ambiente chamada **LOCALRUN_DATAROOT** que aponta para a raiz de dados.
 
@@ -326,7 +326,7 @@ Veja abaixo o código de exemplo para o teste de script U-SQL. Para testar, voc�
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>Interfaces de programação em LocalRunHelper.exe
 
-LocalRunHelper.exe fornece as interfaces de programação para compilação local u-sql, execução, etc. As interfaces estão listadas da seguinte forma.
+O LocalRunHelper. exe fornece as interfaces de programação para compilação local do U-SQL, execução, etc. As interfaces são listadas da seguinte maneira.
 
 **Construtor**
 
@@ -338,28 +338,28 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Propriedades**
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
-|CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
-|CppSdkDir|string|Diretório do CppSDK|
-|CurrentDir|string|Diretório atual|
-|DataRoot|string|Caminho da raiz de dados|
-|DebuggerMailPath|string|O caminho para o slot de correio do depurador|
+|AlgebraPath|cadeia de caracteres|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
+|CodeBehindReferences|cadeia de caracteres|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
+|CppSdkDir|cadeia de caracteres|Diretório do CppSDK|
+|CurrentDir|cadeia de caracteres|Diretório atual|
+|DataRoot|cadeia de caracteres|Caminho da raiz de dados|
+|DebuggerMailPath|cadeia de caracteres|O caminho para o slot de correio do depurador|
 |GenerateUdoRedirect|bool|Se quisermos gerar a configuração de substituição do redirecionamento de carregamento do assembly|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|string|Diretório dos dados de entrada|
-|MessagePath|string|Caminho do arquivo de despejo da mensagem|
-|OutputDir|string|Diretório dos dados de saída|
+|InputDir|cadeia de caracteres|Diretório dos dados de entrada|
+|MessagePath|cadeia de caracteres|Caminho do arquivo de despejo da mensagem|
+|OutputDir|cadeia de caracteres|Diretório dos dados de saída|
 |Paralelismo|INT|Paralelismo para executar a álgebra|
 |ParentPid|INT|PID do pai no qual o serviço monitora a saída, definido como 0 ou negativo para ignorar|
-|ResultPath|string|Caminho do arquivo de despejo do resultado|
-|RuntimeDir|string|Diretório do runtime|
-|ScriptPath|string|Local em que o script pode ser encontrado|
+|ResultPath|cadeia de caracteres|Caminho do arquivo de despejo do resultado|
+|RuntimeDir|cadeia de caracteres|Diretório do runtime|
+|ScriptPath|cadeia de caracteres|Local em que o script pode ser encontrado|
 |Shallow|bool|Compilação superficial ou não|
-|TempDir|string|Diretório temporário|
-|UseDataBase|string|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
-|WorkDir|string|Diretório de trabalho preferencial|
+|TempDir|cadeia de caracteres|Diretório temporário|
+|UseDataBase|cadeia de caracteres|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
+|WorkDir|cadeia de caracteres|Diretório de trabalho preferencial|
 
 
 **Método**
@@ -387,6 +387,6 @@ Verifique o seguinte:
 
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
-* Para ver uma consulta mais complexa, consulte [Analisar registros de sites usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Para ver os detalhes do trabalho, consulte [Use Job Browser e Job View for Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Para usar a exibição de execução do vértice, consulte [Usar a exibição de execução de vértice susceptíveis](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)de usar ferramentas do lago de dados para o Visual Studio .
+* Para ver uma consulta mais complexa, consulte [analisar logs do site usando Azure data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* Para exibir detalhes do trabalho, consulte [usar o navegador de trabalho e a exibição de trabalho para trabalhos de Azure data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
+* Para usar o modo de exibição de execução de vértice, consulte [usar o modo de exibição de execução de vértice em ferramentas de data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

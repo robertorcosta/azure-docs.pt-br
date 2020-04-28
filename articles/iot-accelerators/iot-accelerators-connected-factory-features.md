@@ -1,6 +1,6 @@
 ---
 title: Recursos da solução de Fábrica Conectada - Azure | Microsoft Docs
-description: Este artigo descreve uma visão geral dos recursos da solução pré-configurada da Fábrica Conectada, como painel de nuvens, regras e alertas.
+description: Este artigo descreve uma visão geral dos recursos da solução pré-configurada de fábrica conectada, como painel de nuvem, regras e alertas.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: c868aa0f1c2449ccf163523c9ded25a31d1d84c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73820105"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é um acelerador da solução de IoT Fábrica Conectada?
@@ -65,4 +65,4 @@ A Fábrica Conectada inclui os recursos a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o acelerador de soluções Connected Factory, consulte o Quickstart [Tente uma solução baseada em nuvem para gerenciar meus dispositivos industriais de IoT](quickstart-connected-factory-deploy.md).
+Para saber mais sobre o Solution Accelerator da fábrica conectada, consulte o início rápido [Experimente uma solução baseada em nuvem para gerenciar meus dispositivos IOT industriais](quickstart-connected-factory-deploy.md).

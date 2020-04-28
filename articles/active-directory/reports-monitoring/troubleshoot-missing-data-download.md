@@ -1,5 +1,5 @@
 ---
-title: 'Solução de problemas: Dados ausentes nos registros de atividades baixados | Microsoft Docs'
+title: 'Solução de problemas: dados ausentes nos logs de atividades baixados | Microsoft Docs'
 description: Fornece uma resolução para dados ausentes nos logs de atividade do Azure Active Directory baixados.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee07fdb6f8a4e69600297bdb16b6ad74793f10c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74007713"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Não consigo localizar todos os dados nos logs de atividade do Azure Active Directory que eu baixei
@@ -30,11 +30,11 @@ ms.locfileid: "74007713"
 
 Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
 
- ![Relatório](./media/troubleshoot-missing-data-download/01.png)
+ ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>Causa
 
-Quando você baixa os registros de atividades no portal Azure, limitamos a escala a 250.000 registros, classificados pelo primeiro mais recente. 
+Quando você baixa os logs de atividade no portal do Azure, limitamos a escala a 250.000 registros, classificados por mais recentes primeiro. 
 
 ## <a name="resolution"></a>Resolução
 

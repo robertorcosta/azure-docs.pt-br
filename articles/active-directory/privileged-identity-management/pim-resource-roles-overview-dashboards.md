@@ -1,5 +1,5 @@
 ---
-title: Painéis de recursos para avaliações de acesso no PIM - Azure AD | Microsoft Docs
+title: Painéis de recursos para revisões de acesso no PIM – Azure AD | Microsoft Docs
 description: Descreve como usar um painel de recursos para executar uma análise de acesso no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -17,19 +17,19 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6affa2ecc8919dabeb6173622b525280ce96bcfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73847021"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>Use um painel de recursos para executar uma revisão de acesso no Gerenciamento de Identidade Privilegiada
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>Use um painel de recursos para executar uma revisão de acesso no Privileged Identity Management
 
-Você pode usar um painel de recursos para executar uma revisão de acesso no Pim (Privileged Identity Management, gerenciamento de identidade privilegiada). O painel Admin View no Azure Active Directory (Azure AD) tem três componentes principais:
+Você pode usar um painel de recursos para executar uma revisão de acesso no Privileged Identity Management (PIM). O painel de exibição do administrador no Azure Active Directory (Azure AD) tem três componentes principais:
 
-- Uma representação gráfica das ativações de função de recurso
+- Uma representação gráfica de ativações de função de recurso
 - Gráficos que exibem a distribuição de atribuições de função por tipo de atribuição
-- Uma área de dados contendo informações para novas atribuições de função
+- Uma área de dados que contém informações para novas atribuições de função
 
 ![Captura de tela do painel de exibição do administrador, mostrando gráficos e tabelas](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
@@ -37,10 +37,10 @@ Você pode usar um painel de recursos para executar uma revisão de acesso no Pi
 
 A representação gráfica das ativações de função de recurso abrange os últimos sete dias. Esses dados estão no escopo das ativações de telas e recursos selecionados para as funções mais comuns (Proprietário, Colaborador, Administrador de Acesso do Usuário) e todas as funções combinadas.
 
-Em um lado do gráfico de ativações, dois gráficos exibem a distribuição de atribuições de função por tipo de atribuição, tanto para usuários quanto para grupos. Você pode alterar o valor para uma porcentagem (ou vice-versa), selecionando uma fatia do gráfico.
+Em um lado do grafo ativações, dois gráficos exibem a distribuição de atribuições de função por tipo de atribuição, para usuários e grupos. Você pode alterar o valor para uma porcentagem (ou vice-versa), selecionando uma fatia do gráfico.
 
-Abaixo dos gráficos estão listados o número de usuários e grupos com novas atribuições de função nos últimos 30 dias, e funções classificadas por atribuições totais em ordem decrescente.
+Abaixo dos gráficos estão listados o número de usuários e grupos com novas atribuições de função nos últimos 30 dias e as funções classificadas por atribuições totais em ordem decrescente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Inicie uma revisão de acesso para funções de recursos do Azure no Gerenciamento de Identidade Privilegiada](pim-resource-roles-start-access-review.md)
+- [Iniciar uma revisão de acesso para funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-start-access-review.md)

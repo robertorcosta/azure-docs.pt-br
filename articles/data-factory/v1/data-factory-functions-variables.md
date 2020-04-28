@@ -1,5 +1,5 @@
 ---
-title: Funções de fábrica de dados e variáveis do sistema
+title: Funções Data Factory e variáveis do sistema
 description: Fornece uma lista de funções do Azure Data Factory e variáveis do sistema
 documentationcenter: ''
 author: djpmsft
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73667662"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
@@ -56,7 +56,7 @@ Você pode usar funções no Data Factory junto com as variáveis do sistema par
 
 1. Especificando consultas de seleção de dados (veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .
    
-   A sintaxe para invocar uma ** $$ \<** função de fábrica de dados é: função>para consultas de seleção de dados e outras propriedades nos conjuntos de atividade e dados.  
+   A sintaxe para invocar uma função de data Factory é: ** $$ \<função>** para consultas de seleção de dados e outras propriedades na atividade e nos DataSets.  
 2. Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.
    
     $$ não é necessário para especificar expressões de dependência de entrada.     
@@ -97,7 +97,7 @@ As tabelas a seguir listam todas as funções no Azure Data Factory:
 | Texto |Format(X) |X: variável de cadeia de caracteres |Formata o texto (use a combinação `\\'` para escapar o caractere `'`).|
 
 > [!IMPORTANT]
-> Ao usar uma função dentro de outra **$$** função, você não precisa usar prefixo para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' e RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe **$$** que o prefixo não é usado para a função **Time.AddHours.** 
+> Ao usar uma função dentro de outra função, você não precisa usar **$$** o prefixo para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' e RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que **$$** o prefixo não é usado para a função **time. AddHours** . 
 
 #### <a name="example"></a>Exemplo
 No exemplo a seguir, os parâmetros de entrada e saída da atividade do Hive são determinados com o uso da função `Text.Format` e da variável do sistema SliceStart. 

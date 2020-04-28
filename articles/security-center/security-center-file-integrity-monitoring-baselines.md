@@ -1,6 +1,6 @@
 ---
 title: Monitoramento de integridade de arquivo na Central de Segurança do Azure
-description: Saiba como comparar as linhas de base com o Monitoramento de Integridade de Arquivos no Azure Security Center.
+description: Saiba como comparar linhas de base com o monitoramento de integridade de arquivo na central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,78 +14,78 @@ ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
 ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73664404"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o FIM (monitoramento de integridade de arquivo)
 
-O File Integrity Monitoring (FIM) informa quando ocorrem alterações em áreas sensíveis em seus recursos, para que você possa investigar e abordar atividades não autorizadas. A FIM monitora arquivos windows, registros do Windows e arquivos Linux.
+O monitoramento de integridade de arquivo (FIM) informa quando ocorrem alterações em áreas confidenciais em seus recursos, para que você possa investigar e resolver atividades não autorizadas. O FIM monitora arquivos do Windows, registros do Windows e arquivos do Linux.
 
-Este tópico explica como ativar o FIM nos arquivos e registros. Para obter mais informações sobre a FIM, consulte [O Monitoramento de Integridade de Arquivos no Azure Security Center](security-center-file-integrity-monitoring.md).
+Este tópico explica como habilitar o FIM nos arquivos e registros. Para obter mais informações sobre o FIM, consulte [monitoramento de integridade de arquivo na central de segurança do Azure](security-center-file-integrity-monitoring.md).
 
-## <a name="why-use-fim"></a>Por que usar a FIM?
+## <a name="why-use-fim"></a>Por que usar o FIM?
 
-Sistema operacional, aplicativos e configurações associadas controlam o comportamento e o estado de segurança de seus recursos. Portanto, os invasores visam os arquivos que controlam seus recursos, a fim de ultrapassar o sistema operacional de um recurso e/ou executar atividades sem serem detectados.
+O sistema operacional, os aplicativos e as configurações associadas controlam o comportamento e o estado de segurança de seus recursos. Portanto, os invasores direcionam os arquivos que controlam seus recursos, a fim de overtake o sistema operacional de um recurso e/ou executar atividades sem serem detectados.
 
-De fato, muitas normas de conformidade normativa, como PCI-DSS & ISO 17799 exigem a implementação de controles FIM.  
+Na verdade, muitos padrões de conformidade regulatória, como PCI-DSS & ISO 17799, exigem a implementação de controles FIM.  
 
-## <a name="enable-built-in-recursive-registry-checks"></a>Habilite verificações de registro recursivas incorporadas
+## <a name="enable-built-in-recursive-registry-checks"></a>Habilitar verificações de registro recursivas internas
 
-Os padrões de colmeia de registro FIM fornecem uma maneira conveniente de monitorar alterações recursivas dentro de áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para executar em LOCAL_SYSTEM contexto, configurando uma execução na inicialização ou desligamento.  Para monitorar alterações desse tipo, habilite a verificação incorporada.  
+Os padrões do hive do registro do FIM fornecem uma maneira conveniente de monitorar alterações recursivas em áreas de segurança comuns.  Por exemplo, um adversário pode configurar um script para ser executado no contexto LOCAL_SYSTEM Configurando uma execução na inicialização ou no desligamento.  Para monitorar as alterações desse tipo, habilite a verificação interna.  
 
 ![Registro](./media/security-center-file-integrity-monitoring-baselines/baselines-registry.png)
 
 >[!NOTE]
-> Verificações recursivas aplicam-se apenas às colmeias de segurança recomendadas e não aos caminhos de registro personalizados.  
+> Verificações recursivas se aplicam somente a hives de segurança recomendados e não a caminhos de registro personalizados.  
 
-## <a name="adding-a-custom-registry-check"></a>Adicionando uma verificação de registro personalizado
+## <a name="adding-a-custom-registry-check"></a>Adicionando uma verificação personalizada do registro
 
-As linhas de base da FIM começam identificando características de um estado conhecido para o sistema operacional e aplicativo de suporte.  Para este exemplo, nos concentraremos nas configurações da política de senha para o Windows Server 2008 ou superior.
+As linhas de base do FIM começam identificando as características de um estado válido conhecido para o sistema operacional e o aplicativo de suporte.  Para este exemplo, nos concentraremos nas configurações de política de senha para o Windows Server 2008 e superior.
 
 
 |Nome da política                 | Configuração do Registro|
 |---------------------------------------|-------------|
-|Controlador de domínio: Recusar alterações de senha de conta de computador| MÁQUINA\Sistema\Corrente'ControleConjunto\Serviços \Netlogon\Parâmetros\RefusePasswordChange|
-|Membro do domínio: Criptografar ou assinar digitalmente os dados de canal seguro (sempre)|MÁQUINA\Sistema\Corrente'ControleConjunto\Serviços \Netlogon\Parâmetros\RequireSignOrSeal|
-|Membro do domínio: Criptografar digitalmente os dados de canal seguro (quando possível)|MÁQUINA\Sistema\Corrente'ControleConjunto\Serviços \Netlogon\Parameters\SealSecureChannel|
-|Membro do domínio: Assinar digitalmente os dados de canal seguro (quando possível)|MÁQUINA\Sistema\Corrente'ControleConjunto\Serviços \Netlogon\Parâmetros\SignSecureChannel|
-|Membro do domínio: Desativar alterações de senha de conta do computador|MÁQUINA\Sistema\Corrente'ControleConjunto\Serviços \Netlogon\Parâmetros\DesativarSenhadesenha|
+|Controlador de domínio: Recusar alterações de senha de conta de computador| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
+|Membro do domínio: Criptografar ou assinar digitalmente os dados de canal seguro (sempre)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
+|Membro do domínio: Criptografar digitalmente os dados de canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
+|Membro do domínio: Assinar digitalmente os dados de canal seguro (quando possível)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|Membro do domínio: Desativar alterações de senha de conta do computador|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
 |Membro do domínio: Idade máxima da senha de conta do computador|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
 |Membro do domínio: Requer uma chave de sessão forte (Windows 2000 ou posterior)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
-|Segurança de rede: Restringir NTLM: Autenticação NTLM neste domínio|MÁQUINA\Sistema\CorrenteControleConjunto\Serviços \Netlogon\Parâmetros\RestrictNTLMInDomínioDomínio|
-|Segurança de rede: Restringir NTLM: Adicionar exceções de servidor neste domínio|MÁQUINA\Sistema\CorrenteControleConjunto\Serviços \Netlogon\Parâmetros\DCAllowedNTLMServidores|
-|Segurança de rede: Restringir NTLM: Autenticação NTLM neste domínio|MÁQUINA\Sistema\CorrenteControleConjunto\Serviços \Netlogon\Parâmetros\AuditNTLMInDomínioDomínio|
+|Segurança de rede: restringir NTLM: autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|Segurança de rede: Restringir NTLM: Adicionar exceções de servidor neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|Segurança de rede: Restringir NTLM: Autenticação NTLM neste domínio|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Para saber mais sobre as configurações de registro suportadas por várias versões do sistema operacional, consulte a [planilha de referência Configurações de diretiva de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
+> Para saber mais sobre as configurações de registro com suporte em várias versões de sistema operacional, consulte a [planilha de referência de configurações de política de grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Para configurar a FIM para monitorar as linhas de base do registro:*
+*Para configurar o FIM para monitorar linhas de base de registro:*
 
-1. Na janela **Adicionar registro do Windows para rastrear alterações,** na caixa de texto chave do registro do **Windows,** digite a chave de registro.
+1. Na janela **adicionar registro do Windows para controle de alterações** , na caixa de texto **chave do registro do Windows** , insira a chave do registro.
 
     <code>
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     </code>
 
-      ![Habilite o FIM em um registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+      ![Habilitar FIM em um registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Rastreamento de alterações em arquivos windows
+## <a name="tracking-changes-to-windows-files"></a>Controlando alterações em arquivos do Windows
 
-1. Na janela **Adicionar arquivo do Windows para alterar rastreamento,** na caixa de texto Entrar no **caminho,** digite a pasta que contém os arquivos que você deseja rastrear. No exemplo na figura a seguir, **contoso Web App** reside no D:\ unidade dentro da estrutura da pasta **ContosWebApp.**  
-1. Crie uma entrada de arquivo personalizada do Windows fornecendo um nome da classe de configuração, permitindo a recursão e especificando a pasta superior com um sufixo curinga (*).
+1. Na janela **Adicionar arquivo do Windows para controle de alterações** , na caixa de texto **Inserir caminho** , insira a pasta que contém os arquivos que você deseja acompanhar. No exemplo na figura a seguir, o **aplicativo Web contoso** reside no D:\ unidade dentro da estrutura de pastas **ContosWebApp** .  
+1. Crie uma entrada de arquivo do Windows personalizada fornecendo um nome para a classe de configuração, habilitando a recursão e especificando a pasta superior com um sufixo curinga (*).
 
-    ![Habilite o FIM em um arquivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    ![Habilitar FIM em um arquivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
 ## <a name="retrieving-change-data"></a>Recuperando dados de alteração
 
-Os dados de monitoramento de integridade do arquivo residem no conjunto de tabelas Azure Log Analytics / ConfigurationChange.  
+Os dados de monitoramento de integridade de arquivo residem no conjunto de tabelas Log Analytics/ConfigurationChange do Azure.  
 
  1. Defina um intervalo de tempo para recuperar um resumo das alterações por recurso.
-No exemplo a seguir, estamos recuperando todas as alterações nos últimos quatorze dias nas categorias de registro e arquivos:
+No exemplo a seguir, recuperamos todas as alterações nos últimos quatorze dias nas categorias de registro e de arquivos:
 
     <code>
 
@@ -99,10 +99,10 @@ No exemplo a seguir, estamos recuperando todas as alterações nos últimos quat
 
     </code>
 
-1. Para exibir detalhes das alterações de registro:
+1. Para exibir detalhes das alterações no registro:
 
-    1. Remover **arquivos** da cláusula **onde,** 
-    1. Remova a linha de sumário e substitua-a por uma cláusula de pedido:
+    1. Remover **arquivos** da cláusula **Where** , 
+    1. Remova a linha de resumo e substitua-a por uma cláusula de ordenação:
 
     <code>
 
@@ -116,6 +116,6 @@ No exemplo a seguir, estamos recuperando todas as alterações nos últimos quat
 
     </code>
 
-Os relatórios podem ser exportados para csv para arquivamento e/ou canalizados para um relatório power bi.  
+Os relatórios podem ser exportados para CSV para arquivamento e/ou canal para um relatório Power BI.  
 
-![Dados da FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)
+![Dados do FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-data.png)

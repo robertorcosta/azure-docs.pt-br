@@ -1,6 +1,6 @@
 ---
-title: Busca de nome de usuário durante o login - Azure Active Directory | Microsoft Docs
-description: Como as mensagens na tela refletem a aparência do nome de usuário durante o login no Azure Active Directory
+title: Pesquisa de nome de usuário durante a entrada-Azure Active Directory | Microsoft Docs
+description: Como mensagens na tela refletem a pesquisa de nome de usuário durante a entrada no Azure Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,47 +14,47 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74024243"
 ---
-# <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Descoberta de home reino para páginas de login do Azure Active Directory
+# <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Home Realm Discovery para páginas de entrada Azure Active Directory
 
-Estamos mudando nosso comportamento de login do Azure Active Directory (Azure AD) para abrir espaço para novos métodos de autenticação e melhorar a usabilidade. Durante o login, o Azure AD determina onde um usuário precisa autenticar. O Azure AD toma decisões inteligentes lendo a organização e as configurações do usuário para o nome de usuário inserido na página de login. Este é um passo em direção a um futuro sem senha que permite credenciais adicionais como fido 2.0.
+Estamos alterando nosso comportamento de entrada do Azure Active Directory (AD do Azure) para liberar espaço para novos métodos de autenticação e melhorar a usabilidade. Durante a entrada, o AD do Azure determina onde um usuário precisa se autenticar. O Azure AD toma decisões inteligentes lendo as configurações da organização e do usuário para o nome de usuários inserido na página de entrada. Esta é uma etapa para um futuro gratuito de senha que permite credenciais adicionais como FIDO 2,0.
 
-## <a name="home-realm-discovery-behavior"></a>Comportamento de descoberta de reinos domésticos
+## <a name="home-realm-discovery-behavior"></a>Comportamento da descoberta de realm inicial
 
-Historicamente, a descoberta do reino doméstico era regida pelo domínio que é fornecido no login ou por uma política de Home Realm Discovery para alguns aplicativos legados. Por exemplo, em nosso comportamento de descoberta, um usuário do Azure Active Directory poderia digitar mal seu nome de usuário, mas ainda assim chegaria à tela de coleta de credenciais de sua organização. Isso ocorre quando o usuário fornece corretamente o nome de domínio da organização "contoso.com". Esse comportamento não permite que a granularidade personalize experiências para um usuário individual.
+Historicamente, a descoberta de realm inicial foi regida pelo domínio que é fornecido na entrada ou por uma política de descoberta de realm inicial para alguns aplicativos herdados. Por exemplo, em nosso comportamento de descoberta, um usuário Azure Active Directory poderia digitar o nome de usuário indigitadamente, mas ainda chegaria à tela de coleção de credenciais de sua organização. Isso ocorre quando o usuário fornece corretamente o nome de domínio da organização "contoso.com". Esse comportamento não permite a granularidade de personalizar experiências para um usuário individual.
 
-Para suportar uma gama mais ampla de credenciais e aumentar a usabilidade, o comportamento de busca de nome de usuário do Azure Active Directory durante o processo de login agora é atualizado. O novo comportamento toma decisões inteligentes lendo configurações de nível de inquilino e usuário com base no nome de usuário inserido na página de login. Para tornar isso possível, o Azure Active Directory verificará se o nome de usuário inserido na página de login existe em seu domínio especificado ou redireciona o usuário para fornecer suas credenciais.
+Para dar suporte a um intervalo mais amplo de credenciais e aumentar a usabilidade, Azure Active Directory comportamento de pesquisa de nome de usuário durante o processo de entrada agora é atualizado. O novo comportamento faz decisões inteligentes com a leitura de configurações de locatário e de nível de usuário com base no nome de usuários inserido na página de entrada. Para tornar isso possível, Azure Active Directory verificará se o nome de usuário inserido na página de entrada existe no domínio especificado ou redireciona o usuário para fornecer suas credenciais.
 
-Um benefício adicional deste trabalho é a melhoria das mensagens de erro. Aqui estão alguns exemplos da mensagem de erro melhorada ao fazer login em um aplicativo que suporta apenas usuários do Azure Active Directory.
+Um benefício adicional desse trabalho é o sistema de mensagens de erro aprimorado. Aqui estão alguns exemplos das mensagens de erro aprimoradas ao entrar em um aplicativo que dá suporte apenas a Azure Active Directory usuários.
 
-- O nome de usuário foi digitado mal ou o nome de usuário ainda não foi sincronizado com o Azure AD:
+- O nome de usuário está digitado Inou o nome de usuário ainda não foi sincronizado com o Azure AD:
   
-    ![o nome de usuário é digitado errado ou não encontrado](./media/signin-realm-discovery/typo-username.png)
+    ![o nome de usuário está digitado ou não foi encontrado](./media/signin-realm-discovery/typo-username.png)
   
-- O nome de domínio é digitado errado:
+- O nome de domínio está digitado inparado:
   
-    ![o nome de domínio é mal digitado ou não encontrado](./media/signin-realm-discovery/typo-domain.png)
+    ![o nome de domínio está digitado ou não foi encontrado](./media/signin-realm-discovery/typo-domain.png)
   
-- O usuário tenta fazer login com um domínio conhecido do consumidor:
+- O usuário tenta entrar com um domínio de consumidor conhecido:
   
-    ![login com um domínio consumidor conhecido](./media/signin-realm-discovery/consumer-domain.png)
+    ![entrar com um domínio de consumidor conhecido](./media/signin-realm-discovery/consumer-domain.png)
   
-- A senha é digitada incorretamente, mas o nome de usuário é preciso:  
+- A senha está digitada incorretamente, mas o nome de usuário é preciso:  
   
-    ![senha é digitada inemis com bom nome de usuário](./media/signin-realm-discovery/incorrect-password.png)
+    ![a senha está digitada incorretamente com um bom nome de usuário](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Esse recurso pode ter um impacto nos domínios federados que dependem do antigo Home Realm Discovery de nível de domínio para forçar a federação. Para obter atualizações sobre quando o suporte a domínio federado será adicionado, consulte [Home realm discovery durante o login para serviços Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Enquanto isso, algumas organizações treinaram seus funcionários para fazer login com um nome de usuário que não existe no Azure Active Directory, mas contém o nome de domínio adequado, porque os nomes de domínio encaminham os usuários atualmente para o ponto final de domínio de sua organização. O novo comportamento de login não permite isso. O usuário é notificado para corrigir o nome de usuário e não é permitido fazer login com um nome de usuário que não existe no Azure Active Directory.
+> Esse recurso pode ter um impacto em domínios federados que dependem da descoberta de realm inicial no nível de domínio antigo para forçar a Federação. Para obter atualizações sobre quando o suporte a domínio federado será adicionado, consulte [Home Realm Discovery durante a entrada para serviços de Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Enquanto isso, algumas organizações treinavam seus funcionários para entrar com um nome de usuário que não existe no Azure Active Directory, mas contém o nome de domínio apropriado, pois os nomes de domínio roteiam os usuários no momento para o ponto de extremidade de domínio da organização. O novo comportamento de entrada não permite isso. O usuário é notificado para corrigir o nome de usuário e não tem permissão para entrar com um nome de usuário que não existe no Azure Active Directory.
 >
-> Se você ou sua organização tiver práticas que dependem do comportamento antigo, é importante que os administradores da organização atualizem a documentação de login e autenticação dos funcionários e treinem os funcionários para usar o nome de usuário do Azure Active Directory para fazer login.
+> Se você ou sua organização tiver práticas que dependem do comportamento antigo, é importante que os administradores da organização atualizem a documentação de entrada e autenticação de funcionários e treinem os funcionários a usarem seus Azure Active Directory nome de usuário para entrar.
   
-Se você tem preocupações com o novo comportamento, deixe suas observações na seção **Feedback** deste artigo.  
+Se você tiver preocupações com o novo comportamento, deixe seus comentários na seção de **comentários** deste artigo.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Personalize sua marca de login](../fundamentals/add-custom-domain.md)
+[Personalizar sua identidade visual de entrada](../fundamentals/add-custom-domain.md)

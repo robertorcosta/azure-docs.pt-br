@@ -1,7 +1,7 @@
 ---
 title: Habilidade cognitiva do Sentiment
 titleSuffix: Azure Cognitive Search
-description: Extrair um escore de sentimento positivo-negativo do texto em um pipeline de enriquecimento de IA na Pesquisa Cognitiva do Azure.
+description: Extraia uma pontuação de sentimentos positiva negativa do texto em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3aab703b9c5ffcb5f3280060417ce32fcec2fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "72791908"
 ---
 # <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva do Sentiment
@@ -29,7 +29,7 @@ A habilidade do **Sentiment** avalia o texto não estruturado ao longo de um con
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)5000 caracteres, conforme medido por . Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 5000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
@@ -38,14 +38,14 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do Parâmetro |                      |
 |----------------|----------------------|
-| defaultLanguageCode | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma. <br/> Veja [a lista completa de idiomas suportados](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| defaultLanguageCode | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades 
 
 | Nome de entrada | Descrição |
 |--------------------|-------------|
 | text | O texto a ser analisado.|
-| languageCode  |  (opcional) Uma cadeia de caracteres que indica o idioma dos registros. Se este parâmetro não for especificado, o valor padrão é “en”. <br/>Veja [a lista completa de idiomas suportados](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| languageCode  |  (opcional) Uma cadeia de caracteres que indica o idioma dos registros. Se este parâmetro não for especificado, o valor padrão é “en”. <br/>Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 

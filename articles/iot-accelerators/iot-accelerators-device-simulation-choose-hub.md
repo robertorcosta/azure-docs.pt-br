@@ -1,5 +1,5 @@
 ---
-title: Use o hub de IoT existente com solução de simulação de dispositivo - Azure | Microsoft Docs
+title: Usar o Hub IoT existente com a solução de simulação de dispositivo – Azure | Microsoft Docs
 description: Este artigo descreve como configurar o acelerador de solução de Simulação de Dispositivo para usar um Hub IoT existente.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73889191"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Usar um Hub IoT existente com o acelerador de solução de simulação de dispositivo
@@ -31,7 +31,7 @@ Para usar um hub IoT já existente, você precisa da cadeia de conexão para o *
 
 1. Copie a cadeia de conexão primária ou secundária.
 
-[![Obter seqüência de conexão](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
+[![Obter cadeia de conexão](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-inline.png)](./media/iot-accelerators-device-simulation-choose-hub/connectionstring-expanded.png#lightbox)
 
 Use a cadeia de conexão de conexão que você copiou ao configurar a simulação:
 

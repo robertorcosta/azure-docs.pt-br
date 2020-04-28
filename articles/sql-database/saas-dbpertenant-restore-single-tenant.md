@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
 ms.openlocfilehash: a54e8e5629f6f8ad688b6fe11bbf50fc038095bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73818522"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único locatário com um aplicativo de banco de dados por locatário SaaS
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá dois padrões de recuperação de dados:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Wingtip SaaS](saas-dbpertenant-get-started-deploy.md).
+* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md).
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>Introdução aos padrões de restauração de locatário de SaaS
@@ -75,7 +75,7 @@ Para demonstrar esses cenários de recuperação, precisamos excluir “acidenta
 
 1. No ISE do PowerShell, abra ... \\Módulos de aprendizado\\Continuidade de negócios e recuperação de desastres\\RestoreTenant\\*Demo-RestoreTenant.ps1* e defina o seguinte valor:
 
-   * **$DemoScenario** = **1**, *Exclua o último evento (sem venda de ingressos)*.
+   * **$DemoScenario** = **1**, *exclua o último evento (sem nenhuma venda de tíquete)*.
 2. Pressione F5 para executar o script e excluir o último evento. A seguinte mensagem de confirmação é exibida:
 
    ```Console
@@ -92,9 +92,9 @@ Este exercício restaura o banco de dados de sala de concertos Contoso para um p
 
  O script *Restore-TenantInParallel.ps1* cria um banco de dados de locatário paralelo e um banco de dados de locatário paralelo chamado *ContosoConcertHall\_old* com uma entrada no catálogo paralelo. Esse padrão de restauração é mais adequado para a recuperação de uma perda de dados pequena. Você também pode usar esse padrão se precisar analisar dados para fins de conformidade e auditoria. É a abordagem recomendada quando você usa [replicação geográfica ativa](sql-database-active-geo-replication.md).
 
-1. Complete a [seção Simular um inquilino excluindo acidentalmente dados.](#simulate-a-tenant-accidentally-deleting-data)
-2. No PowerShell ISE, abra ... \\Módulos\\de aprendizagem Continuidade\\de\\negócios e recuperação de desastres_RestaurarDemo-RestoreTenant.ps1_.
-3. Definir **$DemoScenario** = **2**, Restaurar inquilino *em paralelo*.
+1. Conclua a seção [simular um locatário excluindo dados acidentalmente](#simulate-a-tenant-accidentally-deleting-data) .
+2. No ISE do PowerShell, abra... \\Módulos\\de aprendizado continuidade dos negócios\\e\\recuperação de desastres RestoreTenant_restoretenant. ps1_.
+3. Defina **$DemoScenario** = **2**, *restaurar locatário em paralelo*.
 4. Para executar o script, pressione F5.
 
 O script restaura o banco de dados de locatário para um ponto anterior antes de excluir o evento. O banco de dados é restaurado para um novo banco de dados denominado _ContosoConcertHall\_old_. Os metadados de catálogo existentes nesse banco de dados restaurado é excluído e o banco de dados é adicionado ao catálogo usando uma chave construída a partir do nome *ContosoConcertHall\_old*.
@@ -105,7 +105,7 @@ Role os eventos listados no navegador para confirmar se o evento excluído na se
 
 A exposição do locatário restaurado como um locatário adicional, com seu próprio aplicativo de eventos, é improvável ser como você fornece um acesso de locatário a dados restaurados. Ela serve para ilustrar o padrão de restauração. Normalmente, você concederia acesso somente leitura aos dados antigos e reteria o banco de dados restaurado por um período específico. No exemplo, você pode excluir a entrada de locatário restaurado após terminar, executando o cenário _Remover locatário restaurado_.
 
-1. Definir **$DemoScenario** = **4**, Remover *inquilino restaurado*.
+1. Defina **$DemoScenario** = **4**, *remover locatário restaurado*.
 2. Para executar o script, pressione F5.
 3. A entrada *ContosoConcertHall\_old* agora foi excluída do catálogo. Feche a página de eventos para este locatário no seu navegador.
 
@@ -114,7 +114,7 @@ A exposição do locatário restaurado como um locatário adicional, com seu pr�
 Este exercício restaura o locatário de sala de concertos Contoso para um ponto antes da exclusão do evento. O script *Restore-TenantInPlace* restaura um banco de dados de locatário para um novo banco de dados de script e exclui o original. Esse padrão de restauração é mais adequado para a recuperação após grave corrupção de dados, pois o locatário pode precisar acomodar perda significativa de dados.
 
 1. No ISE do PowerShell, abra o arquivo **Demo-RestoreTenant.ps1**.
-2. Definir **$DemoScenario** = **5**, Restaurar o inquilino *no lugar*.
+2. Defina **$DemoScenario** = **5**, *restaurar locatário no local*.
 3. Para executar o script, pressione F5.
 
 O script restaura o banco de dados do locatário para um ponto antes da exclusão do evento. Primeiro ele coloca o locatário Contoso Concert Hall offline para impedir novas atualizações. Em seguida, um banco de dados paralelo é criado pela restauração do ponto de restauração. O banco de dados restaurado é nomeado com um carimbo de data/hora para fazer com que o nome do banco de dados não entre em conflito com o nome do banco de dados do locatário existente. Em seguida, o banco de dados do locatário antigo é excluído, e o banco de dados restaurado é renomeado para o nome do banco de dados original. Por fim, a sala de concertos Contoso é colocada online para permitir o acesso do aplicativo ao banco de dados restaurado.

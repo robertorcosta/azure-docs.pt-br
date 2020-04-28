@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativos SaaS: backups geo-redundantes para recuperação de desastres'
+title: 'Aplicativos SaaS: backups com redundância geográfica para recuperação de desastre'
 description: Aprenda a usar backups com redundância geográfica do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73826468"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
@@ -41,8 +41,8 @@ Este tutorial explora os fluxos de trabalho de restauração e repatriação. Vo
  
 
 Antes de iniciar este tutorial, conclua os seguintes pré-requisitos:
-* Implante o aplicativo de banco de dados SaaS da Wingtip Ticket por locatário. Para implantar em menos de cinco minutos, consulte Implantar e explorar o banco de [dados Wingtip Tickets SaaS por aplicativo de inquilino](saas-dbpertenant-get-started-deploy.md). 
-* Instale o PowerShell do Azure. Para obter detalhes, consulte [Como começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Implante o aplicativo de banco de dados SaaS da Wingtip Ticket por locatário. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md). 
+* Instale o PowerShell do Azure. Para obter detalhes, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introdução ao padrão de recuperação de restauração geográfica
 
@@ -62,12 +62,12 @@ A recuperação de desastre (DR) é uma consideração importante para muitos ap
 Este tutorial usa recursos do Banco de Dados SQL do Azure e a plataforma do Azure para endereçar estes desafios:
 
 * [Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores originais e pools elásticos na região de recuperação. Um servidor e um pool separados também são criados para provisionar novos locatários.
-* [Biblioteca de clientes de banco de dados elástico](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de banco de dados de inquilinos. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
-* Recursos de recuperação de gerenciamento de [fragmentos](sql-database-elastic-database-recovery-manager.md) do EDCL, para manter entradas de localização de banco de dados no catálogo durante a recuperação e repatriação.  
+* EDCL ( [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) ) para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
+* [Recursos de recuperação de gerenciamento de fragmento](sql-database-elastic-database-recovery-manager.md) do EDCL, para manter entradas de local de banco de dados no catálogo durante a recuperação e repatriação.  
 * A [restauração geográfica](sql-database-disaster-recovery.md) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica mantidos automaticamente. 
 * [Operações de restauração assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas na ordem de prioridade de locatário, enfileiradas para cada pool pelo sistema e processadas em lotes para o pool não ficar sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
 * [Replicação geográfica](sql-database-geo-replication-overview.md) para repatriar os bancos de dados para a região original após a interrupção. Não há perda de dados e há o mínimo de impacto no locatário quando você usa a replicação geográfica.
-* [Os pseudônimos DNS do servidor SQL](dns-alias-overview.md)permitem que o processo de sincronização do catálogo se conecte ao catálogo ativo, independentemente de sua localização.  
+* [Aliases de DNS do SQL Server](dns-alias-overview.md), para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independentemente de sua localização.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre
 

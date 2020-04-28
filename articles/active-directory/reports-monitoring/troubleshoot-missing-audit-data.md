@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas Dados perdidos em registros de atividade | Microsoft Docs
+title: Solucionar problemas de dados ausentes em logs de atividade | Microsoft Docs
 description: Fornece uma resolução para dados ausentes nos logs de atividades do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74014286"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solução de problemas: Dados ausentes nos logs de atividades do Azure Active Directory 
@@ -32,7 +32,7 @@ ms.locfileid: "74014286"
 
 Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
 
- ![Relatório](./media/troubleshoot-missing-audit-data/01.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
@@ -53,7 +53,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
 
- ![Relatório](./media/troubleshoot-missing-audit-data/02.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
@@ -74,7 +74,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
 
- ![Relatório](./media/troubleshoot-missing-audit-data/03.png)
+ ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
@@ -94,6 +94,6 @@ Você tem duas opções para manter os dados por mais de 30 dias. Você pode usa
 ## <a name="next-steps"></a>Próximas etapas
 
 * [API de retenção de relatório](reference-reports-data-retention.md).
-* [Azure Active Directory reportando latências](reference-reports-latencies.md).
-* [Azure Active Directory reportando PERGUNTAS FREQUENTES](reports-faq.md).
+* [Azure Active Directory latência de relatório](reference-reports-latencies.md).
+* [Azure Active Directory perguntas frequentes sobre relatórios](reports-faq.md).
 

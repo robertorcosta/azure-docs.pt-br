@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67171872"
 ---
 ## <a name="next-steps"></a>Próximas etapas
@@ -17,7 +17,7 @@ Depois de habilitar a integração do Cofre da Chave do Azure, você poderá hab
 
 Há várias formas de criptografia das quais você pode tirar proveito:
 
-* [Criptografia de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Criptografia de Dados Transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Backups criptografados](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Criptografia de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 

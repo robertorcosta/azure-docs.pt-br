@@ -1,6 +1,6 @@
 ---
-title: Analisar registros de atividades usando logs do Monitor do Azure | Microsoft Docs
-description: Saiba como analisar os registros de atividades do Azure Active Directory usando logs do Monitor do Azure
+title: Analisar logs de atividade usando logs de Azure Monitor | Microsoft Docs
+description: Saiba como analisar Azure Active Directory logs de atividades usando logs de Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74008281"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividade do Azure AD com os logs do Azure Monitor
 
-Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar as [visualizações de análise de log para logs de atividades do Azure AD](howto-install-use-log-analytics-views.md) para ter acesso a relatórios pré-construídos em torno de eventos de auditoria e login em seu ambiente.
+Depois de [integrar os logs de atividades do Azure AD com os logs do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), você pode usar o poder dos logs do Azure Monitor para obter insights sobre seu ambiente. Você também pode instalar os [modos de exibição do log Analytics para logs de atividades do Azure ad](howto-install-use-log-analytics-views.md) para obter acesso a relatórios pré-criados sobre eventos de auditoria e de entrada em seu ambiente.
 
 Neste artigo, você aprenderá como analisar o logs de atividades do Azure AD no seu espaço de trabalho do Log Analytics. 
 
@@ -38,8 +38,8 @@ Para acompanhar, você precisa:
 
 * Um espaço de trabalho do Log Analytics em sua assinatura do Azure. Saiba como [criar um espaço de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Em primeiro lugar, conclua as etapas para [rotear os logs de atividades do Azure AD para seu espaço de trabalho do Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de log
-* As seguintes funções no Azure Active Directory (se você estiver acessando o Log Analytics através do portal do Azure Active Directory)
+*  [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
+* As funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
     - Administrador de Segurança
     - Leitor de segurança
     - Leitor de relatórios
@@ -47,7 +47,7 @@ Para acompanhar, você precisa:
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Navegar para seu espaço de trabalho do Log Analytics
 
-1. Faça login no [portal Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione **Azure Active Directory** e, em seguida, selecione **Logs** na seção **Monitoramento** para abrir o espaço de trabalho do Log Analytics. O workspace será aberto com uma consulta padrão.
 
@@ -61,7 +61,7 @@ Para acompanhar, você precisa:
 1. Na visualização da consulta padrão na seção anterior, selecione **Esquema** e expanda o workspace. 
 
 2. Expanda a seção **Gerenciamento de Log** e, em seguida, expanda **AuditLogs** ou **SignInLogs** para exibir o esquema de log.
-    ![Registros de](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![auditoria Registrações de login](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+    ![Logs de](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![entrada de logs de auditoria](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Consulte os logs de atividade do Azure AD
 

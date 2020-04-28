@@ -1,5 +1,5 @@
 ---
-title: Relatórios de consultas em vários bancos de dados
+title: Relatando consultas em vários bancos de dados
 description: Relatório entre locatários usando consultas distribuídas.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 ms.date: 01/25/2019
 ms.openlocfilehash: c863946934df9990c14e49ef1a0a82bbc55b27c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73822076"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
@@ -35,7 +35,7 @@ Neste tutorial, você aprende:
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * O SSMS (SQL Server Management Studio) está instalado. Para baixar e instalar a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -52,7 +52,7 @@ Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elás
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts de banco de dados multi-inquilino saas de tickets e o código-fonte do aplicativo estão disponíveis no repo [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
@@ -95,7 +95,7 @@ Para examinar a definição da exibição *Locais*:
    ![Modos de exibição](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Clique com botão direito do mouse em **dbo.Venues**.
-3. Selecione **a exibição de script como** > **CRIAR para a** > **nova janela do editor de consulta**
+3. Selecionar **exibição de script como** > **criar para a** > **nova janela do editor de consultas**
 
 Gere o script de qualquer uma das outras exibições *Local* para ver como elas adicionam a *VenueId*.
 
@@ -105,7 +105,7 @@ Este exercício implanta o banco de dados _adhocreporting_. Esse é o banco de d
 
 1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReporting.ps1*. 
 
-1. Definir **$DemoScenario = 2**, Implantar banco de dados de _relatórios Ad hoc_.
+1. Defina **$DemoScenario = 2**, _implantar banco de dados de relatórios ad hoc_.
 
 1. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting*.
 
@@ -147,7 +147,7 @@ Agora que o banco de dados *adhocreporting* está configurado, siga em frente e 
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *VenueId mapeia* para um banco de dados individual, a filtragem é facilmente feita remotamente, retornando apenas os dados necessários.
+É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *LocalId* é mapeado para um banco de dados individual, a filtragem é facilmente feita remotamente, retornando apenas os dados necessários.
 
 1. Abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReportingQueries.sql* no SSMS.
 2. Verifique se você está conectado ao banco de dados **adhocreporting**.
@@ -185,7 +185,7 @@ Neste tutorial, você aprendeu a:
 > * Implante um banco de dados de relatório e defina o esquema necessário para executar consultas distribuídas.
 
 
-Agora tente o [tutorial do Tenant Analytics](saas-tenancy-tenant-analytics.md) para explorar a extração de dados em um banco de dados de análise separado para processamento de análises mais complexas.
+Agora experimente o [tutorial de análise de locatário](saas-tenancy-tenant-analytics.md) para explorar a extração de dados para um banco de dado de análise separado para um processamento de análise mais complexo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

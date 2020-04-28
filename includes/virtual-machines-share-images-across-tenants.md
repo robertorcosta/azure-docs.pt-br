@@ -9,56 +9,56 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73903690"
 ---
-Mas, se você quiser compartilhar imagens fora do seu inquilino do Azure, em escala, você deve criar um registro de aplicativo para facilitar o compartilhamento.  O uso de um registro de aplicativo pode permitir cenários de compartilhamento mais complexos, como: 
+Mas, se você quiser compartilhar imagens fora do seu locatário do Azure, em escala, você deve criar um registro de aplicativo para facilitar o compartilhamento.  O uso de um registro de aplicativo pode permitir cenários de compartilhamento mais complexos, como: 
 
-* Gerenciamento de imagens compartilhadas quando uma empresa adquire outra, e a infra-estrutura do Azure é espalhada por inquilinos separados. 
-* Os Azure Partners gerenciam a infra-estrutura do Azure em nome de seus clientes. A personalização das imagens é feita dentro do inquilino parceiro, mas as implantações de infraestrutura acontecerão no inquilino do cliente. 
-
-
-## <a name="create-the-app-registration"></a>Crie o registro do aplicativo
-
-Crie um registro de aplicativo que será usado por ambos os inquilinos para compartilhar os recursos da galeria de imagens.
-1. Abra as inscrições do [App (pré-visualização) no portal Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
-1. Selecione **Novo registro** no menu no topo da página.
-1. Em **Nome,** digite *myGalleryApp*.
-1. Em **tipos de conta suportados,** selecione Contas em qualquer diretório organizacional e contas pessoais da **Microsoft**.
-1. Em **Redirecionar URI,** digite *https://www.microsoft.com* e, em seguida, selecione **Registrar**. Depois que o registro do aplicativo tiver sido criado, a página de visão geral será aberta.
-1. Na página de exibição geral, copie o **ID do aplicativo (cliente)** e salve para uso posteriormente.   
-1. Selecione **Certificados & segredos**e selecione **Novo segredo do cliente**.
-1. Em **Description**, *digite o segredo do aplicativo cross-tenant da galeria de imagens compartilhadas*.
-1. Em **Expirações,** deixe o padrão de **Em 1 ano** e, em seguida, **selecione Adicionar**.
-1. Copie o valor do segredo e guarde-o para um lugar seguro. Você não pode recuperá-lo depois de sair da página.
+* Gerenciamento de imagens compartilhadas quando uma empresa adquire outra, e a infraestrutura do Azure é distribuída entre locatários separados. 
+* Os parceiros do Azure gerenciam a infraestrutura do Azure em nome de seus clientes. A personalização de imagens é feita dentro do locatário de parceiros, mas as implantações de infraestrutura ocorrerão no locatário do cliente. 
 
 
-Dê ao aplicativo permissão de registro para usar a galeria de imagens compartilhadas.
-1. No portal Azure, selecione a Galeria de Imagens Compartilhadas que você deseja compartilhar com outro inquilino.
-1. Selecione **selecionar controle de acesso (IAM)** e, em Adicionar **atribuição de função,** *selecione Adicionar*. 
-1. Em **Função,** selecione **'Leitor'.**
-1. Em **Atribuir acesso a:**, deixe-o como **usuário, grupo ou principal de serviço do Azure AD**.
-1. Em **Select**, digite *myGalleryApp* e selecione-o quando ele aparecer na lista. Quando terminar, selecione **Salvar**.
+## <a name="create-the-app-registration"></a>Criar o registro do aplicativo
+
+Crie um registro de aplicativo que será usado por ambos os locatários para compartilhar os recursos da Galeria de imagens.
+1. Abra o [registros de aplicativo (visualização) no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
+1. Selecione **novo registro** no menu na parte superior da página.
+1. Em **nome**, digite *myGalleryApp*.
+1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
+1. Em **URI de redirecionamento**, digite *https://www.microsoft.com* e, em seguida, selecione **registrar**. Depois que o registro do aplicativo tiver sido criado, a página Visão geral será aberta.
+1. Na página Visão geral, copie a **ID do aplicativo (cliente)** e salve-a para uso posterior.   
+1. Selecione **certificados & segredos**e, em seguida, selecione **novo segredo do cliente**.
+1. Em **Descrição**, digite *segredo do aplicativo entre locatário da Galeria de imagens compartilhadas*.
+1. Em **expira**, deixe o padrão de **em 1 ano** e, em seguida, selecione **Adicionar**.
+1. Copie o valor do segredo e salve-o em um local seguro. Você não pode recuperá-lo depois de sair da página.
 
 
-## <a name="give-tenant-2-access"></a>Dar acesso ao Inquilino 2
+Conceda à permissão de registro do aplicativo para usar a Galeria de imagens compartilhadas.
+1. Na portal do Azure, selecione a Galeria de imagens compartilhada que você deseja compartilhar com outro locatário.
+1. Selecione **selecionar controle de acesso (iam)** e, em **Adicionar atribuição de função** , selecione *Adicionar*. 
+1. Em **função**, selecione **leitor**.
+1. Em **atribuir acesso a:**, deixe isso como **usuário, grupo ou entidade de serviço do Azure ad**.
+1. Em **selecionar**, digite *myGalleryApp* e selecione-o quando ele aparecer na lista. Quando terminar, selecione **Salvar**.
 
-Dê ao Inquilino 2 acesso ao aplicativo solicitando um login usando um navegador. Substitua o * \<I>D do Inquilino2* pelo ID do inquilino para o inquilino com o quais você gostaria de compartilhar sua galeria de imagens. Substituir o ID do * \<aplicativo (cliente)>* com o ID do aplicativo do registro do aplicativo que você criou. Quando terminar de fazer as substituições, cole a URL em um navegador e siga as instruções de login para entrar no Inquilino 2.
+
+## <a name="give-tenant-2-access"></a>Dar acesso ao locatário 2
+
+Conceda acesso de locatário 2 ao aplicativo solicitando uma entrada usando um navegador. Substitua * \<locatário2 ID>* com a ID de locatário do locatário com o qual você gostaria de compartilhar sua galeria de imagens. Substitua * \<a ID do aplicativo (cliente)>* pela ID do aplicativo do registro do aplicativo que você criou. Quando terminar de fazer as substituições, Cole a URL em um navegador e siga os prompts de entrada para entrar no locatário 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
 ```
 
-No [portal Azure](https://portal.azure.com) faça login como Inquilino 2 e dê ao aplicativo acesso de registro ao grupo de recursos onde você deseja criar a VM.
+No [portal do Azure](https://portal.azure.com) entre como locatário 2 e conceda ao registro do aplicativo acesso ao grupo de recursos no qual você deseja criar a VM.
 
-1. Selecione o grupo de recursos e selecione **Controle de acesso (IAM)**. Em **Adicionar atribuição de função,** **selecione Adicionar**. 
-1. Em **Função**, tipo **Contribuinte**.
-1. Em **Atribuir acesso a:**, deixe-o como **usuário, grupo ou principal de serviço do Azure AD**.
-1. Em **Selecionar** o tipo *myGalleryApp,* selecione-o quando ele aparecer na lista. Quando terminar, selecione **Salvar**.
+1. Selecione o grupo de recursos e, em seguida, selecione **iam (controle de acesso)**. Em **Adicionar atribuição de função** , selecione **Adicionar**. 
+1. Em **função**, digite **colaborador**.
+1. Em **atribuir acesso a:**, deixe isso como **usuário, grupo ou entidade de serviço do Azure ad**.
+1. Em **selecionar** tipo *myGalleryApp* , em seguida, selecione-o quando aparecer na lista. Quando terminar, selecione **Salvar**.
 
 > [!NOTE]
-> Você precisa esperar que a versão da imagem termine completamente de ser construída e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
+> Você precisa aguardar que a versão da imagem termine completamente de ser compilada e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem.
 

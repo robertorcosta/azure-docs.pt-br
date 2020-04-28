@@ -1,6 +1,6 @@
 ---
 title: Nome de servidor de alias do Azure Analysis Services | Microsoft Docs
-description: Saiba como criar alias de nome do servidor azure Analysis Services. Os usuários podem então conectar-se ao seu servidor com um nome de alias mais curto em vez do nome do servidor.
+description: Saiba como criar Azure Analysis Services aliases de nome de servidor. Os usuários podem, então, se conectar ao seu servidor com um nome de alias mais curto em vez do nome do servidor.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73572286"
 ---
 # <a name="alias-server-names"></a>Nome de servidor de alias
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas de clientes](analysis-services-data-providers.md)   
+[Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Conectar-se a partir do Power BI Desktop](analysis-services-connect-pbi.md)

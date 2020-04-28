@@ -16,10 +16,10 @@ ms.date: 05/16/2016
 ms.author: narayan
 ms.reviewer: aglick
 ms.openlocfilehash: 3f91d24bff0bec540ff0e7964f21c2f47c03638c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67876179"
 ---
 # <a name="virtual-network--business-continuity"></a>Rede Virtual – Continuidade de Negócios
@@ -27,13 +27,13 @@ ms.locfileid: "67876179"
 ## <a name="overview"></a>Visão geral
 Uma Rede Virtual (VNet) é uma representação da sua rede na nuvem. Ela permite que você defina seu próprio espaço de endereço IP privado e segmente a rede em sub-redes. As VNets servem como um limite de confiança para hospedar seus recursos de computação, como as Máquinas Virtuais e os Serviços de Nuvem do Azure (funções web/de trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos hospedados nela. Vincule uma rede virtual a uma rede local por meio de um Gateway de VPN ou do ExpressRoute.
 
-Uma VNet é criada dentro do escopo de uma região. Você pode *criar* VNets com o mesmo espaço de endereço em duas regiões diferentes (por exemplo, EUA Leste e US West), mas como eles têm o mesmo espaço de endereço, você não pode conectá-los juntos. 
+Uma VNet é criada dentro do escopo de uma região. Você pode *criar* VNets com o mesmo espaço de endereço em duas regiões diferentes (por exemplo, leste dos EUA e oeste dos EUA), mas como elas têm o mesmo espaço de endereço, não é possível conectá-las juntas. 
 
 ## <a name="business-continuity"></a>Continuidade de negócios
 
 O seu aplicativo pode ser interrompido de várias maneiras diferentes. Uma região pode ser completamente cortada devido a um desastre natural ou parcial, devido a uma falha de vários dispositivos ou serviços. O impacto sobre o serviço de Rede Virtual é diferente em cada uma dessas situações.
 
-**P: Se ocorrer uma paralisação para toda uma região, o que eu faço? Por exemplo, se uma região é completamente isolada devido a um desastre natural? O que acontece com as redes virtuais hospedadas na região?**
+**P: se ocorrer uma interrupção para uma região inteira, o que devo fazer? Por exemplo, se uma região for completamente cortada devido a um desastre natural? O que acontece com as redes virtuais hospedadas na região?**
 
 R: A rede virtual e os recursos na região afetada permanecem inacessíveis durante o tempo de interrupção do serviço.
 

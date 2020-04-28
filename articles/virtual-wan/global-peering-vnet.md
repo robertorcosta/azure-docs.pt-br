@@ -1,6 +1,6 @@
 ---
-title: Configure o peering Global VNet para WAN Virtual do Azure | Microsoft Docs
-description: Conecte um VNet em uma região diferente ao seu hub WAN virtual.
+title: Configurar o emparelhamento VNet global para a WAN virtual do Azure | Microsoft Docs
+description: Conecte uma VNet em uma região diferente ao seu hub de WAN virtual.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73588220"
 ---
-# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Configure o peering VNet global (VNet transversal) para WAN virtual
+# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Configurar o emparelhamento VNet global (VNet entre regiões) para WAN virtual
 
-Você pode conectar um VNet em uma região diferente ao seu hub WAN virtual.
+Você pode conectar uma VNet em uma região diferente ao seu hub de WAN virtual.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Verifique se você atende aos seguintes critérios:
 
-* O VNet inter-região (spoke) não está conectado a outro hub WAN virtual. Um spoke só pode ser conectado a um hub virtual.
-* O VNet (spoke) não contém um gateway de rede virtual (por exemplo, um Gateway de REDE Azure VPN ou gateway de rede virtual ExpressRoute). Se o VNet contiver um gateway de rede virtual, você deve remover o gateway antes de conectar o VNet falado ao hub.
+* A VNet entre regiões (spoke) não está conectada a outro hub WAN virtual. Um spoke só pode ser conectado a um único Hub virtual.
+* A VNet (spoke) não contém um gateway de rede virtual (por exemplo, um gateway de VPN do Azure ou um gateway de rede virtual ExpressRoute). Se a VNet contiver um gateway de rede virtual, você deverá remover o gateway antes de conectar a VNet spoke ao Hub.
 
 ## <a name="register-this-feature"></a><a name="register"></a>Registrar este recurso
 
-Você pode registrar este recurso usando o PowerShell. Se você selecionar "Experimentá-lo" no exemplo abaixo, o Azure Cloud-Shell será aberto e você não precisará instalar os cmdlets do PowerShell localmente no seu computador. Se necessário, você pode alterar as assinaturas usando o cmdlet 'Select-AzSubscription -SubscriptionId'. <subid>
+Você pode se registrar para esse recurso usando o PowerShell. Se você selecionar "experimentar" no exemplo abaixo, o Shell de nuvem do Azure será aberto e você não precisará instalar os cmdlets do PowerShell localmente em seu computador. Se necessário, você pode alterar as assinaturas usando o cmdlet ' Select-AzSubscription-SubscriptionId <subid>'.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 ```
 
-## <a name="verify-registration"></a><a name="verify"></a>Verificar o registro
+## <a name="verify-registration"></a><a name="verify"></a>Verificar registro
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Conecte um VNet ao hub
+## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Conectar uma VNet ao Hub
 
-Nesta etapa, você cria a conexão de peering entre seu hub e o VNet inter-região. Repita as etapas para cada VNET que você deseja se conectar.
+Nesta etapa, você cria a conexão de emparelhamento entre o Hub e a VNet entre regiões. Repita as etapas para cada VNET que você deseja se conectar.
 
 1. Na página da WAN virtual, clique em **Conexões de rede virtual**.
 2. Na página de conexão de rede virtual, clique em **+Adicionar conexão**.
@@ -56,4 +56,4 @@ Nesta etapa, você cria a conexão de peering entre seu hub e o VNet inter-regi�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a WAN virtual, consulte [Visão Geral de WAN Virtual](virtual-wan-about.md).
+Para saber mais sobre a WAN virtual, consulte [visão geral da WAN virtual](virtual-wan-about.md).

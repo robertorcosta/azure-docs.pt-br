@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para usuários específicos usando o Azure Notification Hubs | Microsoft Docs
+title: Enviar notificações por push para usuários específicos usando hubs de notificação do Azure | Microsoft Docs
 description: Saiba como enviar notificações por push para usuários específicos usando os Hubs de Notificação do Azure.
 documentationcenter: ios
 author: sethm
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72387470"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Envie notificações push para usuários específicos usando hubs de notificação do Azure
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para usuários específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -56,7 +56,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 
 2. No arquivo `Main.storyboard`, adicione os componentes mostrados na captura de tela da biblioteca de objetos.
 
-    ![Editar storyboard no construtor de interface Xcode][1]
+    ![Editar storyboard no Xcode Interface Builder][1]
 
    * **Nome de usuário**: um UITextField com texto de espaço reservado, *Inserir nome de usuário*, imediatamente abaixo de enviar rótulo de resultados e restrito às margens esquerda e direita e abaixo do rótulo de resultados de envio.
    * **Senha**: um UITextField com texto de espaço reservado, *Digite a senha*, imediatamente abaixo do campo de texto Nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto Nome de usuário. Verifique a opção **Entrada de texto seguro** no Inspetor de atributo, em *Retornar chave*.
@@ -499,7 +499,7 @@ Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobi
 Neste tutorial, você aprendeu como enviar notificações por push para usuários específicos que têm tags associadas seus registros. Para saber como enviar notificações por push, vá para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
->[Notificações por push com base no local](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
+>[Notificações por push baseadas em localização](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

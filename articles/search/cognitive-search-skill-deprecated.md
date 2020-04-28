@@ -1,7 +1,7 @@
 ---
-title: Habilidades cognitivas depreciadas
+title: Habilidades cognitivas preteridas
 titleSuffix: Azure Cognitive Search
-description: Esta página contém uma lista de habilidades cognitivas que são consideradas depreciadas e não serão suportadas em um futuro próximo nas habilidades de Pesquisa Cognitiva do Azure.
+description: Esta página contém uma lista de habilidades cognitivas que são consideradas preteridas e que não terão suporte em um futuro próximo no Azure Pesquisa Cognitiva habilidades.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72792030"
 ---
-# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Habilidades cognitivas depreciadas na Busca Cognitiva do Azure
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Habilidades cognitivas preteridas no Azure Pesquisa Cognitiva
 
 Este documento descreve as habilidades cognitivas que são consideradas obsoletas. Use o seguinte guia para o conteúdo:
 
 * Nome da Habilidade: O nome da habilidade que será descontinuada, mapeia para o atributo @odata.type.
-* Última versão de api disponível: A última versão da API pública azure Cognitive Search através da qual habilidades contendo a habilidade depreciada correspondente podem ser criadas/atualizadas.
+* Última versão da API disponível: a última versão da API pública do Azure Pesquisa Cognitiva por meio da qual habilidades que contém as habilidades preteridas correspondentes pode ser criada/atualizada.
 * Fim do suporte: O último dia após o qual a habilidade correspondente é considerada sem suporte. Os conjuntos de habilidades criados anteriormente ainda devem continuar funcionando, mas recomenda-se que os usuários migrem de uma habilidade obsoleta.
 * Recomendações: caminho de migração para usar uma habilidade suportada. Os usuários são aconselhados a seguir as recomendações para continuar recebendo suporte.
 
