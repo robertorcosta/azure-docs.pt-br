@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69637192"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como usar o Twilio para recursos de voz e SMS no Ruby
@@ -28,7 +28,7 @@ Twilio é uma API do serviço Web de telefonia que permite usar os idiomas e as 
 **Twilio Voice** permite que seus aplicativos façam e recebam chamadas telefônicas. **Twilio SMS** permite que seus aplicativos façam e recebam mensagens SMS. **Twilio Cliente** permite que seus aplicativos habilitem a comunicação de voz usando as conexões existentes com a Internet, incluindo conexões para celular.
 
 ## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Preços e ofertas especiais da Twilio
-A informações sobre os preços do Twilio estão disponíveis em [Preços do Twilio][twilio_pricing]. Os clientes do Azure recebem uma [oferta especial][special_offer]: um crédito de 1.000 mensagens de texto gratuitas ou 1.000 minutos de entrada. Para se inscrever nesta oferta ou obter [https://ahoy.twilio.com/azure][special_offer]mais informações, visite .  
+A informações sobre os preços do Twilio estão disponíveis em [Preços do Twilio][twilio_pricing]. Os clientes do Azure recebem uma [oferta especial][special_offer]: um crédito de 1.000 mensagens de texto gratuitas ou 1.000 minutos de entrada. Para se inscrever nesta oferta ou obter mais informações, visite [https://ahoy.twilio.com/azure][special_offer].  
 
 ## <a name="concepts"></a><a id="Concepts"></a>Conceitos
 A API do Twilio é uma API RESTful que fornece os recursos de voz e SMS para aplicativos. As bibliotecas de cliente estão disponíveis em vários idiomas. Para obter uma lista, consulte [Bibliotecas de API do Twilio][twilio_libraries].
@@ -46,20 +46,20 @@ Por exemplo, o seguinte TwiML converteria a mensagem **Olá, mundo** em fala.
 Todos os documentos do TwiML têm `<Response>` como seu elemento raiz. Por meio disso, você usará os verbos do Twilio para definir o comportamento do seu aplicativo.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbos do TwiML
-Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, ** &lt;&gt; ** o verbo Say instrui Twilio a entregar uma mensagem em uma chamada. 
+Os verbos do Twilio são marcas XML que dizem ao Twilio o que **fazer**. Por exemplo, o ** &lt;verbo&gt; digamos** instrui o twilio a forma audível a entregar uma mensagem em uma chamada. 
 
 A seguir está uma lista de verbos do Twilio.
 
-* **Disque&gt;: Conecta o chamador a outro telefone. &lt;**
-* Recolher : Coleta dígitos numéricos inseridos no teclado do telefone. ** &lt;&gt;**
-* Desligamento : Termina uma chamada. ** &lt;&gt;**
-* **Reprodução&gt;: Reproduz um arquivo de &lt;** áudio.
-* Pausa : Espera silenciosamente por um número especificado de segundos. ** &lt;&gt;**
-* Registro : Grava a voz do chamador e retorna uma URL de um arquivo que contém a gravação. ** &lt;&gt;**
-* **Redirecionamento&gt;: Transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente. &lt;**
-* Rejeitar : Rejeita uma chamada recebida para o seu número Twilio sem faturar você ** &lt;&gt;**
-* Diga : Converte texto em discurso que é feito em uma chamada. ** &lt;&gt;**
-* **SMS&gt;: Envia uma mensagem SMS. &lt;**
+* **Discar&gt;: conecta o chamador a outro &lt;** telefone.
+* Coletar: coleta dígitos numéricos inseridos no teclado do telefone. ** &lt;&gt;**
+* Desligamento: encerra uma chamada. ** &lt;&gt;**
+* Play: reproduz um arquivo de áudio. ** &lt;&gt;**
+* Pausa: aguarda silenciosamente por um número especificado de segundos. ** &lt;&gt;**
+* Registro: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação. ** &lt;&gt;**
+* Redirect: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente. ** &lt;&gt;**
+* Rejeitar: rejeita uma chamada recebida para o número do twilio sem cobrança ** &lt;&gt;**
+* Digamos: converte o texto em fala que é feito em uma chamada. ** &lt;&gt;**
+* SMS: envia uma mensagem SMS. ** &lt;&gt;**
 
 Para obter mais informações sobre os verbos do Twilio, seus atributos e o TwiML, consulte [TwiML][twiml]. Para obter mais informações sobre a API do Twilio, consulte [API do Twilio][twilio_api].
 
@@ -73,7 +73,7 @@ Além do número fornecido pelo Twilio, você também pode verificar os números
 
 Para obter informações sobre como verificar um número de telefone, consulte [Gerenciar Números][verify_phone].
 
-## <a name="create-a-ruby-application"></a><a id="create_app"></a>Criar um Aplicativo em Ruby
+## <a name="create-a-ruby-application"></a><a id="create_app"></a>Criar um aplicativo Ruby
 Um aplicativo Ruby que usa o serviço do Twilio e está em execução no Azure não é diferente de nenhum outro aplicativo Ruby que usa o serviço do Twilio. Embora os serviços do Twilio sejam RESTful e possam ser chamados do Ruby de várias maneiras, este artigo se concentra em como usar esses serviços com a [biblioteca auxiliar do Twilio para Ruby][twilio_ruby].
 
 Primeiro, [configure uma nova VM Linux do Azure][azure_vm_setup] para agir como um host para o novo aplicativo Web do Ruby. Ignore as etapas que envolvem a criação de um aplicativo do Rails, apenas configure a VM. Certifique-se de criar um ponto de extremidade com uma porta externa 80 e uma porta interna 5000.
@@ -162,11 +162,11 @@ Após fazer a alteração, certifique-se de reiniciar o aplicativo web. Agora, r
 ## <a name="how-to-use-additional-twilio-services"></a><a id="additional_services"></a>Como Usar os Serviços Adicionais do Twilio
 Além dos exemplos mostrados aqui, o Twilio oferece APIs baseadas na Web que podem ser usadas para aproveitar a funcionalidade adicional do Twilio do aplicativo Azure. Para obter detalhes completos, consulte a [Documentação da API do Twilio][twilio_api_documentation].
 
-### <a name="next-steps"></a><a id="NextSteps"></a>Próximos passos
+### <a name="next-steps"></a><a id="NextSteps"></a>Próximas etapas
 Agora que você já conhece os princípios do serviço Twilio, acesse estes links para saber mais:
 
 * [Diretrizes de segurança do Twilio][twilio_security_guidelines]
-* [Código Twilio HowTos e Exemplo][twilio_howtos]
+* [Twilio HowTo e código de exemplo][twilio_howtos]
 * [Tutoriais do Guia de início rápido do Twilio][twilio_quickstarts] 
 * [Twilio no GitHub][twilio_on_github]
 * [Fale com o suporte do Twilio][twilio_support]

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172121"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
 Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-1. Inicie o Internet [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
+1. Inicie o Internet Explorer e navegue [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)até.
 2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
    
     ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Clique em **Baixar**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+4. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 5. Procure quaisquer hotfixes adicionais listados na tabela acima (**4011841**) e baixe os arquivos correspondentes às pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
      > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
      
 7. Repita as etapas 3 a 5 para instalar o agente Cis/MDS baixado para a pasta _FirstOrderUpdate_. 
-8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações de segunda ordem, várias atualizações `Start-HcsHotfix cmdlet` podem ser instaladas apenas executando a e apontando para a pasta onde as atualizações de segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 
+8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações da segunda ordem, várias atualizações podem ser instaladas executando apenas `Start-HcsHotfix cmdlet` o e apontando para a pasta onde as atualizações da segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 
 
 Depois que todos os hotfixes são instalados, use o `Get-HcsSystem` cmdlet. As versões devem ser:
 
@@ -123,7 +123,7 @@ Observe que, se o firmware de disco já estiver atualizado, você não precisar�
 
 Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
-1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar o Windows PowerShell remoting ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute este cmdlet no controlador do dispositivo quando conectado através do console serial do dispositivo.** Tipo:
+1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo.** Tipo:
    
     `Enter-HcsMaintenanceMode`
    

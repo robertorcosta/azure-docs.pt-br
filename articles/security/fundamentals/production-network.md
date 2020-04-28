@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68726704"
 ---
 # <a name="the-azure-production-network"></a>Rede de produção do Microsoft Azure
@@ -64,7 +64,7 @@ Há duas categorias de regras que são programadas aqui:
 
 **Firewall de host nativo**: a malha e o Armazenamento do Microsoft Azure são executados em um sistema operacional nativo sem hipervisores e, portanto, o firewall do Windows está configurado com os dois conjuntos de regras anteriores.
 
-**Firewall do host**: O firewall host protege a partição do host, que executa o hipervisor. As regras são programadas para permitir que as jump boxes conversem com a partição do host em uma porta específica. As outras exceções existem para permitir a resposta DHCP e Respostas DNS. O Microsoft Azure usa um arquivo de configuração de computador que contém o modelo de regras de firewall para a partição do host. Há também uma exceção de firewall de host que permite que as VMs se comuniquem com os componentes do host, o servidor de rede e o servidor de metadados, por meio de protocolos/portas específicos.
+**Firewall do host**: o Firewall do host protege a partição do host, que executa o hipervisor. As regras são programadas para permitir que as jump boxes conversem com a partição do host em uma porta específica. As outras exceções existem para permitir a resposta DHCP e Respostas DNS. O Microsoft Azure usa um arquivo de configuração de computador que contém o modelo de regras de firewall para a partição do host. Há também uma exceção de firewall de host que permite que as VMs se comuniquem com os componentes do host, o servidor de rede e o servidor de metadados, por meio de protocolos/portas específicos.
 
 **Firewall convidado**: parte do SO convidado, o que pode ser configurado pelo cliente em VMs de cliente e armazenamento Firewall do Windows.
 
@@ -85,7 +85,7 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171757"
 ---
 ### <a name="to-modify-the-local-network-gateway-ip-address---no-gateway-connection"></a><a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
@@ -33,14 +33,14 @@ Para modificar um gateway de rede local com uma conexão, você precisa primeiro
 2. Clique em **...** na linha para a conexão e então clique em **Excluir**.
 3. Para salvar suas configurações, clique em **Salvar** .
 
-#### <a name="2-modify-the-ip-address"></a>2. Modifique o endereço IP.
+#### <a name="2-modify-the-ip-address"></a>2. modifique o endereço IP.
 
 Você também pode modificar os prefixos do endereço ao mesmo tempo.
 
 1. Na caixa **Endereço IP**, modifique o endereço IP.
 2. Clique em **Salvar** para salvar as configurações.
 
-#### <a name="3-recreate-the-connection"></a>3. Recrie a conexão.
+#### <a name="3-recreate-the-connection"></a>3. recrie a conexão.
 
 1. Navegue até o Gateway de Rede Virtual para sua rede virtual. (Não o Gateway de Rede Local).
 2. No Gateway de Rede Virtual, na seção **Configurações**, clique em **Conexões**.

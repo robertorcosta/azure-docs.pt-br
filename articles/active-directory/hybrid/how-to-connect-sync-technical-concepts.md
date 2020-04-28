@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60347560"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
@@ -43,7 +43,7 @@ As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Servi
 ## <a name="connector"></a>Conector
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
 
-Estes são instalados no computador executando a sincronização Azure AD Connect. Os conectores fornecem a capacidade sem agente de conversar usando protocolos remotos do sistema em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
+Eles são instalados no computador que executa Azure AD Connect sincronização. Os conectores fornecem a capacidade sem agente de conversar usando protocolos de sistema remoto em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
 
 Na figura acima, o conector é sinônimo de espaço conector, mas abrange toda a comunicação com o sistema externo.
 
@@ -87,7 +87,7 @@ Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir
 Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Azure AD Connect Sync: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização de Azure AD Connect: personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

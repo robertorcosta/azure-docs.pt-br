@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60518447"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar o Gen1 do Armazenamento de Dados do Azure pelas regiões
@@ -25,12 +25,12 @@ ms.locfileid: "60518447"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure.** Para obter mais informações, consulte [Criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Para obter mais informações, consulte [Criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Data Lake armazenamento Gen1 em duas regiões diferentes**. Para obter mais informações, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).
-* **Fábrica de Dados Azure**. Para obter mais informações, consulte [Introdução ao Azure Data Factory](../data-factory/introduction.md).
+* **Azure data Factory**. Para obter mais informações, consulte [Introdução ao Azure Data Factory](../data-factory/introduction.md).
 
 
-## <a name="migration-considerations"></a>Considerações sobre a migração
+## <a name="migration-considerations"></a>Considerações sobre migração
 
 Primeiro, identifique a estratégia de migração que funciona melhor para seu aplicativo que grava, lê ou processa dados no Data Lake armazenamento Gen1. Ao escolher uma estratégia, considere os requisitos de disponibilidade do aplicativo e o tempo de inatividade que ocorre durante uma migração. Por exemplo, a abordagem mais simples pode ser usar o modelo de migração em nuvem "lift-and-shift". Nessa abordagem, você pausa o aplicativo em sua região existente, enquanto todos os seus dados são copiados para a nova região. Quando o processo de cópia for concluído, continue executando o aplicativo na nova região e, em seguida, exclua a conta do Data Lake armazenamento Gen1 antiga. O tempo de inatividade durante a migração é necessário.
 

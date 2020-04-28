@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171867"
 ---
 Nesta etapa, você deve testar o ouvinte do grupo de disponibilidade usando um aplicativo cliente em execução na mesma rede.
@@ -18,7 +18,7 @@ Para a conectividade do cliente, observe os seguintes requisitos:
 * As conexões de cliente para o ouvinte devem vir de máquinas que residem em um serviço de nuvem diferente daquele que hospeda as réplicas de disponibilidade do AlwaysOn.
 * Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes deverão especificar *MultisubnetFailover=True* na cadeia de conexão. Essa condição resulta em tentativas de conexão em paralelo para réplicas nas várias sub-redes. Observe que esse cenário inclui uma implantação de grupo de disponibilidade do AlwaysOn entre regiões.
 
-Um exemplo é conectar-se ao ouvinte de uma das VMs na mesma rede virtual do Azure (mas não uma que hospeda uma réplica). Uma maneira fácil para concluir este teste é tentar conectar o SQL Server Management Studio ao ouvinte do grupo de disponibilidade. Outro método simples é executar [sqlcmd.exe,](https://technet.microsoft.com/library/ms162773.aspx)da seguinte forma:
+Um exemplo é conectar-se ao ouvinte de uma das VMs na mesma rede virtual do Azure (mas não uma que hospeda uma réplica). Uma maneira fácil para concluir este teste é tentar conectar o SQL Server Management Studio ao ouvinte do grupo de disponibilidade. Outro método simples é executar o [sqlcmd. exe](https://technet.microsoft.com/library/ms162773.aspx), da seguinte maneira:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 

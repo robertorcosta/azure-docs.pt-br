@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68561883"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Editar as informações do grupo usando o Azure Active Directory
@@ -39,7 +39,7 @@ Usando o Azure AD (Azure Active Directory), é possível editar as configuraçõ
 
 4. Selecione o grupo **Política de MDM - Oeste** e, em seguida, selecione **Propriedades** na área **Gerenciar**.
 
-    ![Página de visão geral do grupo, com opção de membro e informações destacadas](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Página Visão geral do grupo, com a opção de membro e as informações realçadas](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Atualize as informações **Configurações gerais** conforme necessário, incluindo:
 
@@ -51,7 +51,7 @@ Usando o Azure AD (Azure Active Directory), é possível editar as configuraçõ
 
     - **Tipo de grupo.** Não será possível alterar o tipo de grupo após ter sido criado. Para alterar o **Tipo de grupo**, é necessário excluir o grupo e criar um novo.
     
-    - **Tipo de adesão.** Altere o tipo de associação. Para obter mais informações sobre os vários tipos de membros disponíveis, consulte [Como: Criar um grupo básico e adicionar membros usando o portal Azure Active Directory](active-directory-groups-create-azure-portal.md).
+    - **Tipo de associação.** Altere o tipo de associação. Para obter mais informações sobre os vários tipos de associação disponíveis, consulte [como: criar um grupo básico e adicionar membros usando o portal de Azure Active Directory](active-directory-groups-create-azure-portal.md).
     
     - **ID do objeto.** Não é possível alterar a ID do objeto, mas é possível copiá-la para usar nos comandos do PowerShell para o grupo. Para obter mais informações sobre o uso de cmdlets do PowerShell, consulte [Cmdlets do Azure Active Directory para definir configurações de grupo](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

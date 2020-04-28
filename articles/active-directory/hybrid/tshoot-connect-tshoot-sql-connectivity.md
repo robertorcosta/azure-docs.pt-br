@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cde94dce13eeb7536f72fb0dcd937265960c7314
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70842698"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade de SQL com o Azure AD Connect
@@ -39,8 +39,8 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 >O Módulo de Instalação requer a atualização para [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) ou posterior;  
 Ou instale a [Versão Prévia dos Módulos do PackageManagement PowerShell - março de 2016 para o PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
 
-- **Mostrar todos os comandos:**`Get-Command -Module AdSyncTools` 
-- **Execute a função powershell:** `Connect-ADSyncDatabase` com os seguintes parâmetros
+- **Mostrar todos os comandos**:`Get-Command -Module AdSyncTools` 
+- **Execute a função do PowerShell**: `Connect-ADSyncDatabase` com os seguintes parâmetros
     - Servidor. O nome do SQL Server.
     - Instância. (Opcional) O nome da Instância do SQL Server e, opcionalmente, número de Porta que você deseja usar. Não especifique esse parâmetro para usar a instância padrão.
     - UserName. (Opcional) A conta de usuário para se conectar. Se deixado em branco, o usuário conectado no momento será usado. Se você estiver se conectando a um SQL Server remoto, essa deverá ser a conta de serviço personalizada que você criou para a Conectividade do SQL do Azure ADConnect. O Azure AD Connect usa a conta de serviço de sincronização do Azure AD Connect para autenticar para um SQL Server remoto.

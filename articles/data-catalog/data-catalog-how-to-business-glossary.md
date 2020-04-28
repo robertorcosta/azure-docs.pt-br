@@ -1,5 +1,5 @@
 ---
-title: Configure o glossário de negócios no Catálogo de Dados do Azure
+title: Configurar o Glossário de negócios no catálogo de dados do Azure
 description: O artigo de instruções destaca o glossário de negócios no Catálogo de Dados do Azure para definir e usar um vocabulário de negócios comum para marcar ativos de dados registrados.
 author: JasonWHowell
 ms.author: jasonh
@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68976801"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Como configurar o glossário de negócios para marcação controlada
@@ -32,15 +32,15 @@ Ao usar o glossário de negócios do Catálogo de Dados, uma organização pode 
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilidade de glossário e privilégios
 
-O glossário de negócios está disponível somente na Standard Edition do Catálogo de Dados do Azure. A Edição Livre do Catálogo de Dados não inclui um glossário e não fornece recursos para marcação regida.
+O glossário de negócios está disponível somente na Standard Edition do Catálogo de Dados do Azure. A edição gratuita do catálogo de dados não inclui um glossário e não fornece recursos para marcação controlada.
 
 Você pode acessar o glossário de negócios por meio da opção **Glossário** no menu de navegação do portal do Catálogo de Dados.  
 
-![Catálogo de Dados - Acesse o glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Catálogo de dados-acessar o Glossário de negócios](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 Os administradores do Catálogo de Dados e os membros da função de administradores de glossário podem criar, editar e excluir os termos do glossário no glossário de negócios. Todos os usuários do Catálogo de Dados podem exibir as definições de termos e marcar ativos com os termos do glossário.
 
-![Catálogo de Dados - Adicionar um novo termo glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Catálogo de dados-adicionar um novo termo de Glossário](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>Criar termos do glossário
 

@@ -8,15 +8,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68726413"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
-Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs. Para obter mais informações sobre blobs, consulte a seção [Próximos passos.](#next-steps) Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs. Para obter mais informações sobre BLOBs, consulte a seção [próximas etapas](#next-steps) . Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
 
 Para saber mais sobre armazenamento de Blobs, consulte [Introdução ao armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
@@ -62,7 +62,7 @@ Para usar essa biblioteca, você precisará do seguinte:
 A outra maneira de usar a biblioteca é criar a estrutura manualmente:
 
 1. Primeiro, baixe ou clone o [repositório azure-storage-ios](https://github.com/azure/azure-storage-ios).
-2. Entre na Biblioteca do Cliente de Armazenamento*Lib* -> *Azure* *azure-storage-ios* ->  `AZSClient.xcodeproj` e abra no Xcode.
+2. Vá para *Azure-Storage-Ios* -> *lib* -> *biblioteca de cliente de armazenamento do Azure*e abra `AZSClient.xcodeproj` no Xcode.
 3. No canto superior esquerdo do Xcode, altere o esquema ativo de "Biblioteca de Cliente de Armazenamento do Azure" para "Estrutura".
 4. Compile o projeto (⌘+B). Isso criará um arquivo `AZSClient.framework` na Área de Trabalho.
 
@@ -82,7 +82,7 @@ Você pode importar o arquivo de estrutura em seu aplicativo fazendo o seguinte:
 #import <AZSClient/AZSClient.h>
 ```
 
-Se você estiver usando o Swift, você precisará \<criar um cabeçalho de ponte e importar AZSClient/AZSClient.h> lá:
+Se você estiver usando o Swift, será necessário criar um cabeçalho de ponte e importar \<AZSClient/AZSClient. h> lá:
 
 1. Crie um arquivo de cabeçalho `Bridging-Header.h` e adicione a instrução de importação acima.
 2. Vá para a guia *Configurações de Build* e pesquise por *Cabeçalho Ponte do Objective-C*.
@@ -394,5 +394,5 @@ Agora que você aprendeu como usar o Armazenamento de Blobs do iOS, siga esses l
 - [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx) (Referência de API REST dos Serviços de Armazenamento do Azure)
 - [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se você tiver dúvidas sobre esta biblioteca, sinta-se livre para postar no nosso [fórum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se você tiver dúvidas sobre esta biblioteca, sinta-se à vontade para postar em nosso [Fórum do MSDN do Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60347714"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
@@ -34,7 +34,7 @@ Os cenários a seguir têm suporte:
 
 - Entradas de usuário em aplicativos com base em navegador da Web.
 - Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
-- Logins de usuários para aplicativos clientes legados do Office e aplicativos do Office que suportam [autenticação moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): versões do Office 2013 e 2016.
+- Entradas do usuário para aplicativos cliente do Office herdados e aplicativos do Office que dão suporte à [autenticação moderna](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 e versões 2016.
 - Entradas de usuário para aplicativos de protocolo herdados, como o PowerShell versão 1.0 e outros.
 - Ingressos do Azure AD para dispositivos Windows 10.
 - Senhas de aplicativo para Autenticação Multifator.

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68736284"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados do Azure
@@ -23,7 +23,7 @@ O Catálogo de Dados do Azure é um repositório de metadados baseado em nuvem n
 
 ## <a name="data-source"></a>Fonte de dados
 
-Uma fonte de dados é um sistema ou um contêiner que gerencia ativos de dados. Exemplos incluem bancos de dados SQL Server, bancos de dados Oracle, bancos de dados SQL Server Analysis Services (tabular ou multidimensional) e servidores SQL Server Reporting Services.
+Uma fonte de dados é um sistema ou um contêiner que gerencia ativos de dados. Os exemplos incluem bancos de dados SQL Server, bancos de dados Oracle, bancos de dados SQL Server Analysis Services (tabela ou multidimensional) e servidores SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Ativos de dados
 
@@ -67,7 +67,7 @@ Um perfil de dados no Catálogo de Dados do Azure é um instantâneo de nível d
 
 No Catálogo de Dados do Azure, qualquer usuário pode fornecer metadados descritivos para um ativo de dados registrado. Cada usuário tem uma perspectiva distinta sobre os dados e seu uso. Por exemplo, o administrador responsável por um servidor pode fornecer detalhes de seu SLA (Contrato de Nível de Serviço) ou janelas de backup; um administrador de dados pode fornecer links de documentação para os negócios de negócios aos quais os dados dão suporte; e um analista pode fornecer uma descrição em termos mais relevantes para outros analistas e que podem ser mais valiosos para usuários que precisam descobrir e entender os dados.
 
-Cada uma dessas perspectivas é inerentemente valiosa, e com o Catálogo de Dados do Azure cada usuário pode fornecer as informações que são significativas para eles, enquanto todos os usuários podem usar essas informações para entender os dados e sua finalidade.
+Cada uma dessas perspectivas é inerentemente valiosa e, com o catálogo de dados do Azure, cada usuário pode fornecer as informações que são significativas para elas, enquanto todos os usuários podem usar essas informações para entender os dados e sua finalidade.
 
 ## <a name="expert"></a>Especialista
 
@@ -75,7 +75,7 @@ Especialista é um usuário que foi identificado como tendo uma perspectiva de "
 
 ## <a name="owner"></a>Proprietário
 
-Um proprietário é um usuário que tem privilégios adicionais para gerenciar um ativo de dados no Catálogo de Dados do Azure. Os usuários podem se apropriar de ativos de dados registrados e os proprietários podem adicionar outros usuários como co-proprietários. Para obter mais informações, consulte [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)  
+Um proprietário é um usuário que tem privilégios adicionais para gerenciar um ativo de dados no Catálogo de Dados do Azure. Os usuários podem se apropriar de ativos de dados registrados e os proprietários podem adicionar outros usuários como co-proprietários. Para obter mais informações, consulte [como gerenciar ativos de dados](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
 > Propriedade e gerenciamento estão disponíveis somente na Standard Edition do Catálogo de Dados do Azure.
@@ -86,4 +86,4 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Quickstart: Crie um catálogo de dados do Azure](data-catalog-get-started.md) 
+[Início rápido: criar um catálogo de dados do Azure](data-catalog-get-started.md) 

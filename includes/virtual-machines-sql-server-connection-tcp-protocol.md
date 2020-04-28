@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67171864"
 ---
 1. Ainda conectado à máquina virtual com a área de trabalho remota, procure **Configuration Manager**:
@@ -17,7 +17,7 @@ ms.locfileid: "67171864"
 
 1. No SQL Server Configuration Manager, no painel de console, expanda **Configuração de Rede do SQL Server**.
 
-1. No painel do console, clique em **Protocolos para MSSQLSERVER** (o nome da instância padrão.) No painel de detalhes, clique com o botão direito do mouse **TCP** e clique **em Ativar** se ele ainda não estiver habilitado.
+1. No painel de console, clique em **protocolos para MSSQLSERVER** (o nome da instância padrão.) No painel de detalhes, clique com o botão direito do mouse em **TCP** e clique em **habilitar** se ainda não estiver habilitado.
 
     ![Habilitar TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 

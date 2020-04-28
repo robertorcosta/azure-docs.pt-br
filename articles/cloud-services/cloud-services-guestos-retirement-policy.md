@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68945446"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
@@ -54,9 +54,9 @@ Versões do SO convidado são lançadas a cada mês. Devido aos lançamentos reg
 
 Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do portal. A versão não pode mais ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução. Mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
 
-Algum tempo depois de ficar "desativada", a versão do Sistema Operacional convidado "expira" e quaisquer instalações que ainda estejam em execução naquela versão expirada estão expostas a problemas de segurança e vulnerabilidade. Geralmente, o vencimento é feito em lotes, de modo que o período de incapacidade para o vencimento pode variar.
+Algum tempo depois de se tornar "desabilitado", a versão do sistema operacional convidado "expira" e todas as instalações que ainda estiverem executando essa versão expirada serão expostas a problemas de segurança e vulnerabilidade. Geralmente, a expiração é feita em lotes e, portanto, o período de desativação para expiração pode variar.
 
-Os clientes que configuram seus serviços para atualizar o Sistema Operacional convidado manualmente, devem garantir que seus serviços estejam sendo executados em um sistema operacional convidado suportado. Se um serviço for configurado para atualizar o Sistema Operacional convidado automaticamente, a plataforma subjacente garantirá a conformidade e será atualizada para o sistema operacional convidado mais recente.
+Os clientes que configuram seus serviços para atualizar o SO convidado manualmente devem garantir que seus serviços estejam em execução em um SO convidado com suporte. Se um serviço estiver configurado para atualizar o SO convidado automaticamente, a plataforma subjacente garantirá a conformidade e será atualizada para o SO convidado mais recente.
 
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 

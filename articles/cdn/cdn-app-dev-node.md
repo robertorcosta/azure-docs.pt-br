@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594141"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução ao desenvolvimento de CDN do Azure
@@ -86,7 +86,7 @@ Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Adicione o seguinte.  Certifique-se de substituir os espaços reservados, incluindo os ** &lt;suportes&gt;angulares,** com seus próprios valores conforme necessário.
+2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Adicione o seguinte.  Certifique-se de substituir os espaços reservados, incluindo os ** &lt;colchetes&gt;angulares**, pelos seus próprios valores, conforme necessário.
    
     ``` javascript
     //Tenant app constants
@@ -119,7 +119,7 @@ Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    Certifique-se de substituir os itens nos ** &lt;suportes angulares&gt; ** com as informações corretas.  Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
+    Certifique-se de substituir os itens ** &lt;entre colchetes&gt; ** com as informações corretas.  Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
 4. O aplicativo de console do Node.js usará alguns parâmetros da linha de comando.  Validaremos que pelo menos um parâmetro foi passado.
    
    ```javascript

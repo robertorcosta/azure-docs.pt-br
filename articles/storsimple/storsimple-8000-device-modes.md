@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60576081"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Alterar o modo do dispositivo StorSimple
@@ -48,7 +48,7 @@ O dispositivo StorSimple pode operar nos modos normal, de manutenção ou de rec
 Você pode colocar o sistema no modo de manutenção somente por meio do Windows PowerShell para StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair do modo de manutenção, todos os serviços continuarão e deverão estar íntegros. Isso pode levar alguns minutos.
 
 > [!NOTE]
-> **O modo de manutenção só é suportado em um dispositivo que funciona corretamente. Não é suportado em um dispositivo no qual um ou ambos os controladores não estão funcionando.**
+> **O modo de manutenção tem suporte apenas em um dispositivo funcionando corretamente. Não há suporte para ele em um dispositivo no qual um ou ambos os controladores não estejam funcionando.**
 
 
 ### <a name="recovery-mode"></a>Modo de recuperação

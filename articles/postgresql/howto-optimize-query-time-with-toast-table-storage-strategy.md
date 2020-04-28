@@ -1,16 +1,16 @@
 ---
-title: Otimizar o tempo de consulta usando a estratégia de armazenamento de tabela TOAST no Banco de Dados Azure para PostgreSQL - Single Server
-description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST em um banco de dados Azure para PostgreSQL - Single Server.
+title: Otimizar o tempo de consulta usando a estratégia de armazenamento de tabela do sistema no banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento da tabela do sistema em um banco de dados do Azure para PostgreSQL-servidor único.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65066994"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST 

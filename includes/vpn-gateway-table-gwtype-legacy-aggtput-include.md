@@ -9,15 +9,15 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171812"
 ---
 A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada pela SKU do gateway. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico. 
 
-Os preços diferem entre os SKUs de gateway. Para obter mais informações, consulte [PREÇOS do Gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Os preços diferem entre os SKUs de gateway. Para obter mais informações, consulte [preços do gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 
 Observe que a SKU do gateway UltraPerformance não é representada nesta tabela. Para saber mais sobre a SKU do UltraPerformance, veja a documentação do [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 

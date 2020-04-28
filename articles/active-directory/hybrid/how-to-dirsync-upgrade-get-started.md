@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "60348475"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: atualizar do DirSync
@@ -28,12 +28,12 @@ O Azure AD Connect é o sucessor do DirSync. Neste tópico, você conhecerá as 
 
 Antes de iniciar a instalação do Azure AD Connect, [baixe o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e conclua as etapas de pré-requisito em [Azure AD Connect: hardware e pré-requisitos](how-to-connect-install-prerequisites.md). Em particular, leia o seguinte, pois essas áreas são diferentes do DirSync:
 
-* A versão necessária de .NET e PowerShell. Versões mais recentes do que aquelas de que DirSync precisa devem estar no servidor.
+* A versão necessária do .NET e do PowerShell. Versões mais recentes do que aquelas de que DirSync precisa devem estar no servidor.
 * A configuração do servidor proxy. Se você usa um servidor proxy para acessar a Internet, essa configuração deve ser definida antes da atualização. DirSync sempre usava o servidor proxy configurado para o usuário que o instalava, mas o Azure AD Connect usa as configurações do computador em vez disso.
 * As URLs que precisam ser abertas no servidor proxy. Para cenários básicos, estes cenários, também com suporte no DirSync, os requisitos são os mesmos. Se você quiser usar qualquer um dos novos recursos incluídos no Azure AD Connect, algumas novas URLs deverão ser abertas.
 
 > [!NOTE]
-> Depois de habilitar o novo servidor Azure AD Connect para iniciar a sincronização de alterações no Azure AD, você não deve reverter para usar o DirSync ou o Azure AD Sync. O downgrade do Azure AD Connect para clientes legados, incluindo O DirSync e o Azure AD Sync, não é suportado e pode levar a problemas como perda de dados no Azure AD.
+> Depois de habilitar o novo Azure AD Connect Server para iniciar a sincronização de alterações no Azure AD, você não deverá reverter para usando o DirSync ou o Azure AD Sync. O downgrade de Azure AD Connect para clientes herdados, incluindo DirSync e Azure AD Sync, não é suportado e pode levar a problemas como perda de dados no Azure AD.
 
 Se não estiver fazendo a atualização a partir do DirSync, confira a documentação relacionada de outros cenários.
 
@@ -171,7 +171,7 @@ Quando você instala o Azure AD Connect em um novo servidor, a premissa é que v
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Verificar se o Azure AD Connect está pronto para iniciar a sincronização
 Para determinar se o Azure AD Connect está pronto para assumir o controle do DirSync, você precisa abrir o **Gerenciador do Serviço de Sincronização** no grupo **Azure AD Connect** do menu Iniciar.
 
-No aplicativo, vá para a guia **Operações.** Nesta guia, confirme se as seguintes operações foram concluídas:
+No aplicativo, vá para a guia **operações** . Nessa guia, confirme se as seguintes operações foram concluídas:
 
 * Importação no AD Connector
 * Importação no Azure AD Connector
@@ -206,7 +206,7 @@ Você deve ver o seguinte:
 
 ![Insira suas credenciais de AD do Azure](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
-* Clique no botão **Seguinte**
+* Clique no botão **Avançar**
 * Na página de confirmação, clique no botão **Instalar** .
 
 O Azure AD Connect é agora o servidor ativo e você não deve voltar a usar o servidor DirSync existente.
@@ -218,4 +218,4 @@ Saiba mais sobre estes novos recursos, que foram habilitados com a instalação:
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

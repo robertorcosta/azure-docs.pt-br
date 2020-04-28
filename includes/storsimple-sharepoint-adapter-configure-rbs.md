@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171962"
 ---
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "67171962"
       ![Mensagem de configuração do adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Se você estiver configurando o RBS para uma fazenda SharePoint com um número muito grande de bancos de dados (maiorque 200), a página da Web da Administração Central do SharePoint pode ser cronometrada. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
+      > Se você estiver configurando o RBS para um farm do SharePoint com um número muito grande de bancos de dados (maior que 200), a página da Web da administração central do SharePoint poderá atingir o tempo limite. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
 
 4. Verifique a configuração:
    

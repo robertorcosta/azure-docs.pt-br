@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: b-juche
 ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "65957028"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Desenvolver para Azure NetApp Files com API REST 
 
 A API REST para o serviço Azure NetApp Files define operações HTTP em relação a recursos como a conta do NetApp, o pool de capacidade, os volumes e os instantâneos. Este artigo é uma introdução sobre como usar a API REST do Azure NetApp Files.
 
-## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp Arquivos RESTO Especificação da API
+## <a name="azure-netapp-files-rest-api-specification"></a>Especificação da API REST do Azure NetApp Files
 
-A especificação rest API para arquivos Do Azure NetApp é publicada através do [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+A especificação da API REST para Azure NetApp Files é publicada por meio do [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 

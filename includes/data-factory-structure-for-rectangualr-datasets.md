@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172592"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especifica a definição de estrutura para conjuntos de dados retangulares
@@ -39,7 +39,7 @@ Use as diretrizes a seguir referentes a quando incluir informações de "estrutu
 * **Para fontes de dados estruturados** que armazenam o esquema de dados e informações de tipo junto com os dados em si (fontes como tabela do Azure do SQL Server, Oracle, etc.), você deve especificar a seção "estrutura" apenas se quiser fazer o mapeamento de coluna de colunas de origem específicas para colunas específicas no coletor e seus nomes não forem iguais (consulte detalhes na seção mapeamento de coluna abaixo). 
   
     Conforme mencionado acima, as informações de tipo são opcionais na seção "estrutura". Para fontes estruturadas, as informações de tipo já estão disponíveis como parte da definição de conjunto de dados no repositório de dados, portanto, você não deve incluir informações de tipo quando você incluir a seção "estrutura".
-* **Para esquemas sobre fontes de dados de leitura (especificamente a bolha do Azure)** você pode optar por armazenar dados sem armazenar qualquer esquema ou tipo de informação com os dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
+* **Para esquema em fontes de dados de leitura (especificamente o blob do Azure)** , você pode optar por armazenar dados sem armazenar nenhuma informação de tipo ou esquema com os dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
   * Você deseja fazer o mapeamento de coluna.
   * Quando o conjunto de dados é uma fonte em uma Atividade de cópia, você pode fornecer informações de tipo em "estrutura" e o data factory usará essas informações de tipo para conversão em tipos nativos para o coletor. Consulte o artigo [Mover dados de e para o Blob do Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) para obter mais informações.
 

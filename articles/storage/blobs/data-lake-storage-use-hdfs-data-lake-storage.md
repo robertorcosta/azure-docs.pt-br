@@ -10,22 +10,22 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "69992214"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Usando a CLI do HDFS com o Data Lake Storage Gen2
 
-Você pode acessar e gerenciar os dados em sua conta de armazenamento usando uma interface de linha de comando, assim como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Este artigo fornece alguns exemplos que ajudarão você a começar.
+Você pode acessar e gerenciar os dados em sua conta de armazenamento usando uma interface de linha de comando, assim como faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Este artigo fornece alguns exemplos que irão ajudá-lo a começar.
 
-O HDInsight fornece acesso ao contêiner distribuído que é anexado localmente aos nós de computação. Você pode acessar este contêiner usando o shell que interage diretamente com o HDFS e os outros sistemas de arquivos que hadoop suporta.
+O HDInsight fornece acesso ao contêiner distribuído que está anexado localmente aos nós de computação. Você pode acessar esse contêiner usando o shell que interage diretamente com o HDFS e com os outros sistemas de arquivos aos quais o Hadoop dá suporte.
 
-Para obter mais informações sobre o HDFS CLI, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [Guia de Permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [Guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se você estiver usando o Azure Databricks em vez do HDInsight e quiser interagir com seus dados usando uma interface de linha de comando, você pode usar o CLI databricks para interagir com o sistema de arquivos Databricks. Consulte [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Se você estiver usando Azure Databricks em vez do HDInsight e desejar interagir com seus dados usando uma interface de linha de comando, poderá usar a CLI do databricks para interagir com o sistema de arquivos do databricks. Consulte a [CLI do databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usar a CLI do HDFS com um cluster HDInsight Hadoop no Linux
 
@@ -56,7 +56,7 @@ A cadeia de caracteres de conexão pode ser encontrada no "SSH + Cluster logon" 
 
     hdfs dfs -ls <path>
 
-Substitua `<path>` o espaço reservado pelo URI da pasta do recipiente ou do contêiner.
+Substitua o `<path>` espaço reservado pelo URI do contêiner ou da pasta do contêiner.
 
 Por exemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -64,7 +64,7 @@ Por exemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windo
 
     hdfs dfs -mkdir [-p] <path>
 
-Substitua `<path>` o espaço reservado pelo nome do recipiente raiz ou por uma pasta dentro do recipiente.
+Substitua o `<path>` espaço reservado pelo nome do contêiner raiz ou por uma pasta dentro do contêiner.
 
 Por exemplo: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
@@ -120,4 +120,4 @@ Consulte [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoo
 
 * [ Use uma conta compatível com o Azure Data Lake Gen2 em bancos de dados do Azure ](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Conheça listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Saiba mais sobre as listas de controle de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

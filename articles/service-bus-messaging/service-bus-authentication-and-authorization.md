@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 7234e33c04e742c77630f8d87481c7831fb00bf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70013240"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Barramento de Serviço
@@ -30,15 +30,15 @@ Os tokens SAS podem ser gerados por um cliente do Barramento de Serviço diretam
 > Se você está usando o Controle de Acesso do Azure Active Directory (também conhecido como Serviço de Controle de Acesso ou ACS) com o Barramento de Serviço, observe que o suporte para esse método agora é limitado e que você deve migrar seu aplicativo para usar o SAS. Para obter mais informações, consulte [esta postagem no blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) e [este artigo](service-bus-migrate-acs-sas.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração do Azure Active Directory (Azure AD) para recursos de Bus de Serviço fornece controle de acesso baseado em função (RBAC) para controle fino sobre o acesso de um cliente aos recursos. Você pode usar o RBAC (Role-based Access Control, controle de acesso baseado em função) para conceder permissões ao principal de segurança, que pode ser um usuário, um grupo ou um diretor de serviço de aplicativo. O principal de segurança é autenticado pelo Azure AD para retornar um token OAuth 2.0. O token pode ser usado para autorizar uma solicitação para acessar um recurso de Service Bus (fila, tópico, etc.).
+A integração do Azure Active Directory (Azure AD) para recursos do barramento de serviço fornece controle de acesso baseado em função (RBAC) para controle refinado sobre o acesso de um cliente aos recursos. Você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões à entidade de segurança, que pode ser um usuário, um grupo ou uma entidade de serviço de aplicativo. A entidade de segurança é autenticada pelo AD do Azure para retornar um token 2,0 do OAuth. O token pode ser usado para autorizar uma solicitação para acessar um recurso do barramento de serviço (fila, tópico, etc.).
 
-Para obter mais informações sobre autenticação com o Azure AD, consulte os seguintes artigos:
+Para obter mais informações sobre como autenticar com o Azure AD, consulte os seguintes artigos:
 
 - [Autenticar com identidades gerenciadas](service-bus-managed-service-identity.md)
 - [Autenticar a partir de um aplicativo](authenticate-application.md)
 
 > [!IMPORTANT]
-> Autorizar usuários ou aplicativos usando o token OAuth 2.0 devolvido pelo Azure AD proporciona maior segurança e facilidade de uso sobre assinaturas de acesso compartilhado (SAS). Com o Azure AD, não há necessidade de armazenar os tokens em seu código e arriscar possíveis vulnerabilidades de segurança. Recomendamos que você use o Azure AD com seus aplicativos de Ônibus de Serviço do Azure quando possível. 
+> A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais. É recomendável usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. 
 
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado

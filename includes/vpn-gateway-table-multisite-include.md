@@ -9,13 +9,13 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 7ff633b33a800e1dfe28c63b6ba880233e2b4a1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171760"
 ---
-| **Modelo/método de implantação** | **Portal Azure** | **Powershell** |
+| **Modelo/método de implantação** | **Azure portal** | **PowerShell** |
 | --- | --- | --- |
 | Gerenciador de Recursos |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Com suporte |
 | Clássico | Sem suporte | [Tutorial](../articles/vpn-gateway/vpn-gateway-multi-site.md) |

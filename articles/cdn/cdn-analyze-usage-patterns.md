@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67594152"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleo da Verizon
@@ -119,7 +119,7 @@ O relatório fornece os seguintes detalhes:
 
 O relatório não inclui:
 
-* Solicitações que são negadas devido às opções de filtragem de país/região.
+* Solicitações que são negadas devido a opções de filtragem de país/região.
 * Solicitações de ativos cujos cabeçalhos indicam que eles não devem ser armazenado em cache. Por exemplo, cabeçalhos `Cache-Control: private`, `Cache-Control: no-cache` ou `Pragma: no-cache` impedem o armazenamento de um ativo em cache.
 * Solicitações de intervalo de bytes para conteúdo parcialmente armazenado em cache.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593472"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas em tempo real na CDN do Microsoft Azure
@@ -33,7 +33,7 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
 * conexões
 
 ## <a name="creating-a-real-time-alert"></a>Criar um alerta em tempo real
-1. No [portal Azure,](https://portal.azure.com)navegue pelo seu perfil de CDN.
+1. No [portal do Azure](https://portal.azure.com), navegue até o seu perfil CDN.
    
     ![Perfil CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 1. Na folha do perfil do CDN, clique no botão **Gerenciar** .

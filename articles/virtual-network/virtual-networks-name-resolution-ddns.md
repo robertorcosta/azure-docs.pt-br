@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
 ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60640371"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usar o DNS dinâmico para registrar os nomes do host em seu próprio servidor DNS
@@ -35,7 +35,7 @@ Os clientes do Windows ingressados no domínio registram seus endereços IP com 
 ## <a name="linux-clients"></a>Clientes Linux
 Clientes Linux geralmente não se registram no servidor DNS na inicialização, eles supõem que o servidor DHCP faça isso. Os servidores DHCP do Azure não têm as credenciais para manter os registros no seu servidor DNS. Use uma ferramenta chamada `nsupdate`, que está incluída no pacote de Associação, para enviar atualizações do DDNS. Como o protocolo DDNS é padronizado, você pode usar `nsupdate` mesmo quando não estiver usando a Associação no servidor DNS.
 
-Você pode usar os ganchos que são fornecidos pelo cliente DHCP para criar e manter a entrada do nome do host no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Você pode usar os ganchos para registrar o novo endereço IP usando `nsupdate`. Por exemplo: 
+Você pode usar os ganchos que são fornecidos pelo cliente DHCP para criar e manter a entrada do nome do host no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Você pode usar os ganchos para registrar o novo endereço IP usando `nsupdate`. Por exemplo:
 
 ```bash
 #!/bin/sh

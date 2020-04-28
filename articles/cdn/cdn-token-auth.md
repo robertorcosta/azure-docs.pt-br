@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
 ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67593385"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
@@ -33,7 +33,7 @@ A autenticação de token é um mecanismo que permite que você impeça que a CD
 
 A autenticação de token verifica que as solicitações são geradas por um site confiável, exigindo que as solicitações contenham um valor de token com informações codificadas sobre o solicitante. O conteúdo será fornecido a um solicitante somente se as informações codificadas atenderem aos requisitos; caso contrário, as solicitações serão negadas. Você pode configurar os requisitos usando um ou mais dos seguintes parâmetros:
 
-- País: Permitir ou negar solicitações originárias dos países/regiões especificadas pelo [código de seu país](/previous-versions/azure/mt761717(v=azure.100)).
+- País: permitir ou negar solicitações originadas dos países/regiões especificados pelo [código do país](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: permitir somente solicitações que correspondam ao ativo ou ao caminho especificado.
 - Host: permitir ou negar as solicitações que usem os hosts especificados no cabeçalho da solicitação.
 - Referenciador: permitir ou negar a solicitação de referenciador especificado.
@@ -72,7 +72,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
       ```rand -hex <key length>```
 
-      Por exemplo: 
+      Por exemplo:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -86,7 +86,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
       ![Chave de configuração de autenticação de token da CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Use a ferramenta de criptografia para configurar os parâmetros de criptografia e gerar um token. Com a ferramenta criptografada, você pode permitir ou negar solicitações com base no tempo de validade, país/região, referrer, protocolo e IP do cliente (em qualquer combinação). Embora não haja nenhum limite para o número e a combinação de parâmetros que podem ser combinados para formar um token, o comprimento total de um token é limitado a 512 caracteres. 
+   4. Use a ferramenta de criptografia para configurar os parâmetros de criptografia e gerar um token. Com a ferramenta Encrypt, você pode permitir ou negar solicitações com base no tempo de expiração, país/região, referenciador, protocolo e IP do cliente (em qualquer combinação). Embora não haja nenhum limite para o número e a combinação de parâmetros que podem ser combinados para formar um token, o comprimento total de um token é limitado a 512 caracteres. 
 
       ![Ferramenta de criptografia da CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Só permite solicitações originárias de um ou mais países/regiões especificadas. Pedidos originários de todos os outros países/regiões são negados. Use um [código de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de duas letras para cada país e separe cada um deles com uma vírgula; não adicione espaço. Por exemplo, se você quiser permitir o acesso apenas dos Estados Unidos e da França, insira `US,FR`.</td>
+      >    <td>Permite apenas solicitações originadas de um ou mais países/regiões especificados. As solicitações originadas em todos os outros países/regiões são negadas. Use um [código de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de duas letras para cada país e separe cada um deles com uma vírgula; não adicione espaço. Por exemplo, se você quiser permitir o acesso apenas dos Estados Unidos e da França, insira `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nega pedidos que se originam de um ou mais países/regiões especificados. Solicitações originárias de todos os outros países/regiões são permitidas. A implementação é a mesma que a do parâmetro <b>ec_country_allow</b>. Se houver um código de país nos parâmetros <b>ec_country_allow</b> e <b>ec_country_deny</b>, o parâmetro <b>ec_country_allow</b> terá precedência.</td>
+      >    <td>Nega solicitações originadas de um ou mais países/regiões especificados. As solicitações originadas em todos os outros países/regiões são permitidas. A implementação é a mesma que a do parâmetro <b>ec_country_allow</b>. Se houver um código de país nos parâmetros <b>ec_country_allow</b> e <b>ec_country_deny</b>, o parâmetro <b>ec_country_allow</b> terá precedência.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -140,7 +140,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
-      >    <td>Nega solicitações do referenciador especificado. A implementação é a mesma do <b>parâmetro ec_ref_allow.</b> Se houver uma referência presente nos parâmetros <b>ec_ref_allow</b> e <b>ec_ref_deny</b>, o parâmetro <b>ec_ref_allow</b> terá precedência.</td>
+      >    <td>Nega solicitações do referenciador especificado. A implementação é a mesma do parâmetro <b>ec_ref_allow</b> . Se houver uma referência presente nos parâmetros <b>ec_ref_allow</b> e <b>ec_ref_deny</b>, o parâmetro <b>ec_ref_allow</b> terá precedência.</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 

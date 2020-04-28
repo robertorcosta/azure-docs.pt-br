@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171758"
 ---
 ### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
@@ -40,7 +40,7 @@ Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixo
 2. Clique em **...** na linha para cadaa conexão e então clique em **Excluir**.
 3. Para salvar suas configurações, clique em **Salvar** .
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modifique os prefixos de endereço.
+#### <a name="2-modify-the-address-prefixes"></a>2. modifique os prefixos de endereço.
 
 Para adicionar prefixos de endereço adicional:
 
@@ -51,11 +51,11 @@ Para adicionar prefixos de endereço adicional:
 Para remover os prefixo de endereço:
 
 1. No recurso Gateway de Rede Local, na seção **Configurações**, clique em **Configuração**.
-2. Clique no **...** na linha contendo o prefixo que você deseja remover.
+2. Clique em **...** na linha que contém o prefixo que você deseja remover.
 3. Clique em **Remover**.
 4. Para salvar suas configurações, clique em **Salvar** .
 
-#### <a name="3-recreate-the-connection"></a>3. Recrie a conexão.
+#### <a name="3-recreate-the-connection"></a>3. recrie a conexão.
 
 1. Navegue até o Gateway de Rede Virtual para sua rede virtual. (Não o Gateway de Rede Local).
 2. No Gateway de Rede Virtual, na seção **Configurações**, clique em **Conexões**.
