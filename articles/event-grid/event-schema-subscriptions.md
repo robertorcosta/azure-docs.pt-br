@@ -1,5 +1,5 @@
 ---
-title: Assinatura do Azure como fonte do Event Grid
+title: Assinatura do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de assinatura com a Grade de Eventos do Azure
 services: event-grid
 author: spelluru
@@ -8,13 +8,13 @@ ms.topic: reference
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393219"
 ---
-# <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como fonte do Event Grid
+# <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como uma fonte de grade de eventos
 
 Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
@@ -237,14 +237,14 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
 | data | objeto | Dados de evento de assinatura. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
@@ -252,16 +252,16 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | autorização | objeto | A autorização solicitada para a operação. |
 | declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | string | Uma ID de operação para solução de problemas. |
+| correlationId | cadeia de caracteres | Uma ID de operação para solução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
-| ResourceProvider | string | O provedor de recursos para a operação. |
-| resourceUri | string | O URI do recurso na operação. |
-| operationName | string | A operação que foi feita. |
-| status | string | O status da operação. |
-| subscriptionId | string | A ID da assinatura do recurso. |
-| tenantId | string | A ID do locatário do recurso. |
+| ResourceProvider | cadeia de caracteres | O provedor de recursos para a operação. |
+| resourceUri | cadeia de caracteres | O URI do recurso na operação. |
+| operationName | cadeia de caracteres | A operação que foi feita. |
+| status | cadeia de caracteres | O status da operação. |
+| subscriptionId | cadeia de caracteres | A ID da assinatura do recurso. |
+| tenantId | cadeia de caracteres | A ID do locatário do recurso. |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title |Descrição  |
 |---------|---------|
 | [Tutorial: Automação do Azure com Grade de Eventos e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento dispara um runbook de Automação que marca a máquina virtual e dispara uma mensagem que é enviada para um canal do Microsoft Teams. |
@@ -271,5 +271,5 @@ O objeto de dados tem as seguintes propriedades:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para uma introdução ao Azure Event Grid, veja [O que é a Grade de Eventos?](overview.md).
+* Para obter uma introdução à grade de eventos do Azure, consulte [o que é a grade de eventos?](overview.md).
 * Para obter mais informações sobre como criar uma assinatura da Grade de Eventos do Azure, confira [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de assinatura da Grade de Eventos).

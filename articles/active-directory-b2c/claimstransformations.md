@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529138"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -35,7 +35,7 @@ Para incluir a lista de funções de transformação de declarações que podem 
 
 O elemento **ClaimsTransformation** contém os seguintes atributos:
 
-| Atributo |Obrigatório | Descrição |
+| Atributo |Necessária | Descrição |
 | --------- |-------- | ----------- |
 | ID |Sim | Um identificador que é usado para identificar exclusivamente a transformação de declaração. O identificador é referenciado de outros elementos XML na política. |
 | TransformationMethod | Sim | O método de transformação a ser usado na transformação de declarações. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -77,7 +77,7 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo |Obrigatório | Descrição |
+| Atributo |Necessária | Descrição |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política. |
 | TransformationClaimType |Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -92,7 +92,7 @@ O elemento **InputParameters** contém o seguinte elemento:
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Atributo | Obrigatório |Descrição |
+| Atributo | Necessária |Descrição |
 | --------- | ----------- |----------- |
 | ID | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de declarações. Cada método de transformação de declarações tem seus próprios valores. Confira a tabela de transformação de declarações para obter uma lista completa dos valores disponíveis. |
 | Tipo de dados | Sim | O tipo de dados do parâmetro, como String, Boolean, Int ou DateTime, de acordo com a enumeração DataType no esquema XML da política personalizada. Esse tipo é usado para executar operações aritméticas corretamente. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -110,7 +110,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo |Obrigatório | Descrição |
+| Atributo |Necessária | Descrição |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política.
 | TransformationClaimType | Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -160,8 +160,8 @@ Por exemplo, você pode armazenar a última versão dos termos de serviços que 
 Para obter exemplos de transformações de declarações, confira as seguintes páginas de referência:
 
 - [Boolean](boolean-transformations.md)
-- [Data](date-transformations.md)
-- [Inteiro](integer-transformations.md)
+- [Date](date-transformations.md)
+- [Valores](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Número de telefone](phone-number-claims-transformations.md)
 - [Geral](general-transformations.md)

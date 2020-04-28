@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884266"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
@@ -46,7 +46,7 @@ Objetos de aplicativo podem ser criados através de vários caminhos, incluindo:
 * Registros de aplicativo no Portal do Azure
 * Criar um novo aplicativo usando o Visual Studio e configurando-o para usar a autenticação do Microsoft Azure AD
 * Quando um administrador adiciona um aplicativo da galeria de aplicativos (isso também cria uma entidade de serviço)
-* Usando a API do Microsoft Graph ou powerShell para criar um novo aplicativo
+* Usando a API Microsoft Graph ou o PowerShell para criar um novo aplicativo
 * Muitos outras, incluindo várias experiências de desenvolvedor no Azure e em experiências de explorador de APIs em centros de desenvolvedores
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Quais são as entidades de serviço e de onde originam-se?
@@ -59,7 +59,7 @@ A entidade de serviço pode incluir:
 * Registros de atribuições de função de aplicativo de usuário e grupo locais
 * Registros de permissões de usuários e administradores locais concedidas ao aplicativo
   * Por exemplo: permissão para o aplicativo acessar o email de um usuário específico
-* Registros de políticas locais, incluindo política de acesso condicional
+* Registros de políticas locais, incluindo a política de acesso condicional
 * Registros de configurações locais alternativas para um aplicativo
   * Declara regras de transformação
   * Mapeamentos de atributos (provisionamento do usuário)
@@ -76,13 +76,13 @@ Como os objetos de aplicativo, as entidades de serviço também podem ser criada
 * Quando um administrador adiciona um aplicativo da galeria de aplicativos (isso também cria um objeto de aplicativo subjacente)
 * Adicionar um aplicativo para usar o [Proxy de Aplicativo do Microsoft Azure AD](/azure/active-directory/manage-apps/application-proxy)
 * Conectar um aplicativo para logon único usando SAML ou SSO (logon único de senha)
-* Programática através da API do Microsoft Graph ou PowerShell
+* Programaticamente por meio da API Microsoft Graph ou do PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como os objetos de aplicativo e as entidades de serviço estão relacionados entre si?
 
 Um aplicativo tem um objeto de aplicativo no diretório base que é referenciado por uma ou mais entidades de serviço em cada um dos diretórios onde opera (incluindo o diretório base do aplicativo).
 
-![Mostra relação entre objetos de aplicativos e diretores de serviços][apps_service_principals_directory]
+![Mostra a relação entre os objetos de aplicativo e as entidades de serviço][apps_service_principals_directory]
 
 No diagrama anterior, a Microsoft mantém dois diretórios internamente (mostrados à esquerda) que usa para publicar aplicativos:
 
@@ -99,13 +99,13 @@ Os aplicativos que você adiciona (representados como **Aplicativo (seu)** no di
 
 ### <a name="notes-and-exceptions"></a>Notas e exceções
 
-* Nem todas as entidades de serviço apontam para um objeto de aplicativo. Quando o Microsoft Azure AD foi originalmente criado, os serviços fornecidos aos aplicativos eram mais limitados e a entidade de serviço era suficiente para estabelecer uma identidade do aplicativo. A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server. Por esse motivo, ainda é possível criar entidades de serviço por meio de diferentes caminhos, como usar o PowerShell do Microsoft Azure AD, sem primeiro criar um objeto de aplicativo. A API do Microsoft Graph requer um objeto de aplicativo antes de criar um principal de serviço.
+* Nem todas as entidades de serviço apontam para um objeto de aplicativo. Quando o Microsoft Azure AD foi originalmente criado, os serviços fornecidos aos aplicativos eram mais limitados e a entidade de serviço era suficiente para estabelecer uma identidade do aplicativo. A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server. Por esse motivo, ainda é possível criar entidades de serviço por meio de diferentes caminhos, como usar o PowerShell do Microsoft Azure AD, sem primeiro criar um objeto de aplicativo. A API de Microsoft Graph requer um objeto de aplicativo antes de criar uma entidade de serviço.
 * Nem todas as informações descritas acima estão expostas programaticamente. Os itens a seguir estão disponíveis apenas na interface do usuário:
   * Declara regras de transformação
   * Mapeamentos de atributos (provisionamento do usuário)
-* Para obter informações mais detalhadas sobre o principal do serviço e objetos de aplicativo, consulte a documentação de referência da API do Microsoft Graph:
+* Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência da API de Microsoft Graph:
   * [Aplicativo](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Diretor de Serviços](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Entidade de serviço](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos integram-se ao Microsoft Azure AD?
 

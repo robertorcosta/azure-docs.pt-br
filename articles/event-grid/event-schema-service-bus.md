@@ -1,5 +1,5 @@
 ---
-title: Ônibus de serviço azure como fonte da Event Grid
+title: Barramento de serviço do Azure como origem da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos do Barramento de Serviço com a Grade de Eventos do Azure
 services: event-grid
 author: banisadr
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: babanisa
 ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393233"
 ---
-# <a name="azure-service-bus-as-an-event-grid-source"></a>Ônibus de serviço azure como fonte de grade de eventos
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Barramento de serviço do Azure como uma fonte de grade de eventos
 
 Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
@@ -81,31 +81,31 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| namespaceName | string | O namespace do Barramento de Serviço onde está o recurso existente. |
-| requestUri | string | O URI para a fila específica ou a assinatura que emite o evento. |
-| entityType | string | O tipo de entidade de Barramento de Serviço que emite eventos (fila ou assinatura). |
-| queueName | string | A fila de mensagens ativas se inscreve-se em uma fila. Valor nulo se usar tópicos / assinaturas. |
-| topicName | string | O tópico da assinatura do Barramento de Serviço ao qual as mensagens ativas pertencem. Valor nulo se usar uma fila. |
-| subscriptionName | string | A assinatura do Barramento de Serviço com as mensagens ativas. Valor nulo se usar uma fila. |
+| namespaceName | cadeia de caracteres | O namespace do Barramento de Serviço onde está o recurso existente. |
+| requestUri | cadeia de caracteres | O URI para a fila específica ou a assinatura que emite o evento. |
+| entityType | cadeia de caracteres | O tipo de entidade de Barramento de Serviço que emite eventos (fila ou assinatura). |
+| queueName | cadeia de caracteres | A fila de mensagens ativas se inscreve-se em uma fila. Valor nulo se usar tópicos / assinaturas. |
+| topicName | cadeia de caracteres | O tópico da assinatura do Barramento de Serviço ao qual as mensagens ativas pertencem. Valor nulo se usar uma fila. |
+| subscriptionName | cadeia de caracteres | A assinatura do Barramento de Serviço com as mensagens ativas. Valor nulo se usar uma fila. |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title  |Descrição  |
 |---------|---------|
 | [Tutorial: exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
-| [Azure Service Bus para Event Grid integração](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do Barramento de Serviço com a Grade de Eventos. |
+| [Barramento de serviço do Azure para integração da grade de eventos](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do Barramento de Serviço com a Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

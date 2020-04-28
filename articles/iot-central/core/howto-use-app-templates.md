@@ -1,5 +1,5 @@
 ---
-title: Exportar um aplicativo Azure IoT Central | Microsoft Docs
+title: Exportar um aplicativo de IoT Central do Azure | Microsoft Docs
 description: Como gerente de soluções, quero exportar um modelo de aplicativo para poder reutilizá-lo.
 author: dominicbetts
 ms.author: dobett
@@ -9,88 +9,88 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157582"
 ---
 # <a name="export-your-application"></a>Exportar seu aplicativo
 
 
 
-Este artigo descreve como, como gerente de soluções, exportar um aplicativo IoT Central para poder reutilizá-lo.
+Este artigo descreve como, como um Gerenciador de soluções, exportar um aplicativo IoT Central para poder reutilizá-lo.
 
 Você tem duas opções:
 
-- Você pode criar uma cópia do seu aplicativo se você só precisa criar uma cópia duplicada do seu aplicativo.
-- Você pode criar um modelo de aplicativo a partir do seu aplicativo se você planeja criar várias cópias.
+- Você pode criar uma cópia do seu aplicativo se precisar apenas criar uma cópia duplicada do seu aplicativo.
+- Você pode criar um modelo de aplicativo do seu aplicativo se planeja criar várias cópias.
 
-## <a name="copy-your-application"></a>Copie seu aplicativo
+## <a name="copy-your-application"></a>Copiar seu aplicativo
 
-É possível criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivos, histórico de dados do dispositivo e os dados de usuário. A cópia usa um plano de preços padrão para o que você será cobrado. Você não pode criar um aplicativo que use o plano de preços gratuitocopiando um aplicativo.
+É possível criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivos, histórico de dados do dispositivo e os dados de usuário. A cópia usa um plano de preços padrão para o qual você será cobrado. Você não pode criar um aplicativo que usa o plano de preços gratuito copiando um aplicativo.
 
-Selecione **Copiar**. Na caixa de diálogo, digite os detalhes do novo aplicativo. Em seguida, **selecione Copiar** para confirmar se deseja continuar. Para saber mais sobre os campos no formulário, consulte [o Criar um aplicativo](quick-deploy-iot-central.md) quickstart.
+Selecione **Copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo. Em seguida, selecione **copiar** para confirmar que deseja continuar. Para saber mais sobre os campos no formulário, consulte o guia de início rápido [criar um aplicativo](quick-deploy-iot-central.md) .
 
 ![Página de configurações do aplicativo](media/howto-use-app-templates/appcopy2.png)
 
-Depois que a operação de cópia do aplicativo for bem sucedida, você pode navegar até o novo aplicativo usando o link.
+Depois que a operação de cópia do aplicativo for realizada com sucesso, você poderá navegar para o novo aplicativo usando o link.
 
 ![Página de configurações do aplicativo](media/howto-use-app-templates/appcopy3a.png)
 
-Copiar um aplicativo também copia a definição de regras e ação de e-mail. Algumas ações, como Flow e Logic Apps, estão vinculadas a regras específicas através do ID de regra. Quando uma regra é copiada para um aplicativo diferente, ela recebe seu próprio ID de regra. Neste caso, os usuários terão que criar uma nova ação e, em seguida, associar a nova regra com ela. Em geral, é uma boa ideia verificar as regras e ações para ter certeza de que estão atualizadas no novo aplicativo.
+Copiar um aplicativo também copia a definição de regras e a ação de email. Algumas ações, como os aplicativos de fluxo e lógico, são vinculadas a regras específicas por meio da ID de regra. Quando uma regra é copiada para um aplicativo diferente, ela obtém sua própria ID de regra. Nesse caso, os usuários terão que criar uma nova ação e associar a nova regra a ela. Em geral, é uma boa ideia verificar as regras e ações para certificar-se de que elas estão atualizadas no novo aplicativo.
 
 > [!WARNING]
-> Se um painel de instrumentos incluir telhas que exibem informações sobre dispositivos específicos, então essas telhas mostrarão **O recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar essas telhas para exibir informações sobre dispositivos em seu novo aplicativo.
+> Se um painel inclui blocos que exibem informações sobre dispositivos específicos, esses blocos mostram que **o recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar esses blocos para exibir informações sobre dispositivos em seu novo aplicativo.
 
 ## <a name="create-an-application-template"></a>Criar um modelo de aplicativo
 
-Quando você cria um aplicativo Azure IoT Central, você tem uma escolha de modelos de exemplo incorporados. Você também pode criar seus próprios modelos de aplicativos a partir de aplicativos IoT Central existentes. Em seguida, você pode usar seus próprios modelos de aplicativos quando criar novos aplicativos.
+Ao criar um aplicativo de IoT Central do Azure, você tem a opção de modelos de exemplo internos. Você também pode criar seus próprios modelos de aplicativos de aplicativos IoT Central existentes. Você pode usar seus próprios modelos de aplicativo ao criar novos aplicativos.
 
-Quando você cria um modelo de aplicativo, ele inclui os seguintes itens do aplicativo existente:
+Quando você cria um modelo de aplicativo, ele inclui os seguintes itens de seu aplicativo existente:
 
-- O painel de aplicativos padrão, incluindo o layout do painel e todas as telhas definidas.
-- Modelos de dispositivos, incluindo medidas, configurações, propriedades, comandos e painel de instrumentos.
-- Regras. Todas as definições de regras estão incluídas. No entanto, as ações, exceto para ações de e-mail, não estão incluídas.
+- O painel do aplicativo padrão, incluindo o layout do painel e todos os blocos que você definiu.
+- Modelos de dispositivo, incluindo medições, configurações, propriedades, comandos e painel.
+- Regras. Todas as definições de regra estão incluídas. No entanto, as ações, exceto as ações de email, não são incluídas.
 - Conjuntos de dispositivos, incluindo suas condições e painéis.
 
 > [!WARNING]
-> Se um painel de instrumentos incluir telhas que exibem informações sobre dispositivos específicos, então essas telhas mostrarão **O recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar essas telhas para exibir informações sobre dispositivos em seu novo aplicativo.
+> Se um painel inclui blocos que exibem informações sobre dispositivos específicos, esses blocos mostram que **o recurso solicitado não foi encontrado** no novo aplicativo. Você deve reconfigurar esses blocos para exibir informações sobre dispositivos em seu novo aplicativo.
 
 Quando você cria um modelo de aplicativo, ele não inclui os seguintes itens:
 
 - Dispositivos
 - Usuários
 - Definições de trabalho
-- Definições contínuas de exportação de dados
+- Definições de exportação de dados contínuas
 
-Adicione esses itens manualmente a quaisquer aplicativos criados a partir de um modelo de aplicativo.
+Adicione esses itens manualmente a qualquer aplicativo criado a partir de um modelo de aplicativo.
 
-Para criar um modelo de aplicativo a partir de um aplicativo Central de IoT existente:
+Para criar um modelo de aplicativo a partir de um aplicativo de IoT Central existente:
 
-1. Vá para a seção **Administração** em sua aplicação.
-1. Selecione **Exportação de modelo de aplicativo**.
-1. Na página **Exportar modelo de aplicativo,** digite um nome e uma descrição para o seu modelo.
-1. Selecione o botão **Exportar** para criar o modelo do aplicativo. Agora você pode copiar o **Link Compartilhável** que permite que alguém crie um novo aplicativo a partir do modelo:
+1. Vá para a seção **Administração** em seu aplicativo.
+1. Selecione **Exportar modelo de aplicativo**.
+1. Na página **exportar do modelo de aplicativo** , insira um nome e uma descrição para o modelo.
+1. Selecione o botão **Exportar** para criar o modelo de aplicativo. Agora você pode copiar o **link compartilhável** que permite que alguém crie um novo aplicativo a partir do modelo:
 
 ![Criar um modelo de aplicativo](media/howto-use-app-templates/create-template.png)
 
-### <a name="use-an-application-template"></a>Use um modelo de aplicativo
+### <a name="use-an-application-template"></a>Usar um modelo de aplicativo
 
-Para usar um modelo de aplicativo para criar um novo aplicativo IoT Central, você precisa de um **Link Compartilhado**criado anteriormente. Cole o **Link Compartilhável** na barra de endereços do seu navegador. A **página Criar uma** página de aplicativo é exibida com o modelo de aplicativo personalizado selecionado:
+Para usar um modelo de aplicativo para criar um novo aplicativo IoT Central, você precisa de um **link compartilhável**criado anteriormente. Cole o **link compartilhável** na barra de endereços do navegador. A página **criar um aplicativo** é exibida com o modelo de aplicativo personalizado selecionado:
 
-![Crie um aplicativo a partir de um modelo](media/howto-use-app-templates/create-app.png)
+![Criar um aplicativo com base em um modelo](media/howto-use-app-templates/create-app.png)
 
-Selecione seu plano de preços e preencha os outros campos no formulário. Em seguida, selecione **Criar** para criar um novo aplicativo IoT Central a partir do modelo do aplicativo.
+Selecione seu plano de preços e preencha os outros campos no formulário. Em seguida, selecione **criar** para criar um novo aplicativo IOT central no modelo de aplicativo.
 
 ### <a name="manage-application-templates"></a>Gerenciar modelos de aplicativos
 
-Na página **Exportação de modelo de aplicativo,** você pode excluir ou atualizar o modelo do aplicativo.
+Na página **exportar do modelo de aplicativo** , você pode excluir ou atualizar o modelo de aplicativo.
 
-Se você excluir um modelo de aplicativo, você não poderá mais usar o link compartilhável gerado anteriormente para criar novos aplicativos.
+Se você excluir um modelo de aplicativo, não poderá mais usar o link compartilhável gerado anteriormente para criar novos aplicativos.
 
-Para atualizar o modelo do aplicativo, altere o nome ou a descrição do modelo na página **Exportação de modelos de aplicativo.** Em seguida, selecione novamente o botão **Exportar.** Essa ação gera um novo **link compartilhável** e invalida qualquer URL **de link compartilhável** anterior.
+Para atualizar o modelo de aplicativo, altere o nome ou a descrição do modelo na página **exportar do modelo de aplicativo** . Em seguida, selecione o botão **Exportar** novamente. Essa ação gera um novo **link compartilhável** e invalida qualquer URL de **link compartilhável** anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar modelos de aplicativos, o próximo passo sugerido é aprender como [gerenciar a Central de IoT a partir do portal Azure](howto-manage-iot-central-from-portal.md)
+Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](howto-manage-iot-central-from-portal.md)

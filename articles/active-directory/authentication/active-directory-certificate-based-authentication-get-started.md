@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em certificados - Diretório Ativo do Azure
+title: Autenticação baseada em certificado-Azure Active Directory
 description: Aprenda a configurar a autenticação baseada em certificado no seu ambiente
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80654346"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
@@ -36,16 +36,16 @@ Este tópico:
 
 Para configurar a autenticação baseada em certificado, as instruções a seguir devem ser verdadeiras:
 
-- A autenticação baseada em certificados (CBA) só é suportada para ambientes federados para aplicativos de navegador, clientes nativos usando bibliotecas ADAL (Modern Authentication, autenticação moderna) ou MSAL. A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
+- A CBA (autenticação baseada em certificado) só tem suporte em ambientes federados para aplicativos de navegador, clientes nativos que usam a ADAL (autenticação moderna) ou bibliotecas MSAL. A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.
 - Cada autoridade de certificação deve ter uma CRL (Lista de Certificados Revogados) que pode ser referenciada por meio de uma URL para a Internet.
 - Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas na seção [Configuração de autoridades de certificação](#step-2-configure-the-certificate-authorities).
-- Para clientes Exchange ActiveSync, o certificado cliente deve ter o endereço de e-mail routable do usuário no Exchange on-line no Nome Principal ou no valor de Nome RFC822 do campo Nome Alternativo do Assunto. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.
+- Para clientes do Exchange ActiveSync, o certificado do cliente deve ter o endereço de email roteável do usuário no Exchange Online no nome da entidade de segurança ou no valor do nome do RFC822 do campo nome alternativo da entidade. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.
 - O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
 
 >[!IMPORTANT]
->O tamanho máximo de um CRL para o Azure Active Directory para baixar e cache com sucesso é de 20MB, e o tempo necessário para baixar o CRL não deve exceder 10 segundos.  Se o Azure Active Directory não conseguir baixar um CRL, autenticações baseadas em certificados usando certificados emitidos pelo CA correspondente falharão. As práticas recomendadas para garantir que os arquivos CRL estejam dentro das restrições de tamanho são manter as vidas dos certificados dentro dos limites razoáveis e limpar os certificados vencidos. 
+>O tamanho máximo de uma CRL para Azure Active Directory ser baixado com êxito e o cache é 20 MB, e o tempo necessário para baixar a CRL não deve exceder 10 segundos.  Se Azure Active Directory não puder baixar uma CRL, as autenticações baseadas em certificado usando certificados emitidos pela autoridade de certificação correspondente falharão. As práticas recomendadas para garantir que os arquivos de CRL estejam dentro das restrições de tamanho são manter os tempos de vida dos certificados dentro dos limites razoáveis e limpar os certificados expirados. 
 
 ## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 

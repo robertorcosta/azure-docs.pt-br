@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
 ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879455"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
@@ -73,7 +73,7 @@ Vídeo
 * [Como eliminar problemas de segurança usando a Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Central de Segurança para resposta a incidentes
-Para reduzir custos e danos, é importante ter um plano de resposta a incidentes antes que um ataque ocorra. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.
+Para reduzir os custos e os danos, é importante ter um plano de resposta a incidentes em vigor antes que ocorra um ataque. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.
 
 Use os recursos a seguir para entender como a Central de Segurança pode ser incorporada ao processo de resposta a incidentes.
 
@@ -83,16 +83,16 @@ vídeos
 
 Artigos    
 * [Uso da Central de Segurança do Azure para uma resposta a incidentes](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatize a resposta com a automação do fluxo de trabalho](workflow-automation.md)
+* [Automatizar a resposta com a automação do fluxo de trabalho](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Defesa da nuvem avançada
 
-As Máquinas Virtuais do Azure podem tirar proveito dos recursos avançados de defesa de nuvem na Central de Segurança. Esses recursos incluem acesso à máquina virtual (VM) just-in-time e controles de aplicativos adaptativos.
+As Máquinas Virtuais do Azure podem tirar proveito dos recursos avançados de defesa de nuvem na Central de Segurança. Esses recursos incluem o acesso à VM (máquina virtual) just-in-time e os controles de aplicativo adaptáveis.
 
 Use os seguintes recursos para saber como usar esses recursos na Central de Segurança.
 
 vídeos    
-* [Centro de Segurança Azure – Acesso Just-in-Time da VM](https://youtu.be/UOQb2FcdQnU)
+* [Central de segurança do Azure – acesso à VM just-in-time](https://youtu.be/UOQb2FcdQnU)
 * [Central de Segurança do Azure: Controles de Aplicativo Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
@@ -114,7 +114,7 @@ Artigos
 * [Práticas recomendadas de segurança da rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Recomendações de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformidade](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes de análise de log agora podem usar o Azure Security Center para proteger suas cargas de trabalho em nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes do log Analytics agora podem usar a central de segurança do Azure para proteger suas cargas de trabalho de nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Recursos da comunidade
 

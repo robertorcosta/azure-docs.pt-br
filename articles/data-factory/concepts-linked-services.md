@@ -1,6 +1,6 @@
 ---
 title: Serviços vinculados no Azure Data Factory
-description: Conheça os serviços vinculados na Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory.
+description: Saiba mais sobre os serviços vinculados no Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: a6002ed173ca5358df4257f4c8b41c88bcf60ad8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418364"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
@@ -26,19 +26,19 @@ ms.locfileid: "81418364"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve o que são serviços vinculados, como eles são definidos no formato JSON e como eles são usados em pipelines azure Data Factory.
+Este artigo descreve quais serviços vinculados são, como eles são definidos no formato JSON e como eles são usados em pipelines de Azure Data Factory.
 
 Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](introduction.md) para obter uma visão geral.
 
 ## <a name="overview"></a>Visão geral
 
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que, em conjunto, realizam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
+Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntos executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
 
 Por outro lado, um **conjunto de dados** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas.
 
-Antes de criar um conjunto de dados, você deve criar um **serviço vinculado** para vincular seu armazenamento de dados com o data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Pense dessa maneira: o conjunto de dados representa a estrutura dos dados nos armazenamentos de dados vinculados e o serviço vinculado define a conexão à fonte de dados. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados Azure Blob representa o contêiner blob e a pasta dentro dessa conta de armazenamento Azure que contém as bolhas de entrada a serem processadas.
+Antes de criar um conjunto de dados, você deve criar um **serviço vinculado** para vincular seu armazenamento de dados com o data factory. Serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para o Data Factory para se conectar a recursos externos. Pense dessa maneira: o conjunto de dados representa a estrutura dos dados nos armazenamentos de dados vinculados e o serviço vinculado define a conexão à fonte de dados. Por exemplo, um serviço vinculado do Armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de blob do Azure representa o contêiner de BLOB e a pasta dentro dessa conta de armazenamento do Azure que contém os blobs de entrada a serem processados.
 
-Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento Blob para um banco de dados SQL, você cria dois serviços vinculados: Azure Storage e Azure SQL Database. Em seguida, crie dois conjuntos de dados: o conjunto de dados de Blob do Azure (que se refere ao serviço vinculado do Armazenamento do Azure) e o conjunto de dados de Tabela do SQL do Azure (que se refere ao serviço vinculado do Banco de Dados SQL do Azure). Os serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure contêm cadeias de conexão que o Data Factory usa em runtime para se conectar ao Armazenamento do Azure e ao Banco de Dados SQL do Azure, respectivamente. O conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta de blobs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados da Tabela SQL do Azure especifica a tabela SQL em seu Banco de Dados SQL para o qual os dados devem ser copiados.
+Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento de BLOBs para um banco de dado SQL, você cria dois serviços vinculados: armazenamento do Azure e banco de dados SQL do Azure. Em seguida, crie dois conjuntos de dados: o conjunto de dados de Blob do Azure (que se refere ao serviço vinculado do Armazenamento do Azure) e o conjunto de dados de Tabela do SQL do Azure (que se refere ao serviço vinculado do Banco de Dados SQL do Azure). Os serviços vinculados do Armazenamento do Azure e do Banco de Dados SQL do Azure contêm cadeias de conexão que o Data Factory usa em runtime para se conectar ao Armazenamento do Azure e ao Banco de Dados SQL do Azure, respectivamente. O conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta de blobs que contém os blobs de entrada no armazenamento de Blobs. O conjunto de dados da tabela SQL do Azure especifica a tabela SQL em seu banco de dado SQL para a qual os dados serão copiados.
 
 O seguinte diagrama mostra a relação entre pipeline, atividade, conjunto de dados e serviço vinculado no Data Factory:
 
@@ -69,13 +69,13 @@ A tabela a seguir descreve as propriedades no JSON acima:
 Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 name | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
-type | Tipo de serviço vinculado. Por exemplo: Armazenamento Azure (armazenamento de dados) ou AzureBatch (cálculo). Consulte a descrição de typeProperties. | Sim |
+type | Tipo de serviço vinculado. Por exemplo: armazenamento do Azure (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | Sim |
 typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](concepts-datasets-linked-services.md#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | Sim |
 connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não
 
 ## <a name="linked-service-example"></a>Exemplo de serviço vinculado
 
-O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo está definido como Armazenamento Azure. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em runtime.
+O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo está definido como armazenamento do Azure. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em runtime.
 
 ```json
 {
@@ -95,15 +95,15 @@ O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
-Você pode criar serviços vinculados usando uma dessas ferramentas ou SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Azure Resource Manager Template e Portal Azure
+Você pode criar serviços vinculados usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
 
-## <a name="data-store-linked-services"></a>Serviços vinculados ao armazenamento de dados
+## <a name="data-store-linked-services"></a>Serviços vinculados do repositório de dados
 
-Você pode encontrar a lista de armazenamentos de dados suportados pela Data Factory a partir de um artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Clique em um armazenamento de dados para saber as propriedades de conexão suportadas.
+Você pode encontrar a lista de armazenamentos de dados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
 
 ## <a name="compute-linked-services"></a>Serviços vinculados de computação
 
-Ambientes [de computação](compute-linked-services.md) de referência suportados para detalhes sobre diferentes ambientes de computação que você pode conectar a partir de sua fábrica de dados, bem como as diferentes configurações.
+Faça referência a [ambientes de computação com suporte](compute-linked-services.md) para obter detalhes sobre diferentes ambientes de computação aos quais você pode se conectar do data Factory, bem como as diferentes configurações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

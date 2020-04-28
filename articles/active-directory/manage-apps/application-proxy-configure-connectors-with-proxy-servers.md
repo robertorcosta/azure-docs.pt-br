@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80877381"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
@@ -27,7 +27,7 @@ Começamos analisando este principais cenários de implantação:
 
 * Configure os conectores para ignorar os proxies de saída locais.
 * Configure os conectores para usar um proxy de saída para acessar o Proxy do Aplicativo do Azure AD.
-* Configure usando um proxy entre o conector e o aplicativo back-end.
+* Configure o usando um proxy entre o conector e o aplicativo de back-end.
 
 Para saber mais sobre como funcionam os conectores, consulte [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-connectors.md).
 
@@ -39,7 +39,7 @@ Os componentes do SO tentam localizar um servidor proxy realizando uma pesquisa 
 
 É possível configurar o conector para ignorar o proxy local de modo a garantir que ele use uma conectividade direta com os serviços do Azure. Isso é o que recomendamos (se sua política de rede permitir), porque significa que você terá uma menor configuração para manter.
 
-Para desativar o uso de proxy de saída para o conector, edite o C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file e adicione a seção *system.net* mostrada nesta amostra de código:
+Para desabilitar o uso do proxy de saída para o conector, edite o arquivo C:\Program Files\Microsoft AAD app proxy Connector\ApplicationProxyConnectorService.exe.config e adicione a seção *System.net* mostrada neste exemplo de código:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -77,7 +77,7 @@ Como consequência de ter apenas o tráfego de saída, não há necessidade de c
 
 Se a WPAD estiver habilitada no ambiente e corretamente configurada, o conector descobrirá automaticamente o servidor proxy de saída e tentará usá-lo. No entanto, você pode configurar explicitamente o conector para passar por um proxy de saída.
 
-Para fazer isso, edite o arquivo C: \ Arquivos de Programas \ Microsoft AAD App Proxy Connector \ ApplicationProxyConnectorService.exe.config e adicione a seção *system.net* mostrada neste exemplo de código. Alterar *servidor proxy:8080* para refletir o nome do servidor proxy local ou endereço IP e a porta em que ele está ouvindo. O valor deve ter o prefixo http://, mesmo se você estiver usando um endereço IP.
+Para fazer isso, edite o arquivo C: \ Arquivos de Programas \ Microsoft AAD App Proxy Connector \ ApplicationProxyConnectorService.exe.config e adicione a seção *system.net* mostrada neste exemplo de código. Altere *ProxyServer: 8080* para refletir o nome do servidor proxy local ou o endereço IP e a porta na qual ele está escutando. O valor deve ter o prefixo http://, mesmo se você estiver usando um endereço IP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -105,7 +105,7 @@ Há quatro aspectos a considerar no proxy de saída:
 * Regras de saída do proxy
 * Autenticação do proxy
 * Portas do proxy
-* Inspeção TLS
+* Inspeção de TLS
 
 #### <a name="proxy-outbound-rules"></a>Regras de saída do proxy
 
@@ -114,10 +114,10 @@ Permita o acesso às seguintes URLs:
 | URL | Como ele é usado |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa esses URLs para verificar certificados |
-| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*microsoftonline.com<br>*.microsoftonline-p.com<br>*msauth.net<br>* msauthimages.net .<br>*msecnd.net<br>* msftauth.net .<br>*msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa essas URLs para verificar os certificados |
+| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*. microsoftonline.com<br>*. microsoftonline-p.com<br>*. msauth.NET<br>*. msauthimages.net<br>*. msecnd.NET<br>*. msftauth.net<br>*. msftauthimages.NET<br>*. PhoneFactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
 
-Se o firewall ou proxy permitir que você configure listas \*de permitir \*DNS, você poderá permitir conexões a .msappproxy.net e .servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou o proxy permitir que você configure listas de permissões de DNS, você poderá \*permitir conexões com \*. msappproxy.net e. ServiceBus.Windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
@@ -135,26 +135,26 @@ O conector faz conexões baseadas em TLS de saída usando o método CONNECT. Bas
 > [!NOTE]
 > Quando o Barramento de Serviço for executado por HTTPS, ele usará a porta 443. No entanto, por padrão, o Barramento de Serviço tenta as conexões TCP diretas e voltará para o HTTPS somente se a conectividade direta falhar.
 
-#### <a name="tls-inspection"></a>Inspeção TLS
+#### <a name="tls-inspection"></a>Inspeção de TLS
 
-Não utilize a inspeção TLS para o tráfego do conector, pois causa problemas para o tráfego do conector. O conector usa um certificado para autenticar ao serviço Proxy de aplicativo, e esse certificado pode ser perdido durante a inspeção TLS.
+Não use a inspeção TLS para o tráfego do conector, pois isso causa problemas para o tráfego do conector. O conector usa um certificado para autenticar o serviço de proxy de aplicativo e esse certificado pode ser perdido durante a inspeção de TLS.
 
-## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configure usando um proxy entre o conector e o aplicativo backend
-O uso de um proxy avançado para a comunicação em relação ao aplicativo backend pode ser um requisito especial em alguns ambientes.
-Para habilitar isso, siga os próximos passos:
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configurar usando um proxy entre o conector e o aplicativo de back-end
+Usar um proxy de encaminhamento para a comunicação em direção ao aplicativo de back-end pode ser um requisito especial em alguns ambientes.
+Para habilitar isso, siga as próximas etapas:
 
-### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Passo 1: Adicionar o valor de registro necessário ao servidor
-1. Para habilitar o proxy padrão, adicione o `UseDefaultProxyForBackendRequests = 1` seguinte valor de registro (DWORD) à chave de registro de configuração do Connector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft App Proxy Connector".
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Etapa 1: Adicionar o valor do registro necessário ao servidor
+1. Para habilitar o uso do proxy padrão, adicione o seguinte valor de registro `UseDefaultProxyForBackendRequests = 1` (DWORD) à chave do registro de configuração do conector localizada em "HKEY_LOCAL_MACHINE \Software\microsoft\microsoft AAD app proxy Connector".
 
-### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Passo 2: Configure o servidor proxy manualmente usando o comando netsh
-1.  Habilite a política de grupo Faça configurações de proxy por máquina. Isso é encontrado em: Configuração do computador\Policies\Modelos administrativos\Componentes do Windows\Internet Explorer. Isso precisa ser definido em vez de ter essa política definida como por usuário.
-2.  Execute `gpupdate /force` no servidor ou reinicie o servidor para garantir que ele use as configurações de diretiva de grupo atualizadas.
-3.  Inicie um prompt de comando elevado com `control inetcpl.cpl`direitos de admin e entre .
-4.  Configure as configurações de proxy necessárias. 
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Etapa 2: configurar o servidor proxy manualmente usando o comando netsh
+1.  Habilite a política de grupo para fazer configurações de proxy por computador. Isso é encontrado em: Computer configuração Administrativos\Componentes do Windows\internet Explorer. Isso precisa ser definido em vez de ter essa política definida como por usuário.
+2.  Execute `gpupdate /force` no servidor ou reinicialize o servidor para garantir que ele use as configurações de política de grupo atualizadas.
+3.  Inicie um prompt de comando com privilégios elevados com direitos `control inetcpl.cpl`de administrador e insira.
+4.  Defina as configurações de proxy necessárias. 
 
-Essas configurações fazem com que o conector use o mesmo proxy para a comunicação com o Azure e para o aplicativo back-end. Se o conector para a comunicação do Azure não exigir proxy avançado ou um proxy avançado diferente, você pode configurá-lo com a modificação do arquivo ApplicationProxyConnectorService.exe.config conforme descrito nas seções Bypass outbound proxies ou Use o servidor proxy de saída.
+Essas configurações fazem com que o conector use o mesmo proxy de encaminhamento para a comunicação com o Azure e para o aplicativo de back-end. Se o conector para a comunicação do Azure não exigir nenhum proxy de encaminhamento ou outro proxy de encaminhamento, você poderá configurá-lo com a modificação do arquivo ApplicationProxyConnectorService. exe. config, conforme descrito nas seções ignorar proxies de saída ou usar o servidor proxy de saída.
 
-O serviço de atualização do conector também usará o proxy da máquina. Esse comportamento pode ser alterado modificando o arquivo ApplicationProxyConnectorUpdaterService.exe.config.
+O serviço atualizador do conector também usará o proxy da máquina. Esse comportamento pode ser alterado modificando o arquivo no arquivo applicationproxyconnectorupdaterservice. exe. config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solucionar problemas do proxy do conector e problemas de conectividade do serviço
 
@@ -179,7 +179,7 @@ Para a solução de problemas inicial, execute as seguintes etapas:
 1. Inicie o serviço Conector do Proxy de Aplicativo do Azure AD.
 1. Pare a captura de rede.
 
-   ![Captura de tela mostra o botão de captura de rede Stop](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Captura de tela mostra o botão parar captura de rede](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Verifique se o tráfego do conector ignorou proxies de saída
 
@@ -203,5 +203,5 @@ Caso sejam exibidos outros códigos de resposta, como 407 ou 502, isso indica qu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Entenda os conectores proxy do aplicativo Azure AD](application-proxy-connectors.md)
+* [Entender os conectores de Proxy de Aplicativo do AD do Azure](application-proxy-connectors.md)
 * Se você tiver problemas de conectividade do conector, faça sua pergunta no [fórum do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou crie um tíquete com nossa equipe de suporte.

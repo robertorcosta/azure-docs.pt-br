@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331103"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Requeridos para Identidade Híbrida
@@ -38,28 +38,28 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | MS-RPC |135 (TCP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula à floresta do AD e também durante a sincronização de senha. |
 | LDAP |389 (TCP/UDP) |Usado para importar dados do AD. Dados são criptografados com Sinal e Selo do Kerberos. |
 | SMB | 445 (TCP) |Usado pelo SSO Contínuo para criar uma conta de computador na floresta do AD. |
-| LDAP/SSL |636 (TCP/UDP) |Usado para importar dados do AD. A transferência de dados é assinada e criptografada. Usado apenas se você estiver usando TLS. |
-| RPC |49152- 65535 (Random high RPC Port)(TCP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula às florestas do AD e durante a sincronização de senha. Confira os artigos [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196) para saber mais. |
-|WinRM  | 5985 (TCP) |Usado apenas se você estiver instalando OD FS com gMSA pelo Azure AD Connect Wizard|
-|Serviços web AD DS | 9389 (TCP) |Usado apenas se você estiver instalando OD FS com gMSA pelo Azure AD Connect Wizard |
+| LDAP/SSL |636 (TCP/UDP) |Usado para importar dados do AD. A transferência de dados é assinada e criptografada. Usado somente se você estiver usando o TLS. |
+| RPC |49152-65535 (porta RPC alta aleatória) (TCP) |Usado durante a configuração inicial do assistente do Azure AD Connect quando ele se vincula às florestas do AD e durante a sincronização de senha. Confira os artigos [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) e [KB224196](https://support.microsoft.com/kb/224196) para saber mais. |
+|WinRM  | 5985 (TCP) |Usado somente se você estiver instalando AD FS com o assistente de Azure AD Connect de gMSA|
+|AD DS serviços Web | 9389 (TCP) |Usado somente se você estiver instalando AD FS com o assistente de Azure AD Connect de gMSA |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabela 2 - AD do Azure Connect e Azure AD
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e Azure AD.
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Usado para baixar CRLs (Listas de revogação de certificados) para verificar certificados TLS/SSL. |
-| HTTPS |443(TCP) |Usado para sincronizar com o Azure AD. |
+| HTTP |80 (TCP) |Usado para baixar CRLs (listas de certificados revogados) para verificar certificados TLS/SSL. |
+| HTTPS |443 (TCP) |Usado para sincronizar com o Azure AD. |
 
-Para obter uma lista de URLs e endereços IP que você precisa abrir no firewall, consulte [urls do Office 365 e faixas de endereços IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) e [conectividade Azure AD Connect](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Para obter uma lista de URLs e endereços IP que você precisa abrir em seu firewall, consulte [URLs do Office 365 e intervalos de endereços IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) e [solução de problemas de conectividade Azure ad Connect](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabela 3 – Azure AD Connect e Servidores de Federação AD FS/WAP
 Essa tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e os servidores de Federação AD FS/WAP.  
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Usado para baixar CRLs (Listas de revogação de certificados) para verificar certificados TLS/SSL. |
-| HTTPS |443(TCP) |Usado para sincronizar com o Azure AD. |
+| HTTP |80 (TCP) |Usado para baixar CRLs (listas de certificados revogados) para verificar certificados TLS/SSL. |
+| HTTPS |443 (TCP) |Usado para sincronizar com o Azure AD. |
 | WinRM |5985 |Ouvinte do WinRM |
 
 ## <a name="table-4---wap-and-federation-servers"></a>Tabela 4 - Servidores de Federação e WAP
@@ -67,14 +67,14 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Usado para autenticação. |
+| HTTPS |443 (TCP) |Usado para autenticação. |
 
 ## <a name="table-5---wap-and-users"></a>Tabela 5 - WAP e Usuários
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre os usuários e os servidores WAP.
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Usado para autenticação de dispositivo. |
+| HTTPS |443 (TCP) |Usado para autenticação de dispositivo. |
 | TCP |49443 (TCP) |Usado para autenticação de certificado. |
 
 ## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabela 6a e 6b - Autenticação de passagem com SSO (logon único) e Sincronização de hash de senha com SSO (logon único)
@@ -104,10 +104,10 @@ Esta tabela descreve as portas e protocolos de saída a seguir que são necessá
 
 | Protocolo | Portas | Descrição |
 | --- | --- | --- |
-| HTTPS |443(TCP) |Saída |
+| HTTPS |443 (TCP) |Saída |
 | Barramento de Serviço do Azure |5671 (TCP) |Saída |
 
-A porta 5671 do Azure Service Bus não é mais necessária para a versão mais recente do agente. A versão mais recente do agente Azure AD Connect Health só exigia a porta 443.
+A porta 5671 do barramento de serviço do Azure não é mais necessária para a versão mais recente do agente. A versão mais recente do agente de Azure AD Connect Health só exigiu a porta 443.
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b – Pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](how-to-connect-health-agent-install.md#requirements).

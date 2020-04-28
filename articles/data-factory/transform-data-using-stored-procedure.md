@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade procedimento armazenado
+title: Transformar dados usando a atividade de procedimento armazenado
 description: Explica como usar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado em um Banco de Dados SQL do Azure/Data Warehouse do Azure de um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418806"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de procedimento armazenado do SQL Server no Azure Data Factory
@@ -34,7 +34,7 @@ Use a Atividade de Procedimento Armazenado para invocar um procedimento armazena
 
 - Banco de Dados SQL do Azure
 - SQL Data Warehouse do Azure
-- Banco de Dados do SQL Server.  Se estiver usando o SQL Server, instale o Integration Runtime (auto-hospedado) no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Integration Runtime (auto-hospedado) é um componente que conecta fontes de dados locais ou em uma VM do Azure aos serviços de nuvem de maneira segura e gerenciada. Consulte [o artigo 'Tempo de execução de integração' auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
+- Banco de Dados do SQL Server.  Se estiver usando o SQL Server, instale o Integration Runtime (auto-hospedado) no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Integration Runtime (auto-hospedado) é um componente que conecta fontes de dados locais ou em uma VM do Azure aos serviços de nuvem de maneira segura e gerenciada. Confira o artigo de [tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 > [!IMPORTANT]
 > Ao copiar dados para o Banco de Dados SQL do Azure ou o SQL Server, configure o **SqlSink** na atividade de cópia para invocar um procedimento armazenado usando a propriedade **sqlWriterStoredProcedureName**. Para obter detalhes sobre a propriedade, consulte as seguintes artigos sobre o conector: [Banco de Dados SQL do Azure](connector-azure-sql-database.md) e [SQL Server](connector-sql-server.md). Não há suporte para invocar um procedimento armazenado ao copiar dados em um SQL Data Warehouse do Azure usando uma atividade de cópia. Mas, você pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um SQL Data Warehouse. 
@@ -73,12 +73,12 @@ A seguinte tabela descreve essas propriedades JSON:
 | name                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve qual a utilidade da atividade | Não       |
 | type                      | Para a atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
-| linkedServiceName         | Faça referência ao **Banco de Dados SQL do Azure** ou ao **Azure SQL Data Warehouse** ou ao **SQL Server** registrados como um serviço vinculado na Fábrica de Dados. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
+| linkedServiceName         | Referência ao **banco de dados SQL do Azure** ou ao **azure SQL data warehouse** ou **SQL Server** registrado como um serviço vinculado no data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
 | storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetro e seu tipo com suporte da fonte de dados. Se você precisar passar null para um parâmetro, use `"param1": { "value": null }` (tudo em letras minúsculas). | Não       |
 
-## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados de parâmetros
-O tipo de dados especificado para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que você está usando. Você pode encontrar os mapeamentos do tipo de dados para sua fonte de dados na área de conectores. Alguns exemplos são
+## <a name="parameter-data-type-mapping"></a>Mapeamento de tipo de dados de parâmetro
+O tipo de dados especificado para o parâmetro é o tipo de Azure Data Factory que é mapeado para o tipo de dados na fonte de dados que você está usando. Você pode encontrar os mapeamentos de tipo de dados para sua fonte de dados na área conectores. Alguns exemplos são
 
 | fonte de dados          | Mapeamento de tipo de dados |
 | ---------------------|-------------------|
@@ -95,12 +95,12 @@ Quando um procedimento armazenado falha e retorna detalhes do erro, não é poss
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
-* [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade colmeia](transform-data-using-hadoop-hive.md)
+* [Atividade de U-SQL](transform-data-using-data-lake-analytics.md)
+* [Atividade do hive](transform-data-using-hadoop-hive.md)
 * [Atividade Pig](transform-data-using-hadoop-pig.md)
-* [Mapearreduzir a atividade](transform-data-using-hadoop-map-reduce.md)
-* [Atividade de streaming hadoop](transform-data-using-hadoop-streaming.md)
+* [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Atividade de streaming do Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade do Spark](transform-data-using-spark.md)
-* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
-* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

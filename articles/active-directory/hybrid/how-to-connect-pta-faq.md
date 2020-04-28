@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661d4f622dce45aeca1d41ead60f05ccdcfbc9c9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406872"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
@@ -41,18 +41,18 @@ Não. A Autenticação de Passagem está disponível apenas na instância mundia
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
-Sim. Todos os recursos de acesso condicional, incluindo autenticação multifatorial do Azure, funcionam com autenticação pass-through.
+Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
-O login usando um valor não-UPN, como um e-mail alternativo, está sendo testado em visualização privada tanto para autenticação de passagem (PTA) quanto para sincronização de hash de senha (PHS).
+Entrar usando um valor não-UPN, como um email alternativo, está sendo testado no momento em versão prévia privada para autenticação de passagem (PTA) e sincronização de hash de senha (PHS).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
 Não. A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu mudar da sincronização de hash de senha para autenticação de passagem?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu faço para alternar da sincronização de hash de senha para autenticação de passagem?
 
-Quando você usa o Azure AD Connect para alternar o método de login da sincronização de hash de senha para autenticação de passagem, a Autenticação de Passagem torna-se o principal método de login para seus usuários em domínios gerenciados. Observe que todos os hashes de senha dos usuários que foram sincronizados anteriormente pela sincronização de hash de senha permanecem armazenados no Azure AD.
+Quando você usa Azure AD Connect para alternar o método de entrada da sincronização de hash de senha para autenticação de passagem, a autenticação de passagem torna-se o método de entrada primário para seus usuários em domínios gerenciados. Observe que os hashes de senha de todos os usuários que foram sincronizados anteriormente pela sincronização de hash de senha permanecem armazenados no Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
@@ -75,7 +75,7 @@ Se você não tiver configurado o write-back de senha para um usuário específi
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que os Agentes de Autenticação de Passagem comunicam pelas portas 80 e 443?
 
 - Os Agentes de Autenticação fazem solicitações HTTPS pela porta 443 para todas as operações de recurso.
-- Os Agentes de Autenticação fazem solicitações HTTP sobre a porta 80 para baixar as listas de revogação de certificados TLS/SSL (CRLs).
+- Os agentes de autenticação fazem solicitações HTTP pela porta 80 para baixar as CRLs (listas de certificados revogados) TLS/SSL.
 
      >[!NOTE]
      >As atualizações recentes reduziram o número de portas exigidas pelo recurso. Se você tiver versões mais antigas do Azure AD Connect ou do Agente de Autenticação, mantenha estas portas abertas também: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
@@ -121,7 +121,7 @@ Se você estiver migrando do AD FS (ou outras tecnologias de federação) para A
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Eu posso usar a Autenticação de Passagem em um ambiente de várias floresta do Active Directory?
 
-Sim. Ambientes multiflorestais são suportados se houver fundos florestais (bidirecionais) entre as florestas do Active Directory e se o roteamento do sufixo de nome estiver configurado corretamente.
+Sim. Ambientes de várias florestas têm suporte se houver relações de confiança de floresta (duas vias) entre suas florestas de Active Directory e se o roteamento de sufixo de nome estiver configurado corretamente.
 
 ## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>A autenticação de passagem fornece balanceamento de carga entre vários Agentes de Autenticação?
 
@@ -148,7 +148,7 @@ Não, esse cenário _não_ tem suporte.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 
-É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba como [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
+É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desabilitar a Autenticação de Passagem?
 

@@ -1,6 +1,6 @@
 ---
-title: Quanto tempo o Azure AD armazena dados de relatórios? | Microsoft Docs
-description: Saiba quanto tempo o Azure armazena os vários tipos de dados de relatórios.
+title: Por quanto tempo o Azure AD armazena dados de relatório? | Microsoft Docs
+description: Saiba por quanto tempo o Azure armazena os vários tipos de dados de relatório.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239555"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo o Azure AD armazena dados de relatórios?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Por quanto tempo o Azure AD armazena dados de relatório?
 
 
 Neste artigo, você saberá mais sobre as políticas de retenção de dados dos diferentes relatórios de atividade no Azure Active Directory. 
@@ -40,7 +40,7 @@ Neste artigo, você saberá mais sobre as políticas de retenção de dados dos 
 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando os dados da atividade estarão disponíveis no portal do Azure?
 
-- **Imediatamente** - Se você já trabalhou com relatórios no portal Azure.
+- **Imediatamente** -se você já tiver trabalhado com relatórios no portal do Azure.
 - ** Dentro de 2 horas **: se você não tiver ativado os relatórios no portal do Azure.
 
 ---

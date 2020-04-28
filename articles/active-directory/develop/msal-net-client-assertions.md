@@ -1,7 +1,7 @@
 ---
-title: Afirmações do cliente (MSAL.NET) | Azure
+title: Asserções de cliente (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o suporte a afirmações de clientes assinados para aplicativos clientes confidenciais na Microsoft Authentication Library for .NET (MSAL.NET).
+description: Saiba mais sobre as declarações de cliente assinadas com suporte para aplicativos cliente confidenciais na biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,32 +14,32 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8c97387bfd2a362d3bf5a6b8a3252242f061da31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050282"
 ---
-# <a name="confidential-client-assertions"></a>Afirmações confidenciais do cliente
+# <a name="confidential-client-assertions"></a>Asserções confidenciais do cliente
 
-Para provar sua identidade, aplicativos confidenciais de clientes trocam um segredo com o Azure AD. O segredo pode ser:
+Para provar sua identidade, os aplicativos cliente confidenciais trocam um segredo com o Azure AD. O segredo pode ser:
 - Um segredo do cliente (senha do aplicativo).
-- Um certificado, que é usado para construir uma afirmação assinada contendo reivindicações padrão.
+- Um certificado, que é usado para criar uma asserção assinada contendo declarações padrão.
 
-Esse segredo também pode ser uma afirmação assinada diretamente.
+Esse segredo também pode ser uma declaração assinada diretamente.
 
-MSAL.NET tem quatro métodos para fornecer credenciais ou afirmações ao aplicativo cliente confidencial:
+O MSAL.NET tem quatro métodos para fornecer credenciais ou asserções ao aplicativo cliente confidencial:
 - `.WithClientSecret()`
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 > [!NOTE]
-> Embora seja possível usar `WithClientAssertion()` a API para adquirir tokens para o cliente confidencial, não recomendamos usá-lo por padrão, pois é mais avançado e foi projetado para lidar com cenários muito específicos que não são comuns. O `.WithCertificate()` uso da API permitirá que MSAL.NET lide com isso para você. Esta api oferece a você a capacidade de personalizar sua solicitação `.WithCertificate()` de autenticação, se necessário, mas a afirmação padrão criada por será suficiente para a maioria dos cenários de autenticação. Esta API também pode ser usada como solução em alguns cenários em que MSAL.NET não executa a operação de assinatura internamente.
+> Embora seja possível usar a `WithClientAssertion()` API para adquirir tokens para o cliente confidencial, não recomendamos usá-lo por padrão, pois ele é mais avançado e projetado para lidar com cenários muito específicos que não são comuns. Usar a `.WithCertificate()` API permitirá que o MSAL.net manipule isso para você. Essa API oferece a capacidade de personalizar sua solicitação de autenticação, se necessário, mas a declaração padrão `.WithCertificate()` criada por será suficiente para a maioria dos cenários de autenticação. Essa API também pode ser usada como uma solução alternativa em alguns cenários em que o MSAL.NET falha ao executar a operação de assinatura internamente.
 
-### <a name="signed-assertions"></a>Afirmações assinadas
+### <a name="signed-assertions"></a>Asserções assinadas
 
-Uma afirmação de cliente assinado toma a forma de um JWT assinado com a carga contendo as reivindicações de autenticação exigidas pelo Azure AD, Base64 codificado. Para usá-lo:
+Uma declaração de cliente assinada assume a forma de um JWT assinado com a carga que contém as declarações de autenticação necessárias exigidas pelo Azure AD, codificada em base64. Para usá-lo:
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -48,18 +48,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-As reivindicações esperadas pelo Azure AD são:
+As declarações esperadas pelo Azure AD são:
 
 Tipo de declaração | Valor | Descrição
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A reivindicação "aud" (audiência) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) Ver [RFC 7519, Seção 4.1.3]
-exp | Qui Jun 27 2019 15:04:17 GMT+0200 (Horário de Verão de Romance) | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT NÃO DEVE ser aceito para processamento. Consulte [RFC 7519, Seção 4.1.4]
-iss | {ClientID} | A alegação "iss" (emissor) identifica o principal que emitiu o JWT. O processamento desta reclamação é específico do aplicativo. O valor "iss" é uma seqüência sensível a maiúsculas e minúsculas que contém um valor StringOrURI. [RFC 7519, Seção 4.1.1]
-jti | (a Guid) | A reivindicação "jti" (JWT ID) fornece um identificador exclusivo para o JWT. O valor do identificador DEVE ser atribuído de forma a garantir que haja uma probabilidade insignificante de que o mesmo valor seja acidentalmente atribuído a um objeto de dados diferente; se o aplicativo utilizar vários emissores, as colisões devem ser evitadas entre os valores produzidos por diferentes emissores também. A alegação "jti" pode ser usada para evitar que o JWT seja repetido. O valor "jti" é uma seqüência sensível ao caso. [RFC 7519, Seção 4.1.7]
-nbf | Qui Jun 27 2019 14:54:17 GMT+0200 (Horário de Verão do Romance) | A declaração "nbf" (não antes) identifica a hora antes da qual o JWT NÃO DEVE ser aceito para processamento. [RFC 7519, Seção 4.1.5]
-sub | {ClientID} | A alegação "sub" (assunto) identifica o sujeito do JWT. As alegações em um JWT são normalmente declarações sobre o assunto. O valor do assunto deve ser escopo para ser localmente único no contexto do emissor ou ser globalmente único. O See [RFC 7519, Seção 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | A declaração "AUD" (público) identifica os destinatários para os quais o JWT se destina (aqui Azure AD) consulte [RFC 7519, section 4.1.3]
+exp | Qui Jun 27 2019 15:04:17 GMT + 0200 (horário de Verão de romance) | A declaração "exp" (hora de expiração) identifica a hora de expiração ou a hora após ela na qual o JWT NÃO DEVE ser aceito para processamento. Consulte [RFC 7519, seção 4.1.4]
+iss | ClientID | A declaração "ISS" (emissor) identifica a entidade de segurança que emitiu o JWT. O processamento dessa declaração é específico do aplicativo. O valor "ISS" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas contendo um valor StringOrURI. [RFC 7519, seção 4.1.1]
+jti | (um GUID) | A declaração "JTI" (ID JWT) fornece um identificador exclusivo para o JWT. O valor do identificador deve ser atribuído de maneira que garanta que haja uma probabilidade insignificante de que o mesmo valor será acidentalmente atribuído a um objeto de dados diferente; Se o aplicativo usar vários emissores, as colisões deverão ser evitadas entre os valores produzidos por diferentes emissores também. A declaração "JTI" pode ser usada para impedir que o JWT seja reproduzido. O valor "JTI" é uma cadeia de caracteres que diferencia maiúsculas de minúsculas. [RFC 7519, seção 4.1.7]
+nbf | Qui Jun 27 2019 14:54:17 GMT + 0200 (horário de Verão de romance) | A declaração "nbf" (não antes) identifica a hora antes da qual o JWT NÃO DEVE ser aceito para processamento. [RFC 7519, seção 4.1.5]
+sub | ClientID | A declaração "sub" (Subject) identifica o assunto do JWT. As declarações em um JWT normalmente são instruções sobre o assunto. O valor da entidade deve ter o escopo definido para ser local exclusivo no contexto do emissor ou ser globalmente exclusivo. Veja [RFC 7519, section 4.1.2]
 
-Aqui está um exemplo de como criar essas reivindicações:
+Aqui está um exemplo de como criar essas declarações:
 
 ```csharp
 private static IDictionary<string, string> GetClaims()
@@ -85,7 +85,7 @@ private static IDictionary<string, string> GetClaims()
 }
 ```
 
-Veja como criar uma afirmação de cliente assinado:
+Aqui está como criar uma declaração de cliente assinada:
 
 ```csharp
 string Encode(byte[] arg)
@@ -135,7 +135,7 @@ string GetSignedClientAssertion()
 
 ### <a name="alternative-method"></a>Método alternativo
 
-Você também tem a opção de usar o [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) para criar a afirmação para você. O código será mais elegante, como mostrado no exemplo abaixo:
+Você também tem a opção de usar [Microsoft. IdentityModel. JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) para criar a asserção para você. O código será mais elegante, conforme mostrado no exemplo abaixo:
 
 ```csharp
         string GetSignedClientAssertion()
@@ -168,7 +168,7 @@ Você também tem a opção de usar o [Microsoft.IdentityModel.JsonWebTokens](ht
         }
 ```
 
-Uma vez que você tenha a sua afirmação de cliente assinado, você pode usá-lo com o apis MSAL como mostrado abaixo.
+Depois de ter a declaração de cliente assinada, você pode usá-la com as APIs MSAL, conforme mostrado abaixo.
 
 ```csharp
             string signedClientAssertion = GetSignedClientAssertion();
@@ -179,9 +179,9 @@ Uma vez que você tenha a sua afirmação de cliente assinado, você pode usá-l
                 .Build();
 ```
 
-### <a name="withclientclaims"></a>Comclientes de clientes
+### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`por padrão produzirá uma afirmação assinada contendo as reivindicações esperadas pelo Azure AD mais reclamações adicionais de clientes que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`Por padrão, produzirá uma asserção assinada contendo as declarações esperadas pelo Azure AD mais declarações de cliente adicionais que você deseja enviar. Aqui está um trecho de código sobre como fazer isso.
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -194,6 +194,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ```
 
-Se uma das alegações no dicionário que você passar é a mesma de uma das reivindicações obrigatórias, o valor da reivindicação adicional será levado em conta. Ele vai anular as reivindicações computadas por MSAL.NET.
+Se uma das declarações no dicionário que você passa for igual a uma das declarações obrigatórias, o valor da declaração adicional será levado em conta. Ele substituirá as declarações computadas por MSAL.NET.
 
-Se você quiser fornecer suas próprias reivindicações, incluindo as reivindicações `false` obrigatórias `mergeWithDefaultClaims` esperadas pelo Azure AD, passe para o parâmetro.
+Se você quiser fornecer suas próprias declarações, incluindo as declarações obrigatórias esperadas pelo Azure AD, passe `false` para o `mergeWithDefaultClaims` parâmetro.

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618764"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
 
 >[!IMPORTANT]
-> A solução recomendada para acessar as chaves db do Azure Cosmos é usar uma [identidade gerenciada atribuída pelo sistema](managed-identity-based-authentication.md). Se o seu serviço não puder tirar proveito das identidades gerenciadas, use a [solução baseada em cert](certificate-based-authentication.md). Se a solução de identidade gerenciada e a solução baseada em cert não atenderem às suas necessidades, use a solução do cofre chave abaixo.
+> A solução recomendada para acessar Azure Cosmos DB chaves é usar uma [identidade gerenciada atribuída pelo sistema](managed-identity-based-authentication.md). Se o serviço não puder tirar proveito das identidades gerenciadas, use a [solução baseada em certificado](certificate-based-authentication.md). Se a solução de identidade gerenciada e a solução baseada em certificado não atenderem às suas necessidades, use a solução Key Vault abaixo.
 
-Ao usar o Azure Cosmos DB para seus aplicativos, você pode acessar o banco de dados, coleções, documentos usando o ponto final e a chave dentro do arquivo de configuração do aplicativo.  No entanto, não é seguro colocar chaves e URL diretamente no código do aplicativo porque eles estão disponíveis em formato de texto claro para todos os usuários. Você deseja verificar se o ponto de extremidade e as chaves estão disponíveis, mas por meio de um mecanismo seguro. É aí que o Azure Key Vault pode ajudá-lo a armazenar e gerenciar os segredos do aplicativo com segurança.
+Ao usar Azure Cosmos DB para seus aplicativos, você pode acessar o banco de dados, coleções, documentos usando o ponto de extremidade e a chave dentro do arquivo de configuração do aplicativo.  No entanto, não é seguro colocar as chaves e a URL diretamente no código do aplicativo porque elas estão disponíveis no formato de texto não criptografado para todos os usuários. Você deseja verificar se o ponto de extremidade e as chaves estão disponíveis, mas por meio de um mecanismo seguro. É aí que o Azure Key Vault pode ajudá-lo a armazenar e gerenciar os segredos do aplicativo com segurança.
 
 As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do Azure Cosmos DB usando o Key Vault:
 
@@ -33,12 +33,12 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-1. Faça login no [portal Azure](https://portal.azure.com/).  
+1. Entre no [Portal do Azure](https://portal.azure.com/).  
 2. Selecione **Criar um recurso > Segurança > Key Vault**.  
 3. A seção **Criar cofre de chaves** fornece as seguintes informações:  
    * **Nome:** forneça um nome exclusivo para seu Key Vault.  
    * **Assinatura:** escolha a assinatura que você usará.  
-   * Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.  
+   * Em **grupo de recursos** , escolha **criar novo** e insira um nome de grupo de recursos.  
    * No menu suspenso Local, escolha um local.  
    * Deixe as outras opções com os padrões.  
 4. Depois de fornecer as informações acima, selecione **Criar**.  
@@ -47,7 +47,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 1. Navegue até o Key Vault que você criou na etapa anterior e abra a guia **Segredos**.  
 2. Selecione **+Gerar/Importar**, 
 
-   * Selecione **Manual** para **opções de upload**.
+   * Selecione **manual** para **Opções de upload**.
    * Forneça um **Nome** para seu segredo
    * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. E, em seguida, selecione **Criar**.
 
@@ -94,5 +94,5 @@ Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [de suporte ao firewall.](firewall-support.md)
+* Para configurar um firewall para Azure Cosmos DB consulte o artigo de [suporte do firewall](firewall-support.md) .
 * Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).

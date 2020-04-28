@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
 ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631790"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
@@ -21,7 +21,7 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="getting-started"></a>Introdução
 
-- [Comece com o Azure Monitor Log Analytics](get-started-portal.md) é uma lição para escrever consultas e trabalhar com resultados no portal Azure.
+- [Introdução ao Azure Monitor log Analytics](get-started-portal.md) é uma lição para escrever consultas e trabalhar com resultados no portal do Azure.
 - [Introdução às consultas de log do Azure Monitor](get-started-queries.md) é uma lição sobre como escrever consultas usando dados de log do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos

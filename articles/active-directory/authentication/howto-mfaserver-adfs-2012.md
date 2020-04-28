@@ -1,5 +1,5 @@
 ---
-title: Servidor Azure MFA com AD FS no Windows Server - Azure Active Directory
+title: Servidor Azure MFA com AD FS no Windows Server-Azure Active Directory
 description: Este artigo descreve como começar a usar a Autenticação Multifator do Azure e o AD FS no Windows Server 2012 R2 e 2016.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653364"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS no Windows Server
@@ -25,7 +25,7 @@ Se você usa o AD FS (Serviços de Federação do Active Directory) e deseja pro
 Neste artigo, discutimos o uso do Servidor de Autenticação Multifator do Azure com o AD FS no Windows Server 2012 R2 ou no Windows Server 2016. Para saber mais, leia sobre como [proteger recursos de nuvem e locais usando o Servidor de Autenticação Multifator do Azure com o AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Proteger o AD FS do Windows Server com o Servidor de Autenticação Multifator do Azure
 
@@ -49,10 +49,10 @@ Antes de começar, esteja ciente das seguintes informações:
 3. Selecione as opções adicionais que você deseja especificar para a sua organização.
 4. Clique em **Instalar Adaptador do AD FS**.
 
-   ![Instale o adaptador ADFS no console Do Servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
+   ![Instalar o adaptador do ADFS do console do servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
-5. Se a janela do Active Directory for exibida, isso significará duas coisas. O computador faz parte de um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Active Directory e definir as configurações manualmente**. Clique em **Próximo**.
-6. Se as janelas de Grupo Local forem exibidas, isso significará duas coisas. Seu computador não faz parte de um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Grupo Local e definir as configurações manualmente**. Clique em **Próximo**.
+5. Se a janela do Active Directory for exibida, isso significará duas coisas. O computador faz parte de um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Active Directory e definir as configurações manualmente**. Clique em **Avançar**.
+6. Se as janelas de Grupo Local forem exibidas, isso significará duas coisas. Seu computador não faz parte de um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Grupo Local e definir as configurações manualmente**. Clique em **Avançar**.
 7. No Assistente de instalação, clique em **Avançar**. O Servidor de Autenticação Multifator do Azure cria o grupo PhoneFactor Admins e adiciona a conta de serviço do AD FS ao grupo PhoneFactor Admins.
 8. Na página **Iniciar Instalador**, clique em **Avançar**.
 9. No instalador do adaptador do AD FS da Autenticação Multifator, clique em **Avançar**.
@@ -84,8 +84,8 @@ Neste ponto, o Servidor de Autenticação Multifator está configurado para ser 
 Execute estas etapas para editar o arquivo MultiFactorAuthenticationAdfsAdapter.config:
 
 1. Defina o nó **UseWebServiceSdk** como **true**.  
-2. Defina o valor **WebServiceSdkUrl** para a URL do SDK do Serviço Web da Autenticação Multifator. Por exemplo: *https:\/\/\<contoso.com/ nome de certificado>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, Onde * \<o nome do certificado>* é o nome do seu certificado.  
-3. Edite o script Register-MultiFactorAuthenticationAdfsAdapter.ps1 `-ConfigurationFilePath &lt;path&gt;` adicionando `Register-AdfsAuthenticationProvider` ao final do comando, onde * &lt;&gt; * o caminho é o caminho completo para o arquivo MultiFactorAuthenticationAdfsAdapter.config.
+2. Defina o valor **WebServiceSdkUrl** para a URL do SDK do Serviço Web da Autenticação Multifator. Por exemplo: *https:\/\/contoso.com/\<CertificateName>/multifactorauthwebservicesdk/pfwssdk.asmx*, em que * \<CertificateName>* é o nome do seu certificado.  
+3. Edite o script Register-multifactorauthenticationadfsadapter. ps1 adicionando `-ConfigurationFilePath &lt;path&gt;` ao final do `Register-AdfsAuthenticationProvider` comando, em que * &lt;Path&gt; * é o caminho completo para o arquivo MultiFactorAuthenticationAdfsAdapter. config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurar o SDK do Serviço Web com um nome de usuário e senha
 
@@ -134,19 +134,19 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
 3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração...**
 
-   ![Editar regras de reivindicação no console ADFS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
+   ![Editar regras de declaração no console do ADFS](./media/howto-mfaserver-adfs-2012/trustedip1.png)
 
 4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra.**
 
-   ![Editar regras de transformar no console ADFS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
+   ![Editar regras de transformação no console do ADFS](./media/howto-mfaserver-adfs-2012/trustedip2.png)
 
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
 
-   ![Adicionar assistente de regra de reivindicação de transformação](./media/howto-mfaserver-adfs-2012/trustedip3.png)
+   ![Assistente para Adicionar regra de declaração de transformação](./media/howto-mfaserver-adfs-2012/trustedip3.png)
 
 6. Dê um nome para a regra.
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
-8. Selecione **Passar por todos os valores de sinistro**.
+8. Selecione **passar todos os valores de declaração**.
 
     ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 

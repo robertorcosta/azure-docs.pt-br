@@ -1,7 +1,7 @@
 ---
-title: Arquivo de configuração Android MSAL | Azure
+title: Arquivo de configuração do Android MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: Uma visão geral do arquivo de configuração MSAL (Android Microsoft Authentication Library, biblioteca de autenticação do Microsoft), que representa a configuração de um aplicativo no Azure Active Directory.
+description: Uma visão geral do arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android, que representa a configuração de um aplicativo no Azure Active Directory.
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,42 +14,42 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80050371"
 ---
-# <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da Biblioteca de Autenticação do Android Microsoft
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
-O MSAL (Android Microsoft Authentication Library, biblioteca de autenticação microsoft) é fornecido com um [arquivo JSON de configuração padrão](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que você personaliza para definir o comportamento do seu aplicativo cliente público para coisas como a autoridade padrão, quais autoridades você usará, e assim por diante.
+A MSAL (biblioteca de autenticação da Microsoft) do Android é fornecida com um [arquivo JSON de configuração padrão](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que você personaliza para definir o comportamento do seu aplicativo cliente público para coisas como a autoridade padrão, quais autoridades você usará e assim por diante.
 
-Este artigo irá ajudá-lo a entender as várias configurações no arquivo de configuração e como especificar o arquivo de configuração a ser usado em seu aplicativo baseado em MSAL.
+Este artigo o ajudará a entender as várias configurações no arquivo de configuração e a especificar o arquivo de configuração a ser usado em seu aplicativo baseado em MSAL.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 ### <a name="general-settings"></a>Configurações gerais
 
-| Propriedade | Tipo de Dados | Obrigatório | Observações |
+| Propriedade | Tipo de Dados | Necessária | Observações |
 |-----------|------------|-------------|-------|
-| `client_id` | String | Sim | ID do cliente do seu aplicativo a partir da página de registro do [aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String | Sim | O URI de redirecionamento do aplicativo da página de registro do [aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | >\<de Autoridade de Lista | Não | A lista de autoridades que seu aplicativo precisa |
-| `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores `DEFAULT`possíveis: , `BROWSER``WEBVIEW` |
-| `http` | httpconfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e`read_timeout` |
-| `logging` | Configuração de registro | Não | Especifica o nível de detalhes de registro. As configurações `pii_enabled`opcionais incluem: , que `log_level`leva `ERROR`um `WARNING` `INFO`valor `VERBOSE`booleano, e , o que leva , , , ou . . |
+| `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | >\<de autoridade de lista | Não | A lista de autoridades que seu aplicativo precisa |
+| `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e`read_timeout` |
+| `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais `pii_enabled`incluem:, que usa um valor booliano `log_level`e, `ERROR`que `WARNING`usa `INFO`,, `VERBOSE`ou. |
 
 ### <a name="client_id"></a>client_id
 
-O ID do cliente ou iD do aplicativo que foi criado quando você registrou seu aplicativo.
+A ID do cliente ou a ID do aplicativo que foi criada quando você registrou seu aplicativo.
 
 ### <a name="redirect_uri"></a>redirect_uri
 
-O URI de redirecionamento que você registrou quando registrou seu aplicativo. Se o URI redirecionar for para um aplicativo de corretora, consulte [redirecionar o URI para aplicativos públicos do cliente](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) para garantir que você está usando o formato URI de redirecionamento correto para o seu aplicativo de corretora.
+O URI de redirecionamento que você registrou quando registrou seu aplicativo. Se o URI de redirecionamento for para um aplicativo de agente, consulte [URI de redirecionamento para aplicativos cliente públicos](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) para garantir que você esteja usando o formato de URI de redirecionamento correto para seu aplicativo de agente.
 
-### <a name="authorities"></a>Autoridades
+### <a name="authorities"></a>pelas
 
-A lista de autoridades que são conhecidas e confiáveis por você. Além das autoridades listadas aqui, a MSAL também consulta a Microsoft para obter uma lista de nuvens e autoridades conhecidas pela Microsoft. Nesta lista de autoridades, especifique o tipo de `"audience"`autoridade e quaisquer parâmetros opcionais adicionais, como, que deve se alinhar com o público do seu aplicativo com base no registro do seu aplicativo. A seguir, uma lista de exemplos de autoridades:
+A lista de autoridades que são conhecidas e confiáveis por você. Além das autoridades listadas aqui, o MSAL também consulta a Microsoft para obter uma lista de nuvens e autoridades conhecidas da Microsoft. Nessa lista de autoridades, especifique o tipo da autoridade e quaisquer parâmetros opcionais adicionais, como `"audience"`, que devem ser alinhados com o público do seu aplicativo com base no registro do aplicativo. Veja a seguir um exemplo de lista de autoridades:
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -84,95 +84,95 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 }
 ```
 
-#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapear autoridade AAD & audiência para os pontos finais da plataforma de identidade da Microsoft
+#### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapear a autoridade do AAD & público para pontos de extremidade da plataforma Microsoft Identity
 
-| Type | Público | ID do locatário | Authority_Url | Ponto final resultante | Observações |
+| Type | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftConta | | | `https://login.microsoftonline.com/common` | `common`é um alias inquilino para onde a conta está. Como um inquilino específico do Azure Active Directory ou o sistema de conta da Microsoft. |
-| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Somente contas presentes em contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do inquilino, pode ser usado como id do inquilino. |
-| AAD | AzureADMultipleOrgS | | | `https://login.microsoftonline.com/organizations` | Apenas contas do Azure Active Directory podem ser usadas com este ponto final. As contas da Microsoft podem ser membros de organizações. Para adquirir um token usando uma conta Microsoft para um recurso em uma organização, especifique o inquilino organizacional do qual você deseja o token. |
-| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Apenas contas microsoft pode usar este ponto final. |
-| B2C | | | Ver ponto final resultante | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Somente as contas presentes no contoso.onmicrosoft.com inquilino pode adquirir um token. Neste exemplo, a diretiva B2C faz parte do caminho do URL da Autoridade. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Somente as contas presentes no contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do locatário, pode ser usado como a ID do locatário. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Somente contas Azure Active Directory podem ser usadas com esse ponto de extremidade. As contas da Microsoft podem ser membros de organizações. Para adquirir um token usando um conta Microsoft para um recurso em uma organização, especifique o locatário organizacional do qual você deseja o token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Somente contas da Microsoft podem usar esse ponto de extremidade. |
+| B2C | | | Consulte o ponto de extremidade resultante | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Somente as contas presentes no locatário contoso.onmicrosoft.com podem adquirir um token. Neste exemplo, a política B2C faz parte do caminho da URL da autoridade. |
 
 > [!NOTE]
-> A validação de autoridade não pode ser habilitada e desativada no MSAL.
-> As autoridades são conhecidas por você como desenvolvedor, conforme especificado via configuração ou conhecido pela Microsoft através de metadados.
-> Se a MSAL receber uma solicitação de um `MsalClientException` token para uma autoridade desconhecida, um tipo `UnknownAuthority` de resultado.
+> A validação de autoridade não pode ser habilitada e desabilitada em MSAL.
+> As autoridades são conhecidas por você como o desenvolvedor especificado por meio da configuração ou são conhecidas pela Microsoft por meio de metadados.
+> Se MSAL receber uma solicitação de um token para uma autoridade desconhecida, um `MsalClientException` dos resultados `UnknownAuthority` do tipo.
 
-#### <a name="authority-properties"></a>Propriedades de autoridade
+#### <a name="authority-properties"></a>Propriedades da autoridade
 
-| Propriedade | Tipo de dados  | Obrigatório | Observações |
+| Propriedade | Tipo de dados  | Necessária | Observações |
 |-----------|-------------|-----------|--------|
-| `type` | String | Sim | Espelha o público ou a conta digitando os alvos do seu aplicativo. Valores `AAD`possíveis: ,`B2C` |
-| `audience` | Objeto | Não | Só se aplica`AAD`quando o tipo= . Especifica a identidade que seu aplicativo visa. Use o valor do seu registro de aplicativo |
-| `authority_url` | String | Sim | Obrigatório apenas quando`B2C`digitar= . Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
-| `default` | booleano | Sim | Um `"default":true` único é necessário quando uma ou mais autoridades são especificadas. |
+| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`,`B2C` |
+| `audience` | Objeto | Não | Aplica-se somente quando`AAD`Type =. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
+| `authority_url` | String | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
+| `default` | booleano | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
-| Propriedade | Tipo de Dados  | Obrigatório | Observações |
+| Propriedade | Tipo de Dados  | Necessária | Observações |
 |-----------|-------------|------------|-------|
-| `type` | String | Sim | Especifica o público que seu aplicativo deseja segmentar. Valores `AzureADandPersonalMicrosoftAccount`possíveis: , `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
-| `tenant_id` | String | Sim | Exigido somente `"type":"AzureADMyOrg"`quando . Opcional para `type` outros valores. Este pode ser um `contoso.com`domínio inquilino, como , `72f988bf-86f1-41af-91ab-2d7cd011db46`ou um ID inquilino, como ) |
+| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
+| `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros `type` valores. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, `72f988bf-86f1-41af-91ab-2d7cd011db46`como) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
-Indica se deve usar uma webview incorporada ou o navegador padrão no dispositivo, ao fazer login em uma conta ou autorizar o acesso a um recurso.
+Indica se deve ser usado um WebView inserido ou o navegador padrão no dispositivo, ao entrar em uma conta ou autorizar o acesso a um recurso.
 
 Valores possíveis:
-- `DEFAULT`: Prefere o navegador do sistema. Usa a visualização web incorporada se um navegador não estiver disponível no dispositivo.
-- `WEBVIEW`: Use a visualização web incorporada.
+- `DEFAULT`: Prefere o navegador do sistema. Usa a exibição da Web inserida se um navegador não estiver disponível no dispositivo.
+- `WEBVIEW`: Use a exibição da Web inserida.
 - `BROWSER`: Usa o navegador padrão no dispositivo.
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-Para clientes que suportam `true`várias nuvens nacionais, especifique . A plataforma de identidade da Microsoft redirecionará automaticamente para a nuvem nacional correta durante a autorização e o resgate de tokens. Você pode determinar a nuvem nacional da conta de entrada `AuthenticationResult`examinando a autoridade associada ao . Observe que `AuthenticationResult` o não fornece o endereço final do recurso específico para nuvem nacional para o qual você solicita um token.
+Para clientes que dão suporte a várias nuvens nacionais `true`, especifique. A plataforma de identidade da Microsoft será redirecionada automaticamente para a nuvem nacional correta durante a autorização e o resgate de token. Você pode determinar a nuvem nacional da conta conectada examinando a autoridade associada ao `AuthenticationResult`. Observe que o `AuthenticationResult` não fornece o endereço de ponto de extremidade específico da nuvem nacional do recurso para o qual você solicita um token.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
-Um booleano que indica se você está usando um corretor de identidade compatível com o Microsoft IUri. Defina `false` para se você não quiser usar o corretor dentro do seu aplicativo.
+Um booliano que indica se você está usando um URI de redirecionamento no agente compatível com o Microsoft Identity Broker. Defina como `false` se você não quiser usar o agente em seu aplicativo.
 
-Se você estiver usando a Autoridade AAD com audiência definida para `"MicrosoftPersonalAccount"`, o corretor não será usado.
+Se você estiver usando a autoridade do AAD com o público `"MicrosoftPersonalAccount"`definido como, o agente não será usado.
 
 ### <a name="http"></a>http
 
-Configure configurações globais para tempoouts HTTP, tais como:
+Defina configurações globais para tempos limite de HTTP, como:
 
-| Propriedade | Tipo de dados | Obrigatório | Observações |
+| Propriedade | Tipo de dados | Necessária | Observações |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | INT | Não | Tempo em milissegundos |
 | `read_timeout` | INT | Não | Tempo em milissegundos |
 
 ### <a name="logging"></a>registro em log
 
-As seguintes configurações globais são para registro:
+As seguintes configurações globais são para registro em log:
 
-| Propriedade | Tipo de Dados  | Obrigatório | Observações |
+| Propriedade | Tipo de Dados  | Necessária | Observações |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | booleano | Não | Quer emitir dados pessoais |
-| `log_level`   | booleano | Não | Quais mensagens de registro para saída |
-| `logcat_enabled` | booleano | Não | Se para sair para registrar gato, além da interface de registro |
+| `pii_enabled`  | booleano | Não | Se os dados pessoais devem ser emitidos |
+| `log_level`   | booleano | Não | Quais mensagens de log para saída |
+| `logcat_enabled` | booleano | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
 
 ### <a name="account_mode"></a>account_mode
 
-Especifica quantas contas podem ser usadas dentro do seu aplicativo de cada vez. Os valores possíveis são:
+Especifica quantas contas podem ser usadas em seu aplicativo por vez. Os valores possíveis são:
 
 - `MULTIPLE` (Padrão)
 - `SINGLE`
 
-A construção `PublicClientApplication` de um modo de conta que não corresponda a essa configuração resultará em uma exceção.
+Construir um `PublicClientApplication` usando um modo de conta que não corresponda a essa configuração resultará em uma exceção.
 
-Para obter mais informações sobre as diferenças entre contas simples e múltiplas, consulte [Aplicativos de conta única e múltipla](single-multi-account.md).
+Para obter mais informações sobre as diferenças entre contas únicas e múltiplas, consulte [aplicativos de conta única e múltipla](single-multi-account.md).
 
 ### <a name="browser_safelist"></a>browser_safelist
 
-Uma lista de navegadores compatíveis com o MSAL. Esses navegadores lidam corretamente com redirecionamentos para intenções personalizadas. Você pode adicionar a esta lista. O padrão é fornecido na configuração padrão mostrada abaixo.
+Uma lista de permissões de navegadores que são compatíveis com o MSAL. Esses navegadores manipulam corretamente os redirecionamentos para as intenções personalizadas. Você pode adicionar a esta lista. O padrão é fornecido na configuração padrão mostrada abaixo.
 ``
-## <a name="the-default-msal-configuration-file"></a>O arquivo de configuração MSAL padrão
+## <a name="the-default-msal-configuration-file"></a>O arquivo de configuração padrão do MSAL
 
-A configuração MSAL padrão que é enviado com MSAL é mostrada abaixo. Você pode ver a versão mais recente no [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json).
+A configuração padrão do MSAL fornecida com MSAL é mostrada abaixo. Você pode ver a versão mais recente no [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json).
 
-Esta configuração é complementada por valores que você fornece. Os valores fornecidos anulam os padrões.
+Essa configuração é complementada por valores que você fornece. Os valores que você fornece substituem os padrões.
 
 ```javascript
 {
@@ -319,7 +319,7 @@ Esta configuração é complementada por valores que você fornece. Os valores f
 ```
 ## <a name="example-basic-configuration"></a>Exemplo de configuração básica
 
-O exemplo a seguir ilustra uma configuração básica que especifica o ID do cliente, redirecionar uri, se um redirecionamento de corretor está registrado e uma lista de autoridades.
+O exemplo a seguir ilustra uma configuração básica que especifica a ID do cliente, o URI de redirecionamento, se um redirecionamento do agente está registrado e uma lista de autoridades.
 
 ```javascript
 {
@@ -340,8 +340,8 @@ O exemplo a seguir ilustra uma configuração básica que especifica o ID do cli
 
 ## <a name="how-to-use-a-configuration-file"></a>Como usar um arquivo de configuração
 
-1. Crie um arquivo de configuração. Recomendamos que você crie seu `res/raw/auth_config.json`arquivo de configuração personalizado em . Mas você pode colocá-lo em qualquer lugar que quiser.
-2. Diga à MSAL onde procurar sua `PublicClientApplication`configuração quando construir o . Por exemplo: 
+1. Crie um arquivo de configuração. Recomendamos que você crie seu arquivo de configuração personalizada `res/raw/auth_config.json`no. Mas você pode colocá-lo em qualquer lugar que desejar.
+2. Informe ao MSAL onde procurar sua configuração ao construir o `PublicClientApplication`. Por exemplo:
 
    ```java
    //On Worker Thread

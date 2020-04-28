@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o acesso de recursos de & de aplicativos usando grupos - Azure AD
+title: Gerenciar o acesso aos recursos do aplicativo & usando grupos-Azure AD
 description: Saiba mais sobre como gerenciar o acesso aos aplicativos baseados em nuvem da sua organização, aplicativos locais e recursos usando grupos do Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,22 +14,22 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982592"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerenciar o acesso de aplicativo e recursos usando grupos do Microsoft Azure Active Directory
-O Azure Active Directory (Azure AD) permite que você use grupos para gerenciar o acesso aos seus aplicativos baseados na nuvem, aplicativos locais e seus recursos. Seus recursos podem fazer parte da organização Ad do Azure, como permissões para gerenciar objetos através de funções no Azure AD, ou externos à organização, como para aplicativos de Software as a Service (SaaS), serviços Azure, sites SharePoint e recursos locais.
+O Azure Active Directory (AD do Azure) permite que você use grupos para gerenciar o acesso aos seus aplicativos baseados em nuvem, aplicativos locais e seus recursos. Seus recursos podem fazer parte da organização do Azure AD, como permissões para gerenciar objetos por meio de funções no Azure AD, ou externos à organização, como para aplicativos SaaS (software como serviço), serviços do Azure, sites do SharePoint e recursos locais.
 
 >[!NOTE]
-> No portal Azure, você pode ver alguns grupos cujos membros e detalhes de grupo você não pode gerenciar no portal:
+> No portal do Azure, você pode ver alguns grupos cujos detalhes de associação e grupo você não pode gerenciar no Portal:
 >
-> - Grupos sincronizados a partir de diretórios ativos no local podem ser gerenciados apenas no Active Directory no local.
-> - Outros tipos de grupo, como listas de distribuição e grupos de segurança habilitados por e-mail, são gerenciados apenas no centro de administrados exchange ou no centro de admin microsoft 365. Você deve fazer login no Exchange admin center ou no Microsoft 365 admin center para gerenciar esses grupos.
+> - Os grupos sincronizados do Active Directory local podem ser gerenciados somente no Active Directory local.
+> - Outros tipos de grupo, como listas de distribuição e grupos de segurança habilitados para email, são gerenciados somente no centro de administração do Exchange ou no centro de administração do Microsoft 365. Você deve entrar no centro de administração do Exchange ou Microsoft 365 centro de administração para gerenciar esses grupos.
 
-## <a name="how-access-management-in-azure-ad-works"></a>Como funciona o gerenciamento de acesso no Ad do Azure
+## <a name="how-access-management-in-azure-ad-works"></a>Como funciona o gerenciamento de acesso no Azure AD
 
 O Azure AD ajuda a dar acesso aos recursos da sua organização fornecendo direitos de acesso a um único usuário ou a um grupo do Azure AD inteiro. Usar grupos permite que o recurso proprietário (ou proprietário de diretório do Azure AD), atribua um conjunto de permissões de acesso a todos os membros do grupo, em vez de precisar fornecer os direitos um por um. O proprietário do recurso ou diretório também pode conceder direitos de gerenciamento da lista de membros a outra pessoa, como um gerente de departamento ou um administrador de assistência técnica, permitindo à pessoa adicionar e remover membros, conforme necessário. Para obter mais informações sobre como gerenciar proprietários do grupo, veja [Gerenciar proprietários do grupo](active-directory-accessmanagement-managing-group-owners.md)
 

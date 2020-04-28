@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81407010"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
@@ -37,13 +37,13 @@ Para executar a tarefa de solução de problemas no assistente, execute as etapa
 4.  Navegue até a página Tarefas Adicionais, selecione Solucionar problemas e clique em Avançar.
 5.  Na página de solução de problemas, clique em Iniciar para iniciar o menu de solução de problemas no PowerShell.
 6.  No menu principal, selecione Solucionar Problemas de Sincronização de Senha.
-![Solucionar problemas na sincronização de objetos](media/tshoot-connect-objectsync/objsynch11.png)
+![Solucionar problemas de sincronização de objeto](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parâmetros de entrada para a solução de problemas
 Os parâmetros de entrada a seguir são necessários para a tarefa de solução de problemas:
 1.  **Nome distinto do objeto** – este é o nome distinto do objeto que precisa de solução de problemas
 2.  **Nome do Conector AD** – este é o nome da floresta do AD em que reside o objeto acima.
-3.  Credenciais de administrador global ![do administrador global do azure AD](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenciais do administrador global de locatário ![do Azure ad credenciais de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
 A tarefa de solução de problemas executa as seguintes verificações:
@@ -60,7 +60,7 @@ O restante desta seção descreve resultados específicos que são retornados pe
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>O sufixo UPN não foi verificado com locatário do Azure Active Directory
 Quando o sufixo de UserPrincipalName (UPN)/ID de logon alternativo não é verificado com o locatário do Azure Active Directory, os sufixos de UPN são substituídos pelo nome de domínio padrão "onmicrosoft.com".
 
-![Azure AD substitui upn](media/tshoot-connect-objectsync/objsynch2.png)
+![O Azure AD substitui o UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>O recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado
 Quando o recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado, o Azure Active Directory não permite atualizações de sincronização para UserPrincipalName/ID de logon alternativo para contas de usuário licenciado com autenticação gerenciada.
@@ -97,4 +97,4 @@ Além de analisar o objeto, a tarefa de solução de problemas também gera um r
 ![Relatório HTML](media/tshoot-connect-objectsync/objsynch8.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

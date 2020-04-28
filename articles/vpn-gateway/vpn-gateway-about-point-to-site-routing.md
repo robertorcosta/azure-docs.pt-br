@@ -1,5 +1,5 @@
 ---
-title: 'Gateway Azure VPN: sobre o roteamento P2S'
+title: 'Gateway de VPN do Azure: sobre roteamento de P2S'
 description: Este artigo ajuda você a entender como o roteamento de VPN Ponto a Site se comporta.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: anzaman
 ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239759"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
@@ -32,7 +32,7 @@ Há vários diagramas diferentes neste artigo. Cada seção mostra uma topologia
 
 A conexão de gateway VPN Ponto a Site neste exemplo é para uma rede virtual que não é conectada ou emparelhada com qualquer outra rede virtual (VNet1). Neste exemplo, os clientes podem acessar o VNet1.
 
-![roteamento isolado do VNet](./media/vpn-gateway-about-point-to-site-routing/1.jpg "roteamento isolado do VNet")
+![roteamento de rede virtual isolada](./media/vpn-gateway-about-point-to-site-routing/1.jpg "roteamento de rede virtual isolada")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -52,11 +52,11 @@ A conexão de gateway VPN Ponto a Site neste exemplo é para uma rede virtual qu
 
 ## <a name="multiple-peered-vnets"></a><a name="multipeered"></a>Vários emparelhadas VNets
 
-Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é emparelhada com VNet2. VNet2 é emparelhada com VNet3. VNet1 é emparelhada com VNet4. Não há nenhuma correspondência direta entre VNet1 e VNet3. O VNet1 tem "Permitir o trânsito de gateway" e o VNet2 e o VNet4 têm "Usar gateways remotos" ativados.
+Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é emparelhada com VNet2. VNet2 é emparelhada com VNet3. VNet1 é emparelhada com VNet4. Não há nenhuma correspondência direta entre VNet1 e VNet3. VNet1 tem "permitir trânsito de gateway" e VNet2 e VNet4 têm "usar gateways remotos" habilitados.
 
 Os clientes que usam o Windows podem acessar VNets emparelhadas diretamente, mas o cliente VPN deve ser baixado novamente, se as alterações são feitas para emparelhamento de rede virtual ou a topologia de rede. Os clientes não Windows podem acessar VNets emparelhadas diretamente. O acesso não é transitivo e é limitado a apenas VNets emparelhadas diretamente.
 
-![múltiplos VNets peered](./media/vpn-gateway-about-point-to-site-routing/2.jpg "múltiplos VNets peered")
+![vários VNets emparelhados](./media/vpn-gateway-about-point-to-site-routing/2.jpg "vários VNets emparelhados")
 
 ### <a name="address-space"></a>Espaço de endereço:
 
@@ -86,7 +86,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Os clientes que usam o Windows ou outro sistema operacional com suporte só podem acessar VNet1. Para acessar VNets adicionais, o BGP deve ser usado.
 
-![múltiplos VNets e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "múltiplos VNets e S2S")
+![vários VNets e S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "vários VNets e S2S")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -114,7 +114,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Clientes que usam Windows ou outro sistema operacional com suporte podem acessar todas as VNets que estão conectadas usando a conexão VPN Site a Site, mas as rotas a VNets conectadas devem ser adicionadas manualmente aos clientes Windows.
 
-![múltiplos VNets e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "vários VNets e S2S BGP")
+![vários VNets e S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "vários VNets e S2S BGP")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -142,7 +142,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 não 
 
 Os clientes do Windows e não Windows podem acessar apenas VNet1.
 
-![roteamento com um VNet e uma filial](./media/vpn-gateway-about-point-to-site-routing/5.jpg "roteamento com um VNet e uma filial")
+![roteamento com uma VNet e uma filial](./media/vpn-gateway-about-point-to-site-routing/5.jpg "roteamento com uma VNet e uma filial")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -168,7 +168,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 não 
 
 Os clientes Windows podem acessar VNet e filial (Site1), mas as rotas para Site1 devem ser adicionadas manualmente ao cliente. Os clientes não Windows podem acessar a VNet, bem como a filial local.
 
-![um VNet e uma filial (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "um VNet e uma filial")
+![uma VNet e uma filial (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "uma VNet e uma filial")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -195,7 +195,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Todos os clientes podem acessar apenas VNet1.
 
-![multi-VNet S2S e filial](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S e filial")
+![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S e filial de vários VNet")
 
 ### <a name="address-space"></a>Espaço de endereço
 
@@ -225,7 +225,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Os clientes que usam o Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site, mas as rotas para VNet2, VNet3 e Site1 devem ser adicionados manualmente ao cliente. Os clientes não Windows podem acessar VNets e sites que são conectados usando uma conexão VPN Site a Site sem qualquer intervenção manual. O acesso é transitivo, e os clientes podem acessar recursos em todos os sites (local) e VNets conectadas.
 
-![multi-VNet S2S e filial](./media/vpn-gateway-about-point-to-site-routing/8.jpg "multi-VNet S2S e filial")
+![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S e filial de vários VNet")
 
 ### <a name="address-space"></a>Espaço de endereço
 

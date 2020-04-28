@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80130832"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
@@ -94,7 +94,7 @@ As credenciais dos armazenamentos de dados locais são armazenadas localmente (n
 - Usando **texto sem formatação** (menos seguro) por HTTPS no Portal do Azure/Assistente de Cópia. As credenciais são passadas em texto sem formatação para o gateway local.
 - Usando a **biblioteca de Criptografia do JavaScript no Assistente de Cópia**.
 - Usando o **aplicativo gerenciador de credenciais baseado em clique único**. O aplicativo de clique único é executado no computador local que tem acesso ao gateway e define as credenciais para o armazenamento de dados. Essa opção e a próxima são as opções mais seguras. Por padrão, o aplicativo gerenciador de credenciais usa a porta 8050 no computador com o gateway para uma comunicação segura.  
-- Use [o cmdlet Do New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell para criptografar credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode usar as credenciais criptografadas devolvidas por este cmdlet e adicioná-la ao elemento **Credential Criptografado** da **conexãoString** no arquivo JSON que você usa com o cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou no trecho JSON no Data Factory Editor no portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
+- Use o cmdlet do PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) para criptografar credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode usar as credenciais criptografadas retornadas por este cmdlet e adicioná-las ao elemento **EncryptedCredential** da **CONNECTIONSTRING** no arquivo JSON que você usa com o cmdlet [New-AZDATAFACTORYLINKEDSERVICE](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou no trecho de JSON no editor de data Factory no Portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Criptografia baseada na biblioteca de criptografia do JavaScript
 Você pode criptografar as credenciais do armazenamento de dados usando a [biblioteca de Criptografia do JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) no [Assistente de Cópia](data-factory-copy-wizard.md). Quando você seleciona essa opção, o Assistente de Cópia recupera a chave pública do gateway e a utiliza para criptografar as credenciais do armazenamento de dados. As credenciais são descriptografadas pelo computador do gateway e protegidas pela [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) do Windows.
@@ -173,7 +173,7 @@ Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do
 
 Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP do computador do gateway. Por padrão, alguns desses armazenamentos de dados poderão não exigir a lista de permissões do endereço IP. 
 
-- [Banco de dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)

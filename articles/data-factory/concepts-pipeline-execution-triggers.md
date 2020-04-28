@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418347"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
@@ -25,7 +25,7 @@ ms.locfileid: "81418347"
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma _execução de pipeline_ no Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Neste caso, há três corridas separadas do gasoduto ou tubulação. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica.
+Uma _execução de pipeline_ no Azure Data Factory define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Nesse caso, há três execuções separadas do pipeline ou execuções de pipeline. Cada execução de pipeline possui uma ID de execução de pipeline exclusiva. A ID de execução é um GUID que define exclusivamente essa execução de pipeline específica.
 
 As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros definidos no pipeline. Você pode executar um pipeline manualmente ou usando um _gatilho_. Este artigo fornece detalhes sobre as duas maneiras de executar um pipeline.
 
@@ -87,7 +87,7 @@ Você pode executar o pipeline manualmente usando um dos seguintes métodos:
 
 ### <a name="rest-api"></a>API REST
 
-O seguinte comando de amostra mostra como executar seu pipeline usando a API REST manualmente:
+O comando de exemplo a seguir mostra como executar o pipeline usando a API REST manualmente:
 
 ```
 POST
@@ -127,7 +127,7 @@ Para obter um exemplo completo, confira o [Início Rápido: criar um data factor
 
 ### <a name="net-sdk"></a>SDK .NET
 
-A chamada de amostra a seguir mostra como executar seu pipeline usando o .NET SDK manualmente:
+A chamada de exemplo a seguir mostra como executar o pipeline usando o SDK do .NET manualmente:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -136,7 +136,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Para obter um exemplo completo, confira o [Início Rápido: criar um data factory usando o SDK do .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Você pode usar o .NET SDK para invocar os pipelines da Fábrica de Dados a partir de Funções Azure, de seus serviços web, e assim por diante.
+> Você pode usar o SDK do .NET para invocar Data Factory pipelines do Azure Functions, de seus serviços Web e assim por diante.
 
 ## <a name="trigger-execution"></a>Execução do gatilho
 
@@ -148,7 +148,7 @@ Os gatilhos são outra forma de realizar uma execução do pipeline. Os gatilhos
 
 - Gatilho baseado em eventos: um disparador que responde a um evento.
 
-Pipelines e gatilhos têm uma relação de muitos a muitos (exceto pelo gatilho da janela de queda). Vários gatilhos podem iniciar um único pipeline, ou um único gatilho pode iniciar vários pipelines. Na definição de gatilho a seguir, a propriedade **pipelines** se refere a uma lista de canais que são disparados pelo gatilho específico. A definição da propriedade inclui valores para os parâmetros de pipeline.
+Pipelines e gatilhos têm uma relação muitos-para-muitos (exceto para o gatilho de janela em cascata). Vários gatilhos podem disparar um único pipeline, ou um único gatilho pode disparar vários pipelines. Na definição de gatilho a seguir, a propriedade **pipelines** se refere a uma lista de canais que são disparados pelo gatilho específico. A definição da propriedade inclui valores para os parâmetros de pipeline.
 ### <a name="basic-trigger-definition"></a>Definição básica do gatilho
 
 ```json
@@ -179,7 +179,7 @@ Pipelines e gatilhos têm uma relação de muitos a muitos (exceto pelo gatilho 
 ## <a name="schedule-trigger"></a>Gatilho de agendamento
 Um gatilho de agendamento executa pipelines em um agendamento de hora de relógio. Esse gatilho dá suporte às opções de calendário periódicas e avançadas. Por exemplo, os gatilho dá suporte a intervalos como "semanalmente" ou "Segunda-feira às 17h e quinta-feira às 21h”. O gatilho de agendamento é flexível porque o padrão de conjunto de dados é independente e o gatilho não distingue entre os dados de série temporal e não temporal.
 
-Para obter mais informações sobre gatilhos de horário e, por exemplo, consulte [Criar um gatilho de cronograma](how-to-create-schedule-trigger.md).
+Para obter mais informações sobre gatilhos de agendamento e, para obter exemplos, consulte [criar um gatilho de agendamento](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definição do gatilho de agenda
 Quando você cria um gatilho de agenda, especifica o agendamento e a recorrência usando uma definição JSON.
@@ -237,13 +237,13 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | Descrição |
 |:--- |:--- |
-| **Starttime** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** se aplica à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
-| **Endtime** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. <!-- This property is optional. --> |
-| **Timezone** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
-| **Recorrência** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência suporta os elementos **de freqüência,** **intervalo,** **endTime,** **contagem**e **agendamento.** Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
-| **Freqüência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
-| **Intervalo** | Um número inteiro positivo que indica o intervalo para o valor de **frequency**. O valor de **frequency** determina a frequência na qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o gatilho será repetido a cada três semanas. |
-| **schedule** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
+| **startTime** | Um valor de data/hora. Para agendamentos básicos, o valor da propriedade **startTime** se aplica à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
+| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. <!-- This property is optional. --> |
+| **Fuso horário** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
+| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem**e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
+| **frequência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
+| **intervalo** | Um número inteiro positivo que indica o intervalo para o valor de **frequency**. O valor de **frequency** determina a frequência na qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** for "week", o gatilho será repetido a cada três semanas. |
+| **agendamento** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
 
 ### <a name="schedule-trigger-example"></a>Exemplo de gatilho de elemento schedule
 
@@ -281,51 +281,51 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | Type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Necessária | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Starttime** | string | Sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **Recorrência** | objeto | Sim | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **Intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **Endtime** | string | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objeto | Não | Nenhum | Um objeto do agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | cadeia de caracteres | Sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **Recurrence** | objeto | Sim | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
+| **Final** | cadeia de caracteres | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **agendamento** | objeto | Não | Nenhum | Um objeto do agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A seguinte tabela mostra como a propriedade **startTime** controla uma execução de gatilho:
 
 | Valor startTime | Recorrência sem agendamento | Recorrência com agendamento |
 |:--- |:--- |:--- |
-| **A hora de início está no passado** | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br /><br />Executa as execuções subsequentes calculadas a partir do último tempo de execução.<br /><br />Consulte o exemplo após esta tabela. | O gatilho _começa não mais cedo do que_ o horário de início especificado. A primeira ocorrência se baseia no agendamento, calculada com base na hora de início.<br /><br />Executa as execuções seguintes com base no agendamento de recorrência. |
+| **A hora de início está no passado** | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br /><br />Executa as execuções subsequentes calculadas a partir do último tempo de execução.<br /><br />Consulte o exemplo após esta tabela. | O gatilho _não inicia antes_ da hora de início especificada. A primeira ocorrência se baseia no agendamento, calculada com base na hora de início.<br /><br />Executa as execuções seguintes com base no agendamento de recorrência. |
 | **A hora de início está no futuro ou é a hora atual** | É executado uma vez na hora de início especificada.<br /><br />Executa as execuções subsequentes calculadas a partir do último tempo de execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no elemento schedule calculado com base na hora de início.<br /><br />Executa as execuções seguintes com base no agendamento de recorrência. |
 
-Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja 8/4/2017 às 13h, a hora de início seja 7/4/2017 às 14h e a recorrência seja a cada dois dias. (O valor **de recorrência** é definido definindo a propriedade **de freqüência** como "dia" e a propriedade **de intervalo** para 2.) Observe que o valor **startTime** está no passado e ocorre antes do tempo atual.
+Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja 8/4/2017 às 13h, a hora de início seja 7/4/2017 às 14h e a recorrência seja a cada dois dias. (O valor de **recorrência** é definido definindo a propriedade **Frequency** como "Day" e a propriedade **Interval** como 2.) Observe que o valor **StartTime** está no passado e ocorre antes da hora atual.
 
 Sob essas condições, a primeira execução será em 9/4/2017 às 14h. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é 7/4/2017 às 14h. A próxima instância é dois dias a partir dessa hora, que é 9/4/2017 às 14h.
 
 A primeira hora de execução é igual, mesmo que **startTime** seja 5/4/2017 às 14h ou 1/4/2017 às 14h. Após a primeira execução, as execuções seguintes são calculadas com o uso do agendamento. Portanto, as execuções subsequentes serão em 11/4/2017 às 14h, em 13/4/2017 às 14h, em 15/4/2017 às 14h e assim por diante.
 
-Finalmente, quando horas ou minutos não são definidos no cronograma para um gatilho, as horas ou minutos da primeira execução são usados como padrão.
+Por fim, quando as horas ou os minutos não estiverem definidos no agendamento de um gatilho, as horas ou os minutos da primeira execução serão usados como padrões.
 
 ### <a name="schedule-property"></a>Propriedade schedule
 Você pode usar **schedule** para *limitar* o número de execuções de gatilho. Por exemplo, se um gatilho com uma frequência mensal é agendado para execução somente no dia 31, ele é executado apenas nos meses que têm o 31º dia.
 
 Também é possível usar **schedule** para *expandir* o número de execuções de gatilho. Por exemplo, um gatilho com uma frequência mensal agendado para execução nos dias 1 e 2 do mês é executado no primeiro e no segundo dias do mês, em vez de uma vez por mês.
 
-Se vários elementos **de programação** forem especificados, a ordem de avaliação será da maior para a menor configuração de horário: número da semana, dia do mês, dia da semana, hora, minuto.
+Se vários elementos de **agendamento** forem especificados, a ordem de avaliação será da maior para a menor configuração de agenda: número da semana, dia do mês, dia da semana, hora, minuto.
 
 A seguinte tabela descreve elementos **schedule** em detalhes:
 
 | Elemento JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **Minutos** | Minutos da hora em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
-| **Horas** | As horas do dia em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
-| **Semana** | Dias da semana em que o gatilho será executado. O valor pode ser especificado apenas com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores do dia não são sensíveis a maiúsculas e minúsculas|
+| **alguns** | Minutos da hora em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
+| **duração** | As horas do dia em que o gatilho será executado. |- Número inteiro<br />- Matriz de números inteiros|
+| **Dias da semana** | Dias da semana em que o gatilho será executado. O valor pode ser especificado apenas com uma frequência semanal.|<br />- Segunda-feira<br />- Terça-feira<br />- Quarta-feira<br />- Quinta-feira<br />- Sexta-feira<br />- Sábado<br />- Domingo<br />- Matriz de valores de dia (o tamanho máximo da matriz é 7)<br /><br />Os valores de dia não diferenciam maiúsculas de minúsculas|
 | **monthlyOccurrences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Matriz de objetos **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`<br />- O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.<br />- O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.|
 | **monthDays** | Dia do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. |- Qualquer valor <= -1 e >= -31<br />- Qualquer valor >= 1 e <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Gatilho de janela em cascata
 Os gatilhos de janela em cascata são um tipo de gatilho acionado em um intervalo de tempo periódico a partir de uma hora de início especificada, enquanto mantém o estado. As janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contíguos.
 
-Para obter mais informações sobre gatilhos de janelas caindo e, por exemplo, consulte [Criar um gatilho de janela caindo](how-to-create-tumbling-window-trigger.md).
+Para obter mais informações sobre gatilhos de janela em cascata e, para obter exemplos, consulte [criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="event-based-trigger"></a>Gatilho baseado em eventos
 
@@ -336,7 +336,7 @@ Para obter mais informações sobre gatilhos baseados em eventos, consulte [Cria
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemplos de agendamentos de recorrência de gatilho
 Esta seção fornece exemplos de agendamentos de recorrência. Ela tem como foco o objeto **schedule** e seus elementos.
 
-Os exemplos supõem que o valor do **intervalo** é 1 e que o valor da **frequência** está correto de acordo com a definição do cronograma. Por exemplo, você não pode ter um valor de **frequência** de "dia" e também ter uma modificação **mensalDias** no objeto **de agendamento.** Esses tipos de restrições estão descritos na tabela da seção anterior.
+Os exemplos supõem que o valor do **intervalo** é 1 e que o valor de **Frequency** está correto de acordo com a definição da agenda. Por exemplo, você não pode ter um valor de **Frequency** de "Day" e também ter uma modificação **monthDays** no objeto **Schedule** . Esses tipos de restrições estão descritos na tabela da seção anterior.
 
 | Exemplo | Descrição |
 |:--- |:--- |
@@ -346,7 +346,7 @@ Os exemplos supõem que o valor do **intervalo** é 1 e que o valor da **frequê
 | `{"minutes":[15,45], "hours":[5,17]}` | Executar às 5h15, 5h45, 17h15 e 17h45 todos os dias. |
 | `{"minutes":[0,15,30,45]}` | Executar a cada 15 minutos. |
 | `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora.<br /><br />Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br /><br />Esse agendamento é equivalente a ter um gatilho com um valor de **frequency** igual a “hour”, um valor de **interval** igual a 1 e nenhum **schedule**. Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **frequency** é “month”, o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **frequency** é “day”. |
-| `{"minutes":[0]}` | Executar a cada hora na hora.<br /><br />Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br /><br />Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos e nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor da **frequência** for "semana" ou "mês", o cronograma é executado apenas um dia por semana ou um dia por mês, respectivamente. |
+| `{"minutes":[0]}` | Executar a cada hora na hora.<br /><br />Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br /><br />Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos e nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor de **Frequency** for "Week" ou "month", o agendamento será executado um dia uma semana ou um dia apenas um mês, respectivamente. |
 | `{"minutes":[15]}` | Executa 15 minutos após cada hora.<br /><br />Esse gatilho é executado a cada hora em 15 minutos após a hora, começando às 24h15, 1h15, 2h15 e assim por diante, terminando em 23h15. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Executar às 17h aos sábados toda semana. |
 | `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Executar às 17h às segundas-feiras, quartas-feiras e sextas-feiras toda semana. |
@@ -374,11 +374,11 @@ A tabela a seguir fornece uma comparação entre o gatilho de janela em cascata 
 
 |  | Gatilho de janela em cascata | Gatilho de agendamento |
 |:--- |:--- |:--- |
-| **Cenários de aterramento** |  Com suporte. As execuções de pipeline podem ser agendadas para janelas no passado. | Sem suporte. As execuções de pipeline podem ser executadas somente em períodos de tempo atuais e no futuro. |
+| **Cenários de aterramento** |  Com suporte. As execuções de pipeline podem ser agendadas para janelas no passado. | Não há suporte. As execuções de pipeline podem ser executadas somente em períodos de tempo atuais e no futuro. |
 | **Confiabilidade** | 100% de confiabilidade. As execuções de pipeline podem ser agendadas para todas as janelas de uma data de início especificada sem folgas. | Menos confiável. |
-| **Repetir o recurso** |  Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. As tentativas automáticas quando o pipeline é executado falham devido aos limites de concorrência/servidor/estrangulamento (ou seja, códigos de status 400: Erro do usuário, 429: Muitas solicitações e 500: erro do servidor interno). | Sem suporte. |
-| **Simultaneidade** |  Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Sem suporte. |
-| **Variáveis do sistema** | Dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd**. Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Sem suporte. |
+| **Repetir o recurso** |  Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando o pipeline é executado com falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: erro do usuário, 429: muitas solicitações e 500: erro interno do servidor). | Não há suporte. |
+| **Simultaneidade** |  Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Não há suporte. |
+| **Variáveis do sistema** | Dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd**. Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Não há suporte. |
 | **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. |
 
 ## <a name="next-steps"></a>Próximas etapas

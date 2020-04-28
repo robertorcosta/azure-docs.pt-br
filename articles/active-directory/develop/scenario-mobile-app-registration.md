@@ -1,7 +1,7 @@
 ---
-title: Registre aplicativos móveis que chamam APIs web | Azure
+title: Registrar aplicativos móveis que chamam APIs da Web | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar um aplicativo móvel que chame APIs web (configuração de código do aplicativo)
+description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -15,80 +15,80 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5b65bbdc790a27a06298a77aac2721e071adec8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80882702"
 ---
-# <a name="register-mobile-apps-that-call-web-apis"></a>Registre aplicativos móveis que chamam APIs web
+# <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
 Este artigo contém instruções para ajudá-lo a registrar um aplicativo móvel que você está criando.
 
 ## <a name="supported-account-types"></a>Tipos de conta com suporte
 
-Os tipos de conta que seus aplicativos móveis suportam dependem da experiência que você deseja habilitar e dos fluxos que você deseja usar.
+Os tipos de conta aos quais seus aplicativos móveis dão suporte dependem da experiência que você deseja habilitar e dos fluxos que você deseja usar.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Audiência para aquisição interativa de tokens
+### <a name="audience-for-interactive-token-acquisition"></a>Público-alvo para aquisição de token interativo
 
-A maioria dos aplicativos móveis usa autenticação interativa. Se o seu aplicativo usar essa forma de autenticação, você pode fazer login usuários de qualquer tipo de [conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+A maioria dos aplicativos móveis usa a autenticação interativa. Se seu aplicativo usar essa forma de autenticação, você poderá conectar usuários de qualquer [tipo de conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audiência para autenticação integrada do Windows, senha de nome de usuário e B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público-alvo para autenticação integrada do Windows, nome de usuário-senha e B2C
 
-Se você tiver um aplicativo Universal Windows Platform (UWP), você pode usar a autenticação integrada do Windows para fazer login nos usuários. Para usar autenticação integrada do Windows ou autenticação de senha de nome de usuário, seu aplicativo precisa fazer login nos usuários em seu próprio inquilino de desenvolvedor de linha de negócios (LOB). Em um cenário isv (software independente), seu aplicativo pode fazer login com usuários em organizações do Azure Active Directory. Esses fluxos de autenticação não são suportados para contas pessoais da Microsoft.
+Se você tiver um aplicativo Plataforma Universal do Windows (UWP), poderá usar a autenticação integrada do Windows para conectar usuários. Para usar a autenticação integrada do Windows ou a autenticação de senha de nome de usuário, seu aplicativo precisa conectar usuários em seu próprio locatário de desenvolvedor de linha de negócios (LOB). Em um cenário ISV (fornecedor independente de software), seu aplicativo pode conectar usuários em Azure Active Directory organizações. Esses fluxos de autenticação não têm suporte para contas pessoais da Microsoft.
 
-Você também pode fazer login com usuários usando identidades sociais que passam por uma autoridade e política B2C. Para usar este método, você pode usar apenas autenticação interativa e autenticação de senha de nome de usuário. A autenticação de senha de nome de usuário é suportada atualmente apenas em Xamarin.iOS, Xamarin.Android e UWP.
+Você também pode conectar usuários usando identidades sociais que passam uma política e autoridade B2C. Para usar esse método, você pode usar somente a autenticação interativa e a autenticação de senha de nome de usuário. Nome de usuário-a autenticação de senha atualmente tem suporte apenas em Xamarin. iOS, Xamarin. Android e UWP.
 
-Para obter mais informações, consulte [Cenários e fluxos de autenticação suportados](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [cenários e plataformas e idiomas suportados.](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
+Para obter mais informações, consulte [cenários e fluxos de autenticação com suporte](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [cenários e plataformas e linguagens com suporte](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuração da plataforma e redirecionamento de URIs  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuração de plataforma e URIs de redirecionamento  
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
-Quando você constrói um aplicativo móvel que usa autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir autenticação interativa através da configuração da [plataforma na lâmina **autenticação** ](https://aka.ms/MobileAppReg).
+Quando você cria um aplicativo móvel que usa a autenticação interativa, a etapa de registro mais crítica é o URI de redirecionamento. Você pode definir a autenticação interativa por meio da [configuração de plataforma na folha **autenticação** ](https://aka.ms/MobileAppReg).
 
-Essa experiência permitirá que seu aplicativo obtenha o sodeirúnico (SSO) através do Microsoft Authenticator (e do Portal da Empresa Intune no Android). Também suportará políticas de gerenciamento de dispositivos.
+Essa experiência permitirá que seu aplicativo obtenha SSO (logon único) por meio de Microsoft Authenticator (e Portal da Empresa do Intune no Android). Ele também dará suporte a políticas de gerenciamento de dispositivos.
 
-O portal de registro de aplicativos oferece uma experiência de pré-visualização para ajudá-lo a calcular o URI de resposta intermediado para aplicativos iOS e Android:
+O portal de registro de aplicativo fornece uma experiência de visualização para ajudá-lo a calcular o URI de resposta orientado para aplicativos iOS e Android:
 
-1. No portal de registro do aplicativo, selecione **Autenticação** > **Experimente a nova experiência.**
+1. No portal de registro de aplicativo, selecione **autenticação** > **Experimente a nova experiência**.
 
-   ![A lâmina de autenticação, onde você escolhe uma nova experiência](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![A folha de autenticação, onde você escolhe uma nova experiência](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
 2. Selecione **Adicionar uma plataforma**.
 
    ![Adicionar uma plataforma](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. Quando a lista de plataformas for suportada, selecione **o iOS**.
+3. Quando houver suporte para a lista de plataformas, selecione **Ios**.
 
-   ![Escolha um aplicativo móvel](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Escolher um aplicativo móvel](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Digite seu ID de pacote e, em seguida, selecione **Registrar**.
+4. Insira a ID do pacote e, em seguida, selecione **registrar**.
 
-   ![Digite seu ID de pacote](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Insira a ID do pacote](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-Quando você completa as etapas, o URI de redirecionamento é computado para você, como na imagem a seguir.
+Quando você concluir as etapas, o URI de redirecionamento será computado para você, como na imagem a seguir.
 
 ![O URI de redirecionamento resultante](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
-Se você preferir configurar manualmente o URI de redirecionamento, você pode fazê-lo através do manifesto do aplicativo. Aqui está o formato recomendado para o manifesto:
+Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. Este é o formato recomendado para o manifesto:
 
-- **iOS**:`msauth.<BUNDLE_ID>://auth` 
+- **Ios**:`msauth.<BUNDLE_ID>://auth` 
   - Por exemplo, insira: `msauth.com.yourcompany.appName://auth`
 - **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Você pode gerar o hash de assinatura do Android usando a tecla de liberação ou depuração através do comando KeyTool.
+  - Você pode gerar o hash de assinatura do Android usando a chave de versão ou a chave de depuração por meio do comando keytool.
 
-### <a name="username-password-authentication"></a>Autenticação de senha de nome de usuário
+### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
-Se o aplicativo usa apenas autenticação de senha de nome de usuário, você não precisa registrar um URI redirecionado para o seu aplicativo. Esse fluxo faz uma ida e volta para a plataforma de identidade da Microsoft versão 2.0 endpoint. Sua aplicação não será chamada de volta em nenhum URI específico. 
+Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico. 
 
-No entanto, você precisa identificar sua aplicação como um aplicativo de cliente público. Para isso, inicie na seção **Autenticação** do seu aplicativo. Na subseção **Configurações Avançadas,** no parágrafo padrão do **tipo cliente,** para o aplicativo tratar a pergunta **como cliente público,** selecione **Sim**.
+No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público**, selecione **Sim**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Os aplicativos móveis chamam APIs em nome do usuário inscrito. Seu aplicativo precisa solicitar permissões delegadas. Essas permissões também são chamadas de escopos. Dependendo da experiência que você deseja, você pode solicitar permissões delegadas estáticamente através do portal Azure. Ou você pode solicitá-los dinamicamente em tempo de execução. 
+Os aplicativos móveis chamam APIs em nome do usuário conectado. Seu aplicativo precisa solicitar permissões delegadas. Essas permissões também são chamadas de escopos. Dependendo da experiência desejada, você pode solicitar permissões delegadas estaticamente por meio do portal do Azure. Ou você pode solicitá-los dinamicamente em tempo de execução. 
 
-Ao registrar as permissões estáticas, você permite que os administradores aprovem facilmente seu aplicativo. Recomenda-se o registro estático.
+Ao registrar estaticamente as permissões, você permite que os administradores aprovem facilmente seu aplicativo. O registro estático é recomendado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

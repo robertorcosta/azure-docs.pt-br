@@ -17,17 +17,17 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331071"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
 
 ## <a name="general-questions"></a>Perguntas gerais
-**P: Eu gerencio vários diretórios Azure AD. Como faço para mudar para aquele que tem o Azure Active Directory Premium?**
+**P: gerencio vários diretórios do Azure AD. Como fazer mudar para aquela que tem Azure Active Directory Premium?**
 
 Para mudar entre diferentes locatários do Azure AD, selecione o **Nome de Usuário** conectado atualmente no canto superior direito e escolhendo a conta apropriada. Se a conta não estiver listada aqui, selecione **Sair** e use as credenciais de administrador global do Diretório que tiver o Azure Active Directory Premium habilitado para entrar.
 
@@ -37,7 +37,7 @@ A tabela a seguir lista as funções e as versões de sistema operacional com su
 
 |Função| Sistema Operacional/Versão|
 |--|--|
-|Suporte para os Serviços de Federação do Active Directory (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Serviços de Federação do Active Directory (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Versão 1.0.9125 ou superior|
 |Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 
@@ -107,7 +107,7 @@ Leia mais sobre [configurar HTTP Proxy para agentes de integridade](how-to-conne
 
 Se precisar configurar um proxy durante o registro do agente, talvez seja necessário modificar as configurações de proxy do Internet Explorer com antecedência.
 
-1. Abrir o Internet Explorer > **Configurações** > **de opções de** > Internet**Conexões** > **LAN Configurações**.
+1. Abra o Internet Explorer > **configurações** > **Opções** > da Internet**conexões** > **configurações de LAN**.
 2. Selecione **Usar um Servidor Proxy para a LAN**.
 3. Selecione **Avançado** se você tiver portas de proxy diferentes para HTTP e HTTPS/Seguro.
 
@@ -133,13 +133,13 @@ Nesse caso, exclua manualmente a entrada que pertence ao servidor mais antigo. O
 
 O agente de integridade não conseguirá registrar devido a motivos possíveis:
 
-* O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Consulte a [seção de requisitos](how-to-connect-health-agent-install.md#requirements) para obter detalhes.
-* A comunicação de saída é submetida a uma inspeção TLS pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
+* O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Consulte a [seção requisitos](how-to-connect-health-agent-install.md#requirements) para obter detalhes.
+* A comunicação de saída está sujeita a uma inspeção de TLS pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
 * O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar [controle de acesso com base em função](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
 
-**P: Estou sendo alertado de que "os dados do Serviço de Saúde não estão atualizados". Como faço para resolver o problema?**
+**P: Estou recebendo um alerta de que "Serviço de Integridade dados não estão atualizados". Como fazer solucionar o problema?**
 
-O Azure AD Connect Health gera o alerta quando não recebe todos os pontos de dados do servidor nas últimas duas horas. [Saiba mais](how-to-connect-health-data-freshness.md).
+O Azure AD Connect Health gera o alerta quando não recebe todos os pontos de dados do servidor nas últimas duas horas. [Leia mais](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Perguntas sobre operações
 **P: Preciso habilitar a auditoria em servidores proxy de aplicativo Web?**
@@ -150,13 +150,13 @@ Não, a auditoria não precisa estar habilitada nos servidores proxy de aplicati
 
 Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Os agentes do Azure AD Connect Health detectam e relatam as condições de sucesso para o serviço periodicamente. Para alguns alertas, a supressão é periódica. Em outras palavras, se a mesma condição de erro não for observada no período de 72 horas a partir da geração do alerta, este será resolvido automaticamente.
 
-**P: Estou sendo alertado de que "A Solicitação de Autenticação de Teste (Transação Sintética) falhou em obter um token." Como faço para resolver o problema?**
+**P: Estou recebendo um alerta de que "solicitação de autenticação de teste (transação sintética) falhou ao obter um token". Como fazer solucionar o problema?**
 
 O Azure AD Connect Health para AD FS gera este alerta quando o Agente de Integridade instalado em um servidor do AD FS falha ao obter um token como parte de uma transação sintética iniciada pelo Agente de Integridade. O agente de Integridade usa o contexto do sistema local e tenta obter um token para uma terceira parte confiável própria. Este é um teste de catch-all para garantir que o AD FS esteja em um estado de emissão de tokens.
 
 Geralmente esse teste falha porque o Agente de Integridade não consegue resolver o nome do farm do AD FS. Isso poderá acontecer se os servidores do AD FS estiverem atrás de um balanceador de carga de rede e a solicitação for iniciada de um nó que esteja atrás do balanceador de carga (ao contrário de um cliente regular que está na frente do balanceador de carga). Isso pode ser corrigido através da atualização do arquivo "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). A adição do arquivo de host causará curto-circuito na chamada de rede, permitindo assim que o Agente de Integridade obtenha o token.
 
-**P: Recebi um e-mail indicando que minhas máquinas NÃO estão corrigidas para os recentes ataques de ransomware. Por que recebi esse e-mail?**
+**P: recebi um email indicando que meus computadores não são corrigidos para os ataques de ransomware recentes. Por que eu recebi este email?**
 
 O serviço Azure AD Connect Health verificou todos os computadores que ele monitora para garantir que os patches necessários fossem instalados. O email foi enviado aos administradores de locatário se um ou mais computadores não tinham os patches críticos. A seguinte lógica foi usada para fazer essa determinação.
 1. Localizar todos os hotfixes instalados no computador.
@@ -192,17 +192,17 @@ O <i>Get-MsolDirSyncProvisioningError</i> só retornará erros de provisionament
 
 **P: Por que minhas auditorias do ADFS não estão sendo geradas?**
 
-Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [registros de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
+Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir que os logs de auditoria não estejam no estado desabilitado. Leia mais sobre [os logs de auditoria do ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Observe que, se houver configurações de auditoria avançadas enviadas por push para o servidor do ADFS, todas as alterações com auditpol.exe serão substituídas (evento se o Aplicativo Gerado não estiver configurado). Nesse caso, defina a política de segurança local para registrar falhas e êxitos do Aplicativo Gerado.
 
-**P: Quando o certificado do agente será renovado automaticamente antes do vencimento?**
-A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, certifique-se de que a conexão de rede do agente está estável. Reiniciar os serviços do agente ou atualizar para a versão mais recente também pode resolver o problema.
+**P: quando o certificado do agente será renovado automaticamente antes da expiração?**
+A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, verifique se a conexão de rede do agente está estável. Reiniciar os serviços de agente ou atualizar para a versão mais recente também pode resolver o problema.
 
 
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Instalação do Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
+* [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
-* [Usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
+* [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
-* [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Histórico de versões do Azure AD Connect Health](reference-connect-health-version-history.md)

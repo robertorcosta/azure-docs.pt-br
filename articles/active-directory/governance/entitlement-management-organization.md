@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma organização conectada no gerenciamento de direitos Ad do Azure - Azure Active Directory
-description: Saiba como permitir que pessoas fora da sua organização solicitem pacotes de acesso para que você possa colaborar em projetos.
+title: Adicionar uma organização conectada no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como permitir que as pessoas de fora da sua organização solicitem pacotes de acesso para que você possa colaborar em projetos.
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -17,122 +17,122 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee370bc9c381eb11ae7cae53b31d0c987c52733c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128605"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos AD do Azure
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
-Com o gerenciamento de direitos do Azure Active Directory (Azure AD), você pode colaborar com pessoas fora da sua organização. Se você colaborar frequentemente com usuários em um diretório ou domínio Azure AD externo, você pode adicioná-los como uma organização conectada. Este artigo descreve como adicionar uma organização conectada para que você possa permitir que usuários fora de sua organização solicitem recursos em seu diretório.
+Com o gerenciamento de direitos do Azure Active Directory (AD do Azure), você pode colaborar com pessoas de fora da sua organização. Se você colabora com frequência com usuários em um diretório ou domínio externo do Azure AD, você pode adicioná-los como uma organização conectada. Este artigo descreve como adicionar uma organização conectada para que você possa permitir que usuários fora da sua organização solicitem recursos em seu diretório.
 
 ## <a name="what-is-a-connected-organization"></a>O que é uma organização conectada?
 
-Uma organização conectada é um diretório ou domínio Ad externo do Azure com o que você tem um relacionamento.
+Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
 
-Por exemplo, suponha que você trabalhe no Woodgrove Bank e queira colaborar com duas organizações externas. Essas duas organizações têm configurações diferentes:
+Por exemplo, suponha que você trabalhe no Banco Woodgrove e queira colaborar com duas organizações externas. Essas duas organizações têm configurações diferentes:
 
-- O Graphic Design Institute usa o Azure AD, e seus usuários têm um nome principal de usuário que termina com *graphicdesigninstitute.com*.
-- Contoso ainda não usa a Azure AD. Os usuários do Contoso têm um nome principal de usuário que termina com *contoso.com*.
+- O design gráfico Institute usa o Azure AD e seus usuários têm um nome principal de usuário que termina com *graphicdesigninstitute.com*.
+- A contoso ainda não usa o Azure AD. Os usuários da Contoso têm um nome principal de usuário que termina com *contoso.com*.
 
-Neste caso, você pode configurar duas organizações conectadas. Você cria uma organização conectada para o Graphic Design Institute e outra para contoso. Se você adicionar as duas organizações conectadas a uma diretiva, os usuários de cada organização com um nome principal de usuário que corresponda à diretiva podem solicitar pacotes de acesso. Os usuários com um nome principal de usuário que tenha um domínio de *graphicdesigninstitute.com* corresponderiam à organização conectada ao Graphic Design Institute e seriam autorizados a enviar solicitações. Usuários com um nome principal de usuário que tenha um domínio de *contoso.com* corresponderiam à organização conectada ao Contoso e também seriam autorizados a solicitar pacotes. E, como o Graphic Design Institute usa o Azure AD, qualquer usuário com um nome principal que corresponda a um [domínio verificado](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) que é adicionado ao seu inquilino, como *graphicdesigninstitute.example,* também seria capaz de solicitar pacotes de acesso usando a mesma diretiva.
+Nesse caso, você pode configurar duas organizações conectadas. Você cria uma organização conectada para o design gráfico Institute e outra para a contoso. Se você adicionar as duas organizações conectadas a uma política, os usuários de cada organização com um nome principal de usuário que corresponda à política poderão solicitar pacotes de acesso. Os usuários com um nome UPN que tenha um domínio de *graphicdesigninstitute.com* corresponderão à organização conectada ao design gráfico e terão permissão para enviar solicitações. Os usuários com um nome principal de usuário que tem um domínio de *contoso.com* corresponderão à organização conectada à contoso e também teriam permissão para solicitar pacotes. E, como o design gráfico Institute usa o Azure AD, qualquer usuário com um nome principal que corresponda a um [domínio verificado](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) que é adicionado ao seu locatário, como *graphicdesigninstitute. example*, também seria capaz de solicitar pacotes de acesso usando a mesma política.
 
 ![Exemplo de organização conectada](./media/entitlement-management-organization/connected-organization-example.png)
 
-A forma como os usuários do diretório Azure AD ou autenticação de domínio dependem do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
+A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
 - AD do Azure
 - [Federação direta](../b2b/direct-federation.md)
-- [Senha única](../b2b/one-time-passcode.md) (domínio)
+- [Senha de uso único](../b2b/one-time-passcode.md) (domínio)
 
-Para uma demonstração de como adicionar uma organização conectada, assista ao vídeo a seguir:
+Para ver uma demonstração de como adicionar uma organização conectada, Assista ao vídeo a seguir:
 
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Adicionar uma organização conectada
 
-Para adicionar um diretório ou domínio Azure AD externo como uma organização conectada, siga as instruções nesta seção.
+Para adicionar um diretório ou domínio do Azure AD externo como uma organização conectada, siga as instruções nesta seção.
 
-**Função pré-requisito :** *Administrador global,* *administrador de usuário*ou *convidado convidado*
+**Função de pré-requisito**: *administrador global*, *administrador de usuário*ou convite de *convidado*
 
-1. No portal Azure, selecione **O Diretório Ativo do Azure**e **selecione Governança de Identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **Organizações conectadas**e selecione **Adicionar organização conectada**.
+1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione **Adicionar organização conectada**.
 
     ![O botão "Adicionar organização conectada"](./media/entitlement-management-organization/connected-organization.png)
 
-1. Selecione a guia **Básico** e digite um nome de exibição e descrição para a organização.
+1. Selecione a guia **noções básicas** e insira um nome de exibição e uma descrição para a organização.
 
     ![O painel básico "Adicionar organização conectada"](./media/entitlement-management-organization/organization-basics.png)
 
-1. Selecione a guia **Diretório + domínio** e selecione Adicionar diretório + **domínio**.
+1. Selecione a guia **diretório + domínio** e, em seguida, selecione **Adicionar diretório + domínio**.
 
-    O **painel Select directories + domains** é aberto.
+    O painel **selecionar diretórios + domínios** é aberto.
 
-1. Na caixa de pesquisa, digite um nome de domínio para procurar o diretório ou domínio Azure AD. Certifique-se de inserir o nome de domínio inteiro.
+1. Na caixa de pesquisa, insira um nome de domínio para pesquisar o diretório ou domínio do Azure AD. Certifique-se de inserir o nome de domínio inteiro.
 
-1. Verifique se o nome da organização e o tipo de autenticação estão corretos. A forma como os usuários acessam depende do tipo de autenticação.
+1. Verifique se o nome da organização e o tipo de autenticação estão corretos. A forma como os usuários entram depende do tipo de autenticação.
 
-    ![O painel "Select directories + domains"](./media/entitlement-management-organization/organization-select-directories-domains.png)
+    ![O painel "selecionar diretórios + domínios"](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
-1. Selecione **Adicionar** para adicionar o diretório ou domínio Azure AD. Atualmente, você pode adicionar apenas um diretório Azure AD ou domínio por organização conectada.
+1. Selecione **Adicionar** para adicionar o diretório ou domínio do Azure AD. No momento, você pode adicionar apenas um diretório ou domínio do Azure AD por organização conectada.
 
     > [!NOTE]
-    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar este pacote de acesso. Isso inclui usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios sejam bloqueados pela lista de negócios do Azure AD para negócios (B2B). Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](../b2b/allow-deny-list.md).
+    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios estejam bloqueados pela lista de permitidos ou negações B2B (Business to Business) do Azure AD. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](../b2b/allow-deny-list.md).
 
-1. Depois de adicionar o diretório ou domínio Azure AD, selecione **Selecionar**.
+1. Depois de adicionar o diretório ou domínio do Azure AD, selecione **selecionar**.
 
     A organização aparece na lista.
 
-    ![O painel "Diretório + domínio"](./media/entitlement-management-organization/organization-directory-domain.png)
+    ![O painel "diretório + domínio"](./media/entitlement-management-organization/organization-directory-domain.png)
 
-1. Selecione a guia **Patrocinadores** e adicione patrocinadores opcionais para essa organização conectada.
+1. Selecione a guia **patrocinadores** e, em seguida, adicione patrocinadores opcionais para esta organização conectada.
 
-    Os patrocinadores são usuários internos ou externos já em seu diretório que são o ponto de contato para o relacionamento com essa organização conectada. Patrocinadores internos são usuários membros em seu diretório. Patrocinadores externos são usuários convidados da organização conectada que foram previamente convidados e já estão em seu diretório. Os patrocinadores podem ser utilizados como aprovadores quando os usuários desta organização conectada solicitam acesso a este pacote de acesso. Para obter informações sobre como convidar um usuário convidado para o seu diretório, consulte adicionar usuários de [colaboração B2B do Active Directory no portal Azure](../b2b/add-users-administrator.md).
+    Os patrocinadores são usuários internos ou externos que já estão em seu diretório que são o ponto de contato para a relação com essa organização conectada. Os patrocinadores internos são usuários Membros em seu diretório. Os patrocinadores externos são usuários convidados da organização conectada que foram convidados anteriormente e já estão em seu diretório. Os patrocinadores podem ser utilizados como aprovadores quando os usuários nesta organização conectada solicitam acesso a esse pacote de acesso. Para obter informações sobre como convidar um usuário convidado para seu diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../b2b/add-users-administrator.md).
 
-    Quando você **seleciona Adicionar/Remover,** um painel é aberto no qual você pode escolher patrocinadores internos ou externos. O painel exibe uma lista não filtrada de usuários e grupos em seu diretório.
+    Quando você seleciona **Adicionar/remover**, um painel é aberto no qual você pode escolher patrocinadores internos ou externos. O painel exibe uma lista não filtrada de usuários e grupos em seu diretório.
 
-    ![O painel patrocinadores](./media/entitlement-management-organization/organization-sponsors.png)
+    ![O painel de patrocinadores](./media/entitlement-management-organization/organization-sponsors.png)
 
-1. Selecione a guia **'Revisar + criar',** revisar as configurações da organização e, em seguida, selecionar **Criar**.
+1. Selecione a guia **revisar + criar** , examine as configurações da organização e, em seguida, selecione **criar**.
 
-    ![O painel "Review + create"](./media/entitlement-management-organization/organization-review-create.png)
+    ![O painel "revisar + criar"](./media/entitlement-management-organization/organization-review-create.png)
 
-## <a name="update-a-connected-organization"></a>Atualize uma organização conectada 
+## <a name="update-a-connected-organization"></a>Atualizar uma organização conectada 
 
-Se a organização conectada mudar para um domínio diferente, o nome da organização mudar ou você quiser alterar os patrocinadores, você pode atualizar a organização conectada seguindo as instruções nesta seção.
+Se a organização conectada mudar para um domínio diferente, o nome da organização for alterado ou você quiser alterar os patrocinadores, você poderá atualizar a organização conectada seguindo as instruções nesta seção.
 
-**Função pré-requisito :** *Administrador global,* *administrador de usuário*ou *convidado convidado*
+**Função de pré-requisito**: *administrador global*, *administrador de usuário*ou convite de *convidado*
 
-1. No portal Azure, selecione **O Diretório Ativo do Azure**e **selecione Governança de Identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **Organizações Conectadas**e selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione a organização conectada para abri-la.
 
-1. No painel de visão geral da organização conectada, selecione **Editar** para alterar o nome ou descrição da organização.  
+1. No painel Visão geral da organização conectada, selecione **Editar** para alterar o nome ou a descrição da organização.  
 
-1. No **painel diretório + domínio,** selecione **Atualizar diretório + domínio** para alterar para um diretório ou domínio diferente.
+1. No painel **diretório + domínio** , selecione **Atualizar diretório + domínio** para alterar para um diretório ou domínio diferente.
 
-1. No painel **Patrocinadores,** selecione **Adicionar patrocinadores internos** ou **Adicionar patrocinadores externos** para adicionar um usuário como patrocinador. Para remover um patrocinador, selecione o patrocinador e, no painel direito, selecione **Excluir**.
+1. No painel de **patrocinadores** , selecione **Adicionar patrocinadores internos** ou **Adicionar patrocinadores externos** para adicionar um usuário como um patrocinador. Para remover um patrocinador, selecione o patrocinador e, no painel direito, selecione **excluir**.
 
 
-## <a name="delete-a-connected-organization"></a>Exclua uma organização conectada
+## <a name="delete-a-connected-organization"></a>Excluir uma organização conectada
 
-Se você não tiver mais um relacionamento com um diretório ou domínio Ad externo do Azure, você poderá excluir a organização conectada.
+Se você não tiver mais uma relação com um diretório ou domínio do Azure AD externo, poderá excluir a organização conectada.
 
-**Função pré-requisito :** *Administrador global,* *administrador de usuário*ou *convidado convidado*
+**Função de pré-requisito**: *administrador global*, *administrador de usuário*ou convite de *convidado*
 
-1. No portal Azure, selecione **O Diretório Ativo do Azure**e **selecione Governança de Identidade**.
+1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
 
-1. No painel esquerdo, selecione **Organizações Conectadas**e selecione a organização conectada para abri-la.
+1. No painel esquerdo, selecione **organizações conectadas**e, em seguida, selecione a organização conectada para abri-la.
 
-1. No painel de visão geral da organização conectada, selecione **Excluir** para excluí-lo.
+1. No painel Visão geral da organização conectada, selecione **excluir** para excluí-la.
 
-    Atualmente, você só pode excluir uma organização conectada se não houver usuários conectados.
+    No momento, você pode excluir uma organização conectada somente se não houver nenhum usuário conectado.
 
-    ![O botão excluir organização conectada](./media/entitlement-management-organization/organization-delete.png)
+    ![O botão excluir da organização conectada](./media/entitlement-management-organization/organization-delete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Administrar o acesso de usuários externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
-- [Governe o acesso para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
+- [Controlar o acesso para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

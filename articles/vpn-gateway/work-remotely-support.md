@@ -1,6 +1,6 @@
 ---
-title: 'Trabalho remoto com P2S: Gateway Azure VPN'
-description: Esta página descreve como você pode aproveitar o VPN Gateway para permitir o funcionamento remoto devido à pandemia COVID-19.
+title: 'Trabalho remoto com P2S: gateway de VPN do Azure'
+description: Esta página descreve como você pode aproveitar o gateway de VPN para habilitar o trabalho remotamente devido ao pandemia COVID-19.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: alzam
 ms.openlocfilehash: 2d07a13c654f30e48c37d2e8d3e801166e26f4f4
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886578"
 ---
-# <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabalho remoto usando o Gateway Gateway Azure VPN ponto a ponto
+# <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Trabalho remoto usando o ponto a site do gateway de VPN do Azure
 
 >[!NOTE]
->Este artigo descreve como você pode aproveitar o Azure VPN Gateway, a rede Azure, a rede Microsoft e o ecossistema de parceiros do Azure para trabalhar remotamente e mitigar os problemas de rede que você está enfrentando por causa da crise do COVID-19.
+>Este artigo descreve como você pode aproveitar o gateway de VPN do Azure, o Azure, a rede da Microsoft e o ecossistema de parceiros do Azure para trabalhar remotamente e atenuar os problemas de rede que você está enfrentando devido à crise COVID-19.
 >
 
-Este artigo descreve as opções disponíveis às organizações para configurar acesso remoto para seus usuários ou para complementar suas soluções existentes com capacidade adicional durante a epidemia de COVID-19.
+Este artigo descreve as opções disponíveis para que as organizações configurem o acesso remoto para seus usuários ou complementem suas soluções existentes com capacidade adicional durante o COVID-19 epidemia.
 
-A solução point-to-site do Azure é baseada em nuvem e pode ser provisionada rapidamente para atender à crescente demanda de usuários para trabalhar em casa. Ele pode aumentar facilmente e desligado tão facilmente e rapidamente quando a capacidade aumentada não é mais necessária.
+A solução de ponto a site do Azure é baseada em nuvem e pode ser provisionada rapidamente para atender à maior demanda de usuários para trabalharem de casa. Ele pode escalar verticalmente com facilidade e desligamento com a mesma facilidade e rapidez quando a capacidade aumentada não é mais necessária.
 
 ## <a name="about-point-to-site-vpn"></a><a name="p2s"></a>Sobre VPN Ponto a Site
 
-Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Esta solução é útil para telecommuters que desejam se conectar a Azure VNets ou data centers locais a partir de um local remoto, como de casa ou de uma conferência. Este artigo descreve como permitir que os usuários trabalhem remotamente com base em vários cenários.
+Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Essa solução é útil para telecomutadores que desejam se conectar a VNets do Azure ou data centers locais de um local remoto, como de casa ou de uma conferência. Este artigo descreve como permitir que os usuários trabalhem remotamente com base em vários cenários.
 
-A tabela abaixo mostra os sistemas operacionais do cliente e as opções de autenticação disponíveis para eles. Seria útil selecionar o método de autenticação com base no sistema operacional cliente que já está em uso. Por exemplo, selecione OpenVPN com autenticação baseada em certificado se você tiver uma mistura de sistemas operacionais clientes que precisam se conectar. Além disso, observe que a VPN ponto a ponto só é suportada em gateways VPN baseados em rota.
+A tabela a seguir mostra os sistemas operacionais do cliente e as opções de autenticação que estão disponíveis para eles. Seria útil selecionar o método de autenticação com base no sistema operacional do cliente que já está em uso. Por exemplo, selecione OpenVPN com autenticação baseada em certificado se você tiver uma mistura de sistemas operacionais cliente que precisam se conectar. Além disso, observe que a VPN ponto a site só tem suporte em gateways de VPN baseados em rota.
 
-![ponto a ponto](./media/working-remotely-support/ostable.png "Sistema operacional")
+![ponto a site](./media/working-remotely-support/ostable.png "Sistema operacional")
 
-## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Cenário 1 - Os usuários precisam de acesso aos recursos apenas no Azure
+## <a name="scenario-1---users-need-access-to-resources-in-azure-only"></a><a name="scenario1"></a>Cenário 1-os usuários precisam acessar recursos somente no Azure
 
 Nesse cenário, os usuários remotos só precisam acessar os recursos que estão no Azure.
 
-![ponto a ponto](./media/working-remotely-support/scenario1.png "Cenário 1")
+![ponto a site](./media/working-remotely-support/scenario1.png "Cenário 1")
 
-Em um nível alto, as seguintes etapas são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
+Em um alto nível, as etapas a seguir são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
 
-1. Crie um gateway de rede virtual (se não existir).
-2. Configure vpn ponto a ponto no gateway.
+1. Criar um gateway de rede virtual (se não houver um).
+2. Configure a VPN ponto a site no gateway.
 
    * Para autenticação de certificado, siga [este link](vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
-   * Para O OpenVPN, siga [este link](vpn-gateway-howto-openvpn.md).
-   * Para autenticação Azure AD, siga [este link](openvpn-azure-ad-tenant.md).
-   * Para solucionar problemas de conexões ponto a local, siga [este link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+   * Para OpenVPN, siga [este link](vpn-gateway-howto-openvpn.md).
+   * Para a autenticação do Azure AD, siga [este link](openvpn-azure-ad-tenant.md).
+   * Para solucionar problemas de conexões ponto a site, siga [este link](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 3. Baixe e distribua a configuração do cliente VPN.
-4. Distribua os certificados (se a autenticação do certificado for selecionada) aos clientes.
-5. Conecte-se ao Azure VPN.
+4. Distribua os certificados (se a autenticação de certificado estiver selecionada) para os clientes.
+5. Conecte-se à VPN do Azure.
 
-## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>Cenário 2 - Os usuários precisam ter acesso aos recursos no Azure e/ou nos recursos do Prem
+## <a name="scenario-2---users-need-access-to-resources-in-azure-andor-on-prem-resources"></a><a name="scenario2"></a>Cenário 2-os usuários precisam acessar recursos no Azure e/ou recursos locais
 
-Nesse cenário, os usuários remotos precisam acessar os recursos que estão no Azure e nos data center on-premises.
+Nesse cenário, os usuários remotos precisam acessar os recursos que estão no Azure e no data center local (s).
 
-![ponto a ponto](./media/working-remotely-support/scenario2.png "Cenário 2")
+![ponto a site](./media/working-remotely-support/scenario2.png "Cenário 2")
 
-Em um nível alto, as seguintes etapas são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
+Em um alto nível, as etapas a seguir são necessárias para permitir que os usuários se conectem aos recursos do Azure com segurança:
 
-1. Crie um gateway de rede virtual (se não existir).
-2. Configure vpn ponto a ponto no gateway (ver [Cenário 1](#scenario1)).
-3. Configure um túnel local-a-local no gateway de rede virtual do Azure com o BGP ativado.
+1. Criar um gateway de rede virtual (se não houver um).
+2. Configure a VPN ponto a site no gateway (consulte o [cenário 1](#scenario1)).
+3. Configure um túnel site a site no gateway de rede virtual do Azure com BGP habilitado.
 4. Configure o dispositivo local para se conectar ao gateway de rede virtual do Azure.
-5. Baixe o perfil point-to-site do portal Azure e distribua aos clientes
+5. Baixar o perfil de ponto a site do portal do Azure e distribuir para clientes
 
-Para saber como configurar um túnel VPN site-site, consulte [este link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Para saber como configurar um túnel VPN site a site, consulte [este link](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Perguntas frequentes sobre a autenticação nativa de certificado do Azure
 
@@ -77,7 +77,7 @@ Para saber como configurar um túnel VPN site-site, consulte [este link](vpn-gat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configure uma conexão P2S - Autenticação Azure AD](openvpn-azure-ad-tenant.md)
+* [Configurar uma conexão P2S-autenticação do Azure AD](openvpn-azure-ad-tenant.md)
 
 * [Configurar uma conexão P2S – autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

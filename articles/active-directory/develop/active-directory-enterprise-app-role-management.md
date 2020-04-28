@@ -1,5 +1,5 @@
 ---
-title: Configure a reivindicação de função para aplicativos AD corporativos do Azure | Azure
+title: Configurar a declaração de função para aplicativos Enterprise AD do Azure | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 services: active-directory
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80884742"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
@@ -54,7 +54,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     ![Página Propriedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela e dê as seguintes etapas:
+6. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
 
     a. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
@@ -88,7 +88,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
       ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Extrair a propriedade **appRoles** do objeto principal do serviço.
+    g. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
       ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -135,7 +135,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
       ![Operação de patch bem-sucedida](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **Usuários e grupos.** Esta guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
+7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **usuários e grupos** . Essa guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
 
     ![Guia “Usuários e grupos”](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -148,20 +148,20 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 
-9. Na seção **'Reivindicações** do usuário' na caixa de diálogo **Atributos do usuário,** execute as seguintes etapas para adicionar o atributo de token SAML conforme mostrado na tabela abaixo:
+9. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
     | Nome da função  | user.assignedroles |
 
     >[!NOTE]
-    >Se o valor da solicitação de função for nulo, o Azure AD não enviará esse valor no token e isso é padrão conforme o design.
+    >Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
 
-    a. clique **em Editar** ícone para abrir a tributos do usuário & caixa de diálogo **Reclamações.**
+    a. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Na caixa de diálogo **Gerenciar reivindicações do usuário,** adicione o atributo token SAML clicando em **Adicionar nova reivindicação**.
+    b. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -181,7 +181,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 Para atualizar uma função existente, execute as seguintes etapas:
 
-1. Abra [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
@@ -199,7 +199,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
     ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extrair a propriedade **appRoles** do objeto principal do serviço.
+5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
     ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
@@ -219,7 +219,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
 Para excluir uma função existente, execute as seguintes etapas:
 
-1. Abra [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
+1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
 2. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
@@ -237,7 +237,7 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extrair a propriedade **appRoles** do objeto principal do serviço.
+5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
     ![Detalhes da propriedade appRoles do objeto da entidade de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 

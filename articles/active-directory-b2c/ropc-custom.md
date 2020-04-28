@@ -1,7 +1,7 @@
 ---
-title: Configure o fluxo de credenciais de senha do proprietário de recursos com políticas personalizadas
+title: Configurar o fluxo de credenciais de senha do proprietário do recurso com políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como configurar o fluxo de credenciais de senha do proprietário de recursos (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
+description: Saiba como configurar o fluxo de credenciais de senha do proprietário do recurso (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 04/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529189"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo de autenticação padrão OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
+No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
@@ -124,7 +124,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Azure Active
     </TechnicalProfile>
     ```
 
-    Substitua o **PadrãoValor** de **client_id** pelo ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial pré-requisito. Em seguida, **substitua o DefaultValue** de **resource_id** com o ID de aplicativo do aplicativo IdentityExperienceFramework que você também criou no tutorial pré-requisito.
+    Substitua o **DefaultValue** de **client_id** pela ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial de pré-requisito. Em seguida, substitua **DefaultValue** de **resource_id** pela ID do aplicativo IdentityExperienceFramework que você também criou no tutorial de pré-requisito.
 
 5. Adicionar os seguintes elementos **ClaimsProvider** com seus perfis técnicos para o elemento **ClaimsProviders**:
 
@@ -239,7 +239,7 @@ Em seguida, atualize o arquivo de terceira parte confiável que iniciará o perc
     ```
 
 5. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-6. Habilitar **substituir a diretiva se ela existir**e, em seguida, navegar e selecionar o arquivo *ROPC_Auth.xml.*
+6. Habilite **substituir a política se ela existir**e, em seguida, navegue até e selecione o arquivo *ROPC_Auth. xml* .
 7. Clique em **Carregar**.
 
 ## <a name="test-the-policy"></a>Testar a política
@@ -253,10 +253,10 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 
 | Chave | Valor |
 | --- | ----- |
-| Nome de Usuário | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| scope | OpenID `application-id` offline_access |
+| escopo | OpenID `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 

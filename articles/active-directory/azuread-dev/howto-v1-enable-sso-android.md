@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154807"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como habilitar o SSO entre aplicativos no Android usando a ADAL
@@ -36,7 +36,7 @@ Neste passo a passo, você aprenderá a configurar o SDK em seu aplicativo para 
 
 Estas instruções pressupõem que você sabe como:
 
-- Provisionar seu aplicativo usando o portal herdado para o Azure AD (Azure Active Directory). Para obter mais informações, consulte [Registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+- Provisionar seu aplicativo usando o portal herdado para o Azure AD (Azure Active Directory). Para obter mais informações, consulte [registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 - Integrar seu aplicativo com o [SDK do Android para Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Conceitos de logon único
@@ -60,7 +60,7 @@ Se um agente compatível for instalado no dispositivo, como o aplicativo Microso
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Como a Microsoft garante que o aplicativo é válido?
 
-A necessidade de garantir a identidade de um aplicativo ligando para o corretor é crucial para a segurança fornecida nos logins assistidos por corretores. Nem o iOS nem Android impõem identificadores exclusivos que sejam válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que a Microsoft esteja sempre se comunicando com o aplicativo certo no runtime, é pedido ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. **O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo.** Este redirectURI personalizado contém a impressão digital do certificado do aplicativo e tem a garantia da Google Play Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional Android o forneça com a impressão digital do certificado que chamou o agente. O agente fornece a impressão digital do certificado para a Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado do aplicativo não corresponder à impressão digital do certificado fornecida para nós pelo desenvolvedor durante o registro, o acesso será negado aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+A necessidade de garantir que a identidade de um aplicativo que chama o agente seja crucial para a segurança fornecida nos logons assistidos do agente. Nem o iOS nem Android impõem identificadores exclusivos que sejam válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que a Microsoft esteja sempre se comunicando com o aplicativo certo no runtime, é pedido ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. **O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo.** Este redirectURI personalizado contém a impressão digital do certificado do aplicativo e tem a garantia da Google Play Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional Android o forneça com a impressão digital do certificado que chamou o agente. O agente fornece a impressão digital do certificado para a Microsoft na chamada para o sistema de identidade. Se a impressão digital do certificado do aplicativo não corresponder à impressão digital do certificado fornecida para nós pelo desenvolvedor durante o registro, o acesso será negado aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
 
 Os logons SSO de agente têm os seguintes benefícios:
 
@@ -116,7 +116,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Etapa 2: Estabelecer um novo URI de redirecionamento com seu esquema de URL
 
-Para garantir que o aplicativo certo receba os tokens de credenciais devolvidos, é necessário garantir que a chamada volte ao seu aplicativo de forma que o sistema operacional Android possa verificar. O sistema operacional Android usa o hash do certificado no Google Play Store. Esse hash do certificado não pode ser falsificado por um aplicativo invasor. Juntamente com o URI do nosso aplicativo de agente, a Microsoft garante que os tokens sejam retornados para o aplicativo correto. É necessário que um URI de redirecionamento exclusivo seja registrado no aplicativo.
+Para garantir que o aplicativo correto receba os tokens de credencial retornados, é necessário certificar-se de que o retorno de chamada para seu aplicativo de forma que o sistema operacional Android possa verificar. O sistema operacional Android usa o hash do certificado no Google Play Store. Esse hash do certificado não pode ser falsificado por um aplicativo invasor. Juntamente com o URI do nosso aplicativo de agente, a Microsoft garante que os tokens sejam retornados para o aplicativo correto. É necessário que um URI de redirecionamento exclusivo seja registrado no aplicativo.
 
 O URI de redirecionamento deve ser no formato correto de:
 

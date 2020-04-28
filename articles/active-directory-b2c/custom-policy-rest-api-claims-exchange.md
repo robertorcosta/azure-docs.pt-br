@@ -1,6 +1,6 @@
 ---
-title: Trocas de reclamações da API REST - Azure Active Directory B2C
-description: Adicionar trocas de reclamações da API REST às políticas personalizadas no Active Directory B2C.
+title: Trocas de declarações da API REST-Azure Active Directory B2C
+description: Adicione trocas de declarações da API REST a políticas personalizadas no Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,32 +11,32 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330715"
 ---
-# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Passo a passo: Adicionar trocas de reclamações da API REST a políticas personalizadas no Azure Active Directory B2C
+# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Adicionar trocas de declarações da API REST a políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) permite que os desenvolvedores de identidade integrem uma interação com uma API RESTful em uma jornada de usuário. Ao final deste passo a passo, você poderá criar uma jornada de usuário Azure AD B2C que interage com [os serviços RESTful](custom-policy-rest-api-intro.md).
+Azure Active Directory B2C (Azure AD B2C) permite que os desenvolvedores de identidade integrem uma interação com uma API RESTful em um percurso do usuário. No final deste passo a passo, você poderá criar uma jornada de usuário Azure AD B2C que interage com os [serviços RESTful](custom-policy-rest-api-intro.md).
 
-Nesse cenário, enriquecemos os dados de token do usuário, integrando-se a um fluxo de trabalho corporativo de linha de negócios. Durante o login ou login com conta local ou federada, o Azure AD B2C invoca uma API REST para obter os dados de perfil estendidos do usuário a partir de uma fonte de dados remota. Nesta amostra, o Azure AD B2C envia o identificador exclusivo do usuário, o objectId. A API REST retorna então o saldo da conta do usuário (um número aleatório). Use essa amostra como ponto de partida para se integrar ao seu próprio sistema de CRM, banco de dados de marketing ou qualquer fluxo de trabalho de linha de negócios.
+Nesse cenário, enriquecemos os dados de token do usuário integrando-se a um fluxo de trabalho de linha de negócios corporativo. Durante a inscrição ou a entrada com a conta local ou federada, Azure AD B2C invoca uma API REST para obter os dados de perfil estendido do usuário de uma fonte de dados remota. Neste exemplo, Azure AD B2C envia o identificador exclusivo do usuário, o objectId. A API REST retorna o saldo da conta do usuário (um número aleatório). Use este exemplo como um ponto de partida para integrar com seu próprio sistema CRM, banco de dados de marketing ou qualquer fluxo de trabalho de linha de negócios.
 
-Você também pode projetar a interação como um perfil técnico de validação. Isso é adequado quando a API REST estará validando dados na tela e retornando reivindicações. Para obter mais informações, consulte [Passo a passo: Integre as trocas de reclamações da API REST em sua jornada de usuário Azure AD B2C para validar a entrada do usuário](custom-policy-rest-api-claims-validation.md).
+Você também pode criar a interação como um perfil técnico de validação. Isso é adequado quando a API REST estará Validando dados na tela e retornando declarações. Para obter mais informações, consulte [Walkthrough: integrar as trocas de declarações da API REST em sua jornada do usuário Azure ad B2C para validar a entrada do usuário](custom-policy-rest-api-claims-validation.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada funcional para inscrição e conexão com contas locais.
-- Saiba como integrar as trocas de [reclamações da API REST em sua política personalizada Azure AD B2C](custom-policy-rest-api-intro.md).
+- Saiba como [integrar as trocas de declarações da API REST em sua Azure ad B2C política personalizada](custom-policy-rest-api-intro.md).
 
-## <a name="prepare-a-rest-api-endpoint"></a>Prepare um ponto final da API REST
+## <a name="prepare-a-rest-api-endpoint"></a>Preparar um ponto de extremidade de API REST
 
-Para este passo a passo, você deve ter uma API REST que valide se o objeto AZure AD B2C do usuário está registrado no seu sistema back-end. Se registrado, a API REST devolve o saldo da conta de usuário. Caso contrário, a API REST registra a nova conta no `50.00`diretório e devolve o saldo inicial .
+Para esta explicação, você deve ter uma API REST que valida se o Azure AD B2C objectId de um usuário está registrado no sistema de back-end. Se registrado, a API REST retorna o saldo da conta de usuário. Caso contrário, a API REST registrará a nova conta no diretório e retornará o saldo `50.00`inicial.
 
-O código JSON a seguir ilustra os dados que o Azure AD B2C enviará para o ponto final da API REST. 
+O código JSON a seguir ilustra os dados Azure AD B2C serão enviados para o ponto de extremidade da API REST. 
 
 ```json
 {
@@ -45,7 +45,7 @@ O código JSON a seguir ilustra os dados que o Azure AD B2C enviará para o pont
 }
 ```
 
-Uma vez que sua API REST valide os dados, ela deve retornar um HTTP 200 (Ok), com os seguintes dados JSON:
+Depois que a API REST valida os dados, ele deve retornar um HTTP 200 (OK), com os seguintes dados JSON:
 
 ```json
 {
@@ -53,16 +53,16 @@ Uma vez que sua API REST valide os dados, ela deve retornar um HTTP 200 (Ok), co
 }
 ```
 
-A configuração do ponto final da API REST está fora do escopo deste artigo. Criamos uma amostra [de Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Você pode acessar o código completo de função Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+A configuração do ponto de extremidade da API REST está fora do escopo deste artigo. Criamos um exemplo de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) . Você pode acessar o código completo da função do Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-## <a name="define-claims"></a>Definir reivindicações
+## <a name="define-claims"></a>Definir declarações
 
-Uma reclamação fornece armazenamento temporário de dados durante a execução de uma diretiva Azure AD B2C. Você pode declarar reivindicações dentro da seção [de sinistros.](claimsschema.md) 
+Uma declaração fornece armazenamento temporário de dados durante uma execução de política de Azure AD B2C. Você pode declarar declarações dentro da seção de [esquema de declarações](claimsschema.md) . 
 
-1. Abra o arquivo de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
-1. Adicione as seguintes reivindicações ao elemento **ClaimsSchema.**  
+1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
+1. Adicione as declarações a seguir ao elemento **ClaimsSchema** .  
 
 ```xml
 <ClaimType Id="balance">
@@ -75,9 +75,9 @@ Uma reclamação fornece armazenamento temporário de dados durante a execução
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configure o perfil técnico da API RESTful 
+## <a name="configure-the-restful-api-technical-profile"></a>Configurar o perfil técnico da API RESTful 
 
-Um [perfil técnico tranquilo](restful-technical-profile.md) fornece suporte para interagir com seu próprio serviço RESTful. O Azure AD B2C envia dados para `InputClaims` o serviço RESTful em uma coleta e recebe dados de volta em uma `OutputClaims` coleta. Encontre o elemento **ClaimsProviders** em seu <em>**`TrustFrameworkExtensions.xml`**</em> arquivo e adicione um novo provedor de sinistros da seguinte forma:
+Um [perfil técnico RESTful](restful-technical-profile.md) fornece suporte para a interface com seu próprio serviço RESTful. Azure AD B2C envia dados para o serviço RESTful em uma `InputClaims` coleção e recebe dados de volta em `OutputClaims` uma coleção. Localize o elemento **ClaimsProviders** em seu <em>**`TrustFrameworkExtensions.xml`**</em> arquivo e adicione um novo provedor de declarações da seguinte maneira:
 
 ```xml
 <ClaimsProvider>
@@ -109,19 +109,19 @@ Um [perfil técnico tranquilo](restful-technical-profile.md) fornece suporte par
 </ClaimsProvider>
 ```
 
-Neste exemplo, `userLanguage` o será enviado para `lang` o serviço REST como dentro da carga útil JSON. O valor `userLanguage` da declaração contém o ID de linguagem de usuário atual. Para obter mais informações, consulte [a reivindicação resolver](claim-resolver-overview.md).
+Neste exemplo, o `userLanguage` será enviado para o serviço REST como `lang` dentro da carga JSON. O valor da `userLanguage` declaração contém a ID de idioma atual do usuário. Para obter mais informações, consulte [resolvedor de declaração](claim-resolver-overview.md).
 
-Os comentários `AuthenticationType` `AllowInsecureAuthInProduction` acima e especificar alterações que você deve fazer quando você se move para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [API Secure RESTful](secure-rest-api.md).
+Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [Secure RESTFUL API](secure-rest-api.md).
 
-## <a name="add-an-orchestration-step"></a>Adicione um passo de orquestração
+## <a name="add-an-orchestration-step"></a>Adicionar uma etapa de orquestração
 
-[As jornadas dos usuários](userjourneys.md) especificam caminhos explícitos através dos quais uma política permite que um aplicativo de parte que depende obtenha as reivindicações desejadas para um usuário. Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Você pode adicionar ou subtrair etapas de orquestração. Neste caso, você adicionará uma nova etapa de orquestração que é usada para aumentar as informações fornecidas ao aplicativo após a inscrição ou login do usuário através da chamada DA API REST.
+As [viagens do usuário](userjourneys.md) especificam caminhos explícitos por meio dos quais uma política permite que um aplicativo de terceira parte confiável obtenha as declarações desejadas para um usuário. Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Você pode adicionar ou subtrair etapas de orquestração. Nesse caso, você adicionará uma nova etapa de orquestração usada para aumentar as informações fornecidas ao aplicativo após a inscrição ou a entrada do usuário por meio da chamada à API REST.
 
 1. Abra o arquivo base da sua política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
-1. Pesquise o elemento `<UserJourneys>`. Copie todo o elemento e, em seguida, exclua-o.
-1. Abra o arquivo de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
-1. Cole o `<UserJourneys>` arquivo de extensões, após `<ClaimsProviders>` o fechamento do elemento.
-1. Localize `<UserJourney Id="SignUpOrSignIn">`o e adicione o seguinte passo de orquestração antes do último.
+1. Pesquise o elemento `<UserJourneys>`. Copie o elemento inteiro e, em seguida, exclua-o.
+1. Abra o arquivo de extensões da política. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Cole o `<UserJourneys>` no arquivo de extensões, após o fechamento do `<ClaimsProviders>` elemento.
+1. Localize o `<UserJourney Id="SignUpOrSignIn">`e adicione a seguinte etapa de orquestração antes da última.
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -131,7 +131,7 @@ Os comentários `AuthenticationType` `AllowInsecureAuthInProduction` acima e esp
     </OrchestrationStep>
     ```
 
-1. Refatorar o último passo `Order` de `8`orquestração mudando o para . Seus dois últimos passos de orquestração devem ser os seguintes:
+1. Refatore a última etapa de orquestração alterando `Order` para `8`. Suas duas etapas de orquestração finais devem ser semelhantes às seguintes:
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -143,12 +143,12 @@ Os comentários `AuthenticationType` `AllowInsecureAuthInProduction` acima e esp
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 
-1. Repita as duas últimas etapas para as jornadas de usuário **ProfileEdit** e **PasswordReset.**
+1. Repita as duas últimas etapas para os percursos do usuário **ProfileEdit** e **PasswordReset** .
 
 
-## <a name="include-a-claim-in-the-token"></a>Inclua uma reivindicação no token 
+## <a name="include-a-claim-in-the-token"></a>Incluir uma declaração no token 
 
-Para devolver `balance` a reclamação ao aplicativo da parte de <em> `SocialAndLocalAccounts/` </em> dependência, adicione uma reivindicação de saída ao arquivo. A adição de uma reivindicação de saída emitirá a reclamação no token após uma jornada de usuário bem-sucedida e será enviada para o aplicativo. Modifique o elemento de perfil técnico `balance` dentro da seção de parte de confiar para adicionar como uma reivindicação de saída.
+Para retornar a `balance` declaração de volta para o aplicativo de terceira parte confiável, adicione uma declaração de <em> `SocialAndLocalAccounts/` </em> saída ao arquivo. A adição de uma declaração de saída emitirá a declaração para o token após um percurso de usuário bem-sucedido e será enviada para o aplicativo. Modifique o elemento de perfil técnico na seção terceira parte confiável para adicionar `balance` como uma declaração de saída.
  
 ```xml
 <RelyingParty>
@@ -171,19 +171,19 @@ Para devolver `balance` a reclamação ao aplicativo da parte de <em> `SocialAnd
 </RelyingParty>
 ```
 
-Repita esta etapa para as jornadas de usuário **ProfileEdit.xml**e **PasswordReset.xml.**
+Repita essa etapa para os percursos do usuário **ProfileEdit. xml**e **PasswordReset. xml** .
 
-Salve os arquivos que você alterou: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml,* *ProfileEdit.xml*e *PasswordReset.xml*. 
+Salve os arquivos que você alterou: *TrustFrameworkBase. xml*e *TrustFrameworkExtensions. xml*, *SignUpOrSignin. xml*, *ProfileEdit. xml*e *PasswordReset. xml*. 
 
 ## <a name="test-the-custom-policy"></a>Teste a política personalizada
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-1. Certifique-se de que está usando o diretório que contém o inquilino Azure AD selecionando o filtro **de assinatura Diretório +** no menu superior e escolhendo o diretório que contém o inquilino Azure AD.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Estrutura de Experiência de Identidade**.
-1. Selecione **'Enviar política personalizada'** e, em seguida, carregue os arquivos de diretiva que você alterou: *TrustFrameworkBase.xml*e *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml,* *ProfileEdit.xml*e *PasswordReset.xml*. 
+1. Selecione **carregar política personalizada**e, em seguida, carregue os arquivos de política que você alterou: *TrustFrameworkBase. xml*e *TrustFrameworkExtensions. xml*, *SignUpOrSignin. xml*, *ProfileEdit. xml*e *PasswordReset. xml*. 
 1. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
-1. Você deve ser capaz de se inscrever usando um endereço de e-mail ou uma conta do Facebook.
+1. Você deve ser capaz de se inscrever usando um endereço de email ou uma conta do Facebook.
 1. O token enviado de volta ao seu aplicativo inclui a declaração `balance`.
 
 ```json
@@ -218,5 +218,5 @@ Salve os arquivos que você alterou: *TrustFrameworkBase.xml*e *TrustFrameworkEx
 Para saber como proteger suas APIs, consulte os seguintes artigos:
 
 - [Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md)
-- [Proteja sua API RESTful](secure-rest-api.md)
-- [Referência: Perfil técnico RESTful](restful-technical-profile.md)
+- [Proteger sua API RESTful](secure-rest-api.md)
+- [Referência: perfil técnico RESTful](restful-technical-profile.md)

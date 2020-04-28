@@ -1,6 +1,6 @@
 ---
-title: Registre aplicativos de desktop que chamam APIs web - plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo de desktop que chama APIs web (registro de aplicativos)
+title: Registrar aplicativos da área de trabalho que chamam APIs da Web-plataforma Microsoft Identity | Azure
+description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (registro de aplicativo)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,50 +12,50 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885150"
 ---
-# <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de desktop que chama APIs web: Registro de aplicativos
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de área de trabalho que chama APIs da Web: registro de aplicativo
 
-Este artigo abrange as especificidades de registro do aplicativo para um aplicativo de desktop.
+Este artigo aborda as especificações de registro do aplicativo para um aplicativo de área de trabalho.
 
 ## <a name="supported-account-types"></a>Tipos de conta com suporte
 
-Os tipos de conta suportados em um aplicativo de desktop dependem da experiência que você deseja iluminar. Por causa dessa relação, os tipos de conta suportadas dependem dos fluxos que você deseja usar.
+Os tipos de conta com suporte em um aplicativo de área de trabalho dependem da experiência que você deseja acender. Devido a essa relação, os tipos de conta com suporte dependem dos fluxos que você deseja usar.
 
-### <a name="audience-for-interactive-token-acquisition"></a>Audiência para aquisição interativa de tokens
+### <a name="audience-for-interactive-token-acquisition"></a>Público-alvo para aquisição de token interativo
 
-Se o aplicativo de desktop usar autenticação interativa, você pode fazer login com usuários de qualquer tipo de [conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Se seu aplicativo de área de trabalho usa a autenticação interativa, você pode conectar usuários de qualquer [tipo de conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-desktop-app-silent-flows"></a>Audiência para fluxos silenciosos de aplicativos de desktop
+### <a name="audience-for-desktop-app-silent-flows"></a>Público-alvo dos fluxos silenciosos do aplicativo para desktop
 
-- Para usar a Autenticação Integrada do Windows ou um nome de usuário e uma senha, seu aplicativo precisa fazer login em usuários em seu próprio inquilino, por exemplo, se você é um desenvolvedor de linha de negócios (LOB). Ou, nas organizações do Azure Active Directory, seu aplicativo precisa fazer login com usuários em seu próprio inquilino se for um cenário ISV. Esses fluxos de autenticação não são suportados para contas pessoais da Microsoft.
-- Se você quiser usar o fluxo de código do dispositivo, você não pode fazer login com usuários com suas contas pessoais da Microsoft ainda.
-- Se você fizer login em usuários com identidades sociais que passam por uma autoridade e política de business-to-commerce (B2C), você só poderá usar a autenticação interativa e de senha de nome de usuário.
+- Para usar a autenticação integrada do Windows ou um nome de usuário e uma senha, seu aplicativo precisa conectar usuários em seu próprio locatário, por exemplo, se você for um desenvolvedor de LOB (linha de negócios). Ou, em Azure Active Directory organizações, seu aplicativo precisará conectar usuários em seu próprio locatário se for um cenário de ISV. Esses fluxos de autenticação não têm suporte para contas pessoais da Microsoft.
+- Se você quiser usar o fluxo de código do dispositivo, não poderá conectar usuários com suas contas pessoais da Microsoft ainda.
+- Se você conectar usuários com identidades sociais que passam uma política e uma autoridade entre empresas (B2C), você só poderá usar a autenticação interativa e de nome de usuário-senha.
 
 ## <a name="redirect-uris"></a>URIs de redirecionamento
 
-Os URIs de redirecionamento para usar em um aplicativo de desktop dependem do fluxo que você deseja usar.
+Os URIs de redirecionamento a serem usados em um aplicativo de área de trabalho dependem do fluxo que você deseja usar.
 
-- Se você usar autenticação interativa ou `https://login.microsoftonline.com/common/oauth2/nativeclient`fluxo de código do dispositivo, use . Para obter essa configuração, selecione a URL correspondente na seção **Autenticação** para o seu aplicativo.
+- Se você usar a autenticação interativa ou o fluxo de código `https://login.microsoftonline.com/common/oauth2/nativeclient`do dispositivo, use. Para obter essa configuração, selecione a URL correspondente na seção de **autenticação** do seu aplicativo.
   
   > [!IMPORTANT]
-  > Hoje, MSAL.NET usa outro URI redirecionado por padrão`urn:ietf:wg:oauth:2.0:oob`em aplicativos de desktop que são executados no Windows ( ). No futuro, vamos querer mudar esse padrão, por isso `https://login.microsoftonline.com/common/oauth2/nativeclient`recomendamos que você use .
+  > Hoje, o MSAL.NET usa outro URI de redirecionamento por padrão em aplicativos de área`urn:ietf:wg:oauth:2.0:oob`de trabalho que são executados no Windows (). No futuro, queremos alterar esse padrão, portanto, recomendamos que você use `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
-- Se você criar um aplicativo nativo Objective-C ou Swift para macOS, registre o URI redirecionado com base no identificador de pacote do aplicativo no seguinte formato: msauth.<your.app.bundle.id>://auth. Substitua <your.app.bundle.id> pelo identificador de pacote do aplicativo.
-- Se o aplicativo usa apenas autenticação integrada do Windows ou um nome de usuário e uma senha, você não precisa registrar um URI redirecionado para o seu aplicativo. Esses fluxos fazem uma ida e volta para a plataforma de identidade microsoft v2.0 endpoint. Sua aplicação não será chamada de volta em nenhum URI específico.
-- Para distinguir o fluxo de código do dispositivo, a autenticação integrada do Windows e um nome de usuário e uma senha de um fluxo de aplicativo cliente confidencial que também não tenha URIs redirecionados (o fluxo de credencial do cliente usado em aplicativos daemon), você precisa expressar que seu aplicativo é um aplicativo cliente público. Para obter essa configuração, vá até a seção **Autenticação** para o seu aplicativo. Na subseção **Configurações Avançadas,** no parágrafo padrão do **tipo cliente,** selecione **'Sim** para **tratar' como cliente público**.
+- Se você criar um aplicativo de Objective-C ou Swift nativo para macOS, registre o URI de redirecionamento com base no identificador de pacote do seu aplicativo no seguinte formato: msauth. <your.app.bundle.id>://auth. Substitua <your.app.bundle.id> pelo identificador de pacote do seu aplicativo.
+- Se seu aplicativo usar apenas a autenticação integrada do Windows ou um nome de usuário e uma senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esses fluxos fazem uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico.
+- Para distinguir o fluxo de código do dispositivo, a autenticação integrada do Windows e um nome de usuário e uma senha de um fluxo de aplicativo cliente confidencial que não tem URIs de redirecionamento (o fluxo de credencial do cliente usado em aplicativos de daemon), você precisa expressar que seu aplicativo é um aplicativo cliente público. Para obter essa configuração, vá para a seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, selecione **Sim** para **tratar aplicativo como um cliente público**.
 
   ![Permitir cliente público](media/scenarios/default-client-type.png)
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Os aplicativos de desktop chamam APIs para o usuário inscrito. Eles precisam pedir permissões delegadas. Eles não podem solicitar permissões de solicitação, que são tratadas apenas em [aplicativos daemon](scenario-daemon-overview.md).
+Aplicativos de desktop chamam APIs para o usuário conectado. Eles precisam solicitar permissões delegadas. Eles não podem solicitar permissões de aplicativo, que são manipuladas apenas em [aplicativos de daemon](scenario-daemon-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Aplicativo para desktop: configuração do aplicativo](scenario-desktop-app-configuration.md)
+> [Aplicativo de área de trabalho: configuração de aplicativo](scenario-desktop-app-configuration.md)

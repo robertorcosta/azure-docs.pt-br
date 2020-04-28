@@ -1,5 +1,5 @@
 ---
-title: Defina um perfil técnico auto-afirmado em uma política personalizada
+title: Definir um perfil técnico autodeclarado em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico autodeclarado em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,21 +12,21 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80332503"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Todas as interações no Azure Active Directory B2C (Azure AD B2C) onde o usuário deve fornecer entrada são perfis técnicos auto-afirmados. Por exemplo, uma página de inscrição, entrada ou redefinição de senha.
+Todas as interações em Azure Active Directory B2C (Azure AD B2C) em que o usuário deve fornecer entrada são perfis técnicos autodeclarados. Por exemplo, uma página de inscrição, entrada ou redefinição de senha.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Nome** do elemento **Protocolo** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C, para autodeclaração: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C, para autodeclaração: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 O exemplo a seguir mostra um perfil técnico autodeclarado para email de inscrição:
 
@@ -38,7 +38,7 @@ O exemplo a seguir mostra um perfil técnico autodeclarado para email de inscri�
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-Em um perfil técnico auto-afirmado, você pode usar os elementos **InputClaims** e **InputClaimsTransformations** para prepreencher o valor das reivindicações que aparecem na página auto-afirmada (exibir reclamações). Por exemplo, na política de edição de perfil, o percurso do usuário primeiro lê o perfil do usuário do serviço de diretório do Azure AD B2C. Em seguida, o perfil técnico autodeclarado define as declarações de entrada com os dados do usuário armazenados no perfil do usuário. Essas declarações são coletadas do perfil do usuário e, em seguida, apresentadas a ele, que poderá editar os dados existentes.
+Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims** e **InputClaimsTransformations** para pré-popular o valor das declarações que aparecem na página autodeclarada (Exibir declarações). Por exemplo, na política de edição de perfil, o percurso do usuário primeiro lê o perfil do usuário do serviço de diretório do Azure AD B2C. Em seguida, o perfil técnico autodeclarado define as declarações de entrada com os dados do usuário armazenados no perfil do usuário. Essas declarações são coletadas do perfil do usuário e, em seguida, apresentadas a ele, que poderá editar os dados existentes.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -51,25 +51,25 @@ Em um perfil técnico auto-afirmado, você pode usar os elementos **InputClaims*
   </InputClaims>
 ```
 
-## <a name="display-claims"></a>Reivindicações de exibição
+## <a name="display-claims"></a>Exibir declarações
 
-O recurso de reivindicações de exibição está atualmente em **pré-visualização**.
+O recurso Exibir declarações está em **Visualização**no momento.
 
-O elemento **DisplayClaims** contém uma lista de reivindicações a serem apresentadas na tela para coleta de dados do usuário. Para pré-preencher os valores das reivindicações de exibição, use as reivindicações de entrada descritas anteriormente. O elemento também pode conter um valor padrão.
+O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores de declarações de exibição, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
 
-A ordem das reclamações no **DisplayClaims** especifica a ordem na qual o Azure AD B2C renderiza as reivindicações na tela. Para forçar o usuário a fornecer um valor para uma reclamação específica, defina o atributo **Obrigatório** do elemento **DisplayClaim** como `true`.
+A ordem das declarações em **DisplayClaims** especifica a ordem na qual Azure ad B2C renderiza as declarações na tela. Para forçar o usuário a fornecer um valor para uma declaração específica, defina o atributo **Required** do elemento **DisplayClaim** como `true`.
 
-O elemento **ClaimType** na coleção **DisplayClaims** precisa definir o elemento **UserInputType** para qualquer tipo de entrada do usuário suportado pelo Azure AD B2C. Por exemplo, `TextBox` ou `DropdownSingleSelect`.
+O elemento **ClaimType** na coleção **DisplayClaims** precisa definir o elemento **userinputtype** como qualquer tipo de entrada de usuário com suporte pelo Azure ad B2C. Por exemplo, `TextBox` ou `DropdownSingleSelect`.
 
-### <a name="add-a-reference-to-a-displaycontrol"></a>Adicione uma referência a um DisplayControl
+### <a name="add-a-reference-to-a-displaycontrol"></a>Adicionar uma referência a um DisplayControl
 
-Na coleção de reivindicações de exibição, você pode incluir uma referência a um [DisplayControl](display-controls.md) que você criou. Um controle de exibição é um elemento de interface de usuário que tem funcionalidade especial e interage com o serviço de back-end AD B2C do Azure. Ele permite que o usuário execute ações na página que invocam um perfil técnico de validação no back-end. Por exemplo, verificar um endereço de e-mail, número de telefone ou número de fidelização de clientes.
+Na coleção exibir declarações, você pode incluir uma referência a um [DisplayControl](display-controls.md) que você criou. Um controle de exibição é um elemento de interface do usuário que tem funcionalidade especial e interage com o serviço de back-end Azure AD B2C. Ele permite que o usuário execute ações na página que invocam um perfil técnico de validação no back-end. Por exemplo, verificar um endereço de email, número de telefone ou número de fidelidade do cliente.
 
-O exemplo `TechnicalProfile` a seguir ilustra o uso de reivindicações de exibição com controles de exibição.
+O exemplo `TechnicalProfile` a seguir ilustra o uso de declarações de exibição com controles de exibição.
 
-* A primeira reclamação de exibição faz uma referência ao controle de `emailVerificationControl` exibição, que coleta e verifica o endereço de e-mail.
-* A quinta reivindicação de exibição faz uma referência ao controle de `phoneVerificationControl` exibição, que coleta e verifica um número de telefone.
-* As outras reivindicações de exibição são ClaimTypes a serem coletadas do usuário.
+* A primeira declaração de exibição faz uma referência ao `emailVerificationControl` controle de exibição, que coleta e verifica o endereço de email.
+* A quinta declaração de exibição faz uma referência ao `phoneVerificationControl` controle de exibição, que coleta e verifica um número de telefone.
+* As outras declarações de exibição são ClaimTypes a serem coletadas do usuário.
 
 ```XML
 <TechnicalProfile Id="Id">
@@ -85,13 +85,13 @@ O exemplo `TechnicalProfile` a seguir ilustra o uso de reivindicações de exibi
 </TechnicalProfile>
 ```
 
-Como mencionado, uma reivindicação de exibição com uma referência a um controle de exibição pode executar sua própria validação, por exemplo, verificando o endereço de e-mail. Além disso, a página auto-afirmada suporta o uso de um perfil técnico de validação para validar toda a página, incluindo qualquer entrada do usuário (tipos de reclamação ou controles de exibição), antes de passar para a próxima etapa de orquestração.
+Como mencionado, uma declaração de exibição com uma referência a um controle de exibição pode executar sua própria validação, por exemplo, verificar o endereço de email. Além disso, a página autodeclarada dá suporte ao uso de um perfil técnico de validação para validar a página inteira, incluindo qualquer entrada do usuário (tipos de declaração ou controles de exibição), antes de passar para a próxima etapa de orquestração.
 
-### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Combine o uso de reivindicações de exibição e reivindicações de saída cuidadosamente
+### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Combine o uso de declarações de exibição e declarações de saída com cuidado
 
-Se você especificar um ou mais elementos **do DisplayClaim** em um perfil técnico auto-afirmado, você deve usar um DisplayClaim para *cada* reclamação que deseja exibir na tela e coletar do usuário. Nenhuma reclamação de saída é exibida por um perfil técnico auto-afirmado que contenha pelo menos uma reivindicação de exibição.
+Se você especificar um ou mais elementos **DisplayClaim** em um perfil técnico autodeclarado, deverá usar um DisplayClaim para *cada* declaração que você deseja exibir na tela e coletar do usuário. Nenhuma declaração de saída é exibida por um perfil técnico autodeclarado que contém pelo menos uma declaração de exibição.
 
-Considere o seguinte exemplo `age` no qual uma reivindicação é definida como uma reivindicação **de saída** em uma política base. Antes de adicionar quaisquer alegações de exibição `age` ao perfil técnico auto-afirmado, a reclamação é exibida na tela para coleta de dados do usuário:
+Considere o exemplo a seguir no qual `age` uma declaração é definida como uma declaração de **saída** em uma política de base. Antes de adicionar qualquer declaração de exibição ao perfil técnico autodeclarado, a `age` declaração é exibida na tela para coleta de dados do usuário:
 
 ```XML
 <TechnicalProfile Id="id">
@@ -101,7 +101,7 @@ Considere o seguinte exemplo `age` no qual uma reivindicação é definida como 
 </TechnicalProfile>
 ```
 
-Se uma política de folha que herda essa base posteriormente `officeNumber` especificar como uma reivindicação de **exibição:**
+Se uma política de folha que herda essa base subsequentemente especificar `officeNumber` como uma declaração de **exibição** :
 
 ```XML
 <TechnicalProfile Id="id">
@@ -114,31 +114,31 @@ Se uma política de folha que herda essa base posteriormente `officeNumber` espe
 </TechnicalProfile>
 ```
 
-A `age` reivindicação na política base não é mais apresentada na tela ao usuário - é efetivamente "oculta". Para exibir `age` a reclamação e coletar o valor de `age` idade do usuário, você deve adicionar um **DisplayClaim**.
+A `age` declaração na política de base não é mais apresentada na tela ao usuário; ela é efetivamente "oculta". Para exibir a `age` declaração e coletar o valor de idade do usuário, você deve adicionar um `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de reivindicações a serem devolvidas à próxima etapa de orquestração. O **atributo DefaultValue** só entra em vigor se a reclamação nunca tiver sido definida. Se ele foi definido em uma etapa de orquestração anterior, o valor padrão não faz efeito mesmo se o usuário deixar o valor vazio. Para forçar o uso de um valor padrão, defina o atributo **AlwaysUseDefaultValue** como `true`.
+O elemento **OutputClaims** contém uma lista de declarações a serem retornadas para a próxima etapa de orquestração. O atributo **DefaultValue** terá efeito somente se a declaração nunca tiver sido definida. Se ele foi definido em uma etapa de orquestração anterior, o valor padrão não terá efeito mesmo que o usuário deixe o valor vazio. Para forçar o uso de um valor padrão, defina o atributo **AlwaysUseDefaultValue** como `true`.
 
-Por razões de segurança,`UserInputType` um `Password`valor de solicitação de senha (definido para ) está disponível apenas para os perfis técnicos de validação do perfil técnico auto-afirmado. Você não pode usar a reivindicação de senha nas próximas etapas de orquestração. 
+Por motivos de segurança, um valor de Declaração`UserInputType` de senha `Password`(definido como) está disponível somente para os perfis técnicos de validação do perfil técnico autodeclarado. Você não pode usar a declaração de senha nas próximas etapas de orquestração. 
 
 > [!NOTE]
-> Nas versões anteriores do IEF (Identity Experience Framework, estrutura de experiência de identidade), as reivindicações de saída foram usadas para coletar dados do usuário. Para coletar dados do usuário, use uma coleção **DisplayClaims.**
+> Em versões anteriores do IEF (Identity Experience Framework), as declarações de saída eram usadas para coletar dados do usuário. Para coletar dados do usuário, use uma coleção **DisplayClaims** em vez disso.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
-### <a name="when-you-should-use-output-claims"></a>Quando você deve usar reivindicações de saída
+### <a name="when-you-should-use-output-claims"></a>Quando você deve usar declarações de saída
 
-Em um perfil técnico auto-afirmado, a coleção de sinistros de saída retorna as reivindicações para a próxima etapa de orquestração.
+Em um perfil técnico autodeclarado, a coleção de declarações de saída retorna as declarações para a próxima etapa de orquestração.
 
-Use reivindicações de saída quando:
+Use declarações de saída quando:
 
-- **As reivindicações são saídas por transformação de sinistros de saída**.
-- **Definir um valor padrão em uma reclamação de saída** sem coletar dados do usuário ou devolver os dados do perfil técnico de validação. O perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` define a declaração **executed-SelfAsserted-Input** como `true`.
+- As **declarações são saídas pela transformação declarações de saída**.
+- **Definir um valor padrão em uma declaração de saída** sem coletar dados do usuário ou retornar os dados do perfil técnico de validação. O perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` define a declaração **executed-SelfAsserted-Input** como `true`.
 - **Um perfil técnico de validação retorna as declarações de saída**: seu perfil técnico pode chamar um perfil técnico de validação que retorna algumas declarações. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. Por exemplo, ao entrar com uma conta local, o perfil técnico autodeclarado de nome `SelfAsserted-LocalAccountSignin-Email` chama o perfil técnico de validação chamado `login-NonInteractive`. Esse perfil técnico valida as credenciais do usuário e também retorna o perfil do usuário. Como 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
-- **Um controle de exibição retorna as alegações de saída** - Seu perfil técnico pode ter uma referência a um [controle de exibição](display-controls.md). O controle de exibição retorna algumas reivindicações, como o endereço de e-mail verificado. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. O recurso de controle de exibição está atualmente em **visualização**.
+- **Um controle de exibição retorna as declarações de saída** – seu perfil técnico pode ter uma referência a um [controle de exibição](display-controls.md). O controle de exibição retorna algumas declarações, como o endereço de email verificado. Talvez você queira juntar as declarações e retorná-las para as próximas etapas de orquestração no percurso do usuário. O recurso de controle de exibição está atualmente em **Visualização**.
 
-O exemplo a seguir demonstra o uso de um perfil técnico auto-afirmado que usa tanto alegações de exibição quanto de reivindicações de saída.
+O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa declarações de exibição e declarações de saída.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -177,7 +177,7 @@ O exemplo a seguir demonstra o uso de um perfil técnico auto-afirmado que usa t
 
 ## <a name="persist-claims"></a>Declarações de persistência
 
-O elemento PersistedClaims não é usado. O perfil técnico auto-afirmado não persiste os dados para o Azure AD B2C. Em vez disso, é feita uma chamada para um perfil técnico de validação responsável por persistir os dados. Por exemplo, a política de inscrição usa o perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` para coletar o novo perfil do usuário. O perfil técnico `LocalAccountSignUpWithLogonEmail` chama o perfil técnico de validação para criar a conta no Azure AD B2C.
+O elemento PersistedClaims não é usado. O perfil técnico autodeclarado não mantém os dados para Azure AD B2C. Em vez disso, é feita uma chamada para um perfil técnico de validação responsável por persistir os dados. Por exemplo, a política de inscrição usa o perfil técnico autodeclarado `LocalAccountSignUpWithLogonEmail` para coletar o novo perfil do usuário. O perfil técnico `LocalAccountSignUpWithLogonEmail` chama o perfil técnico de validação para criar a conta no Azure AD B2C.
 
 ## <a name="validation-technical-profiles"></a>Perfis técnicos de validação
 
@@ -189,24 +189,24 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
-| configuração.operatingMode <sup>1</sup>| Não | Em uma página de entrada, essa propriedade controla o comportamento do campo nome de usuário, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email`.  |
-| Permitir a geração de reclamaçõescom valores anulados| Não| Permitir gerar uma reclamação com valor nulo. Por exemplo, em um caso, o usuário não seleciona uma caixa de seleção.|
+| Setting. Operations <sup>1</sup>| Não | Em uma página de entrada, essa propriedade controla o comportamento do campo nome de usuário, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| Não| Permitir para gerar uma declaração com valor nulo. Por exemplo, em um caso, o usuário não marca uma caixa de seleção.|
 | ContentDefinitionReferenceId | Sim | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
 | EnforceEmailVerification | Não | Na inscrição ou edição de perfil, reforça a verificação de email. Valores possíveis: `true` (padrão) ou `false`. |
-| setting.retryLimit | Não | Controla o número de vezes que um usuário pode tentar fornecer os dados verificados em um perfil técnico de validação. Por exemplo, quanto um usuário tenta se inscrever com uma conta que já existe e continua tentando até alcançar o limite.
-| Alvo de inscrição <sup>1</sup>| Não | O identificador de troca do destino da inscrição. Quando o usuário clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
+| setting.retryLimit | Não | Controla o número de vezes que um usuário pode tentar fornecer os dados que são verificados em relação a um perfil técnico de validação. Por exemplo, quanto um usuário tenta se inscrever com uma conta que já existe e continua tentando até alcançar o limite.
+| SignUpTarget <sup>1</sup>| Não | O identificador de troca do destino da inscrição. Quando o usuário clica no botão de inscrição, o Azure AD B2C executa o identificador de troca especificado. |
 | setting.showCancelButton | Não | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showContinueButton | Não | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
-| configuração.showSignupLink <sup>2</sup>| Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
-| configuração.forgotPasswordLinkLocalização <sup>2</sup>| Não| Exibe o link de senha esquecido. Valores `AfterInput` possíveis: (padrão) o link é exibido na `None` parte inferior da página ou remove o link de senha esquecido.|
-| configuração.enableRememberMe <sup>2</sup>| Não| Exibe o [Keep me assinado na](custom-policy-keep-me-signed-in.md) caixa de seleção. Valores `true` possíveis: `false` , ou (padrão). |
-| IncludeClaimResolveingInClaimshandling  | Não | Para reclamações de entrada e saída, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: `false`  , ou (padrão). Se você quiser usar um resolver sinistros no `true`perfil técnico, defina isso como . |
+| configuração. showSignupLink <sup>2</sup>| Não | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
+| configuração. forgotPasswordLinkLocation <sup>2</sup>| Não| Exibe o link esqueceu a senha. Valores possíveis: `AfterInput` (padrão) o link é exibido na parte inferior da página ou `None` remove o link de senha esquecida.|
+| configuração. enableRememberMe <sup>2</sup>| Não| Exibe a caixa de seleção [manter-me conectado](custom-policy-keep-me-signed-in.md) . Valores possíveis: `true` ou `false` (padrão). |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false`  (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true`. |
 
 Observações:
-1. Disponível para definição de `unifiedssp`conteúdo `unifiedssd` [DataUri](contentdefinitions.md#datauri) tipo de , ou .
-1. Disponível para definição de `unifiedssp`conteúdo `unifiedssd` [DataUri](contentdefinitions.md#datauri) tipo de , ou . [Versão de layout de página](page-layout.md) 1.1.0 e superior.
+1. Disponível para a definição [DataUri](contentdefinitions.md#datauri) de conteúdo DataUri `unifiedssp`tipo de `unifiedssd`, ou.
+1. Disponível para a definição [DataUri](contentdefinitions.md#datauri) de conteúdo DataUri `unifiedssp`tipo de `unifiedssd`, ou. [Layout de página versão](page-layout.md) 1.1.0 e posterior.
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 

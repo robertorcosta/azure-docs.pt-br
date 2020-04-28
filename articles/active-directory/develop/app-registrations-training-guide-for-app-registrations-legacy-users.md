@@ -1,6 +1,6 @@
 ---
 title: Novo guia de treinamento de registro de aplicativo do portal do Azure
-description: Apresenta a nova experiência de registro do portal Azure
+description: Apresenta a nova experiência de registro de aplicativo portal do Azure
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,118 +13,118 @@ ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154569"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Novo guia de treinamento de registro de aplicativo do portal do Azure
 
-Você pode encontrar muitas melhorias na experiência de registro do [novo App](https://go.microsoft.com/fwlink/?linkid=2083908) no portal Azure. Se você está familiarizado com a experiência de registros do App (legado) no portal Azure, use este guia de treinamento para começar a usar a nova experiência.
+Você pode encontrar muitos aprimoramentos na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver familiarizado com a experiência de Registros de aplicativo (herdada) no portal do Azure, use este guia de treinamento para começar a usar a nova experiência.
 
-No Azure Active Directory, a nova experiência de registro de inscrição descrita aqui está geralmente disponível (GA). No Azure Active Directory B2C (Azure AD B2C), essa experiência está em pré-visualização.
+Em Azure Active Directory, a nova experiência de registro de aplicativo descrita aqui está disponível para o público geral (GA). No Azure Active Directory B2C (Azure AD B2C), essa experiência está em versão prévia.
 
-## <a name="key-changes"></a>Principais mudanças
+## <a name="key-changes"></a>Principais alterações
 
-- Os registros de aplicativos não se limitam a ser um *aplicativo web/API* ou um aplicativo *nativo.* Você pode usar o mesmo registro de aplicativo para todos esses aplicativos registrando as respectivas URIs de redirecionamento.
+- Registros de aplicativo não estão limitados a ser um *aplicativo Web/API* ou um aplicativo *nativo* . Você pode usar o mesmo registro de aplicativo para todos esses aplicativos registrando os respectivos URIs de redirecionamento.
 
-- A experiência herdada suportava aplicativos que se login usando apenas contas organizacionais (Azure AD). Os aplicativos foram registrados como inquilinoúnico. Os aplicativos suportavam apenas contas organizacionais do diretório em que o aplicativo estava registrado. Os aplicativos podem ser modificados para serem multi-inquilinos e suportar todas as contas organizacionais. A nova experiência permite que você registre aplicativos que podem suportar essas opções, bem como uma terceira opção: todas as contas organizacionais, bem como contas pessoais da Microsoft.
+- A experiência herdada tem suporte para aplicativos que se conectam usando apenas contas organizacionais (Azure AD). Os aplicativos foram registrados como um único locatário. Aplicativos com suporte apenas para contas organizacionais do diretório no qual o aplicativo foi registrado. Os aplicativos podem ser modificados para serem multilocatários e dar suporte a todas as contas organizacionais. A nova experiência permite que você registre aplicativos que podem dar suporte a essas opções, bem como a terceira opção: todas as contas organizacionais, bem como contas pessoais da Microsoft.
 
-- A experiência do legado só estava disponível quando assinada no portal Azure usando uma conta organizacional. Com a nova experiência, você pode usar contas pessoais da Microsoft que não estão associadas a um diretório.
+- A experiência herdada só estava disponível quando entrava no portal do Azure usando uma conta organizacional. Com a nova experiência, você pode usar contas pessoais da Microsoft que não estão associadas a um diretório.
 
 ## <a name="list-of-applications"></a>Lista de aplicativos
 
-A nova lista de aplicativos mostra aplicativos que foram registrados através da experiência de registros de aplicativos legados no portal Azure. Esses aplicativos se login usando contas AD do Azure. A nova lista de aplicativos também mostra aplicativos cadastrados no Portal de Registro de Aplicativos. Esses aplicativos se login usando o Azure AD e contas pessoais da Microsoft.
+A nova lista de aplicativo mostra os aplicativos que foram registrados por meio da experiência de registros do aplicativo herdado no portal do Azure. Esses aplicativos entram usando contas do Azure AD. A nova lista de aplicativos também mostra os aplicativos registrados por meio do portal de registro de aplicativos. Esses aplicativos entram usando o Azure AD e contas pessoais da Microsoft.
 
 >[!NOTE]
->O Portal de Registro de Candidaturas foi preterido.
+>O portal de registro de aplicativos foi preterido.
 
-A nova lista de aplicativos não tem uma coluna **de tipo de aplicativo** porque um único registro de aplicativo pode ser de vários tipos. A lista tem duas colunas adicionais: **Criadas** e **Certificados & segredos**. **Certificados & segredos** mostram o status das credenciais que foram registradas no aplicativo. Os status incluem **Corrente,** **Expiração em breve** **e Expirado**.
+A nova lista de aplicativos não tem uma coluna de **tipo de aplicativo** porque um único registro de aplicativo pode ser de vários tipos. A lista tem duas colunas adicionais: **criadas em** e **certificados & segredos**. **Certificados & segredos** mostra o status das credenciais que foram registradas no aplicativo. Os status incluem **atual**, **expirando em breve**e **expiraram**.
 
 ## <a name="new-app-registration"></a>Registro de novo aplicativo
 
-Na experiência legado, para registrar um aplicativo que você foi obrigado a fornecer: **Nome,** **tipo de aplicativo**e **URL/Redirecionar URI**. Os aplicativos que foram criados foram o Azure AD apenas aplicativos de inquilino único. Eles só suportavam contas organizacionais do diretório em que o aplicativo estava registrado.
+Na experiência herdada, para registrar um aplicativo, você precisa fornecer: **nome**, **tipo de aplicativo**e URL de **entrada/URI de redirecionamento**. Os aplicativos que foram criados eram apenas aplicativos de locatário único do Azure AD. Eles só dão suporte a contas organizacionais do diretório no qual o aplicativo foi registrado.
 
-Na nova experiência, você deve fornecer um **Nome** para o aplicativo e escolher os **tipos de conta suportadas.** Você pode fornecer opcionalmente um **URI redirecionado**. Se você fornecer um URI redirecionado, você precisará especificar se é web/público (móvel e desktop). Para obter mais informações, consulte [Quickstart: Registre um aplicativo com a plataforma de identidade Microsoft](quickstart-register-app.md). Para Azure AD B2C, consulte [Registre um aplicativo no Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-applications.md).
+Na nova experiência, você deve fornecer um **nome** para o aplicativo e escolher os **tipos de conta com suporte**. Opcionalmente, você pode fornecer um **URI de redirecionamento**. Se você fornecer um URI de redirecionamento, precisará especificar se ele é Web/público (móvel e área de trabalho). Para obter mais informações, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md). Para Azure AD B2C, consulte [registrar um aplicativo no Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-applications.md).
 
-## <a name="differences-between-the-application-registration-portal-and-app-registrations-page"></a>Diferenças entre o Portal de Inscrição e a página de registros de aplicativos
+## <a name="differences-between-the-application-registration-portal-and-app-registrations-page"></a>Diferenças entre o portal de registro do aplicativo e a página Registros de aplicativo
 
-### <a name="the-legacy-properties-page"></a>A página Propriedades legado
+### <a name="the-legacy-properties-page"></a>A página propriedades herdadas
 
-A experiência do legado tinha uma página **propriedades.** **As propriedades** tinham os seguintes campos:
+A experiência herdada tinha uma página **Propriedades** . As **Propriedades** tinham os seguintes campos:
 
 - **Nome**
 - **ID do objeto**
-- **ID de aplicação**
+- **ID do aplicativo**
 - **URI da ID do Aplicativo**
 - **Logotipo**
 - **URL da home page**
-- **Logout URL**
-- **TERMOS de URL de serviço**
-- **URL de declaração de privacidade**
-- **Tipo de aplicação**
-- **Multi-inquilino**
+- **URL de logoff**
+- **URL dos termos de serviço**
+- **URL da política de privacidade**
+- **Tipo de aplicativo**
+- **Multilocatário**
 
-A nova experiência não tem essa página. Aqui é onde você pode encontrar a funcionalidade equivalente:
+A nova experiência não tem essa página. Aqui está onde você pode encontrar a funcionalidade equivalente:
 
-- **Nome**, **Logotipo, URL da página inicial,** **URL termos de serviço**e URL de **declaração de privacidade** estão agora na página de **Branding** do aplicativo. **Logo**
-- **O ID de ID** de ID de ID de ID de ID de Objeto e **Aplicativo (cliente)** está na **página Visão Geral.**
-- A funcionalidade controlada pelo **alternador Multi-inquilino** na experiência legado foi substituída por **tipos de conta suportados** na página **Autenticação.** Para obter mais informações, consulte [Quickstart: Modifique as contas suportadas por um aplicativo](quickstart-modify-supported-accounts.md).
-- **O URL de logout** está agora na página **Autenticação.**
-- **O tipo de aplicativo** não é mais um campo válido. Em vez disso, redirecione os URIs, que você pode encontrar na página **Autenticação,** determine quais tipos de aplicativos são suportados.
-- **O App ID URI** agora é chamado **de ID de aplicativo URI** e você pode encontrá-lo em Expor uma **API**. Na experiência do legado, esta propriedade foi registrada `https://{tenantdomain}/{appID}`automaticamente usando `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`o seguinte formato: , por exemplo, . Na nova experiência, é autogerado `api://{appID}`como , mas precisa ser explicitamente salvo. Nos inquilinos Azure AD B2C, o `https://{tenantdomain}/{appID}` formato ainda é usado.
+- **Nome**, **logotipo**, **URL da Home Page**, **URL dos termos de serviço**e **URL da política de privacidade** agora estão na página de **identidade visual** do aplicativo.
+- A ID do **objeto** e a **ID do aplicativo (cliente)** estão na página **visão geral** .
+- A funcionalidade controlada pela alternância **multilocatário** na experiência herdada foi substituída por tipos de **conta com suporte** na página de **autenticação** . Para obter mais informações, consulte [início rápido: modificar as contas com suporte em um aplicativo](quickstart-modify-supported-accounts.md).
+- A **URL de logout** agora está na página de **autenticação** .
+- O **tipo de aplicativo** não é mais um campo válido. Em vez disso, redirecione URIs, que podem ser encontrados na página **autenticação** , determine quais tipos de aplicativo têm suporte.
+- O **URI da ID** do aplicativo agora é chamado de URI de ID do **aplicativo** e você pode encontrá-lo em **expor uma API**. Na experiência herdada, essa propriedade foi autoregistrada usando o seguinte formato `https://{tenantdomain}/{appID}`:, por exemplo `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`,. Na nova experiência, ele é gerado automaticamente como `api://{appID}`, mas precisa ser explicitamente salvo. Em locatários Azure AD B2C, o `https://{tenantdomain}/{appID}` formato ainda é usado.
 
-### <a name="reply-urlsredirect-urls"></a>Responder URLs/Redirecionar URls
+### <a name="reply-urlsredirect-urls"></a>URLs de resposta/URls de redirecionamento
 
-Na experiência do legado, um aplicativo tinha uma página **de URLs de resposta.** Na nova experiência, urls de resposta podem ser encontrados na página de **Autenticação** de um aplicativo. Eles agora são chamados de **URIs de redirecionamento.**
+Na experiência herdada, um aplicativo tinha uma página **URLs de resposta** . Na nova experiência, as URLs de resposta podem ser encontradas na página de **autenticação** de um aplicativo. Agora eles são chamados de **URIs de redirecionamento**.
 
-O formato para redirecionar URIs foi alterado. Eles são obrigados a ser associados a um tipo de aplicativo, seja web ou público. Por razões de `http://` segurança, curingas e *http://localhost*esquemas não são suportados, exceto para .
+O formato de URIs de redirecionamento foi alterado. Eles precisam ser associados a um tipo de aplicativo, seja Web ou público. Por motivos de segurança, não há `http://` suporte para curingas e esquemas *http://localhost*, exceto para.
 
-### <a name="keyscertificates--secrets"></a>Chaves/Certificados & segredos
+### <a name="keyscertificates--secrets"></a>Chaves/certificados & segredos
 
-Na experiência do legado, um aplicativo tinha página **Keys.** Na nova experiência, foi renomeada para **Certificados & segredos**.
+Na experiência herdada, um aplicativo tinha a página **chaves** . Na nova experiência, ele foi renomeado para **certificados & segredos**.
 
-**As chaves públicas** são agora referidas como **Certificados**. **As senhas** agora são referidas como **segredos do Cliente**.
+**As chaves públicas** agora são chamadas de **certificados**. **As senhas** agora são chamadas de **segredos do cliente**.
 
 ### <a name="required-permissionsapi-permissions"></a>Permissões necessárias/permissões de API
 
-Na experiência do legado, um aplicativo tinha uma página **de permissões necessárias.** Na nova experiência, foi renomeado para **permissões de API.**
+Na experiência herdada, um aplicativo tinha uma página **permissões necessárias** . Na nova experiência, ele foi renomeado para permissões de **API**.
 
-Quando você selecionou uma API na experiência do legado, você pode escolher entre uma pequena lista de APIs da Microsoft. Você também pode procurar através de diretores de serviço no inquilino. Na nova experiência, você pode escolher entre várias guias: **APIs microsoft**, **APIs que minha organização usa**ou Minhas **APIs**. A barra de pesquisa em **APIs minha organização** usa pesquisas de guias através de diretores de serviço no inquilino.
+Quando você selecionou uma API na experiência herdada, pode escolher uma pequena lista de APIs da Microsoft. Você também pode pesquisar por meio de entidades de serviço no locatário. Na nova experiência, você pode escolher entre várias guias: **APIs da Microsoft**, **APIs que minha organização usa**ou **minhas APIs**. A barra de pesquisa em **APIs minha organização** usa pesquisa de guias por meio de entidades de serviço no locatário.
 
 > [!NOTE]
-> Você não verá esta guia se sua aplicação não estiver associada a um inquilino. Para obter mais informações sobre como solicitar permissões, consulte [Quickstart: Configure um aplicativo cliente para acessar APIs da Web](quickstart-configure-app-access-web-apis.md).
+> Você não verá essa guia se seu aplicativo não estiver associado a um locatário. Para obter mais informações sobre como solicitar permissões, consulte [início rápido: configurar um aplicativo cliente para acessar APIs da Web](quickstart-configure-app-access-web-apis.md).
 
-A experiência do legado tinha um botão **de permissões Grant** na parte superior da página **de permissões solicitadas.** Na nova experiência, a página **de consentimento do Grant** tem um botão de consentimento de **admin Grant** na seção de permissões de **API** de um aplicativo. Há também algumas diferenças na forma como os botões funcionam.
+A experiência herdada tinha um botão **conceder permissões** na parte superior da página **permissões solicitadas** . Na nova experiência, a página **conceder consentimento** tem um botão de **consentimento conceder administrador** na seção permissões de **API** de um aplicativo. Há também algumas diferenças nas maneiras como os botões funcionam.
 
-Na experiência do legado, a lógica variava dependendo do usuário assinado e das permissões solicitadas. A lógica era:
+Na experiência herdada, a lógica variava dependendo do usuário conectado e das permissões que estão sendo solicitadas. A lógica foi:
 
-- Se apenas as permissões de consentimento do usuário fossem solicitadas e o usuário assinado não fosse um admin, o usuário poderia conceder o consentimento do usuário para as permissões solicitadas.
-- Se pelo menos uma permissão que requer consentimento administrativo foi solicitada e o usuário assinado não era um admin, o usuário teve um erro ao tentar conceder o consentimento.
-- Se o usuário registrado era um admin, o consentimento do admin foi concedido para todas as permissões solicitadas.
+- Se apenas as permissões de consentimento do usuário tiverem sido solicitadas e o usuário conectado não fosse um administrador, o usuário poderá conceder consentimento ao usuário para as permissões solicitadas.
+- Se pelo menos uma permissão que exige o consentimento do administrador foi solicitada e o usuário conectado não era um administrador, o usuário recebeu um erro ao tentar conceder o consentimento.
+- Se o usuário conectado foi um administrador, o consentimento do administrador foi concedido para todas as permissões solicitadas.
 
-Na nova experiência, apenas um admin pode conceder consentimento. Quando um admin seleciona **o consentimento do admin Grant,** o consentimento do admin é concedido a todas as permissões solicitadas.
+Na nova experiência, apenas um administrador pode conceder consentimento. Quando um administrador seleciona **conceder consentimento de administrador**, o consentimento do administrador é concedido a todas as permissões solicitadas.
 
 ## <a name="deleting-an-app-registration"></a>Excluindo um registro de aplicativo
 
-Na experiência do legado, você pode excluir apenas aplicativos de inquilino único. O botão de exclusão foi desativado para aplicativos de vários inquilinos. Na nova experiência, você pode excluir aplicativos em qualquer estado, mas você deve confirmar a ação. Para obter mais informações, consulte [Quickstart: Remova um aplicativo registrado na plataforma de identidade Microsoft](quickstart-remove-app.md).
+Na experiência herdada, você pode excluir somente aplicativos de locatário único. O botão excluir foi desabilitado para aplicativos multilocatários. Na nova experiência, você pode excluir aplicativos em qualquer Estado, mas deve confirmar a ação. Para obter mais informações, consulte [início rápido: remover um aplicativo registrado com a plataforma de identidade da Microsoft](quickstart-remove-app.md).
 
 ## <a name="application-manifest"></a>Manifesto do aplicativo
 
-O legado e as novas experiências utilizam versões diferentes para o formato do JSON no editor do manifesto. Para obter mais informações, consulte [o manifesto do aplicativo Azure Active Directory](reference-app-manifest.md).
+As experiências herdadas e novas usam versões diferentes para o formato do JSON no editor de manifesto. Para obter mais informações, consulte [Azure Active Directory manifesto do aplicativo](reference-app-manifest.md).
 
-## <a name="new-ui"></a>Nova UI
+## <a name="new-ui"></a>Nova interface do usuário
 
-A nova experiência adiciona controles de iu para as seguintes propriedades:
+A nova experiência adiciona controles de interface do usuário para as seguintes propriedades:
 
-- A página **autenticação** tem`oauth2AllowImplicitFlow`fluxo de **concessão implícito** (). Ao contrário da experiência de legado, você pode habilitar **tokens de acesso** ou **tokens de ID,** ou ambos.
-- A **página Expor uma API** contém **Escopos definidos por esta API** (`oauth2Permissions`) e aplicativos de **clienteautorizados** ().`preAuthorizedApplications` Para obter mais informações sobre como configurar um aplicativo para ser uma API web e expor permissões/escopos, consulte [Quickstart: Configure um aplicativo para expor APIs da Web](quickstart-configure-app-expose-web-apis.md).
-- A **página Marca** contém o domínio **'Editor'.** O domínio do editor é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md). Para obter mais informações, [consulte Como: Configurar o domínio do editor de um aplicativo](howto-configure-publisher-domain.md).
+- A página de **autenticação** tem **fluxo de concessão implícito** (`oauth2AllowImplicitFlow`). Ao contrário da experiência herdada, você pode habilitar **tokens de acesso** ou **tokens de ID**, ou ambos.
+- A página **expor uma API** contém **escopos definidos por essa API** (`oauth2Permissions`) e **aplicativos cliente autorizados** (`preAuthorizedApplications`). Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte [início rápido: configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md).
+- A página **identidade visual** contém o **domínio do Publicador**. O domínio do Publicador é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md). Para obter mais informações, consulte [como configurar um domínio do Publicador de um aplicativo](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitações
 
 A nova experiência tem as seguintes limitações:
 
-- O formato dos segredos do cliente (senhas de aplicativo) é diferente do da experiência legada e pode quebrar a CLI.
-- A alteração do valor para contas suportadas não é suportada na ui. Você precisa usar o manifesto do aplicativo, a menos que esteja alternando entre o Azure AD e o multi-inquilino.
+- O formato dos segredos do cliente (senhas de aplicativo) é diferente daquele da experiência herdada e pode interromper a CLI.
+- Não há suporte para a alteração do valor de contas com suporte na interface do usuário. Você precisa usar o manifesto do aplicativo, a menos que esteja alternando entre o Azure AD single-locatário e multilocatário.

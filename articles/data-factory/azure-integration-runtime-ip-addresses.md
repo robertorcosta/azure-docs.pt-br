@@ -1,6 +1,6 @@
 ---
 title: Endereços de IP do Azure Integration Runtime
-description: Saiba de quais endereços IP você deve permitir tráfego de entrada, a fim de configurar corretamente firewalls para garantir o acesso da rede aos armazenamentos de dados.
+description: Saiba quais endereços IP você deve permitir o tráfego de entrada, para configurar corretamente os firewalls para proteger o acesso à rede para armazenamentos de dados.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415609"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços de IP do Azure Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Os endereços IP que o Azure Integration Runtime usa dependem da região onde o tempo de execução da integração do Azure está localizado. *Todos os* Os tempos de execução de integração do Azure que estão na mesma região usam as mesmas faixas de endereço IP.
+Os endereços IP que Azure Integration Runtime usa depende da região em que o tempo de execução de integração do Azure está localizado. *Todos* Os tempos de execução de integração do Azure que estão na mesma região usam os mesmos intervalos de endereços IP.
 
 > [!IMPORTANT]  
-> Os fluxos de dados não utilizam esses IPs atualmente. 
+> Os fluxos de dados não usam esses IPs no momento. 
 >
-> Você pode usar essas faixas de IP para execuções de movimentação de dados, pipeline e atividades externas. Essas faixas de IP podem ser usadas para whitelisting em data stores/ Network Security Group (NSG)/ Firewalls para acesso de entrada a partir do tempo de execução do Azure Integration. 
+> Você pode usar esses intervalos de IP para a movimentação de dados, pipeline e execuções de atividades externas. Esses intervalos de IP podem ser usados para a lista de permissões em armazenamentos de dados/grupo de segurança de rede (NSG)/firewalls para acesso de entrada do tempo de execução de integração do Azure. 
 
-## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Endereços IP do Azure Integration Runtime: regiões específicas
+## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime endereços IP: regiões específicas
 
-Permitir o tráfego a partir dos endereços IP listados para o tempo de execução da Integração do Azure na região específica do Azure onde seus recursos estão localizados:
+Permita o tráfego dos endereços IP listados para o tempo de execução de integração do Azure na região específica do Azure onde os recursos estão localizados:
 
 |                | Região              | Endereços IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
@@ -61,11 +61,11 @@ Permitir o tráfego a partir dos endereços IP listados para o tempo de execuç�
 |                | Oeste dos EUA 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
 |                | Gov. dos EUA – Virgínia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
-## <a name="known-issue-with-azure-storage"></a>Problema conhecido com o Armazenamento Azure
+## <a name="known-issue-with-azure-storage"></a>Problema conhecido com o armazenamento do Azure
 
-* Ao se conectar à conta do Azure Storage, as regras da rede IP não têm efeito sobre as solicitações originárias do tempo de execução de integração do Azure na mesma região que a conta de armazenamento. Para obter mais detalhes, [consulte este artigo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Ao se conectar à conta de armazenamento do Azure, as regras de rede IP não têm nenhum efeito nas solicitações originadas do tempo de execução de integração do Azure na mesma região que a conta de armazenamento. Para obter mais detalhes, [Veja este artigo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
 
-  Em vez disso, sugerimos o uso de [serviços confiáveis enquanto nos conectamos ao Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
+  Em vez disso, sugerimos o uso [de serviços confiáveis durante a conexão com o armazenamento do Azure](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

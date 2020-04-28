@@ -1,5 +1,5 @@
 ---
-title: Atualize o PhoneFactor para o Azure MFA Server - Azure Active Directory
+title: Atualizar PhoneFactor para o servidor MFA do Azure-Azure Active Directory
 description: Introdução ao servidor Azure MFA ao atualizar do phonefactor agent mais antigo.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f2a52f31babf1f0323f28033f9138c3630bdba6
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653133"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Atualizar o PhoneFactor Agent para o Servidor de Autenticação Multifator do Azure
@@ -23,7 +23,7 @@ ms.locfileid: "80653133"
 Para atualizar o PhoneFactor Agent v5.x ou mais antigo para o Servidor de Autenticação Multifator do Azure, desinstale o Agente PhoneFactor e os componentes afiliados primeiro. Em seguida, o Servidor de Autenticação Multifator e seus componentes afiliados podem ser instalados.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>Desinstale o agente PhoneFactor
 
@@ -54,11 +54,11 @@ O caminho de instalação é obtido do registro da instalação anterior do Phon
 
 2. Se o SDK de Serviço Web já foi instalado, instale o novo SDK de Serviço Web por meio da interface do usuário do Servidor de Autenticação Multifator.
 
-   O nome padrão do diretório virtual agora é **MultiFactorAuthWebServiceSdk** em vez de **PhoneFactorWebServiceSdk**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, será preciso alterar a URL em todos os aplicativos que referenciem o SDK de Serviço Web (como o Portal do Usuário e o Serviço Web de Aplicativos Móveis) para apontar para o local correto.
+   O nome do diretório virtual padrão agora é **MultiFactorAuthWebServiceSdk** em vez de **PhoneFactorWebServiceSdk**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, será preciso alterar a URL em todos os aplicativos que referenciem o SDK de Serviço Web (como o Portal do Usuário e o Serviço Web de Aplicativos Móveis) para apontar para o local correto.
 
 3. Se o Portal do Usuário já foi instalado no Servidor do PhoneFactor Agent, instale o novo Portal do Usuário da Autenticação Multifator pela interface do usuário do Servidor de Autenticação Multifator.
 
-   O nome padrão do diretório virtual agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do Portal do usuário no Servidor de Autenticação Multifator e atualize a URL do Portal do Usuário na guia Configurações.
+   O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do Portal do usuário no Servidor de Autenticação Multifator e atualize a URL do Portal do Usuário na guia Configurações.
 
 4. Se o Portal do Usuário e/ou o Serviço Web de Aplicativos Móveis foi instalado anteriormente em um servidor diferente do Agente PhoneFactor:
 
@@ -66,7 +66,7 @@ O caminho de instalação é obtido do registro da instalação anterior do Phon
 
    2. Para instalar o Portal do Usuário no servidor Web, abra um prompt de comando como administrador e execute MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-      O nome padrão do diretório virtual agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, você deve clicar no ícone do Portal do Usuário no Servidor de Autenticação Multifatorial e atualizar a URL do Portal do Usuário na guia Configurações.
+      O nome do diretório virtual padrão agora é **MultiFactorAuth** em vez de **PhoneFactor**. Se quiser usar o nome anterior, você deve alterar o nome do diretório virtual durante a instalação. Caso contrário, se você permitir que a instalação use o novo nome padrão, clique no ícone do portal do usuário na Servidor de Autenticação Multifator e atualize a URL do portal do usuário na guia Configurações. os usuários existentes precisam ser informados sobre a nova URL.
 
    3. Vá para o local de instalação do Portal do Usuário (por exemplo, C:\inetpub\wwwroot\MultiFactorAuth) e edite o arquivo web.config. Copie os valores nas seções appSettings e applicationSettings do arquivo web.config original que foi salvo em backup antes da atualização para o novo arquivo web.config. Se o novo nome do diretório virtual padrão foi mantido ao instalar o SDK do Serviço Web, altere a URL na seção applicationSettings para apontar para o local correto. Se outros padrões foram alterados no arquivo web.config anterior, aplique as mesmas alterações ao novo arquivo web.config.
 

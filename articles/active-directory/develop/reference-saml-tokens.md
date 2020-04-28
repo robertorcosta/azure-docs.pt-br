@@ -1,5 +1,5 @@
 ---
-title: Token Azure AD & tipos de reivindicação
+title: Tipos de declaração de & de token do Azure AD
 description: Um guia para compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo AAD (Active Directory do Azure)
 documentationcenter: na
 author: rwike77
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b7ba4abd45fff8548c361f5e5ed44ef45fe32bbe
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80883433"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do Azure AD
@@ -152,7 +152,7 @@ Este é um exemplo de um token SAML típico.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* Consulte o [recurso Policy](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), para saber mais sobre o gerenciamento da política de vida útil do token usando a API do Microsoft Graph.
+* Consulte o [recurso de política](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta)para saber mais sobre como gerenciar a política de tempo de vida de token usando a API de Microsoft Graph.
 * Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
 * Adicione [declarações opcionais e personalizadas](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para os tokens do aplicativo.
 * Use o [Logon Único (SSO) com SAML](single-sign-on-saml-protocol.md).

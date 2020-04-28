@@ -1,5 +1,5 @@
 ---
-title: Configure a extensão Azure MFA NPS - Azure Active Directory
+title: Configurar a extensão NPS do Azure MFA-Azure Active Directory
 description: Depois de instalar a extensão NPS, siga estas etapas para configuração avançada como lista de permissões de IP e substituição de UPN.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34d92af88106151e7efba679c53c5b5bd1c07dcd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80653778"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
@@ -32,9 +32,9 @@ Para configurar as IDs de logon alternativo, vá para `HKLM\SOFTWARE\Microsoft\A
 
 | Nome | Type | Valor padrão | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome do atributo do Active Directory que você deseja usar, em vez do UPN. Esse atributo é usado como o atributo AlternateLoginId. Se esse valor de registro for definido como um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, email ou displayName), o valor do atributo será usado no lugar do UPN do usuário para autenticação. Se esse valor do registro estiver vazio ou não estiver configurado, AlternateLoginId estará desabilitado e o UPN do usuário será usado para autenticação. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | cadeia de caracteres | Vazio | Designe o nome do atributo do Active Directory que você deseja usar, em vez do UPN. Esse atributo é usado como o atributo AlternateLoginId. Se esse valor de registro for definido como um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, email ou displayName), o valor do atributo será usado no lugar do UPN do usuário para autenticação. Se esse valor do registro estiver vazio ou não estiver configurado, AlternateLoginId estará desabilitado e o UPN do usuário será usado para autenticação. |
 | LDAP_FORCE_GLOBAL_CATALOG | booleano | Falso | Use esse sinalizador para forçar o uso do Catálogo Global para pesquisas LDAP ao procurar AlternateLoginId. Configure um controlador de domínio como um Catálogo Global, adicione o atributo AlternateLoginId ao Catálogo Global e, em seguida, habilite esse sinalizador. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado (não vazio), **esse sinalizador será imposto como true**, independentemente do valor da configuração do registro. Nesse caso, a extensão NPS exige que o Catálogo Global seja configurado com o atributo AlternateLoginId para cada floresta. |
-| LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista separada por ponto e vírgula de florestas a pesquisar. Por exemplo, *contoso.com;foobar.com*. Se esse valor do registro estiver configurado, a extensão NPS pesquisará iterativamente em todas as florestas a ordem em que elas foram listadas e retornará o primeiro valor AlternateLoginId bem-sucedido. Se esse valor do registro não estiver configurado, a pesquisa de AlternateLoginId estará limitada ao domínio atual.|
+| LDAP_LOOKUP_FORESTS | cadeia de caracteres | Vazio | Forneça uma lista separada por ponto e vírgula de florestas a pesquisar. Por exemplo, *contoso.com;foobar.com*. Se esse valor do registro estiver configurado, a extensão NPS pesquisará iterativamente em todas as florestas a ordem em que elas foram listadas e retornará o primeiro valor AlternateLoginId bem-sucedido. Se esse valor do registro não estiver configurado, a pesquisa de AlternateLoginId estará limitada ao domínio atual.|
 
 Para solucionar problemas com IDs de logon alternativo, use as etapas recomendadas para [Erros de ID de logon alternativa](howto-mfa-nps-extension-errors.md#alternate-login-id-errors).
 
@@ -42,16 +42,16 @@ Para solucionar problemas com IDs de logon alternativo, use as etapas recomendad
 
 Se você precisar monitorar a disponibilidade do servidor, como se os balanceadores de carga verificam se os servidores estão em execução antes de enviarem cargas de trabalho, não desejará que essas verificações sejam bloqueadas por solicitações de verificação. Em vez disso, crie uma lista de endereços IP que você saiba que são usados por contas de serviço e desabilite os requisitos de Autenticação Multifator para essa lista.
 
-Para configurar uma lista permitida `HKLM\SOFTWARE\Microsoft\AzureMfa` por IP, acesse e configure o seguinte valor de registro:
+Para configurar uma lista de permissões de IP, `HKLM\SOFTWARE\Microsoft\AzureMfa` vá para e configure o seguinte valor de registro:
 
 | Nome | Type | Valor padrão | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | string | Vazio | Forneça uma lista separada por ponto e vírgula de endereços IP. Inclua os endereços IP dos computadores dos quais as solicitações de serviço originam-se, como o servidor NAS/VPN. Os intervalos ip e as sub-redes não são suportados. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | cadeia de caracteres | Vazio | Forneça uma lista separada por ponto e vírgula de endereços IP. Inclua os endereços IP dos computadores dos quais as solicitações de serviço originam-se, como o servidor NAS/VPN. Não há suporte para intervalos de IP e sub-redes. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 > [!NOTE]
-> Essa chave de registro não é criada por padrão pelo instalador e um erro aparece no registro Do AuthZOptCh quando o serviço é reiniciado. Esse erro no registro pode ser ignorado, mas se essa chave de registro for criada e deixada vazia se não for necessária, a mensagem de erro não retorna.
+> Essa chave do registro não é criada por padrão pelo instalador e um erro aparece no log AuthZOptCh quando o serviço é reiniciado. Esse erro no log pode ser ignorado, mas se essa chave do registro for criada e deixada vazia se não for necessária, a mensagem de erro não será retornada.
 
-Quando uma solicitação vem de um endereço `IP_WHITELIST`IP que existe na verificação em duas etapas é ignorada. A lista IP é comparada com o endereço IP fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS chegar sem o atributo ratNASIPAddress, o seguinte aviso será registrado: "P_WHITE_LIST_WARNING::IP A lista de permissões está sendo ignorada, uma vez que o IP de origem está ausente na solicitação do RADIUS no atributo NasIpAddress."
+Quando uma solicitação chega de um endereço IP que existe no, a `IP_WHITELIST`verificação em duas etapas é ignorada. A lista de IPs é comparada ao endereço IP que é fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS chegar sem o atributo ratNASIPAddress, o seguinte aviso será registrado: "P_WHITE_LIST_WARNING::IP A lista de permissões está sendo ignorada, uma vez que o IP de origem está ausente na solicitação do RADIUS no atributo NasIpAddress."
 
 ## <a name="next-steps"></a>Próximas etapas
 

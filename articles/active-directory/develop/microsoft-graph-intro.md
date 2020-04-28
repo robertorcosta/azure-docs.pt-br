@@ -1,6 +1,6 @@
 ---
 title: API do Microsoft Graph
-description: A API do Microsoft Graph é uma API web RESTful que permite acessar os recursos de serviço sustais do Microsoft Cloud.
+description: A API de Microsoft Graph é uma API Web RESTful que permite que você acesse Microsoft Cloud recursos de serviço.
 author: davidmu1
 services: active-directory
 manager: CelesteDG
@@ -12,49 +12,49 @@ ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
 ms.openlocfilehash: 67dbf696903e7a930d75762deb00ad58ed1a4f69
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886459"
 ---
 # <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
-A API do Microsoft Graph é uma API web RESTful que permite acessar os recursos de serviço sustais do Microsoft Cloud. Depois de registrar seu aplicativo e obter tokens de autenticação para um usuário ou serviço, você pode fazer solicitações para a API do Microsoft Graph. Para obter mais informações, consulte [Visão geral do Microsoft Graph](https://docs.microsoft.com/graph/overview).
+A API de Microsoft Graph é uma API Web RESTful que permite que você acesse Microsoft Cloud recursos de serviço. Depois de registrar seu aplicativo e obter tokens de autenticação para um usuário ou serviço, você pode fazer solicitações para a API de Microsoft Graph. Para obter mais informações, consulte [visão geral do Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-O Microsoft Graph expõe APIs rest e bibliotecas de clientes para acessar dados nos seguintes serviços da Microsoft 365:
-- Serviços do Office 365: Delve, Excel, Microsoft Bookings, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
-- Serviços de mobilidade corporativa e segurança: Análise avançada de ameaças, proteção avançada contra ameaças, diretório ativo do Azure, gerenciador de identidade e intune
+O Microsoft Graph expõe as bibliotecas de cliente e APIs REST para acessar dados nos seguintes serviços de Microsoft 365:
+- Serviços do Office 365: Delve, Excel, Microsoft Books, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner e SharePoint
+- Serviços de segurança e mobilidade corporativa: análise avançada de ameaças, proteção avançada contra ameaças, Azure Active Directory, Identity Manager e Intune
 - Serviços do Windows 10: atividades, dispositivos, notificações
 - Dynamics 365 Business Central
 
 ## <a name="versions"></a>Versões
 
-O Microsoft Graph atualmente suporta duas versões: v1.0 e beta. A versão v1.0 inclui APIs geralmente disponíveis. Use a versão v1.0 para todos os aplicativos de produção. O beta inclui APIs que estão atualmente em pré-visualização. Como podemos introduzir alterações de quebra em nossas APIs beta, recomendamos que você use a versão beta apenas para testar aplicativos que estão em desenvolvimento; não use APIs beta em seus aplicativos de produção. Para obter mais informações, consulte [Versioning, suporte e quebrando políticas de alteração para o Microsoft Graph](https://docs.microsoft.com/graph/versioning-and-support).
+O Microsoft Graph atualmente dá suporte a duas versões: v 1.0 e beta. A versão v 1.0 inclui APIs geralmente disponíveis. Use a versão v 1.0 para todos os aplicativos de produção. A versão beta inclui APIs que estão atualmente em visualização. Como podemos introduzir alterações recentes em nossas APIs beta, recomendamos que você use a versão beta somente para testar os aplicativos que estão em desenvolvimento; Não use APIs beta em seus aplicativos de produção. Para obter mais informações, consulte [controle de versão, suporte e políticas de alteração significativas para Microsoft Graph](https://docs.microsoft.com/graph/versioning-and-support).
 
-Para começar a usar as APIs beta, consulte [a referência de ponto final beta do Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-beta)
+Para começar a usar as APIs beta, consulte [referência de ponto de extremidade do Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?view=graph-rest-beta)
 
-Para começar a usar as APIs v1.0, consulte [a referência Microsoft Graph REST API v1.0](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)
+Para começar a usar as APIs v 1.0, confira [Microsoft Graph referência da API REST v 1.0](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)
 
 ## <a name="get-started"></a>Introdução
 
-Para ler ou escrever para um recurso, como um usuário ou uma mensagem de e-mail, você constrói uma solicitação que se parece com a seguinte:
+Para ler ou gravar em um recurso como um usuário ou uma mensagem de email, você constrói uma solicitação semelhante à seguinte:
 
 `{HTTP method} https://graph.microsoft.com/{version}/{resource}?{query-parameters}`
 
-Para obter mais informações sobre os elementos da solicitação construída, consulte [Use a API do Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
+Para obter mais informações sobre os elementos da solicitação construída, consulte [usar a API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
 
-As amostras quickstart estão disponíveis para mostrar como acessar o poder da API do Microsoft Graph. As amostras disponíveis acessam dois serviços com uma autenticação: conta Microsoft e Outlook. Cada quickstart acessa informações dos perfis dos usuários da conta da Microsoft e exibe eventos de seu calendário.
-As partidas rápidas envolvem quatro etapas:
+Exemplos de início rápido estão disponíveis para mostrar como acessar a potência da API de Microsoft Graph. Os exemplos que estão disponíveis acessam dois serviços com uma autenticação: conta Microsoft e o Outlook. Cada início rápido acessa informações de conta Microsoft perfis de usuários e exibe eventos de seu calendário.
+Os guias de início rápido envolvem quatro etapas:
 - Selecione sua plataforma
-- Obtenha seu ID de aplicativo (ID do cliente)
+- Obter sua ID do aplicativo (ID do cliente)
 - Compilar o exemplo
-- Faça login e veja eventos em seu calendário
+- Entrar e exibir eventos em seu calendário
 
-Quando você completa o quickstart, você tem um aplicativo que está pronto para ser executado. Para obter mais informações, consulte o [Microsoft Graph quickstart FAQ](https://docs.microsoft.com/graph/quick-start-faq). Para começar com as amostras, consulte [Microsoft Graph QuickStart](https://developer.microsoft.com/graph/quick-start).
+Quando você concluir o início rápido, terá um aplicativo que está pronto para ser executado. Para obter mais informações, consulte as [perguntas frequentes sobre o Microsoft Graph início rápido](https://docs.microsoft.com/graph/quick-start-faq). Para começar a usar os exemplos, consulte [Microsoft Graph início rápido](https://developer.microsoft.com/graph/quick-start).
 
 ## <a name="tools"></a>Ferramentas
 
-O Microsoft Graph Explorer é uma ferramenta baseada na Web que você pode usar para construir e testar solicitações usando APIs do Microsoft Graph. Você pode acessar o `https://developer.microsoft.com/graph/graph-explorer`Microsoft Graph Explorer em: .
+O Microsoft Graph Explorer é uma ferramenta baseada na Web que você pode usar para compilar e testar solicitações usando APIs Microsoft Graph. Você pode acessar o Microsoft Graph Explorer em `https://developer.microsoft.com/graph/graph-explorer`:.
 
-Postman é uma ferramenta que você também pode usar para construir e testar solicitações usando as APIs do Microsoft Graph. Você pode baixar Carteiro `https://www.getpostman.com/`em: . Para interagir com o Microsoft Graph em Carteiro, você usa a coleção Microsoft Graph no Carteiro. Para obter mais informações, consulte [Use Postman com a API do Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+O postmaster é uma ferramenta que você também pode usar para compilar e testar solicitações usando as APIs de Microsoft Graph. Você pode baixar o postmaster em: `https://www.getpostman.com/`. Para interagir com Microsoft Graph no postmaster, use a coleção Microsoft Graph no postmaster. Para obter mais informações, consulte [usar o postmaster com a API de Microsoft Graph](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

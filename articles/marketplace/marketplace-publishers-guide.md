@@ -1,6 +1,6 @@
 ---
-title: Guia de publicação de mercado comercial
-description: Uma visão geral do mercado comercial para editores de aplicativos e serviços.
+title: Guia de publicação do Marketplace comercial
+description: Uma visão geral do mercado comercial para Publicadores de aplicativos e serviços.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
 ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261985"
 ---
-# <a name="commercial-marketplace-publishing-guide"></a>Guia de publicação de mercado comercial
+# <a name="commercial-marketplace-publishing-guide"></a>Guia de publicação do Marketplace comercial
 
 O guia de publicação do Marketplace foi projetado para ajudar editores novos e existentes a saber mais sobre como usar vitrines no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) para expandir os negócios em parceria com a Microsoft, listando aplicativos e serviços.
 
@@ -30,7 +30,7 @@ Este guia abrange os seguintes tópicos:
 
 Este guia contém informações técnicas e comerciais sobre as etapas necessárias que devem ser executadas antes de listar os aplicativos e serviços. Use o índice para acessar as diferentes seções do guia e ir diretamente para os principais tópicos.
 
-Para dúvidas sobre o Azure Marketplace e o AppSource, envie-nos uma mensagem em > **Onboarding do Mercado**do **Tipo Problema**. Nossa equipe de integração de editores do Marketplace terá satisfação em ajudá-lo! 
+Para perguntas sobre o Azure Marketplace e o AppSource, envie-nos uma mensagem sob **problema digite** > **integração do Marketplace**. Nossa equipe de integração de editores do Marketplace terá satisfação em ajudá-lo! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Benefícios em participar do Marketplace 
 
@@ -52,7 +52,7 @@ Comercialize as soluções com vendas adicionais e cruzadas para atender às nec
 
 Obtenha informações sobre o desempenho de suas listagens por meio de insights e análises disponíveis no Marketplace. Obtenha mais informações sobre o desempenho da campanha, pedidos e pagamentos e como maximizar as atividades da campanha para sua solução.
 
-### <a name="commercial-marketplace-benefits"></a>Benefícios do mercado comercial 
+### <a name="commercial-marketplace-benefits"></a>Benefícios do Marketplace comercial 
 
 As novas listagens no Marketplace são qualificadas para um conjunto diversificado de benefícios gratuitos para ajudar os parceiros a expandir os negócios no Marketplace. Esses benefícios se enquadram nas seguintes categorias: 
 
@@ -62,9 +62,9 @@ As novas listagens no Marketplace são qualificadas para um conjunto diversifica
 
 *   Vendas conjuntas: comece ou impulsione sua jornada para vender com a Microsoft no Marketplace. Acesse programas e suporte para gerar vendas conjuntas com as equipes da Microsoft.
 
-Após [enviar a solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.  Veja [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
+Após [enviar a solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) ao Marketplace, nossa equipe de integração entrará em contato com você para auxiliá-lo na experiência de publicação.  Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
 
-Saiba mais sobre os [benefícios do seu mercado comercial.](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)
+Saiba mais sobre os [benefícios do seu Marketplace comercial](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Próximas etapas
 

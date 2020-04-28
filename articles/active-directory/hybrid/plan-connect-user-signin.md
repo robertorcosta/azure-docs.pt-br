@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331261"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
@@ -70,7 +70,7 @@ Além disso, você também pode habilitar o logon único para usuários em compu
 
 Para obter mais informações, consulte:
 - [Autenticação de passagem](how-to-connect-pta.md)
-- [Logon único](how-to-connect-sso.md)
+- [Logon Único](how-to-connect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federação que usa um farm novo ou existente com o AD FS no Windows Server 2012 R2
 Com a conexão federada, os usuários podem se conectar aos serviços baseados no Azure AD com suas senhas locais. Embora eles estejam na rede corporativa, eles nem precisam inserir suas senhas. Ao usar a opção de federação com o AD FS, é possível implantar um farm novo ou existente com o AD FS no Windows Server 2012 R2. Se você optar por especificar um farm existente, o Azure AD Connect configurará a relação de confiança entre o farm e o Azure AD, para que os usuários possam se conectar.
@@ -85,7 +85,7 @@ Se você estiver implantando um novo farm, será necessário:
 
 * Um servidor Windows Server 2012 R2 para o servidor de federação.
 * Um servidor Windows Server 2012 R2 para o proxy de aplicativo Web.
-* Um arquivo .pfx com um certificado TLS/SSL para o nome de serviço da federação pretendido. Por exemplo: fs.contoso.com.
+* Um arquivo. pfx com um certificado TLS/SSL para o nome do serviço de Federação desejado. Por exemplo: fs.contoso.com.
 
 Se você estiver implantando um novo farm ou usando um farm existente, será necessário:
 

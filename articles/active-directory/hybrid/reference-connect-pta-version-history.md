@@ -1,6 +1,6 @@
 ---
-title: 'Autenticação de passagem do AD do Azure: histórico de lançamento de versão | Microsoft Docs'
-description: Este artigo lista todos os lançamentos do agente de autenticação de passagem ad do Azure
+title: 'Autenticação de passagem do Azure AD: histórico de lançamento de versão | Microsoft Docs'
+description: Este artigo lista todas as versões do agente de autenticação de passagem do Azure AD
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,76 +13,76 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81379911"
 ---
-# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD Pass-through Authentication agent: Histórico de lançamento de versão 
+# <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Agente de autenticação de passagem do Azure AD: histórico de lançamento de versão 
  
-Os agentes instalados no local que permitem a autenticação de passagem são atualizados regularmente para fornecer novos recursos. Este artigo lista as versões e recursos que são adicionados quando novas funcionalidades são introduzidas. Os agentes de autenticação de passagem são atualizados automaticamente quando uma nova versão é lançada. 
+Os agentes instalados localmente que habilitam a autenticação de passagem são atualizados regularmente para fornecer novos recursos. Este artigo lista as versões e os recursos que são adicionados quando uma nova funcionalidade é introduzida. Os agentes de autenticação de passagem são atualizados automaticamente quando uma nova versão é liberada. 
 
 Aqui estão os tópicos relacionados: 
 
-- [Login do usuário com autenticação de passagem do AD do Azure](how-to-connect-pta.md) 
-- [Instalação do agente de autenticação ad pass-through do Azure](how-to-connect-pta-quick-start.md) 
+- [Entrada do usuário com a autenticação de passagem do Azure AD](how-to-connect-pta.md) 
+- [Instalação do agente de autenticação de passagem do Azure AD](how-to-connect-pta-quick-start.md) 
 
 ## <a name="1517420"></a>1.5.1742.0
-### <a name="release-status"></a>Status de lançamento: 
-04/09/2020: Liberado para download
+### <a name="release-status"></a>Status da versão: 
+04/09/2020: liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-- Adicionado suporte para direcionar ambientes em nuvem após a instalação. O pacote pode ser fixado a um determinado ambiente de nuvem.
+- Suporte adicionado para direcionar ambientes de nuvem na instalação. O pacote pode ser fixado em um determinado ambiente de nuvem.
 
 
 
 ## <a name="1510070"></a>1.5.1007.0 
 ### <a name="release-status"></a>Status de liberação 
-22/1/2019: Liberado para download  
+1/22/2019: liberado para download  
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
-- Adicionado suporte para canais confiáveis do Service Bus para adicionar outra camada de resiliência de conexão para conexões de saída 
-- Impor TLS 1.2 durante o registro do agente 
+- Suporte adicionado para canais confiáveis do barramento de serviço para adicionar outra camada de resiliência de conexão para conexões de saída 
+- Impor o TLS 1,2 durante o registro do agente 
 
 ## <a name="156430"></a>1.5.643.0 
 ### <a name="release-status"></a>Status de liberação 
-4/10/2018: Liberado para download  
+4/10/2018: liberado para download  
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
-- Suporte à conexão do soquete web 
-- Defina o TLS 1.2 como o protocolo padrão para o agente 
+- Suporte à conexão de soquete da Web 
+- Definir TLS 1,2 como o protocolo padrão para o agente 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Status de liberação 
-31/1/2018: Liberado para download  
+1/31/2018: liberado para download  
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Corrigimos um bug que causou alguns vazamentos de memória no agente. 
-- Atualizei a versão do Azure Service Bus, que inclui uma correção de bugs para problemas de tempo de tempo. 
+- Correção de um bug que causou vazamentos de memória no agente. 
+- Atualização da versão do barramento de serviço do Azure, que inclui uma correção de bug para problemas de tempo limite do conector. 
  
 ## <a name="154050"></a>1.5.405.0 
 ### <a name="release-status"></a>Status de liberação 
-26/11/2017: Liberado para download  
+11/26/2017: liberado para download  
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
-- Adicionado suporte para conexões baseadas em websocket entre o agente e os serviços AD do Azure para melhorar a resiliência da conexão 
+- Suporte adicionado para conexões baseadas no WebSocket entre o agente e os serviços do Azure AD para melhorar a resiliência de conexão 
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Status de liberação 
-25/11/2017: Liberado para download  
+11/25/2017: liberado para download  
 ### <a name="fixed-issues"></a>Problemas corrigidos 
-- Corrigimos bugs relacionados ao cache DNS para cenários proxy padrão 
+- Correção de bugs relacionados ao cache DNS para cenários de proxy padrão 
  
 ## <a name="153890"></a>1.5.389.0 
 ### <a name="release-status"></a>Status de liberação 
-17/10/2017: Liberado para download  
+10/17/2017: liberado para download  
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
-- Adicionado a funcionalidade de cache DNS para conexões de saída para adicionar resiliência a partir de falhas de DNS 
+- Funcionalidade de cache DNS adicionada para conexões de saída para adicionar resiliência de falhas de DNS 
  
 ## <a name="152610"></a>1.5.261.0 
 ### <a name="release-status"></a>Status de liberação 
-31/08/2017: Liberado para download  
+08/31/2017: liberado para download  
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos 
-- Versão GA do agente de autenticação AD Pass-through do Azure 
+- Versão GA do agente de autenticação de passagem do Azure AD 
 
 ## <a name="next-steps"></a>Próximas etapas
 

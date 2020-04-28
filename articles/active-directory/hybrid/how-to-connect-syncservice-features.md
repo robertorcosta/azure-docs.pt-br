@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80983068"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
@@ -89,16 +89,16 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Sincronizar atualizações de userPrincipalName
 
-Historicamente, as atualizações do atributo UserPrincipalName usando o serviço de sincronização a partir do local foram bloqueadas, a menos que ambas as condições fossem verdadeiras:
+Historicamente, as atualizações para o atributo UserPrincipalName usando o serviço de sincronização do local foram bloqueadas, a menos que essas duas condições sejam verdadeiras:
 
 * O usuário é gerenciado (não federado).
 * Não foi atribuída uma licença ao usuário.
 
 > [!NOTE]
-> A partir de março de 2019, é permitida a sincronização das alterações da UPN para contas de usuários federadas.
+> A partir de março de 2019, é permitida a sincronização de alterações de UPN para contas de usuário federado.
 > 
 
-A ativação desse recurso permite que o mecanismo de sincronização atualize o usuárioPrincipalName quando ele é alterado no local e você usa sincronização de hash de senha ou autenticação de passagem.
+Habilitar esse recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash de senha ou a autenticação de passagem.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se este recurso está habilitado executando:  
 
@@ -116,5 +116,5 @@ Depois de habilitar esse recurso, os valores existentes de userPrincipalName per
 
 ## <a name="see-also"></a>Confira também
 
-* [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
+* [Sincronização de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

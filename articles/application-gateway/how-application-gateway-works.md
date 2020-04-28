@@ -42,7 +42,7 @@ Com base na regra de roteamento de solicitações, o gateway de aplicativo deter
 >[!NOTE]
 >As regras são processadas na ordem em que estão listadas no portal para v1 SKU. 
 
-When the application gateway selects the backend pool, it sends the request to one of the healthy backend servers in the pool (y.y.y.y). A saúde do servidor é determinada por uma sonda de saúde. Se o pool de back-end contiver vários servidores, o gateway de aplicativo usará um algoritmo round-robin para encaminhar as solicitações entre servidores saudáveis. Essa carga equilibra as solicitações nos servidores.
+Quando o gateway de aplicativo seleciona o pool de backend, ele envia a solicitação para um dos servidores backend saudáveis no pool (y.y.y.y.y). A saúde do servidor é determinada por uma sonda de saúde. Se o pool de back-end contiver vários servidores, o gateway de aplicativo usará um algoritmo round-robin para encaminhar as solicitações entre servidores saudáveis. Essa carga equilibra as solicitações nos servidores.
 
 Depois que o gateway de aplicativo determina o servidor backend, ele abre uma nova sessão TCP com o servidor back-end com base nas configurações HTTP. As configurações HTTP especificam as configurações de protocolo, porta e outras configurações relacionadas ao roteamento que são necessárias para estabelecer uma nova sessão com o servidor backend.
 

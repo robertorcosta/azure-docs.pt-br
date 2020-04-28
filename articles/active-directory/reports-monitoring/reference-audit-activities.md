@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891502"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
@@ -79,22 +79,22 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de Aplicativos|Recuperar concessões de permissões de aplicativo V2|
-|Gerenciamento de Aplicativos|Recuperar entidades de serviço de aplicativo V2 no locatário atual|
-|Gerenciamento de Aplicativos|Atualizar aplicativo V1|
-|Gerenciamento de Aplicativos|Atualizar aplicativo V2|
-|Gerenciamento de Aplicativos|Atualizar concessão de permissão de aplicativo V2|
-|Gerenciamento de Aplicativos|Adicionar Oauth2Permissiongrant|
-|Gerenciamento de Aplicativos|Adicionar atribuição de função de aplicativo à entidade de serviço|
+|Gerenciamento de aplicativos|Recuperar concessões de permissões de aplicativo V2|
+|Gerenciamento de aplicativos|Recuperar entidades de serviço de aplicativo V2 no locatário atual|
+|Gerenciamento de aplicativos|Atualizar aplicativo V1|
+|Gerenciamento de aplicativos|Atualizar aplicativo V2|
+|Gerenciamento de aplicativos|Atualizar concessão de permissão de aplicativo V2|
+|Gerenciamento de aplicativos|Adicionar Oauth2Permissiongrant|
+|Gerenciamento de aplicativos|Adicionar atribuição de função de aplicativo à entidade de serviço|
 
 ## <a name="application-proxy"></a>Proxy de aplicativo
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de Aplicativos|Adicionar aplicativo|
-|Gerenciamento de Aplicativos|Adicionar proprietário ao aplicativo|
-|Gerenciamento de Aplicativos|Adicionar proprietário à entidade de serviço|
-|Gerenciamento de Aplicativos|Adicionar política à entidade de serviço|
+|Gerenciamento de aplicativos|Adicionar aplicativo|
+|Gerenciamento de aplicativos|Adicionar proprietário ao aplicativo|
+|Gerenciamento de aplicativos|Adicionar proprietário à entidade de serviço|
+|Gerenciamento de aplicativos|Adicionar política à entidade de serviço|
 |Gerenciamento de diretórios|Adicionar entidade de serviço|
 |Gerenciamento de diretórios|Adicionar credenciais de entidade de serviço|
 |Gerenciamento de diretórios|Autorizar aplicativo|
@@ -112,29 +112,29 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de Aplicativos|Remover credenciais de entidade de serviço|
+|Gerenciamento de aplicativos|Remover credenciais de entidade de serviço|
 
 
 ## <a name="b2c"></a>B2C
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de Aplicativos|Restaurar aplicativo|
-|Gerenciamento de Aplicativos|Revogar autorização|
-|Gerenciamento de Aplicativos|Atualizar aplicativo|
-|Gerenciamento de Aplicativos|Atualizar segredos externos|
-|Gerenciamento de Aplicativos|Atualizar entidade de serviço|
-|Gerenciamento de Aplicativos|Emitir um token de acesso para o aplicativo|
-|Gerenciamento de Aplicativos|Emitir um código de autorização para o aplicativo|
-|Gerenciamento de Aplicativos|Emitir um id_token para o aplicativo|
-|Gerenciamento de Aplicativos|Validar credenciais de conta local|
-|Gerenciamento de Aplicativos|Validar autenticação de usuário|
-|Gerenciamento de Aplicativos|Adicionar permissões da aplicativo V2|
-|Gerenciamento de Aplicativos|Adicionar uma chave baseada em segredo ASCII a um contêiner de chave CPIM|
-|Gerenciamento de Aplicativos|Adicionar uma chave a um contêiner de chave CPIM|
-|Gerenciamento de Aplicativos|AdminPolicyDatas-SetResources|
-|Gerenciamento de Aplicativos|AdminUserJourneys-GetResources|
-|Gerenciamento de Aplicativos|AdminUserJourneys-RemoveResources|
+|Gerenciamento de aplicativos|Restaurar aplicativo|
+|Gerenciamento de aplicativos|Revogar autorização|
+|Gerenciamento de aplicativos|Atualizar aplicativo|
+|Gerenciamento de aplicativos|Atualizar segredos externos|
+|Gerenciamento de aplicativos|Atualizar entidade de serviço|
+|Gerenciamento de aplicativos|Emitir um token de acesso para o aplicativo|
+|Gerenciamento de aplicativos|Emitir um código de autorização para o aplicativo|
+|Gerenciamento de aplicativos|Emitir um id_token para o aplicativo|
+|Gerenciamento de aplicativos|Validar credenciais de conta local|
+|Gerenciamento de aplicativos|Validar autenticação de usuário|
+|Gerenciamento de aplicativos|Adicionar permissões da aplicativo V2|
+|Gerenciamento de aplicativos|Adicionar uma chave baseada em segredo ASCII a um contêiner de chave CPIM|
+|Gerenciamento de aplicativos|Adicionar uma chave a um contêiner de chave CPIM|
+|Gerenciamento de aplicativos|AdminPolicyDatas-SetResources|
+|Gerenciamento de aplicativos|AdminUserJourneys-GetResources|
+|Gerenciamento de aplicativos|AdminUserJourneys-RemoveResources|
 |Autenticação|AdminUserJourneys-SetResources|
 |Autenticação|Criar IdentityProvider|
 |Autenticação|Criar aplicativo V1|
@@ -348,34 +348,34 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de unidades administrativas|Baixe um único tipo de detecção de risco|
+|Gerenciamento de unidades administrativas|Baixar um tipo de detecção de risco único|
 |Gerenciamento de unidades administrativas|Baixar administradores e status de aceitação do resumo semanal|
-|Gerenciamento de unidades administrativas|Baixe todos os tipos de detecção de risco|
-|Gerenciamento de unidades administrativas|Baixe detecções gratuitas de risco do usuário|
+|Gerenciamento de unidades administrativas|Baixar todos os tipos de detecção de riscos|
+|Gerenciamento de unidades administrativas|Baixar detecções de risco de usuário gratuitas|
 |Gerenciamento de unidades administrativas|Baixar usuários sinalizados por risco|
-|Gerenciamento de Aplicativos|Convites do Lote processados|
-|Gerenciamento de Aplicativos|Convites do Lote carregados|
-|Gerenciamento de Aplicativos|Adicionar proprietário à política|
-|Gerenciamento de Aplicativos|Adicionar política|
-|Gerenciamento de Aplicativos|Excluir política|
-|Gerenciamento de Aplicativos|Remover credenciais de política|
-|Gerenciamento de Aplicativos|Atualizar política|
-|Gerenciamento de Aplicativos|Definir política de registro MFA|
-|Gerenciamento de Aplicativos|Definir política de risco de entrada|
-|Gerenciamento de Aplicativos|Definir política de risco do usuário|
-|Gerenciamento de Aplicativos|Aceitar os Termos de Uso|
-|Gerenciamento de Aplicativos|Criar Termos de Uso|
-|Gerenciamento de Aplicativos|Recusar Termos de Uso|
-|Gerenciamento de Aplicativos|Excluir Termos de Uso|
-|Gerenciamento de Aplicativos|Editar Termos de Uso|
-|Gerenciamento de Aplicativos|Publicar Termos de Uso|
-|Gerenciamento de Aplicativos|Cancelar a publicação dos Termos de Uso|
-|Gerenciamento de Aplicativos|Adicionar certificado TLS/SSL de aplicativo|
-|Gerenciamento de Aplicativos|Excluir a vinculação TLS|
-|Gerenciamento de Aplicativos|Registrar conector|
-|Gerenciamento de Aplicativos|AdminPolicyDatas-RemoveResources|
-|Gerenciamento de Aplicativos|AdminPolicyDatas-SetResources|
-|Gerenciamento de Aplicativos|AdminUserJourneys-GetResources|
+|Gerenciamento de aplicativos|Convites do Lote processados|
+|Gerenciamento de aplicativos|Convites do Lote carregados|
+|Gerenciamento de aplicativos|Adicionar proprietário à política|
+|Gerenciamento de aplicativos|Adicionar política|
+|Gerenciamento de aplicativos|Excluir política|
+|Gerenciamento de aplicativos|Remover credenciais de política|
+|Gerenciamento de aplicativos|Atualizar política|
+|Gerenciamento de aplicativos|Definir política de registro MFA|
+|Gerenciamento de aplicativos|Definir política de risco de entrada|
+|Gerenciamento de aplicativos|Definir política de risco do usuário|
+|Gerenciamento de aplicativos|Aceitar os Termos de Uso|
+|Gerenciamento de aplicativos|Criar Termos de Uso|
+|Gerenciamento de aplicativos|Recusar Termos de Uso|
+|Gerenciamento de aplicativos|Excluir Termos de Uso|
+|Gerenciamento de aplicativos|Editar Termos de Uso|
+|Gerenciamento de aplicativos|Publicar Termos de Uso|
+|Gerenciamento de aplicativos|Cancelar a publicação dos Termos de Uso|
+|Gerenciamento de aplicativos|Adicionar certificado TLS/SSL do aplicativo|
+|Gerenciamento de aplicativos|Excluir Associação TLS|
+|Gerenciamento de aplicativos|Registrar conector|
+|Gerenciamento de aplicativos|AdminPolicyDatas-RemoveResources|
+|Gerenciamento de aplicativos|AdminPolicyDatas-SetResources|
+|Gerenciamento de aplicativos|AdminUserJourneys-GetResources|
 |Gerenciamento de diretórios|AdminUserJourneys-RemoveResources|
 |Gerenciamento de diretórios|AdminUserJourneys-SetResources|
 |Gerenciamento de diretórios|Criar IdentityProvider|
@@ -408,14 +408,14 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Obter IDPs para um fluxo específico do administrador|
 |Gerenciamento de diretórios|Obter lista de todos os fluxos de administrador|
 |Gerenciamento de diretórios|Obter lista de marcas de todos os fluxos de administrador para todos os usuários|
-|Gerenciamento de grupos|Membros do grupo Bulk Download - iniciado|
-|Gerenciamento de grupos|Membros do grupo Bulk Download - concluído|
-|Gerenciamento de grupos|Membros do grupo de importação a granel - iniciado|
-|Gerenciamento de grupos|Membros do grupo de importação a granel - concluídos|
-|Gerenciamento de grupos|Membros do grupo de remoção em massa - iniciado|
-|Gerenciamento de grupos|Membros do grupo de remoção em massa - acabados|
-|Gerenciamento de grupos|Grupos de download em massa - iniciados|
-|Gerenciamento de grupos|Grupos de download em massa - concluídos|
+|Gerenciamento de grupos|Membros do grupo de download em massa-iniciados|
+|Gerenciamento de grupos|Membros do grupo de download em massa-concluído|
+|Gerenciamento de grupos|Membros do grupo de importação em massa-iniciados|
+|Gerenciamento de grupos|Membros do grupo de importação em massa-concluídos|
+|Gerenciamento de grupos|Remoção de membros do grupo em massa-iniciada|
+|Gerenciamento de grupos|Remoção de membros do grupo em massa – concluída|
+|Gerenciamento de grupos|Grupos de download em massa-iniciados|
+|Gerenciamento de grupos|Grupos de download em massa-concluídos|
 |Gerenciamento de grupos|Obter lista de locatários de um usuário|
 |Gerenciamento de grupos|Obter declarações autodeclaradas das contas locais|
 |Gerenciamento de grupos|Obter json de recurso localizado|
@@ -475,16 +475,16 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Adicionar membro no escopo à função|
 |Gerenciamento de Usuários|Added|
 |Gerenciamento de Usuários|Assign|
-|Gerenciamento de Usuários|Usuários de criação em massa - iniciados|
-|Gerenciamento de Usuários|Usuários de criação em massa - acabados|
-|Gerenciamento de Usuários|Usuários de exclusão em massa - iniciados|
-|Gerenciamento de Usuários|Usuários de exclusão em massa - concluído|
-|Gerenciamento de Usuários|Usuários de download em massa - iniciado|
-|Gerenciamento de Usuários|Usuários de download em massa - concluído|
-|Gerenciamento de Usuários|Restauração em massa deusuários excluídos - iniciado|
-|Gerenciamento de Usuários|Restauração em massa de usuários excluídos - concluído|
-|Gerenciamento de Usuários|Usuários de convite em massa - iniciado|
-|Gerenciamento de Usuários|Usuários de convite em massa - concluído|
+|Gerenciamento de Usuários|Criação de usuários em massa-iniciada|
+|Gerenciamento de Usuários|Criação de usuários em massa – concluída|
+|Gerenciamento de Usuários|Exclusão de usuários em massa – iniciada|
+|Gerenciamento de Usuários|Exclusão de usuários em massa concluída|
+|Gerenciamento de Usuários|Usuários do download em massa-iniciados|
+|Gerenciamento de Usuários|Usuários do download em massa-concluídos|
+|Gerenciamento de Usuários|Restauração em massa de usuários excluídos-iniciado|
+|Gerenciamento de Usuários|Restauração em massa de usuários excluídos-concluído|
+|Gerenciamento de Usuários|Usuários de convite em massa-iniciados|
+|Gerenciamento de Usuários|Usuários de convite em massa-concluídos|
 |Gerenciamento de Usuários|Remover proprietário registrado do dispositivo|
 |Gerenciamento de Usuários|Remover usuários registrados do dispositivo|
 |Gerenciamento de Usuários|Remover membro qualificado da função|
@@ -500,7 +500,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de identidade
 
 |Auditar categoria|Atividade|
 |---|---|
@@ -624,5 +624,5 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral dos relatórios do Azure AD](overview-reports.md).
-- [Relatório de registros de auditoria](concept-audit-logs.md). 
+- [Relatório de logs de auditoria](concept-audit-logs.md). 
 - [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

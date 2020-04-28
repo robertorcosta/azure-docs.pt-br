@@ -1,5 +1,5 @@
 ---
-title: Defina um perfil técnico do Azure AD em uma política personalizada
+title: Definir um perfil técnico do Azure AD em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,23 +12,23 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80330383"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) oferece suporte para o gerenciamento de usuários do Azure Active Directory. Este artigo descreve as especificações de um perfil técnico para interagir com um provedor de declarações compatível com esse protocolo padronizado.
+O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o gerenciamento de usuários do Azure Active Directory. Este artigo descreve as especificações de um perfil técnico para interagir com um provedor de declarações compatível com esse protocolo padronizado.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Nome** do elemento **Protocolo** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Seguindo [o pacote de inicialização de políticas personalizadas,](custom-policy-get-started.md#custom-policy-starter-pack) os perfis técnicos do Azure AD incluem o perfil técnico **AAD-Common.** Os perfis técnicos do Azure AD não especificam o protocolo porque o protocolo está configurado no perfil técnico **AAD-Common:**
+Os seguintes perfis técnicos do Azure AD [Starter Pack de política personalizada](custom-policy-get-started.md#custom-policy-starter-pack) incluem o perfil técnico do **AAD-comum** . Os perfis técnicos do Azure AD não especificam o protocolo porque o protocolo está configurado no perfil técnico **comum do AAD** :
  
 - **AAD-UserReadUsingAlternativeSecurityId** e **UserReadUsingAlternativeSecurityId-AAD-NoError** – procure uma conta social no diretório.
 - **AAD-UserWriteUsingAlternativeSecurityId** – crie uma nova conta social.
@@ -58,13 +58,13 @@ O exemplo a seguir mostra o perfil técnico **AAD-Common**:
 
 ## <a name="inputclaims"></a>InputClaims
 
-O elemento InputClaims contém uma reclamação, que é usada para procurar uma conta no diretório ou criar uma nova. Deve haver exatamente um elemento InputClaim na coleção de reclamações de entrada para todos os perfis técnicos do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory.
+O elemento InputClaims contém uma declaração, que é usada para pesquisar uma conta no diretório ou criar uma nova. Deve haver exatamente um elemento InputClaim na coleção de declarações de entrada para todos os perfis técnicos do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory.
 
-Para ler, atualizar ou excluir uma conta de usuário existente, a solicitação de entrada é uma chave que identifica exclusivamente a conta no diretório Azure AD. Por exemplo, **objectId**, **userPrincipalName,** **signInNames.emailAddress,** **signInNames.userName**ou **alternativeSecurityId**. 
+Para ler, atualizar ou excluir uma conta de usuário existente, a declaração de entrada é uma chave que identifica exclusivamente a conta no diretório do AD do Azure. Por exemplo, **ObjectID**, **userPrincipalName**, **signInNames. EmailAddress**, **signInNames. username**ou **alternativeSecurityId**. 
 
-Para criar uma nova conta de usuário, a solicitação de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames.emailAddress**ou **signInNames.userName**. Para uma conta federada: a **alternativaSecurityId**.
+Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress**ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
 
-O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de reivindicações de entrada que são usados para modificar a reivindicação de entrada ou gerar um novo.
+O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -92,7 +92,7 @@ Por exemplo, o perfil técnico de **AAD-UserWriteUsingLogonEmail** cria uma cont
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-O elemento **PersistedClaims** contém todos os valores que devem ser persistidos pelo Azure AD com possíveis informações de mapeamento entre um tipo de reclamação já definido na seção [ClaimsSchema](claimsschema.md) na diretiva e o nome do atributo Azure AD.
+O elemento **PersistedClaims** contém todos os valores que devem ser persistidos pelo Azure AD com informações de mapeamento possíveis entre um tipo de declaração já definido na seção [ClaimsSchema](claimsschema.md) na política e o nome do atributo do Azure AD.
 
 O perfil técnico do **AAD-UserWriteUsingLogonEmail**, que cria a nova conta local, mantém as declarações a seguir:
 
@@ -115,7 +115,7 @@ O nome da declaração será o nome do atributo do Azure AD, a menos que seja es
 ## <a name="requirements-of-an-operation"></a>Requisitos de uma operação
 
 - Deve haver exatamente uma elemento **InputClaim** na sacola de declarações para todos os perfis técnicos do Azure AD.
-- O [artigo de atributos do perfil do usuário](user-profile-attributes.md) descreve os atributos de perfil de usuário AD B2C suportados que você pode usar nas reivindicações de entrada, reivindicações de saída e reclamações persistidas. 
+- O [artigo atributos de perfil de usuário](user-profile-attributes.md) descreve os atributos de perfil de usuário Azure ad B2C com suporte que você pode usar nas declarações de entrada, declarações de saída e declarações persistentes. 
 - Se a operação for `Write` ou `DeleteClaims`, ela também deverá aparecer em um elemento **PersistedClaims**.
 - O valor da declaração **userPrincipalName** deve estar no formato de `user@tenant.onmicrosoft.com`.
 - A declaração **displayName** é necessária e não pode ser uma cadeia de caracteres vazia.
@@ -246,20 +246,20 @@ O perfil técnico a seguir exclui uma conta de usuário social usando **alternat
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
 | Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gere um erro se o objeto de usuário não existe no diretório. Valores possíveis: `true` ou `false`. |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Gere um erro se o objeto de usuário já existe. Valores possíveis: `true` ou `false`.|
-| ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [Usar atributos personalizados em uma diretiva de edição de perfil personalizado](custom-policy-custom-attributes.md). |
+| ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](custom-policy-custom-attributes.md). |
 | ClientId | Não | O identificador de cliente para acessar o locatário como um terceiro. Para obter mais informações, veja [Atributos personalizados de uso em uma política de edição de perfil personalizada](custom-policy-custom-attributes.md) |
-| IncludeClaimResolveingInClaimshandling  | Não | Para reclamações de entrada e saída, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: `false`  , ou (padrão). Se você quiser usar um resolver sinistros no `true`perfil técnico, defina isso como . |
+| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false`  (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true`. |
 
 ### <a name="ui-elements"></a>Elementos da interface do usuário
  
-As seguintes configurações podem ser usadas para configurar a mensagem de erro exibida após a falha. Os metadados devem ser configurados no perfil técnico [auto-afirmado.](self-asserted-technical-profile.md) As mensagens de erro podem ser [localizadas](localization.md).
+As configurações a seguir podem ser usadas para configurar a mensagem de erro exibida após a falha. Os metadados devem ser configurados no perfil técnico [autodeclarado](self-asserted-technical-profile.md) . As mensagens de erro podem ser [localizadas](localization.md).
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro for gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a mostrar ao usuário se o objeto de usuário já existe. |
 | UserMessageIfClaimsPrincipalDoesNotExist | Não | Caso um erro deva ser gerado (veja a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem para mostrar ao usuário se o objeto de usuário não existe. |
@@ -267,7 +267,7 @@ As seguintes configurações podem ser usadas para configurar a mensagem de erro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o artigo a seguir, por exemplo, usando o perfil técnico do Azure AD:
+Consulte o seguinte artigo, por exemplo, usando o perfil técnico do Azure AD:
 
 - [Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-configure-user-input.md)
 

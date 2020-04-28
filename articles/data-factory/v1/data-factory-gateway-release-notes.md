@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064989"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
@@ -26,7 +26,7 @@ Um dos desafios da integração de dados moderna é mover dados entre o local e 
 
 Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados e como usá-lo:
 
-*  [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md)
+*  [Gerenciamento de Dados gateway](data-factory-data-management-gateway.md)
 *  [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
@@ -40,7 +40,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Melhorias-
 - Adicione as entradas DNS à lista de permissões do barramento de serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a entrada DNS respectiva no Portal do Azure (Data Factory -> 'Criar e Implantar' -> 'Gateways' -> "serviceUrls" (no JSON)
-- O conector HDFS agora suporta certificado público auto-assinado, permitindo que você pule a validação do TLS.
+- O conector HDFS agora dá suporte ao certificado público autoassinado, permitindo que você ignore a validação TLS.
 - Corrigido: problema com gateway offline durante a atualização (devido à distorção do relógio)
 
 

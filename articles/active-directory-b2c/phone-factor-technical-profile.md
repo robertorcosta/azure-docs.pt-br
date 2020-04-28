@@ -1,7 +1,7 @@
 ---
-title: Defina um perfil técnico do fator telefônico em uma política personalizada
+title: Definir um perfil técnico de fator de telefone em uma política personalizada
 titleSuffix: Azure AD B2C
-description: Defina um perfil técnico do fator telefônico em uma política personalizada no Azure Active Directory B2C.
+description: Defina um perfil técnico de fator de telefone em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 03/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e2b30e8f6bcbe7c0e739455f4942712f68ff8404
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437459"
 ---
-# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fator telefônico em uma política personalizada do Azure Active Directory B2C
+# <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de fator de telefone em uma Azure Active Directory B2C política personalizada
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) oferece suporte para inscrição e verificação de números de telefone. Este perfil técnico:
+O Azure Active Directory B2C (Azure AD B2C) fornece suporte para registro e verificação de números de telefone. Este perfil técnico:
 
-- Fornece uma interface de usuário para interagir com o usuário para verificar ou registrar um número de telefone.
-- Suporta chamadas telefônicas e mensagens de texto para validar o número de telefone.
-- Suporta vários números de telefone. O usuário pode selecionar um dos números de telefone para verificar.  
-- Retorna uma reclamação indicando se o usuário forneceu um novo número de telefone. Você pode usar esta reivindicação para decidir se o número de telefone deve ser persistido no perfil de usuário Azure AD B2C.  
+- Fornece uma interface do usuário para interagir com o usuário para verificar ou registrar um número de telefone.
+- Dá suporte a chamadas telefônicas e mensagens de texto para validar o número de telefone.
+- Dá suporte a vários números de telefone. O usuário pode selecionar um dos números de telefone para verificar.  
+- Retorna uma declaração que indica se o usuário forneceu um novo número de telefone. Você pode usar essa declaração para decidir se o número de telefone deve persistir para o Azure AD B2C perfil de usuário.  
 - Usa uma [definição de conteúdo](contentdefinitions.md) para controlar a aparência.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Nome** do elemento **Protocolo** precisa ser definido como `Proprietary`. O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto do manipulador de protocolo que é usado pelo Azure AD B2C para fator telefônico:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo do **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C para o fator de telefone:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-O exemplo a seguir mostra um perfil técnico do fator telefônico para inscrição e validação:
+O exemplo a seguir mostra um perfil técnico de fator de telefone para registro e validação:
 
 ```XML
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
@@ -43,9 +43,9 @@ O exemplo a seguir mostra um perfil técnico do fator telefônico para inscriç�
 </TechnicalProfile>
 ```
 
-## <a name="input-claims-transformations"></a>Transformações de reivindicações de entrada
+## <a name="input-claims-transformations"></a>Transformações de declarações de entrada
 
-O elemento InputClaimsTransformations pode conter uma coleção de transformações de reivindicações de entrada que são usadas para modificar as reivindicações de entrada ou gerar novas. A seguinte transformação `UserId` de sinistros de entrada gera uma reivindicação que é usada posteriormente na coleta de sinistros de entrada.
+O elemento InputClaimsTransformations pode conter uma coleção de transformações de declarações de entrada que são usadas para modificar as declarações de entrada ou gerar novas. A transformação de declarações de entrada a `UserId` seguir gera uma declaração que é usada posteriormente na coleção de declarações de entrada.
 
 ```xml
 <InputClaimsTransformations>
@@ -55,14 +55,14 @@ O elemento InputClaimsTransformations pode conter uma coleção de transformaç�
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-O elemento InputClaims deve conter as seguintes alegações. Você também pode mapear o nome da sua reivindicação para o nome definido no perfil técnico do fator telefone. 
+O elemento InputClaims deve conter as declarações a seguir. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico do fator de telefone. 
 
-|  Tipo de dados| Obrigatório | Descrição |
+|  Tipo de dados| Necessária | Descrição |
 | --------- | -------- | ----------- | 
-| string| Sim | Um identificador exclusivo do usuário. O nome da reclamação, ou PartnerClaimType deve ser definido como `UserId`. Esta alegação não deve conter informações pessoais identificáveis.|
-| string| Sim | Lista de tipos de reclamações. Cada reclamação contém um número de telefone. Se alguma das reivindicações de entrada não contiver um número de telefone, o usuário será solicitado a se inscrever e verificar um novo número de telefone. O número de telefone validado é retornado como uma reivindicação de saída. Se uma das reivindicações de entrada contiver um número de telefone, o usuário é solicitado a verificar. Se várias reivindicações de entrada contiverem um número de telefone, o usuário é solicitado a escolher e verificar um dos números de telefone. |
+| string| Sim | Um identificador exclusivo do usuário. O nome da declaração ou PartnerClaimType deve ser definido como `UserId`. Essa declaração não deve conter informações de identificação pessoal.|
+| cadeia de caracteres| Sim | Lista de tipos de declaração. Cada declaração contém um número de telefone. Se qualquer uma das declarações de entrada não contiverem um número de telefone, o usuário será solicitado a registrar e verificar um novo número de telefone. O número de telefone validado é retornado como uma declaração de saída. Se uma das declarações de entrada contiver um número de telefone, o usuário será solicitado a verificá-lo. Se várias declarações de entrada contiverem um número de telefone, o usuário será solicitado a escolher e verificar um dos números de telefone. |
 
-O exemplo a seguir demonstra o uso de vários números de telefone. Para obter mais informações, consulte [a política de amostra](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
+O exemplo a seguir demonstra como usar vários números de telefone. Para obter mais informações, consulte [exemplo de política](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
 ```XML
 <InputClaims>
@@ -74,14 +74,14 @@ O exemplo a seguir demonstra o uso de vários números de telefone. Para obter m
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento OutputClaims contém uma lista de reclamações retornadas pelo perfil técnico do fator telefone.
+O elemento OutputClaims contém uma lista de declarações retornadas pelo perfil técnico do fator de telefone.
 
-|  Tipo de dados| Obrigatório | Descrição |
+|  Tipo de dados| Necessária | Descrição |
 |  -------- | ----------- |----------- |
-| booleano | Sim | Indica se o novo número de telefone foi inserido pelo usuário. O nome da reclamação, ou PartnerClaimType deve ser definido como`newPhoneNumberEntered`|
-| string| Sim | O número de telefone verificado. O nome da reclamação, ou PartnerClaimType deve ser definido como `Verified.OfficePhone`.|
+| booleano | Sim | Indica se o novo número de telefone foi inserido pelo usuário. O nome da declaração ou PartnerClaimType deve ser definido como`newPhoneNumberEntered`|
+| cadeia de caracteres| Sim | O número de telefone verificado. O nome da declaração ou PartnerClaimType deve ser definido como `Verified.OfficePhone`.|
 
-O elemento OutputClaimsTransformations pode conter uma coleção de elementos OutputClaimsTransformation que são usados para modificar as reivindicações de saída ou gerar novas.
+O elemento OutputClaimsTransformations pode conter uma coleção de elementos OutputClaimsTransformation que são usados para modificar as declarações de saída ou gerar novas.
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
@@ -90,17 +90,17 @@ O elemento **CryptographicKeys** não será usado.
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Sim | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
-| Entrada manualde números de números de telefonepermitidos| Não | Especifique se um usuário pode ou não inserir manualmente um número de telefone. Valores `true`possíveis: `false` , ou (padrão).|
-| configuração.autenticaçãoModo | Não | O método para validar o número de telefone. Valores `sms`possíveis: `phone` `mixed` , ou (padrão).|
-| configuração.autodial| Não| Especifique se o perfil técnico deve discar automaticamente ou enviar automaticamente um SMS. Valores `true`possíveis: `false` , ou (padrão). O discagem `setting.authenticationMode` automática requer `sms`que `phone`os metadados sejam definidos para, ou . A coleção de reclamações de entrada deve ter um único número de telefone. |
+| ManualPhoneNumberEntryAllowed| Não | Especifique se um usuário tem ou não permissão para inserir manualmente um número de telefone. Valores possíveis: `true`ou `false` (padrão).|
+| Configurando. AuthenticationMode | Não | O método para validar o número de telefone. Valores possíveis: `sms`, `phone`ou `mixed` (padrão).|
+| configuração. AutoDial| Não| Especifique se o perfil técnico deve discar automaticamente ou enviar automaticamente um SMS. Valores possíveis: `true`ou `false` (padrão). A discagem automática `setting.authenticationMode` exige que os metadados `sms`sejam definidos `phone`como, ou. A coleção de declarações de entrada deve ter um único número de telefone. |
 
 ### <a name="ui-elements"></a>Elementos da interface do usuário
 
-Os elementos da interface do usuário da página de autenticação do fator telefone podem ser [localizados](localization-string-ids.md#azure-mfa-error-messages).
+Os elementos da interface do usuário da página de autenticação do fator de telefone podem ser [localizados](localization-string-ids.md#azure-mfa-error-messages).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Verifique as contas sociais e locais com o pacote inicial [do MFA.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa)
+- Verifique as [contas sociais e locais com](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) o pacote de inicialização MFA.

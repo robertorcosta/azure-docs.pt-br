@@ -1,6 +1,6 @@
 ---
-title: Processo de solicitação & notificações - Gerenciamento de direitos do Azure AD
-description: Saiba mais sobre o processo de solicitação de um pacote de acesso e quando as notificações de e-mail são enviadas no gerenciamento de direitos do Azure Active Directory.
+title: Processo de solicitação & notificações-gerenciamento de direitos do Azure AD
+description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -17,142 +17,142 @@ ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4ff270977449bb80f97073342dc0c726a3f2316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128515"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitação de processos e notificações por e-mail no gerenciamento de direitos do Azure AD
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD
 
-Quando um usuário envia uma solicitação a um pacote de acesso, um processo começa a fornecer essa solicitação de acesso. O gerenciamento de direitos do Azure AD envia notificações de e-mail para aprovadores e solicitantes quando ocorrem os principais eventos durante o processo. Este artigo descreve o processo de solicitação e as notificações de e-mail enviadas.
+Quando um usuário envia uma solicitação para um pacote do Access, um processo começa a entregar essa solicitação de acesso. O gerenciamento de direitos do Azure AD envia notificações por email a Aprovadores e solicitantes quando ocorrem eventos de chave durante o processo. Este artigo descreve o processo de solicitação e as notificações de email que são enviadas.
 
 ## <a name="request-process"></a>Processo de solicitação
 
-Um usuário que precisa ter acesso a um pacote de acesso pode enviar uma solicitação de acesso. Dependendo da configuração da política, a solicitação pode exigir uma aprovação. Quando uma solicitação é aprovada, um processo começa a atribuir ao usuário acesso a cada recurso no pacote de acesso. O diagrama a seguir mostra uma visão geral do processo e dos diferentes estados:
+Um usuário que precisa acessar um pacote do Access pode enviar uma solicitação de acesso. Dependendo da configuração da política, a solicitação pode exigir uma aprovação. Quando uma solicitação é aprovada, um processo começa a atribuir o acesso do usuário a cada recurso no pacote do Access. O diagrama a seguir mostra uma visão geral do processo e os diferentes Estados:
 
-![Diagrama do processo de aprovação](./media/entitlement-management-process/request-process.png)
+![Diagrama de processo de aprovação](./media/entitlement-management-process/request-process.png)
 
 | Estado | Descrição |
 | --- | --- |
 | Enviado | O usuário envia uma solicitação. |
-| Aprovação pendente | Se a política de um pacote de acesso exigir aprovação, uma solicitação passa para aprovação pendente. |
-| Expirado | Se nenhum aprovador aprovar um pedido dentro do tempo de validade da solicitação de aprovação, a solicitação expira. Para tentar novamente, o usuário terá que reenviar sua solicitação. |
-| Negadas | Approver nega um pedido. |
-| Aprovado | O aprovador aprova um pedido. |
-| Fornecimento | O usuário **não** teve acesso a todos os recursos do pacote de acesso. Se este é um usuário externo, o usuário pode não ter acessado o diretório de recursos ainda. Eles também podem não ter aceitado o aviso de consentimento. |
-| Entregue | O usuário foi atribuído acesso a todos os recursos do pacote de acesso. |
-| Acesso estendido | Se as extensões forem permitidas na diretiva, o usuário prorrogou a atribuição. |
-| Acesso expirado | O acesso do usuário ao pacote de acesso expirou. Para ter acesso novamente, o usuário terá que enviar uma solicitação. |
+| Aprovação pendente | Se a política para um pacote de acesso exigir aprovação, uma solicitação será movida para aprovação pendente. |
+| Expirado | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
+| Negadas | O aprovador nega uma solicitação. |
+| Aprovado | O aprovador aprova uma solicitação. |
+| Fornecimento | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos. Eles também podem não ter aceitado o prompt de consentimento. |
+| Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
+| Acesso estendido | Se as extensões forem permitidas na política, o usuário estendeu a atribuição. |
+| Acesso expirado | O acesso do usuário ao pacote de acesso expirou. Para obter acesso novamente, o usuário precisará enviar uma solicitação. |
 
 ## <a name="email-notifications"></a>Notificações por email
 
-Se você é um aprovador, você é enviado notificações de e-mail quando você precisa aprovar uma solicitação de acesso. Você também recebe notificações quando uma solicitação de acesso foi concluída. Você também envia notificações de e-mail que indicam o status da sua solicitação se você for um solicitante.
+Se você for um aprovador, receberá notificações por email quando precisar aprovar uma solicitação de acesso. Você também receberá notificações quando uma solicitação de acesso tiver sido concluída. Você também receberá notificações por email que indicam o status da sua solicitação se você for um solicitante.
 
-Os diagramas a seguir mostram quando essas notificações de e-mail são enviadas aos aprovadores ou ao solicitante. Consulte a [tabela de notificações de e-mail](entitlement-management-process.md#email-notifications-table) para encontrar o número correspondente às notificações de e-mail exibidas nos diagramas.
+Os diagramas a seguir mostram quando essas notificações de email são enviadas para os aprovadores ou para o solicitante. Faça referência à [tabela de notificações de email](entitlement-management-process.md#email-notifications-table) para localizar o número correspondente às notificações de email exibidas nos diagramas.
 
-### <a name="first-approvers-and-alternate-approvers"></a>Primeiros aprovadores e aprovadores alternativos
-O diagrama a seguir mostra a experiência dos primeiros aprovadores e aprovadores alternativos, e as notificações de e-mail que recebem durante o processo de solicitação:
+### <a name="first-approvers-and-alternate-approvers"></a>Primeiros Aprovadores e aprovadores alternativos
+O diagrama a seguir mostra a experiência dos primeiros Aprovadores e aprovadores alternativos e as notificações por email que eles recebem durante o processo de solicitação:
 
-![Fluxo de aprovadores em primeiro e suplente](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
+![Fluxo de processo de aprovadores do primeiro e alternativo](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
 
 ### <a name="requestors"></a>Solicitantes
-O diagrama a seguir mostra a experiência dos solicitantes e as notificações de e-mail que recebem durante o processo de solicitação:
+O diagrama a seguir mostra a experiência de solicitantes e as notificações por email recebidas durante o processo de solicitação:
 
-![Fluxo de processo do solicitante](./media/entitlement-management-process/requestor-approval-request-flow.png)
+![Fluxo do processo do solicitante](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="2-stage-approval"></a>Aprovação em 2 estágios
-O diagrama a seguir mostra a experiência dos aprovadores do estágio 1 e estágio 2 e as notificações de e-mail que recebem durante o processo de solicitação:
+### <a name="2-stage-approval"></a>aprovação de dois estágios
+O diagrama a seguir mostra a experiência dos aprovadores estágio-1 e estágio 2 e as notificações de email que eles recebem durante o processo de solicitação:
 
-![Fluxo de processo de aprovação em 2 estágios](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
+![fluxo do processo de aprovação de 2 estágios](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
 
-### <a name="email-notifications-table"></a>Tabela de notificações por e-mail
-A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações de e-mail. Para gerenciar esses e-mails, você pode usar regras. Por exemplo, no Outlook, você pode criar regras para mover os e-mails para uma pasta se o assunto contiver palavras desta tabela:
+### <a name="email-notifications-table"></a>Tabela de notificações de email
+A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por email. Para gerenciar esses emails, você pode usar regras. Por exemplo, no Outlook, você pode criar regras para mover os emails para uma pasta se o assunto contiver palavras desta tabela:
 
 | # | Assunto do email | Quando enviado | Enviado a |
 | --- | --- | --- | --- |
-| 1 | Ação necessária: Aprovar ou negar solicitação encaminhada por *[data]* | Este e-mail será enviado aos aprovadores alternativos da Fase 1 (após a solicitação ter sido escalonada) para tomar medidas. | Aprovadores suplentes estágio-1 |
-| 2 | Ação necessária: Aprovar ou negar solicitação até *[data]* | Este e-mail será enviado ao primeiro aprovador, se o escalonamento for desativado, para tomar medidas. | Primeiro aprovador |
-| 3 | Lembrete: Aprovar ou negar a solicitação por *[data]* para *[solicitante]* | Este e-mail de lembrete será enviado ao primeiro aprovador, se a escalação for desativada. O e-mail pede que eles tomem medidas se não o fizeram. | Primeiro aprovador |
-| 4 | Aprovar ou negar o pedido por *[tempo]* na *[data]* | Este e-mail será enviado ao primeiro aprovador (se o escalonamento estiver habilitado) para tomar medidas. | Primeiro aprovador |
-| 5 | Lembrete necessário à ação: Aprovar ou negar a solicitação por *[data]* para *[solicitante]* | Este e-mail de lembrete será enviado ao primeiro aprovador, se a escalação estiver ativada. O e-mail pede que eles tomem medidas se não o fizeram. | Primeiro aprovador |
-| 6 | O pedido expirou para *[access_package]* | Este e-mail será enviado ao primeiro aprovador e aos aprovadores suplentes da fase 1 após o término da solicitação. | Primeiro aprovador, aprovadores suplentes estágio-1 |
-| 7 | Pedido aprovado para *[solicitante]* para *[access_package]* | Este e-mail será enviado ao primeiro aprovador e aos aprovadores suplentes da fase 1 após a conclusão da solicitação. | Primeiro aprovador, aprovadores suplentes estágio-1 |
-| 8 | Pedido aprovado para *[solicitante]* para *[access_package]* | Este e-mail será enviado ao primeiro aprovador e aos aprovadores suplentes da fase 1 de uma solicitação de 2 etapas quando a solicitação da fase 1 for aprovada. | Primeiro aprovador, aprovadores suplentes estágio-1 |
-| 9 | Pedido negado ao *[access_package]* | Este e-mail será enviado ao solicitante quando sua solicitação for negada | Solicitante |
-| 10 | Seu pedido expirou para *[access_package]* | Este e-mail será enviado ao solicitante ao final de uma única ou duas etapas. O e-mail notifica o solicitante de que a solicitação expirou. | Solicitante |
-| 11 | Ação necessária: Aprovar ou negar solicitação até *[data]* | Este e-mail será enviado ao segundo aprovador, se a escalação for desativada, para tomar medidas. | Segundo aprovador |
-| 12 | Lembrete necessário à ação: Aprovar ou negar a solicitação por *[data]* | Este e-mail de lembrete será enviado ao segundo aprovador, se a escalação for desativada. A notificação pede que eles tomem medidas se ainda não o fizeram. | Segundo aprovador |
-| 13 | Ação requerida: Aprovar ou negar o pedido por *[data]* para *[solicitante]* | Este e-mail será enviado ao segundo aprovador, se o escalonamento estiver habilitado, para tomar medidas. | Segundo aprovador |
-| 14 | Lembrete necessário à ação: Aprovar ou negar a solicitação por *[data]* para *[solicitante]* | Este e-mail de lembrete será enviado ao segundo aprovador, se a escalação estiver ativada. A notificação pede que eles tomem medidas se ainda não o fizeram. | Segundo aprovador |
-| 15 | Ação necessária: Aprovar ou negar solicitação encaminhada por *[data]* | Este e-mail será enviado aos aprovadores alternativos da fase 2, se o escalonamento for habilitado, para agir. | Aprovadores suplentes estágio 2 |
-| 16 | Pedido aprovado para *[solicitante]* para *[access_package]* | Este e-mail será enviado ao segundo aprovador e aos aprovadores suplentes da fase 2 após a aprovação do pedido. | Segundo aprovador, aprovadores suplentes do Estágio-2 |
-| 17 | Um pedido expirou para *[access_package]* | Este e-mail será enviado ao segundo aprovador ou aprovador alternativo, após o término da solicitação. | Segundo aprovador, aprovadores suplentes estágio-2 |
-| 18 | Agora você tem acesso a *[access_package]* | Este e-mail será enviado aos usuários finais para começar a usar seu acesso. | Solicitante |
-| 19 | Estender o acesso para *[access_package]* até *[data]* | Este e-mail será enviado aos usuários finais antes que seu acesso expire. | Solicitante |
-| 20 | O acesso terminou para *[access_package]* | Este e-mail será enviado aos usuários finais após o término do seu acesso. | Solicitante |
+| 1 | Ação necessária: aprovar ou negar a solicitação encaminhada por *[data]* | Este email será enviado aos aprovadores alternativos do estágio 1 (depois que a solicitação for escalonada) para executar uma ação. | Etapas de aprovadores alternativos do estágio 1 |
+| 2 | Ação necessária: aprovar ou negar solicitação por *[data]* | Este email será enviado para o primeiro aprovador, se o escalonamento estiver desabilitado, para executar uma ação. | Primeiro aprovador |
+| 3 | Lembrete: aprovar ou negar a solicitação em *[data]* para *[solicitante]* | Este email de lembrete será enviado para o primeiro aprovador, se o escalonamento estiver desabilitado. O email solicita que eles executem uma ação se não tiverem. | Primeiro aprovador |
+| 4 | Aprovar ou negar a solicitação em *[time]* em *[data]* | Este email será enviado para o primeiro aprovador (se o escalonamento estiver habilitado) para executar uma ação. | Primeiro aprovador |
+| 5 | Lembrete necessário da ação: aprovar ou negar a solicitação por *[data]* para *[solicitante]* | Este email de lembrete será enviado para o primeiro aprovador, se o escalonamento estiver habilitado. O email solicita que eles executem uma ação se não tiverem. | Primeiro aprovador |
+| 6 | A solicitação expirou para *[access_package]* | Este email será enviado para os aprovadores alternativos do primeiro aprovador e do estágio 1 depois que a solicitação tiver expirado. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
+| 7 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado para o primeiro aprovador e o estágio 1 aprovadores alternativos mediante a conclusão da solicitação. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
+| 8 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado aos aprovadores alternativos do primeiro aprovador e do estágio 1 de uma solicitação de dois estágios quando a solicitação Stage-1 for aprovada. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
+| 9 | Solicitação negada para *[access_package]* | Este email será enviado para o solicitante quando a solicitação for negada | Solicitante |
+| 10 | Sua solicitação expirou para *[access_package]* | Este email será enviado ao solicitante no final de uma solicitação de único ou de dois estágios. O email notifica o solicitante de que a solicitação expirou. | Solicitante |
+| 11 | Ação necessária: aprovar ou negar solicitação por *[data]* | Este email será enviado para o segundo aprovador, se o escalonamento estiver desabilitado, para executar uma ação. | Segundo aprovador |
+| 12 | Lembrete necessário da ação: aprovar ou negar a solicitação por *[data]* | Este email de lembrete será enviado para o segundo aprovador, se o escalonamento estiver desabilitado. A notificação solicita que eles executem uma ação caso ainda não tenham feito isso. | Segundo aprovador |
+| 13 | Ação necessária: aprovar ou negar a solicitação em *[data]* para *[solicitante]* | Este email será enviado para o segundo aprovador, se o escalonamento estiver habilitado, para executar uma ação. | Segundo aprovador |
+| 14 | Lembrete necessário da ação: aprovar ou negar a solicitação por *[data]* para *[solicitante]* | Este email de lembrete será enviado para o segundo aprovador, se o escalonamento estiver habilitado. A notificação solicita que eles executem uma ação caso ainda não tenham feito isso. | Segundo aprovador |
+| 15 | Ação necessária: aprovar ou negar a solicitação encaminhada por *[data]* | Este email será enviado aos aprovadores alternativos do estágio 2, se o escalonamento estiver habilitado, para executar uma ação. | Aprovadores alternativos de estágio 2 |
+| 16 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado para o segundo aprovador e para o estágio 2 aprovadores alternativos após a aprovação da solicitação. | Segundo aprovador, Aprovadores alternativos de estágio 2 |
+| 17 | Uma solicitação expirou para *[access_package]* | Este email será enviado ao segundo Aprovador ou a aprovadores alternativos, depois que a solicitação expirar. | Segundo aprovador, Aprovadores alternativos de estágio 2 |
+| 18 | Agora você tem acesso ao *[access_package]* | Este email será enviado aos usuários finais para começar a usar seu acesso. | Solicitante |
+| 19 | Estender o acesso para *[access_package]* por *[data]* | Este email será enviado aos usuários finais antes de seu acesso expirar. | Solicitante |
+| 20 | O acesso foi encerrado para *[access_package]* | Este email será enviado aos usuários finais após o acesso expirar. | Solicitante |
 
-### <a name="access-request-emails"></a>E-mails de solicitação de acesso
+### <a name="access-request-emails"></a>Emails de solicitação de acesso
 
-Quando um solicitante enviar uma solicitação de acesso para um pacote de acesso configurado para exigir aprovação, todos os aprovadores adicionados à política receberão uma notificação por e-mail com detalhes da solicitação. Os detalhes no e-mail incluem: organização do nome do solicitante e justificativa de negócios; e a data de início e término de acesso solicitada (se fornecida). Os detalhes também incluirão quando a solicitação foi apresentada e quando a solicitação expirará.
+Quando um solicitante envia uma solicitação de acesso para um pacote de acesso configurado para exigir aprovação, todos os aprovadores adicionados à política receberão uma notificação por email com detalhes da solicitação. Os detalhes no email incluem: nome da organização do solicitante e justificativa de negócios; e a data de início e de término do acesso solicitado (se fornecido). Os detalhes também incluirão quando a solicitação foi enviada e quando a solicitação expirará.
 
-O e-mail inclui um link em que os aprovadores podem clicar para ir ao Meu Acesso para aprovar ou negar a solicitação de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada ao primeiro aprovador ou segundo aprovador (se a aprovação de 2 estágios estiver habilitada) para concluir uma solicitação de acesso:
+O email inclui um link que os aprovadores podem clicar para acessar o meu acesso para aprovar ou negar a solicitação de acesso. Aqui está um exemplo de notificação por email que é enviada para o primeiro Aprovador ou segundo aprovador (se a aprovação de 2 estágios estiver habilitada) para concluir uma solicitação de acesso:
 
-![Aprovar solicitação para acessar o e-mail do pacote](./media/entitlement-management-shared/approver-request-email.png)
+![Aprovar solicitação para acessar email de pacote](./media/entitlement-management-shared/approver-request-email.png)
 
-Os aprovados também podem receber um e-mail de lembrete. O e-mail pede ao aprovador que tome uma decisão sobre o pedido. Aqui está uma notificação de e-mail de exemplo que o aprovador recebe para lembrá-los de agir:
+Os aprovadores também podem receber um email de lembrete. O email solicita que o aprovador tome uma decisão sobre a solicitação. Aqui está um exemplo de notificação por email que o aprovador recebe para lembrá-lo de agir:
 
-![E-mail de solicitação de acesso ao lembrete](./media/entitlement-management-process/approver-access-request-reminder-email.png)
+![Email de solicitação de acesso ao lembrete](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-### <a name="alternate-approvers-request-emails"></a>Aprovadores alternativos solicitam e-mails
+### <a name="alternate-approvers-request-emails"></a>Aprovadores alternativos solicitam emails
 
-Se a configuração de aprovadores alternativos estiver ativada e a solicitação ainda estiver pendente, ela será encaminhada. Os aprovadores alternativos receberão um e-mail para aprovar ou negar a solicitação. Você pode habilitar aprovadores alternativos no estágio 1 e no estágio-2. Aqui está um e-mail de exemplo da notificação que os aprovadores alternativos recebem:
+Se a configuração de aprovadores alternativos estiver habilitada e a solicitação ainda estiver pendente, ela será encaminhada. Os aprovadores alternativos receberão um email para aprovar ou negar a solicitação. Você pode habilitar os aprovadores alternativos no estágio-1 e no estágio-2. Aqui está um email de exemplo da notificação que os aprovadores alternativos recebem:
 
-![Aprovadores alternativos solicitam e-mail](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+![Emails de solicitação de aprovadores alternativos](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
 
-Tanto o aprovador quanto os aprovadores suplentes podem aprovar ou negar o pedido.
+O aprovador e os aprovadores alternativos podem aprovar ou negar a solicitação.
 
-### <a name="approved-or-denied-emails"></a>E-mails aprovados ou negados
+### <a name="approved-or-denied-emails"></a>Emails aprovados ou negados
 
- Quando um aprovador recebe uma solicitação de acesso enviada por um solicitante, ele pode aprovar ou negar a solicitação de acesso. O aprovador precisa adicionar uma justificativa comercial para sua decisão. Aqui está um e-mail de exemplo enviado aos aprovadores e aprovadores alternativos após a aprovação de uma solicitação:
+ Quando um Aprovador recebe uma solicitação de acesso enviada por um solicitante, ele pode aprovar ou negar a solicitação de acesso. O aprovador precisa adicionar uma justificativa de negócios para sua decisão. Aqui está um email de exemplo enviado aos Aprovadores e aprovadores alternativos depois que uma solicitação é aprovada:
 
-![Solicitação aprovada para acessar o e-mail do pacote](./media/entitlement-management-process/approver-request-email-approved.png)
+![Solicitação aprovada para acessar o email do pacote](./media/entitlement-management-process/approver-request-email-approved.png)
 
-Quando uma solicitação de acesso é aprovada e seu acesso é provisionado, uma notificação por e-mail é enviada ao solicitante para que eles agora tenham acesso ao pacote de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada a um solicitante quando eles têm acesso a um pacote de acesso:
+Quando uma solicitação de acesso é aprovada e seu acesso é provisionado, uma notificação por email é enviada ao solicitante que agora tem acesso ao pacote de acesso. Aqui está um exemplo de notificação por email que é enviada para um solicitante quando recebe acesso a um pacote de acesso:
 
-![E-mail de solicitação de solicitação de acesso aprovado](./media/entitlement-management-process/requestor-email-approved.png)
+![Email de solicitação de acesso do solicitante aprovado](./media/entitlement-management-process/requestor-email-approved.png)
 
-Quando uma solicitação de acesso é negada, uma notificação por e-mail é enviada ao solicitante. Aqui está uma notificação de e-mail de exemplo que é enviada a um solicitante quando sua solicitação de acesso é negada:
+Quando uma solicitação de acesso é negada, uma notificação por email é enviada ao solicitante. Aqui está um exemplo de notificação por email que é enviada para um solicitante quando sua solicitação de acesso é negada:
 
-![Solicitação de solicitação de e-mail negado](./media/entitlement-management-process/requestor-email-denied.png)
+![Email de solicitação negada do solicitante](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="2-stage-approval-access-request-emails"></a>E-mails de solicitação de acesso de aprovação em 2 estágios
+### <a name="2-stage-approval-access-request-emails"></a>emails de solicitação de acesso de aprovação de dois estágios
 
-Se a aprovação em duas etapas for habilitada, pelo menos dois aprovados devem aprovar a solicitação, uma de cada etapa, antes que o solicitante possa ter acesso.
+Se a aprovação de 2 estágios estiver habilitada, pelo menos dois aprovadores deverão aprovar a solicitação, uma de cada estágio, antes que o solicitante possa receber acesso.
 
-Durante a fase 1, o primeiro aprovador receberá o e-mail de solicitação de acesso e tomará uma decisão. Se aprovarem a solicitação, todos os primeiros aprovadores e aprovadores suplentes na fase 1 (se o escalonamento for habilitado) receberão a notificação de que a fase 1 está completa. Aqui está um e-mail de exemplo da notificação enviada quando a fase 1 estiver completa:
+Durante o estágio-1, o primeiro aprovador receberá o email de solicitação de acesso e tomará uma decisão. Se eles aprovarem a solicitação, todos os primeiros Aprovadores e aprovadores alternativos no estágio-1 (se o escalonamento estiver habilitado) receberão a notificação informando que o estágio-1 está concluído. Aqui está um email de exemplo da notificação que é enviada quando o estágio-1 é concluído:
 
-![E-mail de solicitação de acesso em 2 estágios](./media/entitlement-management-process/approver-request-email-2stage.png)
+![2-preparar email de solicitação de acesso](./media/entitlement-management-process/approver-request-email-2stage.png)
 
-Após os aprovadores do primeiro ou suplente aprovarem o pedido na fase 1, começa a fase 2. Durante a fase 2, o segundo aprovador receberá o e-mail de notificação de solicitação de acesso. Após o segundo aprovador ou suplente aprovador na fase 2 (se a escalada for habilitada) decidir aprovar ou negar a solicitação, os e-mails de notificação são enviados para o primeiro e segundo aprovadores, e todos os aprovadores alternativos na fase 1 e na fase 2, bem como no solicitante.
+Depois que o primeiro ou os aprovadores alternativos aprovarem a solicitação no estágio-1, o estágio-2 começará. Durante o estágio-2, o segundo aprovador receberá o email de notificação de solicitação de acesso. Após o segundo Aprovador ou aprovadores alternativos no estágio-2 (se o escalonamento estiver habilitado) decidir aprovar ou negar a solicitação, os emails de notificação serão enviados para o primeiro e o segundo Aprovadores e todos os aprovadores alternativos no estágio-1 e no estágio 2, bem como o solicitante.
 
-### <a name="expired-access-request-emails"></a>E-mails de solicitação de acesso expirado
+### <a name="expired-access-request-emails"></a>Emails de solicitação de acesso expirados
 
-Os pedidos de acesso podem expirar se nenhum aprovador tiver aprovado ou negado o pedido. 
+As solicitações de acesso poderão expirar se nenhum aprovador tiver aprovado ou negado a solicitação. 
 
-Quando a solicitação atinge sua data de validade configurada e expira, ela não pode mais ser aprovada ou negada pelos aprovadores. Aqui está um e-mail de exemplo da notificação enviada a todos os primeiros, segundos (se a aprovação de 2 estágios estiver habilitada), e aprovadores alternativos:
+Quando a solicitação atingir sua data de expiração configurada e expirar, ela não poderá mais ser aprovada ou negada pelos aprovadores. Aqui está um email de exemplo da notificação enviada para todas as primeiras, segunda (se a aprovação de 2 estágios estiver habilitada) e aprovadores alternativos:
 
-![Aprovadores expirado e-mail de solicitação de acesso](./media/entitlement-management-process/approver-request-email-expired.png)
+![Email de solicitação de acesso de aprovadores expirados](./media/entitlement-management-process/approver-request-email-expired.png)
 
-Uma notificação por e-mail também é enviada ao solicitante, notificando-os de que sua solicitação de acesso expirou, e que eles precisam reenviar a solicitação de acesso. O diagrama a seguir mostra a experiência do solicitante e as notificações de e-mail que recebem quando solicitam ampliar o acesso:
+Uma notificação por email também é enviada ao solicitante, notificando que a solicitação de acesso expirou e que eles precisam reenviar a solicitação de acesso. O diagrama a seguir mostra a experiência do solicitante e as notificações por email que eles recebem quando solicitam estender o acesso:
 
-![Solicitanteou ampliar o fluxo do processo de acesso](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+![Solicitando fluxo de processo de acesso de extensão](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
 
-Aqui está uma notificação de e-mail de exemplo que é enviada a um solicitante quando sua solicitação de acesso expirou:
+Aqui está um exemplo de notificação por email que é enviada para um solicitante quando sua solicitação de acesso expirou:
 
-![Requestor expirou e-mail de solicitação de acesso](./media/entitlement-management-process/requestor-email-request-expired.png)
+![Email de solicitação de acesso expirado do solicitante](./media/entitlement-management-process/requestor-email-request-expired.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Solicite acesso a um pacote de acesso](entitlement-management-request-access.md)
-- [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)
+- [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
+- [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

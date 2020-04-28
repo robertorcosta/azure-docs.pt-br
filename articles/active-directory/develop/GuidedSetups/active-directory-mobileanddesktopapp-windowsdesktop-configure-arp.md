@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 Windows Desktop Getting Started - Config
+title: Introdução da área de trabalho do Windows do Azure AD v2-configuração
 description: Como um aplicativo .NET da Área de Trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade do Azure Active Directory v2.
 services: active-directory
 author: jmprieur
@@ -12,10 +12,10 @@ ms.date: 01/29/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: d82f9beecb1b558fca094c31f8c6718c990debd1
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885762"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar as informações de registro do aplicativo ao aplicativo
