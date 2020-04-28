@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
 ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188998"
 ---
 ## <a name="sample-templates"></a>Modelos de exemplo
@@ -20,14 +20,14 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 ```
 
 Este projeto contém os seguintes modelos:
-- [Azul-do-Oceano](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Cinza ardósia](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Azul-marinho](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
+- [Cinza-acinzentado](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
 
-Para usar a amostra:
+Para usar o exemplo:
 
-1. Clone o repo em sua máquina local. Escolha uma `/ocean_blue` pasta `/slate_gray`de modelo ou .
-1. Carregue todos os arquivos `/assets` a pasta de modelo e a pasta, para o armazenamento Blob, conforme descrito nas seções anteriores.
-1. Em seguida, `\*.html` abra cada arquivo `/ocean_blue` `/slate_gray`na raiz de um ou , substitua todas as instâncias de URLs relativos pelos URLs dos arquivos css, imagens e fontes que você carregou na etapa 2. Por exemplo: 
+1. Clone o repositório em seu computador local. Escolha uma pasta `/ocean_blue` de modelo `/slate_gray`ou.
+1. Carregue todos os arquivos na pasta modelo e na `/assets` pasta, no armazenamento de BLOBs, conforme descrito nas seções anteriores.
+1. Em seguida, abra `\*.html` cada arquivo na raiz de `/ocean_blue` ou `/slate_gray`, substitua todas as instâncias de URLs relativas pelas URLs do CSS, imagens e arquivos de fontes que você carregou na etapa 2. Por exemplo:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -36,6 +36,6 @@ Para usar a amostra:
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
-1. Salve `\*.html` os arquivos e carregue-os para o armazenamento Blob.
-1. Agora modifique a diretiva, apontando para o seu arquivo HTML, como mencionado anteriormente.
-1. Se você ver fontes, imagens ou CSS ausentes, verifique suas \*referências na diretiva de extensões e nos arquivos .html.
+1. Salve os `\*.html` arquivos e carregue-os no armazenamento de BLOBs.
+1. Agora, modifique a política, apontando para o arquivo HTML, conforme mencionado anteriormente.
+1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \*arquivos. html.

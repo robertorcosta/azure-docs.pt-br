@@ -46,7 +46,7 @@ Um subconjunto do banco de dados do recenseamento de 1994, usando adultos em fas
 <p></p>
 <b>Uso:</b> Classificar as pessoas usando a demografia para prever se uma pessoa ganha mais de 50 mil por ano.
 <p></p>
-<b>Pesquisa relacionada:</b> Kohavi, R., Becker, B., (1996). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Kohavi, R., Becker, B., (1996). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -67,7 +67,7 @@ A pontuação de risco é inicialmente associada com preço automático. Depois 
 <p></p>
 <b>Uso:</b> Prever o escore de risco por características, utilizando regressão ou classificação multivariada. 
 <p></p>
-<b>Pesquisa relacionada:</b> Schlimmer (1987). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Schlimmer (1987). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -98,7 +98,7 @@ Os dados do doador incluem os meses desde a última doação e a frequência, ou
 <p></p>
 <b>Uso:</b> O objetivo é prever via classificação se o doador doou sangue em março de 2007, onde 1 indica um doador durante o período-alvo, e 0 um não-doador. 
 <p></p>
-<b>Pesquisa relacionada:</b> Yeh, I.C., (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science 
+<b>Pesquisa relacionada:</b> Yeh, I.C., (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang e Ting, Tao-Ming, "Descoberta de conhecimento no modelo RFM usando a seqüência de Bernoulli, "Expert Systems with Applications, 2008,<a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -111,7 +111,7 @@ Um dos três conjuntos de dados relacionados a câncer fornecidos pelo Instituto
 <p></p>
 <b>Uso:</b> Classificar o tipo de câncer, com base em 9 atributos, alguns deles lineares e alguns categóricos. 
 <p></p>
-<b>Pesquisa relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -153,7 +153,7 @@ Esse conjunto de dados contém 50 mil clientes da empresa francesa de telecomuni
 <tr>
   <td>Rótulos de vendas agregadas CRM compartilhados</td>
   <td>
-Rótulos do desafio de previsão de relacionamento do cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
+Rótulos do Desafio de Previsão de Relacionamento com o Cliente da KDD Cup 2009<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">(orange_large_train_upselling.labels).</a>
   </td>
 </tr>
 
@@ -164,13 +164,13 @@ Uma coleção de perfis de energia simulados, com base em 12 formatos de constru
 <p></p>
 <b>Uso:</b> Use a regressão ou a classificação para prever o rating de eficiência energética baseado como uma das duas respostas reais valorizadas. Para classificação de multiclasse, a variável da resposta é arredondada para o número inteiro mais próximo. 
 <p></p>
-<b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>Dados de atrasos de voo</td>
   <td>
-Dados de desempenho do voo de passageiros retirados da coleta de dados do TranStats do Departamento de Transportes dos EUA (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time).</a>
+Dados de desempenho pontual do voo do passageiro obtidos da coleção de dados TranStats do Departamento de Transportes dos EUA (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).
 <p></p>
 O conjunto de dados abrange o período de abril a outubro de 2013. Antes de fazer o upload para o Azure Machine Learning Studio (clássico), o conjunto de dados foi processado da seguinte forma:
 <ul>
@@ -200,7 +200,7 @@ Contém dados de clima, como índices de temperatura e umidade e velocidade do v
 <p></p>
 <b>Uso:</b> Trata-se de uma tarefa difícil de regressão, onde o objetivo é prever a área queimada de incêndios florestais. 
 <p></p>
-<b>Pesquisa relacionada:</b> Cortez, P., & Morais, A. (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science 
+<b>Pesquisa relacionada:</b> Cortez, P., & Morais, A. (2008). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 [Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Em J. Neves, M. F. Santos e J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>em: .
   </td>
@@ -218,7 +218,7 @@ O conjunto de dados classifica pessoas, descritas como um conjunto de atributos,
 <tr>
   <td>Títulos de filmes no IMDB</td>
   <td>
-O conjunto de dados contém informações sobre filmes que foram classificados em tweets do Twitter: ID de filme no IMDB, nome e gênero do filme e ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no artigo “S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes coletado do Twitter. Oficina de crowdsourcing and computação humana para sistemas recomendados, CrowdRec em RecSys 2013."
+O conjunto de dados contém informações sobre filmes que foram classificados em tweets do Twitter: ID do filme no IMDB, nome do filme, gênero e ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no artigo “S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes coletado do Twitter. Oficina de crowdsourcing and computação humana para sistemas recomendados, CrowdRec em RecSys 2013."
   </td>
 </tr>
 
@@ -229,13 +229,13 @@ Esse é provavelmente o banco de dados mais conhecido encontrado na literatura d
 <p></p>
 <b>Uso:</b> Prever o tipo de íris das medidas.  
 <p></p>
-<b>Pesquisa relacionada:</b> Fisher, R.A. (1988). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Fisher, R.A. (1988). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
   <td>Tweets de Filmes</td>
   <td>
-O conjunto de dados é uma versão estendida do conjunto de dados de Movie Tweetings. O conjunto de dados tem as classificações de 170 mil de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é uma tupla: ID do usuário, ID de filme do IMDB, classificação, carimbo de data e hora, número de favoritos para este tweet e número de retweets deste tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para desafio de sistemas de recomendação 2014.
+O conjunto de dados é uma versão estendida do conjunto de dados de Movie Tweetings. O conjunto de dados tem as classificações de 170 mil de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é uma tupla: ID de usuário, ID de filme no IMDB, classificação, carimbo de data/hora, número de favoritos para este tweet e número de retweets deste tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para desafio de sistemas de recomendação 2014.
   </td>
 </tr>
 
@@ -248,7 +248,7 @@ Os dados listam o consumo de combustível para vários automóveis em milhas por
 <p></p>
 <b>Uso:</b> prever a economia de combustível com base em três atributos discretos de múltiplos valores e cinco atributos contínuos. 
 <p></p>
-<b>Pesquisa relacionada:</b> StatLib, Universidade Carnegie Mellon, (1993). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> StatLib, Universidade Carnegie Mellon, (1993). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -258,7 +258,7 @@ Um subconjunto de dados do Instituto Nacional de Diabetes e o banco de dados de 
 <p></p>
 <b>Uso:</b> Prever se o sujeito tem diabetes (classificação binária). 
 <p></p>
-<b>Pesquisa relacionada:</b> Sigillito, V. (1990). Repositório de <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml</a>Aprendizagem de Máquina UCI " . Irvine, CA: University of California, School of Information and Computer Science  </td>
+<b>Pesquisa relacionada:</b> Sigillito, V. (1990). Repositório de <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml</a>Aprendizagem de Máquina UCI " . Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -303,7 +303,7 @@ Esse conjunto de dados contém uma série de registros de avaliações de recozi
 <p></p>
 Os graus de aço seguem um padrão definido pela SAE e outras organizações. Você está procurando um “grau” específico (a variável de classe) e deseja entender os valores necessários. 
 <p></p>
-<b>Pesquisa relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science 
+<b>Pesquisa relacionada:</b> Sterling, D. & Buntine, W. (NA). Repositório <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>de Aprendizagem de Máquina UCI . Irvine, CA: University of California, School of Information and Computer Science
 <p></p>
 Um guia útil para as notas de aço pode ser encontrado aqui:<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>

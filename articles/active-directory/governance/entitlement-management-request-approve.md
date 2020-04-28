@@ -1,6 +1,6 @@
 ---
-title: Aprovar ou negar pedidos de acesso - Gerenciamento de direitos do Azure AD
-description: Saiba como usar o portal Meu Acesso para aprovar ou negar solicitações a um pacote de acesso no gerenciamento de direitos do Azure Active Directory.
+title: Aprovar ou negar solicitações de acesso-gerenciamento de direitos do Azure AD
+description: Saiba como usar o portal meu acesso para aprovar ou negar solicitações a um pacote do Access no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,63 +17,63 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261717"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar pedidos de acesso no gerenciamento de direitos do Azure AD
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD
 
-Com o gerenciamento de direitos ad do Azure, você pode configurar políticas para exigir aprovação para pacotes de acesso e escolher um ou mais aprovadores. Este artigo descreve como os aprovadores designados podem aprovar ou negar pedidos de pacotes de acesso.
+Com o gerenciamento de direitos do Azure AD, você pode configurar políticas para exigir aprovação para pacotes de acesso e escolher um ou mais aprovadores. Este artigo descreve como os aprovadores designados podem aprovar ou negar solicitações de pacotes do Access.
 
-## <a name="open-request"></a>Solicitação aberta
+## <a name="open-request"></a>Abrir solicitação
 
-O primeiro passo para aprovar ou negar pedidos de acesso é encontrar e abrir a solicitação de acesso pendente de aprovação. Há duas maneiras de abrir a solicitação de acesso.
+A primeira etapa para aprovar ou negar solicitações de acesso é localizar e abrir a solicitação de acesso com aprovação pendente. Há duas maneiras de abrir a solicitação de acesso.
 
-**Papel pré-requisito:** Aprovador
+**Função de pré-requisito:** Aprovador
 
-1. Procure um e-mail do Microsoft Azure que peça que você aprove ou negue uma solicitação. Aqui está um e-mail de exemplo:
+1. Procure um email de Microsoft Azure que solicita que você aprove ou negue uma solicitação. Aqui está um exemplo de email:
 
-    ![Aprovar solicitação para acessar o e-mail do pacote](./media/entitlement-management-shared/approver-request-email.png)
+    ![Aprovar solicitação para acessar email de pacote](./media/entitlement-management-shared/approver-request-email.png)
 
-1. Clique no link **Aprovar ou negar solicitação** para abrir a solicitação de acesso.
+1. Clique no link **aprovar ou negar solicitação** para abrir a solicitação de acesso.
 
-1. Faça login no portal Meu Acesso.
+1. Entre no portal meu acesso.
 
-Se você não tiver o e-mail, você pode encontrar as solicitações de acesso pendentes de sua aprovação seguindo estas etapas.
+Se você não tiver o email, poderá encontrar as solicitações de acesso que aguardam sua aprovação seguindo estas etapas.
 
-1. Faça login no portal [https://myaccess.microsoft.com](https://myaccess.microsoft.com)Meu Acesso em .  (Para o governo dos EUA, o domínio `myaccess.microsoft.us`no link do portal Meu Acesso será .)
+1. Entre no portal meu acesso em [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (Para o governo dos EUA, o domínio no link meu portal de acesso `myaccess.microsoft.us`será.)
 
-1. No menu à esquerda, clique em **Aprovações** para ver uma lista de solicitações de acesso pendentes de aprovação.
+1. No menu à esquerda, clique em **aprovações** para ver uma lista de solicitações de acesso com aprovação pendente.
 
-1. Na **guia Pendente,** encontre a solicitação.
+1. Na guia **pendente** , localize a solicitação.
 
-## <a name="approve-or-deny-request"></a>Aprovar ou negar pedido
+## <a name="approve-or-deny-request"></a>Aprovar ou negar solicitação
 
-Depois de abrir uma solicitação de acesso pendente de aprovação, você pode ver detalhes que o ajudarão a tomar uma decisão aprovada ou negar.
+Depois de abrir uma solicitação de acesso com aprovação pendente, você poderá ver detalhes que o ajudarão a tomar uma decisão de aprovar ou negar.
 
-**Papel pré-requisito:** Aprovador
+**Função de pré-requisito:** Aprovador
 
 1. Clique no link **Exibir** para abrir o painel Solicitação de acesso.
 
-1. Clique **em Detalhes** para ver detalhes sobre a solicitação de acesso.
+1. Clique em **detalhes** para ver detalhes sobre a solicitação de acesso.
 
-    Os detalhes incluem o nome do usuário, organização, data de início e término do acesso, se fornecido, justificativa do negócio, quando a solicitação foi submetida e quando a solicitação expirará.
+    Os detalhes incluem o nome do usuário, organização, data de início e de término do acesso, se fornecido, justificativa de negócios, quando a solicitação foi enviada e quando a solicitação expirará.
 
-1. Clique **em Aprovar** ou **Negar**.
+1. Clique em **aprovar** ou **negar**.
 
-1. Se necessário, digite uma razão.
+1. Se necessário, insira um motivo.
 
     ![Portal Meus Acessos – Solicitação de acesso](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Clique em **Enviar** para enviar sua decisão.
 
-    Se uma política for configurada com vários aprovadores, apenas um aprovador precisa tomar uma decisão sobre a aprovação pendente. Após um aprovador submeter sua decisão ao pedido de acesso, a solicitação é concluída e não está mais disponível para os outros aprovadores aprovarem ou negarem o pedido. Os demais aprovados podem ver a decisão da solicitação e o tomador de decisão em seu portal Meu Acesso. Neste momento, apenas a aprovação em um estágio é suportada.
+    Se uma política estiver configurada com vários Aprovadores, apenas um aprovador precisa tomar uma decisão sobre a aprovação pendente. Depois que um Aprovador tiver enviado sua decisão para a solicitação de acesso, a solicitação será concluída e não estará mais disponível para os outros Aprovadores aprovarem ou negarem a solicitação. Os outros Aprovadores podem ver a decisão de solicitação e o tomador de decisão em seu portal meu acesso. Neste momento, há suporte apenas para aprovação de estágio único.
 
-    Se nenhum dos aprovadores configurados for capaz de aprovar ou negar a solicitação de acesso, a solicitação expira após a duração da solicitação configurada. O usuário é notificado de que sua solicitação de acesso expirou e que precisa reenviar a solicitação de acesso.
+    Se nenhum dos aprovadores configurados for capaz de aprovar ou negar a solicitação de acesso, a solicitação expirará após a duração da solicitação configurada. O usuário é notificado de que sua solicitação de acesso expirou e que precisa enviar novamente a solicitação de acesso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Solicite acesso a um pacote de acesso](entitlement-management-request-access.md)
-- [Solicitação de processos e notificações por e-mail](entitlement-management-process.md)
+- [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
+- [Solicitar notificações de processo e email](entitlement-management-process.md)

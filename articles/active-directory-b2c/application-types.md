@@ -1,7 +1,7 @@
 ---
-title: Tipos de aplicativos suportados pelo Azure AD B2C
+title: Tipos de aplicativo com suporte pelo Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Conheça os tipos de aplicativos que você pode usar com o Azure Active Directory B2C.
+description: Saiba mais sobre os tipos de aplicativos que você pode usar com Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,22 +12,22 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190136"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
-O Azure Active Directory B2C (Azure AD B2C) suporta autenticação para uma variedade de arquiteturas de aplicativos modernas. Todas elas se baseiam nos protocolos padrão da indústria, [OAuth 2.0](protocols-overview.md) ou [OpenID Connect](protocols-overview.md). Este artigo descreve os tipos de aplicativos que você pode construir, independente do idioma ou plataforma que você preferir. Além disso, ajuda a reconhecer cenários de alto nível antes de começar a compilar aplicativos.
+O Azure Active Directory B2C (Azure AD B2C) dá suporte à autenticação para uma variedade de arquiteturas de aplicativos modernas. Todas elas se baseiam nos protocolos padrão da indústria, [OAuth 2.0](protocols-overview.md) ou [OpenID Connect](protocols-overview.md). Este artigo descreve os tipos de aplicativos que você pode criar, independentemente da linguagem ou da plataforma que preferir. Além disso, ajuda a reconhecer cenários de alto nível antes de começar a compilar aplicativos.
 
 Cada aplicativo que usa o Azure AD B2C deve estar registrado no [locatário do Azure AD B2C](tutorial-create-tenant.md), usando o [portal do Azure](https://portal.azure.com/). O processo de registro do aplicativo coleta e atribui valores, como:
 
 * Uma **ID do aplicativo** que identifica exclusivamente o aplicativo.
 * Um **URL de resposta** que pode ser usado para direcionar as respostas de volta ao seu aplicativo.
 
-Cada solicitação enviada ao Azure AD B2C especifica um fluxo de **usuário** (uma diretiva incorporada) ou uma **política personalizada** que controla o comportamento do Azure AD B2C. Ambos os tipos de políticas permitem que você crie um conjunto altamente personalizável de experiências do usuário.
+Cada solicitação enviada para Azure AD B2C especifica um fluxo de **usuário** (uma política interna) ou uma **política personalizada** que controla o comportamento de Azure ad B2C. Os dois tipos de política permitem que você crie um conjunto altamente personalizável de experiências de usuário.
 
 A interação de cada aplicativo segue um padrão semelhante de alto nível:
 
@@ -99,7 +99,7 @@ Uma API Web pode receber tokens de muitos tipos de clientes, incluindo aplicativ
 6. O `access_token` e `refresh_token` são retornados para o servidor web.
 7. A API da web é chamada com o `access_token` em um cabeçalho de autorização.
 8. A API da Web valida o token.
-9. Os dados seguros são devolvidos ao aplicativo web.
+9. Dados seguros são retornados para o aplicativo Web.
 
 Para saber mais sobre códigos de atualização, tokens de atualização e etapas para a obtenção de tokens, leia sobre o [Protocolo OAuth 2.0](authorization-code-flow.md).
 
@@ -125,7 +125,7 @@ Para configurar o fluxo de credencial do cliente, consulte [Azure Active Directo
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Cadeias de API Web (fluxo Em nome de)
 
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que possuem um back-end de API da Web e chama um serviço online da Microsoft, como a API do Microsoft Graph.
+Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo AD B2C do Azure. Esse cenário é comum em clientes nativos que têm um back-end da API Web e chama um serviço online da Microsoft, como a API do Microsoft Graph.
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de.  No entanto, o fluxo em nome de não está implementado atualmente no Azure AD B2C.
 
@@ -142,4 +142,4 @@ Para excluir o aplicativo, acesse o [Portal de Registro de Aplicativos](https://
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre as políticas incorporadas fornecidas pelos [fluxos de usuário no Azure Active Directory B2C](user-flow-overview.md).
+Saiba mais sobre as políticas internas fornecidas pelos [fluxos de usuário no Azure Active Directory B2C](user-flow-overview.md).

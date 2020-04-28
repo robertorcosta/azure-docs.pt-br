@@ -62,7 +62,7 @@ Você pode executar um notebook diretamente do Azure Sentinel, ou clonar todos o
  
 1. Do portal Azure, navegue até**notebooks**de**gerenciamento de** > ameaças **do Azure Sentinel,** > onde você pode ver notebooks que o Azure Sentinel fornece. 
 
-2. Selecione notebooks individuais para ler suas descrições, tipos de dados necessários e fontes de dados. Por exemplo: 
+2. Selecione notebooks individuais para ler suas descrições, tipos de dados necessários e fontes de dados. Por exemplo:
     
     > [!div class="mx-imgBorder"]
     > ![notebook de lançamento](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -86,7 +86,7 @@ Este procedimento cria um projeto de Notebooks Azure para você, que contém os 
 
    ![Importar notebook](./media/notebooks/sentinel-create-project.png)
 
-4. Abra o projeto que acabou de criar e abra a pasta **Notebooks** para ver os cadernos. Por exemplo: 
+4. Abra o projeto que acabou de criar e abra a pasta **Notebooks** para ver os cadernos. Por exemplo:
 
    ![Repo de importação](./media/notebooks/sentinel-open-notebook1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Referência de configurações de roaming do Windows 10 - Azure Active Directory
-description: Configurações que serão roamed ou backup no Windows 10 com ESR
+title: Referência de configurações de roaming do Windows 10-Azure Active Directory
+description: Configurações que serão em roaming ou com backup no Windows 10 com o ESR
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672619"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 
-A seguir está uma lista das configurações que serão roamed ou backup no Windows 10. 
+Veja a seguir uma lista das configurações que serão móveis ou submetidas a backup no Windows 10. 
 
 ## <a name="devices-and-endpoints"></a>Dispositivos e pontos de extremidade
 
 Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de conta compatíveis com a estrutura de sincronização, de backup e de restauração no Windows 10.
 
-| Tipo e operação de conta | Desktop | Celular |
+| Tipo e operação de conta | Área de Trabalho | Celular |
 | --- | --- | --- |
 | Active Directory do Azure: sincronização |Sim |Não |
 | Active Directory do Azure: backup/restauração |Não |Não |
@@ -39,7 +39,7 @@ As configurações do Windows geralmente são sincronizadas por padrão, mas alg
 
 ## <a name="windows-settings-overview"></a>Visão geral das configurações do Windows
 
-Os seguintes grupos de configurações estão disponíveis para os usuários finais ativarem/desativar a sincronização de configurações em dispositivos Windows 10.
+Os grupos de configurações a seguir estão disponíveis para que os usuários finais habilitem/desabilitem a sincronização de configurações em dispositivos Windows 10.
 
 * Tema: plano de fundo da área de trabalho, bloco de usuário, posição da barra de tarefas etc. 
 * Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc.Configurações do Internet Explorer: histórico de navegação, URLs tipadas, favoritos etc. 
@@ -52,7 +52,7 @@ Os seguintes grupos de configurações estão disponíveis para os usuários fin
 ![Sincronizar suas configurações](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML Microsoft Edge Legacy, lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado no Microsoft Edge Chromium, lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 A sincronização do grupo de configuração do navegador do Microsoft Edge (favoritos, lista de leitura) pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Microsoft Edge.
 
@@ -64,16 +64,16 @@ Para Windows 10 versão 1803 ou posterior, a sincronização do grupo de configu
 
 ## <a name="windows-settings-details"></a>Detalhes das configurações do Windows
 
-Na tabela a seguir, Outras entradas na coluna Grupo de configurações referem-se a configurações que podem ser desativadas indo para Configurações > Contas > Sincronizar suas configurações > Outras configurações do Windows. 
+Na tabela a seguir, outras entradas na coluna grupo de configurações referem-se às configurações que podem ser desabilitadas acessando configurações > contas > sincronizar suas configurações > outras configurações do Windows. 
 
 As entradas internas na coluna Grupo de Configurações referem-se às configurações e aos aplicativos que só podem ter a sincronização desabilitada no próprio aplicativo ou por meio da desabilitação da sincronização do dispositivo inteiro usando o gerenciamento de dispositivos móveis (MDM) ou as configurações da Política de Grupo.
 As configurações que não forem movidas ou sincronizadas não pertencerão a um grupo.
 
-| Configurações | Desktop | Celular | Agrupar |
+| Configurações | Área de Trabalho | Celular | Agrupar |
 | --- | --- | --- | --- |
 | **Contas**: imagem da conta |sync |X |Tema |
 | **Contas**: outras configurações de conta |X |X | |
-| **Banda larga móvel avançada**: Nome da rede de compartilhamento de conexão à Internet (permite a autodescoberta de hotspots Wi-Fi móveis via Bluetooth) |X |X |Senhas |
+| **Banda larga móvel avançada**: nome da rede de compartilhamento de conexão com a Internet (habilita a descoberta automática de hotspots Wi-Fi móveis via Bluetooth) |X |X |Senhas |
 | **Dados de aplicativo**: aplicativos individuais podem sincronizar dados |sincronizar backup |sincronizar backup |interno |
 | **Lista de aplicativos**: lista de aplicativos instalados |X |backup |Outros |
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
@@ -95,7 +95,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Personalização da área de trabalho**: papel de parede de apresentação de slides |sync |X |Tema |
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
 | **Personalização da área de trabalho**: iniciar o layout da tela |X |backup | |
-| **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
+| **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |outros |
 | **Navegador Microsoft Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Microsoft Edge**: favoritos |sync |sync |interno |
 | **Navegador Microsoft Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
@@ -125,35 +125,35 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Teclado**: ativar adesivo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de filtro (desativado por padrão) |sync |X |facilidade de acesso |
 | **Teclado**: ativar teclas de alternância (desativado por padrão) |sync |X |facilidade de acesso |
-| **Internet Explorer**: idioma do domínio: chinês (CHS) QWERTY - habilitar a aprendizagem automática |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |Idioma |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |Idioma |
-| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - pinyin difuso |sync |backup |Idioma |
-| **Idioma**: CHS QWERTY - pares difusos |sync |backup |Idioma |
-| **Idioma**: CHS QWERTY - pinyin completo |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - pinyin duplo |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |Idioma |
-| **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |Idioma |
-| **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |Idioma |
-| **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |Idioma |
-| **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Idioma |
-| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |Idioma |
-| **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |Idioma |
-| **Idioma**: IME coreano (KOR) |X |X |Idioma |
-| **Idioma**: reconhecimento de manuscrito |X |X |Idioma |
-| **Idioma**: perfil de idioma |sync |backup |Idioma |
-| **Idioma**: verificação ortográfica - autocorreção e realçar erros de ortografia |sync |backup |Idioma |
-| **Idioma**: lista de teclados |sync |backup |Idioma |
+| **Internet Explorer**: idioma do domínio: chinês (CHS) QWERTY - habilitar a aprendizagem automática |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |Linguagem |
+| **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - pinyin difuso |sync |backup |Linguagem |
+| **Idioma**: CHS QWERTY - pares difusos |sync |backup |Linguagem |
+| **Idioma**: CHS QWERTY - pinyin completo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - pinyin duplo |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - tecla de alternância C/E, shift |sync |X |Linguagem |
+| **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |Linguagem |
+| **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |Linguagem |
+| **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |Linguagem |
+| **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
+| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |Linguagem |
+| **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |Linguagem |
+| **Idioma**: IME coreano (KOR) |X |X |Linguagem |
+| **Idioma**: reconhecimento de manuscrito |X |X |Linguagem |
+| **Idioma**: perfil de idioma |sync |backup |Linguagem |
+| **Idioma**: verificação ortográfica - autocorreção e realçar erros de ortografia |sync |backup |Linguagem |
+| **Idioma**: lista de teclados |sync |backup |Linguagem |
 | **Tela de bloqueio**: todas as configurações de tela de bloqueio |X |X | |
 | **Lupa**: ativada ou desativada (alternância mestre) |X |X |facilidade de acesso |
 | **Lupa**: ativar ou desativar a cor de inversão (desativado por padrão) |sync |X |facilidade de acesso |
 | **Lupa**: controle - acompanhar o foco do teclado |sync |X |facilidade de acesso |
 | **Lupa**: controle - acompanhar o cursor do mouse |sync |X |facilidade de acesso |
 | **Magnifier**: iniciar quando os usuários entram (desativado por padrão) |sync |X |facilidade de acesso |
-| **Mouse**: alterar o tamanho do cursor do mouse |sync |X |Outros |
-| **Mouse**: alterar a cor do cursor do mouse |sync |X |Outros |
+| **Mouse**: alterar o tamanho do cursor do mouse |sync |X |outros |
+| **Mouse**: alterar a cor do cursor do mouse |sync |X |outros |
 | **Mouse**: todas as outras configurações |X |X | |
 | **Narrador**: início rápido |sync |X |facilidade de acesso |
 | **Narrador**: os usuários podem alterar o tom de fala do Narrador |sync |X |facilidade de acesso |
@@ -168,16 +168,16 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Facilidade de acesso**: remover as imagens da tela de fundo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Ligar e Suspensão**: todas as configurações |X |X | |
 | **Iniciar a personalização de tela**: cor de ênfase (apenas telefone) |X |sync |Tema |
-| **Digitação**: dicionário de ortografia |sync |backup |Idioma |
-| **Digitação**: autocorreção de palavra incorreta |sync |backup |Idioma |
-| **Digitação**: realçar as palavras incorretas |sync |backup |Idioma |
-| **Digitação**: mostrar sugestões de texto ao digitar |sync |backup |Idioma |
-| **Digitação**: adicionar um espaço depois de escolher uma sugestão de texto |sync |backup |Idioma |
-| **Digitação**: adicionar um ponto depois de um toque duplo na barra de espaços |sync |backup |Idioma |
-| **Digitação**: colocar a primeira letra de cada frase em maiúscula |sync |backup |Idioma |
-| **Digitação**: usar todas as letras maiúsculas quando tocar duas vezes na tecla shift |sync |backup |Idioma |
-| **Digitação**: tocar sons de tecla ao digitar |sync |backup |Idioma |
-| **Digitação**: dados de personalização para teclado de toque |sync |backup |Idioma |
+| **Digitação**: dicionário de ortografia |sync |backup |Linguagem |
+| **Digitação**: autocorreção de palavra incorreta |sync |backup |Linguagem |
+| **Digitação**: realçar as palavras incorretas |sync |backup |Linguagem |
+| **Digitação**: mostrar sugestões de texto ao digitar |sync |backup |Linguagem |
+| **Digitação**: adicionar um espaço depois de escolher uma sugestão de texto |sync |backup |Linguagem |
+| **Digitação**: adicionar um ponto depois de um toque duplo na barra de espaços |sync |backup |Linguagem |
+| **Digitação**: colocar a primeira letra de cada frase em maiúscula |sync |backup |Linguagem |
+| **Digitação**: usar todas as letras maiúsculas quando tocar duas vezes na tecla shift |sync |backup |Linguagem |
+| **Digitação**: tocar sons de tecla ao digitar |sync |backup |Linguagem |
+| **Digitação**: dados de personalização para teclado de toque |sync |backup |Linguagem |
 | **Wi-Fi**: perfis de Wi-Fi (somente WPA) |sync |sync |Senhas |
 
 ###### <a name="footnote-1"></a>Nota de rodapé 1
@@ -186,4 +186,4 @@ Versão mínima do SO com suporte da Atualização do Windows para Criadores (Bu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para uma visão geral, consulte [visão geral do estado corporativo](enterprise-state-roaming-overview.md).
+Para obter uma visão geral, consulte [visão geral do Enterprise State roaming](enterprise-state-roaming-overview.md).

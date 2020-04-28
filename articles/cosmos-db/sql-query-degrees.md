@@ -1,6 +1,6 @@
 ---
-title: GRAUS no idioma de consulta do Azure Cosmos DB
-description: Saiba mais sobre a função do sistema DEGREES SQL no Azure Cosmos DB para retornar o ângulo correspondente em graus para um ângulo especificado em radianos
+title: GRAUS na linguagem de consulta Azure Cosmos DB
+description: Saiba mais sobre a função de sistema SQL de graus em Azure Cosmos DB para retornar o ângulo correspondente em graus para um ângulo especificado em radianos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78299463"
 ---
 # <a name="degrees-azure-cosmos-db"></a>GRAUS (Azure Cosmos DB)
@@ -48,10 +48,10 @@ SELECT DEGREES(PI()/2) AS degrees
 
 ## <a name="remarks"></a>Comentários
 
-Esta função do sistema não utilizará o índice.
+Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

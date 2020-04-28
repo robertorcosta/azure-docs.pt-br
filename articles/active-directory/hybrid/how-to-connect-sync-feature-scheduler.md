@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261067"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
-Este tópico descreve o agendador incorporado no Azure AD Connect sync (mecanismo de sincronização).
+Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
@@ -49,10 +49,10 @@ Se você vir **O comando de sincronização ou o cmdlet não está disponível**
 
 * **AllowedSyncCycleInterval**. O intervalo de tempo mais curto entre os ciclos de sincronização permitido pelo Azure AD. Você não pode sincronizar com maior frequência do que a permitida por essa configuração e ainda ter suporte.
 * **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você usar uma versão anterior à 1.1.281 e alterar o CustomizedSyncCycleInterval, essa alteração entrará em vigor após o próximo ciclo de sincronização. Desde o build 1.1.281, a alteração entra em vigor imediatamente.
-* **PersonalizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir essa configuração como um valor menor do que AllowedSyncInterval, a última opção será usada.
-* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve apenas processar alterações delta, ou se a próxima execução deve fazer uma importação completa e sincronização. Este último também reprocessaria qualquer regra nova ou alterada.
+* **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir essa configuração como um valor menor do que AllowedSyncInterval, a última opção será usada.
+* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve processar apenas alterações delta ou se a próxima execução deve fazer uma importação e sincronização completas. O último também reprocessaria todas as regras novas ou alteradas.
 * **NextSyncCycleStartTimeInUTC**. Da próxima vez, o agendador iniciará o próximo ciclo de sincronização.
-* **Expurgarhistóricode .** Os logs de operação de tempo devem ser mantidos. Esses logs podem ser analisados no gerenciador do serviço de sincronização. O padrão é manter os logs por sete dias.
+* **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Esses logs podem ser analisados no gerenciador do serviço de sincronização. O padrão é manter os logs por sete dias.
 * **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
 * **MaintenanceEnabled**. Mostra se o processo de manutenção está habilitado. Ele atualiza os certificados/chaves e limpa o log de operações.
 * **StagingModeEnabled**. Mostra se o [modo de preparo](how-to-connect-sync-staging-server.md) está habilitado. Quando essa configuração está habilitada, ela impede que as exportações sejam executadas, mas ainda executa a importação e a sincronização.
@@ -109,24 +109,24 @@ Um ciclo de sincronização completa inclui as seguintes etapas:
 
 É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. 
 
-Se você precisar executar manualmente um ciclo de `Start-ADSyncSyncCycle -PolicyType Delta`sincronização, então a partir de PowerShell executar .
+Se você precisar executar um ciclo de sincronização manualmente, a partir do PowerShell `Start-ADSyncSyncCycle -PolicyType Delta`, execute.
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell.   
 
 Executar um ciclo de sincronização completo pode ser muito demorado, leia a próxima seção para ler como otimizar esse processo.
 
-### <a name="sync-steps-required-for-different-configuration-changes"></a>Sincronizar etapas necessárias para diferentes alterações de configuração
-Diferentes alterações de configuração exigem diferentes etapas de sincronização para garantir que as alterações sejam aplicadas corretamente a todos os objetos.
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Etapas de sincronização necessárias para diferentes alterações de configuração
+Alterações de configuração diferentes exigem etapas de sincronização diferentes para garantir que as alterações sejam aplicadas corretamente a todos os objetos.
 
-- Adicionado mais objetos ou atributos a serem importados de um diretório de origem (adicionando/modificando as regras de sincronização)
-    - Uma importação completa é necessária no Conector para esse diretório de origem
+- Adição de mais objetos ou atributos a serem importados de um diretório de origem (adicionando/modificando as regras de sincronização)
+    - Uma importação completa é necessária no conector para esse diretório de origem
 - Realizou alterações nas regras de sincronização
-    - Um Sincronização completo é necessário no Conector para as regras de sincronização alteradas
+    - Uma sincronização completa é necessária no conector para as regras de sincronização alteradas
 - Alterou a [filtragem](how-to-connect-sync-configure-filtering.md) para incluir um número diferente de objetos
-    - Uma importação completa é necessária no Conector para cada conector AD a menos que você esteja usando filtragem baseada em atributos com base em atributos que já estão sendo importados para o mecanismo de sincronização
+    - Uma importação completa é necessária no conector para cada conector do AD, a menos que você esteja usando a filtragem baseada em atributo com base em atributos que já estão sendo importados para o mecanismo de sincronização
 
-### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizando um ciclo de sincronização execute a mistura certa de etapas de sincronização Delta e Full
-Para evitar executar um ciclo de sincronização completo, você pode marcar conectores específicos para executar uma etapa completa usando os cmdlets a seguir.
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personalizando um ciclo de sincronização, execute a combinação certa de Delta e etapas completas de sincronização
+Para evitar a execução de um ciclo de sincronização completo, você pode marcar conectores específicos para executar uma etapa completa usando os cmdlets a seguir.
 
 `Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
 
@@ -134,13 +134,13 @@ Para evitar executar um ciclo de sincronização completo, você pode marcar con
 
 `Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
 
-Exemplo: Se você fez alterações nas regras de sincronização do conector "AD Forest A" que não requerem que nenhum novo atributo seja importado, você executará os seguintes cmdlets para executar um ciclo de sincronização delta que também fez uma etapa de Sincronização Completa para esse Conector.
+Exemplo: se você fez alterações nas regras de sincronização do conector "floresta do AD A" que não exigem nenhum novo atributo a ser importado, execute os cmdlets a seguir para executar um ciclo de sincronização Delta que também fez uma etapa de sincronização completa para esse conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
 
 `Start-ADSyncSyncCycle -PolicyType Delta`
 
-Exemplo: Se você fez alterações nas regras de sincronização do conector "AD Forest A" para que agora exijam que um novo atributo seja importado, você executará os seguintes cmdlets para executar um ciclo de sincronização delta que também fez uma etapa de Importação Completa, Full Sync para esse Conector.
+Exemplo: se você fez alterações nas regras de sincronização para o conector "floresta do AD A" para que agora eles exijam que um novo atributo seja importado, você executaria os seguintes cmdlets para executar um ciclo de sincronização Delta que também fez uma importação completa, etapa de sincronização completa para esse conector.
 
 `Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
 
@@ -158,7 +158,7 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 
 1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
 2. Se você usar uma versão anterior à 1.1.281, parando em seguida, o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
-   * Inicie o serviço de **sincronização** a partir do menu iniciar. Vá para **Conectores,** destaque o Conector com o estado **em execução**e selecione **Parar** a partir das Ações.
+   * Inicie o **serviço de sincronização** no menu iniciar. Acesse **conectores**, realce o conector com o estado **em execução**e selecione **parar** nas ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
@@ -207,4 +207,4 @@ Se você iniciar o assistente de instalação, o agendador será temporariamente
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

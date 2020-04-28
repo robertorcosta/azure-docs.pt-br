@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Soluciona problemas de conectividade Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: solucionar problemas de conectividade do Azure AD | Microsoft Docs'
 description: Explica como solucionar problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80049727"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade Azure AD
+# <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Solucionar problemas de conectividade no assistente de instalação
@@ -69,14 +69,14 @@ Se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de
 ![Uma conta da Microsoft é usada](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Não é possível alcançar o ponto de extremidade da MFA
-Esse erro aparece se **https://secure.aadcdn.microsoftonline-p.com** o ponto final não puder ser alcançado e o seu admin global tiver o MFA ativado.  
+Esse erro será exibido se o **https://secure.aadcdn.microsoftonline-p.com** ponto de extremidade não puder ser acessado e o administrador global tiver a MFA habilitada.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se você vir esse erro, verifique se o ponto de extremidade **secure.aadcdn.microsoftonline-p.com** foi adicionado ao proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>A senha não pode ser verificada
 Se o assistente de instalação for bem-sucedido ao conectar-se ao AD do Azure, mas a senha não puder ser verificada, você verá este erro:  
-![Senha ruim.](./media/tshoot-connect-connectivity/badpassword.png)
+![Senha inadequada.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente entrar em `https://login.microsoftonline.com` (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
 
@@ -96,7 +96,7 @@ Se o proxy não estiver configurado corretamente, você receberá um erro: ![pro
 | Erro | Texto do erro | Comentário |
 | --- | --- | --- |
 | 403 |Proibido |O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
-| 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy precisar de autenticação, certifique-se de configurar essa configuração na máquina.config. Certifique-se também de que você está usando contas de domínio para o usuário executando o assistente e para a conta do serviço. |
+| 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy exigir autenticação, certifique-se de ter essa configuração definida em Machine. config. Verifique também se você está usando contas de domínio para o usuário que está executando o assistente e para a conta de serviço. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Configuração de tempo limite ocioso de proxy
 Quando o Azure AD Connect envia uma solicitação de exportação para o Azure AD, o Azure AD pode levar até 5 minutos para processar a solicitação antes de gerar uma resposta. Isso poderá ocorrer especialmente se houver um número de objetos de grupo com grandes associações de grupo incluídas na mesma solicitação de exportação. Certifique-se de que o tempo limite de ociosidade de Proxy esteja configurado para ser maior que 5 minutos. Caso contrário, o problema de conectividade intermitentes com o Azure AD pode ser observado no servidor do Azure AD Connect.
@@ -138,7 +138,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 | 11/01/2016 08:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 11/01/2016 08:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Sincronização Inicial**
+**Sincronização inicial**
 
 | Hora | URL |
 | --- | --- |
@@ -166,7 +166,7 @@ Suas credenciais expiraram. Altere a sua senha.
 Falha ao autorizar o usuário para executar a ação no Azure AD.
 
 ### <a name="authentication-canceled"></a>Autenticação cancelada
-O desafio de autenticação multifatorial (MFA) foi cancelado.
+O desafio da autenticação multifator (MFA) foi cancelado.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -236,4 +236,4 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

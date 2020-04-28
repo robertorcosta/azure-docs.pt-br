@@ -16,7 +16,7 @@ ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
 ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/28/2020
 ms.locfileid: "79475469"
@@ -88,7 +88,7 @@ Abra a lâmina Azure AD B2C no portal e faça as seguintes etapas.
 1. Em seguida, em 'Provedores de identidade', verifique 'ID do usuário' (isso pode dizer 'E-mail se inscrever') e clique em OK. 
 1. Em 'Atributos e reclamações do usuário', clique em 'Mostrar mais...' em seguida, escolha as opções de reivindicação que você deseja que seus usuários insiram e tenham retornado no token. Verifique pelo menos 'Nome de exibição' e 'Endereço de e-mail' para coletar e retornar e clique em 'OK', depois clique em 'Criar'.
 1. Selecione a diretiva criada na lista e clique no botão 'Executar fluxo de usuário'.
-1. Essa ação abrirá a lâmina de fluxo do usuário em execução, selecionará o aplicativo frontend e gravará o endereço do domínio b2clogin.com mostrado a lista 'Selecionar domínio'.
+1. Essa ação abrirá a lâmina de fluxo do usuário em execução, selecionará o aplicativo frontend e gravará o endereço do domínio b2clogin.com mostrado sob a lista 'Selecionar domínio'.
 1. Clique no link na parte superior para abrir o 'ponto final de configuração openid bem conhecido', e registre os valores authorization_endpoint e token_endpoint, bem como o valor do link em si como o conhecido ponto final de configuração openid.
 
    > [!NOTE]
@@ -166,7 +166,7 @@ Abra a lâmina Azure AD B2C no portal e faça as seguintes etapas.
    > Agora, sua API de função é implantada e deve lançar 401 respostas se a chave correta não for fornecida e deve retornar dados quando uma solicitação válida for apresentada.
    > Você adicionou segurança adicional de defesa em profundidade no EasyAuth, configurando a opção 'Login com Azure AD' para lidar com solicitações não autenticadas. Esteja ciente de que isso mudará o comportamento de solicitação não autorizada entre o aplicativo de função Backend e o Frontend SPA, pois o EasyAuth emitirá um redirecionamento 302 para AAD em vez de uma resposta 401 Não Autorizada, corrigiremos isso usando o Gerenciamento de API mais tarde.
    > Ainda não temos segurança IP aplicada, se você tiver uma chave válida e token OAuth2, qualquer um pode chamar isso de qualquer lugar - idealmente queremos forçar todas as solicitações a vir em gerenciamento de API.
-   > Se você estiver usando o nível de consumo de gerenciamento de API, você não será capaz de realizar esse bloqueio por VIP, pois não há IP estático dedicado para esse nível, você precisará confiar no método de bloquear suas chamadas de API através da chave de função secreta compartilhada , portanto, os passos 11-13 não serão possíveis.
+   > Se você estiver usando o nível de consumo de gerenciamento de API, você não será capaz de realizar esse bloqueio por VIP, pois não há IP estático dedicado para esse nível, você precisará confiar no método de bloquear suas chamadas de API através da chave de função secreta compartilhada, de modo que as etapas 11-13 não serão possíveis.
 
 1. Feche a lâmina 'Autenticação / Autorização' 
 1. Selecione 'Rede' e selecione 'Restrições de acesso'
@@ -174,7 +174,7 @@ Abra a lâmina Azure AD B2C no portal e faça as seguintes etapas.
 1. Se você quiser continuar a interagir com o portal de funções, e para realizar as etapas opcionais abaixo, você deve adicionar seu próprio endereço IP público ou faixa CIDR aqui também.
 1. Uma vez que há uma entrada permitida na lista, o Azure adiciona uma regra de negação implícita para bloquear todos os outros endereços. 
 
-Você precisará adicionar blocos formatados de endereços do CIDR ao painel de restrições de IP. When you need to add a single address such as the API Management VIP, you need to add it in the format xx.xx.xx.xx.
+Você precisará adicionar blocos formatados de endereços do CIDR ao painel de restrições de IP. Quando você precisa adicionar um único endereço, como o API Management VIP, você precisa adicioná-lo no formato xx.xx.xx.xx.
 
    > [!NOTE]
    > Agora, sua API de função não deve ser callable de qualquer lugar que não seja através do gerenciamento de API ou do seu endereço.

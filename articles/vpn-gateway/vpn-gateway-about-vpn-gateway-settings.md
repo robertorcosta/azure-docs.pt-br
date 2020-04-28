@@ -1,5 +1,5 @@
 ---
-title: 'Gateway Azure VPN: configurações'
+title: 'Gateway de VPN do Azure: definições de configuração'
 description: Saiba mais sobre as configurações do Gateway de VPN para gateways de rede virtual do Azure.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244856"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
@@ -77,11 +77,11 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Redimensionar ou alterar uma SKU
 
-Se você tiver um gateway de VPN e quer usar uma SKU de gateway diferente, suas opções serão redimensionar a SKU do gateway ou alterar para outra SKU. Ao alterar para outra SKU de gateway, você exclui o gateway existente e cria um novo. Um gateway pode levar até 45 minutos para ser construído. Em comparação, quando você redimensiona um Gateway SKU, não há muito tempo de inatividade porque você não precisa excluir e reconstruir o gateway. Se você tiver a opção de redimensionar a SKU do gateway, em vez de alterá-la, convém fazer isso. No entanto, há regras sobre o redimensionamento:
+Se você tiver um gateway de VPN e quer usar uma SKU de gateway diferente, suas opções serão redimensionar a SKU do gateway ou alterar para outra SKU. Ao alterar para outra SKU de gateway, você exclui o gateway existente e cria um novo. Um gateway pode levar até 45 minutos para ser criado. Em comparação, quando você redimensiona uma SKU de gateway, não há muito tempo de inatividade porque você não precisa excluir e recompilar o gateway. Se você tiver a opção de redimensionar a SKU do gateway, em vez de alterá-la, convém fazer isso. No entanto, há regras sobre o redimensionamento:
 
-1. Com exceção do SKU básico, você pode redimensionar um Gateway VPN SKU para outro Gateway VPN SKU dentro da mesma geração (Generation1 ou Generation2). Por exemplo, vpnGw1 da Geração1 pode ser redimensionado para VpnGw2 de Geração1, mas não para VpnGw2 de Geração2.
+1. Com exceção da SKU básica, você pode redimensionar um SKU de gateway de VPN para outro SKU de gateway de VPN dentro da mesma geração (Generation1 ou Generation2). Por exemplo, VpnGw1 de Generation1 pode ser redimensionado para VpnGw2 de Generation1, mas não para VpnGw2 de Generation2.
 2. Ao trabalhar com SKUs antigas, você ainda pode redimensionar entre SKUs Básicas, Standard e de Alto Desempenho.
-3. Não **é possível** redimensionar de SKUs básicos/padrão/de alto desempenho para VpnGw SKUs. Em vez disso, você deve [alterar](#change) para as novas SKUs.
+3. **Não é possível** redimensionar de SKUs Basic/Standard/HighPerformance para SKUs VpnGw. Em vez disso, você deve [alterar](#change) para as novas SKUs.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Para redimensionar um gateway
 
@@ -130,9 +130,9 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gateway-subnet"></a><a name="gwsub"></a>Sub-rede gateway
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Sub-rede de gateway
 
-Antes de criar um gateway de VPN, crie uma sub-rede de gateway. A sub-rede de gateway contém os endereços IP que as VMs do gateway de rede virtual e os serviços usam. Quando você cria o gateway de rede virtual, as VMs de gateway são implantadas na sub-rede de gateway e definidas com as configurações necessárias de gateway de VPN. Nunca implante mais nada (por exemplo, VMs adicionais) na sub-rede do gateway. A sub-rede do gateway deve ser nomeada como GatewaySubnet para funcionar corretamente. Chamar a sub-rede de gateway de 'GatewaySubnet' permite que o Azure saiba que essa é a sub-rede para implantação nas VMs de gateway de rede virtual e nos serviços.
+Antes de criar um gateway de VPN, crie uma sub-rede de gateway. A sub-rede de gateway contém os endereços IP que as VMs do gateway de rede virtual e os serviços usam. Quando você cria o gateway de rede virtual, as VMs de gateway são implantadas na sub-rede de gateway e definidas com as configurações necessárias de gateway de VPN. Nunca implante mais nada (por exemplo, VMs adicionais) para a sub-rede de gateway. A sub-rede do gateway deve ser nomeada como GatewaySubnet para funcionar corretamente. Chamar a sub-rede de gateway de 'GatewaySubnet' permite que o Azure saiba que essa é a sub-rede para implantação nas VMs de gateway de rede virtual e nos serviços.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -140,7 +140,7 @@ Antes de criar um gateway de VPN, crie uma sub-rede de gateway. A sub-rede de ga
 
 Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para as VMs de gateway e para os serviços de gateway. Algumas configurações exigem mais endereços IP do que outras. 
 
-Quando estiver planejando o tamanho da sub-rede do gateway, consulte a documentação da configuração que você está planejando criar. Por exemplo, a configuração coexista do ExpressRoute/VPN Gateway requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, convém certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora você possa criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede de gateway de /27 ou maior (/27, /26 etc.) se você tiver o espaço de endereço disponível para fazê-lo. Isso acomodará a maioria das configurações.
+Ao planejar o tamanho da sub-rede do gateway, consulte a documentação da configuração que você planeja criar. Por exemplo, a configuração de gateway ExpressRoute/VPN coexistente requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, convém certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede de gateway tão pequena quanto/29, recomendamos que você crie uma sub-rede de gateway de/27 ou maior (/27,/26, etc.) se tiver o espaço de endereço disponível para fazer isso. Isso irá acomodar a maioria das configurações.
 
 O exemplo de PowerShell do Resource Manager a seguir mostra uma sub-rede de gateway chamada GatewaySubnet. Você pode ver que a notação CIDR especifica /27, que permite endereços IP suficientes para a maioria das configurações existentes no momento.
 
@@ -169,11 +169,11 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar APIs REST, cmdlets do PowerShell na CLI do Azure para configurações do Gateway de VPN, veja as seguintes páginas:
 
-| **Clássico** | **Gerenciador de recursos** |
+| **Clássico** | **Gerenciador de Recursos** |
 | --- | --- |
-| [Powershell](/powershell/module/az.network/#networking) |[Powershell](/powershell/module/az.network#vpn) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Sem suporte | [Azure CLI](/cli/azure/network/vnet-gateway)|
+| Sem suporte | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Próximas etapas
 

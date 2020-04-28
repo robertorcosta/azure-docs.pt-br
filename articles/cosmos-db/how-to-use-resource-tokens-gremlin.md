@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78897843"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use tokens de recurso do Azure Cosmos DB com o SDK do Gremlin
@@ -25,7 +25,7 @@ O SDK do Apache TinkerPop Gremlin não tem uma API pata usar para criar tokens d
 A hierarquia de modelo de objeto acima dos tokens de recurso é ilustrada na seguinte estrutura de tópicos:
 
 - **Conta do Azure Cosmos DB** – a entidade de nível superior que tem um DNS associado (por exemplo, `contoso.gremlin.cosmos.azure.com`).
-  - **Banco de dados do Azure Cosmos DB**
+  - **Banco de dados Azure Cosmos DB**
     - **Usuário**
       - **Permissão**
         - **Token** – uma propriedade do objeto Permissão que indica quais ações são permitidas ou negadas.
@@ -95,7 +95,7 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limite
 
-Com uma única conta do Gremlin, você pode emitir um número ilimitado de tokens. No entanto, você pode usar apenas até 100 tokens simultaneamente dentro de 1 hora. Se um aplicativo exceder o limite de token por hora, uma solicitação de autenticação será negada e você receberá a seguinte mensagem de erro: "Limite de token de recurso permitido de 100 que pode ser usado simultaneamente." Ele não funciona para fechar conexões ativas que usam tokens específicos para liberar slots para novos tokens. O mecanismo de banco de dados do Azure Cosmos DB Gremlin mantém o controle de tokens exclusivos durante a hora imediatamente antes da solicitação de autenticação.
+Com uma única conta do Gremlin, você pode emitir um número ilimitado de tokens. No entanto, você pode usar apenas até 100 tokens simultaneamente dentro de 1 hora. Se um aplicativo exceder o limite de token por hora, uma solicitação de autenticação será negada e você receberá a seguinte mensagem de erro: "limite de token de recurso permitido excedido de 100 que pode ser usado simultaneamente". Ele não funciona para fechar conexões ativas que usam tokens específicos para liberar slots para novos tokens. O mecanismo de banco de dados do Azure Cosmos DB Gremlin mantém o controle de tokens exclusivos durante a hora imediatamente antes da solicitação de autenticação.
 
 ## <a name="permission"></a>Permissão
 
@@ -103,4 +103,4 @@ Um erro comum que os aplicativos encontram enquanto estão usando tokens de recu
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Controle de acesso baseado em função](role-based-access-control.md) no Azure Cosmos DB
-* [Saiba como garantir o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB
+* [Saiba como proteger o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB

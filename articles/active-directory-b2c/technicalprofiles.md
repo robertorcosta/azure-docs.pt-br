@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5196615b6b935e4d37565298be03ad315163d132
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264304"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -94,12 +94,12 @@ O **TechnicalProfile** contém os seguintes elementos:
 | InputClaimsTransformations | 0:1 | Uma lista de referências definidas previamente a transformações de declarações que devem ser executadas antes que uma declaração seja enviada ao provedor de declarações ou à terceira parte confiável. |
 | InputClaims | 0:1 | Uma lista de referências definidas previamente aos tipos de declaração que são usados como entrada no perfil técnico. |
 | PersistedClaims | 0:1 | Uma lista de referências definidas previamente aos tipos de declaração que persistem no provedor de declarações relacionado ao perfil técnico. |
-| Exibiralegações | 0:1 | Uma lista das referências previamente definidas aos tipos de sinistros apresentados pelo provedor de sinistros que se relaciona com o [perfil técnico auto-afirmado](self-asserted-technical-profile.md). O recurso DisplayClaims está atualmente em **pré-visualização**. |
+| DisplayClaims | 0:1 | Uma lista das referências definidas anteriormente para os tipos de declaração que são apresentados pelo provedor de declarações relacionado ao [perfil técnico autodeclarado](self-asserted-technical-profile.md). O recurso DisplayClaims está atualmente em **Visualização**. |
 | OutputClaims | 0:1 | Uma lista de referências definidas previamente aos tipos de declaração que são usados como saída no perfil técnico. |
 | OutputClaimsTransformations | 0:1 | Uma lista de referências definidas previamente a transformações de declarações que devem ser executadas depois que as declarações são recebidas do provedor de declarações. |
-| ValidationTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico usa para fins de validação. Para obter mais informações, consulte [o perfil técnico de validação](validation-technical-profile.md)|
+| ValidationTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico usa para fins de validação. Para obter mais informações, consulte [validação do perfil técnico](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controla a produção do nome da entidade em tokens, em que o nome da entidade é especificado separadamente das declarações. Por exemplo, OAuth ou SAML.  |
-| IncludeInSso | 0:1 |  Se o uso deste perfil técnico deve aplicar o comportamento de tipo único (SSO) para a sessão ou, em vez disso, exigir interação explícita. Esse elemento é válido apenas em perfis SelfAsserted usados dentro de um perfil técnico de Validação. Valores possíveis: `true` (padrão) ou `false`. |
+| IncludeInSso | 0:1 |  Se o uso desse perfil técnico deve aplicar o comportamento de SSO (logon único) para a sessão ou, em vez disso, exigir uma interação explícita. Esse elemento é válido somente em perfis SelfAsserted usados em um perfil técnico de validação. Valores possíveis: `true` (padrão) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico do qual todas as declarações de entrada e saídas devem ser adicionadas a esse perfil técnico. O perfil técnico referenciado precisa ser definido no mesmo arquivo de política. |
 | IncludeTechnicalProfile |0:1 | Um identificador de um perfil técnico do qual todos os dados devem ser adicionados a esse perfil técnico. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil técnico diferente a ser usado para gerenciamento de sessão. |
@@ -111,7 +111,7 @@ O elemento **Protocol** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores `OAuth1`possíveis: `SAML2` `OpenIdConnect`, `Proprietary` `OAuth2`, `None`, , ou . |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2` `SAML2` `OpenIdConnect` `Proprietary`,,, ou `None`. |
 | Manipulador | Não | Quando o nome do protocolo for definido como `Proprietary`, especifique o nome totalmente qualificado do assembly usado pelo Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
@@ -181,7 +181,7 @@ O elemento **InputClaim** contém os seguintes atributos:
 | DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
 | PartnerClaimType | Não | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo PartnerClaimType não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro com o mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
 
-## <a name="displayclaims"></a>Exibiralegações
+## <a name="displayclaims"></a>DisplayClaims
 
 O elemento **DisplayClaims** contém o seguinte elemento:
 
@@ -189,7 +189,7 @@ O elemento **DisplayClaims** contém o seguinte elemento:
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | Um tipo de declaração de entrada esperado. |
 
-O recurso DislayClaims está atualmente em **pré-visualização**.
+O recurso DislayClaims está atualmente em **Visualização**.
 
 ### <a name="displayclaim"></a>DisplayClaim
 
@@ -198,10 +198,10 @@ O elemento **DisplayClaim** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Não | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
-| DisplayControlReferenceId | Não | O identificador de um controle de [exibição](display-controls.md) já definido na seção ClaimsSchema no arquivo de diretiva ou arquivo de diretiva pai. |
-| Obrigatório | Não | Indica se a reivindicação de exibição é necessária. |
+| DisplayControlReferenceId | Não | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
+| Obrigatório | Não | Indica se a declaração de exibição é necessária. |
 
-O **DisplayClaim** requer que `ClaimTypeReferenceId` você `DisplayControlReferenceId`especifique a ou .
+O **DisplayClaim** requer que você especifique um `ClaimTypeReferenceId` ou `DisplayControlReferenceId`o.
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -286,7 +286,7 @@ O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de diretiva ou arquivo de diretiva pai. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
 ## <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 

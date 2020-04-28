@@ -1,5 +1,5 @@
 ---
-title: Problemas na configuração de senha SSO para o aplicativo Azure AD Gallery
+title: Problemas ao configurar o SSO de senha para o aplicativo da galeria do Azure AD
 description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos já listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77159039"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
@@ -99,7 +99,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Faça login no Painel de Acesso e veja se você pode **iniciar** seus aplicativos SSO de senha
+7.  Entre no painel de acesso e veja se você pode **Iniciar** seus aplicativos de SSO de senha
 
 Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
 

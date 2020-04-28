@@ -1,6 +1,6 @@
 ---
-title: Alterar as configurações do ciclo de vida de um pacote de acesso no gerenciamento de direitos Azure AD - Azure Active Directory
-description: Saiba como alterar as configurações do ciclo de vida de um pacote de acesso no gerenciamento de direitos do Azure Active Directory.
+title: Alterar as configurações do ciclo de vida de um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+description: Saiba como alterar as configurações do ciclo de vida de um pacote do Access no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,42 +17,42 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 959d85f496a4a573a969bf736aba137d5b86154a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261977"
 ---
-# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações do ciclo de vida para um pacote de acesso no gerenciamento de direitos Azure AD
+# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações do ciclo de vida de um pacote de acesso no gerenciamento de direitos do Azure AD
 
-Como um gerenciador de pacotes de acesso, você pode alterar as configurações do ciclo de vida de um pacote de acesso a qualquer momento, editando uma diretiva existente. Se você alterar a data de validade de uma apólice, a data de validade das solicitações que já estão em um estado pendente ou aprovado não mudará.
+Como um Gerenciador de pacotes do Access, você pode alterar as configurações do ciclo de vida de um pacote do Access a qualquer momento editando uma política existente. Se você alterar a data de validade de uma política, a data de expiração das solicitações que já estão em um estado de aprovação pendente ou aprovado não será alterada.
 
-Este artigo descreve como alterar as configurações do ciclo de vida de um pacote de acesso existente.
+Este artigo descreve como alterar as configurações de ciclo de vida de um pacote do Access existente.
 
-## <a name="open-lifecycle-settings"></a>Configurações abertas do ciclo de vida
+## <a name="open-lifecycle-settings"></a>Abrir configurações do ciclo de vida
 
-Para alterar as configurações do ciclo de vida de um pacote de acesso, você precisa abrir a diretiva correspondente. Siga estas etapas para abrir as configurações do ciclo de vida de um pacote de acesso.
+Para alterar as configurações do ciclo de vida de um pacote do Access, você precisa abrir a política correspondente. Siga estas etapas para abrir as configurações de ciclo de vida de um pacote do Access.
 
-**Papel pré-requisito:** Administrador global, administrador de usuário, proprietário de catálogo ou gerenciador de pacotes de acesso
+**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **Acessar pacotes** e, em seguida, abra o pacote de acesso.
+1. No menu à esquerda, clique em **pacotes de acesso** e abra o pacote de acesso.
 
-1. Clique **em Políticas** e clique na diretiva que tem as configurações do ciclo de vida que deseja editar.
+1. Clique em **políticas** e, em seguida, clique na política que tem as configurações de ciclo de vida que você deseja editar.
 
-    O painel de detalhes da Política é aberto na parte inferior da página.
+    O painel detalhes da política é aberto na parte inferior da página.
 
-    ![Pacote de acesso - Painel de detalhes da política](./media/entitlement-management-shared/policy-details.png)
+    ![Pacote de acesso-painel detalhes da política](./media/entitlement-management-shared/policy-details.png)
 
-1. Clique **em Editar** para editar a diretiva.
+1. Clique em **Editar** para editar a política.
 
-    ![Pacote de acesso - Editar política](./media/entitlement-management-shared/policy-edit.png)
+    ![Pacote de acesso-editar política](./media/entitlement-management-shared/policy-edit.png)
 
-1. Clique na **guia Ciclo de vida** para abrir as configurações do ciclo de vida.
+1. Clique na guia **ciclo de vida** para abrir as configurações do ciclo de vida.
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Alterar as configurações de solicitação e aprovação de um pacote de acesso](entitlement-management-access-package-request-policy.md)
+- [Alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md)

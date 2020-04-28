@@ -1,5 +1,5 @@
 ---
-title: Estrutura de consentimento Azure AD
+title: Estrutura de consentimento do Azure AD
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a estrutura de consentimento no Azure Active Directory e como ela facilita o desenvolvimento de aplicativos Web multilocatários e cliente nativos.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161113"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
@@ -46,16 +46,16 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 1. Depois que o usuário tiver se conectado, o AD do Azure determinará se o usuário precisará ver uma página de consentimento. Essa decisão depende do fato de o usuário (ou do administrador da organização) já ter dado o consentimento de aplicativo. Se o consentimento ainda não tiver sido dado, o Azure AD solicitará o consentimento ao usuário e exibirá as permissões necessárias de que ele precisa para funcionar. O conjunto de permissões exibido na caixa de diálogo de autorização corresponde àqueles selecionados nas **Permissões delegadas** no portal do Azure.
 
-    ![Mostra um exemplo de permissões exibidas na caixa de diálogo consent](./media/consent-framework/consent.png)
+    ![Mostra um exemplo de permissões exibidas na caixa de diálogo de consentimento](./media/consent-framework/consent.png)
 
-1. Depois que o usuário dá consentimento, um código de autorização é retornado ao aplicativo, que é resgatado para aquisição de um token de acesso e de um token de atualização. Para obter mais informações sobre esse fluxo, consulte [o fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
+1. Depois que o usuário dá consentimento, um código de autorização é retornado ao aplicativo, que é resgatado para aquisição de um token de acesso e de um token de atualização. Para obter mais informações sobre esse fluxo, consulte [fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
-1. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que o diálogo de consentimento apareça para cada usuário no inquilino, e pode ser feito no [portal Azure](https://portal.azure.com) pelos usuários com a função de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [Permissões da função de administrador no Microsoft Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+1. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento apareça para cada usuário no locatário e pode ser feita no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [Permissões da função de administrador no Microsoft Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
     **Para consentir com as permissões delegadas de um aplicativo**
 
-   1. Vá para a página **de permissões** da API para o seu aplicativo
-   1. Clique no botão **de consentimento do grant.**
+   1. Vá para a página de **permissões de API** para seu aplicativo
+   1. Clique no botão **conceder consentimento do administrador** .
 
       ![Conceda permissões para consentimento explícito de admin](./media/consent-framework/grant-consent.png)
 

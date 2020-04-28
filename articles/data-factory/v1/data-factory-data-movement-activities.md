@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281880"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados usando a Atividade de Cópia
@@ -137,7 +137,7 @@ Você pode criar um pipeline com uma Atividade de Cópia de duas maneiras:
 O Assistente de Cópia do Data Factory ajuda você a criar um pipeline com a Atividade de Cópia. Esse pipeline permite copiar dados de fontes compatíveis para destinos *sem gravar definições JSON* para serviços vinculados, conjuntos de dados e pipelines. Veja [Assistente de Cópia do Data Factory](data-factory-copy-wizard.md) para obter detalhes sobre o assistente.  
 
 ### <a name="by-using-json-scripts"></a>Usando scripts JSON
-Você pode usar o Data Factory Editor no Visual Studio ou o Azure PowerShell para criar uma definição JSON para um pipeline (usando copy activity). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Confira [Tutorial: Use Copy Activity in an Azure Data Factory pipeline (Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
+Você pode usar o editor de Data Factory no Visual Studio ou Azure PowerShell para criar uma definição de JSON para um pipeline (usando a atividade de cópia). Em seguida, você pode implantá-la para criar o pipeline no Data Factory. Confira [Tutorial: Use Copy Activity in an Azure Data Factory pipeline (Tutorial: Usar Atividade de Cópia em um pipeline do Azure Data Factory)](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver um tutorial com instruções detalhadas.    
 
 As propriedades JSON (como nome, descrição, tabelas de entrada e saída, e políticas) estão disponíveis para todos os tipos de atividade. As propriedades que estão disponíveis na seção `typeProperties` da atividade variam de acordo com cada tipo de atividade.
 
@@ -196,7 +196,7 @@ Confira o artigo [Guia de desempenho e ajuste da Atividade de Cópia](data-facto
 ## <a name="fault-tolerance"></a>Tolerância a falhas
 Por padrão, a atividade de cópia interromperá a cópia de dados e retornará uma falha ao encontrar dados incompatíveis entre a origem e o coletor, embora seja possível configurar explicitamente para ignorar e registrar as linhas incompatíveis e copiar apenas esses dados compatíveis para tornar a cópia bem-sucedida. Consulte a [Tolerância a falhas da Atividade de Cópia](data-factory-copy-activity-fault-tolerance.md) para obter mais detalhes.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 Consulte as [Considerações sobre segurança](data-factory-data-movement-security-considerations.md), que descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para proteger os dados.
 
 ## <a name="scheduling-and-sequential-copy"></a>Agendamento e cópia sequencial

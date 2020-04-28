@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261015"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de preparação e recuperação de desastres
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: servidor de preparo e recuperação de desastre
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
 ## <a name="staging-mode"></a>Modo de preparo
@@ -42,14 +42,14 @@ Durante a instalação, você pode selecionar o servidor em **modo de preparo**.
 
 Você ainda pode forçar uma exportação usando o Synchronization Service Manager.
 
-Um servidor no modo de preparação continua a receber alterações do Active Directory e do Azure AD e pode assumir rapidamente as responsabilidades de outro servidor em caso de falha. Se você fizer alterações de configuração no servidor primário, será sua responsabilidade fazer as mesmas alterações no servidor em modo de preparo.
+Um servidor no modo de preparo continua a receber alterações do Active Directory e do Azure AD e pode assumir rapidamente as responsabilidades de outro servidor em caso de falha. Se você fizer alterações de configuração no servidor primário, será sua responsabilidade fazer as mesmas alterações no servidor em modo de preparo.
 
 Para aqueles com conhecimento das tecnologias mais antigas de sincronização, o modo de preparo é diferente, pois o servidor tem seu próprio banco de dados SQL. Essa arquitetura permite que o servidor de modo de preparo esteja localizado em um datacenter diferente.
 
 ### <a name="verify-the-configuration-of-a-server"></a>Verifique a configuração de um servidor
 Para aplicar esse método, siga estas etapas:
 
-1. [Preparar](#prepare)
+1. [Deixar](#prepare)
 2. [Configuração](#configuration)
 3. [Importar e sincronizar](#import-and-synchronize)
 4. [Verificar](#verify)

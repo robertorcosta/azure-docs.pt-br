@@ -1,5 +1,5 @@
 ---
-title: Alterar o caminho blob do padrão
+title: Alterar o caminho do blob do padrão
 description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de blob
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76270621"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar o caminho de blob padrão
@@ -25,7 +25,7 @@ Certifique-se de que você tenha uma definição de trabalho configurada correta
 
 Para criar uma função do Azure, realize as etapas a seguir:
 
-1. Vá para o [portal Azure.](https://portal.azure.com/)
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Clique em **+ Criar um recurso**. Na caixa **Pesquisa**, digite **Aplicativo de funções** e pressione **Enter**. Selecione e clique em **Aplicativo de Funções** na lista de aplicativos exibidos.
 
@@ -189,11 +189,11 @@ Para criar uma função do Azure, realize as etapas a seguir:
 
        ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. Clique **+ Adicionar**.
+    2. Clique em **+ Adicionar**.
         
         ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Digite **project.json**e, em seguida, **pressione Enter**. No arquivo **project.json**, cole o seguinte código:
+    3. Digite **Project. JSON**e pressione **Enter**. No arquivo **project.json**, cole o seguinte código:
 
         ```
         {
@@ -217,4 +217,4 @@ Você criou uma função do Azure. Essa função é disparada sempre que um novo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Use a interface do gerente de dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md)
+[Use Gerenciador de Dados do StorSimple interface do usuário para transformar seus dados](storsimple-data-manager-ui.md)

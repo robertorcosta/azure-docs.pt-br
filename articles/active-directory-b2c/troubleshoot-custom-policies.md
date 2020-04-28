@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186346"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
@@ -25,19 +25,19 @@ Este artigo concentra-se na solução de problemas da configuração de polític
 
 ## <a name="xml-editing"></a>Edição de XML
 
-O erro mais comum na configuração de políticas personalizadas é XML com erro de formatação. Um bom editor de XML é praticamente essencial. Ele exibe xml nativamente, conteúdo de códigos de cores, preenche termos comuns, mantém elementos XML indexados e pode validar contra um esquema XML.
+O erro mais comum na configuração de políticas personalizadas é XML com erro de formatação. Um bom editor de XML é praticamente essencial. Ele exibe o XML nativamente, o conteúdo de códigos de cor, preenche previamente os termos comuns, mantém os elementos XML indexados e pode validar em um esquema XML.
 
-Dois de nossos editores favoritos são [Visual Studio Code](https://code.visualstudio.com/) e [Notepad++](https://notepad-plus-plus.org/).
+Dois de nossos editores favoritos são [Visual Studio Code](https://code.visualstudio.com/) e o [bloco de notas + +](https://notepad-plus-plus.org/).
 
-A validação de esquema XML identifica os erros antes do upload do arquivo XML. Na pasta raiz do [pacote inicial,](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)obtenha o arquivo de definição de esquema XML *TrustFrameworkPolicy_0.3.0.0.xsd*. Para saber como usar o arquivo de esquema XSD para validação em seu editor, procure *ferramentas XML* e *validação XML* ou similares na documentação do editor.
+A validação de esquema XML identifica os erros antes do upload do arquivo XML. Na pasta raiz do [pacote inicial](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), obtenha o arquivo de definição de esquema XML *TrustFrameworkPolicy_0.3.0.0. xsd*. Para saber como usar o arquivo de esquema XSD para validação em seu editor, procure *ferramentas XML* e validação de *XML* ou semelhante na documentação do editor.
 
 Talvez seja útil examinar as regras de XML. O Azure AD B2C rejeita qualquer erro de formatação de XML que detecta. Ocasionalmente, um XML formatado incorretamente pode causar mensagens de erros falsos.
 
 ## <a name="upload-policies-and-policy-validation"></a>Políticas de upload e validação de política
 
-A validação do arquivo de diretiva XML é realizada automaticamente no upload. A maioria dos erros fazem com que o upload falhe. A validação inclui o arquivo de política que você está carregando. Ela também inclui a cadeia de arquivos à qual o arquivo de upload se refere (o arquivo de política de terceira parte confiável, o arquivo de extensões e o arquivo base).
+A validação do arquivo de política XML é executada automaticamente no carregamento. A maioria dos erros fazem com que o upload falhe. A validação inclui o arquivo de política que você está carregando. Ela também inclui a cadeia de arquivos à qual o arquivo de upload se refere (o arquivo de política de terceira parte confiável, o arquivo de extensões e o arquivo base).
 
-Os erros de validação comuns incluem o seguinte:
+Os erros comuns de validação incluem o seguinte:
 
 > Snippet de código de erro: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
@@ -48,35 +48,35 @@ Os erros de validação comuns incluem o seguinte:
 
 > Snippet de código de erro: `...makes a reference to a ClaimsTransformation with id...`
 
-* As causas para este erro podem ser as mesmas do erro ClaimType.
+* As causas desse erro podem ser as mesmas para o erro ClaimType.
 
 > Snippet de código de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verifique se o valor tenantId no e `<TrustFrameworkPolicy\>` `<BasePolicy\>` os elementos correspondem ao seu inquilino Azure AD B2C alvo.
+* Verifique se o valor de Tenantid nos `<TrustFrameworkPolicy\>` elementos `<BasePolicy\>` e corresponde ao seu locatário de Azure ad B2C de destino.
 
 ## <a name="troubleshoot-the-runtime"></a>Solucionar problemas de runtime
 
-* Use **execute** `https://jwt.ms` agora e teste suas políticas independentemente do seu aplicativo web ou móvel. Este site funciona como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do token web JSON (JWT) gerado pela sua diretiva Azure AD B2C.
+* Use **executar agora** e `https://jwt.ms` para testar suas políticas independentemente de seu aplicativo Web ou móvel. Este site funciona como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do JSON Web token (JWT) que é gerado pela sua política de Azure AD B2C.
 
-    Para criar um aplicativo de `https://jwt.ms` teste que possa ser redirecionado para inspeção de tokens:
+    Para criar um aplicativo de teste que possa ser `https://jwt.ms` Redirecionado para para inspeção de token:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Para rastrear a troca de mensagens entre o navegador do cliente e o Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). Ele pode ajudá-lo a obter uma indicação de onde sua jornada de usuário está falhando nas etapas de orquestração.
 
-* No **Modo de desenvolvimento**, use o [Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de usuário da Estrutura de Experiência de Identidade. No **modo Desenvolvimento,** você pode observar a troca de reclamações entre o Identity Experience Framework e os vários provedores de sinistros que são definidos por perfis técnicos, como provedores de identidade, serviços baseados em API, o diretório de usuários Azure AD B2C e outros serviços, como a Autenticação Multifatorial do Azure.
+* No **Modo de desenvolvimento**, use o [Application Insights](troubleshoot-with-application-insights.md) para rastrear a atividade da sua jornada de usuário da Estrutura de Experiência de Identidade. No **modo de desenvolvimento**, você pode observar a troca de declarações entre a estrutura de experiência de identidade e os vários provedores de declarações definidos por perfis técnicos, como provedores de identidade, serviços baseados em API, o Azure ad B2C diretório de usuário e outros serviços, como a autenticação multifator do Azure.
 
 ## <a name="recommended-practices"></a>Práticas recomendadas
 
-**Mantenha várias versões de seus cenários. Agrupe-os em um projeto com sua aplicação.** A base, extensões e os arquivos de terceira parte confiável são diretamente dependentes entre si. Salve-os como um grupo. Conforme novos recursos são adicionados nas políticas, mantenha versões de trabalho separadas. Prepare as versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual eles interagem. Os aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas do Azure AD B2C.
+**Mantenha várias versões de seus cenários. Agrupe-os em um projeto com seu aplicativo.** A base, extensões e os arquivos de terceira parte confiável são diretamente dependentes entre si. Salve-os como um grupo. Conforme novos recursos são adicionados nas políticas, mantenha versões de trabalho separadas. Prepare as versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual eles interagem. Os aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas do Azure AD B2C.
 
-**Desenvolver e testar perfis técnicos com jornadas de usuários conhecidas.** Use políticas de pacote inicial testadas para configurar os perfis de técnicos. Teste-as separadamente antes de incorporá-las em suas próprias jornadas de usuário.
+**Desenvolva e teste perfis técnicos com jornadas conhecidos do usuário.** Use políticas de pacote inicial testadas para configurar os perfis de técnicos. Teste-as separadamente antes de incorporá-las em suas próprias jornadas de usuário.
 
 **Desenvolva e teste jornadas de usuário com perfis técnicos testados.** Altere as etapas de orquestração de uma jornada de usuário de forma incremental. Crie os seus cenários desejados de forma progressiva.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Disponível no GitHub, baixe o arquivo [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip archive. Você também pode clonar o repositório:
+Disponível no GitHub, baixe o arquivo [Active-Directory-B2C-Custom-Policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) . zip. Você também pode clonar o repositório:
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

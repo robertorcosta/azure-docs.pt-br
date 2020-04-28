@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261288"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
@@ -47,23 +47,23 @@ Use o Portal do Azure para verificar o status de uma sincronização.
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Como verificar a tarefa de sincronização agendada
 1. Entre no Portal do Azure como um administrador.
 2. À esquerda, selecione **Active Directory**.
-3. À esquerda, selecione **Azure AD Connect**
-4. No topo da página, observe a última sincronização.
+3. À esquerda, selecione **Azure ad Connect**
+4. Na parte superior da página, observe a última sincronização.
 
 ![Horário de sincronização de diretórios](./media/how-to-connect-post-installation/verify2.png)
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Iniciar uma tarefa de sincronização agendada
-Se você precisar executar uma tarefa de sincronização, você pode fazer isso por:
+Se você precisar executar uma tarefa de sincronização, poderá fazer isso da seguinte:
 
-1. Clique duas vezes no atalho de área de trabalho do Azure AD Connect para iniciar o assistente.
+1. Clique duas vezes no atalho Azure AD Connect área de trabalho para iniciar o assistente.
 2. Clique em **Configurar**.
-3. Na tela de tarefas, selecione as **opções de sincronização Personalizar** e clique **em Seguir**
+3. Na tela tarefas, selecione as **opções personalizar sincronização** e clique em **Avançar**
 4. Insira suas credenciais de AD do Azure
 5. Clique em **Avançar**. Clique em **Avançar**.  Clique em **Avançar**.
-5.  Na tela **Pronto para Configurar,** certifique-se de iniciar **o processo de sincronização quando a configuração estiver concluída.**
+5.  Na tela **pronto para configurar** , verifique se a caixa **iniciar o processo de sincronização quando a configuração for concluída** está marcada.
 6.  Clique em **Configurar**.
 
-Para obter mais informações sobre o Azure AD Connect sync Scheduler, consulte [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
+Para obter mais informações sobre o Agendador de sincronização Azure AD Connect, consulte [Azure ad Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Tarefas adicionais disponíveis no Azure AD Connect
 Após a instalação inicial do Azure AD Connect, você pode sempre iniciar o assistente novamente de um atalho da área de trabalho ou da página inicial do Azure AD Connect.  Você observará que executar novamente o assistente fornece algumas novas opções na forma de tarefas adicionais.  
@@ -74,15 +74,15 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 
 | Tarefa adicional | Descrição |
 | --- | --- |
-|**Configurações de privacidade**|Veja quais dados de telemetria estão sendo compartilhados com a Microsoft.|
+|**Configurações de privacidade**|Exibir quais dados de telemetria estão sendo compartilhados com a Microsoft.|
 |**Exibir a configuração atual**|Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
 | **Personalizar opções de sincronização** |Altere a configuração atual, por exemplo adicionando florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |
-|**Configurar opções do dispositivo**|Opções de dispositivos disponíveis para sincronização|
-|**Atualizar esquema de diretório**|Permite adicionar novos objetos de diretório no local para sincronização|
-|**Configurar o modo de estadiamento** |Informações de preparo que não são sincronizadas imediatamente e não são exportadas para o Azure AD ou o Active Directory local.  Com esse recurso, você pode visualizar as sincronizações antes que elas ocorram. |
-|**Alterar o login do usuário**|Alterar o método de autenticação que os usuários estão usando para fazer login|
-|**Gerencie a federação**|Gerencie sua infra-estrutura AD FS, renove certificados e adicione servidores AD FS|
-|**Solução de problemas**|Ajuda na solução de problemas problemas do Azure AD Connect|
+|**Configurar opções do dispositivo**|Opções de dispositivo disponíveis para sincronização|
+|**Atualizar esquema de diretório**|Permite adicionar novos objetos de diretório local para sincronização|
+|**Configurar o modo de preparo** |Informações de preparo que não são sincronizadas imediatamente e não são exportadas para o Azure AD ou o Active Directory local.  Com esse recurso, você pode visualizar as sincronizações antes que elas ocorram. |
+|**Alterar entrada do usuário**|Alterar o método de autenticação que os usuários estão usando para entrar|
+|**Gerenciar Federação**|Gerenciar sua infraestrutura de AD FS, renovar certificados e adicionar servidores AD FS|
+|**Solucionar problemas**|Ajuda para solucionar problemas de Azure AD Connect|
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md).

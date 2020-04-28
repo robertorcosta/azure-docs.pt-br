@@ -1,24 +1,24 @@
 ---
 title: Funções definidas pelo usuário em modelos
-description: Descreve como definir e usar funções definidas pelo usuário em um modelo do Azure Resource Manager.
+description: Descreve como definir e usar funções definidas pelo usuário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943212"
 ---
-# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo usuário no modelo azure Resource Manager
+# <a name="user-defined-functions-in-azure-resource-manager-template"></a>Funções definidas pelo usuário no modelo Azure Resource Manager
 
-Dentro de seu modelo, você pode criar suas próprias funções. Essas funções estão disponíveis para uso em seu modelo. As funções definidas pelo usuário são separadas das [funções de modelo padrão](template-functions.md) que estão automaticamente disponíveis dentro do seu modelo. Crie suas próprias funções quando tiver expressões complicadas que são usadas repetidamente em seu modelo.
+Dentro de seu modelo, você pode criar suas próprias funções. Essas funções estão disponíveis para uso em seu modelo. As funções definidas pelo usuário são separadas das [funções de modelo padrão](template-functions.md) que estão automaticamente disponíveis no seu modelo. Crie suas próprias funções quando tiver expressões complicadas que são usadas repetidamente em seu modelo.
 
-Este artigo descreve como adicionar funções definidas pelo usuário no modelo do Azure Resource Manager.
+Este artigo descreve como adicionar funções definidas pelo usuário em seu modelo de Azure Resource Manager.
 
-## <a name="define-the-function"></a>Defina a função
+## <a name="define-the-function"></a>Definir a função
 
-As suas funções exigem um valor de namespace para evitar conflitos de nomenclatura com funções de modelo. O exemplo a seguir mostra uma função que retorna um nome único:
+As suas funções exigem um valor de namespace para evitar conflitos de nomenclatura com funções de modelo. O exemplo a seguir mostra uma função que retorna um nome exclusivo:
 
 ```json
 "functions": [
@@ -42,9 +42,9 @@ As suas funções exigem um valor de namespace para evitar conflitos de nomencla
 ],
 ```
 
-## <a name="use-the-function"></a>Use a função
+## <a name="use-the-function"></a>Usar a função
 
-O exemplo a seguir mostra um modelo que inclui uma função definida pelo usuário. Ele usa essa função para obter um nome único para uma conta de armazenamento. O modelo tem um parâmetro chamado **storageNamePrefix** que ele passa como um parâmetro para a função.
+O exemplo a seguir mostra um modelo que inclui uma função definida pelo usuário. Ele usa essa função para obter um nome exclusivo para uma conta de armazenamento. O modelo tem um parâmetro chamado **storageNamePrefix** que ele passa como um parâmetro para a função.
 
 ```json
 {
@@ -98,13 +98,13 @@ O exemplo a seguir mostra um modelo que inclui uma função definida pelo usuár
 Ao definir uma função de usuário, há algumas restrições:
 
 * A função não pode acessar variáveis.
-* A função só pode usar os parâmetros que são definidos na função. Quando você usa a função [parâmetros](template-functions-deployment.md#parameters) dentro de uma função definida pelo usuário, você está restrito aos parâmetros para essa função.
+* A função só pode usar os parâmetros que são definidos na função. Quando você usa a função [Parameters](template-functions-deployment.md#parameters) em uma função definida pelo usuário, você está restrito aos parâmetros para essa função.
 * A função não pode chamar outras funções definidas pelo usuário.
-* A função não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista.](template-functions-resource.md#list)
+* A função não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) .
 * Os parâmetros para a função não podem ter valores padrão.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [Entenda a estrutura e a sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
-* Para obter uma lista das funções de modelo disponíveis, consulte as [funções do modelo Do Azure Resource Manager](template-functions.md).
+* Para saber mais sobre as propriedades disponíveis para funções definidas pelo usuário, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para obter uma lista das funções de modelo disponíveis, consulte [Azure Resource Manager funções de modelo](template-functions.md).

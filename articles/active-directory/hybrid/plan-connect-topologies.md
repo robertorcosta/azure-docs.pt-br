@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253826"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
@@ -42,7 +42,7 @@ Aqui está a legenda para imagens neste artigo:
 
 
 > [!IMPORTANT]
-> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das configurações ou ações formalmente documentadas. Qualquer uma dessas configurações ou ações pode resultar em um estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode fornecer suporte técnico para tais implantações.
+> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das configurações ou ações formalmente documentadas. Qualquer uma dessas configurações ou ações pode resultar em um estado inconsistente ou sem suporte de Azure AD Connect sincronização. Como resultado, a Microsoft não pode fornecer suporte técnico para essas implantações.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, locatário único do Azure AD
@@ -60,11 +60,11 @@ Não há suporte para vários servidores de sincronização do Azure AD Connect 
 
 Muitas organizações têm ambientes com várias florestas do Active Directory local. Há vários motivos para ter mais de uma floresta do Active Directory local. Exemplos típicos são designs com florestas de conta-recurso e o resultado de uma fusão ou aquisição.
 
-Quando você tem várias florestas, todas elas devem ser acessíveis por um único servidor de sincronização do Azure AD Connect. O servidor deve ser unido a um domínio. Se necessário, para acessar todas as florestas, você pode colocar o servidor em uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada e sub-rede selecionada).
+Quando você tem várias florestas, todas elas devem ser acessíveis por um único servidor de sincronização do Azure AD Connect. O servidor deve ser ingressado em um domínio. Se necessário, para acessar todas as florestas, você pode colocar o servidor em uma rede de perímetro (também conhecida como DMZ, zona desmilitarizada e sub-rede selecionada).
 
 O assistente de instalação do Azure AD Connect oferece várias opções para consolidar os usuários representados em várias florestas. O objetivo é que um usuário seja representado somente uma vez no Azure AD. Há algumas topologias comuns que você pode configurar o caminho de instalação personalizada do assistente de instalação. Na página **Identificando exclusivamente seus usuários**, selecione a opção correspondente que representa sua topologia. A consolidação está configurada somente para os usuários. Grupos duplicados não são consolidados com a configuração padrão.
 
-Topologias comuns são discutidas nas seções sobre topologias separadas, [malha completa](#multiple-forests-full-mesh-with-optional-galsync)e [topologia de recursos contábeis.](#multiple-forests-account-resource-forest)
+As topologias comuns são discutidas nas seções sobre topologias separadas, [malha completa](#multiple-forests-full-mesh-with-optional-galsync)e [a topologia de recurso de conta](#multiple-forests-account-resource-forest).
 
 A configuração padrão do Azure AD Connect sync supõe:
 
@@ -113,7 +113,7 @@ Nesse cenário, os objetos de identidade são ingressados usando o atributo de e
 
 ![Topologia de floresta de conta-recurso para várias florestas](./media/plan-connect-topologies/MultiForestAccountResource.png)
 
-Em uma topologia florestal de recursos de conta, você tem uma ou mais *florestas* de conta com contas de usuários ativas. Você também tem uma ou mais florestas *de recursos* com contas desativadas.
+Em uma topologia de floresta de recursos de conta, você tem uma ou mais florestas de *conta* com contas de usuário ativas. Você também tem uma ou mais florestas de *recursos* com contas desabilitadas.
 
 Nesse cenário, uma (ou mais) floresta de recursos confia em todas as florestas de conta. Essa floresta de recurso normalmente tem um esquema do Active Directory estendido com o Exchange e o Lync. Todos os serviços do Exchange e do Lync, bem como outros serviços compartilhados, estão localizados nessa floresta. Os usuários têm uma conta de usuário desabilitada nesta floresta e a caixa de correio está vinculada à floresta da conta.
 
@@ -130,7 +130,7 @@ Se tiver uma organização maior, então considere usar o recurso [Localização
 ## <a name="staging-server"></a>Servidor de preparo
 ![Servidor de preparo em uma topologia](./media/plan-connect-topologies/MultiForestStaging.png)
 
-O Azure AD Connect suporta a instalação de um segundo servidor no *modo de preparação*. Um servidor nesse modo lê dados de todos os diretórios conectados, mas não grava nada em diretórios conectados. Ele usa o ciclo de sincronização normal e, portanto, tem uma cópia atualizada dos dados de identidade.
+O Azure AD Connect dá suporte à instalação de um segundo servidor no *modo de preparo*. Um servidor nesse modo lê dados de todos os diretórios conectados, mas não grava nada em diretórios conectados. Ele usa o ciclo de sincronização normal e, portanto, tem uma cópia atualizada dos dados de identidade.
 
 Em um desastre em que o servidor primário falha, você pode fazer failover para o servidor de preparo. Você pode fazer isso no Assistente do Azure AD Connect. Esse segundo servidor pode estar localizado em um datacenter diferente, pois nenhuma infraestrutura é compartilhada com o servidor primário. É necessário copiar manualmente qualquer alteração de configuração feita no servidor principal para o segundo servidor.
 

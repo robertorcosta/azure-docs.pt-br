@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes (FAQ) para O Diretório Ativo Do Azure B2C
-description: Respostas para perguntas frequentes sobre o Azure Active Directory B2C.
+title: Perguntas frequentes (FAQ) para Azure Active Directory B2C
+description: Respostas para perguntas frequentes sobre Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,15 +11,15 @@ ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264395"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
-Esta página responde perguntas freqüentes sobre o Azure Active Directory B2C (Azure AD B2C). Continue verificando as atualizações.
+Esta página responde às perguntas frequentes sobre o Azure Active Directory B2C (Azure AD B2C). Continue verificando as atualizações.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não consigo acessar a extensão do Azure AD B2C no portal do Azure?
 
@@ -27,25 +27,25 @@ Há duas razões comuns para porque a extensão do AD do Azure não está funcio
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 
-O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Adicionando **o novo provedor OpenID Connect** os **provedores de identidade > AD AD AD do Azure** ou com políticas personalizadas, o Azure AD B2C pode ser federado pelo Azure AD permitindo a autenticação de funcionários em uma organização.
+O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Ao adicionar o **novo provedor de OpenID Connect** em **Azure ad B2C > provedores de identidade** ou com políticas personalizadas, Azure ad B2C pode federar o AD do Azure, permitindo a autenticação de funcionários em uma organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar AD B2C do Azure para fornecer logon social (Facebook e Google+) no Office 365?
 
-O Azure AD B2C não pode ser usado para autenticar usuários para o Microsoft Office 365. O Azure AD é a solução da Microsoft para gerenciar o acesso dos funcionários aos aplicativos SaaS e possui recursos projetados para este fim, como licenciamento e Acesso Condicional. O Azure AD B2C fornece uma plataforma de gerenciamento de identidade e acesso para a criação de aplicativos Web e móveis. Quando o Azure AD B2C é configurado para federar-se a um locatário do Azure AD, o locatário do Azure AD gerencia o acesso de funcionários a aplicativos que dependem do Azure AD B2C.
+O Azure AD B2C não pode ser usado para autenticar usuários para o Microsoft Office 365. O Azure AD é a solução da Microsoft para gerenciar o acesso dos funcionários a aplicativos SaaS e tem recursos projetados para essa finalidade, como licenciamento e acesso condicional. O Azure AD B2C fornece uma plataforma de gerenciamento de identidade e acesso para a criação de aplicativos Web e móveis. Quando o Azure AD B2C é configurado para federar-se a um locatário do Azure AD, o locatário do Azure AD gerencia o acesso de funcionários a aplicativos que dependem do Azure AD B2C.
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>O que são contas locais no AD B2C do Azure? Como elas são diferentes de contas corporativas ou de estudante no AD do Azure?
 
 Em um locatário do Azure AD, os usuários que pertencem ao locatário entram com um endereço de email no formato `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio inicial `<...>.onmicrosoft.com`. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Você pode escolher um dos dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no Portal do Azure. No seu inquilino Azure AD B2C, selecione **Provedores de identidade,** selecione **Conta Local**e selecione Nome **de usuário**.
+Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Você pode escolher um dos dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no Portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
 
-As contas de usuário para aplicativos podem ser criadas através de um fluxo de usuário de inscrição, entrada ou fluxo de usuário de login, da API do Microsoft Graph ou no portal Dozure.
+As contas de usuário para aplicativos podem ser criadas por meio de um fluxo de usuário de inscrição, um fluxo de usuário de inscrição ou de entrada, a API de Microsoft Graph ou no portal do Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 
-Atualmente, apoiamos vários provedores de identidade social, incluindo Amazon, Facebook, GitHub (pré-visualização), Google, LinkedIn, Microsoft Account (MSA), QQ (preview), Twitter, WeChat (preview) e Weibo (preview). Avaliamos a adição de suporte para outros provedores populares de identidade social com base na demanda do cliente.
+Atualmente, damos suporte a vários provedores de identidade social, incluindo Amazon, Facebook, GitHub (versão prévia), Google, LinkedIn, Microsoft (MSA), QQ (versão prévia), Twitter, WeChat (versão prévia) e Weibo (versão prévia). Avaliamos a adição de suporte para outros provedores de identidade social populares com base na demanda do cliente.
 
-O Azure AD B2C também suporta [políticas personalizadas.](custom-policy-overview.md) As políticas personalizadas permitem que você crie sua própria política para qualquer provedor de identidade que suporte [o OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) ou o SAML. Comece a usar políticas personalizadas verificando nosso [pacote de políticas personalizadas para iniciantes](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+O Azure AD B2C também dá suporte a [políticas personalizadas](custom-policy-overview.md). As políticas personalizadas permitem que você crie sua própria política para qualquer provedor de identidade que ofereça suporte a [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) ou SAML. Comece a usar políticas personalizadas verificando nosso [pacote de políticas personalizadas para iniciantes](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar escopos para saber mais sobre os consumidores de vários provedores de identidade sociais?
 
@@ -69,15 +69,15 @@ Antes de abrir o “Azure AD B2C” no menu do lado esquerdo do portal do Azure,
 
 Você pode usar o [recurso de identidade visual da empresa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
 
-* **Logotipo da**bandeira : Mostrado no canto inferior direito.
+* **Logotipo de faixa**: mostrado na parte inferior direita.
 * **Cor da tela de fundo**: mostrada na parte superior.
 
-    ![Captura de tela de um e-mail de verificação personalizado](./media/faq/company-branded-verification-email.png)
+    ![Captura de tela de um email de verificação personalizado](./media/faq/company-branded-verification-email.png)
 
 A assinatura de email contém o nome do locatário do Azure AD B2C que você forneceu ao criar esse locatário do Azure AD B2C pela primeira vez. Você pode alterar o nome usando estas instruções:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como o administrador global.
-1. Abra **a lâmina do Diretório Ativo do Azure.**
+1. Abra a folha **Azure Active Directory** .
 1. Clique na guia **Propriedades**.
 1. Altere o campo **Nome**.
 1. Clique em **Salvar** na parte superior da página.
@@ -86,17 +86,17 @@ Atualmente não há nenhuma maneira de alterar o campo "De:" no email.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar meus de nomes de usuário, senhas e perfis existentes no meu banco de dados para o AD B2C do Azure?
 
-Você pode usar a API do Microsoft Graph para escrever sua ferramenta de migração. Consulte o [Guia de migração do usuário](user-migration.md) para obter detalhes.
+Você pode usar a API de Microsoft Graph para escrever sua ferramenta de migração. Consulte o [Guia de migração do usuário](user-migration.md) para obter detalhes.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual é a política de senha usada para contas locais no Azure Active Directory B2C?
 
-A política de senha do Azure Active Directory B2C para contas locais se baseia na política do Azure Active Directory. Os fluxos de usuário de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Para obter mais detalhes, consulte [políticas e restrições de senha no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+A política de senha do Azure Active Directory B2C para contas locais se baseia na política do Azure Active Directory. Os fluxos de usuário de inscrição, entrada ou redefinição de senha do Azure AD B2C usam a força de senha "forte" e não expiram as senhas. Para obter mais detalhes, consulte [diretivas e restrições de senha no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
 
 Para obter informações sobre bloqueios de contas e senhas, consulte [Gerenciar ameaças aos recursos e dados no Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Posso usar o Azure AD Connect para migrar identidades de consumidores armazenadas no Active Directory local para o AD B2C do Azure?
 
-Não, o Azure AD Connect não foi projetado para funcionar com o AD B2C do Azure. Considere usar a [API do Microsoft Graph](manage-user-accounts-graph-api.md) para migração de usuários. Consulte o [Guia de migração do usuário](user-migration.md) para obter detalhes.
+Não, o Azure AD Connect não foi projetado para funcionar com o AD B2C do Azure. Considere o uso da [API Microsoft Graph](manage-user-accounts-graph-api.md) para a migração do usuário. Consulte o [Guia de migração do usuário](user-migration.md) para obter detalhes.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Meu aplicativo pode abrir as páginas do Azure AD B2C em um iFrame?
 
@@ -112,7 +112,7 @@ O Azure AD B2C não se destina ao cenário de compartilhamento com parceiros ext
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Devo usar o B2C ou o B2B do AD do Azure para gerenciar identidades externas?
 
-Leia [Compare a colaboração B2B e o B2C no Azure AD](../active-directory/b2b/compare-with-b2c.md) para saber mais sobre a aplicação dos recursos apropriados aos seus cenários de identidade externa.
+Leia [comparar colaboração B2B e B2C no Azure ad](../active-directory/b2b/compare-with-b2c.md) para saber mais sobre como aplicar os recursos apropriados aos seus cenários de identidade externa.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quais recursos de relatórios e de auditoria são oferecidos pelo AD B2C do Azure? São iguais aos do Azure AD Premium?
 
@@ -124,58 +124,58 @@ Não, o AD B2C do Azure não dá suporte ao mesmo conjunto de relatórios que o 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface de usuário das páginas atendidas pelo AD B2C do Azure? Quais são os idiomas com suporte?
 
-Sim, veja [a personalização da linguagem.](user-flow-language-customization.md) Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
+Sim, consulte [personalização de idioma](user-flow-language-customization.md). Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
-### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada atendidas pelo AD B2C do Azure? Por exemplo, posso mudar a URL de contoso.b2clogin.com para login.contoso.com?
+### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada atendidas pelo AD B2C do Azure? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 
-Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **Domínios** no Portal do Azure não atinge essa meta. No entanto, com b2clogin.com, oferecemos um [domínio neutro de alto nível](b2clogin.md), e assim a aparência externa pode ser implementada sem a menção da Microsoft.
+Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **Domínios** no Portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como excluir o meu locatário do Azure AD B2C?
 
-Siga estas etapas para excluir o inquilino Azure AD B2C.
+Siga estas etapas para excluir seu locatário Azure AD B2C.
 
-Você pode usar a experiência atual **do Applications** ou a nossa nova experiência de registro unificado **de aplicativos (Preview).** [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Você pode usar a experiência de **aplicativos** atual ou nossa nova experiência unificada de **registros de aplicativo (versão prévia)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
 #### <a name="applications"></a>[Aplicativos](#tab/applications/)
 
-1. Faça login no [portal Azure](https://portal.azure.com/) como *administrador de assinaturas*. Use a mesma conta de trabalho ou escola ou a mesma conta da Microsoft que você usou para se inscrever no Azure.
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Exclua todos os **fluxos de usuário (políticas)** no seu inquilino Azure AD B2C.
-1. Exclua todas as **aplicações registradas** no seu inquilino Azure AD B2C.
-1. Selecione **Diretório ativo do Azure** no menu à esquerda.
+1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
+1. Exclua todos os **aplicativos** que você registrou em seu locatário Azure ad B2C.
+1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Em **Gerenciar**, selecione **Usuários**.
-1. Selecione cada usuário por sua vez (exclua o usuário *administrador de assinatura* que você está atualmente conectado como). Selecione **Excluir** na parte inferior da página e selecione **SIM** quando solicitado.
-1. Em **Gerenciar,** selecione **registros de aplicativos** (ou registros de aplicativos **(Legado)**).
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Em **gerenciar**, selecione **Registros de aplicativo** (ou **registros de aplicativo (Herdado)**).
 1. Selecione **Exibir todos os aplicativos**
-1. Selecione o aplicativo chamado **b2c-extensions-app,** **selecione Excluir**e selecione **Sim** quando solicitado.
-1. Em **Gerenciar,** selecione **Configurações do usuário**.
-1. Se estiver presente, em **conexões de conta do LinkedIn,** **selecione Não,** em seguida, **selecione Salvar**.
-1. Em **Gerenciar,** selecione **Propriedades**
+1. Selecione o aplicativo chamado **B2C-Extensions-app**, selecione **excluir**e, em seguida, selecione **Sim** quando solicitado.
+1. Em **gerenciar**, selecione **configurações do usuário**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
-1. Saia do portal Azure e faça login para atualizar seu acesso.
-1. Selecione **Diretório ativo do Azure** no menu à esquerda.
-1. Na **página 'Visão geral',** **selecione Excluir diretório**. Siga as instruções na tela para concluir o processo.
+1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
 
 #### <a name="app-registrations-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Faça login no [portal Azure](https://portal.azure.com/) como *administrador de assinaturas*. Use a mesma conta de trabalho ou escola ou a mesma conta da Microsoft que você usou para se inscrever no Azure.
+1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Exclua todos os **fluxos de usuário (políticas)** no seu inquilino Azure AD B2C.
-1. Selecione **Registros do aplicativo (Visualização)** e selecione a guia Todos os **aplicativos.**
-1. Exclua todos os aplicativos registrados.
-1. Exclua o **aplicativo b2c-extensions**.
+1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
+1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **todos os aplicativos** .
+1. Exclua todos os aplicativos que você registrou.
+1. Exclua o **B2C-Extensions-app**.
 1. Em **Gerenciar**, selecione **Usuários**.
-1. Selecione cada usuário por sua vez (exclua o usuário *administrador de assinatura* que você está atualmente conectado como). Selecione **Excluir** na parte inferior da página e selecione **Sim** quando solicitado.
-1. Selecione **Diretório ativo do Azure** no menu à esquerda.
-1. Em **Gerenciar,** selecione **Configurações do usuário**.
-1. Se estiver presente, em **conexões de conta do LinkedIn,** **selecione Não,** em seguida, **selecione Salvar**.
-1. Em **Gerenciar,** selecione **Propriedades**
+1. Selecione cada usuário por vez (exclua o usuário *administrador de assinatura* no qual você está conectado no momento). Selecione **excluir** na parte inferior da página e selecione **Sim** quando solicitado.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Em **gerenciar**, selecione **configurações do usuário**.
+1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
+1. Em **gerenciar**, selecione **Propriedades**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
-1. Saia do portal Azure e faça login para atualizar seu acesso.
-1. Selecione **Diretório ativo do Azure** no menu à esquerda.
-1. Na **página 'Visão geral',** **selecione Excluir diretório**. Siga as instruções na tela para concluir o processo.
+1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
+1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
 
 * * *
 

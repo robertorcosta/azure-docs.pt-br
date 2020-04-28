@@ -33,7 +33,7 @@ O artigo supõe que você já tenha:
 2. Em **Introdução**, selecione Site Recovery. Depois selecione **Preparar Infraestrutura**.
 3. Em **Protection goal** > **Onde estão suas máquinas localizadas,** selecione **On-premises**.
 4. Em **Para qual deseja replicar os seus computadores**, selecione **Para o Azure**.
-5. Em **Os seus computadores estão virtualizados?**, selecione **Sim, com o Hipervisor do VMware vSphere**. Em seguida, selecione **OK**.
+5. Em **Os seus computadores estão virtualizados?**, selecione **Sim, com o Hipervisor do VMware vSphere**. Depois, selecione **OK**.
 
 ## <a name="set-up-the-configuration-server"></a>Configurar o servidor de configuração
 

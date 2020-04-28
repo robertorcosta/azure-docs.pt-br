@@ -9,43 +9,43 @@ ms.date: 02/18/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e950d194ab48cec1a70c7bd17617332cb858a55d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77485552"
 ---
-## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Crie o inquilino Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. criar o locatário do Azure AD
 
-Criar um inquilino Azure AD usando as etapas do Criar um novo artigo [de inquilino:](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+Crie um locatário do Azure AD usando as etapas no artigo [criar um novo locatário](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Nome organizacional
 * Nome de domínio inicial
 
   Exemplo:
 
-   ![Novo inquilino azure AD](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
+   ![Novo locatário do Azure AD](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
 
-## <a name="2-create-tenant-users"></a><a name="users"></a>2. Criar usuários inquilinos
+## <a name="2-create-tenant-users"></a><a name="users"></a>2. criar usuários de locatários
 
-Nesta etapa, você cria dois usuários inquilinos do Azure AD: uma conta de administração global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Quando você cria uma conta de usuário de inquilino Azure AD, você ajusta a função Diretório para o tipo de usuário que deseja criar. Use as etapas [deste artigo](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para o seu inquilino Azure AD. Certifique-se de alterar a **função diretório** para criar os tipos de conta:
+Nesta etapa, você cria dois usuários de locatário do Azure AD: uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário de locatário do Azure AD, você ajusta a função de diretório para o tipo de usuário que deseja criar. Use as etapas neste [artigo](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para seu locatário do Azure AD. Certifique-se de alterar a **função de diretório** para criar os tipos de conta:
 
 * Administrador global
 * Usuário
 
-## <a name="3-register-the-vpn-client"></a><a name="register-client"></a>3. Registre o Cliente VPN
+## <a name="3-register-the-vpn-client"></a><a name="register-client"></a>3. registrar o cliente VPN
 
-Registre o cliente VPN no inquilino Azure AD.
+Registre o cliente VPN no locatário do Azure AD.
 
-1. Localize o ID do diretório do diretório que você deseja usar para autenticação. Ele está listado na seção propriedades da página Active Directory.
+1. Localize a ID de diretório do diretório que você deseja usar para autenticação. Ele é listado na seção Propriedades da página Active Directory.
 
     ![ID do Diretório](./media/openvpn-azure-ad-tenant-multi-app/directory-id.png)
 
 2. Copie a ID de diretório.
 
-3. Faça login no portal Azure como um usuário que é atribuído à função **de administrador** Global.
+3. Entre no portal do Azure como um usuário que é atribuído à função de **administrador global** .
 
-4. Em seguida, dê o consentimento do governo. Copie e cole a URL que pertence à sua localização de implantação na barra de endereços do seu navegador:
+4. Em seguida, dê consentimento ao administrador. Copie e cole a URL que pertence ao seu local de implantação na barra de endereços do seu navegador:
 
     Público
 
@@ -71,71 +71,71 @@ Registre o cliente VPN no inquilino Azure AD.
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Selecione a conta **do Global Admin** se solicitado.
+5. Selecione a conta de **administrador global** , se solicitado.
 
     ![ID do Diretório](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
-6. Selecione **Aceitar** quando solicitado.
+6. Selecione **aceitar** quando solicitado.
 
     ![Aceitar](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
-7. Em seu Azure AD, em **aplicativos Corporativos,** você verá **o Azure VPN** listado.
+7. Em seu Azure AD, em **aplicativos empresariais**, você verá a **VPN do Azure** listada.
 
-     ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
+     ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
 
-## <a name="4-register-additional-applications"></a><a name="register-apps"></a>4. Registre aplicações adicionais
+## <a name="4-register-additional-applications"></a><a name="register-apps"></a>4. registrar aplicativos adicionais
 
 Nesta etapa, você registra aplicativos adicionais para vários usuários e grupos.
 
-1. Em seu Diretório Ativo do Azure, clique em **registros do aplicativo** **e, em seguida, + Novo registro**.
+1. Em seu Azure Active Directory, clique em **registros de aplicativo** e em **+ novo registro**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
 
-2. Na página Registrar uma página **de aplicativo,** digite o **Nome**. Selecione os **tipos de conta suportados desejados**e clique em **Registrar**.
+2. Na página **registrar um aplicativo** , insira o **nome**. Selecione os **tipos de conta com suporte**desejados e, em seguida, clique em **registrar**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
 
-3. Uma vez que o novo aplicativo tenha sido registrado, clique **em Expor uma API** a lâmina do aplicativo.
+3. Depois que o novo aplicativo tiver sido registrado, clique em **expor uma API** na folha do aplicativo.
 
-4. Clique **+ Adicionar um escopo**.
+4. Clique em **+ Adicionar um escopo**.
 
-5. Deixe o URI de **id**de aplicativo padrão . Clique em **Salvar e continuar**.
+5. Deixe o **URI da ID do aplicativo**padrão. Clique em **Salvar e continuar**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
 
-6. Preencha os campos necessários e **certifique-se de** que o Estado está **habilitado**. Clique **em Adicionar escopo**.
+6. Preencha os campos obrigatórios e verifique se o **estado** está **habilitado**. Clique em **Adicionar escopo**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
 
-7. Clique **em Expor uma API** e então + Adicionar um aplicativo **cliente**.  Para **ID do cliente,** digite os seguintes valores dependendo da nuvem:
+7. Clique em **expor uma API** e em **+ Adicionar um aplicativo cliente**.  Para **ID do cliente**, insira os seguintes valores, dependendo da nuvem:
 
-    - Digite **41b23e61-6c1e-4545-b367-cd054e0ed4b4** para **Public** Público Azure
-    - Digite **51bb15d4-3a4f-4ebf-9dca-40096fe32426** para **governo azure**
-    - Digite **538ee9e6-310a-468d-afef-ea97365856a9** para Azure **Alemanha**
-    - Digite **49f817b6-84ae-4cc0-928c-73f27289b3aa** para Azure **China 21Vianet**
+    - Insira **41b23e61-6c1e-4545-B367-cd054e0ed4b4** para o Azure **Public**
+    - Insira o **51bb15d4-3a4f-4ebf-9dca-40096fe32426** para o Azure **governamental**
+    - Insira o **538ee9e6-310A-468d-AFEF-ea97365856a9** para o Azure **Alemanha**
+    - Insira o **49f817b6-84ae-4cc0-928C-73f27289b3aa** para o Azure **China 21vianet**
 
-8. Clique **em Adicionar aplicativo**.
+8. Clique em **Adicionar aplicativo**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
 
-9. Copie o ID do **aplicativo (cliente)** da página **Visão Geral.** Você precisará dessas informações para configurar seus gateways VPN.
+9. Copie a **ID do aplicativo (cliente)** da página **visão geral** . Você precisará dessas informações para configurar seu gateway (s) de VPN.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
 
-10. Repita as etapas nesta seção [de aplicativos adicionais](#register-apps) para criar o máximo de aplicativos necessários para sua exigência de segurança. Cada aplicativo será associado a um gateway VPN e poderá ter um conjunto diferente de usuários. Apenas um aplicativo pode ser associado a um gateway.
+10. Repita as etapas nesta seção [registrar aplicativos adicionais](#register-apps) para criar quantos aplicativos forem necessários para seu requisito de segurança. Cada aplicativo será associado a um gateway de VPN e pode ter um conjunto diferente de usuários. Somente um aplicativo pode ser associado a um gateway.
 
-## <a name="5-assign-users-to-applications"></a><a name="assign-users"></a>5. Atribuir usuários a aplicativos
+## <a name="5-assign-users-to-applications"></a><a name="assign-users"></a>5. atribuir usuários a aplicativos
 
 Atribua os usuários aos seus aplicativos.
 
-1. Em **aplicativos Azure AD -> Enterprise,** selecione o aplicativo recém-registrado e clique **em Propriedades**. Certifique-se de que a **yes** **atribuição de usuário necessária?** Clique em **Salvar**.
+1. Em **Azure ad-> aplicativos empresariais**, selecione o aplicativo recentemente registrado e clique em **Propriedades**. Verifique se a **atribuição de usuário é necessária?** está definida como **Sim**. Clique em **Salvar**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 
-2. Na página do aplicativo, clique **em Usuários e grupos**e clique em **+Adicionar usuário**.
+2. Na página do aplicativo, clique em **usuários e grupos**e, em seguida, clique em **+ Adicionar usuário**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
 
-3. Em **Adicionar atribuição,** clique **em Usuários e grupos**. Selecione os usuários que deseja acessar este aplicativo VPN. Clique em **Selecionar**.
+3. Em **Adicionar atribuição**, clique em **usuários e grupos**. Selecione os usuários que você deseja que possam acessar este aplicativo VPN. Clique em **Selecionar**.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/user4.png)
+    ![VPN do Azure](./media/openvpn-azure-ad-tenant-multi-app/user4.png)

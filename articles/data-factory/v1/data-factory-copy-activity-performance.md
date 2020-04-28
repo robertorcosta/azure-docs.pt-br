@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527377"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
@@ -55,7 +55,7 @@ Como uma referência, a tabela abaixo mostra o número da taxa de transferência
 >[!IMPORTANT]
 >Na versão 1 do Azure Data Factory, as unidades de movimentação de dados de nuvem mínimas para cópia de nuvem para nuvem são duas. Se ele não for especificado, consulte as unidades de movimentação de dados padrão usadas em [Unidades de movimentação de dados na nuvem](#cloud-data-movement-units).
 
-**Pontos a observar:**
+**Pontos a serem observados:**
 * A taxa de transferência é calculada usando a seguinte fórmula: [tamanho dos dados lidos na origem]/[duração da execução da Atividade de Cópia].
 * Os números de referência de desempenho na tabela foram medidos usando o conjunto de dados [TPC-H](http://www.tpc.org/tpch/) em uma execução de atividade de cópia única.
 * Nos armazenamentos de dados do Azure, a origem e o coletor estão na mesma região do Azure.
@@ -205,12 +205,12 @@ Atualmente, não é possível copiar dados entre dois armazenamentos de dados lo
 ### <a name="configuration"></a>Configuração
 Configure a definição **enableStaging** na Atividade de Cópia para especificar se deseja que os dados sejam preparados no Armazenamento de Blobs do Azure antes de carregá-los em um armazenamento de dados de destino. Quando você definir **enableStaging** para TRUE, especifique as propriedades adicionais listadas na tabela a seguir. Se não tiver um, também precisará criar um Armazenamento do Azure ou um serviço vinculado de assinatura de acesso compartilhado do Armazenamento para o preparo.
 
-| Propriedade | Descrição | Valor padrão | Obrigatório |
+| Propriedade | Descrição | Valor padrão | Necessária |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | **linkedServiceName** |Especifique o nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que se refere à instância do Armazenamento que você usa como um armazenamento de preparo provisório. <br/><br/>  Você não pode usar o Armazenamento com uma assinatura de acesso compartilhado para carregar dados no SQL Data Warehouse via PolyBase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
 | **path** |Especifique o caminho do armazenamento de Blobs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar os dados temporários. <br/><br/>  Especifique um caminho somente se você usar o Armazenamento com uma assinatura de acesso compartilhado ou precisar que os dados temporários fiquem em um local específico. |N/D |Não |
-| **Enablecompression** |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |Falso |Não |
+| **enableCompression** |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |Falso |Não |
 
 Aqui está um exemplo de definição da Atividade de Cópia com as propriedades descritas na tabela anterior:
 
@@ -248,7 +248,7 @@ Você é cobrado com base em duas etapas: duração da cópia e tipo de cópia.
 ## <a name="performance-tuning-steps"></a>Etapas de ajuste do desempenho
 Sugerimos que você realize estas etapas para ajustar o desempenho do serviço Data Factory com a Atividade de Cópia:
 
-1. **Estabeleça uma linha de base**. Durante a fase de desenvolvimento, teste seu pipeline com a Atividade de Cópia em relação a um exemplo de dados representativo. Você pode usar o [modelo de divisão](data-factory-scheduling-and-execution.md) do Data Factory para limitar a quantidade de dados com a qual trabalha.
+1. **Estabelecer uma linha de base**. Durante a fase de desenvolvimento, teste seu pipeline com a Atividade de Cópia em relação a um exemplo de dados representativo. Você pode usar o [modelo de divisão](data-factory-scheduling-and-execution.md) do Data Factory para limitar a quantidade de dados com a qual trabalha.
 
    Colete o tempo de execução e as características do desempenho usando o **Monitoramento e Gerenciamento de Aplicativos**. Escolha **Monitorar e Gerenciar** na página inicial do Data Factory. Na exibição em árvore, escolha o **conjunto de dados de saída**. Na lista **Janelas de Atividade** escolha a execução Atividade de Cópia. **Janelas de Atividade** listam a duração da Atividade de Cópia e o tamanho dos dados copiados. A taxa de transferência é listada no **Gerenciador de Janelas de Atividades**. Para saber mais sobre o aplicativo, consulte [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Monitoramento e Gerenciamento de Aplicativos](data-factory-monitor-manage-app.md).
 
@@ -262,7 +262,7 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
      * [Unidades de movimentação de dados de nuvem](#cloud-data-movement-units)
      * [Cópia em etapas](#staged-copy)
      * [Escalabilidade do Gateway de Gerenciamento de Dados](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Gateway de gerenciamento de dados](#considerations-for-data-management-gateway)
+   * [Gerenciamento de Dados gateway](#considerations-for-data-management-gateway)
    * [Fonte](#considerations-for-the-source)
    * [Coletor](#considerations-for-the-sink)
    * [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
@@ -416,8 +416,8 @@ Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipel
 ## <a name="reference"></a>Referência
 Aqui estão as referências de monitoramento e ajuste do desempenho para alguns dos armazenamentos de dados com suporte:
 
-* Armazenamento Azure Blob: [Metas de escalabilidade e desempenho para armazenamento Blob](../../storage/blobs/scalability-targets.md) e [lista de verificação de desempenho e escalabilidade para armazenamento Blob](../../storage/blobs/storage-performance-checklist.md).
-* Armazenamento de tabela do Azure: [metas de escalabilidade e desempenho para armazenamento de tabela](../../storage/tables/scalability-targets.md) e [verificação de desempenho e escalabilidade para armazenamento de tabela](../../storage/tables/storage-performance-checklist.md).
+* Armazenamento de blob do Azure: [escalabilidade e metas de desempenho para armazenamento de BLOBs](../../storage/blobs/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de BLOBs](../../storage/blobs/storage-performance-checklist.md).
+* Armazenamento de tabelas do Azure: [escalabilidade e metas de desempenho para armazenamento de tabelas](../../storage/tables/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de tabelas](../../storage/tables/storage-performance-checklist.md).
 * Banco de dados SQL do Azure: é possível [monitorar o desempenho](../../sql-database/sql-database-single-database-monitor.md) e verificar o percentual DTU (unidade de transação do banco de dados)
 * SQL Data Warehouse do Azure: Sua capacidade é medida em unidades de data warehouse (DWUs); consulte [Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../../cosmos-db/performance-levels.md)

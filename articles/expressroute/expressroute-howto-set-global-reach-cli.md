@@ -53,7 +53,7 @@ Você pode habilitar o ExpressRoute Global Reach entre qualquer dois circuitos E
 
 Ao executar o comando para habilitar a conectividade, observe os seguintes requisitos para valores de parâmetro:
 
-* *peer-circuit* deve ser a ID de recurso completo. Por exemplo: 
+* *peer-circuit* deve ser a ID de recurso completo. Por exemplo:
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

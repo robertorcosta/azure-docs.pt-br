@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Personalize a interface do usuário'
+title: 'Tutorial: personalizar a interface do usuário'
 titleSuffix: Azure AD B2C
-description: Saiba como personalizar a interface do usuário (UI) de seus aplicativos no Azure Active Directory B2C usando o portal Azure.
+description: Saiba como personalizar a interface do usuário de seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -12,15 +12,15 @@ ms.date: 02/01/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186243"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalize a interface das experiências do usuário no Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
-Para experiências mais comuns do usuário, como inscrição, login e edição de perfil, você pode usar [fluxos de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azure AD B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
+Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azure ad B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
 
 Neste artigo, você aprenderá como:
 
@@ -43,8 +43,8 @@ Você cria um contêiner e uma conta de Armazenamento do Azure e coloca os arqui
 
 Embora você possa armazenar seus arquivos de várias maneiras, para este tutorial, vai armazená-los no [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o filtro **de assinatura Diretório +** no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o seu locatário B2C do Azure.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Verifique se você está usando o diretório que contém sua assinatura do Azure. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém sua assinatura. Esse diretório é diferente daquele que contém o seu locatário B2C do Azure.
 3. Escolha Todos os serviços no canto superior esquerdo do portal do Azure, então pesquise e selecione **Contas de armazenamento**.
 4. Selecione **Adicionar**.
 5. Em **Grupo de recursos**, selecione **Criar novo**, insira um nome para o novo grupo de recursos e, em seguida, clique em **OK**.
@@ -64,12 +64,12 @@ Embora você possa armazenar seus arquivos de várias maneiras, para este tutori
 
 1. No menu, selecione **CORS**.
 2. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao digitar o nome do seu locatário.
-3. Para **métodos permitidos,** selecione, `GET``PUT`e `OPTIONS`.
+3. Para **métodos permitidos**, selecione `GET`,`PUT`e `OPTIONS`.
 4. Para **cabeçalhos permitidos**, digite um asterisco (*).
 5. Para **cabeçalhos expostos**, digite um asterisco (*).
 6. Para **Idade máxima de**, insira 200.
 
-    ![Página de configuração do CORS no armazenamento Azure Blob no portal Azure](./media/tutorial-customize-ui/enable-cors.png)
+    ![Página de configuração do CORS no armazenamento de BLOBs do Azure no portal do Azure](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Clique em **Salvar**.
 
@@ -127,11 +127,11 @@ Para personalizar a interface do usuário da experiência de inscrição, você 
 
 Neste tutorial, você armazena os arquivos criados na conta de armazenamento para que o Azure AD B2C possa acessá-los.
 
-1. Escolha **Todos os serviços** no canto superior esquerdo do portal Azure, procure e selecione **Contas de armazenamento**.
+1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure, procure e selecione **contas de armazenamento**.
 2. Selecione a conta de armazenamento que você criou, selecione **Blobs** e, em seguida, selecione o contêiner que você criou.
 3. Selecione **Fazer Upload**, navegue até o arquivo *custom-ui.html* e selecione-o, então clique em **Fazer Upload**.
 
-    ![Carregar página blob no portal com botão Upload e Arquivos destacados](./media/tutorial-customize-ui/upload-blob.png)
+    ![Carregar página de blob no portal com o botão carregar e os arquivos realçados](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copie a URL para o arquivo que você carregou para usar posteriormente no tutorial.
 5. Repita as etapas 3 e 4 para o arquivo *style.css*.
@@ -150,11 +150,11 @@ Neste tutorial, você armazena os arquivos criados na conta de armazenamento par
 2. Na parte superior da página, clique em **Executar fluxo de usuário**.
 3. Clique no botão **Executar fluxo de usuário**.
 
-    ![Execute a página de fluxo do usuário para o fluxo de usuário de inscrição ou login](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Executar a página de fluxo de usuário para o fluxo de usuário de inscrição ou de entrada](./media/tutorial-customize-ui/run-user-flow.png)
 
     Você deverá ver uma página semelhante ao exemplo a seguir com os elementos centralizados com base no arquivo CSS que você criou:
 
-    ![Navegador da Web mostrando cadastre-se ou faça login na página com elementos de interface do usuário personalizados](./media/tutorial-customize-ui/run-now.png)
+    ![Navegador da Web mostrando a página de inscrição ou de entrada com elementos personalizados da interface do usuário](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

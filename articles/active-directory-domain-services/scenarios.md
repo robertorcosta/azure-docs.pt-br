@@ -1,6 +1,6 @@
 ---
-title: Cenários comuns de implantação para serviços de domínio Azure AD | Microsoft Docs
-description: Conheça alguns dos cenários comuns e casos de uso dos Serviços de Domínio do Diretório Ativo do Azure para fornecer valor e atender às necessidades dos negócios.
+title: Cenários comuns de implantação para Azure AD Domain Services | Microsoft Docs
+description: Saiba mais sobre alguns dos cenários comuns e casos de uso para Azure Active Directory Domain Services fornecer valor e atender às necessidades dos negócios.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,100 +12,100 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77917223"
 ---
-# <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para serviços de domínio do Diretório Ativo do Azure
+# <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services
 
-O Azure Active Directory Domain Services (Azure AD DS) fornece serviços de domínio gerenciados, como participação em domínio, política de grupo, protocolo de acesso a diretórios leves (LDAP) e autenticação Kerberos/NTLM. O Azure AD DS se integra ao locatário existente do Azure AD, o que permite aos usuários entrarem usando suas credenciais atuais. Você usa esses serviços de domínio sem a necessidade de implantar, gerenciar e corrigir controladores de domínio na nuvem, o que fornece um levantamento e deslocamento mais suaves de recursos no local para o Azure.
+O Azure Active Directory Domain Services (AD DS do Azure) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP (Lightweight Directory Access Protocol) e autenticação Kerberos/NTLM. O Azure AD DS se integra ao locatário existente do Azure AD, o que permite aos usuários entrarem usando suas credenciais atuais. Você usa esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar patch nos controladores de domínio na nuvem, o que fornece um aumento mais suave dos recursos locais para o Azure.
 
-Este artigo descreve alguns cenários de negócios comuns onde o Azure AD DS fornece valor e atende a essas necessidades.
+Este artigo descreve alguns cenários de negócios comuns em que o Azure AD DS fornece valor e atende a essas necessidades.
 
-## <a name="secure-administration-of-azure-virtual-machines"></a>Administração segura de máquinas virtuais Azure
+## <a name="secure-administration-of-azure-virtual-machines"></a>Administração segura de máquinas virtuais do Azure
 
-Para permitir que você use um único conjunto de credenciais AD, as máquinas virtuais (VMs) do Azure podem ser unidas a um domínio gerenciado pelo Azure AD DS. Essa abordagem reduz problemas de gerenciamento de credenciais, como a manutenção de contas de administrador locais em cada VM ou contas separadas e senhas entre ambientes.
+Para permitir que você use um único conjunto de credenciais do AD, as VMs (máquinas virtuais) do Azure podem ser unidas a um domínio gerenciado do Azure AD DS. Essa abordagem reduz os problemas de gerenciamento de credenciais, como a manutenção de contas de administrador local em cada VM ou a contas e senhas separadas entre ambientes.
 
-As VMs que são unidas a um domínio gerenciado pelo Azure AD DS também podem ser gerenciadas e protegidas usando a diretiva de grupo. As linhas de base de segurança necessárias podem ser aplicadas às VMs para bloqueá-las de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar recursos de gerenciamento de políticas de grupo para restringir os tipos de aplicativos que podem ser lançados na VM.
+As VMs que ingressaram em um domínio gerenciado do Azure AD DS também podem ser gerenciadas e protegidas usando a política de grupo. As linhas de base de segurança necessárias podem ser aplicadas às VMs para bloqueá-las de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar recursos de gerenciamento de política de grupo para restringir os tipos de aplicativos que podem ser iniciados na VM.
 
 ![Administração simplificada de máquinas virtuais do Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Vamos olhar para um cenário de exemplo comum. À medida que servidores e outras infra-estruturas atingem o fim da vida útil, contoso quer mover aplicativos atualmente hospedados em instalações para a nuvem. O padrão de TI atual determina que os servidores que hospedam aplicativos corporativos devem ser unidos pelo domínio e gerenciados usando a política de grupo. O administrador de TI da Contoso prefere participar de VMs implantados no Azure para facilitar a administração, pois os usuários podem então fazer login usando suas credenciais corporativas. Quando unidos por domínio, as VMs também podem ser configuradas para cumprir as linhas de base de segurança necessárias usando GPOs (Group Policy Objects, objetos de diretiva de grupo). Contoso prefere não implantar, monitorar e gerenciar seus próprios controladores de domínio no Azure.
+Vejamos um cenário de exemplo comum. Como servidores e outras infra-estruturas atingem o fim da vida útil, a contoso deseja mover os aplicativos atualmente hospedados localmente para a nuvem. Seu padrão de ti atual exige que os servidores que hospedam aplicativos corporativos devem ser ingressados no domínio e gerenciados usando a diretiva de grupo. O administrador de ti da Contoso prefere o ingresso no domínio de VMs implantadas no Azure para facilitar a administração, pois os usuários podem entrar usando suas credenciais corporativas. Quando ingressado no domínio, as VMs também podem ser configuradas para atender às linhas de base de segurança necessárias usando objetos de política de grupo (GPOs). A contoso prefere não implantar, monitorar e gerenciar seus próprios controladores de domínio no Azure.
 
-Azure AD DS é um ótimo ajuste para este caso de uso. Um domínio gerenciado pelo Azure AD DS permite que você participe das VMs, use um único conjunto de credenciais e aplique política de grupo. Como um domínio gerenciado, você não precisa configurar e manter os controladores de domínio você mesmo.
+O Azure AD DS é uma ótima opção para esse caso de uso. Um domínio gerenciado do Azure AD DS permite que você ingresse em VMs de domínio, use um único conjunto de credenciais e aplique a política de grupo. Como um domínio gerenciado, você não precisa configurar e manter os controladores de domínio por conta própria.
 
 ### <a name="deployment-notes"></a>Observações de implantação
 
-As seguintes considerações de implantação se aplicam a este caso de uso de exemplo:
+As seguintes considerações de implantação se aplicam a este exemplo de caso de uso:
 
-* Os domínios gerenciados do Azure AD DS usam uma estrutura única e plana da Unidade Organizacional (OU) por padrão. Todas as VMs aderidas por domínio estão em um único OU. Se desejar, você pode criar OUs personalizados.
-* O Azure AD DS usa um GPO integrado para os usuários e contêineres de computadores. Para controle adicional, você pode criar GPOs personalizados e direcioná-los para OUs personalizados.
-* O Azure AD DS suporta o esquema de objeto do computador AD base. Você não pode estender o esquema do objeto do computador.
+* O Azure AD DS domínios gerenciados usam uma única estrutura de UO (unidade organizacional) simples por padrão. Todas as VMs ingressadas no domínio estão em uma única UO. Se desejar, você pode criar UOs personalizadas.
+* O Azure AD DS usa um GPO interno para os contêineres usuários e computadores. Para controle adicional, você pode criar GPOs personalizados e direcioná-los para UOs personalizadas.
+* O Azure AD DS dá suporte ao esquema de objeto de computador do AD base. Você não pode estender o esquema do objeto do computador.
 
-## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>Aplicativos de elevação e mudança no local que usam autenticação de vinculação LDAP
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>Aplicativos locais de comparação de precisão e deslocamento que usam autenticação de associação LDAP
 
-Como cenário amostral, Contoso tem um aplicativo local que foi comprado de um ISV há muitos anos. O aplicativo está atualmente em modo de manutenção pelo ISV e solicitar alterações no aplicativo é proibitivamente caro. Este aplicativo tem um frontend baseado na Web que coleta credenciais do usuário usando um formulário web e, em seguida, autentica os usuários realizando um vínculo LDAP ao ambiente AD DS local.
+Como um cenário de exemplo, a contoso tem um aplicativo local que foi adquirido de um ISV há muitos anos. O aplicativo está atualmente no modo de manutenção pelo ISV e solicitar alterações ao aplicativo é extremamente caro. Esse aplicativo tem um front-end baseado na Web que coleta as credenciais do usuário usando um formulário da Web e autentica os usuários executando uma associação LDAP ao ambiente de AD DS local.
 
 ![Associação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
-Contoso gostaria de migrar este aplicativo para o Azure. O aplicativo deve continuar a funcionar como está, sem necessidade de alterações. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem treinamento adicional. Deve ser transparente para os usuários finais onde o aplicativo está sendo executado.
+A contoso gostaria de migrar esse aplicativo para o Azure. O aplicativo deve continuar funcionando no estado em que se encontra, sem necessidade de alterações. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem treinamento adicional. Ele deve ser transparente para os usuários finais onde o aplicativo está em execução.
 
-Para este cenário, o Azure AD DS permite que os aplicativos executem vínculos LDAP como parte do processo de autenticação. Os aplicativos legados no local podem levantar e mudar para o Azure e continuar a autenticar perfeitamente os usuários sem qualquer alteração na configuração ou experiência do usuário.
-
-### <a name="deployment-notes"></a>Observações de implantação
-
-As seguintes considerações de implantação se aplicam a este caso de uso de exemplo:
-
-* Certifique-se de que o aplicativo não precisa modificar/gravar no diretório. O acesso à gravação do LDAP a um domínio gerenciado pelo Azure AD DS não é suportado.
-* Você não pode alterar senhas diretamente contra um domínio gerenciado pelo Azure AD DS. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são sincronizadas automaticamente e disponíveis no domínio gerenciado pelo Azure AD DS.
-
-## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Aplicativos de elevação e mudança no local que usam leitura LDAP para acessar o diretório
-
-Como o cenário de exemplo anterior, vamos supor que a Contoso tenha um aplicativo de linha de negócios (LOB) que foi desenvolvido há quase uma década. Este aplicativo tem conhecimento do diretório e foi projetado para usar o LDAP para ler informações/atributos sobre usuários do AD DS. O aplicativo não modifica atributos ou de outra forma escreve para o diretório.
-
-Contoso quer migrar esse aplicativo para o Azure e aposentar o hardware local de envelhecimento que atualmente hospeda este aplicativo. O aplicativo não pode ser reescrito para usar APIs de diretório modernos, como a API do Microsoft Graph baseada em REST. Uma opção de elevação e mudança é desejada onde o aplicativo pode ser migrado para ser executado na nuvem, sem modificar o código ou reescrever o aplicativo.
-
-Para ajudar com esse cenário, o Azure AD DS permite que os aplicativos realizem leituras lDAP contra o domínio gerenciado para obter as informações de atributo de que precisa. O aplicativo não precisa ser reescrito, então um elevador e uma mudança no Azure permite que os usuários continuem a usar o aplicativo sem perceber que há uma mudança no local em que ele é executado.
+Para esse cenário, o Azure AD DS permite que os aplicativos executem associações LDAP como parte do processo de autenticação. Os aplicativos locais herdados podem se deslocar e mudar para o Azure e continuar a autenticar os usuários sem qualquer alteração na configuração ou na experiência do usuário.
 
 ### <a name="deployment-notes"></a>Observações de implantação
 
-As seguintes considerações de implantação se aplicam a este caso de uso de exemplo:
+As seguintes considerações de implantação se aplicam a este exemplo de caso de uso:
 
-* Certifique-se de que o aplicativo não precisa modificar/gravar no diretório. O acesso à gravação do LDAP a um domínio gerenciado pelo Azure AD DS não é suportado.
-* Certifique-se de que o aplicativo não precisa de um esquema de diretório ativo personalizado/estendido. As extensões de esquema não são suportadas no Azure AD DS.
+* Certifique-se de que o aplicativo não precise modificar/gravar no diretório. Não há suporte para o acesso de gravação LDAP para um domínio gerenciado do Azure AD DS.
+* Você não pode alterar as senhas diretamente em um domínio gerenciado do Azure AD DS. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são sincronizadas automaticamente e disponíveis no domínio gerenciado AD DS do Azure.
 
-## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure"></a>Migre um serviço no local ou aplicativo daemon para o Azure
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Aplicativos locais de comparação de precisão e deslocamento que usam LDAP leitura para acessar o diretório
 
-Alguns aplicativos incluem vários níveis, onde um dos níveis precisa executar chamadas autenticadas para um nível backend, como um banco de dados. Contas de serviço sd são comumente usadas nesses cenários. Quando você levanta e transfere aplicativos para o Azure, o Azure AD DS permite que você continue a usar contas de serviço da mesma forma. Você pode optar por usar a mesma conta de serviço sincronizada do seu diretório local para o Azure AD ou criar um OU personalizado e, em seguida, criar uma conta de serviço separada nesse OU. Com qualquer abordagem, os aplicativos continuam funcionando da mesma maneira para fazer chamadas autenticadas para outros níveis e serviços.
+Como o cenário de exemplo anterior, vamos supor que a contoso tenha um aplicativo de linha de negócios (LOB) local que foi desenvolvido há quase uma década. Este aplicativo tem reconhecimento de diretório e foi projetado para usar LDAP para ler informações/atributos sobre os usuários de AD DS. O aplicativo não modifica atributos ou, de outra forma, grava no diretório.
+
+A contoso deseja migrar esse aplicativo para o Azure e desativar o hardware local de envelhecimento que hospeda esse aplicativo no momento. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como a API de Microsoft Graph baseada em REST. Uma opção de comparação de precisão e deslocamento é desejada onde o aplicativo pode ser migrado para ser executado na nuvem, sem modificar o código ou reescrever o aplicativo.
+
+Para ajudar nesse cenário, o Azure AD DS permite que os aplicativos executem leituras LDAP no domínio gerenciado para obter as informações de atributo de que precisa. O aplicativo não precisa ser reescrito, portanto, um deslocamento e uma mudança no Azure permitem que os usuários continuem a usar o aplicativo sem perceber que há uma alteração no local em que é executado.
+
+### <a name="deployment-notes"></a>Observações de implantação
+
+As seguintes considerações de implantação se aplicam a este exemplo de caso de uso:
+
+* Certifique-se de que o aplicativo não precise modificar/gravar no diretório. Não há suporte para o acesso de gravação LDAP para um domínio gerenciado do Azure AD DS.
+* Verifique se o aplicativo não precisa de um esquema de Active Directory personalizado/estendido. Não há suporte para extensões de esquema no AD DS do Azure.
+
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure"></a>Migrar um aplicativo de serviço ou daemon local para o Azure
+
+Alguns aplicativos incluem várias camadas, em que uma das camadas precisa executar chamadas autenticadas para uma camada de back-end, como um banco de dados. As contas de serviço do AD são comumente usadas nesses cenários. Ao migrar e deslocar aplicativos para o Azure, o Azure AD DS permite que você continue a usar contas de serviço da mesma maneira. Você pode optar por usar a mesma conta de serviço que é sincronizada do seu diretório local para o Azure AD ou criar uma UO personalizada e, em seguida, criar uma conta de serviço separada nessa UO. Com qualquer abordagem, os aplicativos continuam a funcionar da mesma maneira de fazer chamadas autenticadas para outras camadas e serviços.
 
 ![Conta de serviço usando WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Neste cenário de exemplo, o Contoso possui um aplicativo de cofre de software personalizado que inclui um front-end web, um servidor SQL e um servidor FTP back-end. A autenticação integrada do Windows usando contas de serviço autentica a front-end da Web para o servidor FTP. O front-end da Web é configurado para execução como uma conta de serviço. O servidor back-end está configurado para autorizar o acesso da conta de serviço para o front-end da Web. Contoso não quer implantar e gerenciar suas próprias VMs controladoras de domínio na nuvem para mover este aplicativo para o Azure.
+Neste cenário de exemplo, a contoso tem um aplicativo de cofre de software personalizado que inclui um front-end da Web, um SQL Server e um servidor FTP de back-end. A autenticação integrada do Windows usando contas de serviço autentica o front-end da Web para o servidor FTP. O front-end da Web é configurado para execução como uma conta de serviço. O servidor back-end está configurado para autorizar o acesso da conta de serviço para o front-end da Web. A contoso não deseja implantar e gerenciar suas próprias VMs do controlador de domínio na nuvem para mover esse aplicativo para o Azure.
 
-Para este cenário, os servidores que hospedam o front-end web, o servidor SQL e o servidor FTP podem ser migrados para VMs do Azure e unidos a um domínio gerenciado pelo Azure AD DS. As VMs podem então usar a mesma conta de serviço em seu diretório local para fins de autenticação do aplicativo, que é sincronizada através do Azure AD connect.
+Para esse cenário, os servidores que hospedam o front-end da Web, o SQL Server e o servidor FTP podem ser migrados para VMs do Azure e ingressados em um domínio gerenciado do Azure AD DS. As VMs podem usar a mesma conta de serviço em seu diretório local para fins de autenticação do aplicativo, que é sincronizado por meio do Azure AD usando o Azure AD Connect.
 
 ### <a name="deployment-notes"></a>Observações de implantação
 
-As seguintes considerações de implantação se aplicam a este caso de uso de exemplo:
+As seguintes considerações de implantação se aplicam a este exemplo de caso de uso:
 
-* Certifique-se de que os aplicativos usem um nome de usuário e senha para autenticação. A autenticação baseada em certificadoou smartcard não é suportada pelo Azure AD DS.
-* Você não pode alterar senhas diretamente contra um domínio gerenciado pelo Azure AD DS. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são sincronizadas automaticamente e disponíveis no domínio gerenciado pelo Azure AD DS.
+* Certifique-se de que os aplicativos usem um nome de usuário e senha para autenticação. Não há suporte para autenticação com base em certificado ou cartão inteligente no Azure AD DS.
+* Você não pode alterar as senhas diretamente em um domínio gerenciado do Azure AD DS. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são sincronizadas automaticamente e disponíveis no domínio gerenciado AD DS do Azure.
 
-## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implantações de serviços de desktop remoto do Windows Server no Azure
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implantações de serviços de área de trabalho remota do Windows Server no Azure
 
-Você pode usar o Azure AD DS para fornecer serviços de domínio gerenciados para servidores de desktop remotos implantados no Azure. Para obter mais informações sobre esse cenário de implantação, consulte [como integrar os Serviços de Domínio Ad do Azure com a sua implantação RDS][windows-rds].
+Você pode usar o Azure AD DS para fornecer serviços de domínio gerenciado para servidores de área de trabalho remota implantados no Azure. Para obter mais informações sobre esse cenário de implantação, consulte [como integrar o Azure AD Domain Services com sua implantação do RDS][windows-rds].
 
 ## <a name="domain-joined-hdinsight-clusters"></a>Clusters HDInsight ingressados no domínio
 
-Você pode configurar um cluster Azure HDInsight que está unido a um domínio gerenciado pelo Azure AD DS com o Apache Ranger ativado. Você pode criar e aplicar políticas de Colméia através do Apache Ranger, e permitir que os usuários, como cientistas de dados, se conectem à Colméia usando ferramentas baseadas em ODBC, como Excel ou Tableau. Continuamos trabalhando para adicionar outras cargas de trabalho, como HBase, Spark e Storm, ao HDInsight, que se juntou ao domínio.
+Você pode configurar um cluster do Azure HDInsight que tenha ingressado em um domínio gerenciado AD DS do Azure com o Apache Ranger habilitado. Você pode criar e aplicar políticas de Hive por meio do Apache Ranger e permitir que usuários, como cientistas de dados, se conectem ao hive usando ferramentas baseadas em ODBC como Excel ou tableau. Continuamos a trabalhar para adicionar outras cargas de trabalho, como HBase, Spark e Storm ao HDInsight ingressado no domínio.
 
-Para obter mais informações sobre esse cenário de implantação, veja [como configurar clusters HDInsight unidos por domínio][hdinsight]
+Para obter mais informações sobre esse cenário de implantação, consulte [como configurar clusters HDInsight ingressados no domínio][hdinsight]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, [crie e configure uma instância de serviços de domínio do Diretório Ativo do Azure][tutorial-create-instance]
+Para começar, [criar e configurar uma instância de Azure Active Directory Domain Services][tutorial-create-instance]
 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md

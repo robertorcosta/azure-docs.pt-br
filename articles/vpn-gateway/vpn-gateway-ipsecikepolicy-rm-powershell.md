@@ -1,5 +1,5 @@
 ---
-title: Política IPsec/IKE para conexões S2S VPN & VNet-to-VNet
+title: Política de IPsec/IKE para VPN S2S & conexões VNet para VNet
 titleSuffix: Azure VPN Gateway
 description: Configure política IPsec/IKE para conexões S2S ou VNet-para-VNet com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161895"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
@@ -26,10 +26,10 @@ O padrão de protocolo IKE e IPsec suporta uma ampla gama de algoritmos criptogr
 
 Este artigo fornece instruções para criar e configurar uma política de IPsec/IKE e se aplicam a uma conexão nova ou existente:
 
-* [Parte 1 - Fluxo de trabalho para criar e definir a política IPsec/IKE](#workflow)
+* [Parte 1-fluxo de trabalho para criar e definir a política de IPsec/IKE](#workflow)
 * [Parte 2 - Suporte para algoritmos de criptografia e restrições de chave](#params)
-* [Parte 3 - Criar uma nova conexão VPN S2S com a política IPsec/IKE](#crossprem)
-* [Parte 4 - Criar uma nova conexão VNet-to-VNet com a diretiva IPsec/IKE](#vnet2vnet)
+* [Parte 3-criar uma nova conexão VPN S2S com a política de IPsec/IKE](#crossprem)
+* [Parte 4-criar uma nova conexão de VNet para VNet com a política de IPsec/IKE](#vnet2vnet)
 * [Parte 5 - Gerenciar (criar, adicionar, remover) política IPsec/IKE para uma conexão](#managepolicy)
 
 > [!IMPORTANT]
@@ -122,7 +122,7 @@ Consulte [Criar uma conexão VPN S2S](vpn-gateway-create-site-to-site-rm-powersh
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Etapa 1 - Criar a rede virtual, o gateway de VPN e o gateway de rede local
 
-#### <a name="1-declare-your-variables"></a>1. Declare suas variáveis
+#### <a name="1-declare-your-variables"></a>1. declare suas variáveis
 
 Para este exercício, começaremos declarando nossa variáveis. Certifique-se de substituir os valores pelos seus próprios ao configurar para a produção.
 
@@ -163,7 +163,7 @@ Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Crie a rede virtual, o gateway VPN e o gateway de rede local
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. criar a rede virtual, o gateway de VPN e o gateway de rede local
 
 O exemplo a seguir cria a rede virtual, TestVNet1, com três sub-redes e o gateway de VPN. Ao substituir valores, é importante você sempre nomear sua sub-rede de gateway especificamente como GatewaySubnet. Se você usar outro nome, a criação do gateway falhará.
 
@@ -186,7 +186,7 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 ### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a><a name="s2sconnection"></a>Parte 2 - Criar uma nova conexão de VPN S2S com a política de IPsec/IKE
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Crie uma política IPsec/IKE
+#### <a name="1-create-an-ipsecike-policy"></a>1. criar uma política de IPsec/IKE
 
 O script de exemplo a seguir cria uma política de IPsec/IKE com os parâmetros e os algoritmos seguintes:
 
@@ -199,7 +199,7 @@ $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -Dh
 
 Se você usar GCMAES para IPsec, deverá usar o mesmo algoritmo GCMAES e comprimento de chave tanto para criptografia quanto para integridade IPsec. Por o exemplo acima, os parâmetros correspondentes serão "-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256" ao usar GCMAES256.
 
-#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Crie a conexão VPN S2S com a diretiva IPsec/IKE
+#### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. criar a conexão VPN S2S com a política de IPsec/IKE
 
 Criar uma conexão VPN S2S e aplicar a política de IPsec/IKE criada anteriormente.
 
@@ -226,7 +226,7 @@ Consulte [Criar uma conexão VNet para VNet](vpn-gateway-vnet-vnet-rm-ps.md) par
 
 ### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>Etapa 1 - Criar a segunda rede virtual e um gateway de VPN
 
-#### <a name="1-declare-your-variables"></a>1. Declare suas variáveis
+#### <a name="1-declare-your-variables"></a>1. declare suas variáveis
 
 Não se esqueça de substituir os valores com aqueles que você deseja usar para sua configuração.
 
@@ -250,7 +250,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Crie a segunda rede virtual e o gateway VPN no novo grupo de recursos
+#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Crie a segunda rede virtual e o gateway de VPN no novo grupo de recursos
 
 ```powershell
 New-AzResourceGroup -Name $RG2 -Location $Location2
@@ -273,7 +273,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 Semelhante à conexão VPN S2S, criar uma política de IPsec/IKE e em seguida aplicar à política para a nova conexão.
 
-#### <a name="1-create-an-ipsecike-policy"></a>1. Crie uma política IPsec/IKE
+#### <a name="1-create-an-ipsecike-policy"></a>1. criar uma política de IPsec/IKE
 
 O script de exemplo a seguir cria uma política de IPsec/IKE diferente com os parâmetros e os algoritmos seguintes:
 * IKEv2: AES128, SHA1, DHGroup14
@@ -283,7 +283,7 @@ O script de exemplo a seguir cria uma política de IPsec/IKE diferente com os pa
 $ipsecpolicy2 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Crie conexões VNet-to-VNet com a diretiva IPsec/IKE
+#### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. criar conexões de VNet para VNet com a política de IPsec/IKE
 
 Crie uma conexão VNet para VNet e apliaque a política de IPsec/IKE criada por você. Neste exemplo, ambos os gateways estão na mesma assinatura. Portanto, é possível criar e configurar ambas conexões com a mesma política de IPsec/IKE na mesma sessão do PowerShell.
 
@@ -317,7 +317,7 @@ As mesmas etapas se aplicam a conexões S2S e VNet para VNet.
 > [!IMPORTANT]
 > A política de IPsec/IKE tem suporte somente nos gateways de VPN baseados en rota *Standard* e *HighPerformance*. Ele não funciona no SKU de gateway básico ou o gateway de VPN baseado em políticas.
 
-#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Mostre a política IPsec/IKE de uma conexão
+#### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. mostrar a política de IPsec/IKE de uma conexão
 
 O exemplo a seguir mostra como obter a política de IPsec/IKE configurada em uma conexão. Os scripts também continuam de exercícios acima.
 
@@ -341,9 +341,9 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-Se não houver nenhuma diretiva IPsec/IKE configurada, o comando (PS> $connection6. IpsecPolicies) obtém um retorno vazio. Isso não significa que IPsec/IKE não está configurado na conexão, mas que não há nenhuma política de IPsec/IKE personalizada. A conexão real usa a política padrão negociada entre o dispositivo VPN no local e o gateway de VPN do Azure.
+Se não houver nenhuma política de IPsec/IKE configurada, o comando (PS> $connection 6. IpsecPolicies) Obtém um retorno vazio. Isso não significa que IPsec/IKE não está configurado na conexão, mas que não há nenhuma política de IPsec/IKE personalizada. A conexão real usa a política padrão negociada entre o dispositivo VPN no local e o gateway de VPN do Azure.
 
-#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Adicione ou atualize uma diretiva IPsec/IKE para uma conexão
+#### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. adicionar ou atualizar uma política de IPsec/IKE para uma conexão
 
 As etapas para adicionar uma política nova ou atualizar uma política existente em uma conexão são as mesmas: criar uma nova política, aplicar a nova política para a conexão.
 
@@ -383,7 +383,7 @@ DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 
-#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. Remova uma diretiva IPsec/IKE de uma conexão
+#### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. remover uma política de IPsec/IKE de uma conexão
 
 Após a remoção da política personalizada de uma conexão, o gateway de VPN do Azure reverterá para a [lista padrão de propostas de IPsec/IKE](vpn-gateway-about-vpn-devices.md) e renegociará novamente com o seu dispositivo VPN local.
 

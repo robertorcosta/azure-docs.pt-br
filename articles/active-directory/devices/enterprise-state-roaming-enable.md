@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672409"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
@@ -25,7 +25,7 @@ Enterprise State Roaming está disponível para qualquer organização com uma l
 Quando você habilita o Enterprise State Roaming, sua organização recebe automaticamente uma licença gratuita de uso limitado para o Azure Rights Management da Proteção de Informações do Azure. Essa assinatura gratuita é limitada a criptografar e descriptografar configurações da empresa e dados de aplicativo sincronizados por Enterprise State Roaming. Você deve ter [uma assinatura paga](https://azure.microsoft.com/pricing/details/information-protection/) para usar os recursos completos do serviço do Azure Rights Management.
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML Microsoft Edge Legacy, lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado no Microsoft Edge Chromium, lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Para habilitar o Enterprise State Roaming
 
@@ -39,13 +39,13 @@ Para que um dispositivo Windows 10 use o serviço Enterprise State Roaming, o di
 
 ## <a name="data-storage"></a>Armazenamento de dados
 
-Os dados do Enterprise State Roaming são hospedados em uma ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que se alinhem melhor ao valor de país/região definido na instância do Azure Active Directory. Os dados do Enterprise State Roaming são particionados com base em três regiões geográficas principais: América do Norte, EMEA e APAC. Dados de Enterprise State Roaming para o locatário estão localizados localmente com a região geográfica e não são replicados entre regiões.  Por exemplo: 
+Os dados do Enterprise State Roaming são hospedados em uma ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que se alinhem melhor ao valor de país/região definido na instância do Azure Active Directory. Os dados do Enterprise State Roaming são particionados com base em três regiões geográficas principais: América do Norte, EMEA e APAC. Dados de Enterprise State Roaming para o locatário estão localizados localmente com a região geográfica e não são replicados entre regiões.  Por exemplo:
 
 | Valor de país/região | tem os dados hospedados em |
 | -------------------- | ------------------------ |
-| Um país/região da EMEA como a França ou a Zâmbia | Uma ou mais das regiões do Azure na Europa |
-| Um país/região norte-americana como Estados Unidos ou Canadá | Uma ou mais das regiões do Azure nos EUA |
-| Um país/região da APAC como a Austrália ou a Nova Zelândia | Uma ou mais das regiões do Azure na Ásia |
+| Um país/região da EMEA, como França ou Zâmbia | Uma ou mais das regiões do Azure na Europa |
+| Um país/região da América do Norte, como Estados Unidos ou Canadá | Uma ou mais das regiões do Azure nos EUA |
+| Um país/região do oeste, como Austrália ou Nova Zelândia | Uma ou mais das regiões do Azure na Ásia |
 | Regiões da América do Sul e da Antártida | Uma ou mais regiões do Azure nos EUA |
 
 O valor de país/região é definido como parte do processo de criação de domínio do Azure AD e não pode ser modificado posteriormente. Se você precisar de mais detalhes sobre o local de armazenamento de dados, crie um tíquete no [suporte do Azure](https://azure.microsoft.com/support/options/).
@@ -79,10 +79,10 @@ Exclusão explícita é quando o administrador do Azure exclui um usuário ou di
 
 ### <a name="stale-data-deletion"></a>Exclusão de dados obsoletos
 
-Os dados que não forem acessados por um ano ("o período de retenção") serão tratados como obsoletos e poderão ser excluídos da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será menos de 90 dias. Os dados obsoletos podem ser um conjunto específico de configurações do Windows/aplicativo ou todas as configurações para um usuário específico. Por exemplo: 
+Os dados que não forem acessados por um ano ("o período de retenção") serão tratados como obsoletos e poderão ser excluídos da nuvem da Microsoft. O período de retenção está sujeito a alterações, mas não será menos de 90 dias. Os dados obsoletos podem ser um conjunto específico de configurações do Windows/aplicativo ou todas as configurações para um usuário específico. Por exemplo:
 
 * Se nenhum dispositivo acessar uma coleção de configurações em particular (por exemplo, um aplicativo é removido do dispositivo ou um grupo de configurações, como "Tema" é desabilitado para todos os dispositivos do usuário), essa coleção se tornará obsoleta após o período de retenção e poderá ser excluída. 
-* Se um usuário tiver desligado a sincronização de configurações em todos os seus dispositivos, então nenhum dos dados de configurações será acessado, e todos os dados de configurações para esse usuário ficarão obsoletos e poderão ser excluídos após o período de retenção. 
+* Se um usuário desativou a sincronização de configurações em todos os seus dispositivos, nenhum dos dados de configurações será acessado e todos os dados de configurações desse usuário ficarão obsoletos e poderão ser excluídos após o período de retenção. 
 * Se o administrador de diretório do AD do Azure desativar o Enterprise State Roaming para o diretório inteiro, todos os usuários desse diretório terão a sincronização de configurações interrompida, e todos os dados de configuração de todos os usuários se tornarão obsoletos e poderão ser excluídos após o período de retenção. 
 
 ### <a name="deleted-data-recovery"></a>Recuperação de dados excluídos

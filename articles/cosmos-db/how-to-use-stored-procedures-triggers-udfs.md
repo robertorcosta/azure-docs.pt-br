@@ -1,5 +1,5 @@
 ---
-title: Registre e use procedimentos armazenados, gatilhos e funções definidas pelo usuário nos SDKs Azure Cosmos DB
+title: Registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário em SDKs de Azure Cosmos DB
 description: Saiba como registrar e chamar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando SDKs do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582493"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
-A API do SQL no Azure Cosmos DB dá suporte ao registro e invocação de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) escritos em JavaScript. É possível usar os SDKs SQL da API [.NET](sql-api-sdk-dotnet.md), do [.NET Core](sql-api-sdk-dotnet-core.md), do [Java](sql-api-sdk-java.md), do [JavaScript](sql-api-sdk-node.md), do [Node.js](sql-api-sdk-node.md) ou do [Python](sql-api-sdk-python.md) para registrar e invocar os procedimentos armazenados. Depois de definir um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregá-los e visualizá-los no [portal Azure](https://portal.azure.com/) usando o Data Explorer.
+A API do SQL no Azure Cosmos DB dá suporte ao registro e invocação de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) escritos em JavaScript. É possível usar os SDKs SQL da API [.NET](sql-api-sdk-dotnet.md), do [.NET Core](sql-api-sdk-dotnet-core.md), do [Java](sql-api-sdk-java.md), do [JavaScript](sql-api-sdk-node.md), do [Node.js](sql-api-sdk-node.md) ou do [Python](sql-api-sdk-python.md) para registrar e invocar os procedimentos armazenados. Depois de definir um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregá-los e exibi-los no [portal do Azure](https://portal.azure.com/) usando data Explorer.
 
 ## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Como executar procedimentos armazenados
 
@@ -26,9 +26,9 @@ Os exemplos a seguir mostram como registrar e chamar um procedimento armazenado 
 > [!NOTE]
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. O escopo dos procedimentos armazenados sempre é uma chave de partição. Itens que têm um valor de chave de partição diferente não estarão visíveis para o procedimento armazenado. Isso também aplica-se a gatilhos.
 
-### <a name="stored-procedures---net-sdk-v2"></a>Procedimentos armazenados - .NET SDK V2
+### <a name="stored-procedures---net-sdk-v2"></a>Procedimentos armazenados-SDK do .NET v2
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o .NET SDK V2:
+O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do .NET v2:
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o .NET SDK V2:
+O código a seguir mostra como chamar um procedimento armazenado usando o SDK do .NET v2:
 
 ```csharp
 dynamic newItem = new
@@ -58,9 +58,9 @@ RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("P
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
 ```
 
-### <a name="stored-procedures---net-sdk-v3"></a>Procedimentos armazenados - .NET SDK V3
+### <a name="stored-procedures---net-sdk-v3"></a>Procedimentos armazenados-SDK do .NET v3
 
-O exemplo a seguir mostra como registrar um procedimento armazenado usando o .NET SDK V3:
+O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK do .NET V3:
 
 ```csharp
 StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
@@ -70,7 +70,7 @@ StoredProcedureResponse storedProcedureResponse = await client.GetContainer("dat
 });
 ```
 
-O código a seguir mostra como chamar um procedimento armazenado usando o .NET SDK V3:
+O código a seguir mostra como chamar um procedimento armazenado usando o SDK do .NET V3:
 
 ```csharp
 dynamic[] newItems = new dynamic[]
@@ -204,9 +204,9 @@ Ao executar, pré-gatilhos são transmitidos para o objeto RequestOptions especi
 > [!NOTE]
 > Mesmo que o nome do gatilho seja transmitido como uma lista, ainda é possível executar apenas um gatilho por operação.
 
-### <a name="pre-triggers---net-sdk-v2"></a>Pré-gatilhos - .NET SDK V2
+### <a name="pre-triggers---net-sdk-v2"></a>Pré-gatilhos-SDK do .NET v2
 
-O código a seguir mostra como registrar um pré-gatilho usando o .NET SDK V2:
+O código a seguir mostra como registrar um pré-gatilho usando o SDK do .NET v2:
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -221,7 +221,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o .NET SDK V2:
+O código a seguir mostra como chamar um pré-gatilho usando o SDK do .NET v2:
 
 ```csharp
 dynamic newItem = new
@@ -237,9 +237,9 @@ RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new Lis
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-### <a name="pre-triggers---net-sdk-v3"></a>Pré-gatilhos - .NET SDK V3
+### <a name="pre-triggers---net-sdk-v3"></a>Pré-gatilhos-SDK do .NET v3
 
-O código a seguir mostra como registrar um pré-gatilho usando o .NET SDK V3:
+O código a seguir mostra como registrar um pré-gatilho usando o SDK do .NET V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -251,7 +251,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-O código a seguir mostra como chamar um pré-gatilho usando o .NET SDK V3:
+O código a seguir mostra como chamar um pré-gatilho usando o SDK do .NET V3:
 
 ```csharp
 dynamic newItem = new
@@ -357,9 +357,9 @@ client.CreateItem(container_link, item, {
 
 Os exemplos a seguir mostram como registrar um pós-gatilho usando os SDKs do Azure Cosmos DB. Veja o [Exemplo de pós-gatilho](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) como a origem, pois esse pós-gatilho é salvo como `trgPostUpdateMetadata.js`.
 
-### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos - .NET SDK V2
+### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos-SDK do .NET v2
 
-O código a seguir mostra como registrar um post-trigger usando o .NET SDK V2:
+O código a seguir mostra como registrar um post-Trigger usando o SDK do .NET v2:
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -374,7 +374,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-O código a seguir mostra como chamar um post-trigger usando o .NET SDK V2:
+O código a seguir mostra como chamar um post-Trigger usando o SDK do .NET v2:
 
 ```csharp
 var newItem = { 
@@ -388,9 +388,9 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-### <a name="post-triggers---net-sdk-v3"></a>Pós-gatilhos - .NET SDK V3
+### <a name="post-triggers---net-sdk-v3"></a>Pós-gatilhos-SDK do .NET v3
 
-O código a seguir mostra como registrar um post-trigger usando o .NET SDK V3:
+O código a seguir mostra como registrar um post-Trigger usando o SDK do .NET V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
@@ -402,7 +402,7 @@ await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(ne
 });
 ```
 
-O código a seguir mostra como chamar um post-trigger usando o .NET SDK V3:
+O código a seguir mostra como chamar um post-Trigger usando o SDK do .NET V3:
 
 ```csharp
 var newItem = { 
@@ -504,9 +504,9 @@ client.CreateItem(container_link, item, {
 
 Os exemplos a seguir mostram como registrar uma função definida pelo usuário usando os SDKs do Azure Cosmos DB. Veja o [Exemplo de função definida pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs) como a origem, pois esse pós-gatilho é salvo como `udfTax.js`.
 
-### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo usuário - .NET SDK V2
+### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo usuário – SDK do .NET v2
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o .NET SDK V2:
+O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do .NET v2:
 
 ```csharp
 string udfId = "Tax";
@@ -521,7 +521,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o .NET SDK V2:
+O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do .NET v2:
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -533,9 +533,9 @@ foreach (var result in results)
 }
 ```
 
-### <a name="user-defined-functions---net-sdk-v3"></a>Funções definidas pelo usuário - .NET SDK V3
+### <a name="user-defined-functions---net-sdk-v3"></a>Funções definidas pelo usuário – SDK do .NET v3
 
-O código a seguir mostra como registrar uma função definida pelo usuário usando o .NET SDK V3:
+O código a seguir mostra como registrar uma função definida pelo usuário usando o SDK do .NET V3:
 
 ```csharp
 await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
@@ -545,7 +545,7 @@ await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunc
 });
 ```
 
-O código a seguir mostra como chamar uma função definida pelo usuário usando o .NET SDK V3:
+O código a seguir mostra como chamar uma função definida pelo usuário usando o SDK do .NET V3:
 
 ```csharp
 var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");

@@ -1,6 +1,6 @@
 ---
-title: Configurações de Política de Grupo e MDM para ESR - Azure Active Directory
-description: Configurações de gerenciamento para Roaming enterprise state
+title: Configurações de Política de Grupo e MDM para ESR-Azure Active Directory
+description: Configurações de gerenciamento para Enterprise State Roaming
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672360"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configurações de Política de Grupo e do MDM
@@ -26,13 +26,13 @@ As empresas que quiserem gerenciar o roaming para dispositivos pessoais (não ge
 As tabelas a seguir descrevem as configurações de política disponíveis.
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML Microsoft Edge Legacy, lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado no Microsoft Edge Chromium, lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>Configurações do MDM
 
-As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário. Consulte [Dispositivos e pontos finais](enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre quais dispositivos são suportados para sincronização baseada no Azure AD.
+As configurações da  política de MDM se aplicam ao Windows 10 e ao Windows 10 Mobile.  Há suporte do Windows Mobile 10 somente para roaming baseado em conta da Microsoft por meio da conta do OneDrive do usuário. Consulte [dispositivos e pontos de extremidade](enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre quais dispositivos têm suporte para a sincronização baseada no Azure AD.
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | Permitir Conexão da Conta da Microsoft |Permite que os usuários se autentiquem usando uma conta da Microsoft no dispositivo |
 | Permitir Sincronizar Configurações |Permite aos usuários mover dados de aplicativo e configurações do Windows. Desabilitar esta política desabilitará a sincronização, bem como backups em dispositivos móveis |
@@ -43,7 +43,7 @@ As configurações de Política de Grupo se aplicam a dispositivos Windows 10 in
 
 Essas configurações estão localizadas em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | Contas: Bloquear Contas da Microsoft |Essa configuração de política impede que os usuários adicionem novas contas da Microsoft a este computador |
 | Não sincronizar |Impede que os usuários movam dados de aplicativo e configurações do Windows |
@@ -59,4 +59,4 @@ Essas configurações estão localizadas em: `Computer Configuration > Administr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral, consulte [a visão geral do State Roaming da empresa.](enterprise-state-roaming-overview.md)
+Para obter uma visão geral, consulte [visão geral do Enterprise State roaming](enterprise-state-roaming-overview.md).

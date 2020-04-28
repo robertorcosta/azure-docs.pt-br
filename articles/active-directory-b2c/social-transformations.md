@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de reivindicações de contas sociais para políticas personalizadas
+title: Exemplos de transformação de declarações de conta social para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de sinistros de contas sociais para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
+description: Exemplos de transformação de declarações de conta social para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78183747"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), `userIdentities` as identidades das contas sociais são armazenadas em um atributo de um tipo de reivindicação **alternativaSecurityIdCollection.** Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade) como facebook.com e o `issuerUserId`, que é um identificador de usuário único para o emissor.
+No Azure Active Directory B2C (Azure AD B2C), as identidades de conta social são `userIdentities` armazenadas em um atributo de um tipo de Declaração **alternativeSecurityIdCollection** . Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade) como facebook.com e o `issuerUserId`, que é um identificador de usuário único para o emissor.
 
 ```JSON
 "userIdentities": [{
@@ -39,13 +39,13 @@ Este artigo fornece exemplos para usar as transformações de declarações da c
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Cria uma declaração JSON da propriedade alternativeSecurityId do usuário que pode ser usada em chamadas para o Azure Active Directory. Para obter mais informações, consulte o esquema [AlternativeSecurityId.](https://docs.microsoft.com/graph/api/resources/alternativesecurityid)
+Cria uma declaração JSON da propriedade alternativeSecurityId do usuário que pode ser usada em chamadas para o Azure Active Directory. Para obter mais informações, consulte o esquema [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) .
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | chave | string | O ClaimType que especifica o identificador de usuário único usado pelo provedor de identidade social. |
-| InputClaim | identityProvider | string | O ClaimType que especifica o nome do provedor de identidade de conta social, como facebook.com. |
-| OutputClaim | alternativeSecurityId | string | O ClaimType produzido depois de invocar ClaimsTransformation. Contém informações sobre a identidade de um usuário da conta social. O **emissor** é o valor da declaração `identityProvider`. O **issuerUserId** é o valor da declaração `key` no formato base64. |
+| InputClaim | chave | cadeia de caracteres | O ClaimType que especifica o identificador de usuário único usado pelo provedor de identidade social. |
+| InputClaim | identityProvider | cadeia de caracteres | O ClaimType que especifica o nome do provedor de identidade de conta social, como facebook.com. |
+| OutputClaim | alternativeSecurityId | cadeia de caracteres | O ClaimType produzido depois de invocar ClaimsTransformation. Contém informações sobre a identidade de um usuário da conta social. O **emissor** é o valor da declaração `identityProvider`. O **issuerUserId** é o valor da declaração `key` no formato base64. |
 
 Use essa transformação de declarações para gerar um ClaimType `alternativeSecurityId`. Ele é usado por todos os perfis técnicos do provedor de identidade, como `Facebook-OAUTH`. A transformação de declarações a seguir recebe a ID de conta social do usuário e o nome do provedor de identidade. A saída desse perfil técnico é um formato de cadeia de caracteres JSON que pode ser usado em serviços de diretório do Azure AD.
 
@@ -65,7 +65,7 @@ Use essa transformação de declarações para gerar um ClaimType `alternativeSe
 
 - Declarações de entrada:
     - **chave**: 12334
-    - **identidadeProvedor**: Facebook.com
+    - **identityprovider**: Facebook.com
 - Declarações de saída:
     - **alternativeSecurityId**: { "emissor": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
@@ -75,7 +75,7 @@ Adiciona um `AlternativeSecurityId` a uma declaração `alternativeSecurityIdCol
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
+| InputClaim | item | cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
 | InputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes usados pela transformação de declarações se disponíveis na política. Se fornecida, a transformação de declarações adiciona o `item` no final da coleção. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. A nova coleção que contém os itens de entrada `collection` e `item`. |
 
@@ -139,7 +139,7 @@ Remove um **AlternativeSecurityId** de uma declaração **alternativeSecurityIdC
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | string | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
+| InputClaim | identityProvider | cadeia de caracteres | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
 | InputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes usados pela transformação de declarações. A transformação de declarações remove o identityProvider da coleção. |
 | OutputClaim | collection | alternativeSecurityIdCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. A nova coleção, depois de remover o identityProvider da coleção. |
 
@@ -147,7 +147,7 @@ O exemplo a seguir desvincula uma das identidades sociais de uma conta existente
 1. Nos perfis técnicos **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId**, emita a declaração **alternativeSecurityIds** do usuário.
 2. Peça ao usuário para selecionar qual conta social será removida da lista de provedores de identidade que estão associados a este usuário.
 3. Chame um perfil técnico de transformação de declarações que chama a transformação de declarações **RemoveAlternativeSecurityIdByIdentityProvider**, que removeu a identidade social selecionada, usando o nome do provedor de identidade.
-4. Persista a **alternativaQueos SecurityIds** reivindicam a conta de usuário.
+4. Persistir a Declaração **alternativeSecurityIds** para a conta de usuário.
 
 ```XML
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">

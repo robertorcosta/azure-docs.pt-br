@@ -12,36 +12,36 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187654"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para uso no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Você pode adicionar seu próprio código javaScript do lado do cliente aos aplicativos Azure Active Directory B2C (Azure AD B2C).
+Você pode adicionar seu próprio código do lado do cliente JavaScript aos seus aplicativos Azure Active Directory B2C (Azure AD B2C).
 
 Para habilitar o JavaScript para seus aplicativos:
 
-* Adicione um elemento à sua [política personalizada](custom-policy-overview.md)
-* Selecione um [layout de página](page-layout.md)
-* Use [b2clogin.com](b2clogin.md) em suas solicitações
+* Adicionar um elemento à [política personalizada](custom-policy-overview.md)
+* Selecionar um [layout de página](page-layout.md)
+* Usar [b2clogin.com](b2clogin.md) em suas solicitações
 
 Este artigo descreve como você pode alterar sua política personalizada para habilitar a execução do script.
 
 > [!NOTE]
-> Se você quiser ativar o JavaScript para fluxos de usuário, consulte [JavaScript e versões de layout de página no Azure Active Directory B2C](user-flow-javascript-overview.md).
+> Se você quiser habilitar o JavaScript para fluxos de usuário, consulte [JavaScript e versões de layout de página em Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="select-a-page-layout"></a>Selecione um layout de página
+### <a name="select-a-page-layout"></a>Selecionar um layout de página
 
-* Selecione um layout de [página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do usuário do seu aplicativo.
+* Selecione um [layout de página](contentdefinitions.md#select-a-page-layout) para os elementos da interface do usuário do seu aplicativo.
 
-    Se você pretende usar JavaScript, você precisa [definir uma versão de layout de página](contentdefinitions.md#migrating-to-page-layout) com versão de página `contract` para todas *as* definições de conteúdo em sua política personalizada.
+    Se você pretende usar o JavaScript, precisará [definir uma versão de layout de página](contentdefinitions.md#migrating-to-page-layout) com `contract` a versão de página para *todas* as definições de conteúdo em sua política personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adicionar o elemento ScriptExecution
 
@@ -138,7 +138,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-No código, substitua `termsOfUseUrl` pelo link para o contrato de termos de uso. Para o seu diretório, crie um novo atributo de usuário chamado **termOfUse** e, em seguida, inclua **os termosOfUse** como um atributo do usuário.
+No código, substitua `termsOfUseUrl` pelo link para o contrato de termos de uso. Para seu diretório, crie um novo atributo de usuário chamado **termsOfUse** e, em seguida, inclua **termsOfUse** como um atributo de usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines de dados - Azure
+title: Monitorar e gerenciar pipelines de dados – Azure
 description: Saiba como usar o aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260365"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o aplicativo de Monitoramento e Gerenciamento
@@ -193,7 +193,7 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A janela de atividade foi cancelada por ação do usuário.</td>
@@ -222,10 +222,10 @@ Ao clicar em uma janela de atividades na lista, você verá detalhes sobre ela n
 ### <a name="refresh-activity-windows"></a>Atualizar janelas de atividades
 Os detalhes não são atualizados automaticamente e, portanto, você precisa usar o botão de atualização (segundo botão) na barra de comandos para atualizar manualmente a lista de janelas de atividades.  
 
-### <a name="properties-window"></a>Janela Propriedades
+### <a name="properties-window"></a>Janela de Propriedades
 A janela Propriedades está no painel à extrema direita do Aplicativo de Monitoramento e Gerenciamento.
 
-![Janela Propriedades](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
+![Janela de Propriedades](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
 Ela exibe as propriedades do item selecionado no Gerenciador de Recursos (modo de exibição de árvore), na Exibição de Diagrama ou na lista de Janelas de Atividades.
 
@@ -238,7 +238,7 @@ Você pode mudar para outra janela de atividades clicando nela na exibição de 
 
 Você pode usar os botões da barra de ferramentas no painel inferior para executar novamente a janela de atividades ou para atualizar os detalhes no painel.
 
-### <a name="script"></a>Script
+### <a name="script"></a>script
 Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados ou pipeline).
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
@@ -286,7 +286,7 @@ Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os 
 
 ## <a name="perform-batch-actions"></a>Execute ações em lote
 ### <a name="rerun-selected-activity-windows"></a>Executar novamente as janelas de atividades selecionadas
-Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão da barra de comando e selecione **Reexecutar Reexecutar** / **com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente.
+Selecione uma janela de atividade, clique na seta para baixo do primeiro botão da barra de comandos **e selecione** / executar**novamente executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente.
     ![Executar novamente uma janela de atividades](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.  

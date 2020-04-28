@@ -1,5 +1,5 @@
 ---
-title: 'Criar uma conexão entre VNets: clássico: portal Azure'
+title: 'Crie uma conexão entre VNets: clássico: portal do Azure'
 description: Conecte redes virtuais do Azure entre si usando o PowerShell e o Portal do Azure.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201842"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
@@ -22,9 +22,9 @@ ms.locfileid: "77201842"
 Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -143,7 +143,7 @@ O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo sã
 1. Localize TestVNet1 no portal do Azure. Na seção **Conexões VPN** da página, clique em **Gateway**.
 
     ![Sem gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
-2. Na página **Nova conexão VPN,** selecione **Site-to-Site**.
+2. Na página **nova conexão VPN** , selecione **site a site**.
 3. Clique em **Site local** para abrir a página Site local e defina as configurações.
 4. Na página **Site local**, nomeie o site local. Em nosso exemplo, demos ao site local o nome de "VNet4Local".
 5. Para **Endereço IP do gateway de VPN**, você pode usar qualquer endereço IP desejado, desde que ele esteja em um formato válido. Normalmente, você usaria o endereço IP externo real para um dispositivo VPN. Mas, para uma configuração clássica de VNet a VNet, você usa o endereço IP público que é atribuído ao gateway da sua VNet. Considerando que você ainda não criou o gateway de rede virtual, especifique qualquer endereço IP público válido como um espaço reservado.<br>Não deixe em branco. Não é opcional para essa configuração. Em uma etapa posterior, você voltará para essas configurações e as definirá com os endereços IP de gateway de rede virtual correspondentes assim que forem gerados pelo Azure.
@@ -209,9 +209,9 @@ Quando você cria VNets clássicas no portal do Azure, o nome que você vê não
 
 Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
 
-1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para obter mais informações, consulte [Working with Azure PowerShell](#powershell).
+1. Baixe e instale a versão mais recente dos cmdlets do PowerShell do SM (Gerenciamento de Serviços) do Azure. Para obter mais informações, consulte [trabalhando com Azure PowerShell](#powershell).
 
-2. Abra seu console PowerShell com direitos elevados. Use os exemplos a seguir para ajudá-lo a se conectar. Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços PowerShell. Para mudar para o gerenciamento de serviços, use este comando:
+2. Abra o console do PowerShell com direitos elevados. Use os exemplos a seguir para ajudá-lo a se conectar. Você deve executar esses comandos localmente usando o módulo de gerenciamento de serviços do PowerShell. Para alternar para o gerenciamento de serviços, use este comando:
 
    ```powershell
    azure config mode asm
@@ -236,7 +236,7 @@ Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixa
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-7. Abra o arquivo com um editor de texto e exiba os nomes dos sites e VNets. Esses nomes serão os nomes que você usa quando cria suas conexões.<br>Os nomes de VNet são listados como **VirtualNetworkSite name =**<br>Os nomes de site são listados como **LocalNetworkSiteRef name =**
+7. Abra o arquivo com um editor de texto e exiba os nomes dos sites e VNets. Esses nomes serão os nomes que você usa ao criar suas conexões.<br>Os nomes de VNet são listados como **VirtualNetworkSite name =**<br>Os nomes de site são listados como **LocalNetworkSiteRef name =**
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Etapa 8 – Criar as conexões do gateway de VPN
 
@@ -270,7 +270,7 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
 ## <a name="vnet-to-vnet-considerations-for-classic-vnets"></a><a name="faq"></a>Considerações de VNet a VNet para VNets clássicas
 * As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes.
 * As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
-* Um serviço de nuvem ou um ponto final de balanceamento de carga não pode se estender por redes virtuais, mesmo que estejam conectados juntos.
+* Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode se estender por redes virtuais, mesmo se estiverem conectados juntos.
 * A conexão de várias redes virtuais entre si não exige nenhum dispositivo VPN.
 * O recurso VNet a VNet dá suporte à conexão de Redes Virtuais do Azure. Ele não dá suporte à conexão de máquinas virtuais ou de serviços de nuvem que não estejam implantados em uma rede virtual.
 * VNet a VNet requer gateways de roteamento dinâmico. Não há suporte para gateways de roteamento estático do Azure.

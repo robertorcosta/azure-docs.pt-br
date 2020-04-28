@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672712"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos locais funciona em dispositivos associados ao Microsoft Azure Active Directory
@@ -26,23 +26,23 @@ Este artigo explica como isso funciona.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- Se as máquinas aderidas ao Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infra-estrutura de rede será necessária. O SSO no local requer comunicação de linha de visão com seus controladores de domínio AD DS no local.
+ Se as máquinas Unidas do Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais.
 
-## <a name="how-it-works"></a>Como ele funciona 
+## <a name="how-it-works"></a>Como isso funciona 
 
 Porque você precisa se lembrar de apenas um único nome de usuário e senha, o SSO simplifica o acesso a seus recursos e melhora a segurança do seu ambiente. Com um dispositivo associado ao Azure Active Directory, seus usuários já têm uma experiência de SSO para os aplicativos na nuvem em seu ambiente. Se o seu ambiente tiver um Azure Active Directory e um AD local, você provavelmente desejará expandir o escopo da sua experiência de SSO para os aplicativos de linha de negócios (LOB), compartilhamentos de arquivos e impressoras no local.
 
 Os dispositivos associados ao Azure Actibe Directory não têm conhecimento sobre seu ambiente de AD local porque não estão associados a ele. No entanto, você pode fornecer informações adicionais sobre seu AD local para esses dispositivos com o Azure AD Connect.
 
-Um ambiente que possui um Microsoft Azure Active Directory e um AD local também é conhecido como ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha o Microsoft Azure Active Directory Connect implantado para sincronizar suas informações de identidade local com a nuvem. Como parte do processo de sincronização, o Azure AD Connect sincroniza as informações do usuário no local com o Azure AD. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
+Um ambiente que possui um Microsoft Azure Active Directory e um AD local também é conhecido como ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha o Microsoft Azure Active Directory Connect implantado para sincronizar suas informações de identidade local com a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de usuário local para o Azure AD. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
 
 1. O Microsoft Azure Active Directory envia o nome do domínio local do qual o usuário é membro de volta ao dispositivo.
 1. O serviço de autoridade de segurança local (LSA) habilita a autenticação Kerberos no dispositivo.
 
-Durante uma tentativa de acesso a um recurso solicitando Kerberos no ambiente local do usuário, o dispositivo:
+Durante uma tentativa de acesso a um recurso que solicita o Kerberos no ambiente local do usuário, o dispositivo:
 
 1. Envia as informações de domínio no local e as credenciais do usuário para o DC localizado para que o usuário seja autenticado.
-1. Recebe um Ticket de Concessão de [Ticket (TGT) Kerberos](/windows/desktop/secauthn/ticket-granting-tickets) que é usado para acessar recursos ingressados no AD. Se a tentativa de obter o TGT para o domínio de conexão AAD falhar (o tempo de intervalo DCLocator relacionado pode causar um atraso), as entradas do Credential Manager são tentadas ou o usuário pode receber um popup de autenticação solicitando credenciais para o recurso de destino.
+1. Recebe um Ticket de Concessão de [Ticket (TGT) Kerberos](/windows/desktop/secauthn/ticket-granting-tickets) que é usado para acessar recursos ingressados no AD. Se a tentativa de obter o TGT para o domínio do AAD Connect falhar (o tempo limite de DCLocator relacionado pode causar um atraso), as entradas do Gerenciador de credenciais serão tentadas ou o usuário poderá receber um pop-up de autenticação solicitando credenciais para o recurso de destino.
 
 Todos os aplicativos configurados para **autenticação integrada do Windows** obtêm SSO com facilidade quando um usuário tenta acessá-los.
 

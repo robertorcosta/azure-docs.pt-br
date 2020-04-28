@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização Azure AD Connect: Entendendo a arquitetura - Azure'
+title: 'Sincronização de Azure AD Connect: Noções básicas sobre a arquitetura – Azure'
 description: Este tópico descreve a arquitetura da sincronização do Azure AD Connect e explica os termos usados.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261613"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
-Este tópico abrange a arquitetura básica para sincronização Azure AD Connect. Em muitos aspectos, é semelhante aos seus antecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
+Este tópico aborda a arquitetura básica para Azure AD Connect sincronização. Em muitos aspectos, é semelhante a seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
 
 ## <a name="architecture"></a>Arquitetura
 O mecanismo de sincronização cria uma exibição integrada dos objetos armazenados em várias fontes de dados conectadas e gerencia as informações de identidade nessas fontes de dados. Essa exibição integrada é determinada pelas informações de identidade recuperadas de fontes de dados conectadas e por um conjunto de regras que determinam como processar essas informações.
@@ -179,7 +179,7 @@ Se o mecanismo de sincronização localizar um objeto de preparação que corres
 
 Os objetos de preparação com dados atualizados são marcados como importação pendente. Tipos diferentes de importações pendentes estão disponíveis. Dependendo do resultado do processo de importação, um objeto de preparação no espaço do conector terá um dos seguintes tipos de importação pendente:
 
-* **Nenhum**. Nenhuma alteração em qualquer um dos atributos do objeto de preparação está disponível. O mecanismo de sincronização não sinaliza esse tipo como importação pendente.
+* **None**. Nenhuma alteração em qualquer um dos atributos do objeto de preparação está disponível. O mecanismo de sincronização não sinaliza esse tipo como importação pendente.
 * **Adicionar**. O objeto de preparação é um objeto de importação novo no espaço do conector. O mecanismo de sincronização sinaliza esse tipo como importação pendente para processamento adicional no metaverso.
 * **Atualizar**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que as atualizações dos atributos possam ser processadas no metaverso. As atualizações incluem a renomeação do objeto.
 * **Excluir**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que o objeto unido possa ser excluído.
@@ -204,7 +204,7 @@ A sincronização de entrada cria a exibição integrada no metaverso das inform
 A sincronização de entrada inclui os seguintes processos:
 
 * **Provisionamento** (também chamado de **Projeção** se for importante distinguir este processo do provisionamento de sincronização de saída). O mecanismo de sincronização cria um novo objeto de metaverso com base em um objeto de preparação e os vincula. O provisionamento é uma operação que ocorre no nível do objeto.
-* **Inscreva-se**. O mecanismo de sincronização vincula um objeto de preparação a um objeto de metaverso existente. Uma junção é uma operação que ocorre no nível do objeto.
+* **Junção**. O mecanismo de sincronização vincula um objeto de preparação a um objeto de metaverso existente. Uma junção é uma operação que ocorre no nível do objeto.
 * **Fluxo de atributos de importação**. O mecanismo de sincronização atualiza os valores de atributo, chamados de fluxo de atributos, do objeto no metaverso. O fluxo de atributos de importação é uma operação que ocorre no nível do atributo que exige um vínculo entre um objeto de preparação e um objeto de metaverso.
 
 O provisionamento é o único processo que cria objetos no metaverso. O provisionamento afeta apenas os objetos de importação separados. Durante o provisionamento, o mecanismo de sincronização cria um objeto de metaverso que corresponde ao tipo de objeto do objeto de importação e estabelece um vínculo entre os dois objetos criando, assim, um objeto unido.
@@ -259,5 +259,5 @@ Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um val
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 

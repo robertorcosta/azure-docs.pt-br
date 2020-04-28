@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 097639738aa3f95ed3e8ee40c20f734ca3ed32b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198082"
 ---
-Ao trabalhar com o modelo de implantação clássico, você não pode usar o Azure Cloud Shell. Em vez disso, você deve instalar a versão mais recente dos cmdlets PowerShell (Azure Service Management, gerenciamento de serviços do Azure) localmente em seu computador. Estes cmdlets são diferentes dos cmdlets AzureRM ou Az. Para instalar os cmdlets SM, consulte [Instalar cmdlets de gerenciamento de serviço .](/powershell/azure/servicemanagement/install-azure-ps) Para obter mais informações sobre o Azure PowerShell em geral, consulte a [documentação do Azure PowerShell](/powershell/azure/).
+Ao trabalhar com o modelo de implantação clássico, você não pode usar Azure Cloud Shell. Em vez disso, você deve instalar a versão mais recente dos cmdlets do PowerShell do SM (gerenciamento de serviços do Azure) localmente no seu computador. Esses cmdlets são diferentes dos cmdlets AzureRM ou AZ. Para instalar os cmdlets do SM, consulte [instalar cmdlets do gerenciamento de serviços](/powershell/azure/servicemanagement/install-azure-ps). Para obter mais informações sobre Azure PowerShell em geral, consulte a [documentação do Azure PowerShell](/powershell/azure/).

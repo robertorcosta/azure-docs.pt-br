@@ -1,5 +1,5 @@
 ---
-title: Gateway VPN da rede virtual Legacy Azure
+title: SKUs de gateway de VPN de rede virtual do Azure herdadas
 description: Como trabalhar com as SKUs do gateway de rede virtual antigas; Basic, Standard e de Alto desempenho.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279384"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhar com SKUs de gateway de rede virtual (SKUs herdadas)
@@ -22,7 +22,7 @@ Este artigo contém informações sobre as SKUs de gateway de rede virtual herda
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-Você pode visualizar os preços legados do gateway na seção **Virtual Network Gateways,** que está localizada na [página de preços ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Você pode exibir os preços do gateway herdado na seção **gateways de rede virtual** , que está localizada na [página de preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>Taxa de transferência agregada estimada por SKU
 
@@ -49,7 +49,7 @@ Você também pode redimensionar um gateway no portal do Azure.
 
 ### <a name="classic"></a><a name="classicresize"></a>Clássico
 
-Para redimensionar um gateway para o modelo clássico de implantação, você deve usar os cmdlets PowerShell de gerenciamento de serviço. Use o seguinte comando:
+Para redimensionar um gateway para o modelo de implantação clássico, você deve usar os cmdlets do PowerShell de gerenciamento de serviços. Use o seguinte comando:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance

@@ -1,6 +1,6 @@
 ---
-title: Governança da infra-estrutura do Azure DevTest Labs - Recurso
-description: Este artigo aborda o alinhamento e o gerenciamento de recursos para o Azure DevTest Labs dentro de sua organização.
+title: Governança da infraestrutura de Azure DevTest Labs – recurso
+description: Este artigo aborda o alinhamento e o gerenciamento de recursos para Azure DevTest Labs em sua organização.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77470642"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança da infraestrutura do Azure DevTest Labs – Recursos
@@ -38,7 +38,7 @@ Antes de uma organização começa a usar o Azure para desenvolvimento de aplica
 
 A **primeira prática recomendada** é examinar a taxonomia do Azure das organizações, em que são detalhadas as divisões entre as assinaturas de desenvolvimento e aquelas de produção. No diagrama a seguir, a taxonomia sugerida permite uma separação lógica entre os ambientes de desenvolvimento/teste e os de produção. Com essa abordagem, uma organização pode introduzir códigos de cobrança para acompanhar os custos associados com cada ambiente separadamente. Para obter mais informações, confira [Governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, você pode usar as [marcas do Azure](../azure-resource-manager/management/tag-resources.md) para organizar os recursos para fins de faturamento e acompanhamento.
 
-A **segunda prática recomendada** é habilitar a assinatura do DevTest no Azure Enterprise Portal. Ele permite que uma organização execute sistemas operacionais cliente que não estão normalmente disponíveis em uma assinatura do Azure Enterprise. Em seguida, use um software corporativo onde você paga apenas pelo cálculo e não se preocupe com o licenciamento. Ele garante que a cobrança por serviços designados, incluindo imagens da galeria em IaaS como o Microsoft SQL Server, seja baseada somente no consumo. Detalhes sobre a assinatura do Azure DevTest podem ser encontrados [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para os clientes do EA (Contrato Enterprise) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes com pagamento conforme o uso.
+A **segunda prática recomendada** é habilitar a assinatura do DevTest no Azure Enterprise Portal. Ele permite que uma organização execute sistemas operacionais cliente que não estão normalmente disponíveis em uma assinatura do Azure Enterprise. Em seguida, use o software corporativo no qual você paga apenas pela computação e não se preocupe com o licenciamento. Ele garante que a cobrança por serviços designados, incluindo imagens da galeria em IaaS como o Microsoft SQL Server, seja baseada somente no consumo. Detalhes sobre a assinatura do Azure DevTest podem ser encontrados [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para os clientes do EA (Contrato Enterprise) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes com pagamento conforme o uso.
 
 ![Alinhamento de recursos com assinaturas](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 

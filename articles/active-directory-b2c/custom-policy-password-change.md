@@ -1,5 +1,5 @@
 ---
-title: Configure a alteração de senha usando políticas personalizadas
+title: Configurar a alteração de senha usando políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Saiba como permitir que usuários alterem suas senhas usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189167"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), você pode habilitar os usuários que estão logados com uma conta local para alterar sua senha sem ter que provar sua autenticidade por verificação de e-mail. Se a sessão expirar quando o usuário chegar ao fluxo de alteração de senha, ele receberá uma solicitação para entrar novamente. Este artigo mostra como configurar a alteração de senha em [políticas personalizadas](custom-policy-overview.md). Também é possível configurar a [redefinição de senha de autoatendimento](user-flow-self-service-password-reset.md) para fluxos de usuário.
+No Azure Active Directory B2C (Azure AD B2C), você pode habilitar os usuários que entraram com uma conta local para alterar a senha sem precisar provar sua autenticidade por verificação de email. Se a sessão expirar quando o usuário chegar ao fluxo de alteração de senha, ele receberá uma solicitação para entrar novamente. Este artigo mostra como configurar a alteração de senha em [políticas personalizadas](custom-policy-overview.md). Também é possível configurar a [redefinição de senha de autoatendimento](user-flow-self-service-password-reset.md) para fluxos de usuário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -165,7 +165,7 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
 ### <a name="upload-the-files"></a>Carregar os arquivos
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Selecione **Estrutura de Experiência de Identidade**.

@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para ou da Oracle usando a Fábrica de Dados
+title: Copiar dados de ou para o Oracle usando Data Factory
 description: Saiba como copiar dados de ou para um Oracle Database local usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265851"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
@@ -82,11 +82,11 @@ Você pode criar um pipeline com uma atividade de cópia. O pipeline move dados 
 
 A maneira mais fácil de criar um pipeline é usar o assistente de Cópia. Confira o [Tutorial: Criar um pipeline usando o assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para instruções passo a passo rápidas sobre como criar um pipeline usando o assistente Copiar Dados.
 
-Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** um **modelo de Gerenciador de Recursos Do Azure,** a **API .NET**ou a **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, conclua as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
-1. Crie uma **fábrica de dados**. Um data factory pode conter um ou mais pipelines.
+1. Crie um **Data Factory**. Um data factory pode conter um ou mais pipelines.
 2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você estiver copiando dados de um Oracle Database para um Armazenamento de Blobs do Azure, crie dois serviços vinculados para vincular seu Oracle Database e conta de armazenamento do Azure ao data factory. Para propriedades do serviço vinculado específicas do Oracle, confira [Propriedades do serviço vinculado](#linked-service-properties).
 3. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na etapa anterior, você cria um conjunto de dados para especificar a tabela no Oracle Database que contém os dados de entrada. Você cria outro conjunto de dados para especificar o contêiner de blob e a pasta que contém os dados copiados do Oracle Database. Para propriedades de conjunto de dados específicas do Oracle, confira a seção [Propriedades do conjunto de dados](#dataset-properties).
 4. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo anterior, você usa **OracleSource** como fonte e **BlobSink** como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Armazenamento de Blobs do Azure para o Oracle Database, use **BlobSource** e **OracleSink** na atividade de cópia. Para propriedades da Atividade de Cópia específicas do Oracle Database, confira a seção [Propriedades da Atividade de Cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como fonte ou coletor, selecione o link para o armazenamento de dados na seção anterior.
@@ -101,7 +101,7 @@ A tabela a seguir descreve elementos JSON que são específicos para o serviço 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade **do tipo** deve ser definida **como OnPremisesOracle**. |Sim |
+| type |A propriedade **Type** deve ser definida como **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual driver a ser usado para copiar dados de ou para um Oracle Database. Os valores permitidos são **Microsoft** ou **ODP** (padrão). Confira [Versão e instalação com suporte](#supported-versions-and-installation) para obter detalhes do driver. | Não |
 | connectionString | Especifique as informações necessárias para se conectar à instância do Oracle Database para a propriedade **connectionString**. | Sim |
 | gatewayName | O nome do gateway usado para conectar-se ao servidor Oracle local. |Sim |
@@ -148,7 +148,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As seções de um arquivo JSON do conjunto de dados, como estrutura, disponibilidade e política, são similares para todos os tipos de conjunto de dados (por exemplo, para Oracle, Armazenamento de Blobs do Azure e armazenamento de Tabelas do Azure).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no armazenamento de dados. A seção **typeProperties** para o conjunto de dados do tipo **OracleTable** tem as seguintes propriedades:
+A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** do conjunto de um do tipo **oracletable** tem as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
@@ -179,14 +179,14 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**Timespan**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não |
+| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite. |**TimeSpan**<br/><br/> Exemplo: "00:30:00" (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta da Atividade de Cópia a ser executada para que os dados de uma fatia específica sejam removidos. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifica o nome da coluna para a atividade de cópia a ser preenchida com um identificador de fatia gerado automaticamente. O valor para **sliceIdentifierColumnName** é usado para limpar os dados de uma fatia específica quando executada novamente. |O nome da coluna de uma coluna que tem o tipo de dados **binary(32)**. |Não |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar de dados de e para o Oracle Database
 
-Os exemplos a seguir fornecem definições de JSON de amostra que você pode usar para criar um pipeline usando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para um Oracle Database e para ou do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores listados em [Formatos e armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+Os exemplos a seguir fornecem exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para um Oracle Database e para ou do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores listados em [Formatos e armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 **Exemplo: copiar dados do Oracle para o Armazenamento de Blobs do Azure**
 
@@ -200,7 +200,7 @@ O exemplo tem as seguintes entidades do Data Factory:
 
 O exemplo copia os dados de uma tabela em um banco de dados Oracle local para um blob por hora. Para obter mais informações sobre várias propriedades usadas no exemplo, confira as seções posteriores aos exemplos.
 
-**Serviço vinculado à Oracle**
+**Serviço vinculado do Oracle**
 
 ```json
 {
@@ -216,7 +216,7 @@ O exemplo copia os dados de uma tabela em um banco de dados Oracle local para um
 }
 ```
 
-**Serviço vinculado ao armazenamento Azure Blob**
+**Serviço vinculado do armazenamento de BLOBs do Azure**
 
 ```json
 {
@@ -263,9 +263,9 @@ Configurar **external**: **true** informa ao serviço Data Factory que o conjunt
 }
 ```
 
-**Conjunto de dados de saída do Azure Blob**
+**Conjunto de resultados de saída de blob do Azure**
 
-Os dados são gravados para uma nova bolha a cada hora **(frequência:** **hora,** **intervalo:** **1**). O caminho de pasta e o nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de ano, mês, dia e hora da hora de início.
+Os dados são gravados em um novo BLOB a cada hora (**frequência**: **hora**, **intervalo**: **1**). O caminho de pasta e o nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de ano, mês, dia e hora da hora de início.
 
 ```json
 {
@@ -388,7 +388,7 @@ O exemplo tem as seguintes entidades do Data Factory:
 
 O exemplo copia dados de um blob para uma tabela em um banco de dados Oracle local de hora em hora. Para obter mais informações sobre várias propriedades usadas no exemplo, confira as seções posteriores aos exemplos.
 
-**Serviço vinculado à Oracle**
+**Serviço vinculado do Oracle**
 
 ```json
 {
@@ -404,7 +404,7 @@ O exemplo copia dados de um blob para uma tabela em um banco de dados Oracle loc
 }
 ```
 
-**Serviço vinculado ao armazenamento Azure Blob**
+**Serviço vinculado do armazenamento de BLOBs do Azure**
 
 ```json
 {
@@ -420,7 +420,7 @@ O exemplo copia dados de um blob para uma tabela em um banco de dados Oracle loc
 
 **Conjunto de dados de entrada de Blob do Azure**
 
-Os dados são captados a partir de uma nova bolha a cada hora **(frequência**: **hora,** **intervalo**: **1**). O caminho de pasta e o nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de o ano, mês e dia da hora de início. O nome de arquivo usa a parte de hora da hora de início. A configuração **external**: **true** informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
+Os dados são coletados de um novo BLOB a cada hora (**frequência**: **hora**, **intervalo**: **1**). O caminho de pasta e o nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes de o ano, mês e dia da hora de início. O nome de arquivo usa a parte de hora da hora de início. A configuração **external**: **true** informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
 
 ```json
 {
@@ -568,8 +568,8 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 * Se você não instalou o Provedor do .NET para o Oracle, [instale-o](https://www.oracle.com/technetwork/topics/dotnet/downloads/) e repita o cenário.
 * Se você vir a mensagem de erro mesmo depois de instalar o provedor, conclua as seguintes etapas:
     1. Abra o arquivo de configuração de computador para .NET 2.0 na pasta <disco do sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Pesquise **Provedor de Dados Oracle para .NET**. Você deve ser capaz de encontrar uma entrada como mostrado na seguinte amostra em **system.data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
-* Copie esta entrada para o arquivo machine.config na seguinte pasta\>.NET 4.0: <disco do sistema :\Windows\Microsoft\NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, mude a versão para 4.xxx.x.x.
+    2. Pesquise **Provedor de Dados Oracle para .NET**. Você deve ser capaz de encontrar uma entrada, conforme mostrado no exemplo a seguir em **System. Data** > **DbProviderFactories**:`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+* Copie essa entrada para o arquivo Machine. config na seguinte pasta .NET 4,0: <disco\>do sistema: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, altere a versão para 4. xxx. x.x.
 * Instale <Caminho de Instalação do ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll no GAC (cache de assembly global) executando **gacutil /i [caminho do provedor]**.
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: Formatação de data/hora

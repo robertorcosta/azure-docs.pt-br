@@ -1,7 +1,7 @@
 ---
-title: Defina um perfil técnico de validação em uma política personalizada
+title: Definir um perfil técnico de validação em uma política personalizada
 titleSuffix: Azure AD B2C
-description: Validar reivindicações usando um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C.
+description: Valide as declarações usando um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1eaf159149bb353b1cf0474aad5bc233decddc5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481561"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico de validação é um perfil técnico comum de qualquer protocolo, como [Azure Active Directory](active-directory-technical-profile.md) ou um [API REST](restful-technical-profile.md). O perfil técnico de validação retorna as reivindicações de saída ou retorna o código de status HTTP 4xx, com os seguintes dados. Para obter mais informações, consulte [a mensagem de erro de retorno](restful-technical-profile.md#returning-error-message)
+Um perfil técnico de validação é um perfil técnico comum de qualquer protocolo, como [Azure Active Directory](active-directory-technical-profile.md) ou um [API REST](restful-technical-profile.md). O perfil técnico de validação retorna declarações de saída ou retorna o código de status HTTP 4xx, com os dados a seguir. Para obter mais informações, consulte [retornando mensagem de erro](restful-technical-profile.md#returning-error-message)
 
 ```JSON
 {
@@ -32,16 +32,16 @@ Um perfil técnico de validação é um perfil técnico comum de qualquer protoc
 }
 ```
 
-O escopo das reivindicações de saída de um perfil técnico de validação [limita-se ao perfil técnico auto-afirmado](self-asserted-technical-profile.md) que invoca o perfil técnico de validação e seus perfis técnicos de validação. Se você quiser usar as reivindicações de saída na próxima etapa de orquestração, adicione as reivindicações de saída ao perfil técnico auto-afirmado que invoca o perfil técnico de validação.
+O escopo das declarações de saída de um perfil técnico de validação é limitado ao [perfil técnico autodeclarado](self-asserted-technical-profile.md) que invoca o perfil técnico de validação e seus perfis técnicos de validação. Se você quiser usar as declarações de saída na próxima etapa de orquestração, adicione as declarações de saída ao perfil técnico autodeclarado que invoca o perfil técnico de validação.
 
 Perfis técnicos de validação são executados na sequência que aparecem no elemento **ValidationTechnicalProfiles**. É possível configurar em um perfil técnico de validação se a execução dos perfis técnicos de validação subsequente devem continuar se os perfis técnicos de validação gerarem um erro ou forem bem sucedidos.
 
-Um perfil técnico de validaçaõ pode ser executado condicionalmente com base em pré-condições definidas no elemento **ValidationTechnicalProfile**. Por exemplo, você pode verificar se existe uma reclamação específica ou se uma reclamação é igual ou não ao valor especificado.
+Um perfil técnico de validaçaõ pode ser executado condicionalmente com base em pré-condições definidas no elemento **ValidationTechnicalProfile**. Por exemplo, você pode verificar se uma declaração específica existe ou se uma declaração é igual ou não ao valor especificado.
 
 Um perfil técnico autodeclarado pode definir um perfil técnico de validação a ser usado para validar algumas ou todas as suas declarações de saída. Todas as declarações de entrada do perfil técnico referenciado precisam aparecer nas declarações de saída do perfil técnico de referência.
 
 > [!NOTE]
-> Somente perfis técnicos auto-afirmados podem usar perfis técnicos de validação. Se você precisar validar as reivindicações de saída de perfis técnicos não auto-afirmados, considere usar uma etapa adicional de orquestração em sua jornada de usuário para acomodar o perfil técnico responsável pela validação.
+> Somente perfis técnicos autodeclarados podem usar perfis técnicos de validação. Se você precisar validar as declarações de saída de perfis técnicos não autodeclarados, considere o uso de uma etapa de orquestração adicional no percurso do usuário para acomodar o perfil técnico responsável pela validação.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -56,7 +56,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou política pai. |
-|ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se este perfil técnico de validação levantar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
+|ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de perfis de validação adicional será interrompido e retornará um erro). |
 |ContinueOnSuccess | Não | Indica se a validação de qualquer perfil de validação subsequente deve continuar se esse perfil técnico de validação for bem-sucedio. Valores possíveis: `true` ou `false`. O padrão é `true`, significando que continuará o processamento dos perfis de validação adicional. |
 
 O elemento **ValidationTechnicalProfile** contém o seguinte elemento:

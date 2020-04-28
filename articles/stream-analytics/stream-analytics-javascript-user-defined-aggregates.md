@@ -8,19 +8,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: c509d174787a58abeee33e039eb7bbbcbcb43f38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79531727"
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agregados definidos pelo usuário JavaScript do Azure Stream Analytics
+# <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics agregações definidas pelo usuário do JavaScript
  
 O Azure Stream Analytics dá suporte a UDA (agregações definidas pelo usuário) escritas em JavaScript, permitindo a você implementar uma lógica de negócios com estado complexa. Dentro da UDA, você tem controle total sobre a estrutura de dados de estado, acumulação de estado, desacumulação de estado e computação de resultados de agregação. O artigo apresenta duas interfaces diferentes de UDA do JavaScript, as etapas para criar uma UDA e como usar a UDA com operações com base em janela na consulta do Stream Analytics.
 
 ## <a name="javascript-user-defined-aggregates"></a>Agregações definidas pelo usuário do JavaScript
 
-Uma agregação definida pelo usuário é usada na parte superior de uma especificação de janela de tempo para agregar os eventos dessa janela e produzir um resultado de valor único. Há dois tipos de interfaces de UDA com suporte no Stream Analytics atualmente, AccumulateOnly e AccumulateDeaccumulate. Ambos os tipos de UDA podem ser usados por Tumbling, Hopping, Sliding e Session Window. O UDA acumulardeaccumulate tem um desempenho melhor do que o UDA acumular apenas quando usado em conjunto com hopping, sliding e session window. Escolha um dos dois tipos de acordo com o algoritmo que você usa.
+Uma agregação definida pelo usuário é usada na parte superior de uma especificação de janela de tempo para agregar os eventos dessa janela e produzir um resultado de valor único. Há dois tipos de interfaces de UDA com suporte no Stream Analytics atualmente, AccumulateOnly e AccumulateDeaccumulate. Os dois tipos de UDA podem ser usados por em cascata, salto, deslizante e janela de sessão. AccumulateDeaccumulate UDA tem um desempenho melhor do que o AccumulateOnly UDA quando usado junto com a janela de salto, deslizante e sessão. Escolha um dos dois tipos de acordo com o algoritmo que você usa.
 
 ### <a name="accumulateonly-aggregates"></a>Agregações AccumulateOnly
 
@@ -90,7 +90,7 @@ Um tipo específico com suporte no trabalho do Stream Analytics ou “Any” se 
 
 ### <a name="function-name"></a>Nome da função
 
-O nome deste objeto Function. O nome da função deve coincidir com o alias UDA.
+O nome deste objeto Function. O nome da função deve corresponder ao alias UDA.
 
 ### <a name="method---init"></a>Método – init()
 
@@ -102,7 +102,7 @@ O método accumulate() calcula o estado da UDA com base no estado anterior e os 
 
 ### <a name="method--deaccumulate"></a>Método – deaccumulate()
 
-O método deaccumulate() recalcula o estado com base no estado anterior e os valores atuais do evento. Esse método é chamado quando um evento deixa uma JANELA DESLIZANTE OU SESSIONWINDOW.
+O método deaccumulate() recalcula o estado com base no estado anterior e os valores atuais do evento. Esse método é chamado quando um evento deixa um SLIDINGWINDOW ou um SESSIONWINDOW.
 
 ### <a name="method--deaccumulatestate"></a>Método – deaccumulateState()
 
@@ -110,7 +110,7 @@ O método deaccumulateState() recalcula o estado com base no estado anterior e o
 
 ### <a name="method--computeresult"></a>Método – computeResult()
 
-O método computeResult() retorna resultados de agregação com base no estado atual. Este método é chamado no final de uma janela de tempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW ou SESSIONWINDOW).
+O método computeResult() retorna resultados de agregação com base no estado atual. Esse método é chamado no final de uma janela de tempo (TUMBLINGWINDOW, HOPPINGWINDOW, SLIDINGWINDOW ou SESSIONWINDOW).
 
 ## <a name="javascript-uda-supported-input-and-output-data-types"></a>Tipos de dados de entrada e saída com suporte na UDA do JavaScript
 Para ver os tipos de dados de UDA do JavaScript, consulte a seção **Conversão de tipo do Stream Analytics e do JavaScript** de [Integrar UDFs do JavaScript](stream-analytics-javascript-user-defined-functions.md).
@@ -119,7 +119,7 @@ Para ver os tipos de dados de UDA do JavaScript, consulte a seção **Conversão
 
 Abaixo mostramos passo a passo o processo de criação de uma UDA no Portal. O exemplo que usamos aqui é a computação de média de tempo ponderada.
 
-Agora vamos criar um JavaScript UDA um trabalho ASA existente seguindo etapas.
+Agora, vamos criar um UDA JavaScript em um trabalho ASA existente seguindo as etapas.
 
 1. Faça logon no Portal do Azure e localize o trabalho existente do Stream Analytics.
 1. Em seguida, clique no link de funções em **TOPOLOGIA DO TRABALHO**.
@@ -173,7 +173,7 @@ Agora vamos criar um JavaScript UDA um trabalho ASA existente seguindo etapas.
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chamando a UDA do JavaScript em uma consulta ASA
 
-No portal do Azure, abra o trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem "uda.". Por exemplo: 
+No portal do Azure, abra o trabalho, edite a consulta e chame a função TWA() com um prefixo de carta de ordem "uda.". Por exemplo:
 
 ```SQL
 WITH value AS
@@ -230,7 +230,7 @@ Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azu
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introdução ao uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de linguagem de consulta Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

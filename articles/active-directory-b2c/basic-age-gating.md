@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78189966"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a restrição etária no Azure Active Directory B2C
@@ -23,15 +23,15 @@ ms.locfileid: "78189966"
 >Esse recurso está em uma versão prévia. Não use o recurso para aplicativos de produção.
 >
 
-O gating de idade no Azure Active Directory B2C (Azure AD B2C) permite identificar menores que desejam usar seu aplicativo. Você pode optar por bloquear o menor da conexão ao aplicativo. Os usuários também podem voltar para o aplicativo e identificar seus grupos de idade e seu status de consentimento dos pais. O Active Directory B2C pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode configurar para permitir que o aplicativo decida o que fazer com os menores.
+A retenção de idade no Azure Active Directory B2C (Azure AD B2C) permite que você identifique os pequenos que desejam usar seu aplicativo. Você pode optar por bloquear o menor da conexão ao aplicativo. Os usuários também podem voltar para o aplicativo e identificar seus grupos de idade e seu status de consentimento dos pais. O Active Directory B2C pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode configurar para permitir que o aplicativo decida o que fazer com os menores.
 
-Depois de habilitar o gating de idade no [fluxo de usuário,](user-flow-overview.md)os usuários são questionados quando nasceram e em que país/região vivem. Se um usuário que não inseriu as informações anterior entrar, será necessário inserir a próxima vez que entrar. As regras são aplicadas sempre que um usuário entrar.
+Depois de habilitar a retenção de idade em seu [fluxo de usuário](user-flow-overview.md), os usuários são solicitados quando eles foram gerados e em qual país/região eles residem. Se um usuário que não inseriu as informações anterior entrar, será necessário inserir a próxima vez que entrar. As regras são aplicadas sempre que um usuário entrar.
 
 O Azure AD B2C usa as informações que o usuário insere para identificar se são um menor. O campo **Grupoetário**, em seguida, é atualizado na sua conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult` ou `NotAdult`.  Os campos **Grupoetário** e **consentProvidedForMinor**, em seguida, são usados para calcular o valor de **legalAgeGroupClassification**.
 
 A restrição etária envolve dois valores de idade: a idade que alguém não é mais considerado menor e a idade em que um menor deve ter consentimento dos pais. A tabela a seguir lista as regras de idade que são usadas para definir um menor e um consentimento de autorização de menor.
 
-| País/Região | Nome de país/região | Idade de consentimento de menor | Idade menor |
+| País/Região | Nome do país/região | Idade de consentimento de menor | Idade menor |
 | -------------- | ------------------- | ----------------- | --------- |
 | Padrão | Nenhum | Nenhum | 18 |
 | AE | Emirados Árabes Unidos | Nenhum | 21 |
@@ -68,7 +68,7 @@ A restrição etária envolve dois valores de idade: a idade que alguém não é
 | SG | Singapura | Nenhum | 21 |
 | SI | Eslovênia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| TD | Chad | Nenhum | 21 |
+| TD | Chade | Nenhum | 21 |
 | TH | Tailândia | Nenhum | 20 |
 | TW | Taiwan | Nenhum | 20 |
 | EUA | Estados Unidos | 13 | 18 |
@@ -90,7 +90,7 @@ Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode o
 
 Para usar a restrição etária em um fluxo do usuário, você precisa configurar seu locatário para ter propriedades adicionais.
 
-1. Certifique-se de que está usando o diretório que contém o inquilino Azure AD B2C selecionando o filtro **de assinatura Directory +** no menu superior. Selecione o diretório que contém seu locatário.
+1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior. Selecione o diretório que contém seu locatário.
 2. Selecione **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 3. Selecione **Propriedades** para seu locatário no menu à esquerda.
 2. Na seção **Restrição etária**, clique no botão **Configurar**.

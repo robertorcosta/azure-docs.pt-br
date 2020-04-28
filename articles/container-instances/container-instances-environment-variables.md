@@ -1,22 +1,22 @@
 ---
-title: Definir variáveis de ambiente na instância do contêiner
+title: Definir variáveis de ambiente na instância de contêiner
 description: Saiba como definir variáveis de ambiente nos contêineres que você executa nas Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247222"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente em instâncias de contêiner
 
 A definição de variáveis de ambiente nas suas instâncias de contêiner permitem fornecer a configuração dinâmica do aplicativo ou script executado pelo contêiner. Isso é semelhante ao argumento de linha de comando `--env` para `docker run`. 
 
-Para definir variáveis de ambiente em um contêiner, especifique-as ao criar uma instância de contêiner. Este artigo mostra exemplos de variáveis de ambiente de configuração ao iniciar um contêiner com o [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e o [portal Azure](#azure-portal-example). 
+Para definir variáveis de ambiente em um contêiner, especifique-as ao criar uma instância de contêiner. Este artigo mostra exemplos de como definir variáveis de ambiente ao iniciar um contêiner com o [CLI do Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e o [portal do Azure](#azure-portal-example). 
 
-Por exemplo, se você executar a imagem de contêiner [de contagem de palavras da][aci-wordcount] Microsoft, poderá modificar seu comportamento especificando as seguintes variáveis de ambiente:
+Por exemplo, se você executar a imagem de contêiner do Microsoft [ACI-WordCount][aci-wordcount] , poderá modificar seu comportamento especificando as seguintes variáveis de ambiente:
 
 *NumWords*: O número de palavras enviadas para STDOUT.
 
@@ -28,7 +28,7 @@ Se for necessário passar segredos como variáveis de ambiente, as Instâncias d
 
 ## <a name="azure-cli-example"></a>Exemplos de CLI do Azure
 
-Para ver a saída padrão do contêiner [aci-wordcount, execute-a][aci-wordcount] primeiro com este comando [de criação de contêiner az][az-container-create] (sem variáveis de ambiente especificadas):
+Para ver a saída padrão do contêiner [ACI-WordCount][aci-wordcount] , execute-o primeiro com este comando [AZ container Create][az-container-create] (nenhuma variável de ambiente especificada):
 
 ```azurecli-interactive
 az container create \
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Para modificar a saída, inicie `--environment-variables` um segundo contêiner com o argumento adicionado, especificando valores para as variáveis *NumWords* e *MinLength.* (Este exemplo pressupõe que você esteja executando a CLI em um shell Bash ou no Azure Cloud Shell. Se você usar o Prompt de Comando do Windows, especifique as variáveis com aspas duplas, como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
+Para modificar a saída, inicie um segundo contêiner com o `--environment-variables` argumento adicionado, especificando valores para as variáveis *NumWords* e *minLength* . (Este exemplo pressupõe que você esteja executando a CLI em um shell Bash ou no Azure Cloud Shell. Se você usar o Prompt de Comando do Windows, especifique as variáveis com aspas duplas, como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -85,7 +85,7 @@ A saída dos contêineres mostra como você modificou o comportamento do script 
 
 Definir variáveis de ambiente no PowerShell é semelhante à CLI, mas usa o argumento de linha de comando `-EnvironmentVariable`.
 
-Primeiro, inicie o contêiner [aci-wordcount][aci-wordcount] em sua configuração padrão com este comando [New-AzContainerGroup:][new-Azcontainergroup]
+Primeiro, inicie o contêiner [ACI-WordCount][aci-wordcount] em sua configuração padrão com esse comando [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Agora execute o seguinte comando [New-AzContainerGroup.][new-Azcontainergroup] Este especifica as variáveis de ambiente *NumWords* e *MinLength* depois de preencher uma variável de matriz `envVars`:
+Agora, execute o seguinte comando [New-AzContainerGroup][new-Azcontainergroup] . Este especifica as variáveis de ambiente *NumWords* e *MinLength* depois de preencher uma variável de matriz `envVars`:
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -106,7 +106,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Uma vez que o estado de ambos os contêineres seja *encerrado* (use [Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), puxe seus registros com o comando [Get-AzContainerInstanceLog.][azure-instance-log]
+Depois que o estado dos dois contêineres for *encerrado* (use [Get-AzContainerInstanceLog][azure-instance-log] para verificar o estado), faça pull de seus logs com o comando [Get-AzContainerInstanceLog][azure-instance-log] .
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -141,15 +141,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemplo do portal do Azure
 
-Para definir variáveis de ambiente ao iniciar um contêiner no portal Azure, especifique-as na página **Avançado** quando criar o contêiner.
+Para definir variáveis de ambiente ao iniciar um contêiner no portal do Azure, especifique-os na página **avançado** ao criar o contêiner.
 
-1. Na página **Avançado,** defina a **diretiva 'Reiniciar'** como *falha*
-2. Em **variáveis de ambiente,** digite `NumWords` com um valor para `5` a primeira variável e digite `MinLength` com um valor de `8` para a segunda variável. 
-1. Selecione **'Revisar + criar** para verificar e, em seguida, implantar o contêiner.'
+1. Na página **avançado** , defina a **política de reinicialização** como *em caso de falha*
+2. Em **variáveis de ambiente**, `NumWords` Insira com um valor `5` de para a primeira variável e digite `MinLength` com um valor de `8` para a segunda variável. 
+1. Selecione **examinar + criar** para verificar e implantar o contêiner.
 
 ![Página do portal mostrando a variável de ambiente Habilitar botão e caixas de texto][portal-env-vars-01]
 
-Para exibir os registros do contêiner, em **Configurações** selecione **Contêineres**e, em seguida, **Logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
+Para exibir os logs do contêiner, em **configurações** , selecione **contêineres**e **logs**. Semelhante à saída mostrada nas seções CLI e PowerShell anteriores, é possível ver como o comportamento do script foi modificado pelas variáveis de ambiente. Apenas cinco palavras são exibidas, cada uma com um comprimento mínimo de oito caracteres.
 
 ![Portal mostrando a saída do log de contêiner][portal-env-vars-02]
 
@@ -238,7 +238,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Cenários baseados em tarefas, como o processamento em lote de um grande conjunto de dados com vários contêineres, podem se beneficiar de variáveis de ambiente personalizadas no runtime. Para obter mais informações sobre a execução de contêineres baseados em tarefas, consulte [Executar tarefas em contêiner com políticas de reinicialização](container-instances-restart-policy.md).
+Cenários baseados em tarefas, como o processamento em lote de um grande conjunto de dados com vários contêineres, podem se beneficiar de variáveis de ambiente personalizadas no runtime. Para obter mais informações sobre a execução de contêineres baseados em tarefas, consulte [executar tarefas em contêineres com políticas de reinicialização](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

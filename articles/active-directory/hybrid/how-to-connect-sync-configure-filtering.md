@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261093"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
@@ -36,7 +36,7 @@ Em alguns casos, é necessário fazer alterações na configuração padrão. Es
 Este artigo mostra como configurar os diferentes métodos de filtragem.
 
 > [!IMPORTANT]
-> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou não suportado da sincronização do Azure AD Connect. Como resultado, a Microsoft não pode fornecer suporte técnico para tais implantações.
+> A Microsoft não oferece suporte à modificação ou à operação da sincronização do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte de Azure AD Connect sincronização. Como resultado, a Microsoft não pode fornecer suporte técnico para essas implantações.
 
 ## <a name="basics-and-important-notes"></a>Noções básicas e observações importantes
 No Azure AD Connect Sync, você pode habilitar a filtragem a qualquer momento. Se você já tiver começado com uma configuração padrão de sincronização de diretório e então configurou a filtragem, os objetos que são filtrados não são mais sincronizados ao AD do Azure. Devido a essa alteração, quaisquer objetos no Azure AD que foram anteriormente sincronizados, mas filtrados depois, serão excluídos do Azure AD.
@@ -68,7 +68,7 @@ Para desabilitar o agendador interno, dispara um ciclo de sincronização a cada
 **Se você usa um build do Azure AD Connect anterior ao 1.1.105.0**  
 Para desabilitar a tarefa agendada que dispara um ciclo de sincronização a cada três horas, siga estas etapas:
 
-1. Inicie **o Agendador** de tarefas a partir do menu **Iniciar.**
+1. Inicie **Agendador de tarefas** no menu **Iniciar** .
 2. Diretamente na **Biblioteca do Agendador de Tarefas**, localize a tarefa chamada **Agendador de Sincronização do Azure AD**, clique com o botão direito do mouse e selecione **Desabilitar**.  
    ![Agendador de Tarefas](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
 3. Agora você pode fazer alterações de configuração e executar o mecanismo de sincronização manualmente do console do **Synchronization Service Manager** .
@@ -99,16 +99,16 @@ A configuração de filtragem baseada em domínio consiste nestas etapas:
 3. [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>Selecionar os domínios a serem sincronizados
-Existem duas maneiras de selecionar os domínios a serem sincronizados:
-    - Usando o Serviço de Sincronização
-    - Usando o assistente Azure AD Connect.
+Há duas maneiras de selecionar os domínios a serem sincronizados:
+    - Usando o serviço de sincronização
+    - Usando o assistente de Azure AD Connect.
 
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Selecione os domínios a serem sincronizados usando o Serviço de Sincronização
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>Selecione os domínios a serem sincronizados usando o serviço de sincronização
 Para definir o filtro de domínio, siga estas etapas:
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
-2. Inicie o serviço de **sincronização** a partir do menu **Iniciar.**
+2. Inicie o **serviço de sincronização** no menu **Iniciar** .
 3. Selecione **Conectores** e, na lista **Conectores**, selecione o conector com o tipo **Active Directory Domain Services**. Em **Ações**, selecione **Propriedades**.  
    ![Propriedades do conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Clique em **Configurar Partições de Diretório**.
@@ -119,15 +119,15 @@ Para definir o filtro de domínio, siga estas etapas:
 6. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**. Se você tiver removido domínios da floresta, será exibida uma mensagem informando que um domínio foi removido e que a configuração será limpa.
 7. Prossiga para ajustar os perfis de execução.
 
-#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Selecione os domínios a serem sincronizados usando o assistente Azure AD Connect
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>Selecione os domínios a serem sincronizados usando o assistente de Azure AD Connect
 Para definir o filtro de domínio, siga estas etapas:
 
-1.  Inicie o assistente Azure AD Connect
+1.  Iniciar o assistente de Azure AD Connect
 2.  Clique em **Configurar**.
-3.  Selecione **Personalizar opções de sincronização** e clique **em Next**.
+3.  Selecione **Personalizar opções de sincronização** e clique em **Avançar**.
 4.  Insira suas credenciais de AD do Azure
-5.  Na tela **Diretórios conectados** clique em **Next**.
-6.  Na **página de filtragem de domínio e OU** clique em **Atualizar**.  Novos domínios mal agora aparecem e domínios excluídos desaparecerão.
+5.  Na tela **diretórios conectados** , clique em **Avançar**.
+6.  Na **página filtragem de domínio e UO,** clique em **Atualizar**.  Novos domínios agora aparecem e os domínios excluídos desaparecerão.
    ![Partições](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Atualizar perfis de execução
@@ -144,7 +144,7 @@ Se você tiver atualizado o filtro de domínio, também precisará atualizar os 
 3. Para cada perfil, ajuste os domínios **adicionados** e **removidos**.
     1. Para cada um dos cinco perfis, execute as seguintes etapas para cada domínio **adicionado**:
         1. Selecione o perfil de execução e clique em **Nova Etapa**.
-        2. Na página **Configurar Etapa**, no menu suspenso **Tipo**, selecione o tipo de etapa com o mesmo nome do perfil que você está configurando. Em seguida, clique em **Avançar**.  
+        2. Na página **Configurar Etapa**, no menu suspenso **Tipo**, selecione o tipo de etapa com o mesmo nome do perfil que você está configurando. Em seguida, clique em **Próximo**.  
         ![Perfis de execução do conector 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. Na página **Configuração do Conector**, no menu suspenso **Partição**, selecione o nome do domínio que você adicionou ao filtro de domínio.  
         ![Perfis de execução do conector 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -155,7 +155,7 @@ Se você tiver atualizado o filtro de domínio, também precisará atualizar os 
         ![Perfis de execução do conector 4](./media/how-to-connect-sync-configure-filtering/runprofilesdeletestep.png)  
     3. Verifique se a alteração. Cada domínio que você deseja sincronizar deve estar listado como uma etapa em cada perfil de execução.
 4. Para fechar o diálogo **Configurar Perfis de Execução**, clique em **OK**.
-5.  Para completar a configuração, você precisa executar uma **importação completa** e uma **sincronização Delta**. Continue lendo a seção [Aplicar e verificar alterações](#apply-and-verify-changes).
+5.  Para concluir a configuração, você precisa executar uma **importação completa** e uma **sincronização Delta**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="organizational-unitbased-filtering"></a>Filtragem baseada em unidade organizacional
 A melhor maneira de alterar a filtragem baseada em unidade organizacional é executar o assistente de instalação e alterar a [filtragem de domínio e UO](how-to-connect-install-custom.md#domain-and-ou-filtering). O assistente de instalação automatiza todas as tarefas documentadas neste tópico.
@@ -165,7 +165,7 @@ Você só deve seguir estas etapas se, por algum motivo, não conseguir executar
 Para configurar a filtragem baseada em unidade organizacional, execute as seguintes etapas:
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
-2. Inicie o serviço de **sincronização** a partir do menu **Iniciar.**
+2. Inicie o **serviço de sincronização** no menu **Iniciar** .
 3. Selecione **Conectores** e, na lista **Conectores**, selecione o conector com o tipo **Active Directory Domain Services**. Em **Ações**, selecione **Propriedades**.  
    ![Propriedades do conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Clique em **Configurar Partições de Diretório**, selecione o domínio que você deseja configurar e clique em **Contêineres**.
@@ -179,7 +179,7 @@ Para configurar a filtragem baseada em unidade organizacional, execute as seguin
    * Se você usar a filtragem baseada em grupo, a UO onde o grupo está localizado deverá ser incluída.
    * Observe que você pode configurar se as novas UOs adicionadas após a conclusão da configuração da filtragem deverão ser sincronizadas ou não. Consulte a próxima seção para obter detalhes.
 7. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**.
-8. Para completar a configuração, você precisa executar uma **importação completa** e uma **sincronização Delta**. Continue lendo a seção [Aplicar e verificar alterações](#apply-and-verify-changes).
+8. Para concluir a configuração, você precisa executar uma **importação completa** e uma **sincronização Delta**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ### <a name="synchronize-new-ous"></a>Sincronizar novas UOs
 As novas UOs criadas após a configuração da filtragem são sincronizadas por padrão. Esse estado é indicado por uma marca de seleção na caixa. Você também pode cancelar a seleção de alguns subunidades organizacionais. Para isso, clique na caixa até que ela se torne branca com uma marca de seleção azul (seu estado padrão). Em seguida, desmarque todas as subunidades organizacionais que você não deseja sincronizar.
@@ -228,7 +228,7 @@ Nos exemplos a seguir, o valor de precedência começa com 50. Isso pode ser qua
 No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **extensionAttribute15** tem o valor **NoSync**.
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
-2. Inicie o Editor de Regras de **Sincronização** a partir do menu **Iniciar.**
+2. Inicie o **Editor de regras de sincronização** no menu **Iniciar** .
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 50). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 1](./media/how-to-connect-sync-configure-filtering/inbound1.png)  
@@ -237,7 +237,7 @@ No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **
 6. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 7. Clique em **Adicionar Transformação**, selecione **FlowType** como **Constante** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa de texto **Origem**, digite **True**. Clique em **Adicionar** para salvar a regra.  
    ![Transformação da entrada 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)
-8. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [Aplicar e verificar alterações](#apply-and-verify-changes).
+8. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 #### <a name="positive-filtering-only-sync-these"></a>Filtragem positiva: "sincronizar somente estas"
 Expressar a filtragem positiva pode ser mais desafiador, já que você também precisa considerar os objetos que não são óbvios para a sincronização, como as salas de conferência. Você também irá substituir o filtro padrão na regra diretamente **Entrada do AD – Associação de Usuário**. Quando você criar seu filtro personalizado, não inclua os objetos críticos do sistema, objetos de replicação em conflito, caixas de correio especiais e contas de serviço para o Azure AD Connect.
@@ -247,7 +247,7 @@ A opção de filtragem positiva requer duas regras de sincronização. Você pre
 No exemplo a seguir, você só sincroniza os objetos de usuário quando o atributo de departamento tiver o valor **Vendas**.
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
-2. Inicie o Editor de Regras de **Sincronização** a partir do menu **Iniciar.**
+2. Inicie o **Editor de regras de sincronização** no menu **Iniciar** .
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
 4. Dê à regra um nome descritivo, como "*Entrada do AD – Sincronização de Vendas de Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 51). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 4](./media/how-to-connect-sync-configure-filtering/inbound4.png)  
@@ -263,7 +263,7 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 10. Deixe as regras de **Junção** vazias e clique em **Avançar**.
 11. Clique em **Adicionar Transformação**, selecione **Constant** como **FlowType** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa **Origem** , digite **True**. Clique em **Adicionar** para salvar a regra.  
     ![Transformação da entrada 3](./media/how-to-connect-sync-configure-filtering/inbound3.png)  
-12. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [Aplicar e verificar alterações](#apply-and-verify-changes).
+12. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 Se for necessário, você pode criar mais regras do primeiro tipo, para incluir outros objetos para sincronização.
 
@@ -273,14 +273,14 @@ Em alguns casos, é necessário fazer a filtragem somente depois que os objetos 
 Neste exemplo, você altera a filtragem para que somente usuários com emails e o userPrincipalName terminados em @contoso.com sejam sincronizados:
 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
-2. Inicie o Editor de Regras de **Sincronização** a partir do menu **Iniciar.**
+2. Inicie o **Editor de regras de sincronização** no menu **Iniciar** .
 3. Em **Tipos de Regra**, clique em **Saída**.
 4. Dependendo da versão do Connect que você usar, localize a regra nomeada **Saída para AAD – Ingresso de usuário** ou **Saída para AAD - Usuário ingressado no SOAInAD** e clique em **Editar**.
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
-7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **Valor,** digite ** \@contoso.com**e clique em Adicionar **cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **Valor,** digite ** \@contoso.com**.
+7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@contoso.com**.
 8. Clique em **Salvar**.
-9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [Aplicar e verificar alterações](#apply-and-verify-changes).
+9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar as alterações
 Depois de alterar as configurações, você precisa aplicá-las aos objetos já presentes no sistema. Os objetos que não estão presentes no mecanismo de sincronização talvez precisem ser processados (e o mecanismo de sincronização talvez precise ler o sistema de origem novamente para verificar seu conteúdo).
@@ -291,7 +291,7 @@ Se tiver alterado a configuração usando a filtragem de **atributo**, você pre
 
 Execute as seguintes etapas:
 
-1. Inicie o serviço de **sincronização** a partir do menu **Iniciar.**
+1. Inicie o **serviço de sincronização** no menu **Iniciar** .
 2. Selecione **Conectores**. Na lista **Conectores**, selecione o conector cuja configuração você anteriormente. Em **Ações**, selecione **Executar**.  
    ![Execução do conector](./media/how-to-connect-sync-configure-filtering/connectorrun.png)  
 3. Em **Perfis de execução**, selecione a operação mencionada na seção anterior. Se você precisar executar duas ações, execute a segunda após a conclusão da primeira. (A coluna **Estado** indica que o conector selecionado está **Ocioso**.)
@@ -313,11 +313,11 @@ Quando estiver satisfeito, exporte as alterações para o Azure AD.
 
 Agora é hora de habilitar o agendador novamente.
 
-1. Inicie **o Agendador** de tarefas a partir do menu **Iniciar.**
+1. Inicie **Agendador de tarefas** no menu **Iniciar** .
 2. Diretamente na **Biblioteca do Agendador de Tarefas**, localize a tarefa chamada **Agendador de Sincronização do Azure AD**, clique com o botão direito do mouse e selecione **Habilitar**.
 
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
-Você pode configurar a filtragem baseada em grupo na primeira vez que você instala o Azure AD Connect usando [instalação personalizada](how-to-connect-install-custom.md#sync-filtering-based-on-groups). Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico. Ao usar a filtragem baseada em UO em conjunto com a filtragem baseada em grupos, as UOs em que o grupo e seus membros estão localizados devem ser incluídas.
+Você pode configurar a filtragem baseada em grupo na primeira vez que instalar o Azure AD Connect usando a [instalação personalizada](how-to-connect-install-custom.md#sync-filtering-based-on-groups). Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico. Ao usar a filtragem baseada em UO em conjunto com a filtragem baseada em grupos, as UOs em que o grupo e seus membros estão localizados devem ser incluídas.
 
 Durante a sincronização de várias florestas do AD, você pode configurar a filtragem baseada em grupo com a especificação de um grupo diferente para cada conector do AD. Se você deseja sincronizar um usuário em uma floresta do AD e o mesmo usuário tiver um ou mais objetos correspondentes em outras florestas do AD, você deverá garantir que o objeto de usuário e todos os seus objetos correspondentes estejam dentro do escopo filtragem baseada no grupo. Por exemplo:
 

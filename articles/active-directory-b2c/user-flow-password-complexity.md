@@ -12,10 +12,10 @@ ms.date: 02/11/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78185634"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar os requisitos de complexidade de senhas fornecidas no Azure Active Directory B2C
@@ -24,7 +24,7 @@ O Azure Active Directory B2C (Azure AD B2C) oferece suporte à alteração de re
 
 ## <a name="password-rule-enforcement"></a>Imposição de regras de senha
 
-Durante a inscrição ou redefinição de senha, um usuário final deve fornecer uma senha que atenda às regras de complexidade. Regras de complexidade de senha são impostas pelo fluxo de usuários. É possível que um fluxo de usuário exija um pino de quatro dígitos durante a inscrição, enquanto outro fluxo de usuário requer uma seqüência de oito caracteres durante a inscrição. Por exemplo, você pode usar um fluxo de usuários com diferente complexidade de senha para adultos e crianças.
+Durante a inscrição ou redefinição de senha, um usuário final deve fornecer uma senha que atenda às regras de complexidade. Regras de complexidade de senha são impostas pelo fluxo de usuários. É possível ter um fluxo de usuário que exija um PIN de quatro dígitos durante a inscrição, enquanto outro fluxo de usuário requer uma cadeia de oito caracteres durante a inscrição. Por exemplo, você pode usar um fluxo de usuários com diferente complexidade de senha para adultos e crianças.
 
 A complexidade de senha nunca é aplicada durante a inscrição. Nunca será solicitado que os usuários mudem sua senha ao entrar por ela não atender aos requisitos de complexidade atual.
 
@@ -37,9 +37,9 @@ Se estiver usando políticas personalizadas, você poderá ([configurar a comple
 
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha
 
-1. Faça login no [portal Azure](https://portal.azure.com).
-2. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o inquilino Ad B2C do Azure.
-3. No portal Azure, procure e selecione **Azure AD B2C**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+3. Na portal do Azure, procure e selecione **Azure ad B2C**.
 4. Selecione **fluxos de usuário (políticas)**.
 2. Selecione um fluxo de usuário e clique em **Propriedades**.
 3. Em **Complexidade da senha**, altere a complexidade da senha para esse fluxo de usuário para **Simples**, **Forte** ou **Personalizada**.
@@ -73,7 +73,7 @@ Permite que você controle as exigências de comprimento da senha.
 Permite que você controle os diferentes tipos de caracteres usados na senha.
 
 - **2 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** a senha deve ter, no mínimo, dois tipos de caracteres. Por exemplo, um número e um caractere minúsculo.
-- **3 de 4: Caractere minúsculo, caractere maiúsculo, Número (0-9), Símbolo** garante que a senha contenha pelo menos três tipos de caracteres. Por exemplo, um número, um caractere minúsculo e um caractere maiúsculos.
+- **3 de 4: caractere minúsculo, caractere maiúsculo, número (0-9), símbolo** garante que a senha contenha pelo menos três tipos de caracteres. Por exemplo, um número, um caractere minúsculo e um caractere maiúsculos.
 - **4 de 4: caracteres maiúsculos, minúsculos, números (0-9) ou símbolos** a senha deve ter todos os tipos de caracteres.
 
     > [!NOTE]

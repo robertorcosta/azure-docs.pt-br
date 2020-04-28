@@ -1,7 +1,7 @@
 ---
-title: Use appAuth em um aplicativo para iOS
+title: Usar o AppAuth em um aplicativo iOS
 titleSuffix: Azure AD B2C
-description: Como criar um aplicativo para iOS que usa o AppAuth com o Azure Active Directory B2C para gerenciar identidades de usuários e autenticar usuários.
+description: Como criar um aplicativo iOS que usa o AppAuth com Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78186821"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: entrar usando um aplicativo iOS
@@ -34,7 +34,7 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
-Em seguida, registre um aplicativo no seu inquilino Azure AD B2C. Isso dá ao Azure AD as informações que ele precisa para se comunicar com segurança com o seu aplicativo.
+Em seguida, registre um aplicativo em seu locatário de Azure AD B2C. Isso dá ao Azure AD as informações de que ele precisa para se comunicar de forma segura com seu aplicativo.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
@@ -92,8 +92,8 @@ OIDServiceConfiguration *configuration =
 
 Depois de configurar ou recuperar uma configuração de serviço de autorização, uma solicitação de autorização pode ser criada. Para criar a solicitação, você precisará das seguintes informações:
 
-* ID do cliente (ID de aplicativo) que você gravou anteriormente. Por exemplo, `00000000-0000-0000-0000-000000000000`.
-* Uri de redirecionamento personalizado que você gravou anteriormente. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+* ID do cliente (ID do aplicativo) que você registrou anteriormente. Por exemplo, `00000000-0000-0000-0000-000000000000`.
+* URI de redirecionamento personalizado que você registrou anteriormente. Por exemplo, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Os dois itens devem ter sido salvos quando você estava [registrando seu aplicativo](#create-an-application).
 
