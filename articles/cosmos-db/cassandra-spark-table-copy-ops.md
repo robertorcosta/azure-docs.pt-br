@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 32714e216e59565c787f92bf1e8da62957bc7233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445624"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia de tabela na API do Cassandra do Azure Cosmos DB do Spark
@@ -146,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Próximas etapas
 
- * Introdução à [criação de uma conta de API do Cassandra, banco de dados e uma tabela](create-cassandra-api-account-java.md) usando um aplicativo Java.
+ * Comece a [criar uma conta API do Cassandra, um banco de dados e uma tabela](create-cassandra-api-account-java.md) usando um aplicativo Java.
  * [Carregar dados de exemplo na tabela de API do Cassandra](cassandra-api-load-data.md) usando um aplicativo Java.
  * [Consultar dados da conta de API do Cassandra](cassandra-api-query-data.md) usando um aplicativo Java.

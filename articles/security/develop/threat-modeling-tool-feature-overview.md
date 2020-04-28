@@ -1,5 +1,5 @@
 ---
-title: Visão geral do recurso do recurso de modelagem de ameaças da Microsoft - Azure
+title: Visão geral do recurso de Microsoft Threat Modeling Tool-Azure
 description: Conheça todos os recursos disponíveis no Threat Modeling Tool
 author: jegeib
 ms.author: jegeib
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552110"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
@@ -39,12 +39,12 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Rótulo                               | Detalhes      |
+| Rotular                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
 | **Exibir** | <ul><li>Alternar entre as exibições de **Análise** e **Design**.</li><li>Abrir janelas fechadas (por exemplo, estênceis, propriedades do elemento e mensagens).</li><li>Redefinir layout para as configurações padrão.</li></ul> |
-| **Diagrama** | Adicionar e excluir diagramas e navegar pelas guias dos diagramas. |
+| **Organograma** | Adicionar e excluir diagramas e navegar pelas guias dos diagramas. |
 | **Relatórios** | Criar relatórios em HTML para compartilhar com outras pessoas. |
 | **Ajuda** | Encontre guias para ajudar você a usar a ferramenta. |
 
@@ -194,7 +194,7 @@ Conforme mostrado na imagem anterior, você pode alterar as informações gerada
 
 ## <a name="reports"></a>Relatórios
 
-Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Ir para **relatório** > **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
+Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **relatório** > **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
 
 ![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
 

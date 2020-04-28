@@ -1,35 +1,35 @@
 ---
-title: Recuperação de desastres para compartilhamento de dados do Azure
-description: Recuperação de desastres para compartilhamento de dados do Azure
+title: Recuperação de desastre para o compartilhamento de dados do Azure
+description: Recuperação de desastre para o compartilhamento de dados do Azure
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.openlocfilehash: a736e3ddfcf785f9ce27140eed58374a0732c1f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483174"
 ---
-# <a name="disaster-recovery-for-azure-data-share"></a>Recuperação de desastres para compartilhamento de dados do Azure
+# <a name="disaster-recovery-for-azure-data-share"></a>Recuperação de desastre para o compartilhamento de dados do Azure
 
-Neste artigo, vamos mostrar como configurar um ambiente de recuperação de desastres para o Azure Data Share. As paralisações do data center do Azure são raras, mas podem durar de alguns minutos a horas. As paralisações do Data Center podem causar interrupções em ambientes que dependem do compartilhamento de dados pelo provedor de dados. Seguindo as etapas detalhadas neste artigo, os provedores de dados podem continuar a compartilhar dados com seus consumidores de dados no caso de uma paralisação do data center para a região primária que está hospedando seu compartilhamento de dados. 
+Neste artigo, vamos examinar como configurar um ambiente de recuperação de desastre para o compartilhamento de dados do Azure. As interrupções do Azure data center são raras, mas podem durar em qualquer lugar, de alguns minutos a horas. As interrupções do Data Center podem causar interrupções em ambientes que dependem de dados sendo compartilhados pelo provedor de dados. Seguindo as etapas detalhadas neste artigo, os provedores de dados podem continuar a compartilhar dados com seus consumidores de dados no caso de uma interrupção data center para a região primária que está hospedando seu compartilhamento de dados. 
 
-## <a name="achieving-business-continuity-for-azure-data-share"></a>Obtendo continuidade de negócios para o Azure Data Share
+## <a name="achieving-business-continuity-for-azure-data-share"></a>Obtendo continuidade dos negócios para o compartilhamento de dados do Azure
 
-Para estar preparado para uma paralisação do data center, o provedor de dados pode ter um ambiente de compartilhamento de dados provisionado em uma região secundária. Existem medidas que podem ser tomadas que garantirão um remasso suave no caso de uma paralisação do data center ocorrer. 
+Para ser preparado para uma interrupção de data center, o provedor de dados pode ter um ambiente de compartilhamento de dados provisionado em uma região secundária. Há medidas que podem ser tomadas, o que garantirá um failover suave caso ocorra uma interrupção data center. 
 
-Os provedores de dados podem prover recursos secundários do Azure Data Share em uma região adicional. Esses recursos do Compartilhamento de Dados podem ser configurados para incluir conjuntos de dados existentes no ambiente principal de compartilhamento de dados. Os consumidores de dados podem ser adicionados ao compartilhamento de dados ao configurar o ambiente DR ou adicionados em um momento posterior (ou seja, como parte das etapas de failover manual).
+Os provedores de dados podem provisionar recursos de compartilhamento de dados secundários do Azure em uma região adicional. Esses recursos de compartilhamento de dados podem ser configurados para incluir conjuntos de dados que existem no ambiente primário de compartilhamento de dados. Os consumidores de dados podem ser adicionados ao compartilhamento de dados ao configurar o ambiente de DR ou adicionados em um momento posterior (ou seja, como parte das etapas de failover manual).
 
-Se os consumidores de dados tiverem uma assinatura de compartilhamento ativa em um ambiente secundário provisionado para fins de DR, eles podem habilitar o cronograma de instantâneos como parte de um failover. Se os consumidores de dados não quiserem se inscrever em uma região secundária para fins de DR, eles podem ser convidados para o compartilhamento de dados secundários posteriormente. 
+Se os consumidores de dados tiverem uma assinatura de compartilhamento ativa em um ambiente secundário provisionado para fins de DR, eles poderão habilitar a agenda de instantâneo como parte de um failover. Se os consumidores de dados não quiserem assinar uma região secundária para fins de DR, eles poderão ser convidados para o compartilhamento de dados secundário em um momento posterior. 
 
-Os consumidores de dados podem ter uma assinatura de compartilhamento ativa ociosa para fins de DR, ou os provedores de dados podem adicioná-los em um momento posterior como parte dos procedimentos de failover manual. 
+Os consumidores de dados podem ter uma assinatura de compartilhamento ativa que está ociosa para fins de DR ou os provedores de dados podem adicioná-los em um ponto posterior no tempo como parte dos procedimentos de failover manual. 
 
 ## <a name="related-information"></a>Informações relacionadas
 
-- [Continuidade de Negócios e Recuperação de Desastres](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+- [Continuidade dos negócios e recuperação de desastre](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 - [Obtenha alta disponibilidade em sua estratégia de BCDR](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>Próximas etapas

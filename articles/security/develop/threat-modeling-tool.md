@@ -1,6 +1,6 @@
 ---
-title: Visão geral da ferramenta de modelagem de ameaças da Microsoft - Azure
-description: Visão geral da Ferramenta de Modelagem de Ameaças da Microsoft, contendo informações sobre como começar com a ferramenta, incluindo o processo de modelagem de ameaças.
+title: Visão geral de Microsoft Threat Modeling Tool-Azure
+description: Visão geral do Microsoft Threat Modeling Tool, que contém informações sobre como começar a usar a ferramenta, incluindo o processo de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
 ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75548760"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft

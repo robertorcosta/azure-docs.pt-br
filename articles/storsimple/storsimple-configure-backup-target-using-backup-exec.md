@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75561636"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
@@ -55,8 +55,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**Diagrama de hierar**
-![simples storSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+**StorSimple tiering**
+![Diagrama de camadas storsimple de camada do storsimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Realize suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -205,7 +205,7 @@ Configure o armazenamento do servidor de backup do host de acordo com estas orie
 
 Configure sua solução de acordo com as diretrizes indicadas nas seções a seguir.
 
-### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operacional
+### <a name="operating-system-best-practices"></a>Práticas recomendadas para sistemas operacionais
 
 - Desabilite a criptografia do Windows Server e a eliminação de duplicação do sistema de arquivos NTFS.
 - Desabilite a desfragmentação do Windows Server em volumes do StorSimple.
@@ -233,7 +233,7 @@ Configure sua solução de acordo com as diretrizes indicadas nas seções a seg
 -   O StorSimple dá suporte a backups completos e incrementais do Backup Exec. Não é recomendável usar backups diferenciais e sintéticos.
 -   Os arquivos de dados de backup devem conter apenas dados de um trabalho específico. Por exemplo, não são permitidos acréscimos de mídia em vários trabalhos diferentes.
 -   Desabilite a verificação do trabalho. Se necessário, a verificação deve ser agendada após o trabalho de backup mais recente. É importante compreender que esse trabalho afeta sua janela de backup.
--   Selecione **Armazenamento** > Propriedades**dos detalhes** > **do****disco** > . Desligue **Pré-alocar espaço em disco**.
+-   Selecione **armazenamento** > suas**Propriedades**de**detalhes** > **do disco** > . Desligue **Pré-alocar espaço em disco**.
 
 Para as definições mais recentes do Backup Exec e as práticas recomendadas sobre como implementar esses requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -267,7 +267,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-backup-exec-storage"></a>Para configurar o armazenamento de Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, selecione **Armazenamento** > **Configurar armazenamento** > **baseado em disco em** > **seguida**.
+1.  No console de gerenciamento do Backup Exec, selecione **armazenamento** > **Configurar** > armazenamento**baseado em** > disco de armazenamento**Avançar**.
 
     ![Console de gerenciamento do Backup Exec, página de configuração de armazenamento](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -323,7 +323,7 @@ A sequência a seguir pressupõe que o Backup Exec e o host de destino estão co
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Para atribuir volumes do StorSimple a um trabalho de backup do Backup Exec
 
-1.  No console de gerenciamento Do Gerenciamento de Backup Exec, selecione **Host** > **Backup** > **Backup to Disk**.
+1.  No console de gerenciamento do Backup Exec, selecione **host** > **Backup** > backup**backup to Disk**.
 
     ![No console de gerenciamento do Backup Exec, selecione o host, backup e backup em disco](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -395,11 +395,11 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Para atribuir volumes StorSimple a um trabalho de arquivamento e eliminação de duplicação do Backup Exec
 
-1.  No console de gerenciamento Do Gerenciamento de Backup Exec, clique com o botão direito do mouse no trabalho que deseja arquivar para um volume StorSimple e, em seguida, selecione **'Propriedades de definição de** > backup **'**.
+1.  No console de gerenciamento do Backup Exec, clique com o botão direito do mouse no trabalho que você deseja arquivar em um volume do StorSimple e selecione **Propriedades** > de definição de backup**Editar**.
 
     ![Console de gerenciamento do Backup Exec, guia Propriedades de Definição de Backup](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Selecione Adicionar > **duplicata de** >  **estágio**à**edição de**disco .
+2.  Selecione **Adicionar estágio** > **duplicado para** > **Editar**disco.
 
     ![Console de gerenciamento de Backup Exec, adicionar estágio](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 

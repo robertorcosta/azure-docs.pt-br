@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75548829"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do streaming estruturado do Apache Spark
@@ -36,13 +36,13 @@ O Structured Streaming do Spark representa um fluxo de dados como tabela que nã
 
 No Structured Streaming, os dados chegam ao sistema e são ingeridos imediatamente em uma tabela de entrada. Você grava as consultas (usando as APIs de DataFrame e conjuntos de dados) que executam operações nessa tabela de entrada. O resultado da consulta produz outra tabela, a *tabela de resultados*. A tabela de resultados contém os resultados da sua consulta, a partir da qual você extrai dados para um armazenamento de dados externo, como um banco de dados relacional. O tempo de quando os dados serão processados a partir da tabela de entrada é controlado pelo *intervalo do gatilho*. Por padrão, o intervalo do gatilho é zero, para que o Structured Streaming tente processar os dados assim que eles chegam. Na prática, isso significa que assim que o Structured Streaming termina de processar a execução da consulta anterior, ele inicia outro processamento executado quaisquer dados recebidos recentemente. É possível configurar o gatilho para executar em um intervalo, de modo que os dados de streaming sejam processados em lotes baseados em tempo.
 
-Os dados nas tabelas de resultados podem conter apenas os dados novos desde a última vez que a consulta foi processada *(modo de apêndice),* ou a tabela pode ser atualizada toda vez que houver novos dados para que a tabela inclua todos os dados de saída desde que a consulta de streaming começou *(modo completo).*
+Os dados nas tabelas de resultados podem conter apenas os dados que são novos desde a última vez em que a consulta foi processada (*modo de acréscimo*) ou a tabela pode ser atualizada sempre que houver novos dados para que a tabela inclua todos os dados de saída desde que a consulta de streaming começou (*modo completo*).
 
 ### <a name="append-mode"></a>Modo de acréscimo
 
 No modo de acréscimo, apenas as linhas adicionadas à tabela de resultados, desde a última execução de consulta estão presentes na tabela de resultados e gravadas no armazenamento externo. Por exemplo, a consulta mais simples apenas copia todos os dados da tabela de entrada para a tabela de resultados inalterada. Cada vez que um intervalo do gatilho expira, os novos dados são processados e as linhas que representam os novos dados aparecem na tabela de resultados.
 
-Considere um cenário onde você está processando a telemetria a partir de sensores de temperatura, como um termostato. Suponha que o primeiro gatilho processou um evento no tempo 00:01 para o dispositivo 1 com uma leitura de temperatura de 95 graus. No primeiro gatilho da consulta, apenas a linha com tempo 00:01 é exibida na tabela de resultados. No tempo 00:02 quando outro evento chega, apenas a nova linha é a linha com tempo 00:02 e assim a tabela de resultados conterá somente essa única linha.
+Considere um cenário em que você esteja processando a telemetria de sensores de temperatura, como um termostato. Suponha que o primeiro gatilho processou um evento no tempo 00:01 para o dispositivo 1 com uma leitura de temperatura de 95 graus. No primeiro gatilho da consulta, apenas a linha com tempo 00:01 é exibida na tabela de resultados. No tempo 00:02 quando outro evento chega, apenas a nova linha é a linha com tempo 00:02 e assim a tabela de resultados conterá somente essa única linha.
 
 ![Modo de acréscimo do Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
 
@@ -50,9 +50,9 @@ Ao usar o modo de acréscimo, sua consulta aplicaria projeções (selecionando a
 
 ### <a name="complete-mode"></a>Modo completo
 
-Considere o mesmo cenário, desta vez usando o modo completo. No modo completo, a tabela de saída inteira é atualizada em cada gatilho de modo que a tabela inclui dados não apenas da execução de gatilho mais recente, mas de todas as execuções. Você pode usar o modo completo para copiar os dados inalterados da tabela de entrada para a tabela de resultados. Em cada execução disparada, as novas linhas de resultado aparecem junto com todas as linhas anteriores. A tabela de resultados de saída acabarão armazenando todos os dados coletados desde o início da consulta e uma hora você ficaria sem memória. O modo completo destina-se a ser usado com consultas agregadas que resumem os dados de entrada de alguma forma, de modo que em cada gatilho a tabela de resultados é atualizada com um novo resumo.
+Considere o mesmo cenário, desta vez usando o modo completo. No modo completo, a tabela de saída inteira é atualizada em cada gatilho de modo que a tabela inclui dados não apenas da execução de gatilho mais recente, mas de todas as execuções. Você pode usar o modo completo para copiar os dados inalterados da tabela de entrada para a tabela de resultados. Em cada execução disparada, as novas linhas de resultado aparecem junto com todas as linhas anteriores. A tabela de resultados de saída acabarão armazenando todos os dados coletados desde o início da consulta e uma hora você ficaria sem memória. O modo completo destina-se ao uso com consultas de agregação que resumem os dados de entrada de alguma forma, assim, em cada gatilho, a tabela de resultados é atualizada com um novo Resumo.
 
-Suponha que até agora existam cinco segundos de dados já processados, e é hora de processar os dados para o sexto segundo. A tabela de entrada tem eventos para o tempo 00:01 e o tempo 00:03. O objetivo dessa consulta de exemplo é apresentar a temperatura média do dispositivo a cada cinco segundos. A implementação dessa consulta se aplica a uma agregação que usa todos os valores que se enquadram em cada janela de 5 segundos, calcula a média da temperatura e produz uma linha para a temperatura média durante esse intervalo. No final da primeira janela de 5 segundos, há duas tuplas: (00:01, 1, 95) e (00:03, 1, 98). Portanto, para a janela 00:00-00:05, a agregação produz uma tupla com a temperatura média de 96,5 graus. Na próxima janela de 5 segundos, há apenas um ponto de dados no momento 00:06, então a temperatura média resultante é de 98 graus. No tempo 00:10, usando o modo completo, a tabela de resultados tem linhas para as duas janelas 00:00-00:05 e 05:00-00:10 porque a consulta produz todas as linhas agregadas, não apenas as novas. Portanto, a tabela de resultados continua a crescer à medida que novas janelas são adicionadas.
+Suponha que até agora há cinco segundos de dados já processados, e é hora de processar os dados para o sexto segundo. A tabela de entrada tem eventos para o tempo 00:01 e o tempo 00:03. O objetivo dessa consulta de exemplo é apresentar a temperatura média do dispositivo a cada cinco segundos. A implementação dessa consulta se aplica a uma agregação que usa todos os valores que se enquadram em cada janela de 5 segundos, calcula a média da temperatura e produz uma linha para a temperatura média durante esse intervalo. No final da primeira janela de 5 segundos, há duas tuplas: (00:01, 1, 95) e (00:03, 1, 98). Portanto, para a janela 00:00-00:05, a agregação produz uma tupla com a temperatura média de 96,5 graus. Na próxima janela de 5 segundos, há apenas um ponto de dados no momento 00:06, portanto, a temperatura média resultante é de 98 graus. No tempo 00:10, usando o modo completo, a tabela de resultados tem linhas para as duas janelas 00:00-00:05 e 05:00-00:10 porque a consulta produz todas as linhas agregadas, não apenas as novas. Portanto, a tabela de resultados continua a crescer à medida que novas janelas são adicionadas.
 
 ![Modo completo do Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
@@ -110,7 +110,7 @@ Enquanto a consulta está em execução, na mesma SparkSession, você pode execu
 
     select * from temps
 
-Esta consulta produz resultados semelhantes aos seguintes:
+Essa consulta produz resultados semelhantes ao seguinte:
 
 | janela |  mín(temp) | méd(Temp) | máx(temp) |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ Para obter detalhes sobre a API do Spark Structured Stream, junto com as fontes 
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Pontos de verificação e logs write-ahead
 
-Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta com um *ponto de verificação* para garantir que o processamento do fluxo continue sem interrupções, mesmo com falhas nos nós. No HDInsight, o Spark cria pontos de verificação para que o armazenamento seja durável, Armazenamento do Microsoft Azure ou Data Lake Storage. Esses pontos de verificação armazenam as informações de progresso sobre a consulta de streaming. Além disso, o Structured Streaming utiliza um *log write-ahead* (WAL). O WAL captura dados ingeridos que foram recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento for reiniciado a partir do WAL, todos os eventos recebidos da fonte não serão perdidos.
+Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta com um *ponto de verificação* para garantir que o processamento do fluxo continue sem interrupções, mesmo com falhas nos nós. No HDInsight, o Spark cria pontos de verificação para que o armazenamento seja durável, Armazenamento do Microsoft Azure ou Data Lake Storage. Esses pontos de verificação armazenam as informações de progresso sobre a consulta de streaming. Além disso, o Structured Streaming utiliza um *log write-ahead* (WAL). O WAL captura dados ingeridos que foram recebidos, mas ainda não processados por uma consulta. Se ocorrer uma falha e o processamento for reiniciado a partir de WAL, todos os eventos recebidos da origem não serão perdidos.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implantar aplicativos Spark Streaming
 

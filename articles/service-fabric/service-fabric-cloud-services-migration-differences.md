@@ -1,15 +1,15 @@
 ---
-title: Diferenças entre serviços de nuvem e malha de serviços
+title: Diferenças entre os serviços de nuvem e Service Fabric
 description: Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463375"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
@@ -81,22 +81,22 @@ O mesmo modelo de comunicação pode ser usado no Service Fabric. Isso pode ser 
 ![Comunicação direta do Service Fabric][8]
 
 ## <a name="parity"></a>Parity
-[Cloud Services é semelhante ao Service Fabric em grau de controle versus facilidade de uso, mas agora é um serviço legado e o Service Fabric é recomendado para novo desenvolvimento;](https://docs.microsoft.com/azure/app-service/overview-compare) a seguir está uma comparação de API:
+Os [serviços de nuvem são semelhantes a Service Fabric no grau de controle versus facilidade de uso, mas agora é um serviço herdado e Service Fabric é recomendado para novo desenvolvimento](https://docs.microsoft.com/azure/app-service/overview-compare); a seguir está uma comparação de API:
 
 
-| **API de serviço em nuvem** | **API de malha de serviço** | **Observações** |
+| **API do serviço de nuvem** | **API de Service Fabric** | **Observações** |
 | --- | --- | --- |
-| Roleinstance.getid | FabricRuntime.GetNodeContext.NodeId ou . Nodename | ID é uma propriedade do NodeName |
-| RoleInstance.getFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrar no NodeName e usar a propriedade FD |
-| RoleInstance.getUpgradeDomínio | FabricClient.QueryManager.GetNodeList | Filtrar no NodeName e usar a propriedade Upgrade |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext ou Nomin (ResolveService) | CodePackageActivationContext que é fornecido tanto por FabricRuntime.GetActivationContext quanto dentro das réplicas via ServiceInitializationParameters.CodePackageActivationContext fornecido durante o . Inicializar |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se você quiser fazer o mesmo tipo de filtragem por tipo, você pode obter a lista de tipos de nó do manifesto de cluster via FabricClient.ClusterManager.GetClusterManifest e pegar os tipos de função/nó a partir daí. |
-| RoleEnvironment.getisAvailable | Conecte-o Para o WindowsFabricOu ou crie um FabricRuntime apontado para um nó específico | * |
-| RoleEnvironment.getLocalResource | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
-| RoleEnvironment.getCurrentRoleInstance | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
-| Localresource.getrootpath | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
-| Role.getInstances | FabricClient.QueryManager.GetNodeList ou ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext ou Nomin (ResolveService) | * |
+| RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId ou. NodeName | ID é uma propriedade de NodeName |
+| RoleInstance. GetFaultDomain | FabricClient. Querymanager. getnodelist | Filtrar por NodeName e usar a propriedade FD |
+| RoleInstance. GetUpgradeDomain | FabricClient. Querymanager. getnodelist | Filtrar por NodeName e usar a propriedade upgrade |
+| RoleInstance. GetInstanceEndpoints | FabricRuntime. GetActivationContext ou nomenclatura (ResolveService) | CodePackageActivationContext, que é fornecido por FabricRuntime. GetActivationContext e dentro das réplicas por meio de iminitializationparameters. CodePackageActivationContext fornecido durante. Inicializar |
+| RoleEnvironment. GetRoles | FabricClient. Querymanager. getnodelist | Se você quiser fazer o mesmo tipo de filtragem por Type, poderá obter a lista de tipos de nó do manifesto do cluster por meio de FabricClient. Clustermanager. GetClusterManifest e pegar os tipos de função/nó a partir daí. |
+| RoleEnvironment. GetIsAvailable | Connect-WindowsFabricCluster ou criar um FabricRuntime apontado para um nó específico | * |
+| RoleEnvironment. GetLocalResource | CodePackageActivationContext. log/temp/trabalho | * |
+| RoleEnvironment. GetCurrentRoleInstance | CodePackageActivationContext. log/temp/trabalho | * |
+| LocalResource. GetRootPath | CodePackageActivationContext. log/temp/trabalho | * |
+| Função. GetInstances | FabricClient. Querymanager. getnodelist ou ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext ou nomenclatura (ResolveService) | * |
 
 ## <a name="next-steps"></a>Próximas etapas
 O caminho de migração mais simples dos Serviços de Nuvem para o Service Fabric é substituir apenas a implantação dos Serviços de Nuvem por um aplicativo Service Fabric, mantendo a arquitetura geral dele. O artigo a seguir fornece um guia para ajudar a converter uma função de trabalho ou Web em um serviço sem estado do Service Fabric.

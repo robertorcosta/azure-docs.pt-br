@@ -1,15 +1,15 @@
 ---
-title: Agregação de eventos de malha de serviço do Azure com eventFlow
+title: Agregação de eventos de Service Fabric do Azure com EventFlow
 description: Saiba mais sobre a agregação e a coleta de eventos utilizando EventFlow para monitoramento e diagnóstico de clusters do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463084"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
@@ -24,7 +24,7 @@ EventFlow binários estão disponíveis como um conjunto de pacotes do NuGet. Pa
 
 Você verá uma lista de vários pacotes, rotulados como "Entradas" e "Saídas". O EventFlow dá suporte a vários provedores de log e analisadores diferentes. O serviço que hospeda EventFlow deve incluir pacotes apropriados dependendo da origem e destino para os logs de aplicativo. Além do pacote principal do Service Fabric, você também precisa de pelo menos uma Entrada e Saída configuradas. Por exemplo, você pode adicionar os seguintes pacotes para enviar eventos EventSource ao Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`para capturar dados da classe EventSource do serviço e de fontes de eventos padrão, como *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`para capturar dados da classe EventSource do serviço e de EventSources padrão como *Microsoft-Service Fabric-Services* e *Microsoft-Service Fabric-atores*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vamos enviar os logs para um recurso do Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(habilita a inicialização do pipeline EventFlow da configuração do serviço Service Fabric e relata quaisquer problemas com o envio de dados de diagnóstico como relatórios de integridade do Service Fabric)
 
@@ -148,5 +148,5 @@ Inicie o serviço e observe a depuração janela saída no Visual Studio. Depois
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visualização e Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise e visualização de eventos com registros do Monitor do Azure](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de eventos e visualização com logs de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentação de EventFlow](https://github.com/Azure/diagnostics-eventflow)

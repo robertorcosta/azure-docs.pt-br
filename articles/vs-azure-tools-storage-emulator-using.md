@@ -1,6 +1,6 @@
 ---
 title: Configurando e usando o Emulador de Armazenamento com o Visual Studio | Microsoft Docs
-description: Configuração e uso do emulador de armazenamento, um utilitário que simula os serviços de armazenamento Blob, Fila e Tabela disponíveis no Azure em sua máquina de desenvolvimento local.
+description: Configurar e usar o emulador de armazenamento, um utilitário que simula os serviços de armazenamento de BLOBs, filas e tabelas disponíveis no Azure em seu computador de desenvolvimento local.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
 ms.openlocfilehash: a6f853924416cce2440ca15767044029b20e651f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75450739"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
@@ -41,7 +41,7 @@ Para acessar o emulador de armazenamento do código dentro de uma função, voc�
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>Inicializando e executando o emulador de armazenamento
 
-Você pode especificar que, quando você executa ou depura seu serviço no Visual Studio, o Visual Studio inicia automaticamente o emulador de armazenamento. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do **Azure** e escolha **Propriedades**. Na guia **Desenvolvimento**, na lista **Iniciar o Emulador de Armazenamento do Azure**, escolha **Verdadeiro** (se ainda não estiver definido para esse valor).  Alguns tipos de projeto não têm a guia **Desenvolvimento.** Se esse for o caso, você pode ativar ou desativar a `StartDevelopmentStorage` inicialização do emulador de armazenamento definindo o elemento no arquivo do projeto. Configure-o **como True** para ativá-lo ou **False** para desativá-lo.  Por exemplo, em um projeto Azure Functions, abra o arquivo do projeto para edição e modifique o código XML da seguinte forma:
+Você pode especificar que, quando você executa ou depura seu serviço no Visual Studio, o Visual Studio inicia automaticamente o emulador de armazenamento. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do **Azure** e escolha **Propriedades**. Na guia **Desenvolvimento**, na lista **Iniciar o Emulador de Armazenamento do Azure**, escolha **Verdadeiro** (se ainda não estiver definido para esse valor).  Alguns tipos de projeto não têm a guia **desenvolvimento** . Se esse for o caso, você poderá habilitar ou desabilitar a inicialização do emulador de armazenamento `StartDevelopmentStorage` definindo o elemento no arquivo do projeto. Defina-a como **true** para habilitá-la ou **false** para desabilitá-la.  Por exemplo, em um projeto Azure Functions, abra o arquivo de projeto para editar e modifique o código XML da seguinte maneira:
 
 ```xml
   <PropertyGroup>

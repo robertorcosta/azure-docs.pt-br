@@ -1,5 +1,5 @@
 ---
-title: Política de gerenciamento de API de exemplo - Envie erros para stackify para registro
+title: Política de gerenciamento de API de exemplo – enviar erros para Stackify para registro em log
 titleSuffix: Azure API Management
 description: Exemplo de política de gerenciamento de API do Azure - Demonstra como adicionar uma política de registro em log de erros para enviar erros para Stackify para registro em log.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442450"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>Enviar erros para o Stackify para registro em log

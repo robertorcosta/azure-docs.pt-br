@@ -1,15 +1,15 @@
 ---
-title: Referência de Malha de Malha de Malha de Malha de Serviço Azure
+title: Referência do Maven da malha de Service Fabric do Azure
 description: Contém a referência de como usar o plug-in do Maven para a Malha do Azure Service Fabric
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75459009"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in do Maven para a Malha do Azure Service Fabric
@@ -36,7 +36,7 @@ ms.locfileid: "75459009"
 - Gera uma `gateway` YAML com o nome de gateway fornecido na `appresources` pasta 
 
 #### `azure-sfmesh:addvolume`
-- Gera `volume` um YAML com o nome `appresources` de volume fornecido na pasta.
+- Gera um `volume` YAML com o nome de volume fornecido na `appresources` pasta.
 
 ### `azure-sfmesh:addsecret`
 - Gera uma `secret` YAML com o nome de segredo fornecido na `appresources` pasta 

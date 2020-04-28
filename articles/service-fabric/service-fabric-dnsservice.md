@@ -1,13 +1,13 @@
 ---
-title: Serviço Azure Serviço De Malha DNS serviço
+title: Serviço DNS do Azure Service Fabric
 description: Use o serviço DNS do Service Fabric para descobrir microsserviços no cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458038"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
@@ -103,10 +103,10 @@ Depois de ter um modelo, habilite o serviço DNS com as seguintes etapas:
 3. Após atualizar o modelo de cluster com as alterações, aplique-as e permita a conclusão do upgrade. Quando a atualização for concluída, o serviço do sistema DNS começa a ser executado em seu cluster. O nome do serviço é `fabric:/System/DnsService` e você pode encontrar na seção do serviço **Sistema** no explorador do Microsoft Azure Service Fabric. 
 
 > [!NOTE]
-> Ao atualizar o DNS de desativado para ativado, o Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando a Política de upgrade no modelo do Azure Resource Manager. Consulte a [referência do modelo de malha de serviço](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
+> Ao atualizar o DNS de desabilitado para habilitado, Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando o UpgradePolicy em seu modelo de Azure Resource Manager. Consulte a [referência do modelo de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
 
 > [!NOTE]
-> A ativação do serviço de DNS ao desenvolver em uma máquina local substituirá algumas configurações de DNS. Se você tiver problemas de conexão com a internet, verifique as configurações do DNS.
+> Habilitar o serviço DNS ao desenvolver em um computador local substituirá algumas configurações de DNS. Se você tiver problemas para se conectar à Internet, verifique as configurações de DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para o serviço
 É possível configurar um nome DNS para os serviços de forma declarativa para serviços padrão no arquivo ApplicationManifest.xml ou através de comandos do PowerShell.

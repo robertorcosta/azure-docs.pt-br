@@ -1,15 +1,15 @@
 ---
-title: Monitoramento do desempenho da malha do serviço azure
+title: Monitoramento de desempenho do Azure Service Fabric
 description: Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464710"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
@@ -23,10 +23,10 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | Categoria do Contador | Nome do contador |
 | --- | --- |
 | Disco Lógico | Espaço livre em disco lógico |
-| PhysicalDisk(per Disco) | Comprimento da fila de leitura de disco avg. |
-| PhysicalDisk(per Disco) | Comprimento da fila de gravação de disco Avg. |
-| PhysicalDisk(per Disco) | Avg. Disk sec/Read |
-| PhysicalDisk(per Disco) | Avg. Disk sec/Write |
+| PhysicalDisk(per Disco) | Comprimento médio da fila de leitura de disco |
+| PhysicalDisk(per Disco) | Comprimento médio da fila de gravação de disco |
+| PhysicalDisk(per Disco) | Média de disco s/leitura |
+| PhysicalDisk(per Disco) | Média de disco s/gravação |
 | PhysicalDisk(per Disco) | Leituras de Disco/s  |
 | PhysicalDisk(per Disco) | Bytes Lidos no Disco/s  |
 | PhysicalDisk(per Disco) |  Gravações de Disco/s |

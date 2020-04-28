@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75467447"
 ---
 ### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
@@ -16,7 +16,7 @@ O **serviço vinculado do Azure Storage** permite que você vincule uma conta de
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade do tipo deve ser definida **como: AzureStorage** |Sim |
+| type |A propriedade Type deve ser definida como: **AzureStorage** |Sim |
 | connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |Sim |
 
 Para obter informações sobre como recuperar as chaves de acesso da conta de armazenamento, confira [Gerenciar chaves de acesso da conta de armazenamento](../articles/storage/common/storage-account-keys-manage.md).
@@ -68,7 +68,7 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 
 Ao criar um **URI de SAS**, considerando o seguinte:  
 
-* Defina **permissões apropriadas** de leitura/gravação em objetos com base na forma como o serviço vinculado (ler, gravar, ler/gravar) é usado em sua fábrica de dados.
+* Defina **permissões** de leitura/gravação apropriadas em objetos com base em como o serviço vinculado (leitura, gravação, leitura/gravação) é usado em seu data Factory.
 * Defina o **Tempo de expiração** adequadamente. Certifique-se de que o acesso aos objetos de Armazenamento do Azure não expira dentro do período ativo do pipeline.
 * O URI deve ser criado no contêiner/blob à direita ou no nível de tabela com base na necessidade. Um URI de SAS para um blob do Azure permite que o serviço Data Factory acesse o blob específico. Um URI de SAS para um contêiner de blob do Azure permite que o serviço Data Factory faça iteração por meio dos blobs nesse contêiner. Se você precisar fornecer acesso para mais/menos objetos posteriormente, ou atualizar o URI de SAS, lembre-se de atualizar o serviço vinculado com o novo URI.   
 

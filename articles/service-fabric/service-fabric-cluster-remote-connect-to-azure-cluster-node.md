@@ -1,13 +1,13 @@
 ---
-title: Conexão remota para um nó de cluster de malha de serviço do Azure
+title: Conexão remota a um nó de Cluster Service Fabric do Azure
 description: Saiba como se conectar remotamente a uma instância de conjunto de dimensionamento (que é um nó de cluster do Service Fabric).
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458322"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conectar remotamente a uma instância do conjunto de dimensionamento de máquinas virtuais ou a um nó de cluster
@@ -19,7 +19,7 @@ Para localizar um endereço IP e porta que você pode usar para se conectar remo
 
     Normalmente, cada tipo de nó definido em seu cluster tem seu próprio endereço IP virtual e um balanceador de carga dedicado. Por padrão, o balanceador de carga para um tipo de nó é nomeado com o seguinte formato: *LB-{nome do cluster}-{tipo de nó}*; por exemplo, *LB-mycluster-FrontEnd*. 
     
-    Na página do balanceador de carga no portal Azure, selecione **Configurações** > **de entrada nas regras NAT:** 
+    Na página do balanceador de carga no portal do Azure, selecione **configurações** > **regras de NAT de entrada**: 
 
     ![Regras NAT de entrada dos balanceadores de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
@@ -52,7 +52,7 @@ Para localizar um endereço IP e porta que você pode usar para se conectar remo
 
 Para as próximas etapas, leia os seguintes artigos:
 * Consulte [visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md).
-* Saiba mais sobre [segurança de clusters](service-fabric-cluster-security.md).
+* Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
 * [Atualizar os valores de intervalo de porta RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) nas VMs de cluster após a implantação
 * [Alterar o nome de usuário administrador e a senha](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) para as VMs do cluster
 

@@ -1,13 +1,13 @@
 ---
-title: Empacote um executável existente para o azure Service Fabric
+title: Empacotar um executável existente no Azure Service Fabric
 description: Aprenda sobre como empacotar um aplicativo existente como um executável do convidado, para que ele possa ser implementado em um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457822"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implantar um executável existente no Service Fabric
@@ -54,7 +54,7 @@ Para implantar um aplicativo no Service Fabric, o aplicativo deve seguir uma est
 O ApplicationPackageRoot contém o arquivo ApplicationManifest.xml que define o aplicativo. Um subdiretório para cada serviço incluído no aplicativo é usado para conter todos os artefatos que o serviço requer. Esses subdiretórios são ServiceManifest.xml e, normalmente, o seguinte:
 
 * *Código*. Esse diretório contém o código de serviço.
-* *Config*. Este diretório contém um arquivo Settings.xml (e outros arquivos, se necessário) que o serviço pode acessar em tempo de execução para recuperar configurações específicas de configuração.
+* *Configuração*. Esse diretório contém um arquivo Settings. XML (e outros arquivos, se necessário) que o serviço pode acessar em tempo de execução para recuperar definições de configuração específicas.
 * *Dados*. Esse é um diretório adicional para armazenar dados locais adicionais que podem ser necessário para o serviço. Os dados devem ser usados para armazenar somente dados efêmeros. O Service Fabric não copia nem replica alterações ao diretório de dados se o serviço precisar ser realocado (por exemplo, durante o failover).
 
 > [!NOTE]

@@ -1,15 +1,15 @@
 ---
-title: 'Serviço seguro remoting comunicações com C #'
+title: 'Proteger comunicações remotas de serviço com C #'
 description: Saiba como proteger a comunicação remota do serviço com base na comunicação para serviços confiáveis C# executados em um cluster do Azure Service Fabric.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75609614"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger as comunicações remotas do serviço em um serviço C#

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
 ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75466177"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric no Windows
@@ -111,7 +111,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
    ```
 
 > [!NOTE] 
-> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto final aceitando solicitações específicas do aplicativo. Considere desativar esse acesso quando o aplicativo hospeda código não confiável. Para obter mais informações, consulte [as práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para desativar o acesso ao tempo de execução do Service Fabric, adicione a seguinte configuração na seção Políticas do manifesto de aplicativo correspondente ao manifesto de serviço importado, da seguinte forma:
+> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto de extremidade que aceita solicitações específicas do aplicativo. Considere desabilitar esse acesso quando o aplicativo hospedar código não confiável. Para obter mais informações, consulte [práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para desabilitar o acesso ao Service Fabric Runtime, adicione a configuração a seguir na seção políticas do manifesto do aplicativo correspondente ao manifesto do serviço importado, da seguinte maneira:
 >
 ```xml
   <Policies>

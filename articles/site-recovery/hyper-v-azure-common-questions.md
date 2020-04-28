@@ -1,13 +1,13 @@
 ---
-title: Perguntas comuns para recuperação de desastres Hyper-V com recuperação do site do Azure
+title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azure Site Recovery
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498199"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
@@ -22,9 +22,9 @@ Analise os detalhes em [Preços do Azure Site Recovery](https://azure.microsoft.
 ### <a name="how-do-i-pay-for-azure-vms"></a>Como fazer para pagar as VMs do Azure?
 Durante a replicação, os dados são replicados para o armazenamento do Azure e não é necessário pagar nenhuma alteração de VM. Ao executar um failover no Azure, o Site Recovery cria automaticamente as máquinas virtuais da IaaS do Azure. Depois disso, serão cobrados os recursos de computação consumidos no Azure.
 
-### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Existe alguma diferença de custo ao replicar a conta de armazenamento V2 do General Purpose?
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Há alguma diferença no custo ao replicar para Uso Geral conta de armazenamento v2?
 
-Você normalmente verá um aumento no custo de transações incorrido em contas de armazenamento GPv2, uma vez que a recuperação do site do Azure é pesada. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para estimar a mudança.
+Normalmente, você verá um aumento no custo das transações incorridos nas contas de armazenamento GPv2, uma vez que Azure Site Recovery tem transações pesadas. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para estimar a alteração.
 
 ## <a name="azure"></a>Azure
 
@@ -46,7 +46,7 @@ Se você quiser replicar para um datacenter secundário, as VMs Hyper-V deverão
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Posso replicar máquinas virtuais Hyper-V de segunda geração no Azure?
-Sim. O Site Recovery converte da segunda geração para a primeira geração durante o failover. No failback, a máquina é convertida novamente em segunda geração. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Sim. O Site Recovery converte da segunda geração para a primeira geração durante o failover. No failback, a máquina é convertida novamente em segunda geração. [Leia mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Posso implantar o Site Recovery com VMM se eu tiver apenas um servidor VMM?
@@ -67,7 +67,7 @@ Não, o Site Recovery não intercepta dados replicados e não tem informações 
 
 O Site Recovery é certificado pela ISO 27001:2013, 27018, HIPAA, DPA e está em processo de conclusão de avaliação dos padrões SOC2 e FedRAMP JAB.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Podemos manter metadados no local dentro de uma região geográfica?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Podemos manter os metadados locais em uma região geográfica?
 Sim. Quando você cria um cofre em uma região, garantimos que todos os metadados utilizados pelo Site Recovery permanecem dentro do limite geográfico dessa região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>O Site Recovery criptografa a replicação?
@@ -99,7 +99,7 @@ Sim, o Site Recovery dá suporte a hosts do Hyper-V em cluster. Observe que:
 - Todos os nós do cluster devem estar registrados no mesmo cofre.
 - Se você não estiver usando o VMM, todos os hosts do Hyper-V no cluster deverão ser adicionados ao mesmo site do Hyper-V.
 - Você instala o agente do Azure Site Recovery Provider e do Recovery Services em cada host do Hyper-V no cluster e adiciona cada host a um site do Hyper-V.
-- Não é necessário fazer etapas específicas no cluster.
+- Não é necessário realizar etapas específicas no cluster.
 - Se você executar a ferramenta Planejador de Implantação para o Hyper-V, a ferramenta coletará os dados do perfil do nó que está em execução e onde a VM está sendo executada. A ferramenta não pode coletar nenhum dado de um nó que esteja desativado, mas rastreará esse nó. Depois que o nó estiver ativo e em execução, a ferramenta começará a coletar os dados do perfil da VM a partir dele (se a VM fizer parte da lista da VM do perfil e estiver em execução no nó).
 - Se uma VM em um host do Hyper-V em uma área segura do Site Recovery migrar para um host Hyper-V diferente no mesmo cluster ou para um host autônomo, a replicação da VM não será afetada. O host Hyper-V deve atender aos [pré-requisitos](hyper-v-azure-support-matrix.md#on-premises-servers)e ser configurado em um cofre de recuperação de Site. 
 
@@ -142,16 +142,16 @@ Você pode replicar qualquer aplicativo ou carga de trabalho que esteja executan
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>É possível replicar para o Azure com uma VPN site a site?
 
-A Recuperação do Site replica dados de locais para armazenamento do Azure em um ponto final público ou usando o peering do ExpressRoute Microsoft. A replicação de uma rede VPN site a site não tem suportada.
+Site Recovery replica dados do local para o armazenamento do Azure por meio de um ponto de extremidade público ou usando o emparelhamento da Microsoft do ExpressRoute. A replicação de uma rede VPN site a site não tem suportada.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>É possível replicar para o Azure com o ExpressRoute?
 
-Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. A Recuperação do Site replica dados em uma conta de armazenamento do Azure em um ponto final público e você precisa configurar o [peering da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para replicação do Site Recovery. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Sim, o ExpressRoute pode ser utilizado para replicar VMs para o Azure. Site Recovery replica dados para uma conta de armazenamento do Azure em um ponto de extremidade público e você precisa configurar [o emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para site Recovery replicação. Após fazer failover das VMs para uma rede virtual do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar em VPN?
 
-Quando você replica o Azure, o tráfego de replicação chega aos pontos finais públicos de uma conta do Azure Storage. Assim, você só pode replicar pela internet pública com o ExpressRoute (peering da Microsoft) e a VPN não funciona. 
+Quando você replica para o Azure, o tráfego de replicação atinge os pontos de extremidade públicos de uma conta de armazenamento do Azure. Assim, você só pode replicar pela Internet pública com o ExpressRoute (emparelhamento da Microsoft) e a VPN não funciona. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicadas?
 
@@ -202,7 +202,7 @@ Você pode executar um failover planejado ou não planejado de VMs Hyper-V locai
 - Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
 - Você pode executar um failover não planejado se o seu site primário não está acessível.
 - Você pode fazer o failover de um único computador ou criar planos de recuperação para orquestrar o failover de várias máquinas virtuais.
-- O failover é em duas partes:
+- O failover está em duas partes:
     - Após a conclusão do primeiro estágio do failover, você deverá ser capaz de ver as VMs de réplica criadas no Azure. Você pode atribuir um endereço IP público à VM, se necessário.
     - Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
    
@@ -214,7 +214,7 @@ Após o failover, você poderá acessar as VMs do Azure por meio de uma conexão
 O Azure foi desenvolvido para resiliência. O Site Recovery foi projetado para failover em um datacenter do Azure secundário, de acordo com o SLA do Azure. Quando ocorre um failover, garantimos que seus metadados e cofres permaneçam na mesma região geográfica escolhida para o cofre.
 
 ### <a name="is-failover-automatic"></a>O failover é automático?
-[Failover](site-recovery-failover.md) não é automático. Você inicia failovers com um único clique no portal ou pode usar o [PowerShell](/powershell/module/az.recoveryservices) para ativar um failover.
+O [failover](site-recovery-failover.md) não é automático. Você inicia failovers com um único clique no portal ou pode usar o [PowerShell](/powershell/module/az.recoveryservices) para disparar um failover.
 
 ### <a name="how-do-i-fail-back"></a>Como posso realizar o failback?
 
@@ -226,7 +226,7 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
     - Download completo: Com essa opção, os dados são sincronizados durante o failover. Esta opção baixa todo o disco. Ela é mais rápida porque nenhuma soma de verificação é calculada, mas há mais tempo de inatividade. Use essa opção se você esteve executando as VMs de réplica do Azure por algum tempo ou se a VM local foi excluída.
 
 2. Você pode selecionar para fazer failback para a mesma VM ou para uma outra VM. Você pode especificar que o Site Recovery deve criar a VM se ela ainda não existe.
-3. Após a conclusão da sincronização inicial, você seleciona para concluir o failover. Depois de concluído, você pode entrar na VM no local para verificar se tudo está funcionando como esperado. No Portal do Azure, você pode ver que as VMs do Azure foram interrompidas.
+3. Após a conclusão da sincronização inicial, você seleciona para concluir o failover. Após a conclusão, você pode entrar na VM local para verificar se tudo está funcionando conforme o esperado. No Portal do Azure, você pode ver que as VMs do Azure foram interrompidas.
 4. Você confirma o failover para concluir e começar a acessar a carga de trabalho da VM local novamente.
 5. Após o failback das cargas de trabalho, você habilita a replicação inversa, de modo que as VMs locais são replicadas novamente para o Azure.
 

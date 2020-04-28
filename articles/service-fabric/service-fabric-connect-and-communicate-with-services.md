@@ -1,15 +1,15 @@
 ---
-title: Conecte-se e comunique-se com os serviços no Azure Service Fabric
+title: Conectar-se e comunicar-se com serviços no Azure Service Fabric
 description: Saiba como resolver, conectar-se e comunicar-se com serviços no Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458233"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
@@ -23,7 +23,7 @@ O Service Fabric ajuda a gerenciar o ciclo de vida dos seus serviços, mas ele n
 ![pontos de extremidade de serviço][1]
 
 ## <a name="service-discovery-and-resolution"></a>Resolução e descoberta de serviço
-Em um sistema distribuído, os serviços podem passar de um computador para outro ao com o passar do tempo. Isso pode acontecer por várias razões, incluindo balanceamento de recursos, upgrades, failovers ou scale-out. Isso significa que os endereços de ponto final de serviço mudam à medida que o serviço se move para nós com diferentes endereços IP e podem ser abertos em diferentes portas se o serviço usar uma porta selecionada dinamicamente.
+Em um sistema distribuído, os serviços podem passar de um computador para outro ao com o passar do tempo. Isso pode ocorrer por vários motivos, incluindo balanceamento de recursos, atualizações, failovers ou expansão. Isso significa que os endereços de ponto de extremidade de serviço são alterados conforme o serviço é movido para nós com endereços IP diferentes e podem ser abertos em portas diferentes se o serviço usar uma porta selecionada dinamicamente.
 
 ![Distribuição de serviços][7]
 

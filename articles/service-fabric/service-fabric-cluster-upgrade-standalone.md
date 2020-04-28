@@ -1,13 +1,13 @@
 ---
-title: Atualize um cluster autônomo do Azure Service Fabric
+title: Atualizar um cluster autônomo do Azure Service Fabric
 description: Aprenda sobre como atualizar a versão ou a configuração de um cluster autônomo do Azure Service Fabric.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75451835"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizando e atualizando um cluster independente do Service Fabric
@@ -15,7 +15,7 @@ ms.locfileid: "75451835"
 Para qualquer sistema moderno, oferecer a possibilidade de atualização é fundamental para o sucesso duradouro de seu produto. Um cluster independente do Azure Service Fabric é um recurso que você possui. Este artigo descreve o que pode ser atualizado ou atualizado.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de malha que é executada em seu cluster
-Certifique-se de que seu cluster sempre execute uma [versão de malha de serviço suportada.](service-fabric-versions.md) Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data do comunicado. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nesse momento, a nova versão está disponível para escolha.
+Certifique-se de que o cluster sempre execute uma [versão de Service Fabric com suporte](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data do comunicado. Novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Nesse momento, a nova versão está disponível para escolha.
 
 Você pode configurar seu cluster para receber upgrades automáticos de fabric à medida que eles são liberados pela Microsoft ou você pode selecionar manualmente uma versão de estrutura suportada na qual deseja que seu cluster esteja. Para obter mais informações, leia [Atualize a versão do Service Fabric que é executada em seu cluster](service-fabric-cluster-upgrade-windows-server.md).
 
@@ -38,7 +38,7 @@ O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Aprenda a escalar seu cluster para [dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)
 
 <!--Image references-->

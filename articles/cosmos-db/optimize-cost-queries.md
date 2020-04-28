@@ -1,5 +1,5 @@
 ---
-title: Otimizar custos e RU/s para executar consultas no Azure Cosmos DB
+title: Otimizar o custo e RU/s para executar consultas no Azure Cosmos DB
 description: Saiba como avaliar os encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
 author: markjbrown
 ms.author: mjbrown
@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75445123"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
@@ -33,7 +33,7 @@ Consultas que leem dados de uma ou mais partições incorrem em latência mais a
 
 Depois que você tiver alguns dados armazenados em seus contêineres do Azure Cosmos, poderá usar o Data Explorer no portal do Azure para construir e executar suas consultas. Você também pode obter o custo das consultas usando o Data Explorer. Esse método lhe dará uma ideia dos encargos reais envolvidos nas consultas e as operações típicas às quais seu sistema dá suporte.
 
-Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou `RequestCharge` o Java SDK, a propriedade é a propriedade equivalente para obter a taxa de solicitação e esta propriedade está presente dentro do ResourceResponse ou FeedResponse.
+Você também pode obter o custo de consultas programaticamente usando os SDKs. Para medir a sobrecarga de operações como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, `RequestCharge` a propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Fatores que influenciam o encargo de unidades de solicitação para uma consulta
 
-As unidades de solicitação para consultas dependem de uma série de fatores. Por exemplo, o número de itens do Azure Cosmos carregados/retornados, o número de consultas em relação ao índice, o tempo de compilação de consulta etc. detalhes. O Azure Cosmos DB garante que a mesma consulta, quando executada nos mesmos dados, sempre consumirá o mesmo número de unidades de solicitação, mesmo com execuções repetidas. O perfil de consulta usando métricas de execução de consulta dá uma boa ideia de como as unidades de solicitação são gastas.  
+As unidades de solicitação para consultas dependem de uma série de fatores. Por exemplo, o número de itens do Azure Cosmos carregados/retornados, o número de pesquisas em relação ao índice, o tempo de compilação da consulta, etc. detalhes. O Azure Cosmos DB garante que a mesma consulta, quando executada nos mesmos dados, sempre consumirá o mesmo número de unidades de solicitação, mesmo com execuções repetidas. O perfil de consulta usando métricas de execução de consulta dá uma boa ideia de como as unidades de solicitação são gastas.  
 
 Em alguns casos, você poderá ver uma sequência de 200 e 429 respostas, e unidades de solicitação de variável em uma execução paginada de consultas, porque as consultas serão executadas o mais rápido possível com base nas RUs disponíveis. Você poderá ver uma execução de consulta se desmembrar em várias páginas/viagens de ida e volta entre servidor e cliente. Por exemplo, 10.000 itens poderão ser retornados como várias páginas, cada uma cobrada com base no cálculo executado para a página. Quando você soma essas páginas, deve obter o mesmo número de RUs que receberia de toda a consulta.  
 
 ## <a name="metrics-for-troubleshooting"></a>Métricas para solução de problemas
 
-O desempenho e a taxa de transferência consumidos pelas consultas e as UDFs (funções definidas pelo usuário) dependem principalmente do corpo da função. A maneira mais fácil de descobrir quanto tempo é gasto na execução da consulta nas UDFs e o número de RUs consumidas é habilitando as métricas de consulta. Se você usar o .NET SDK, aqui estão as métricas de consulta de amostra retornadas pelo SDK:
+O desempenho e a taxa de transferência consumidos pelas consultas e as UDFs (funções definidas pelo usuário) dependem principalmente do corpo da função. A maneira mais fácil de descobrir quanto tempo é gasto na execução da consulta nas UDFs e o número de RUs consumidas é habilitando as métricas de consulta. Se você usar o SDK do .NET, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -110,5 +110,5 @@ A seguir, você poderá saber mais sobre a otimização de custos no Azure Cosmo
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)
 * Saiba mais sobre [Otimizando o custo de contas do Azure Cosmos em várias regiões](optimize-cost-regions.md)
-* Saiba mais sobre [a capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
+* Saiba mais sobre [Azure Cosmos DB capacidade reservada](cosmos-db-reserved-capacity.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Design azure Table armazenamento para consultas | Microsoft Docs
-description: Projete tabelas para consultas no armazenamento da tabela Azure.
+title: Criar o armazenamento de tabelas do Azure para consultas | Microsoft Docs
+description: Projetar tabelas para consultas no armazenamento de tabelas do Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457633"
 ---
 # <a name="design-for-querying"></a>Design para consulta
@@ -39,7 +39,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | --- | --- |
 | **PartitionKey** (nome de departamento) |String |
 | **RowKey** (Id do funcionário) |String |
-| **Firstname** |String |
+| **FirstName** |String |
 | **LastName** |String |
 | **Idade** |Integer |
 | **EmailAddress** |String |
@@ -98,7 +98,7 @@ Muitos aplicativos têm requisitos para usar dados classificados em ordens difer
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Padrões de design de mesa](table-storage-design-patterns.md)
+- [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)
 - [Criptografar dados de tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)

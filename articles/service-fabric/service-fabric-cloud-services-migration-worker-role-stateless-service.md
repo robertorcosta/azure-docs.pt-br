@@ -1,15 +1,15 @@
 ---
-title: Converta aplicativos do Azure Cloud Services em malha de serviço
+title: Converter aplicativos dos serviços de nuvem do Azure para Service Fabric
 description: Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75463333"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de funções de trabalho e Web em serviços sem estado do Service Fabric
@@ -23,14 +23,14 @@ A diferença é que o projeto de Serviço de Nuvem associa a implantação do ap
 ![Comparação de projeto dos Serviços de Nuvem e do Service Fabric][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Função de trabalho para serviço sem estado
-Conceitualmente, uma função de trabalho representa uma carga de trabalho sem estado, o que significa que cada instância da carga de trabalho é idêntica e as solicitações podem ser roteadas para qualquer instância a qualquer hora. Não se espera que as instâncias lembrem da solicitação anterior. O estado em que a carga de trabalho opera é gerenciado por uma loja estatal externa, como o Azure Table Storage ou o Azure Cosmos DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para o Service Fabric pode ser feita pela conversão de um código de função de trabalho em um serviço sem estado.
+Conceitualmente, uma função de trabalho representa uma carga de trabalho sem estado, o que significa que cada instância da carga de trabalho é idêntica e as solicitações podem ser roteadas para qualquer instância a qualquer hora. Não se espera que as instâncias lembrem da solicitação anterior. Estado em que a carga de trabalho Opera é gerenciada por um armazenamento de estado externo, como o armazenamento de tabelas do Azure ou Azure Cosmos DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para o Service Fabric pode ser feita pela conversão de um código de função de trabalho em um serviço sem estado.
 
 ![Função de trabalho para serviço sem estado][4]
 
 ## <a name="web-role-to-stateless-service"></a>Função Web para serviço sem estado
 Semelhante à função de trabalho, uma função Web também representa uma carga de trabalho sem estado e, assim, conceitualmente, ele também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, diferentemente das funções Web, o Service Fabric não dá suporte a IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a mudança para uma estrutura Web que pode ser auto-hospedada e não depende de IIS ou System.Web, como o ASP.NET Core 1.
 
-| **Aplicativo** | **Suportado** | **Caminho de migração** |
+| **Aplicativo** | **Com suporte** | **Caminho de migração** |
 | --- | --- | --- |
 | Web Forms do ASP.NET |Não |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com migração |Atualizar para o ASP.NET Core 1 MVC |

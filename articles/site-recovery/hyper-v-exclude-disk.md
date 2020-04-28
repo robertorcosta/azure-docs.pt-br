@@ -1,48 +1,48 @@
 ---
-title: Exclua os discos Hyper-V VM da recuperação de desastres para o Azure com a recuperação do site do Azure
-description: Como excluir discos Hyper-V V M da replicação para o Azure com o Azure Site Recovery.
+title: Exclua os discos de VM do Hyper-V da recuperação de desastre para o Azure com Azure Site Recovery
+description: Como excluir discos de VM do Hyper-V da replicação para o Azure com Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75498125"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 
-Este artigo descreve como excluir discos ao replicar Hiper-VVs ao Azure. Você pode querer excluir discos da replicação por uma série de razões:
+Este artigo descreve como excluir discos ao replicar VMs do Hyper-V para o Azure. Talvez você queira excluir discos da replicação por vários motivos:
 
-- Certifique-se de que os dados não importantes no disco excluído não sejam replicados.
+- Certifique-se de que os dados não importantes que foram copiados no disco excluído não sejam replicados.
 - Otimize a largura de banda de replicação consumida ou os recursos do lado do destino, excluindo discos que você não precisa replicar.
-- Economize recursos de armazenamento e rede não replicando dados que você não precisa.
+- Salve os recursos de armazenamento e de rede não replicando os dados de que você não precisa.
 
 Antes de excluir discos da replicação:
 
 - [Saiba mais](exclude-disks-replication.md) sobre a exclusão de discos.
-- Revise [cenários de exclusão típicos](exclude-disks-replication.md#typical-scenarios) e [exemplos](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) que mostram como a exclusão de um disco afeta a replicação, o failover e o failback.
+- Examine os cenários e [exemplos](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) [comuns de exclusão](exclude-disks-replication.md#typical-scenarios) que mostram como a exclusão de um disco afeta a replicação, o failover e o failback.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 Observe o seguinte antes de começar:
 
-- **Replicação**: Por padrão, todos os discos de uma máquina são replicados.
-- **Tipo de disco:**
+- **Replicação**: por padrão, todos os discos em um computador são replicados.
+- **Tipo de disco**:
     - Você pode excluir discos básicos da replicação.
     - Você não pode excluir os discos do sistema operacional.
-    - É recomendável que você não exclua discos dinâmicos. A Recuperação do Site não pode identificar qual VHD é básico ou dinâmico na VM convidada.  Se você não excluir todos os discos de volume dinâmico dependentes, o disco dinâmico protegido se tornará um disco com falha em uma falha em VM e os dados desse disco não estão acessíveis.
-- **Adicionar/remover/excluir discos**: Depois de ativar a replicação, não é possível adicionar/remover/excluir discos para replicação. Se você quiser adicionar/remover ou excluir um disco, você precisa desativar a proteção para a VM e, em seguida, ativá-lo novamente.
-- **Failover**: Após failover, se falhado sobre aplicativos precisa excluir discos para funcionar, você precisa criar esses discos manualmente. Alternativamente, você pode integrar a automação do Azure em um plano de recuperação, para criar o disco durante o failover da máquina.
-- **Failback**: Quando você falha ao seu site no local após failover, os discos que você criou manualmente no Azure não são retestados. Por exemplo, se você falhar em três discos e criar dois discos diretamente em uma VM do Azure, apenas três discos que foram falhados serão então retumam a reprodução. Você não pode incluir discos que foram criados manualmente em failback ou em replicação reversa de VMs.
+    - É recomendável que você não exclua discos dinâmicos. Site Recovery não pode identificar qual VHD é básico ou dinâmico na VM convidada.  Se você não excluir todos os discos de volume dinâmico dependentes, o disco dinâmico protegido se tornará um disco com falha em uma VM com failover e os dados nesse disco não estarão acessíveis.
+- **Adicionar/remover/excluir discos**: depois de habilitar a replicação, você não pode adicionar/remover/excluir discos para replicação. Se desejar adicionar/remover ou excluir um disco, você precisará desabilitar a proteção para a VM e habilitá-la novamente.
+- **Failover**: após o failover, se os aplicativos com falha precisarem excluir discos para funcionar, você precisará criar esses discos manualmente. Como alternativa, você pode integrar a automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.
+- **Failback**: ao fazer failback para o site local após o failover, os discos que você criou manualmente no Azure não sofrerão failback. Por exemplo, se você executar failover de três discos e criar dois discos diretamente em uma VM do Azure, somente três discos que sofreram failover serão submetidos a failback. Você não pode incluir discos que foram criados manualmente no failback ou na replicação inversa de VMs.
 
 ## <a name="exclude-disks"></a>Excluir discos
 
-1. Para excluir discos quando você [habilitar a replicação](site-recovery-hyper-v-site-to-azure.md) para um VV Hyper-V, depois de selecionar as VMs que deseja replicar, na página Propriedades de **replicação** > **Properties** > **Ativar propriedades configurar propriedades,** revise a coluna Discos para **Replicar.** Por padrão, todos os discos são selecionados para replicação.
-2. Se você não quiser replicar um disco específico, em **Discos para replicar** limpar a seleção para quaisquer discos que você deseja excluir. 
+1. Para excluir discos quando você [habilita a replicação](site-recovery-hyper-v-site-to-azure.md) para uma VM do Hyper-V, depois de selecionar as VMs que deseja replicar, na página habilitar**Properties** > **Propriedades de configuração** de **replicação** > , examine a coluna **discos para replicar** . Por padrão, todos os discos são selecionados para replicação.
+2. Se você não quiser replicar um disco específico, em **discos para replicar** , limpe a seleção de todos os discos que você deseja excluir. 
 
     ![Excluir discos da replicação](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 

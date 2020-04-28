@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443613"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
@@ -27,11 +27,11 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 - **Herdar Particionamento** – essa opção de configuração de saída SQL permite herdar o esquema de particionamento de sua entrada ou etapa de consulta anterior. Com esse recurso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já acontece automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Bloqueio de tabela (TABLOCK) também será desabilitado para inserções em massa feitas com essa opção.
 
 > [!NOTE] 
-> Quando há mais de oito partições de entrada, a herança de entrada de esquema de particionamento pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma coluna de identidade única e um índice clusterizado. Neste caso, considere usar [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 em sua consulta, para especificar explicitamente o número de escritores de saída. Com base no seu esquema e na escolha de índices, suas observações podem variar.
+> Quando há mais de oito partições de entrada, a herança de entrada de esquema de particionamento pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma coluna de identidade única e um índice clusterizado. Nesse caso, considere o uso [de 8 em sua consulta para especificar](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) explicitamente o número de gravadores de saída. Com base no seu esquema e na escolha de índices, suas observações podem variar.
 
 - **Tamanho do Lote** – a configuração de saída do SQL permite que você especifique o tamanho do lote máximo em uma saída do SQL do Azure Stream Analytics com base na natureza de sua tabela de destino/carga de trabalho. O tamanho do lote é o número máximo de registros enviados com cada transação de inserção em massa. Em índices columnstore clusterizados, tamanhos de lote próximos de [100 mil](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permitem mais paralelização, mínimo registro em log e otimizações de bloqueio. Em tabelas baseadas em disco, 10 mil (padrão) ou inferior pode ser ideal para sua solução, uma vez que tamanhos de lote maiores podem disparar escalonamento de bloqueio durante inserções em massa.
 
-- **Ajuste de Mensagem de Entrada** – se você tiver otimizado usando particionamento de herança e tamanho de lote, aumentar o número de eventos de entrada por mensagem por partição ajudará a incrementar ainda mais sua taxa de transferência de gravação. O ajuste de mensagem de entrada permite que os tamanhos de lote do Azure Stream Analytics tenham até o tamanho de lote especificado, melhorando a taxa de transferência. Isso pode ser conseguido usando [compressão](stream-analytics-define-inputs.md) ou aumentando os tamanhos de mensagens de entrada no EventHub ou Blob.
+- **Ajuste de Mensagem de Entrada** – se você tiver otimizado usando particionamento de herança e tamanho de lote, aumentar o número de eventos de entrada por mensagem por partição ajudará a incrementar ainda mais sua taxa de transferência de gravação. O ajuste de mensagem de entrada permite que os tamanhos de lote do Azure Stream Analytics tenham até o tamanho de lote especificado, melhorando a taxa de transferência. Isso pode ser obtido usando [compactação](stream-analytics-define-inputs.md) ou aumentando os tamanhos de mensagem de entrada no EventHub ou no BLOB.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -41,16 +41,16 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory e tabelas na memória
 
-- **Tabela de memória como tabela temporária** – [Tabelas na memória](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitem cargas de dados de alta velocidade, mas os dados precisam se encaixar na memória. Parâmetros de comparação mostram que o carregamento em massa de uma tabela na memória para uma tabela baseada em disco é cerca de 10 vezes mais rápido do que inserir diretamente em massa usando um único gravador na tabela baseada em disco com uma coluna de identidade e um índice clusterizado. Para aproveitar esse desempenho de inserção em massa, configure um [trabalho de cópia usando o Azure Data Factory](../data-factory/connector-azure-sql-database.md) que copia dados da tabela na memória para a tabela baseada em disco.
+- **Tabela na memória como tabela temporária** – as [tabelas na memória](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitem cargas de dados de alta velocidade, mas os dados precisam se ajustar à memória. Parâmetros de comparação mostram que o carregamento em massa de uma tabela na memória para uma tabela baseada em disco é cerca de 10 vezes mais rápido do que inserir diretamente em massa usando um único gravador na tabela baseada em disco com uma coluna de identidade e um índice clusterizado. Para aproveitar esse desempenho de inserção em massa, configure um [trabalho de cópia usando o Azure Data Factory](../data-factory/connector-azure-sql-database.md) que copia dados da tabela na memória para a tabela baseada em disco.
 
 ## <a name="avoiding-performance-pitfalls"></a>Evitando armadilhas de desempenho
-Inserir dados em massa é muito mais rápido do que carregar dados com inserções únicas porque a sobrecarga repetida da transferência dos dados, a análise da instrução de inserção, a execução da declaração e a emissão de um registro de transação são evitadas. Em vez disso, um caminho mais eficiente é usado no mecanismo de armazenamento para transmitir os dados. O custo de configuração deste caminho é, no entanto, muito maior do que uma única instrução de inserção em uma tabela baseada em disco. O ponto de partida é tipicamente em torno de 100 linhas, além do qual o carregamento a granel é quase sempre mais eficiente. 
+A inserção em massa de dados é muito mais rápida do que carregar dados com inserções únicas, pois a sobrecarga repetida de transferir os dados, analisar a instrução INSERT, executar a instrução e emitir um registro de transação é evitada. Em vez disso, um caminho mais eficiente é usado no mecanismo de armazenamento para transmitir os dados. No entanto, o custo de configuração desse caminho é muito maior do que uma única instrução INSERT em uma tabela baseada em disco. O ponto de interrupção é geralmente em cerca de 100 linhas, além da qual o carregamento em massa é quase sempre mais eficiente. 
 
-Se a taxa de eventos de entrada for baixa, ela pode facilmente criar tamanhos de lote inferiores a 100 linhas, o que torna a inserção a granel ineficiente e usa muito espaço em disco. Para contornar essa limitação, você pode fazer uma dessas ações:
-* Crie um [gatilho](/sql/t-sql/statements/create-trigger-transact-sql) EM VEZ DE USAR uma inserção simples para cada linha.
+Se a taxa de eventos de entrada for baixa, ela poderá criar facilmente tamanhos de lote inferiores a 100 linhas, o que tornará a inserção em massa ineficiente e usará muito espaço em disco. Para contornar essa limitação, você pode executar uma destas ações:
+* Crie um [gatilho](/sql/t-sql/statements/create-trigger-transact-sql) instead of para usar Insert simples para cada linha.
 * Use uma tabela temporária na memória, conforme descrito na seção anterior.
 
-Outro cenário desse tipo ocorre ao escrever em um índice de columnstore não agrupado (NCCI), onde inserções a granel menores podem criar muitos segmentos, que podem travar o índice. Neste caso, a recomendação é usar um índice Clustered Columnstore.
+Outro cenário desse tipo ocorre ao gravar em um índice columnstore não clusterizado (NCCI), em que inserções em massa menores podem criar muitos segmentos, que podem falhar o índice. Nesse caso, a recomendação é usar um índice Columnstore clusterizado.
 
 ## <a name="summary"></a>Resumo
 

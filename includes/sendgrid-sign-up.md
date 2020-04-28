@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "75463521"
 ---
-Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a relatórios e análises avançadas e [todas as APIs][all APIs] (Web, SMTP, Event, Parse e muito mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, visite a página [Soluções do SendGrid][SendGrid Solutions].
+Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos fornecerão acesso a relatórios avançados e análises e [todas as APIs][all APIs] (Web, SMTP, evento, análise e muito mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, visite a página [Soluções do SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever em uma conta do SendGrid
-1. Faça login no [portal Azure][Azure portal].
-2. No menu do portal Azure ou na página inicial, **selecione Criar um recurso**.
+1. Entre no [portal do Azure][Azure portal].
+2. No menu portal do Azure ou no home page, selecione **criar um recurso**.
 
     ![command-bar-new][command-bar-new]
 3. Procure e selecione **SendGrid**.
@@ -26,19 +26,19 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
     ![sendgrid-create][sendgrid-create]
 5. Insira um **Nome** para identificar o serviço SendGrid nas suas configurações do Azure. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
 6. Insira e confirme sua **Senha**.
-7. Escolha sua **Assinatura**.
+7. Escolha sua **assinatura**.
 8. Crie um novo **Grupo de recursos** ou use um grupo existente.
 9. Na seção **Tipo de preço** selecione o plano do SendGrid no qual deseja se inscrever.
 
     ![sendgrid-pricing][sendgrid-pricing]
 10. Insira um **Código de Promoção**, se você tiver um.
 11. Insira suas **Informações de Contato**.
-12. Revise e aceite os **termos legais.**
-13. Depois de confirmar sua compra, você verá um pop-up **de implantação bem sucedido** e verá sua conta listada.
+12. Examine e aceite os **termos legais**.
+13. Depois de confirmar sua compra, você verá um pop-up de **implantação com êxito** e verá sua conta listada.
 
     ![all-resources][all-resources]
 
-    Depois de concluir a compra e clicar no botão **Gerenciar** para iniciar o processo de verificação de email, você receberá um email do SendGrid, pedindo para você verificar sua conta. Se você não receber este e-mail ou tiver problemas para verificar sua conta, consulte nossa FAQ.
+    Depois de concluir a compra e clicar no botão **Gerenciar** para iniciar o processo de verificação de email, você receberá um email do SendGrid, pedindo para você verificar sua conta. Se você não receber este email ou tiver problemas para verificar sua conta, consulte nossas perguntas frequentes.
 
     ![gerenciar][manage]
 

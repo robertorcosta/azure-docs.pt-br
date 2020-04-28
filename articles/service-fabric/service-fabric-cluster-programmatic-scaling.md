@@ -1,15 +1,15 @@
 ---
-title: Dimensionamento programático do tecido do serviço azure
+title: Dimensionamento programático do Azure Service Fabric
 description: Dimensionar um cluster do Azure Service Fabric para expandi-lo ou reduzi-lo por meio de programação de acordo com gatilhos personalizados
 author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75458292"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
@@ -20,16 +20,16 @@ Os clusters do Service Fabric em execução no Azure são criados sobre conjunto
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gerenciar credenciais
-Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para fazer login, você pode usar um [diretor de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criado com o [Azure CLI](https://github.com/azure/azure-cli).
+Um desafio de se escrever um serviço para manipular o dimensionamento é que o serviço deve ser capaz de acessar recursos do conjunto de dimensionamento de máquinas virtuais sem um logon interativo. O acesso ao cluster do Service Fabric é fácil se o serviço de dimensionamento está modificando seu próprio aplicativo do Service Fabric, mas as credenciais são exigidas para acessar o conjunto de dimensionamento. Para entrar, você pode usar uma [entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criada com o [CLI do Azure](https://github.com/azure/azure-cli).
 
 Uma entidade de serviço pode ser criada com as seguintes etapas:
 
-1. Faça login no Azure`az login`CLI ( ) como um usuário com acesso ao conjunto de escalas da máquina virtual
+1. Entre no CLI do Azure (`az login`) como um usuário com acesso ao conjunto de dimensionamento de máquinas virtuais
 2. Crie a entidade de serviço com `az ad sp create-for-rbac`
     1. Anote o appId (chamado de ‘ID do cliente’ em outros lugares), o nome, a senha e o locatário para uso posterior.
     2. Você também precisará da sua ID de assinatura, que pode ser exibida com `az account list`
 
-A biblioteca de computação fluente pode fazer login usando essas credenciais `IAzure` da seguinte forma (observe que os tipos de Azure fluentes principais como estão no pacote [Microsoft.Azure.Management.Fluent):](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)
+A biblioteca de computação fluente pode entrar usando essas credenciais da seguinte maneira (Observe que os principais tipos do `IAzure` Azure fluentes como estão no pacote [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -59,13 +59,13 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)pode recuperar o objeto de conjunto de escala da máquina virtual. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, a escala de [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) máquina virtual definida no Azure pode ser atualizada com o comando.
+Como alternativa, o tamanho do conjunto de dimensionamento de máquinas virtuais também pode ser gerenciado com os cmdlets do PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)pode recuperar o objeto do conjunto de dimensionamento de máquinas virtuais. A capacidade atual está disponível por meio da propriedade `.sku.capacity`. Depois de alterar a capacidade para o valor desejado, o conjunto de dimensionamento de máquinas virtuais no Azure pode [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) ser atualizado com o comando.
 
 Assim como na adição de um nó manual, a adição de uma instância de conjunto de dimensionamento deve ser suficiente para iniciar um novo nó do Service Fabric, pois o modelo do conjunto de dimensionamento inclui extensões para unir novas instâncias de cluster do Service Fabric automaticamente. 
 
 ## <a name="scaling-in"></a>Redução horizontal
 
-O dimensionamento é semelhante ao dimensionamento. As mudanças reais no conjunto de escala da máquina virtual são praticamente as mesmas. Mas, como discutido anteriormente, o Service Fabric apenas limpa automaticamente nós removidos com uma durabilidade Ouro ou Prata. Assim, no caso de durabilidade Bronze, é necessário interagir com o cluster do Service Fabric para desligar o nó a ser removido e remover seu estado.
+O dimensionamento no é semelhante à expansão. As alterações reais do conjunto de dimensionamento de máquinas virtuais são praticamente as mesmas. Mas, como discutido anteriormente, o Service Fabric apenas limpa automaticamente nós removidos com uma durabilidade Ouro ou Prata. Assim, no caso de durabilidade Bronze, é necessário interagir com o cluster do Service Fabric para desligar o nó a ser removido e remover seu estado.
 
 A preparação do nó para desligamento envolve localizar o nó a ser removido (a instância do conjunto de dimensionamento de máquinas virtuais adicionada mais recentemente) e desativá-lo. As instâncias do conjunto de dimensionamento de máquinas virtuais são numeradas na ordem em que são adicionadas, portanto, podem ser localizados nós mais recentes, comparando o sufixo numérico nos nomes dos nós (que correspondem aos nomes da instância do conjunto de dimensionamento de máquinas virtuais). 
 

@@ -1,26 +1,26 @@
 ---
-title: Gerar mapa de calor da umidade do solo
-description: Descreve como gerar o mapa de calor da umidade do solo no Azure FarmBeats
+title: Gerar calor de umidade de solo
+description: Descreve como gerar calor de umidade de solo no Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75482563"
 ---
-# <a name="generate-soil-moisture-heatmap"></a>Gerar mapa de calor da umidade do solo
+# <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
-A umidade do solo é a água que é mantida nos espaços entre partículas do solo.O mapa de calor da umidade do solo ajuda você a entender os dados de umidade em qualquer profundidade e em alta resolução dentro de suas fazendas. Para gerar um mapa de calor preciso e utilizável para a umidade do solo, é necessária uma implantação uniforme de sensores do mesmo provedor. Diferentes provedores terão diferenças na forma como a umidade do solo é medida, juntamente com diferenças na calibração. O Mapa de Calor é gerado para uma profundidade específica usando os sensores implantados a essa profundidade.
+A umidade de solo é a água que é mantida nos espaços entre as partículas de solo.A calor de umidade de solo ajuda você a entender os dados de umidade em qualquer profundidade e em alta resolução em seus farms. Para gerar um calor de umidade de solo preciso e utilizável, uma implantação uniforme de sensores do mesmo provedor é necessária. Provedores diferentes terão diferenças na maneira como a umidade de solo é medida junto com as diferenças na calibragem. O calor é gerado para uma profundidade específica usando os sensores implantados nessa profundidade.
 
-Este artigo descreve o processo de geração de um mapa de calor de umidade do solo para sua fazenda, usando o Acelerador Azure FarmBeats. Neste artigo, você aprenderá a:
+Este artigo descreve o processo de geração de um calor de umidade de solo para seu farm, usando o acelerador de FarmBeats do Azure. Neste artigo, você aprenderá a:
 
-- [Criar fazendas](#create-a-farm)
-- [Atribuir sensores às Fazendas](#get-soil-moisture-sensor-data-from-partner)
-- [Gerar mapa de calor da umidade do solo](#generate-soil-moisture-heatmap)
+- [Criar farms](#create-a-farm)
+- [Atribuir sensores a farms](#get-soil-moisture-sensor-data-from-partner)
+- [Gerar calor de umidade de solo](#generate-soil-moisture-heatmap)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -28,69 +28,69 @@ Verifique o seguinte:
 
 - Uma assinatura do Azure.
 - Uma instância em execução do Azure FarmBeats.
-- No mínimo, três sensores de umidade do solo estão disponíveis para a fazenda.
+- Um mínimo de três sensores de umidade de solo estão disponíveis para o farm.
 
 ## <a name="create-a-farm"></a>Criar um farm
 
-Uma fazenda é uma área geográfica de interesse para a qual você deseja criar um mapa de calor de umidade do solo. Você pode criar uma fazenda usando a [API Farms](https://aka.ms/FarmBeatsDatahubSwagger) ou na [FarmBeats Accelerator UI](manage-farms-in-azure-farmbeats.md#create-farms)
+Um farm é uma área geográfica de interesse para a qual você deseja criar uma calor de umidade de solo. Você pode criar um farm usando a [API farms](https://aka.ms/FarmBeatsDatahubSwagger) ou na [interface do usuário do acelerador de FarmsBeats](manage-farms-in-azure-farmbeats.md#create-farms)
 
 ## <a name="deploy-sensors"></a>Implantar sensores
 
-Você deve implantar fisicamente sensores de umidade do solo na fazenda. Você pode comprar sensores de umidade do solo de qualquer um de nossos parceiros aprovados - [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) e [Teralytic](https://teralytic.com/). Você deve coordenar com o seu provedor de sensores para fazer a configuração física em sua fazenda.
+Você deve implantar fisicamente os sensores de umidade de solo no farm. Você pode comprar sensores de umidade de solo de qualquer um dos nossos parceiros aprovados – [instrumentos Davis](https://www.davisinstruments.com/product/enviromonitor-gateway/) e [Teralytic](https://teralytic.com/). Você deve coordenar com seu provedor de sensor para fazer a configuração física em seu farm.
 
-## <a name="get-soil-moisture-sensor-data-from-partner"></a>Obtenha dados do sensor de umidade do solo do parceiro
+## <a name="get-soil-moisture-sensor-data-from-partner"></a>Obter dados de sensor de umidade de solo do parceiro
 
-À medida que os sensores começam a transmitir, os dados no painel de dados do parceiro, eles habilitam os dados para o Azure FarmBeats. Isso pode ser feito a partir da aplicação do parceiro.
+À medida que os sensores começam a streaming, os dados no painel de dados do parceiro, eles habilitam os dados no Azure FarmBeats. Isso pode ser feito no aplicativo de parceiro.
 
-Por exemplo, se você adquiriu sensores Davis, você entrará em sua conta de link meteorológico e fornecerá as credenciais necessárias para habilitar o fluxo de dados para o Azure FarmBeats. Para obter as credenciais necessárias, siga as instruções de [Obter dados do sensor](get-sensor-data-from-sensor-partner.md#get-sensor-data-from-sensor-partners).
+Por exemplo, se você comprou sensores Davis, fará logon em sua conta de link do clima e fornecerá as credenciais necessárias para habilitar o streaming de dados no Azure FarmBeats. Para obter as credenciais necessárias, siga as instruções em [obter dados do sensor](get-sensor-data-from-sensor-partner.md#get-sensor-data-from-sensor-partners).
 
-Depois de inserir suas credenciais e selecionar **Enviar** no aplicativo parceiro, você pode ter os dados fluindo para o Azure FarmBeats.
+Depois de inserir suas credenciais e selecionar **Enviar** no aplicativo parceiro, você poderá fazer com que os dados fluam para o Azure FarmBeats.
 
-### <a name="assign-soil-moisture-sensors-to-the-farm"></a>Atribua sensores de umidade do solo à fazenda
+### <a name="assign-soil-moisture-sensors-to-the-farm"></a>Atribuir sensores de umidade de solo ao farm
 
-Uma vez que você tenha ligado sua conta de sensores no Azure FarmBeats, você precisa atribuir os sensores de umidade do solo à fazenda de interesse.
+Depois de vincular sua conta de sensor ao Azure FarmBeats, você precisará atribuir os sensores de umidade de solo ao farm de interesse.
 
-1.  Na página inicial, selecione **Fazendas** no menu, a página da lista **Fazendas** é exibida.
-2.  Selecione dispositivos de adicionar **MyFarm** > **Add Devices**.
-3.  A **janela Adicionar dispositivos** é exibida. Selecione qualquer dispositivo que esteja ligado aos sensores de umidade do solo para sua fazenda.
+1.  No home page, selecione **farms** no menu, a página lista de **farms** é exibida.
+2.  Selecione **myfarm** > **Adicionar dispositivos**.
+3.  A janela **Adicionar dispositivos** é exibida. Selecione qualquer dispositivo que esteja vinculado aos sensores de umidade de solo do seu farm.
 
     ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Selecione **Adicionar dispositivos**.     
 
-## <a name="generate-soil-moisture-heatmap"></a>Gerar mapa de calor da umidade do solo
+## <a name="generate-soil-moisture-heatmap"></a>Gerar calor de umidade de solo
 
-Este passo é criar um trabalho ou uma operação de longa duração que irá gerar mapa de calor de umidade do solo para sua fazenda.
+Esta etapa é criar um trabalho ou uma operação de execução longa que irá gerar calor de umidade de solo para seu farm.
 
-1.  Na página inicial, vá para **Fazendas** a partir do menu de navegação à esquerda para ver a página fazendas.
-2.  Selecione **MyFarm**.
-3.  Na página **Detalhes** da fazenda, selecione **Gerar mapa de precisão**.
-4.  No menu suspenso, selecione **Umidade do Solo**.
-5.  Na janela umidade do **solo,** selecione **Esta Semana**.
-6.  Na **medida do** medidor de umidade do solo **select**, digite a medida que deseja usar para o mapa.
-    Para encontrar a medida do sensor, em **Sensores,** selecione qualquer sensor de umidade do solo. Em **Propriedades do sensor,** use o valor **'Nomear medida'.**
+1.  Na home page, vá para **farms** no menu de navegação à esquerda para exibir a página farms.
+2.  Selecione **myfarm**.
+3.  Na página **detalhes do farm** , selecione **gerar mapa de precisão**.
+4.  No menu suspenso, selecione **umidade de solo**.
+5.  Na janela **umidade de solo** , selecione **esta semana**.
+6.  Na medida **selecionar** **sensor**de umidade de solo, insira a medida que você deseja usar para o mapa.
+    Para localizar a medida do sensor, em **sensores**, selecione qualquer sensor de umidade do solo. Em **Propriedades do sensor**, use o valor **nome da medida** .
 
     ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
-7.  Selecione **Gerar mapas**.
-    Uma mensagem de confirmação com detalhes do trabalho é exibida. Para obter mais informações, consulte Job Status in Jobs.
+7.  Selecione **gerar mapas**.
+    Uma mensagem de confirmação com detalhes do trabalho é exibida. Para obter mais informações, consulte status do trabalho em trabalhos.
 
     >[!NOTE]
-    > O trabalho leva em torno de três a quatro horas para ser concluído.
+    > O trabalho leva cerca de três a quatro horas para ser concluído.
 
-### <a name="download-the-soil-moisture-heatmap"></a>Baixe o mapa de calor da umidade do solo
+### <a name="download-the-soil-moisture-heatmap"></a>Baixe o calor de umidade de solo
 
 Use as seguintes etapas:
 
-1. Na página **Empregos,** verifique o Status do **Trabalho** para o trabalho que você criou no último procedimento.
-2. Quando o status do trabalho for **executado, selecione** **Mapas** no menu.
-3. Procure o mapa no dia em que foi criado no formato <> de solo-moisture_MyFarm_YYYY-MM-DD.
-4. Selecione um mapa na coluna **Nome,** uma janela pop-up é exibida com a visualização do mapa selecionado.
+1. Na página **trabalhos** , verifique o **status do trabalho** que você criou no último procedimento.
+2. Quando o status do trabalho for exibido com **êxito**, selecione **mapas** no menu.
+3. Pesquise o mapa até o dia em que foi criado no formato <solo-moisture_MyFarm_YYYY-MM-DD>.
+4. Selecione um mapa na coluna **nome** , uma janela pop-up é exibida com a visualização do mapa selecionado.
 5. Selecione **Baixar**. O mapa é baixado e armazenado na pasta local do seu computador.
 
     ![Projeto do FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você gerou com sucesso um mapa de calor da umidade do solo, aprenda a [gerar posicionamento de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingerir dados históricos de telemetria](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
+Agora que você gerou com êxito um calor de umidade de solo, saiba como [gerar o posicionamento do sensor](generate-maps-in-azure-farmbeats.md#sensor-placement-map) e [ingerir dados de telemetria históricos](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

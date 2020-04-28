@@ -1,24 +1,24 @@
 ---
 title: Variáveis em modelos
-description: Descreve como definir variáveis em um modelo do Azure Resource Manager.
+description: Descreve como definir variáveis em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75483811"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo do Azure Resource Manager
+# <a name="variables-in-azure-resource-manager-template"></a>Variáveis no modelo Azure Resource Manager
 
-Este artigo descreve como definir e usar variáveis no modelo do Azure Resource Manager. Você usa variáveis para simplificar seu modelo. Em vez de repetir expressões complicadas ao longo do seu modelo, você define uma variável que contém a expressão complicada. Em seguida, você referencia essa variável conforme necessário ao longo de seu modelo.
+Este artigo descreve como definir e usar variáveis em seu modelo de Azure Resource Manager. Você usa variáveis para simplificar seu modelo. Em vez de repetir expressões complicadas em todo o modelo, você define uma variável que contém a expressão complicada. Em seguida, você faz referência a essa variável conforme necessário em todo o modelo.
 
-O Gerenciador de Recursos resolve variáveis antes de iniciar as operações de implantação. Onde quer que a variável seja usada no modelo, o Gerenciador de Recursos substitui-a pelo valor resolvido.
+O Gerenciador de recursos resolve as variáveis antes de iniciar as operações de implantação. Sempre que a variável é usada no modelo, o Resource Manager a substitui pelo valor resolvido.
 
 ## <a name="define-variable"></a>Definir variável
 
-O seguinte exemplo mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro, e concatena-o para uma seqüência única.
+O seguinte exemplo mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro e concatena-o a uma cadeia de caracteres exclusiva.
 
 ```json
 "variables": {
@@ -26,11 +26,11 @@ O seguinte exemplo mostra uma definição de variável. Ele cria um valor de cad
 },
 ```
 
-Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista](template-functions-resource.md#list) na seção variáveis. Essas funções recebem o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
+Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na seção de variáveis. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
 
 ## <a name="use-variable"></a>Usar uma variável
 
-No modelo, você faz referência ao valor do parâmetro usando a função [variáveis.](template-functions-deployment.md#variables) O exemplo a seguir mostra como usar a variável para uma propriedade de recursos.
+No modelo, você faz referência ao valor do parâmetro usando a função [Variables](template-functions-deployment.md#variables) . O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
 
 ```json
 "resources": [
@@ -44,7 +44,7 @@ No modelo, você faz referência ao valor do parâmetro usando a função [vari�
 
 ## <a name="configuration-variables"></a>Variáveis de configuração
 
-Você pode definir variáveis que possuem valores relacionados para a configuração de um ambiente. Você define a variável como um objeto com os valores. O exemplo a seguir mostra um objeto que contém valores para dois ambientes - **teste** **e prod**.
+Você pode definir variáveis que mantêm valores relacionados para configurar um ambiente. Você define a variável como um objeto com os valores. O exemplo a seguir mostra um objeto que contém valores para dois ambientes – **Test** e **prod**.
 
 ```json
 "variables": {
@@ -83,7 +83,7 @@ Para recuperar as configurações do ambiente especificado, use a variável e o 
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos a seguir demonstram cenários para o uso de variáveis.
+Os exemplos a seguir demonstram cenários para usar variáveis.
 
 |Modelo  |Descrição  |
 |---------|---------|
@@ -93,5 +93,5 @@ Os exemplos a seguir demonstram cenários para o uso de variáveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para variáveis, consulte [Entenda a estrutura e a sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
-* Para recomendações sobre a criação de variáveis, consulte [Melhores práticas - variáveis](template-best-practices.md#variables).
+* Para saber mais sobre as propriedades disponíveis para variáveis, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+* Para obter recomendações sobre como criar variáveis, consulte [Best Practices-Variables](template-best-practices.md#variables).

@@ -1,15 +1,15 @@
 ---
-title: Crie testes de caos e failover para o Azure Service Fabric
+title: Crie testes de caos e de failover para o Azure Service Fabric
 description: Usando os cenários de testes de caos e failover do Service Fabric para induzir falhas e verificar a confiabilidade de seus serviços.
 author: motanv
 ms.topic: conceptual
 ms.date: 10/1/2019
 ms.author: motanv
 ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465541"
 ---
 # <a name="testability-scenarios"></a>Cenários da possibilidade de teste
@@ -124,7 +124,7 @@ class Test
 
 PowerShell
 
-O módulo Service Fabric Powershell inclui duas maneiras de iniciar um cenário de caos. `Invoke-ServiceFabricChaosTestScenario`é baseado no cliente, e se a máquina do cliente for desligada no meio do teste, não serão introduzidas mais falhas. Alternativamente, há um conjunto de comandos destinados a manter o teste em execução em caso de desligamento da máquina. `Start-ServiceFabricChaos`usa um serviço de sistema imponente e confiável chamado FaultAnalysisService, garantindo que as falhas permaneçam introduzidas até que o TimeToRun esteja atualizado. `Stop-ServiceFabricChaos`pode ser usado para parar manualmente o cenário, e `Get-ServiceFabricChaosReport` obterá um relatório. Para obter mais informações, consulte a [referência Powershell de malha de serviço do Azure](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) e [induzir caos controlado em clusters de malha de serviço](service-fabric-controlled-chaos.md).
+O módulo Service Fabric PowerShell inclui duas maneiras de iniciar um cenário de caos. `Invoke-ServiceFabricChaosTestScenario`é baseado no cliente e, se o computador cliente for desligado no meio do teste, nenhuma outra falha será introduzida. Como alternativa, há um conjunto de comandos destinadas a manter o teste em execução no caso de um desligamento da máquina. `Start-ServiceFabricChaos`usa um serviço de sistema confiável e com estado chamado FaultAnalysisService, garantindo que as falhas permanecerão introduzidas até que o TimeToRun esteja ativo. `Stop-ServiceFabricChaos`pode ser usado para interromper manualmente o cenário e `Get-ServiceFabricChaosReport` obterá um relatório. Para obter mais informações, consulte a [referência do Azure Service Fabric PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) e o [caos controlado pelo induzir em clusters Service Fabric](service-fabric-controlled-chaos.md).
 
 ```powershell
 $connection = "localhost:19000"
@@ -159,7 +159,7 @@ O teste de failover induz a uma falha escolhida e depois executa a validação n
 * **WaitTimeBetweenFaults**: tempo de espera entre cada ciclo de falha e validação.
 
 ### <a name="how-to-run-the-failover-test"></a>Como executar o teste de failover
-**C #**
+**C#**
 
 ```csharp
 using System;
@@ -234,7 +234,7 @@ class Test
 ```
 
 
-**Powershell**
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"

@@ -1,5 +1,5 @@
 ---
-title: Modelagem de relacionamentos no design de armazenamento da Tabela Azure | Microsoft Docs
+title: Relações de modelagem no design de armazenamento de tabelas do Azure | Microsoft Docs
 description: Entenda o processo de modelagem ao projetar sua solução de armazenamento em tabela.
 services: storage
 author: MarkMcGeeAtAquent
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75457568"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
@@ -122,7 +122,7 @@ Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Padrões de design de mesa](table-storage-design-patterns.md)
+- [Padrões de design de tabela](table-storage-design-patterns.md)
 - [Design para consulta](table-storage-design-for-query.md)
 - [Criptografar dados de tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)

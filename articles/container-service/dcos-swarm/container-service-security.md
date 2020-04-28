@@ -8,10 +8,10 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75552370"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(PRETERIDO) Proteger contêineres do Docker no Serviço de Contêiner do Azure
@@ -53,7 +53,7 @@ Quando um aplicativo é implantado em produção, é essencial estabelecer algum
 ## <a name="host-level-container-isolation"></a>Isolamento de contêiner de nível de host
 Quando um cliente implanta aplicativos de contêiner nos recursos do Azure, eles são implantados em um nível de assinatura em grupos de recursos e não são multilocatários. Isso significa que, se um cliente compartilhar uma assinatura com outras pessoas, não haverá nenhum limite que possa ser criado entre duas implantações na mesma assinatura. Portanto, a segurança de nível de contêiner não estará garantida. 
 
-Também é fundamental entender que os contêineres compartilham o kernel e os recursos do host (que, no Serviço de Contêiner do Azure, é uma VM do Azure em um cluster). Portanto, os contêineres em produção devem ser executados no modo de usuário sem privilégios. Executar um contêiner com privilégios de raiz pode comprometer todo o ambiente. Com o acesso de nível de raiz em um contêiner, um hacker pode ter privilégios de raiz completos no host. Além disso, é importante executar contêineres com sistemas de arquivos somente leitura. Isso impede que alguém que tenha acesso ao contêiner comprometido grave scripts mal-intencionados no sistema de arquivos e obtenha acesso a outros arquivos. Da mesma forma, é importante limitar os recursos (como memória, CPU e largura de banda de rede) alocados para um contêiner. Isso ajuda a evitar que os hackers usem recursos e prossigam com atividades ilegais, como fraude de cartão de crédito ou mineração de moedas bit, o que poderia impedir que outros contêineres sejam executados no host ou cluster.
+Também é fundamental entender que os contêineres compartilham o kernel e os recursos do host (que, no Serviço de Contêiner do Azure, é uma VM do Azure em um cluster). Portanto, os contêineres em produção devem ser executados no modo de usuário sem privilégios. Executar um contêiner com privilégios de raiz pode comprometer todo o ambiente. Com o acesso de nível de raiz em um contêiner, um hacker pode ter privilégios de raiz completos no host. Além disso, é importante executar contêineres com sistemas de arquivos somente leitura. Isso impede que alguém que tenha acesso ao contêiner comprometido grave scripts mal-intencionados no sistema de arquivos e obtenha acesso a outros arquivos. Da mesma forma, é importante limitar os recursos (como memória, CPU e largura de banda de rede) alocados para um contêiner. Isso ajuda a impedir que os hackers sobrecarregando recursos e a busca de atividades ilegais, como a fraude de cartão de crédito ou a mineração de bits, que pode impedir que outros contêineres sejam executados no host ou cluster.
 
 ## <a name="orchestrator-considerations"></a>Considerações sobre o Orchestrator
 

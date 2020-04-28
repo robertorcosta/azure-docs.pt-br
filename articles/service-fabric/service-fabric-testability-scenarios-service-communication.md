@@ -1,15 +1,15 @@
 ---
-title: 'Testability: Comunicação de serviço'
+title: 'Capacidade de teste: comunicação de serviço'
 description: As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75465554"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
@@ -20,7 +20,7 @@ A comunicação entre os serviços é um ponto de integração essencial de um a
 Há várias considerações a serem feitas quando esses limites de serviço são conectados em um sistema distribuído:
 
 * *Protocolo de transporte*. Você usará HTTP para maior interoperabilidade, ou um protocolo binário personalizado para taxa de transferência máxima?
-* *Manipulação de erros*. Como os erros transitórios e permanentes serão tratados? O que acontecerá quando um serviço for movido para um nó diferente?
+* *Tratamento de erros*. Como os erros transitórios e permanentes serão tratados? O que acontecerá quando um serviço for movido para um nó diferente?
 * *Tempos limite e latência*. Em aplicativos com várias camadas, como cada camada de serviço lidará com a latência por meio da pilha e até o usuário?
 
 Se você usa um dos componentes integrados de comunicação de serviço fornecidos pelo Service Fabric ou compila seu próprio, testar as interações entre os serviços é fundamental para garantir a resiliência em seu aplicativo.
@@ -35,7 +35,7 @@ As instâncias do serviço podem se movimentar com o tempo. Isso acontece especi
 
 A manipulação tranquila desses cenários é importante para um sistema em execução adequada. Para fazer isso, lembre-se que:
 
-* Todos os serviços aos quais é possível se conectar têm um *endereço* no qual escutam (por exemplo, HTTP ou WebSockets). Quando uma instância de serviço ou partição se move, altera seu ponto de extremidade do endereço. (Ele se move para um nó diferente com um endereço IP diferente.) Se você estiver usando os componentes de comunicação incorporados, eles lidarão com a reresolução de endereços de serviço para você.
+* Todos os serviços aos quais é possível se conectar têm um *endereço* no qual escutam (por exemplo, HTTP ou WebSockets). Quando uma instância de serviço ou partição se move, altera seu ponto de extremidade do endereço. (Ele se move para um nó diferente com um endereço IP diferente.) Se você estiver usando os componentes de comunicação internos, eles tratarão de reresolver os endereços de serviço para você.
 * Pode haver um aumento temporário na latência do serviço à medida que a instância do serviço começa sua escuta novamente. Isso depende da rapidez com que serviço abre após a movimentação da instância do serviço.
 * Quaisquer conexões existentes precisam ser fechadas e reabertas quando o serviço for aberto em um novo nó. Um desligamento ou reinicialização de nó proporciona tempo para o desligamento correto das conexões existentes.
 

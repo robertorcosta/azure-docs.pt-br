@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
 ms.openlocfilehash: b77efd7e5cf7ff016605e0ba2e74cff9ea8dab89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75478871"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)
@@ -21,15 +21,15 @@ Como cliente do Azure no [EA (Enterprise Agreement)](https://azure.microsoft.com
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para [criar assinaturas em uma conta de inscrição,](programmatically-create-subscription.md)os usuários devem ter a função de Proprietário do [RBAC](../../role-based-access-control/built-in-roles.md#owner) nessa conta. Você pode conceder a um usuário ou a um grupo de usuários a função de Proprietário rbac em uma conta de inscrição seguindo estas etapas:
+Para [criar assinaturas em uma conta de registro](programmatically-create-subscription.md), os usuários devem ter a [função de proprietário RBAC](../../role-based-access-control/built-in-roles.md#owner) nessa conta. Você pode conceder a um usuário ou grupo de usuários a função de proprietário RBAC em uma conta de registro seguindo estas etapas:
 
-1. Obtenha o ID do objeto da conta de inscrição que você deseja conceder acesso
+1. Obter a ID de objeto da conta de registro à qual você deseja conceder acesso
 
-    Para conceder a outros o papel de Proprietário do RBAC em uma conta de inscrição, você deve ser o Proprietário da Conta ou um Proprietário rbac da conta.
+    Para conceder a outros usuários a função de proprietário RBAC em uma conta de registro, você deve ser o proprietário da conta ou um proprietário do RBAC da conta.
 
-    # <a name="rest"></a>[Resto](#tab/rest)
+    # <a name="rest"></a>[REST](#tab/rest)
 
-    Solicite listar todas as contas de matrícula a que você tenha acesso:
+    Solicitação para listar todas as contas de registro às quais você tem acesso:
 
     ```json
     GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -60,17 +60,17 @@ Para [criar assinaturas em uma conta de inscrição,](programmatically-create-su
     }
     ```
 
-    Use `principalName` o imóvel para identificar a conta à qual deseja conceder acesso ao Proprietário rbac. Copie `name` a conta dessa. Por exemplo, se você quisesse conceder acesso SignUpEngineering@contoso.com ao Proprietário do ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```RBAC à conta de inscrição, você copiaria . Este é o ID do objeto da conta de matrícula. Cole esse valor em algum lugar para que você `enrollmentAccountObjectId`possa usá-lo na próxima etapa como .
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-    Use o cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) para listar todas as contas de registro às quais você tem acesso. Selecione **Experimente** para abrir [o Azure Cloud Shell](https://shell.azure.com/). Para colar o código, clique com o botão direito do mouse nas janelas do shell e na **seleta Pasta**.
+    Use o cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) para listar todas as contas de registro às quais você tem acesso. Selecione **experimentar** para abrir [Azure cloud Shell](https://shell.azure.com/). Para colar o código, clique com o botão direito do mouse nas janelas do Shell e selecione **colar**.
 
     ```azurepowershell-interactive
     Get-AzEnrollmentAccount
     ```
 
-    O Azure responde com uma lista de contas de inscrição a que você tem acesso:
+    O Azure responde com uma lista de contas de registro às quais você tem acesso:
 
     ```azurepowershell
     ObjectId                               | PrincipalName
@@ -78,17 +78,17 @@ Para [criar assinaturas em uma conta de inscrição,](programmatically-create-su
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use `principalName` o imóvel para identificar a conta a que deseja conceder acesso ao Proprietário RBAC. Copie `ObjectId` a conta dessa. Por exemplo, se você quisesse conceder acesso SignUpEngineering@contoso.com ao Proprietário do ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```RBAC à conta de inscrição, você copiaria . Cole este id de objeto em algum lugar para que `enrollmentAccountObjectId`você possa usá-lo no próximo passo como o .
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário RBAC. Copie o `ObjectId` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole essa ID de objeto em algum lugar para que você possa usá-la na próxima `enrollmentAccountObjectId`etapa como o.
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-    Use o comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de registro às quais você tem acesso. Selecione **Experimente** para abrir [o Azure Cloud Shell](https://shell.azure.com/). Para colar o código, clique com o botão direito do mouse nas janelas do shell e na **seleta Pasta**.
+    Use o comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) para listar todas as contas de registro às quais você tem acesso. Selecione **experimentar** para abrir [Azure cloud Shell](https://shell.azure.com/). Para colar o código, clique com o botão direito do mouse nas janelas do Shell e selecione **colar**.
 
     ```azurecli-interactive
     az billing enrollment-account list
     ```
 
-    O Azure responde com uma lista de contas de inscrição a que você tem acesso:
+    O Azure responde com uma lista de contas de registro às quais você tem acesso:
 
     ```json
     [
@@ -109,22 +109,22 @@ Para [criar assinaturas em uma conta de inscrição,](programmatically-create-su
 
     ---
 
-    Use `principalName` o imóvel para identificar a conta à qual deseja conceder acesso ao Proprietário rbac. Copie `name` a conta dessa. Por exemplo, se você quisesse conceder acesso SignUpEngineering@contoso.com ao Proprietário do ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```RBAC à conta de inscrição, você copiaria . Este é o ID do objeto da conta de matrícula. Cole esse valor em algum lugar para que você `enrollmentAccountObjectId`possa usá-lo na próxima etapa como .
+    Use a `principalName` propriedade para identificar a conta à qual você deseja conceder acesso de proprietário do RBAC. Copie o `name` dessa conta. Por exemplo, se você quisesse conceder acesso de proprietário RBAC à conta SignUpEngineering@contoso.com de registro, copie ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Essa é a ID de objeto da conta de registro. Cole esse valor em algum lugar para que você possa usá-lo na próxima `enrollmentAccountObjectId`etapa como.
 
-1. <a id="userObjectId"></a>Obtenha iD de objeto do usuário ou grupo que você deseja dar a função de proprietário rbac para
+1. <a id="userObjectId"></a>Obtenha a ID de objeto do usuário ou grupo ao qual você deseja conceder a função de proprietário RBAC
 
-    1. No portal Azure, pesquise no **Azure Active Directory**.
-    1. Se você quiser conceder acesso a um usuário, clique em **Usuários** no menu à esquerda. Se você quiser conceder acesso a um grupo, clique em **Grupos**.
-    1. Selecione o Usuário ou Grupo para o qual deseja dar a função de Proprietário rbac.
-    1. Se você selecionou um Usuário, encontrará o ID do objeto na página Perfil. Se você selecionou um Grupo, o ID do objeto estará na página Visão Geral. Copie o **ObjectID** clicando no ícone à direita da caixa de texto. Cole isso em algum lugar para que você `userObjectId`possa usá-lo no próximo passo como .
+    1. Na portal do Azure, pesquise **Azure Active Directory**.
+    1. Se você quiser conceder acesso a um usuário, clique em **usuários** no menu à esquerda. Se você quiser conceder acesso a um grupo, clique em **grupos**.
+    1. Selecione o usuário ou grupo ao qual você deseja conceder a função de proprietário RBAC.
+    1. Se você selecionou um usuário, encontrará a ID de objeto na página perfil. Se você selecionou um grupo, a ID do objeto estará na página Visão geral. Copie o **ObjectID** clicando no ícone à direita da caixa de texto. Cole isso em algum lugar para que você possa usá-lo na próxima `userObjectId`etapa como.
 
-1. Conceda ao usuário ou grupo a função de Proprietário do RBAC na conta de inscrição
+1. Conceder ao usuário ou grupo a função de proprietário RBAC na conta de registro
 
-    Usando os valores coletados nas duas primeiras etapas, conceda ao usuário ou grupo a função de Proprietário rbac na conta de inscrição.
+    Usando os valores que você coletou nas duas primeiras etapas, conceda ao usuário ou grupo a função de proprietário RBAC na conta de registro.
 
-    # <a name="rest"></a>[Resto](#tab/rest-2)
+    # <a name="rest"></a>[REST](#tab/rest-2)
 
-    Execute o comando a ```<enrollmentAccountObjectId>``` seguir, substituindo pelo `name` que```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```você copiou na primeira etapa (). Substitua pelo ```<userObjectId>``` ID do objeto copiado da segunda etapa.
+    Execute o comando a seguir, ```<enrollmentAccountObjectId>``` substituindo `name` pelo que você copiou na primeira etapa```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```(). Substitua ```<userObjectId>``` pela ID de objeto que você copiou da segunda etapa.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -156,23 +156,23 @@ Para [criar assinaturas em uma conta de inscrição,](programmatically-create-su
     }
     ```
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell-2)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell-2)
 
-    Execute o seguinte comando [New-AzRoleAssignment,](../../active-directory/role-based-access-control-manage-access-powershell.md) substituindo-o ```<enrollmentAccountObjectId>``` `ObjectId` ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```coletado na primeira etapa (). Substitua pelo ```<userObjectId>``` ID do objeto coletado na segunda etapa.
+    Execute o seguinte comando [New-AzRoleAssignment](../../active-directory/role-based-access-control-manage-access-powershell.md) , ```<enrollmentAccountObjectId>``` substituindo pelo `ObjectId` coletado na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli-2)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli-2)
 
-    Execute o comando [seguinte a az role assignment create,](../../active-directory/role-based-access-control-manage-access-azure-cli.md) substituindo ```<enrollmentAccountObjectId>``` pelo `name` que você copiou na primeira etapa ().```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` Substitua pelo ```<userObjectId>``` ID do objeto coletado na segunda etapa.
+    Execute o comando [AZ role Assignment Create](../../active-directory/role-based-access-control-manage-access-azure-cli.md) a seguir, ```<enrollmentAccountObjectId>``` substituindo `name` pelo que você copiou na primeira etapa```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```(). Substituir ```<userObjectId>``` pela ID de objeto coletada na segunda etapa.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Uma vez que um usuário se torne um Proprietário RBAC para sua conta de inscrição, ele pode [criar assinaturas programáticamente](programmatically-create-subscription.md) ele. Uma assinatura criada por um usuário delegado ainda tem o Proprietário da Conta original como Admin de Serviço, mas também tem o usuário delegado como proprietário de RBAC por padrão.
+    Quando um usuário se torna um proprietário RBAC para sua conta de registro, ele pode [criar inscrições programaticamente](programmatically-create-subscription.md) sob ele. Uma assinatura criada por um usuário delegado ainda tem o proprietário da conta original como administrador de serviços, mas também tem o usuário delegado como um proprietário do RBAC por padrão.
 
     ---
 

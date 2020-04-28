@@ -1,5 +1,5 @@
 ---
-title: Hubs de notificação do Azure seguram o push para Windows
+title: Push seguro de hubs de notificação do Azure para Windows
 description: Saiba como enviar notificações por push seguro no Azure. Amostras de código escrito em C# usando a API .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530724"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push com segurança do Hubs de Notificação do Azure
@@ -159,7 +159,7 @@ A próxima etapa é criar o componente de segundo plano de push.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. No Solution Explorer, no projeto **NotificarUserWindowsPhone (Windows Phone 8.1),** clique com o botão direito do mouse **Em Referências**e clique em **Adicionar referência...**. Na caixa de diálogo Gerenciador de referência, verifique a caixa ao lado de **PushBackgroundComponent**e clique em **OK**.
+11. Em Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8,1)** , clique com o botão direito do mouse em **referências**e clique em **Adicionar referência..**.. No diálogo Gerenciador de referências, marque a caixa ao lado de **PushBackgroundComponent**e clique em **OK**.
 12. No Gerenciador de Soluções, clique duas vezes em **Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)**. Em **Notificações**, defina **Compatível com Toast** como **Sim**.
 
     ![][3]
@@ -168,7 +168,7 @@ A próxima etapa é criar o componente de segundo plano de push.
 15. Em **Package.appxmanifest**, em **Configurações do Aplicativo**, digite **PushBackgroundComponent.PushBackgroundTask** no campo **Ponto de Entrada**.
 
     ![][13]
-16. No menu **Arquivo,** clique **em Salvar tudo**.
+16. No menu **arquivo** , clique em **salvar tudo**.
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 

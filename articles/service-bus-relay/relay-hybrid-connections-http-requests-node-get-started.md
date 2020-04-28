@@ -1,5 +1,5 @@
 ---
-title: Conexões híbridas do Relé Azure - solicitações HTTP no Nó
+title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no nó
 description: Escreva um aplicativo de console Node.js para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em Nó.
 services: service-bus-relay
 documentationcenter: node
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
 ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75462033"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no Nó
@@ -36,7 +36,7 @@ Neste início rápido, você segue os seguintes passos:
 5. Execute aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Node.js.](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/).
 - Uma assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-namespace-using-the-azure-portal"></a>Criar um namespace usando o portal do Azure

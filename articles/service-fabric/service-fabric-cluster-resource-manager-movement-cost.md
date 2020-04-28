@@ -1,15 +1,15 @@
 ---
-title: 'Gerenciador de recursos do cluster de malha de serviço: custo de movimento'
-description: Saiba mais sobre o custo de movimento dos serviços de Malha de Serviço e como ele pode ser especificado para atender a qualquer necessidade arquitetônica, incluindo configuração dinâmica.
+title: 'Gerenciador de recursos de Cluster Service Fabric: custo de movimento'
+description: Saiba mais sobre o custo de movimento para serviços de Service Fabric e como ele pode ser especificado para se adequar a qualquer necessidade de arquitetura, incluindo configuração dinâmica.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75563336"
 ---
 # <a name="service-movement-cost"></a>Custo do movimentação de serviços
@@ -67,12 +67,12 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impacto do custo de movimentação
-O MoveCost tem cinco níveis: Zero, Baixo, Médio, Alto e Muito Alto. As seguintes regras se aplicam:
+MoveCost tem cinco níveis: zero, baixo, médio, alto e VeryHigh. As seguintes regras se aplicam:
 
-* Os custos de movimentação são relativos um ao outro, exceto por Zero e VeryHigh. 
+* MoveCosts são relativos entre si, exceto para zero e VeryHigh. 
 * O custo de movimentação Zero significa que a movimentação é gratuita e não deve contar na pontuação da solução.
-* Definir o custo de movimento para Alto ou VeryHigh *não* fornece uma garantia de que a réplica *nunca* será movida.
-* As réplicas com custo de movimento VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de qualquer outra forma (mesmo que exija mover muitas outras réplicas para corrigir a violação)
+* Definir o custo de movimentação como alto ou VeryHigh *não fornece uma* garantia de que a réplica *nunca* será movida.
+* As réplicas com o custo de movimentação de VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira (mesmo que seja necessário mover muitas outras réplicas para corrigir a violação)
 
 
 
@@ -88,7 +88,7 @@ O MoveCost ajuda a encontrar as soluções que causam, em geral, o mínimo de in
 - o custo de interromper uma operação em andamento. Algumas operações no nível do armazenamento de dados ou operações realizadas em resposta a uma chamada de cliente são caras. Depois de um certo ponto, você não quer interrompê-las a não ser que seja necessário. Assim, enquanto a operação estiver em andamento, você aumenta o custo de movimentação desse objeto de serviço para reduzir a probabilidade de que ele se mova. Quando a operação estiver concluída, defina o custo de volta para normal.
 
 > [!IMPORTANT]
-> O uso do custo de movimento VeryHigh deve ser cuidadosamente considerado, pois restringe significativamente a capacidade do Cluster Resource Manager de encontrar uma solução de colocação globalmente ideal no cluster. As réplicas com custo de movimento VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de qualquer outra forma (mesmo que exija mover muitas outras réplicas para corrigir a violação)
+> Usar o custo de movimentação do VeryHigh deve ser considerado cuidadosamente, pois ele restringe significativamente a capacidade do Gerenciador de recursos de cluster de encontrar uma solução de posicionamento globalmente ideal no cluster. As réplicas com o custo de movimentação de VeryHigh serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira (mesmo que seja necessário mover muitas outras réplicas para corrigir a violação)
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>Habilitando o custo de movimentação em seu cluster
 Para que os MoveCosts mais granulares sejam levados em conta, MoveCost deve estar habilitado em seu cluster. Sem essa configuração, o modo padrão de contar movimentações é usado para calcular MoveCost e relatórios de MoveCost são ignorados.

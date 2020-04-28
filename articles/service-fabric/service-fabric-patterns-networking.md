@@ -1,13 +1,13 @@
 ---
-title: Padrões de rede para tecido de serviço azure
+title: Padrões de rede para o Azure Service Fabric
 description: Descreve os padrões de rede comuns do Service Fabric e como criar um cluster usando os recursos de rede do Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75466279"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
@@ -20,7 +20,7 @@ Você pode integrar seu cluster do Azure Service Fabric a outros recursos de red
 
 O Service Fabric é executado em um conjunto de dimensionamento de máquinas virtuais padrão. Qualquer funcionalidade que você pode usar em um conjunto de dimensionamento de máquinas virtuais você pode usar também com um cluster do Service Fabric. As seções de rede dos modelos do Azure Resource Manager para os conjuntos de dimensionamento de máquinas virtuais e o Service Fabric são idênticas. Depois de implantar uma rede virtual existente, é fácil incorporar outros recursos de rede como o Azure ExpressRoute, o Gateway de VPN do Azure, um grupo de segurança de rede e emparelhamento de rede virtual.
 
-### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Permitindo que o provedor de recursos Service Fabric consulta seu cluster
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Permitindo que o provedor de recursos de Service Fabric consulte o cluster
 
 O Service Fabric é único entre outros recursos de rede em um aspecto. O [portal do Azure](https://portal.azure.com) usa internamente o provedor de recursos do Service Fabric para chamar um cluster para obter informações sobre nós e aplicativos. O provedor de recursos do Service Fabric exige acesso de entrada acessível publicamente à porta do Gateway HTTP (19080 por padrão) no ponto de extremidade de gerenciamento. O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) usa o ponto de extremidade de gerenciamento para gerenciar o cluster. Essa porta também é usada pelo provedor de recursos do Service Fabric para consultar informações sobre o cluster para exibição no Portal do Azure. 
 
@@ -279,12 +279,12 @@ Para obter outro exemplo, consulte [um que não seja específico para o Service 
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-Após a implantação, você pode ver que o balanceador de carga está limitado ao endereço IP público estático do outro grupo de recursos. O ponto final de conexão do cliente service fabric e o ponto final [do Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) apontam para o DNS FQDN do endereço IP estático.
+Após a implantação, você pode ver que o balanceador de carga está limitado ao endereço IP público estático do outro grupo de recursos. O ponto de extremidade de conexão de cliente do Service Fabric e [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) apontam para o FQDN do DNS do endereço IP estático.
 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Balanceador de carga somente interno
 
-Este cenário substitui o balanceador externo de carga no modelo padrão do Service Fabric por um balanceador de carga somente interno. Veja [no início do artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) as implicações para o portal Azure e para o provedor de recursos Service Fabric.
+Este cenário substitui o balanceador externo de carga no modelo padrão do Service Fabric por um balanceador de carga somente interno. Veja [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) as implicações para o portal do Azure e para o provedor de recursos Service Fabric.
 
 1. Remova o parâmetro `dnsName`. (Ele não é necessário.)
 
@@ -382,7 +382,7 @@ Após a implantação, o balanceador de carga usa o endereço IP estático priva
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Balanceador de carga interno e externo
 
-Neste cenário, você começa com o balanceador externo de carga de tipo de nó único existente e adiciona um balanceador de carga interno para o mesmo tipo de nó. Uma porta de back-end anexada ao pool de endereços de back-end pode ser atribuída somente a um único balanceador de carga. Escolha qual balanceador de carga terá as suas portas do aplicativo e o balanceador de carga terá seus pontos de extremidade de gerenciamento (portas 19000 e 19080). Se você colocar os pontos finais de gerenciamento no balanceador de carga interna, tenha em mente as restrições do provedor de recursos Service Fabric discutidas [anteriormente no artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). No exemplo que usamos, os pontos de extremidade de gerenciamento permanecem no balanceador externo de carga. Você também pode adicionar uma porta 80 do aplicativo e colocá-la no balanceador de carga interno.
+Neste cenário, você começa com o balanceador externo de carga de tipo de nó único existente e adiciona um balanceador de carga interno para o mesmo tipo de nó. Uma porta de back-end anexada ao pool de endereços de back-end pode ser atribuída somente a um único balanceador de carga. Escolha qual balanceador de carga terá as suas portas do aplicativo e o balanceador de carga terá seus pontos de extremidade de gerenciamento (portas 19000 e 19080). Se você colocar os pontos de extremidade de gerenciamento no balanceador de carga interno, tenha em mente as restrições do provedor de recursos Service Fabric discutidas [anteriormente neste artigo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). No exemplo que usamos, os pontos de extremidade de gerenciamento permanecem no balanceador externo de carga. Você também pode adicionar uma porta 80 do aplicativo e colocá-la no balanceador de carga interno.
 
 Em um cluster com dois tipos de nós, um tipo de nó é no balanceador externo de carga. O outro tipo de nó é no balanceador de carga interno. Para usar um cluster com dois tipos de nós, no modelo com dois tipos de nós criado pelo portal (que vem com dois balanceadores de carga), mude o segundo balanceador de carga para um balanceador de carga interno. Para obter mais informações, consulte a seção [Balanceador de carga somente interno](#internallb).
 
@@ -596,9 +596,9 @@ Em um cluster com dois tipos de nós, um tipo de nó é no balanceador externo d
 
 Após a implantação, você poderá ver dois balanceadores de carga no grupo de recursos. Se você procurar os balanceadores de carga, você poderá ver os endereços IP públicos e pontos de extremidade de gerenciamento (portas 19000 e 19080) atribuídos ao endereço IP público. Você também poderá ver o endereço IP interno estático e o ponto de extremidade do aplicativo (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga usam o mesmo pool de back-end de conjunto de dimensionamento de máquinas virtuais.
 
-## <a name="notes-for-production-workloads"></a>Notas para cargas de trabalho de produção
+## <a name="notes-for-production-workloads"></a>Observações para cargas de trabalho de produção
 
-Os modelos gitHub acima foram projetados para trabalhar com o SKU padrão para O Azure Standard Load Balancer (SLB), o SKU básico. Este SLB não tem SLA, portanto, para cargas de trabalho de produção, o Padrão SKU deve ser usado. Para obter mais informações sobre isso, consulte a visão geral do [Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Qualquer cluster de malha de serviço que use o SKU padrão para SLB precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster, e qualquer implantação sem essa regra falhará. No exemplo acima de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permite o tráfego de saída para a porta 443.
+Os modelos do GitHub acima foram projetados para funcionar com o SKU padrão do Standard Load Balancer do Azure (SLB), a SKU básica. Esse SLB não tem SLA, portanto, para cargas de trabalho de produção, o SKU Standard deve ser usado. Para saber mais sobre isso, confira a [visão geral de Standard Load Balancer do Azure](/azure/load-balancer/load-balancer-standard-overview). Qualquer Service Fabric cluster usando o SKU Standard para SLB precisa garantir que cada tipo de nó tenha uma regra que permita o tráfego de saída na porta 443. Isso é necessário para concluir a configuração do cluster e qualquer implantação sem essa regra falhará. No exemplo acima de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permite o tráfego de saída para a porta 443.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)

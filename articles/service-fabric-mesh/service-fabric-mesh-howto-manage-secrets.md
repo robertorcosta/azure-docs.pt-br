@@ -1,13 +1,13 @@
 ---
-title: Gerenciar segredos de aplicativos de malha de malha de malha de malha de serviço do Azure
+title: Gerenciar segredos do aplicativo de malha de Service Fabric do Azure
 description: Gerencie os Segredos de aplicativos para que você possa criar e implantar um aplicativo de Malha do Service Fabric com segurança.
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75461923"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerenciar segredos do aplicativo de Malha do Azure Service Fabric
@@ -18,14 +18,14 @@ Um Segredo de aplicativo de Malha consiste em:
 * Um ou mais recursos **Segredos/Valores** que são armazenados no contêiner do recurso **Segredos**. Cada recurso **Segredos/Valores** é diferenciado por um número de versão. Não é possível modificar a versão de um recurso **Segredos/valores**, anexe apenas uma nova versão.
 
 O gerenciamento dos Segredos é composto pelas seguintes etapas:
-1. Declare um recurso Mesh **Secrets** em um arquivo YAML ou JSON do modelo de recursos do Azure usando definições inlinedValue e secretsStoreRef contentType.
-2. Declare **segredos/valores** de malha em um arquivo YAML ou JSON do modelo de recursos do Azure que será armazenado no recurso **Segredos** (a partir da etapa 1).
+1. Declare um recurso de **segredos** de malha em um arquivo YAML ou JSON do modelo de recurso do Azure usando as definições de ContentType e SecretsStoreRef do tipo inlinedValue.
+2. Declare os recursos de **segredos/valores** de malha em um arquivo YAML ou JSON do modelo de recurso do Azure que será armazenado no recurso de **segredos** (da etapa 1).
 3. Modificar o aplicativo de Malha para fazer referência a valores de segredos de Malha.
 4. Implemente ou atualize o aplicativo de Malha para consumir valores de segredos.
 5. Use os comandos da CLI do Azure "az" no gerenciamento do ciclo de vida do Serviço de Repositório Seguro.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Declarar um recurso de Segredos de Malha
-Um recurso Mesh Secrets é declarado em um arquivo JSON ou YAML do modelo de recursos do Azure usando uma definição do tipo InlinedValue. O recurso de Segredos de Malha dá suporte aos segredos originados do Serviço de Repositório Seguro. 
+Um recurso de segredos de malha é declarado em um arquivo JSON ou YAML do modelo de recurso do Azure usando a definição de tipo inlinedValue. O recurso de Segredos de Malha dá suporte aos segredos originados do Serviço de Repositório Seguro. 
 >
 Veja a seguir um exemplo de como declarar os recursos de Segredos de Malha em um arquivo JSON:
 
@@ -200,9 +200,9 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 Passe **template-file** ou **template-uri** (mas não ambos).
 
-Por exemplo: 
+Por exemplo:
 - criar implantação do az mesh --c:\MyMeshTemplates\SecretTemplate1.txt
-- az malha implantação criar\/--https: /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- AZ mesh implantação Create--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Mostrar um segredo
 Retorna a descrição do segredo (mas não o valor).

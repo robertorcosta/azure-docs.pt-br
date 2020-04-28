@@ -1,5 +1,5 @@
 ---
-title: Monitore APIs com gerenciamento de API do Azure, Hubs de Eventos e Moesif
+title: Monitorar APIs com gerenciamento de API do Azure, hubs de eventos e Moesif
 titleSuffix: Azure API Management
 description: O exemplo de aplicativo que demonstra a política log-to-eventhub, conectando o Gerenciamento de API do Azure, os Hubs de Eventos do Azure e o Moesif para registro em log e monitoramento de HTTP
 services: api-management
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
 ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75442535"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorar suas APIs com Gerenciamento de API do Azure, os Hubs de Eventos e Moesif
@@ -294,7 +294,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API do Coletor Do Moesif, você precisa de uma conta e um ID de aplicativo. Você recebe uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, vá para a_configuração_do _aplicativo menu_ -> superior direito .
+O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API do coletor do Moesif, você precisa de uma conta e uma ID do aplicativo. Você Obtém uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acessando a -> _configuração do aplicativo_de _menu superior direito_.
 
 ## <a name="complete-sample"></a>Exemplo completo
 O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes do exemplo estão no GitHub. Para executar o exemplo, você precisará de um [Serviço de Gerenciamento de API](get-started-create-service-instance.md), de um [Hub de Eventos conectado](api-management-howto-log-event-hubs.md) e de uma [Conta de Armazenamento](../storage/common/storage-create-storage-account.md).   

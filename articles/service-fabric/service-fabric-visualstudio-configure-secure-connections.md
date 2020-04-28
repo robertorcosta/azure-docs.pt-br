@@ -1,22 +1,22 @@
 ---
-title: Configure conexões seguras do cluster de malha de serviço do Azure
+title: Configurar conexões seguras do Cluster Service Fabric do Azure
 description: Saiba mais sobre como usar o Visual Studio para configurar conexões seguras às quais o cluster do Azure Service Fabric dá suporte.
 author: cawaMS
 ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 11f76153726d3fc92118fb46cc61b4627ab6a1b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75464098"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar conexões seguras para um cluster do Service Fabric do Visual Studio
 Saiba mais sobre como usar o Visual Studio para acessar com segurança um cluster do Service Fabric do Azure com políticas de controle de acesso configuradas.
 
 ## <a name="cluster-connection-types"></a>Tipos de conexão do cluster
-O cluster do Azure Service Fabric dá suporte a dois tipos de conexão: conexões **não seguras** e conexões seguras **baseadas no certificado x509**. (Para clusters de malha de serviço hospedados no local, também são suportadas autenticações do **Windows** e **dSTS.)** Você tem que configurar o tipo de conexão de cluster quando o cluster está sendo criado. Depois de criado, o tipo de conexão não pode ser alterado.
+O cluster do Azure Service Fabric dá suporte a dois tipos de conexão: conexões **não seguras** e conexões seguras **baseadas no certificado x509**. (Para Service Fabric clusters hospedados localmente, as autenticações do **Windows** e do **dSTS** também têm suporte.) Você precisa configurar o tipo de conexão de cluster quando o cluster está sendo criado. Depois de criado, o tipo de conexão não pode ser alterado.
 
 As Ferramentas do Service Fabric do Visual Studio dão suporte a todos os tipos de autenticação para conexão com um cluster para publicação. Veja [Configurando um cluster do Service Fabric no Portal do Azure](service-fabric-cluster-creation-via-portal.md) para obter instruções sobre como configurar um cluster do Service Fabric seguro.
 

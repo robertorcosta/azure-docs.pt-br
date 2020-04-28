@@ -1,20 +1,20 @@
 ---
-title: Crie alertas do Azure Advisor para novas recomendações
-description: Crie alertas do Azure Advisor para nova recomendação
+title: Criar alertas do Azure Advisor para novas recomendações
+description: Criar alertas do supervisor do Azure para nova recomendação
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75443166"
 ---
-# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Crie alertas do Azure Advisor sobre novas recomendações 
+# <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Criar alertas do supervisor do Azure sobre novas recomendações 
 
-Este artigo mostra como configurar um alerta para novas recomendações do Azure Advisor usando os modelos do portal Azure e do Azure Resource Manager. 
+Este artigo mostra como configurar um alerta para novas recomendações do Azure Advisor usando os modelos portal do Azure e Azure Resource Manager. 
 
-Sempre que o Azure Advisor detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [registro de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Você pode configurar alertas para esses eventos do Azure Advisor usando uma experiência de criação de alertas específicos de recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos que deseja receber alertas. 
+Sempre que o Azure Advisor detecta uma nova recomendação para um de seus recursos, um evento é armazenado no [log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). Você pode configurar alertas para esses eventos do Azure Advisor usando uma experiência de criação de alertas específica de recomendação. Você pode selecionar uma assinatura e, opcionalmente, um grupo de recursos para especificar os recursos nos quais deseja receber alertas. 
 
 Você também pode determinar os tipos de recomendações usando essas propriedades:
 
@@ -22,53 +22,53 @@ Você também pode determinar os tipos de recomendações usando essas proprieda
 * Nível de impacto
 * Tipo de recomendação
 
-Você também pode configurar a ação que ocorrerá quando um alerta é acionado por:  
+Você também pode configurar a ação que ocorrerá quando um alerta for disparado por:  
 
 * Selecionando um grupo de ação existente
 * Criando um novo grupo de ação
 
-Para saber mais sobre grupos de ação, consulte [Criar e gerenciar grupos de ação](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
-> Atualmente, os alertas de conselheiro estão disponíveis apenas para recomendações de alta disponibilidade, desempenho e custo. Recomendações de segurança não são suportadas. 
+> Atualmente, os alertas do Advisor estão disponíveis apenas para alta disponibilidade, desempenho e recomendações de custo. Não há suporte para recomendações de segurança. 
 
 ## <a name="in-the-azure-portal"></a>No portal do Azure
-1. No **portal,** selecione **Azure Advisor**.
+1. No **portal**, selecione **Azure Advisor**.
 
-    ![Azure Advisor em portal](./media/advisor-alerts/create1.png)
+    ![Assistente do Azure no portal](./media/advisor-alerts/create1.png)
 
-2. Na seção **Monitoramento** do menu esquerdo, selecione **Alertas**. 
+2. Na seção **monitoramento** do menu à esquerda, selecione **alertas**. 
 
     ![Alertas no Advisor](./media/advisor-alerts/create2.png)
 
-3. Selecione **novo alerta de conselheiro**.
+3. Selecione **novo alerta do Advisor**.
 
-    ![Novo Alerta de Conselheiro](./media/advisor-alerts/create3.png)
+    ![Novo alerta do Advisor](./media/advisor-alerts/create3.png)
 
-4. Na seção **Escopo,** selecione a assinatura e, opcionalmente, o grupo de recursos no que deseja ser alertado. 
+4. Na seção **escopo** , selecione a assinatura e, opcionalmente, o grupo de recursos no qual você deseja ser alertado. 
 
-    ![Escopo de alerta do advisor](./media/advisor-alerts/create4.png)
+    ![Escopo do alerta do Advisor](./media/advisor-alerts/create4.png)
 
-5. Na seção **Condição,** selecione o método que deseja usar para configurar seu alerta. Se você quiser alertar para todas as recomendações para uma determinada categoria e/ou nível de impacto, selecione **Categoria e nível de impacto**. Se você quiser alertar para todas as recomendações de um determinado tipo, selecione **Tipo de Recomendação**.
+5. Na seção **condição** , selecione o método que você deseja usar para configurar o alerta. Se você quiser alertar para todas as recomendações para uma determinada categoria e/ou nível de impacto, selecione **categoria e nível de impacto**. Se você quiser alertar para todas as recomendações de um determinado tipo, selecione **tipo de recomendação**.
 
     ![Condição de alerta do Azure Advisor](./media/advisor-alerts/create5.png)
 
-6. Dependendo da opção Configurar por opção selecionada, você poderá especificar os critérios. Se você quiser todas as recomendações, basta deixar os campos restantes em branco. 
+6. Dependendo da opção Configurar por que você selecionar, você poderá especificar os critérios. Se você quiser todas as recomendações, apenas deixe os campos restantes em branco. 
 
-    ![Grupo de ação de alerta de conselheiro](./media/advisor-alerts/create6.png)
+    ![Grupo de ações de alerta do Advisor](./media/advisor-alerts/create6.png)
 
-7. Na seção **grupos de ação,** selecione **Adicionar existente** para usar um grupo de ação que você já criou ou selecione **Criar novo** para configurar um novo grupo [de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
+7. Na seção **grupos de ações** , selecione **Adicionar existente** para usar um grupo de ação que você já criou ou selecione **criar novo** para configurar um novo [grupo de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). 
 
-    ![Alerta de conselheiro adicionar existente](./media/advisor-alerts/create7.png)
+    ![Alerta do Advisor-adicionar existente](./media/advisor-alerts/create7.png)
 
-8. Na seção Detalhes alerta, dê ao seu alerta um nome e uma breve descrição. Se você quiser que seu alerta seja ativado, deixe **Habilitar a regra na** seleção de criação definida **como Sim**. Em seguida, selecione o grupo de recursos para salvar seu alerta. Isso não afetará o escopo de segmentação da recomendação. 
+8. Na seção detalhes do alerta, dê um nome e uma descrição breve ao seu alerta. Se você quiser que o alerta seja habilitado, deixe **habilitar regra na** seleção de criação definido como **Sim**. Em seguida, selecione o grupo de recursos para salvar o alerta. Isso não afetará o escopo de direcionamento da recomendação. 
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
+    ![Faixa do supervisor do Azure](./media/advisor-alerts/create8.png)
 
 
-## <a name="with-an-azure-resource-manager-template"></a>Com um modelo de Gerenciador de recursos do Azure
+## <a name="with-an-azure-resource-manager-template"></a>Com um modelo de Azure Resource Manager
 
-Este modelo de Gerenciador de recursos cria um alerta de recomendação e um novo grupo de ação.
+Esse modelo do Resource Manager cria um alerta de recomendação e um novo grupo de ação.
 
 ```json
 {
@@ -165,16 +165,16 @@ Este modelo de Gerenciador de recursos cria um alerta de recomendação e um nov
 }
   ```
 
-## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configure alertas de recomendação para usar um webhook
-Esta seção mostra como configurar alertas do Azure Advisor para enviar dados de recomendação através de webhooks para seus sistemas existentes. 
+## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configurar alertas de recomendação para usar um webhook
+Esta seção mostra como configurar alertas do Azure Advisor para enviar dados de recomendação por meio de WebHooks para seus sistemas existentes. 
 
-Você pode configurar alertas para ser notificado quando tiver uma nova recomendação do Advisor sobre um de seus recursos. Esses alertas podem notificá-lo por e-mail ou mensagem de texto, mas também podem ser usados para se integrar com seus sistemas existentes através de um webhook. 
+Você pode configurar alertas para serem notificados quando tiver uma nova recomendação do Advisor em um de seus recursos. Esses alertas podem notificá-lo por email ou mensagem de texto, mas também podem ser usados para integração com seus sistemas existentes por meio de um webhook. 
 
 
 ### <a name="using-the-advisor-recommendation-alert-payload"></a>Usando a carga de alerta de recomendação do Advisor
-Se você quiser integrar alertas do Advisor em seus próprios sistemas usando um webhook, você precisará analisar a carga json enviada a partir da notificação. 
+Se desejar integrar alertas do Advisor em seus próprios sistemas usando um webhook, você precisará analisar a carga JSON que é enviada da notificação. 
 
-Quando você configura seu grupo de ação para este alerta, você seleciona se deseja usar o esquema de alerta comum. Se você selecionar o esquema de alerta comum, sua carga será como: 
+Ao configurar o grupo de ações para esse alerta, você seleciona se deseja usar o esquema de alerta comum. Se você selecionar o esquema de alerta comum, sua carga terá a seguinte aparência: 
 
 ```json
 {  
@@ -223,7 +223,7 @@ Quando você configura seu grupo de ação para este alerta, você seleciona se 
 }
   ```
 
-Se você não usar o esquema comum, sua carga será a seguinte: 
+Se você não usar o esquema comum, sua carga será parecida com a seguinte: 
 
 ```json
 {  
@@ -268,32 +268,32 @@ Se você não usar o esquema comum, sua carga será a seguinte:
 }
 ```
 
-Em ambos os esquemas, você pode identificar eventos `Recommendation` de recomendação do Advisor procurando por **eventosFonte** é e **operaçãoNome** é `Microsoft.Advisor/recommendations/available/action`.
+Em qualquer esquema, você pode identificar eventos de recomendação do Advisor procurando **eventSource** por EventSource `Recommendation` é **operationName** e operationName `Microsoft.Advisor/recommendations/available/action`é.
 
 Alguns dos outros campos importantes que você pode querer usar são: 
 
-* *alertaTargetIDs* (no esquema comum) ou *resourceId* (esquema legado)
-* *recomendaçãoType*
-* *recomendaçãoNome*
-* *recomendaçãoCategoria*
-* *recomendaçãoImpacto*
-* *recomendaçãoResourceLink*
+* *alertTargetIDs* (no esquema comum) ou *ResourceId* (esquema herdado)
+* *recomendaçãotype*
+* *recomendaçãoname*
+* *recommendationCategory*
+* *recommendationImpact*
+* *recommendationResourceLink*
 
 
 ## <a name="manage-your-alerts"></a>Gerenciar seus alertas 
 
-A partir do Azure Advisor, você pode editar, excluir ou desativar e ativar seus alertas de recomendações. 
+No Azure Advisor, você pode editar, excluir ou desabilitar e habilitar seus alertas de recomendações. 
 
-1. No **portal,** selecione **Azure Advisor**.
+1. No **portal**, selecione **Azure Advisor**.
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
+    ![Faixa do supervisor do Azure](./media/advisor-alerts/create1.png)
 
-2. Na seção **Monitoramento** do menu esquerdo, selecione **Alertas**.
+2. Na seção **monitoramento** do menu à esquerda, selecione **alertas**.
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create2.png)
+    ![Faixa do supervisor do Azure](./media/advisor-alerts/create2.png)
 
-3. Para editar um alerta, clique no nome Alerta para abrir o alerta e editar os campos que deseja editar.
+3. Para editar um alerta, clique no nome do alerta para abrir o alerta e editar os campos que você deseja editar.
 
-4. Para excluir, ativar ou desativar um alerta, clique na elipse no final da linha e selecione a ação que deseja tomar.
+4. Para excluir, habilitar ou desabilitar um alerta, clique na elipse no final da linha e selecione a ação que você deseja executar.
  
 

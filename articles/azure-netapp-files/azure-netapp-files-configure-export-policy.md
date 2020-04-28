@@ -1,6 +1,6 @@
 ---
-title: Configurar a política de exportação para o volume NFS - Arquivos Azure NetApp
-description: Descreve como configurar a política de exportação para controlar o acesso a um volume NFS usando arquivos do Azure NetApp
+title: Configurar a política de exportação para o volume do NFS-Azure NetApp Files
+description: Descreve como configurar a política de exportação para controlar o acesso a um volume NFS usando o Azure NetApp Files
 services: azure-netapp-files
 author: b-juche
 ms.author: b-juche
@@ -9,22 +9,22 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75551551"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume do NFS
 
-Opcionalmente, você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. A política de exportação do Azure NetApp Files suporta apenas volumes NFS.  Tanto o NFSv3 quanto o NFSv4 são suportados. 
+Opcionalmente, você pode configurar a política de exportação para controlar o acesso a um volume de Azure NetApp Files. Azure NetApp Files política de exportação dá suporte apenas a volumes NFS.  Há suporte para NFSv3 e NFSv4. 
 
 ## <a name="steps"></a>Etapas 
 
-1.  Clique **em Exportar política** do painel de navegação Azure NetApp Files. 
+1.  Clique em **Exportar política** no painel de navegação Azure NetApp files. 
 
 2.  Especifique informações para os campos a seguir para criar uma regra de política de exportação:   
-    *  **Índice**   
+    *  **Index**   
         Especifique o número de índice para a regra.  
         Uma política de exportação pode consistir em até cinco regras. As regras são avaliadas de acordo com sua ordem na lista de números de índice. As regras com números de índice mais baixos são avaliadas primeiro. Por exemplo, a regra com o número de índice 1 é avaliada antes da regra com o número de índice 2. 
 

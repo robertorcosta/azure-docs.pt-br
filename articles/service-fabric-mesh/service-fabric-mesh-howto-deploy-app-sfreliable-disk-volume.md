@@ -1,5 +1,5 @@
 ---
-title: Volume de disco confiável da malha de malha da malha de malha da malha de malha da malha de malha de malha de malha de malha de serviço
+title: Service Fabric volume de disco confiável com malha de Service Fabric
 description: Saiba como armazenar estado em uma plicativo da Malha do Service Fabric montando o volume baseado em Disco Confiável do Service Fabric dentro do contêiner usando a CLI do Azure.
 author: ashishnegi
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75497960"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 

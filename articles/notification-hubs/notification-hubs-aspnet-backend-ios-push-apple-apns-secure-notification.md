@@ -1,5 +1,5 @@
 ---
-title: Hubs de notificação do Azure seguram push para iOS
+title: Push seguro de hubs de notificação do Azure para iOS
 description: Saiba como enviar notificações por push seguro para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#.
 documentationcenter: ios
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75530741"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push Seguro dos Hubs de Notificação do Azure
@@ -56,7 +56,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 ## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
 
-Agora que você modificou o back-end do aplicativo para enviar apenas o *ID* de uma notificação, você tem que alterar seu aplicativo para iOS para lidar com essa notificação e chamar de volta o seu back-end para recuperar a mensagem segura a ser exibida.
+Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de uma notificação, você precisa alterar seu aplicativo IOS para lidar com essa notificação e retornar o back-end para recuperar a mensagem segura a ser exibida.
 
 Para isso, precisamos gravar a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
