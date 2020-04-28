@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9f22df8df77c3d59990d26b0f63f134f537d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c224f1e3b7ce53df9bfb24b0c9a9ac14f15996fe
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75561776"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workpath"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workpath
 
@@ -96,7 +96,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<subdomain>.workpath.com/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Workpath](https://help.workpath.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Workpath](https://www.workpath.com/en/company/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. O aplicativo Workpath espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token do Workpath. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -149,7 +149,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-workpath-sso"></a>Configurar o SSO do Workpath
 
-Para configurar o logon único no lado do **Workpath**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Workpath](https://help.workpath.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Workpath**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Workpath](https://www.workpath.com/en/company/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-workpath-test-user"></a>Criar usuário de teste do Workpath
 

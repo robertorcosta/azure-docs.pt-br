@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: 58deae64bdde27580b85b00a1c87ba115e24478a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 5b04bbbbe5425e65f3ed4ff82d9700dec6dd2c39
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159891"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188320"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver um aplicativo seguro para um aplicativo do Azure AD
 ## <a name="overview"></a>Visão geral
@@ -35,7 +35,7 @@ Ao desenvolver e implantar este aplicativo, você aprenderá a
 - Implante o aplicativo Web do Azure, que é dedicado isolado com acesso de firewall de front-end. 
 - Crie e configure uma instância de gateway Aplicativo Azure com um firewall que usa o OWASP 10 principais RuleSet. 
 - Habilite a criptografia de dados em trânsito e em repouso usando os serviços do Azure. 
-- Configure a central de segurança e a política do Azure para avaliar o compliancies. 
+- Configure Azure Policy e a central de segurança para avaliar a conformidade. 
 
 Depois de desenvolver e implantar esse aplicativo, você terá configurado o exemplo de aplicativo Web a seguir junto com as medidas de configuração e segurança descritas.
 
@@ -547,7 +547,7 @@ Para criar este espaço de trabalho
          
    *Adicionar diagnóstico do gateway de aplicativo*
 
-   4. Na página **configurações de diagnóstico** , selecione o espaço de trabalho log Analytics que você criou e, em seguida, selecione todas as métricas que deseja coletar e enviar para o Azure Sentinel. Clique em **Salvar**.
+   4. Na página **configurações de diagnóstico** , selecione o espaço de trabalho log Analytics que você criou e, em seguida, selecione todas as métricas que deseja coletar e enviar para o Azure Sentinel. Selecione **Salvar**.
 
    ![Configurações do conector do Azure Sentinel](./media/secure-aad-app/sentinel-connector-settings.png)
 

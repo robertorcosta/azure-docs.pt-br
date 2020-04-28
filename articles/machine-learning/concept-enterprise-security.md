@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 3765c70b27fb98518f71a55f00acfe5b831044ec
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82146665"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188388"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -49,7 +49,7 @@ O Azure Machine Learning dá suporte a duas formas de autenticação para servi�
 
 Para obter exemplos de código, consulte a [seção autenticação de serviço Web](how-to-setup-authentication.md#web-service-authentication).
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorização
 
 Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Ao compartilhar um espaço de trabalho, você pode controlar o acesso a ele atribuindo essas funções aos usuários:
 
@@ -78,7 +78,7 @@ A tabela a seguir lista algumas das principais operações de Azure Machine Lear
 Se as funções internas não atenderem às suas necessidades, você poderá criar funções personalizadas. As funções personalizadas têm suporte apenas para operações no espaço de trabalho e Computação do Machine Learning. As funções personalizadas podem ter permissões de leitura, gravação ou exclusão no espaço de trabalho e no recurso de computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico. Para obter mais informações, consulte [gerenciar usuários e funções em um espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
-> No momento, não há suporte para Azure Machine Learning com Azure Active Directory colaboração entre empresas.
+> Azure Machine Learning tem suporte com Azure Active Directory colaboração entre empresas, mas não tem suporte no momento com Azure Active Directory colaboração entre consumidores.
 
 ### <a name="securing-compute-targets-and-data"></a>Protegendo dados e destinos de computação
 
@@ -385,10 +385,7 @@ Estes são os detalhes:
 
 * [Proteger Azure Machine Learning serviços Web com o TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implantado como um serviço Web](how-to-consume-web-service.md)
-* [Como executar previsões em lotes](how-to-use-parallel-run-step.md)
-* [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
-* [Coletar dados para modelos em produção](how-to-enable-data-collection.md)
-* [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usar Azure Machine Learning com o Firewall do Azure](how-to-access-azureml-behind-firewall.md)
 * [Usar Azure Machine Learning com a rede virtual do Azure](how-to-enable-virtual-network.md)
 * [Melhores práticas para criar sistemas de recomendação](https://github.com/Microsoft/Recommenders)
 * [Compilar uma API de recomendação em tempo real no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

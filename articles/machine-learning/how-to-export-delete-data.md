@@ -1,7 +1,7 @@
 ---
 title: Exportar ou excluir dados do workspace
 titleSuffix: Azure Machine Learning
-description: Aprenda a exportar ou excluir seu espaço de trabalho com o estúdio Azure Machine Learning, CLI, SDK e APIs REST autenticadas.
+description: Saiba como exportar ou excluir seu espaço de trabalho com o Azure Machine Learning Studio, CLI, SDK e APIs REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 03/06/2020
+ms.date: 04/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50234eb356314039b8023f0442207ae0b762676e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218282"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191627"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do workspace no serviço do Machine Learning
 
@@ -30,7 +30,7 @@ No Azure Machine Learning, você pode exportar ou excluir seus dados de workspac
 
 ## <a name="control-your-workspace-data"></a>Controlar seus dados de workspace
 
-Os dados do produto armazenados pelo Azure Machine Learning estão disponíveis para exportação e exclusão através do estúdio Azure Machine Learning, CLI, SDK e APIs REST autenticados. É possível acessar os dados telemétricos por meio do Portal de Privacidade do Azure. 
+Os dados no produto armazenados por Azure Machine Learning estão disponíveis para exportação e exclusão por meio do Azure Machine Learning Studio, CLI, SDK e APIs REST autenticadas. É possível acessar os dados telemétricos por meio do Portal de Privacidade do Azure. 
 
 No Azure Machine Learning, os dados pessoais são formados por informações do usuário em documentos de histórico de execução e registros telemétricos de algumas interações do usuário com o serviço.
 
@@ -38,7 +38,7 @@ No Azure Machine Learning, os dados pessoais são formados por informações do 
 
 Para excluir os dados, as chamadas da API a seguir podem ser feitas com o verbo HTTP DELETE. Eles são autorizados devido ao cabeçalho `Authorization: Bearer <arm-token>` na solicitação, em que `<arm-token>` é o token de acesso do AAD para o ponto de extremidade `https://management.core.windows.net/`.  
 
-Para saber como obter esse token e chamar os pontos finais do Azure, consulte [Use REST para gerenciar recursos ML](how-to-manage-rest.md) e [documentação da API Do Azure REST](https://docs.microsoft.com/rest/api/azure/).  
+Para saber como obter esse token e chamar os pontos de extremidade do Azure, confira [usar REST para gerenciar recursos do ml](how-to-manage-rest.md) e a [documentação da API REST do Azure](https://docs.microsoft.com/rest/api/azure/).  
 
 Nos exemplos a seguir, substitua o texto em {} pelos nomes de instância que determinam o recurso associado.
 
@@ -94,7 +94,7 @@ Use essa chamada para obter uma lista das serviços e suas IDs:
 
 Para exportar os dados, as chamadas da API a seguir podem ser feitas com o verbo HTTP GET. Eles são autorizados devido ao cabeçalho `Authorization: Bearer <arm-token>` na solicitação, em que `<arm-token>` é o token de acesso do AAD para o ponto de extremidade `https://management.core.windows.net/`  
 
-Para saber como obter esse token e chamar os pontos finais do Azure, consulte [Use REST para gerenciar recursos ML](how-to-manage-rest.md) e [documentação da API Do Azure REST](https://docs.microsoft.com/rest/api/azure/)..   
+Para saber como obter esse token e chamar os pontos de extremidade do Azure, confira [usar REST para gerenciar recursos de ml](how-to-manage-rest.md) e [documentação da API REST do Azure](https://docs.microsoft.com/rest/api/azure/).   
 
 Nos exemplos a seguir, substitua o texto em {} pelos nomes de instância que determinam o recurso associado.
 
@@ -238,26 +238,17 @@ Fontes de Dados podem ser obtidas por:
 
 ## <a name="delete-assets-in-the-designer"></a>Excluir ativos no designer
 
-No designer onde você criou seu experimento, exclua ativos individuais:
+No designer em que você criou seu experimento, exclua ativos individuais:
 
-1. Vá para designer
+1. Ir para o designer
 
     ![Excluir ativos](./media/how-to-export-delete-data/delete-experiment.png)
 
-1. Na lista, selecione o rascunho individual do pipeline para excluir.
+1. Na lista, selecione o rascunho de pipeline individual a ser excluído.
 
 1. Selecione **Excluir**.
 
-### <a name="delete-datasets-in-the-designer"></a>Excluir conjuntos de dados no designer
+### <a name="delete-datasets-in-the-designer"></a>Excluir conjuntos de itens no designer
 
-Para excluir conjuntos de dados no designer, use o portal Azure ou o Storage Explorer para navegar em contas de armazenamento conectadas e excluir conjuntos de dados lá. O não registro de conjuntos de dados no designer apenas remove o ponto de referência no armazenamento.
+Para excluir conjuntos de valores no designer, use o portal do Azure ou Gerenciador de Armazenamento para navegar até contas de armazenamento conectadas e excluir conjuntos de os mesmos. O cancelamento do registro de conjuntos de valores no designer remove apenas o ponto de referência no armazenamento.
 
-## <a name="export-data-in-the-designer"></a>Dados de exportação no designer
-
-No designer onde você criou seu experimento, exporte dados que você adicionou:
-
-1. À esquerda, selecione **Conjuntos de dados**.
-
-1. Na lista, selecione o conjunto de dados para exportar
-
-    ![Baixar dados](./media/how-to-export-delete-data/unregister-dataset.png)

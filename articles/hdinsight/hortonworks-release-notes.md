@@ -1,18 +1,19 @@
 ---
-title: Notas de versão da Hortonworks associadas às versões do Azure HDInsight
-description: Aprenda os componentes e versões do Apache Hadoop no Azure HDInsight.
+title: Notas de versão do Hortonworks associadas às versões do Azure HDInsight
+description: Conheça os componentes e as versões do Apache Hadoop no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: cd14390419d5833e5d071f2cd410260421247387
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: aa20e048db2b68d8f953b06745570759de5f2e9c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82087654"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190564"
 ---
 # <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de versão do Hortonworks associadas a versões do HDInsight
 
@@ -20,7 +21,7 @@ A seção fornece links para notas de versão para as distribuições do Hortonw
 
 ## <a name="current-versions"></a>Versões atuais
 
-* A versão 4.0 do cluster HDInsight usa uma distribuição Hadoop baseada na [Plataforma de Dados Hortonworks 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html).
+* O cluster HDInsight versão 4,0 usa uma distribuição do Hadoop baseada em [Hortonworks Data Platform 3,0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html).
 
 * O cluster do HDInsight versão 3.6 usa uma distribuição do Hadoop baseada no [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
 

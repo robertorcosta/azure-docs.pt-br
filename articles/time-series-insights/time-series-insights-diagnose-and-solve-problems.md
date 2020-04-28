@@ -1,140 +1,139 @@
 ---
-title: Diagnosticar, solucionar problemas e resolver problemas - Azure Time Series Insights | Microsoft Docs
-description: Este artigo descreve como diagnosticar, solucionar problemas e resolver problemas comuns em seu ambiente Azure Time Series Insights.
+title: Diagnostique, solucione problemas e resolva problemas-Azure Time Series Insights
+description: Este artigo descreve como diagnosticar, solucionar problemas e resolver problemas comuns em seu ambiente de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
+ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: 209df97169c71d910677ffdb2e2b12593882445b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d9efa1ebf1a3e3b146c4f45b0e84047562141cd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152563"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192707"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
-Este artigo descreve alguns problemas que você pode encontrar em seu ambiente do Azure Time Series Insights. O artigo fornece possíveis causas e soluções para resolução.
+Este artigo descreve os problemas que você pode encontrar em seu ambiente de Azure Time Series Insights. O artigo fornece possíveis causas e soluções para resolução.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Conheça os desafios e atenuações comuns da time series insights do cliente.</br>
+### <a name="learn-about-common-time-series-insights-challenges-and-mitigationsbr"></a>Saiba mais sobre os desafios e as mitigações comuns do Time Series Insights</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-no-data-is-shown"></a>Problema: nenhum dado é mostrado
 
-Há vários motivos comuns pelos quais você não pode ver seus dados no [gerenciador do Azure Time Series Insights](https://insights.timeseries.azure.com):
+Se nenhum dado estiver aparecendo no [Azure Time Series insights Explorer](https://insights.timeseries.azure.com), considere essas causas comuns.
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: os dados de origem do evento não estão no formato JSON
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa: os dados de origem do evento não estão no formato JSON
 
-O Azure Time Series Insights dá suporte somente a dados JSON. Para amostras JSON, leia [as formas JSON suportadas](./how-to-shape-query-json.md).
+O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento está faltando uma permissão necessária
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
-* Para um hub IoT no Hub IoT do Azure, você precisa fornecer a chave com as permissões de **conexão de serviço**. Selecione as políticas **de iothubowner** ou **service,** já que ambas têm permissões **de conexão** de serviço.
+* Para um hub IoT no Hub IoT do Azure, você precisa fornecer a chave que tem permissões de conexão de serviço. Selecione o **iothubowner** ou a política de **serviço** . Ambos têm permissões de conexão de serviço.
 
    [![Permissões de conexão de serviço do Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
-* Para um hub de eventos nos Hubs de Eventos do Azure, você precisa fornecer a chave que tem a permissão de **escuta**. Qualquer umas das políticas de **ler** ou **gerenciar** funcionará porque ambas têm permissões para **escutar**.
+* Para um hub de eventos nos hubs de eventos do Azure, você precisa fornecer a chave que tem permissões de escuta. As políticas de **leitura** e **Gerenciamento** funcionarão porque ambas têm permissões de escuta.
 
    [![Permissão de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Causa C: o grupo de consumidores fornecido não é exclusivo do Time Series Insights
+### <a name="cause-c-the-provided-consumer-group-isnt-exclusive-to-time-series-insights"></a>Causa C: o grupo de consumidores fornecido não é exclusivo para Time Series Insights
 
 Quando você registra um hub IoT ou um hub de eventos, é importante definir o grupo de consumidores que deseja usar para ler os dados. Esse grupo de consumidores *não pode ser compartilhado*. Se o grupo de consumidores for compartilhado, o hub IoT ou o hub de eventos subjacente desconectará de forma automática e aleatória um dos leitores. Forneça um grupo de consumidores exclusivo para o Time Series Insights para leitura.
 
-### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Causa D: o ambiente acaba de ser provisionado
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Causa D: o ambiente acabou de ser provisionado
 
-Os dados aparecerão no explorador Time Series Insights dentro de alguns minutos após o ambiente e seus dados serem criados pela primeira vez.
+Os dados aparecerão em seu Time Series Insights Explorer dentro de alguns minutos depois que o ambiente e seus dados forem criados primeiro.
 
-## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: alguns dados são mostrados, mas os dados estão faltando
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: alguns dados são mostrados, mas os dados estão ausentes
 
-Quando dados são exibidos apenas parcialmente e parecem estar apresentando retardo, você deve considerar várias possibilidades.
+Quando os dados aparecem apenas parcialmente e os dados parecem estar atrasados, considere esses possíveis problemas.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Causa A: seu ambiente está sendo estrangulado
+### <a name="cause-a-your-environment-is-being-throttled"></a>Causa um: seu ambiente está sendo limitado
 
-[O estrangulamento](time-series-insights-environment-mitigate-latency.md) é um problema comum quando os ambientes são provisionados após a criação de uma fonte de evento que tenha dados. Os Hubs de Eventos do Azure e o Hub IoT do Azure armazenam dados por até sete dias. O Time Series Insights sempre começa com o evento mais antigo na origem do evento (primeiro a entrar, primeiro a sair ou *PEPS*).
+A [limitação](time-series-insights-environment-mitigate-latency.md) é um problema comum quando os ambientes são provisionados depois que você cria uma origem de evento com dados. Os Hubs de Eventos do Azure e o Hub IoT do Azure armazenam dados por até sete dias. Time Series Insights sempre inicia com o evento mais antigo na origem do evento (primeiro a entrar, primeiro a sair ou *FIFO*).
 
-Por exemplo, se você tiver 5 milhões de eventos em uma origem do evento quando se conecta a um ambiente do Time Series Insights S1, de unidade única, o Time Series Insights lerá aproximadamente 1 milhão de eventos por dia. Pode parecer que o Time Series Insights está apresentando cinco dias de latência. No entanto, o que está acontecendo é que o ambiente está sendo limitado.
+Por exemplo, se você tiver 5 milhões de eventos em uma origem do evento quando se conecta a um ambiente do Time Series Insights S1, de unidade única, o Time Series Insights lerá aproximadamente 1 milhão de eventos por dia. Pode parecer que o Time Series Insights está apresentando cinco dias de latência. Mas o que acontece é que o ambiente está sendo limitado.
 
 Se houver eventos antigos na origem do evento, você poderá lidar com a limitação de duas maneiras:
 
 - Alterar os limites de retenção da origem do evento para ajudar a eliminar eventos antigos que você não quer exibir no Time Series Insights.
-- Provisionar um tamanho de ambiente maior (número de unidades) para aumentar a taxa de transferência de eventos antigos. Usando o exemplo anterior, se você aumentou o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá atualizar durante o dia. Se a produção de evento de estado contínuo for de um milhão ou menos de eventos por dia, será possível reduzir a capacidade do evento para uma unidade após ele ser atualizado.
+- Provisionar um tamanho de ambiente maior (número de unidades) para aumentar a taxa de transferência de eventos antigos. No exemplo anterior, se você aumentar o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá ser acumulado em um dia. Se a produção de eventos de estado estacionário for 1 milhão ou menos eventos por dia, você poderá reduzir a capacidade do evento para uma unidade depois que Time Series Insights for atualizado.
 
-A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a fonte de evento para o seu hub de IoT ou hub de eventos empurrar os dados para além dos limites impostos, você experimentará estrangulamento e um atraso.
+O limite de limitação imposto baseia-se na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento para o Hub IoT ou o Hub de eventos enviar dados para além dos limites impostos, você terá limitação e um retardo.
 
 A figura a seguir mostra um ambiente do Time Series Insights com um SKU S1 e uma capacidade 3. Ele pode ingressar 3 milhões de eventos por dia.
 
-[![Capacidade atual do SKU do ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Capacidade do ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
-Como exemplo, suponha que um ambiente ingere mensagens de um hub de eventos. A taxa de entrada diária é de cerca de 67.000 mensagens. Essa taxa é equivalente a aproximadamente 46 mensagens por minuto. 
+Imagine um ambiente que ingere mensagens de um hub de eventos. Ele tem uma taxa de entrada diária de cerca de 67.000 mensagens. Essa taxa é equivalente a aproximadamente 46 mensagens por minuto.
 
-* Se cada mensagem do hub de eventos for nivelada para um único evento do Time Series Insights, a limitação não ocorrerá. 
-* Se cada mensagem do hub de eventos for nivelada para 100 eventos do Time Series Insights, 4.600 eventos deverão ser ingeridos a cada minuto. 
+* Se cada mensagem do hub de eventos for nivelada para um único evento do Time Series Insights, a limitação não ocorrerá.
+* Se cada mensagem do hub de eventos for nivelada para 100 eventos do Time Series Insights, 4.600 eventos deverão ser ingeridos a cada minuto.
 
-Um ambiente de SKU S1 que tem uma capacidade de 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto). 
+Um ambiente de SKU S1 que tem uma capacidade de 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto).
 
-Para uma compreensão de alto nível de como a lógica de achatamento funciona, leia [formas JSON suportadas](./how-to-shape-query-json.md).
+Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, consulte [formas de JSON com suporte](./how-to-shape-query-json.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resolução recomendadas para limitação excessiva
 
-Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, leia [Dimensionar o ambiente de Insights da série do tempo](time-series-insights-how-to-scale-your-environment.md).
+Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, leia [dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa B: ingestão inicial de dados históricos retarda a ingestão
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa B: a ingestão inicial de dados históricos torna a entrada mais lenta
 
-Se você se conectar a uma origem do evento existente, provavelmente o hub IoT ou o hub de eventos já conterá dados. O ambiente inicia o pull dos dados desde o início do período de retenção de mensagens da origem do evento. Este processamento padrão não pode ser substituído. Você pode acionar a limitação. A limitação pode levar algum tempo para ficar atualizada conforme ela consome os dados históricos.
+Se você se conectar a uma origem do evento existente, provavelmente o hub IoT ou o hub de eventos já conterá dados. O ambiente inicia o pull dos dados desde o início do período de retenção de mensagens da origem do evento. Esse processamento padrão não pode ser substituído. Você pode acionar a limitação. A limitação pode levar algum tempo para ficar atualizada conforme ela consome os dados históricos.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Soluções recomendadas de ingestão inicial grande
 
 Para corrigir o retardo:
 
-1. aumente a capacidade do SKU para o valor máximo permitido (10, neste caso). Após você aumentar a capacidade, o processo de entrada começará a se atualizar muito mais rapidamente. Você é cobrado pelo aumento da capacidade. Para visualizar a rapidez da atualização, você pode exibir o do gráfico de disponibilidade no [gerenciador do Time Series Insights](https://insights.timeseries.azure.com).
+1. aumente a capacidade do SKU para o valor máximo permitido (10, neste caso). Após você aumentar a capacidade, o processo de entrada começará a se atualizar muito mais rapidamente. Você é cobrado pela maior capacidade. Para visualizar a rapidez da atualização, você pode exibir o do gráfico de disponibilidade no [gerenciador do Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Depois que o retardo for atualizado, diminua a capacidade do SKU para a taxa de entrada normal.
 
-## <a name="problem-data-was-showing-previously-but-is-no-longer-showing"></a>Problema: os dados estavam aparecendo anteriormente, mas não estão mais mostrando
+## <a name="problem-data-was-showing-previously-but-is-no-longer-showing"></a>Problema: os dados estavam sendo mostrados anteriormente, mas não estão mais sendo mostrados
 
-TSI não está mais ingerindo dados, mas os eventos ainda estão fluindo para o Iot Hub ou Event Hub
+Se Time Series Insights não estiver mais ingerindo dados, mas os eventos ainda estiverem transmitindo para o Hub IOT ou Hub de eventos, considere essa possível causa.
 
-### <a name="cause-a-your-hub-access-key-was-regenerated-and-your-environment-needs-updating"></a>Causa A: sua chave de acesso ao hub foi regenerada e seu ambiente precisa ser atualizado
+### <a name="cause-a-your-hub-access-key-was-regenerated-and-your-environment-needs-to-be-updated"></a>Causa: a chave de acesso do Hub foi regenerada e seu ambiente precisa ser atualizado
 
-Esse problema ocorre quando a chave fornecida ao criar sua fonte de evento não é mais válida. Você veria a telemetria em seu hub, mas nenhuma Ingress Recebeu Mensagens em Insights da Série Tempo. Se você não tiver certeza se a chave foi regenerada ou não, você pode pesquisar no registro de atividades do seu Event Hubs para "Criar ou Atualizar regras de autorização de namespace" ou pesquisar "Criar ou atualizar o Recurso IotHub" para o hub IoT.
+Esse problema ocorre quando a chave fornecida quando você criou a origem do evento não é mais válida. Você veria a telemetria em seu hub, mas nenhuma mensagem de entrada recebeu em Time Series Insights. Se você não tiver certeza se a chave foi regenerada, poderá pesquisar o log de atividades do seu hub de eventos para "criar ou atualizar regras de autorização de namespace". Para um hub IoT, pesquise "criar ou atualizar o recurso IotHub".
 
-Para atualizar seu ambiente de Insights da série do tempo com a nova chave, abra seu recurso de hub no portal Azure e copie a nova chave. Navegue até o recurso TSI e clique em Fontes de Eventos. 
+Para atualizar seu ambiente de Time Series Insights com a nova chave, abra o recurso de Hub no portal do Azure e copie a nova chave. Vá para o recurso Time Series Insights e selecione **origens do evento**:
 
-   [![Atualização da chave.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
+   [![Selecionar origens do evento](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 
-Selecione as fontes de eventos que têm a partir da qual a ingestão parou, cole na nova tecla e clique em Salvar.
+Selecione a origem do evento ou as fontes das quais a ingestão foi interrompida, Cole a nova chave e, em seguida, selecione **salvar**:
 
-   [![Atualização da chave.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
+   [![Colar na nova chave](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: a configuração do nome do nome do carimbo de tempo da minha fonte de evento não funciona
+## <a name="problem-the-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: a configuração do nome da propriedade Timestamp da origem do evento não funciona
 
-Verifique se o nome e o valor da propriedade de nome do carimbo de data/hora estão em conformidade com as seguintes regras:
+Verifique se o valor da propriedade Timestamp que vem da origem do evento como uma cadeia de caracteres JSON está no formato _aaaa-mm-ddThh: mm: SS. FFFFFFFK_. Aqui está um exemplo: **2008-04-12T12:53Z**.
 
-* O nome da propriedade do carimbo de data/hora diferencia maiúsculas de minúsculas.
-* O valor da propriedade do carimbo de data/hora é obtido da origem do evento, como uma cadeia de caracteres JSON, deve ter o formato _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. Um exemplo é **2008-04-12T12:53Z**.
+Tenha em mente que o nome da propriedade Timestamp diferencia maiúsculas de minúsculas.
 
-A maneira mais fácil de assegurar que o nome da propriedade Carimbo de data/hora seja capturado e funcione corretamente é usar o gerenciador do Time Series Insights. No gerenciador do Time Series Insights, usando o gráfico, selecione um período de tempo após fornecer o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e escolha a opção **Explorar eventos**.
+A maneira mais fácil de assegurar que o nome da propriedade Carimbo de data/hora seja capturado e funcione corretamente é usar o gerenciador do Time Series Insights. No gerenciador do Time Series Insights, usando o gráfico, selecione um período de tempo após fornecer o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e selecione **explorar eventos**.
 
-O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado da palavra **Carimbo de tempo**( **$ts)** será exibida.
+O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora**do Word, **($TS)** será exibido.
 
 Os seguintes valores não serão exibidos:
 
-- *(abc)*: Indica que o Time Series Insights está lendo os valores de dados como strings.
-- *Ícone do calendário*: Indica que o Time Series Insights está lendo o valor dos dados como *data.*
-- *#*: Indica que o Time Series Insights está lendo os valores de dados como um inteiro.
+- *(ABC)*: indica que Time Series insights está lendo os valores de dados como cadeias de caracteres.
+- *Ícone de calendário*: indica que Time Series insights está lendo os valores de dados como valores de data e hora.
+- *#*: Indica que Time Series Insights está lendo os valores de dados como inteiros.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre [como mitigar a latência no Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+- Leia sobre [como mitigar a latência no Azure Time Series insights](time-series-insights-environment-mitigate-latency.md).
 
-- Aprenda [a dimensionar seu ambiente de Insights de séries tempo .](time-series-insights-how-to-scale-your-environment.md)
+- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).

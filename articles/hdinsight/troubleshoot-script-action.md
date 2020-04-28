@@ -6,25 +6,26 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
+ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b1e6b674edc155e0aa6c88ad360eb59864eebee4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e2a2f6abfd6b7c644e95649f3c9832e4cc986037
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81771970"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188439"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Solucionar problemas de ações de script no Azure HDInsight
 
-Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
 ## <a name="viewing-logs"></a>Exibição de logs
 
-Você pode usar a ui web Apache Ambari para visualizar informações registradas por ações de script. Se o script falhar durante a criação do cluster, os logs serão na conta de armazenamento de cluster padrão. Esta seção fornece informações sobre como recuperar os logs usando ambas as opções.
+Você pode usar a interface do usuário da Web do Apache Ambari para exibir informações registradas por ações de script. Se o script falhar durante a criação do cluster, os logs estarão na conta de armazenamento de cluster padrão. Esta seção fornece informações sobre como recuperar os logs usando ambas as opções.
 
-### <a name="apache-ambari-web-ui"></a>Apache Ambari web UI
+### <a name="apache-ambari-web-ui"></a>Interface do usuário da Web do Apache Ambari
 
-1. A partir de um `https://CLUSTERNAME.azurehdinsight.net`navegador `CLUSTERNAME` da Web, navegue até , onde está o nome do seu cluster.
+1. Em um navegador da Web, navegue `https://CLUSTERNAME.azurehdinsight.net`até, `CLUSTERNAME` em que é o nome do cluster.
 
 1. Na barra na parte superior da página, selecione a entrada **ops**. Uma lista exibe as operações atuais e anteriores realizadas no cluster por meio do Ambari.
 
@@ -32,7 +33,7 @@ Você pode usar a ui web Apache Ambari para visualizar informações registradas
 
 1. Localize as entradas com **run\_customscriptaction** na coluna **Operações**. Essas entradas são criadas quando as ações de script são executadas.
 
-    ![Operações de ação de script Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
+    ![Operações de ação de script do Apache Ambari](./media/troubleshoot-script-action/ambari-script-action.png)
 
     Para exibir as saídas **STDOUT** e **STDERR**, selecione a entrada **run\customscriptaction** e faça drill down pelos links. Essa saída é gerada ao executar o script e pode conter informações úteis.
 
@@ -46,11 +47,11 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
     Nesse diretório, os logs são organizados separadamente em **nó de cabeçalho**, **nó de trabalho** e **nó do zookeeper**. Veja os exemplos a seguir:
 
-    * **Cabeçada:**`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Cabeçalho**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nó do trabalhador**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nó de trabalho**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nó zookeeper**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nó Zookeeper**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Todos os **stdout** e **stderr** do host correspondente são carregados na conta de armazenamento. Há um **output-\*.txt** e um **errors-\*.txt** para cada ação de script. O arquivo **output-*.txt** contém informações sobre o URI do script que foi executado no host. O texto a seguir é um exemplo destas informações:
 
@@ -68,7 +69,7 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
 ## <a name="ambari-watchdog"></a>Ambari Watchdog
 
-Não altere a senha do watchdog Ambari, hdinsightwatchdog, no seu cluster do HDInsight baseado em Linux. Uma alteração de senha quebra a capacidade de executar novas ações de script no cluster HDInsight.
+Não altere a senha do watchdog Ambari, hdinsightwatchdog, no seu cluster do HDInsight baseado em Linux. Uma alteração de senha interrompe a capacidade de executar novas ações de script no cluster HDInsight.
 
 ## <a name="cant-import-name-blobservice"></a>Não é possível importar o BlobService de nome
 
@@ -81,7 +82,7 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Porque.__ Esse erro ocorre se você atualizar o cliente de Armazenamento do Microsoft Azure do Python incluído com o cluster do HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
+__Causa__. Esse erro ocorre se você atualizar o cliente de Armazenamento do Microsoft Azure do Python incluído com o cluster do HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
 
 __Resolução__. Para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`. Execute o seguinte comando para reinstalar a versão de cliente de armazenamento correta:
 
@@ -109,8 +110,8 @@ Há duas exceções:
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais [detalhadas, consulte Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

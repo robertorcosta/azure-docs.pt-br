@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c03487b100ddb066416072c6c06773890db86e0a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115305"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188528"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
 
@@ -188,7 +188,7 @@ O portal coleta a seguinte entrada:
 
 - **Argumentos de configuração**: se a função de configuração leva argumentos, insira-os aqui no formato **argumentName1=value1,argumentName2=value2**. Observe que esse formato é diferente daquele como argumentos de configuração são aceitos nos cmdlets do PowerShell ou modelos do Resource Manager.
 
-- **Arquivo de configuração PSD1 de dados**: esse campo é opcional. Se sua configuração exigir um arquivo de dados de configuração em .psd1, use este campo para selecionar o campo de dados e carregá-lo no armazenamento de blobs de usuário. O arquivo de dados de configuração é protegido por um token SAS no armazenamento de blob.
+- **Arquivo de PSD1 de dados de configuração**: sua configuração requer um arquivo de dados de configuração no. PSD1, use esse campo para selecionar o arquivo de dados e carregá-lo no armazenamento de BLOBs do usuário. O arquivo de dados de configuração é protegido por um token SAS no armazenamento de blob.
 
 - **Versão WMF**: Especifica a versão do Windows Management Framework (WMF) que deve ser instalada em sua VM. Configurar essa propriedade como mais recente instala a versão mais recente de WMF. Atualmente, os únicos valores possíveis para essa propriedade são 4.0, 5.0, 5.1, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é **mais recente**.
 

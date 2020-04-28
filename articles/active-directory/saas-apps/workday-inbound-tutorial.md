@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298c99d44328dc79db1722b450ad74c3929d0c12
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
-ms.translationtype: MT
+ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114406"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190309"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -562,7 +562,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **WorkerID**  |  EmployeeID | **Sim** | Gravado na criação somente |
 | **PreferredNameData**    |  cn    |   |   Gravado na criação somente |
 | **SelectUniqueValue (Join ("\@", Join (".", \[FirstName\], \[LastName\]), "contoso.com"), junção ("\@", junção (".", mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join ("\@", Join (".", mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Gravado na criação somente 
-| **Replace (EXT (Replace (\[userid\],, "(\[\\\\/\\\\\\\\\\\\\\:;\\ \\\[\\\\\]\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\) ",," ",,), 1, 20),," ([.) \\ &lt; \\ \\ &gt; \] \*file:///\\ \$.) *$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Gravado na criação somente |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Criar + atualizar |
 | **FirstName**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |

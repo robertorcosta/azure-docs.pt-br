@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 694cc83ffce20a8744d7452a8f6d67c9ce23641c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61447056"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187221"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto
 
@@ -90,7 +90,7 @@ Se a interface do usuário da web ainda não estiver em execução localmente, e
 npm start
 ```
 
-O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em . Navegue até a página **Dashboard** para exibir o novo painel.
+O comando anterior é executado localmente na interface do usuário em `http://localhost:3000/dashboard`. Navegue até a página **Dashboard** para exibir o novo painel.
 
 ## <a name="next-steps"></a>Próximas etapas
 

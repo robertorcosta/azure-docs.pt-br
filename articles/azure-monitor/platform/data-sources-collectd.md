@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f3b928e657b5c061e624281e1d5a8805283a657
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670603"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186417"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Coletar dados do CollectD em agentes do Linux no Azure Monitor
 O [CollectD](https://collectd.org/) é um daemon do Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível de sistema. Exemplos de aplicativos incluem a Máquina Virtual Java (JVM), o MySQL Server e o Nginx. Este artigo fornece informações sobre como coletar dados de desempenho do CollectD no Azure Monitor.
@@ -63,7 +63,7 @@ O agente do Log Analytics para Linux também escuta métricas do CollectD na por
     </filter>
 
 > [!NOTE]
-> A coleta por padrão é definida como leitura de valores em um intervalo de 10 [segundos](https://collectd.org/wiki/index.php/Interval). Como isso afeta diretamente o volume de dados enviados ao Azure Monitor Logs, talvez seja necessário ajustar esse intervalo dentro da configuração CollectD para encontrar um bom equilíbrio entre os requisitos de monitoramento e os custos e o uso associados para logs do Monitor do Azure.
+> Coletado por padrão é definido para ler valores em um [intervalo](https://collectd.org/wiki/index.php/Interval)de 10 segundos. Como isso afeta diretamente o volume de dados enviados aos logs de Azure Monitor, talvez seja necessário ajustar esse intervalo dentro da configuração coletada para um bom equilíbrio entre os requisitos de monitoramento e os custos associados e o uso dos logs de Azure Monitor.
 
 ## <a name="versions-supported"></a>Versões com suporte
 - Atualmente, o Azure Monitor dá suporte ao CollectD versão 4.8 e superior.
@@ -100,7 +100,8 @@ Veja a seguir as etapas básicas para configurar a coleta de dados do CollectD n
 
 3. Reinicie o CollectD e o agente do Log Analytics para Linux com os comandos a seguir.
 
-    sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métricas do CollectD para conversão de esquema do Azure Monitor
 Para manter um modelo familiar entre as métricas de infraestrutura já coletadas pelo agente do Log Analytics para Linux e as novas métricas coletadas pelo CollectD, o mapeamento de esquema a seguir é usado:

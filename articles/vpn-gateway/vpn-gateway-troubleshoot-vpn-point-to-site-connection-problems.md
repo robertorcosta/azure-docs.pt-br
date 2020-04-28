@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de conexão ponto a ponto do Azure
+title: Solucionar problemas de conexão de ponto a site do Azure
 titleSuffix: Azure VPN Gateway
 description: Saiba como solucionar problemas de conexão de ponto a site.
 services: vpn-gateway
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297620"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188286"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -25,7 +25,7 @@ Este artigo lista os problemas comuns de conexão de ponto a site que podem ocor
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**Não foi encontrado um certificado que possa ser usado com este Protocolo de Autenticação Extensível. (Erro 798)**
+**Não foi possível encontrar um certificado que possa ser usado com esse protocolo de autenticação extensível. (Erro 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -39,10 +39,10 @@ Para resolver esse problema, siga estas etapas:
 
 2. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Location |
+    | Certificado | Local |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot. cer    | Local Computer\Trusted Root Certification Authorities|
 
 3. Acesse C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID> e instale manualmente o certificado (arquivo *.cer) no repositório do computador e do usuário.
 
@@ -55,13 +55,13 @@ Para saber mais sobre como instalar o certificado do cliente, confira [Gerar e e
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta se conectar a um gateway de rede virtual do Azure usando ikev2 no Windows, você recebe a seguinte mensagem de erro:
+Ao tentar e conectar-se a um gateway de rede virtual do Azure usando IKEv2 no Windows, você obtém a seguinte mensagem de erro:
 
 **A conexão de rede entre o computador e o servidor VPN não pôde ser estabelecida porque o servidor remoto não está respondendo**
 
 ### <a name="cause"></a>Causa
  
- O problema ocorre se a versão do Windows não tiver suporte para fragmentação do IKE
+ O problema ocorre se a versão do Windows não tiver suporte para fragmentação de IKE
  
 ### <a name="solution"></a>Solução
 
@@ -78,7 +78,7 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
    | Windows 10 Versão 1709 | 22 de março de 2018 | [BDC4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Defina o valor da chave do Registro. Criar ou `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` definir REG_DWORD chave no registro para 1.
+2. Defina o valor da chave do Registro. Crie ou defina `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD chave no registro como 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erro de cliente VPN: a mensagem recebida foi inesperada ou formatada incorretamente
 
@@ -86,7 +86,7 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**A mensagem recebida foi inesperada ou mal formatada. (Erro 0x80090326)**
+**A mensagem recebida era inesperada ou formatada incorretamente. (Erro 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
@@ -115,7 +115,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 1. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Location |
+    | Certificado | Local |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -129,7 +129,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 Você vê a seguinte mensagem de erro:
 
-**Erro de download de arquivo. O URI de destino não é especificado.**
+**Erro de download do arquivo. O URI de destino não foi especificado.**
 
 ### <a name="cause"></a>Causa 
 
@@ -145,7 +145,7 @@ O tipo de gateway de VPN deve ser **VPN**, enquanto o tipo de VPN deve ser **Rou
 
 Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
 
-**O script personalizado (para atualizar sua tabela de roteamento) falhou. (Erro 8007026f)**
+**Falha no script personalizado (para atualizar sua tabela de roteamento). (Erro 8007026f)**
 
 ### <a name="cause"></a>Causa
 
@@ -168,7 +168,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 1. Abra mmc.exe.
 2. Adicione o snap-in **Certificados**.
 3. Selecione a conta **Computador** para o computador local.
-4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em**Importar** **todas as tarefas** > e navegue até o arquivo .cer que você extraiu do pacote de configuração do cliente VPN.
+4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **tudo-** > **importar**tarefa e navegue até o arquivo. cer extraído do pacote de configuração do cliente VPN.
 5. Reinicie o computador. 
 6. Tente instalar o cliente VPN.
 
@@ -178,7 +178,7 @@ Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Par
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro:
 
-**Falha ao salvar &lt;o *nome*&gt;do gateway de gateway de rede virtual . Os dados &lt;para *identificação do certificado são* &gt; inválidos.**
+**Falha ao salvar o &lt; *nome*&gt;do gateway de gateway de rede virtual. Os dados da &lt; *ID* &gt; do certificado de certificado são inválidos.**
 
 ### <a name="cause"></a>Causa 
 
@@ -213,7 +213,7 @@ Verifique se os dados no certificado não contêm caracteres inválidos, como qu
 
 Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro: 
 
-**Falha ao salvar &lt;o *nome*&gt;do gateway de gateway de rede virtual . O &lt; *nome* &gt; do nome do recurso que você tenta carregar é inválido**.
+**Falha ao salvar o &lt; *nome*&gt;do gateway de gateway de rede virtual. Nome do recurso *nome do certificado que você tentar carregar* &gt; é inválido. &lt;**
 
 ### <a name="cause"></a>Causa
 
@@ -225,7 +225,7 @@ Esse problema ocorre porque o nome do certificado contém um caractere inválido
 
 Ao tentar baixar o pacote de configuração de cliente VPN, você recebe a seguinte mensagem de erro:
 
-**Falha ao baixar o arquivo. Detalhes de erro: erro 503. O servidor está ocupado.**
+**Falha ao baixar o arquivo. Detalhes do erro: erro 503. O servidor está ocupado.**
  
 ### <a name="solution"></a>Solução
 
@@ -239,7 +239,7 @@ Se o certificado passou de 50% de seu tempo de vida, o certificado é substituí
 
 ### <a name="solution"></a>Solução
 
-Para resolver esse problema, faça o rebaixa-lo e reimplante o pacote Point to Site em todos os clientes.
+Para resolver esse problema, Baixe novamente e reimplante o pacote ponto a site em todos os clientes.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Muitos clientes VPN conectados ao mesmo tempo
 
@@ -282,7 +282,7 @@ Quando o cliente se conecta ao Azure usando a conexão VPN ponto-a-site, ele nã
 
 ### <a name="cause"></a>Causa
 
-O cliente VPN ponto a site usa os servidores DNS do Azure configurados na rede virtual do Azure. Os servidores DNS do Azure têm precedência sobre os servidores DNS locais que são configurados no cliente, assim, todas as consultas de DNS são enviadas para os servidores DNS do Azure. Se os servidores DNS do Azure não tiverem os registros dos recursos locais, a consulta falhará.
+O cliente VPN ponto a site normalmente usa servidores DNS do Azure configurados na rede virtual do Azure. Os servidores DNS do Azure têm precedência sobre os servidores DNS locais que são configurados no cliente (a menos que a métrica da interface Ethernet seja menor), de modo que todas as consultas DNS são enviadas para os servidores DNS do Azure. Se os servidores DNS do Azure não tiverem os registros dos recursos locais, a consulta falhará.
 
 ### <a name="solution"></a>Solução
 
@@ -339,18 +339,18 @@ Atualize o driver NIC:
 4. Se o Windows não localizar um novo driver, você poderá tentar procurar um no site do fabricante do dispositivo e seguir as instruções.
 5. Reinicie o computador e tente novamente a conexão.
 
-## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erro do cliente VPN: <VPN Connection Name>Discando conexão VPN , Status = VPN Platform não acionou conexão
+## <a name="vpn-client-error-dialing-vpn-connection-vpn-connection-name-status--vpn-platform-did-not-trigger-connection"></a>Erro de cliente VPN: conexão <VPN Connection Name>VPN Dial-up, status = a plataforma VPN não disparava a conexão
 
-Você também pode ver o seguinte erro no Visualizador <User> de Eventos <VPN Connection Name> do RasClient: "O usuário discou uma conexão nomeada que falhou. O código de erro retornado na falha é 1460."
+Você também pode ver o seguinte erro em Visualizador de Eventos de RasClient: "o usuário <User> discado uma conexão chamada <VPN Connection Name> que falhou. O código de erro retornado na falha é 1460. "
 
 ### <a name="cause"></a>Causa
 
-O Cliente Azure VPN não tem a permissão do aplicativo "Background apps" ativada nas configurações do aplicativo para Windows.
+O cliente VPN do Azure não tem a permissão de aplicativo "aplicativos em segundo plano" habilitada nas configurações do aplicativo para Windows.
 
 ### <a name="solution"></a>Solução
 
-1. No Windows, vá para Configurações -> aplicativos de privacidade -> em segundo plano
-2. Alternar o "Deixar aplicativos executados em segundo plano" para On
+1. No Windows, acesse configurações-> privacidade-> aplicativos em segundo plano
+2. Alterne a opção "permitir que os aplicativos sejam executados em segundo plano" em
 
 ## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erro: 'erro no download do arquivo O URI de destino não foi especificado'
 
@@ -362,7 +362,7 @@ Isso é causado por um tipo de gateway incorreto configurado.
 
 O tipo de gateway de VPN do Azure deve ser VPN e o tipo de VPN deve ser **RouteBased**.
 
-## <a name="vpn-package-installer-doesnt-complete"></a>Instalador de pacotevpn VPN não é concluído
+## <a name="vpn-package-installer-doesnt-complete"></a>O instalador do pacote VPN não foi concluído
 
 ### <a name="cause"></a>Causa
 

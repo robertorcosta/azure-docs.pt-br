@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 2bd9430fc6f48d72faa2c1850af0bb8432a7c5f5
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: e9cb691ef60f612672078a9ef84db904c79cbc87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82149496"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189438"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes sobre a computação confidencial do Azure
 
@@ -47,7 +47,7 @@ Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azu
 
 1. **Qual é a diferença entre as VMs das séries DCsv2 e DC?**
 
-   As VMs da série DC são executadas em processadores Intel de 6 núcleos mais antigos com SGX. Eles têm menos memória total, menos memória EPC (compartimento de página enclave) e estão disponíveis em menos regiões. Essas VMs só estão disponíveis no leste dos EUA e a Europa Ocidental estão disponíveis em dois tamanhos: Standard_DC2s e Standard_DC4s. Eles não vão para a GA e só podem ser implantados na instância do Marketplace da [VM da série DC de computação confidencial [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
+   As VMs da série DC são executadas em processadores Intel de 6 núcleos mais antigos com o Intel SGX. Eles têm menos memória total, menos memória EPC (compartimento de página enclave) e estão disponíveis em menos regiões. Essas VMs só estão disponíveis no leste dos EUA e a Europa Ocidental estão disponíveis em dois tamanhos: Standard_DC2s e Standard_DC4s. Eles não vão para a GA e só podem ser implantados na instância do Marketplace da [VM da série DC de computação confidencial [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview)
 
 1. **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 

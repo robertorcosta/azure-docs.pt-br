@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0b1b22095c77344ed71762d3d51b12f19d9f1811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458045"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189455"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
@@ -31,8 +31,8 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>Erro ao executar cmdlets AzureAD no PowerShell
 
-- **Detalhes**: Quando você executa cmdlets AzureAD como `Get-AzureADUser` `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`no Cloud Shell, você pode ver um erro: . 
-- **Resolução**: `Connect-AzureAD` Executar o cmdlet. Anteriormente, o Cloud Shell executava esse cmdlet automaticamente durante a inicialização do PowerShell. Para acelerar o tempo de partida, o cmdlet não funciona mais automaticamente. Você pode optar por restaurar `Connect-AzureAD` o comportamento anterior adicionando ao arquivo $PROFILE no PowerShell.
+- **Detalhes**: ao executar cmdlets AzureAD como `Get-AzureADUser` no Cloud Shell, você poderá ver um erro:. `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` 
+- **Resolução**: execute o `Connect-AzureAD` cmdlet. Anteriormente, Cloud Shell executou esse cmdlet automaticamente durante a inicialização do PowerShell. Para acelerar a hora de início, o cmdlet não é mais executado automaticamente. Você pode optar por restaurar o comportamento anterior adicionando `Connect-AzureAD` ao arquivo de $profile no PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Tempos limites iniciais no FireFox
 
@@ -41,13 +41,13 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Desabilitando o Cloud Shell em um ambiente de rede bloqueado
 
-- **Detalhes**: os administradores podem querer desabilitar o acesso ao Cloud Shell para seus usuários. O Cloud Shell utiliza `ux.console.azure.com` o acesso ao domínio, o que pode ser negado, interrompendo qualquer acesso aos pontos de entrada do Cloud Shell, incluindo portal.azure.com, shell.azure.com, extensão visual Studio Code Azure Account e docs.microsoft.com. Na nuvem do governo dos `ux.console.azure.us`EUA, o ponto de entrada é; não há shell.azure.us correspondentes.
-- **Resolução**: Restringir `ux.console.azure.com` `ux.console.azure.us` o acesso ou através de configurações de rede ao seu ambiente. O ícone Cloud Shell ainda existirá no portal Azure, mas não se conectará com sucesso ao serviço.
+- **Detalhes**: os administradores podem querer desabilitar o acesso ao Cloud Shell para seus usuários. Cloud Shell utiliza o `ux.console.azure.com` acesso ao domínio, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do azure e docs.Microsoft.com. Na nuvem do governo dos EUA, o ponto `ux.console.azure.us`de entrada é; Não há nenhum shell.azure.us correspondente.
+- **Resolução**: restrinja o acesso `ux.console.azure.com` a `ux.console.azure.us` ou via configurações de rede ao seu ambiente. O ícone de Cloud Shell ainda existirá na portal do Azure, mas não se conectará com êxito ao serviço.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Caixa de diálogo Armazenamento – Erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: Ao criar uma conta de armazenamento através do Cloud Shell, ela não é bem sucedida devido a uma política do Azure colocada pelo administrador. A mensagem de erro incluirá:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolução**: contate o administrador do Azure para remover ou atualizar a política do Azure negando a criação de armazenamento.
+- **Detalhes**: ao criar uma conta de armazenamento por meio do Cloud Shell, ela não é bem-sucedida devido a uma atribuição de Azure Policy colocada pelo administrador. A mensagem de erro incluirá:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolução**: contate o administrador do Azure para remover ou atualizar a atribuição de Azure Policy que nega a criação de armazenamento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Caixa de diálogo – Erro: 400 DisallowedOperation
 
@@ -59,7 +59,7 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 - **Resolução**: verifique se você definiu as configurações de rede para permitir o envio de solicitações HTTPS e solicitações de websocket para domínios em *.console.azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Definir sua conexão de Cloud Shell para dar suporte ao uso do TLS 1.2
- - **Detalhes**: Para definir a versão do TLS para sua conexão com o Cloud Shell, você deve definir configurações específicas do navegador.
+ - **Detalhes**: para definir a versão do TLS para sua conexão com Cloud Shell, você deve definir configurações específicas do navegador.
  - **Resolução**: Navegue até as configurações de segurança do seu navegador e selecione a caixa de seleção ao lado de "Usar TLS 1.2".
 
 ## <a name="bash-troubleshooting"></a>Solução de problemas de Bash
@@ -92,11 +92,11 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 
 O Azure Cloud Shell tem as seguintes limitações conhecidas:
 
-### <a name="quota-limitations"></a>Limitações de cotas
+### <a name="quota-limitations"></a>Limitações de cota
 
-O Azure Cloud Shell tem um limite de 20 usuários simultâneos por inquilino por região. Se você tentar abrir mais sessões simultâneas do que o limite, você verá um erro "Usuário inquilino sobre a cota". Se você tiver uma necessidade legítima de ter mais sessões abertas do que isso (por exemplo, para sessões de treinamento), contate o suporte antes do seu uso antecipado para solicitar um aumento de cota.
+Azure Cloud Shell tem um limite de 20 usuários simultâneos por locatário por região. Se você tentar abrir mais sessões simultâneas do que o limite, verá um erro "usuário do locatário sobre cota". Se você tiver uma necessidade legítima de ter mais sessões abertas do que isso (por exemplo, para sessões de treinamento), entre em contato com o suporte antes do uso antecipado para solicitar um aumento de cota.
 
-O Cloud Shell é fornecido como um serviço gratuito e foi projetado para ser usado para configurar seu ambiente Azure, não como uma plataforma de computação de propósito geral. O uso automatizado excessivo pode ser considerado uma violação dos Termos de Serviço do Azure e pode levar ao bloqueio do acesso ao Cloud Shell.
+O Cloud Shell é fornecido como um serviço gratuito e foi projetado para ser usado para configurar seu ambiente do Azure, não como uma plataforma de computação de uso geral. O uso automatizado excessivo pode ser considerado em violação aos termos de serviço do Azure e pode levar a Cloud Shell acesso bloqueado.
 
 ### <a name="system-state-and-persistence"></a>Estado do sistema e persistência
 
@@ -210,8 +210,8 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
-## <a name="azure-government-limitations"></a>Limitações do governo azure
-A Cloud Shell no Azure Government só é acessível através do portal Azure.
+## <a name="azure-government-limitations"></a>Limitações do Azure governamental
+Azure Cloud Shell no Azure governamental só é acessível por meio do portal do Azure.
 
 >[!Note]
-> A conexão com o GCC-High ou o Government DoD Clouds for Exchange Online não é suportada no momento.
+> Atualmente, não há suporte para a conexão com as nuvens GCC-High ou governamental do DoD para o Exchange Online.

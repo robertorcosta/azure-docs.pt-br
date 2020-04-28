@@ -1,5 +1,5 @@
 ---
-title: Visualize padrões de tráfego de rede com ferramentas de código aberto
+title: Visualizar padrões de tráfego de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
 description: Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs.
 services: network-watcher
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840648"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189055"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
 
@@ -47,7 +47,7 @@ Você pode carregar diretamente uma captura de pacote realizada pelo observador 
 
 Ao fornecer um link para o CapAnalysis, não deixe de acrescentar um token SAS à URL do armazenamento de blobs.  Para fazer isso, navegue até a assinatura de acesso compartilhado da conta de armazenamento, designe as permissões permitidas e pressione o botão Gerar SAS para criar um token. Em seguida, você pode acrescentar esse token SAS à URL do armazenamento de blobs de captura de pacote.
 
-A URL resultante será semelhantes à seguinte URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+A URL resultante será semelhantes à seguinte URL: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Análise de capturas de pacote
@@ -74,7 +74,7 @@ O CapAnalysis oferece várias opções para visualizar sua captura de pacote, ca
 
 1. Geomap
 
-    Este painel fornece uma visualização do mapa do tráfego da rede, com cores dimensionadas para o volume de tráfego de cada país/região. Você pode selecionar países/regiões destacadas para visualizar estatísticas adicionais de fluxo, como a proporção de dados enviados e recebidos de IPs naquele país/região.
+    Esse painel fornece uma exibição de mapa do tráfego de rede, com cores dimensionando para o volume de tráfego de cada país/região. Você pode selecionar países/regiões realçados para exibir estatísticas de fluxo adicionais, como a proporção de dados enviados e recebidos de IPs nesse país/região.
 
     ![geomap][8]
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106025"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187323"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução iniciar/parar VMs fora do horário comercial na automação do Azure
 
@@ -148,7 +148,7 @@ A tabela a seguir lista as variáveis criadas na sua conta da Automação. Modif
 >[!NOTE]
 >Para a variável `External_WaitTimeForVMRetryInSeconds`, o valor padrão foi atualizado de 600 para 2100. 
 
-Em todos os cenários, as `External_Start_ResourceGroupNames`variáveis `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` são necessárias para direcionar as VMs, exceto para as listas de VMs separadas por vírgulas para os runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** . Ou seja, suas VMs devem pertencer aos grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona semelhante à política do Azure, isto é, você pode direcionar a assinatura ou o grupo de recursos e fazer com que as ações sejam herdadas por VMs recém-criadas. Com essa abordagem, não é necessário ter um agendamento distinto para cada VM nem gerenciar as ações iniciar e parar em escala.
+Em todos os cenários, as `External_Start_ResourceGroupNames`variáveis `External_Stop_ResourceGroupNames`, e `External_ExcludeVMNames` são necessárias para direcionar as VMs, exceto para as listas de VMs separadas por vírgulas para os runbooks **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**e **ScheduledStartStop_Parent** . Ou seja, suas VMs devem pertencer aos grupos de recursos de destino para que as ações iniciar e parar ocorram. A lógica funciona de forma semelhante a Azure Policy, na qual você pode direcionar a assinatura ou o grupo de recursos e ter ações herdadas por VMs recém-criadas. Com essa abordagem, não é necessário ter um agendamento distinto para cada VM nem gerenciar as ações iniciar e parar em escala.
 
 ### <a name="schedules"></a>Agendas
 

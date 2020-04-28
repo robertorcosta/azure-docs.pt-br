@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24dc108ce4d9c991b1e062c0435b38a63899a249
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586386"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186763"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -21,10 +21,10 @@ Preocupações sobre problemas de segurança, como malware, ransomware e invasã
 
 > [!NOTE]
 > Os recursos de segurança não devem ser habilitados se você estiver usando a infraestrutura como um serviço (IaaS) do backup da VM. Esses recursos ainda não estão disponíveis para o backup de VM do IaaS e, portanto, habilitá-los não terá qualquer impacto. Os recursos de segurança só deverão ser habilitados se você estiver usando: <br/>
->  * **Agente de Backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
->  * **Servidor de backup do Azure**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Servidor de Backup do Azure atualização 1. <br/>
->  * **System Center Data Protection Manager**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Agente de backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
+> - **Servidor de backup do Azure**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Servidor de Backup do Azure atualização 1. <br/>
+> - **System Center Data Protection Manager**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > Esses recursos estão disponíveis somente para o cofre dos Serviços de Recuperação. Todos os cofres dos Serviços de Recuperação recém-criados têm esses recursos habilitados por padrão. Para cofres dos Serviços de Recuperação existentes, os usuários habilitam esses recursos usando as etapas mencionadas na seção a seguir. Após a habilitação dos recursos, eles se aplicam a todos computadores do agente dos Serviços de Recuperação, instâncias do Servidor de Backup do Azure e servidores Data Protection Manager registrados com o cofre. Habilitar essa configuração é uma ação única e você não poderá desabilitar esses recursos depois de habilitá-los.
@@ -88,8 +88,8 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 Para receber esse PIN:
 
-1. Entre no portal do Azure.
-2. Procurar até **o cofre de serviços de recuperação** > **Propriedades****de configurações** > .
+1. Entre no Portal do Azure.
+2. Navegue até **serviços de recuperação** > **configurações** > do cofre**Propriedades**.
 3. Em **PIN de Segurança**, clique em **Gerar**. Isso abre uma folha que contém o PIN a ser inserido na interface do usuário agente dos Serviços de Recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.
 
@@ -112,9 +112,9 @@ Os recursos de Segurança mencionados neste artigo fornecem mecanismos de defesa
 
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-| Alteração da política |Não foi possível modificar a política de backup. Erro: a operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft. |**Causa:**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas. Tente reduzir o intervalo de retenção para abaixo dos valores mínimos especificados acima e verifique se você está usando uma versão sem suporte (as versões com suporte são especificadas na primeira observação deste artigo). <br/>**Ação recomendada:**<br/> Nesse caso, você deve definir o período de retenção acima do período de retenção mínimo especificado (sete dias para diário, quatro semanas para semanal, três semanas para mensal ou um ano para anual) para continuar com as atualizações relacionadas à política. Opcionalmente, a abordagem preferencial será atualizar o agente de backup, o Servidor de Backup do Azure e/ou o UR do DPM para utilizar todas as atualizações de segurança. |
-| Alterar frase secreta |O PIN de Segurança inserido está incorreto. (ID: 100130) Forneça o PIN de Segurança correto para concluir esta operação. |**Causa:**<br/> Esse erro ocorre quando você insere um PIN de Segurança inválido ou expirado ao executar uma operação crítica (como alteração da frase secreta). <br/>**Ação recomendada:**<br/> Para concluir a operação, você deve inserir um PIN de Segurança válido. Para obter o PIN, entre no portal Dozure e navegue até o cofre de Serviços de Recuperação > Configurações > Propriedades > Gerar PIN de Segurança. Use esse PIN para alterar a frase secreta. |
-| Alterar frase secreta |Falha na operação. ID: 120002 |**Causa:**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas. Tente alterar a frase secreta e verifique se você está usando uma versão sem suporte (as versões válidas são especificadas na primeira observação deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a frase secreta, primeiro você deve atualizar o agente de backup para a versão mínima 2.0.9052, o servidor de Backup do Azure para a atualização mínima 1 e/ou o DPM para, no mínimo, DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de download abaixo) e, em seguida, inserir um PIN de Segurança válido. Para obter o PIN, entre no portal Dozure e navegue até o cofre de Serviços de Recuperação > Configurações > Propriedades > Gerar PIN de Segurança. Use esse PIN para alterar a frase secreta. |
+| Alteração da política |Não foi possível modificar a política de backup. Erro: a operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft. |**Faz**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas. Tente reduzir o intervalo de retenção para abaixo dos valores mínimos especificados acima e verifique se você está usando uma versão sem suporte (as versões com suporte são especificadas na primeira observação deste artigo). <br/>**Ação recomendada:**<br/> Nesse caso, você deve definir o período de retenção acima do período de retenção mínimo especificado (sete dias para diário, quatro semanas para semanal, três semanas para mensal ou um ano para anual) para continuar com as atualizações relacionadas à política. Opcionalmente, a abordagem preferencial será atualizar o agente de backup, o Servidor de Backup do Azure e/ou o UR do DPM para utilizar todas as atualizações de segurança. |
+| Alterar frase secreta |O PIN de Segurança inserido está incorreto. (ID: 100130) Forneça o PIN de Segurança correto para concluir esta operação. |**Faz**<br/> Esse erro ocorre quando você insere um PIN de Segurança inválido ou expirado ao executar uma operação crítica (como alteração da frase secreta). <br/>**Ação recomendada:**<br/> Para concluir a operação, você deve inserir um PIN de Segurança válido. Para obter o PIN, entre no portal do Azure e navegue até o cofre dos serviços de recuperação > configurações > Propriedades > gerar PIN de segurança. Use esse PIN para alterar a frase secreta. |
+| Alterar frase secreta |Falha na operação. ID: 120002 |**Faz**<br/>Esse erro ocorre quando as configurações de segurança estão habilitadas. Tente alterar a frase secreta e verifique se você está usando uma versão sem suporte (as versões válidas são especificadas na primeira observação deste artigo).<br/>**Ação recomendada:**<br/> Para alterar a frase secreta, primeiro você deve atualizar o agente de backup para a versão mínima 2.0.9052, o servidor de Backup do Azure para a atualização mínima 1 e/ou o DPM para, no mínimo, DPM 2012 R2 UR12 ou DPM 2016 UR2 (links de download abaixo) e, em seguida, inserir um PIN de Segurança válido. Para obter o PIN, entre no portal do Azure e navegue até o cofre dos serviços de recuperação > configurações > Propriedades > gerar PIN de segurança. Use esse PIN para alterar a frase secreta. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
