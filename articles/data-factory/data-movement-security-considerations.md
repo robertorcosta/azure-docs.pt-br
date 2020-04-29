@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416460"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
@@ -61,13 +61,13 @@ Neste artigo, examinamos as considerações sobre segurança nestes dois cenári
 ### <a name="securing-data-store-credentials"></a>Protegendo as credenciais do armazenamento de dados
 
 - **Armazene credenciais criptografadas em um armazenamento gerenciado do Azure Data Factory**. O Data Factory ajuda a proteger suas credenciais de armazenamento de dados criptografando-as com certificados gerenciados pela Microsoft. Esses certificados são trocados a cada dois anos (que inclui a renovação do certificado e a migração de credenciais). Para obter mais informações sobre a segurança do Armazenamento do Azure, consulte [Visão geral de segurança do Armazenamento do Azure](../security/fundamentals/storage-overview.md).
-- **Armazenar credenciais no Azure Key Vault**. Você também pode armazenar credenciais do repositório de dados em [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). O Data Factory recupera as credenciais durante a execução de uma atividade. Para obter mais informações, consulte [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md).
+- **Armazene as credenciais no Azure Key Vault**. Você também pode armazenar credenciais do repositório de dados em [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). O Data Factory recupera as credenciais durante a execução de uma atividade. Para obter mais informações, consulte [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Criptografia de dados em trânsito
 Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as transferências de dados entre serviços de movimentação de dados no Data Factory e um armazenamento de dados em nuvem ocorrerão por meio de um canal seguro HTTPS ou TLS.
 
 > [!NOTE]
-> Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para o Armazenamento Azure, você pode usar **HTTPS** na seqüência de conexões.
+> Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para o armazenamento do Azure, você pode usar **https** na cadeia de conexão.
 
 > [!NOTE]
 > Para habilitar a criptografia em trânsito, simultaneamente movendo dados do Oracle, siga uma das opções abaixo:
@@ -109,19 +109,19 @@ Os cenários híbridos exigem que o runtime de integração auto-hospedada seja 
 O canal de comando permite a comunicação entre os serviços de movimentação de dados no Data Factory e no runtime de integração auto-hospedada. A comunicação contém informações relacionadas à atividade. O canal de dados é usado para transferir dados entre armazenamentos de dados locais e armazenamentos de dados em nuvem.    
 
 ### <a name="on-premises-data-store-credentials"></a>Credenciais do armazenamento de dados local
-As credenciais podem ser armazenadas dentro da fábrica de dados ou ser [referenciadas pela fábrica](store-credentials-in-key-vault.md) de dados durante o tempo de execução do Azure Key Vault. Se armazenar credenciais dentro da fábrica de dados, ele será sempre armazenado criptografado no tempo de execução de integração auto-hospedado. 
+As credenciais podem ser armazenadas dentro de data factory ou ser [referenciadas por data Factory](store-credentials-in-key-vault.md) durante o tempo de execução de Azure Key Vault. Se estiver armazenando credenciais no data factory, ela será sempre armazenada criptografada no tempo de execução de integração auto-hospedado. 
  
-- **Armazenar credenciais localmente**. Se você usar diretamente o cmdlet **Set-AzDataFactoryV2LinkedService** com as strings de conexão e credenciais em linha no JSON, o serviço vinculado será criptografado e armazenado em tempo de execução de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend do Azure, que é extremamente seguro, para a máquina de integração auto-hospedada, onde é finalmente criptografada e armazenada. O runtime de integração auto-hospedada usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para criptografar dados confidenciais e informações de credenciais.
+- **Armazenar credenciais localmente**. Se você usar diretamente o cmdlet **set-AzDataFactoryV2LinkedService** com as cadeias de conexão e as credenciais embutidas no JSON, o serviço vinculado será criptografado e armazenado no tempo de execução de integração auto-hospedado.  Nesse caso, o fluxo de credenciais por meio do serviço de back-end do Azure, que é extremamente seguro, para o computador de integração auto-hospedado no qual ele é finalmente criptografado e armazenado. O runtime de integração auto-hospedada usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para criptografar dados confidenciais e informações de credenciais.
 
-- **Armazenar credenciais no Azure Key Vault**. Você também pode armazenar credenciais do repositório de dados em [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). O Data Factory recupera as credenciais durante a execução de uma atividade. Para obter mais informações, consulte [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md).
+- **Armazene as credenciais no Azure Key Vault**. Você também pode armazenar credenciais do repositório de dados em [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). O Data Factory recupera as credenciais durante a execução de uma atividade. Para obter mais informações, consulte [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md).
 
-- **Armazene as credenciais localmente sem fluir as credenciais através do backend do Azure para o tempo de execução de integração auto-hospedado**. Se você quiser criptografar e armazenar credenciais localmente no tempo de execução de integração auto-hospedado sem ter que fluir as credenciais através do backend da fábrica de dados, siga as etapas em [Criptografar credenciais para armazenamentos de dados locais na Fábrica de Dados Do Azure](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores oferecem suporte a essa opção. O runtime de integração auto-hospedada usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para criptografar dados confidenciais e informações de credenciais. 
+- **Armazene credenciais localmente sem fluir as credenciais por meio do back-end do Azure para o tempo de execução de integração auto-hospedado**. Se você quiser criptografar e armazenar credenciais localmente no tempo de execução de integração auto-hospedado sem precisar fluir as credenciais por meio de data factory back-end, siga as etapas em [criptografar credenciais para armazenamentos de dados locais no Azure data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores oferecem suporte a essa opção. O runtime de integração auto-hospedada usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para criptografar dados confidenciais e informações de credenciais. 
 
-   Use o **cmdlet new-AzDataFactoryV2LinkedServiceEncryptedCredential** para criptografar credenciais de serviço vinculadas e detalhes confidenciais no serviço vinculado. Em seguida, você pode usar o JSON retornado (com o elemento **CreateedCredential** na seqüência de conexão) para criar um serviço vinculado usando o cmdlet **Set-AzDataFactoryV2LinkedService.**  
+   Use o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** para criptografar credenciais de serviço vinculadas e detalhes confidenciais no serviço vinculado. Em seguida, você pode usar o JSON retornado (com o elemento **EncryptedCredential** na cadeia de conexão) para criar um serviço vinculado usando o cmdlet **set-AzDataFactoryV2LinkedService** .  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Portas usadas para criptografar o serviço vinculado no runtime de integração auto-hospedada
-Por padrão, o PowerShell usa a porta 8060 na máquina com tempo de execução de integração auto-hospedado para comunicação segura. Se necessário, essa porta pode ser alterada.  
+Por padrão, o PowerShell usa a porta 8060 no computador com o tempo de execução de integração auto-hospedado para comunicação segura. Se necessário, essa porta pode ser alterada.  
 
 ![Porta HTTPS do gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -141,7 +141,7 @@ A tabela a seguir resume as recomendações de configuração de rede e runtime 
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPsec (ponto a site ou site a site) | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
 | Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (emparelhamento privado)           | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
-| Local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (peering microsoft)            | O tempo de execução de integração auto-hospedado pode ser instalado no local ou em uma máquina virtual do Azure. |
+| Local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (emparelhamento da Microsoft)            | O Integration Runtime de hospedagem interna pode ser instalado localmente ou em uma máquina virtual do Azure. |
 
 As imagens a seguir mostram o uso do runtime de integração auto-hospedada para mover dados entre um banco de dados local e os serviços do Azure usando o ExpressRoute e a VPN IPsec (com a Rede Virtual do Azure):
 
@@ -149,11 +149,11 @@ As imagens a seguir mostram o uso do runtime de integração auto-hospedada para
 
 ![Usar o ExpressRoute com o gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec VPN**
+**VPN IPSec**
 
 ![VPN IPsec com gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurações de firewall e permitem a configuração da lista para endereços IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurações de firewall e lista de permissões de configuração para endereços IP
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para a rede local/privada    
 Em uma empresa, um firewall corporativo é executado no roteador central da organização. O Firewall do Windows é executado como um daemon no computador local em que o runtime de integração auto-hospedada está instalado. 
@@ -163,7 +163,7 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Você pode ter que gerenciar portas ou configurar lista de permitir domínios no nível de firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.   
+> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.   
 
 A tabela a seguir fornece os requisitos de porta de entrada do Firewall do Windows:
 
@@ -173,10 +173,10 @@ A tabela a seguir fornece os requisitos de porta de entrada do Firewall do Windo
 
 ![Requisitos de porta do gateway](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configurações de IP e permitem a configuração da lista em data stores
-Alguns armazenamentos de dados na nuvem também exigem que você permita que o endereço IP da máquina acesse a loja. Certifique-se de que o endereço IP da máquina de tempo de execução de integração auto-hospedada seja permitido ou configurado no firewall adequadamente.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configurações de IP e lista de permissões configuradas em armazenamentos de dados
+Alguns armazenamentos de dados na nuvem também exigem que você permita o endereço IP do computador que está acessando o repositório. Verifique se o endereço IP do computador de tempo de execução de integração auto-hospedado é permitido ou configurado no firewall adequadamente.
 
-Os seguintes armazenamentos de dados em nuvem exigem que você permita o endereço IP da máquina de tempo de execução de integração auto-hospedada. Alguns desses armazenamentos de dados, por padrão, podem não exigir lista de permitir. 
+Os seguintes armazenamentos de dados de nuvem exigem que você permita o endereço IP do computador do Integration Runtime de hospedagem interna. Por padrão, alguns desses armazenamentos de dados podem não exigir a lista de permissões. 
 
 - [Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -192,7 +192,7 @@ Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted
 
 **Quais são os requisitos de porta para o runtime de integração auto-hospedada funcionar?**
 
-O runtime de integração auto-hospedada faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o runtime de integração auto-hospedada para fazer essa conexão. Abra a porta de entrada 8060 apenas no nível da máquina (não no nível de firewall corporativo) para o aplicativo de gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte as configurações do Firewall e permita a configuração da lista para a seção [endereços IP.](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 
+O runtime de integração auto-hospedada faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o runtime de integração auto-hospedada para fazer essa conexão. Abra a porta de entrada 8060 somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [configurações de firewall e lista de permissões de configuração para endereços IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas

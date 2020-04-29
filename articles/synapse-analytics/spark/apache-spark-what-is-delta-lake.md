@@ -1,5 +1,5 @@
 ---
-title: O que é delta lake
+title: O que é o Delta Lake
 description: Visão geral do Delta Lake e como ele funciona como parte do Azure Synapse Analytics
 services: synapse-analytics
 author: euangMS
@@ -10,36 +10,36 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 52758eab645fa0bb89cb499a5c617df62c21279e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429194"
 ---
 # <a name="what-is-delta-lake"></a>O que é o Delta Lake?
 
-O Azure Synapse Analytics é compatível com o Linux Foundation Delta Lake. Delta Lake é uma camada de armazenamento de código aberto que traz transações ACID (atomicity, consistência, isolamento e durabilidade) para apache spark e cargas de trabalho de big data.
+O Azure Synapse Analytics é compatível com o Linux Foundation Delta Lake. O Delta Lake é uma camada de armazenamento de código aberto que traz transações ACID (atomicidade, consistência, isolamento e durabilidade) para Apache Spark e Big Data cargas de trabalho.
 
 ## <a name="key-features"></a>Principais recursos
 
 | Recurso | Descrição |
 | --- | --- |
-| **Transações acidiais** | Os lagos de dados são tipicamente preenchidos através de múltiplos processos e pipelines, alguns dos quais estão escrevendo dados simultaneamente com leituras. Antes do Delta Lake e da adição de transações, os engenheiros de dados tiveram que passar por um processo manual propenso a erros para garantir a integridade dos dados. Delta Lake traz transações acidiais familiares para lagos de dados. Proporciona serlizabilidade, o nível mais forte de isolamento. Saiba mais em [Diving into Delta Lake: Desempacotando o registro de transações](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html).|
-| **Manuseio de metadados escaláveis** | Em big data, até mesmo os metadados em si podem ser "big data". Delta Lake trata metadados como dados, aproveitando o poder de processamento distribuído da Spark para lidar com todos os seus metadados. Como resultado, delta lake pode lidar com tabelas em escala de petabyte com bilhões de partições e arquivos à vontade. |
-| **Viagem no Tempo (versão de dados)** | A capacidade de "desfazer" uma alteração ou voltar para uma versão anterior é uma das principais características das transações. O Delta Lake fornece instantâneos de dados que permitem reverter para versões anteriores de dados para auditorias, reversões ou para reproduzir experimentos. Saiba mais na [introdução da Delta Lake Time Travel para lagos de dados em grande escala.](https://databricks.com/blog/2019/02/04/introducing-delta-time-travel-for-large-scale-data-lakes.html) |
-| **Formato Aberto** | Apache Parquet é o formato de linha de base do Delta Lake, permitindo que você aproveite os eficientes esquemas de compressão e codificação que são nativos do formato. |
-| **Fonte e pia unificadas de lote e streaming** | Uma mesa em Delta Lake é uma mesa de lote, bem como uma fonte de streaming e pia. A ingestão de dados de streaming, o refil histórico em lote e as consultas interativas funcionam apenas fora da caixa. |
-| **Aplicação de esquemas** | A aplicação do esquema ajuda a garantir que os tipos de dados estejam corretos e as colunas necessárias estejam presentes, evitando que dados ruins causem inconsistência de dados. Para obter mais informações, consulte [Diving Into Delta Lake: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
-| **Evolução do Esquema** | Delta Lake permite que você faça alterações em um esquema de tabela que pode ser aplicado automaticamente, sem ter que escrever DDL de migração. Para obter mais informações, consulte [Diving Into Delta Lake: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
-| **Histórico de auditoria** | O registro de transações delta lake registra detalhes sobre cada alteração feita em dados fornecendo uma trilha de auditoria completa das alterações. |
-| **Atualizações e Exclusões** | Delta Lake suporta APIs Scala / Java / Python e SQL para uma variedade de funcionalidades. O suporte para mesclar, atualizar e excluir operações ajuda você a atender aos requisitos de conformidade. Para obter mais informações, consulte [Anunciando a versão delta lake 0.4.0](https://delta.io/news/delta-lake-0-4-0-released/) e [upserts e exclusões simples e confiáveis em Tabelas delta lake usando APIs Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), que inclui trechos de código para mesclar, atualizar e excluir comandos DML. |
-| **100% compatível com a API apache spark** | Os desenvolvedores podem usar o Delta Lake com seus pipelines de dados existentes com alteração mínima, pois é totalmente compatível com as implementações existentes do Spark. |
+| **Transações ACID** | Os data lagos normalmente são populados por meio de vários processos e pipelines, alguns dos quais estão gravando dados simultaneamente com leituras. Antes do Delta Lake e da adição de transações, os engenheiros de dados tinham que passar por um processo manual propenso a erros para garantir a integridade dos dados. O Delta Lake traz transações ACID familiares para os lagos de dados. Ele fornece serialização, o nível mais alto de isolamento. Saiba mais em [mergulhando no Delta Lake: desempacotando o log de transações](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html).|
+| **Manipulação de metadados escalonável** | Em Big Data, até mesmo os próprios metadados podem ser "Big Data". O Delta Lake trata os metadados assim como os dados, aproveitando a capacidade de processamento distribuído do Spark para lidar com todos os seus metadados. Como resultado, o Delta Lake pode lidar com tabelas de escala de petabytes com bilhões de partições e arquivos com facilidade. |
+| **Viagem de tempo (controle de versão de dados)** | A capacidade de "desfazer" uma alteração ou voltar para uma versão anterior é um dos principais recursos das transações. O Delta Lake fornece instantâneos de dados, permitindo que você reverta para versões anteriores de dados para auditoria, reversões ou reprodução de experimentos. Saiba mais em [introdução ao tempo do Delta Lake Travel para grandes lagos de dados de grande escala](https://databricks.com/blog/2019/02/04/introducing-delta-time-travel-for-large-scale-data-lakes.html). |
+| **Abrir formato** | O Apache parquet é o formato de linha de base para o Delta Lake, permitindo que você aproveite os esquemas de compactação e codificação eficientes que são nativos do formato. |
+| **Lote unificado e fonte de streaming e coletor** | Uma tabela no Delta Lake é uma tabela de lote, bem como uma origem e um coletor de streaming. A ingestão de dados de streaming, o aterramento histórico de lote e as consultas interativas acabam funcionando imediatamente. |
+| **Imposição de esquema** | A imposição de esquema ajuda a garantir que os tipos de dados estejam corretos e que as colunas necessárias estejam presentes, impedindo que dados inválidos causem inconsistência de dados Para obter mais informações, consulte [mergulhando no Delta Lake: imposição de esquema & evolução](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
+| **Evolução do esquema** | O Delta Lake permite que você faça alterações em um esquema de tabela que pode ser aplicado automaticamente, sem precisar escrever a DDL de migração. Para obter mais informações, consulte [mergulhando no Delta Lake: imposição de esquema & evolução](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
+| **Histórico de auditoria** | O log de transações do Delta Lake registra detalhes sobre cada alteração feita nos dados, fornecendo uma trilha de auditoria completa das alterações. |
+| **Atualizações e exclusões** | O Delta Lake dá suporte a APIs escalares/Java/Python e SQL para uma variedade de funcionalidades. O suporte para operações de mesclagem, atualização e exclusão ajuda a atender aos requisitos de conformidade. Para obter mais informações, consulte [anunciando a versão do Delta Lake 0.4.0](https://delta.io/news/delta-lake-0-4-0-released/) e as [exclusões e simples Upserts confiáveis em tabelas Delta Lake usando APIs do Python](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), que incluem trechos de código para mesclar, atualizar e excluir comandos DML. |
+| **100% compatível com a API de Apache Spark** | Os desenvolvedores podem usar o Delta Lake com seus pipelines de dados existentes com alterações mínimas, pois são totalmente compatíveis com as implementações do Spark existentes. |
 
-Para obter documentação completa, consulte a [página de documentação](https://docs.delta.io/latest/delta-intro.html) do Lago Delta
+Para obter a documentação completa, consulte a [página de documentação do Delta Lake](https://docs.delta.io/latest/delta-intro.html)
 
-Para obter mais informações, consulte [Delta Lake Project](https://lfprojects.org).
+Para obter mais informações, consulte [projeto do Delta Lake](https://lfprojects.org).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [.NET para documentação Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Documentação do .NET para Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

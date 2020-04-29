@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 436b9c1569d7c33f79a126cd4d0513bac9385d8a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431911"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
@@ -49,12 +49,12 @@ Certificados do Key Vault x509 certifica e suporta os seguintes comportamentos:
 
 * *Secret* mudou para *SecretBundle*
 * *Dictionary* mudou para *IDictionary*
-* *Lista\<T>, string []* alterado para *\<IList T>*
+* *List\<t>, String []* alterado para *IList\<T>*
 * *NextList* mudou para *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **Lista de** chaves e **lista secreta** agora retorna *iPage\<T>* em vez de *ListKeysResponseMessage*
+* **KeyList** e **secretolist** agora retorna *iPage\<T>* em vez de *ListKeysResponseMessage*
 * O **BackupKeyAsync** gerado agora retorna *BackupKeyResult*, que contém *Value* (blob de backup). Anteriormente, o método era encapsulado e retornava somente o valor.
 
 ## <a name="exceptions"></a>Exceções
@@ -91,7 +91,7 @@ Quando um cliente processa uma dependência do Key Vault, os seguintes pacotes s
 ## <a name="class-changes"></a>Alterações de classe
 
 * A classe **UnixEpoch** foi removida.
-* A classe **Base64UrlConverter** é renomeada para **Base64UrlJsonConverter**.
+* A classe **Base64UrlConverter** foi renomeada para **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Outras alterações
 
@@ -99,7 +99,7 @@ Quando um cliente processa uma dependência do Key Vault, os seguintes pacotes s
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Para as operações que devolveram um *cofre,* o tipo de retorno era uma classe que continha uma propriedade **vault.** Agora, o tipo de retorno é *Vault*.
+* Para as operações que retornaram um *cofre*, o tipo de retorno era uma classe que continha uma propriedade de **cofre** . Agora, o tipo de retorno é *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* agora são *Permissions.Keys* e *Permissions.Secrets*
 * Algumas das alterações de tipos de retorno também se aplicam ao plano de controle.
 

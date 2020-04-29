@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: trbye
 ms.openlocfilehash: 5d1ec3fcc817431622c4f50a49afe8d61797c690
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81422111"
 ---
 > [!NOTE]
-> Ao testar, o sistema realizará uma transcrição. Isso é importante ter em mente, pois os preços variam por oferta de serviço e nível de assinatura. Consulte sempre o preço oficial dos Serviços Cognitivos Azure - Serviço de fala para [os últimos detalhes](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> Durante o teste, o sistema executará uma transcrição. Isso é importante para ter em mente, pois os preços variam de acordo com a oferta de serviço e o nível de assinatura. Veja sempre o preço oficial dos serviços cognitivas do Azure – serviço de fala para obter [os detalhes mais recentes](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).

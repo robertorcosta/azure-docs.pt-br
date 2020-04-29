@@ -1,6 +1,6 @@
 ---
-title: Usando metadados de arquivos em consultas
-description: A função OPENROWSET fornece informações de arquivo e caminho sobre cada arquivo usado na consulta para filtrar ou analisar dados com base no nome do arquivo e/ou no caminho da pasta.
+title: Usando metadados de arquivo em consultas
+description: A função OPENROWSET fornece informações de arquivo e caminho sobre cada arquivo usado na consulta para filtrar ou analisar dados com base no nome do arquivo e/ou caminho da pasta.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,34 +10,34 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 40a8e2c153ec3d8e7b4007340b9433a38f9ccc89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431547"
 ---
-# <a name="using-file-metadata-in-queries"></a>Usando metadados de arquivos em consultas
+# <a name="using-file-metadata-in-queries"></a>Usando metadados de arquivo em consultas
 
-O serviço de consulta sob demanda SQL pode abordar vários arquivos e pastas conforme descrito nas [pastas de Consulta e](query-folders-multiple-csv-files.md) no artigo de vários arquivos. Neste artigo, você aprende a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
+O serviço de consulta do SQL sob demanda pode endereçar vários arquivos e pastas conforme descrito no artigo [pastas de consulta e vários arquivos](query-folders-multiple-csv-files.md) . Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
 
-Às vezes, talvez você precise saber qual arquivo ou fonte de pasta se correlaciona com uma linha específica no conjunto de resultados.
+Às vezes, talvez seja necessário saber qual origem de arquivo ou pasta se correlaciona com uma linha específica no conjunto de resultados.
 
-Você pode `filepath` usar `filename` a função e retornar nomes de arquivos e/ou o caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou no caminho da pasta. Essas funções são descritas na [função filename](develop-storage-files-overview.md#filename-function) da seção de sintaxe e [na função filepath](develop-storage-files-overview.md#filepath-function). Abaixo você encontrará descrições curtas ao longo das amostras.
+Você pode usar a `filepath` função `filename` e retornar nomes de arquivo e/ou o caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou caminho da pasta. Essas funções são descritas na seção de sintaxe [filename](develop-storage-files-overview.md#filename-function) e [Function FilePath](develop-storage-files-overview.md#filepath-function). Abaixo, você encontrará descrições breves em exemplos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o resto deste artigo, revise os seguintes pré-requisitos:
+Antes de ler o restante deste artigo, examine os seguintes pré-requisitos:
 
-- [Configuração pela primeira vez](query-data-storage.md#first-time-setup)
+- [Configuração inicial](query-data-storage.md#first-time-setup)
 - [Pré-requisitos](query-data-storage.md#prerequisites)
 
 ## <a name="functions"></a>Funções
 
 ### <a name="filename"></a>Nome de arquivo
 
-Esta função retorna o nome do arquivo de onde a linha é originária.
+Essa função retorna o nome do arquivo do qual a linha é originada.
 
-A amostra a seguir lê os arquivos de dados do NYC Yellow Taxi para os últimos três meses de 2017 e retorna o número de passeios por arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.
+O exemplo a seguir lê os arquivos de dados de táxi amarelo NYC para os últimos três meses de 2017 e retorna o número de corridas por arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.
 
 ```sql
 SELECT
@@ -52,9 +52,9 @@ ORDER BY
     [filename];
 ```
 
-O exemplo a seguir mostra como *o nome do arquivo()* pode ser usado na cláusula WHERE para filtrar os arquivos a serem lidos. Ele acessa toda a pasta na parte OPENROWSET da consulta e filtra arquivos na cláusula WHERE.
+O exemplo a seguir mostra como *filename ()* pode ser usado na cláusula WHERE para filtrar os arquivos a serem lidos. Ele acessa toda a pasta na parte OPENROWSET da consulta e filtra os arquivos na cláusula WHERE.
 
-Seus resultados serão os mesmos do exemplo anterior.
+Os resultados serão os mesmos do exemplo anterior.
 
 ```sql
 SELECT
@@ -71,14 +71,14 @@ ORDER BY
     [filename];
 ```
 
-### <a name="filepath"></a>Filepath
+### <a name="filepath"></a>FilePath
 
-A função filepath retorna um caminho completo ou parcial:
+A função FilePath retorna um caminho completo ou parcial:
 
-- Quando chamado sem parâmetro, ele retorna o caminho completo do arquivo do que a linha se origina.
-- Quando chamado com um parâmetro, ele retorna parte do caminho que corresponde ao curinga na posição especificada no parâmetro. Por exemplo, o valor do parâmetro 1 retornaria parte do caminho que corresponde ao primeiro curinga.
+- Quando chamado sem um parâmetro, ele retorna o caminho de arquivo completo de origem da linha.
+- Quando chamado com um parâmetro, ele retorna parte do caminho que corresponde ao curinga na posição especificada no parâmetro. Por exemplo, o valor de parâmetro 1 retornaria parte do caminho que corresponde ao primeiro caractere curinga.
 
-A amostra a seguir lê os arquivos de dados do NYC Yellow Taxi para os últimos três meses de 2017. Ele retorna o número de passeios por caminho de arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.
+O exemplo a seguir lê arquivos de dados de táxi amarelo NYC para os últimos três meses de 2017. Ele retorna o número de corridas por caminho de arquivo. A parte OPENROWSET da consulta especifica quais arquivos serão lidos.
 
 ```sql
 SELECT
@@ -114,9 +114,9 @@ ORDER BY
     filepath;
 ```
 
-O exemplo a seguir mostra como *filepath()* pode ser usado na cláusula WHERE para filtrar os arquivos a serem lidos.
+O exemplo a seguir mostra como *FilePath ()* pode ser usado na cláusula WHERE para filtrar os arquivos a serem lidos.
 
-Você pode usar os curingas na parte OPENROWSET da consulta e filtrar os arquivos na cláusula WHERE. Seus resultados serão os mesmos do exemplo anterior.
+Você pode usar os curingas na parte OPENROWSET da consulta e filtrar os arquivos na cláusula WHERE. Os resultados serão os mesmos do exemplo anterior.
 
 ```sql
 SELECT
@@ -161,4 +161,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Próximas etapas
 
-No próximo artigo, você aprenderá como [consultar arquivos do Parquet](query-parquet-files.md).
+No próximo artigo, você aprenderá a [consultar os arquivos do parquet](query-parquet-files.md).

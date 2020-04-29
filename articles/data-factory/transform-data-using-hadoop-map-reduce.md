@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando hadoop mapReduzir a atividade
+title: Transformar dados usando a atividade MapReduce do Hadoop
 description: Saiba como processar dados executando programas MapReduce do Hadoop em um cluster do Azure HDInsight em um Azure Data Factory.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: e3060f7e36f9e2696194da12c3c800555103d271
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418908"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do MapReduce do Hadoop no Azure Data Factory
@@ -65,7 +65,7 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 | Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | Nome da atividade                     | Sim      |
-| descrição       | Texto que descreve qual a utilidade da atividade | Não       |
+| description       | Texto que descreve qual a utilidade da atividade | Não       |
 | type              | Para a atividade do MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
 | linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | className         | Nome da classe a ser executada         | Sim      |
@@ -119,9 +119,9 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Atividade suína](transform-data-using-hadoop-pig.md)
+* [Atividade Pig](transform-data-using-hadoop-pig.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Atividade de faísca](transform-data-using-spark.md)
-* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
-* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Atividade do Spark](transform-data-using-spark.md)
+* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
+* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

@@ -1,6 +1,6 @@
 ---
-title: Use opções DE GRUPO POR EM Synapse SQL
-description: O Synapse SQL permite o desenvolvimento de soluções implementando diferentes opções DE GROUP BY.
+title: Usar opções de agrupar por no Synapse SQL
+description: O Synapse SQL permite desenvolver soluções implementando diferentes opções agrupar por.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429038"
 ---
-# <a name="group-by-options-in-synapse-sql"></a>GRUPO POR OPÇÕES em Synapse SQL
-O Synapse SQL permite o desenvolvimento de soluções implementando diferentes opções DE GROUP BY. 
+# <a name="group-by-options-in-synapse-sql"></a>Opções de agrupar por no Synapse SQL
+O Synapse SQL permite desenvolver soluções implementando diferentes opções agrupar por. 
 
-## <a name="what-does-group-by-do"></a>O que o GRUPO POR FAZ
+## <a name="what-does-group-by-do"></a>O que o GROUP BY faz
 
 A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo.
 
-O SQL sob demanda suporta toda a gama de opções GROUP BY. O pool SQL suporta um número limitado de opções GROUP BY.
+O SQL sob demanda dá suporte a todo o intervalo de opções agrupar por. O pool SQL dá suporte a um número limitado de opções GROUP BY.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>GRUPO POR opções suportadas no pool SQL
+## <a name="group-by-options-supported-in-sql-pool"></a>Opções de agrupar por com suporte no pool do SQL
 
-Group BY tem algumas opções que o pool SQL não suporta. Essas opções têm alternativas, que são as seguintes:
+GROUP BY tem algumas opções para as quais o pool do SQL não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
 
 * GROUP BY com ROLLUP
 * GROUPING SETS
@@ -37,9 +37,9 @@ Group BY tem algumas opções que o pool SQL não suporta. Essas opções têm a
 
 ### <a name="rollup-and-grouping-sets-options"></a>O rollup e o agrupamento definem opções
 
-A opção mais simples aqui é usar a UNION ALL para executar o rollup em vez de depender da sintaxe explícita. O resultado é exatamente o mesmo
+A opção mais simples aqui é usar UNION ALL para executar o rollup em vez de depender da sintaxe explícita. O resultado é exatamente o mesmo
 
-O exemplo a seguir usa a declaração GROUP BY com a opção ROLLUP:
+O exemplo a seguir usa a instrução GROUP BY com a opção ROLLUP:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -91,9 +91,9 @@ Para substituir GROUPING SETS, o princípio de exemplo se aplica. Você só prec
 
 ### <a name="cube-options"></a>Opções Cube
 
-É possível criar um GRUPO POR CUBO usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para mitigar esse problema, você pode usar essa abordagem mais avançada.
+É possível criar um GROUP BY com o cubo usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para atenuar esse problema, você pode usar essa abordagem mais avançada.
 
-A primeira etapa é definir o ‘cube’ que define todos os níveis de agregação que desejamos criar. Tome nota do CROSS JOIN das duas tabelas derivadas, pois ela gera todos os níveis. O resto do código está lá para formatação.
+A primeira etapa é definir o ‘cube’ que define todos os níveis de agregação que desejamos criar. Anote a junção CRUZada das duas tabelas derivadas à medida que ela gera todos os níveis. O restante do código está lá para formatação.
 
 ```sql
 CREATE TABLE #Cube
@@ -124,11 +124,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-A imagem a seguir mostra os resultados da [TABELA CRIAR COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
+A imagem a seguir mostra os resultados de [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ![Agrupar por cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 
-O segundo passo é especificar uma tabela de destino para armazenar resultados provisórios:
+A segunda etapa é especificar uma tabela de destino para armazenar resultados intermediários:
 
 ```sql
 DECLARE
@@ -151,7 +151,7 @@ WITH
 ;
 ```
 
-O terceiro passo é girar sobre o cubo de colunas realizando a agregação. A consulta será executada uma vez para cada linha na tabela temporária #Cube. Os resultados são armazenados na tabela #Results temperatura:
+A terceira etapa é executar um loop sobre o cubo de colunas que executam a agregação. A consulta será executada uma vez para cada linha na #Cube tabela temporária. Os resultados são armazenados na tabela #Results Temp:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -175,7 +175,7 @@ BEGIN
 END
 ```
 
-Por fim, você pode retornar os resultados lendo a tabela temporária #Results:
+Por fim, você pode retornar os resultados lendo na tabela temporária #Results:
 
 ```sql
 SELECT *
@@ -184,7 +184,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Ao dividir o código em seções e gerar uma construção de looping, o código torna-se mais gerenciável e sustentável.
+Ao dividir o código em seções e gerar uma construção de loop, o código torna-se mais gerenciável e passível de manutenção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

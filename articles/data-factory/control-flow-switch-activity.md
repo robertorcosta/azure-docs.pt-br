@@ -1,6 +1,6 @@
 ---
-title: Atividade de switch na fábrica de dados do Azure
-description: A atividade do Switch permite controlar o fluxo de processamento com base em uma condição.
+title: Alternar atividade no Azure Data Factory
+description: A atividade switch permite controlar o fluxo de processamento com base em uma condição.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -10,17 +10,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417990"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Atividade de switch na fábrica de dados do Azure
+# <a name="switch-activity-in-azure-data-factory"></a>Alternar atividade no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade do Switch fornece a mesma funcionalidade que uma declaração de switch fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponda à avaliação da condição.
+A atividade switch fornece a mesma funcionalidade que uma instrução switch fornece em linguagens de programação. Ele avalia um conjunto de atividades correspondentes a um caso que corresponde à avaliação da condição.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -69,11 +69,11 @@ A atividade do Switch fornece a mesma funcionalidade que uma declaração de swi
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do switch. | String | Sim
-type | Deve ser definido como *Switch** | String | Sim
-expressão | Expressão que deve avaliar o valor da corda | Expressão com string tipo de resultado | Sim
-cases | Conjunto de casos que contêm um valor e um conjunto de atividades a serem executadas quando o valor corresponde à avaliação de expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos de caso | Sim
-defaultActivities | Conjunto de atividades que são executadas quando a avaliação de expressão não está satisfeita. | Matriz de atividades | Sim
+name | Nome da atividade do comutador. | String | Sim
+type | Deve ser definido como *switch** | String | Sim
+expressão | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
+cases | Conjunto de casos que contêm um valor e um conjunto de atividades a serem executadas quando o valor corresponde à avaliação da expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos Case | Sim
+defaultactivities | Conjunto de atividades que são executadas quando a avaliação da expressão não é satisfeita. | Matriz de atividades | Sim
 
 ## <a name="example"></a>Exemplo
 
@@ -82,7 +82,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
 > [!NOTE]
 > Esta seção fornece definições de JSON e comandos de exemplo do PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline do Data Factory usando definições de JSON e do Azure PowerShell, consulte o [tutorial: criar um Data Factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade do Switch (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline com atividade de comutador (Adfv2QuickStartPipeline. JSON)
 
 ```json
 {
@@ -288,7 +288,7 @@ Os pipeline define o **folderPath** com o valor do parâmetro **outputPath1** ou
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esses comandos assumem que você salvou os arquivos JSON na pasta: C:\ADF. 
+Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
 Connect-AzAccount

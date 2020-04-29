@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: trbye
 ms.openlocfilehash: 8abd520a7bb80f1f9a2d8ebcbe46b90fe59a96ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421985"
 ---
 ## <a name="create-a-speech-resource"></a>Criar um recurso de fala
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
-1. Clique em Criar recurso [ **de discurso** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Clique em criar recurso de [ **fala** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 1. Insira todas as configurações necessárias:
 
     |Configuração|Valor|
@@ -32,7 +32,7 @@ ms.locfileid: "81421985"
 1. Clique em **Criar** e aguarde até que o recurso seja criado. Depois de criado, navegue até a página de recursos
 1. Coletar configurado `endpoint` e uma chave de API:
 
-    |Guia de recursos no Portal|Configuração|Valor|
+    |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copie o ponto final. Parece com`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
-    |**simétricas**|Chave de API|Copie uma das duas chaves. É uma seqüência de caracteres alfanuméricos de `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`32 sem espaços ou traços, .|
+    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
+    |**Chaves**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

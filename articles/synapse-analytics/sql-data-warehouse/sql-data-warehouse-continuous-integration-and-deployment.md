@@ -1,6 +1,6 @@
 ---
-title: Integração e implantação contínuas
-description: Experiência de DevOps de banco de dados de classe corporativa para armazenamento de dados com suporte integrado para integração e implantação contínua usando pipelines Azure.
+title: Integração contínua e implantação
+description: Experiência de DevOps de banco de dados de classe empresarial para data warehousing com suporte interno para integração e implantação contínuas usando o Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416236"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para armazenamento de dados
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para data warehousing
 
-Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) ao Azure DevOps e aproveitar o Azure Pipelines para configurar a integração e a implantação contínuas. Este tutorial é o segundo passo na construção do seu pipeline contínuo de integração e implantação para armazenamento de dados.
+Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT (SQL Server Data Tools) ao Azure DevOps e aproveitar o Azure Pipelines para configurar a integração e a implantação contínuas. Este tutorial é a segunda etapa para criar seu pipeline de implantação e integração contínua para data warehousing.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -32,7 +32,7 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
 1. Navegue até o Azure Pipelines e crie um pipeline de build.
 
-      ![Novo Gasoduto](./media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo Pipeline")
+      ![Novo pipeline](./media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo Pipeline")
 
 2. Selecione o repositório de código-fonte (Git do Azure Repos) e selecione o modelo de aplicativo da área de trabalho do .NET.
 
@@ -60,7 +60,7 @@ Neste momento, você tem um ambiente simples no qual qualquer check-in em seu br
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Explore a [arquitetura MPP do pool SqL da Synapse](massively-parallel-processing-mpp-architecture.md)
+- Explore a [arquitetura MPP do pool SQL do Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Criar rapidamente um pool de SQL](create-data-warehouse-portal.md)
-- [Carregar dados da amostra](load-data-from-azure-blob-storage-using-polybase.md)
+- [Carregar dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore os [Vídeos](sql-data-warehouse-videos.md)

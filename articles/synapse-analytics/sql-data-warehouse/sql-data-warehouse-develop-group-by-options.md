@@ -1,6 +1,6 @@
 ---
-title: Usando grupo por opções
-description: Dicas para implementar grupo por opções no pool Synapse SQL.
+title: Usando opções agrupar por
+description: Dicas para implementar as opções agrupar por no pool do SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416188"
 ---
-# <a name="group-by-options-in-synapse-sql-pool"></a>Grupo por opções no pool Synapse SQL
+# <a name="group-by-options-in-synapse-sql-pool"></a>Agrupar por opções no pool de SQL do Synapse
 
-Neste artigo, você encontrará dicas para implementar grupo por opções no pool SQL.
+Neste artigo, você encontrará dicas para implementar as opções agrupar por no pool do SQL.
 
 ## <a name="what-does-group-by-do"></a>O que GROUP BY faz?
 
-A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo. Group BY tem algumas opções que o pool SQL não suporta. Essas opções têm alternativas, que são as seguintes:
+A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo. GROUP BY tem algumas opções para as quais o pool do SQL não dá suporte. Essas opções têm soluções alternativas, que são as seguintes:
 
 * GROUP BY com ROLLUP
 * GROUPING SETS
@@ -32,7 +32,7 @@ A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc
 
 ## <a name="rollup-and-grouping-sets-options"></a>O rollup e o agrupamento definem opções
 
-A opção mais simples aqui é usar a UNION ALL para realizar o rollup em vez de depender da sintaxe explícita. O resultado é exatamente o mesmo.
+A opção mais simples aqui é usar UNION ALL para executar o rollup em vez de depender da sintaxe explícita. O resultado é exatamente o mesmo.
 
 O exemplo a seguir usa a instrução GROUP BY com a opção ROLLUP:
 
@@ -86,11 +86,11 @@ Para substituir GROUPING SETS, o princípio de exemplo se aplica. Você só prec
 
 ## <a name="cube-options"></a>Opções Cube
 
-É possível criar um GRUPO POR CUBO usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para mitigar esse problema, você pode usar essa abordagem mais avançada.
+É possível criar um GROUP BY com o cubo usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para atenuar esse problema, você pode usar essa abordagem mais avançada.
 
-Usando o exemplo anterior, o primeiro passo é definir o 'cubo' que define todos os níveis de agregação que queremos criar.
+Usando o exemplo anterior, a primeira etapa é definir o ' Cube ' que define todos os níveis de agregação que desejamos criar.
 
-Tome nota do CROSS JOIN das duas tabelas derivadas, pois isso gera todos os níveis para nós. O resto do código está lá para formatação:
+Anote a junção CRUZada das duas tabelas derivadas, pois isso gera todos os níveis para nós. O restante do código está lá para formatação:
 
 ```sql
 CREATE TABLE #Cube
@@ -125,7 +125,7 @@ A imagem a seguir mostra os resultados do CTAS:
 
 ![Agrupar por cubo](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-O segundo passo é especificar uma tabela de destino para armazenar resultados provisórios:
+A segunda etapa é especificar uma tabela de destino para armazenar resultados intermediários:
 
 ```sql
 DECLARE
@@ -148,7 +148,7 @@ WITH
 ;
 ```
 
-A terceira etapa é executar um loop sobre o cubo de colunas realizando a agregação. A consulta será executada uma vez para cada linha na tabela temporária #Cube. Os resultados são armazenados na tabela temporária #Results:
+A terceira etapa é executar um loop sobre o cubo de colunas realizando a agregação. A consulta será executada uma vez para cada linha na #Cube tabela temporária. Os resultados são armazenados na tabela #Results Temp:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -172,7 +172,7 @@ BEGIN
 END
 ```
 
-Por fim, você pode retornar os resultados lendo a tabela temporária #Results:
+Por fim, você pode retornar os resultados lendo na tabela temporária #Results:
 
 ```sql
 SELECT *
@@ -181,7 +181,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Ao dividir o código em seções e gerar uma construção de looping, o código torna-se mais gerenciável e sustentável.
+Ao dividir o código em seções e gerar uma construção de loop, o código torna-se mais gerenciável e passível de manutenção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

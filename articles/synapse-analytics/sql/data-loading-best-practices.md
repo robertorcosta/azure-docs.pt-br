@@ -1,6 +1,6 @@
 ---
 title: Melhores práticas de carregamento de dados
-description: Recomendações e otimizações de desempenho para carregar dados no Synapse SQL
+description: Recomendações e otimizações de desempenho para carregar dados no SQL Synapse
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431040"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Práticas recomendadas para carregar dados para armazenamento de dados
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Práticas recomendadas para carregar dados para data warehousing
 
-Recomendações e otimizações de desempenho para o carregamento de dados
+Recomendações e otimizações de desempenho para carregar dados
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparando dados no Armazenamento do Azure
 
@@ -36,9 +36,9 @@ Dividir arquivos compactados grandes em arquivos compactados menores.
 
 ## <a name="running-loads-with-enough-compute"></a>Executando carregamentos com computação suficiente
 
-Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um grande trabalho de carregamento, considere aumentar seu pool SQL antes da carga.
+Para uma velocidade mais alta de carregamento, execute apenas uma carga de trabalho por vez. Se isso não for possível, execute uma quantidade mínima de carregamento simultaneamente. Se você espera um trabalho de carregamento grande, considere escalar verticalmente seu pool SQL antes do carregamento.
 
-Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribuir cada usuário de carregamento a uma classe de recursos específica ou grupo de carga de trabalho. Para executar uma carga, faça login como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
+Para executar cargas com recursos de computação apropriados, crie usuários de carregamento designados para executar cargas. Atribua cada usuário de carregamento a uma classe de recurso ou grupo de carga de trabalho específico. Para executar uma carga, entre como um dos usuários de carregamento e, em seguida, execute a carga. A carga é executada com a classe de recurso do usuário.  Esse método é mais simples do que tentar alterar a classe de recurso do usuário para se ajustar à necessidade de classe de recurso atual.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exemplo de como criar um usuário de carregamento
 
@@ -58,7 +58,7 @@ Conecte-se ao data warehouse e crie um usuário. O código a seguir pressupõe q
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Para executar uma carga com recursos para as classes de recursos staticRC20, faça login como LoaderRC20 e execute a carga.
+Para executar uma carga com recursos para as classes de recursos staticRC20, entre como LoaderRC20 e execute a carga.
 
 Execute cargas sob classes de recursos estáticas em vez de dinâmicas. Usar as classes de recursos estáticas garante os mesmos recursos, independentemente de suas [unidades de data warehouse](resource-consumption-models.md). Se você usar uma classe de recursos dinâmicos, os recursos variam de acordo com seu nível de serviço. Para classes dinâmicas, um nível inferior do serviço significa que você provavelmente precisa usar uma classe de recursos maior para seu usuário de carregamento.
 
@@ -73,7 +73,7 @@ Por exemplo: considere os esquemas de banco de dados, schema_A para o departamen
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A e user_B estão agora bloqueados do esquema do outro departamento.
+User_A e user_B agora são bloqueados do esquema do outro departamento.
 
 ## <a name="loading-to-a-staging-table"></a>Carregando uma tabela de preparo
 
@@ -88,9 +88,9 @@ Os índices columnstore exigem grandes quantidades de memória para compactar da
 - Para garantir que o usuário de carregamento tenha memória suficiente para alcançar as taxas máximas de compactação, use usuários de carregamento que sejam membros de uma classe de recursos média ou grande.
 - Carregue linhas suficientes para preencher completamente novos rowgroups. Durante um carregamento em massa, a cada 1.048.576 linhas são compactadas diretamente para o columnstore como um rowgroup completo. Carregamentos com menos de 102.400 linhas enviam as linhas para o deltastore, onde as linhas são mantidas em um índice de árvore b. Se você carregar um número muito pequeno de linhas, elas podem ir todas para o deltastore e não serem compactadas imediatamente no formato de columnstore.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumente o tamanho do lote ao usar a API ou BCP sqlBulkCopy
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao usar a API SQLBulkCopy ou o BCP
 
-Como mencionado anteriormente, o carregamento com o PolyBase fornecerá o maior throughput com o pool Synapse SQL. Se você não puder usar o PolyBase para carregar e usar a API SQLBulkCopy (ou BCP) você deve considerar aumentar o tamanho do lote para um melhor throughput - uma boa regra de ouro é um tamanho de lote entre as linhas de 100K a 1M.
+Como mencionado anteriormente, o carregamento com o polybase fornecerá a taxa de transferência mais alta com o pool SQL Synapse. Se você não pode usar o polybase para carregar e deve usar a API SQLBulkCopy (ou BCP), considere aumentar o tamanho do lote para uma melhor taxa de transferência-uma boa regra prática é um tamanho de lote entre 100 mil e 1 milhão de linhas.
 
 ## <a name="handling-loading-failures"></a>Tratamento de falhas de carregamento
 
@@ -106,9 +106,9 @@ Se você tiver milhares ou mais de inserções únicas ao longo do dia, crie lot
 
 ## <a name="creating-statistics-after-the-load"></a>Criando estatísticas após o carregamento
 
-Para melhorar o desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou ocorrem alterações significativas nos dados.  Isso pode ser feito manualmente ou você pode habilitar [estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para melhorar o desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou ocorrem alterações significativas nos dados.  Isso pode ser feito manualmente ou você pode habilitar [Estatísticas de criação automática](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Para obter uma explicação detalhada das estatísticas, confira [Estatísticas](develop-tables-statistics.md). O exemplo a seguir mostra como criar manualmente estatísticas em cinco colunas da tabela Customer_Speed.
+Para obter uma explicação detalhada das estatísticas, confira [Estatísticas](develop-tables-statistics.md). O exemplo a seguir mostra como criar estatísticas manualmente em cinco colunas da tabela Customer_Speed.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

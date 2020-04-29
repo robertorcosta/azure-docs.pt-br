@@ -1,6 +1,6 @@
 ---
 title: Conta de armazenamento gerenciado do Azure Key Vault - versão PowerShell
-description: O recurso de conta de armazenamento gerenciado fornece uma integração perfeita entre o Azure Key Vault e uma conta de armazenamento Azure.
+description: O recurso de conta de armazenamento gerenciado fornece uma integração direta, entre Azure Key Vault e uma conta de armazenamento do Azure.
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: secrets
@@ -9,19 +9,19 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.openlocfilehash: 7307741e56c7fc912f60d0496979243eb4be77a4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431261"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Buscar tokens de assinatura de acesso compartilhado no código
 
-Você pode gerenciar sua conta de armazenamento com os [tokens de assinatura de acesso compartilhado](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) em seu cofre principal. Este artigo fornece exemplos de código C# que busca um token SAS e executa operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte Gerenciar chaves de conta de armazenamento com o Key Vault e as chaves da conta de armazenamento [Azure CLI](overview-storage-keys.md) ou [Gerenciar com o Key Vault e o Azure PowerShell](overview-storage-keys-powershell.md).
+Você pode gerenciar sua conta de armazenamento com os [tokens de assinatura de acesso compartilhado](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) em seu cofre de chaves. Este artigo fornece exemplos de código C# que busca um token SAS e executa operações com ele.  Para obter informações sobre como criar e armazenar tokens SAS, consulte [gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure](overview-storage-keys.md) ou [gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Neste exemplo, o código busca um token SAS do seu cofre de chaves, usa-o para criar uma nova conta de armazenamento e cria um novo cliente de serviço Blob.  
+Neste exemplo, o código busca um token SAS do cofre de chaves, usa-o para criar uma nova conta de armazenamento e cria um novo cliente de serviço BLOB.  
 
 ```cs
 // After you get a security token, create KeyVaultClient with vault credentials.
@@ -40,7 +40,7 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 ```
 
-Se o token de assinatura de acesso compartilhado estiver prestes a expirar, você pode buscar o token de assinatura de acesso compartilhado do seu cofre de chaves e atualizar o código.
+Se o token de assinatura de acesso compartilhado estiver prestes a expirar, você poderá buscar o token de assinatura de acesso compartilhado do cofre de chaves e atualizar o código.
 
 ```cs
 // If your shared access signature token is about to expire,
@@ -51,6 +51,6 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba como [gerenciar as chaves da conta de armazenamento com o Key Vault e o Azure CLI](overview-storage-keys.md) ou [Azure PowerShell](overview-storage-keys-powershell.md).
-- Consulte [amostras-chave da conta de armazenamento gerenciada](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
+- Saiba como [gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure](overview-storage-keys.md) ou [Azure PowerShell](overview-storage-keys-powershell.md).
+- Consulte [exemplos de chave da conta de armazenamento gerenciado](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Referência do PowerShell do Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

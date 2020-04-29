@@ -1,6 +1,6 @@
 ---
-title: Otimização de transações para pool SQL
-description: Aprenda a otimizar o desempenho do seu código transacional no pool SQL (data warehouse) minimizando o risco de reversões longas.
+title: Otimizando transações para o pool do SQL
+description: Saiba como otimizar o desempenho do seu código transacional no pool do SQL (data warehouse) e, ao mesmo tempo, minimizar o risco de reversões longas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,21 +11,21 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428726"
 ---
-# <a name="optimizing-transactions-in-sql-pool"></a>Otimização de transações no pool SQL
+# <a name="optimizing-transactions-in-sql-pool"></a>Otimizando transações no pool do SQL
 
-Aprenda a otimizar o desempenho do seu código transacional no pool SQL, minimizando o risco de reversões longas.
+Saiba como otimizar o desempenho do seu código transacional no pool do SQL, minimizando o risco de reversões longas.
 
 ## <a name="transactions-and-logging"></a>Transações e registro em log
 
 As transações são um componente importante de um mecanismo de banco de dados relacional. O pool SQL usa transações durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. Instruções INSERT, UPDATE e DELETE únicas são exemplos de transações implícitas. Transações explícitas usam BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Transações explícitas são normalmente utilizadas quando várias instruções de modificação precisam ser agrupadas em uma única unidade atômica.
 
-O pool SQL compromete alterações no banco de dados usando logs de transações. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, apesar desse processo garantir a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
+O pool do SQL confirma as alterações no banco de dados usando logs de transação. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, apesar desse processo garantir a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
 
 * Use constructos de registro em log mínimos sempre que possível
 * Processar dados usando lotes com escopo para evitar transações de longa execução singulares
@@ -44,7 +44,7 @@ Os limites de segurança de transação só se aplicam às operações totalment
 
 As seguintes operações podem ser minimamente registradas em log:
 
-* CRIAR TABELA COMO SELETO[(CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE como SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> A recriação de tabelas grandes pode beneficiar do uso de recursos de gerenciamento de carga de trabalho de pool SQL. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Recriar tabelas grandes pode se beneficiar do uso dos recursos de gerenciamento de carga de trabalho do pool do SQL. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="optimizing-with-partition-switching"></a>Otimizando com alternância de partição
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Diretrizes de pausa e dimensionamento
 
-O Azure Synapse Analytics permite [pausar, retomar e dimensionar](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) seu pool SQL sob demanda. 
+O Azure Synapse Analytics permite que você [Pause, retome e dimensione](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) seu pool SQL sob demanda. 
 
-Quando você pausa ou dimensiona seu pool SQL, é importante entender que quaisquer transações a bordo são encerradas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. 
+Ao pausar ou dimensionar seu pool SQL, é importante entender que todas as transações em andamento são encerradas imediatamente; fazendo com que todas as transações abertas sejam revertidas. 
 
-Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Essa desfaçatez pode afetar o tempo necessário para pausar ou dimensionar seu pool SQL. 
+Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Isso pode afetar o tempo necessário para pausar ou dimensionar o pool do SQL. 
 
 > [!IMPORTANT]
 > As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que as operações equivalentes minimamente registradas em log.
 
-O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de pausar ou dimensionar o pool De SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
+O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de pausar ou dimensionar o pool SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
 * Regenere operações de execução longa usando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Interromper a operação em partes; operando em um subconjunto das linhas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte [Transações no pool SQL](develop-transactions.md) para saber mais sobre níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, consulte [as práticas recomendadas do pool SQL](best-practices-sql-pool.md).
+Consulte [Transações no pool do SQL](develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, consulte [práticas recomendadas do pool do SQL](best-practices-sql-pool.md).

@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417973"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
@@ -28,16 +28,16 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 name | Nome da atividade no pipeline | sim
-descrição | Texto descrevendo o que a atividade realiza | não
+description | Texto descrevendo o que a atividade realiza | não
 type | Deve ser definido como **SetVariable** | sim
-value | Valor do objeto de seqüência literal ou de expressão ao que a variável será atribuída | sim
+value | Literal de cadeia de caracteres ou valor de objeto de expressão ao qual a variável será atribuída | sim
 variableName | Nome da variável que será definida por essa atividade | sim
 
 ## <a name="incrementing-a-variable"></a>Incrementando uma variável
 
-Um cenário comum envolvendo variáveis na Fábrica de Dados Do Azure é usar uma variável como um iterador dentro de uma atividade de até ou para cada atividade. Em uma atividade variável definida, você não `value` pode referenciar a variável que está sendo definida no campo. Para contornar essa limitação, defina uma variável temporária e crie uma atividade variável de segundo conjunto. A atividade variável do segundo conjunto define o valor do iterator para a variável temporária. 
+Um cenário comum envolvendo variáveis no Azure Data Factory está usando uma variável como um iterador dentro de uma atividade until ou ForEach. Em uma atividade definir variável, você não pode fazer referência à variável que `value` está sendo definida no campo. Para solucionar essa limitação, defina uma variável temporária e, em seguida, crie uma segunda atividade Set Variable. A segunda atividade Set Variable define o valor do iterador para a variável temporária. 
 
-Abaixo está um exemplo deste padrão:
+Abaixo está um exemplo desse padrão:
 
 ![Incrementar variável](media/control-flow-set-variable-activity/increment-variable.png "Incrementar variável")
 

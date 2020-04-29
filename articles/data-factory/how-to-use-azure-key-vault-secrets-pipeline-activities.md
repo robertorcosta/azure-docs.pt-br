@@ -1,6 +1,6 @@
 ---
 title: Usar segredos de Azure Key Vault em atividades de pipeline
-description: Aprenda a buscar credenciais armazenadas no cofre de chaves do Azure e use-as durante as operações de pipeline de fábrica de dados.
+description: Saiba como buscar credenciais armazenadas do Azure Key Vault e usá-las durante data factory execuções de pipeline.
 services: data-factory
 author: ChrisLound
 manager: anandsub
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417088"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usar segredos de Azure Key Vault em atividades de pipeline
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Você pode armazenar credenciais ou valores secretos em um Cofre de Chaves Do Azure e usá-los durante a execução do pipeline para passar para suas atividades.
+Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e usá-los durante a execução do pipeline para passar para suas atividades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso se baseia na identidade gerenciada pela fábrica de dados.  Saiba como ele funciona a partir da [identidade gerenciada para fábrica de dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que sua fábrica de dados tenha um associado.
+Esse recurso depende da identidade gerenciada data factory.  Saiba como ele funciona da [identidade gerenciada para data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e certifique-se de que sua data Factory tenha uma associada.
 
 ## <a name="steps"></a>Etapas
 
-1. Abra as propriedades da sua fábrica de dados e copie o valor de Identificação do aplicativo de identidade gerenciada.
+1. Abra as propriedades do seu data factory e copie o valor da ID do aplicativo de identidade gerenciada.
 
-    ![Valor de identidade gerenciado](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    ![Valor de identidade gerenciada](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
 
 2. Abra as políticas de acesso do cofre de chaves e adicione as permissões de identidade gerenciadas para obter e listar segredos.
 
@@ -39,20 +39,20 @@ Esse recurso se baseia na identidade gerenciada pela fábrica de dados.  Saiba c
 
     ![Políticas de acesso ao cofre de chaves](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Clique **em Adicionar**e clique em **Salvar**.
+    Clique em **Adicionar**e em **salvar**.
 
-3. Navegue até o seu segredo do Key Vault e copie o identificador secreto.
+3. Navegue até seu segredo de Key Vault e copie o identificador secreto.
 
-    ![Identificador Secreto](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
+    ![Identificador de segredo](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
 
-    Anote seu URI secreto que deseja obter durante a sua execução de pipeline de fábrica de dados.
+    Anote seu URI secreto que você deseja obter durante a execução do pipeline de data factory.
 
-4. No pipeline da Fábrica de Dados, adicione uma nova atividade da Web e configure-a da seguinte forma.  
+4. Em seu pipeline de Data Factory, adicione uma nova atividade da Web e configure-a da seguinte maneira.  
 
     |Propriedade  |Valor  |
     |---------|---------|
-    |Saída segura     |True         |
-    |URL     |[Seu valor de URI secreto]?api-version=7.0         |
+    |Saída segura     |verdadeiro         |
+    |URL     |[Seu valor de URI secreto]? API-Version = 7.0         |
     |Método     |GET         |
     |Autenticação     |MSI         |
     |Recurso        |https://vault.azure.net       |
@@ -60,15 +60,15 @@ Esse recurso se baseia na identidade gerenciada pela fábrica de dados.  Saiba c
     ![Atividade da Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
     > [!IMPORTANT]
-    > Você deve adicionar **?api-version=7.0** ao final do seu URI secreto.  
+    > Você deve adicionar **? API-Version = 7.0** ao final do seu URI secreto.  
 
     > [!CAUTION]
-    > Defina a opção Saída segura como verdadeira para evitar que o valor secreto seja registrado em texto simples.  Quaisquer atividades adicionais que consumam esse valor devem ter a opção Entrada Segura definida como verdadeira.
+    > Defina a opção de saída segura como true para impedir que o valor secreto seja registrado em texto sem formatação.  Todas as atividades adicionais que consomem esse valor devem ter sua opção de entrada segura definida como true.
 
-5. Para usar o valor em outra atividade, use a seguinte expressão de ** @activitycódigo ('Web1').output.value**.
+5. Para usar o valor em outra atividade, use a seguinte expressão ** @activityde código (' web1 '). Output. Value**.
 
     ![Expressão de código](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar o Azure Key Vault para armazenar credenciais para armazenamento de dados e cálculos, consulte [As credenciais da loja no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Para saber como usar Azure Key Vault para armazenar credenciais para armazenamentos de dados e computações, consulte [armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

@@ -1,5 +1,5 @@
 ---
-title: Transformar dados com o Databricks Notebook
+title: Transformar dados com o databricks Notebook
 description: Saiba como processar ou transformar dados executando um notebook do Databricks.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419010"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade do notebook Azure Databricks em um [pipeline de Fábrica de Dados](concepts-pipelines-activities.md) executa um notebook Databricks em seu espaço de trabalho DoZure Databricks. Este artigo baseia-se no artigo [atividades](transform-data.md) de transformação de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação suportadas.O Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
+A atividade de Azure Databricks notebook em um [pipeline de data Factory](concepts-pipelines-activities.md) executa um notebook do databricks em seu espaço de trabalho do Azure Databricks. Este artigo se baseia no artigo [atividades](transform-data.md) de transformação de dados, que apresenta uma visão geral da transformação de dados e das atividades de transformação com suporte.O Azure Databricks é uma plataforma gerenciada para executar o Apache Spark.
 
 ## <a name="databricks-notebook-activity-definition"></a>Definição de atividade do Notebook Databricks
 
@@ -60,9 +60,9 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 |Propriedade|Descrição|Obrigatório|
 |---|---|---|
 |name|Nome da atividade no pipeline.|Sim|
-|descrição|Texto que descreve o que a atividade faz.|Não|
+|description|Texto que descreve o que a atividade faz.|Não|
 |type|Para Atividade de Notebook do Databricks, o tipo da atividade é DatabricksNotebook.|Sim|
-|linkedServiceName|Nome do serviço vinculado do Databricks no qual o notebook do Databricks executa. Para saber mais sobre esse serviço vinculado, consulte o artigo de  [serviços vinculados à Computação.](compute-linked-services.md)|Sim|
+|linkedServiceName|Nome do serviço vinculado do Databricks no qual o notebook do Databricks executa. Para saber mais sobre esse serviço vinculado, consulte o artigo  [Serviços vinculados de computação](compute-linked-services.md).|Sim|
 |notebookPath|O caminho absoluto do notebook a ser executado no workspace do Databricks. Esse caminho deve começar com uma barra.|Sim|
 |baseParameters|Uma matriz de pares chave-valor. Parâmetros básicos podem ser utilizados para cada execução de atividade. Se o notebook utilizar um parâmetro que não for especificado, será usado o valor padrão do notebook. Encontre mais informações sobre os parâmetros em [Notebooks do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|
 |bibliotecas|Uma lista de bibliotecas a serem instaladas no cluster, que executará o trabalho. Pode ser uma matriz de \<cadeia de caracteres, object>.|Não|
@@ -70,7 +70,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do Databricks
 
-Na definição de atividade databricks acima, você especifica estes tipos de biblioteca: *jar*, *ovo*, *whl*, *maven*, *pypi*, *cran*.
+Na definição da atividade do databricks acima, você especifica esses tipos de biblioteca: *jar*, *ovo*, *WHL*, *Maven*, *PyPI*, *Cran*.
 
 ```json
 {
@@ -112,18 +112,18 @@ Na definição de atividade databricks acima, você especifica estes tipos de bi
 
 Para obter mais detalhes, consulte a [documentação do Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) para tipos de biblioteca.
 
-## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre notebooks e Fábrica de Dados
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre blocos de anotações e Data Factory
 
-Você pode passar parâmetros de fábrica de dados para notebooks usando a propriedade *baseParameters* na atividade de databricks. 
+Você pode passar data factory parâmetros para blocos de anotações usando a propriedade *baseparameters* na atividade do databricks. 
 
-Em certos casos, você pode precisar repassar certos valores do notebook de volta para a fábrica de dados, que podem ser usados para o fluxo de controle (verificações condicionais) na fábrica de dados ou ser consumido por atividades a jusante (limite de tamanho é de 2MB). 
+Em determinados casos, talvez seja necessário repassar determinados valores do bloco de anotações para data factory, que pode ser usado para o fluxo de controle (verificações condicionais) no data factory ou ser consumido pelas atividades downstream (o limite de tamanho é 2MB). 
 
-1. Em seu notebook, você pode chamar [dbutils.notebook.exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e correspondente "returnValue" será devolvido à fábrica de dados.
+1. No bloco de anotações, você pode chamar [dbutils. notebook. Exit ("ReturnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e o "ReturnValue" correspondente será retornado para data Factory.
 
-2. Você pode consumir a saída na fábrica `'@activity('databricks notebook activity name').output.runOutput'`de dados usando expressões como . 
+2. Você pode consumir a saída em data factory usando expressão como `'@activity('databricks notebook activity name').output.runOutput'`. 
 
    > [!IMPORTANT]
-   > Se você estiver passando o objeto JSON, você pode recuperar valores anexando nomes de propriedades. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > Se você estiver passando um objeto JSON, poderá recuperar valores acrescentando nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca no Databricks
 

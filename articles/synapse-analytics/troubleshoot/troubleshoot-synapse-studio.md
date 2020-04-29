@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas Azure Synapse Studio (pré-visualização)
-description: Solução de problemas Azure Synapse Studio
+title: Solucionar problemas do Azure Synapse Studio (versão prévia)
+description: Solucionar problemas do Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -8,95 +8,95 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431313"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (pré-visualização) solução de problemas
+# <a name="azure-synapse-studio-preview-troubleshooting"></a>Solução de problemas do Azure Synapse Studio (versão prévia)
 
-Este guia de solução de problemas fornece instruções sobre quais informações fornecer ao abrir um ticket de suporte em problemas de conectividade de rede. Com as informações adequadas, podemos resolver o problema mais rapidamente.
+Este guia de solução de problemas fornece instruções sobre quais informações fornecer ao abrir um tíquete de suporte em problemas de conectividade de rede. Com as informações apropriadas, possivelmente podemos resolver o problema mais rapidamente.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema de conectividade de serviço sql sob demanda (pré-visualização)
+## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema de conectividade do serviço SQL sob demanda (versão prévia)
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-A opção "SQL on-demand" está acinzentada na lista suspensa "Conectar-se".
+A opção "SQL sob demanda" está esmaecida na lista suspensa "conectar-se a".
 
-![sintoma1](media/troubleshooting-synapse-studio/symptom1v2.png)
+![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Sintoma 2
 
-A execução da consulta com "SQL on-demand" dá a mensagem de erro "Falha ao estabelecer conexão com servidor".
+A execução da consulta com "SQL sob demanda" fornece a mensagem de erro "falha ao estabelecer conexão com o servidor".
 
-![sintoma2](media/troubleshooting-synapse-studio/symptom2.png)
+![symptom2](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
 > [!NOTE] 
->    As seguintes etapas de solução de problemas são para Chromium Edge e Chrome. Você pode usar outros navegadores (como o FireFox) com as mesmas etapas de solução de problemas, mas a janela "Ferramenta de desenvolvedor" pode ter layout diferente das capturas de tela neste TSG. Se possível, NÃO use o Borda clássico para solução de problemas, pois pode mostrar informações imprecisas em determinada situação.
+>    As seguintes etapas de solução de problemas são para o Chromium Edge e o Chrome. Você pode usar outros navegadores (como o FireFox) com as mesmas etapas de solução de problemas, mas a janela "ferramenta de desenvolvedor" pode ter um layout diferente das capturas de tela neste TSG. Se possível, não use a borda clássica para solução de problemas, pois ele pode mostrar informações imprecisas em determinada situação.
 
-Abra o painel "Informações de diagnóstico", selecione o botão "Baixar diagnóstico". Mantenha as informações baixadas para relatórios de erros. Em vez disso, copie o "Session ID" e anexe-o ao abrir o bilhete de suporte.
+Abra o painel "informações de diagnóstico", selecione o botão "baixar diagnóstico". Mantenha as informações baixadas para o relatório de erros. Em vez disso, você pode copiar a "ID da sessão" e anexá-la ao abrir o tíquete de suporte.
 
 ![diagnóstico-informações](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-Para começar a solucionar problemas, tente novamente a operação que realizou no Azure Synapse Studio.
+Para iniciar a solução de problemas, repita a operação executada no Azure Synapse Studio.
 
-- Para o sintoma 1, selecione o botão "Atualizar" à direita da lista de paradas "Usar banco de dados" na guia "SQL script" e verifique se você pode ver "SQL sob demanda".
-- Para o sintoma 2, tente executar a consulta novamente para ver se ela é executada com sucesso.
+- Para o sintoma 1, selecione o botão "atualizar" à direita da lista suspensa "usar banco de dados" na guia "script SQL" e verifique se você pode ver "SQL sob demanda".
+- Para o sintoma 2, tente executar a consulta novamente para ver se ela é executada com êxito.
 
-Se o problema ainda existir, pressione F12 no seu navegador para abrir "Ferramentas de desenvolvedor" (DevTools).
+Se o problema ainda existir, pressione F12 no navegador para abrir "Ferramentas para Desenvolvedores" (DevTools).
 
-Na janela "Ferramentas do desenvolvedor", mude para o painel "Rede". Selecione o botão "Limpar" na barra de ferramentas no painel "Rede", se necessário.
-Certifique-se de que "Desativar cache" no painel "Rede" seja verificado.
+Na janela "Ferramentas para Desenvolvedores", alterne para o painel "rede". Selecione o botão "limpar" na barra de ferramentas no painel "rede", se necessário.
+Verifique se a opção "desabilitar cache" no painel "rede" está marcada.
 
-Tente novamente a operação que realizou no Azure Synapse Studio. Você pode ver novos itens mostrados na lista "Rede" em "Ferramentas de desenvolvedor". Observe o tempo atual do sistema para fornecer no bilhete de suporte.
+Repita a operação que você executou no Azure Synapse Studio. Você poderá ver novos itens mostrados na lista "rede" em "Ferramentas para Desenvolvedores". Anote a hora atual do sistema para fornecer no tíquete de suporte.
 
 ![painel de rede](media/troubleshooting-synapse-studio/network-panel.png)
 
-Encontre o item cuja coluna de Url corresponde ao seguinte padrão:
+Localize o item cuja coluna de URL corresponde ao seguinte padrão:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Onde [*A*] é o seu nome de espaço de trabalho, e "-ondemand" poderia ser "-sqlod" e onde [*B*] deve ser um nome de banco de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor de URL, mas valores de método diferentes; OPÇÕES e CORREIO. Verifique se esses dois itens têm "200" ou "20x" sob a coluna de status, onde "x" pode ser de qualquer dígito.
+Onde [*A*] é o nome do espaço de trabalho e "-OnDemand" poderia ser "-sqlod" e onde [*B*] deve ser um nome de banco de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor de URL, mas com valores de método diferentes; OPÇÕES e POST. Verifique se esses dois itens têm "200" ou "20x" na coluna status, em que "x" pode ser qualquer dígito único.
 
-Se qualquer um deles tiver algo além de "20x" e:
+Se um deles tiver algo diferente de "20x" e:
 
-- o status começa com "(falha)", ampliando a coluna "Status" ou sobreriando o ponteiro sobre o texto de status para ver o texto completo. Inclua o texto e/ou captura de tela ao abrir o bilhete de suporte.
+- o status começa com "(Failed)", expanda a coluna "status" ou focalize o ponteiro sobre o texto de status para ver o texto completo. Inclua o texto e/ou captura de tela ao abrir o tíquete de suporte.
 
     ![status-texto](media/troubleshooting-synapse-studio/status-text.png)
 
-    - Se você ver ERR_NAME_NOT_RESOLVED e criou seu espaço de trabalho em 10 minutos, espere 10 minutos e tente novamente para ver se o problema ainda existe.
-    - Se você ver ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, pode indicar que sua conexão de rede do PC está tendo problemas. Verifique sua conexão de rede e tente novamente a operação.
-    - Se você vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro contendo "SSL", isso pode indicar que sua configuração SSL local está tendo problemas ou o administrador da rede bloqueou o acesso ao servidor sob demanda SQL. Abra um bilhete de suporte e anexe o código de erro na descrição.
-    - Se você vir ERR_NETWORK_ACCESS_DENIED, talvez seja necessário verificar com o administrador se a política de firewall local bloqueou o acesso ao domínio *.database.windows.net ou à porta remota 1443.
-    - Opcionalmente, tente a mesma operação imediatamente em um ambiente diferente de máquina e/ou rede para excluir um problema de configuração de rede em seu PC.
+    - Se você vir ERR_NAME_NOT_RESOLVED e criou seu espaço de trabalho em 10 minutos, aguarde 10 minutos e tente ver se o problema ainda existe.
+    - Se você vir ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, isso poderá indicar que a conexão de rede do PC está tendo problemas. Verifique sua conexão de rede e repita a operação.
+    - Se você vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro que contenham "SSL", poderá indicar que sua configuração de SSL local está tendo problemas ou o administrador de rede bloqueou o acesso ao servidor SQL sob demanda. Abra um tíquete de suporte e anexe o código de erro na descrição.
+    - Se você vir ERR_NETWORK_ACCESS_DENIED, talvez seja necessário verificar com o administrador se sua política de firewall local bloqueou o acesso ao domínio *. database.windows.net ou à porta remota 1443.
+    - Opcionalmente, tente a mesma operação imediatamente em um ambiente de rede e/ou computador diferente para eliminar um problema de configuração de rede em seu PC.
 
-- o status é "40x", "50x" ou outros números, selecione no item(s) para ver os detalhes. Você deve ver os detalhes do item à direita. Encontre a seção "Cabeçalho de resposta"; em seguida, verifique se existe um item chamado "access-control-allow-origin". Nesse caso, verifique se ele tem um dos seguintes valores:
+- status é "40x", "50 vezes" ou outros números, selecione no (s) item (ns) para ver os detalhes. Você deve ver os detalhes do item à direita. Localizar a seção "cabeçalho de resposta"; em seguida, verifique se um item chamado "Access-Control-Allow-Origin" existe. Nesse caso, verifique se ele tem um dos seguintes valores:
 
     - `*`(asterisco único)
-    - https://web.azuresynapse.net/(ou outro valor com o que o texto na barra de endereços do seu navegador começa com)
+    - https://web.azuresynapse.net/(ou outro valor no qual o texto em sua barra de endereços do navegador começa)
 
-Se o cabeçalho de resposta contém um dos valores acima, significa que já deveríamos ter coletado as informações de falha. Você pode abrir um ticket de suporte se necessário e, opcionalmente, anexar a captura de tela dos detalhes do item.
+Se o cabeçalho de resposta contiver um dos valores acima, isso significa que já deve ter coletado as informações de falha. Você pode abrir um tíquete de suporte, se necessário, e, opcionalmente, anexar a captura de tela dos detalhes do item.
 
-Se você não puder ver o cabeçalho ou o cabeçalho não tiver um dos valores listados acima, anexe uma captura de tela dos detalhes do item ao abrir o bilhete.
+Se você não conseguir ver o cabeçalho ou se o cabeçalho não tiver um dos valores listados acima, anexe uma captura de tela dos detalhes do item ao abrir o tíquete.
 
-![detalhes do item](media/troubleshooting-synapse-studio/item-details.png)
+![item-detalhes](media/troubleshooting-synapse-studio/item-details.png)
 
-Se as etapas acima não resolverem seu problema, você pode precisar abrir um ticket de suporte. Ao enviar seu bilhete de suporte, inclua o "Session ID" ou "Diagnostic Info" baixado no início deste guia.
+Se as etapas acima não resolverem o problema, talvez seja necessário abrir um tíquete de suporte. Ao enviar seu tíquete de suporte, inclua a "ID da sessão" ou "informações de diagnóstico" baixadas no início deste guia.
 
-Ao relatar o problema, você pode, opcionalmente, tirar uma captura de tela da sua guia "Console" na "Ferramentas do Desenvolvedor" e anexá-la ao bilhete de suporte. Role o conteúdo e tire mais de uma captura de tela, se necessário, para capturar toda a mensagem.
+Ao relatar o problema, você pode, opcionalmente, tirar uma captura de tela da guia "console" no "Ferramentas para Desenvolvedores" e anexá-la ao tíquete de suporte. Role o conteúdo e leve mais de uma captura de tela, se necessário, para capturar a mensagem inteira.
 
-![desenvolvedor-ferramenta-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![Developer-Tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
-Se você estiver anexando capturas de tela, forneça o tempo (ou um intervalo de tempo estimado) de quando você tirou as capturas de tela. Vai nos ajudar quando olhar para o problema.
+Se você estiver anexando capturas de tela, forneça a hora (ou um intervalo de tempo estimado) de quando você tirou as capturas de tela. Ele nos ajudará ao olhar o problema.
 
-Certos navegadores suportam mostrar carimbos na guia "Console". Para O Chromium Edge/Chrome, abra a caixa de diálogo "Configurações" em "Ferramentas do desenvolvedor" e marque "Mostrar carimbos de tempo" na guia "Preferências".
+Determinados navegadores dão suporte à exibição de carimbos de data/hora na guia "console". Para o Chromium Edge/Chrome, abra a caixa de diálogo "configurações" em "Ferramentas para Desenvolvedores" e marque "mostrar carimbos de data/hora" na guia "Preferências".
 
-![configurações de desenvolvedor-ferramenta-console](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![Developer-Tool-console-Settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![show-time-carimbo](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Mostrar carimbo de data/hora](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se as etapas anteriores não ajudarem a resolver o problema [Crie um ticket de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Se as etapas anteriores não ajudarem a resolver o problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

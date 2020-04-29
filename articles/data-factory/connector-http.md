@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de uma fonte HTTP usando a Fábrica de Dados do Azure
+title: Copiar dados de uma origem HTTP usando Azure Data Factory
 description: Saiba como copiar dados de uma fonte HTTP local ou de nuvem para armazenamentos de dados de coletor com suporte, usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 730efb552ef218cc5a5ce6a984d20b4e23b364ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416951"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando o Azure Data Factory
@@ -36,10 +36,10 @@ A diferença entre esse conector HTTP, o [conector REST](connector-rest.md) e o 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector HTTP é suportado para as seguintes atividades:
+Este conector HTTP tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de uma origem HTTP para qualquer repositório de dados do coletor com suporte. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -68,11 +68,11 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **do tipo** deve ser definida como **HttpServer**. | Sim |
+| type | A propriedade **Type** deve ser definida como **HttpServer**. | Sim |
 | url | A URL base para o servidor web. | Sim |
-| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado TLS/SSL do servidor quando você se conectar a um ponto final HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **verdadeiro**) |
+| enableServerCertificateValidation | Especifique se a validação do certificado TLS/SSL do servidor deve ser habilitada quando você se conectar a um ponto de extremidade HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **true**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando a autenticação Básica, Digest ou Windows
 
@@ -120,11 +120,11 @@ Para usar a autenticação ClientCertificate, defina a propriedade **authenticat
 Se você usar **certThumbprint** para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, conceda permissões de leitura ao runtime de integração auto-hospedada:
 
 1. Abra o console de gerenciamento Microsoft (MMC). Adicione a **certificados** snap-in que tem como alvo **computador Local**.
-2. Expandir **certificados** > **pessoais**e, em seguida, selecionar **Certificados**.
-3. Clique com o botão direito do mouse no certificado na loja pessoal e, em seguida, selecione **Todas as tarefas** > **Gerenciar chaves privadas**.
+2. Expanda **certificados** > **pessoal**e selecione **certificados**.
+3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **todas as tarefas** > **gerenciar chaves privadas**.
 3. Na guia **Segurança**, adicione a conta de usuário na qual o Serviço de Host do Integration Runtime (DIAHostService) está em execução, com acesso de leitura ao certificado.
 
-**Exemplo 1: Usando certThumbprint**
+**Exemplo 1: usando certThumbprint**
 
 ```json
 {
@@ -144,7 +144,7 @@ Se você usar **certThumbprint** para autenticação e o certificado estiver ins
 }
 ```
 
-**Exemplo 2: Usando embeddedCertData**
+**Exemplo 2: usando embeddedCertData**
 
 ```json
 {
@@ -174,12 +174,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As seguintes propriedades são `location` suportadas para HTTP em configurações no conjunto de dados baseado em formato:
+As propriedades a seguir têm suporte para HTTP `location` em configurações no conjunto de conjuntos baseado em formato:
 
 | Propriedade    | Descrição                                                  | Obrigatório |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | A propriedade `location` de tipo em conjunto de dados deve ser definida como **HttpServerLocation**. | Sim      |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. O conector HTTP copia dados da `[URL specified in linked service][relative URL specified in dataset]`URL combinada: .   | Não       |
+| type        | A propriedade Type em `location` DataSet deve ser definida como **HttpServerLocation**. | Sim      |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. O conector HTTP copia dados da URL combinada: `[URL specified in linked service][relative URL specified in dataset]`.   | Não       |
 
 > [!NOTE]
 > O tamanho da carga útil do pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga útil que você deseja passar para seu ponto de extremidade da web for maior que 500 KB, considere agrupar a carga útil em partes menores.
@@ -220,16 +220,16 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-As seguintes propriedades são `storeSettings` suportadas para HTTP em configurações na fonte de cópia baseada em formato:
+As propriedades a seguir têm suporte para HTTP `storeSettings` em configurações na fonte de cópia baseada em formato:
 
 | Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | A propriedade `storeSettings` de tipo em baixo deve ser definida como **HttpReadSettings**. | Sim      |
+| type                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSettings**. | Sim      |
 | requestMethod            | O método HTTP. <br>Valores permitidos são **Obtenha** (padrão) e **Post**. | Não       |
 | addtionalHeaders         | Cabeçalhos de solicitação HTTP adicionais.                             | Não       |
 | requestBody              | O corpo da solicitação HTTP.                               | Não       |
 | httpRequestTimeout           | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**. | Não       |
-| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não       |
+| maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
 **Exemplo:**
 
@@ -272,26 +272,26 @@ As seguintes propriedades são `storeSettings` suportadas para HTTP em configura
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
-## <a name="legacy-models"></a>Modelos legados
+## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->Os modelos a seguir ainda são suportados como-é para compatibilidade retrógrada. Sugere-se que você use o novo modelo mencionado nas seções acima daqui para frente, e a ui de autoria da ADF passou a gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte como estão para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
 
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade do **tipo** do conjunto de dados deve ser definida como **HttpFile**. | Sim |
+| type | A propriedade **Type** do conjunto de conjuntos deve ser definida como **httpfile**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente o URL especificado na definição de serviço vinculada é usado. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
 | format | Se você deseja recuperar dados do terminal HTTP como estão, sem analisá-los e, em seguida, copiar os dados para um armazenamento baseado em arquivo, ignore a seção **formato** nas definições de conjunto de dados de entrada e saída.<br/><br/>Se você desejar analisar o conteúdo da resposta HTTP durante a cópia, os seguintes tipos de formato de arquivo serão suportados: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. No **formato**, defina a propriedade **tipo** como um desses valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) e [formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Tipos com suporte: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados: **Ótimo** e **Mais Rápido**. |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Tipos com suporte: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis com suporte: **ideal** e **mais rápido**. |Não |
 
 > [!NOTE]
 > O tamanho da carga útil do pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga útil que você deseja passar para seu ponto de extremidade da web for maior que 500 KB, considere agrupar a carga útil em partes menores.
@@ -335,11 +335,11 @@ Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](con
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de atividade de cópia legado
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A **type** propriedade tipo da fonte de atividade de cópia deve ser definida como **HttpSource**. | Sim |
+| type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **httpname**. | Sim |
 | httpRequestTimeout | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. O valor padrão é **01:00:40**.  | Não |
 
 **Exemplo**

@@ -1,6 +1,6 @@
 ---
-title: Query Parquet aninhado tipos usando SQL sob demanda (visualização)
-description: Neste artigo, você aprenderá como consultar os tipos aninhados do Parquet.
+title: Consultar tipos aninhados do parquet usando SQL sob demanda (versão prévia)
+description: Neste artigo, você aprenderá a consultar os tipos aninhados do parquet.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: a1e3d3c7494aa75b3f6d481d12135316791772d4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431651"
 ---
-# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Query Parquet aninhado tipos usando SQL sob demanda (visualização) no Azure Synapse Analytics
+# <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar tipos aninhados do parquet usando SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL sob demanda (visualização) no Azure Synapse Analytics.  Esta consulta lerá os tipos aninhados do Parquet.
+Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics.  Essa consulta lerá os tipos aninhados parquet.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o resto deste artigo, revise os seguintes artigos:
+Antes de ler o restante deste artigo, examine os seguintes artigos:
 
-- [Configuração pela primeira vez](query-data-storage.md#first-time-setup)
+- [Configuração inicial](query-data-storage.md#first-time-setup)
 - [Pré-requisitos](query-data-storage.md#prerequisites)
 
-## <a name="project-nested-or-repeated-data"></a>Projetiam dados aninhados ou repetidos
+## <a name="project-nested-or-repeated-data"></a>Dados de projeto aninhados ou repetidos
 
-A consulta a seguir lê o arquivo *justSimpleArray.parquet.* Ele projeta todas as colunas do arquivo Parquet, incluindo dados aninhados ou repetidos.
+A consulta a seguir lê o arquivo *justSimpleArray. parquet* . Ele projeta todas as colunas do arquivo parquet, incluindo dados aninhados ou repetidos.
 
 ```sql
 SELECT
@@ -43,7 +43,7 @@ FROM
 
 ## <a name="access-elements-from-nested-columns"></a>Elementos de acesso de colunas aninhadas
 
-A consulta a seguir lê o arquivo *structExample.parquet* e mostra como superfície elementos de uma coluna aninhada:
+A consulta a seguir lê o arquivo *structExample. parquet* e mostra como Surface elementos de uma coluna aninhada:
 
 ```sql
 SELECT
@@ -68,9 +68,9 @@ FROM
     ) AS [r];
 ```
 
-## <a name="access-elements-from-repeated-columns"></a>Elementos de acesso de colunas repetidas
+## <a name="access-elements-from-repeated-columns"></a>Acessar elementos de colunas repetidas
 
-A consulta a seguir lê o arquivo *justSimpleArray.parquet* e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **escalar** de dentro de uma coluna repetida, como um Array ou Map:
+A consulta a seguir lê o arquivo *justSimpleArray. parquet* e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **escalar** de dentro de uma coluna repetida, como uma matriz ou um mapa:
 
 ```sql
 SELECT
@@ -85,7 +85,7 @@ FROM
     ) AS [r];
 ```
 
-A consulta a seguir lê o arquivo *mapExample.parquet* e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **não escalar** de dentro de uma coluna repetida, como um Array ou Map:
+A consulta a seguir lê o arquivo *mapExample. parquet* e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar um elemento **não escalar** de dentro de uma coluna repetida, como uma matriz ou um mapa:
 
 ```sql
 SELECT

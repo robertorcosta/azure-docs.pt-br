@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417991"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
@@ -54,11 +54,11 @@ As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior n
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Nome | Descrição | Type | Obrigatório?
+Name | Descrição | Type | Necessário?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-source | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes da seção **Propriedades Copy Activity** em cada artigo do conector correspondente. | Pares chave/valor | Sim
-firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Boolean | Não. O padrão é `true`.
+source | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes da seção **Propriedades da atividade de cópia** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Booliano | Não. O padrão é `true`.
 
 > [!NOTE]
 > 
@@ -190,7 +190,7 @@ O conjunto de dados de **pesquisa** é o arquivo **sourcetable.json** na pasta d
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>Conjunto de dados de **origem** da atividade Copy
-O conjunto de dados de **origem** usa a saída da atividade Procurar, que é o nome da tabela SQL. A atividade Copy copia dados dessa tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pelo conjunto de dados do **coletor**. 
+O conjunto de **fonte de origem** usa a saída da atividade de pesquisa, que é o nome da tabela SQL. A atividade Copy copia dados dessa tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pelo conjunto de dados do **coletor**. 
 
 ```json
 {
@@ -304,7 +304,7 @@ Aqui estão algumas limitações da atividade de pesquisa e soluções alternati
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md)
+- [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
-- [Atividade web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)

@@ -1,6 +1,6 @@
 ---
 title: Parametrizando os fluxos de dados de mapeamento
-description: Saiba como parametrizar um fluxo de dados de mapeamento de pipelines de fábrica de dados
+description: Saiba como Parametrizar um fluxo de dados de mapeamento de pipelines data factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,66 +8,66 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 82660cdb4ab6523bae7608fe3b071f20cb3603f8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419163"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizando os fluxos de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-O mapeamento dos fluxos de dados na Fábrica de Dados do Azure suporta o uso de parâmetros. Você pode definir parâmetros dentro da definição de fluxo de dados, que você pode usar ao longo de suas expressões. Os valores dos parâmetros podem ser definidos pelo pipeline de chamada através da atividade Executar fluxo de dados. Você tem três opções para definir os valores nas expressões de atividade de fluxo de dados:
+O mapeamento de fluxos de dados no Azure Data Factory dá suporte ao uso de parâmetros. Você pode definir parâmetros dentro de sua definição de fluxo de dados, que você pode usar em todas as expressões. Os valores de parâmetro podem ser definidos pelo pipeline de chamada por meio da atividade executar fluxo de dados. Você tem três opções para definir os valores nas expressões de atividade de fluxo de dados:
 
-* Use a linguagem de expressão de fluxo de controle de pipeline para definir um valor dinâmico
-* Use a linguagem de expressão de fluxo de dados para definir um valor dinâmico
+* Usar a linguagem de expressão do fluxo de controle de pipeline para definir um valor dinâmico
+* Usar a linguagem de expressão de fluxo de dados para definir um valor dinâmico
 * Use qualquer linguagem de expressão para definir um valor literal estático
 
-Use esse recurso para tornar seus fluxos de dados de uso geral, flexíveis e reutilizáveis. Você pode parametrizar as configurações e expressões do fluxo de dados com esses parâmetros.
+Use essa capacidade para tornar seus fluxos de dados de uso geral, flexíveis e reutilizáveis. Você pode parametrizar as configurações de fluxo de dados e expressões com esses parâmetros.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Criar parâmetros em um fluxo de dados de mapeamento
 
-Para adicionar parâmetros ao seu fluxo de dados, clique na parte em branco da tela de fluxo de dados para ver as propriedades gerais. No painel de configurações, você verá uma guia chamada **Parâmetro**. Selecione **Novo** para gerar um novo parâmetro. Para cada parâmetro, você deve atribuir um nome, selecionar um tipo e, opcionalmente, definir um valor padrão.
+Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela fluxo de dados para ver as propriedades gerais. No painel configurações, você verá uma guia chamada **parâmetro**. Selecione **novo** para gerar um novo parâmetro. Para cada parâmetro, você deve atribuir um nome, selecionar um tipo e, opcionalmente, definir um valor padrão.
 
 ![Criar parâmetros de fluxo de dados](media/data-flow/create-params.png "Criar parâmetros de fluxo de dados")
 
-## <a name="use-parameters-in-a-mapping-data-flow"></a>Use parâmetros em um fluxo de dados de mapeamento 
+## <a name="use-parameters-in-a-mapping-data-flow"></a>Usar parâmetros em um fluxo de dados de mapeamento 
 
-Os parâmetros podem ser referenciados em qualquer expressão de fluxo de dados. Os parâmetros começam com $ e são imutáveis. Você encontrará a lista de parâmetros disponíveis dentro do Expression Builder na guia **Parâmetros.**
+Os parâmetros podem ser referenciados em qualquer expressão de fluxo de dados. Os parâmetros começam com $ e são imutáveis. Você encontrará a lista de parâmetros disponíveis no construtor de expressões, na guia **parâmetros** .
 
-![Expressão do parâmetro de fluxo de dados](media/data-flow/parameter-expression.png "Expressão do parâmetro de fluxo de dados")
+![Expressão de parâmetro de fluxo de dados](media/data-flow/parameter-expression.png "Expressão de parâmetro de fluxo de dados")
 
-Você pode adicionar rapidamente parâmetros adicionais selecionando **Novo parâmetro** e especificando o nome e o tipo.
+Você pode adicionar parâmetros adicionais rapidamente selecionando **novo parâmetro** e especificando o nome e o tipo.
 
-![Expressão do parâmetro de fluxo de dados](media/data-flow/new-parameter-expression.png "Expressão do parâmetro de fluxo de dados")
+![Expressão de parâmetro de fluxo de dados](media/data-flow/new-parameter-expression.png "Expressão de parâmetro de fluxo de dados")
 
-### <a name="passing-in-a-column-name-as-a-parameter"></a>Passando em um nome de coluna como um parâmetro
+### <a name="passing-in-a-column-name-as-a-parameter"></a>Passando um nome de coluna como um parâmetro
 
-Um padrão comum é passar em um nome de coluna como um valor de parâmetro. Para referenciar a coluna associada ao `byName()` parâmetro, use a função. Lembre-se de lançar a coluna para o `toString()`seu tipo apropriado com uma função de fundição como .
+Um padrão comum é passar um nome de coluna como um valor de parâmetro. Para fazer referência à coluna associada ao parâmetro, use a `byName()` função. Lembre-se de converter a coluna em seu tipo apropriado com uma função de `toString()`conversão, como.
 
-Por exemplo, se você quiser mapear uma coluna `columnName`de strings com base em `toString(byName($columnName))`um parâmetro, você pode adicionar uma transformação de coluna derivada igual a .
+Por exemplo, se você quisesse mapear uma coluna de cadeia de caracteres com `columnName`base em um parâmetro, poderá adicionar uma transformação coluna `toString(byName($columnName))`derivada igual a.
 
-![Passando em um nome de coluna como um parâmetro](media/data-flow/parameterize-column-name.png "Passando em um nome de coluna como um paramete")
+![Passando um nome de coluna como um parâmetro](media/data-flow/parameterize-column-name.png "Passando um nome de coluna como um paramete")
 
-## <a name="assign-parameter-values-from-a-pipeline"></a>Atribuir valores de parâmetro de um gasoduto
+## <a name="assign-parameter-values-from-a-pipeline"></a>Atribuir valores de parâmetro de um pipeline
 
-Depois de criar seu fluxo de dados com parâmetros, você pode executá-lo a partir de um pipeline com a Atividade de Fluxo de Dados executar. Depois de adicionar a atividade à tela do pipeline, você será apresentado com os parâmetros de fluxo de dados disponíveis na guia **Parâmetros** da atividade.
+Depois de criar o fluxo de dados com parâmetros, você pode executá-lo de um pipeline com a atividade executar fluxo de dados. Depois de adicionar a atividade à tela do pipeline, você verá os parâmetros de fluxo de dados disponíveis na guia **parâmetros** da atividade.
 
 ![Definindo um parâmetro de fluxo de dados](media/data-flow/parameter-assign.png "Definindo um parâmetro de fluxo de dados")
 
-Se o seu tipo de dados de parâmetro for string, quando você clicar na caixa de texto para definir valores de parâmetro, você pode optar por inserir um pipeline ou uma expressão de fluxo de dados. Se você escolher a expressão do pipeline, você será apresentado com o painel de expressão do pipeline. Certifique-se de incluir funções de pipeline `'@{<expression>}'`dentro da sintaxe de interpolação de seqüência usando, por exemplo:
+Se o tipo de dados do parâmetro for cadeia de caracteres, quando você clicar na caixa de texto para definir valores de parâmetro, poderá optar por inserir um pipeline ou uma expressão de fluxo de dados. Se você escolher expressão de pipeline, verá o painel expressão de pipeline. Certifique-se de incluir funções de pipeline dentro da sintaxe `'@{<expression>}'`de interpolação de cadeia de caracteres usando, por exemplo:
 
 ```'@{pipeline().RunId}'```
 
-Se o seu parâmetro não for de string tipo, você sempre será apresentado ao Data Flow Expression Builder. Aqui, você pode inserir qualquer expressão ou valores literais que desejar que corresponda ao tipo de dados do parâmetro. Abaixo estão exemplos de expressão de fluxo de dados e uma seqüência literal do construtor de expressão:
+Se o parâmetro não for do tipo cadeia de caracteres, você sempre será apresentado com o construtor de expressões de fluxo de dados. Aqui, você pode inserir qualquer expressão ou valores literais que deseja que correspondam ao tipo de dados do parâmetro. Abaixo estão exemplos de expressão de fluxo de dados e uma cadeia de caracteres literal do construtor de expressões:
 
 * ```toInteger(Role)```
 * ```'this is my static literal string'```
 
-Cada fluxo de dados de mapeamento pode ter qualquer combinação de parâmetros de expressão de pipeline e fluxo de dados. 
+Cada fluxo de dados de mapeamento pode ter qualquer combinação de parâmetros de expressão de fluxo de dados e pipeline. 
 
-![Amostra de parâmetros de fluxo de dados](media/data-flow/parameter-example.png "Amostra de parâmetros de fluxo de dados")
+![Exemplo de parâmetros de fluxo de dados](media/data-flow/parameter-example.png "Exemplo de parâmetros de fluxo de dados")
 
 
 

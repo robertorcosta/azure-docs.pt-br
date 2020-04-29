@@ -1,15 +1,15 @@
 ---
-title: Equilibre seu cluster de malha de serviço do Azure
+title: Equilibre o cluster de Service Fabric do Azure
 description: Uma introdução ao balanceamento de cluster com o Gerenciador de Recursos de Cluster do Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416264"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
@@ -27,9 +27,9 @@ O primeiro conjunto de controles de balanceamento são um conjunto de temporizad
 Cada um desses tipos diferentes de correções que o Gerenciador de Recursos de Cluster pode fazer é controlado por um temporizador diferente que rege sua frequência. Quando cada temporizador é acionado, a tarefa é agendada. Por padrão, o Resource Manager:
 
 * verifica o estado e aplica atualizações (como gravação de um nó estiver inativo) cada 1/10 de segundo
-* define a bandeira de verificação de colocação a cada segundo
+* define o sinalizador de verificação de posicionamento a cada segundo
 * define o sinalizador de verificação de restrição a cada segundo
-* define a bandeira de equilíbrio a cada cinco segundos
+* define o sinalizador de balanceamento a cada cinco segundos
 
 Veja a seguir exemplos de configuração que governam esses temporizadores:
 
@@ -81,7 +81,7 @@ O Resource Manager de Cluster também precisa de algumas informações adicionai
 ## <a name="balancing-thresholds"></a>Limites de balanceamento
 Um Limite de Balanceamento é o controle principal que dispara o rebalanceamento. O Limite de Balanceamento para uma métrica é uma _razão_. Se a carga de uma métrica no nó mais carregado dividido pela quantidade de carga no nó menos carregado excede o *Limite de Balanceamento* dessa métrica, o cluster é desequilibrado. Como resultado de balanceamento é disparada na próxima vez que o Resource Manager de Cluster verifica. O temporizador *MinLoadBalancingInterval* define a frequência com que o Gerenciador de Recursos de Cluster deve verificar se o rebalanceamento é necessário. A verificação não significa que nada acontece. 
 
-Os Limites de Balanceamento são definidos baseados em cada métrica, como parte da definição do cluster. Para obter mais informações sobre métricas, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md).
+Os Limites de Balanceamento são definidos baseados em cada métrica, como parte da definição do cluster. Para obter mais informações sobre métricas, confira [Este artigo](service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
@@ -202,10 +202,10 @@ O Gerenciador de Recursos de Cluster descobre automaticamente quais serviços es
 </center>
 
 ## <a name="next-steps"></a>Próximas etapas
-* As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+* As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Este artigo](service-fabric-cluster-resource-manager-metrics.md)
 * O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 * O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* O Gerenciador de Recursos de Cluster pode reconhecer e lidar com subclustering (uma situação que às vezes surge quando você usa restrições de colocação e balanceamento). Para saber como o subclustering pode afetar o equilíbrio e como você pode lidar com isso, veja [aqui](cluster-resource-manager-subclustering.md)
+* O Gerenciador de recursos de cluster pode reconhecer e manipular o subclustering (uma situação que algumas vezes surge quando você usa restrições de posicionamento e balanceamento). Para saber como os subclusters podem afetar o balanceamento e como você pode tratá-lo, consulte [aqui](cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

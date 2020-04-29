@@ -1,6 +1,6 @@
 ---
-title: O pipeline do Monitor executa o Azure Synapse Studio (pré-visualização)
-description: Use o Azure Synapse Studio para monitorar as operações do seu pipeline de espaço de trabalho.
+title: Monitorar execuções de pipeline do Azure Synapse Studio (visualização)
+description: Use o Azure Synapse Studio para monitorar as execuções de pipeline de espaço de trabalho.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,46 +9,46 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 712dc62e29229f03dec12afdf18edbf55667dbdf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430780"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Use o Azure Synapse Studio para monitorar as operações do pipeline do seu espaço de trabalho
+# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Usar o Azure Synapse Studio para monitorar as execuções de pipeline de espaço de trabalho
 
-Com o Azure Synapse Analytics, você pode criar pipelines complexos que podem automatizar e orquestrar suas atividades de movimentação de dados, transformação de dados e computação dentro de sua solução. Você pode escrever e monitorar esses pipelines usando o Azure Synapse Studio (visualização).
+Com o Azure Synapse Analytics, você pode criar pipelines complexos que podem automatizar e orquestrar a movimentação de dados, a transformação de dados e as atividades de computação em sua solução. Você pode criar e monitorar esses pipelines usando o Azure Synapse Studio (versão prévia).
 
-Este artigo explica como monitorar suas corridas de pipeline, o que permite que você fique de olho no status, problemas e progresso dos seus pipelines.
+Este artigo explica como monitorar as execuções de pipeline, o que permite que você fique atento ao status, aos problemas e ao progresso mais recentes de seus pipelines.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Acesse a lista de corridas de gasodutos
+## <a name="access-the-list-of-pipeline-runs"></a>Acessar a lista de execuções de pipeline
 
-Para ver a lista de pipeline saqueado em seu espaço de trabalho, abra primeiro [o Azure Synapse Studio](https://web.azuresynapse.net/) e selecione seu espaço de trabalho.
+Para ver a lista de execuções de pipeline em seu espaço de trabalho, primeiro [abra o Azure Synapse Studio](https://web.azuresynapse.net/) e selecione seu espaço de trabalho.
 
-![Faça login no espaço de trabalho](./media/common/login-workspace.png)
+![Fazer logon no espaço de trabalho](./media/common/login-workspace.png)
 
 Depois de abrir seu espaço de trabalho, selecione a seção **Monitor** à esquerda.
 
-![Selecione o hub Monitor](./media/common/left-nav.png)
+![Selecionar Hub de monitor](./media/common/left-nav.png)
 
-Selecione **pipeline executado** para exibir a lista de executões de pipeline.
+Selecione **pipeline executions** para exibir a lista de execuções de pipeline.
 
-![Selecione as executões do pipeline](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
+![Selecionar execuções de pipeline](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtrando suas corridas de pipeline
+## <a name="filtering-your-pipeline-runs"></a>Filtrando suas execuções de pipeline
 
-Você pode filtrar a lista de corridas de gasodutos para as que você está interessado. Os filtros na parte superior da tela permitem especificar um campo no qual você gostaria de filtrar.
+Você pode filtrar a lista de execuções de pipeline para aquelas nas quais você está interessado. Os filtros na parte superior da tela permitem especificar um campo no qual você deseja filtrar.
 
-Por exemplo, você pode filtrar a exibição para ver apenas o pipeline executado para o pipeline chamado "holiday":
+Por exemplo, você pode filtrar a exibição para ver apenas as execuções de pipeline para o pipeline chamado "feriado":
 
 ![Botão Filtrar](./media/common/filter-button.png)
 
-![Filtro de amostra](./media/how-to-monitor-pipeline-runs/filter-example.png)
+![Filtro de exemplo](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Visualização de detalhes sobre uma execução específica de pipeline
+## <a name="viewing-details-about-a-specific-pipeline-run"></a>Exibindo detalhes sobre uma execução de pipeline específica
 
-Para ver detalhes sobre a execução do pipeline, selecione a execução do pipeline. Em seguida, veja as atividades executadas associadas à execução do pipeline. Se o oleoduto ainda estiver funcionando, você pode monitorar o progresso. 
+Para exibir detalhes sobre a execução do pipeline, selecione a execução do pipeline. Em seguida, exiba as execuções de atividade associadas à execução do pipeline. Se o pipeline ainda estiver em execução, você poderá monitorar o progresso. 
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre aplicativos de monitoramento, consulte o artigo [do Monitor Apache Spark.](how-to-monitor-spark-applications.md) 
+Para saber mais sobre o monitoramento de aplicativos, consulte o artigo [monitorar Apache Spark aplicativos](how-to-monitor-spark-applications.md) . 

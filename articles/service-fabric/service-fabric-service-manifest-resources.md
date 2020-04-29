@@ -1,30 +1,30 @@
 ---
-title: Especificando pontos finais de serviço de malha de serviço
+title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417585"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
-O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados ou alterados, sem alterar o código compilado. O Service Fabric suporta a configuração de recursos de ponto final para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados ou alterados sem alterar o código compilado. Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema para o arquivo ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Pontos de extremidade
 Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no snippet de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós diferentes do cluster podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme a necessidade para replicação e escuta de solicitações de clientes.
 
-Ao ativar um serviço que especifica um ponto final https, o Service Fabric definirá a entrada de controle de acesso para a porta, vinculará o certificado de servidor especificado à porta e também concederá a identidade de que o serviço está sendo executado como permissões para a chave privada do certificado. O fluxo de ativação é invocado toda vez que a Malha de Serviço é iniciada, ou quando a declaração de certificado do aplicativo é alterada através de uma atualização. O certificado de ponto final também será monitorado para alterações/renovações, e as permissões serão reaplicadas periodicamente conforme necessário.
+Na ativação de um serviço que especifica um ponto de extremidade HTTPS, Service Fabric definirá a entrada de controle de acesso para a porta, associará o certificado do servidor especificado à porta e também concederá a identidade que o serviço está executando como permissões para a chave privada do certificado. O fluxo de ativação é invocado toda vez que Service Fabric é iniciado ou quando a declaração de certificado do aplicativo é alterada por meio de uma atualização. O certificado do ponto de extremidade também será monitorado quanto a alterações/renovações e as permissões serão reaplicadas periodicamente conforme necessário.
 
-Após o término do serviço, a Service Fabric limpará a entrada de controle de acesso ao ponto final e removerá a vinculação do certificado. No entanto, quaisquer permissões aplicadas à chave privada do certificado não serão limpas.
+Após o encerramento do serviço, Service Fabric limpará a entrada de controle de acesso do ponto de extremidade e removerá a associação de certificado. No entanto, todas as permissões aplicadas à chave privada do certificado não serão limpas.
 
 > [!WARNING] 
-> Por design, as portas estáticas não devem se sobrepor à faixa de porta de aplicativo especificada no ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo da porta de aplicação, caso contrário, resultará em conflitos de porta. Com a liberação 6.5CU2 emitiremos um **Aviso de Saúde** quando detectarmos tal conflito, mas deixamos a implantação continuar em sincronia com o comportamento 6.5 enviado. No entanto, podemos impedir a implantação do aplicativo das próximas grandes versões.
+> As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
 >
-> Com a versão 7.0, emitiremos um **Aviso de Saúde** quando detectarmos o uso da faixa de porta de aplicativo vai além do HostingConfig::ApplicationPortExhaustThresholdPercentage (padrão 80%).
+> Com a versão 7,0, emiteremos um **aviso de integridade** quando detectamos que o uso do intervalo de portas do aplicativo vai além de HostingConfig:: ApplicationPortExhaustThresholdPercentage (padrão 80%).
 >
 
 ```xml
@@ -111,7 +111,7 @@ O protocolo HTTPS fornece autenticação de servidor e também é usado para cri
 > Ao usar HTTPS, não use a mesma porta e o certificado de instâncias de serviço diferente (independentemente do aplicativo) implantados no mesmo nó. O upgrade de dois serviços diferentes usando a mesma porta em instâncias de aplicativo diferentes resultará em uma falha de upgrade. Para obter mais informações, consulte [Atualizando vários aplicativos com pontos de extremidade HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Aqui está um exemplo do ApplicationManifest demonstrando a configuração necessária para um ponto final HTTPS. O certificado servidor/ponto final pode ser declarado por impressão digital ou nome comum do assunto, e um valor deve ser fornecido. O EndpointRef é uma referência ao EndpointResource no ServiceManifest e cujo protocolo deve ter sido definido como protocolo 'https'. Você pode adicionar mais de um EndpointCertificate.  
+Aqui está um exemplo de ApplicationManifest demonstrando a configuração necessária para um ponto de extremidade HTTPS. O certificado de servidor/ponto de extremidade pode ser declarado pela impressão digital ou pelo nome comum da entidade, e um valor deve ser fornecido. O EndpointRef é uma referência a EndpointResource no manifesto e cujo protocolo deve ter sido definido para o protocolo ' https '. Você pode adicionar mais de um EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,4 +216,4 @@ Se estiver no ServiceManifest especificado
 
 E o valor de Port1 e Protocol1 para parâmetros do Aplicativo for nulo ou vazio. A porta ainda é decidida pelo ServiceFabric. E o protocolo será tcp.
 
-Vamos supor que você especifica um valor incorreto. Como para Port você especificou um valor de string "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro : O parâmetro de substituição com o nome 'ServiceEndpoint1' atributo 'Port1' na seção 'ResourceOverrides' é inválido. O valor especificado é 'Foo', e exige 'int'.
+Vamos supor que você especifica um valor incorreto. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome ' ServiceEndpoint1 ', atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é 'Foo', e exige 'int'.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416279"
 ---
 <a name="web-analytics"></a>Web Analytics
@@ -70,7 +70,7 @@ Veja um exemplo:
     2.  URL da página de aterrissagem = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. O usuário clica em no link \"experimente meu produto\" e entra no AppSource.
     1. URL de referência = ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
-    2. URL da landing page (**Certifique-se\_de\_que esta URL tenha campanha utm e fonte utm adicionada a esta URL**) =```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
+    2. URL da página de aterrissagem (**Verifique se essa\_URL tem UTM\_Campaign e UTM Source adicionados a esta URL**) =```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Como avaliar o sucesso de uma campanha
 -----------------------------------------
@@ -93,7 +93,7 @@ De modo semelhante a como mostramos a taxa de conversão da oferta inteira, nest
 
 Semelhante ao modo como examinamos os domínios dos clientes, este gráfico permite que você veja a distribuição dos dados segundo a campanha pela qual os usuários estão chegando ao Marketplace. \_NoCampaign significa que o cliente não tinha uma ID de campanha na URL quando navegou para o Marketplace.
 
-<a name="next-steps"></a>**Próximos passos**
+<a name="next-steps"></a>**Próximas etapas**
 --------------
 
 Agora que você tem a capacidade de acompanhar o sucesso da oferta, queremos encorajá-lo a criar suas próprias campanhas.

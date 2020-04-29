@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade da Colmeia hadoop
+title: Transformar dados usando a atividade hive do Hadoop
 description: Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight.
 services: data-factory
 ms.service: data-factory
@@ -12,10 +12,10 @@ manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
 ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418925"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory
@@ -61,7 +61,7 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 | Propriedade            | Descrição                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | name                | Nome da atividade                                         | Sim      |
-| descrição         | Texto que descreve qual a utilidade da atividade                | Não       |
+| description         | Texto que descreve qual a utilidade da atividade                | Não       |
 | type                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
 | linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Hive a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
@@ -75,10 +75,10 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
-* [Atividade suína](transform-data-using-hadoop-pig.md)
+* [Atividade Pig](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Atividade de faísca](transform-data-using-spark.md)
-* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
-* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)
+* [Atividade do Spark](transform-data-using-spark.md)
+* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade de execução de Machine Learning lote](transform-data-using-machine-learning.md)
+* [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

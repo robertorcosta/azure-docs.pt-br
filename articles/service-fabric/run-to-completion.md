@@ -1,28 +1,28 @@
 ---
-title: Semântica RunToComplet em Malha de Serviço
-description: Descreve a semântica RunToComplet em Service Fabric.
+title: RunToCompletion semântica no Service Fabric
+description: Descreve a semântica RunToCompletion no Service Fabric.
 author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: shsha
 ms.openlocfilehash: adf4b11412aa752144d4ed4fef06d2de1d76598d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431287"
 ---
-# <a name="runtocompletion"></a>ExecuçãoCompletu
+# <a name="runtocompletion"></a>RunToCompletion
 
-A partir da versão 7.1, o Service Fabric suporta semântica **RunToComplet** para [contêineres][containers-introduction-link] e aplicativos [executáveis de hóspedes.][guest-executables-introduction-link] Essas semânticas permitem aplicativos e serviços que completam uma tarefa e saem, ao contrário, sempre executando aplicativos e serviços.
+A partir da versão 7,1, Service Fabric dá suporte à semântica **RunToCompletion** para [contêineres][containers-introduction-link] e aplicativos [executáveis de convidado][guest-executables-introduction-link] . Essas semânticas habilitam aplicativos e serviços que concluem uma tarefa e saem, em oposição a, sempre executando aplicativos e serviços.
 
-Antes de prosseguir com este artigo, recomendamos familiarizar-se com o [modelo de aplicação service fabric][application-model-link] e o modelo de [hospedagem Service Fabric][hosting-model-link].
+Antes de prosseguir com este artigo, recomendamos familiarizar-se com o [modelo de aplicativo Service Fabric][application-model-link] e o [modelo de Hospedagem de Service Fabric][hosting-model-link].
 
 > [!NOTE]
-> A semântica RunToComplet atualmente não é suportada para serviços escritos usando o modelo de programação [de Serviços Confiáveis.][reliable-services-link]
+> Atualmente, não há suporte para semântica RunToCompletion para serviços gravados usando o modelo de programação [Reliable Services][reliable-services-link] .
  
-## <a name="runtocompletion-semantics-and-specification"></a>RunToComplet semântica e especificação
-A semântica RunToComplet pode ser especificada como uma Diretiva de **Execução** [ao importar o ServiceManifest][application-and-service-manifests-link]. A diretiva especificada é herdada por todos os CodePackages que compõem o ServiceManifest. O seguinte trecho ApplicationManifest.xml fornece um exemplo.
+## <a name="runtocompletion-semantics-and-specification"></a>Semântica e especificação do RunToCompletion
+A semântica RunToCompletion pode ser especificada como um **ExecutionPolicy** ao [importar o manifesto][application-and-service-manifests-link]. A política especificada é herdada por todos os CodePackages que compõem o manifesto. O trecho de código ApplicationManifest. XML a seguir fornece um exemplo.
 
 ```xml
 <ServiceManifestImport>
@@ -33,21 +33,21 @@ A semântica RunToComplet pode ser especificada como uma Diretiva de **Execuçã
 </ServiceManifestImport>
 ```
 **ExecutionPolicy** permite os dois atributos a seguir:
-* **Tipo:** **RunToComplet** é atualmente o único valor permitido para este atributo.
-* **Reiniciar:** Este atributo especifica a política de reinicialização aplicada aos CodePackages que compõem o ServicePackage, em falha. Considera-se que um CodePackage saindo com um **código de saída não-zero** falhou. Os valores permitidos para este atributo são **OnFailure** e **Never** with **OnFailure** sendo o padrão.
+* **Tipo:** **RunToCompletion** atualmente é o único valor permitido para este atributo.
+* **Reiniciar:** Esse atributo especifica a política de reinicialização que é aplicada ao CodePackages que inclui o pacote de pacotes, em caso de falha. Uma CodePackage saindo com um **código de saída diferente de zero** é considerada como falha. Os valores permitidos para esse atributo são **OnFailure** e **nunca** com **OnFailure** é o padrão.
 
-Com a diretiva de reinicialização definida como **OnFailure**, se algum CodePackage falhar **(código de saída não zero)**, ele é reiniciado, com back-offs entre falhas repetidas. Com a diretiva de reinicialização definida como **Never**, se algum CodePackage falhar, o status de implantação do DeployedServicePackage será marcado como **Falha,** mas outros CodePackages podem continuar a execução. Se todos os Pacotes de Código que compõem o ServicePackage forem executados com sucesso de conclusão (código de **saída 0),** o status de implantação do DeployedServicePackage será marcado como **RanToComplet**. 
+Com a política de reinicialização **definida como**onfail, se qualquer CodePackage falhar **(código de saída diferente de zero)**, ele será reiniciado, com as desvantagens entre as falhas repetidas. Com a política de reinicialização definida como **nunca**, se qualquer CodePackage falhar, o status de implantação do DeployedServicePackage será marcado como **com falha** , mas outros CodePackages terão permissão para continuar a execução. Se todos os CodePackages que compõem o pacote de execução para a conclusão bem-sucedida **(código de saída 0)**, o status de implantação do DeployedServicePackage será marcado como **RanToCompletion**. 
 
-## <a name="complete-example-using-runtocompletion-semantics"></a>Exemplo completo usando a semântica RunToComplet
+## <a name="complete-example-using-runtocompletion-semantics"></a>Exemplo completo usando a semântica RunToCompletion
 
-Vamos olhar para um exemplo completo usando a semântica RunToComplet.
+Vejamos um exemplo completo usando a semântica RunToCompletion.
 
 > [!IMPORTANT]
-> O exemplo a seguir assume a familiaridade com a criação de [aplicativos de contêiner do Windows usando O Fabric de Serviço e o Docker][containers-getting-started-link].
+> O exemplo a seguir pressupõe familiaridade com a criação de [aplicativos de contêiner do Windows usando o Service Fabric e o Docker][containers-getting-started-link].
 >
-> Este exemplo faz referência mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Este exemplo faz referência a mcr.microsoft.com/windows/nanoserver:1809. Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-O serviceManifest.xml a seguir descreve um ServicePackage composto por dois CodePackages, que representam contêineres. *RunToCompletionCodePackage1* apenas registra uma mensagem para **stdout** e sai. *RunToCompletionCodePackage2* pinga o endereço de loopback por um tempo e, em seguida, sai com um código de saída de **0,** **1** ou **2**.
+O seguinte manifesto. XML descreve um pacote de pacotes que consiste em dois CodePackages, que representam contêineres. *RunToCompletionCodePackage1* apenas registra em log uma mensagem para **stdout** e sai. *RunToCompletionCodePackage2* executa ping no endereço de loopback por um tempo e, em seguida, sai com um código de saída de **0**, **1** ou **2**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ O serviceManifest.xml a seguir descreve um ServicePackage composto por dois Code
 </ServiceManifest>
 ```
 
-O aplicativo manifesto.xml a seguir descreve um aplicativo baseado no ServiceManifest.xml discutido acima. Ele especifica **RunToCompletion** **ExecutionPolicy** for *WindowsRunToCompletionServicePackage* com uma diretiva de reinicialização de **OnFailure**. Após a ativação do *WindowsRunToCompletionServicePackage,* seus CodePackages constituintes serão iniciados. *RunToCompletionCodePackage1* deve sair com sucesso na primeira ativação. No entanto, *RunToCompletionCodePackage2* pode falhar **(código de saída não zero)**, nesse caso ele será reiniciado uma vez que a diretiva de reinicialização é **OnFailure**.
+O ApplicationManifest. XML a seguir descreve um aplicativo baseado no manifesto. xml discutido acima. Ele especifica **RunToCompletion** **ExecutionPolicy** para *WindowsRunToCompletionServicePackage* com uma política de reinicialização de **OnFailure**. Após a ativação do *WindowsRunToCompletionServicePackage*, seu constituinte CodePackages será iniciado. *RunToCompletionCodePackage1* deve sair com êxito na primeira ativação. No entanto, o *RunToCompletionCodePackage2* pode falhar **(código de saída diferente de zero)**. nesse caso, ele será reiniciado, pois a política de reinicialização é **OnFailure**.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -103,21 +103,21 @@ O aplicativo manifesto.xml a seguir descreve um aplicativo baseado no ServiceMan
 </ApplicationManifest>
 ```
 ## <a name="querying-deployment-status-of-a-deployedservicepackage"></a>Consultando o status de implantação de um DeployedServicePackage
-O status de implantação de um DeployedServicePackage pode ser consultado pelo PowerShell usando [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] ou de C# usando [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync (String, Uri, String)][deployed-service-package-fabricclient-link]
+O status de implantação de um DeployedServicePackage pode ser consultado do PowerShell usando [Get-ServiceFabricDeployedServicePackage][deployed-service-package-link] ou do C# usando [FabricClient][fabric-client-link] API [GetDeployedServicePackageListAsync (cadeia de caracteres, Uri, Cadeia de caracteres)][deployed-service-package-fabricclient-link]
 
-## <a name="considerations-when-using-runtocompletion-semantics"></a>Considerações ao usar a semântica RunToComplet
+## <a name="considerations-when-using-runtocompletion-semantics"></a>Considerações ao usar a semântica RunToCompletion
 
-Os seguintes pontos devem ser observados para o suporte atual do RunToComplet.
-* Essas semânticas são suportadas apenas para [contêineres][containers-introduction-link] e aplicativos [executáveis de hóspedes.][guest-executables-introduction-link]
-* Não são permitidos cenários de upgrade para aplicativos com semântica RunToComplet. Os usuários devem excluir e recriar tais aplicativos, se necessário.
-* Eventos failover podem fazer com que os CodePackages sejam reexecutados após a conclusão bem-sucedida, no mesmo nó ou em outros nós do cluster. Exemplos de eventos de failover são, reinicializações de nó e upgrades de tempo de execução do Service Fabric em um nó.
+Os seguintes pontos devem ser indicados para o suporte atual do RunToCompletion.
+* Essas semânticas só têm suporte para [contêineres][containers-introduction-link] e aplicativos [executáveis de convidado][guest-executables-introduction-link] .
+* Cenários de atualização para aplicativos com semântica RunToCompletion não são permitidos. Os usuários devem excluir e recriar esses aplicativos, se necessário.
+* Eventos de failover podem fazer com que o CodePackages seja executado novamente após a conclusão bem-sucedida, no mesmo nó ou em outros nós do cluster. Exemplos de eventos de failover são, reinicializações de nó e Service Fabric atualizações de tempo de execução em um nó.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja os artigos a seguir para obter informações relacionadas.
+Consulte os artigos a seguir para obter informações relacionadas.
 
-* [Malha de serviço e contêineres.][containers-introduction-link]
-* [Fabric de serviço e executáveis convidados.][guest-executables-introduction-link]
+* [Service Fabric e contêineres.][containers-introduction-link]
+* [Executáveis Service Fabric e convidado.][guest-executables-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

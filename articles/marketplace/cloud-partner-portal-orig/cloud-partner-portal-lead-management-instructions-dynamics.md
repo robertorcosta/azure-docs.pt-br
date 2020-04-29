@@ -1,5 +1,5 @@
 ---
-title: CRM dinâmico | Mercado Azure
+title: Dynamics CRM | Azure Marketplace
 description: Configure o gerenciamento de leads para o Dynamics CRM.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416314"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar o gerenciamento de leads para o Dynamics CRM Online
@@ -55,16 +55,16 @@ Use as etapas a seguir para configurar o Azure Active Directory para o Dynamics 
 
 1.  Entre no [portal do Azure](https://portal.azure.com/) e selecione o serviço do Azure Active Directory.
 
-2.  Selecione **Propriedades** e copie o **Id do diretório**. Esta é a sua identificação de conta de inquilino que você precisa usar no Portal de Parceiros na Nuvem.
+2.  Selecione **Propriedades** e copie a **ID do diretório**. Essa é a identificação de sua conta de locatário que você precisa usar na Portal do Cloud Partner.
 
     ![Obter ID do diretório](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
-3.  Selecione **inscrições de aplicativos**e selecione Novo registro de **inscrição**.
+3.  Selecione **registros de aplicativo**e, em seguida, selecione **novo registro de aplicativo**.
 4.  Insira o nome do aplicativo.
 5.  Para tipo, selecione **Aplicativo Web/API**.
 6.  Forneça uma URL. Este campo não é necessário para leads, mas é necessário para criar um aplicativo.
 7. Selecione **Criar**.
-8.  Agora que seu aplicativo está registrado, selecione **Propriedades** e selecione **copiar o Id do aplicativo**. Você usará essas informações de conexão no Portal do Parceiro na Nuvem.
+8.  Agora que seu aplicativo está registrado, selecione **Propriedades** e, em seguida, selecione **copiar a ID do aplicativo**. Você usará essas informações de conexão no Portal do Cloud Partner.
 9.  Em Propriedades, defina o aplicativo como Multilocatário e, em seguida, selecione **Salvar**.
 
 10. Selecione **Chaves** e crie uma nova chave com a Duração definida para *Nunca expira*. Selecione **Salvar** para criar a chave. 
@@ -91,15 +91,15 @@ Use as etapas a seguir para configurar o Azure Active Directory para o Dynamics 
 
 ### <a name="office-365"></a>Office 365
 
-Se você não quiser usar o Azure Active Directory, você pode registrar um novo usuário no *centro de administradores do Microsoft 365*. Será necessário atualizar seu nome de usuário e senha a cada 90 dias para continuar a receber leads.
+Se você não quiser usar Azure Active Directory, poderá registrar um novo usuário no *centro de administração do Microsoft 365*. Será necessário atualizar seu nome de usuário e senha a cada 90 dias para continuar a receber leads.
 
 Use as etapas a seguir para configurar o Office 365 para o Dynamics CRM.
 
 1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com).
 
-2. Selecione **o azulejo de admin.**
+2. Selecione o bloco **admin** .
 
-    ![Office Online Admin](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+    ![Administrador do Office Online](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. Selecione **Adicionar um usuário**.
 
@@ -133,7 +133,7 @@ A etapa final é permitir que o usuário que você criou grave os leads.
     
     ![Configurar o gravador de leads de segurança](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
-5. Selecione a guia **Core Records.Enable** Create/Read/Write for the User Entity UI.
+5. Selecione a guia **registros de núcleo** . Habilite criar/ler/gravar para a interface do usuário da entidade.
 
     ![Habilitar criação/leitura/gravação para o usuário](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline11.jpg)\
 
@@ -142,4 +142,4 @@ A etapa final é permitir que o usuário que você criou grave os leads.
 Conclua a configuração do Dynamics CRM para o gerenciamento de leads, adicionando as informações de conta geradas ao Portal do Cloud Partner. Por exemplo:
 
 -   **Azure Active Directory** - **ID do aplicativo** (exemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **ID do diretório** (exemplo: *12345678-8af1-4asf-1234-12234d01db47*) e **Chave de aplicativo** (exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Url do Office 365** - **(exemplo:** **`https://contoso.crm4.dynamics.com`** **`contoso\@contoso.onmicrosoft.com`**), Nome do **Usuário** (exemplo: ) e **Senha** (exemplo: *P\@ssw0rd*).
+-   URL **do Office 365** - **Url** (exemplo **`https://contoso.crm4.dynamics.com`**:), **nome de usuário** ( **`contoso\@contoso.onmicrosoft.com`** exemplo:) e **senha** (exemplo: *P\@ssw0rd*).

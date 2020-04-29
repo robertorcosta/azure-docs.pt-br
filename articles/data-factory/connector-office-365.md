@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Office 365 usando a fábrica de dados do Azure
+title: Copiar dados do Office 365 usando Azure Data Factory
 description: Saiba como copiar dados do Office 365 em armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416882"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando a fábrica de dados do Azure
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A Fábrica de Dados do Azure integra-se ao [Microsoft Graph Data Connect,](https://docs.microsoft.com/graph/data-connect-concept-overview)permitindo que você traga os dados organizacionais ricos em seu inquilino do Office 365 para o Azure de forma escalável e crie aplicativos de análise e extraia insights com base nesses valiosos ativos de dados. A integração com o Privileged Access Management fornece controle de acesso protegido para os dados importantes coletados no Office 365.  Consulte [este link](https://docs.microsoft.com/graph/data-connect-concept-overview) para obter uma visão geral sobre o microsoft graph connect e consulte [este link](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
+O Azure Data Factory integra- [se com o Microsoft Graph data Connect](https://docs.microsoft.com/graph/data-connect-concept-overview), permitindo que você coloque os dados organizacionais avançados em seu locatário do Office 365 no Azure de uma maneira escalonável e crie aplicativos de análise e extraia informações com base nesses valiosos ativos de dados. A integração com o Privileged Access Management fornece controle de acesso protegido para os dados importantes coletados no Office 365.  Consulte [este link](https://docs.microsoft.com/graph/data-connect-concept-overview) para obter uma visão geral sobre Microsoft Graph data Connect e consulte [este link](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Office 365. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
-O conector de dados ADF Office 365 e o microsoft graph connect permitem a ingestão em escala de diferentes tipos de conjuntos de dados das caixas de correio habilitadas para o Exchange E-mail, incluindo contatos de catálogos de endereços, eventos de calendário, mensagens de e-mail, informações do usuário, configurações de caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de dados disponíveis.
+O conector do AAD Office 365 e o Microsoft Graph data Connect permite a ingestão em escala de diferentes tipos de conjuntos de dados de caixas de correio habilitadas para email do Exchange, incluindo contatos do catálogo de endereços, eventos de calendário, mensagens de email, informações do usuário, configurações da caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de valores disponíveis.
 
-Por enquanto, dentro de uma única atividade de cópia, você só pode **copiar dados do Office 365 para o [Azure Blob Storage,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) no formato JSON** (type setOfObjects). Se você quiser carregar o Office 365 em outros tipos de armazenamentos de dados ou em outros formatos, poderá encadear a primeira atividade de cópia com uma atividade de cópia subsequente para carregar mais dados em qualquer um dos [repositórios de destino do ADF com suporte](copy-activity-overview.md#supported-data-stores-and-formats) (consulte a coluna "com suporte como coletor"na tabela "Armazenamentos de dados e formatos com suporte").
+Por enquanto, em uma única atividade de cópia, você só pode **copiar dados do Office 365 para o [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md)e [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md) no formato JSON** (tipo setOfObjects). Se você quiser carregar o Office 365 em outros tipos de armazenamentos de dados ou em outros formatos, poderá encadear a primeira atividade de cópia com uma atividade de cópia subsequente para carregar mais dados em qualquer um dos [repositórios de destino do ADF com suporte](copy-activity-overview.md#supported-data-stores-and-formats) (consulte a coluna "com suporte como coletor"na tabela "Armazenamentos de dados e formatos com suporte").
 
 >[!IMPORTANT]
 >- A assinatura do Azure que contém o data factory e o armazenamento de dados do coletor deve estar no mesmo locatário do Azure Active Directory (Azure AD) que o locatário do Office 365.
 >- Certifique-se de que a região do Azure Integration Runtime usada para atividade de cópia, bem como o destino estejam na mesma região da caixa de correio dos usuários locatários do Office 365. Clique [aqui](concepts-integration-runtime.md#integration-runtime-location) para entender como a localização do Azure IR é determinada. Consulte [esta tabela](https://docs.microsoft.com/graph/data-connect-datasets#regions) para obter a lista de regiões com suporte do Office e regiões do Azure correspondentes.
->- A autenticação principal do serviço é o único mecanismo de autenticação suportado para o Azure Blob Storage, Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2 como lojas de destino.
+>- A autenticação de entidade de serviço é o único mecanismo de autenticação com suporte para armazenamento de BLOBs do Azure, Azure Data Lake Storage Gen1 e Azure Data Lake Storage Gen2 como armazenamentos de destino.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ Se o ADF for criado como parte de um aplicativo gerenciado e as atribuições de
 - [SDK do Python](quickstart-create-data-factory-python.md)
 - [PowerShell do Azure](quickstart-create-data-factory-powershell.md)
 - [REST API](quickstart-create-data-factory-rest-api.md)
-- [Modelo de Gerenciador de recursos do Azure](quickstart-create-data-factory-resource-manager-template.md). 
+- [Modelo de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md). 
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Office 365.
 
@@ -113,7 +113,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Office 365:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte do conjunto de dados do Office 365.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte do conjunto de dados do Office 365.
 
 Para copiar dados do Office 365, há suporte para as seguintes propriedades:
 
@@ -122,7 +122,7 @@ Para copiar dados do Office 365, há suporte para as seguintes propriedades:
 | type | A propriedade tipo do conjunto de dados deve ser definida como: **Office365Table** | Sim |
 | tableName | Nome do conjunto de dados para extrair do Office 365. Confira [aqui](https://docs.microsoft.com/graph/data-connect-datasets#datasets) a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 
-Se você `dateFilterColumn`estava `startTime` `endTime`configurando `userScopeFilterUri` , , e no conjunto de dados, ele ainda é suportado como-está, enquanto você é sugerido a usar o novo modelo na fonte de atividade daqui para frente.
+Se você estivesse Configurando `dateFilterColumn`, `startTime`, `endTime`e `userScopeFilterUri` no conjunto de um, ele ainda terá suporte como está, enquanto você é sugerido para usar o novo modelo na origem da atividade no futuro.
 
 **Exemplo**
 
@@ -149,17 +149,17 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="office-365-as-source"></a>Office 365 como fonte
 
-Para copiar dados do Office 365, as seguintes propriedades são suportadas na seção **origem** da atividade de cópia:
+Para copiar dados do Office 365, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade tipo da fonte de atividade de cópia deve ser definida como: **Office365Source** | Sim |
-| permitidoGroups | Predicado de seleção de grupo.  Use esta propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão devolvidos para toda a organização. | Não |
-| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão predicada que é aplicada em todo o inquilino para filtrar as linhas específicas para extrair do Office 365. O formato predicado deve corresponder ao formato de consulta das `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`APIs do Microsoft Graph, por exemplo. | Não |
-| coluna de dataFilter | Nome da coluna filtro DateTime. Use esta propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim, se o conjunto de dados tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) a lista de conjuntos de dados que requerem este filtro DateTime. |
-| startTime | Valor de data de iníciopara filtrar. | Sim, `dateFilterColumn` se for especificado |
-| endTime | Valor de data de término para filtrar. | Sim, `dateFilterColumn` se for especificado |
-| Outputcolumns | Matriz das colunas para copiar para afundar. | Não |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **Office365Source** | Sim |
+| allowedGroups | Predicado de seleção de grupo.  Use essa propriedade para selecionar até 10 grupos de usuários para os quais os dados serão recuperados.  Se nenhum grupo for especificado, os dados serão retornados para toda a organização. | Não |
+| userScopeFilterUri | Quando `allowedGroups` a propriedade não é especificada, você pode usar uma expressão de predicado que é aplicada em todo o locatário para filtrar as linhas específicas a serem extraídas do Office 365. O formato do predicado deve corresponder ao formato de consulta de APIs `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`de Microsoft Graph, por exemplo,. | Não |
+| dateFilterColumn | Nome da coluna de filtro DateTime. Use essa propriedade para limitar o intervalo de tempo para o qual os dados do Office 365 são extraídos. | Sim se o conjunto de informações tiver uma ou mais colunas DateTime. Consulte [aqui](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obter a lista de conjuntos de valores que exigem este filtro de data e hora. |
+| startTime | Inicie o valor DateTime para filtrar. | Sim se `dateFilterColumn` for especificado |
+| endTime | Valor DateTime final para filtrar. | Sim se `dateFilterColumn` for especificado |
+| outputColumns | Matriz das colunas a serem copiadas para o coletor. | Não |
 
 **Exemplo:**
 

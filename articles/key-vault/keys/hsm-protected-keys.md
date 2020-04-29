@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
 ms.openlocfilehash: 58cf3358a9e908070ce9003d05dd0b576b1d2d3f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429688"
 ---
-# <a name="import-hsm-protected-keys-to-key-vault"></a>Importe chaves protegidas pelo HSM para o cofre de chaves
+# <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
-Para garantia extra, ao usar o Cofre da Chave do Azure, você pode importar ou gerar chaves em módulos de segurança de hardware (HSM) que nunca extrapolam o limite do HSM. Normalmente, este cenário é conhecido como *Trazer a sua própria chave*ou BYOK. O Azure Key Vault usa a família nCipher nShield de HSMs (FIPS 140-2 Nível 2 validado) para proteger suas chaves.
+Para garantia extra, ao usar o Cofre da Chave do Azure, você pode importar ou gerar chaves em módulos de segurança de hardware (HSM) que nunca extrapolam o limite do HSM. Normalmente, este cenário é conhecido como *Trazer a sua própria chave*ou BYOK. Azure Key Vault usa a família nCipher nShield de HSMs (FIPS 140-2 nível 2 validado) para proteger suas chaves.
 
-Esta funcionalidade não está disponível para o Azure China 21Vianet.
+Essa funcionalidade não está disponível para o Azure China 21Vianet.
 
 > [!NOTE]
-> Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../general/overview.md)  
+> Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../general/overview.md)  
 > Para obter um tutorial de Introdução, que inclui a criação de um cofre da chaves para chaves de HSM protegido, confira [O que é o Azure Key Vault?](../general/overview.md).
 
-## <a name="supported-hsms"></a>HSMs suportados
+## <a name="supported-hsms"></a>HSMs com suporte
 
-A transferência de chaves protegidas pelo HSM para o Key Vault é suportada por dois métodos diferentes, dependendo dos HSMs que você usa. Use a tabela abaixo para determinar qual método deve ser usado para que seus HSMs gerem e, em seguida, transfira suas próprias chaves protegidas pelo HSM para usar com o Azure Key Vault. 
+Há suporte para a transferência de chaves protegidas por HSM para Key Vault por meio de dois métodos diferentes, dependendo dos HSMs que você usa. Use a tabela abaixo para determinar qual método deve ser usado para os HSMs a serem gerados e, em seguida, transfira suas próprias chaves protegidas por HSM para usar com Azure Key Vault. 
 
-|Nome do Fornecedor|Tipo de fornecedor|Modelos HSM suportados|Método de transferência com chave HSM suportado|
+|Nome do Fornecedor|Tipo de fornecedor|Modelos HSM com suporte|Método de transferência de chave HSM com suporte|
 |---|---|---|---|
-|nCipher|Fabricante|<ul><li>família nShield de HSMs</li></ul>|[Use o método BYOK legado](hsm-protected-keys-legacy.md)|
-|Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com firmware versão 7.3 ou mais recente</li></ul>| [Use o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|Fortita|HSM como serviço|<ul><li>Serviço de gerenciamento de chaves auto-defendssem (SDKMS)</li></ul>|[Use o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|nCipher|Fabricante|<ul><li>família de HSMs nShield</li></ul>|[Usar método BYOK herdado](hsm-protected-keys-legacy.md)|
+|Thales|Fabricante|<ul><li>Família SafeNet Luna HSM 7 com firmware versão 7,3 ou mais recente</li></ul>| [Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM como um serviço|<ul><li>Serviço de gerenciamento de chaves de autodefesa (SDKMS)</li></ul>|[Usar o novo método BYOK (visualização)](hsm-protected-keys-vendor-agnostic-byok.md)|
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga [as práticas recomendadas do Key Vault](../general/best-practices.md) para garantir segurança, durabilidade e monitoramento de suas chaves.
+Siga [Key Vault práticas recomendadas](../general/best-practices.md) para garantir a segurança, durabilidade e monitoramento para suas chaves.

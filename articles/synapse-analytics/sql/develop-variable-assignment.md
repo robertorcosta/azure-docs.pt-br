@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428661"
 ---
 # <a name="assigning-variables-with-synapse-sql"></a>Atribuindo variáveis com Synapse SQL
@@ -22,7 +22,7 @@ Neste artigo, você encontrará dicas para atribuir variáveis T-SQL com Synapse
 
 ## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLARE
 
-As variáveis no Synapse SQL `DECLARE` são `SET` definidas usando a declaração ou a declaração. Inicializar variáveis com DECLARE é uma das formas mais flexíveis de definir um valor variável no Synapse SQL.
+Variáveis em Synapse SQL são definidas usando a `DECLARE` instrução ou a `SET` instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável em Synapse SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Você não pode inicializar e usar uma variável na mesma declaração DECLARE. Para ilustrar, o exemplo a *@p1* seguir não é permitido, uma vez que é inicializado e usado na mesma declaração DECLARE. O exemplo a seguir apresenta um erro.
+Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar, o exemplo a seguir não *@p1* é permitido, pois é inicializado e usado na mesma instrução Declare. O exemplo a seguir apresenta um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -62,8 +62,8 @@ Você só pode definir uma variável por vez com SET. No entanto, os operadores 
 
 ## <a name="limitations"></a>Limitações
 
-Você não pode usar UPDATE para atribuição variável.
+Você não pode usar UPDATE para atribuição de variável.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais dicas de desenvolvimento, consulte o artigo de visão geral do [desenvolvimento do Synapse SQL.](develop-overview.md)
+Para obter mais dicas de desenvolvimento, consulte o artigo [visão geral do desenvolvimento do Synapse SQL](develop-overview.md) .

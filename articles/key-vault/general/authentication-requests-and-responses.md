@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430884"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
@@ -65,7 +65,7 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 
 - 3xx – Redirecionamento: O código 304 “Não modificado” pode ser retornada para preencher o GET condicional. Outros códigos de 3xx podem ser usados no futuro para indicar as alterações de DNS e caminho.  
 
-- 4xx – Erro do cliente: Usado para solicitações erradas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo de resposta conterá explicação detalhada de erro.  
+- 4xx – erro de cliente: usado para solicitações inválidas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta conterá uma explicação detalhada do erro.  
 
 - 5xx – Erro de servidor: Usado para erros de servidor interno. O corpo da resposta conterá explicações resumidas do erro.  
 
@@ -113,5 +113,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: O endereço do serviço de autorização OAuth2 que pode ser usado para obter um token de acesso para a solicitação.  
 
--   recurso: O nome do`https://vault.azure.net`recurso ( ) para usar no pedido de autorização.  
+-   recurso: o nome do recurso (`https://vault.azure.net`) a ser usado na solicitação de autorização.  
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 6751f64706444176f0df8f8fc0c6132e76b39b2d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417312"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory
@@ -26,12 +26,12 @@ Este artigo descreve como usar Atividade de Cópia no Azure Data Factory para co
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector Do Google BigQuery é suportado para as seguintes atividades:
+Este conector do Google BigQuery tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados de um Google BigQuery para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que são suportados como fontes ou afundantes pela atividade de cópia, consulte a tabela [armazenamento de dados suportado.](copy-activity-overview.md#supported-data-stores-and-formats)
+Você pode copiar dados de um Google BigQuery para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes ou coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Data Factory fornece um driver interno para habilitar a conectividade. Portanto, você não precisa instalar manualmente um driver para usar esse conector.
 
@@ -100,7 +100,7 @@ Defina a propriedade "authenticationType" para **ServiceAuthentication** e espec
 |:--- |:--- |:--- |
 | email | A ID de e-mail da conta de serviço que é usada para ServiceAuthentication. Só pode ser usado em Integration Runtime auto-hospedado.  | Não |
 | keyFilePath | O caminho completo para o arquivo chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço. | Não |
-| trustedCertPath | O caminho completo do arquivo .pem que contém certificados CA confiáveis usados para verificar o servidor quando você se conecta ao TLS. Esta propriedade só pode ser definida quando você usa TLS no Tempo de Execução de Integração Auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
+| trustedCertPath | O caminho completo do arquivo. pem que contém certificados de AC confiáveis usados para verificar o servidor quando você se conecta por TLS. Essa propriedade só pode ser definida quando você usa o TLS em Integration Runtime hospedados internamente. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo .pem especificado. O valor padrão é **false**.  | Não |
 
 **Exemplo:**
@@ -133,10 +133,10 @@ Para copiar dados do Google BigQuery, defina a propriedade type do conjunto de d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade do tipo do conjunto de dados deve ser definida como: **GoogleBigQueryObject** | Sim |
-| dataset | Nome do conjunto de dados do Google BigQuery. |Não (se "query" na fonte da atividade for especificada)  |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **GoogleBigQueryObject** | Sim |
+| dataset | Nome do conjunto de BigQuery do Google. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
-| tableName | Nome da tabela. Esta propriedade é suportada para compatibilidade retrógrada. Para nova carga `dataset` `table`de trabalho, use e . | Não (se "query" na fonte da atividade for especificada) |
+| tableName | Nome da tabela. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para nova carga de trabalho `dataset` , `table`use e. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -200,9 +200,9 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
