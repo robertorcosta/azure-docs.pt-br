@@ -1,6 +1,6 @@
 ---
-title: Limites - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve limites no Banco de Dados Azure para PostgreSQL - Single Server, como número de opções de mecanismo de conexão e armazenamento.
+title: Limites-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve os limites no banco de dados do Azure para PostgreSQL-servidor único, como o número de opções de mecanismo de armazenamento e conexão.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76836449"
 ---
-# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados Azure para PostgreSQL - Servidor Único
-As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser aprender sobre os níveis de recursos (computação, memória, armazenamento), consulte o artigo [dos níveis de preços.](concepts-pricing-tiers.md)
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL-servidor único
+As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recurso (computação, memória, armazenamento), consulte o artigo [tipos de preço](concepts-pricing-tiers.md) .
 
 
 ## <a name="maximum-connections"></a>Número máximo de conexões
-O número máximo de conexões por nível de preço e vCores são mostrados abaixo. O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azure para o servidor PostgreSQL. 
+O número máximo de conexões por tipo de preço e vCores são mostrados abaixo. O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azure para o servidor PostgreSQL. 
 
-|**Nível de preços**| **vCore(s)**| **Máximo de conexões** | **Conexões de usuário máximas** |
+|**Tipo de preço**| **vCore(s)**| **Máximo de conexões** | **Máximo de conexões de usuário** |
 |---|---|---|---|
 |Basic| 1| 55 | 50|
 |Basic| 2| 105 | 100|
@@ -41,9 +41,9 @@ Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes
 
 > [!IMPORTANT]
-> Para obter a melhor experiência, recomendamos que você use um pooler de conexão como o pgBouncer para gerenciar conexões com eficiência.
+> Para obter a melhor experiência, recomendamos que você use um pool de conexões como o pgBouncer para gerenciar conexões com eficiência.
 
-Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10MB de memória. Além disso, criar novas conexões leva tempo. A maioria dos aplicativos solicita muitas conexões de curta duração, o que agrava essa situação. O resultado é menos recursos disponíveis para sua carga de trabalho real, levando a uma diminuição do desempenho. Um pooler de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais, visite nosso [blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10 MB de memória. Além disso, a criação de novas conexões leva tempo. A maioria dos aplicativos solicita muitas conexões de curta duração, o que aumenta essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, levando a um desempenho reduzido. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## <a name="functional-limitations"></a>Limitações funcionais
 ### <a name="scale-operations"></a>Operações de dimensionamento
@@ -53,8 +53,8 @@ Uma conexão PostgreSQL, mesmo ociosa, pode ocupar cerca de 10MB de memória. Al
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [despejo e restaure](./howto-migrate-using-dump-and-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
 
-> Note que antes do PostgreSQL versão 10, a [política de versão PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma _atualização de versão principal_ para ser um aumento no primeiro _ou_ segundo número (por exemplo, 9,5 para 9,6 foi considerado um _grande_ upgrade de versão).
-> A partir da versão 10, apenas uma mudança no primeiro número é considerada uma atualização de versão principal (por exemplo, 10.0 para 10.1 é uma atualização de versão _menor,_ e 10 para 11 é uma atualização de versão _principal)._
+> Observe que, antes do PostgreSQL versão 10, [a política de controle de versão do PostgreSQL](https://www.postgresql.org/support/versioning/) considerou uma atualização de _versão principal_ para ser um aumento no primeiro _ou_ segundo número (por exemplo, 9,5 a 9,6 foi considerado uma atualização de versão _principal_ ).
+> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal (por exemplo, 10,0 a 10,1 é uma atualização de versão _secundária_ e 10 a 11 é uma atualização de versão _principal_ ).
 
 ### <a name="vnet-service-endpoints"></a>Ponto de extremidade de serviço VNet
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.

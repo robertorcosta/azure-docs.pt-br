@@ -1,6 +1,6 @@
 ---
-title: Configurar identidade - Azure Event Grid IoT Edge | Microsoft Docs
-description: Configure a identidade do módulo Event Grid
+title: Configurar identidade-IoT Edge de grade de eventos do Azure | Microsoft Docs
+description: Configurar a identidade do módulo de grade de eventos
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,20 +10,20 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841758"
 ---
-# <a name="configure-identity-for-the-event-grid-module"></a>Configurar identidade para o módulo Event Grid
+# <a name="configure-identity-for-the-event-grid-module"></a>Configurar identidade para o módulo de grade de eventos
 
-Este artigo mostra como configurar a identidade para Grid on Edge. Por padrão, o módulo Event Grid apresenta seu certificado de identidade configurado pelo daemon de segurança IoT. Event Grid on Edge apresenta seu certificado de identidade com suas chamadas de saída quando entrega eventos. Um assinante pode então validar seu módulo Event Grid que enviou o evento antes de aceitar.
+Este artigo mostra como configurar a identidade para grade no Edge. Por padrão, o módulo de grade de eventos apresenta seu certificado de identidade conforme configurado pelo daemon de segurança de IoT. A grade de eventos na borda apresenta seu certificado de identidade com suas chamadas de saída ao entregar eventos. Um assinante pode validar se é o módulo de grade de eventos que enviou o evento antes de aceitar.
 
-Consulte o guia [de segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
+Consulte o guia de [segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
 
 ## <a name="always-present-identity-certificate"></a>Sempre apresentar certificado de identidade
-Aqui está uma configuração de exemplo para sempre apresentar um certificado de identidade em chamadas de saída. 
+Aqui está um exemplo de configuração para sempre apresentar um certificado de identidade em chamadas de saída. 
 
 ```json
  {
@@ -34,8 +34,8 @@ Aqui está uma configuração de exemplo para sempre apresentar um certificado d
 }
  ```
 
-## <a name="dont-present-identity-certificate"></a>Não apresente certificado de identidade
-Aqui está uma configuração de exemplo para não apresentar um certificado de identidade em chamadas de saída. 
+## <a name="dont-present-identity-certificate"></a>Não apresentar certificado de identidade
+Aqui está um exemplo de configuração para não apresentar um certificado de identidade em chamadas de saída. 
 
 ```json
  {
