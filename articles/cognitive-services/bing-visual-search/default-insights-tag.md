@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60510115"
 ---
 # <a name="default-insights-tag"></a>Marcação de insights padrão
@@ -100,7 +100,7 @@ A marcação de insights padrão é aquela com o campo `displayName` definido co
 
 ## <a name="pagesincluding-insight"></a>Insight PagesIncluding
 
-O insight PagesIncluding fornece uma lista das páginas da Web que incluem essa imagem. Na verdade, é `Image` uma lista `hostPageUrl` de objetos, e o campo contém a URL para a página da web que inclui a imagem. Por exemplo, uso, consulte [PagesIncluindo exemplo de insight](./bing-insights-usage.md#pagesincluding-insight-example).
+O insight PagesIncluding fornece uma lista das páginas da Web que incluem essa imagem. Na verdade, é uma lista `Image` de objetos, e `hostPageUrl` o campo contém a URL para a página da Web que inclui a imagem. Por exemplo, para uso, consulte o [exemplo do PagesIncluding Insight](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -139,7 +139,7 @@ O insight PagesIncluding fornece uma lista das páginas da Web que incluem essa 
 
 ## <a name="shoppingsources-insight"></a>Insight de ShoppingSources
 
-O insight ShoppingSources fornece uma lista de sites nos quais o usuário pode comprar o item mostrado na imagem. A lista de ofertas inclui a URL da página web onde o usuário pode comprar o item, o preço do item e os detalhes de classificação ou revisão. Para obter exemplos de uso, confira [Exemplo de ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
+O insight ShoppingSources fornece uma lista de sites nos quais o usuário pode comprar o item mostrado na imagem. A lista de ofertas inclui a URL da página da Web na qual o usuário pode comprar o item, o preço do item e os detalhes da classificação ou da revisão. Para obter exemplos de uso, confira [Exemplo de ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -168,7 +168,7 @@ O insight ShoppingSources fornece uma lista de sites nos quais o usuário pode c
 
 ## <a name="moresizes-insight"></a>Insight MoreSizes
 
-O insight MoreSizes identifica o número de tamanhos (maiorou ou menor) da `availableSizesCount` imagem encontrada por Bing na Internet (veja o campo):
+O MoreSizes Insight identifica o número de tamanhos (maiores ou menores) da imagem que o Bing encontrou na Internet (consulte o `availableSizesCount` campo):
 
 ```json
       {
@@ -203,7 +203,7 @@ O insight MoreSizes identifica o número de tamanhos (maiorou ou menor) da `avai
 
 ## <a name="visualsearch-insight"></a>Insight VisualSearch
 
-O insight VisualSearch fornece uma lista de imagens visualmente semelhantes à imagem original (inclui um conteúdo semelhante ao conteúdo mostrado na imagem original). Por exemplo, uso, consulte [o exemplo do VisualSearch insight](./bing-insights-usage.md#visualsearch-insight-example).
+O insight VisualSearch fornece uma lista de imagens visualmente semelhantes à imagem original (inclui um conteúdo semelhante ao conteúdo mostrado na imagem original). Por exemplo, para uso, consulte o [exemplo do VisualSearch Insight](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -243,7 +243,7 @@ O insight VisualSearch fornece uma lista de imagens visualmente semelhantes à i
 
 ## <a name="recipes-insight"></a>Insight Recipes
 
-O insight Recipes fornece uma lista das páginas da Web que incluem uma receita para preparar o alimento mostrado na imagem. Por exemplo, uso, veja [o exemplo de insight saque de Receitas](./bing-insights-usage.md#recipes-insight-example).
+O insight Recipes fornece uma lista das páginas da Web que incluem uma receita para preparar o alimento mostrado na imagem. Por exemplo, para uso, consulte o [exemplo de insights de receitas](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -278,7 +278,7 @@ O insight Recipes fornece uma lista das páginas da Web que incluem uma receita 
 
 ## <a name="imagebyid-insight"></a>Insight ImageById
 
-O insight ImageById `Image` fornece um objeto da imagem para a a que você solicitou insights:
+O ImageById Insight fornece `Image` um objeto da imagem para a qual você solicitou informações:
 
 ```json
       {
@@ -377,7 +377,7 @@ O insight ProductVisualSearch fornece uma lista de imagens de produtos visualmen
 
 ## <a name="relatedsearches-insight"></a>Insight RelatedSearches
 
-O insight RelatedSearches fornece uma lista de pesquisas relacionadas feitas por outras pessoas (com base nos termos de pesquisa de outros usuários). Por exemplo, use, consulte [O exemplo de insight relatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
+O insight RelatedSearches fornece uma lista de pesquisas relacionadas feitas por outras pessoas (com base nos termos de pesquisa de outros usuários). Por exemplo, para uso, consulte o [exemplo do RelatedSearches Insight](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -400,7 +400,7 @@ O insight RelatedSearches fornece uma lista de pesquisas relacionadas feitas por
 
 ## <a name="documentlevelsuggestions-insight"></a>Insight DocumentLevelSuggestions
 
-O insight DocumentLevelSuggestions fornece uma lista de termos de pesquisa sugeridos com base no conteúdo da imagem:
+O DocumentLevelSuggestions Insight fornece uma lista de termos de pesquisa sugeridos com base no conteúdo da imagem:
 
 ```json
       {
@@ -423,6 +423,6 @@ O insight DocumentLevelSuggestions fornece uma lista de termos de pesquisa suger
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira [exemplos de uso de insights de Bing](bing-insights-usage.md) para ver como Bing pode exibir os insights visuais.
+Confira [exemplos de uso do Bing insights](bing-insights-usage.md) para ver como o Bing pode exibir as informações visuais.
 
-Para começar rapidamente com sua primeira solicitação, consulte as partidas rápidas: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para começar rapidamente com sua primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

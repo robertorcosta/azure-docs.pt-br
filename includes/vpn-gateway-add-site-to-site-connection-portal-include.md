@@ -9,14 +9,14 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68780123"
 ---
-1. Abra a página para o gateway de rede virtual. Há várias maneiras de navegar. Você pode navegar até o gateway indo para **Nome do seu VNet -> Visão Geral -> Dispositivos conectados -> Nome do seu gateway**.
-2. Na página para o gateway, clique em **Conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
+1. Abra a página do seu gateway de rede virtual. Há várias maneiras de navegar. Você pode navegar até o gateway acessando o **nome de sua VNet-> visão geral-> dispositivos conectados-> nome do seu gateway**.
+2. Na página do gateway, clique em **conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
 
    ![Criar uma conexão site a site](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Na página **Adicionar conexão**, configure os valores da sua conexão.

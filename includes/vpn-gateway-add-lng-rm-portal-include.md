@@ -9,16 +9,16 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68781422"
 ---
 1. No portal, clique em **+Criar um recurso**.
 2. Na caixa de pesquisa da página, insira **Gateway de rede local**, depois pressione **Enter** para pesquisar. Isso retornará uma lista de resultados. Clique em **Gateway de rede local**, depois clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
 
-   ![Crie o gateway de rede local](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Criar o gateway de rede local")
+   ![Criar o gateway de rede local](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Criar o gateway de rede local")
 
 3. Na **página Criar gateway de rede local**, especifique os valores para seu objeto de gateway de rede local.
 
@@ -30,4 +30,4 @@ ms.locfileid: "68781422"
    - **Grupo de Recursos:** selecione o grupo de recursos que você deseja usar. Você pode criar um novo grupo de recursos ou selecionar um que você já criou.
    - **Local:** selecione o local em que esse objeto será criado. Você pode querer selecionar o mesmo local onde reside a sua rede virtual, mas não é necessário fazê-lo.
 
-4. Quando terminar de especificar os valores, clique no botão **Criar** para criar o gateway.
+4. Quando terminar de especificar os valores, clique no botão **criar** para criar o gateway.

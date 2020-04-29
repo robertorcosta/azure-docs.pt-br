@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60547329"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Idiomas e regiões compatíveis com a API de Sugestão Automática do Bing
 
 A seguir, são listados os idiomas com suporte pela API de Sugestão Automática do Bing.
 
-| Idioma    | Código de idioma |
+| Linguagem    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |

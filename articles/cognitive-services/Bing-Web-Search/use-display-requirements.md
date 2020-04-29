@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60499875"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de uso e exibição da API de Pesquisa do Bing
@@ -99,7 +99,7 @@ Não:
 ### <a name="notices-and-branding"></a>Notificações e identidade visual 
 Fazem:
 
-- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotular o hyperlink **Microsoft Privacy Statement**.
+- Proeminentemente incluem um hiperlink funcional para a [Declaração de Privacidade da Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), perto de cada ponto na experiência do usuário (UX) que oferece a capacidade de uma consulta de pesquisa de entrada de um usuário. Rotule o hiperlink **política de privacidade da Microsoft**.
 
 - Exibir em proeminentemente a identidade visual do Bing, consistente com as [Diretrizes de Uso da Marca Registrada do Bing](https://go.microsoft.com/fwlink/?linkid=833278), perto de cada ponto de UX que oferece a capacidade de uma consulta de pesquisa de entrada a um usuário. Essa marca deve claramente indicar ao usuário que a Microsoft está incluindo a experiência de pesquisa da Internet.
 
@@ -134,7 +134,7 @@ Você pode permitir que um usuário mantenha os resultados em um dispositivo par
 - Para permitir que o usuário acesse os resultados retornados anteriormente para o usuário no dispositivo (por exemplo, no caso de interrupção de serviço).
 - Para armazenar os resultados retornados para sua consulta proativa personalizada prevendo as necessidades do usuário com base em sinais do usuário (por exemplo, no caso de interrupção de serviço prevista).
 
-#### <a name="server"></a>Servidor
+#### <a name="server"></a>Server (Servidor)
 
 Você pode manter os resultados específicos para um único usuário com segurança em um servidor que controla e exibir os resultados mantidos somente:
 
