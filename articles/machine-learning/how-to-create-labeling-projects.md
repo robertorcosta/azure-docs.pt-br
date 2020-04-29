@@ -6,13 +6,13 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
-ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
-ms.translationtype: HT
+ms.date: 04/09/2020
+ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873881"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231213"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -22,9 +22,9 @@ A rotulagem de um grande volume de dados em projetos de Machine Learning costuma
  
 O [Azure Machine Learning](https://ml.azure.com/) oferece um lugar central para criar, gerenciar e monitorar projetos de rotulagem (versão prévia pública). Use-o para coordenar dados, rótulos e membros da equipe, a fim de gerenciar tarefas de rotulagem com eficiência. O Machine Learning dá suporte à classificação de imagem, de vários rótulos ou multiclasse, e à identificação do objeto com caixas delimitadoras.
 
-O Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas. Os rotuladores não precisam ter uma conta do Azure para participar. Depois de serem autenticados com a sua conta Microsoft ou com o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), eles poderão trabalhar com rotulagem à vontade, de acordo com o tempo que tiverem disponível para isso.
+Azure Machine Learning rastreia o progresso e mantém a fila de tarefas de rotulagem incompletas.
 
-Você inicia e interrompe o projeto, adiciona e remove rotuladores e equipes, além de monitorar o progresso da rotulagem. Você pode exportar os dados rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
+Você pode iniciar e parar o projeto e monitorar o progresso do rótulo. Você pode exportar os dados rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
 
 > [!Important]
 > Somente projetos de rotulagem de classificação de imagens e identificação de objetos são compatíveis no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de blobs do Azure. (Se você não tiver um armazenamento de dados existente, poderá carregar imagens durante a criação do projeto).
@@ -34,7 +34,6 @@ Neste artigo, você aprenderá a:
 > [!div class="checklist"]
 > * Criar um projeto
 > * Especificar os dados e a estrutura do projeto
-> * Gerenciar as equipes e as pessoas que trabalham no projeto
 > * Executar e monitorar o projeto
 > * Exportar os rótulos
 
@@ -50,7 +49,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Os projetos de rotulagem são administrados no Azure Machine Learning. Use a página **Projetos de rotulagem** para gerenciar os projetos e as pessoas. Um projeto tem uma ou mais equipes atribuídas a ele e uma equipe tem uma ou mais pessoas atribuídas a ela.
+Os projetos de rotulagem são administrados no Azure Machine Learning. Use a página **rotulando projetos** para gerenciar seus projetos.
 
 Caso os seus dados já estejam no Armazenamento de Blobs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar o projeto de rotulagem. Para obter um exemplo de como usar um armazenamento de dados, veja o [Tutorial: Criar seu primeiro projeto de rotulagem de classificação de imagens](tutorial-labeling.md).
 
@@ -168,23 +167,11 @@ Depois que um modelo de machine learning for treinado nos dados rotulados manual
 
 Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto serão imutáveis. Não será possível alterar o tipo de tarefa nem o conjunto de dados. Você *poderá* modificar os rótulos e a URL para a descrição da tarefa. Examine cuidadosamente as configurações antes de criar o projeto. Depois de enviar o projeto, você será direcionado novamente para a home page **Rotulagem de Dados**, que mostrará o projeto como **Inicializando**. Essa página não é atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
 
-## <a name="manage-teams-and-people"></a>Gerenciar equipes e pessoas
-
-Por padrão, cada projeto de rotulagem criado recebe uma nova equipe, com você como membro. No entanto, as equipes também podem ser compartilhadas entre projetos. Além disso, os projetos podem ter mais de uma equipe. Para criar uma equipe, selecione **Adicionar equipe** na página **Equipes**. 
-
-Você gerencia pessoas na página **Rotuladores**. Adicione e remova pessoas por endereço de email. Cada rotulador precisa se autenticar por meio da sua conta Microsoft ou do Azure Active Directory, se você usá-lo.  
-
-Depois de adicionar uma pessoa, você poderá atribuir essa pessoa a uma ou mais equipes: Acesse a página **Equipes**, selecione a equipe e, em seguida, selecione **Atribuir pessoas** ou **Remover pessoas**.
-
-Para enviar um email à equipe, selecione a equipe para exibir a página **Detalhes da equipe**. Nessa página, selecione **Enviar um email à equipe** para abrir um rascunho de email com os endereços de todos da equipe.
-
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorar o projeto
 
 Depois que você inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página principal **Rotulagem de Dados** para acessar os **Detalhes do projeto**. A guia **Painel** mostra o progresso da tarefa de rotulagem.
 
 Na guia **Dados**, você poderá ver o conjunto de dados e examinar os dados rotulados. Se você perceber que há dados rotulados incorretamente, selecione-os e escolha **Rejeitar**, o que removerá os rótulos e colocará os dados novamente na fila sem rótulo.
-
-Use a guia **Equipe** para atribuir equipes ou cancelar a atribuição de equipes no projeto.
 
 Para pausar ou reiniciar o projeto, selecione o botão **Pausar**/**Iniciar**. Você só pode rotular dados quando o projeto está em execução.
 

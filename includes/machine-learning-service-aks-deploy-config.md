@@ -5,48 +5,48 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79485934"
 ---
-As entradas `deploymentconfig.json` no mapa do documento para os parâmetros [de AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
+As entradas no `deploymentconfig.json` documento são mapeadas para os parâmetros de [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
-| `computeType` | NA | O destino de computação. Para aKS, o `aks`valor deve ser . |
-| `autoScaler` | NA | Contém elementos de configuração para escala automática. Veja a tabela do autoscaler. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Se para habilitar o autoscaling para o serviço web. `numReplicas`  =  `0`Se, `True`; caso contrário, `False`. |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | O número mínimo de recipientes para usar ao fazer a auto-dimensionamento deste serviço web. Padrão, `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | O número máximo de recipientes a serem usados ao fazer a auto-dimensionamento deste serviço web. Padrão, `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Quantas vezes o autoscaler tenta dimensionar esse serviço web. Padrão, `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização-alvo (em percentual de 100) que o autoescalador deve tentar manter para este serviço web. Padrão, `70`. |
-| `dataCollection` | NA | Contém elementos de configuração para coleta de dados. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se para habilitar a coleta de dados de modelo para o serviço web. Padrão, `False`. |
-| `authEnabled` | `auth_enabled` | Ativar ou não a autenticação-chave para o serviço web. Ambos `tokenAuthEnabled` `authEnabled` e `True`não pode ser . Padrão, `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Ativar ou não a autenticação de token para o serviço web. Ambos `tokenAuthEnabled` `authEnabled` e `True`não pode ser . Padrão, `False`. |
-| `containerResourceRequirements` | NA | Recipiente para a CPU e entidades de memória. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a serem alocados para este serviço web. Padrões`0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) para alocar para este serviço web. Padrão`0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Se para habilitar o registro de Insights de aplicativos para o serviço web. Padrão, `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | Um tempo para aplicar para marcar chamadas para o serviço web. Padrão, `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | As solicitações simultâneas máximas por nó para este serviço web. Padrão, `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | O tempo máximo que uma solicitação permanecerá na fila (em milissegundos) antes que um erro de 503 seja devolvido. Padrão, `500`. |
-| `numReplicas` | `num_replicas` | O número de contêineres a serem alocados para este serviço web. Sem valor padrão. Se este parâmetro não estiver definido, o autoscaler será ativado por padrão. |
+| `computeType` | NA | O destino de computação. Para AKS, o valor deve ser `aks`. |
+| `autoScaler` | NA | Contém elementos de configuração para dimensionamento automático. Consulte a tabela de dimensionamento de escalabilidade. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Se é para habilitar o dimensionamento automático para o serviço Web. `numReplicas`  = Se `0`, `True`; caso contrário `False`,. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | O número mínimo de contêineres a ser usado ao dimensionar automaticamente este serviço Web. Padrão, `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | O número máximo de contêineres a serem usados ao dimensionar automaticamente este serviço Web. Padrão, `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Com que frequência o dimensionador de autoescala tenta dimensionar esse serviço Web. Padrão, `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização de destino (em porcentagem de 100) que o dimensionador deve tentar manter para esse serviço Web. Padrão, `70`. |
+| `dataCollection` | NA | Contém elementos de configuração para a coleta de dados. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se a coleta de dados do modelo deve ser habilitada para o serviço Web. Padrão, `False`. |
+| `authEnabled` | `auth_enabled` | Se deseja ou não habilitar a autenticação de chave para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem `True`ser. Padrão, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Se deseja ou não habilitar a autenticação de token para o serviço Web. Ambos `tokenAuthEnabled` e `authEnabled` não podem `True`ser. Padrão, `False`. |
+| `containerResourceRequirements` | NA | Contêiner para as entidades de CPU e memória. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a serem alocados para este serviço Web. Padrões`0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a ser alocada para este serviço Web. Os`0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Se é para habilitar o log de Application Insights para o serviço Web. Padrão, `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | Um tempo limite para impor chamadas de Pontuação para o serviço Web. Padrão, `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | O máximo de solicitações simultâneas por nó para este serviço Web. Padrão, `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | O tempo máximo que uma solicitação permanecerá na fila três (em milissegundos) antes de um erro 503 ser retornado. Padrão, `500`. |
+| `numReplicas` | `num_replicas` | O número de contêineres a serem alocados para este serviço Web. Sem valor padrão. Se esse parâmetro não for definido, o dimensionador será habilitado por padrão. |
 | `keys` | NA | Contém elementos de configuração para chaves. |
-| &emsp;&emsp;`primaryKey` | `primary_key` | Uma chave auth primária para usar para este Webservice |
-| &emsp;&emsp;`secondaryKey` | `secondary_key` | Uma chave auth secundária para usar neste Webservice |
-| `gpuCores` | `gpu_cores` | O número de núcleos de GPU (réplica por contêiner) a serem alocados para este Webservice. O padrão é UTF-1. Só suporta valores numéres inteiros. |
-| `livenessProbeRequirements` | NA | Contém elementos de configuração para os requisitos do teste de vida. |
-| &emsp;&emsp;`periodSeconds` | `period_seconds` | Quantas vezes (em segundos) para executar a sonda de vivacidade. Padrão para 10 segundos. O valor mínimo é 1. |
-| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Número de segundos após o início do recipiente antes do início das sondas de vida. Padrão para 310 |
-| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Número de segundos após o qual a sonda de vida se esespera. Padrão para 2 segundos. O valor mínimo é 1 |
-| &emsp;&emsp;`successThreshold` | `success_threshold` | Sucessos consecutivos mínimos para que a sonda de vida seja considerada bem sucedida depois de ter falhado. O valor padrão é 1. O valor mínimo é 1. |
-| &emsp;&emsp;`failureThreshold` | `failure_threshold` | Quando um Pod é iniciado e o teste de vida falha, o Kubernetes tentará falharTempos limiares antes de desistir. Padrão para 3. O valor mínimo é 1. |
-| `namespace` | `namespace` | O namespace do Kubernetes no que o webservice é implantado. Até 63 caracteres alfanuméricas minúsculas ('a'-'z', '0'-'9') e hífens ('-') caracteres. O primeiro e o último caracteres não podem ser hífens. |
+| &emsp;&emsp;`primaryKey` | `primary_key` | Uma chave de autenticação primária a ser usada para este serviço Web |
+| &emsp;&emsp;`secondaryKey` | `secondary_key` | Uma chave de autenticação secundária a ser usada para este serviço Web |
+| `gpuCores` | `gpu_cores` | O número de núcleos de GPU (réplica por contêiner) a serem alocados para este WebService. O padrão é UTF-1. Dá suporte apenas a valores de números inteiros. |
+| `livenessProbeRequirements` | NA | Contém elementos de configuração para requisitos de investigação de vida. |
+| &emsp;&emsp;`periodSeconds` | `period_seconds` | Com que frequência (em segundos) executar a investigação de tempo de vida. O padrão é 10 segundos. O valor mínimo é 1. |
+| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Número de segundos depois que o contêiner é iniciado antes que as investigações de tempo sejam iniciadas. O padrão é 310 |
+| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Número de segundos após o qual a investigação de vida atinge o tempo limite. O padrão é 2 segundos. O valor mínimo é 1 |
+| &emsp;&emsp;`successThreshold` | `success_threshold` | O mínimo de sucessos consecutivos para que a investigação de tempo de vida seja considerada com êxito após ter falhado. O valor padrão é 1. O valor mínimo é 1. |
+| &emsp;&emsp;`failureThreshold` | `failure_threshold` | Quando um pod é iniciado e a investigação de tempo falha, o kubernetes tentará limite vezes antes de desistir. O padrão é 3. O valor mínimo é 1. |
+| `namespace` | `namespace` | O namespace kubernetes no qual o WebService é implantado. Até 63 letras minúsculas alfanuméricas (' a-z ', ' 0 '-' 9 ') e hífen ('-') caracteres. O primeiro e o último caracteres não podem ser hifens. |
 
-O JSON a seguir é uma configuração de implantação de exemplo para uso com o CLI:
+O JSON a seguir é um exemplo de configuração de implantação para uso com a CLI:
 
 ```json
 {

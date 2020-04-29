@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Vincule um VNet ao circuito: CLI'
+title: 'Azure ExpressRoute: vincular uma VNet ao circuito: CLI'
 description: Este artigo mostra como vincular as redes virtuais (VNets) aos circuitos do Microsoft Azure ExpressRoute usando o modelo de implantação do Resource Manager e CLI.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdd809bcba703dbd8f9ee1e7c18185fd20e4586f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476127"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conectar uma rede virtual a um circuito de ExpressRoute usando a CLI
@@ -19,9 +19,9 @@ ms.locfileid: "79476127"
 Este artigo ajuda a vincular redes virtuais (VNets) aos circuitos de ExpressRoute do Azure usando a CLI. Para vincular usando a CLI do Azure, as redes virtuais devem ser criadas usando o modelo de implantação do Resource Manager. Elas podem estar na mesma assinatura ou fazer parte de outra assinatura. Se quiser usar um método diferente para conectar sua VNet a um circuito de ExpressRoute, você poderá selecionar um artigo na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [CLI do Azure](howto-linkvnet-cli.md)
 > * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 > 
@@ -152,10 +152,10 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 O intervalo de *RoutingWeight* é de 0 a 32.000. O valor padrão é 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configure ExpressRoute FastPath 
-Você pode ativar [o ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu circuito ExpressRoute estiver no [ExpressRoute Direct](expressroute-erdirect-about.md) e seu gateway virtual newtork for Ultra Performance ou ErGw3AZ. O FastPath melhora a preformância de caminhos de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
+## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
+Você pode habilitar o [Expressroute FastPath](expressroute-about-virtual-network-gateways.md) se o circuito do expressroute estiver no [expressroute Direct](expressroute-erdirect-about.md) e seu gateway de válida virtual for ultra performance ou ErGw3AZ. O FastPath melhora a preformação do caminho de dados, como pacotes por segundo e conexões por segundo entre sua rede local e sua rede virtual. 
 
-**Configure o FastPath em uma nova conexão**
+**Configurar o FastPath em uma nova conexão**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
@@ -169,4 +169,4 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o ExpressRoute, consulte o [FAQ ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.

@@ -1,6 +1,6 @@
 ---
-title: Visão geral do Azure DevOps Projects | Microsoft Docs
-description: Entender o valor do Azure DevOps Projects
+title: Visão geral do Azure DevOps Starter | Microsoft Docs
+description: Entender o valor do Azure DevOps Starter
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/03/2018
+ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: d39702f8e30046dd3cf634fc67ed7095471cd629
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71971487"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233679"
 ---
-# <a name="overview-of-azure-devops-projects"></a>Visão geral do Azure DevOps Projects
+# <a name="overview-of-azure-devops-starter"></a>Visão geral do Azure DevOps Starter
 
- O Azure DevOps Projects facilita o uso inicial do Azure. Ele ajuda você a iniciar seu tipo de aplicativo favorito no serviço do Azure de sua escolha em apenas algumas etapas rápidas do portal do Azure. 
+ O iniciador DevOps do Azure facilita a introdução ao Azure. Ele ajuda você a iniciar seu tipo de aplicativo favorito no serviço do Azure de sua escolha em apenas algumas etapas rápidas do portal do Azure. 
 
- O DevOps Projects configura tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. É possível usar o painel do DevOps Projects para monitorar confirmações, compilações e implantações de código, tudo a partir de um único modo de exibição no portal do Azure.
+ O DevOps Starter configura tudo o que você precisa para desenvolver, implantar e monitorar seu aplicativo. Você pode usar o painel inicial do DevOps para monitorar confirmações, compilações e implantações de código, tudo a partir de uma única exibição no portal do Azure.
 
-## <a name="why-should-i-use-devops-projects"></a>Por que devo usar o DevOps Projects?
+## <a name="advantages-of-using-devops-starter"></a>Vantagens de usar o DevOps Starter
 
-  O DevOps Projects automatiza a instalação de um pipeline inteiro de CI (integração contínua) e CD (entrega contínua) para o Azure.  É possível iniciar com o código existente ou usar um dos aplicativos de exemplo fornecidos. Em seguida, você poderá implantar rapidamente esse aplicativo em vários serviços do Azure, como Máquinas Virtuais, Serviço de Aplicativo, AKS (Serviço de Kubernetes do Azure), Banco de Dados SQL do Azure e Azure Service Fabric.  
+  O iniciante do DevOps automatiza a configuração de um pipeline de integração contínua (CI) e entrega contínua (CD) para o Azure.  É possível iniciar com o código existente ou usar um dos aplicativos de exemplo fornecidos. Em seguida, você poderá implantar rapidamente esse aplicativo em vários serviços do Azure, como Máquinas Virtuais, Serviço de Aplicativo, AKS (Serviço de Kubernetes do Azure), Banco de Dados SQL do Azure e Azure Service Fabric.  
 
-  O DevOps Projects faz todo o trabalho de configuração inicial de um pipeline de DevOps, incluindo tudo desde a configuração do repositório inicial do Git, configuração do pipeline de CI/CD, criação de um recurso do Application Insights para monitorar e fornecer uma única exibição de toda a solução com a criação de um painel do DevOps Projects no portal do Azure.
+  O iniciante DevOps faz todo o trabalho para a configuração inicial de um pipeline DevOps, incluindo tudo, desde a configuração do repositório git inicial, a configuração do pipeline de CI/CD, a criação de um recurso Application Insights para monitoramento e o fornecimento de uma única exibição de toda a solução com a criação de um painel de DevOps Projects no portal do Azure.
 
-É possível usar o DevOps Projects para:
+Você pode usar o DevOps Starter para:
 
 * Implantar rapidamente seu aplicativo no Azure
 * Automatizar a configuração de um pipeline de CI/CD
 * Exibir e compreender como configurar corretamente um pipeline de CI/CD
 * Personalizar ainda mais os pipelines de lançamento com base em seus cenários específicos
 
-## <a name="how-do-i-use-devops-projects"></a>Como devo usar o DevOps Projects?
+## <a name="how-to-use-devops-starter"></a>Como usar o DevOps Starter?
 
-  O DevOps Projects está disponível no portal do Azure. Crie um recurso do DevOps Projects assim como você cria qualquer outro recurso do Azure no portal. O DevOps Projects fornece uma experiência passo a passo do tipo assistente para as várias opções de configuração.  
+  O iniciante DevOps está disponível na portal do Azure. Você cria um recurso inicial do DevOps exatamente como você cria qualquer outro recurso do Azure no Portal. O DevOps Projects fornece uma experiência passo a passo do tipo assistente para as várias opções de configuração.  
 
 Você pode escolher várias opções de configuração como parte da instalação inicial. Estas opções incluem:
 
@@ -55,27 +55,27 @@ Você pode escolher várias opções de configuração como parte da instalaçã
 * Escolher o local dos serviços do Azure
 * Escolher entre vários tipos de preços dos serviços do Azure
 
-Depois de usar o DevOps Projects, também é possível excluir todos os recursos de um único local a partir do painel do DevOps Projects no portal do Azure.
+Depois de usar o DevOps Starter, você também pode excluir todos os recursos de um único lugar do painel de início do DevOps no portal do Azure.
 
-## <a name="devops-projects-and-azure-devops-integration"></a>Integração do DevOps Projects e Azure DevOps
+## <a name="devops-starter-and-azure-devops-integration"></a>DevOps início e integração do Azure DevOps
 
-O DevOps Projects faz parte da plataforma do Azure DevOps. O DevOps Projects automatiza todo o trabalho necessário em Pipelines do Azure para configurar um pipeline de CI/CD. Ele cria um repositório Git em uma organização nova ou existente do Azure DevOps, depois confirma um aplicativo de exemplo ou seu código existente para um novo repositório Git.  
+O iniciante do DevOps é equipado com o Azure DevOps. O iniciante do DevOps automatiza todo o trabalho necessário no Azure Pipelines para configurar um pipeline de CI/CD. Ele cria um repositório Git em uma organização nova ou existente do Azure DevOps, depois confirma um aplicativo de exemplo ou seu código existente para um novo repositório Git.  
 
-A automação também estabelece um gatilho de CI para o build, de modo que cada nova confirmação de código inicia um build. O DevOps Projects cria um gatilho de CD e implanta cada novo build bem-sucedido no serviço do Azure de sua escolha.  
+A automação também estabelece um gatilho de CI para o build, de modo que cada nova confirmação de código inicia um build. O iniciante do DevOps cria um gatilho de CD e implanta todas as novas compilações bem-sucedidas para o serviço do Azure de sua escolha.  
 
 Os pipelines de build e de lançamento podem ser personalizados para cenários adicionais. Também é possível clonar os pipelines de build e de lançamento para usar em outros projetos.
 
-Depois de criar seu projeto DevOps, você pode:
+Depois de criar o iniciador do DevOps, você pode:
 
 * Personalizar seu pipeline de compilação e versão
 * Usar solicitações de pull para gerenciar o fluxo de seu código e manter a qualidade alta
 * Teste e compile cada confirmação antes de mesclar seu código a fim de elevar o nível de qualidade
 * Acompanhar a lista de pendências e os problemas do aplicativo
 
-## <a name="how-do-i-start-using-devops-projects"></a>Como faço para começar a usar o DevOps Projects?
+## <a name="getting-started-with-devops-starter"></a>Introdução ao DevOps Starter
 
-* [Começar a usar o DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Introdução ao DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
-##  <a name="devops-projects-videos"></a>Vídeos do DevOps Projects
+##  <a name="devops-starter-videos"></a>Vídeos de início do DevOps
 
-* [Criar CI/CD com o Azure DevOps Projects](https://www.youtube.com/watch?v=NuYDAs3kNV8)
+* [Criar CI/CD com o iniciador DevOps do Azure](https://www.youtube.com/watch?v=NuYDAs3kNV8)

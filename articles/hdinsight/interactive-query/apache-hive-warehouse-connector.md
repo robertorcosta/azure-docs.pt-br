@@ -6,21 +6,22 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77623a89e52a5e15fbb4159ff49d9377e53e7d4c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252419"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509526"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar o Apache Spark e Apache Hive ao Hive Warehouse Connector
 
-O conector do Apache Hive Warehouse (HWC) é uma biblioteca que permite que você trabalhe mais facilmente com Apache Spark e Apache Hive ao dar suporte a tarefas como a movimentação de dados entre os dataframes do Spark e as tabelas do hive, além de direcionar dados de streaming do Spark para tabelas do hive. O conector do depósito do hive funciona como uma ponte entre o Spark e o hive. Ele dá suporte a escalabilidade, Java e Python para desenvolvimento.
+O conector do Apache Hive Warehouse (HWC) é uma biblioteca que permite que você trabalhe mais facilmente com Apache Spark e Apache Hive. Mais fácil com o suporte a tarefas como a movimentação de dados entre o Spark dataframes e tabelas Hive. E direcionando dados de streaming do Spark para tabelas Hive. O conector do depósito do hive funciona como uma ponte entre o Spark e o hive. Ele dá suporte a escalabilidade, Java e Python para desenvolvimento.
 
-O conector do depósito do hive permite que você aproveite os recursos exclusivos do hive e do Spark para criar aplicativos de Big data poderosos. O Apache Hive oferece suporte para transações de banco de dados atômicas, consistentes, isoladas e duráveis (ACID). Para obter mais informações sobre ACID e transações no hive, consulte [transações do hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). O hive também oferece controles de segurança detalhados por meio do Apache Ranger e o processamento analítico de baixa latência não disponível no Apache Spark.
+O conector do depósito do hive permite que você aproveite os recursos exclusivos do hive e do Spark. Recursos usados para criar aplicativos de Big data poderosos. O Apache Hive oferece suporte para transações de banco de dados atômicas, consistentes, isoladas e duráveis (ACID). Para obter mais informações sobre ACID e transações no hive, consulte [transações do hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). O hive também oferece controles de segurança detalhados por meio do Apache Ranger e o processamento analítico de baixa latência não disponível no Apache Spark.
 
-Apache Spark, tem uma API de streaming estruturada que fornece recursos de streaming não disponíveis no Apache Hive. A partir do HDInsight 4,0, Apache Spark 2.3.1 e Apache Hive 3.1.0 têm metastores separados, o que pode dificultar a interoperabilidade. O conector do depósito do hive torna mais fácil usar o Spark e o hive juntos. A biblioteca HWC carrega dados de daemons do LLAP para o Spark executores em paralelo, tornando-o mais eficiente e escalonável do que usar uma conexão JDBC padrão do Spark para o hive.
+Apache Spark, tem uma API de streaming estruturada que fornece recursos de streaming não disponíveis no Apache Hive. A partir do HDInsight 4,0, Apache Spark 2.3.1 e Apache Hive 3.1.0 têm metastores separados. Esses metarepositórios separados podem dificultar a interoperabilidade. O conector do depósito do hive torna mais fácil usar o Spark e o hive juntos. A biblioteca HWC carrega dados de daemons do LLAP (processamento analítico de baixa latência) para executores do Spark em paralelo. Essa ação torna-a mais eficiente e adaptável do que usar uma conexão JDBC padrão do Spark para o hive.
 
 ![arquitetura do conector de depósito do hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -72,7 +73,7 @@ Em sua interface do usuário da Web do Spark Ambari, navegue até **Spark2** > *
 
 ![Configuração do Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-Selecione **Adicionar Propriedade...** conforme necessário para adicionar/atualizar o seguinte:
+Selecione **Adicionar Propriedade...** conforme necessário para adicionar/atualizar o seguinte valor:
 
 | Chave | Valor |
 |----|----|
@@ -122,13 +123,13 @@ Para iniciar uma sessão do Spark-Shell, execute as seguintes etapas:
 
 ### <a name="connecting-and-running-queries-on-enterprise-security-package-esp-clusters"></a>Conectando e executando consultas em clusters Enterprise Security Package (ESP)
 
-O Enterprise Security Package (ESP) fornece recursos de nível corporativo como autenticação baseada em Active Directory, suporte a vários usuários e controle de acesso baseado em função para clusters Apache Hadoop no Azure HDInsight. Para obter mais informações sobre o ESP, consulte [usar o Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+O Enterprise Security Package (ESP) fornece recursos de nível empresarial como autenticação baseada em Active Directory. E suporte a vários usuários e controle de acesso baseado em função para clusters Apache Hadoop no Azure HDInsight. Para obter mais informações sobre o ESP, consulte [usar o Enterprise Security Package no HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. SSH no cabeçalho para o cluster de Apache Spark. Para obter mais informações sobre como se conectar ao cluster com o SSH, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH no cabeçalho para o cluster de Apache Spark.
 
 1. Digite `kinit` e faça logon com um usuário de domínio.
 
-1. Inicie o Spark-shell com a lista completa de parâmetros de configuração, conforme mostrado abaixo. Todos os valores em letras maiúsculas entre colchetes angulares devem ser especificados com base no seu cluster. Se você precisar descobrir os valores a serem inseridos para qualquer um dos parâmetros abaixo, consulte a seção sobre [instalação do conector do depósito do hive](#hive-warehouse-connector-setup).:
+1. Inicie o Spark-shell com a lista completa de parâmetros de configuração, conforme mostrado abaixo. Todos os valores em letras maiúsculas entre colchetes angulares devem ser especificados com base no seu cluster. Se você precisar descobrir os valores a serem inseridos para qualquer um dos parâmetros abaixo, consulte a seção sobre [instalação do conector do depósito do hive](#hive-warehouse-connector-setup).
 
     ```bash
     spark-shell --master yarn \
@@ -181,7 +182,7 @@ O Spark não dá suporte nativo à gravação em tabelas ACID gerenciadas do hiv
 
 Usando o conector do depósito do hive, você pode usar o streaming do Spark para gravar dados em tabelas do hive.
 
-Siga as etapas abaixo para criar um exemplo de conector de depósito do hive que ingere dados de um fluxo do Spark na porta localhost 9999 em uma tabela do hive.
+Siga as etapas abaixo para criar um conector de depósito do hive. O exemplo ingeri dados de um fluxo do Spark na porta localhost 9999 em uma tabela Hive.
 
 1. Siga as etapas em [conectando e executando consultas](#connecting-and-running-queries).
 
@@ -193,7 +194,7 @@ Siga as etapas abaixo para criar um exemplo de conector de depósito do hive que
 
 1. Gere dados para o fluxo do Spark que você criou, executando as seguintes etapas:
     1. Abra uma segunda sessão SSH no mesmo cluster do Spark.
-    1. No prompt de comando, digite `nc -lk 9999`. Esse comando usa o utilitário netcat para enviar dados da linha de comando para a porta especificada.
+    1. No prompt de comando, digite `nc -lk 9999`. Esse comando usa o `netcat` utilitário para enviar dados da linha de comando para a porta especificada.
 
 1. Retorne à primeira sessão SSH e crie uma nova tabela do hive para armazenar os dados de streaming. No Spark-Shell, digite o seguinte comando:
 
@@ -224,7 +225,7 @@ Siga as etapas abaixo para criar um exemplo de conector de depósito do hive que
     hive.table("stream_table").show()
     ```
 
-Use **Ctrl + C** para interromper o netcat na segunda sessão SSH. Use `:q` para sair do Spark-Shell na primeira sessão SSH.
+Use **Ctrl + C** para parar `netcat` na segunda sessão SSH. Use `:q` para sair do Spark-Shell na primeira sessão SSH.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Protegendo dados em clusters do Spark
 
@@ -253,7 +254,7 @@ Use **Ctrl + C** para interromper o netcat na segunda sessão SSH. Use `:q` para
 
         ![lista de políticas do hive do conector do depósito do hive Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Forneça um nome de política desejado. Selecione banco de dados: **padrão**, tabela Hive: **demonstração**, coluna Hive: **nome**, usuário: **rsadmin2**, tipos de acesso: **Select**e **máscara parcial: mostrar últimos 4** no menu de **opção Selecionar mascaramento** . Clique em **Adicionar**.
+    a. Forneça um nome de política. Selecione banco de dados: **padrão**, tabela Hive: **demonstração**, coluna Hive: **nome**, usuário: **rsadmin2**, tipos de acesso: **Select**e **máscara parcial: mostrar últimos 4** no menu de **opção Selecionar mascaramento** . Clique em **Adicionar**.
                 ![criar política](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Exiba o conteúdo da tabela novamente. Depois de aplicar a política de Ranger, podemos ver apenas os últimos quatro caracteres da coluna.
 

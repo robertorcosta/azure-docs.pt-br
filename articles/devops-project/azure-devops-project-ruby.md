@@ -1,45 +1,40 @@
 ---
-title: 'Início Rápido: Criar um pipeline de CI/CD para Ruby on Rails usando o Azure DevOps Projects'
-description: O Azure DevOps Projects facilita o uso inicial do Azure. É possível lançar um aplicativo Web do Ruby em um serviço do Azure em algumas etapas rápidas.
+title: 'Início rápido: criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure'
+description: O iniciador DevOps do Azure facilita a introdução ao Azure. É possível lançar um aplicativo Web do Ruby em um serviço do Azure em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
 manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-monikerRange: vsts
-ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: HT
+ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70899577"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233730"
 ---
-# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Criar um pipeline de CI/CD para Ruby on Rails usando o Azure DevOps Projects
+# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Criar um pipeline de CI/CD para Ruby on Rails usando o iniciador DevOps do Azure
 
-Configure a CI (integração contínua) e a CD (entrega contínua) para seu aplicativo do Ruby on Rails usando o Azure DevOps Projects. O DevOps Projects simplifica a configuração inicial de um build do Azure DevOps e o pipeline de lançamento.
+Configure a CI (integração contínua) e o CD (entrega contínua) para seu aplicativo Ruby on Rails usando o Azure DevOps Starter. O iniciante do DevOps simplifica a configuração inicial de um pipeline de versão e compilação DevOps do Azure.
 
 Caso não tenha uma assinatura do Azure, você pode obter uma gratuita via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-O Azure DevOps Projects cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure na assinatura do Azure de sua escolha.
+O iniciador DevOps do Azure cria um pipeline de CI/CD no Azure Repos. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O iniciador DevOps também cria recursos do Azure na assinatura do Azure de sua escolha.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **Criar um recurso**.
+1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
-1. Na caixa de pesquisa, digite **DevOps Projects** e selecione **Criar**.
-
-    ![O painel do DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
+    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
 ## <a name="select-a-sample-app-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
@@ -47,8 +42,7 @@ O Azure DevOps Projects cria um pipeline de CI/CD no Azure Repos. É possível c
 
 1. Selecione a estrutura do aplicativo **Ruby on Rails**. Quando terminar, selecione **Avançar**.
 
-1. **Aplicativo Web no Linux** é o destino de implantação padrão.  
-    Como opção, você pode escolher **Aplicativo Web para Contêineres**. A estrutura do aplicativo escolhida anteriormente determina o tipo de destino de implantação do serviço do Azure disponível aqui. 
+1. **Aplicativo Web no Linux** é o destino de implantação padrão.  Como opção, você pode escolher **Aplicativo Web para Contêineres**. A estrutura do aplicativo escolhida anteriormente determina o tipo de destino de implantação do serviço do Azure disponível aqui. 
     
 1. Selecione o serviço de destino de sua escolha, depois selecione **Avançar**.
 
@@ -59,7 +53,7 @@ O Azure DevOps Projects cria um pipeline de CI/CD no Azure Repos. É possível c
 1. Insira um nome para o projeto do Azure DevOps. 
 
 1. Selecione a assinatura e o local do Azure, insira um nome para o aplicativo e selecione **Concluído**.  
-    Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
+    Após alguns minutos, o painel inicial do DevOps é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. 
     
     O painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure. À direita, selecione **Procurar** para exibir o aplicativo em execução.
 
@@ -67,13 +61,11 @@ O Azure DevOps Projects cria um pipeline de CI/CD no Azure Repos. É possível c
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>Confirmar as alterações de código e executar a CI/CD
 
-O Azure DevOps Projects cria um repositório Git no Azure Pipelines ou GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
+O iniciador DevOps do Azure cria um repositório git no Azure Pipelines ou no GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. No painel do DevOps Projects, à esquerda, selecione o link para seu branch mestre.  
-    O link abre uma exibição do repositório de Git recém-criado.
+1. No painel inicial do DevOps, à esquerda, selecione o link para o Branch mestre. O link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito.  
-    Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+1. Para exibir a URL do clone do repositório, selecione **Clone** no canto superior direito. Você pode clonar seu repositório Git no seu IDE favorito. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
 
 1. À esquerda, vá até o arquivo *app/views/pages/home.html.erb*, depois selecione **Editar**.
 
@@ -81,68 +73,53 @@ O Azure DevOps Projects cria um repositório Git no Azure Pipelines ou GitHub. P
 
 1. Selecione **Confirmar**, depois salve as alterações.
 
-1. No navegador, vá até o painel do DevOps Projects.  
-    Um build deve estar em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
+1. No navegador, vá para o painel inicial do DevOps. Um build deve estar em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Examinar o pipeline de CI/CD do Azure Pipelines
 
-O Azure DevOps Projects configura automaticamente um pipeline de CI/CD completo em sua organização do Azure DevOps. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento do Azure DevOps, faça o seguinte:
+O Azure DevOps Starter configura automaticamente um pipeline de CI/CD completo em sua organização do DevOps do Azure. Explore e personalize o pipeline conforme necessário. Para se familiarizar com os pipelines de build e de lançamento do Azure DevOps, faça o seguinte:
 
-1. Vá até o painel do DevOps Projects.
+1. Vá para o painel inicial do DevOps.
 
-1. Na parte superior, selecione **Pipeline de build**.  
-    Uma guia do navegador exibe o pipeline de build do seu novo projeto.
+1. Na parte superior, selecione **Pipeline de build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **Status** e selecione as reticências (...).  
-    Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
+1. Aponte para o campo **status** e, em seguida, selecione as reticências (...). Um menu exibe várias opções, como enfileirar uma nova compilação, pausar uma compilação e editar o pipeline de compilação.
 
 1. Selecione **Editar**.
 
-1. Nesse painel, é possível examinar as diversas tarefas do pipeline de build.  
-    A compilação realiza várias tarefas, como efetuar buscas das fontes no repositório Git, restaurar dependências e publicar as saídas usadas para as implantações.
+1. Nesse painel, é possível examinar as diversas tarefas do pipeline de build. A compilação realiza várias tarefas, como efetuar buscas das fontes no repositório Git, restaurar dependências e publicar as saídas usadas para as implantações.
 
 1. Na parte superior do pipeline de build, selecione o nome desse pipeline.
 
-1. Altere o nome do pipeline de build para algo mais descritivo, selecione **Salvar e enfileirar** e selecione **Salvar**.
+1. Altere o nome do pipeline de compilação para algo mais descritivo, selecione **salvar & fila**e, em seguida, selecione **salvar**.
 
-1. Embaixo do nome do pipeline de build, selecione **Histórico**.  
-    Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
+1. Embaixo do nome do pipeline de build, selecione **Histórico**. Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
-1. Selecione **Gatilhos**.  
-    O DevOps Projects cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**.  O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação para o repositório inicia uma nova compilação. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
-1. Selecione **Retenção**.  
-    Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
+1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
-1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  
-    O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
+1. Selecione **Build e Lançamento** e selecione **Lançamentos**.  O iniciador DevOps cria um pipeline de liberação para gerenciar implantações no Azure.
 
-1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
-    O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
+1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**. O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
-1. Em **Artefatos**, selecione **Soltar**.  
-    O pipeline de build examinado anteriormente produz a saída usada para o artefato. 
+1. Em **Artefatos**, selecione **Soltar**. O pipeline de build examinado anteriormente produz a saída usada para o artefato. 
 
-1. À direita do ícone **Soltar**, selecione **Gatilho de implantação contínua**.  
-    Esse pipeline de lançamento tem um gatilho de CD habilitado, que executa uma implantação sempre que houver um novo artefato de build disponível. Outra opção é desabilitar o gatilho para que suas implantações exijam uma execução manual. 
+1. À direita do ícone **Soltar**, selecione **Gatilho de implantação contínua**. Esse pipeline de lançamento tem um gatilho de CD habilitado, que executa uma implantação sempre que houver um novo artefato de build disponível. Outra opção é desabilitar o gatilho para que suas implantações exijam uma execução manual. 
 
-1. À esquerda, selecione **Tarefas**.  
-    Tarefas são as atividades que seu processo de implantação realiza. Neste exemplo, uma tarefa foi criada para ser implantada no Serviço de Aplicativo do Azure.
+1. À esquerda, selecione **Tarefas**. Tarefas são as atividades que seu processo de implantação realiza. Neste exemplo, uma tarefa foi criada para ser implantada no Serviço de Aplicativo do Azure.
 
 1. À direita, selecione **Exibir versões** para exibir um histórico de versões.
 
-1. Selecione as reticências (...) ao lado de uma versão e selecione **Abrir**.  
-    É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
+1. Selecione as reticências (...) ao lado de uma versão e selecione **Abrir**. É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
 
-1. Selecione **Confirmações**.  
-    Essa exibição mostra as confirmações de código associadas a essa implantação. 
+1. Selecione **Confirmações**. Essa exibição mostra as confirmações de código associadas a essa implantação. 
 
-1. Selecione **Logs**.  
-    Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
+1. Selecione **logs**. Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando eles não forem mais necessários, é possível excluir a instância de Serviço de Aplicativo do Azure e recursos relacionados criados neste início rápido. Para isso, use a funcionalidade **Excluir** no painel do DevOps Projects.
+Quando eles não forem mais necessários, é possível excluir a instância de Serviço de Aplicativo do Azure e recursos relacionados criados neste início rápido. Para fazer isso, use a funcionalidade **excluir** no painel inicial do DevOps.
 
 ## <a name="next-steps"></a>Próximas etapas
 

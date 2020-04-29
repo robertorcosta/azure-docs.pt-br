@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679915"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508982"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure
 
@@ -46,7 +46,7 @@ Depois que os pacotes forem baixados, você poderá importá-los para sua conta 
 
 ### <a name="runbook"></a>Runbook
 
-Importe os pacotes python [2 de importação do runbook do Python do PyPI para a conta de automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) da galeria para sua conta de automação. Verifique se as configurações de execução estão definidas como **Azure** e inicie o runbook com os parâmetros. O runbook requer uma conta Executar como para que a conta de automação funcione. Para cada parâmetro, certifique-se de iniciá-lo com a opção conforme mostrado na seguinte lista e imagem:
+ Para obter um runbook, [importe pacotes python 2 do PyPI para a conta de automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) da galeria para sua conta de automação. Verifique se as configurações de execução estão definidas como **Azure** e inicie o runbook com os parâmetros. O runbook requer uma conta Executar como para que a conta de automação funcione. Para cada parâmetro, certifique-se de iniciá-lo com a opção conforme mostrado na seguinte lista e imagem:
 
 * -s \<SubscriptionId\>
 * -g \<resourcegroup\>
@@ -85,7 +85,7 @@ for group in groups:
 
 ## <a name="develop-and-test-runbooks-offline"></a>Desenvolva e teste runbooks offline
 
-Para desenvolver e testar os runbooks do Python 2 offline, você pode usar o módulo de [ativos emulados do python de Automação do Azure](https://github.com/azureautomation/python_emulated_assets) no GitHub. Esse módulo permite referenciar os recursos compartilhados como credenciais, variáveis, conexões e certificados.
+Para desenvolver e testar seus runbooks do Python 2 offline, você pode usar o módulo de [ativos emulados do Python de automação do Azure](https://github.com/azureautomation/python_emulated_assets) no github. Esse módulo permite referenciar os recursos compartilhados como credenciais, variáveis, conexões e certificados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

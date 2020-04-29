@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de convidado para o Windows
 description: Saiba como criar uma política de configuração de convidado Azure Policy para o Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024890"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509611"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de configuração de convidado para o Windows
 
@@ -16,7 +16,7 @@ Antes de criar políticas personalizadas, é uma boa ideia ler as informações 
  
 Para saber mais sobre como criar políticas de configuração de convidado para o Linux, consulte a página [como criar políticas de configuração de convidado para Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a configuração de convidado usa um módulo de recurso de [configuração de estado desejado](/powershell/scripting/dsc/overview/overview) (DSC) para o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar.
+Ao auditar o Windows, a configuração de convidado usa um módulo de recurso de [configuração de estado desejado](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar.
 Se a avaliação da configuração falhar, o efeito de política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
 
 [Azure Policy configuração de convidado](../concepts/guest-configuration.md) só pode ser usada para auditar configurações dentro de computadores. A correção de configurações dentro de computadores ainda não está disponível.
