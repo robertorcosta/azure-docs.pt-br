@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API REST das Operações dos Serviços de Mídia | Microsoft Docs
-description: A API "Operações de Serviços de Mídia REST" é usada para criar empregos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia. Este artigo fornece uma visão geral da API do Azure Media Services v2 REST.
+description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773671"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia do Azure. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -81,15 +81,15 @@ Este é um conjunto de cabeçalhos opcional:
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET. |
 | Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID da solicitação de cliente |String |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
+| ID da solicitação de cliente |Cadeia de caracteres |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
 | Cabeçalho | Type | Valor |
 | --- | --- | --- |
-| ID da solicitação |String |Um identificador exclusivo para a operação atual, serviço gerado. |
-| ID da solicitação de cliente |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
+| ID da solicitação |Cadeia de caracteres |Um identificador exclusivo para a operação atual, serviço gerado. |
+| ID da solicitação de cliente |Cadeia de caracteres |Um identificador especificado pelo chamador na solicitação original, se presente. |
 | Data |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
 | Tipo de conteúdo |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
@@ -126,6 +126,6 @@ Para saber como usar a autenticação do Azure AD com a API REST de Serviços de
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

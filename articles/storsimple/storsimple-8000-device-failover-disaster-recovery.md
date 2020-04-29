@@ -1,5 +1,5 @@
 ---
-title: Failover e recuperação de desastres para dispositivo da série StorSimple 8000
+title: Failover e recuperação de desastre para o dispositivo StorSimple da série 8000
 description: Saiba como fazer failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo de nuvem.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397517"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e recuperação de desastre para seu dispositivo StorSimple da série 8000
@@ -83,8 +83,8 @@ Use a tabela a seguir para determinar se é possível fazer failover ou failback
 
 Em caso de desastre, você pode optar por fazer failover do dispositivo StorSimple:
 
-* [Para um dispositivo físico.](storsimple-8000-device-failover-physical-device.md)
-* [Para si mesmo.](storsimple-8000-device-failover-same-device.md)
+* [Para um dispositivo físico](storsimple-8000-device-failover-physical-device.md).
+* [Para si mesmo](storsimple-8000-device-failover-same-device.md).
 * [Para um dispositivo de nuvem](storsimple-8000-device-failover-cloud-appliance.md).
 
 Os artigos anteriores fornecem etapas detalhadas para cada um dos casos de failover acima.
@@ -108,19 +108,19 @@ Se você estiver planejando fazer failbacks ou failovers de teste, recomendamos 
 
 Q. **O que acontecerá se a DR falhar ou tiver êxito parcial?**
 
-a. Caso a DR falhe, recomendamos que você tente novamente. O segundo trabalho de failover do dispositivo está ciente do progresso do primeiro trabalho e inicia a partir desse ponto em diante.
+A. Caso a DR falhe, recomendamos que você tente novamente. O segundo trabalho de failover do dispositivo está ciente do progresso do primeiro trabalho e inicia a partir desse ponto em diante.
 
 Q. **Posso excluir um dispositivo enquanto o failover do dispositivo estiver em andamento?**
 
-a. Você não pode excluir um dispositivo enquanto uma DR está em andamento. Só é possível excluir o dispositivo após a conclusão da DR. Você pode monitorar o andamento do trabalho do failover do dispositivo na folha **Trabalhos**.
+A. Você não pode excluir um dispositivo enquanto uma DR está em andamento. Só é possível excluir o dispositivo após a conclusão da DR. Você pode monitorar o andamento do trabalho do failover do dispositivo na folha **Trabalhos**.
 
 Q. **Quando a coleta de lixo começa no dispositivo de origem para que os dados locais do dispositivo de origem sejam excluídos?**
 
-a. A coleta de lixo será habilitada no dispositivo de origem somente depois que o dispositivo estiver completamente limpo. A limpeza inclui limpar objetos que passaram pelo failover do dispositivo de origem, como volumes, objetos de backup (não dados), contêineres de volume e políticas.
+A. A coleta de lixo será habilitada no dispositivo de origem somente depois que o dispositivo estiver completamente limpo. A limpeza inclui limpar objetos que passaram pelo failover do dispositivo de origem, como volumes, objetos de backup (não dados), contêineres de volume e políticas.
 
 Q. **O que acontecerá se o trabalho de exclusão associado aos contêineres de volume no dispositivo de origem falhar?**
 
-a.  Se o trabalho de exclusão falhar, você poderá excluir manualmente os contêineres de volume. Na folha **Dispositivos**, selecione o dispositivo de origem e clique em **Contêineres de volume**. Selecione os contêineres de volume que passaram pelo failover e, na parte inferior da folha, clique em **Excluir**. Depois de ter excluído todos os contêineres de volume que passaram pelo failover no dispositivo de origem, você pode iniciar o failback. Para obter mais informações, acesse [Excluir um contêiner de volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Se o trabalho de exclusão falhar, você poderá excluir manualmente os contêineres de volume. Na folha **Dispositivos**, selecione o dispositivo de origem e clique em **Contêineres de volume**. Selecione os contêineres de volume que passaram pelo failover e, na parte inferior da folha, clique em **Excluir**. Depois de ter excluído todos os contêineres de volume que passaram pelo failover no dispositivo de origem, você pode iniciar o failback. Para obter mais informações, acesse [Excluir um contêiner de volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>BCDR (recuperação de desastre de continuidade de negócios)
 

@@ -1,6 +1,6 @@
 ---
-title: Cronogramas de manutenção para pool Synapse SQL
-description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção programados necessários que o Azure Synapse Analytics usa para implementar novos recursos, upgrades e patches.
+title: Agendas de manutenção para o pool SQL Synapse
+description: O agendamento de manutenção permite que os clientes planejem os eventos de manutenção agendados necessários que o Azure Synapse Analytics usa para distribuir novos recursos, atualizações e patches.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,52 +11,52 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631600"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
-O recurso de cronograma de manutenção integra as Notificações de Manutenção Planejada do Serviço de Saúde, o Monitor de Verificação de Saúde de Recursos e o serviço de agendamento de manutenção para o pool Synapse SQL (data warehouse) dentro do Azure Synapse Analytics.
+O recurso de agendamento de manutenção integra as notificações de manutenção planejada de integridade do serviço, Resource Health verificação de monitor e serviço de agendamento de manutenção para o Synapse SQL pool (data warehouse) no Azure Synapse Analytics.
 
-Você deve usar o agendamento de manutenção para escolher uma janela de tempo quando for conveniente receber novos recursos, upgrades e patches. Você precisará escolher uma janela de manutenção primária e secundária dentro de um período de sete dias, cada janela deve estar dentro de intervalos de dias separados.
+Você deve usar o agendamento de manutenção para escolher uma janela de tempo quando for conveniente receber novos recursos, atualizações e patches. Você precisará escolher uma janela de manutenção primária e uma secundária em um período de sete dias, cada janela deve estar dentro de intervalos de dias separados.
 
-Por exemplo, você pode agendar uma janela primária de sábado das 22:00 às 01:00 e, em seguida, agendar uma janela secundária de quarta-feira das 19:00 às 22:00. Se a manutenção não puder ser realizada durante a janela de manutenção primária, ela tentará a manutenção novamente durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer ocasionalmente durante as janelas primária e secundária. Para garantir a conclusão rápida de todas as operações de manutenção, os níveis de DW400c e de data warehouse inferiores poderiam concluir a manutenção fora de uma janela de manutenção designada.
+Por exemplo, você pode agendar uma janela primária de sábado 22:00 para domingo 01:00 e, em seguida, agendar uma janela secundária da quarta-feira 19:00 a 22:00. Se a manutenção não puder ser executada durante a janela de manutenção primária, ela tentará realizar a manutenção novamente durante a janela de manutenção secundária. A manutenção do serviço pode ocorrer durante as janelas primária e secundária. Para garantir a conclusão rápida de todas as operações de manutenção, DW400c e camadas de data warehouse inferiores podem concluir a manutenção fora de uma janela de manutenção designada.
 
-Todas as instâncias de data warehouse recém-criadas terão um cronograma de manutenção definido pelo sistema aplicado durante a implantação. O agendamento poderá ser editado assim que a implantação for concluída.
+Todas as instâncias de data warehouse criadas recentemente terão um agendamento de manutenção definido pelo sistema aplicado durante a implantação. O agendamento poderá ser editado assim que a implantação for concluída.
 
-Embora uma janela de manutenção possa ser entre três e oito horas, isso não significa que o data warehouse ficará offline durante toda a duração. A manutenção pode ocorrer a qualquer momento dentro dessa janela e você deve esperar uma única desconexão durante esse período com duração de ~5 -6 minutos à medida que o serviço implanta um novo código no seu data warehouse. DW400c e inferior podem sofrer múltiplas perdas breves na conectividade em vários momentos durante a janela de manutenção. Quando a manutenção for iniciada, todas as sessões ativas serão canceladas e as transações não comprometidas serão revertidas. Para minimizar o tempo de inatividade da instância, certifique-se de que o data warehouse não tenha transações de longa execução antes do período de manutenção escolhido.
+Embora uma janela de manutenção possa estar entre três e oito horas, isso não significa que o data warehouse ficará offline durante a duração. A manutenção pode ocorrer a qualquer momento dentro dessa janela e você deve esperar uma única desconexão durante esse período duradoura ~ 5 -6 minutos, pois o serviço implanta o novo código em seu data warehouse. DW400c e Lower podem apresentar várias perdas curtas na conectividade em vários momentos durante a janela de manutenção. Quando a manutenção é iniciada, todas as sessões ativas serão canceladas e as transações não confirmadas serão revertidas. Para minimizar o tempo de inatividade da instância, certifique-se de que o data warehouse não tenha transações de longa execução antes do período de manutenção escolhido.
 
-Todas as operações de manutenção devem ser concluídas dentro das janelas de manutenção especificadas, a menos que sejamos obrigados a implantar uma atualização sensível ao tempo. Se o data warehouse estiver em pausa durante a manutenção agendada, ele será atualizado durante a operação de retomada. Você será notificado imediatamente após a conclusão da manutenção do seu data warehouse.
+Todas as operações de manutenção devem ser concluídas dentro das janelas de manutenção especificadas, a menos que seja necessário implantar uma atualização sensível ao tempo. Se o data warehouse estiver em pausa durante a manutenção agendada, ele será atualizado durante a operação de retomada. Você será notificado imediatamente após a conclusão da manutenção do data warehouse.
 
 ## <a name="alerts-and-monitoring"></a>Alertas e monitoramento
 
-A integração com notificações do Service Health e o Monitor de verificação de integridade do recurso permite que os clientes se mantenham informados sobre a atividade de manutenção iminente. Essa automação aproveita o Azure Monitor. Você pode decidir como deseja ser notificado sobre eventos de manutenção iminentes. Além disso, você pode escolher quais fluxos automatizados o ajudarão a gerenciar o tempo de inatividade e minimizar o impacto operacional.
+A integração com notificações do Service Health e o Monitor de verificação de integridade do recurso permite que os clientes se mantenham informados sobre a atividade de manutenção iminente. Essa automação aproveita o Azure Monitor. Você pode decidir como deseja ser notificado sobre eventos de manutenção iminentes. Além disso, você pode escolher quais fluxos automatizados ajudarão você a gerenciar o tempo de inatividade e minimizar o impacto operacional.
 
-Uma notificação prévia de 24 horas precede todos os eventos de manutenção que não são para os níveis DWC400c e inferior.
+Uma notificação antecipada de 24 horas precede todos os eventos de manutenção que não são para as camadas DWC400c e inferior.
 
 > [!NOTE]
-> Caso sejamnecessário implantar uma atualização crítica temporal, os tempos avançados de notificação podem ser significativamente reduzidos.
+> No caso de ser necessário implantar uma atualização crítica de tempo, os tempos de notificação avançados podem ser reduzidos significativamente.
 
-Se você recebeu uma notificação prévia de que a manutenção ocorrerá, mas a manutenção não pode ser realizada durante o período de tempo na notificação, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendada.
+Se você recebeu a notificação antecipada de que a manutenção ocorrerá, mas a manutenção não pode ser executada durante o período de tempo na notificação, você receberá uma notificação de cancelamento. A manutenção será retomada durante o próximo período de manutenção agendada.
 
 Todos os eventos de manutenção ativos são exibidos na seção **Service Health - Planned Maintenance**. O histórico de integridade do serviço inclui um registro completo de eventos passados. Você pode monitorar a manutenção por meio do painel do portal de verificação do Funcionamento do Azure Health durante um evento ativo.
 
 ### <a name="maintenance-schedule-availability"></a>Disponibilidade do cronograma de manutenção
 
-Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível em sua região, o cronograma identificado se tornará imediatamente ativo em seu pool Synapse SQL.
+Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção se tornar disponível em sua região, o agendamento identificado se tornará imediatamente ativo em seu pool de SQL do Synapse.
 
 ## <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção
 
-Por padrão, todas as instâncias de data warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implantação. Como indicado acima, você pode alterar as janelas assim que a implantação estiver concluída. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia.
+Por padrão, todas as instâncias de data warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implantação. Conforme indicado acima, você pode alterar o Windows assim que a implantação for concluída. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia.
 
-Para visualizar o cronograma de manutenção aplicado ao seu pool Synapse SqL, complete as seguintes etapas:
+Para exibir o agendamento de manutenção que foi aplicado ao pool SQL do Synapse, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione o pool Synapse SQL que você deseja visualizar.
-3. O pool Synapse SQL selecionado é aberto na lâmina de visão geral. O cronograma de manutenção aplicado ao data warehouse aparece abaixo do **cronograma de manutenção.**
+2. Selecione o pool SQL do Synapse que você deseja exibir.
+3. O pool SQL do Synapse selecionado é aberto na folha visão geral. O agendamento de manutenção que é aplicado ao data warehouse aparece abaixo do **agendamento de manutenção**.
 
 ![Folha de visão geral](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
@@ -68,11 +68,11 @@ Um agendamento de manutenção pode ser atualizado ou alterado a qualquer moment
 
 As janelas principais e secundárias devem ter intervalos de dia separados. Um exemplo é uma janela principal de terça-feira – quinta-feira e um secundário da janela de domingo-sábado.
 
-Para alterar o cronograma de manutenção do seu pool Synapse SQL, complete as seguintes etapas:
+Para alterar o agendamento de manutenção do pool SQL do Synapse, conclua as seguintes etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione o pool Synapse SQL que deseja atualizar. A página será aberta na folha de visão geral.
-Abra a página para as configurações do cronograma de manutenção selecionando o link **resumo do cronograma de manutenção** na lâmina da visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.
+2. Selecione o pool SQL do Synapse que você deseja atualizar. A página será aberta na folha de visão geral.
+Abra a página para configurações de agendamento de manutenção selecionando o link de **Resumo do agendamento de manutenção** na folha visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.
 
     ![Opções da folha Visão geral](./media/maintenance-scheduling/maintenance-change-option.png)
 
@@ -82,13 +82,13 @@ Durante a visualização, algumas regiões podem ainda não dar suporte ao conju
    ![Folha de configurações de manutenção](./media/maintenance-scheduling/maintenance-settings-page.png)
 
 4. Escolha suas janelas de manutenção preferencial de primário e secundário, usando as caixas de lista suspensa:
-   - **Dia**: Dia preferido para realizar a manutenção durante a janela selecionada.
+   - **Day**: dia preferencial para executar a manutenção durante a janela selecionada.
    - **Hora de início**: hora de início preferencial para a janela de manutenção.
-   - **Janela de tempo**: Duração preferencial da janela de tempo.
+   - **Janela de tempo**: duração preferida da janela de tempo.
 
    A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou.
   
-5. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
+5. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
 
    Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773690"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo  
@@ -135,7 +135,7 @@ Resposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Link ContentKeyAuthorizationPolicies with Options
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Vincular ContentKeyAuthorizationPolicies com opções
 Solicitação:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -283,7 +283,7 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
 Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o runtime do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
 
-Quando você protege seu conteúdo com o PlayReady, uma das coisas que você precisa especificar em sua política de autorização é uma seqüência XML que define o [modelo de licença PlayReady](media-services-playready-license-template-overview.md). 
+Quando você protege seu conteúdo com o PlayReady, uma das coisas que você precisa especificar em sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrição aberta
 Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
@@ -447,7 +447,7 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

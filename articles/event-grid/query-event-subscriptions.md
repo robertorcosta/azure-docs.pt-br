@@ -1,6 +1,6 @@
 ---
 title: Consultar assinaturas de Grade de Eventos do Azure
-description: Este artigo descreve como listar assinaturas do Event Grid em sua assinatura do Azure. Você fornece diferentes parâmetros com base no tipo de assinatura.
+description: Este artigo descreve como listar assinaturas de grade de eventos em sua assinatura do Azure. Você fornece parâmetros diferentes com base no tipo de assinatura.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 2da4ba5946f16092c1d0918aec8dc3109b5fd4a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721533"
 ---
 # <a name="query-event-grid-subscriptions"></a>Consultar assinaturas de Grade de Eventos 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260300"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protegendo Dados Armazenados no Armazenamento de Data Lake do Azure Gen1
@@ -32,8 +32,8 @@ Este artigo fornece instruções sobre como usar o Portal do Azure para realizar
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Comece com o Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte Introdução [ao Azure data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Criar grupos de segurança no Active Directory do Azure
 Para obter instruções sobre como criar grupos de segurança do AAD e como adicionar usuários ao grupo, consulte [Gerenciar grupos de segurança no Active Directory do Azure](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -57,7 +57,7 @@ Quando você atribui usuários ou grupos de segurança a contas do Data Lake Sto
 
 2. Na folha de conta do Data Lake Storage Gen1, clique em **Access Control (IAM)**. Por padrão, a folha lista os proprietários de assinatura como o proprietário.
    
-    ![Atribuir grupo de segurança à conta Azure Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Atribuir grupo de segurança à conta Azure Data Lake Storage Gen1")
+    ![Atribuir grupo de segurança à conta de Azure Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon1.png "Atribuir grupo de segurança à conta de Azure Data Lake Storage Gen1")
 
 3. Na folha do **Controle de Acesso (IAM)**, clique em **Adicionar** para abrir a folha **Adicionar permissões**. Na folha **Adicionar permissões**, selecione um **Função** para o usuário/grupo. Procure o grupo de segurança criado anteriormente no Microsoft Azure Active Directory e selecione-o. Se houver muitos usuários e grupos a sua pesquisa, use a caixa de texto **Selecionar** na parte superior para filtrar pelo nome do grupo. 
    
@@ -85,7 +85,7 @@ Ao atribuir grupos de usuários / segurança ao sistema de arquivos do Data Lake
 
 1. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
    
-    ![Ver dados via Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Ver dados via Data Explorer")
+    ![Exibir dados por meio de Data Explorer](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Exibir dados por meio de Data Explorer")
 2. Na folha **Data Explorer**, clique na pasta para o qual você deseja configurar a ACL e, em seguida, clique em **Acessar**. Para atribuir as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da ** folha Exibição de arquivo**.
    
     ![Definir ACLs no sistema de arquivos Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.acl.1.png "Definir ACLs no sistema de arquivos Data Lake Storage Gen1")
@@ -129,7 +129,7 @@ O acesso a dados é alterado e ainda é gerenciado pelo acesso de ACLs.  A exce�
 
 1. Na folha de conta do Data Lake Storage Gen1, clique em **Access Control (IAM)**. 
    
-    ![Atribuir grupo de segurança à conta Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Atribuir grupo de segurança à conta Data Lake Storage Gen1")
+    ![Atribuir grupo de segurança à conta de Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "Atribuir grupo de segurança à conta de Data Lake Storage Gen1")
 2. Na folha **Controle de Acesso (IAM)**, clique no grupo de segurança que você deseja remover. Clique em **Remover**.
    
     ![Grupo de segurança removido](./media/data-lake-store-secure-data/adl.remove.group.png "Grupo de segurança removido")
@@ -139,7 +139,7 @@ Quando você remove as ACLs do grupo de segurança de um sistema de arquivos do 
 
 1. Na folha de sua conta do Data Lake Storage Gen1, clique em **Data Explorer**.
    
-    ![Criar diretórios na conta Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Criar diretórios na conta Data Lake Storage Gen1")
+    ![Criar diretórios na conta de Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.start.data.explorer.png "Criar diretórios na conta de Data Lake Storage Gen1")
 2. Na folha **Data Explorer**, clique na pasta para o qual você deseja remover a ACL e, em seguida, clique em **Acessar**. Para remover as ACLs em um arquivo, primeiro você clique no arquivo para visualizá-lo e, em seguida, clique em **Acesso** da ** folha Exibição de arquivo**. 
    
     ![Definir ACLs no sistema de arquivos Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.acl.1.png "Definir ACLs no sistema de arquivos Data Lake Storage Gen1")

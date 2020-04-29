@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249575"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de problemas no Gerenciamento de API do Azure
@@ -37,7 +37,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="issue-list"></a><a name="IssueList"></a>Lista de problemas  
  O modelo **Lista de problemas** possibilita personalizar o corpo da página de lista de problemas no portal do desenvolvedor.  
   
- ![Portal de desenvolvedores de listas de problemas](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal de desenvolvedores da lista de problemas da APIM")  
+ ![Portal do desenvolvedor da lista de problemas](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal do desenvolvedor da lista de problemas do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -104,7 +104,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
 |`IsAuthenticated`|booleano|Se o usuário atual está conectado ao portal do desenvolvedor.|  
 |`CanReportIssues`|booleano|Se o usuário atual tem permissões para arquivar um problema.|  
-|`Search`|string|Essa propriedade foi preterida e não deve ser usada.|  
+|`Search`|cadeia de caracteres|Essa propriedade foi preterida e não deve ser usada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

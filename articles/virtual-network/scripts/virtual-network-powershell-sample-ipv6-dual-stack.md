@@ -1,7 +1,7 @@
 ---
-title: Amostra de script do Azure PowerShell - Configure pontos finais IPv6
+title: Exemplo de script Azure PowerShell-configurar pontos de extremidade IPv6
 titlesuffix: Azure Virtual Network
-description: Habilite os pontos finais do IPv6 usando o Powershell na Rede Virtual Azure
+description: Habilitar pontos de extremidade IPv6 usando o PowerShell na rede virtual do Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201349"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configure os pontos finais do IPv6 na amostra de script de rede virtual (visualização)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos de extremidade IPv6 na amostra de script de rede virtual (versão prévia)
 
-Este artigo mostra como implantar um aplicativo dual stack (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um balanceador de carga com configurações front-end duplas (IPv4 + IPv6), VMs com NICs que possuem uma configuração IP dupla, regras de grupo de segurança de rede dupla, e IPs públicos duplos.
+Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um balanceador de carga com configurações de front-end duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração de IP dupla, duas regras de grupo de segurança de rede e IPs públicos duplos.
 
-Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/powershell) ou de uma instalação local do PowerShell. Se você usar o PowerShell localmente, este script requer a versão 1.0.0 do módulo Azure Az PowerShell ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/powershell) ou de uma instalação local do PowerShell. Se você usar o PowerShell localmente, esse script exigirá o módulo do PowerShell AZ do Azure versão 1.0.0 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura apenas uma vez para este recurso de visualização usando o seguinte Azure PowerShell:
+Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura somente uma vez para esse recurso de visualização usando as seguintes Azure PowerShell:
 
-Registre-se da seguinte forma:
+Registre-se da seguinte maneira:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar seu status de registro executando o seguinte comando Azure PowerShell: Verifique o registro da seguinte forma:
+Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar o status do Registro executando o seguinte comando de Azure PowerShell: Verifique o registro da seguinte maneira:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
@@ -262,7 +262,7 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Cria uma regra NSG para permitir o tráfego de entrada. Neste exemplo, a porta 22 é aberta para o tráfego SSH. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Cria uma placa de rede virtual e a anexa à rede virtual, à sub-rede e ao NSG. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade do aplicativo, espalhando as máquinas virtuais através de recursos físicos, de forma que, se ocorrer falha, todo o conjunto não será afetado. |
+| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade do aplicativo distribuindo as máquinas virtuais entre recursos físicos, de modo que, se ocorrer uma falha, o conjunto inteiro não será afetado. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. A configuração é usada durante a criação da VM. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Cria a máquina virtual e a conecta a placa de rede, a rede virtual, a sub-rede e o NSG. Este comando também especifica a imagem da máquina virtual a ser usada e as credenciais administrativas.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |

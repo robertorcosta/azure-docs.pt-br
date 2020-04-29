@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273040"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
@@ -83,7 +83,7 @@ Você deve usar endereços IP públicos que possui para configurar as sessões B
 Você pode optar por usar os endereços IPv4 públicos ou privados para o emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Esses endereços não são divulgados na Internet. 
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
-O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços do Office 365, como Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
+O caminho de emparelhamento da Microsoft permite conectar os serviços em nuvem da Microsoft. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Microsoft Teams. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
 
 Verifique se o endereço IP e o número de AS estão registrados em um dos registros abaixo:
 
@@ -153,7 +153,7 @@ Consulte a página [Locais de emparelhamento e parceiros do ExpressRoute](expres
 
 Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Nos casos em que há vários circuitos do ExpressRoute, você receberá o mesmo conjunto de prefixos divulgados pela Microsoft nos caminhos de emparelhamento público e emparelhamento da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
-| **Região do Microsoft Azure** | **Comunidade Regional BGP** | **Comunidade BGP de armazenamento** | **Comunidade SQL BGP** | **Comunidade BGP do Cosmos DB** |
+| **Região do Microsoft Azure** | **Comunidade de BGP regional** | **Comunidade de BGP de armazenamento** | **Comunidade BGP do SQL** | **Cosmos DB comunidade BGP** |
 | --- | --- | --- | --- | --- |
 | **América do Norte** | |
 | Leste dos EUA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
@@ -175,12 +175,12 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul da França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Suíça Norte | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Suíça Ocidental | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Alemanha Norte | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Alemanha Centro-Oeste | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Norte da Suíça | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Oeste da Suíça | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Norte da Alemanha | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Centro-oeste da Alemanha | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
 | Leste da Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Noruega Ocidental | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Oeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Pacífico Asiático** | |
 | Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
@@ -202,7 +202,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Coreia Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
 | Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| África do Sul Ocidental | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **EAU**| |
 | Norte dos EAU | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | EAU Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
@@ -215,22 +215,22 @@ Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunida
 > 
 > 
 
-### <a name="service-to-bgp-community-value"></a>Serviço ao valor da comunidade BGP
-Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP. Você pode executar o cmdlet 'Get-AzBgpServiceCommunity' para obter uma lista completa dos valores mais recentes.
+### <a name="service-to-bgp-community-value"></a>Valor da comunidade de serviço para BGP
+Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP. Você pode executar o cmdlet ' Get-AzBgpServiceCommunity ' para obter uma lista completa dos valores mais recentes.
 
 | **Serviço** | **Valor de comunidade BGP** |
 | --- | --- |
-| Intercâmbio online** | 12076:5010 |
-| SharePoint Online** | 12076:5020 |
-| Skype para negócios on-line** | 12076:5030 |
-| CRM Online*** |12076:5040 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype for Business Online * * | 12076:5030 |
+| CRM Online * * * |12076:5040 |
 | Serviços Globais do Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Outros serviços online do Office 365** | 12076:5100 |
+| Outros serviços online do Office 365 * * | 12076:5100 |
 
-*O Azure Global Services inclui apenas DevOps Azure neste momento.\
-** Autorização necessária da Microsoft, consulte [Configure filtros de rota para peering microsoft](how-to-routefilter-portal.md)\
-O CRM Online suporta Dynamics v8.2 e abaixo. Para versões mais altas, selecione a comunidade regional para suas implantações dinâmicas.
+* Os serviços globais do Azure incluem apenas DevOps do Azure no momento. \
+* * Autorização necessária da Microsoft, consulte [Configurar filtros de rota para o emparelhamento da Microsoft](how-to-routefilter-portal.md)\
+O CRM Online dá suporte ao Dynamics v 8.2 e inferior. Para versões superiores, selecione a comunidade regional para suas implantações do Dynamics.
 
 > [!NOTE]
 > A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.

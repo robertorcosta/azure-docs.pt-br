@@ -1,5 +1,5 @@
 ---
-title: Suporte para recuperação de vMware/desastre físico para um site secundário com a Recuperação do Site do Azure
+title: Suporte para recuperação de desastres do VMware/físico em um site secundário com Azure Site Recovery
 description: Resume o suporte para recuperação de desastres de VMs VMware e servidores físicos para um site secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256790"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para um site secundário
@@ -26,9 +26,9 @@ Este artigo resume o que é suportado quando você usa o serviço [Azure Site Re
 > A replicação de VMs VMware e servidores físicos locais é fornecida pelo InMage Scout. O InMage Scout está incluído na assinatura para o serviço Azure Site Recovery.
 
 ## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
-O cenário de recuperação de site para replicação entre vMware local ou datacenters físicos está chegando ao fim do suporte.
+O cenário de Site Recovery para replicação entre data centers físicos ou VMware locais está atingindo o fim do suporte.
 
-- A partir de agosto de 2018, o cenário não pode ser configurado no cofre dos Serviços de Recuperação, e o software InMage Scout não pode ser baixado do cofre. As implantações existentes terão suporte.
+- De agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e o software InMage Scout não pode ser baixado do cofre. As implantações existentes terão suporte.
 - - De 31 de dezembro de 2020, o cenário não terá suporte.
 Parceiros existentes podem integrar o cenário de novos clientes até o término do suporte.
 - Durante a 2018 e 2019, duas atualizações serão lançadas:
@@ -39,7 +39,7 @@ Parceiros existentes podem integrar o cenário de novos clientes até o término
 
 ## <a name="host-servers"></a>Servidores de host
 
-**Sistema Operacional** | **Detalhes**
+**Sistema operacional** | **Detalhes**
 --- | ---
 Servidor vCenter | vCenter 5.5, 6.0 e 6.5<br/><br/> Se você executar 6.0 ou 6.5, observe que apenas os recursos de 5.5 têm suporte.
 
@@ -48,7 +48,7 @@ Servidor vCenter | vCenter 5.5, 6.0 e 6.5<br/><br/> Se você executar 6.0 ou 6.5
 
 A tabela a seguir resume o suporte de sistema operacional para computadores replicados com o Site Recovery. Qualquer carga de trabalho pode ser executada no sistema operacional com suporte.
 
-**Sistema Operacional** | **Detalhes**
+**Sistema operacional** | **Detalhes**
 --- | ---
 Windows Server | Windows Server 2016 R2 de 64 bits, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1.
 Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 que executa Red Hat compatível com kernel ou o Unbreakable Enterprise Kernel Versão 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
@@ -66,7 +66,7 @@ Somente computadores Linux com o armazenamento a seguir podem ser replicados:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - VM Host/Convidada
 
-**Configuração** | **Suportado**  
+**Configuração** | **Com suporte**  
 --- | --- 
 Host - Agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -83,7 +83,7 @@ VM Convidada - Multi-NIC | Sim
 
 ### <a name="host-storage"></a>Armazenamento de host
 
-**Armazenamento (host)** | **Suportado** 
+**Armazenamento (host)** | **Com suporte** 
 --- | --- 
 NFS | Sim 
 SMB 3.0 | N/D 
@@ -92,7 +92,7 @@ Múltiplos caminhos (MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento do servidor físico ou convidado
 
-**Configuração** | **Suportado** 
+**Configuração** | **Com suporte** 
 --- | --- 
 VMDK | Sim 
 VHD/VHDX | N/D 
@@ -112,7 +112,7 @@ Múltiplos caminhos (MPIO) | N/D
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado** 
+**Ação** | **Com suporte** 
 --- | --- 
 Mover cofres entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não 
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma assinatura ou entre assinaturas) | Não 

@@ -1,5 +1,5 @@
 ---
-title: Conecte redes virtuais com peering VNet - Azure PowerShell
+title: Conectar redes virtuais com emparelhamento VNet-Azure PowerShell
 description: Neste artigo, você aprende a conectar redes virtuais com o emparelhamento de rede virtual, usando o Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,10 +16,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: caa620c2389bb6e2387636bc262ceb2de99d8e34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77201281"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Conectar redes virtuais com o emparelhamento de rede virtual usando PowerShell
@@ -41,7 +41,7 @@ Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
-Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
+Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -57,7 +57,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Crie uma configuração de sub-rede com [o New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma configuração de sub-rede com um prefixo de endereço 10.0.0.0/24:
+Crie uma configuração de sub-rede com [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma configuração de sub-rede com um prefixo de endereço 10.0.0.0/24:
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -66,7 +66,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-Escreva a configuração da sub-rede na rede virtual com [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), que cria a sub-rede:
+Grave a configuração de sub-rede na rede virtual com [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), que cria a sub-rede:
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -94,7 +94,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>Emparelhar redes virtuais
 
-Crie um peering com [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). Os pares de exemplo a seguir *myVirtualNetwork1* a *myVirtualNetwork2*.
+Crie um emparelhamento com [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). Os pares de exemplo a seguir *myVirtualNetwork1* a *myVirtualNetwork2*.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -103,7 +103,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 ```
 
-Na saída retornada após a execução do comando anterior, você vê que o **PeeringState** é *iniciado*. O emparelhamento permanece no estado *Iniciado* até que você crie o emparelhamento de *myVirtualNetwork2* para *myVirtualNetwork1*. Crie um emparelhamento de *myVirtualNetwork2* para *myVirtualNetwork1*.
+Na saída retornada após a execução do comando anterior, você verá que o **PeeringState** é *iniciado*. O emparelhamento permanece no estado *Iniciado* até que você crie o emparelhamento de *myVirtualNetwork2* para *myVirtualNetwork1*. Crie um emparelhamento de *myVirtualNetwork2* para *myVirtualNetwork1*.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -112,7 +112,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-Na saída retornada após a execução do comando anterior, você vê que o **PeeringState** está *conectado*. O Azure também alterou o estado de emparelhamento do emparelhamento *myVirtualNetwork1-myVirtualNetwork2* para *Conectado*. Confirme se o estado de peering do *peering myVirtualNetwork1-myVirtualNetwork2* foi alterado para *Connected* with [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
+Na saída retornada após a execução do comando anterior, você verá que o **PeeringState** está *conectado*. O Azure também alterou o estado de emparelhamento do emparelhamento *myVirtualNetwork1-myVirtualNetwork2* para *Conectado*. Confirme se o estado de emparelhamento do emparelhamento *myVirtualNetwork1-myVirtualNetwork2* foi alterado para *conectado* com [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -121,7 +121,7 @@ Get-AzVirtualNetworkPeering `
   | Select PeeringState
 ```
 
-Os recursos em uma rede virtual não podem se comunicar com recursos na outra rede virtual até que o **PeeringState** para os peerings em ambas as redes virtuais esteja *conectado*.
+Os recursos em uma rede virtual não podem se comunicar com recursos na outra rede virtual até que o **PeeringState** para os emparelhamentos em ambas as redes virtuais esteja *conectado*.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -196,9 +196,9 @@ ping 10.0.0.4
 
 Você receberá quatro respostas. Desconecte as sessões RDP para ambas *myVm1* e *myVm2*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não for mais necessário, use [remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém.
+Quando não for mais necessário, use [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

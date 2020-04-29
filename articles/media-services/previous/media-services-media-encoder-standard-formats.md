@@ -1,6 +1,6 @@
 ---
 title: Formatos e codecs Media Encoder Standard - Azure
-description: Este artigo fornece uma visão geral dos formatos e codecs padrão do Media Encoder.
+description: Este artigo fornece uma visão geral dos codecs e formatos de Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,15 +15,15 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251018"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
-> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
 > * [Versão 2](media-services-media-encoder-standard-formats.md)
 > * [Versão 3](../latest/media-encoder-standard-formats.md)
 
@@ -89,7 +89,7 @@ ou
 | MP3 (MPEG-1 Audio Layer 3) |Sim |
 | Áudio do Windows Media |Sim |
 | WAV/PCM |Sim |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |
@@ -109,7 +109,7 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Confira também

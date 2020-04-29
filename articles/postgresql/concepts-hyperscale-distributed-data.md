@@ -1,6 +1,6 @@
 ---
-title: Dados distribuídos - Hyperscale (Citus) - Banco de dados Azure para PostgreSQL
-description: Saiba mais sobre tabelas distribuídas, tabelas de referência, tabelas locais e fragmentos no Banco de Dados Azure para PostgreSQL.
+title: Distributed data – Citus (hiperescala) – banco de dados do Azure para PostgreSQL
+description: Saiba mais sobre tabelas distribuídas, tabelas de referência, tabelas locais e fragmentos no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,50 +8,50 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243647"
 ---
-# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dados distribuídos no Banco de Dados Azure para PostgreSQL – Hyperscale (Citus)
+# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
 
-Este artigo descreve os três tipos de tabela no Banco de Dados Azure para PostgreSQL – Hyperscale (Citus).
-Ele mostra como as tabelas distribuídas são armazenadas como fragmentos, e a maneira como os fragmentos são colocados em nós.
+Este artigo descreve os três tipos de tabela no banco de dados do Azure para PostgreSQL – Citus (hiperescala).
+Ele mostra como as tabelas distribuídas são armazenadas como fragmentos e a maneira como os fragmentos são colocados em nós.
 
 ## <a name="table-types"></a>Tipos de tabela
 
-Existem três tipos de tabelas em um grupo de servidor Hyperscale (Citus), cada uma usada para diferentes propósitos.
+Há três tipos de tabelas em um grupo de servidores de hiperescala (Citus), cada uma usada para finalidades diferentes.
 
-### <a name="type-1-distributed-tables"></a>Tipo 1: Tabelas distribuídas
+### <a name="type-1-distributed-tables"></a>Tipo 1: tabelas distribuídas
 
-O primeiro tipo, e mais comum, são as tabelas distribuídas. Parecem ser tabelas normais para instruções SQL, mas são horizontalmente particionadas entre os nódulos do trabalhador. O que isso significa é que as linhas da tabela são armazenadas em diferentes nós, em tabelas fragmentadas chamadas fragmentos.
+O primeiro tipo e mais comum são tabelas distribuídas. Eles parecem ser tabelas normais para instruções SQL, mas são particionados horizontalmente entre nós de trabalho. Isso significa que as linhas da tabela são armazenadas em nós diferentes, em tabelas de fragmento chamadas de fragmentos.
 
-Hyperscale (Citus) executa não apenas instruções SQL, mas DDL em um cluster.
-Alterando o esquema de uma tabela distribuída em cascatas para atualizar todos os fragmentos da tabela entre os trabalhadores.
+O Citus (hiperscale) executa não apenas instruções SQL, mas DDL em um cluster.
+Alterar o esquema de uma tabela distribuída em cascata para atualizar todos os fragmentos da tabela entre os trabalhadores.
 
 #### <a name="distribution-column"></a>Coluna de distribuição
 
-Hyperscale (Citus) usa fragmento sumirítmico para atribuir linhas a fragmentos. A atribuição é feita determinicamente com base no valor de uma coluna de tabela chamada coluna de distribuição. O administrador de cluster deve designar esta coluna ao distribuir uma tabela.
-Fazer a escolha certa é importante para o desempenho e funcionalidade.
+O Citus (hiperscale) usa a fragmentação de algoritmos para atribuir linhas a fragmentos. A atribuição é feita de forma determinista com base no valor de uma coluna de tabela chamada coluna de distribuição. O administrador de cluster deve designar esta coluna ao distribuir uma tabela.
+Fazer a escolha certa é importante para desempenho e funcionalidade.
 
-### <a name="type-2-reference-tables"></a>Tipo 2: Tabelas de referência
+### <a name="type-2-reference-tables"></a>Tipo 2: tabelas de referência
 
-Uma tabela de referência é um tipo de tabela distribuída cujo conteúdo inteiro está concentrado em um único fragmento. O fragmento é replicado em todos os trabalhadores. Consultas em qualquer trabalhador podem acessar as informações de referência localmente, sem a sobrecarga da rede de solicitações de linhas de outro nó. As tabelas de referência não têm coluna de distribuição porque não há necessidade de distinguir fragmentos separados por linha.
+Uma tabela de referência é um tipo de tabela distribuída cujo conteúdo inteiro está concentrado em um único fragmento. O fragmento é replicado em todos os trabalhadores. As consultas em qualquer trabalho podem acessar as informações de referência localmente, sem a sobrecarga de rede de solicitar linhas de outro nó. Tabelas de referência não têm nenhuma coluna de distribuição porque não há necessidade de distinguir fragmentos separados por linha.
 
-As tabelas de referência são tipicamente pequenas e são usadas para armazenar dados relevantes para consultas em execução em qualquer nó do trabalhador. Um exemplo são valores enumerados, como status do pedido ou categorias de produtos.
+As tabelas de referência são geralmente pequenas e são usadas para armazenar dados relevantes para consultas em execução em qualquer nó de trabalho. Um exemplo são valores enumerados como status da ordem ou categorias de produtos.
 
-### <a name="type-3-local-tables"></a>Tipo 3: Tabelas locais
+### <a name="type-3-local-tables"></a>Tipo 3: tabelas locais
 
-Quando você usa Hyperscale (Citus), o nó coordenador ao que você se conecta é um banco de dados PostgreSQL regular. Você pode criar tabelas comuns no coordenador e optar por não usá-las.
+Quando você usa o Citus (hiperescala), o nó de coordenador ao qual você se conecta é um banco de dados PostgreSQL normal. Você pode criar tabelas comuns no coordenador e optar por não fragmentá-las.
 
-Um bom candidato para mesas locais seriam pequenas mesas administrativas que não participam de consultas de adesão. Um exemplo é uma tabela de usuários para login e autenticação de aplicativos.
+Um bom candidato para tabelas locais seria pequenas tabelas administrativas que não participam de consultas de junção. Um exemplo é uma tabela de usuários para entrada e autenticação do aplicativo.
 
 ## <a name="shards"></a>Fragmentos
 
-A seção anterior descreveu como as tabelas distribuídas são armazenadas como fragmentos nos nós do trabalhador. Esta seção discute mais detalhes técnicos.
+A seção anterior descreveu como as tabelas distribuídas são armazenadas como fragmentos em nós de trabalho. Esta seção aborda mais detalhes técnicos.
 
-A `pg_dist_shard` tabela de metadados no coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha combina com um ID de fragmento com uma gama de inteiros em um espaço hash (shardminvalue, shardmaxvalue).
+A `pg_dist_shard` tabela de metadados no coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha corresponde a uma ID de fragmento com um intervalo de inteiros em um espaço de hash (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se o nó coordenador quiser determinar qual fragmento `github_events`contém uma linha de , ele hashes o valor da coluna de distribuição na linha. Em seguida, o nó\'verifica qual faixa de fragmento s contém o valor hashed. As faixas são definidas de modo que a imagem da função hash é sua união desarticulada.
+Se o nó de coordenador quiser determinar qual fragmento contém uma linha `github_events`, ele faz hash do valor da coluna de distribuição na linha. Em seguida, o nó verifica\'qual intervalo de s de fragmentos contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
 
-### <a name="shard-placements"></a>Colocações de fragmentos
+### <a name="shard-placements"></a>Posicionamentos de fragmentos
 
-Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou `github_events_102027` escrita em uma tabela chamada em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o trabalhador é conhecido como a colocação de fragmentos.
+Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou gravada em uma tabela `github_events_102027` chamada em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o Worker é conhecido como o posicionamento do fragmento.
 
-O nó coordenador reescreve consultas em fragmentos que `github_events_102027` se referem às tabelas específicas como e executa esses fragmentos nos trabalhadores apropriados. Aqui está um exemplo de uma consulta nos bastidores para encontrar o nó segurando o fragmento iD 102027.
+O nó coordenador reescreve as consultas em fragmentos que se referem a tabelas específicas `github_events_102027` como e executa esses fragmentos nos trabalhadores apropriados. Veja um exemplo de uma consulta executada nos bastidores para localizar o nó que contém a ID de fragmento 102027.
 
 ```sql
 SELECT

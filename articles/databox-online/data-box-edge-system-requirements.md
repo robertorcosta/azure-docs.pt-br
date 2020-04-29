@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260222"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Requisitos do sistema Azure Data Box Edge
+# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge requisitos do sistema
 
 Este artigo descreve os requisitos de sistema importantes para a solução do Microsoft Azure Data Box Edge e para os clientes que se conectam ao Azure Data Box Edge. É recomendável que você examine as informações com atenção antes de implantar o Data Box Edge. Você pode consultar novamente a essas informações conforme necessário durante a implantação e operação subsequente.
 
@@ -82,55 +82,55 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 | Padrão de URL                      | Componente ou funcionalidade                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |
+| https:\//MCR.Microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de Contêiner da Microsoft (obrigatório)               |
 | https://\*.azurecr.io                     | Registros de contêiner pessoal e de terceiros (opcional) | 
 | https://\*.azure-devices.net              | Acesso do Hub IoT (obrigatório)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Padrões de URL para gateway para o Governo Azure
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Padrões de URL para gateway para o Azure governamental
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para computação para o Governo Azure
+### <a name="url-patterns-for-compute-for-azure-government"></a>Padrões de URL para computação para o Azure governamental
 
 | Padrão de URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://.cdn.mscr.com.\* | Registro de Contêiner da Microsoft (obrigatório)               |
-| https://\*(azure-devices.us).              | Acesso do Hub IoT (obrigatório)           |
-| https://\*azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
+| https:\//MCR.Microsoft.com<br></br>https://\*. cdn.mscr.com | Registro de Contêiner da Microsoft (obrigatório)               |
+| https://\*. Azure-Devices.us              | Acesso do Hub IoT (obrigatório)           |
+| https://\*. azurecr.us                    | Registros de contêiner pessoal e de terceiros (opcional) | 
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="compute-sizing-considerations"></a>Computação de considerações de dimensionamento
+## <a name="compute-sizing-considerations"></a>Considerações sobre o dimensionamento de computação
 
-Use sua experiência enquanto desenvolve e testa sua solução para garantir que haja capacidade suficiente em seu dispositivo Data Box Edge e obtenha o desempenho ideal do seu dispositivo.
+Use sua experiência ao desenvolver e testar sua solução para garantir que haja capacidade suficiente em seu dispositivo Data Box Edge e você obtenha o desempenho ideal do seu dispositivo.
 
-Os fatores que você deve considerar incluem:
+Entre os fatores que você deve considerar estão:
 
-- **Especificidades do contêiner** - Pense no seguinte.
+- **Especificações do contêiner** -pense no seguinte.
 
-    - Quantos contêineres estão na sua carga de trabalho? Você poderia ter um monte de recipientes leves contra alguns com recursos intensivos.
-    - Quais são os recursos alocados nesses contêineres versus quais são os recursos que eles estão consumindo?
+    - Quantos contêineres estão em sua carga de trabalho? Você pode ter muitos contêineres leves versus poucos recursos.
+    - Quais são os recursos alocados para esses contêineres versus quais são os recursos que estão consumindo?
     - Quantas camadas seus contêineres compartilham?
-    - Há recipientes não utilizados? Um recipiente parado ainda ocupa espaço em disco.
-    - Em que língua seus recipientes estão escritos?
-- **Tamanho dos dados processados** - Quantos dados seus contêineres estarão processando? Esses dados consumirão espaço em disco ou os dados serão processados na memória?
-- **Desempenho esperado** - Quais são as características de desempenho desejadas da sua solução? 
+    - Há contêineres não utilizados? Um contêiner interrompido ainda ocupa espaço em disco.
+    - Em que idioma os contêineres são gravados?
+- **Tamanho dos dados processados** -a quantidade de dados que seus contêineres serão processadas? Esses dados consumirão espaço em disco ou os dados serão processados na memória?
+- **Desempenho esperado** -quais são as características de desempenho desejadas da sua solução? 
 
-Para entender e refinar o desempenho da sua solução, você poderia usar:
+Para entender e refinar o desempenho de sua solução, você pode usar:
 
-- As métricas de computação disponíveis no portal Azure. Vá para o recurso Data Box Edge e, em seguida, vá para **Monitoramento > Métricas**. Olhe para o **edge compute - Uso de memória** e edge **compute - CPU percentual** para entender os recursos disponíveis e como os recursos estão sendo consumidos.
-- Os comandos de monitoramento disponíveis através da interface PowerShell do dispositivo, tais como:
+- As métricas de computação disponíveis no portal do Azure. Vá para o recurso de Data Box Edge e vá para **monitorando > métricas**. Examine a **computação de borda – uso de memória** e **porcentagem de CPU de computação** para entender os recursos disponíveis e como os recursos estão sendo consumidos.
+- Os comandos de monitoramento disponíveis por meio da interface do PowerShell do dispositivo, como:
 
-    - `dkrdbe stats`para obter uma transmissão ao vivo de estatísticas de uso de recursos de contêineres. O comando suporta métricas de CPU, uso de memória, limite de memória e IO de rede.
-    - `dkrdbe system df`para obter informações sobre a quantidade de espaço em disco utilizado. 
-    - `dkrdbe image prune`para limpar imagens não utilizadas e liberar espaço.
-    - `dkrdbe ps --size`para ver o tamanho aproximado de um recipiente em execução. 
+    - `dkrdbe stats`para obter uma transmissão ao vivo de estatísticas de uso de recursos de contêineres. O comando dá suporte à CPU, uso de memória, limite de memória e métricas de e/s de rede.
+    - `dkrdbe system df`para obter informações sobre a quantidade de espaço em disco usada. 
+    - `dkrdbe image prune`para limpar imagens não usadas e liberar espaço.
+    - `dkrdbe ps --size`para exibir o tamanho aproximado de um contêiner em execução. 
 
-    Para obter mais informações sobre os comandos disponíveis, vá para [Monitorar e solucionar módulos de computação](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    Para obter mais informações sobre os comandos disponíveis, vá para [monitorar e solucionar problemas de módulos de computação](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Finalmente, certifique-se de validar sua solução no conjunto de dados e quantificar o desempenho no Data Box Edge antes de implantar na produção.
+Por fim, certifique-se de validar sua solução em seu conjunto de e quantificar o desempenho em Data Box Edge antes de implantar em produção.
 
 
 ## <a name="next-step"></a>Próxima etapa

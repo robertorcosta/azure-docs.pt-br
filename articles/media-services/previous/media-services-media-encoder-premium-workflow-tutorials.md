@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251005"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
@@ -27,7 +27,7 @@ ms.locfileid: "79251005"
 Este documento contém instruções passo a passo que mostram como personalizar fluxos de trabalho com o **Designer de Fluxo de Trabalho**. Encontre os arquivos de fluxo de trabalho [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>SUMÁRIO
-Veja os tópicos que serão abordados:
+Os seguintes tópicos são abordados:
 
 * [Codificando MXF em um MP4 de taxa de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
   * [Iniciando um novo fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new)
@@ -35,10 +35,10 @@ Veja os tópicos que serão abordados:
   * [Inspecionando fluxos de mídia](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
   * [Adicionando um codificador de vídeo para geração de arquivo .MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
   * [Codificando o fluxo de áudio](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
-  * [Multiplexando fluxos de áudio e de vídeo em um contêiner MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
-  * [Redação do arquivo MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
+  * [Multiplexando fluxos de áudio e vídeo em um contêiner MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
+  * [Gravando o arquivo MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
   * [Criando um Ativo dos Serviços de Mídia do arquivo de saída](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
-  * [Teste o fluxo de trabalho concluído localmente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
+  * [Testar o fluxo de trabalho concluído localmente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
 * [Codificando MXF em MP4s com várias taxas bits - empacotamento dinâmico habilitado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
   * [Adicionando uma ou mais saídas MP4](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
   * [Configurando os nomes de saída de arquivo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
@@ -47,26 +47,26 @@ Veja os tópicos que serão abordados:
 * [Codificando MXF em MP4 com várias taxas de bit - plano gráfico aprimorado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
   * Visão geral do fluxo de trabalho para aprimoramento
   * [Convenções de nomenclatura do arquivo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
-  * [Publicação de propriedades de componentes na raiz do fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
+  * [Publicando Propriedades do componente na raiz do fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Faça com que os nomes de arquivo de saída gerados dependam dos valores de propriedade publicados](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
-* [Adicionando miniaturas à saída MP4 multibitrate](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
+* [Adicionando miniaturas à saída MP4 de múltiplas taxas de bits](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
   * Visão geral do fluxo de trabalho para adição de miniaturas
   * [Adicionando codificação JPG](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Lidando com a conversão de espaço de cor](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Gravando as miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
   * [Detectando erros em um fluxo de trabalho](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
   * [Fluxo de trabalho concluído](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
-* [Corte por tempo de saída MP4 multibitrate](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
+* [Corte baseado em tempo da saída MP4 de múltiplas taxas de bits](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
   * [Visão geral do fluxo de trabalho para começar a adição do corte](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
-  * [Usando o aparador de fluxo](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
+  * [Usando o corte de fluxo](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
   * [Fluxo de trabalho concluído](media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
-* [Introdução do componente roteirizado](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
-  * [Scripting dentro de um fluxo de trabalho: Hello world](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
+* [Apresentando o componente com script](media-services-media-encoder-premium-workflow-tutorials.md#scripting)
+  * [Criando scripts em um fluxo de trabalho: Olá, mundo](media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
 * [Corte baseado em quadro da saída MP4 com várias taxas de bits](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
   * [Visão geral do plano gráfico para começar a adição do corte](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
   * [Como usar o XML da lista de clipes](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
   * [Modificando a lista de clipes de um componente com script](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
-  * [Adicionando uma propriedade de conveniência recortada](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
+  * [Adicionando uma propriedade de conveniência ClippingEnabled](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ## <a name="encoding-mxf-into-a-single-bitrate-mp4"></a><a id="MXF_to_MP4"></a>Codificando MXF em um MP4 de taxa de bits única
 Esta seção demonstra como criar um arquivo MP4 de taxa de bits única com áudio codificado em AAC-HE a partir de um arquivo de entrada .MXF.
@@ -145,7 +145,7 @@ Neste ponto, o fluxo de áudio descompactado original ainda precisa ser compacta
 
 *Codificador AAC desconectado*
 
-Agora há uma incompatibilidade: há apenas um pino de entrada áudio descompactado no Codificador AAC, enquanto é bem provável que a Entrada do Arquivo de Mídia tenha fluxos de áudio descompactados diferentes disponíveis: um para o canal de áudio esquerdo e outro para o direito. (Se você está lidando com som surround, são seis canais.) Portanto, não é possível conectar diretamente o áudio da fonte de entrada de arquivos de mídia ao codificador de áudio AAC. O componente AAC espera um chamado fluxo de áudio chamado "intercalado": um único fluxo que possui os canais esquerdo e direito intercalados entre si. Quando soubermos de nosso arquivo de mídia de origem quais faixas de áudio estão em determinada posição na origem, poderemos gerar esse fluxo de áudio intercalado com as posições de alto-falante corretamente atribuídas para os lados esquerdo e direito.
+Agora há uma incompatibilidade: há apenas um pino de entrada áudio descompactado no Codificador AAC, enquanto é bem provável que a Entrada do Arquivo de Mídia tenha fluxos de áudio descompactados diferentes disponíveis: um para o canal de áudio esquerdo e outro para o direito. (Se você estiver lidando com Surround Sound, são seis canais.) Portanto, não é possível conectar diretamente o áudio da fonte de entrada do arquivo de mídia ao codificador de áudio AAC. O componente AAC espera um chamado fluxo de áudio chamado "intercalado": um único fluxo que possui os canais esquerdo e direito intercalados entre si. Quando soubermos de nosso arquivo de mídia de origem quais faixas de áudio estão em determinada posição na origem, poderemos gerar esse fluxo de áudio intercalado com as posições de alto-falante corretamente atribuídas para os lados esquerdo e direito.
 
 Primeiro, convém gerar um fluxo intercalado dos canais de áudio de origem exigidos. O componente Intercalador do Fluxo de Áudio trata disso para nós. Adicione-o ao fluxo de trabalho e conecte as saídas de áudio da Entrada do Arquivo de Mídia nele.
 
@@ -293,7 +293,7 @@ Crie um terceiro componente de Saída do arquivo para mostrar o fluxo de saída 
 
 *Criação de Saída do arquivo pelo muxer de áudio*
 
-### <a name="adding-the-ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionando o . Arquivo ISM SMIL
+### <a name="adding-the-ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionando o. Arquivo SMIL do ISM
 Para o empacotamento dinâmico funcionar junto com os dois arquivos MP4 (e com o MP4 somente de áudio) em nosso ativo dos Serviços de Mídia, também precisamos de um arquivo de manifesto (também chamado de arquivo "SMIL": Linguagem de integração de multimídia sincronizada). Esse arquivo indica aos Serviços de Mídia do Azure quais são os arquivos MP4 que estão disponíveis para empacotamento dinâmico e quais deles devem ser considerados para o streaming de áudio. Um arquivo de manifesto típico para um conjunto de MP4s com um único fluxo de áudio tem a seguinte aparência:
 
 ```xml
@@ -513,7 +513,7 @@ Começando em um fluxo de trabalho que gera [uma saída MP4 com várias taxas de
 *Iniciando o fluxo de trabalho para adição do corte*
 
 ### <a name="using-the-stream-trimmer"></a><a id="time_based_trim_use_stream_trimmer"></a>Usando o corte de fluxo
-O componente Stream Trimmer permite que você corte o início e o término de uma base de fluxo de entrada nas informações de tempo (segundos, minutos, ...). O aparador não suporta aparamento à base de quadros.
+O componente de corte de fluxo permite que você corte o início e o término de um fluxo de entrada base em informações de tempo (segundos, minutos,...). O corte não oferece suporte a corte baseado em quadro.
 
 ![Corte de fluxo](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
@@ -599,7 +599,7 @@ Agora, realize um teste local. Após essa execução, inspecione a propriedade L
 
 *Saída do log de Hello world*
 
-O objeto do nó no qual chamamos o método faz referência ao nosso "nó" atual, ou ao componente no qual estivermos gerando o script. Cada componente como tal tem a capacidade de produzir dados de registro, disponíveis através da guia do sistema. Neste caso, nós damos a string literal "hello world". É importante entender aqui que essa pode ser uma ferramenta de depuração valiosa, fornecendo informações sobre o que o script está realmente fazendo.
+O objeto do nó no qual chamamos o método faz referência ao nosso "nó" atual, ou ao componente no qual estivermos gerando o script. Cada componente, como tal, tem a capacidade de gerar dados de log, disponíveis por meio da guia sistema. Nesse caso, vamos gerar a cadeia de caracteres literal "Olá, mundo". É importante entender aqui que essa pode ser uma ferramenta de depuração valiosa, fornecendo informações sobre o que o script está realmente fazendo.
 
 De dentro de nosso ambiente de script, também temos acesso às propriedades de outros componentes. Tente o seguinte:
 
@@ -761,7 +761,7 @@ Isso foi feito por meio de operações de manipulação de cadeia de caracteres 
 
 *Registrando em log a lista de clipes resultante*
 
-Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do runtime do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que apenas a primeira vez que você definir os pontos de entrada e saída, fará`clipListXML.indexOf("<trim>") == -1`com que o xml se transforme, todas as outras vezes, nossa cláusula de guarda (se) impedirá que o fluxo de trabalho adicione outro elemento de corte quando já houver um presente.
+Faça um teste de execução para ver como os fluxos de áudio e de vídeo foram cortados. Como você fará mais de um teste de execução com valores diferentes para os pontos de corte, perceberá que eles não serão levados em consideração! O motivo para isso é que o designer, ao contrário do runtime do Azure, NÃO substitui o xml de lista de clipes em cada execução. Isso significa que somente a primeira vez que você definir os pontos de entrada e saída fará com que o XML seja transformado, todas as outras vezes, nossa cláusula de`clipListXML.indexOf("<trim>") == -1`proteção (if ()) impedirá que o fluxo de trabalho Adicione outro elemento Trim quando já houver um presente.
 
 Para tornar o teste local do fluxo de trabalho mais conveniente, é melhor adicionarmos algum código de manutenção que verifica se um elemento de corte já está presente. Em caso positivo, podemos removê-lo antes de continuar por meio da modificação do xml com os novos valores. Em vez de usar manipulações de cadeia de caracteres simples, provavelmente será mais seguro fazer isso por meio da análise do modelo de objeto xml real.
 
@@ -946,7 +946,7 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 
 [Codificando conteúdo sob demanda com os Serviços de Mídia do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-[Formatos e codecs premium do fluxo de trabalho do codificador de mídia](media-services-premium-workflow-encoder-formats.md)
+[Codecs e formatos de fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 
 [Exemplos de arquivos de fluxo de trabalho](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
@@ -955,5 +955,5 @@ Com a cláusula de proteção simples abaixo, podemos verificar se o corte é ne
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

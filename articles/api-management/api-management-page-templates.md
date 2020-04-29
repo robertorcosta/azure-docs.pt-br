@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249536"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no Gerenciamento de API do Azure
@@ -41,7 +41,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="sign-in"></a><a name="SignIn"></a>Entrar  
  O modelo **entrar** permite personalizar a página de entrada no portal do desenvolvedor.  
   
- ![Fazer login na página](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM assina modelos de porta-desenvolvedores de página")  
+ ![Página de entrada](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de entrada do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -102,9 +102,9 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="controls"></a>Controles  
  Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [básico-signin](api-management-page-controls.md#basic-signin)  
+-   [entrada básica](api-management-page-controls.md#basic-signin)  
   
--   [providers](api-management-page-controls.md#providers)  
+-   [fornecedor](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade [Entrada do usuário](api-management-template-data-model-reference.md#UseSignIn).  
@@ -140,7 +140,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="sign-up"></a><a name="SignUp"></a>Inscrição  
  O modelo **inscrição** permite personalizar a página de inscrição no portal do desenvolvedor.  
   
- ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelos do portal de desenvolvedores de página de inscrição da APIM")  
+ ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Página de inscrição do APIM modelos do portal do desenvolvedor")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -188,7 +188,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="page-not-found"></a><a name="PageNotFound"></a> Página não encontrada  
  O modelo **página não encontrada** permite personalizar a página “não encontrada” no portal do desenvolvedor.  
   
- ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor de páginas não encontradas do APIM")  
+ ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM de página não encontrado modelos do portal do desenvolvedor")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -229,11 +229,11 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|referenceCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
-|errorCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
-|emailBody|string|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
-|requestedUrl|string|A URL solicitada quando a página não foi encontrada.|  
-|referrerUrl|string|A URL de referência para a URL solicitada.|  
+|referenceCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
+|errorCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
+|emailBody|cadeia de caracteres|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
+|requestedUrl|cadeia de caracteres|A URL solicitada quando a página não foi encontrada.|  
+|referrerUrl|cadeia de caracteres|A URL de referência para a URL solicitada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

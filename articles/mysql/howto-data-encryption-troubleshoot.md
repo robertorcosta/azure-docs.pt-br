@@ -1,62 +1,62 @@
 ---
-title: Solucionar problemas de criptografia de dados - Banco de dados Azure para MySQL
-description: Saiba como solucionar problemas de criptografia de dados no Banco de Dados Do Azure para MySQL
+title: Solucionar problemas de criptografia de dados-banco de dado do Azure para MySQL
+description: Saiba como solucionar problemas de criptografia de dados no Azure Database para MySQL
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 42956d115590fd322d2851fd546c505a76a851fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79297033"
 ---
-# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Solucionar problemas de criptografia de dados no Banco de Dados Do Azure para MySQL
+# <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Solucionar problemas de criptografia de dados no Azure Database para MySQL
 
-Este artigo descreve como identificar e resolver problemas comuns que podem ocorrer no Banco de Dados Azure para MySQL quando configurado com criptografia de dados usando uma chave gerenciada pelo cliente.
+Este artigo descreve como identificar e resolver problemas comuns que podem ocorrer no banco de dados do Azure para MySQL quando configurados com a criptografia de dado usando uma chave gerenciada pelo cliente.
 
 ## <a name="introduction"></a>Introdução
 
-Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, os servidores exigem acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, devolverá a mensagem de erro apropriada e mudará seu estado para ***Inacessível*** no portal Azure.
+Quando você configura a criptografia de dados para usar uma chave gerenciada pelo cliente no Azure Key Vault, os servidores exigem acesso contínuo à chave. Se o servidor perder o acesso à chave gerenciada pelo cliente no Azure Key Vault, ele negará todas as conexões, retornará a mensagem de erro apropriada e alterará seu estado para ***inacessível*** no portal do Azure.
 
-Se você não precisar mais de um banco de dados Azure inacessível para o servidor MySQL, você pode excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre principal seja restaurado e o servidor esteja disponível. Também não é possível alterar a opção `Yes`de criptografia de `No` dados de (gerenciada pelo cliente) para (gerenciada por serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você terá que revalidar a chave manualmente antes que o servidor seja acessível novamente. Essa ação é necessária para proteger os dados contra acesso não autorizado, enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
+Se você não precisar mais de um servidor de banco de dados do Azure para MySQL inacessível, poderá excluí-lo para parar de incorrer em custos. Nenhuma outra ação no servidor é permitida até que o acesso ao cofre de chaves tenha sido restaurado e o servidor esteja disponível. Também não é possível alterar a opção de criptografia de dados de `Yes`(gerenciada pelo cliente) `No` para (gerenciada pelo serviço) em um servidor inacessível quando ele é criptografado com uma chave gerenciada pelo cliente. Você precisará revalidar a chave manualmente para que o servidor possa ser acessado novamente. Essa ação é necessária para proteger os dados contra o acesso não autorizado enquanto as permissões para a chave gerenciada pelo cliente são revogadas.
 
 ## <a name="common-errors-that-cause-the-server-to-become-inaccessible"></a>Erros comuns que fazem com que o servidor se torne inacessível
 
-As seguintes configurações erradas causam a maioria dos problemas com criptografia de dados que usam chaves do Azure Key Vault:
+As seguintes configurações incorretas causam a maioria dos problemas com a criptografia de dados que usam chaves de Azure Key Vault:
 
-- O cofre-chave não está disponível ou não existe:
+- O cofre de chaves está indisponível ou não existe:
   - O cofre de chaves foi excluído por engano.
   - Um erro de rede intermitente faz com que o cofre de chaves fique indisponível.
 
-- Você não tem permissões para acessar o cofre da chave ou a chave não existe:
-  - A chave expirou ou foi acidentalmente excluída ou desativada.
-  - A identidade gerenciada do Banco de Dados Azure para a instância MySQL foi acidentalmente excluída.
-  - A identidade gerenciada do Banco de Dados Azure para a instância MySQL tem permissões de chave insuficientes. Por exemplo, as permissões não incluem Get, Wrap e Desembrulhar.
-  - As permissões de identidade gerenciadas para o Banco de Dados Azure para a instância MySQL foram revogadas ou excluídas.
+- Você não tem permissões para acessar o cofre de chaves ou a chave não existe:
+  - A chave expirou ou foi excluída ou desabilitada acidentalmente.
+  - A identidade gerenciada da instância do banco de dados do Azure para MySQL foi excluída acidentalmente.
+  - A identidade gerenciada da instância do banco de dados do Azure para MySQL não tem permissões de chave suficientes. Por exemplo, as permissões não incluem obter, encapsular e desencapsular.
+  - As permissões de identidade gerenciadas para a instância do banco de dados do Azure para MySQL foram revogadas ou excluídas.
 
 ## <a name="identify-and-resolve-common-errors"></a>Identificar e resolver erros comuns
 
-### <a name="errors-on-the-key-vault"></a>Erros no cofre da chave
+### <a name="errors-on-the-key-vault"></a>Erros no cofre de chaves
 
-#### <a name="disabled-key-vault"></a>Cofre de chaves desativado
+#### <a name="disabled-key-vault"></a>Cofre de chaves desabilitado
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Explicação**: A operação não pôde ser concluída no servidor porque a chave do Azure Key Vault está desativada.
+- **Explicação**: a operação não pôde ser concluída no servidor porque a chave de Azure Key Vault está desabilitada.
 
-#### <a name="missing-key-vault-permissions"></a>Permissões de cofre de chaves perdidas
+#### <a name="missing-key-vault-permissions"></a>Permissões do Key Vault ausentes
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explicação**: O servidor não tem as permissões necessárias para obter, embrulhar e desembrulhar permissões para o Azure Key Vault. Conceda todas as permissões perdidas ao diretor de serviço com id.
+- **Explicação**: o servidor não tem as permissões obter, encapsular e desencapsular necessárias para Azure Key Vault. Conceda quaisquer permissões ausentes à entidade de serviço com ID.
 
 ### <a name="mitigation"></a>Atenuação
 
-- Confirme se a chave gerenciada pelo cliente está presente no cofre da chave.
+- Confirme se a chave gerenciada pelo cliente está presente no cofre de chaves.
 - Identifique o cofre de chaves e vá até ele no portal do Azure.
-- Certifique-se de que a chave URI identifique uma chave presente.
+- Verifique se o URI da chave identifica uma chave que está presente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Use o portal Azure para configurar criptografia de dados com uma chave gerenciada pelo cliente no Banco de Dados Do Azure para MySQL](howto-data-encryption-portal.md)
+[Use o portal do Azure para configurar a criptografia de dados com uma chave gerenciada pelo cliente no banco de dados do Azure para MySQL](howto-data-encryption-portal.md)

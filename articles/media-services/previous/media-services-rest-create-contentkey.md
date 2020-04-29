@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773634"
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
-> * [Resto](media-services-rest-create-contentkey.md)
+> * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -73,7 +73,7 @@ Este tópico não mostra como gerar uma chave AES, como criptografar a chave e c
 
 > [!NOTE]
 > 
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
@@ -177,7 +177,7 @@ Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. 
     }
 
 
-O exemplo a seguir mostra como criar uma **ContentKey** com um conjunto **ContentKeyType** para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que o ID da chave de proteção é a impressão digital do certificado X.509.  
+O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a ID da chave de proteção é a impressão digital do certificado X. 509.  
 
 Solicitação
 
@@ -253,6 +253,6 @@ Resposta:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

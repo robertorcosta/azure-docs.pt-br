@@ -1,6 +1,6 @@
 ---
-title: Configure protocolos de API - Azure Event Grid IoT Edge | Microsoft Docs
-description: Configure protocolos de API expostos pela Event Grid no IoT Edge.
+title: Configurar protocolos de API-IoT Edge de grade de eventos do Azure | Microsoft Docs
+description: Configure os protocolos de API expostos pela grade de eventos em IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,24 +10,24 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841803"
 ---
-# <a name="configure-event-grid-api-protocols"></a>Configure protocolos de API da Grade de Eventos
+# <a name="configure-event-grid-api-protocols"></a>Configurar protocolos de API da grade de eventos
 
-Este guia dá exemplos das possíveis configurações de protocolo de um módulo Event Grid. O módulo Event Grid expõe a API por sua gestão e operações em tempo de execução. A tabela a seguir captura os protocolos e portas.
+Este guia fornece exemplos das possíveis configurações de protocolo de um módulo de grade de eventos. O módulo de grade de eventos expõe a API para suas operações de gerenciamento e tempo de execução. A tabela a seguir captura os protocolos e as portas.
 
 | Protocolo | Porta | Descrição |
 | ---------------- | ------------ | ------------ |
-| HTTP | 5888 | Desligado por padrão. Útil apenas durante os testes. Não é adequado para cargas de trabalho de produção.
+| HTTP | 5888 | Desativado por padrão. Útil somente durante o teste. Não é adequado para cargas de trabalho de produção.
 | HTTPS | 4438 | Padrão
 
-Consulte o guia [de segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
+Consulte o guia de [segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
 
-## <a name="expose-https-to-iot-modules-on-the-same-edge-network"></a>Exponha HTTPS a módulos IoT na mesma rede de borda
+## <a name="expose-https-to-iot-modules-on-the-same-edge-network"></a>Expor HTTPS para módulos IoT na mesma rede de borda
 
 ```json
  {
@@ -38,7 +38,7 @@ Consulte o guia [de segurança e autenticação](security-authentication.md) par
 }
  ```
 
-## <a name="enable-https-to-other-iot-modules-and-non-iot-workloads"></a>Habilite https para outros módulos de IoT e cargas de trabalho não IoT
+## <a name="enable-https-to-other-iot-modules-and-non-iot-workloads"></a>Habilitar HTTPS para outros módulos IoT e cargas de trabalho não IoT
 
 ```json
  {
@@ -59,9 +59,9 @@ Consulte o guia [de segurança e autenticação](security-authentication.md) par
  ```
 
 >[!NOTE]
-> A seção **PortBindings** permite mapear portas internas para portas do host de contêineres. Esse recurso permite alcançar o módulo Event Grid de fora da rede de contêineres IoT Edge, se o dispositivo de borda IoT for acessível publicamente.
+> A seção **PortBindings** permite mapear portas internas para portas do host do contêiner. Esse recurso possibilita acessar o módulo de grade de eventos de fora da rede de contêineres IoT Edge, se o dispositivo do IoT Edge estiver acessível publicamente.
 
-## <a name="expose-http-and-https-to-iot-modules-on-the-same-edge-network"></a>Exponha os módulos HTTP e HTTPS para IoT na mesma rede de borda
+## <a name="expose-http-and-https-to-iot-modules-on-the-same-edge-network"></a>Expor HTTP e HTTPS para módulos IoT na mesma rede de borda
 
 ```json
  {
@@ -72,7 +72,7 @@ Consulte o guia [de segurança e autenticação](security-authentication.md) par
 }
  ```
 
-## <a name="enable-http-and-https-to-other-iot-modules-and-non-iot-workloads"></a>Habilite HTTP e HTTPS para outros módulos de IoT e cargas de trabalho não IoT
+## <a name="enable-http-and-https-to-other-iot-modules-and-non-iot-workloads"></a>Habilitar HTTP e HTTPS para outros módulos IoT e cargas de trabalho não IoT
 
 ```json
  {
@@ -98,7 +98,7 @@ Consulte o guia [de segurança e autenticação](security-authentication.md) par
  ```
 
 >[!NOTE]
-> Por padrão, cada módulo IoT faz parte do tempo de execução do IoT Edge criado pela rede de ponte. Ele permite que diferentes módulos de IoT na mesma rede se comuniquem entre si. **PortBindings** permite mapear uma porta interna de contêiner na máquina host, permitindo assim que qualquer pessoa possa acessar a porta do módulo Event Grid do lado de fora.
+> Por padrão, cada módulo IoT faz parte do tempo de execução de IoT Edge criado pela rede de ponte. Ele permite que diferentes módulos de IoT na mesma rede se comuniquem entre si. O **PortBindings** permite mapear uma porta interna de contêiner para o computador host, permitindo que qualquer pessoa possa acessar a porta do módulo de grade de eventos de fora.
 
 >[!IMPORTANT]
-> Embora as portas possam ser acessíveis fora da rede IoT Edge, a autenticação do cliente impõe quem é realmente autorizado a fazer chamadas para o módulo.
+> Embora as portas possam se tornar acessíveis fora da rede IoT Edge, a autenticação de cliente impõe quem realmente tem permissão para fazer chamadas no módulo.

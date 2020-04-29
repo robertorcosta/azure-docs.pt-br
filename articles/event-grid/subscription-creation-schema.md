@@ -1,6 +1,6 @@
 ---
 title: Esquema de assinatura de Grade de Eventos do Azure
-description: Este artigo descreve as propriedades para assinar um evento com o Azure Event Grid. Esquema de assinatura do Event Grid.
+description: Este artigo descreve as propriedades de assinatura de um evento com a grade de eventos do Azure. Esquema de assinatura da grade de eventos.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: babanisa
 ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720751"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
@@ -41,17 +41,17 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | string | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
-| endpointUrl | string | A URL de destino para eventos nesta assinatura de evento. | 
+| endpointType | cadeia de caracteres | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
+| endpointUrl | cadeia de caracteres | A URL de destino para eventos nesta assinatura de evento. | 
 
 ### <a name="filter-object"></a>objeto filter
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
-| subjectBeginsWith | string | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
-| subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
-| isSubjectCaseSensitive | string | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
+| subjectBeginsWith | cadeia de caracteres | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
+| subjectEndsWith | cadeia de caracteres | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
+| isSubjectCaseSensitive | cadeia de caracteres | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de assinatura de exemplo

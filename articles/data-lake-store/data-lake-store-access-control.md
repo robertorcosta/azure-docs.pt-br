@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260326"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
@@ -47,7 +47,7 @@ As permissões em um objeto do sistema de arquivos são **Ler**, **Gravar** e **
 
 |            |    Arquivo     |   Pasta |
 |------------|-------------|----------|
-| **Ler (R)** | Pode ler o conteúdo de um arquivo | Requer **ler** e **executar** para listar o conteúdo da pasta|
+| **Ler (R)** | Pode ler o conteúdo de um arquivo | Requer **leitura** e **execução** para listar o conteúdo da pasta|
 | **Gravar (W)** | Pode gravar ou anexar a um arquivo | Requer **Gravar** e **Executar** para criar itens filhos em uma pasta |
 | **Executar (X)** | Não significa nada no contexto do Data Lake Storage Gen1 | Necessário para percorrer os itens filhos de uma pasta |
 
@@ -124,7 +124,7 @@ O usuário que criou o item é automaticamente o usuário proprietário do item.
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-**Fundo**
+**Informações**
 
 Nas ACLs do POSIX, cada usuário está associado a um "grupo primário". Por exemplo, o usuário "alice" pode pertencer ao grupo "finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o grupo primário dela. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
 
@@ -216,7 +216,7 @@ Quando um novo arquivo ou pasta é criado em uma pasta existente, a ACL Padrão 
 
 ### <a name="umask"></a>umask
 
-Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em pastas-pai que contém um valor RWX para **possuir usuário,** **grupo próprio**e **outros**.
+Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
 
 O umask para Azure Data Lake Storage Gen1 é um valor constante definido como 007. Esse valor é convertido em
 

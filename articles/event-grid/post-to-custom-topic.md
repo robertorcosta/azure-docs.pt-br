@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721544"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
@@ -76,10 +76,10 @@ Para tópicos personalizados, os dados de nível superior contêm os mesmos camp
 ]
 ```
 
-Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (Disponibilidade Geral) ou 1 MB (visualização).
+Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
 
 > [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -103,7 +103,7 @@ Após a postagem para o ponto de extremidade do tópico, você receberá uma res
 
 |Result  |Resposta  |
 |---------|---------|
-|Sucesso  | 200 OK  |
+|Êxito  | 200 OK  |
 |Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
 |Chave de acesso inválida | 401 Não Autorizado |
 |Ponto de extremidade incorreto | 404 Não Encontrado |

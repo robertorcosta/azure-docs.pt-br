@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: aa9fd230f59b5e46576e78beb0436c85449d3c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80256905"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de Atualização do Red Hat para as VMs Red Hat Enterprise do Linux sob demanda no Azure
@@ -28,13 +28,13 @@ Informações adicionais sobre imagens do RHEL no Azure, incluindo políticas de
 Informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 > [!IMPORTANT]
-> RHUI destina-se apenas a imagens pay-as-you-go (PAYG). Para imagens personalizadas e douradas, também conhecidas como bring-your-own-subscription (BYOS), o sistema precisa ser anexado ao RHSM ou satélite para receber atualizações. Consulte [o artigo do Red Hat](https://access.redhat.com/solutions/253273) para obter mais detalhes.
+> RHUI destina-se apenas a imagens pré-pagas (PAYG). Para imagens personalizadas e Golden, também conhecidas como BYOS (traga sua própria assinatura), o sistema precisa ser anexado ao RHSM ou ao satélite para receber atualizações. Confira o [artigo do Red Hat](https://access.redhat.com/solutions/253273) para obter mais detalhes.
 
 
 ## <a name="important-information-about-azure-rhui"></a>Informações importantes sobre o RHUI do Azure
 
-* Azure RHUI é a infra-estrutura de atualização que suporta todas as VMs RHEL PAYG criadas no Azure. Isso não o impede de registrar suas VMs PAYG RHEL com Gerenciador de Assinaturas ou Satélite ou outra fonte de atualizações, mas fazê-lo com um PAYG VM resultará em cobrança dupla indireta. Veja o ponto a seguir para obter detalhes.
-* O acesso ao RHUI hospedado pelo Azure é incluído no preço de imagem PAYG do RHEL. Cancelar o registro de uma VM RHEL PAYG do RHUI hospedado no Azure não converte a máquina virtual em uma VM do tipo BYOL (traga sua própria licença). Se você registrar a mesma VM com outra origem de atualizações, você pode incorrer em encargos duplos _indiretos_. Você será cobrado pela primeira vez pela taxa de software RHEL do Azure. Você será cobrado pela segunda vez por assinaturas do Red Hat adquiridas anteriormente. Se você precisar usar consistentemente uma infra-estrutura de atualização diferente do RHUI hospedado no Azure, considere registrar-se para usar as [imagens RHEL BYOS](./byos.md).
+* O Azure RHUI é a infraestrutura de atualização que dá suporte a todas as VMs PAYG do RHEL criadas no Azure. Isso não impede que você registre suas VMs PAYG RHEL com o Gerenciador de assinaturas ou satélite ou outra fonte de atualizações, mas fazer isso com uma VM PAYG resultará em uma cobrança dupla indireta. Consulte o seguinte ponto para obter detalhes.
+* O acesso ao RHUI hospedado pelo Azure é incluído no preço de imagem PAYG do RHEL. Cancelar o registro de uma VM RHEL PAYG do RHUI hospedado no Azure não converte a máquina virtual em uma VM do tipo BYOL (traga sua própria licença). Se você registrar a mesma VM com outra origem de atualizações, você pode incorrer em encargos duplos _indiretos_. Você será cobrado pela primeira vez pela taxa de software RHEL do Azure. Você será cobrado pela segunda vez por assinaturas do Red Hat adquiridas anteriormente. Se você precisar usar consistentemente uma infraestrutura de atualização diferente do RHUI hospedado pelo Azure, considere o registro para usar as [imagens do RHEL BYOS](./byos.md).
 
 * As imagens de PAYG do RHEL para SAP no Azure (RHEL for SAP, RHEL for SAP HANA e RHEL for SAP Business Applications) são conectadas a canais de RHUI dedicados que permanecem na versão secundária específica do RHEL, conforme necessário para certificação SAP.
 
@@ -43,15 +43,15 @@ Informações sobre as políticas de suporte do Red Hat para todas as versões d
 
 ## <a name="image-update-behavior"></a>Comportamento de atualização de imagem
 
-A partir de abril de 2019, o Azure oferece imagens RHEL conectadas a repositórios de Suporte de Atualização Estendida (EUS) por padrão e imagens RHEL que vêm conectadas aos repositórios regulares (não-EUS) por padrão. Mais detalhes sobre o RHEL EUS estão disponíveis na [documentação](https://access.redhat.com/support/policy/updates/errata) do ciclo de vida da Red Hat e [na documentação da EUS.](https://access.redhat.com/articles/rhel-eus) O comportamento `sudo yum update` padrão de irá variar dependendo de qual imagem RHEL você provisionou, pois diferentes imagens estão conectadas a diferentes repositórios.
+A partir de abril de 2019, o Azure oferece imagens RHEL que estão conectadas a repositórios EUS (suporte de atualização estendida) por padrão e imagens RHEL que são conectadas aos repositórios regulares (não EUS) por padrão. Mais detalhes sobre o RHEL EUS estão disponíveis na documentação do [ciclo de vida da versão](https://access.redhat.com/support/policy/updates/errata) do Red Hat e na [documentação do eus](https://access.redhat.com/articles/rhel-eus). O comportamento padrão de `sudo yum update` variará dependendo de qual imagem RHEL provisionada, como imagens diferentes estão conectadas a repositórios diferentes.
 
-Para obter uma lista `az vm image list --publisher redhat --all` completa de imagens, execute usando o Azure CLI.
+Para obter uma lista de imagens completa `az vm image list --publisher redhat --all` , execute usando o CLI do Azure.
 
-### <a name="images-connected-to-non-eus-repositories"></a>Imagens conectadas a repositórios não-EUS
+### <a name="images-connected-to-non-eus-repositories"></a>Imagens conectadas a repositórios não EUS
 
-Se você provisionar uma VM de uma imagem RHEL conectada a repositórios não-EUS, você será `sudo yum update`atualizado para a versão menor RHEL mais recente quando for executado . Por exemplo, se você forjar uma VM de uma imagem `sudo yum update`RHEL 7.4 PAYG e executar, você acaba com um RHEL 7.7 VM (a versão menor mais recente da família RHEL7).
+Se você provisionar uma VM de uma imagem RHEL conectada a repositórios não EUS, você será atualizado para a versão secundária mais recente do RHEL quando executar `sudo yum update`. Por exemplo, se você provisionar uma VM de uma imagem RHEL 7,4 PAYG `sudo yum update`e executar, você acabará com uma VM RHEL 7,7 (a versão secundária mais recente na família RHEL7).
 
-As imagens que estão conectadas a repositórios não-EUS não conterão um número de versão menor no SKU. O SKU é o terceiro elemento da URN (nome completo da imagem). Por exemplo, todas as seguintes imagens são anexadas a repositórios não-EUS:
+As imagens que estão conectadas a repositórios não EUS não conterá um número de versão secundário na SKU. O SKU é o terceiro elemento no URN (nome completo da imagem). Por exemplo, todas as imagens a seguir são anexadas a repositórios não EUS:
 
 ```text
 RedHat:RHEL:7-LVM:7.4.2018010506
@@ -62,13 +62,13 @@ RedHat:RHEL:7-RAW:7.5.2018081518
 RedHat:RHEL:7-RAW:7.6.2019062120
 ```
 
-Observe que as SKUs são 7-LVM ou 7-RAW. A versão menor é indicada na versão (quarto elemento na URN) dessas imagens.
+Observe que os SKUs são 7-LVM ou 7-RAW. A versão secundária é indicada na versão (quarto elemento no URN) dessas imagens.
 
-### <a name="images-connected-to-eus-repositories"></a>Imagens conectadas aos repositórios da EUS
+### <a name="images-connected-to-eus-repositories"></a>Imagens conectadas a repositórios do EUS
 
-Se você provisionar uma VM de uma imagem RHEL conectada aos repositórios EUS, você não `sudo yum update`será atualizado para a versão menor RHEL mais recente quando for executado . Isso porque as imagens conectadas aos repositórios eus também são bloqueadas à versão específica.
+Se você provisionar uma VM de uma imagem RHEL conectada a repositórios EUS, você não será atualizado para a versão secundária mais recente do RHEL quando executar `sudo yum update`. Isso ocorre porque as imagens conectadas a repositórios EUS também são bloqueadas por versão para sua versão secundária específica.
 
-As imagens conectadas aos repositórios eus conterão um número de versão menor no SKU. Por exemplo, todas as seguintes imagens são anexadas aos repositórios da EUS:
+As imagens conectadas a repositórios EUS conterá um número de versão secundário na SKU. Por exemplo, todas as imagens a seguir são anexadas a repositórios EUS:
 
 ```text
 RedHat:RHEL:7.4:7.4.2019062107
@@ -78,22 +78,22 @@ RedHat:RHEL:7.6:7.6.2019062116
 
 ## <a name="rhel-eus-and-version-locking-rhel-vms"></a>EUS de RHEL e bloqueio de versão de VMs do RHEL
 
-Os repositórios de Suporte de Atualização Estendida (EUS) estão disponíveis para os clientes que podem querer bloquear suas VMs RHEL para uma determinada versão menor rhel após o provisionamento da VM. É possível bloquear a versão da VM do RHEL para uma versão secundária específica, atualizando os repositórios para apontar os repositórios do Suporte de Atualização Estendida. Você também pode desfazer a operação de bloqueio de versão eus.
+Os repositórios de suporte de atualização estendida (EUS) estão disponíveis para clientes que desejam bloquear suas VMs RHEL para uma determinada versão secundária do RHEL após o provisionamento da VM. É possível bloquear a versão da VM do RHEL para uma versão secundária específica, atualizando os repositórios para apontar os repositórios do Suporte de Atualização Estendida. Você também pode desfazer a operação de bloqueio de versão do EUS.
 
 >[!NOTE]
-> A EUS não é suportada no RHEL Extras. Isso significa que se você estiver instalando um pacote que geralmente está disponível no canal RHEL Extras, você não poderá fazê-lo enquanto estiver no EUS. O ciclo de vida do produto Red Hat Extras é detalhado [aqui](https://access.redhat.com/support/policy/updates/extras/).
+> Não há suporte para EUS em extras de RHEL. Isso significa que, se você estiver instalando um pacote que geralmente está disponível no canal de extras do RHEL, não poderá fazer isso enquanto estiver em EUS. O ciclo de vida do produto Red Hat extras é detalhado [aqui](https://access.redhat.com/support/policy/updates/extras/).
 
-No momento desta redação, o apoio da UES terminou para a RHEL <= 7,4. Consulte a seção "Red Hat Enterprise Linux Longer Support Add-Ons" na [documentação red hat](https://access.redhat.com/support/policy/updates/errata/) para obter mais detalhes.
-* RHEL 7.4 Suporte da UES termina em 31 de agosto de 2019
-* RHEL 7.5 Suporte da UES termina em 30 de abril de 2020
-* RHEL 7.6 Suporte da UES termina em 31 de outubro de 2020
-* RHEL 7.7 Suporte da UES termina em 30 de agosto de 2021
+No momento da redação deste artigo, o suporte do EUS foi encerrado para o RHEL <= 7,4. Consulte a seção "Red Hat Enterprise Linux mais suporte a Complementos" na documentação do [Red Hat](https://access.redhat.com/support/policy/updates/errata/) para obter mais detalhes.
+* O suporte a RHEL 7,4 EUS termina em 31 de agosto de 2019
+* O suporte a RHEL 7,5 EUS termina em 30 de abril de 2020
+* O suporte a RHEL 7,6 EUS termina em 31 de outubro de 2020
+* O suporte a RHEL 7,7 EUS termina em 30 de agosto de 2021
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Mude um VM RHEL para EUS (version-lock para uma versão menor específica)
-Use as seguintes instruções para bloquear um VM RHEL a uma versão menor específica (executar como raiz):
+### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Alternar uma VM RHEL para EUS (bloqueio de versão para uma versão secundária específica)
+Use as instruções a seguir para bloquear uma VM RHEL para uma versão secundária específica (executar como raiz):
 
 >[!NOTE]
-> Isso se aplica somente a versões do RHEL para as quais o EUS está disponível. No momento desta escrita, isso inclui RHEL 7.2-7.7. Mais detalhes estão disponíveis na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+> Isso se aplica somente a versões do RHEL para as quais o EUS está disponível. No momento da redação deste artigo, isso inclui o RHEL 7.2-7.7. Mais detalhes estão disponíveis na página [Ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 1. Desabilite repositórios não EUS:
     ```bash
@@ -105,7 +105,7 @@ Use as seguintes instruções para bloquear um VM RHEL a uma versão menor espec
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Bloquear `releasever` a variável (executar como raiz):
+1. Bloquear a `releasever` variável (executar como raiz):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -118,19 +118,19 @@ Use as seguintes instruções para bloquear um VM RHEL a uma versão menor espec
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Alterne um VM RHEL de volta para não-EUS (remova um bloqueio de versão)
+### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Mudar uma VM RHEL de volta para não EUS (remover um bloqueio de versão)
 Execute o seguinte como raiz:
-1. Remova `releasever` o arquivo:
+1. Remova o `releasever` arquivo:
     ```bash
     rm /etc/yum/vars/releasever
      ```
 
-1. Desativar os repositórios da EUS:
+1. Desabilitar EUS repositórios:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
 
-1. Configurar RHEL VM
+1. Configurar a VM RHEL
     ```bash
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
@@ -165,12 +165,12 @@ Se você estiver usando uma configuração de rede para restringir o acesso de V
 51.4.228.145
 ```
 
-## <a name="azure-rhui-infrastructure"></a>Infraestrutura Azure RHUI
+## <a name="azure-rhui-infrastructure"></a>Infraestrutura RHUI do Azure
 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Atualizar o certificado de cliente RHUI expirado em uma VM
 
-Se você estiver usando uma imagem VM RHEL mais antiga, por exemplo, RHEL 7.4 (URN de imagem: `RedHat:RHEL:7.4:7.4.2018010506`), você experimentará problemas de conectividade com o RHUI devido a um certificado cliente TLS/SSL expirado. O erro que você vê pode parecer _que "o peer SSL rejeitou seu certificado como expirado"_ ou _"Erro: Não é possível recuperar metadados do repositório (repomd.xml) para repositório: ... Por favor, verifique seu caminho e tente novamente"_. Para resolver esse problema, atualize o pacote do cliente de RHUI na VM usando o comando a seguir:
+Se você estiver usando uma imagem de VM RHEL mais antiga, por exemplo, RHEL 7,4 (imagem `RedHat:RHEL:7.4:7.4.2018010506`urn:), você terá problemas de conectividade para RHUI devido a um certificado de cliente TLS/SSL agora expirado. O erro que você vê pode parecer _"o par SSL rejeitou seu certificado como expirado"_ ou _"erro: não é possível recuperar os metadados do repositório (repomd. xml) para o repositório:... Verifique seu caminho e tente novamente "_. Para resolver esse problema, atualize o pacote do cliente de RHUI na VM usando o comando a seguir:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -178,7 +178,7 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Como alternativa, a execução de `sudo yum update` também atualizará o pacote do certificado do cliente (dependendo da sua versão do RHEL), apesar dos erros de “certificado SSL expirado” que você verá em outros repositórios. Se a atualização for bem-sucedida, a conectividade normal a outros repositórios de RHUI deverá ser restaurada, portanto, será possível executar `sudo yum update` com êxito.
 
-Se você encontrar um erro de `yum update`404 durante a execução de um , tente o seguinte para atualizar seu cache yum:
+Se você encontrar um erro 404 ao executar um `yum update`, tente o seguinte para atualizar o cache yum:
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -197,7 +197,7 @@ Se você estiver tendo problemas para se conectar ao RHUI do Azure de sua VM PAY
 
 1. Se estiver usando a nova configuração, verifique se a VM se conecta do intervalo de IP do Azure e, se ainda não puder se conectar ao RHUI do Azure, registre um caso de suporte na Microsoft ou no Red Hat.
 
-### <a name="infrastructure-update"></a>Atualização de infra-estrutura
+### <a name="infrastructure-update"></a>Atualização de infraestrutura
 
 Em setembro de 2016, implantamos uma RHUI atualizada do Azure. Em abril de 2017, desligamos o antigo RHUI do Azure. Se você usa as imagens PAYG do RHEL (ou seus instantâneos) de setembro de 2016 ou posterior, você está se conectando automaticamente ao novo RHUI do Azure. No entanto, se houver instantâneos mais antigos em suas VMs, você precisará atualizar manualmente a configuração deles para acessar o RHUI do Azure, conforme descrito na seção a seguir.
 
@@ -221,7 +221,7 @@ Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
         ```bash
         vi rhel8.config
         ```
-    1. Adicione o seguinte conteúdo no arquivo de configuração:
+    1. Adicione o seguinte conteúdo ao arquivo de configuração:
         ```bash
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
@@ -234,7 +234,7 @@ Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
         ```bash
         dnf --config rhel8.config install 'rhui-azure-rhel8'
         ```
-    1. Atualize sua VM
+    1. Atualizar sua VM
         ```bash
         sudo dnf update
         ```

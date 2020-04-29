@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260183"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos do sistema Azure Data Box Gateway
+# <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
 
 Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação.
 
@@ -50,7 +50,7 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 | **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
-|Hyper-v  |  2012 R2 <br> 2016 <br> 2019 |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
 
 
@@ -85,7 +85,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o governo azure
+### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o Azure governamental
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 

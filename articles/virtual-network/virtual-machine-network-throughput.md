@@ -16,10 +16,10 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245428"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede da máquina virtual
@@ -46,27 +46,27 @@ O limite de taxa de transferência se aplica à máquina virtual. A taxa de tran
 
 ## <a name="network-flow-limits"></a>Limites de fluxo de rede
 
-Além da largura de banda, o número de conexões de rede presentes em uma VM a qualquer momento pode afetar o desempenho da rede. A pilha de rede Azure mantém o estado para cada direção de uma conexão TCP/UDP em estruturas de dados chamadas 'fluxos'. Uma conexão TCP/UDP típica terá 2 fluxos criados, um para a entrada e outro para a direção de saída. 
+Além da largura de banda, o número de conexões de rede presentes em uma VM em um determinado momento pode afetar o desempenho da rede. A pilha de rede do Azure mantém o estado para cada direção de uma conexão TCP/UDP em estruturas de dados chamadas ' flows '. Uma conexão TCP/UDP típica terá 2 fluxos criados, um para a entrada e outro para a direção de saída. 
 
-A transferência de dados entre pontos finais requer a criação de vários fluxos, além daqueles que realizam a transferência de dados. Alguns exemplos são fluxos criados para resolução de DNS e fluxos criados para testes de saúde balanceadores de carga. Observe também que os aparelhos virtuais de rede (NVAs), como gateways, proxies, firewalls, verão fluxos sendo criados para conexões terminadas no aparelho e originadas pelo aparelho. 
+A transferência de dados entre pontos de extremidade requer a criação de vários fluxos além daqueles que executam a transferência de dados. Alguns exemplos são fluxos criados para resolução de DNS e fluxos criados para investigações de integridade do balanceador de carga. Observe também que as NVAs (soluções de virtualização de rede), como gateways, proxies, firewalls, verão os fluxos que estão sendo criados para conexões encerradas no dispositivo e originadas pelo dispositivo. 
 
-![Contagem de fluxo para conversa tcp através de um aparelho de encaminhamento](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+![Contagem de fluxo para conversa TCP por meio de um dispositivo de encaminhamento](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
 ## <a name="flow-limits-and-recommendations"></a>Limites de fluxo e recomendações
 
-Hoje, a pilha de rede Do Zure suporta fluxos de rede totais de 250K com bom desempenho para VMs com mais de 8 núcleos de CPU e fluxos totais de 100k com bom desempenho para VMs com menos de 8 núcleos de CPU. Além desse limite, o desempenho da rede se degrada graciosamente para fluxos adicionais até um limite rígido de fluxos totais de 500K, entrada de 250K e saída de 250K, após os quais os fluxos adicionais são descartados.
+Hoje, a pilha de rede do Azure dá suporte a fluxos totais de rede 250 mil com bom desempenho para VMs com mais de 8 núcleos de CPU e 100 mil fluxos totais com bom desempenho para VMs com menos de 8 núcleos de CPU. Além desse limite, o desempenho da rede diminui normalmente para fluxos adicionais até um limite rígido de fluxos totais de 500 mil, 250 mil de entrada e 250 mil de saída, após o qual os fluxos adicionais são descartados.
 
-||VMs com <8 núcleos de CPU|VMs com mais de 8 núcleos de CPU|
+||VMs com núcleos de CPU <8|VMs com mais de 8 núcleos de CPU|
 |---|---|---|
-|<b>Bom Desempenho</b>|Fluxos de 100K |Fluxos de 250K|
-|<b>Desempenho degradado</b>|Fluxos acima de 100k|Acima de 250 k fluxos|
-|<b>Limite de Fluxo</b>|Fluxos de 500K|Fluxos de 500K|
+|<b>Bom desempenho</b>|100 mil fluxos |Fluxos de 250 mil|
+|<b>Desempenho degradado</b>|Acima de 100 mil fluxos|Fluxos de 250 mil acima|
+|<b>Limite de fluxo</b>|Fluxos de 500 mil|Fluxos de 500 mil|
 
-As métricas estão disponíveis no [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para rastrear o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias VM ou VMSS.
+As métricas estão disponíveis em [Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para controlar o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias de VM ou VMSS.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Azure-monitor-Flow-Metrics. png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-As taxas de estabelecimento e terminação de conexão também podem afetar o desempenho da rede à medida que o estabelecimento de conexão e o término compartilham a CPU com rotinas de processamento de pacotes. Recomendamos que você faça benchmark de cargas de trabalho em relação aos padrões de tráfego esperados e dimensione as cargas de trabalho adequadamente para corresponder às suas necessidades de desempenho. 
+As taxas de estabelecimento e término da conexão também podem afetar o desempenho da rede, pois o estabelecimento da conexão e o encerramento compartilham a CPU com rotinas de processamento de pacotes É recomendável que você compare as cargas de trabalho com os padrões de tráfego esperados e escale horizontalmente as cargas de trabalho de acordo com suas necessidades de desempenho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

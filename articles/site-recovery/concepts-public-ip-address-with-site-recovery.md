@@ -1,5 +1,5 @@
 ---
-title: Atribuir endereços IP públicos após failover com a Recuperação do Site do Azure
+title: Atribuir endereços IP públicos após o failover com Azure Site Recovery
 description: Descreve como configurar os endereços IP públicos com o Azure Site Recovery e o Gerenciador de Tráfego do Azure para recuperação de desastre e migração
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281945"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após o failover
@@ -44,11 +44,11 @@ A configuração é a seguinte:
 O Gerenciador de Tráfego do Azure permite que o roteamento de nível de DNS entre pontos de extremidade e pode auxiliar [a reduzir seus RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) para um cenário de recuperação de desastre. 
 
 Leia mais sobre cenários de failover com o Gerenciador de Tráfego:
-1. [No local para failover do Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com o Gerenciador de Tráfego 
+1. [Failover local para o Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) com o Gerenciador de tráfego 
 2. [Failover do Azure para Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) com o Gerenciador de Tráfego 
 
 A configuração é a seguinte:
-- Crie um [perfil de gerenciador de tráfego](../traffic-manager/traffic-manager-create-profile.md).
+- Criar um [perfil do Gerenciador de tráfego](../traffic-manager/traffic-manager-create-profile.md).
 - Utilizando o método de roteamento **Prioridade**, crie dois pontos de extremidade – **Primário** para a fonte e **Failover** para o Azure. Para o **Primário** é atribuída a Prioridade 1 e para **Failover** é atribuída a Prioridade 2.
 - O ponto de extremidade **Primário** poderá ser [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) Ou [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) dependendo se seu ambiente de origem estiver dentro ou fora do Azure.
 - O ponto de extremidade **Failover** é criado como um ponto de extremidade do **Azure**. Use um **endereço IP público estático**, porque esse será o ponto de extremidade externo para o Gerenciador de Tráfego no evento de desastre.

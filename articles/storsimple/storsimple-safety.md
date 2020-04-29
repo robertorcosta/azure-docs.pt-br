@@ -1,5 +1,5 @@
 ---
-title: Instale e opere com segurança o dispositivo StorSimple
+title: Instalar e operar o dispositivo StorSimple com segurança
 description: Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 480875c17d5ff5bb5c0d42d827b5477f45bf30f4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396457"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
@@ -36,7 +36,7 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 | ícone | Descrição |
 |:--- |:--- |
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
-| ![Ícone](./media/storsimple-safety/IC740879.png) de aviso **ATENÇÃO ATENÇÃO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
+| ![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
 | ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
 | ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **Risco de choque elétrico** |Alta tensão |
@@ -70,7 +70,7 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétricas:
 
 * Forneça uma fonte de energia adequada com a proteção contra sobrecarga elétrica para atender aos requisitos detalhados nas especificações técnicas.
-* Não use cabos de alimentação bifurcados (cabos "Y").
+* Não use cabos de energia cabos ("Y" leads).
 * Para atender aos requisitos térmicos, de emissão e de segurança aplicáveis, nenhuma tampa deverá ser removida e todos os compartimentos devem ser preenchidos com ou módulos plug-in ou unidades em branco.
 * Certifique-se de que o equipamento seja usado da maneira especificada pelo fabricante. Se este equipamento for usado de maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser afetada.
 
@@ -99,7 +99,7 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
 * O rack deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção contra sobrecarga para o compartimento e não deve ser sobrecarregado pelo número total de compartimentos instalados. A classificação de consumo de energia elétrica mostrada na placa deve ser observada.
 * O sistema de distribuição elétrica deve fornecer aterramento confiável para cada compartimento no rack.
-* O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rotulagem com "ALTA CORRENTE DE VAZAMENTO. A conexão terrestre (terra) é essencial antes de conectar um suprimento."
+* O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rotulagem com "corrente de alta perda. A conexão terrestre (terra) é essencial antes de conectar um fornecimento. "
 * O rack, quando configurado com os compartimentos deve atender aos requisitos de segurança UL 60950-1 e IEC 60950-1/EN 60950-1.
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
@@ -138,7 +138,7 @@ Observe as seguintes precauções relacionada a ESD.
 ## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
 A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
 
-![Ícone](./media/storsimple-safety/IC740879.png) de aviso **ATENÇÃO ATENÇÃO!**
+![Aviso de](./media/storsimple-safety/IC740879.png) ícone de aviso **!**
 
 Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
@@ -148,7 +148,7 @@ Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
-Ao enviar ou transportar as baterias por via aérea, siga o documento de orientação da bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Ao enviar ou transportar de outra forma as baterias por ar, siga o documento de diretrizes de bateria de lítio IATA disponível em[https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 

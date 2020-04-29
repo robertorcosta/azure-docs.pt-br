@@ -1,6 +1,6 @@
 ---
-title: Eventos de forma - Azure Time Series Insights | Microsoft Docs
-description: Saiba mais sobre as melhores práticas e como moldar eventos para consulta no Azure Time Insights Preview.
+title: Eventos de forma-Azure Time Series Insights | Microsoft Docs
+description: Saiba mais sobre as práticas recomendadas e como formatar eventos para consulta na visualização do Azure time insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -11,38 +11,38 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77650916"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formatar eventos com Versão Prévia do Azure Time Series Insights
 
-Este artigo define as melhores práticas para moldar suas cargas JSON para ingestão no Azure Time Series Insights e maximizar a eficiência de suas consultas de visualização.
+Este artigo define as práticas recomendadas para formatar suas cargas JSON para ingestão no Azure Time Series Insights e maximizar a eficiência de suas consultas de visualização.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-É melhor considerar cuidadosamente como você envia eventos para o ambiente de visualização de insights da série do tempo. 
+É melhor considerar cuidadosamente como você envia eventos para seu ambiente de Time Series Insights visualização. 
 
 As práticas recomendadas gerais incluem:
 
 * Envie dados pela rede de maneira mais eficiente possível.
 * Armazene seus dados de uma maneira que o ajude a agregá-lo mais adequadamente para seu cenário.
 
-Para obter o melhor desempenho de consulta, siga as seguintes regras de ouro:
+Para obter o melhor desempenho de consulta, siga as seguintes regras gerais:
 
-* Não envie propriedades desnecessárias. Visualização de visualização de insights da série do tempo por uso. É melhor armazenar e processar apenas os dados que você consultará.
-* Use os campos de instância para dados estáticos. Essa prática ajuda a evitar o envio de dados estáticos pela rede. Os campos de instância, um componente do Modelo de Série sumida, funcionam como dados de referência no serviço Time Series Insights que geralmente está disponível. Para saber mais sobre os campos de instância, leia [O Modelo de Série sinuosa](./time-series-insights-update-tsm.md).
+* Não envie propriedades desnecessárias. Time Series Insights Visualizar faturas por uso. É melhor armazenar e processar apenas os dados que você consultará.
+* Use os campos de instância para dados estáticos. Essa prática ajuda a evitar o envio de dados estáticos pela rede. Os campos de instância, um componente do modelo de série temporal, funcionam como dados de referência no serviço de Time Series Insights que está geralmente disponível. Para saber mais sobre os campos de instância, leia [modelo de série temporal](./time-series-insights-update-tsm.md).
 * Compartilhe propriedades de dimensão entre dois ou mais eventos. Essa prática ajuda você a enviar dados pela rede com mais eficiência.
-* Não use o aninhamento profundo de matriz. A visualização de insights da série temporal suporta até dois níveis de matrizes aninhadas que contêm objetos. A Versão Prévia do Time Series Insights nivela matrizes em mensagens em vários eventos com pares de valor da propriedade.
+* Não use o aninhamento profundo de matriz. Time Series Insights visualização dá suporte a até dois níveis de matrizes aninhadas que contêm objetos. A Versão Prévia do Time Series Insights nivela matrizes em mensagens em vários eventos com pares de valor da propriedade.
 * Se apenas algumas medidas existirem para a maioria ou todos os eventos, será melhor enviar essas medidas como propriedades separadas dentro do mesmo objeto. Enviá-los separadamente reduz o número de eventos e pode melhorar o desempenho da consulta porque menos eventos precisam ser processados.
 
-## <a name="column-flattening"></a>Achatamento da coluna
+## <a name="column-flattening"></a>Nivelamento de colunas
 
-Durante a ingestão, as cargas que contêm objetos aninhados serão achatadas para que o nome da coluna seja um único valor com um delineador.
+Durante a ingestão, as cargas que contêm objetos aninhados serão achatadas para que o nome da coluna seja um único valor com um delimitador.
 
-* Por exemplo, o seguinte JSON aninhado:
+* Por exemplo, o JSON aninhado a seguir:
 
    ```JSON
    "data": {
@@ -50,19 +50,19 @@ Durante a ingestão, as cargas que contêm objetos aninhados serão achatadas pa
    },
    ```
 
-   Torna-se: `data_flow` quando achatado.
+   Torna- `data_flow` se: quando achatado.
 
 > [!IMPORTANT]
-> * A visualização de insights da`_`série do tempo do Azure usa sublinhados () para delineamento da coluna.
-> * Observe a diferença em relação`.`à Disponibilidade Geral, que usa períodos ( em vez disso.
+> * Azure Time Series Insights visualização usa sublinhados (`_`) para a delineação de coluna.
+> * Observe a diferença entre a disponibilidade geral, que usa`.`pontos ().
 
 Cenários mais complexos são ilustrados abaixo.
 
 #### <a name="example-1"></a>Exemplo 1:
 
-O cenário a seguir tem dois (ou mais) dispositivos que enviam as medidas (sinais): *Taxa de Fluxo,* *Pressão do Óleo do Motor,* *Temperatura*e *Umidade*.
+O cenário a seguir tem dois (ou mais) dispositivos que enviam as medições (sinais): *taxa de fluxo*, pressão de *óleo do motor*, *temperatura*e *umidade*.
 
-Há uma única mensagem do Azure IoT Hub enviada onde a matriz externa contém uma seção compartilhada de valores de dimensão comum (observe as duas entradas de dispositivo contidas na mensagem).
+Há uma única mensagem do Hub IoT do Azure enviada onde a matriz externa contém uma seção compartilhada de valores de dimensão comuns (Observe as duas entradas de dispositivo contidas na mensagem).
 
 ```JSON
 [
@@ -93,23 +93,23 @@ Há uma única mensagem do Azure IoT Hub enviada onde a matriz externa contém u
 ]
 ```
 
-**Takeaways:**
+**Pedidas**
 
-* O exemplo JSON tem uma matriz externa que usa dados [de instância de série de tempo](./time-series-insights-update-tsm.md#time-series-model-instances) para aumentar a eficiência da mensagem. Embora os metadados do dispositivo Time Series Instances não sejam alteradores, ele geralmente fornece propriedades úteis para análise de dados.
+* O JSON de exemplo tem uma matriz externa que usa dados de [instância de série temporal](./time-series-insights-update-tsm.md#time-series-model-instances) para aumentar a eficiência da mensagem. Embora os metadados de dispositivo de instâncias de série temporal não possam ser alterados, ele geralmente fornece propriedades úteis para análise de dados.
 
-* O JSON combina duas ou mais mensagens (uma de cada dispositivo) em uma única economia de carga na largura de banda ao longo do tempo.
+* O JSON combina duas ou mais mensagens (uma de cada dispositivo) em um único conteúdo que economiza largura de banda ao longo do tempo.
 
-* Os pontos de dados de séries individuais para cada dispositivo são combinados em um único atributo **de série,** reduzindo a necessidade de transmitir continuamente atualizações para cada dispositivo.
+* Pontos de dados de série individuais para cada dispositivo são combinados em um atributo de **série** única, reduzindo a necessidade de transmitir continuamente atualizações para cada dispositivo.
 
 > [!TIP]
-> Para reduzir o número de mensagens necessárias para enviar dados e tornar a telemetria mais eficiente, considere o loteamento de valores de dimensão comum e metadados de instância da série temporal em uma única carga JSON.
+> Para reduzir o número de mensagens necessárias para enviar dados e tornar a telemetria mais eficiente, considere o envio em lote de valores de dimensão comuns e metadados de instância de série temporal em um único conteúdo JSON.
 
 #### <a name="time-series-instance"></a>Instância de Série Temporal 
 
-Vamos dar uma olhada mais de perto em como usar a [Instância da Série do Tempo](./time-series-insights-update-tsm.md#time-series-model-instances) para moldar seu JSON de forma mais otimizada. 
+Vamos examinar mais de perto como usar a instância de [série temporal](./time-series-insights-update-tsm.md#time-series-model-instances) para moldar o JSON de forma mais ideal. 
 
 > [!NOTE]
-> Os [IDs da série temporal](./time-series-insights-update-how-to-id.md) abaixo são *deviceIds*.
+> As [IDs de série temporal](./time-series-insights-update-how-to-id.md) abaixo são *deviceIds*.
 
 ```JSON
 [
@@ -146,24 +146,24 @@ Vamos dar uma olhada mais de perto em como usar a [Instância da Série do Tempo
 
 A Versão Prévia do Time Series Insights une uma tabela (após o nivelamento) durante o tempo de consulta. A tabela inclui colunas adicionais, como **Tipo**.
 
-| deviceId  | Type | L1 | L2 |  timestamp | taxa de series_Flow ft3/s | series_Engine pressão do óleo psi |
+| deviceId  | Type | L1 | L2 | timestamp | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de Bateria | 2018-01-17T01:17:00Z |   1,0172575712203979 |    34,7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de Bateria |    2018-01-17T01:17:00Z | 2,445906400680542 |  49,2 |
 | `FYYY` | LINE_DATA    COMMON | SIMULADOR |    Sistema de Bateria |    2018-01-17T01:18:00Z | 0,58015072345733643 |    22,2 |
 
 > [!NOTE]
->  A tabela anterior representa a exibição de consulta no [Explorador de visualização da série tempo](./time-series-insights-update-explorer.md).
+>  A tabela anterior representa o modo de exibição de consulta no [Gerenciador de visualização de série temporal](./time-series-insights-update-explorer.md).
 
-**Takeaways:**
+**Pedidas**
 
-* No exemplo anterior, as propriedades estáticas são armazenadas na Visualização de Insights da série do tempo para otimizar os dados enviados pela rede.
-* Os dados de visualização da série do tempo são juntados no momento da consulta através do ID da série temporal definido na instância.
-* Duas camadas de ninho são usadas. Esse número é o máximo que o Time Series Insights Preview suporta. É essencial para evitar matrizes profundamente aninhadas.
-* Como há algumas medidas, elas são enviadas como propriedades separadas dentro do mesmo objeto. No exemplo, **series_Flow Rate psi**, **series_Engine Oil Pressure psi**e **series_Flow Rate ft3/s** são colunas únicas.
+* No exemplo anterior, as propriedades estáticas são armazenadas em Time Series Insights visualização para otimizar os dados enviados pela rede.
+* Time Series Insights dados de visualização são Unidos no momento da consulta por meio da ID de série temporal definida na instância.
+* São usadas duas camadas de aninhamento. Esse número é o mais que Time Series Insights visualização dá suporte. É essencial para evitar matrizes profundamente aninhadas.
+* Como há algumas medidas, elas são enviadas como propriedades separadas dentro do mesmo objeto. No exemplo, **Series_Flow taxa psi**, **Series_Engine psi de pressão do óleo**e **series_Flow taxa ft3/s** são colunas exclusivas.
 
 >[!IMPORTANT]
-> Os campos de instância não são armazenados com telemetria. Eles são armazenados com metadados no Modelo de Séries Tempo.
+> Os campos de instância não são armazenados com telemetria. Eles são armazenados com metadados no modelo de série temporal.
 
 #### <a name="example-2"></a>Exemplo 2:
 
@@ -180,19 +180,19 @@ Considere o seguinte JSON:
 }
 ```
 
-No exemplo acima, a `data["flow"]` propriedade achatada `data_flow` apresentaria uma colisão de nomeação com a propriedade.
+No exemplo acima, a `data["flow"]` Propriedade achatada apresentaria uma colisão de nomenclatura com a `data_flow` propriedade.
 
-Neste caso, o *valor mais recente* da propriedade substituiria o anterior. 
+Nesse caso, o valor da propriedade *mais recente* substituiria o anterior. 
 
 > [!TIP]
-> Entre em contato com a equipe do Time Series Insights para obter mais assistência!
+> Contate a equipe de Time Series Insights para obter mais assistência!
 
 > [!WARNING] 
-> * Nos casos em que as propriedades duplicadas estão presentes na mesma carga de evento (singular) devido ao achatamento ou outro mecanismo, o valor > mais recente da propriedade é armazenado, sobreescrevendo quaisquer valores anteriores.
-> * Séries de eventos combinados não se sobrepõem.
+> * Nos casos em que as propriedades duplicadas estão presentes no mesmo conteúdo de evento (singular) devido ao nivelamento ou outro mecanismo, o valor mais recente da propriedade > é armazenado, substituindo todos os valores anteriores.
+> * A série de eventos combinados não substituirá um ao outro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para colocar essas diretrizes em prática, leia [a sintaxe de consulta de visualização de visualização do Azure Time Series Preview](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para a API de [visualização de informações](https://docs.microsoft.com/rest/api/time-series-insights/preview) da série do tempo para acesso a dados.
+* Para colocar essas diretrizes em prática, leia [Azure Time Series insights sintaxe de consulta de visualização](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights [API REST de visualização](https://docs.microsoft.com/rest/api/time-series-insights/preview) para acesso a dados.
 
-* Combine as práticas recomendadas da JSON com [o modelo de série de tempo .](./time-series-insights-update-how-to-tsm.md)
+* Combine as práticas recomendadas de JSON com [o modelo de série temporal](./time-series-insights-update-how-to-tsm.md).

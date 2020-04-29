@@ -1,6 +1,6 @@
 ---
 title: Monitorar a entrega de mensagens da Grade de Eventos do Azure
-description: Este artigo descreve como usar o portal Azure para ver o status da entrega de mensagens do Azure Event Grid.
+description: Este artigo descreve como usar o portal do Azure para ver o status da entrega de mensagens da grade de eventos do Azure.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722128"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da Grade de Eventos 
@@ -78,7 +78,7 @@ Exiba as métricas do tópico de evento personalizado.
 
 ## <a name="set-alerts"></a>Definir alertas
 
-Você pode definir alertas sobre as métricas de tópico e nível de domínio para Tópicos personalizados e domínios de eventos. Na lâmina de visão geral para, selecione **Alertas** à esquerda tinha menu de recursos para visualizar, gerenciar e criar regras de alerta. [Saiba mais sobre os alertas do Monitor Do Azure](../azure-monitor/platform/alerts-overview.md)
+Você pode definir alertas sobre as métricas de nível de domínio e de tópico para tópicos personalizados e domínios de evento. Na folha visão geral do, selecione **alertas** no menu de recursos da esquerda para exibir, gerenciar e criar regras de alerta. [Saiba mais sobre alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 ![Exibir métricas de evento](./media/monitor-event-delivery/select-alerts.png)
 

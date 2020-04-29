@@ -1,16 +1,16 @@
 ---
 title: Gerenciar conflitos entre regiões no Azure Cosmos DB
-description: Aprenda a gerenciar conflitos no Azure Cosmos DB criando o último escritor-wins ou uma política de resolução de conflitos personalizada
+description: Saiba como gerenciar conflitos no Azure Cosmos DB criando a política de resolução de conflitos last-writer-WINS ou personalizada
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247404"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
@@ -36,7 +36,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -107,10 +107,10 @@ Estes exemplos mostram como configurar um contêiner com uma política de resolu
 
 Procedimentos de armazenados de resolução de conflitos personalizados devem ser implementados usando a assinatura de função mostrada abaixo. O nome da função não precisa corresponder ao nome usado ao registrar o procedimento armazenado com o contêiner, mas simplifica a nomenclatura. Aqui está uma descrição dos parâmetros que devem ser implementados para esse procedimento armazenado.
 
-- **entradaItem**: O item que está sendo inserido ou atualizado no commit que está gerando os conflitos. É nulo para operações de exclusão.
-- **item existente :** O item atualmente comprometido. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
-- **isTombstone**: Boolean indicando se o Item de entrada está em conflito com um item previamente excluído. Quando verdadeiro, existingItem também será null.
-- **itens conflitantes**: Matriz da versão comprometida de todos os itens no contêiner que estão em conflito com o Item de entrada no ID ou qualquer outra propriedade de índice único.
+- **incomingItem**: o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
+- **existingItem**: o item atualmente confirmado. Esse valor é null em uma atualização e nulo para uma inserção ou exclusão.
+- **isTombstone**isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando verdadeiro, existingItem também será null.
+- **conflictingItems**: matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
 
 > [!IMPORTANT]
 > Assim como com qualquer procedimento armazenado, um procedimento de resolução de conflitos personalizado pode acessar todos os dados com a mesma chave de partição e executar qualquer operação de inserir, atualizar ou excluir para resolver conflitos.
@@ -194,7 +194,7 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
 });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -290,7 +290,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -360,7 +360,7 @@ Estes exemplos mostram como ler o feed de conflitos do contêiner. Os conflitos 
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a name="net-sdk-v3"></a><a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="read-from-conflict-feed-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
 FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
@@ -427,7 +427,7 @@ while conflict:
 Saiba mais sobre os conceitos do Azure Cosmos DB a seguir:
 
 - [Distribuição global - nos bastidores](global-dist-under-the-hood.md)
-- [Como configurar multi-master em seus aplicativos](how-to-multi-master.md)
+- [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
 - [Configurar clientes para multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Como adicionar/remover regiões da conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Como configurar vários mestres nos aplicativos](how-to-multi-master.md).
