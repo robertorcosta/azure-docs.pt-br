@@ -1,6 +1,6 @@
 ---
-title: Reagir ao mapear eventos usando event grid | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como reagir aos eventos do Microsoft Azure Maps usando event grid.
+title: Reagir a eventos de mapeamento usando a grade de eventos | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a reagir a Microsoft Azure eventos de mapas usando a grade de eventos.
 author: philmea
 ms.author: philmea
 ms.date: 02/08/2019
@@ -10,17 +10,17 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9c9483af191e5439af0c0b5e433187d6475c178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335727"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos 
 
-O Azure Maps integra-se ao Azure Event Grid, para que os usuários possam enviar notificações de eventos para outros serviços e desencadear processos a jusante. O objetivo deste artigo é ajudá-lo a configurar seus aplicativos de negócios para ouvir os eventos do Azure Maps. Isso permite que os usuários reajam a eventos críticos de forma confiável, escalável e segura. Por exemplo, os usuários podem criar um aplicativo para atualizar um banco de dados, criar um ticket e entregar uma notificação por e-mail, sempre que um dispositivo entra em uma geocerca.
+O Azure Maps integra-se à grade de eventos do Azure, para que os usuários possam enviar notificações de eventos para outros serviços e disparar processos downstream. A finalidade deste artigo é ajudá-lo a configurar seus aplicativos de negócios para ouvir os eventos do Azure Maps. Isso permite que os usuários reajam a eventos críticos de maneira confiável, escalonável e segura. Por exemplo, os usuários podem criar um aplicativo para atualizar um banco de dados, criar um tíquete e entregar uma notificação por email, toda vez que um dispositivo entrar em uma cerca geográfica.
 
-O Azure Event Grid é um serviço de roteamento de eventos totalmente gerenciado, que usa um modelo de assinatura de publicação. Event Grid tem suporte integrado para serviços do Azure, como [Funções Do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Aplicativos azure Logic](https://docs.microsoft.com/azure/azure-functions/functions-overview). Ele pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
+A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado, que usa um modelo de publicação/assinatura. A grade de eventos tem suporte interno para serviços do Azure como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [aplicativos lógicos do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Ele pode entregar alertas de eventos para serviços que não são do Azure usando WebHooks. Para obter uma lista completa dos manipuladores de eventos que dá suporte a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 
 ![Modelo funcional da Grade de Eventos do Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -32,13 +32,13 @@ A Grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Levantadas quando as coordenadas recebidas mudaram-se de fora de uma determinada geocerca para dentro |
-| Microsoft.Maps.GeofenceExited | Levantadas quando as coordenadas recebidas mudaram de dentro de uma determinada geocerca para fora |
+| Microsoft.Maps.GeofenceEntered | Gerado quando as coordenadas recebidas foram movidas de fora de uma determinada limite geopara dentro |
+| Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas foram movidas de dentro de uma determinada cerca geográfica para externa |
 | Microsoft.Maps.GeofenceResult | Gerado sempre que uma consulta de delimitação geográfica retorna um resultado, independentemente do estado |
 
 ## <a name="event-schema"></a>Esquema do evento
 
-O exemplo a seguir mostra o esquema de GeofenceResult:
+O exemplo a seguir mostra o esquema para GeofenceResult:
 
 ```JSON
 {   
@@ -80,9 +80,9 @@ O exemplo a seguir mostra o esquema de GeofenceResult:
 
 Aplicativos que manipulam eventos de limite geográfico do Azure Mapas devem seguir algumas práticas recomendadas:
 
-* Configure várias assinaturas para direcionar eventos para o mesmo manipulador de eventos. É importante não presumir que os eventos são de uma fonte específica. Verifique sempre o tópico da mensagem para garantir que a mensagem veio da fonte que você espera.
-* Use `X-Correlation-id` o campo no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas. As mensagens podem chegar fora de ordem ou após um atraso.
-* Quando uma solicitação GET ou POST na API geofence é `EnterAndExit`chamada com o parâmetro de modo definido para , em seguida, um evento Enter ou Exit é gerado para cada geometria na geocerca para a qual o status foi alterado da chamada API geofence anterior.
+* Configure várias assinaturas para rotear eventos para o mesmo manipulador de eventos. É importante não presumir que os eventos são de uma fonte específica. Sempre verifique o tópico da mensagem para garantir que a mensagem provém da origem esperada.
+* Use o `X-Correlation-id` campo no cabeçalho de resposta para entender se suas informações sobre objetos estão atualizadas. As mensagens podem chegar fora de ordem ou após um atraso.
+* Quando uma solicitação GET ou uma POST na API de isolamento geométrico é chamada com o parâmetro mode definido `EnterAndExit`como, um evento Enter ou Exit é gerado para cada geometria no limite geográfico para o qual o status foi alterado da chamada à API de limite geográfico anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

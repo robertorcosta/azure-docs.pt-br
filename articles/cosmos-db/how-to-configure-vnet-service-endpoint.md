@@ -1,5 +1,5 @@
 ---
-title: Configure o acesso baseado em rede virtual para uma conta do Azure Cosmos
+title: Configurar o acesso baseado em rede virtual para uma conta do Azure Cosmos
 description: Este documento descreve as etapas necessárias para configurar um ponto de extremidade de serviço de rede virtual para o Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mjbrown
 ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366244"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar acesso das VNets (redes virtuais)
@@ -52,7 +52,7 @@ As seções a seguir descrevem como configurar o ponto de extremidade do serviç
 > Para habilitar pontos de extremidade de serviço de rede virtual, você precisaria das seguintes permissões de assinatura:
 >   * Assinatura com rede virtual: colaborador da rede
 >   * Assinatura com a conta do Azure Cosmos DB: contribuidor da conta do DocumentDB
->   * Se sua rede virtual e a conta Azure Cosmos DB estiverem em diferentes `Microsoft.DocumentDB` assinaturas, certifique-se de que a assinatura que tem rede virtual também tenha provedor de recursos registrado. Para registrar um provedor de recursos, consulte [provedores de recursos do Azure e digita](../azure-resource-manager/management/resource-providers-and-types.md) artigo.
+>   * Se sua rede virtual e Azure Cosmos DB conta estiverem em assinaturas diferentes, certifique-se de que a assinatura que tem a rede virtual também `Microsoft.DocumentDB` tenha o provedor de recursos registrado. Para registrar um provedor de recursos, consulte o artigo [provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md) .
 
 Aqui estão as instruções para registrar a assinatura com o provedor de recursos.
 
@@ -68,7 +68,7 @@ Aqui estão as instruções para registrar a assinatura com o provedor de recurs
 
    ![Selecione uma rede virtual e uma sub-rede para uma nova rede virtual](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Se sua conta azure Cosmos DB for usada por outros serviços do Azure, como o Azure Cognitive Search, ou for acessada a partir de análises de fluxo ou Power BI, você permitirá o acesso selecionando **conexões Aceitar de dentro de data centers globais do Azure.**
+Se sua conta de Azure Cosmos DB for usada por outros serviços do Azure, como o Pesquisa Cognitiva do Azure, ou for acessada do Stream Analytics ou Power BI, você permitirá o acesso selecionando **aceitar conexões de dentro de datacenters globais do Azure**.
 
 Para garantir que você tenha acesso às métricas do Microsoft Azure Cosmos DB no portal, é necessário habilitar as opções **Permitir acesso do portal do Azure**. Para saber mais sobre essas opções, consulte o artigo [Configurar um firewall IP](how-to-configure-firewall.md). Depois de habilitar o acesso, selecione **salvar** para salvar as configurações.
 
@@ -120,14 +120,14 @@ Use as etapas a seguir para configurar um ponto de extremidade de serviço para 
    $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. Prepare uma regra de rede virtual do Cosmos DB
+1. Preparar uma regra de rede virtual Cosmos DB
 
    ```powershell
    $vnetRule = New-AzCosmosDBVirtualNetworkRule `
       -Id $subnetId
    ```
 
-1. Atualize as propriedades da conta Do Azure Cosmos DB com a nova configuração de ponto final da Rede Virtual: 
+1. Atualize Azure Cosmos DB Propriedades da conta com a nova configuração de ponto de extremidade de rede virtual: 
 
    ```powershell
    $accountName = "<Cosmos DB account name>"
@@ -152,11 +152,11 @@ Use as etapas a seguir para configurar um ponto de extremidade de serviço para 
 
 ## <a name="configure-a-service-endpoint-by-using-the-azure-cli"></a><a id="configure-using-cli"></a> Configurar um ponto de extremidade de serviço usando a CLI do Azure
 
-As contas do Azure Cosmos podem ser configuradas para pontos finais de serviço quando elas são criadas ou atualizadas posteriormente se a sub-rede já estiver configurada para eles. Os pontos finais de serviço também podem ser ativados na conta Cosmos, onde a sub-rede ainda não está configurada para eles e, em seguida, começarão a funcionar quando a sub-rede for configurada mais tarde. Essa flexibilidade permite que os administradores que não têm acesso tanto à conta Cosmos quanto aos recursos de rede virtual façam suas configurações independentes entre si.
+As contas do Azure Cosmos podem ser configuradas para pontos de extremidade de serviço quando forem criadas ou atualizadas posteriormente se a sub-rede já estiver configurada para elas. Os pontos de extremidade de serviço também podem ser habilitados na conta Cosmos em que a sub-rede ainda não está configurada para eles e começará a funcionar quando a sub-rede for configurada posteriormente. Essa flexibilidade permite aos administradores que não têm acesso à conta Cosmos e aos recursos de rede virtual para tornar suas configurações independentes umas das outras.
 
-### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>Crie uma nova conta Cosmos e conecte-a a uma sub-rede back-end para uma nova rede virtual
+### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>Criar uma nova conta do cosmos e conectá-la a uma sub-rede de back-end para uma nova rede virtual
 
-Neste exemplo, a rede virtual e a sub-rede são criadas com pontos finais de serviço ativados para ambos quando são criados.
+Neste exemplo, a rede virtual e a sub-rede são criadas com pontos de extremidade de serviço habilitados para ambos quando eles são criados.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -200,9 +200,9 @@ az cosmosdb create \
    --virtual-network-rules $svcEndpoint
 ```
 
-### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Conecte e configure uma conta Cosmos a uma sub-rede back-end independentemente
+### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Conectar e configurar uma conta do cosmos para uma sub-rede de back-end independentemente
 
-Esta amostra destina-se a mostrar como conectar uma conta do Azure Cosmos a uma nova rede virtual existente onde a sub-rede ainda não está configurada para pontos finais de serviço. Isso é feito `--ignore-missing-vnet-service-endpoint` usando o parâmetro. Isso permite que a configuração da conta Cosmos seja concluída sem erro antes que a configuração da sub-rede virtual esteja concluída. Depois que a configuração da sub-rede for concluída, a conta do Cosmos poderá ser acessada por meio da sub-rede configurada.
+Este exemplo destina-se a mostrar como conectar uma conta do Azure Cosmos a uma nova rede virtual existente na qual a sub-rede ainda não está configurada para pontos de extremidade de serviço. Isso é feito usando o `--ignore-missing-vnet-service-endpoint` parâmetro. Isso permite que a configuração da conta Cosmos seja concluída sem erros antes que a configuração da sub-rede da rede virtual seja concluída. Depois que a configuração da sub-rede for concluída, a conta do Cosmos poderá ser acessada por meio da sub-rede configurada.
 
 ```azurecli-interactive
 # Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
@@ -260,13 +260,13 @@ az network vnet subnet update \
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>Migrando de uma regra de firewall de IP para uma ACL de rede virtual
 
-Para migrar uma conta do Azure Cosmos DB do uso de regras de firewall IP para usar pontos finais de serviço de rede virtual, use as seguintes etapas.
+Para migrar uma conta de Azure Cosmos DB de usar regras de firewall IP para usar pontos de extremidade de serviço de rede virtual, use as etapas a seguir.
 
-Depois que uma conta do Azure Cosmos DB é configurada para um ponto final de serviço para uma sub-rede, as solicitações dessa sub-rede são enviadas para o Azure Cosmos DB com informações de fonte de rede virtual e sub-rede em vez de um endereço IP público de origem. Essas solicitações não corresponderão mais a um filtro IP configurado na conta Azure Cosmos DB, razão pela qual as seguintes etapas são necessárias para evitar o tempo de inatividade.
+Depois que uma conta de Azure Cosmos DB é configurada para um ponto de extremidade de serviço para uma sub-rede, as solicitações dessa sub-rede são enviadas para Azure Cosmos DB com informações de origem de sub-rede e rede virtual em vez de um endereço IP público de origem. Essas solicitações não corresponderão mais a um filtro IP configurado na conta Azure Cosmos DB, motivo pelo qual as etapas a seguir são necessárias para evitar o tempo de inatividade.
 
-Antes de prosseguir, habilite o ponto final de serviço do Azure Cosmos DB na rede virtual e na sub-rede usando a etapa mostrada acima em "Habilitar o ponto final do serviço para uma sub-rede existente de uma rede virtual".
+Antes de continuar, habilite o ponto de extremidade de serviço Azure Cosmos DB na rede virtual e sub-rede usando a etapa mostrada acima em "habilitar o ponto de extremidade de serviço para uma sub-rede existente de uma rede virtual".
 
-1. Obtenha informações de rede virtual e sub-rede:
+1. Obter informações de rede virtual e sub-rede:
 
    ```powershell
    $resourceGroupName = "myResourceGroup"
@@ -281,14 +281,14 @@ Antes de prosseguir, habilite o ponto final de serviço do Azure Cosmos DB na re
    $subnetId = $vnet.Id + "/subnets/" + $subnetName
    ```
 
-1. Prepare um novo objeto de regra da Rede Virtual para a conta Azure Cosmos DB:
+1. Prepare um novo objeto de regra de rede virtual para a conta de Azure Cosmos DB:
 
    ```powershell
    $vnetRule = New-AzCosmosDBVirtualNetworkRule `
       -Id $subnetId
    ```
 
-1. Atualize a conta Azure Cosmos DB para permitir o acesso ao ponto final do serviço a partir da sub-rede:
+1. Atualize a conta de Azure Cosmos DB para habilitar o acesso de ponto de extremidade de serviço da sub-rede:
 
    ```powershell
    Update-AzCosmosDBAccount `
@@ -298,9 +298,9 @@ Antes de prosseguir, habilite o ponto final de serviço do Azure Cosmos DB na re
       -VirtualNetworkRuleObject @($vnetRule)
    ```
 
-1. Repita as etapas anteriores para todas as contas Azure Cosmos DB acessadas da sub-rede.
+1. Repita as etapas anteriores para todas as contas de Azure Cosmos DB acessadas da sub-rede.
 
-1. Remova a regra de firewall IP para a sub-rede das regras de Firewall da conta Do Azure Cosmos DB.
+1. Remova a regra de firewall IP da sub-rede das regras de firewall da conta Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Próximas etapas
 

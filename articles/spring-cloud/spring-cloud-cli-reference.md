@@ -1,86 +1,86 @@
 ---
-title: nuvem de primavera az
-description: Gerencie a Nuvem de Primavera do Azure usando o Azure CLI
+title: AZ Spring Cloud
+description: Gerenciar a nuvem Spring do Azure usando o CLI do Azure
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
 ms.openlocfilehash: 33d13d2d4fa9003ef041c4c96be83a69ac595a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298789"
 ---
-# <a name="az-spring-cloud"></a>az primavera-nuvem
+# <a name="az-spring-cloud"></a>AZ Spring-Cloud
 
-## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Gerencie a Nuvem de Primavera do Azure usando o Azure CLI
+## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Gerenciar a nuvem Spring do Azure usando o CLI do Azure
 
 >[!Note]
 > No momento, o Azure Spring Cloud está em versão prévia.  Esses comandos podem ser alterados ou removidos em uma versão futura.
 
-| az primavera-nuvem |  |
+| AZ Spring-Cloud |  |
 |------|------:|
-| [az primavera-nuvem criar](#az-spring-cloud-create) | Crie uma instância da Nuvem de Primavera do Azure. |
-| [az primavera-nuvem excluir](#az-spring-cloud-delete) | Exclua uma instância da Nuvem de Primavera do Azure. |
-| [az primavera-nuvem lista](#az-spring-cloud-list) | Liste todas as instâncias do Azure Spring Cloud no grupo de recursos dado, caso contrário, liste os IDs de assinatura. |
-| [az primavera-nuvem show](#az-spring-cloud-show) | Mostre os detalhes de uma Nuvem de Primavera do Azure. |
+| [AZ Spring-Cloud Create](#az-spring-cloud-create) | Crie uma instância do Azure Spring Cloud. |
+| [AZ Spring-Cloud Delete](#az-spring-cloud-delete) | Exclua uma instância do Azure Spring Cloud. |
+| [lista AZ Spring-Cloud](#az-spring-cloud-list) | Liste todas as instâncias do Azure Spring Cloud no grupo de recursos fornecido, caso contrário, liste as IDs de assinatura. |
+| [AZ Spring-Cloud show](#az-spring-cloud-show) | Mostre os detalhes de uma nuvem do Azure Spring. |
 
-| az spring-cloud app | Comandos para gerenciar aplicativos na Nuvem de Primavera do Azure.  |
+| AZ Spring-Cloud app | Comandos para gerenciar aplicativos na nuvem do Azure Spring.  |
 | ---- | ----: |
-| [az spring-cloud app criar](#az-spring-cloud-app-create) | Crie um novo aplicativo com uma implantação padrão na Nuvem de Primavera do Azure. |
-| [az spring-cloud app excluir](#az-spring-cloud-app-delete) | Exclua um aplicativo na Nuvem de Primavera do Azure. |
-| [az spring-cloud app implantar](#az-spring-cloud-app-deploy) | Implante a partir de código-fonte ou um binário pré-construído para um aplicativo e atualizar configurações relacionadas. |
-| [az spring-cloud app list](#az-spring-cloud-app-list) | Liste todos os aplicativos na Nuvem de Primavera do Azure. |
-| [az spring-cloud app reiniciar](#az-spring-cloud-app-restart) | Reinicie as instâncias do aplicativo usando padrões de implantação de produção. |
-| [az escala de aplicativo primavera-nuvem](#az-spring-cloud-app-scale) | Dimensione manualmente um aplicativo ou suas implantações. |
-| [az spring-cloud app set-deployment](#az-spring-cloud-app-set-deployment) | Defina a implantação de produção de um aplicativo. |
-| [az spring-cloud app show](#az-spring-cloud-app-show) | Mostre os detalhes de um aplicativo na Nuvem da Primavera do Azure. |
-| [az spring-cloud app show-deploy-log](#az-spring-cloud-app-show-deploy-log) | Mostrar registros de compilação para a última implantação da origem. Padrão para implantação de produção. |
-| [az spring-cloud app começar](#az-spring-cloud-app-start) | Iniciar instâncias do aplicativo usando padrões de implantação de produção. |
-| [az spring-cloud app stop](#az-spring-cloud-app-stop) | Pare as instâncias do aplicativo usando padrões de implantação de produção. |
-| [az primavera-nuvem atualização de aplicativo](#az-spring-cloud-app-update) | Atualize a configuração do aplicativo especificado. |
+| [AZ Spring-Cloud app Create](#az-spring-cloud-app-create) | Crie um novo aplicativo com uma implantação padrão na nuvem do Azure Spring. |
+| [AZ Spring-Cloud app Delete](#az-spring-cloud-app-delete) | Exclua um aplicativo na nuvem Spring do Azure. |
+| [AZ Spring-Cloud app Deploy](#az-spring-cloud-app-deploy) | Implante do código-fonte ou de um binário pré-compilado para um aplicativo e atualize as configurações relacionadas. |
+| [lista de aplicativos AZ Spring-Cloud](#az-spring-cloud-app-list) | Liste todos os aplicativos na nuvem do Azure Spring. |
+| [AZ Spring-Cloud app Restart](#az-spring-cloud-app-restart) | Reinicie as instâncias do aplicativo usando padrões de implantação de produção. |
+| [dimensão de aplicativo AZ Spring-Cloud](#az-spring-cloud-app-scale) | Dimensione manualmente um aplicativo ou suas implantações. |
+| [AZ Spring-Cloud app Set – implantação](#az-spring-cloud-app-set-deployment) | Defina a implantação de produção de um aplicativo. |
+| [AZ Spring-Cloud App Show](#az-spring-cloud-app-show) | Mostre os detalhes de um aplicativo na nuvem do Azure Spring. |
+| [AZ Spring-Cloud App Show-Deploy-log](#az-spring-cloud-app-show-deploy-log) | Mostre os logs de compilação para a implantação mais recente da origem. O padrão é a implantação de produção. |
+| [aplicativo AZ Spring-Cloud app Start](#az-spring-cloud-app-start) | Inicie as instâncias do aplicativo usando padrões de implantação de produção. |
+| [AZ Spring-Cloud app Stop](#az-spring-cloud-app-stop) | Interrompa as instâncias do aplicativo usando padrões de implantação de produção. |
+| [AZ Spring-Cloud app Update](#az-spring-cloud-app-update) | Atualizar a configuração do aplicativo especificado. |
 
-| az spring-cloud app binding | Comandos para gerenciar vinculações com o Azure Data Services.  O aplicativo deve ser reiniciado antes que essas configurações entrem em vigor. |
+| AZ Spring-Cloud app BIND | Comandos para gerenciar associações com os serviços de dados do Azure.  O aplicativo deve ser reiniciado para que essas configurações entrem em vigor. |
 | --- | ---: |
-| [az spring-cloud lista de vinculação de aplicativos](#az-spring-cloud-app-binding-list) | Liste todas as vinculações de serviço em um aplicativo. |
-| [az spring-cloud app binding remove](#az-spring-cloud-app-binding-remove) | Remova uma vinculação de serviço do aplicativo. |
-| [az spring-cloud app binding show](#az-spring-cloud-app-binding-show) | Mostre os detalhes de uma ligação de serviço. |
-| [az spring-cloud app bindingcosmos adicionar](#az-spring-cloud-app-binding-cosmos-add) | Vincule um Azure CosmosDB com o aplicativo. |
-| [az spring-cloud app bindingcosmos atualização](#az-spring-cloud-app-binding-cosmos-update) | Atualize um serviço Azure CosmosDB vinculado. |
-| [az spring-cloud app binding mysql add](#az-spring-cloud-app-binding-mysql-add) | Vincule um banco de dados Azure para MySQL com o aplicativo. |
-| [az spring-cloud app binding mysql update](#az-spring-cloud-app-binding-mysql-update) | Atualize um banco de dados Azure para vinculação de serviço MySQL. |
-| [az spring-cloud app binding redis add](#az-spring-cloud-app-binding-redis-add) | Vincule um cache azure para Redis com o aplicativo. |
-| [az spring-cloud app binding redis atualização redis](#az-spring-cloud-app-binding-redis-update) | Atualize um cache do Azure para vinculação do serviço Redis. |
+| [lista de associação de aplicativo AZ Spring-Cloud](#az-spring-cloud-app-binding-list) | Listar todas as associações de serviço em um aplicativo. |
+| [AZ Spring-Cloud app BIND remove](#az-spring-cloud-app-binding-remove) | Remova uma associação de serviço do aplicativo. |
+| [AZ Spring-Cloud app BIND show](#az-spring-cloud-app-binding-show) | Mostrar os detalhes de uma associação de serviço. |
+| [AZ Spring-Cloud app BIND Cosmos Add](#az-spring-cloud-app-binding-cosmos-add) | Associar um CosmosDB do Azure ao aplicativo. |
+| [atualização de Cosmos AZ Spring-Cloud app BIND](#az-spring-cloud-app-binding-cosmos-update) | Atualizar uma associação do serviço CosmosDB do Azure. |
+| [AZ Spring-Cloud app BIND MySQL Add](#az-spring-cloud-app-binding-mysql-add) | Associe um banco de dados do Azure para MySQL com o aplicativo. |
+| [atualização do MySQL AZ Spring-Cloud app BIND](#az-spring-cloud-app-binding-mysql-update) | Atualizar uma associação de serviço de banco de dados do Azure para MySQL. |
+| [AZ Spring-Cloud app BIND Redis Add](#az-spring-cloud-app-binding-redis-add) | Associe um cache do Azure para Redis com o aplicativo. |
+| [atualização de Redis AZ Spring-Cloud app BIND](#az-spring-cloud-app-binding-redis-update) | Atualizar um cache do Azure para associação de serviço Redis. |
 
-| az spring-cloud implantação de aplicativo | Comandos para gerenciar o ciclo de vida de implantação de um aplicativo no Azure Spring Cloud. |
+| AZ Spring – implantação de aplicativo em nuvem | Comandos para gerenciar o ciclo de vida da implantação de um aplicativo no Azure Spring Cloud. |
 | --- | ---: |
-| [az spring-cloud implantação de aplicativo criar](#az-spring-cloud-app-deployment-create) | Crie uma implantação de preparação para o aplicativo. |
-| [az spring-cloud app exclusão](#az-spring-cloud-app-deployment-delete) | Exclua uma implantação do aplicativo. |
-| [az spring-cloud lista de implantação de aplicativos](#az-spring-cloud-app-deployment-list) | Liste todas as implantações em um aplicativo. |
-| [az spring-cloud app implantação show](#az-spring-cloud-app-deployment-show) | Mostre detalhes da implantação. |
+| [AZ Spring-Cloud app Deployment criar](#az-spring-cloud-app-deployment-create) | Crie uma implantação de preparo para o aplicativo. |
+| [AZ Spring-Cloud app Deployment excluir](#az-spring-cloud-app-deployment-delete) | Exclua uma implantação do aplicativo. |
+| [lista de implantação de aplicativo AZ Spring-Cloud](#az-spring-cloud-app-deployment-list) | Listar todas as implantações em um aplicativo. |
+| [AZ Spring-Cloud app Deployment show](#az-spring-cloud-app-deployment-show) | Mostrar detalhes da implantação. |
 
-| az mola-nuvem config-servidor | Comandos para gerenciar o Azure Spring Cloud Config Server. |
+| AZ Spring-Cloud CONFIG-Server | Comandos para gerenciar o servidor de configuração do Azure Spring Cloud. |
 | --- | ---: |
-| [az mola-nuvem config-servidor claro](#az-spring-cloud-config-server-clear) | Apagar todas as configurações do Servidor Config. |
-| [az mola-nuvem configuração-servidor conjunto](#az-spring-cloud-config-server-set) | Defina o Config Server a partir de um arquivo YAML. |
-| [az spring-cloud config-server show](#az-spring-cloud-config-server-show) | Mostrar configuração do servidor de configuração Config. |
-| [az mola-nuvem config servidor git conjunto](#az-spring-cloud-config-server-git-set) | Defina as propriedades git para o Servidor config.  Os valores anteriores serão substituídos. |
-| [az mola-nuvem config servidor git repo adicionar](#az-spring-cloud-config-server-git-repo-add) | Adicione uma nova configuração de repositório git ao Servidor config. |
-| [az spring-cloud config server git repo list](#az-spring-cloud-config-server-git-repo-list) | Liste todas as configurações do repositório git para o Servidor de configuração. |
-| [az mola-nuvem config servidor git repo remover](#az-spring-cloud-config-server-git-repo-remove) | Remova o repositório git especificado do Servidor Config. |
+| [AZ Spring-Cloud config-servidor limpar](#az-spring-cloud-config-server-clear) | Apague todas as configurações no servidor de configuração. |
+| [AZ Spring-Cloud CONFIG-Server Set](#az-spring-cloud-config-server-set) | Defina o servidor de configuração de um arquivo YAML. |
+| [AZ Spring-Cloud config-servidor show](#az-spring-cloud-config-server-show) | Mostrar configuração do servidor de configuração. |
+| [AZ Spring-Cloud CONFIG Server git Set](#az-spring-cloud-config-server-git-set) | Defina as propriedades do git para o servidor de configuração.  Os valores anteriores serão substituídos. |
+| [AZ Spring-Cloud CONFIG Server git Repositório adicionar](#az-spring-cloud-config-server-git-repo-add) | Adicione uma nova configuração de repositório git ao servidor de configuração. |
+| [AZ Spring-Cloud CONFIG Server lista de repositórios git](#az-spring-cloud-config-server-git-repo-list) | Listar todas as configurações do repositório Git para o servidor de configuração. |
+| [AZ Spring-Cloud CONFIG Server git remove](#az-spring-cloud-config-server-git-repo-remove) | Remova o repositório git especificado do servidor de configuração. |
 
-| az primavera-nuvem ponto final de teste | Comandos para gerenciar testes de ponto final no Azure Spring Cloud |
+| AZ Spring-Cloud Test-Endpoint | Comandos para gerenciar o teste de ponto de extremidade no Azure Spring Cloud |
 | --- | ---: |
-| [az spring-cloud test-endpoint desativar](#az-spring-cloud-test-endpoint-disable) | Desativar o ponto final do teste. |
-| [az spring-cloud test-endpoint ativar](#az-spring-cloud-test-endpoint-enable) | Habilite o ponto final do teste. |
-| [az primavera-nuvem lista de ponto final de teste](#az-spring-cloud-test-endpoint-list) | Listar as teclas de ponto final do teste. |
-| [az spring-cloud test-endpoint renovar-key](#az-spring-cloud-test-endpoint-renew-key) | Regenerar uma chave de ponto final de teste. |
+| [AZ Spring-Cloud Test-Endpoint Disable](#az-spring-cloud-test-endpoint-disable) | Desabilitar ponto de extremidade de teste. |
+| [AZ Spring-Cloud Test-Endpoint Enable](#az-spring-cloud-test-endpoint-enable) | Habilitar ponto de extremidade de teste. |
+| [AZ Spring-Cloud Test-Endpoint List](#az-spring-cloud-test-endpoint-list) | Listar chaves de ponto de extremidade de teste. |
+| [AZ Spring-Cloud Test-Endpoint Renovate-Key](#az-spring-cloud-test-endpoint-renew-key) | Regenerar uma chave de ponto de extremidade de teste. |
 
-## <a name="az-spring-cloud-create"></a>az primavera-nuvem criar
+## <a name="az-spring-cloud-create"></a>AZ Spring-Cloud Create
 
-Crie um novo aplicativo com uma implantação padrão na Nuvem de Primavera do Azure.
+Crie um novo aplicativo com uma implantação padrão na nuvem do Azure Spring.
 
 ```azurecli
 az spring-cloud create  --name -n
@@ -91,25 +91,25 @@ az spring-cloud create  --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome para esta instância azure Spring Cloud. |
-| --resource-group -g | Especifica o grupo de recursos para este aplicativo.  Configure o grupo padrão usando`az configure --defaults group=<name>` |
+| --Name-n | Nome para esta instância do Azure Spring Cloud. |
+| --resource-group -g | Especifica o grupo de recursos para este aplicativo.  Configurar o grupo padrão usando`az configure --defaults group=<name>` |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --location -l | Especifica a localização do servidor para este aplicativo.  Encontre locais válidos usando`az account list-locations` |
-| --no-wait | Não faça para que as operações de longa duração se concluam.
+| --location -l | Especifica o local do servidor para este aplicativo.  Localizar locais válidos usando`az account list-locations` |
+| --no-wait | Não para concluir operações de longa execução.
 
 ### <a name="examples"></a>Exemplos
 
-Crie uma nova Nuvem de Primavera do Azure em WestUS
+Criar uma nova nuvem do Azure Spring na Westus
 
 ```azurecli
 az spring-cloud create -n MyService -g MyResourceGroup -l westus
 ```
 
-## <a name="az-spring-cloud-delete"></a>az primavera-nuvem excluir
+## <a name="az-spring-cloud-delete"></a>AZ Spring-Cloud Delete
 
-Exclua uma instância da Nuvem de Primavera do Azure.
+Exclua uma instância do Azure Spring Cloud.
 
 ```azurecli
 az spring cloud --name -n
@@ -119,24 +119,24 @@ az spring cloud --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome da instância azure Spring Cloud a ser excluído. |
-| --resource-group -g | Nome do grupo de recursos ao qual pertence a Nuvem de Primavera do Azure. |
+| --Name-n | Nome da instância do Azure Spring Cloud a ser excluída. |
+| --resource-group -g | Nome do grupo de recursos ao qual a nuvem do Azure Spring pertence. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| -não-esperar | Não espere que as operações de longa duração terminem. |
+| -sem espera | Não aguarde até que as operações de longa execução sejam concluídas. |
 
 ### <a name="example"></a>Exemplo
 
-Exclua uma instância da Nuvem de Primavera do Azure chamada 'MyService' do 'MyResourceGroup'.
+Exclua uma instância do Azure Spring Cloud chamada ' MyService ' de ' MyResource be'.
 
 ```azurecli
 az spring-cloud delete -n MyService -g MyResourceGroup
 ```
 
-## <a name="az-spring-cloud-list"></a>az primavera-nuvem lista
+## <a name="az-spring-cloud-list"></a>lista AZ Spring-Cloud
 
-Liste todas as instâncias do Azure Spring Cloud associadas ao determinado grupo de recursos. Se nenhum grupo de recursos for especificado, liste os IDs de assinatura.
+Lista todas as instâncias do Azure Spring Cloud associadas ao grupo de recursos fornecido. Se nenhum grupo de recursos for especificado, liste as IDs de assinatura.
 
 ```azurecli
 az spring-cloud list --resource-group -g
@@ -146,9 +146,9 @@ az spring-cloud list --resource-group -g
 | --- | ---: |
 | --resource-group -g | Nome do grupo de recursos. |
 
-## <a name="az-spring-cloud-show"></a>az primavera-nuvem show
+## <a name="az-spring-cloud-show"></a>AZ Spring-Cloud show
 
-Mostrar os detalhes para a instância especificada do Azure Spring Cloud.
+Mostre os detalhes da instância especificada do Azure Spring Cloud.
 
 ```azurecli
 az spring-cloud show --name -n
@@ -157,12 +157,12 @@ az spring-cloud show --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome da instância da Nuvem de Primavera do Azure. |
-| --resource-group -g | Nome do Grupo de Recursos ao qual pertence a instância do Azure Spring Cloud.
+| --Name-n | Nome da instância do Azure Spring Cloud. |
+| --resource-group -g | Nome do grupo de recursos ao qual a instância do Azure Spring Cloud pertence.
 
-## <a name="az-spring-cloud-app-create"></a>az spring-cloud app criar
+## <a name="az-spring-cloud-app-create"></a>AZ Spring-Cloud app Create
 
-Crie um novo aplicativo em uma Nuvem de Primavera do Azure.
+Crie um novo aplicativo em uma nuvem do Azure Spring.
 
 ```azurecli
 az spring-cloud app create --name -n
@@ -177,16 +177,16 @@ az spring-cloud app create --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --cpu | Número de núcleos virtuais por instância.  Padrão: 1. |
-| --habilitar-ativar-armazenamento persistente | $True.  Se for verdade, monta um disco de 50GB com o caminho padrão. |
+| --CPU | Número de núcleos virtuais por instância.  Padrão: 1. |
+| --Habilitar-armazenamento persistente | $True.  Se for true, montará um disco de 50 GB com o caminho padrão. |
 | --instance-count | Número de instâncias.  Padrão: 1. |
-| --é público | $True.  Se for verdade, atribui um domínio público. |
+| --é-público | $True.  Se for true, atribuirá um domínio público. |
 | --memory | Número de GB de memória por instância.  Padrão: 1. |
 
 ### <a name="examples"></a>Exemplos
@@ -197,15 +197,15 @@ Crie um aplicativo com a configuração padrão.
 az spring-cloud app create -n MyApp -s MyService
 ```
 
-Crie um aplicativo acessível ao público com 3 instâncias.  Cada instância tem 3 GB de memória e 2 núcleos de CPU.
+Crie um aplicativo publicamente acessível com 3 instâncias.  Cada instância tem 3 GB de memória e 2 núcleos de CPU.
 
 ```azurecli
 az spring-cloud app create -n MyApp -s MyService --is-public true --cpu 2 --memory 3
 ```
 
-## <a name="az-spring-cloud-app-delete"></a>az spring-cloud app excluir
+## <a name="az-spring-cloud-app-delete"></a>AZ Spring-Cloud app Delete
 
-Exclui um aplicativo na Nuvem de Primavera do Azure.
+Exclui um aplicativo na nuvem Spring do Azure.
 
 ```azurecli
 az spring cloud app delete  --name -n
@@ -215,13 +215,13 @@ az spring cloud app delete  --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-deploy"></a>az spring-cloud app implantar
+## <a name="az-spring-cloud-app-deploy"></a>AZ Spring-Cloud app Deploy
 
-Implante um aplicativo para o Azure Spring Cloud a partir do código-fonte ou de um binário pré-construído e atualize configurações relacionadas.
+Implante um aplicativo na Spring Cloud do Azure a partir do código-fonte ou de um binário pré-compilado e atualize as configurações relacionadas.
 
 ```azurecli
 az spring cloud app deploy  --name -n
@@ -242,47 +242,47 @@ az spring cloud app deploy  --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --cpu | Número de núcleos de CPI virtuais por instância. |
-| --implantação -d | Nome de uma implantação de aplicativo existente.  Padrão para a implantação da produção, se não especificado. |
-| --env | Variáveis de ambiente separadas pelo espaço no formato 'key[=value]'. |
-| --instance-count | Número de ocorrências. |
-| --jar-path | Se fornecido, implante o frasco do caminho dado. Caso contrário, implante a pasta atual como um piche. |
-| --jvm-opções | Uma seqüência contendo opções JVM.  Use '=' em vez de ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
+| --CPU | Número de núcleos de CPI virtuais por instância. |
+| --implantação-d | Nome de uma implantação de aplicativo existente.  O padrão será a implantação de produção se não for especificado. |
+| --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
+| --instance-count | Número de instâncias. |
+| --jar-caminho | Se fornecido, implante o JAR do caminho fornecido. Caso contrário, implante a pasta atual como um tar. |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
 | --memory | Número de GB de memória por instância. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
-| --versão em tempo de execução | Versão em tempo de execução do idioma usado no aplicativo.  Valores `Java_11`permitidos: , `Java_8`. |
-| --módulo-alvo | Módulo infantil a ser implantado.  Necessário quando vários pacotes de jarro são construídos a partir do código fonte. |
-| --versão | Versão de implantação.  Inalterado se não for definido. |
+| --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
+| --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11`, `Java_8`. |
+| --módulo de destino | Módulo filho a ser implantado.  Necessário quando vários pacotes JAR são criados a partir do código-fonte. |
+| --versão | Versão da implantação.  Inalterado se não estiver definido. |
 
 ### <a name="examples"></a>Exemplos
 
-Implantar código fonte em um aplicativo. Isso embalará o diretório atual, construirá um binário usando o Serviço de Compilação Pivô e, em seguida, implantará no aplicativo.
+Implante o código-fonte em um aplicativo. Isso irá empacotar o diretório atual, criar um binário usando o serviço de compilação dinâmica e, em seguida, implantar no aplicativo.
 
 ```azurecli
 az spring-cloud app deploy -n MyApp -s MyService
 ```
 
-Implante um frasco pré-construído em um aplicativo usando opções JVM e variáveis de ambiente.
+Implante um jar pré-criado em um aplicativo usando opções de JVM e variáveis de ambiente.
 
 ```azurecli
 az spring-cloud app deploy -n MyApp -s MyService --jar-path app.jar --jvm-options="-XX:+UseG1GC -XX:+UseStringDeduplication" --env foo=bar
 ```
 
-Implantar código fonte para uma implantação específica de um aplicativo.
+Implante o código-fonte em uma implantação específica de um aplicativo.
 
 ```azurecli
 az spring-cloud app deploy -n MyApp -s Myspring-cloud -d green-deployment
 ```
 
-## <a name="az-spring-cloud-app-list"></a>az spring-cloud app list
+## <a name="az-spring-cloud-app-list"></a>lista de aplicativos AZ Spring-Cloud
 
-Liste todos os aplicativos na instância do Azure Spring Cloud.
+Lista todos os aplicativos na instância do Azure Spring Cloud.
 
 ```azurecli
 az spring-cloud app list --resource-group -g
@@ -292,11 +292,11 @@ az spring-cloud app list --resource-group -g
 |Parâmetros obrigatórios | |
 | --- | ---: |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-restart"></a>az spring-cloud app reiniciar
+## <a name="az-spring-cloud-app-restart"></a>AZ Spring-Cloud app Restart
 
-Reiniciar instâncias do aplicativo.  Padrão para a implantação da produção.
+Reinicie as instâncias do aplicativo.  O padrão é a implantação de produção.
 
 ```azurecli
 az spring-cloud app restart --name -n
@@ -308,16 +308,16 @@ az spring-cloud app restart --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --implantação -d | Nome da implantação existente do aplicativo.  Padrão para a implantação da produção, se não especificado. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
+| --implantação-d | Nome da implantação existente do aplicativo.  O padrão será a implantação de produção se não for especificado. |
+| --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
 
-## <a name="az-spring-cloud-app-scale"></a>az escala de aplicativo primavera-nuvem
+## <a name="az-spring-cloud-app-scale"></a>dimensão de aplicativo AZ Spring-Cloud
 
 Dimensione manualmente um aplicativo ou suas implantações.
 
@@ -334,33 +334,33 @@ az spring-cloud app scale --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --cpu | Número de núcleos de CPU virtuais por instância do aplicativo. |
-| --implantação -d | Nome da implantação existente do aplicativo.  Padrão para a implantação da produção, se não especificado. |
+| --CPU | Número de núcleos de CPU virtual por instância de aplicativo. |
+| --implantação-d | Nome da implantação existente do aplicativo.  O padrão será a implantação de produção se não for especificado. |
 | --instance-count | Número de instâncias deste aplicativo. |
-| --memory | Número de GB de memória por instância do aplicativo. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
+| --memory | Número de GB de memória por instância de aplicativo. |
+| --no-wait | Não aguarde a conclusão das operações de execução longa. |
 
 ### <a name="examples"></a>Exemplos
 
-Dimensione um aplicativo para 4 núcleos de CPU e 8 GB de memória por instância.
+Escalar verticalmente um aplicativo para 4 núcleos de CPU e 8 GB de memória por instância.
 
 ```azurecli
 az spring-cloud app scale -n MyApp -s MyService --cpu 3 --memory 8
 ```
 
-Dimensione uma implantação do aplicativo para 5 instâncias.
+Escale horizontalmente uma implantação do aplicativo em 5 instâncias.
 
 ```azurecli
 az spring-cloud app scale -n MyApp -s MyService -d green-deployment --instance-count 5
 ```
 
-## <a name="az-spring-cloud-app-set-deployment"></a>az spring-cloud app set-deployment
+## <a name="az-spring-cloud-app-set-deployment"></a>AZ Spring-Cloud app Set – implantação
 
 Defina as opções de configuração para a implantação de produção do aplicativo.
 
@@ -374,26 +374,26 @@ az spring-cloud app set-deployment --deployment -d
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --implantação -d | Nome de uma implantação existente do aplicativo. |
-| --nome -n | Nome do aplicativo. |
+| --implantação-d | Nome de uma implantação existente do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --no-wait | Não espere que as operações de longa duração terminem. |
+| --no-wait | Não aguarde a conclusão das operações de execução longa. |
 
 ### <a name="examples"></a>Exemplos
 
-Troque uma implantação de preparação do aplicativo para a produção.
+Troque uma implantação de preparo do aplicativo para produção.
 
 ```azurecli
 az spring-cloud app set-deployment -d green-deployment -n MyApp -s MyService
 ```
 
-## <a name="az-spring-cloud-app-show"></a>az spring-cloud app show
+## <a name="az-spring-cloud-app-show"></a>AZ Spring-Cloud App Show
 
-Mostre os detalhes de um aplicativo na Nuvem da Primavera do Azure.
+Mostre os detalhes de um aplicativo na nuvem do Azure Spring.
 
 ```azurecli
 az spring-cloud app show --name -n
@@ -403,13 +403,13 @@ az spring-cloud app show --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-show-deploy-log"></a>az spring-cloud app show-deploy-log
+## <a name="az-spring-cloud-app-show-deploy-log"></a>AZ Spring-Cloud App Show-Deploy-log
 
-Mostrar o registro de compilação da última implantação do código-fonte.  Padrão para o ambiente de produção.
+Mostrar o log de compilação da última implantação do código-fonte.  O padrão é o ambiente de produção.
 
 ```azurecli
 az spring-cloud app show-deploy-log --name -n
@@ -420,17 +420,17 @@ az spring-cloud app show-deploy-log --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --implantação -d | Nome de uma implantação existente do aplicativo.  Padrão para o ambiente de produção. |
+| --implantação-d | Nome de uma implantação existente do aplicativo.  O padrão é o ambiente de produção. |
 
-## <a name="az-spring-cloud-app-start"></a>az spring-cloud app começar
+## <a name="az-spring-cloud-app-start"></a>aplicativo AZ Spring-Cloud app Start
 
-Inicia instâncias do aplicativo.  Padrão para o ambiente de produção.
+Inicia instâncias do aplicativo.  O padrão é o ambiente de produção.
 
 ```azurecli
 az spring-cloud app start --name -n
@@ -442,18 +442,18 @@ az spring-cloud app start --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --implantação -d | Nome de uma implantação existente do aplicativo.  Padrão para o ambiente de produção. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
+| --implantação-d | Nome de uma implantação existente do aplicativo.  O padrão é o ambiente de produção. |
+| --no-wait | Não aguarde a conclusão das operações de execução longa. |
 
-## <a name="az-spring-cloud-app-stop"></a>az spring-cloud app stop
+## <a name="az-spring-cloud-app-stop"></a>AZ Spring-Cloud app Stop
 
-Pare as instâncias do aplicativo.  Padrão para o ambiente de produção.
+Interrompa as instâncias do aplicativo.  O padrão é o ambiente de produção.
 
 ```azurecli
 az spring-cloud app stop --name -n
@@ -465,16 +465,16 @@ az spring-cloud app stop --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --implantação -d | Nome de uma implantação existente do aplicativo.  Padrão para o ambiente de produção. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
+| --implantação-d | Nome de uma implantação existente do aplicativo.  O padrão é o ambiente de produção. |
+| --no-wait | Não aguarde a conclusão das operações de execução longa. |
 
-## <a name="az-spring-cloud-app-update"></a>az primavera-nuvem atualização de aplicativo
+## <a name="az-spring-cloud-app-update"></a>AZ Spring-Cloud app Update
 
 Atualize a configuração armazenada de um aplicativo.
 
@@ -493,19 +493,19 @@ az spring-cloud app update --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome -n | Nome do aplicativo. |
+| --Name-n | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --implantação -d | Nome de uma implantação existente do aplicativo.  Padrão para o ambiente de produção. |
-| --habilitar-ativar-armazenamento persistente | Booliano.  Se for verdade, monte um disco de 50GB com o caminho padrão. |
-| --env | Variáveis de ambiente separadas pelo espaço no formato 'key[=value]'. |
-| --é público | Booliano.  Se for verdade, atribua um domínio público ao aplicativo. |
-| --jvm-opções | Uma seqüência contendo opções JVM.  Use '=' em vez de ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
-| --versão em tempo de execução | Versão em tempo de execução do idioma usado no aplicativo.  Valores `Java_11`permitidos: , `Java_8`. |
+| --implantação-d | Nome de uma implantação existente do aplicativo.  O padrão é o ambiente de produção. |
+| --Habilitar-armazenamento persistente | Booliano.  Se for true, monte um disco de 50 GB com o caminho padrão. |
+| --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
+| --é-público | Booliano.  Se for true, atribua um domínio público ao aplicativo. |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
+| --no-wait | Não aguarde a conclusão das operações de execução longa. |
+| --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11`, `Java_8`. |
 
 ### <a name="example"></a>Exemplo
 
@@ -515,9 +515,9 @@ Adicione uma variável de ambiente para o aplicativo.
 az spring-cloud app update --env foo=bar
 ```
 
-## <a name="az-spring-cloud-app-binding-list"></a>az spring-cloud lista de vinculação de aplicativos
+## <a name="az-spring-cloud-app-binding-list"></a>lista de associação de aplicativo AZ Spring-Cloud
 
-Liste todas as vinculações de serviço em um aplicativo.
+Listar todas as associações de serviço em um aplicativo.
 
 ```azurecli
 az spring-cloud app binding list --app
@@ -527,13 +527,13 @@ az spring-cloud app binding list --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
+| --aplicativo | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-binding-remove"></a>az spring-cloud app binding remove
+## <a name="az-spring-cloud-app-binding-remove"></a>AZ Spring-Cloud app BIND remove
 
-Remova uma vinculação de serviço do aplicativo.
+Remova uma associação de serviço do aplicativo.
 
 ```azurecli
 az spring-cloud app binding list --app
@@ -544,14 +544,14 @@ az spring-cloud app binding list --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação de serviço a ser removido. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço a ser removida. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-binding-show"></a>az spring-cloud app binding show
+## <a name="az-spring-cloud-app-binding-show"></a>AZ Spring-Cloud app BIND show
 
-Mostre os detalhes de uma ligação de serviço.
+Mostrar os detalhes de uma associação de serviço.
 
 ```azurecli
 az spring-cloud app binding show --app
@@ -562,14 +562,14 @@ az spring-cloud app binding show --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-binding-cosmos-add"></a>az spring-cloud app bindingcosmos adicionar
+## <a name="az-spring-cloud-app-binding-cosmos-add"></a>AZ Spring-Cloud app BIND Cosmos Add
 
-Vincule um Azure Cosmos DB com o aplicativo.
+Associar um Azure Cosmos DB ao aplicativo.
 
 ```azurecli
 az spring-cloud app binding cosmos add --api-type
@@ -592,19 +592,19 @@ az spring-cloud app binding list --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --tipo api | Especifique o tipo de API usando um dos seguintes valores: cassandra, gremlin, mongo, sql, tabela. |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --tipo de API | Especifique o tipo de API usando um dos seguintes valores: Cassandra, Gremlin, Mongo, SQL, Table. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 |Parâmetros opcionais | |
 | --- | ---: |
-| --nome de coleção | Nome da coleção.  Necessário ao usar Gremlin. |
-| --nome de banco de dados | Nome do banco de dados.  Necessário ao usar Mongo, SQL e Gremlin. |
-| --espaço-chave | Espaço-chave cassandra.  Exigido ao usar Cassandra. |
+| --coleção-nome | Nome da coleção.  Necessário ao usar Gremlin. |
+| --nome-do-banco de dados | Nome do banco de dados.  Necessário ao usar Mongo, SQL e Gremlin. |
+| --espaço-chave | Cassandra-espaço de chave.  Necessário ao usar Cassandra. |
 
-## <a name="az-spring-cloud-app-binding-cosmos-update"></a>az spring-cloud app bindingcosmos atualização
+## <a name="az-spring-cloud-app-binding-cosmos-update"></a>atualização de Cosmos AZ Spring-Cloud app BIND
 
 ```azurecli
 az spring-cloud app binding cosmos update --app
@@ -618,18 +618,18 @@ az spring-cloud app binding cosmos update --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 |Parâmetros opcionais | |
 | --- | ---: |
-| --nome de coleção | Nome da coleção.  Necessário ao usar Gremlin. |
-| --nome de banco de dados | Nome do banco de dados.  Necessário ao usar Mongo, SQL e Gremlin. |
-| --espaço-chave | Espaço-chave cassandra.  Exigido ao usar Cassandra. |
+| --coleção-nome | Nome da coleção.  Necessário ao usar Gremlin. |
+| --nome-do-banco de dados | Nome do banco de dados.  Necessário ao usar Mongo, SQL e Gremlin. |
+| --espaço-chave | Cassandra-espaço de chave.  Necessário ao usar Cassandra. |
 
-## <a name="az-spring-cloud-app-binding-mysql-add"></a>az spring-cloud app binding mysql add
+## <a name="az-spring-cloud-app-binding-mysql-add"></a>AZ Spring-Cloud app BIND MySQL Add
 
 ```azurecli
 az spring-cloud app binding mysql add --app
@@ -643,18 +643,18 @@ az spring-cloud app binding mysql add --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome de banco de dados | Nome do banco de dados. |
-| --chave | API chave do serviço. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome-do-banco de dados | Nome do banco de dados. |
+| --chave | Chave de API do serviço. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --id de recursos | ID de recurso do Azure do serviço para vincular. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --ID-do-recurso | ID de recurso do Azure do serviço com o qual associar. |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 | --username | Nome de usuário para acesso ao banco de dados. |
 
-## <a name="az-spring-cloud-app-binding-mysql-update"></a>az spring-cloud app binding mysql update
+## <a name="az-spring-cloud-app-binding-mysql-update"></a>atualização do MySQL AZ Spring-Cloud app BIND
 
-Atualize a conexão de vinculação do serviço do aplicativo a um banco de dados Azure para MySQL.
+Atualize a conexão de associação de serviço do aplicativo para um banco de dados do Azure para MySQL.
 
 ```azurecli
 az spring-cloud app binding mysql update --add
@@ -668,20 +668,20 @@ az spring-cloud app binding mysql update --add
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --nome de banco de dados | Nome do banco de dados. |
-| --chave | API chave do serviço. |
+| --nome-do-banco de dados | Nome do banco de dados. |
+| --chave | Chave de API do serviço. |
 | --username | Nome de usuário para acesso ao banco de dados. |
 
-## <a name="az-spring-cloud-app-binding-redis-add"></a>az spring-cloud app binding redis add
+## <a name="az-spring-cloud-app-binding-redis-add"></a>AZ Spring-Cloud app BIND Redis Add
 
-Vincule um cache azure para Redis com o aplicativo.
+Associe um cache do Azure para Redis com o aplicativo.
 
 ```azurecli
 az spring-cloud app binding redis add --app
@@ -694,73 +694,73 @@ az spring-cloud app binding redis add --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --id de recursos | ID de recurso do Azure do serviço com o que você deseja vincular. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --ID-do-recurso | ID de recurso do Azure do serviço com o qual você deseja associar. |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --desativar-ssl | Desativar o TLS. |
+| --desabilitar-SSL | Desabilite o TLS. |
 
-## <a name="az-spring-cloud-app-binding-redis-update"></a>az spring-cloud app binding redis atualização redis
+## <a name="az-spring-cloud-app-binding-redis-update"></a>atualização de Redis AZ Spring-Cloud app BIND
 
-Atualize um serviço de vinculação para cache do Azure para Redis.
+Atualize uma associação de serviço para o cache do Azure para Redis.
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --desativar-ssl | Desativar o TLS. |
+| --desabilitar-SSL | Desabilite o TLS. |
 
-## <a name="az-spring-cloud-app-deployment-create"></a>az spring-cloud implantação de aplicativo criar
+## <a name="az-spring-cloud-app-deployment-create"></a>AZ Spring-Cloud app Deployment criar
 
-Crie uma implantação de preparação para o aplicativo.
+Crie uma implantação de preparo para o aplicativo.
 
-Para implantar código ou atualizar configurações para `az spring-cloud app deploy --deployment <staging-deployment>` uma implantação existente, use ou 'az spring-cloud app update --deployment <staging deployment>.
+Para implantar o código ou atualizar as configurações para uma implantação existente, `az spring-cloud app deploy --deployment <staging-deployment>` use ou ' AZ Spring-Cloud app update-- <staging deployment>implantation.
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --nome | Nome da vinculação do serviço. |
+| --aplicativo | Nome do aplicativo. |
+| --nome | Nome da Associação de serviço. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --cpu | Número de núcleos de CPU virtuais por instância.  Padrão: 1 |
-| --env | Variáveis de ambiente separadas pelo espaço no formato 'key[=value]'. |
-| --instance-count | Número de ocorrências. Padrão: 1. |
-| --jar-path | Se for fornecido, implante o frasco.  Caso contrário, implante a pasta atual como um piche. |
-| --jvm-opções | Uma seqüência contendo opções JVM.  Use '=' em vez de ' para evitar erros de análise de conchas. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
+| --CPU | Número de núcleos de CPU virtual por instância.  Padrão: 1 |
+| --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
+| --instance-count | Número de instâncias. Padrão: 1. |
+| --jar-caminho | Se fornecido, implante jar.  Caso contrário, implante a pasta atual como um tar. |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
 | --memory | Número de GB de memória por instância. |
-| --no-wait | Não espere que as operações de longa duração terminem. |
-| --versão em tempo de execução | Versão em tempo de execução do idioma usado no aplicativo.  Valores `Java_11`permitidos: , `Java_8`. |
-| --skip-clone-configurações | Crie uma implantação de preparação clonando as configurações atuais de implantação da produção. |
-| --módulo-alvo | Módulo infantil a ser implantado.  Necessário quando vários pacotes de jarro são construídos a partir do código fonte. |
-| --versão | Versão de implantação.  Inalterado se não for definido. |
+| --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
+| --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11`, `Java_8`. |
+| --ignorar-clonar-configurações | Crie uma implantação de preparo clonando as configurações de implantação de produção atuais. |
+| --módulo de destino | Módulo filho a ser implantado.  Necessário quando vários pacotes JAR são criados a partir do código-fonte. |
+| --versão | Versão da implantação.  Inalterado se não estiver definido. |
 
 ### <a name="examples"></a>Exemplos
 
-Implantar código fonte para uma nova implantação do aplicativo.  Isso embalará o diretório atual, construirá um binário usando o Sistema de Compilação Pivô e, em seguida, implantará.
+Implante o código-fonte em uma nova implantação do aplicativo.  Isso irá empacotar o diretório atual, criar um binário usando o sistema de compilação dinâmica e, em seguida, implantar.
 
 ```azurecli
 az spring-cloud app deployment create -n green-deployment --app MyApp -s MyService
 ```
 
-Implante um jarro pré-construído em um aplicativo com opções JVM e variáveis de ambiente.
+Implante um jar predefinido em um aplicativo com opções de JVM e variáveis de ambiente.
 
 ```azurecli
 az spring-cloud app deployment create -n green-deployment --app MyApp -s MyService --jar-path app.jar --jvm-options="-XX:+UseStringDeDuplication" --env foo=bar
 ```
 
-## <a name="az-spring-cloud-app-deployment-delete"></a>az spring-cloud app exclusão
+## <a name="az-spring-cloud-app-deployment-delete"></a>AZ Spring-Cloud app Deployment excluir
 
 Exclua uma implantação do aplicativo.
 
@@ -773,14 +773,14 @@ az spring-cloud app deployment delete --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
+| --aplicativo | Nome do aplicativo. |
 | --nome | Nome da implantação. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-deployment-list"></a>az spring-cloud lista de implantação de aplicativos
+## <a name="az-spring-cloud-app-deployment-list"></a>lista de implantação de aplicativo AZ Spring-Cloud
 
-Liste todas as implantações em um aplicativo.
+Listar todas as implantações em um aplicativo.
 
 ```azurecli
 az spring-cloud app deployment list --app
@@ -790,13 +790,13 @@ az spring-cloud app deployment list --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
+| --aplicativo | Nome do aplicativo. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-app-deployment-show"></a>az spring-cloud app implantação show
+## <a name="az-spring-cloud-app-deployment-show"></a>AZ Spring-Cloud app Deployment show
 
-Mostre detalhes de uma implantação.
+Mostrar detalhes de uma implantação.
 
 ```azurecli
 az spring-cloud app deployment show --app
@@ -807,14 +807,14 @@ az spring-cloud app deployment show --app
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
+| --aplicativo | Nome do aplicativo. |
 | --nome | Nome da implantação. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --serviço -s | Nome da Nuvem da Primavera de Azure.  Você pode configurar o `az configure --defaults spring-cloud=<name>`serviço padrão usando . |
+| --serviço-s | Nome da nuvem do Azure Spring.  Você pode configurar o serviço padrão usando `az configure --defaults spring-cloud=<name>`. |
 
-## <a name="az-spring-cloud-config-server-clear"></a>az mola-nuvem config-servidor claro
+## <a name="az-spring-cloud-config-server-clear"></a>AZ Spring-Cloud config-servidor limpar
 
-Apagar todas as configurações no Servidor Config.
+Apague todas as definições de configuração no servidor de configuração.
 
 ```azurecli
 az spring-cloud config-server clear --name
@@ -823,12 +823,12 @@ az spring-cloud config-server clear --name
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
-## <a name="az-spring-cloud-config-server-set"></a>az mola-nuvem configuração-servidor conjunto
+## <a name="az-spring-cloud-config-server-set"></a>AZ Spring-Cloud CONFIG-Server Set
 
-Defina as configurações do Servidor config usando um arquivo YAML.
+Defina as definições de configuração no servidor de configuração usando um arquivo YAML.
 
 ```azurecli
 az spring-cloud config-server set --config-file
@@ -839,17 +839,17 @@ az spring-cloud config-server set --config-file
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --config-file | Caminho do arquivo para um manifesto YAML para a configuração do Servidor de configuração. |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --arquivo de configuração | Caminho do arquivo para um manifesto do YAML para a configuração do servidor de configuração. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --no-wait | Não faça para que as operações de longa duração se concluam.
+| --no-wait | Não para concluir operações de longa execução.
 
-## <a name="az-spring-cloud-config-server-show"></a>az spring-cloud config-server show
+## <a name="az-spring-cloud-config-server-show"></a>AZ Spring-Cloud config-servidor show
 
-Mostrar as configurações do Servidor de configuração.
+Mostrar as configurações do servidor de configuração.
 
 ```azurecli
 az spring-cloud config-server show --name -n
@@ -858,12 +858,12 @@ az spring-cloud config-server show --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
-## <a name="az-spring-cloud-config-server-git-set"></a>az mola-nuvem config-servidor git conjunto
+## <a name="az-spring-cloud-config-server-git-set"></a>AZ Spring-Cloud CONFIG-Server git Set
 
-Defina as propriedades git para o Servidor config.  Isso substituirá todas as propriedades git existentes.
+Defina as propriedades do git para o servidor de configuração.  Isso substituirá todas as propriedades git existentes.
 
 ```azurecli
 az spring-cloud config-server git set --name -n
@@ -882,23 +882,23 @@ az spring-cloud config-server git set --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --uri | URI da configuração adicionada. |
+| --URI | URI da configuração adicionada. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para ver/limpar. |
-| --host-key | Tecla host para a configuração adicionada. |
-| --host-key-algorithm | Algoritmo de chave de host para a configuração adicionada. |
-| --rótulo | Etiqueta da configuração adicionada. |
+| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para exibir/limpar. |
+| --host-chave | Chave de host para a configuração adicionada. |
+| --host-chave-algoritmo | Algoritmo de chave do host para a configuração adicionada. |
+| --rótulo | Rótulo da configuração adicionada. |
 | --password | Senha da configuração adicionada. |
 | --chave privada | Chave privada da configuração adicionada. |
-| --caminhos de busca | Procurar caminhos da configuração adicionada.  Use delimitadores de comma para vários caminhos. |
-| --rigorosa verificação de chaves de host | Permite uma verificação rigorosa da chave de host da configuração adicionada. |
+| --caminhos de pesquisa | Caminhos de pesquisa da configuração adicionada.  Use delimitadores de vírgula para vários caminhos. |
+| --verificação de chave de host estrito | Habilita a verificação de chave de host estrita da configuração adicionada. |
 | --username | Nome de usuário da configuração adicionada. |
 
-## <a name="az-spring-cloud-config-server-git-repo-add"></a>az mola-nuvem config-server git repo adicionar
+## <a name="az-spring-cloud-config-server-git-repo-add"></a>AZ Spring-Cloud CONFIG-Server git Repositório Add
 
 ```azurecli
 az spring-cloud config-server git repo add --name -n
@@ -919,27 +919,27 @@ az spring-cloud config-server git repo add --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
-| --repo-nome | URI do repo. |
+| --nome | Nome da nuvem do Azure Spring. |
+| --nome do repositório | URI do repositório. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --uri | URI da configuração adicionada. |
+| --URI | URI da configuração adicionada. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para ver/limpar. |
-| --host-key | Tecla host para a configuração adicionada. |
-| --host-key-algorithm | Algoritmo de chave de host para a configuração adicionada. |
-| --rótulo | Etiqueta da configuração adicionada. |
+| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para exibir/limpar. |
+| --host-chave | Chave de host para a configuração adicionada. |
+| --host-chave-algoritmo | Algoritmo de chave do host para a configuração adicionada. |
+| --rótulo | Rótulo da configuração adicionada. |
 | --password | Senha da configuração adicionada. |
-| --padrão | Padrão para o repo.  Use delimitadores de comma para vários caminhos.|
+| --padrão | Padrão para o repositório.  Use delimitadores de vírgula para vários caminhos.|
 | --chave privada | Chave privada da configuração adicionada. |
-| --caminhos de busca | Procurar caminhos da configuração adicionada.  Use delimitadores de comma para vários caminhos. |
-| --rigorosa verificação de chaves de host | Permite uma verificação rigorosa da chave de host da configuração adicionada. |
+| --caminhos de pesquisa | Caminhos de pesquisa da configuração adicionada.  Use delimitadores de vírgula para vários caminhos. |
+| --verificação de chave de host estrito | Habilita a verificação de chave de host estrita da configuração adicionada. |
 | --username | Nome de usuário da configuração adicionada. |
 
-## <a name="az-spring-cloud-config-server-git-repo-list"></a>az spring-cloud config-server git repo list
+## <a name="az-spring-cloud-config-server-git-repo-list"></a>AZ Spring-Cloud config-servidor git repositório lista
 
-Liste todos os repos os git definidos no Servidor Config
+Listar todos os repositórios git definidos no servidor de configuração
 
 ```azurecli
 az spring-cloud config-server git repo list --name -n
@@ -949,16 +949,16 @@ az spring-cloud config-server git repo list --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para ver/limpar. |
+| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para exibir/limpar. |
 
-## <a name="az-spring-cloud-config-server-git-repo-remove"></a>az mola-nuvem config-server git repo remover
+## <a name="az-spring-cloud-config-server-git-repo-remove"></a>AZ Spring-Cloud CONFIG-Server git Repositório remove
 
-Remova uma configuração de recompra de git existente do Servidor Config.
+Remova uma configuração de repositório git existente do servidor de configuração.
 
 ```azurecli
 az spring-cloud config-server git repo remove --name -n
@@ -969,17 +969,17 @@ az spring-cloud config-server git repo remove --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
-| --repo-nome | URI do repo. |
+| --nome | Nome da nuvem do Azure Spring. |
+| --nome do repositório | URI do repositório. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para ver/limpar. |
+| --adiar | Armazene temporariamente o objeto no cache local em vez de enviar para o Azure.  Use `az cache` para exibir/limpar. |
 
-## <a name="az-spring-cloud-test-endpoint-disable"></a>az spring-cloud test-endpoint desativar
+## <a name="az-spring-cloud-test-endpoint-disable"></a>AZ Spring-Cloud Test-Endpoint Disable
 
-Desativar o ponto final do teste da Nuvem de Primavera do Azure
+Desabilitar ponto de extremidade de teste da nuvem do Azure Spring
 
 ```azurecli
 az spring-cloud test-endpoint disable --name -n
@@ -988,12 +988,12 @@ az spring-cloud test-endpoint disable --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
-## <a name="az-spring-cloud-test-endpoint-enable"></a>az spring-cloud test-endpoint ativar
+## <a name="az-spring-cloud-test-endpoint-enable"></a>AZ Spring-Cloud Test-Endpoint Enable
 
-Habilite o ponto final de teste para a Nuvem de Primavera do Azure. 
+Habilite o ponto de extremidade de teste para a nuvem do Azure Spring. 
 
 ```azurecli
 az spring-cloud test-endpoint enable --name -n
@@ -1002,12 +1002,12 @@ az spring-cloud test-endpoint enable --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
-## <a name="az-spring-cloud-test-endpoint-list"></a>az primavera-nuvem lista de ponto final de teste 
+## <a name="az-spring-cloud-test-endpoint-list"></a>AZ Spring-Cloud Test-Endpoint List 
 
-Liste as teclas de ponto final de teste disponíveis para a Nuvem de Primavera do Azure.
+Liste as chaves de ponto de extremidade de teste disponíveis para a nuvem do Azure Spring.
 
 ```azurecli
 az spring-cloud test-endpoint list --name -n
@@ -1018,17 +1018,17 @@ az spring-cloud test-endpoint list --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
 
 | Parâmetros opcionais | |
 | --- | ---: |
-| --app | Nome do aplicativo. |
-| --implantação -d | Nome de uma implantação existente do aplicativo.  Padrão de produção se não especificado. |
+| --aplicativo | Nome do aplicativo. |
+| --implantação-d | Nome de uma implantação existente do aplicativo.  O padrão será a produção, se não for especificado. |
 
-## <a name="az-spring-cloud-test-endpoint-renew-key"></a>az spring-cloud test-endpoint renovar-key
+## <a name="az-spring-cloud-test-endpoint-renew-key"></a>AZ Spring-Cloud Test-Endpoint Renovate-Key
 
-Regenerar uma chave de ponto de teste para a Nuvem de Primavera do Azure.
+Regenerar uma chave de ponto de extremidade de teste para a nuvem do Azure Spring.
 
 ```azurecli
 az spring-cloud test-endpoint renew-key --name -n
@@ -1038,6 +1038,6 @@ az spring-cloud test-endpoint renew-key --name -n
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
-| --nome | Nome da Nuvem da Primavera de Azure. |
+| --nome | Nome da nuvem do Azure Spring. |
 | --resource-group -g | Nome do grupo de recursos.  Você pode configurar o grupo padrão usando `az configure --defaults group=<name>`. |
-| --tipo | Tipo de tecla de ponto final de teste.  Valores permitidos: Primário, Secundário. |
+| --tipo | Tipo de chave de ponto de extremidade de teste.  Valores permitidos: primário, secundário. |

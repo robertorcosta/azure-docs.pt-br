@@ -1,6 +1,6 @@
 ---
-title: Tabela Azure em programa de mercado comercial| Mercado Azure
-description: Configure o gerenciamento de chumbo para o Azure Blob
+title: Tabela do Azure no programa comercial do Marketplace | Azure Marketplace
+description: Configurar gerenciamento de Lead para blob do Azure
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: dsindona
 ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285241"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instruções de gerenciamento de chumbo para Azure Blob
+# <a name="lead-management-instructions-for-azure-blob"></a>Instruções de gerenciamento de Lead para blob do Azure
 
 >[!Caution]
->A opção Azure Blob para processar leads da sua oferta de marketplace foi depreciada. Se você tiver atualmente uma oferta publicada com a configuração de gerenciamento de leads para o Azure Blob, você não está mais recebendo leads de clientes. Atualize sua configuração de gerenciamento de chumbo para qualquer uma das outras opções de gerenciamento de chumbo. Conheça as outras opções na [landing page de gerenciamento de líderes](./commercial-marketplace-get-customer-leads.md)."
+>A opção de blob do Azure para processar os leads da oferta do Marketplace foi preterida. Se, no momento, você tiver uma oferta publicada com a configuração de gerenciamento de leads para o blob do Azure, você não estará mais recebendo leads do cliente. Atualize sua configuração de gerenciamento de leads para qualquer uma das outras opções de gerenciamento de Lead. Saiba mais sobre as outras opções na [página inicial de gerenciamento de leads](./commercial-marketplace-get-customer-leads.md).
 
-Se o sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) não for explicitamente suportado no Partner Center para receber leads Azure Marketplace e AppSource, você pode usar um Azure Blob para lidar com esses leads. Em seguida, você pode optar por exportar os dados e importá-los para o seu sistema de CRM. As instruções deste artigo lhe darão o processo de criação de uma conta do Azure Storage e um Azure Blob sob essa conta. Além disso, você pode criar um novo fluxo usando o Microsoft Flow para enviar uma notificação por e-mail quando sua oferta recebe um lead.
+Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiver suporte explícito no Partner Center para receber leads do Azure Marketplace e do AppSource, você poderá usar um blob do Azure para lidar com esses leads. Você pode optar por exportar os dados e importá-los para o sistema CRM. As instruções neste artigo fornecerão o processo de criação de uma conta de armazenamento do Azure e um blob do Azure nessa conta. Além disso, você pode criar um novo fluxo usando Microsoft Flow para enviar uma notificação por email quando sua oferta receber um cliente potencial.
 
 
-## <a name="how-to-configure-azure-blob"></a>Como configurar o Azure Blob
+## <a name="how-to-configure-azure-blob"></a>Como configurar o blob do Azure
 
 1. Se você não tiver uma conta do Azure, poderá [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-1. Depois que sua conta do Azure estiver ativa, faça login no [portal Azure](https://portal.azure.com).
-1. No portal Azure, crie uma conta de armazenamento usando o procedimento a seguir.  
-    1. Selecione **+Criar um recurso** na barra de menuà esquerda.  O **painel Novo** (lâmina) será exibido à direita.
-    2. Selecione **Armazenamento** no **painel Novo.**  Uma **lista em destaque** é exibida à direita.
-    3. Selecione a **Conta de armazenamento** para iniciar a criação da conta.  Siga as instruções do artigo [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+1. Depois que sua conta do Azure estiver ativa, entre no [portal do Azure](https://portal.azure.com).
+1. No portal do Azure, crie uma conta de armazenamento usando o procedimento a seguir.  
+    1. Selecione **+ criar um recurso** na barra de menus à esquerda.  O **novo** painel (folha) será exibido à direita.
+    2. Selecione **armazenamento** no painel **novo** .  Uma lista em **destaque** é exibida à direita.
+    3. Selecione a **conta de armazenamento** para iniciar a criação da conta.  Siga as instruções no artigo [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
     ![Etapas para criar uma conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    Para obter mais informações sobre contas de armazenamento, selecione [o tutorial Quickstart](https://docs.microsoft.com/azure/storage/).  Para obter mais informações sobre preços de armazenamento, veja [preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
+    Para obter mais informações sobre contas de armazenamento, selecione [tutorial de início rápido](https://docs.microsoft.com/azure/storage/).  Para obter mais informações sobre preços de armazenamento, veja [preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
-4. Aguarde até que sua conta de armazenamento seja provisionada, um processo que normalmente leva alguns minutos.  Em seguida, acesse sua conta de armazenamento a partir da página **inicial** do portal Azure selecionando **Ver todos os seus recursos** ou selecionando Todos os **recursos** da barra de menude navegação esquerda do portal Azure.
+4. Aguarde até que sua conta de armazenamento seja provisionada, um processo que normalmente leva alguns minutos.  Em seguida, acesse sua conta de armazenamento na **Home** page do portal do Azure selecionando **Ver todos os seus recursos** ou selecionando **todos os recursos** na menu de navegação à esquerda da portal do Azure.
 
-    ![Acesse sua conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
+    ![Acessar sua conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-access.png)
 
-5. No painel da conta de armazenamento, selecione **as teclas de acesso** e copie o valor da *seqüência de string Conexão* para a chave. Salve esse valor, pois este é o valor da *string de conexão de conta de armazenamento* que você precisará fornecer no portal de publicação para receber leads para sua oferta de marketplace.
+5. No painel da sua conta de armazenamento, selecione **chaves de acesso** e copie o valor da *cadeia de conexão* para a chave. Salve esse valor, pois esse é o valor da *cadeia de conexão da conta de armazenamento* que você precisará fornecer no portal de publicação para receber clientes potenciais para sua oferta do Marketplace.
 
-     Um exemplo de picada de conexão é:
+     Um exemplo de um Stinger de conexão é:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
@@ -49,43 +49,43 @@ Se o sistema de CRM (Customer Relationship Management, gerenciamento de relacion
 
     ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na página da sua conta de armazenamento, selecione **Blobs**.
+6. Na página da sua conta de armazenamento, selecione **BLOBs**.
 
    ![Chave de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
-7. Uma vez na página blobs, selecione o botão **+ Contêiner.**
+7. Uma vez na página BLOBs, selecione o botão **+ contêiner** .
 
-8. Digite um **nome** para o seu novo recipiente. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-). Para obter mais informações sobre nomes de contêineres e bolhas, consulte [Nomes e referências de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+8. Digite um **nome** para o novo contêiner. O nome do contêiner deve estar com letras minúsculas, começar com uma letra ou número e pode incluir apenas letras, números e o caractere traço (-). Para obter mais informações sobre nomes de contêiner e de blobs, confira [Nomeando e referenciando contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-    Guarde esse valor, pois este é o valor *do Container Name* que você precisa fornecer no portal de publicação para receber leads para sua oferta de marketplace.
+    Salve esse valor, pois esse é o valor do *nome do contêiner* que você precisa fornecer no portal de publicação para receber clientes potenciais para sua oferta do Marketplace.
 
-9. Defina o nível de acesso público ao contêiner como **Privado (sem acesso anônimo)**.
+9. Defina o nível de acesso público para o contêiner como **privado (sem acesso anônimo)**.
 
 10. Selecione **OK** para criar o contêiner.
 
-    ![Novo container](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
+    ![Novo contêiner](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configure sua oferta para enviar leads para o Azure Blob
+## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configurar sua oferta para enviar clientes potenciais ao blob do Azure
 
-Quando estiver pronto para configurar as informações de gerenciamento de chumbo para sua oferta no portal de publicação, siga as etapas abaixo:
+Quando você estiver pronto para configurar as informações de gerenciamento de Lead para sua oferta no portal de publicação, siga as etapas abaixo:
 
-1. Navegue até a página **de configuração oferta** para obter sua oferta.
-2. Selecione **Conectar** na seção Gerenciamento de líderes.
+1. Navegue até a página de **instalação da oferta** para sua oferta.
+2. Selecione **conectar** na seção Gerenciamento de leads.
 
     ![Conectar oferta](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
 
-3. Na janela pop-up de detalhes do Conexão, selecione **Azure Blob** para o Destino Principal.
+3. Na janela pop-up detalhes da conexão, selecione **blob do Azure** para o destino do cliente potencial.
 
-    ![Detalhede conectar](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
+    ![Detalhes do Connect](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-details.png) 
 
-4. Forneça a **seqüência de conexão de conta de nome** e **armazenamento** do contêiner que você obteve ao seguir estas instruções.
+4. Forneça o **nome do contêiner** e a **cadeia de conexão da conta de armazenamento** obtida seguindo estas instruções.
 
-    * Exemplo do nome do contêiner:`marketplaceleadcontainer`
-    * Exemplo da seqüência de conexão da conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Exemplo de nome do contêiner:`marketplaceleadcontainer`
+    * Exemplo de cadeia de conexão da `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![conta de armazenamento: detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Selecione **Salvar**.
 
     > [!NOTE]
-    > Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta.
+    > Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.
 
 

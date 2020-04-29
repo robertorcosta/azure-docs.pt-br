@@ -1,6 +1,6 @@
 ---
-title: Todas as ofertas de página para Azure Marketplace
-description: Visão geral da página All oferece no Portal de Parceiros em Nuvem para o Azure Marketplace.
+title: Página todas as ofertas do Azure Marketplace
+description: Visão geral da página todas as ofertas no Portal do Cloud Partner para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dsindona
 ms.openlocfilehash: e4001651d422d9197a849be5e7985107f9bf43dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288981"
 ---
 # <a name="all-offers-page"></a>Página de todas as ofertas

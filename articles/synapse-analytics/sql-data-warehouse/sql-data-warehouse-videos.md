@@ -1,6 +1,6 @@
 ---
 title: vídeos
-description: Links para várias listas de reprodução de vídeo para Azure Synapse Analytics.
+description: Links para várias listas de reprodução de vídeo para o Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,17 +12,17 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0ac17579a1afedc3391b20f336ea9563b1c2d8f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80350124"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics - Vídeos de pool SQL
+# <a name="azure-synapse-analytics---sql-pool-videos"></a>Análise de Synapse do Azure – vídeos do pool do SQL
 
-Assista aos vídeos mais recentes do pool Synapse Synapse para saber mais sobre novos recursos e melhorias de desempenho. 
+Assista aos vídeos mais recentes do pool de SQL do Azure Synapse para saber mais sobre os novos recursos e aprimoramentos de desempenho. 
 
-Para começar, selecione o vídeo de visão geral abaixo para saber mais sobre as novas atualizações do pool Synapse SQL do Azure Synapse. Além disso, saiba como os padrões modernos de data warehouse podem ser usados para enfrentar cenários do mundo real, como o crime cibernético.
+Para começar, selecione o vídeo de visão geral abaixo para saber mais sobre as novas atualizações para o pool SQL do Azure Synapse. Além disso, saiba como os padrões de data warehouse modernos podem ser usados para lidar com cenários do mundo real, como crime cibernético.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
@@ -31,8 +31,8 @@ Para começar, selecione o vídeo de visão geral abaixo para saber mais sobre a
   </div>
 </a>
 
-Vídeos adicionais descrevendo funcionalidades específicas podem ser visualizados em: 
-- [YouTube: Advanced Analytics com o Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
+Vídeos adicionais que descrevem funcionalidades específicas podem ser exibidos em: 
+- [YouTube: análise avançada com o Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
 - [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

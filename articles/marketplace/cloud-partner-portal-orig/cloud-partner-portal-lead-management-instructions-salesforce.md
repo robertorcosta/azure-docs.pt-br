@@ -1,6 +1,6 @@
 ---
-title: Configure gerenciamento de lead para Salesforce | Mercado Azure
-description: Configure o gerenciamento de líderes no Salesforce para clientes do Azure Marketplace.
+title: Configurar gerenciamento de leads para Salesforce | Azure Marketplace
+description: Configure o gerenciamento de leads no Salesforce para clientes do Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 4261f16cbe76a788f8a8a91445d432f2f810c4ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280245"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar o gerenciamento de clientes potenciais para o Salesforce
@@ -31,4 +31,4 @@ Este artigo descreve como configurar o sistema Salesforce para lidar com cliente
 5. Em **Criar Formulário do Web-to-Lead**, selecione **Gerar** ![Geração do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copie o OID no exemplo e salve-o. Você aplicará o OID no campo **Identificador de Objeto** no Portal do Cloud Partner.
-![Salesforce obter OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Obter OID do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

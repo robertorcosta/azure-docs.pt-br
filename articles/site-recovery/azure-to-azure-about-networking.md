@@ -1,5 +1,5 @@
 ---
-title: Sobre o networking na recuperação de desastres da Azure VM com a Recuperação do Site do Azure
+title: Sobre a rede na recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Fornece uma visão geral da rede para a replicação de VMs do Azure usando o Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 3/13/2020
 ms.author: sutalasi
 ms.openlocfilehash: 58348c9aed14a5cc9126be780fe01817274a0b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80283252"
 ---
-# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre o networking na recuperação de desastres da Azure VM
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
 
 
@@ -46,27 +46,27 @@ As redes geralmente são protegidas usando firewalls e NSGs (grupos de seguranç
 Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas URLs do Site Recovery:
 
 
-**Url** | **Detalhes**
+**URL** | **Detalhes**
 --- | ---
-*.blob.core.windows.net | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento de cache para suas VMs, você pode permitir o acesso às URLs específicas da conta de armazenamento (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *.blob.core.windows.net
+*.blob.core.windows.net | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá permitir o acesso às URLs de conta de armazenamento específicas (ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
 login.microsoftonline.com | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site.
 *.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM.
 *.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM.
-*.vault.azure.net | Permite acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE via portal
-*.automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado via portal
+*.vault.azure.net | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal
+*. automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal
 
-## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando tags de serviço
+## <a name="outbound-connectivity-using-service-tags"></a>Conectividade de saída usando marcas de serviço
 
-Se você estiver usando um NSG para controlar a conectividade de saída, essas tags de serviço precisam ser permitidas.
+Se você estiver usando um NSG para controlar a conectividade de saída, essas marcas de serviço precisarão ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
     - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
 - Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
-- Crie uma regra NSG baseada em tag de serviço eventsHub para a região de destino, permitindo o acesso ao monitoramento de recuperação do site.
-- Crie uma regra NSG baseada em tag de serviço AzureSiteRecovery para permitir o acesso ao serviço de recuperação de sites em qualquer região.
-- Crie uma regra NSG baseada em tag de serviço AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE via portal.
-- Crie uma regra NSG baseada em serviço GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado via portal.
+- Crie uma regra de NSG baseada na marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
+- Crie uma regra de NSG baseada na marca de serviço AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
+- Crie uma regra de NSG baseada na marca de serviço AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
+- Crie uma regra de NSG baseada na marca de serviço GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG
@@ -86,9 +86,9 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS de saída (443) para "EventHub.CentralUS" no NSG que corresponda ao local de destino. Isso permite o acesso ao monitoramento de recuperação do site.
+3. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Centralus" no NSG que corresponde ao local de destino. Isso permite o acesso ao monitoramento de Site Recovery.
 
-4. Crie uma regra de segurança HTTPS de saída (443) para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Serviço de Recuperação de Sites em qualquer região.
+4. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.
 
 ### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central
 
@@ -98,9 +98,9 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
 
 2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG.
 
-3. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS de saída (443) para "EventHub.EastUS" no NSG que corresponda ao local de origem. Isso permite o acesso ao monitoramento de recuperação do site.
+3. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Eastus" no NSG que corresponde ao local de origem. Isso permite o acesso ao monitoramento de Site Recovery.
 
-4. Crie uma regra de segurança HTTPS de saída (443) para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Serviço de Recuperação de Sites em qualquer região.
+4. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuração da solução de virtualização de rede
 
@@ -126,4 +126,4 @@ Você pode substituir a rota de sistema padrão do Azure para o prefixo de ender
 ## <a name="next-steps"></a>Próximas etapas
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para failover de máquina virtual do Azure.
-- Saiba mais sobre a recuperação de desastres de [máquinas virtuais Do Zure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

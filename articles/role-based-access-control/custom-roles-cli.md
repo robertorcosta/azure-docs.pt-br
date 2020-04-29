@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas para recursos do Azure usando o Azure CLI | Microsoft Docs
-description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com o RBAC (Role-Based Access Control, controle de acesso baseado em função) para recursos do Azure usando o Azure CLI.
+title: Criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure | Microsoft Docs
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062222"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Crie ou atualize funções personalizadas para recursos do Azure usando o Azure CLI
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando CLI do Azure
 
 > [!IMPORTANT]
-> A adição `AssignableScopes` de um grupo de gerenciamento está atualmente em pré-visualização.
+> A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se as [funções incorporadas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando o Azure CLI.
+Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando CLI do Azure.
 
-Para obter um tutorial passo-a-passo sobre como criar uma função personalizada, consulte [Tutorial: Crie uma função personalizada para os recursos do Azure usando o Azure CLI](tutorial-custom-role-cli.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,15 +68,15 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
-## <a name="list-a-custom-role-definition"></a>Liste uma definição de função personalizada
+## <a name="list-a-custom-role-definition"></a>Listar uma definição de função personalizada
 
-Para listar uma definição de função personalizada, use [a lista de definição de função az](/cli/azure/role/definition#az-role-definition-list). Este é o mesmo comando que você usaria para um papel embutido.
+Para listar uma definição de função personalizada, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list). Esse é o mesmo comando que você usaria para uma função interna.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-O exemplo a seguir lista a definição da função *Operador de Máquina Virtual:*
+O exemplo a seguir lista a definição da função *operador de máquina virtual* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -118,7 +118,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-O exemplo a seguir lista apenas as ações da função *Operador de Máquina Virtual:*
+O exemplo a seguir lista apenas as ações da função *operador de máquina virtual* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +191,7 @@ Para atualizar uma função personalizada, primeiro use [lista de definições d
 az role definition update --role-definition <role_definition>
 ```
 
-O exemplo a seguir adiciona a operação *Microsoft.Insights/diagnosticSettings/operation* `Actions` e adiciona um grupo de gerenciamento para `AssignableScopes` a função personalizada do Operador de Máquina *Virtual.* A adição `AssignableScopes` de um grupo de gerenciamento está atualmente em pré-visualização.
+O exemplo a seguir adiciona a operação *Microsoft. insights/diagnosticSettings/* ao `Actions` e adiciona um grupo de `AssignableScopes` gerenciamento ao para a função personalizada *operador de máquina virtual* . A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
 
 vmoperator.json
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Crie uma função personalizada para os recursos do Azure usando o Azure CLI](tutorial-custom-role-cli.md)
+- [Tutorial: criar uma função personalizada para recursos do Azure usando CLI do Azure](tutorial-custom-role-cli.md)
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
-- [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)

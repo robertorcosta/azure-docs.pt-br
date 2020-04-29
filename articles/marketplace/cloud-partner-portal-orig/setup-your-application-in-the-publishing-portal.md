@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 2676dbf72309eeb51be1f08e7bae2c1502cc671e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280194"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar seu aplicativo no Portal de Publicação
@@ -20,7 +20,7 @@ Agora você está pronto para configurar seu aplicativo no portal de publicaçã
 
 ## <a name="login-and-create-a-new-offer"></a>Fazer logon e criar uma nova oferta
 
-1. Faça login no Portal de [Parceiros na Nuvem](https://cloudpartner.azure.com/).
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Na barra de navegação à esquerda, clique em "+ Nova oferta" e selecione "Dynamics 365 for Customer Engagement".
 
 ![Como selecionar uma nova oferta](./media/CRMScreenShot14.png)
@@ -29,14 +29,14 @@ Agora você está pronto para configurar seu aplicativo no portal de publicaçã
 
 ![Tela Nova oferta](./media/CRMScreenShot15.png)
 
-1. Os formulários que precisam ser preenchidos estão visíveis à esquerda na exibição Editor. Cada "formulário" consiste em um conjunto de campos a serem preenchidos. Os campos necessários são marcados\*com um asterisco vermelho ().
+1. Os formulários que precisam ser preenchidos estão visíveis à esquerda na exibição Editor. Cada "forma" consiste em um conjunto de campos que devem ser preenchidos. Os campos obrigatórios são marcados com um asterisco\*vermelho ().
 
 Há quatro formas principais de criar uma oferta do Dynamics 365 for Customer Engagement
 
 * Configurações da oferta
 * Informações técnicas
 * Detalhes da vitrine
-* Contatos
+* Contacts
 
 ## <a name="fill-out-the-offer-settings-form"></a>Preencher o formulário de Configurações da oferta
 
@@ -46,13 +46,13 @@ O formulário de configurações da oferta é um formulário básico para especi
 
 Esse é um identificador exclusivo para a oferta em um perfil de fornecedor. Essa ID estará visível em URLs do produto. Ele só pode ser composto de caracteres alfanuméricos minúsculos ou traços (-). A ID não pode terminar com um traço e pode ter um máximo de 50 caracteres. Esse campo é bloqueado quando uma oferta é ativada.
 
-por exemplo, se um editor **"contoso"** criar uma oferta com id de oferta **"sample-WebApp",** ele aparecerá no AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+por exemplo, se um Publicador **"contoso"** criar uma oferta com a ID **de oferta "Sample-webapp"**, ele aparecerá em AppSource como "https\/:/appsource.Microsoft.com/Marketplace/apps/contoso.Sample-webapp?Tab=Overview"
 
 ### <a name="publisher-id"></a>ID do fornecedor
 
 Este menu suspenso permite que você escolha o perfil de fornecedor em que deseja publicar essa oferta. Esse campo é bloqueado quando uma oferta é ativada.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 Nome de exibição da oferta. Esse é o nome que será exibido no [AppSource](https://appsource.microsoft.com/). Ele pode ter um máximo de 50 caracteres.
 
@@ -77,11 +77,11 @@ Aqui está uma explicação para esses campos:
 
 * Nome do arquivo do seu pacote: o nome do arquivo que você criou na etapa acima ao criar o arquivo zip que é o seu pacote CRM do AppSource. No exemplo acima, é "Microsoft\_SamplePackage.zip".
 * URL do local do pacote: essa é a URL para a conta de Armazenamento do Azure que contém o nome do arquivo de pacote especificado acima. Essa é a URL criada na etapa 9 da seção acima.
-* Há mais de um pacote CRM em seu arquivo de pacote: selecione Sim **APENAS** se você estiver dando suporte a várias versões de CRM com pacotes diferentes. Para a maioria dos parceiros, isso será "Não". Se selecionar Sim, você precisará criar pacotes do AppSource para cada versão de sua solução. _Nota: Isso NÃO está perguntando se você tem vários arquivos **zip.** Se você tiver vários arquivos solution.zip, mas apenas uma versão, você ainda deve selecionar "Não". A ferramenta de embalagem irá juntá-los automaticamente._
+* Há mais de um pacote CRM em seu arquivo de pacote: selecione Sim **APENAS** se você estiver dando suporte a várias versões de CRM com pacotes diferentes. Para a maioria dos parceiros, isso será "Não". Se selecionar Sim, você precisará criar pacotes do AppSource para cada versão de sua solução. _Observação: isso não pergunta se você tem vários arquivos **zip** . Se você tiver vários arquivos. zip de solução, mas apenas uma versão, você ainda deverá selecionar "não". A ferramenta de empacotamento as reunirá automaticamente._
 
 ### <a name="crm-package-availability"></a>Disponibilidade do Pacote CRM
 
-Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões de CRM servem quais países/regiões, consulte o link:[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões do CRM atendem a quais países/regiões, consulte o link:[https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Observação: implantar para "Soberana e nuvem US Gov" da Alemanha REQUER PERMISSÃO ESPECIAL e VALIDAÇÃO DURANTE A CERTIFICAÇÃO
 
@@ -117,7 +117,7 @@ Este campo determina os países / regiões em que sua oferta estará disponível
 
 ### <a name="supported-languages"></a>Idiomas com suporte
 
-Selecione os idiomas aos quais o aplicativo dá suporte. Se o seu aplicativo suportar idiomas adicionais que não estão nesta lista, continue publicando sua oferta e envie um e-mail para: [appsource@microsoft.com](mailto:appsource@microsoft.com) para nos avisar.
+Selecione os idiomas aos quais o aplicativo dá suporte. Se seu aplicativo der suporte a idiomas adicionais que não estão nesta lista, continue a publicar sua oferta e envie um email [appsource@microsoft.com](mailto:appsource@microsoft.com) para: para nos informar.
 
 ### <a name="app-version"></a>Versão do aplicativo
 
@@ -179,7 +179,7 @@ Insira a URL de suporte do aplicativo.
 
 Selecione um sistema CRM onde você lidera será armazenado. Selecione "Tabela do Azure" aqui se você tiver um dos seguintes sistemas CRM: Salesforce, Marketo, Microsoft Dynamics CRM. O sistema CRM que você seleciona aqui é onde escreveremos os detalhes dos usuários finais que experimentam seu aplicativo no AppSource (leads). Dependendo do sistema CRM selecionado, clique no URL correspondente abaixo para obter informações sobre como concluir o próximo conjunto de campos
 
-* [Tabela Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+* [tabela do Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 * [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 * [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

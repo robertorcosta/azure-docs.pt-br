@@ -1,6 +1,6 @@
 ---
-title: Obtenha dados de formas em um mapa | Mapas do Microsoft Azure
-description: Neste artigo, saiba como obter dados de forma desenhados em um mapa usando o Microsoft Azure Maps Web SDK.
+title: Obter dados de formas em um mapa | Mapas do Microsoft Azure
+description: Neste artigo, saiba como obter dados de forma desenhados em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 09/04/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 88db018575f92e777223f383c65cd6db51ba515a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334406"
 ---
 # <a name="get-shape-data"></a>Obter dados da forma
 
-Este artigo mostra como obter dados de formas que são desenhadas no mapa. Usamos a função **drawingManager.getSource()** dentro [do gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). Existem vários cenários quando você deseja extrair dados geojson de uma forma desenhada e usá-los em outro lugar.  
+Este artigo mostra como obter dados de formas que são desenhadas no mapa. Usamos a função **drawingprovider. GetSource ()** dentro do [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). Há vários cenários em que você deseja extrair dados geojson de uma forma desenhada e usá-los em outro lugar.  
 
 
-## <a name="get-data-from-drawn-shape"></a>Obter dados de forma desenhada
+## <a name="get-data-from-drawn-shape"></a>Obter dados da forma desenhada
 
-A função a seguir obtém os dados de origem da forma desenhada e os produz na tela. 
+A função a seguir obtém os dados de origem da forma desenhada e os gera na tela. 
 
 ```Javascript
 function getDrawnShapes() {
@@ -32,17 +32,17 @@ function getDrawnShapes() {
 }
 ```
 
-Abaixo está a amostra completa de código em execução, onde você pode desenhar uma forma para testar a funcionalidade:
+Abaixo está o exemplo de código completo em execução, onde você pode desenhar uma forma para testar a funcionalidade:
 
 <br/>
 
-<iframe height="686" title="Obter dados da forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte os <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>dados de forma</a> da<a href='https://codepen.io/azuremaps'>@azuremaps</a>caneta Obter por Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="686" title="Obter dados da forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>obter dados de forma</a> por mapas do<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
+Saiba como usar recursos adicionais do módulo ferramentas de desenho:
 
 > [!div class="nextstepaction"]
 > [Reagir a eventos de desenho](drawing-tools-events.md)
@@ -53,10 +53,10 @@ Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Gerente de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

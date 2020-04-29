@@ -15,50 +15,50 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
 ms.openlocfilehash: 85977819d30ddc8745eb9231242eb1990222676c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530981"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
-O Azure Monitor Logs fornece recursos de monitoramento em ativos em nuvem e no local. A extensão de máquina virtual do agente Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
+Os logs de Azure Monitor fornecem recursos de monitoramento em ativos de nuvem e locais. A extensão de máquina virtual do agente Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-Para obter detalhes sobre os sistemas operacionais Windows suportados, consulte o artigo visão geral do [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+Para obter detalhes sobre os sistemas operacionais Windows com suporte, consulte o artigo [visão geral do agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do Agente e da Extensão de VM
-A tabela a seguir fornece um mapeamento da versão da extensão VM do Windows Log Analytics e do pacote de agente Log Analytics para cada versão. 
+A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows Log Analytics e do pacote de Log Analytics agente para cada versão. 
 
-| Versão do pacote do agente do Log Analytics do Windows | Versão de extensão do Log Analytics Windows VM | Data de lançamento | Notas de versão |
+| Log Analytics versão do pacote do agente do Windows | Log Analytics versão da extensão de VM do Windows | Data de lançamento | Notas de versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18029 | 1.0.18029 | março de 2020   | <ul><li>Adiciona suporte a assinatura de código SHA-2</li><li>Melhora a instalação e gerenciamento de extensões vm</li><li>Resolve um bug no Azure Arc para integração de servidores</li><li>Adiciona uma ferramenta incorporada de solução de problemas para suporte ao cliente</li><li>Adiciona apoio para regiões adicionais do governo azure</li> |
-| 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Pequenas correções de bugs e melhorias de estabilização </li></ul> |
-| 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Pequenas correções de bugs e melhorias de estabilização </li><li> Aumento do MaxExpressionDepth para 10000 </li></ul> |
-| 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Pequenas correções de bugs e melhorias de estabilização </li><li> Capacidade adicional de desativar credenciais padrão ao fazer conexão proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
-| 10.19.13515 | 1.0.13515 | Março de 2019 | <ul><li>Pequenas correções de estabilização </li></ul> |
-| 10.19.10006 | n/d | Dez 2018 | <ul><li> Pequenas correções de estabilização </li></ul> | 
-| 8.0.11136 | n/d | Setembro de 2018 |  <ul><li> Suporte adicionado para detectar alteração de ID de recurso no movimento VM </li><li> Suporte adicionado para reportar ID de recurso ao usar instalação sem extensão </li></ul>| 
-| 8.0.11103 | n/d |  Abril de 2018 | |
-| 8.0.11081 | 1.0.11081 | Novembro 2017 | | 
-| 8.0.11072 | 1.0.11072 | Setembro de 2017 | |
-| 8.0.11049 | 1.0.11049 | Fev 2017 | |
+| 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte à assinatura de código SHA-2</li><li>Melhora a instalação e o gerenciamento da extensão de VM</li><li>Resolve um bug no Azure ARC para integração de servidores</li><li>Adiciona uma ferramenta de solução de problemas interna para atendimento ao cliente</li><li>Adiciona suporte para regiões adicionais do Azure governamental</li> |
+| 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li></ul> |
+| 10.20.18011 | 1.0.18011 | Julho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Aumento de MaxExpressionDepth para 10000 </li></ul> |
+| 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li><li> Capacidade adicional de desabilitar as credenciais padrão ao fazer a conexão proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
+| 10.19.13515 | 1.0.13515 | Março de 2019 | <ul><li>Correções secundárias de estabilização </li></ul> |
+| 10.19.10006 | N/D | Dec 2018 | <ul><li> Correções secundárias de estabilização </li></ul> | 
+| 8.0.11136 | N/D | 2018 de setembro |  <ul><li> Suporte adicionado para detectar a alteração da ID de recurso na movimentação da VM </li><li> Adicionado suporte para relatar a ID de recurso ao usar a instalação sem extensão </li></ul>| 
+| 8.0.11103 | N/D |  Abril de 2018 | |
+| 8.0.11081 | 1.0.11081 | 2017 de novembro | | 
+| 8.0.11072 | 1.0.11072 | 2017 de setembro | |
+| 8.0.11049 | 1.0.11049 | Fevereiro de 2017 | |
 
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
-O Azure Security Center disponibiliza automaticamente o agente Log Analytics e o conecta com o espaço de trabalho padrão do Log Analytics da assinatura do Azure. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o workspace configurado e interromperia a conexão com a Central de Segurança do Azure.
+A central de segurança do Azure provisiona automaticamente o agente de Log Analytics e o conecta com o espaço de trabalho de Log Analytics padrão da assinatura do Azure. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o workspace configurado e interromperia a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 A extensão do agente Log Analytics para Windows requer que a máquina virtual de destino esteja conectada à Internet. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A extensão requer o ID do espaço de trabalho e a chave do espaço de trabalho do espaço de trabalho do Log Analytics de destino. Esses podem ser encontrado nas configurações para o workspace no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho do destino Log Analytics espaço de trabalho. Esses podem ser encontrado nas configurações para o workspace no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -85,10 +85,10 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 ```
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| Name | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publicador | Microsoft.EnterpriseCloud.Monitoring |
+| editor | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -97,16 +97,16 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 \* A workspaceId é chamada de consumerId na API do Log Analytics.
 
 > [!NOTE]
-> Para obter propriedades adicionais, consulte o Azure [Connect Windows Computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> Para obter mais propriedades, consulte Azure [Connect Windows computers to Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do agente do Log Analytics durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a extensão VM do agente Log Analytics pode ser encontrado na [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do agente do Log Analytics durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM do agente Log Analytics pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
->O modelo não suporta especificar mais de um ID de espaço de trabalho e chave de espaço de trabalho quando você deseja configurar o agente para relatar a vários espaços de trabalho. Para configurar o agente para reportar a vários espaços de trabalho, consulte [Adicionar ou remover um espaço de trabalho](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
+>O modelo não dá suporte à especificação de mais de uma ID de espaço de trabalho e da chave do espaço de trabalho quando você deseja configurar o agente para relatar para vários espaços de trabalho. Para configurar o agente para relatar para vários espaços de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir nome e digite para recursos de crianças](../../azure-resource-manager/templates/child-resource-name-type.md). 
+O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [definir nome e tipo para recursos filho](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 O exemplo a seguir pressupõe que a extensão Log Analytics esteja aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
@@ -182,7 +182,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o módulo do Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o módulo do Azure PowerShell.
 
@@ -198,4 +198,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>Suporte
 
-Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, você poderá entrar em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

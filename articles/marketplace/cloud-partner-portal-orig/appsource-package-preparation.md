@@ -1,5 +1,5 @@
 ---
-title: Preparação do pacote AppSource | Mercado Azure
+title: Preparação do pacote AppSource | Azure Marketplace
 description: Explicação sobre como preparar e criar pacotes do AppSource.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 76f8cbd6cb16b585a7dbda7b2ffa5eeeeb1b68d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280602"
 ---
 # <a name="appsource-package-preparation"></a>Preparação do pacote do AppSource
@@ -30,7 +30,7 @@ As etapas a seguir o ajudarão a criar seu pacote do AppSource.
 
 O pacote do Package Deployer é uma parte do pacote do AppSource.
 
-Para criar um pacote para o Implantador [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)de pacotes, use as seguintes instruções: . Ao concluir, seu pacote consistirá nos ativos abaixo:
+Para criar um pacote para o implantador de pacote, use as seguintes [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx)instruções:. Ao concluir, seu pacote consistirá nos ativos abaixo:
 
 1. Pasta do pacote: contém todas as soluções, os dados de configuração, os arquivos simples e o conteúdo do pacote. _Observação: no exemplo a seguir vamos considerar que a pasta do pacote se chama "PkgFolder"_
 2. dll: o assembly contém o código personalizado do pacote. _Observação: no exemplo a seguir vamos considerar que esse arquivo se chama "MicrosoftSample.dll"._
@@ -101,7 +101,7 @@ Aqui está o código de exemplo de input.xml. Confira as definições na tabela 
         </Locales>
     </PvsPackageData>
  
-**Onde:**
+**Posição**
 
 |Campo|Detalhes|
 |---|---|
@@ -110,7 +110,7 @@ Aqui está o código de exemplo de input.xml. Confira as definições na tabela 
 |SolutionAnchorName |Nome do arquivo zip da solução no Package Deployer que é usado para o nome de exibição e a descrição dos ativos da solução.|
 | StartDate| Essa é a data em que o pacote da solução será disponibilizado. O formato é MM/DD/AAAA|
 |EndDate|Essa é a data em que o pacote da solução deixará de estar disponível. O formato é MM/DD/AAAA |
-|SupportedCountries |Esta é uma lista delimitada de vírgulas de países/regiões que devem ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento da escrita desta lista, os códigos eram: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IQ, IS, IT, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, US, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Esta é uma lista delimitada por vírgulas de países/regiões que devem ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país/região atuais. No momento da escrita desta lista, os códigos eram: AE, AL, AM, AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, DO, DZ, EC, EE, EG, ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, HR, HU, ID, IE, IL, IN, IQ, IS, IT, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH, PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, US, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL da página de mais informações desse pacote. |
 |Localidades|Uma instância desse nó para cada idioma da UX ao qual você deseja dar suporte na UX da solução preferencial. Esse nó contém filhos que descrevem a localidade, o logotipo e os termos para cada idioma|
 |Localidades: PackageLocale.Code|LCID do idioma desse nó. Exemplo: inglês dos EUA é 1033|

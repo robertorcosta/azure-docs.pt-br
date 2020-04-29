@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 1e7587c60e180fb35e1a2bed735b053b6b0c388a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294602"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Resource Manager
@@ -30,7 +30,7 @@ Nós oferecemos um [repositório GitHub de artefatos](https://github.com/Azure/a
 Quando você cria uma VM, você pode salvar o modelo do Resource Manager, personalizá-lo, caso queira, e usá-lo posteriormente para criar mais VMs. Você deve criar seu próprio repositório particular para armazenar seus modelos personalizados do Resource Manager.  
 
 * Para saber como criar um repositório no GitHub, confira o [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Para saber como criar um projeto azure DevOps Services que tenha um repositório Git, consulte [Conecte-se aos Serviços DevOps do Azure](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Para saber como criar um projeto Azure DevOps Services que tenha um repositório git, consulte [conectar-se ao Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 A figura a seguir mostra um exemplo da aparência de um repositório que tem artefatos no GitHub:  
 
@@ -54,7 +54,7 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obter a URL de clone do Azure Repos e o token de acesso pessoal
 
-1. Vá para a página inicial da coleção `https://contoso-web-team.visualstudio.com`de sua equipe (por exemplo, ) e, em seguida, selecione seu projeto.
+1. Vá para a home page da sua coleção de equipe (por exemplo `https://contoso-web-team.visualstudio.com`,) e, em seguida, selecione seu projeto.
 2. Na home page do projeto, selecione **Código**.
 3. Para exibir a URL de clone, na página **Código** do projeto, selecione **Clone**.
 4. Salve a URL. Você usará a URL posteriormente.
@@ -65,22 +65,22 @@ Para adicionar um repositório de artefatos ao laboratório, você deve primeiro
    1. Insira uma **Descrição** para o token.
    2. Na lista **Expira em**, selecione **180 dias**.
    3. Na lista **Contas**, selecione **Todas as contas acessíveis**.
-   4. Selecione a **opção Somente leitura.**
+   4. Selecione a opção **somente leitura** .
    5. Selecione **Criar Token**.
 9. O novo token será exibido na lista de **Tokens de Acesso Pessoal**. Selecione **Copiar Token**e salve o valor do token para uso posterior.
 10. Continue para a seção [Conectar seu laboratório ao repositório](#connect-your-lab-to-the-repository).
 
 ## <a name="connect-your-lab-to-the-repository"></a>Conecte seu laboratório ao repositório
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Mais Serviços** e, em seguida, selecione **DevTest Labs** na lista de serviços.
 3. Na lista de laboratórios, selecione o laboratório. 
-4. Selecione **Configuração e políticas** > **Repositórios** > **+ Adicionar**.
+4. Selecione **configuração e políticas** > **repositórios** > **+ Adicionar**.
 
     ![O botão Adicionar repositório](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Na segunda página **Repositórios**, especifique as seguintes informações:
    1. **Nome**. Insira um nome para o repositório.
    2. **URL de clone do Git**. Insira a URL HTTPS de clone de Git que você copiou anteriormente do GitHub ou do Azure DevOps Services.
-   3. **Ramo.** Insira a ramificação para obter as suas definições.
+   3. **Ramificação**. Insira a ramificação para obter as suas definições.
    4. **Token de acesso pessoal**. Insira o token de acesso pessoal obtido anteriormente do GitHub ou do Azure DevOps Services.
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 

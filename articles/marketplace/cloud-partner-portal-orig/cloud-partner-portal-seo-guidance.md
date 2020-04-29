@@ -1,5 +1,5 @@
 ---
-title: Orientação seo do Azure Marketplace
+title: Diretrizes de SEO do Azure Marketplace
 description: Fornece diretrizes sobre como maximizar a SEO (otimização do mecanismo de pesquisa).
 author: dsindona
 ms.service: marketplace
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: dsindona
 ms.openlocfilehash: 761cdc2233bce3619d4c2c9ce1d7d7177d3bc407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280143"
 ---
-# <a name="azure-marketplace-seo-guidance"></a>Orientação seo do Azure Marketplace
+# <a name="azure-marketplace-seo-guidance"></a>Diretrizes de SEO do Azure Marketplace
 
-Este artigo explica como maximizar a capacidade de descoberta da sua oferta através da funcionalidade de pesquisa no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). 
+Este artigo explica como maximizar a descoberta da sua oferta por meio da funcionalidade de pesquisa no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [AppSource](https://appsource.microsoft.com). 
 
 
 ## <a name="general-explanation-of-algorithm"></a>Explicação geral do algoritmo
 
-Os marketplaces da Microsoft utilizam o Azure Cognitive Search para alimentar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
+O Microsoft Marketplaces utiliza o Pesquisa Cognitiva do Azure para capacitar os recursos de pesquisa do site. O algoritmo é baseado na frequência de termo – frequência de documento inverso ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). É usado o [Analisador Lucene](https://lucene.apache.org/core/) padrão.
 
 Em geral, todos os campos de texto, categorias e setores e incluídos no peso da relevância. Termos especializados que são usados com pouca frequência por aplicativos, mas frequentemente no aplicativo, geram uma pontuação de correspondência maior com a pesquisa. Portanto, incluir termos como "VM" ofereceria pouco benefício, enquanto que o "Azure Search" seria muito mais especializado.
 A seguir, estão os campos mais relevantes a serem considerados.

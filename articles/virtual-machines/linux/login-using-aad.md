@@ -1,6 +1,6 @@
 ---
-title: Faça login em uma VM Linux com credenciais do Azure Active Directory
-description: Aprenda a criar e configurar uma VM Linux para fazer login usando a autenticação do Azure Active Directory.
+title: Fazer logon em uma VM do Linux com credenciais de Azure Active Directory
+description: Saiba como criar e configurar uma VM do Linux para entrar usando Azure Active Directory autenticação.
 author: iainfoulds
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366486"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Faça login em uma máquina virtual Linux no Azure usando a autenticação do Azure Active Directory
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
 Para melhorar a segurança das VMs (máquinas virtuais) do Linux no Azure, você pode fazer a integração com a autenticação do AD (Azure Active Directory). Ao usar a autenticação do Azure AD para VMs do Linux, você controla e impõe de forma central as políticas que permitem ou negam acesso às VMs. Este artigo mostra como criar e configurar uma VM do Linux para usar a autenticação do Azure AD.
 
 
 > [!IMPORTANT]
-> A autenticação do Azure Active Directory está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A autenticação Azure Active Directory está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > Use esse recurso em uma máquina virtual de teste que você pretende descartar após o teste.
 >
 
@@ -58,24 +58,24 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 >[!IMPORTANT]
 > Para usar esse recurso de versão prévia, somente implante uma distribuição do Linux com suporte em uma região do Azure com suporte. Não há suporte para o recurso no Azure Governamental nem nas nuvens soberanas.
 >
-> Não é suportado usar essa extensão em clusters Azure Kubernetes Service (AKS). Para obter mais informações, consulte [Políticas de suporte para AKS](../../aks/support-policies.md).
+> Não há suporte para usar essa extensão nos clusters do AKS (serviço kubernetes do Azure). Para obter mais informações, consulte [políticas de suporte para AKs](../../aks/support-policies.md).
 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
-Para habilitar a autenticação Azure AD para suas VMs Linux no Azure, você precisa garantir que a configuração da rede de VMs permita o acesso de saída aos seguintes pontos finais na porta TCP 443:
+Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//device.login.microsoftonline.com
-* https:\//pas.windows.net
+* https:\//Device.login.microsoftonline.com
+* https:\//Pas.Windows.net
 * https:\//management.azure.com
-* https:\//packages.microsoft.com
+* https:\//Packages.Microsoft.com
 
 > [!NOTE]
-> Atualmente, os grupos de segurança da rede Azure não podem ser configurados para VMs habilitados com autenticação Azure AD.
+> Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual Linux
 
@@ -97,9 +97,9 @@ A criação da VM e dos recursos de suporte demora alguns minutos.
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar a extensão da VM de logon do Azure AD
 
 > [!NOTE]
-> Se implantar esta extensão em uma VM criada anteriormente garantir que a máquina tenha pelo menos 1GB de memória alocada, a extensão não será instalada
+> Se estiver implantando essa extensão em uma VM criada anteriormente, verifique se a máquina tem pelo menos 1GB de memória alocada. caso contrário, a extensão falhará na instalação
 
-Para fazer login em uma VM Linux com credenciais Azure AD, instale a extensão VM de login do Azure Active Directory. As extensões de VM são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *myResourceGroup*:
+Para fazer logon em uma VM do Linux com credenciais do Azure AD, instale a extensão de VM de logon Azure Active Directory. As extensões de VM são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) para instalar a extensão *AADLoginForLinux* na VM denominada *myVM* no grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az vm extension set \
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-O *provisionamentoState* of *Succeeded* é mostrado assim que a extensão é instalada com sucesso na VM. A VM precisa de um agente VM em execução para instalar a extensão. Para obter mais informações, consulte [Visão geral do agente VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+O *provisioningState* de *Succeeded* é mostrado depois que a extensão é instalada com êxito na VM. A VM precisa de um agente de VM em execução para instalar a extensão. Para obter mais informações, consulte [visão geral do agente de VM](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
@@ -148,21 +148,21 @@ Primeiro, exiba o endereço IP público da VM com [az vm show](/cli/azure/vm#az-
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Faça logon na máquina virtual do Linux no Azure usando suas credenciais do Azure AD. O parâmetro `-l` permite que você especifique seu próprio endereço da conta do Azure AD. Substitua a conta de exemplo pela sua. Endereços de conta devem ser inseridos em letras minúsculas. Substitua o endereço IP de exemplo pelo endereço IP público da VM do comando anterior.
+Faça logon na máquina virtual do Linux no Azure usando suas credenciais do Azure AD. O parâmetro `-l` permite que você especifique seu próprio endereço da conta do Azure AD. Substitua a conta de exemplo pela sua. Endereços de conta devem ser inseridos em letras minúsculas. Substitua o endereço IP de exemplo pelo endereço IP público da sua VM do comando anterior.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Você é solicitado a entrar no Azure AD com [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)um código de uso único em . Copie e cole o código de uso único na página de login do dispositivo.
+Você será solicitado a entrar no Azure AD com um código de uso único em [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Copie e cole o código de uso único na página de logon do dispositivo.
 
 Quando solicitado, insira suas credenciais de logon do Azure AD na página de logon. 
 
-A seguinte mensagem é mostrada no navegador da Web quando você tiver autenticado com sucesso:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+A seguinte mensagem é mostrada no navegador da Web quando você se autenticou com êxito:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Feche a janela do navegador, retorne para o prompt do SSH e pressione a tecla **Enter**. 
 
-Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se a sua conta de usuário for atribuída à função *de login do administrador de máquina virtual,* você poderá usar `sudo` para executar comandos que requerem privilégios de raiz.
+Agora, você está conectado à máquina virtual do Linux no Azure com as permissões de função atribuídas, como *Usuário da VM* ou *Administrador da VM*. Se sua conta de usuário for atribuída à função de *logon de administrador da máquina virtual* , você poderá usar `sudo` o para executar comandos que exigem privilégios de raiz.
 
 ## <a name="sudo-and-aad-login"></a>Logon do AAD e Sudo
 
@@ -200,13 +200,13 @@ Access denied
 
 Ao concluir com êxito a etapa de autenticação em um navegador da Web, você poderá ser imediatamente solicitado a entrar novamente com um novo código. Este erro normalmente é causado por uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Para corrigir esse problema:
 
-- Verifique se o nome de entrada especificado no prompt de SSH está correto. Um erro de digitação no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Por exemplo, você digitou *contoso.onmicrosoft.com\@azuresuer* em vez de *contoso.onmicrosoft.com azureuser\@*.
+- Verifique se o nome de entrada especificado no prompt de SSH está correto. Um erro de digitação no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt de SSH e a conta usada para entrar no Azure AD. Por exemplo, você digitou *azuresuer\@contoso.onmicrosoft.com* em vez de *azureuser\@contoso.onmicrosoft.com*.
 - Se você tiver várias contas de usuário, não forneça uma conta de usuário diferente na janela do navegador ao entrar no Azure AD.
 - O Linux é um sistema operacional que diferencia maiúsculas de minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com' e 'azureuser@contoso.onmicrosoft.com', que pode causar uma incompatibilidade. Especifique o UPN com a diferenciação correta de maiúsculas de minúsculas no prompt de SSH.
 
 ### <a name="other-limitations"></a>Outras limitações
 
-Os usuários que herdam os direitos de acesso através de grupos aninhados ou atribuições de função não são suportados no momento. O usuário ou grupo deve ser atribuído diretamente às [atribuições de função necessárias.](#configure-role-assignments-for-the-vm) Por exemplo, o uso de grupos de gerenciamento ou atribuições de função de grupo aninhada não concederá as permissões corretas para permitir que o usuário faça login.
+Atualmente, os usuários que herdam direitos de acesso por grupos aninhados ou atribuições de função não têm suporte. O usuário ou grupo deve ser atribuído diretamente às [atribuições de função necessárias](#configure-role-assignments-for-the-vm). Por exemplo, o uso de grupos de gerenciamento ou atribuições de função de grupo aninhado não concederá as permissões corretas para permitir que o usuário entre.
 
 ## <a name="preview-feedback"></a>Comentários de visualização
 

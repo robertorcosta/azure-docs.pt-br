@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259962"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
@@ -55,7 +55,7 @@ Execute as etapas a seguir para clonar um pedido.
 
 O clone é criado em alguns minutos e a portal é atualizado para mostrar o novo pedido.
 
-[![Ordem de clone 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem de clonagem 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Excluir pedido
 
@@ -63,7 +63,7 @@ Você talvez queira excluir um pedido quando ele é concluído. O pedido contém
 
 Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Execute as etapas a seguir para excluir um pedido.
 
-1. Vá para **Todos os recursos.** Pesquise seu pedido.
+1. Vá para **todos os recursos**. Pesquise seu pedido.
 
     ![Pesquisar pedidos de Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 

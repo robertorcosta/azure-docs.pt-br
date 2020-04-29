@@ -1,6 +1,6 @@
 ---
-title: Página de histórico de auditoria para O Mercado Azure
-description: Visão geral da página de histórico de auditoria no Cloud Partner Portal for Azure Marketplace.
+title: Página Histórico de auditoria do Azure Marketplace
+description: Visão geral da página Histórico de auditoria no Portal do Cloud Partner para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dsindona
 ms.openlocfilehash: cd9577a4bcdb1914ac0a7a23e4a98c31f6e43030
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288896"
 ---
 # <a name="audit-history-page"></a>Página do histórico de auditoria

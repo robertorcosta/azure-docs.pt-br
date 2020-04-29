@@ -1,6 +1,6 @@
 ---
-title: Gerencie sua conta do Azure Maps no portal Azure | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a usar o portal Azure para gerenciar sua conta do Microsoft Azure Maps.
+title: Gerenciar sua conta do Azure Maps no portal do Azure | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a usar o portal do Azure para gerenciar sua conta do Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 01/27/2020
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 42247cc576e55c7c504e9832017af336439b11b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335543"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerenciar sua conta do Azure Mapas
@@ -23,21 +23,21 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-a-new-account"></a>Criar uma nova conta
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
-3. Pesquise e selecione **Mapas**. Em seguida, **selecione Criar**.
+3. Pesquise e selecione **Mapas**. Em seguida, selecione **Criar**.
 
 4. Insira as informações para sua nova conta.
 
-[![Insira as informações da conta do Azure Maps no portal azure](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
+[![Insira as informações de conta do Azure Maps no portal do Azure](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
 
 ## <a name="delete-an-account"></a>Excluir uma conta
 
 Você pode excluir uma conta no Portal do Azure. Navegue até a página de visão geral da conta e selecione **Excluir**.
 
-[![Exclua sua conta do Azure Maps no portal Azure](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
+[![Exclua sua conta do Azure Maps no portal do Azure](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
 
 Em seguida, você verá uma página de confirmação. Você pode confirmar a exclusão de sua conta digitando seu nome.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: ac1e4fa541e945f20904ced114a36b58d14585ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278579"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Preparação da solução do Dynamics 365
@@ -24,7 +24,7 @@ Se você é um ISV existente do Dynamics 365 (xRM), você muito provavelmente j�
 
 _**Observação:** no pacote de exemplo a seguir, suporemos que o nome da solução é "SampleSolution.zip"_
 
-Se você é um novo ISV, você pode obter mais detalhes sobre a criação de uma solução aqui:[https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
+Se você for um novo ISV, poderá obter mais detalhes sobre como criar uma solução aqui:[https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 
 Se a solução exigir dados de suporte:
 

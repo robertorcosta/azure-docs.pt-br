@@ -1,6 +1,6 @@
 ---
 title: Pré-requisitos para curadoria de aplicativos
-description: Artigo CPP preterido, vinculado ao artigo do PC; era "Lista de pré-requisitos para curadoria de candidaturas."
+description: Artigo de CPP preterido, artigo vinculado ao PC; foi "lista de pré-requisitos para a organização do aplicativo."
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: dsindona
 ms.openlocfilehash: e907c51e69b5b57da9986fa017d59fed2e58320d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280568"
 ---
 # <a name="prerequisites-for-application-curation"></a>Pré-requisitos para curadoria de aplicativos
 
-O [Portal de Parceiros em Nuvem](https://cloudpartner.azure.com/) não suporta mais a criação e gestão de ofertas dinâmicas 365 para finanças e operações. Em vez disso, essa funcionalidade foi movida para o portal microsoft [partner center](https://partner.microsoft.com/). Para obter mais informações, consulte [Criar uma nova oferta dynamics 365 para operações](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-Antes de criar uma nova oferta de Dynamics 365 for Operations, você deve ler [Criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o painel do Mercado [Comercial](https://partner.microsoft.com/dashboard/directory) com a página **Visão Geral** selecionada. Siga as instruções em [Criar uma nova oferta Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.
+Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.

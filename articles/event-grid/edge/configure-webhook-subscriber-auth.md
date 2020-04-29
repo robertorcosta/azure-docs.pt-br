@@ -1,5 +1,5 @@
 ---
-title: Configure a autenticação do assinante Webhook - Azure Event Grid IoT Edge | Microsoft Docs
+title: Configurar a autenticação de assinante de webhook-grade de eventos do Azure IoT Edge | Microsoft Docs
 description: Configurar a autenticação do assinante do webhook
 author: VidyaKukke
 manager: rajarv
@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841723"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>Configurar a autenticação do assinante do webhook
 
-Este guia dá exemplos das possíveis configurações de assinantes do webhook para um módulo Event Grid. Por padrão, apenas pontos finais HTTPS são aceitos para assinantes do webhook. O módulo Event Grid será rejeitado se o assinante apresentar um certificado auto-assinado.
+Este guia fornece exemplos de configurações possíveis de assinante de webhook para um módulo de grade de eventos. Por padrão, somente pontos de extremidade HTTPS são aceitos para assinantes do webhook. O módulo de grade de eventos será rejeitado se o assinante apresentar um certificado autoassinado.
 
-## <a name="allow-only-https-subscriber"></a>Permitir apenas assinante HTTPS
+## <a name="allow-only-https-subscriber"></a>Permitir somente assinante HTTPS
 
 ```json
  {
@@ -32,7 +32,7 @@ Este guia dá exemplos das possíveis configurações de assinantes do webhook p
 }
  ```
 
-## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Permitir assinante HTTPS com certificado auto-assinado
+## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Permitir assinante HTTPS com certificado autoassinado
 
 ```json
  {
@@ -45,9 +45,9 @@ Este guia dá exemplos das possíveis configurações de assinantes do webhook p
  ```
 
 >[!NOTE]
->Defina `outbound__webhook__allowUnknownCA` a `true` propriedade apenas em ambientes de teste, pois você normalmente pode usar certificados auto-assinados. Para cargas de trabalho de produção, recomendamos que sejam definidas como **falsas**.
+>Defina a propriedade `outbound__webhook__allowUnknownCA` como `true` somente em ambientes de teste, pois você normalmente pode usar certificados autoassinados. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **false**.
 
-## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir assinante HTTPS, mas pular validação de certificado
+## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Permitir assinante HTTPS, mas ignorar validação de certificado
 
 ```json
  {
@@ -60,9 +60,9 @@ Este guia dá exemplos das possíveis configurações de assinantes do webhook p
  ```
 
 >[!NOTE]
->Defina `outbound__webhook__skipServerCertValidation` a `true` propriedade apenas em ambientes de teste, pois você pode não estar apresentando um certificado que precisa ser autenticado. Para cargas de trabalho de produção, recomendamos que sejam definidas como **falsas**
+>Defina a propriedade `outbound__webhook__skipServerCertValidation` como `true` somente em ambientes de teste, pois talvez você não esteja apresentando um certificado que precise ser autenticado. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **false**
 
-## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir http e HTTPS com certificados auto-assinados
+## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Permitir HTTP e HTTPS com certificados autoassinados
 
 ```json
  {
@@ -75,4 +75,4 @@ Este guia dá exemplos das possíveis configurações de assinantes do webhook p
  ```
 
 >[!NOTE]
->Defina `outbound__webhook__httpsOnly` a `false` propriedade apenas em ambientes de teste, pois você pode querer trazer um assinante HTTP primeiro. Para cargas de trabalho de produção, recomendamos que sejam definidas como **verdadeiras**
+>Defina a propriedade `outbound__webhook__httpsOnly` como `false` somente em ambientes de teste como você pode querer abrir um assinante http primeiro. Para cargas de trabalho de produção, recomendamos que elas sejam definidas como **true**

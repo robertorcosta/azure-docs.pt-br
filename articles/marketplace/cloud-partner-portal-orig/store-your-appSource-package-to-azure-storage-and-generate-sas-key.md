@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: dsindona
 ms.openlocfilehash: 57bc370fd160b8b3d6d7941ea28cd460c99f3d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80285360"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Armazenar o pacote do AppSource no armazenamento do Azure e gerar uma URL com chave SAS
@@ -23,7 +23,7 @@ Use as etapas a seguir para carregar o pacote no armazenamento de blobs:
 
 1. Vá para <https://azure.microsoft.com> e crie uma conta de avaliação gratuita ou cobrada.
 
-2. Faça login no [Portal Azure](https://portal.azure.com/).
+2. Entre no [portal do Azure](https://portal.azure.com/).
 
 3. Crie uma nova conta de armazenamento, clicando em **+ Novo** e indo para a conta **Dados + Armazenamento**.
 

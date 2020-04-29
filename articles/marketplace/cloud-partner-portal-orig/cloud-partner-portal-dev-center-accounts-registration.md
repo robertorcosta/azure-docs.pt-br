@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta do Microsoft Developer | Mercado Azure
+title: Criar uma conta de desenvolvedor da Microsoft | Azure Marketplace
 description: Requisitos e etapas para criar uma conta de Desenvolvedor da Microsoft.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280364"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
@@ -70,7 +70,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 >[!IMPORTANT]
 >Você deve completar os seguintes componentes de perfil do Desenvolvedor para prosseguir pelas diversas fases da criação e implantação da oferta.
 
-| Perfil do desenvolvedor     | Para iniciar o rascunho    | Staging       | Publicar modelo gratuito e de solução   | Publicar comercial   |
+| Perfil do desenvolvedor     | Para iniciar o rascunho    | Preparando       | Publicar modelo gratuito e de solução   | Publicar comercial   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Registro da empresa  | Imprescindível         | Imprescindível     | Imprescindível                             | Imprescindível             |
 | ID do perfil fiscal        | Opcional          | Opcional      | Opcional                              | Imprescindível             |
@@ -99,7 +99,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
    ![Selecionar país/região](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Países/regiões "sell-from": Para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países/regiões "sell-from" aprovados mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
+    >"Vender-de" países/regiões: para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser de um dos países/regiões "vender-de" aprovados mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
 
 5. Selecione **Empresa** como seu "Tipo de conta" e selecione **Avançar**.
 
@@ -199,7 +199,7 @@ Se você tiver problemas com o registro no Centro de Desenvolvimento, use as eta
 Use o [Portal do Cloud Partner](https://cloudpartner.azure.com/) para publicar e gerenciar suas ofertas.
 
 1.  Abra uma nova sessão de Janela anônima do Chrome ou navegação InPrivate do Internet Explorer para garantir que você não esteja conectado a uma conta pessoal.
-2.  Vá para [o Portal de Parceiros na Nuvem](https://cloudpartner.azure.com/).
+2.  Vá para [portal do Cloud Partner](https://cloudpartner.azure.com/).
 3.  Se você for um novo usuário e estiver entrando no [Portal do Cloud Partner](https://cloudpartner.azure.com/) pela primeira vez, entre com a mesma ID do email registrado na conta do Centro de Desenvolvimento. Isso garante que sua conta do Centro de Desenvolvimento e do Portal do Cloud Partner sejam vinculadas uma à outra.
 
 Posteriormente, você pode adicionar os outros membros da empresa que estão trabalhando no aplicativo. Você poderá inseri-los como colaboradores ou proprietários no Portal do Cloud Partner, seguindo as etapas na próxima seção.

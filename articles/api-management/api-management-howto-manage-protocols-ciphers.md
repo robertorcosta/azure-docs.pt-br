@@ -1,6 +1,6 @@
 ---
 title: Gerenciar protocolos e cifras no Gerenciamento de API do Azure | Microsoft Docs
-description: Aprenda a gerenciar protocolos (TLS) e cifras (DES) no Azure API Management.
+description: Saiba como gerenciar protocolos (TLS) e codificações (DES) no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335879"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gerenciar protocolos e cifras no Gerenciamento de API do Azure
@@ -36,7 +36,7 @@ Para seguir as etapas deste artigo, você precisa ter:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Como gerenciar protocolos TLS e a cifra 3DES
 
 1. Navegue até sua **instância de Gerenciamento de API** no portal do Azure.
-2. Selecione **as configurações** de protocolo no menu.  
+2. Selecione **configurações de protocolo** no menu.  
 3. Habilite ou desabilite os protocolos ou cifras desejados.
 4. Clique em **Salvar**. As alterações serão aplicadas em uma hora.  
 

@@ -1,53 +1,53 @@
 ---
-title: Azure Funções manipuladores personalizados (visualização)
-description: Aprenda a usar funções do Azure com qualquer idioma ou versão em tempo de execução.
+title: Azure Functions manipuladores personalizados (versão prévia)
+description: Aprenda a usar Azure Functions com qualquer linguagem ou versão de tempo de execução.
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
 ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479248"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Azure Funções manipuladores personalizados (visualização)
+# <a name="azure-functions-custom-handlers-preview"></a>Azure Functions manipuladores personalizados (versão prévia)
 
-Cada aplicativo Functions é executado por um manipulador específico do idioma. Embora o Azure Functions suporte muitos [manipuladores de idiomas](./supported-languages.md) por padrão, há casos em que você pode querer controle adicional sobre o ambiente de execução do aplicativo. Os manipuladores personalizados dão-lhe este controle adicional.
+Cada aplicativo de funções é executado por um manipulador específico de idioma. Embora Azure Functions ofereça suporte a muitos [manipuladores de linguagem](./supported-languages.md) por padrão, há casos em que você pode desejar ter controle adicional sobre o ambiente de execução do aplicativo. Os manipuladores personalizados oferecem esse controle adicional.
 
-Os manipuladores personalizados são servidores web leves que recebem eventos do host Functions. Qualquer linguagem que suporte os primitivos HTTP pode implementar um manipulador personalizado.
+Os manipuladores personalizados são servidores Web leves que recebem eventos do host do functions. Qualquer linguagem que ofereça suporte a primitivos HTTP pode implementar um manipulador personalizado.
 
 Os manipuladores personalizados são mais adequados para situações em que você deseja:
 
-- Implementar um aplicativo Functions em um idioma além dos idiomas oficialmente suportados
-- Implementar um aplicativo Functions em uma versão de idioma ou tempo de execução não suportado por padrão
-- Tenha controle granular sobre o ambiente de execução do aplicativo
+- Implemente um aplicativo de funções em uma linguagem além dos idiomas oficialmente suportados
+- Implementar um aplicativo de funções em uma versão de idioma ou tempo de execução sem suporte por padrão
+- Ter controle granular sobre o ambiente de execução do aplicativo
 
-Com manipuladores personalizados, todos os [gatilhos e ligações de entrada e saída](./functions-triggers-bindings.md) são suportados por [pacotes de extensão](./functions-bindings-register.md).
+Com manipuladores personalizados, todos os [gatilhos e associações de entrada e saída](./functions-triggers-bindings.md) têm suporte por meio de [pacotes de extensão](./functions-bindings-register.md).
 
 ## <a name="overview"></a>Visão geral
 
-O diagrama a seguir mostra a relação entre o host Functions e um servidor web implementado como um manipulador personalizado.
+O diagrama a seguir mostra a relação entre o host do Functions e um servidor Web implementado como um manipulador personalizado.
 
-![Visão geral do manipulador personalizado do Azure Functions](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
+![Visão geral do manipulador personalizado de Azure Functions](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
-- Os eventos desencadeiam uma solicitação enviada ao host Functions. O evento carrega uma carga HTTP bruta (para funções acionadas por HTTP sem vinculações) ou uma carga que contém dados de ligação de entrada para a função.
-- O host Functions então proxies a solicitação para o servidor web, emitindo uma [carga útil de solicitação](#request-payload).
-- O servidor web executa a função individual e retorna uma [carga de resposta](#response-payload) ao host Funções.
-- O host Functions proxies a resposta como uma carga de ligação de saída ao alvo.
+- Eventos disparam uma solicitação enviada ao host do functions. O evento transporta um conteúdo HTTP bruto (para funções disparadas por HTTP sem associações) ou uma carga que contém dados de associação de entrada para a função.
+- O host do Functions hospeda a solicitação para o servidor Web emitindo uma [carga de solicitação](#request-payload).
+- O servidor Web executa a função individual e retorna uma carga de [resposta](#response-payload) para o host de funções.
+- As funções hospedam os proxies da resposta como uma carga de associação de saída para o destino.
 
-Um aplicativo Azure Functions implementado como um manipulador personalizado deve configurar os arquivos *host.json* e *function.json* de acordo com algumas convenções.
+Um aplicativo Azure Functions implementado como um manipulador personalizado deve configurar os arquivos *host. JSON* e *Function. JSON* de acordo com algumas convenções.
 
 ## <a name="application-structure"></a>Estrutura de aplicativo
 
-Para implementar um manipulador personalizado, você precisa dos seguintes aspectos para o seu aplicativo:
+Para implementar um manipulador personalizado, você precisa dos seguintes aspectos para seu aplicativo:
 
-- Um arquivo *host.json* na raiz do seu aplicativo
-- Um arquivo *function.json* para cada função (dentro de uma pasta que corresponde ao nome da função)
-- Um comando, script ou executável, que executa um servidor web
+- Um arquivo *host. JSON* na raiz do seu aplicativo
+- Um arquivo *Function. JSON* para cada função (dentro de uma pasta que corresponde ao nome da função)
+- Um comando, script ou executável, que executa um servidor Web
 
-O diagrama a seguir mostra como esses arquivos ficam no sistema de arquivos para uma função chamada "ordem".
+O diagrama a seguir mostra como esses arquivos examinam o sistema de arquivos em busca de uma função chamada "Order".
 
 ```bash
 | /order
@@ -58,9 +58,9 @@ O diagrama a seguir mostra como esses arquivos ficam no sistema de arquivos para
 
 ### <a name="configuration"></a>Configuração
 
-O aplicativo é configurado através do arquivo *host.json.* Este arquivo informa ao host Funções onde enviar solicitações apontando para um servidor web capaz de processar eventos HTTP.
+O aplicativo é configurado por meio do arquivo *host. JSON* . Esse arquivo informa ao host do Functions onde enviar solicitações apontando para um servidor Web capaz de processar eventos HTTP.
 
-Um manipulador personalizado é definido configurando o arquivo *host.json* com detalhes sobre como executar o servidor web através da seção. `httpWorker`
+Um manipulador personalizado é definido pela configuração do arquivo *host. JSON* com detalhes sobre como executar o servidor Web por meio da `httpWorker` seção.
 
 ```json
 {
@@ -73,9 +73,9 @@ Um manipulador personalizado é definido configurando o arquivo *host.json* com 
 }
 ```
 
-A `httpWorker` seção aponta para um `defaultExecutablePath`alvo definido pelo . O alvo de execução pode ser um comando, executável ou arquivo onde o servidor web é implementado.
+A `httpWorker` seção aponta para um destino, conforme definido pelo `defaultExecutablePath`. O destino de execução pode ser um comando, executável ou arquivo no qual o servidor Web é implementado.
 
-Para aplicativos roteirizados, `defaultExecutablePath` aponta para `defaultWorkerPath` o tempo de execução do idioma do script e aponta para a localização do arquivo de script. O exemplo a seguir mostra como um aplicativo JavaScript no Node.js é configurado como um manipulador personalizado.
+Para aplicativos com script, `defaultExecutablePath` aponta para o tempo de execução da linguagem `defaultWorkerPath` de script e aponta para o local do arquivo de script. O exemplo a seguir mostra como um aplicativo JavaScript no node. js é configurado como um manipulador personalizado.
 
 ```json
 {
@@ -89,7 +89,7 @@ Para aplicativos roteirizados, `defaultExecutablePath` aponta para `defaultWorke
 }
 ```
 
-Você também pode passar `arguments` argumentos usando a matriz:
+Você também pode passar argumentos usando a `arguments` matriz:
 
 ```json
 {
@@ -104,32 +104,32 @@ Você também pode passar `arguments` argumentos usando a matriz:
 }
 ```
 
-Os argumentos são necessários para muitas configurações de depuração. Consulte a seção [Depuração](#debugging) para obter mais detalhes.
+Os argumentos são necessários para muitas configurações de depuração. Consulte a seção [depuração](#debugging) para obter mais detalhes.
 
 > [!NOTE]
-> O arquivo *host.json* deve estar no mesmo nível na estrutura do diretório que o servidor web em execução. Alguns idiomas e cadeias de ferramentas podem não colocar esse arquivo na raiz do aplicativo por padrão.
+> O arquivo *host. JSON* deve estar no mesmo nível na estrutura de diretório que o servidor Web em execução. Alguns idiomas e cadeias podem não posicionar o arquivo na raiz do aplicativo por padrão.
 
-#### <a name="bindings-support"></a>Suporte a vinculações
+#### <a name="bindings-support"></a>Suporte a associações
 
-Gatilhos padrão, juntamente com as vinculações de entrada e saída, estão disponíveis fazendo referência a [pacotes de extensão](./functions-bindings-register.md) no arquivo *host.json.*
+Os gatilhos padrão juntamente com as associações de entrada e saída estão disponíveis por meio da referência de [grupos de extensão](./functions-bindings-register.md) no arquivo *host. JSON* .
 
 ### <a name="function-metadata"></a>Metadados de função
 
-Quando usado com um manipulador personalizado, o conteúdo *function.json* não é diferente de como você definiria uma função em qualquer outro contexto. O único requisito é que os arquivos *function.json* devem estar em uma pasta nomeada para corresponder ao nome da função.
+Quando usado com um manipulador personalizado, o conteúdo *Function. JSON* não é diferente de como você definiria uma função em qualquer outro contexto. O único requisito é que os arquivos *Function. JSON* devem estar em uma pasta chamada para corresponder ao nome da função.
 
-### <a name="request-payload"></a>Solicitar carga útil
+### <a name="request-payload"></a>Carga de solicitação
 
-A carga útil de solicitação para funções HTTP puras é a carga útil de solicitação HTTP bruta. As funções HTTP puras são definidas como funções sem ligações de entrada ou saída, que retornam uma resposta HTTP.
+A carga de solicitação para funções HTTP puras é a carga de solicitação HTTP bruta. As funções HTTP puras são definidas como funções sem associações de entrada ou saída, que retornam uma resposta HTTP.
 
-Qualquer outro tipo de função que inclua entrada, vinculações de saída ou é acionada através de uma fonte de evento diferente do HTTP tem uma carga de solicitação personalizada.
+Qualquer outro tipo de função que inclua associações de entrada, saída ou é disparado por meio de uma origem de evento diferente de HTTP tem uma carga de solicitação personalizada.
 
-O código a seguir representa uma carga útil de solicitação de amostra. A carga inclui uma estrutura JSON `Data` com `Metadata`dois membros: e .
+O código a seguir representa um exemplo de carga de solicitação. A carga inclui uma estrutura JSON com dois membros: `Data` e `Metadata`.
 
-O `Data` membro inclui teclas que correspondem a nomes de entrada e de gatilho, conforme definido na matriz de vinculações no arquivo *function.json.*
+O `Data` membro inclui chaves que correspondem a nomes de entrada e de gatilho conforme definido na matriz bindings no arquivo *Function. JSON* .
 
-O `Metadata` membro inclui [metadados gerados a partir da fonte do evento](./functions-bindings-expressions-patterns.md#trigger-metadata).
+O `Metadata` membro inclui [metadados gerados da origem do evento](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
-Dadas as vinculações definidas no seguinte arquivo *function.json:*
+Dadas as associações definidas no seguinte arquivo *Function. JSON* :
 
 ```json
 {
@@ -152,7 +152,7 @@ Dadas as vinculações definidas no seguinte arquivo *function.json:*
 }
 ```
 
-Uma carga útil de solicitação semelhante a este exemplo é devolvida:
+Um conteúdo de solicitação semelhante a este exemplo é retornado:
 
 ```json
 {
@@ -177,28 +177,28 @@ Uma carga útil de solicitação semelhante a este exemplo é devolvida:
 
 ### <a name="response-payload"></a>Carga de resposta
 
-Por convenção, as respostas de função são formatadas como pares de chave/valor. As chaves suportadas incluem:
+Por convenção, as respostas de função são formatadas como pares de chave/valor. As chaves com suporte incluem:
 
 | <nobr>Chave de carga</nobr>   | Tipo de dados | Comentários                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Mantém os valores `bindings` de resposta definidos pela matriz do arquivo *function.json.*<br /><br />Por exemplo, se uma função for configurada com uma vinculação `Outputs` de saída `blob`de armazenamento blob chamada "blob", então contém uma chave nomeada , que é definida como o valor da bolha. |
-| `Logs`        | matriz     | As mensagens aparecem nos registros de invocação de Funções.<br /><br />Ao ser executado no Azure, as mensagens aparecem no Application Insights. |
-| `ReturnValue` | string    | Usado para fornecer uma resposta quando `$return` uma saída é configurada como no arquivo *function.json.* |
+| `Outputs`     | JSON      | Mantém valores de resposta, conforme definido `bindings` pela matriz, o arquivo *Function. JSON* .<br /><br />Por exemplo, se uma função for configurada com uma associação de saída de armazenamento de BLOBs `Outputs` chamada "blob" `blob`, ela conterá uma chave chamada, que é definida como o valor do blob. |
+| `Logs`        | matriz     | As mensagens aparecem nos logs de invocação de funções.<br /><br />Ao executar no Azure, as mensagens aparecem no Application Insights. |
+| `ReturnValue` | cadeia de caracteres    | Usado para fornecer uma resposta quando uma saída é configurada como `$return` no arquivo *Function. JSON* . |
 
-Veja o [exemplo de uma carga útil amostral](#bindings-implementation).
+Consulte o [exemplo de uma carga de exemplo](#bindings-implementation).
 
 ## <a name="examples"></a>Exemplos
 
-Os manipuladores personalizados podem ser implementados em qualquer idioma que suporte eventos HTTP. Enquanto as funções do Azure [suportam totalmente JavaScript e Node.js,](./functions-reference-node.md)os exemplos a seguir mostram como implementar um manipulador personalizado usando JavaScript no Node.js para fins de instrução.
+Os manipuladores personalizados podem ser implementados em qualquer linguagem que dê suporte a eventos HTTP. Embora Azure Functions [suporte total ao JavaScript e ao node. js](./functions-reference-node.md), os exemplos a seguir mostram como implementar um manipulador personalizado usando JavaScript no node. js para fins de instrução.
 
 > [!TIP]
-> Embora seja um guia para aprender como implementar um manipulador personalizado em outros idiomas, os exemplos baseados no Node.js mostrados aqui também podem ser úteis se você quiser executar um aplicativo Functions em uma versão não suportada do Node.js.
+> Embora seja um guia para aprender a implementar um manipulador personalizado em outras linguagens, os exemplos baseados em node. js mostrados aqui também podem ser úteis se você quisesse executar um aplicativo do Functions em uma versão sem suporte do node. js.
 
 ## <a name="http-only-function"></a>Função somente HTTP
 
-O exemplo a seguir demonstra como configurar uma função acionada pelo HTTP sem ligações ou saídas adicionais. O cenário implementado neste exemplo `http` apresenta uma `GET` função `POST` nomeada que aceita a ou .
+O exemplo a seguir demonstra como configurar uma função disparada por HTTP sem associações ou saídas adicionais. O cenário implementado neste exemplo apresenta uma função chamada `http` que aceita um `GET` ou. `POST`
 
-O trecho a seguir representa como uma solicitação à função é composta.
+O trecho a seguir representa como uma solicitação para a função é composta.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
@@ -213,7 +213,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementação
 
-Em uma pasta chamada *http,* o arquivo *function.json* configura a função acionada pelo HTTP.
+Em uma pasta chamada *http*, o arquivo *Function. JSON* configura a função disparada por http.
 
 ```json
 {
@@ -233,9 +233,9 @@ Em uma pasta chamada *http,* o arquivo *function.json* configura a função acio
 }
 ```
 
-A função é configurada `GET` `POST` para aceitar tanto e solicitações e `res`o valor de resultado é fornecido através de um argumento chamado .
+A função é configurada para `GET` aceitar `POST` as solicitações e e o valor do resultado é fornecido por `res`meio de um argumento chamado.
 
-Na raiz do aplicativo, o arquivo *host.json* é configurado para executar `server.js` Node.js e apontar o arquivo.
+Na raiz do aplicativo, o arquivo *host. JSON* é configurado para executar o Node. js e apontar o `server.js` arquivo.
 
 ```json
 {
@@ -249,7 +249,7 @@ Na raiz do aplicativo, o arquivo *host.json* é configurado para executar `serve
 }
 ```
 
-O arquivo *server.js* implementa um servidor web e uma função HTTP.
+O arquivo *Server. js* do arquivo implementa um servidor Web e uma função http.
 
 ```javascript
 const express = require("express");
@@ -274,18 +274,18 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para `FUNCTIONS_HTTPWORKER_PORT`lidar com eventos HTTP e está definido para ouvir solicitações através do .
+Neste exemplo, o Express é usado para criar um servidor Web para manipular eventos HTTP e é definido para escutar solicitações por meio do `FUNCTIONS_HTTPWORKER_PORT`.
 
-A função é definida `/hello`no caminho de . `GET`as solicitações são tratadas retornando um `POST` simples objeto JSON, `req.body`e as solicitações têm acesso ao órgão de solicitação via .
+A função é definida no caminho de `/hello`. `GET`as solicitações são tratadas retornando um objeto JSON simples `POST` , e as solicitações têm acesso ao corpo `req.body`da solicitação via.
 
-A rota para a `/hello` função `/api/hello` de pedido aqui é e não porque o host Funções está proxying a solicitação para o manipulador personalizado.
+A rota para a função Order aqui é `/hello` e não `/api/hello` porque o host do Functions está contratando o proxy da solicitação para o manipulador personalizado.
 
 >[!NOTE]
->O `FUNCTIONS_HTTPWORKER_PORT` não é o porta de frente para o público usado para chamar a função. Esta porta é usada pelo host Funções para chamar o manipulador personalizado.
+>O `FUNCTIONS_HTTPWORKER_PORT` não é a porta voltada para o público usada para chamar a função. Essa porta é usada pelo host do Functions para chamar o manipulador personalizado.
 
-## <a name="function-with-bindings"></a>Função com ligações
+## <a name="function-with-bindings"></a>Função com associações
 
-O cenário implementado neste exemplo `order` apresenta uma `POST` função nomeada que aceita um com uma carga representando um pedido de produto. À medida que um pedido é postado na função, uma mensagem de armazenamento na fila é criada e uma resposta HTTP é retornada.
+O cenário implementado neste exemplo apresenta uma função chamada `order` que aceita um `POST` com uma carga que representa uma ordem de produto. Como um pedido é Postado na função, uma mensagem de armazenamento de fila é criada e uma resposta HTTP é retornada.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -302,7 +302,7 @@ content-type: application/json
 
 ### <a name="implementation"></a>Implementação
 
-Em uma pasta chamada *ordem,* o arquivo *function.json* configura a função acionada pelo HTTP.
+Em uma pasta chamada *Order*, o arquivo *Function. JSON* configura a função disparada por http.
 
 ```json
 {
@@ -331,9 +331,9 @@ Em uma pasta chamada *ordem,* o arquivo *function.json* configura a função aci
 
 ```
 
-Esta função é definida como uma [função acionada HTTP](./functions-bindings-http-webhook-trigger.md) que retorna uma resposta [HTTP](./functions-bindings-http-webhook-output.md) e produz uma mensagem de armazenamento [na Fila.](./functions-bindings-storage-queue-output.md)
+Essa função é definida como uma [função disparada por http](./functions-bindings-http-webhook-trigger.md) que retorna uma [resposta http](./functions-bindings-http-webhook-output.md) e gera uma mensagem de [armazenamento de fila](./functions-bindings-storage-queue-output.md) .
 
-Na raiz do aplicativo, o arquivo *host.json* é configurado para executar `server.js` Node.js e apontar o arquivo.
+Na raiz do aplicativo, o arquivo *host. JSON* é configurado para executar o Node. js e apontar o `server.js` arquivo.
 
 ```json
 {
@@ -347,7 +347,7 @@ Na raiz do aplicativo, o arquivo *host.json* é configurado para executar `serve
 }
 ```
 
-O arquivo *server.js* implementa um servidor web e uma função HTTP.
+O arquivo *Server. js* do arquivo implementa um servidor Web e uma função http.
 
 ```javascript
 const express = require("express");
@@ -379,24 +379,24 @@ app.post("/order", (req, res) => {
 });
 ```
 
-Neste exemplo, o Express é usado para criar um servidor web para `FUNCTIONS_HTTPWORKER_PORT`lidar com eventos HTTP e está definido para ouvir solicitações através do .
+Neste exemplo, o Express é usado para criar um servidor Web para manipular eventos HTTP e é definido para escutar solicitações por meio do `FUNCTIONS_HTTPWORKER_PORT`.
 
-A função é definida `/order` no caminho de .  A rota para a `/order` função `/api/order` de pedido aqui é e não porque o host Funções está proxying a solicitação para o manipulador personalizado.
+A função é definida no caminho de `/order` .  A rota para a função Order aqui é `/order` e não `/api/order` porque o host do Functions está contratando o proxy da solicitação para o manipulador personalizado.
 
-À `POST` medida que as solicitações são enviadas para esta função, os dados são expostos através de alguns pontos:
+À `POST` medida que as solicitações são enviadas para essa função, os dados são expostos por meio de alguns pontos:
 
-- O órgão de solicitação está disponível via`req.body`
-- Os dados postados na função estão disponíveis via`req.body.Data.req.Body`
+- O corpo da solicitação está disponível por meio de`req.body`
+- Os dados postados na função estão disponíveis por meio de`req.body.Data.req.Body`
 
-A resposta da função é formatada em `Outputs` um par de teclas/valores onde o membro mantém um valor JSON onde as teclas correspondem às saídas definidas no arquivo *function.json.*
+A resposta da função é formatada em um par chave/valor em que `Outputs` o membro mantém um valor JSON em que as chaves correspondem às saídas, conforme definido no arquivo *Function. JSON* .
 
-Ao `message` definir igual à mensagem que veio `res` da solicitação e à resposta HTTP esperada, esta função produz uma mensagem para o Queue Storage e retorna uma resposta HTTP.
+Ao definir `message` igual à mensagem que veio da solicitação e `res` para a resposta http esperada, essa função gera uma mensagem para o armazenamento de fila e retorna uma resposta http.
 
 ## <a name="debugging"></a>Depuração
 
-Para depurar seu aplicativo de manipulador personalizado functions, você precisa adicionar argumentos apropriados para o idioma e tempo de execução para ativar a depuração.
+Para depurar o aplicativo de manipulador personalizado functions, você precisa adicionar argumentos apropriados para a linguagem e o tempo de execução para habilitar a depuração.
 
-Por exemplo, para depurar um aplicativo `--inspect` Node.js, o sinalizador é passado como um argumento no arquivo *host.json.*
+Por exemplo, para depurar um aplicativo node. js, o `--inspect` sinalizador é passado como um argumento no arquivo *host. JSON* .
 
 ```json
 {
@@ -412,21 +412,21 @@ Por exemplo, para depurar um aplicativo `--inspect` Node.js, o sinalizador é pa
 ```
 
 > [!NOTE]
-> A configuração de depuração faz parte do arquivo *host.json,* o que significa que você pode precisar remover alguns argumentos antes de implantar na produção.
+> A configuração de depuração faz parte do seu arquivo *host. JSON* , o que significa que talvez seja necessário remover alguns argumentos antes de implantá-los na produção.
 
-Com esta configuração, você pode iniciar o processo host da função usando o seguinte comando:
+Com essa configuração, você pode iniciar o processo de host da função usando o seguinte comando:
 
 ```bash
 func host start
 ```
 
-Uma vez iniciado o processo, você pode anexar um depurador e acertar pontos de interrupção.
+Depois que o processo for iniciado, você poderá anexar um depurador e pontos de interrupção de acesso.
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-O exemplo a seguir é uma configuração de exemplo que demonstra como você pode configurar seu arquivo *launch.json* para conectar seu aplicativo ao depurador visual studio code.
+O exemplo a seguir é uma configuração de exemplo que demonstra como você pode configurar o arquivo *Launch. JSON* para conectar seu aplicativo ao depurador de Visual Studio Code.
 
-Este exemplo é para Node.js, então você pode ter que alterar este exemplo para outros idiomas ou tempos de execução.
+Este exemplo é para node. js, portanto, talvez seja necessário alterar este exemplo para outros idiomas ou tempos de execução.
 
 ```json
 {
@@ -445,13 +445,13 @@ Este exemplo é para Node.js, então você pode ter que alterar este exemplo par
 
 ## <a name="deploying"></a>Implantando
 
-Um manipulador personalizado pode ser implantado em quase todas as opções de hospedagem funções do Azure (ver [restrições](#restrictions)). Se o manipulador precisar de dependências personalizadas (como um tempo de execução do idioma), talvez seja necessário usar um [recipiente personalizado](./functions-create-function-linux-custom-image.md).
+Um manipulador personalizado pode ser implantado em quase todos os Azure Functions opção de hospedagem (consulte [restrições](#restrictions)). Se o seu manipulador exigir dependências personalizadas (como um tempo de execução de linguagem), talvez seja necessário usar um [contêiner personalizado](./functions-create-function-linux-custom-image.md).
 
 ## <a name="restrictions"></a>Restrições
 
-- Os manipuladores personalizados não são suportados em planos de consumo Linux.
-- O servidor web precisa começar dentro de 60 segundos.
+- Não há suporte para manipuladores personalizados em planos de consumo do Linux.
+- O servidor Web precisa começar dentro de 60 segundos.
 
 ## <a name="samples"></a>Exemplos
 
-Consulte o [manipulador personalizado amostras GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) para exemplos de como implementar funções em uma variedade de idiomas diferentes.
+Consulte o [repositório do GitHub de exemplos de manipulador personalizado](https://github.com/Azure-Samples/functions-custom-handlers) para obter exemplos de como implementar funções em uma variedade de idiomas diferentes.

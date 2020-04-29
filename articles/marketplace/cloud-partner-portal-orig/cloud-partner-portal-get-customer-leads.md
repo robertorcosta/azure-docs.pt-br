@@ -1,5 +1,5 @@
 ---
-title: Configurar leads de cliente | Mercado Azure
+title: Configurar leads do cliente | Azure Marketplace
 description: Configure clientes potenciais no Portal do Cloud Partner.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 56012fb2a907a6db6f87554660ee36b99a3dcbf9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280313"
 ---
 <a name="get-customer-leads"></a>Obter clientes potenciais
@@ -25,7 +25,7 @@ Clientes potenciais são aqueles que estão interessados ou estão implantando s
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-1.  O cliente usa um "test drive" da sua oferta. Os Test Drives são uma oportunidade acelerada de compartilhar seus negócios instantaneamente com clientes potenciais sem as barreiras à entrada. Todos os test drives geram um cliente potencial para o cliente que está interessado em experimentar seu produto para saber mais sobre ele. Saiba mais sobre test drives no [Azure Marketplace Test Drive](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+1.  O cliente usa um "test drive" da sua oferta. Os Test Drives são uma oportunidade acelerada de compartilhar seus negócios instantaneamente com clientes potenciais sem as barreiras à entrada. Todos os test drives geram um cliente potencial para o cliente que está interessado em experimentar seu produto para saber mais sobre ele. Saiba mais sobre as unidades de teste no [test drive do Azure Marketplace](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
     ![Exemplos de test drive do Marketplace](./media/cloud-partner-portal-get-customer-leads/test-drive-offer.png)
  
@@ -63,7 +63,7 @@ Cada cliente potencial que você recebe durante o processo de aquisição de cli
 
 ### <a name="lead-source"></a>Origem do cliente potencial
 
-O formato para uma fonte principal é **Source**-**Action** |  **Offer**
+O formato de uma fonte de Lead é uma**oferta** de**ação** |  de **origem**-
 
 **Fontes**: "AzureMarketplace", "AzurePortal", "TestDrive" e "SPZA (AppSource)"
 
@@ -74,9 +74,9 @@ O formato para uma fonte principal é **Source**-**Action** |  **Offer**
 - "Criar" – essa ação ocorre apenas dentro do Portal do Azure e é gerada quando um cliente compra sua oferta na conta dele.
 - "StartTestDrive" – essa ação ocorre apenas para test drives e é gerada quando um cliente inicia o test drive.
 
-**Oferece**
+**Ofertas**
 
-Os exemplos a seguir mostram identificadores exclusivos que são atribuídos a um editor e uma oferta específica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Os exemplos a seguir mostram identificadores exclusivos que são atribuídos a um Publicador e uma oferta específica: Checkpoint. Check-Point-R77-10SG-byol, BitNami. openedxcypress e docusign. 3701c77e-1cfa-4c56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informações do cliente
@@ -115,4 +115,4 @@ Depois de configurar o destino do cliente potencial e publicar sua oferta, valid
 <a name="what-next"></a>Próximos passos
 ----------
 
-Quando a instalação técnica estiver em vigor, incorpore esses leads à estratégia atual de vendas e marketing e aos processos operacionais. Estamos muito interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer leads de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Por favor, avise-nos se você estiver interessado em [fornecer feedback](mailto:AzureMarketOnboard@microsoft.com) e sugestões para permitir que sua equipe de vendas tenha mais sucesso com o Marketplace Leads.
+Quando a instalação técnica estiver em vigor, incorpore esses leads à estratégia atual de vendas e marketing e aos processos operacionais. Estamos muito interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer leads de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Informe-nos se você estiver interessado em [fornecer comentários](mailto:AzureMarketOnboard@microsoft.com) e sugestões para permitir que sua equipe de vendas seja mais bem-sucedida com leads do Marketplace.

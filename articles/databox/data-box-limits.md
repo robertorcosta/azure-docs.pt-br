@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: alkohli
 ms.openlocfilehash: 13d5bce46883ea4ddca91d7222f68a19ba65c21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260040"
 ---
 # <a name="azure-data-box-limits"></a>Limita o Azure Data Box
@@ -26,7 +26,7 @@ Considere estes limites ao implantar e operar o Microsoft Azure Data Box. A tabe
 ## <a name="data-box-limits"></a>Limites do Data Box
 
 - O Data Box pode armazenar no máximo de 500 milhões de arquivos.
-- Data Box suporta um máximo de 512 contêineres ou ações na nuvem. Os diretórios de alto nível dentro da parte do usuário tornam-se contêineres ou compartilhamentos de arquivos do Azure na nuvem. 
+- Data Box dá suporte a um máximo de 512 contêineres ou compartilhamentos na nuvem. Os diretórios de nível superior no compartilhamento do usuário se tornam contêineres ou compartilhamentos de arquivos do Azure na nuvem. 
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 

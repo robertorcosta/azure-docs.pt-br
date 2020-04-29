@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5718adf4fd76e2fbd0ff793dd2fa33ee08f7c0fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295041"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicativos de usuários finais no Azure Active Directory
@@ -34,7 +34,7 @@ São necessários privilégios globais de administrador para ocultar todos os ap
 Use as etapas a seguir para ocultar um aplicativo do painel MyApps e do inicializador do aplicativo do Office 365.
 
 1.  Entre no [portal do Azure](https://portal.azure.com) como o administrador global do diretório.
-2.  Selecione **O Diretório Ativo do Azure**.
+2.  Selecione **Azure Active Directory**.
 3.  Selecione **Aplicativos empresariais**. A folha **Aplicativos empresariais - Todos os aplicativos** abre.
 4.  Em **Tipo de Aplicativo**, selecione **Aplicativos Empresariais**, se já não estiver selecionado.
 5.  Procure o aplicativo que você quer ocultar e clique no aplicativo.  A visão geral do aplicativo é aberta.
@@ -42,9 +42,9 @@ Use as etapas a seguir para ocultar um aplicativo do painel MyApps e do iniciali
 7.  Para a pergunta **Visível para os usuários?**, clique em **Não**.
 8.  Clique em **Salvar**.
 
-## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Use o Azure AD PowerShell para ocultar um aplicativo
+## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usar o PowerShell do Azure AD para ocultar um aplicativo
 
-Para ocultar um aplicativo do painel MyApps, você pode adicionar manualmente a tag HideApp ao diretor de serviço do aplicativo. Execute os seguintes comandos [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) para definir a **No**propriedade Visible to Users do **aplicativo?** 
+Para ocultar um aplicativo do painel myapps, você pode adicionar manualmente a marca HideApp à entidade de serviço para o aplicativo. Execute os comandos do [PowerShell do AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) a seguir para definir a propriedade visível do aplicativo **para usuários?** como **não**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -61,7 +61,7 @@ Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 Use as seguintes etapas para ocultar todos os aplicativos do Office 365 no painel MyApps. Os aplicativos ainda estão visíveis no portal do Office 365.
 
 1.  Entre no [Portal do Azure](https://portal.azure.com) como um administrador global do diretório.
-2.  Selecione **O Diretório Ativo do Azure**.
+2.  Selecione **Azure Active Directory**.
 3.  Selecione **configurações do usuário**.
 4.  Em **Aplicativos empresariais**, clique em **Gerenciar como os usuários finais inicializam e exibem os aplicativos.**
 5.  Para **Usuários só podem ver aplicativos do Office 365 no portal do Office 365**, clique em **Sim**.

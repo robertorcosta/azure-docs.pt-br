@@ -1,6 +1,6 @@
 ---
-title: Mostrar as direções da rota em um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a exibir instruções entre dois locais em um mapa usando o Microsoft Azure Maps Web SDK.
+title: Mostrar direções de rota em um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a exibir as instruções entre dois locais em um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -10,17 +10,17 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: dde9264d0cb65726b624b918982cfa01985b63ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371420"
 ---
 # <a name="show-directions-from-a-to-b"></a>Mostrar direções de A para B
 
 Este artigo mostra como fazer uma solicitação de rota e mostrar a rota no mapa.
 
-Há duas maneiras de fazer isso. A primeira maneira é a consultar a [API de Rotas do Azure Mapas](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) por meio de um módulo de serviço. A segunda maneira é usar a [API Fetch](https://fetch.spec.whatwg.org/) para fazer uma solicitação de pesquisa para a API de rota do [Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). As duas formas são discutidas abaixo.
+Há duas maneiras de fazer isso. A primeira maneira é a consultar a [API de Rotas do Azure Mapas](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) por meio de um módulo de serviço. A segunda maneira é usar a [API de busca](https://fetch.spec.whatwg.org/) para fazer uma solicitação de pesquisa para a API de [rota do Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). As duas formas são discutidas abaixo.
 
 ## <a name="query-the-route-via-service-module"></a>A rota por meio do módulo de serviço de consulta
 
@@ -29,23 +29,23 @@ Há duas maneiras de fazer isso. A primeira maneira é a consultar a [API de Rot
 
 No código acima, o primeiro bloco constrói um objeto de mapa e define o mecanismo de autenticação para usar o token de acesso. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de `TokenCredential` código cria um para autenticar solicitações HTTP ao Azure Maps com o token de acesso. Em seguida, `TokenCredential` `atlas.service.MapsURL.newPipeline()` passa o para e cria uma instância [pipeline.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) O `routeURL` representa uma URL para as operações de [rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Mapas.
+O segundo bloco de código cria um `TokenCredential` para autenticar solicitações HTTP para mapas do Azure com o token de acesso. Em seguida, ele `TokenCredential` passa `atlas.service.MapsURL.newPipeline()` o para e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `routeURL` representa uma URL para as operações de [rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Mapas.
 
 O terceiro bloco de código cria e adiciona um objeto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) ao mapa.
 
-O quarto bloco de código cria objetos de [pontos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) iniciais e finais e os adiciona ao objeto dataSource.
+O quarto bloco de código cria objetos Start e End [Points](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) e os adiciona ao objeto DataSource.
 
 Uma linha é um [recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) para LineString. Um [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renderiza objetos de linha agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como linhas no mapa. O quarto bloco de código cria e adiciona uma camada de linha ao mapa. Consulte as propriedades de uma camada de linhas em [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
-Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa textos ou ícones para renderizar dados baseados em pontos envoltos no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Os textos ou os ícones renderizam como símbolos no mapa. O quinto bloco de código cria e adiciona uma camada de símbolo ao mapa.
+Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa textos ou ícones para renderizar os dados baseados em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Os textos ou os ícones são renderizados como símbolos no mapa. O quinto bloco de código cria e adiciona uma camada de símbolo ao mapa.
 
-O sexto bloco de consultas de código consulta o serviço de roteamento Do Azure Maps, que faz parte do módulo de [serviço](how-to-use-services-module.md). O método [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) da RouteURL é usado para obter uma rota entre os pontos de início e final. Uma coleta de recursos GeoJSON da resposta `geojson.getFeatures()` é então extraída usando o método e é adicionada à fonte de dados. Em seguida, renderiza a resposta como uma rota no mapa. Para mais informações sobre como adicionar uma linha ao mapa, consulte [adicionar uma linha no mapa](map-add-line-layer.md).
+O sexto bloco de código consulta o serviço de roteamento do Azure Maps, que faz parte do [módulo de serviço](how-to-use-services-module.md). O método [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) do RouteUrl é usado para obter uma rota entre os pontos inicial e final. Uma coleção de recursos geojson da resposta é extraída usando o `geojson.getFeatures()` método e é adicionada à fonte de fontes. Em seguida, renderiza a resposta como uma rota no mapa. Para mais informações sobre como adicionar uma linha ao mapa, consulte [adicionar uma linha no mapa](map-add-line-layer.md).
 
-O último bloco de código define os limites do mapa usando a propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
+O último bloco de código define os limites do mapa usando a propriedade [setcamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa.
 
-A consulta de rota, a fonte de dados, o símbolo, as camadas de linha e os limites da câmera são criados dentro do ouvinte do [evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Esta estrutura de código garante que os resultados sejam exibidos somente após a carga completa do mapa.
+A consulta de rota, a fonte de dados, o símbolo, as camadas de linha e os limites de câmera são criados dentro do [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Essa estrutura de código garante que os resultados sejam exibidos somente depois que o mapa for totalmente carregado.
 
-## <a name="query-the-route-via-fetch-api"></a>Consultar a rota via Fetch API
+## <a name="query-the-route-via-fetch-api"></a>Consultar a rota por meio da API de busca
 
 <iframe height='500' scrolling='no' title='Mostrar instruções de A para B em um mapa' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Mostrar direções de A para B em um mapa</a> pelo Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -54,7 +54,7 @@ No código acima, o primeiro bloco de código constrói um objeto de mapa e defi
 
 O segundo bloco de código cria e adiciona um objeto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) ao mapa.
 
-O terceiro bloco de código cria os pontos de início e destino da rota. Em seguida, adiciona-os à fonte de dados. Você pode consultar [adicionar um pin no mapa](map-add-pin.md) para obter instruções sobre como usar [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+O terceiro bloco de código cria os pontos inicial e de destino para a rota. Em seguida, ele os adiciona à fonte de dados. Você pode consultar [adicionar um pin no mapa](map-add-pin.md) para obter instruções sobre como usar [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
 Um [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renderiza objetos de linha agrupados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como linhas no mapa. O quarto bloco de código cria e adiciona uma camada de linha ao mapa. Consulte as propriedades de uma camada de linha em [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
@@ -62,9 +62,9 @@ Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-co
 
 O próximo bloco de código cria pontos `SouthWest` e `NorthEast` a partir dos pontos inicial e de destino e define os limites do mapa usando a propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
 
-O último bloco de código usa a [API Fetch](https://fetch.spec.whatwg.org/) para fazer uma solicitação de pesquisa para a API de rota do [Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). A resposta é então analisado. Se a resposta foi bem sucedida, as informações de latitude e longitude são usadas para criar uma matriz de uma linha conectando esses pontos. Os dados da linha são adicionados à fonte de dados para renderizar a rota no mapa. Você pode consultar [adicionar uma linha no mapa](map-add-line-layer.md) para obter instruções.
+O último bloco de código usa a [API de busca](https://fetch.spec.whatwg.org/) para fazer uma solicitação de pesquisa para a [API de rota do Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Em seguida, a resposta é analisada. Se a resposta foi bem-sucedida, as informações de latitude e longitude são usadas para criar uma matriz uma linha conectando esses pontos. Os dados de linha são então adicionados à fonte de dados para renderizar a rota no mapa. Você pode consultar [adicionar uma linha no mapa](map-add-line-layer.md) para obter instruções.
 
-A consulta de rota, a fonte de dados, o símbolo, as camadas de linha e os limites da câmera são criados dentro do ouvinte do [evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Novamente, queremos garantir que os resultados sejam exibidos após as cargas do mapa.
+A consulta de rota, a fonte de dados, o símbolo, as camadas de linha e os limites de câmera são criados dentro do [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Novamente, queremos garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -74,7 +74,7 @@ A consulta de rota, a fonte de dados, o símbolo, as camadas de linha e os limit
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 Consulte os seguintes artigos para obter exemplos de código completo:
 
@@ -82,4 +82,4 @@ Consulte os seguintes artigos para obter exemplos de código completo:
 > [Mostrar tráfego no mapa](./map-show-traffic.md)
 
 > [!div class="nextstepaction"]
-> [Interagindo com o mapa - eventos do mouse](./map-events.md)
+> [Interagindo com os eventos MAP-mouse](./map-events.md)

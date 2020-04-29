@@ -1,6 +1,6 @@
 ---
-title: Visão geral da política TLS para gateway de aplicativos do Azure
-description: Aprenda a configurar a política TLS para o Azure Application Gateway e reduza a criptografia e a sobrecarga de descriptografia de uma fazenda de servidor back-end.
+title: Visão geral da política de TLS para Aplicativo Azure gateway
+description: Saiba como configurar a política de TLS para Aplicativo Azure gateway e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores back-end.
 services: application gateway
 author: amsriva
 ms.service: application-gateway
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 871cb930e867002d8af1e7755de27d4873327543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257369"
 ---
-# <a name="application-gateway-tls-policy-overview"></a>Visão geral da política do Gateway de aplicativos TLS
+# <a name="application-gateway-tls-policy-overview"></a>Visão geral da política TLS do gateway de aplicativo
 
-Você pode usar o Azure Application Gateway para centralizar o gerenciamento de certificados TLS/SSL e reduzir a sobrecarga de criptografia e descriptografia de uma fazenda de servidores back-end. Esse manuseio centralizado de TLS também permite que você especifique uma política TLS central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e às práticas recomendadas.
+Você pode usar Aplicativo Azure gateway para centralizar o gerenciamento de certificados TLS/SSL e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores back-end. Essa manipulação de TLS centralizado também permite que você especifique uma política TLS central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e às práticas recomendadas.
 
-A política TLS inclui o controle da versão do protocolo TLS, bem como as suítes de cifras e a ordem em que as cifras são usadas durante um aperto de mão TLS. O Application Gateway oferece dois mecanismos para controlar a política TLS. Você pode usar uma política predefinida ou uma política personalizada.
+A política TLS inclui o controle da versão do protocolo TLS, bem como os conjuntos de codificação e a ordem em que as codificações são usadas durante um handshake TLS. O gateway de aplicativo oferece dois mecanismos para controlar a política TLS. Você pode usar uma política predefinida ou uma política personalizada.
 
 ## <a name="predefined-tls-policy"></a>Política TLS predefinida
 
-O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você pode configurar o gateway com alguma dessas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês no qual eles foram configurados. Cada política oferece diferentes versões de protocolo TLS e suítes de cifras. Recomendamos que você use as políticas TLS mais novas para garantir a melhor segurança TLS.
+O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você pode configurar o gateway com alguma dessas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês no qual eles foram configurados. Cada política oferece versões de protocolo TLS e conjuntos de codificação diferentes. Recomendamos que você use as políticas de TLS mais recentes para garantir a melhor segurança de TLS.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -53,17 +53,17 @@ O Gateway de Aplicativo tem três políticas de segurança predefinidos. Você p
 
 ## <a name="custom-tls-policy"></a>Política TLS personalizada
 
-Se uma política TLS predefinida precisar ser configurada para seus requisitos, você deve definir sua própria política TLS personalizada. Com uma política TLS personalizada, você tem controle completo sobre a versão mínima do protocolo TLS para suporte, bem como as suítes de cifra suportadas e sua ordem de prioridade.
+Se uma política TLS predefinida precisar ser configurada para seus requisitos, você deverá definir sua própria política TLS personalizada. Com uma política TLS personalizada, você tem controle total sobre a versão mínima do protocolo TLS para oferecer suporte, bem como os conjuntos de criptografia com suporte e sua ordem de prioridade.
  
 ### <a name="tlsssl-protocol-versions"></a>Versões do protocolo TLS/SSL
 
 * SSL 2.0 e 3.0 são desabilitados por padrão para todos os gateways do aplicativo. Essas versões de protocolo não são configuráveis.
-* Uma diretiva TLS personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima do protocolo TLS para o seu gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
-* Se nenhuma política TLS for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) serão habilitados.
+* Uma política TLS personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima do protocolo TLS para seu gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* Se nenhuma política de TLS for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) serão habilitados.
 
 ### <a name="cipher-suites"></a>Conjuntos de criptografia
 
-O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos quais a política personalizada pode ser escolhida. A ordem das suítes de cifra determina a ordem de prioridade durante a negociação do TLS.
+O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos quais a política personalizada pode ser escolhida. A ordenação dos conjuntos de codificação determina a ordem de prioridade durante a negociação de TLS.
 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -96,10 +96,10 @@ O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos 
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 > [!NOTE]
-> As suítes de cifraS TLS utilizadas para a conexão também são baseadas no tipo de certificado que está sendo usado. No cliente para conexões de gateway de aplicativo, as suítes de cifra utilizadas são baseadas no tipo de certificados de servidor no ouvinte do gateway do aplicativo. No gateway de aplicativo para conexões de pool backend, as suítes de cifra usadas são baseadas no tipo de certificados de servidor nos servidores do pool backend.
+> Os conjuntos de criptografia TLS usados para a conexão também são baseados no tipo de certificado que está sendo usado. No cliente para conexões de gateway de aplicativo, os conjuntos de codificação usados são baseados no tipo de certificados de servidor no ouvinte do gateway de aplicativo. No gateway de aplicativo para conexões de pool de back-end, os conjuntos de codificação usados são baseados no tipo de certificados de servidor nos servidores do pool de back-end.
 
 ## <a name="known-issue"></a>Problema conhecido
-O Gateway de aplicativo v2 não suporta atualmente as seguintes cifras:
+Atualmente, o gateway de aplicativo v2 não oferece suporte às seguintes codificações:
 - DHE-RSA-AES128-GCM-SHA256
 - DHE-RSA-AES128-SHA
 - DHE-RSA-AES256-GCM-SHA384
@@ -111,4 +111,4 @@ O Gateway de aplicativo v2 não suporta atualmente as seguintes cifras:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser aprender a configurar uma diretiva TLS, consulte [Configurar versões de diretiva TLS e suítes de cifra no Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Se você quiser aprender a configurar uma política de TLS, consulte [Configurar versões de política de TLS e conjuntos de codificação no gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de recuperação de desastres do Azure para Azure na recuperação do site do Azure
-description: Visão geral da arquitetura usada quando você configura a recuperação de desastres entre as regiões do Azure para VMs azure, usando o serviço Azure Site Recovery.
+title: Arquitetura de recuperação de desastre do Azure para o Azure no Azure Site Recovery
+description: Visão geral da arquitetura usada quando você configura a recuperação de desastre entre regiões do Azure para VMs do Azure, usando o serviço de Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294108"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
@@ -31,7 +31,7 @@ Os componentes envolvidos na recuperação de desastre para VMs do Azure são re
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem compatível](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem executar qualquer [sistema operacional compatível](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento das VMs de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos em contas de armazenamento.<br/><br/>[Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---storage) sobre o armazenamento do Azure compatível.
 **Redes de VMs de origem** | As VMs podem estar localizadas em uma ou mais sub-redes de uma VNET (rede virtual) na região de origem. [Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---networking) sobre os requisitos de rede.
-**Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.  As contas de armazenamento de cache devem ser padrão.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
+**Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.  As contas de armazenamento em cache devem ser padrão.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
 **Recursos de destino** | Os recursos de destino são usados durante a replicação e quando ocorre um failover. O Site Recovery pode configurar o recurso de destino por padrão, ou você pode criá-lo/personalizá-lo.<br/><br/> Na região de destino, verifique se você consegue criar VMs e se a sua assinatura tem recursos suficientes para dar suporte a tamanhos de VM que serão necessários na região de destino. 
 
 ![Replicação de origem e de destino](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -43,7 +43,7 @@ Quando você habilita a replicação para uma VM, o Site Recovery oferece a opç
 **Recurso de destino** | **Configuração padrão**
 --- | ---
 **Assinatura de destino** | Igual à assinatura de origem.
-**Grupo de recursos alvo** | O grupo de recursos ao qual as VMs pertencem após o failover.<br/><br/> Ele pode estar em qualquer região do Azure, exceto a região de origem.<br/><br/> Por padrão, o Site Recovery cria um grupo de recursos na região de destino, com um sufixo "asr".<br/><br/>
+**Grupo de recursos de destino** | O grupo de recursos ao qual as VMs pertencem após o failover.<br/><br/> Ele pode estar em qualquer região do Azure, exceto a região de origem.<br/><br/> Por padrão, o Site Recovery cria um grupo de recursos na região de destino, com um sufixo "asr".<br/><br/>
 **VNET de destino** | A VNET (rede virtual) na qual as VMs replicadas estão localizadas após o failover. Um mapeamento de rede é criado entre redes virtuais de origem e de destino e vice-versa.<br/><br/> O Site Recovery cria uma VNET e uma sub-rede, com o sufixo "asr".
 **Conta de armazenamento de destino** |  Se a VM não usa um disco gerenciado, essa é a conta de armazenamento para a qual os dados são replicados.<br/><br/> O Site Recovery cria uma conta de armazenamento na região de destino, para espelhar a conta de armazenamento de origem.
 **Discos gerenciados de réplica** | Se a VM usa um disco gerenciado, esses são os discos gerenciados para os quais os dados são replicados.<br/><br/> O Site Recovery cria discos gerenciados de réplica na região de armazenamento para espelhar a origem.
@@ -65,8 +65,8 @@ Quando você habilita a replicação de VM do Azure, por padrão, o Site Recover
 
 **Configuração de política** | **Detalhes** | **Padrão**
 --- | --- | ---
-**Retenção de ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
-**Freqüência de instantâneo consistente com aplicativos** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
+**Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
+**Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
 
 ### <a name="managing-replication-policies"></a>Gerenciando políticas de replicação
 
@@ -129,41 +129,41 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 
 Se o acesso de saída para as VMs for controlado com URLs, permita estas URLs.
 
-| **Url** | **Detalhes** |
+| **URL** | **Detalhes** |
 | ------- | ----------- |
 | *.blob.core.windows.net | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | login.microsoftonline.com | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que a VM se comunique com o serviço Site Recovery. |
 | *.servicebus.windows.net | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
-| *.vault.azure.net | Permite acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE via portal
-| *.automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado via portal
+| *.vault.azure.net | Permite o acesso para habilitar a replicação para máquinas virtuais habilitadas para ADE por meio do portal
+| *. automation.ext.azure.com | Permite habilitar a atualização automática do agente de mobilidade para um item replicado por meio do portal
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
 Para controlar a conectividade de saída para VMs usando endereços IP, permita estes endereços.
-Observe que detalhes dos requisitos de conectividade de rede podem ser encontrados em [papel branco de rede](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
+Observe que os detalhes dos requisitos de conectividade de rede podem ser encontrados no [White Paper de rede](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Regras da região de origem
 
-**Regra** |  **Detalhes** | **Tag de serviço**
+**Régua** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Armazenamento. \<> de nome da região
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondam ao Azure Active Directory (Azure AD)  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondam ao Centro de Eventos na região alvo. | EventsHub. \<> de nome da região
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem à recuperação do site do Azure  | AzureSiteRecovery
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondam ao Azure Key Vault (Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE via portal) | AzureKeyVault
-Permitir HTTPS de saída: porta 443 | Permitir faixas que correspondam ao Azure Automation Controller (Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado via portal) | GuestandHybridManagement
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
-**Regra** |  **Detalhes** | **Tag de serviço**
+**Régua** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a contas de armazenamento na região de destino | Armazenamento. \<> de nome da região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório. \<> de nome de região
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Events Hub na região de origem. | EventsHub. \<> de nome da região
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem à recuperação do site do Azure  | AzureSiteRecovery
-Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondam ao Azure Key Vault (Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE via portal) | AzureKeyVault
-Permitir HTTPS de saída: porta 443 | Permitir faixas que correspondam ao Azure Automation Controller (Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado via portal) | GuestandHybridManagement
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub. \<> de nome de região
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Key Vault (isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal) | AzureKeyVault
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao controlador de automação do Azure (isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal) | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras do NSG

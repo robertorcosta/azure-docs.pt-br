@@ -1,5 +1,5 @@
 ---
-title: Excluir ofertas de marketplace | Mercado Azure
+title: Excluir ofertas do Marketplace | Azure Marketplace
 description: Excluir ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: dsindona
 ms.openlocfilehash: fa8ee834bd6d9261c47c540e9517c200c894b6c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286448"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Excluir SKUs ou ofertas do Azure Marketplace e do AppSource
@@ -19,9 +19,9 @@ ms.locfileid: "80286448"
 Por motivos diversos, você pode optar por retirar a oferta do seu Microsoft Marketplace, o que pode ocorrer de duas formas:
 
 - A *remoção de oferta* garante que novos clientes não possam adquirir ou implantar sua oferta, mas não tem impacto sobre clientes existentes, aos quais você precisa dar suporte de acordo com seu contrato de licença e leis pertinentes. 
-- *A rescisão* da oferta é o processo de rescisão do contrato de serviço e/ou licenciamento entre você e seus clientes existentes. 
+- O *encerramento da oferta* é o processo de encerrar o serviço e/ou o contrato de licenciamento entre você e os clientes existentes. 
 
-As orientações e políticas relacionadas à remoção e rescisão da oferta são regidas pelo [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) e pelas Políticas de [Participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [Oferecendo suspensão e remoção](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Diretrizes e políticas relacionadas à remoção e ao encerramento da oferta são regidas por [Microsoft Marketplace contrato de editor](https://go.microsoft.com/fwlink/?LinkID=699560) e as [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [oferecendo suspensão e remoção](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Este artigo aborda os diferentes cenários de exclusão compatíveis e as etapas necessárias para executar cada um deles.  
 
@@ -33,7 +33,7 @@ Este artigo aborda os diferentes cenários de exclusão compatíveis e as etapas
 
 É possível excluir um SKU publicado do Azure Marketplace usando as seguintes etapas:
 
-1.  Faça login no Portal de [Parceiros na Nuvem](https://cloudpartner.azure.com/).
+1.  Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2.  Na página **Todas as ofertas**, selecione a oferta.  Sua oferta deve ser exibida na guia **Editor**.
 3.  Na barra de ferramentas esquerda, selecione a guia **SKUs**. 
 4.  Selecione o SKU que você deseja excluir e, em seguida, clique no botão **Excluir**.
@@ -46,7 +46,7 @@ Depois que a oferta modificada for publicada no Azure Marketplace, o SKU selecio
 
 Você pode excluir a versão atual de um SKU ativo do Azure Marketplace seguindo as etapas abaixo. Quando o processo for concluído, o SKU será revertido para a versão anterior.
 
-1. Faça login no Portal de [Parceiros na Nuvem](https://cloudpartner.azure.com/).
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Na página **Todas as ofertas**, selecione a oferta.  Sua oferta deve ser exibida na guia **Editor**.
 3. Na barra de ferramentas esquerda, selecione a guia **SKUs**. 
 4. Exclua a versão mais recente do ativo da solução associada da lista de versões de disco.  Dependendo do tipo de oferta, esse campo pode ser **Versão de Disco**, **Versões de Pacote** ou outro ativo semelhante. 

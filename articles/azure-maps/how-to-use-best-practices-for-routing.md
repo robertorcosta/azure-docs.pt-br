@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para o Serviço de Rota do Azure Maps | Mapas do Microsoft Azure
-description: Aprenda a rodar de forma eficiente usando o Serviço de Rota do Microsoft Azure Maps.
+title: Práticas recomendadas para o Azure Maps Serviço de Roteiros | Mapas do Microsoft Azure
+description: Saiba como rotear com eficiência usando Serviço de Roteiros de mapas de Microsoft Azure.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -9,87 +9,87 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335411"
 ---
-# <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
+# <a name="best-practices-for-azure-maps-route-service"></a>Práticas recomendadas para o serviço de rota do Azure Maps
 
-As APIs de direção e matriz de rota no Serviço de [Rota](https://docs.microsoft.com/rest/api/maps/route) do Azure Maps podem ser usadas para calcular os tempos estimados de chegada (ETAs) para cada rota solicitada. As APIs de rota consideram fatores como informações de tráfego em tempo real e dados históricos de tráfego, como as velocidades típicas das estradas no dia solicitado da semana e a hora do dia. As APIs retornam as rotas mais curtas ou mais rápidas disponíveis para vários destinos por vez em seqüência ou em ordem otimizada, com base no tempo ou distância. Os usuários também podem solicitar rotas especializadas e detalhes para caminhantes, ciclistas e veículos comerciais, como caminhões. Neste artigo, compartilharemos as melhores práticas para chamar o Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), e você aprenderá como:
+As APIs de direção de rota e matriz de rota no Azure Maps [serviço de roteiros](https://docs.microsoft.com/rest/api/maps/route) podem ser usadas para calcular os tempos de chegada estimados (ETAs) para cada rota solicitada. APIs de rota consideram fatores como informações de tráfego em tempo real e dados de tráfego históricos, como as velocidades de estrada típicas no dia solicitado da semana e hora do dia. As APIs retornam as rotas mais curtas ou mais rápidas disponíveis para vários destinos de cada vez em sequência ou em ordem otimizada, com base em tempo ou distância. Os usuários também podem solicitar roteiros e detalhes especializados para os apresentadores, ciclistas e veículos comerciais como caminhões. Neste artigo, vamos compartilhar as práticas recomendadas para chamar o Azure Maps [serviço de roteiros](https://docs.microsoft.com/rest/api/maps/route)e você aprenderá a:
 
 * Escolha entre as APIs de direção de rota e a API de roteamento de matriz
-* Solicite tempos de viagem históricos e previstos, com base em dados de tráfego em tempo real e histórico
-* Solicitar detalhes da rota, como tempo e distância, para toda a rota e cada trecho da rota
-* Solicitação de rota para um veículo comercial, como um caminhão
-* Solicite informações de tráfego ao longo de uma rota, como congestionamentos e informações de pedágio
-* Solicite uma rota que consiste em uma ou mais paradas (waypoints)
-* Otimize uma rota de uma ou mais paradas para obter a melhor ordem para visitar cada parada (waypoint)
-* Otimize rotas alternativas usando pontos de apoio. Por exemplo, oferecer rotas alternativas que passem por uma estação de carregamento de veículos elétricos.
-* Use o [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) com o Web SDK do Azure Maps
+* Solicitar tempos de viagem históricos e previstos, com base em dados de tráfego históricos e em tempo real
+* Detalhes da rota de solicitação, como tempo e distância, para toda a rota e cada trecho da rota
+* Solicitar rota para um veículo comercial, como um caminhão
+* Solicitar informações de tráfego ao longo de uma rota, como informações de emperramento e de Tarifa
+* Solicitar uma rota que consiste em uma ou mais paradas (Marcos)
+* Otimizar uma rota de uma ou mais interrupções para obter a melhor ordem para visitar cada parada (waypoint)
+* Otimizar rotas alternativas usando pontos de suporte. Por exemplo, ofereça rotas alternativas que passem uma estação de cobrança de veículo elétrico.
+* Usar o [serviço de roteiros](https://docs.microsoft.com/rest/api/maps/route) com o SDK da Web do Azure Maps
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta do Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e obter uma chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave principal também é conhecida como a chave de assinatura principal, ou chave de assinatura.
+Para fazer chamadas para as APIs do Azure Maps, você precisa de uma conta e uma chave do Azure Maps. Para obter mais informações, consulte [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e [obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). A chave primária também é conhecida como chave de assinatura primária ou chave de assinatura.
 
-Para obter informações sobre autenticação no Azure Maps, consulte [Gerenciar autenticação no Azure Maps](./how-to-manage-authentication.md). E para obter mais informações sobre a cobertura do Serviço de Rota, consulte a [Cobertura de Roteamento](routing-coverage.md).
+Para obter informações sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md). Para obter mais informações sobre a cobertura do Serviço de Roteiros, consulte a [cobertura de roteamento](routing-coverage.md).
 
-Este artigo usa o [aplicativo Carteiro](https://www.postman.com/downloads/) para criar chamadas REST, mas você pode escolher qualquer ambiente de desenvolvimento de API.
+Este artigo usa o [aplicativo de postmaster](https://www.postman.com/downloads/) para criar chamadas REST, mas você pode escolher qualquer ambiente de desenvolvimento de API.
 
 ## <a name="choose-between-route-directions-and-matrix-routing"></a>Escolha entre direções de rota e roteamento de matriz
 
-As APIs de direção de rota retornam instruções, incluindo o tempo de viagem e as coordenadas para um caminho de rota. A API Route Matrix permite calcular o tempo de viagem e as distâncias para um conjunto de rotas definidas por origem e locais de destino. Para cada origem dada, a API Matrix calcula o custo (tempo de viagem e distância) do roteamento dessa origem para cada destino dado. Todas essas APIs permitem especificar parâmetros como o horário de partida desejado, os horários de chegada e o tipo de veículo, como carro ou caminhão. Todos eles usam dados de tráfego em tempo real ou preditivos de acordo para retornar as rotas mais ideais.
+As APIs de direção de rota retornam instruções, incluindo o tempo de viagem e as coordenadas de um caminho de rota. A API de matriz de rota permite que você calcule o tempo de viagem e as distâncias de um conjunto de rotas que são definidas por locais de origem e de destino. Para cada origem determinada, a API de matriz calcula o custo (tempo de viagem e distância) do roteamento dessa origem para cada destino especificado. Todas essas APIs permitem que você especifique parâmetros como a hora de partida desejada, os tempos de chegada e o tipo de veículo, como carro ou caminhão. Todos eles usam dados de tráfego de previsão ou em tempo real de forma adequada para retornar as rotas ideais.
 
-Considere chamar APIs de direções de rota se o seu cenário for para:
+Considere chamar APIs de direções de rota se o seu cenário for:
 
-* Solicite a rota de condução mais curta ou mais rápida entre dois ou mais locais conhecidos, para obter horários de chegada precisos para seus veículos de entrega.
-* Solicite orientação detalhada da rota, incluindo geometria da rota, para visualizar rotas no mapa
-* Dada uma lista de locais do cliente, calcule a rota mais curta possível para visitar cada local do cliente e retornar à origem. Este cenário é comumente conhecido como o problema do vendedor viajante. Você pode passar até 150 waypoints (stops) em uma solicitação.
-* Envie lotes de consultas para a API de lote de direções de rota usando apenas uma única chamada de API.
+* Solicite a rota de condução mais curta ou mais rápida entre dois ou mais locais conhecidos, para obter tempos de chegada precisos para seus veículos de entrega.
+* Solicitar orientação de rota detalhada, incluindo a geometria de rota, para visualizar rotas no mapa
+* Dada uma lista de locais de clientes, calcule a rota mais curta possível para visitar cada local do cliente e retornar à origem. Esse cenário é normalmente conhecido como o problema de vendas de viagens. Você pode passar até 150 marcos (paradas) em uma solicitação.
+* Envie lotes de consultas para a API do lote de direções de rota usando apenas uma única chamada à API.
 
-Considere chamar a API de roteamento de Matriz se o seu cenário for para:
+Considere chamar a API de roteamento de matriz se seu cenário for:
 
-* Calcule o tempo de viagem ou distância entre um conjunto de origens e destinos. Por exemplo, você tem 12 motoristas e você precisa encontrar o motorista mais próximo disponível para pegar a entrega de comida do restaurante.
-* Classifique rotas potenciais por sua distância ou tempo de viagem real. A API Matrix retorna apenas tempos de viagem e distâncias para cada combinação de origem e destino.
-* Dados de cluster com base no tempo de viagem ou distâncias. Por exemplo, sua empresa tem 50 funcionários, encontre todos os funcionários que vivem dentro de 20 minutos drive time a partir de seu escritório.
+* Calcule o tempo de viagem ou a distância entre um conjunto de origens e destinos. Por exemplo, você tem 12 drivers e precisa encontrar o driver disponível mais próximo para pegar a entrega de alimentos do restaurante.
+* Classificar possíveis rotas por sua distância ou tempo real de viagem. A API de matriz retorna apenas os tempos de viagem e as distâncias para cada combinação de origem e destino.
+* Dados de cluster com base no tempo de viagem ou em distâncias. Por exemplo, sua empresa tem 50 funcionários, encontre todos os funcionários que residem dentro de 20 minutos de tempo da unidade do seu escritório.
 
-Aqui está uma comparação para mostrar algumas capacidades das APIs de Direção de Rota e Matriz:
+Aqui está uma comparação para mostrar alguns recursos das direções de rota e APIs de matriz:
 
-| Azure Maps API | Número máximo de consultas na solicitação | Evite áreas | Roteamento de caminhões e veículos elétricos | waypoints e otimização de vendedores itinerantes | Pontos de apoio |
+| API do Azure Maps | Número máximo de consultas na solicitação | Evitar áreas | Roteamento de caminhão e de veículo elétrico | Marcos e otimização de vendas de viagens | Pontos de suporte |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Obter Trajeto de Rota | 1 | | X | X | |
-| Instruções da rota do post | 1 | X | X | X | X |
-| Lote de direções da rota do post | 700 | | X | X | |
+| Pós-direções de rota | 1 | X | X | X | X |
+| Postar o lote de direções do roteiro | 700 | | X | X | |
 | Matrix de rota POST | 700 | | X | | |
 
-Para saber mais sobre os recursos de roteamento de veículos elétricos, consulte nosso tutorial sobre como [rodar veículos elétricos usando notebooks Azure com Python](tutorial-ev-routing.md).
+Para saber mais sobre os recursos de roteamento de veículo elétrico, confira nosso tutorial sobre como [rotear veículos elétricos usando o Azure notebooks com Python](tutorial-ev-routing.md).
 
-## <a name="request-historic-and-real-time-data"></a>Solicite dados históricos e em tempo real
+## <a name="request-historic-and-real-time-data"></a>Solicitar dados históricos e em tempo real
 
-Por padrão, o serviço Route assume que o modo de viagem é um carro e a hora de partida é agora. Ele retorna a rota com base em condições de tráfego em tempo real, a menos que uma solicitação de cálculo de rota especifique o contrário. Restrições de tráfego dependentes de tempo fixo, como 'Curvas à esquerda não são permitidas entre 16:00 e 18:00) são capturadas e serão consideradas pelo motor de roteamento. Fechamentos de estradas, como obras rodoviárias, serão considerados a menos que você solicite especificamente uma rota que ignore o tráfego ao vivo atual. Para ignorar o tráfego `traffic` `false` atual, defina-o em sua solicitação de API.
+Por padrão, o serviço de rota assume que o modo de viagem é um carro e o horário de partida agora é. Ele retorna a rota com base em condições de tráfego em tempo real, a menos que uma solicitação de cálculo de rota especifique o contrário. Restrições de tráfego fixas dependentes de tempo, como ' Left não são permitidas entre 4:00 PM a 6:00 PM ' são capturadas e serão consideradas pelo mecanismo de roteamento. Os fechamentos de estrada, como roadworks, serão considerados, a menos que você solicite especificamente uma rota que ignore o tráfego ativo atual. Para ignorar o tráfego atual, defina `traffic` como `false` em sua solicitação de API.
 
-O valor de cálculo de rota **travelTimeInSeconds** inclui o atraso devido ao tráfego. É gerado por aproveitar os dados atuais e históricos do tempo de viagem, quando a hora da partida é definida para agora. Se o horário de partida for definido no futuro, o retorno das APIs prevê tempos de viagem com base em dados históricos.
+O valor de **travelTimeInSeconds** de cálculo de rota inclui o atraso devido ao tráfego. Ele é gerado aproveitando os dados atuais e históricos do horário de viagem, quando a hora de partida é definida como Now. Se o horário de partida for definido no futuro, as APIs retornarão tempos de viagem previstos com base em dados históricos.
 
-Se você incluir o **parâmetro computeTravelTimeFor=all** em sua solicitação, então o elemento resumo na resposta terá os seguintes campos adicionais, incluindo condições históricas de tráfego:
+Se você incluir o parâmetro **computeTravelTimeFor = All** em sua solicitação, o elemento Summary na resposta terá os seguintes campos adicionais, incluindo condições de tráfego históricas:
 
 | Elemento | Descrição|
 | :--- | :--- |
-| noTrafficTravelTimeInSeconds | Tempo estimado de viagem calculado como se não houvesse atrasos na via por causa das condições de tráfego, por exemplo, por causa do congestionamento |
-| históricoTrafficTravelTimeInSeconds | Tempo estimado de viagem calculado usando dados históricos de tráfego dependentes do tempo |
+| noTrafficTravelTimeInSeconds | Tempo estimado de viagem calculado como se não houvesse atrasos na rota devido a condições de tráfego, por exemplo, devido ao congestionamento |
+| historicTrafficTravelTimeInSeconds | Tempo estimado de viagem calculado usando dados de tráfego históricos dependentes de tempo |
 | liveTrafficIncidentsTravelTimeInSeconds | Tempo estimado de viagem calculado usando dados de velocidade em tempo real |
 
-As próximas seções demonstram como fazer chamadas para as APIs de rota usando os parâmetros discutidos.
+As próximas seções demonstram como fazer chamadas para as APIs de rota usando os parâmetros abordados.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-No primeiro exemplo abaixo, o horário de partida é definido para o futuro, no momento da escrita.
+No primeiro exemplo abaixo, a hora de partida é definida para o futuro, no momento da gravação.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-A resposta contém um elemento sumário, como o abaixo. Como o horário de partida é definido para o futuro, o valor **trafficDelayInSeconds** é zero. O valor **travelTimeInSeconds** é calculado usando dados históricos de tráfego dependentes do tempo. Então, neste caso, o valor **travelTimeInSeconds** é igual ao valor **históricoTrafficTravelTimeInSeconds.**
+A resposta contém um elemento Summary, como o mostrado abaixo. Como a hora de partida é definida para o futuro, o valor de **trafficDelayInSeconds** é zero. O valor de **travelTimeInSeconds** é calculado usando dados de tráfego históricos dependentes de tempo. Portanto, nesse caso, o valor de **travelTimeInSeconds** é igual ao valor de **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -106,13 +106,13 @@ A resposta contém um elemento sumário, como o abaixo. Como o horário de parti
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-No segundo exemplo abaixo, temos um pedido de roteamento em tempo real, onde a hora da partida é agora. Não está explicitamente especificado na URL porque é o valor padrão.
+No segundo exemplo abaixo, temos uma solicitação de roteamento em tempo real, em que o tempo de partida agora é. Ele não é especificado explicitamente na URL porque é o valor padrão.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-A resposta contém um resumo como mostrado abaixo. Devido aos congestionamentos, o valor **de trafficDelaysInSeconds** é maior que zero. Também é maior do que **o históricoTrafficTravelTimeInSeconds**.
+A resposta contém um resumo, conforme mostrado abaixo. Devido a congestionamentos, o valor de **trafficDelaysInSeconds** é maior que zero. Ele também é maior que **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -127,11 +127,11 @@ A resposta contém um resumo como mostrado abaixo. Devido aos congestionamentos,
 },
 ```
 
-## <a name="request-route-and-leg-details"></a>Solicitar detalhes da rota e da perna
+## <a name="request-route-and-leg-details"></a>Detalhes da rota e do segmento da solicitação
 
-Por padrão, o serviço Route retornará uma matriz de coordenadas. A resposta conterá as coordenadas que compõem `points`o caminho em uma lista nomeada . A resposta da rota também inclui a distância do início da rota e o tempo estimado decorrido. Esses valores podem ser usados para calcular a velocidade média de toda a rota.
+Por padrão, o serviço de rota retornará uma matriz de coordenadas. A resposta conterá as coordenadas que compõem o caminho em uma lista chamada `points`. A resposta de rota também inclui a distância desde o início da rota e o tempo decorrido estimado. Esses valores podem ser usados para calcular a velocidade média de toda a rota.
 
-A imagem a `points` seguir mostra o elemento.
+A imagem a seguir mostra `points` o elemento.
 
 <center>
 
@@ -139,7 +139,7 @@ A imagem a `points` seguir mostra o elemento.
 
 </center>
 
-Expanda `point` o elemento para ver a lista de coordenadas do caminho:
+Expanda `point` o elemento para ver a lista de coordenadas para o caminho:
 
 <center>
 
@@ -147,9 +147,9 @@ Expanda `point` o elemento para ver a lista de coordenadas do caminho:
 
 </center>
 
-As APIs de direções de rota suportam diferentes formatos de instruções que podem ser usadas especificando o parâmetro **instructionsType.** Para formatar instruções para facilitar o processamento do computador, use **instruçõesType=coded**. Use **instruçõesType=tagged** para exibir instruções como texto para o usuário. Além disso, as instruções podem ser formatadas como texto onde alguns elementos das instruções são marcados, e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instrução suportados](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+As APIs de direção de rota dão suporte a formatos diferentes de instruções que podem ser usadas especificando o parâmetro de **instruções** . Para formatar instruções para facilitar o processamento do computador, use o **instruçõestype = codificado**. Use o **instruçõestype = marcado** para exibir instruções como texto para o usuário. Além disso, as instruções podem ser formatadas como texto em que alguns elementos das instruções são marcados e a instrução é apresentada com formatação especial. Para obter mais informações, consulte a [lista de tipos de instrução com suporte](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-Quando as instruções são solicitadas, `guidance`a resposta retorna um novo elemento chamado . O `guidance` elemento contém duas informações: direções turn-by-turn e instruções resumidas.
+Quando as instruções são solicitadas, a resposta retorna um novo `guidance`elemento chamado. O `guidance` elemento contém duas informações: instruções ativas e instruções resumidas.
 
 <center>
 
@@ -157,11 +157,11 @@ Quando as instruções são solicitadas, `guidance`a resposta retorna um novo el
 
 </center>
 
-O `instructions` elemento mantém as direções turn-by-turn para a viagem, e as `instructionGroups` instruções resumidas. Cada resumo de instruções abrange um segmento da viagem que pode cobrir várias estradas. As APIs podem retornar detalhes para seções de uma rota. como, como, a faixa de coordenadas de um engarrafamento ou a velocidade atual do tráfego.
+O `instructions` elemento contém orientações viradas para a viagem e o `instructionGroups` tem instruções resumidas. Cada Resumo de instrução abrange um segmento da corrida que pode abranger várias estradas. As APIs podem retornar detalhes para as seções de uma rota. como, o intervalo de coordenadas de uma obstrução de tráfego ou a velocidade atual do tráfego.
 
 <center>
 
-![Vire por turno instruções](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
+![Ativar/desativar instruções](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
 </center>
 
@@ -171,55 +171,55 @@ O `instructions` elemento mantém as direções turn-by-turn para a viagem, e as
 
 </center>
 
-## <a name="request-a-route-for-a-commercial-vehicle"></a>Solicite uma rota para um veículo comercial
+## <a name="request-a-route-for-a-commercial-vehicle"></a>Solicitar uma rota para um veículo comercial
 
-As APIs de roteamento de mapas do Azure suportam roteamento de veículos comerciais, cobrindo o roteamento de caminhões comerciais. As APIs consideram limites especificados. Como, a altura e o peso do veículo, e se o veículo está carregando carga perigosa. Por exemplo, se um veículo está carregando inflamável, o motor de roteamento evita certos túneis que estão perto de áreas residenciais.
+As APIs de roteamento do Azure Maps dão suporte ao roteamento comercial de veículo, cobrindo o roteamento de caminhões comercial. As APIs consideram os limites especificados. Como, a altura e o peso do veículo, e se o veículo estiver realizando uma carga perigosa. Por exemplo, se um veículo estiver carregando flammable, o mecanismo de roteamento evitará determinados túneis próximos a áreas residenciais.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A solicitação de amostra abaixo consulta uma rota para um caminhão comercial. O caminhão está carregando material de resíduoperigoso classe 1.
+A solicitação de exemplo abaixo consulta uma rota para um caminhão comercial. O caminhão está carregando a classe 1 material de desperdício perigoso.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-A API rota retorna direções que acomodam as dimensões do caminhão e os resíduos perigosos. Você pode ler as instruções `guidance` de rota expandindo o elemento.
+A API de rota retorna direções que acomodam as dimensões do caminhão e o desperdício perigoso. Você pode ler as instruções de rota expandindo `guidance` o elemento.
 
 <center>
 
-![Caminhão com hazwaste classe 1](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
+![Caminhão com classe 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
 
 </center>
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-Alterar a Classe Hazmat dos EUA, a partir da consulta acima, resultará em uma rota diferente para acomodar essa mudança.
+Alterar a classe US Hazmat, da consulta acima, resultará em uma rota diferente para acomodar essa alteração.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
-A resposta abaixo é para um caminhão que transporta um material perigoso classe 9, que é menos perigoso do que um material perigoso classe 1. Quando você `guidance` expande o elemento para ler as direções, você notará que as direções não são as mesmas. Há mais instruções de rota para o caminhão que transporta material perigoso classe 1.
+A resposta abaixo é para um caminhão que tem um material perigoso de classe 9, que é menos perigoso do que um material perigoso de classe 1. Quando você expandir o `guidance` elemento para ler as direções, observará que as direções não são as mesmas. Há mais instruções de rota para o material perigoso da classe de transporte de um caminhão.
 
 <center>
 
-![Caminhão com hazwaste classe 9](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
+![Caminhão com classe 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
 </center>
 
-## <a name="request-traffic-information-along-a-route"></a>Solicite informações de tráfego ao longo de uma rota
+## <a name="request-traffic-information-along-a-route"></a>Solicitar informações de tráfego ao longo de uma rota
 
-Com as APIs de direção de rota do Azure Maps, os desenvolvedores podem solicitar detalhes para cada tipo de seção, incluindo o `sectionType` parâmetro na solicitação. Por exemplo, você pode solicitar as informações de velocidade para cada segmento de engarrafamento. Consulte a [lista de valores da chave sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) para saber mais sobre os vários detalhes que você pode solicitar.
+Com as APIs de direção de rota do Azure Maps, os desenvolvedores podem solicitar detalhes para cada tipo `sectionType` de seção, incluindo o parâmetro na solicitação. Por exemplo, você pode solicitar as informações de velocidade para cada segmento de obstrução de tráfego. Consulte a [lista de valores para a chave de sectiontype](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) para saber mais sobre os vários detalhes que você pode solicitar.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A consulta a `sectionType` seguir `traffic`define o : Ele solicita as seções que contêm informações de tráfego de Seattle para San Diego.
+A consulta a seguir define `sectionType` o `traffic`para. Ele solicita as seções que contêm informações de tráfego de Seattle a San Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
-A resposta contém as seções adequadas para o tráfego ao longo das coordenadas dadas.
+A resposta contém as seções que são adequadas para o tráfego durante as coordenadas fornecidas.
 
 <center>
 
@@ -227,7 +227,7 @@ A resposta contém as seções adequadas para o tráfego ao longo das coordenada
 
 </center>
 
-Esta opção pode ser usada para colorir as seções ao renderizar o mapa, como na imagem abaixo: 
+Essa opção pode ser usada para colorir as seções ao renderizar o mapa, como na imagem abaixo: 
 
 <center>
 
@@ -235,27 +235,27 @@ Esta opção pode ser usada para colorir as seções ao renderizar o mapa, como 
 
 </center>
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota multi-stop
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcular e otimizar uma rota de parada múltipla
 
-Atualmente, o Azure Maps oferece duas formas de otimização de rotas:
+Atualmente, o Azure Maps fornece duas formas de otimizações de rota:
 
-* Otimizações com base no tipo de rota solicitado, sem alterar a ordem dos waypoints. Você pode encontrar os [tipos de rota suportados aqui](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype)
+* Otimizações baseadas no tipo de rota solicitado, sem alterar a ordem de Marcos. Você pode encontrar os [tipos de rota com suporte aqui](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype)
 
-* Otimização de vendedor itinerante, que muda a ordem dos waypoints para obter a melhor ordem para visitar cada parada
+* Otimização de vendas de viagens, que altera a ordem do Marcos para obter a melhor ordem para visitar cada parada
 
-Para roteamento multi-stop, até 150 waypoints podem ser especificados em uma única solicitação de rota. Os locais de coordenadas de partida e término podem ser os mesmos, como seria o caso de uma ida e volta. Mas você precisa fornecer pelo menos um ponto de passagem adicional para fazer o cálculo da rota. Os pontos de passagem podem ser adicionados à consulta entre as coordenadas de origem e destino.
+Para o roteamento de várias interrupções, até 150 marcos pode ser especificado em uma única solicitação de rota. Os locais de coordenadas inicial e final podem ser os mesmos, como seria o caso com uma viagem de ida e volta. Mas você precisa fornecer pelo menos um waypoint adicional para fazer o cálculo da rota. Marcos pode ser adicionado à consulta entre as coordenadas de origem e destino.
 
-Se você quiser otimizar a melhor ordem para visitar os pontos de passagem dado, então você precisa especificar **computeBestOrder=true**. Esse cenário também é conhecido como o problema de otimização do vendedor itinerante.
+Se você quiser otimizar a melhor ordem para visitar o Marcos fornecido, será necessário especificar **computeBestOrder = true**. Esse cenário também é conhecido como o problema de otimização do vendedor de viagem.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A consulta a seguir solicita o caminho `computeBestOrder` para seis `false`pontos de passagem, com o parâmetro definido como . É também o valor padrão `computeBestOrder` para o parâmetro.
+A consulta a seguir solicita o caminho para seis Marcos, com `computeBestOrder` o parâmetro definido `false`como. Também é o valor padrão para o `computeBestOrder` parâmetro.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
-A resposta descreve o comprimento do caminho de 140.851 metros, e que levaria 9.991 segundos para percorrer esse caminho.
+A resposta descreve o comprimento do caminho para 140.851 metros e que levaria 9.991 segundos para viajar esse caminho.
 
 <center>
 
@@ -263,7 +263,7 @@ A resposta descreve o comprimento do caminho de 140.851 metros, e que levaria 9.
 
 </center>
 
-A imagem abaixo ilustra o caminho resultante desta consulta. Este caminho é um caminho possível. Não é o caminho ideal baseado no tempo ou distância.
+A imagem abaixo ilustra o caminho resultante desta consulta. Esse caminho é uma rota possível. Não é o caminho ideal com base no tempo ou na distância.
 
 <center>
 
@@ -271,17 +271,17 @@ A imagem abaixo ilustra o caminho resultante desta consulta. Este caminho é um 
 
 </center>
 
-Esta ordem de waypoint é: 0, 1, 2, 3, 4, 5 e 6.
+Esta ordem de waypoint de rota é: 0, 1, 2, 3, 4, 5 e 6.
 
 ### <a name="sample-query"></a>Exemplo de consulta
 
-A consulta a seguir solicita o caminho para os mesmos seis pontos de passagem, como na amostra acima. Desta vez, `computeBestOrder` o parâmetro `true` definido para (a otimização do vendedor viajante).
+A consulta a seguir solicita o caminho para os mesmos seis Marcos, como no exemplo acima. Desta vez, o `computeBestOrder` parâmetro definido como `true` (a otimização do vendedor de viagem).
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
-A resposta descreve o comprimento do caminho de 91.814 metros, e que levaria 7.797 segundos para percorrer esse caminho. A distância de viagem e o tempo de viagem são ambos mais baixos aqui porque a API devolveu a rota otimizada.
+A resposta descreve o comprimento do caminho para 91.814 metros e que levaria 7.797 segundos para viajar esse caminho. A distância de viagem e o tempo de viagem são inferiores aqui porque a API retornou a rota otimizada.
 
 <center>
 
@@ -300,20 +300,20 @@ A imagem abaixo ilustra o caminho resultante desta consulta.
 A rota ideal tem a seguinte ordem de waypoint: 0, 5, 1, 2, 4, 3 e 6.
 
 >[!TIP]
-> As informações otimizadas da ordem waypoint do serviço de roteamento fornecem um conjunto de índices. Estes excluem a origem e os índices de destino. Você precisa incrementar esses valores por 1 para explicar a origem. Em seguida, adicione seu destino ao final para obter a lista completa de waypoint encomendada.
+> As informações do pedido waypoint otimizado do serviço de roteamento fornecem um conjunto de índices. Eles excluem os índices de origem e de destino. Você precisa incrementar esses valores em 1 para considerar a origem. Em seguida, adicione seu destino ao final para obter a lista completa de waypoint ordenada.
 
-## <a name="calculate-and-bias-alternative-routes-using-supporting-points"></a>Calcular e viés rotas alternativas usando pontos de apoio
+## <a name="calculate-and-bias-alternative-routes-using-supporting-points"></a>Calcular e diferenciar rotas alternativas usando pontos de suporte
 
-Você pode ter situações em que deseja reconstruir uma rota para calcular rotas zero ou mais alternativas para uma rota de referência. Por exemplo, você pode querer mostrar aos clientes rotas alternativas que passam pela sua loja de varejo. Neste caso, você precisa influenciar um local usando pontos de apoio. Aqui estão os passos para influenciar um local:
+Você pode ter situações em que deseja reconstruir uma rota para calcular zero ou mais rotas alternativas para uma rota de referência. Por exemplo, talvez você queira mostrar rotas alternativas de clientes que passam pela sua loja de varejo. Nesse caso, você precisará inclinar um local usando pontos de suporte. Estas são as etapas para diferenciar um local:
 
-1. Calcule uma rota como está e obtenha o caminho a partir da resposta da rota
-2. Use o caminho de rota para encontrar os locais desejados ao longo ou perto do caminho da rota. Por exemplo, você pode usar a [API do Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) Maps Point of Interest ou consultar seus próprios dados em seu banco de dados.  
-3. Encomendar os locais com base na distância do início da rota
-4. Adicione esses locais como pontos de suporte em uma nova solicitação de rota para a [API Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Para saber mais sobre os pontos de suporte, consulte a documentação da [API Post Route Directions](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+1. Calcular uma rota como está e obter o caminho da resposta da rota
+2. Use o caminho da rota para localizar os locais desejados ao longo ou próximo ao caminho da rota. Por exemplo, você pode usar a [API de ponto de interesse](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) do Azure Maps ou consultar seus próprios dados no banco de dado.  
+3. Ordenar os locais com base na distância desde o início da rota
+4. Adicione esses locais como pontos de suporte em uma nova solicitação de rota para a [API de direções de rota post](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Para saber mais sobre os pontos de suporte, consulte a [documentação da API postar direções de rota](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-Ao chamar a [API de Direções de Rota de Post,](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)você pode definir o tempo mínimo de desvio ou as restrições de distância, juntamente com os pontos de suporte. Use esses parâmetros se quiser oferecer rotas alternativas, mas também deseja limitar o tempo de viagem. Quando essas restrições forem utilizadas, as rotas alternativas seguirão a rota de referência a partir do ponto de origem para o tempo ou distância dado. Em outras palavras, as outras rotas divergem da rota de referência pelas restrições dadas.
+Ao chamar a [API de direções de rota post](https://docs.microsoft.com/rest/api/maps/route/postroutedirections), você pode definir o tempo mínimo de desvio ou as restrições de distância, juntamente com os pontos de suporte. Use esses parâmetros se desejar oferecer rotas alternativas, mas você também deseja limitar o tempo de viagem. Quando essas restrições forem usadas, as rotas alternativas seguirão a rota de referência do ponto de origem para o tempo ou a distância especificada. Em outras palavras, as outras rotas divergem da rota de referência de acordo com as restrições determinadas.
 
-A imagem abaixo é um exemplo de renderização de rotas alternativas com limites de desvio especificados para a hora e a distância.
+A imagem abaixo é um exemplo de processamento de rotas alternativas com limites de desvios especificados para a hora e a distância.
 
 <center>
 
@@ -321,9 +321,9 @@ A imagem abaixo é um exemplo de renderização de rotas alternativas com limite
 
 </center>
 
-## <a name="use-the-routing-service-in-a-web-app"></a>Use o serviço de roteamento em um aplicativo web
+## <a name="use-the-routing-service-in-a-web-app"></a>Usar o serviço de roteamento em um aplicativo Web
 
-O Web SDK do Azure Maps fornece um [módulo de serviço](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Este módulo é uma biblioteca auxiliar que facilita o uso das APIs Azure Maps REST em aplicativos Web ou Node.js, usando JavaScript ou TypeScript. O módulo Serviço pode ser usado para renderizar as rotas retornadas no mapa. O módulo determina automaticamente qual API usar com solicitações GET e POST.
+O SDK da Web do Azure Maps fornece um [módulo de serviço](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). Esse módulo é uma biblioteca auxiliar que torna mais fácil usar as APIs REST do Azure Maps em aplicativos Web ou node. js, usando JavaScript ou TypeScript. O módulo de serviço pode ser usado para renderizar as rotas retornadas no mapa. O módulo determina automaticamente qual API usar com solicitações GET e POST.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -333,7 +333,7 @@ Para saber mais, consulte:
 > [Serviço de rota do Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Como usar o módulo Serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Como usar o módulo de serviço](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
 
 > [!div class="nextstepaction"]
 > [Mostrar rota no mapa](https://docs.microsoft.com/azure/azure-maps/map-route)

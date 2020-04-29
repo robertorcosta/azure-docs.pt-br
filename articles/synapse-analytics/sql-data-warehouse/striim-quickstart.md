@@ -1,5 +1,5 @@
 ---
-title: Striim início rápido
+title: Início rápido do Striim
 description: Comece rapidamente a usar o Striim e o SQL Data Warehouse do Azure.
 services: synapse-analytics
 author: mlee3gsd
@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349934"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guia de instalação da oferta do Marketplace do Striim Azure SQL DW
@@ -30,7 +30,7 @@ Configurar a VM do Striim com as propriedades especificadas, anotando o nome do 
 
 ![Configurar o Striim][configure]
 
-Uma vez implantado, clique em \<Nome da VM>-masternode no portal Azure, clique em Conectar e copie o Login usando a conta local da VM 
+Depois de implantado \<, clique em nome da VM>-masternode no portal do Azure, clique em conectar e copie o logon usando a conta local da VM 
 
 ![Conectar o Striim ao SQL Data Warehouse][connect]
 
@@ -56,7 +56,7 @@ Execute os seguintes comandos para mover o arquivo jar do JDBC para o diretório
 
 ![Iniciar o cluster Striim][start-striim]
 
-Agora, abra seu navegador \<favorito e navegue até DNS Name>:9080
+Agora, abra seu navegador favorito e navegue até \<o nome DNS>:9080
 
 ![Navegue até a tela de logon][navigate]
 

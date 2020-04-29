@@ -1,5 +1,5 @@
 ---
-title: Conformidade com o GDPR | Mercado Azure
+title: Conformidade do GDPR | Azure Marketplace
 description: Portal do Cloud Partner e GDPR.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80280279"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade com GDPR do Portal do Cloud Partner
@@ -24,12 +24,12 @@ O Portal do Cloud Partner fornece informações detalhadas sobre o processamento
 <a name="discover"></a>Descobrir
 --------
 
-O Portal do Parceiro na Nuvem dá acesso a todos os seus dados na guia Usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
+Portal do Cloud Partner fornece acesso a todos os seus dados na guia usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
 
 <a name="manage"></a>Gerenciar
 ------
 
-Você pode gerenciar seus dados pessoais pressionando excluir em sua conta de usuário na guia Usuários. Temos funções de um **proprietário** e um **contribuinte** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
+Você pode gerenciar seus dados pessoais pressionando excluir na sua conta de usuário na guia usuários. Temos funções de um **proprietário** e um **colaborador** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
 
 <a name="consent"></a>Consentimento
 -------

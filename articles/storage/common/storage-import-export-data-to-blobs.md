@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 570c663861361a19190f6fb5d608b6aa029a0885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282487"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
@@ -31,10 +31,10 @@ Você deve:
 * Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
 * Ter um sistema Windows executando uma [Versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
 * Habilite o BitLocker no sistema Windows. Consulte [Como habilitar o BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* [Baixe a versão 1 do WAImportExport mais recente](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows. A versão mais recente da ferramenta tem atualizações de segurança para permitir um protetor externo para a tecla BitLocker e o recurso de modo de desbloqueio atualizado.
+* [Baixe o WAImportExport versão 1 mais recente](https://www.microsoft.com/download/details.aspx?id=42659) no sistema Windows. A versão mais recente da ferramenta tem atualizações de segurança para permitir um protetor externo para a chave do BitLocker e o recurso modo de desbloqueio atualizado.
 
   * Descompacte para a pasta padrão `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
-* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente da FedEx/DHL, entre `adbops@microsoft.com`em contato com a equipe de operações da Caixa de Dados do Azure em .  
+* Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações `adbops@microsoft.com`Azure data Box em.  
   * A conta deve ser válida, deve ter saldo e ter recursos de devolução.
   * Gerar um número de controle para o trabalho de exportação.
   * Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -51,13 +51,13 @@ Execute as etapas a seguir para preparar as unidades.
 1. Conecte as unidades de disco ao sistema Windows via conectores SATA.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Habilite a criptografia BitLocker no volume NTFS. Se estiver usando um Windows Server System, use as instruções em [Como habilitar o BitLocker no Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo journal *(.jrn)* é criado na mesma pasta onde você executa a ferramenta.
+4. Copie os dados para o volume criptografado. Use arrastar e soltar, Robocopy ou qualquer outra ferramenta de cópia. Um arquivo de diário (*. JRN*) é criado na mesma pasta em que você executa a ferramenta.
 
-   Se a unidade estiver bloqueada e você precisar desbloquear a unidade, as etapas de desbloqueio podem ser diferentes dependendo do seu caso de uso.
+   Se a unidade estiver bloqueada e você precisar desbloquear a unidade, as etapas para desbloquear podem ser diferentes dependendo do caso de uso.
 
-   * Se você adicionou dados a uma unidade pré-criptografada (a ferramenta WAImportExport não foi usada para criptografia), use a chave BitLocker (uma senha numérica que você especifica) no popup para desbloquear a unidade.
+   * Se você tiver adicionado dados a uma unidade previamente criptografada (a ferramenta WAImportExport não foi usada para criptografia), use a chave do BitLocker (uma senha numérica que você especificar) no pop-up para desbloquear a unidade.
 
-   * Se você adicionou dados a uma unidade criptografada pela ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
+   * Se você tiver adicionado dados a uma unidade que foi criptografada pela ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
@@ -85,9 +85,9 @@ Execute as etapas a seguir para preparar as unidades.
     |/bk:     |A chave do BitLocker para a unidade. O código de acesso da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra da unidade do disco a ser enviado seguida por `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contêiner de destino no Armazenamento do Microsoft Azure.         |
-    |/blobtype:     |Esta opção especifica o tipo de blobs para os quais você deseja importar os dados. Para blobs de `BlockBlob` bloco, isto é e `PageBlob`para bolhas de página, é .         |
+    |/BlobType     |Esta opção especifica o tipo de BLOBs para os quais você deseja importar os dados. Para BLOBs de blocos, isso `BlockBlob` é e para BLOBs de páginas, `PageBlob`é.         |
     |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e que os dados existentes no disco devem ser preparados.          |
-    |/habilitar contentmd5:     |A opção, quando ativada, garante que o MD5 seja computado e definido como `Content-md5` propriedade em cada bolha. Use esta opção somente se `Content-md5` quiser usar o campo depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade dos dados (que ocorre por padrão). A configuração aumenta o tempo de upload de dados para a nuvem.          |
+    |/enablecontentmd5:     |A opção quando habilitado, garante que o MD5 é computado e `Content-md5` definido como propriedade em cada blob. Use esta opção somente se desejar usar o `Content-md5` campo depois que os dados forem carregados no Azure. <br> Essa opção não afeta a verificação de integridade de dados (que ocorre por padrão). A configuração aumenta o tempo necessário para carregar dados na nuvem.          |
 8. Repita a etapa anterior para cada disco que precisa ser enviado. Um arquivo de diário com o nome fornecido é criado para cada execução da linha de comando.
 
     > [!IMPORTANT]
@@ -102,7 +102,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Clique **em Criar trabalho de importação/exportação**.
+3. Clique em **criar trabalho de importação/exportação**.
 
     ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
@@ -127,7 +127,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 6. Em **Informações sobre a remessa de devolução**:
 
-   * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente da FedEx/DHL, escolha uma opção existente a partir da queda. Entre em contato com a `adbops@microsoft.com` equipe de operações da Caixa de Dados do Azure com as informações sobre a operadora que você pretende usar.
+   * Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações `adbops@microsoft.com` Azure data Box em com as informações sobre a transportadora que você planeja usar.
    * Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
    * Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
@@ -143,19 +143,19 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
      ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-optional-configure-customer-managed-key"></a>Passo 3 (Opcional): Configure a chave gerenciada pelo cliente
+## <a name="step-3-optional-configure-customer-managed-key"></a>Etapa 3 (opcional): configurar a chave gerenciada pelo cliente
 
-Pule este passo e vá para o próximo passo se quiser usar a chave gerenciada pela Microsoft para proteger as teclas do BitLocker para as unidades. Para configurar sua própria chave para proteger a chave BitLocker, siga as instruções em [Configurar chaves gerenciadas pelo cliente com o Azure Key Vault para importação/exportação do Azure no portal Azure](storage-import-export-encryption-key-portal.md)
+Ignore esta etapa e vá para a próxima etapa se você quiser usar a chave gerenciada da Microsoft para proteger suas chaves do BitLocker para as unidades. Para configurar sua própria chave para proteger a chave do BitLocker, siga as instruções em [Configurar chaves gerenciadas pelo cliente com Azure Key Vault para importação/exportação do Azure no portal do Azure](storage-import-export-encryption-key-portal.md)
 
-## <a name="step-4-ship-the-drives"></a>Passo 4: Enviar as unidades
+## <a name="step-4-ship-the-drives"></a>Etapa 4: enviar as unidades
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-5-update-the-job-with-tracking-information"></a>Passo 5: Atualize o trabalho com informações de rastreamento
+## <a name="step-5-update-the-job-with-tracking-information"></a>Etapa 5: atualizar o trabalho com informações de rastreamento
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-6-verify-data-upload-to-azure"></a>Passo 6: Verifique o upload de dados para o Azure
+## <a name="step-6-verify-data-upload-to-azure"></a>Etapa 6: verificar o carregamento de dados no Azure
 
 Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, verifique se os dados foram carregados no Azure. Exclua os dados locais somente depois de verificar se o upload foi realizado com êxito.
 

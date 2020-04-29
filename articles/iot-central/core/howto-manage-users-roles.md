@@ -1,6 +1,6 @@
 ---
-title: Gerencie usuários e funções no aplicativo Azure IoT Central | Microsoft Docs
-description: Como administrador, como gerenciar usuários e funções no aplicativo Central de IoT do Azure
+title: Gerenciar usuários e funções no aplicativo IoT Central do Azure | Microsoft Docs
+description: Como administrador, como gerenciar usuários e funções no aplicativo IoT Central do Azure
 author: lmasieri
 ms.author: lmasieri
 ms.date: 12/05/2019
@@ -9,21 +9,21 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80365510"
 ---
-# <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerencie usuários e funções em seu aplicativo IoT Central
+# <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerenciar usuários e funções em seu aplicativo IoT Central
 
-Este artigo descreve como, como administrador, você pode adicionar, editar e excluir usuários em seu aplicativo Azure IoT Central. O artigo também descreve como gerenciar funções no seu aplicativo Azure IoT Central.
+Este artigo descreve como, como administrador, você pode adicionar, editar e excluir usuários em seu aplicativo de IoT Central do Azure. O artigo também descreve como gerenciar funções no aplicativo IoT Central do Azure.
 
-Para acessar e usar a seção **Administração**, você deve estar na função **Administrador** no aplicativo Azure IoT Central. Se você criar um aplicativo Central De IoT do Azure, você será automaticamente adicionado à função **Administrador** para esse aplicativo.
+Para acessar e usar a seção **Administração**, você deve estar na função **Administrador** no aplicativo Azure IoT Central. Se você criar um aplicativo de IoT Central do Azure, você será adicionado automaticamente à função de **administrador** para esse aplicativo.
 
 ## <a name="add-users"></a>Adicionar usuários
 
-Cada usuário deve ter uma conta de usuário antes de poder entrar e acessar um aplicativo Azure IoT Central. Contas Microsoft e contas do Azure Active Directory são suportadas no Azure IoT Central. Atualmente, os grupos do Azure Active Directory não têm suporte no Azure IoT Central.
+Cada usuário deve ter uma conta de usuário antes de poder entrar e acessar um aplicativo Azure IoT Central. Contas da Microsoft e contas de Azure Active Directory têm suporte no IoT Central do Azure. Atualmente, os grupos do Azure Active Directory não têm suporte no Azure IoT Central.
 
 Para saber mais, confira a [Ajuda da Conta Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e o [Início Rápido: Adicionar novos usuários ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -37,230 +37,230 @@ Para saber mais, confira a [Ajuda da Conta Microsoft](https://support.microsoft.
 1. Escolha uma função para o usuário na lista suspensa **Função**. Saiba mais sobre as funções na seção [Gerenciar funções](#manage-roles) deste artigo.
 
     > [!div class="mx-imgBorder"]
-    >![Adicione o usuário e selecione uma função](media/howto-manage-users-roles/add-user-pnp.png)
+    >![Adicionar usuário e selecionar uma função](media/howto-manage-users-roles/add-user-pnp.png)
 
     > [!NOTE]
-    > Um usuário que está em uma função personalizada que lhes concede a permissão para adicionar outros usuários, só pode adicionar usuários a uma função com a mesma ou menos permissões do que sua própria função.
+    > Um usuário que está em uma função personalizada que concede a eles a permissão para adicionar outros usuários só pode adicionar usuários a uma função com as mesmas ou menos permissões do que sua própria função.
 
-Se um ID de usuário central de IoT for excluído do Azure Active Directory e depois for readicionado, o usuário não poderá fazer login no aplicativo IoT Central. Para reativar o acesso, o administrador da Central de IoT deve excluir e ler o usuário no aplicativo.
+Se uma ID de usuário IoT Central for excluída do Azure Active Directory e, em seguida, readicionada, o usuário não poderá entrar no aplicativo IoT Central. Para reabilitar o acesso, o administrador do IoT Central deve excluir e ler o usuário no aplicativo.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Editar as funções atribuídas aos usuários
 
-Os papéis não podem ser alterados depois de serem designados. Para alterar a função atribuída a um usuário, exclua o usuário e adicione-o novamente com uma função diferente.
+As funções não podem ser alteradas depois que são atribuídas. Para alterar a função atribuída a um usuário, exclua o usuário e adicione-o novamente com uma função diferente.
 
 > [!NOTE]
-> As funções atribuídas são específicas para o aplicativo IoT Central e não podem ser gerenciadas a partir do Portal Azure.
+> As funções atribuídas são específicas para IoT Central aplicativo e não podem ser gerenciadas no portal do Azure.
 
 ## <a name="delete-users"></a>Excluir usuários
 
-Para excluir usuários, marque uma ou mais caixas de seleção na página **Usuários**. Em seguida, **selecione Excluir**.
+Para excluir usuários, marque uma ou mais caixas de seleção na página **Usuários**. Em seguida, selecione **excluir**.
 
 ## <a name="manage-roles"></a>Gerenciar funções
 
-As funções permitem que você controle quem dentro de sua organização está autorizado a fazer várias tarefas na IoT Central. Existem três funções incorporadas que você pode atribuir aos usuários do seu aplicativo. Você também pode [criar funções personalizadas](#create-a-custom-role) se precisar de um controle mais fino.
+As funções permitem que você controle quem dentro de sua organização tem permissão para realizar várias tarefas no IoT Central. Há três funções internas que você pode atribuir a usuários do seu aplicativo. Você também pode [criar funções personalizadas](#create-a-custom-role) se precisar de um controle mais refinado.
 
 > [!div class="mx-imgBorder"]
-> ![Gerenciar a seleção de funções](media/howto-manage-users-roles/manage-roles-pnp.png)
+> ![Seleção de gerenciar funções](media/howto-manage-users-roles/manage-roles-pnp.png)
 
 ### <a name="administrator"></a>Administrador
 
-Os usuários na função **Administrador** podem gerenciar e controlar cada parte do aplicativo, incluindo o faturamento.
+Os usuários na função **administrador** podem gerenciar e controlar todas as partes do aplicativo, incluindo a cobrança.
 
 O usuário que cria um aplicativo é automaticamente designado à função **Administrador**. Sempre deverá haver pelo menos um usuário na função **Administrador**.
 
 ### <a name="builder"></a>Construtor
 
-Os usuários na função **Construtor** podem gerenciar cada parte do aplicativo, mas não podem fazer alterações nas guias Administração ou Exportação contínua de dados.
+Os usuários na função de **Construtor** podem gerenciar todas as partes do aplicativo, mas não podem fazer alterações nas guias administração ou exportação de dados contínuas.
 
 ### <a name="operator"></a>Operador
 
-Os usuários na função **Operador** podem monitorar a saúde e o status do dispositivo. Eles não estão autorizados a fazer alterações nos modelos de dispositivos ou administrar o aplicativo. Os operadores podem adicionar e excluir dispositivos, gerenciar conjuntos de dispositivos e executar análises e trabalhos. 
+Os usuários na função **operador** podem monitorar a integridade e o status do dispositivo. Eles não podem fazer alterações nos modelos de dispositivo ou administrar o aplicativo. Os operadores podem adicionar e excluir dispositivos, gerenciar conjuntos de dispositivos e executar análises e trabalhos. 
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
 
-Se a sua solução exigir controles de acesso com grãos mais finos, você pode criar funções personalizadas com conjuntos personalizados de permissões. Para criar uma função personalizada, navegue até a página **Funções** na seção **Administração** do seu aplicativo. Em seguida, selecione **+ Nova função**e adicione um nome e uma descrição para o seu papel. Selecione as permissões que sua função requer e, em seguida, **selecione Salvar**.
+Se sua solução exigir controles de acesso mais refinados, você poderá criar funções personalizadas com conjuntos personalizados de permissões. Para criar uma função personalizada, navegue até a página **funções** na seção **Administração** do seu aplicativo. Em seguida, selecione **+ nova função**e adicione um nome e uma descrição para sua função. Selecione as permissões que sua função requer e, em seguida, selecione **salvar**.
 
-Você pode adicionar usuários à sua função personalizada da mesma forma que você adiciona os usuários a uma função incorporada.
+Você pode adicionar usuários à sua função personalizada da mesma maneira que adiciona usuários a uma função interna.
 
 > [!div class="mx-imgBorder"]
-> ![Construa uma função personalizada](media/howto-manage-users-roles/create-custom-role-pnp.png)
+> ![Criar uma função personalizada](media/howto-manage-users-roles/create-custom-role-pnp.png)
 
 ### <a name="custom-role-options"></a>Opções de função personalizadas
 
-Quando você define uma função personalizada, você escolhe o conjunto de permissões que um usuário recebe se for um membro da função. Algumas permissões dependem de outras. Por exemplo, se você adicionar a permissão **de painel de aplicativos Update** a uma função, a permissão do painel do aplicativo **Exibir** será adicionada automaticamente. As tabelas a seguir resumem as permissões disponíveis e suas dependências, que você pode usar ao criar funções personalizadas.
+Ao definir uma função personalizada, você escolhe o conjunto de permissões que um usuário recebe se ele for um membro da função. Algumas permissões dependem de outras. Por exemplo, se você adicionar a permissão **Atualizar painéis do aplicativo** a uma função, a permissão **Exibir painéis do aplicativo** será adicionada automaticamente. As tabelas a seguir resumem as permissões disponíveis e suas dependências, que você pode usar ao criar funções personalizadas.
 
 #### <a name="managing-devices"></a>Gerenciando dispositivos
 
 **Permissões de modelo de dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Gerenciar | Visualizar <br/> Outras dependências: Exibir instâncias do dispositivo  |
-| Controle Total | Exibir, gerenciar <br/> Outras dependências: Exibir instâncias do dispositivo |
+| Exibir | Nenhum     |
+| Gerenciar | Exibir <br/> Outras dependências: exibir instâncias de dispositivo  |
+| Controle total | Exibir, gerenciar <br/> Outras dependências: exibir instâncias de dispositivo |
 
 **Permissões de instância de dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos |
-| Atualizar | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos  |
-| Criar | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos  |
-| Excluir | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos  |
-| Executar comandos | Atualizar, exibir <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos  |
-| Controle Total | Exibir, atualizar, criar, excluir, executar comandos <br/> Outras dependências: Exibir modelos de dispositivos e grupos de dispositivos  |
+| Exibir | Nenhum <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos |
+| Atualizar | Exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Criar | Visualizar <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Executar comandos | Atualizar, exibir <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
+| Controle total | Exibir, atualizar, criar, excluir, executar comandos <br/> Outras dependências: exibir modelos de dispositivo e grupos de dispositivos  |
 
 **Permissões de grupos de dispositivos**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum <br/> Outras dependências: Exibir modelos de dispositivos e instâncias de dispositivos |
-| Atualizar | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos e instâncias de dispositivos   |
-| Criar | Exibir, Atualizar <br/> Outras dependências: Exibir modelos de dispositivos e instâncias de dispositivos   |
-| Excluir | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos e instâncias de dispositivos   |
-| Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: Exibir modelos de dispositivos e instâncias de dispositivos |
+| Exibir | Nenhum <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
+| Atualizar | Exibir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
+| Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
+| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo   |
+| Controle total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo e instâncias de dispositivo |
 
-**Permissões de gerenciamento de conectividade de dispositivos**
+**Permissões de gerenciamento de conectividade do dispositivo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Exemplo de leitura | Nenhum <br/> Outras dependências: Exibir modelos de dispositivos, grupos de dispositivos, instâncias de dispositivos |
+| Ler instância | Nenhum <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
 | Gerenciar instância | Nenhum |
-| Leia global | Nenhum   |
-| Gerencie globalmente | Ler Global |
-| Controle Total | Leia exemplo, Gerenciar instância, Leia global, Gerencie globalmente. <br/> Outras dependências: Exibir modelos de dispositivos, grupos de dispositivos, instâncias de dispositivos |
+| Ler global | Nenhum   |
+| Gerenciar global | Ler global |
+| Controle total | Ler instância, gerenciar instância, ler global, gerenciar global. <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, instâncias de dispositivo |
 
-**Permissões de emprego**
+**Permissões de trabalhos**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
-| Atualizar | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
-| Criar | Exibir, Atualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
-| Excluir | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos |
-| Execute (executar) | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos; Atualizar instâncias do dispositivo; Executar comandos em instâncias de dispositivo |
-| Controle Total | Exibir, atualizar, criar, excluir, executar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos e grupos de dispositivos; Atualizar instâncias do dispositivo; Executar comandos em instâncias de dispositivo |
+| Exibir | Nenhum <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Atualizar | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos |
+| Execute (executar) | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
+| Controle total | Exibir, atualizar, criar, excluir, executar <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo e grupos de dispositivos; Atualizar instâncias de dispositivo; Executar comandos em instâncias de dispositivo |
 
 **Permissões de regras**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum <br/> Outras dependências: Exibir modelos de dispositivos |
-| Atualizar | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos |
-| Criar | Exibir, Atualizar <br/> Outras dependências: Exibir modelos de dispositivos |
-| Excluir | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos |
-| Controle Total | Exibir, atualizar, criar, excluir <br/> Outras dependências: Exibir modelos de dispositivos |
+| Exibir | Nenhum <br/> Outras dependências: exibir modelos de dispositivo |
+| Atualizar | Exibir <br/> Outras dependências: exibir modelos de dispositivo |
+| Criar | Exibir, atualizar <br/> Outras dependências: exibir modelos de dispositivo |
+| Excluir | Exibir <br/> Outras dependências: exibir modelos de dispositivo |
+| Controle total | Exibir, atualizar, criar, excluir <br/> Outras dependências: exibir modelos de dispositivo |
 
 #### <a name="managing-the-app"></a>Gerenciando o aplicativo
 
 **Permissões de configurações do aplicativo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Cópia | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, branding, links de ajuda, funções personalizadas, regras |
-| Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, copiar, excluir <br/> Outras dependências: Exibir modelos de dispositivos, grupos de dispositivos, painéis de aplicativos, exportação de dados, branding, links de ajuda, funções personalizadas, regras |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Copiar | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Excluir | Exibir   |
+| Controle total | Exibir, atualizar, copiar, excluir <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
-**Permissões de exportação do modelo de aplicativo**
+**Permissões de exportação de modelo de aplicativo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Exportação | Visualizar <br/> Outras dependências: Exibir modelos de dispositivos, instâncias de dispositivos, grupos de dispositivos, dashboards, exportação de dados, branding, links de ajuda, funções personalizadas, regras |
-| Controle Total | Ver, Exportar <br/> Outras dependências: Exibir modelos de dispositivos, grupos de dispositivos, painéis de aplicativos, exportação de dados, branding, links de ajuda, funções personalizadas, regras |
+| Exibir | Nenhum     |
+| Exportar | Exibir <br/> Outras dependências: exibir modelos de dispositivo, instâncias de dispositivo, grupos de dispositivos, painéis, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
+| Controle total | Exibir, exportar <br/> Outras dependências: exibir modelos de dispositivo, grupos de dispositivos, painéis de aplicativos, exportação de dados, identidade visual, links de ajuda, funções personalizadas, regras |
 
-**Permissões de faturamento**
+**Permissões de cobrança**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
 | Gerenciar | Nenhum     |
-| Controle Total | Gerenciar |
+| Controle total | Gerenciar |
 
-#### <a name="managing-users-and-roles"></a>Gerenciamento de usuários e funções
+#### <a name="managing-users-and-roles"></a>Gerenciando usuários e funções
 
 **Permissões de funções personalizadas**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum |
-| Atualizar | Visualizar |
-| Criar | Exibir, Atualizar |
-| Excluir | Visualizar |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Exibir | Nenhum |
+| Atualizar | Exibir |
+| Criar | Exibir, atualizar |
+| Excluir | Exibir |
+| Controle total | Exibir, atualizar, criar, excluir |
 
-**Permissões de gerenciamento de usuários**
+**Permissões de gerenciamento de usuário**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum <br/> Outras dependências: Exibir funções personalizadas |
-| Adicionar | Visualizar <br/> Outras dependências: Exibir funções personalizadas |
-| Excluir | Visualizar <br/> Outras dependências: Exibir funções personalizadas |
-| Controle Total | Exibir, Adicionar, Excluir <br/> Outras dependências: Exibir funções personalizadas |
+| Exibir | Nenhum <br/> Outras dependências: exibir funções personalizadas |
+| Adicionar | Exibir <br/> Outras dependências: exibir funções personalizadas |
+| Excluir | Exibir <br/> Outras dependências: exibir funções personalizadas |
+| Controle total | Exibir, adicionar, excluir <br/> Outras dependências: exibir funções personalizadas |
 
 > [!NOTE]
-> Um usuário que está em uma função personalizada que lhes concede a permissão para adicionar outros usuários, só pode adicionar usuários a uma função com a mesma ou menos permissões do que sua própria função.
+> Um usuário que está em uma função personalizada que concede a eles a permissão para adicionar outros usuários só pode adicionar usuários a uma função com as mesmas ou menos permissões do que sua própria função.
 
 #### <a name="customizing-the-app"></a>Personalizando o aplicativo
 
-**Permissões de painel de aplicativos**
+**Permissões do painel de aplicativo**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Criar | Exibir, Atualizar |
-| Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Criar | Exibir, atualizar |
+| Excluir | Exibir   |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de painéis pessoais**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Criar | Exibir, Atualizar   |
-| Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Criar | Exibir, atualizar   |
+| Excluir | Exibir   |
+| Controle total | Exibir, atualizar, criar, excluir |
 
-**Permissões de marca, favicon e cores**
+**Permissões de identidade visual, favicon e cores**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Controle Total | Exibir, Atualizar |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Controle total | Exibir, atualizar |
 
-**Ajuda links permissões**
+**Permissões de links de ajuda**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Controle Total | Exibir, Atualizar |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Controle total | Exibir, atualizar |
 
 #### <a name="extending-the-app"></a>Estendendo o aplicativo
 
 **Permissões de exportação de dados**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
-| Atualizar | Visualizar   |
-| Criar | Exibir, Atualizar  |
-| Excluir | Visualizar   |
-| Controle Total | Exibir, atualizar, criar, excluir |
+| Exibir | Nenhum     |
+| Atualizar | Exibir   |
+| Criar | Exibir, atualizar  |
+| Excluir | Exibir   |
+| Controle total | Exibir, atualizar, criar, excluir |
 
 **Permissões de token de API**
 
-| Nome | Dependências |
+| Name | Dependências |
 | ---- | -------- |
-| Visualizar | Nenhum     |
+| Exibir | Nenhum     |
 | Criar | Visualizar   |
-| Excluir | Visualizar   |
-| Controle Total | Exibir, criar, excluir |
+| Excluir | Exibir   |
+| Controle total | Exibir, criar, excluir |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu sobre como gerenciar usuários e funções em seu aplicativo Azure IoT Central, o próximo passo sugerido é aprender como [gerenciar sua conta](howto-view-bill.md).
+Agora que você aprendeu sobre como gerenciar usuários e funções em seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [gerenciar sua fatura](howto-view-bill.md).

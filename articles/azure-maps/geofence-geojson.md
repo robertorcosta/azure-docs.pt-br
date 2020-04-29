@@ -1,6 +1,6 @@
 ---
-title: Formato de dados GeoJSON para geocerca | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre como preparar os dados de geofence que podem ser usados na API do Microsoft Azure Maps GET e POST Geofence.
+title: Formato de dados geojson para cerca de cerca | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a preparar os dados de limite geográfico que podem ser usados no Microsoft Azure mapeia as APIs GET e POST de cerca geográfica.
 author: philmea
 ms.author: philmea
 ms.date: 02/14/2019
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335614"
 ---
 # <a name="geofencing-geojson-data"></a>Dados GeoJSON de delimitação geográfica
@@ -30,16 +30,16 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 * O `expiredTime` é a data e hora de expiração dos dados de delimitação geográfica. Se o valor de `userTime` na solicitação for posterior a esse valor, os dados de cerca geográfica correspondentes serão considerados como dados expirados e não serão consultados. Para os quais, o geometryId desses dados de cerca geográfica serão incluídos na matriz `expiredGeofenceGeometryId` dentro da resposta da cerca geográfica.
 * O `validityPeriod` é uma lista do período de validade da cerca geográfica. Se o valor de `userTime` na solicitação ficar fora do período de validade, os dados de cerca geográfica correspondentes serão considerados inválidos e não serão consultados. O geometryId desses dados de cerca geográfica é incluído na matriz `invalidPeriodGeofenceGeometryId` dentro da resposta da cerca geográfica. A tabela a seguir mostra as propriedades do elemento validityPeriod.
 
-| Nome | Type | Obrigatório  | Descrição |
+| Nome | Tipo | Necessária  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data/hora de início do período de tempo validade. |
 | endTime   | Datetime  | true |  A data/hora de término do período de tempo de validade. |
-| recurrenceType | string | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
-| businessDayOnly | Boolean | false |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
+| recurrenceType | cadeia de caracteres | false |   O tipo de recorrência do período. O valor pode ser `Daily`, `Weekly`, `Monthly` ou `Yearly`. O valor padrão é `Daily`.|
+| businessDayOnly | Booliano | false |  Indique se os dados são válidos apenas durante os dias úteis. O valor padrão é `false`.|
 
 
-* Todos os valores de coordenadas são representados `WGS84`como [longitude, latitude] definido em .
-* Para cada recurso, que contém `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. por exemplo: Todos `MultiPoint` os pontos em uso do mesmo raio para formar uma geocerca de círculo múltiplo.
+* Todos os valores de coordenadas são representados como [longitude, latitude] `WGS84`definido em.
+* Para cada recurso, que contém `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, as propriedades são aplicadas a todos os elementos. por exemplo: todos os pontos em `MultiPoint` usarão o mesmo raio para formar um limite geográfico de vários círculos.
 * Em cenário de círculo ponto, uma geometria de círculo pode ser representada usando um objeto de geometria `Point` com propriedades elaboradas em [Estender geometrias GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
 A seguir, é apresentado um corpo da solicitação de exemplo para uma cerca geográfica representada como uma geometria de cerca geográfica de círculo em `GeoJSON` usando um ponto central e um raio. O período válido dos dados de cerca geográfica começa a partir de 22/10/2018, das 9h às 17h, repetido todos os dias, exceto no final de semana. `expiredTime` indica que os dados de cerca geográfica serão considerados expirados, se `userTime` na solicitação for posterior a `2019-01-01`.  

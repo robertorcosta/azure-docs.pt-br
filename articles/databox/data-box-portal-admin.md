@@ -1,6 +1,6 @@
 ---
-title: Gerenciar a Caixa de Dados Do Azure, Azure Data Box Heavy via portal Azure | Microsoft Docs
-description: Descreve como usar o portal Azure para administrar sua Caixa de Dados Azure e a Caixa de Dados Azure Heavy.
+title: Gerenciar Azure Data Box, Azure Data Box Heavy via portal do Azure | Microsoft Docs
+description: Descreve como usar o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259988"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal Azure para administrar sua Caixa de Dados Azure e Azure Data Box Heavy
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use o portal do Azure para administrar seu Azure Data Box e Azure Data Box Heavy
 
-Este artigo se aplica tanto ao Azure Data Box quanto ao Azure Data Box Heavy. Este artigo descreve alguns dos complexos fluxos de trabalho e tarefas de gerenciamento que podem ser executadas no dispositivo Azure Data Box. Você pode gerenciar o dispositivo Data Box através do portal Azure ou através da ui web local.
+Este artigo se aplica a Azure Data Box e Azure Data Box Heavy. Este artigo descreve alguns dos fluxos de trabalho e tarefas de gerenciamento complexos que podem ser executados no dispositivo Azure Data Box. Você pode gerenciar o dispositivo Data Box por meio da portal do Azure ou por meio da interface do usuário da Web local.
 
-Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o portal Azure para gerenciar pedidos, gerenciar o dispositivo Data Box e rastrear o status do pedido à medida que ele prossegue para a conclusão.
+Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o portal do Azure para gerenciar pedidos, gerenciar Data Box dispositivo e acompanhar o status do pedido à medida que ele prossegue até a conclusão.
 
 
 ## <a name="cancel-an-order"></a>Cancelar um pedido
 
-Sempre pode haver a necessidade de cancelar um pedido depois de feito, por vários motivos. Você somente pode cancelar o pedido antes que ele seja processado. Uma vez que o pedido é processado e o dispositivo Data Box é preparado, não é possível cancelar o pedido.
+Sempre pode haver a necessidade de cancelar um pedido depois de feito, por vários motivos. Você somente pode cancelar o pedido antes que ele seja processado. Depois que o pedido é processado e Data Box dispositivo é preparado, não é possível cancelar o pedido.
 
 Execute as seguintes etapas para cancelar um pedido.
 
@@ -40,7 +40,7 @@ Execute as seguintes etapas para cancelar um pedido.
 
 ## <a name="clone-an-order"></a>Clonar um pedido
 
-A clonagem é útil em determinadas situações. Por exemplo, um usuário usou o Data Box para transferir alguns dados. À medida que mais dados são gerados, há a necessidade de outro dispositivo Data Box transferir esses dados para o Azure. Nesse caso, o mesmo pedido pode simplesmente ser clonado.
+A clonagem é útil em determinadas situações. Por exemplo, um usuário usou o Data Box para transferir alguns dados. À medida que mais dados são gerados, há uma necessidade de outro dispositivo de Data Box transferir esses dados para o Azure. Nesse caso, o mesmo pedido pode simplesmente ser clonado.
 
 Execute as etapas a seguir para clonar um pedido.
 
@@ -59,7 +59,7 @@ Você talvez queira excluir um pedido quando ele é concluído. O pedido contém
 
 Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Execute as etapas a seguir para excluir um pedido.
 
-1. Vá para **Todos os recursos.** Pesquise seu pedido.
+1. Vá para **todos os recursos**. Pesquise seu pedido.
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
@@ -69,7 +69,7 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 ## <a name="download-shipping-label"></a>Faça o download da etiqueta de remessa
 
-Talvez você precise baixar a etiqueta de remessa se a exibição de tinta virtual do Data Box não estiver funcionando e não exibir a etiqueta de remessa de devolução. Não há exibição de tinta E na Caixa de Dados Pesada e, portanto, este fluxo de trabalho não se aplica ao Data Box Heavy.
+Talvez você precise baixar a etiqueta de remessa se a exibição de tinta virtual do Data Box não estiver funcionando e não exibir a etiqueta de remessa de devolução. Não há nenhuma exibição eletrônica na Data Box Heavy e, portanto, esse fluxo de trabalho não se aplica a Data Box Heavy.
 
 Execute as etapas a seguir para baixar uma etiqueta de remessa.
 
@@ -77,7 +77,7 @@ Execute as etapas a seguir para baixar uma etiqueta de remessa.
 
     ![Faça o download da etiqueta de remessa](media/data-box-portal-admin/download-shipping-label.png)
 
-2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Guarde o rótulo e imprima-o. Dobre e insira a etiqueta na manga clara do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
+2.  Essa opção baixa a etiqueta de remessa de devolução a seguir. Salve o rótulo e imprima-o. Dobre e insira o rótulo na manga vazia do dispositivo. Verifique se a etiqueta está visível. Remova todos os adesivos do dispositivo referentes ao envio anterior.
 
     ![Etiqueta de remessa de exemplo](media/data-box-portal-admin/example-shipping-label.png)
 
@@ -120,10 +120,10 @@ Execute as etapas a seguir para baixar o histórico de pedidos.
 
     ![Baixar histórico de pedidos](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Clique em **Baixar histórico de pedidos**. No histórico baixado, você verá um registro de logs de rastreamento da operadora. Haverá dois conjuntos de log correspondentes aos dois nós em uma Caixa de Dados Pesada. Se você rolar para baixo até a parte inferior desse log, poderá ver os links para:
+2. Clique em **Baixar histórico de pedidos**. No histórico baixado, você verá um registro de logs de rastreamento da operadora. Haverá dois conjuntos de log correspondentes aos dois nós em um Data Box Heavy. Se você rolar para baixo até a parte inferior desse log, poderá ver os links para:
     
    - **Copiar logs**: tem a lista de arquivos com erros durante a cópia dos dados do Data Box para a conta de armazenamento do Azure.
-   - **Logs de auditoria** - contêm informações sobre como ligar e acessar compartilhamentos na Caixa de Dados quando ela estiver fora do data center do Azure.
+   - **Logs de auditoria** -contêm informações sobre como ligar e acessar compartilhamentos no data box quando ele está fora do datacenter do Azure.
    - **Arquivos BOM**: tem a lista de arquivos (também conhecida como manifesto de arquivo) que você pode baixar durante a **Preparação para o envio** e tem nomes de arquivo, tamanhos de arquivo e somas de verificação do arquivo.
 
        ```
@@ -207,8 +207,8 @@ Quando o status do dispositivo for alterado no portal, você será notificado po
 |Recebido     | O dispositivo foi recebido e verificado no datacenter do Azure. <br> Depois que a remessa for inspecionada, o upload do dispositivo será iniciado.      |
 |Cópia de dados     | Cópia de dados em andamento. Acompanhe o progresso de cópia do pedido no portal do Azure. <br> Aguarde até que a cópia de dados seja concluída. |
 |Concluído       |Pedido concluído com êxito.<br> Verifique se os dados estão no Azure antes de excluir os dados locais dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Veja [exemplos de registros de cópia quando o upload concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Concluído com avisos| A cópia dos dados foi concluída, mas seus dados foram modificados. Os dados tinham erros não críticos de blob ou nome de arquivo que foram corrigidos alterando os nomes do arquivo ou blob. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Veja [exemplos de registros de cópia quando o upload concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Concluído com erros| A cópia de dados foi concluída, mas apresentou erros. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Consulte [exemplos de logs de cópia quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Concluído com avisos| A cópia de dados foi concluída, mas os dados foram modificados. Os dados tinham erros não críticos de BLOB ou de nome de arquivo que foram corrigidos alterando os nomes de arquivo ou BLOB. <br> Examine os logs de cópia usando o caminho fornecido no portal do Azure. Anote as modificações em seus dados. Consulte [exemplos de logs de cópia quando o upload for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |Pedido cancelado. <br> Você cancelou o pedido ou ocorreu um erro e o serviço cancelou o pedido. Se o pedido não puder ser processado em até 90 dias, ele também será cancelado e você será notificado.     |
 |Limpar | Os dados nos discos do dispositivo foram apagados. A limpeza do dispositivo é considerada concluída quando o histórico de pedidos fica disponível no portal do Azure.|
 
@@ -216,4 +216,4 @@ Quando o status do dispositivo for alterado no portal, você será notificado po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [solucionar problemas de caixa de dados e caixa de dados.](data-box-troubleshoot.md)
+- Saiba como [solucionar problemas de data box e data Box Heavy](data-box-troubleshoot.md).

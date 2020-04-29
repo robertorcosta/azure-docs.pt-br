@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcbeedddc65a916f869a778616779917a9571181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331977"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
@@ -31,21 +31,21 @@ Este artigo descreve como gerenciar e personalizar os Serviços de Federação d
 | Tópico | O que ele abrange |
 |:--- |:--- |
 | **Gerenciar o AD FS** | |
-| [Reparar a confiança](#repairthetrust) |Como reparar a confiança de federação com o Office 365. |
-| [Federação com Azure AD usando ID de login alternativo](#alternateid) | Configurar a federação usando uma ID de logon alternativa  |
-| [Adicionar um servidor AD FS](#addadfsserver) |Como expandir o farm do AD FS com um servidor adicional do AD FS. |
+| [Reparar a relação de confiança](#repairthetrust) |Como reparar a confiança de federação com o Office 365. |
+| [Federar com o Azure AD usando a ID de logon alternativa](#alternateid) | Configurar a federação usando uma ID de logon alternativa  |
+| [Adicionar um servidor de AD FS](#addadfsserver) |Como expandir o farm do AD FS com um servidor adicional do AD FS. |
 | [Adicionar um Servidor Proxy de Aplicativo Web do AD FS](#addwapserver) |Como expandir um farm do AD FS com um servidor WAP (Proxy de Aplicativo Web) adicional. |
 | [Adicionar um domínio federado](#addfeddomain) |Como adicionar um domínio federado. |
-| [Atualize o certificado TLS/SSL](how-to-connect-fed-ssl-update.md)| Como atualizar o certificado TLS/SSL para uma fazenda AD FS. |
+| [Atualizar o certificado TLS/SSL](how-to-connect-fed-ssl-update.md)| Como atualizar o certificado TLS/SSL para um farm de AD FS. |
 | **Personalizar o AD FS** | |
 | [Adicionar uma ilustração ou um logotipo da empresa personalizado](#customlogo) |Como personalizar uma página de entrada do AD FS com um logotipo e uma ilustração da empresa. |
 | [Adicionar uma descrição de entrada](#addsignindescription) |Como adicionar uma descrição de página de entrada. |
-| [Modificar as regras de reivindicação do AD FS](#modclaims) |Como modificar declarações do AD FS para vários cenários de federação. |
+| [Modificar AD FS regras de declaração](#modclaims) |Como modificar declarações do AD FS para vários cenários de federação. |
 
 ## <a name="manage-ad-fs"></a>Gerenciar o AD FS
 Você pode realizar várias tarefas relacionadas ao AD FS no Azure AD com mínima intervenção do usuário usando o assistente do Azure AD Connect. Após instalar o Azure AD Connect executando o assistente, você pode executar o assistente novamente para realizar tarefas adicionais.
 
-## <a name="repair-the-trust"></a><a name="repairthetrust"></a>Reparar a confiança 
+## <a name="repair-the-trust"></a><a name="repairthetrust"></a>Reparar a relação de confiança 
 Você pode usar o Azure AD Connect para verificar a integridade atual da confiança do AD FS e Azure AD e tomar as medidas apropriadas para reparar a relação de confiança. Siga estas etapas para reparar a confiança do Azure AD e AD FS.
 
 1. Selecione **Reparar a relação de confiança do AAD e do ADFS** na lista de tarefas adicionais.
@@ -71,7 +71,7 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
 > [!NOTE]
 > O Azure AD Connect só pode reparar ou agir em relação a certificados autoassinados. O Azure AD Connect não pode reparar certificados de terceiros.
 
-## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Federação com Azure AD usando AlternateID 
+## <a name="federate-with-azure-ad-using-alternateid"></a><a name="alternateid"></a>Federar com o Azure AD usando o Alternativoid 
 É recomendável que o nome UPN local e o nome UPN na nuvem sejam mantidos iguais. Se o UPN local usar um domínio não roteável (por exemplo, Contoso.local) ou não puder ser alterado devido a dependências do aplicativo local, recomendamos configurar uma ID de logon alternativa. A ID de logon alternativa permite configurar uma experiência de logon na qual os usuários podem se conectar com um atributo que não seja o UPN, como o email. A opção para o nome UPN no Azure AD Connect usa como padrão o atributo userPrincipalName no Active Directory. Se você escolher qualquer outro atributo para o nome UPN e estiver federando com o uso do AD FS, o Azure AD Connect configurará o AD FS para a ID de logon alternativa. Um exemplo de escolha de um atributo diferente para o nome UPN é mostrado abaixo:
 
 ![Seleção de atributo de ID alternativa](./media/how-to-connect-fed-management/attributeselection.png)
@@ -120,7 +120,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
     ![Instalação concluída](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
-## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Adicionar um servidor AD FS WAP 
+## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Adicionar um servidor WAP AD FS 
 
 > [!NOTE]
 > Para adicionar um servidor WAP, o Azure AD Connect requer o arquivo de certificado PFX. Portanto, você só poderá executar essa operação se tiver configurado o farm do AD FS usando o Azure AD Connect.
@@ -202,7 +202,7 @@ Para adicionar uma descrição à página de **Entrada**, use o seguinte cmdlet 
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar as regras de reivindicação do AD FS 
+## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>Modificar AD FS regras de declaração 
 O AD FS dá suporte a uma linguagem de declarações avançada que você pode usar para criar regras de declaração personalizada. Para obter mais informações, confira [A função da linguagem de regras de declaração](https://technet.microsoft.com/library/dd807118.aspx).
 
 As seções a seguir descrevem como você pode escrever regras personalizadas para alguns cenários relacionadas à federação do Azure AD e AD FS.
@@ -217,7 +217,7 @@ Por exemplo, você pode selecionar **ms-ds-consistencyguid** como o atributo de 
     c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
     => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 
-Nessa regra, você simplesmente consulta os valores de **ms-ds-consistencyguid** e **objectGuid** do usuário do Active Directory. Altere o nome do repositório para um nome de armazenamento apropriado em sua implantação do AD FS. Também altere o tipo de sinistro para um tipo de sinistro adequado para sua federação, conforme definido para **objectGuid** e **ms-ds-consistencyguid**.
+Nessa regra, você simplesmente consulta os valores de **ms-ds-consistencyguid** e **objectGuid** do usuário do Active Directory. Altere o nome do repositório para um nome de armazenamento apropriado em sua implantação do AD FS. Altere também o tipo de declarações para um tipo de declaração adequado para sua Federação, conforme definido para **objectGUID** e **MS-DS-consistencyguid**.
 
 Além disso, usando **add** e não **issue**, você evita adicionar uma emissão de saída à entidade e pode usar os valores como valores intermediários. Você emitirá a declaração em uma regra mais recente depois de estabelecer o valor a ser usado como a ID imutável.
 

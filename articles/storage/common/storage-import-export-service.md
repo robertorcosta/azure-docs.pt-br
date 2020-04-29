@@ -9,10 +9,10 @@ ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282436"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
@@ -28,8 +28,8 @@ Se você quiser transferir dados usando unidades de disco fornecidas pela Micros
 Considere o uso do serviço de Importação/Exportação do Azure quando o upload ou download dos dados pela rede estiver muito lento, ou quando a largura de banda de rede adicional for dispendiosa. Use esse serviço nos cenários a seguir:
 
 * **Migração de dados para a nuvem**: mover grandes quantidades de dados para o Microsoft Azure de forma rápida e econômica.
-* **Distribuição de conteúdo**: Envie rapidamente dados para os sites dos clientes.
-* **Backup**: Faça backups de seus dados no local para armazenar no Azure Storage.
+* **Distribuição de conteúdo**: enviar dados rapidamente para seus sites de clientes.
+* **Backup**: Faça backups de seus dados locais para armazenar no armazenamento do Azure.
 * **Recuperação de dados**: recuperar uma grande quantidade de dados guardados no armazenamento e enviá-los para seu local.
 
 ## <a name="importexport-components"></a>Componentes de importação/exportação
@@ -41,7 +41,7 @@ O serviço de importação/exportação usa os seguintes componentes:
 * **Ferramenta WAImportExport**: esta é uma ferramenta de linha de comando que faz o seguinte:
   * Prepara as unidades de disco que são enviadas para importação.
   * Facilita a cópia de seus dados para a unidade.
-  * Criptografa os dados na unidade com o BitLocker de 128 bits AES. Você pode usar um protetor de chave externo para proteger sua chave BitLocker.
+  * Criptografa os dados na unidade com o BitLocker de 128 bits do AES. Você pode usar um protetor de chave externa para proteger sua chave do BitLocker.
   * Gera os arquivos de diário da unidade usados durante a criação de importação.
   * Ajuda a identificar os números de unidades necessárias para trabalhos de exportação.
 
@@ -75,9 +75,9 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
 8. As unidades são enviadas usando sua conta da transportadora para o endereço de retorno fornecido no trabalho de importação.
 
 > [!NOTE]
-> Para embarques locais (dentro do data center país/região), compartilhe uma conta de transportadora doméstica.
+> Para remessas locais (em data center país/região), compartilhe uma conta de operadora doméstica.
 >
-> Para embarques no exterior (fora do data center país/região), compartilhe uma conta de transportadora internacional.
+> Para remessas do exterior (fora do data center país/região), compartilhe uma conta da operadora internacional.
 
  ![Figura 1: Importar o fluxo de trabalho](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 9. As unidades são enviadas usando sua conta da transportadora para o endereço de retorno fornecido no trabalho de importação.
 
 > [!NOTE]
-> Para embarques locais (dentro do data center país/região), compartilhe uma conta de transportadora doméstica.
+> Para remessas locais (em data center país/região), compartilhe uma conta de operadora doméstica.
 >
-> Para embarques no exterior (fora do data center país/região), compartilhe uma conta de transportadora internacional.
+> Para remessas do exterior (fora do data center país/região), compartilhe uma conta da operadora internacional.
   
  ![Figura 2: Exportar o fluxo de trabalho](./media/storage-import-export-service/exportjob.png)
 
@@ -129,15 +129,15 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |Centro-Sul dos Estados Unidos     | Oeste do Japão        |Coreia Central         | Alemanha Central        |
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
-Os dados na unidade são criptografados usando a criptografia de unidade BitLocker de 128 bits AES. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
+Os dados na unidade são criptografados usando o AES 128-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 
 Para trabalhos de importação, as unidades são criptografadas de duas maneiras.  
 
 * Especificar a opção ao usar o arquivo *dataset.csv* durante a execução da ferramenta WAImportExport na preparação da unidade.
 
-* Habilitar manualmente a criptografia do BitLocker na unidade. Especificar a chave de criptografia no *driveset.csv* ao executar a linha de comando da ferramenta WAImportExport durante a preparação da unidade. A chave de criptografia BitLocker pode ser ainda mais protegida usando um protetor de chave externo (também conhecido como a chave gerenciada pela Microsoft) ou uma chave gerenciada pelo cliente. Para obter mais informações, veja como [usar uma chave gerenciada pelo cliente para proteger sua chave BitLocker](storage-import-export-encryption-key-portal.md).
+* Habilitar manualmente a criptografia do BitLocker na unidade. Especificar a chave de criptografia no *driveset.csv* ao executar a linha de comando da ferramenta WAImportExport durante a preparação da unidade. A chave de criptografia do BitLocker pode ser mais protegida usando um protetor de chave externa (também conhecido como a chave gerenciada da Microsoft) ou uma chave gerenciada pelo cliente. Para obter mais informações, consulte como [usar uma chave gerenciada pelo cliente para proteger sua chave do BitLocker](storage-import-export-encryption-key-portal.md).
 
 Para os trabalhos de exportação, depois que seus dados forem copiados para as unidades, o serviço fará a criptografia da unidade usando o BitLocker antes de enviar para você. A chave de criptografia será fornecida a você por meio do Portal do Azure. A unidade precisa ser desbloqueada usando a ferramenta WAImporExport usando a chave.
 
@@ -155,7 +155,7 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 
 **Custos de transação**
 
-[A taxa de transação de armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) se aplica durante a importação, bem como a exportação de dados. As taxas de saída padrão também são aplicáveis, juntamente com as taxas de transação de armazenamento quando os dados são exportados do Azure Storage. Para obter mais informações sobre os custos de saída, consulte [Os preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/). .
+A [cobrança da transação de armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) é aplicada durante a importação, bem como a exportação de dados. Os encargos de saída padrão também são aplicáveis com cobranças de transações de armazenamento quando os dados são exportados do armazenamento do Azure. Para obter mais informações sobre custos de egresso, consulte [preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

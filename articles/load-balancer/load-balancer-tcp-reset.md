@@ -1,7 +1,7 @@
 ---
 title: Redefinição de TCP do Load Balancer quando ocioso no Azure
 titleSuffix: Azure Load Balancer
-description: Com este artigo, saiba mais sobre o Azure Load Balancer com pacotes TCP RST bidirecionais no tempo inativo.
+description: Com este artigo, saiba mais sobre Azure Load Balancer com pacotes TCP RST bidirecionais no tempo limite de ociosidade.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
 ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294396"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Balanceador de carga com reset TCP em ocioso
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer com a redefinição de TCP on Idle
 
 Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários, permitindo a Redefinição de TCP no modo ocioso para uma determinada regra. O comportamento de padrão do Load Balancer é remover fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará o Load Balancer enviar Redefinições de TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo de que a conexão atingiu o tempo limite e não é mais utilizável.  Pontos de extremidade podem estabelecer imediatamente uma nova conexão se necessário.
 
@@ -70,10 +70,10 @@ Disponível em todas as regiões.
 
 ## <a name="limitations"></a>Limitações
 
-- TCP RST só enviado durante a conexão TCP em estado estabelecido.
+- TCP RST é enviado somente durante a conexão TCP no estado estabelecido.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md).
+- Saiba mais sobre [Standard Load Balancer](load-balancer-standard-overview.md).
 - Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).
-- [Configure o TCP RST no tempo de inatividade](load-balancer-tcp-idle-timeout.md)
+- [Configurar TCP RST no tempo limite ocioso](load-balancer-tcp-idle-timeout.md)

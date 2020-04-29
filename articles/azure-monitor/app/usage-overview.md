@@ -4,10 +4,10 @@ description: Compreenda seus usuários e o que eles fazem com o seu aplicativo.
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80283949"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
@@ -20,9 +20,9 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
 1. **Código do servidor:** Instale o módulo apropriado para o [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) ou [outro](../../azure-monitor/app/platforms.md) aplicativo.
 
-    * *Não quer instalar o código do servidor? Basta [criar um recurso do Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
+    * *Não deseja instalar o código do servidor? Basta [criar um recurso de informações de aplicativo Azure](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Código da página web:** Adicione o seguinte script à sua ``</head>``página web antes do fechamento . Substitua a chave de instrumentação pelo valor apropriado para seu recurso do Application Insights:
+2. **Código da página da Web:** Adicione o script a seguir à sua página da Web antes ``</head>``do fechamento. Substitua a chave de instrumentação pelo valor apropriado para seu recurso do Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -34,7 +34,7 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
     </script>
     ```
 
-    Para saber configurações mais avançadas para monitorar sites, confira o [artigo de referência JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Para saber mais sobre configurações avançadas para o monitoramento de sites, confira o [artigo de referência do SDK do JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
 3. **Código de aplicativo móvel:** use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -152,12 +152,12 @@ No inicializador do aplicativo Web, como Global.asax.cs:
     }
 ```
 
-**ASP.NET principais**
+**ASP.NET Core aplicativos**
 
 > [!NOTE]
-> Adicionar inicializador `ApplicationInsights.config` `TelemetryConfiguration.Active` usando ou usando não é válido para ASP.NET aplicativos Core. 
+> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core. 
 
-Para [aplicações ASP.NET Core,](asp-net-core.md#adding-telemetryinitializers) `TelemetryInitializer` a adição de um novo é feita adicionando-a ao recipiente Dependency Injection, como mostrado abaixo. Isso é `ConfigureServices` feito no `Startup.cs` método da sua aula.
+Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método da sua `Startup.cs` classe.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

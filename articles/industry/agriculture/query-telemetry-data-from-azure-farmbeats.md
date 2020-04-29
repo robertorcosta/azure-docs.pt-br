@@ -1,48 +1,48 @@
 ---
-title: Consulta dados de telemetria ingeridos
+title: Consultar dados telemétricos ingeridos
 description: Este artigo descreve como consultar dados de telemetria ingeridos.
 author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349799"
 ---
-# <a name="query-ingested-telemetry-data"></a>Consulta dados de telemetria ingeridos
+# <a name="query-ingested-telemetry-data"></a>Consultar dados telemétricos ingeridos
 
-Este artigo descreve como consultar dados de sensores ingeridos do Azure FarmBeats.
+Este artigo descreve como consultar dados de sensor ingeridos do Azure FarmBeats.
 
-A ingestão de dados de recursos de Internet das Coisas (IoT), como dispositivos e sensores, é um cenário comum no FarmBeats. Você cria metadados para dispositivos e sensores e, em seguida, ingere os dados históricos para FarmBeats em um formato canônico. Uma vez que os dados do sensor estejam disponíveis no FarmBeats Datahub, podemos consultar o mesmo para gerar insights acionáveis ou construir modelos.
+A ingestão de dados de recursos de IoT (Internet das Coisas), como dispositivos e sensores, é um cenário comum no FarmBeats. Você cria metadados para dispositivos e sensores e, em seguida, ingeri os dados históricos para FarmBeats em um formato canônico. Depois que os dados do sensor estiverem disponíveis no FarmBeats Datahub, podemos consultar o mesmo para gerar informações acionáveis ou modelos de compilação.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de prosseguir com este artigo, certifique-se de que você instalou FarmBeats e ingerido dados de telemetria de sensores de seus dispositivos IoT para FarmBeats.
+Antes de prosseguir com este artigo, verifique se você instalou os dados de telemetria do sensor FarmBeats e ingerido de seus dispositivos IoT para FarmBeats.
 
-Para ingerir dados de telemetria de sensores, visite [dados históricos de telemetria](ingest-historical-telemetry-data-in-azure-farmbeats.md)
+Para ingerir dados de telemetria do sensor, visite [dados de telemetria históricos de ingestão](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Antes de prosseguir, você também precisa garantir que você esteja familiarizado com as APIs FarmBeats REST, pois você consultará a telemetria ingerida usando as APIs. Para obter mais informações sobre as APIs do FarmBeats, consulte [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Certifique-se de que você é capaz de fazer solicitações de API para o seu ponto final farmbeats datahub**.
+Antes de continuar, você também precisa garantir que esteja familiarizado com as APIs REST do FarmBeats, pois você consultará a telemetria ingerida usando as APIs. Para obter mais informações sobre APIs do FarmBeats, consulte [APIs REST do FarmBeats](rest-api-in-azure-farmbeats.md). **Certifique-se de que você possa fazer solicitações de API para o ponto de extremidade FarmBeats Datahub**.
 
-## <a name="query-ingested-sensor-telemetry-data"></a>Query ingerido dados de telemetria do sensor
+## <a name="query-ingested-sensor-telemetry-data"></a>Consultar dados de telemetria do sensor ingerido
 
-Existem duas maneiras de acessar e consultar dados de telemetria do FarmBeats:
+Há duas maneiras de acessar e consultar dados de telemetria do FarmBeats:
 
 - API e
-- Visão da série temporal (TSI).
+- Time Series Insights (TSI).
 
-### <a name="query-using-rest-api"></a>Consulta usando API REST
+### <a name="query-using-rest-api"></a>Consultar usando a API REST
 
-Siga as etapas para consultar os dados de telemetria de sensores ingeridos usando apIs FarmBeats REST:
+Siga as etapas para consultar os dados de telemetria do sensor ingerido usando as APIs REST do FarmBeats:
 
-1. Identifique o sensor em que está interessado. Você pode fazer isso fazendo uma solicitação GET na API /Sensor.
+1. Identifique o sensor no qual você está interessado. Você pode fazer isso fazendo uma solicitação GET na API/sensor.
 
 > [!NOTE]
-> O **id** e o **sensorModelId** do objeto do sensor interessado.
+> A **ID** e a **sensorModelId** do objeto de sensor interessado.
 
-2. Faça um GET/{id} na API /SensorModel para o **sensorModelId,** conforme observado na etapa 1. O "Modelo do Sensor" tem todos os metadados e detalhes sobre a telemetria ingerida a partir do sensor. Por exemplo, **a Medida do Sensor** dentro do objeto Sensor **Model** tem detalhes sobre quais medidas é o envio do sensor e em quais tipos e unidades. Por exemplo,
+2. Crie uma GET/{id} na API/SensorModel para o **sensorModelId** , conforme observado na etapa 1. O "modelo de sensor" tem todos os metadados e detalhes sobre a telemetria ingerida do sensor. Por exemplo, a **medida de sensor** dentro do objeto de modelo de **sensor** tem detalhes sobre quais medidas o sensor está enviando e em quais tipos e unidades. Por exemplo,
 
   ```json
   {
@@ -54,9 +54,9 @@ Siga as etapas para consultar os dados de telemetria de sensores ingeridos usand
       "description": "<Description of the measure>"
   }
   ```
-Anote a resposta da chamada GET/{id} para o Modelo do Sensor.
+Anote a resposta da chamada GET/{id} para o modelo de sensor.
 
-3. Faça uma api de /Telemetria com a seguinte carga de entrada
+3. Faça uma chamada POST na API/Telemetry com a seguinte carga de entrada
 
   ```json
   {
@@ -77,7 +77,7 @@ Anote a resposta da chamada GET/{id} para o Modelo do Sensor.
     ]
   }
   ```
-4. A resposta da API /Telemetria será mais ou menos assim:
+4. A resposta da API/Telemetry terá uma aparência semelhante a esta:
 
   ```json
   {
@@ -105,21 +105,21 @@ Anote a resposta da chamada GET/{id} para o Modelo do Sensor.
     ]
   }
   ```
-Na resposta ao exemplo acima, a telemetria do sensor consultada fornece dados para dois carimbos de tempo, juntamente com o nome da medida ("moist_soil_last") e valores da telemetria relatada nos dois carimbos de tempo. Você precisará consultar o modelo do sensor associado (conforme descrito na etapa 2) para interpretar o tipo e a unidade dos valores relatados.
+Na resposta de exemplo acima, a telemetria do sensor consultado fornece dados para dois carimbos de data/hora junto com o nome da medida ("moist_soil_last") e os valores da telemetria relatada nos dois carimbos de data/hora. Você precisará consultar o modelo de sensor associado (conforme descrito na etapa 2) para interpretar o tipo e a unidade dos valores relatados.
 
-### <a name="query-using-azure-time-series-insights-tsi"></a>Consulta usando O Zure Time Series Insights (TSI)
+### <a name="query-using-azure-time-series-insights-tsi"></a>Consulta usando Azure Time Series Insights (TSI)
 
-O FarmBeats aproveita [o Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) para ingerir, armazenar, consultar e visualizar dados em escala IoT — dados altamente contextualizados e otimizados para séries tempo.
+O FarmBeats utiliza [Azure Time Series insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) para ingerir, armazenar, consultar e Visualizar dados em escala de IOT – dados altamente contextuais e otimizados para a série temporal.
 
-Os dados de telemetria são recebidos em um EventHub e, em seguida, processados e empurrados para um ambiente TSI dentro do grupo de recursos FarmBeats. Os dados podem então ser consultados diretamente a partir do TSI. Para obter mais informações, consulte [a documentação do TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
+Os dados de telemetria são recebidos em um EventHub e, em seguida, processados e enviados por push para um ambiente de TSI no grupo de recursos FarmBeats. Em seguida, os dados podem ser consultados diretamente do TSI. Para obter mais informações, consulte a [documentação do TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
 
-Siga as etapas para visualizar dados no TSI:
+Siga as etapas para visualizar os dados em TSI:
 
-1. Vá para o grupo de recursos **Azure Portal** > **FarmBeats DataHub** > ambiente selecionado **de Insights de séries** de tempo (tsi-xxxx) > **Políticas de Acesso a Dados**. Adicione o usuário com acesso ao Leitor ou Contribuinte.
-2. Vá para a página **Visão Geral** do ambiente Time **Series Insights** (tsi-xxxx) e selecione a **URL do Explorador de Insights da série do tempo**. Agora você poderá visualizar a telemetria ingerida.
+1. Vá > para o **portal do Azure****FarmBeats DataHub grupo de recursos** > selecione ambiente de **Time Series insights** (TSI-XXXX) > políticas de **acesso a dados**. Adicionar usuário com acesso de leitor ou colaborador.
+2. Vá para a página **visão geral** do ambiente de **Time Series insights** (TSI-XXXX) e selecione a **URL do time Series insights Explorer**. Agora você poderá visualizar a telemetria ingerida.
 
-Além de armazenar, consultar e visualizar a telemetria, o TSI também permite a integração a um painel Power BI. Para mais informações, consulte [aqui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
+Além de armazenar, consultar e visualizar a telemetria, o TSI também permite a integração a um painel de Power BI. Para obter mais informações, consulte [aqui]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você tem dados de sensores consultados da sua instância Azure FarmBeats. Agora, aprenda a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para suas fazendas.
+Agora você consultou os dados do sensor de sua instância do FarmBeats do Azure. Agora, saiba como [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para seus farms.

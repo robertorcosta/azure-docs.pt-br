@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
 ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239929"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
@@ -28,9 +28,9 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 ## <a name="create-a-template"></a>Criar um modelo
 
-Os modelos do Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight.) Essa abordagem baseada em modelos permite definir os recursos necessários para o HDInsight em um modelo.
+Os modelos de Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
 
-O documento JSON a seguir é uma [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)fusão dos arquivos de modelos e parâmetros de , que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
+O documento JSON a seguir é uma fusão do modelo e dos arquivos de parâmetros [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)do, que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
 
    ```json
    {
@@ -341,13 +341,13 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Esse comando retorna informações de um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou com sucesso um cluster HDInsight, use o seguinte para aprender como trabalhar com seu cluster.
+Agora que você criou um cluster HDInsight com êxito, use o seguinte para aprender a trabalhar com o cluster.
 
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 

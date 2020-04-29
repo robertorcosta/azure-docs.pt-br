@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282504"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
@@ -27,7 +27,7 @@ Você deve:
 - Ter uma assinatura ativa do Azure que pode ser usada para o serviço de Importação/Exportação.
 - Ter pelo menos uma conta de Armazenamento do Microsoft Azure. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 - Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
-- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente da FedEx/DHL, entre `adbops@microsoft.com`em contato com a equipe de operações da Caixa de Dados do Azure em .
+- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações `adbops@microsoft.com`Azure data Box em.
   - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
   - Gerar um número de controle para o trabalho de exportação.
   - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -44,7 +44,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
     ![Vá para Trabalhos de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Clique **em Criar trabalho de importação/exportação**.
+3. Clique em **criar trabalho de importação/exportação**.
 
     ![Clique em Trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
@@ -83,14 +83,14 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
 6. Em **Informações sobre a remessa de devolução**:
 
-    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente da FedEx/DHL, escolha uma opção existente a partir da queda. Entre em contato com a `adbops@microsoft.com` equipe de operações da Caixa de Dados do Azure com as informações sobre a operadora que você pretende usar.
-    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades de volta para você assim que seu trabalho de exportação estiver concluído.
+    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações `adbops@microsoft.com` Azure data Box em com as informações sobre a transportadora que você planeja usar.
+    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades de volta para você quando o trabalho de exportação estiver concluído.
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
         > [!TIP]
         > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-7. **Resumindo:**
+7. Em **Resumo**:
 
     - Revise os detalhes do trabalho.
     - Anote o nome do trabalho e forneça o endereço para entrega do datacenter do Azure para o envio de discos para Azure.
@@ -125,15 +125,15 @@ Quando o painel informa que o trabalho foi concluído, os discos são enviados a
 
 A exportação foi concluída.
 
-## <a name="step-5-unlock-the-disks"></a>Passo 5: Desbloquear os discos
+## <a name="step-5-unlock-the-disks"></a>Etapa 5: desbloquear os discos
 
-Se usar a versão 1.4.0.300 da ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
+Se estiver usando a versão 1.4.0.300 da ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
 
     `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
-Se estiver usando versões anteriores da ferramenta, use a caixa de diálogo BitLocker para desbloquear a unidade.
+Se estiver usando versões anteriores da ferramenta, use a caixa de diálogo do BitLocker para desbloquear a unidade.
 
-Neste momento, você pode excluir o trabalho ou deixá-lo. Os trabalhos são automaticamente excluídos após 90 dias.
+Neste momento, você pode excluir o trabalho ou deixá-lo. Os trabalhos são excluídos automaticamente após 90 dias.
 
 ## <a name="check-the-number-of-drives"></a>Verificar o número de unidades
 
@@ -153,9 +153,9 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
 
     |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
-    |**/logdir:**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|  
-    |**/sn:**|Obrigatórios. O nome da conta de armazenamento do trabalho de exportação.|  
-    |**/sk:**|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
+    |**logdir**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|  
+    |**SN**|Obrigatórios. O nome da conta de armazenamento do trabalho de exportação.|  
+    |**/SK**|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
     |**/csas:**|Necessário somente se uma chave de conta de armazenamento não for especificada. A SAS do contêiner para listar os blobs a serem exportados no trabalho de exportação.|  
     |**/ExportBlobListFile:**|Obrigatórios. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs) da API REST do serviço de Importação/Exportação.|  
     |**/DriveSize:**|Obrigatórios. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|  

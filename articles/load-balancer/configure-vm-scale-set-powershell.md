@@ -1,27 +1,27 @@
 ---
-title: Configure o conjunto de escala da máquina virtual com um Azure Load Balancer existente - Azure PowerShell
-description: Aprenda a configurar um conjunto de escala de máquina virtual com um Balanceador de carga Azure existente.
+title: Configurar conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente-Azure PowerShell
+description: Saiba como configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: article
 ms.date: 03/26/2020
 ms.openlocfilehash: 0db09083a2197ce72e6d6eed2381b0308239586e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349985"
 ---
-# <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configure um conjunto de escala de máquina virtual com um Azure Load Balancer existente usando o Azure PowerShell
+# <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell
 
-Neste artigo, você aprenderá como configurar um conjunto de escala de máquina virtual com um Azure Load Balancer existente. 
+Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure.
-- Um balanceador de carga sku padrão existente na assinatura onde o conjunto de escala da máquina virtual será implantado.
-- Uma Rede Virtual Azure para o conjunto de escala de máquinavirtual.
+- Um balanceador de carga de SKU padrão existente na assinatura em que o conjunto de dimensionamento de máquinas virtuais será implantado.
+- Uma rede virtual do Azure para o conjunto de dimensionamento de máquinas virtuais.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -29,15 +29,15 @@ Neste artigo, você aprenderá como configurar um conjunto de escala de máquina
 
 ## <a name="sign-in-to-azure-cli"></a>Entrar na CLI do Azure
 
-Inscreva-se no Azure.
+Entre no Azure.
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Implantar um conjunto de escala de máquina virtual com balanceador de carga existente
+## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Implantar um conjunto de dimensionamento de máquinas virtuais com o balanceador de carga existente
 
-Substitua os valores entre parênteses com os nomes dos recursos em sua configuração.
+Substitua os valores entre colchetes pelos nomes dos recursos em sua configuração.
 
 ```azurepowershell-interactive
 
@@ -55,14 +55,14 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 
 ```
 
-O exemplo abaixo implanta um conjunto de escala de máquina virtual com:
+O exemplo abaixo implanta um conjunto de dimensionamento de máquinas virtuais com:
 
-- Conjunto de escala de máquina virtual chamado **myVMSS**
+- Conjunto de dimensionamento de máquinas virtuais chamado **myVMSS**
 - Azure Load Balancer chamado **myLoadBalancer**
 - Pool de back-end do balanceador de carga chamado **myBackendPool**
-- Rede Virtual Azure chamada **myVnet**
-- Sub-rede chamada **mySubnet**
-- Grupo de recursos chamado **myResourceGroup**
+- Rede virtual do Azure chamada **myVnet**
+- Sub-rede chamada **Mysubnet**
+- Grupo de recursos chamado **MyResource** Group
 
 ```azureppowershell-interactive
 
@@ -79,11 +79,11 @@ $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol
 ```
 > [!NOTE]
-> Depois que o conjunto de escalas for criado, a porta backend não pode ser modificada para uma regra de balanceamento de carga usada por uma sonda de saúde do balanceador de carga. Para alterar a porta, você pode remover o teste de saúde atualizando o conjunto de escala da máquina virtual do Azure, atualizar a porta e, em seguida, configurar o teste de saúde novamente.
+> Depois que o conjunto de dimensionamento tiver sido criado, a porta de back-end não poderá ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade do balanceador de carga. Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de máquinas virtuais do Azure, atualizar a porta e, em seguida, configurar a investigação de integridade novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você implantou um conjunto de escala de máquina virtual com um Balanceador de carga Azure existente.  Para saber mais sobre conjuntos de escala de máquinas virtuais e balanceador de carga, consulte:
+Neste artigo, você implantou um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente.  Para saber mais sobre conjuntos de dimensionamento de máquinas virtuais e balanceador de carga, confira:
 
 - [O que é o Azure Load Balancer?](load-balancer-overview.md)
 - [O que são conjuntos de escala de máquina virtual?](../virtual-machine-scale-sets/overview.md)

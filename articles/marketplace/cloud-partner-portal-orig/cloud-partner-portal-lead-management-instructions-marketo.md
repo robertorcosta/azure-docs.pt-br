@@ -1,6 +1,6 @@
 ---
-title: Configure gestão de lead no Marketo | Mercado Azure
-description: Configure a gestão de líderes para os clientes do mercado Azure.
+title: Configurar gerenciamento de leads no Marketo | Azure Marketplace
+description: Configure o gerenciamento de leads para clientes do Marketo para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
 ms.openlocfilehash: 9fa05eae2d297cbd6ae7243d191cae5a7a3f990e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288522"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurar o gerenciamento de cliente potencial no Marketo

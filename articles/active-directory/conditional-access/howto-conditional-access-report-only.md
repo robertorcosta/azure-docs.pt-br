@@ -1,6 +1,6 @@
 ---
-title: Configure uma diretiva de acesso condicional no modo somente relatório - Azure Active Directory
-description: Usando o modo somente relatório no Acesso Condicional para ajudar na adoção
+title: Configurar uma política de acesso condicional no modo somente de relatório-Azure Active Directory
+description: Usando o modo somente de relatório no acesso condicional para auxiliar na adoção
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,81 +12,81 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295125"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configure uma diretiva de acesso condicional no modo somente relatório (Visualização)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurar uma política de acesso condicional no modo somente de relatório (visualização)
 
-Para configurar uma diretiva de acesso condicional no modo somente de relatório:
+Para configurar uma política de acesso condicional no modo somente de relatório:
 
 > [!IMPORTANT]
-> Se sua organização ainda não tiver, [configure a integração do Monitor Azure com o Azure AD](#set-up-azure-monitor-integration-with-azure-ad). Este processo deve ocorrer antes que os dados estejam disponíveis para revisão.
+> Se sua organização ainda não tiver feito isso, [configure Azure monitor integração com o Azure ad](#set-up-azure-monitor-integration-with-azure-ad). Esse processo deve ocorrer antes que os dados estarão disponíveis para revisão.
 
 1. Entre no **portal do Azure** como administrador de acesso condicional, administrador de segurança ou administrador global.
-1. Navegue até o Acesso**Condicional de****Segurança** > do Diretório >  **Ativo do Azure**.
-1. Selecione **Nova política**.
-1. Configure as condições da política e requisite os controles de subvenção conforme necessário.
-1. Em **'Habilitar',** definir o alterne irpara o modo **somente relatório.**
+1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+1. Selecione **nova política**.
+1. Configure as condições da política e os controles de concessão necessários, conforme necessário.
+1. Em **habilitar política** , defina alternar para o modo **somente relatório** .
 1. Selecione **Salvar**
 
 > [!TIP]
-> Você pode editar o estado de **diretiva Habilitar** de uma política existente somente **em** on para report, mas **fazê-lo** desativará a aplicação da diretiva. 
+> Você pode editar o estado da **política de habilitação** de uma política existente de **em** para **somente relatório** , mas isso desabilitará a imposição de política. 
 
-Exibir o resultado somente de relatório suscesem logs de login do Azure AD.
+Exibir o resultado somente de relatório nos logs de entrada do Azure AD.
 
-Para ver o resultado de uma política somente de relatório para um determinado login:
+Para exibir o resultado de uma política somente de relatório para uma entrada específica:
 
-1. Entre no **portal do Azure** como leitor de relatórios, leitor de segurança, administrador de segurança ou administrador global.
-1. Navegue até os > **logins**do **Diretório Ativo do Azure**.
-1. Selecione um login ou adicione filtros para reduzir os resultados.
-1. Na gaveta **Detalhes,** selecione a guia **Somente relatório (Visualização)** para exibir as políticas avaliadas durante o login.
+1. Entre no **portal do Azure** como um leitor de relatórios, leitor de segurança, administrador de segurança ou administrador global.
+1. Navegue até **Azure Active Directory** > **entradas**.
+1. Selecione uma entrada ou adicione filtros para restringir os resultados.
+1. Na gaveta de **detalhes** , selecione a guia **somente relatório (visualização)** para exibir as políticas avaliadas durante a entrada.
 
 > [!NOTE]
-> Ao baixar os logs de login, escolha o formato JSON para incluir dados de resultados somente de relatório suscesal de acesso.
+> Ao baixar os logs de entradas, escolha formato JSON para incluir acesso condicional somente para dados de resultados de relatório.
 
-## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configure a integração do Azure Monitor com o Azure AD
+## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configurar a integração do Azure Monitor com o Azure AD
 
-Para visualizar o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho Conditional Access Insights, você deve integrar o Azure Monitor com o Azure AD e exportar os logs de login. Existem duas etapas para configurar essa integração: 
+Para exibir o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho de informações de acesso condicional, você deve integrar o Azure Monitor ao Azure AD e exportar os logs de entrada. Há duas etapas para configurar essa integração: 
 
-1. [Inscreva-se para uma assinatura do Azure Monitor e crie um espaço de trabalho](/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exporte os logs de login do Azure AD para o Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Exporte os logs de entrada do Azure ad para Azure monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
-Mais informações sobre os preços do Azure Monitor podem ser encontradas na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar custos, definir um limite diário ou personalizar o período de retenção de dados podem ser encontrados no artigo, gerenciar o uso e os custos com o [Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
+Mais informações sobre preços de Azure Monitor podem ser encontradas na [página de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar os custos, definir um limite diário ou personalizar o período de retenção de dados podem ser encontrados no artigo [gerenciar o uso e os custos com logs de Azure monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 
-## <a name="view-conditional-access-insights-workbook"></a>Exibir a caderneta de visão do Acesso Condicional
+## <a name="view-conditional-access-insights-workbook"></a>Exibir pasta de trabalho de informações de acesso condicional
 
-Depois de integrar seus logs Ad do Azure com o Azure Monitor, você pode monitorar o impacto das políticas de acesso condicional usando as novas regras de visão do Acesso Condicional.
+Depois de integrar os logs do Azure AD ao Azure Monitor, você poderá monitorar o impacto das políticas de acesso condicional usando as novas pastas de trabalho de acesso condicional do insights.
 
-1. Entre no **portal do Azure** como administrador de segurança ou administrador global.
-1. Navegue até as > **cadernetas**do diretório ativo do **Azure**.
-1. Selecione **Insights de Acesso Condicional (Preview)**.
-1. Selecione uma ou mais políticas na parada da política de **acesso condicional.** Todas as políticas habilitadas são selecionadas por padrão.
-1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir os parâmetros **de Política de acesso condicional** e intervalo de **tempo,** o relatório será carregado.
-   1. Opcionalmente, procure **usuários** ou **aplicativos** individuais para estreitar o escopo do relatório.
-1. Selecione entre a visualização dos dados no intervalo de tempo pelo número de usuários ou pelo número de logins.
-1. Dependendo da **exibição de dados,** o **Resumo de Impacto** exibe o número de usuários ou logins no escopo dos parâmetros escolhidos, agrupados por número total, **sucesso,** **falha,** **ação do usuário necessária**e não **aplicada.** Selecione um azulejo para examinar as entradas de um determinado tipo de resultado. 
-   1. Se você alterou os parâmetros da carteira de trabalho, você pode optar por salvar uma cópia para uso futuro. Selecione o ícone de salvamento na parte superior do relatório e forneça um nome e local para salvar.
-1. Role para baixo para ver a decomposição dos logins para cada condição.
-1. Veja os **Detalhes de login** na parte inferior do relatório para investigar eventos individuais de login filtrados por seleções acima.
+1. Entre no **portal do Azure** como um administrador de segurança ou administrador global.
+1. Navegue até **Azure Active Directory** > **pastas de trabalho**.
+1. Selecione **informações de acesso condicional (versão prévia)**.
+1. Selecione uma ou mais políticas na lista suspensa **política de acesso condicional** . Todas as políticas habilitadas são selecionadas por padrão.
+1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir a **política de acesso condicional** e os parâmetros de **intervalo de tempo** , o relatório será carregado.
+   1. Opcionalmente, pesquise por **usuários** ou **aplicativos** individuais para restringir o escopo do relatório.
+1. Selecione entre exibir os dados no intervalo de tempo pelo número de usuários ou o número de entradas.
+1. Dependendo da exibição de **dados**, o **Resumo de impacto** exibe o número de usuários ou de entradas no escopo dos parâmetros escolhidos, agrupados por número total, **êxito**, **falha**, **ação do usuário necessária**e **não aplicado**. Selecione um bloco para examinar as entradas de um tipo de resultado específico. 
+   1. Se você alterou os parâmetros da pasta de trabalho, poderá optar por salvar uma cópia para uso futuro. Selecione o ícone salvar na parte superior do relatório e forneça um nome e um local para salvar.
+1. Role para baixo para exibir a divisão de entradas para cada condição.
+1. Exiba os **detalhes de entrada** na parte inferior do relatório para investigar eventos de entrada individuais filtrados por seleções acima.
 
 > [!TIP] 
-> Precisa detalhar uma consulta específica ou exportar os detalhes do login? Selecione o botão à direita de qualquer consulta para abrir a consulta no Log Analytics. Selecione Exportar para exportar para CSV ou Power BI.
+> Precisa fazer uma busca detalhada em uma consulta específica ou exportar os detalhes de entrada? Selecione o botão à direita de qualquer consulta para abrir a consulta em Log Analytics. Selecione exportar para exportar para CSV ou Power BI.
 
 ## <a name="common-problems-and-solutions"></a>Problemas comuns e soluções
 
-### <a name="why-are-the-queries-in-the-workbook-failing"></a>Por que as consultas na carteira de trabalho estão falhando?
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Por que as consultas na pasta de trabalho falham?
 
-Os clientes notaram que as consultas às vezes falham se os espaços de trabalho errados ou múltiplos estão associados à carteira de trabalho. Para corrigir esse problema, clique em **Editar** na parte superior da carteira de trabalho e, em seguida, na engrenagem Configurações. Selecione e remova espaços de trabalho que não estejam associados à carteira de trabalho. Deve haver apenas um espaço de trabalho associado a cada carteira de trabalho.
+Os clientes perceberam que as consultas às vezes falham se os espaços de trabalho incorretos ou múltiplos estiverem associados à pasta de trabalho. Para corrigir esse problema, clique em **Editar** na parte superior da pasta de trabalho e, em seguida, na engrenagem configurações. Selecione e remova espaços de trabalho que não estão associados à pasta de trabalho. Deve haver apenas um espaço de trabalho associado a cada pasta de trabalho.
 
-### <a name="why-doesnt-the-conditional-access-policies-dropdown-parameter-contain-my-policies"></a>Por que o parâmetro de isento de políticas de acesso condicional não contém minhas políticas?
+### <a name="why-doesnt-the-conditional-access-policies-dropdown-parameter-contain-my-policies"></a>Por que o parâmetro DropDown de políticas de acesso condicional não contém minhas políticas?
 
-A lista de entrada de Políticas de Acesso Condicional é preenchida consultando os logins mais recentes durante um período de 4 horas. Se um inquilino não tiver nenhum login nas últimas 4 horas, é possível que a estada esteja vazia. Se esse atraso for um problema persistente, como em pequenos inquilinos com logins pouco frequentes, os admins podem editar a consulta para a lista de parada das Políticas de Acesso Condicional e estender o tempo para a consulta para um tempo superior a 4 horas.
+A lista suspensa políticas de acesso condicional é populada consultando as entradas mais recentes em um período de 4 horas. Se um locatário não tiver nenhuma entrada nas últimas 4 horas, é possível que a lista suspensa esteja vazia. Se esse atraso for um problema persistente, como em locatários pequenos com entradas infrequentes, os administradores poderão editar a consulta para o menu suspenso políticas de acesso condicional e estender o tempo para a consulta a um tempo maior que 4 horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-Para obter mais informações sobre as regras de trabalho do Azure AD, consulte o artigo, [Como usar as regras do Azure Monitor para relatórios do Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+Para obter mais informações sobre pastas de trabalho do Azure AD, consulte o artigo [como usar Azure monitor pastas de trabalho para relatórios Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).

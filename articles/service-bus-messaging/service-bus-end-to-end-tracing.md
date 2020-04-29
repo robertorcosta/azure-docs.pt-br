@@ -1,6 +1,6 @@
 ---
 title: Diagnóstico e rastreamento end-to-end de Barramento de Serviço do Azure | Microsoft Docs
-description: Visão geral do diagnóstico do cliente do Service Bus e rastreamento de ponta a ponta (cliente através de todos os serviços envolvidos no processamento.)
+description: Visão geral do diagnóstico de cliente do barramento de serviço e rastreamento de ponta a ponta (cliente por meio de todos os serviços que estão envolvidos no processamento).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294170"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
@@ -35,7 +35,7 @@ O protocolo se baseia o [protocolo HTTP Correlation](https://github.com/dotnet/r
 |  ID de diagnóstico       | Identificador exclusivo de uma chamada externa do produtor para a fila. Consulte [Request-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 |  Correlation-Context | Contexto de operação, é propagado por todos os serviços envolvidos no processamento da operação. Para obter mais informações, consulte [contexto de correlação no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
-## <a name="service-bus-net-client-autotracing"></a>Ônibus de serviço .NET Cliente autotracing
+## <a name="service-bus-net-client-autotracing"></a>Autorastreamento de cliente .NET do barramento de serviço
 
 Começando com a versão 3.0.0 o [Cliente de Barramento de Serviço do Microsoft Azure para .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) fornece pontos de instrumentação de rastreamento que podem ser conectados por sistemas de rastreamento ou parte do código de cliente.
 A instrumentação permite controlar todas as chamadas para o serviço de mensagens do Barramento de Serviço do lado do cliente. Se o processamento de mensagens é feito com o [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), o processamento de mensagem também é instrumentado
@@ -85,11 +85,11 @@ Rastreamentos aninhados e exceções relatadas durante o processamento da mensag
 
 Caso faça chamadas para componentes externos com suporte durante o processamento da mensagem, eles também serão automaticamente controlados e correlacionados. Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](../azure-monitor/app/custom-operations-tracking.md) para rastreamento manual e correlação.
 
-Se você estiver executando qualquer código externo, além do Application Insights SDK, espere ver uma **duração** maior ao visualizar registros do Application Insights. 
+Se você estiver executando qualquer código externo Além do SDK do Application Insights, espere ver a **duração** mais longa ao exibir os logs de Application insights. 
 
-![Maior duração no registro de insights do aplicativo](./media/service-bus-end-to-end-tracing/longer-duration.png)
+![Duração maior no log de Application Insights](./media/service-bus-end-to-end-tracing/longer-duration.png)
 
-Não significa que houve um atraso no recebimento da mensagem. Neste cenário, a mensagem já foi recebida desde que a mensagem é passada como parâmetro para o código SDK. E, a **tag de nome** nos logs do App Insights **(Process)** indica que a mensagem está sendo processada pelo seu código de processamento de eventos externo. Esta questão não está relacionada ao Azure. Em vez disso, essas métricas referem-se à eficiência do seu código externo, dado que a mensagem já foi recebida do Service Bus. Consulte [este arquivo no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) para ver onde a tag **Process** é gerada e atribuída uma vez que a mensagem tenha sido recebida do Service Bus. 
+Isso não significa que houve um atraso ao receber a mensagem. Nesse cenário, a mensagem já foi recebida, pois a mensagem é passada como um parâmetro para o código do SDK. E, a marca de **nome** nos logs do App insights (**processo**) indica que a mensagem está sendo processada pelo código de processamento de evento externo. Esse problema não é relacionado ao Azure. Em vez disso, essas métricas referem-se à eficiência do seu código externo, dado que a mensagem já foi recebida do barramento de serviço. Consulte [este arquivo no GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) para ver onde a marca de **processo** é gerada e atribuída depois que a mensagem tiver sido recebida do barramento de serviço. 
 
 ### <a name="tracking-without-tracing-system"></a>Controle sem o sistema de rastreamento
 Caso seu sistema de rastreamento não ofereça suporte ao controle de chamadas do Barramento de Serviço automático, você poderá considerar adicionar esse suporte em um sistema de rastreamento ou em seu aplicativo. Esta seção descreve eventos de diagnóstico enviados pelo cliente .NET do Barramento de Serviço.  
@@ -147,7 +147,7 @@ Neste exemplo, o ouvinte registra duração, resultado, identificador exclusivo 
 
 #### <a name="events"></a>Eventos
 
-Para cada operação, dois eventos são enviados: 'Start' e 'Stop'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como o tempo de início e duração como propriedades de atividade.
+Para cada operação, dois eventos são enviados: 'Start' e 'Stop'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como a hora de início e a duração como propriedades da atividade.
 
 A carga do evento fornece um ouvinte com o contexto da operação, ele replica os parâmetros de entrada de API e valor de retorno. A carga do evento de 'Stop' tem todas as propriedades da carga do evento de 'Start', portanto você pode ignorar o evento de 'Start' completamente.
 

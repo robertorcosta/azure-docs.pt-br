@@ -1,5 +1,5 @@
 ---
-title: Criar ofertas de marketplace | Mercado Azure
+title: Criar ofertas do Marketplace | Azure Marketplace
 description: Criar ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: dsindona
 ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286465"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Criar ofertas do Azure Marketplace e do AppSource
@@ -36,7 +36,7 @@ A barra de ferramentas horizontal, localizada acima da área de entrada de dados
 | **Descartar** | Descarta as alterações recentes de entrada de dados (desde o último salvamento)             |
 | **Comparar** | Compara o estado da oferta atual com o da oferta publicada.  Habilitado apenas depois de uma oferta ter sido publicada com êxito.  |
 | **Publicar** | Inicia o processo de publicação para esta oferta                       |
-| **Excluir**  | Exclui esta oferta depois que ela é criada, mas antes de ela ser publicada. |
+| **Delete (excluir)**  | Exclui esta oferta depois que ela é criada, mas antes de ela ser publicada. |
 |   |   |
 
 
@@ -48,7 +48,7 @@ Ao criar uma oferta, você fornece os dados necessários e opcionais em cada gui
 |      --------       |   -------                                                            |
 | **Configurações da oferta**  | Coleta informações de identidade do publicador e da oferta.                    |
 | **SKUs**            | Define as características técnicas e empresariais para cada versão do SKU (unidade de manutenção de estoque) de sua oferta |
-| **Test Drive**      | Para os tipos que dão suporte a esse recurso opcional, define uma demonstração de sua oferta.  Para saber mais, consulte [O que é um test drive?](../test-drive/what-is-test-drive.md)  |
+| **Test drive**      | Para os tipos que dão suporte a esse recurso opcional, define uma demonstração de sua oferta.  Para saber mais, consulte [O que é um test drive?](../test-drive/what-is-test-drive.md)  |
 | **Marketplace** ou **Vitrine** | Coleta cadeias de caracteres de texto, documentos e imagens usados para listar a oferta no marketplace |
 | **Suporte**         | Coleta informações de contato para suporte online, de engenharia e atendimento ao cliente  |
 |  |  |
