@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas de configuração de dispositivo para o Azure IoT Hub | Microsoft Docs
-description: Conheça as melhores práticas para usar o gerenciamento automático de dispositivos para minimizar tarefas repetitivas e complexas envolvidas no gerenciamento de dispositivos IoT em escala.
+description: Saiba mais sobre as práticas recomendadas para usar o gerenciamento automático de dispositivos para minimizar tarefas repetitivas e complexas envolvidas no gerenciamento de dispositivos IoT em escala.
 author: robinsh
 ms.author: robinsh
 ms.date: 06/28/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024771"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Práticas recomendadas para configuração do dispositivo dentro de uma solução de IoT
@@ -20,13 +20,13 @@ O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas
 
 * **Fabricante/integrador de hardware de IoT**: Fabricantes de hardware de IoT, os integradores montando hardware de vários fabricantes ou os fornecedores de hardware para uma implantação de IoT fabricado ou integrado por outros fornecedores. Envolvidas no desenvolvimento e a integração de firmware, sistemas operacionais incorporados e software incorporado.
 
-* **Desenvolvedor de soluções ioT:** O desenvolvimento de uma solução de IoT é normalmente feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. O desenvolvedor da solução IoT pode desenvolver vários componentes da solução IoT a partir do zero, integrar vários componentes padrão ou de código aberto ou personalizar um [acelerador de solução da IoT](/azure/iot-accelerators/).
+* **Desenvolvedor de soluções de IOT:** O desenvolvimento de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. O desenvolvedor da solução IoT pode desenvolver vários componentes da solução IoT a partir do zero, integrar vários componentes padrão ou de código aberto ou personalizar um [acelerador de solução da IoT](/azure/iot-accelerators/).
 
-* **Operador de solução de IoT:** Depois que a solução ioT é implantada, ela requer operações de longo prazo, monitoramento, upgrades e manutenção. Essas tarefas podem ser feitas por uma equipe interna composta por especialistas em tecnologia da informação, equipes de operações e manutenção de hardware e especialistas em domínio que monitoram o comportamento correto da infraestrutura geral de IoT.
+* **Operador de solução de IOT:** Depois que a solução de IoT é implantada, ela requer operações de longo prazo, monitoramento, atualizações e manutenção. Essas tarefas podem ser feitas por uma equipe interna composta por especialistas em tecnologia da informação, equipes de operações e manutenção de hardware e especialistas em domínio que monitoram o comportamento correto da infraestrutura geral de IoT.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Compreender o gerenciamento de dispositivo automático para configurar dispositivos IoT em escala
 
-O gerenciamento automático de dispositivos inclui os muitos benefícios de [gêmeos de dispositivos](iot-hub-devguide-device-twins.md) e [módulos de gêmeos](iot-hub-devguide-module-twins.md) para sincronizar estados desejados e relatados entre a nuvem e os dispositivos. [As configurações automáticas do dispositivo](iot-hub-auto-device-config.md) atualizam automaticamente grandes conjuntos de gêmeos e resumem o progresso e a conformidade. As etapas de alto nível a seguir descrevem o gerenciamento de dispositivo como automático é desenvolvido e usado:
+O gerenciamento automático de dispositivos inclui os muitos benefícios de [gêmeos de dispositivos](iot-hub-devguide-device-twins.md) e [módulos de gêmeos](iot-hub-devguide-module-twins.md) para sincronizar estados desejados e relatados entre a nuvem e os dispositivos. [As configurações automáticas de dispositivo](iot-hub-auto-device-config.md) atualizam automaticamente grandes conjuntos de gêmeos e resumem o progresso e a conformidade. As etapas de alto nível a seguir descrevem o gerenciamento de dispositivo como automático é desenvolvido e usado:
 
 * O **fabricante / integrador de hardware da IoT** implementa recursos de gerenciamento de dispositivo em um aplicativo incorporado usando [gêmeos de dispositivo](iot-hub-devguide-device-twins.md). Esses recursos podem incluir a instalação de software, atualizações de firmware e atualização e gerenciamento de configurações.
 
@@ -66,9 +66,9 @@ A seguir são melhores práticas para desenvolvedores de solução IoT que estã
 
 * ** Implemente [configurações automáticas de dispositivos](iot-hub-auto-device-config.md):** configurações automáticas de dispositivos implantam e monitoram alterações de configuração em grandes conjuntos de dispositivos IoT por meio de gêmeos de dispositivos.
 
-   As configurações automáticas de dispositivos segmentam conjuntos de dispositivos gêmeos por meio da **condição de destino** que é uma consulta em marcas de dispositivos gêmeos ou em propriedades relatadas. O **conteúdo alvo** é o conjunto de propriedades desejadas que serão configuradas dentro do dispositivo gêmeo alvo. O conteúdo alvo deve alinhar com a estrutura do dispositivo gêmeo definida pelo fabricante/integrador de hardware IoT. As métricas são consultas sobre as propriedades relatadas por dispositivos **gêmeos** e também devem se alinhar com a estrutura dupla do dispositivo definida pelo fabricante/integrador de hardware IoT.
+   As configurações automáticas de dispositivos segmentam conjuntos de dispositivos gêmeos por meio da **condição de destino** que é uma consulta em marcas de dispositivos gêmeos ou em propriedades relatadas. O **conteúdo alvo** é o conjunto de propriedades desejadas que serão configuradas dentro do dispositivo gêmeo alvo. O conteúdo alvo deve alinhar com a estrutura do dispositivo gêmeo definida pelo fabricante/integrador de hardware IoT. As **métricas** são consultas em Propriedades relatadas do dispositivo e também devem ser alinhadas com a estrutura de entrelaçamento do dispositivo definida pelo fabricante/integrador de hardware de IOT.
 
-   As configurações automáticas do dispositivo são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do IoT Hub realizando operações duplas de dispositivos a uma taxa que nunca excederá os [limites de estrangulamento](iot-hub-devguide-quotas-throttling.md) para leituras e atualizações duplas de dispositivos.
+   As configurações automáticas do dispositivo são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do Hub IoT que executa operações de dispositivos de velocidade de dispositivo a uma taxa que nunca excederá os [limites de limitação](iot-hub-devguide-quotas-throttling.md) para leituras e atualizações do dispositivo.
 
 * **Use o [ Serviço de provisionamento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** desenvolvedores de soluções devem usar o Serviço de provisionamento de dispositivos para atribuir tags de gêmeos a novos dispositivos, de forma que eles sejam configurados automaticamente por **configurações automáticas de dispositivo** que são direcionados a gêmeos com essa tag. 
 

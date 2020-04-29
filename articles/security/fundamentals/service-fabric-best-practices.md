@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas para a segurança do tecido de serviço do Azure
+title: Práticas recomendadas para a segurança de Service Fabric do Azure
 description: Este artigo fornece um conjunto de melhores práticas de segurança do Azure Service Fabric.
 author: unifycloud
 ms.author: tomsh
@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461643"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
@@ -32,7 +32,7 @@ Recomendamos as seguintes melhores práticas de segurança do Azure Service Fabr
 -   Usar certificados X.509.
 -   Configurar políticas de segurança.
 -   Implementar a configuração de segurança de Reliable Actors.
--   Configure TLS para tecido de serviço Azure.
+-   Configure o TLS para o Azure Service Fabric.
 -   Usar segurança e isolamento de rede com o Azure Service Fabric.
 -   Configurar o Azure Key Vault para segurança.
 -   Atribuir usuários a funções.
@@ -115,14 +115,14 @@ No Service Fabric atores são implementados na estrutura do aplicativo Reliable 
 
 Cada ator é definido como uma instância de um tipo de ator, da mesma forma que um objeto do .NET é uma instância de um tipo do .NET. Por exemplo, um **tipo de ator** que implementa a funcionalidade de uma calculadora pode ter muitos atores desse tipo que são distribuídos em vários nós em um cluster. Cada um dos atores distribuídos é caracterizado exclusivamente por um identificador de ator.
 
-[As configurações de segurança dos replicadores](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) são usadas para proteger o canal de comunicação usado durante a replicação. Essa configuração impede os serviços de enxergar o tráfego de replicação uns dos outros e garante que os dados de alta disponibilidade fiquem seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
+[As configurações de segurança do replicador](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) são usadas para proteger o canal de comunicação usado durante a replicação. Essa configuração impede os serviços de enxergar o tráfego de replicação uns dos outros e garante que os dados de alta disponibilidade fiquem seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
 Configurações do replicador configuram o replicador que será responsável por tornar o Provedor de Estado do Ator altamente confiável.
 
-## <a name="configure-tls-for-azure-service-fabric"></a>Configurar TLS para tecido de serviço azure
-O processo de autenticação do servidor [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) os pontos de extremidade de gerenciamento de cluster para um cliente de gerenciamento. O cliente de gerenciamento, em seguida, reconhece que ele está se comunicando com o cluster real. Este certificado também fornece um [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) para a API de gerenciamento HTTPS e para o Service Fabric Explorer em HTTPS.
+## <a name="configure-tls-for-azure-service-fabric"></a>Configurar o TLS para o Azure Service Fabric
+O processo de autenticação do servidor [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) os pontos de extremidade de gerenciamento de cluster para um cliente de gerenciamento. O cliente de gerenciamento, em seguida, reconhece que ele está se comunicando com o cluster real. Esse certificado também fornece um [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) para a API de gerenciamento de HTTPS e para Service Fabric Explorer por HTTPS.
 Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para o seu cluster.
 
-Para configurar o TLS para um aplicativo, primeiro você precisa obter um certificado SSL/TLS que tenha sido assinado por um CA. O CA é um terceiro confiável que emite certificados para fins de segurança TLS. Se você ainda não tem um certificado SSL/TLS, você precisa obter um de uma empresa que vende certificados SSL/TLS.
+Para configurar o TLS para um aplicativo, primeiro você precisa obter um certificado SSL/TLS que tenha sido assinado por uma autoridade de certificação. A CA é uma terceira parte confiável que emite certificados para fins de segurança de TLS. Se você ainda não tiver um certificado SSL/TLS, precisará obter um de uma empresa que vende certificados SSL/TLS.
 
 O certificado deve atender aos seguintes requisitos para certificados SSL/TLS no Azure:
 -   O certificado deve conter uma chave privada.
@@ -135,13 +135,13 @@ O certificado deve atender aos seguintes requisitos para certificados SSL/TLS no
     - Solicite um certificado de uma autoridade de certificação com um nome de assunto que coincida com o nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__**.com**, você pode solicitar um certificado da autoridade de certificação para **.contoso.com** ou __www__**.contoso.com**.
 
     >[!NOTE]
-    >Não é possível obter um certificado SSL/TLS de uma CA para o domínio __cloudapp__**.net.**
+    >Você não pode obter um certificado SSL/TLS de uma AC para o domínio do __cloudapp__**.net** .
 
 -   O certificado deve usar, no mínimo, uma criptografia de 2.048 bits.
 
 O protocolo HTTP não é seguro e está sujeito a ataques de interceptação. Dados que são transmitidos por HTTP são enviados como texto sem formatação no navegador da Web para o servidor Web ou entre outros pontos de extremidade. Os invasores podem interceptar e exibir dados confidenciais que são enviados via HTTP, como detalhes de cartão de crédito e logons de conta. Quando os dados são enviados ou postados em um navegador usando HTTPS, o protocolo SSL faz com que essas informações sejam criptografadas e fiquem protegidas contra interceptação.
 
-Para saber mais sobre como usar certificados SSL/TLS, consulte [Configurando TLS para um aplicativo no Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+Para saber mais sobre como usar certificados SSL/TLS, confira [Configurando o TLS para um aplicativo no Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Usar segurança e isolamento de rede com o Azure Service Fabric
 Configurar um cluster seguro 3 nodetype usando o [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) como exemplo. Controle o tráfego de rede de entrada e saída usando o modelo e os Grupos de Segurança de Rede.
@@ -169,7 +169,7 @@ Há duas etapas básicas para configurar um cofre de chaves:
 Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
-Depois de criar os aplicativos para representar seu cluster, atribua seus usuários às funções suportadas pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal Azure.
+Depois de criar os aplicativos para representar o cluster, atribua os usuários às funções com suporte pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal do Azure.
 
 >[!NOTE]
 > Para obter mais informações sobre como usar funções no Service Fabric, consulte [Controle de acesso baseado em função para clientes do Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).

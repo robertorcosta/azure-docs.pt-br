@@ -14,19 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281464"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209138"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
-Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, *a recuperação geo-desastre* e *a georeplicação* são características importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
+Quando datacenters ou regiões inteiras do Azure (se nenhuma [zona de disponibilidade](../availability-zones/az-overview.md) for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Assim, a *recuperação de desastres geográficos* e *a replicação geográfica* são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
 
 > [!NOTE]
-> O recurso de recuperação de desastres geoestá disponível apenas para as [SKUs padrão e dedicadas.](https://azure.microsoft.com/pricing/details/event-hubs/)  
+> O recurso de recuperação de desastres geograficamente só está disponível para [SKUs padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 
@@ -40,7 +40,7 @@ O recurso de recuperação de desastre de área geográfica dos Hubs de Eventos 
 
 O recurso de recuperação de desastre implementa a recuperação de desastre dos metadados e se baseia em namespaces de recuperação de desastre primário e secundário. 
 
-O recurso de recuperação de desastres geoestá disponível apenas para [SKUs padrão e dedicado.](https://azure.microsoft.com/pricing/details/event-hubs/) Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
+O recurso de recuperação de desastres geograficamente está disponível apenas para os [SKUs padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/) . Você não precisa fazer nenhuma alteração de cadeia de conexão, já que a conexão é feita por meio de um alias.
 
 Os seguintes termos são usados neste artigo:
 
@@ -52,10 +52,10 @@ Os seguintes termos são usados neste artigo:
 
 -  *Failover*: o processo de ativação do namespace secundário.
 
-## <a name="supported-namespace-pairs"></a>Pares de namespace suportados
-As seguintes combinações de namespaces primários e secundários são suportadas:  
+## <a name="supported-namespace-pairs"></a>Pares de namespace com suporte
+Há suporte para as seguintes combinações de namespaces primários e secundários:  
 
-| Espaço de nome principal | Espaço de nome secundário | Com suporte | 
+| Namespace primário | Namespace secundário | Com suporte | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Sim | 
 | Standard | Dedicado | Sim | 
@@ -63,7 +63,7 @@ As seguintes combinações de namespaces primários e secundários são suportad
 | Dedicado | Standard | Não | 
 
 > [!NOTE]
-> Você não pode emparelhar namespaces que estão no mesmo cluster dedicado. Você pode emparelhar namespaces que estão em clusters separados. 
+> Não é possível emparelhar namespaces que estão no mesmo cluster dedicado. Você pode emparelhar namespaces que estão em clusters separados. 
 
 ## <a name="setup-and-failover-flow"></a>Instalação e fluxo de failover
 
@@ -110,11 +110,11 @@ O [exemplo no GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 Observe as seguintes considerações a serem lembradas quanto a esta versão:
 
-1. Pelo design, a recuperação de desastres geoeventos do Event Hubs não replica dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. Recomendamos reiniciar o receptor de eventos com um dos seguintes:
+1. Por design, a recuperação de desastre geográfica dos hubs de eventos não replica os dados e, portanto, você não pode reutilizar o valor de deslocamento antigo do seu hub de eventos primário em seu hub de eventos secundário. É recomendável reiniciar o receptor de eventos com um dos seguintes:
 
-- *EventPosition.FromStart()* - Se desejar ler todos os dados do seu hub de eventos secundários.
-- *EventPosition.FromEnd()* - Se você deseja ler todos os novos dados do momento da conexão com o seu hub de eventos secundários.
-- *EventPosition.FromEnqueuedTime(dateTime)* - Se você deseja ler todos os dados recebidos em seu hub de eventos secundários a partir de uma determinada data e hora.
+- *EventPosition. FromStart ()* – se você quiser ler todos os dados em seu hub de eventos secundário.
+- *EventPosition. deextremidade ()* – se você quiser ler todos os novos dados da hora da conexão com o Hub de eventos secundário.
+- *EventPosition. FromEnqueuedTime (DateTime)* – se você quiser ler todos os dados recebidos em seu hub de eventos secundário a partir de uma determinada data e hora.
 
 2. Em seu planejamento de failover, você também deve considerar o fator tempo. Por exemplo, se você perder a conectividade por mais de 15 a 20 minutos, pode decidir iniciar o failover. 
  
@@ -129,7 +129,7 @@ Observe as seguintes considerações a serem lembradas quanto a esta versão:
 O SKU Standard dos Hubs de Eventos oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> O suporte a Zonas de Disponibilidade para o Standard do Hubs de Eventos do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) em que existem zonas de disponibilidade.
+> O suporte a Zonas de Disponibilidade para o Standard do Hubs de Eventos do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-region.md) em que existem zonas de disponibilidade.
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. Os Hubs de Eventos não dão suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
@@ -146,7 +146,7 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
 * [Aplicativos de exemplo que usam Hub de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

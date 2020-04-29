@@ -1,19 +1,19 @@
 ---
-title: Instale aplicativos existentes com o Helm em AKS
-description: Saiba como usar a ferramenta de embalagem Helm para implantar contêineres em um cluster Azure Kubernetes Service (AKS)
+title: Instalar aplicativos existentes com o Helm no AKS
+description: Saiba como usar a ferramenta de empacotamento Helm para implantar contêineres em um cluster do AKS (serviço kubernetes do Azure)
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
 ms.openlocfilehash: e46bed5fc9fd83a907f8c9e716317a54548c58cc
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870245"
 ---
-# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instale aplicativos existentes com o Helm no Azure Kubernetes Service (AKS)
+# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos existentes com o Helm no serviço kubernetes do Azure (AKS)
 
 [Helm][helm] é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes. Semelhante a gerenciadores de pacotes do Linux, como *APT* e *Yum*, o Helm é usado para gerenciar gráficos Kubernetes, que são pacotes de recursos de Kubernetes pré-configurados.
 
@@ -23,20 +23,20 @@ Este artigo mostra como configurar e usar o Helm em um cluster Kubernetes no AKS
 
 Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
 
-Você também precisa do Helm CLI instalado, que é o cliente que funciona em seu sistema de desenvolvimento. Ele permite que você inicie, pare e gerencie aplicativos com o Helm. Se você usa o Azure Cloud Shell, o a CLI do Helm já está instalada. Para obter instruções de instalação em sua plataforma local, consulte [Instalação de Leme][helm-install].
+Você também precisa da CLI do Helm instalada, que é o cliente que é executado no seu sistema de desenvolvimento. Ele permite que você inicie, pare e gerencie aplicativos com o Helm. Se você usa o Azure Cloud Shell, o a CLI do Helm já está instalada. Para obter instruções de instalação em sua plataforma local, consulte [instalando o Helm][helm-install].
 
 > [!IMPORTANT]
-> Helm é destinado a executar em nós Linux. Se você tiver nós do Windows Server em seu cluster, você deve garantir que os pods helm só estão programados para serem executados em nós Linux. Você também precisa garantir que todos os gráficos do Helm instalados também sejam programados para serem executados nos nós corretos. Os comandos deste artigo usam [seletores de][k8s-node-selector] nó para garantir que os pods sejam programados para os nós corretos, mas nem todos os gráficos helm podem expor um seletor de nós. Você também pode considerar o uso de outras opções em seu cluster, como [manchas][taints].
+> O Helm destina-se a ser executado em nós do Linux. Se você tiver nós do Windows Server em seu cluster, deverá garantir que Helm pods sejam agendadas apenas para execução em nós do Linux. Você também precisa garantir que todos os gráficos do Helm instalados também estejam agendados para execução nos nós corretos. Os comandos neste artigo usam [seletores de nó][k8s-node-selector] para garantir que os pods estejam agendados para os nós corretos, mas nem todos os gráficos Helm podem expor um seletor de nó. Você também pode considerar o uso de outras opções em seu cluster, [como os][taints]seus contras.
 
 ## <a name="verify-your-version-of-helm"></a>Verifique sua versão do Helm
 
-Use `helm version` o comando para verificar a versão do Helm que você instalou:
+Use o `helm version` comando para verificar a versão do Helm que você instalou:
 
 ```console
 helm version
 ```
 
-O exemplo a seguir mostra a versão 3.0.0 instalada do Helm:
+O exemplo a seguir mostra o Helm versão 3.0.0 instalado:
 
 ```console
 $ helm version
@@ -44,13 +44,13 @@ $ helm version
 version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6e2a28b6", GitTreeState:"clean", GoVersion:"go1.13.4"}
 ```
 
-Para Helm v3, siga os passos na [seção Helm v3](#install-an-application-with-helm-v3). Para Helm v2, siga os passos na [seção Helm v2](#install-an-application-with-helm-v2)
+Para o Helm v3, siga as etapas na [seção Helm v3](#install-an-application-with-helm-v3). Para Helm v2, siga as etapas na [seção Helm v2](#install-an-application-with-helm-v2)
 
-## <a name="install-an-application-with-helm-v3"></a>Instale um aplicativo com Helm v3
+## <a name="install-an-application-with-helm-v3"></a>Instalar um aplicativo com o Helm v3
 
-### <a name="add-the-official-helm-stable-charts-repository"></a>Adicione o repositório oficial de gráficos estáveis helm
+### <a name="add-the-official-helm-stable-charts-repository"></a>Adicionar o repositório de gráficos estáveis do Helm oficial
 
-Use o comando [helm repo][helm-repo-add] para adicionar o repositório oficial de gráficos estáveis Helm.
+Use o comando [Helm][helm-repo-add] do repositório para adicionar o repositório de gráficos estável do Helm oficial.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -58,7 +58,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
 ### <a name="find-helm-charts"></a>Localizar gráficos Helm
 
-Os gráficos do Helm são usados para implantar aplicativos em um cluster Kubernetes. Para procurar gráficos helm pré-criados, use o comando [helm search:][helm-search]
+Os gráficos do Helm são usados para implantar aplicativos em um cluster Kubernetes. Para pesquisar gráficos Helm criados previamente, use o comando [Helm Search][helm-search] :
 
 ```console
 helm search repo stable
@@ -126,7 +126,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ### <a name="run-helm-charts"></a>Executar gráficos Helm
 
-Para instalar gráficos com helm, use o comando [helm install][helm-install-command] e especifique um nome de lançamento e o nome do gráfico a ser instalado. Para ver a instalação de um gráfico Helm em ação, vamos instalar uma implantação básica nginx usando um gráfico Helm.
+Para instalar gráficos com o Helm, use o comando de [instalação do Helm][helm-install-command] e especifique um nome de versão e o nome do gráfico a ser instalado. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implantação básica do Nginx usando um gráfico do Helm.
 
 ```console
 helm install my-nginx-ingress stable/nginx-ingress \
@@ -154,7 +154,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ...
 ```
 
-Use `kubectl get services` o comando para obter *o EXTERNAL-IP* do seu serviço. Por exemplo, o comando abaixo mostra o *EXTERNAL-IP* para o serviço *my-nginx-ingress-controller:*
+Use o `kubectl get services` comando para obter o *IP externo* do seu serviço. Por exemplo, o comando abaixo mostra o *IP externo* para o serviço *My-Nginx-ingress-Controller* :
 
 ```console
 $ kubectl --namespace default get services -o wide -w my-nginx-ingress-controller
@@ -163,7 +163,7 @@ NAME                          TYPE           CLUSTER-IP     EXTERNAL-IP     PORT
 my-nginx-ingress-controller   LoadBalancer   10.0.123.1     <EXTERNAL-IP>   80:31301/TCP,443:31623/TCP   96s   app=nginx-ingress,component=controller,release=my-nginx-ingress
 ```
 
-### <a name="list-releases"></a>Lançamentos de listas
+### <a name="list-releases"></a>Listar versões
 
 Para ver uma lista de versões instaladas no cluster, use o `helm list` comando.
 
@@ -171,7 +171,7 @@ Para ver uma lista de versões instaladas no cluster, use o `helm list` comando.
 helm list
 ```
 
-O exemplo a seguir mostra a versão *my-nginx-ingress* s implantado na etapa anterior:
+O exemplo a seguir mostra a versão do *My-Nginx-Ingres* implantada na etapa anterior:
 
 ```console
 $ helm list
@@ -182,13 +182,13 @@ my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando [helm desinstalar][helm-cleanup] e `helm list` especifique seu nome de lançamento, como encontrado no comando anterior.
+Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando [Helm Uninstall][helm-cleanup] e especifique o nome da versão, conforme encontrado no comando anterior `helm list` .
 
 ```console
 helm uninstall my-nginx-ingress
 ```
 
-O exemplo a seguir mostra que a versão chamada *my-nginx-ingress* foi desinstalada:
+O exemplo a seguir mostra que a versão nomeada *My-Nginx-Ingres* foi desinstalada:
 
 ```console
 $ helm uninstall my-nginx-ingress
@@ -196,7 +196,7 @@ $ helm uninstall my-nginx-ingress
 release "my-nginx-ingress" uninstalled
 ```
 
-## <a name="install-an-application-with-helm-v2"></a>Instale um aplicativo com Helm v2
+## <a name="install-an-application-with-helm-v2"></a>Instalar um aplicativo com o Helm v2
 
 ### <a name="create-a-service-account"></a>Criar uma conta de serviço
 
@@ -239,7 +239,7 @@ Ao usar um cluster Kubernetes habilitado para RBAC, você pode controlar o níve
 
 ### <a name="configure-helm"></a>Configurar o Helm
 
-Para implantar um Tiller básico em um cluster do AKS, use o comando [helm init][helm2-init]. Se o cluster não está habilitado o RBAC, remova o `--service-account` argumento e o valor. Os exemplos a seguir também definem o [histórico máximo][helm2-history-max] para 200.
+Para implantar um Tiller básico em um cluster do AKS, use o comando [helm init][helm2-init]. Se o cluster não está habilitado o RBAC, remova o `--service-account` argumento e o valor. Os exemplos a seguir também definem o [histórico-máximo][helm2-history-max] como 200.
 
 Se você configurou TLS/SSL para o Tiller e o Helm, ignore esta etapa de inicialização básica e, em vez disso, forneça o `--tiller-tls-` necessário conforme mostrado no exemplo a seguir.
 
@@ -263,7 +263,7 @@ helm init \
 
 ### <a name="find-helm-charts"></a>Localizar gráficos Helm
 
-Os gráficos do Helm são usados para implantar aplicativos em um cluster Kubernetes. Para procurar gráficos helm pré-criados, use o comando [helm search:][helm2-search]
+Os gráficos do Helm são usados para implantar aplicativos em um cluster Kubernetes. Para pesquisar gráficos Helm criados previamente, use o comando [Helm Search][helm2-search] :
 
 ```console
 helm search
@@ -317,7 +317,7 @@ Update Complete.
 
 ### <a name="run-helm-charts"></a>Executar gráficos Helm
 
-Para instalar gráficos com o Helm, use o comando [helm install][helm2-install-command] e especifique o nome do gráfico a ser instalado. Para ver a instalação de um gráfico Helm em ação, vamos instalar uma implantação básica nginx usando um gráfico Helm. Se tiver configurado TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente do Helm.
+Para instalar gráficos com o Helm, use o comando [helm install][helm2-install-command] e especifique o nome do gráfico a ser instalado. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implantação básica do Nginx usando um gráfico do Helm. Se tiver configurado TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente do Helm.
 
 ```console
 helm install stable/nginx-ingress \
@@ -352,11 +352,11 @@ flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none> 
 ...
 ```
 
-Leva um minuto ou dois para que o endereço *EXTERNAL-IP* do serviço nginx-ingress-controller seja preenchido e permita que você o acesse com um navegador da Web.
+Leva um minuto ou dois para o endereço *IP externo* do serviço Nginx-ingress-Controller a ser populado e permitir que você o acesse com um navegador da Web.
 
 ### <a name="list-helm-releases"></a>Listar versões do Helm
 
-Para ver uma lista de versões instaladas no seu cluster, use o comando [helm list][helm2-list]. O exemplo a seguir mostra a liberação nginx-ingress implantado na etapa anterior. Se tiver configurado TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente do Helm.
+Para ver uma lista de versões instaladas no seu cluster, use o comando [helm list][helm2-list]. O exemplo a seguir mostra a versão Nginx-ingress implantada na etapa anterior. Se tiver configurado TLS/SSL, adicione o parâmetro `--tls` para usar seu certificado de cliente do Helm.
 
 ```console
 $ helm list
@@ -367,7 +367,7 @@ flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingres
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome do release, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a versão *denominada flailing-alpaca*:
+Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome do release, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a versão chamada *flailing-alpaca*:
 
 ```console
 $ helm delete flailing-alpaca

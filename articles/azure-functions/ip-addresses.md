@@ -4,10 +4,10 @@ description: Saiba como encontrar endereços IP de entrada e saída para aplicat
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656779"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
@@ -86,9 +86,9 @@ O endereço IP de entrada **pode** mudar quando você:
 
 - Exclua um aplicativo de função e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo de função em uma combinação de grupo de recursos e região e recrie-o.
-- Exclua uma vinculação TLS, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Exclua uma associação TLS, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando o aplicativo de função é executado em um [plano de consumo,](functions-scale.md#consumption-plan)o endereço IP de entrada também pode mudar mesmo quando você não tiver tomado nenhuma ação como as [listadas acima](#inbound-ip-address-changes).
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado mesmo quando você não executou nenhuma ação, como aquelas [listadas acima](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Mudanças no endereço IP de saída
 
@@ -97,7 +97,7 @@ O conjunto de endereços IP de saída disponíveis para um aplicativo de funçã
 * Execute qualquer ação que possa alterar o endereço IP de entrada.
 * Altere a camada de preços do seu plano de serviço do aplicativo. A lista de todos os possíveis endereços IP de saída que seu aplicativo pode usar, para todas as camadas de preços, está na `possibleOutboundIPAddresses`propriedade. Consulte [Localizar IPs de saída](#find-outbound-ip-addresses).
 
-Quando o aplicativo de função é executado em um [plano de consumo,](functions-scale.md#consumption-plan)o endereço IP de saída também pode mudar mesmo quando você não tiver tomado nenhuma ação como as [listadas acima](#inbound-ip-address-changes).
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado mesmo quando você não executou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
 Para forçar deliberadamente uma alteração de endereço IP de saída:
 
@@ -117,7 +117,7 @@ Para descobrir se seu aplicativo de função é executado em um Ambiente de Serv
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
-3. Selecione o guia **Visão geral**.
+3. Selecione a guia **Visão geral**.
 4. A camada do plano de Serviço de Aplicativo aparece em **Plano de serviço de aplicativo / camada de preço**. A camada de preços do Ambiente de Serviço de Aplicativo é **Isolado**.
  
 Como alternativa, você pode usar o [Cloud Shell](../cloud-shell/quickstart.md):

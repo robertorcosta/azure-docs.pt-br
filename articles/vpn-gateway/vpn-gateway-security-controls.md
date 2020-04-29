@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127864"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Controles de segurança para o gateway de VPN do Azure
@@ -23,7 +23,7 @@ Este artigo documenta os controles de segurança incorporados ao gateway de VPN 
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Observações |
+| Controle de segurança | Sim/Não | Anotações |
 |---|---|--|
 | Suporte ao ponto de extremidade de serviço| N/D | |
 | Suporte à injeção de VNet| N/D | |
@@ -32,7 +32,7 @@ Este artigo documenta os controles de segurança incorporados ao gateway de VPN 
 
 ## <a name="monitoring--logging"></a>Monitorando & log
 
-| Controle de segurança | Sim/Não | Observações|
+| Controle de segurança | Sim/Não | Anotações|
 |---|---|--|
 | Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [Azure monitor alerta de log](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure monitor alertas de métricas](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Registro e auditoria do plano de gerenciamento e controle| Sim | Log de atividades Azure Resource Manager. |
@@ -40,14 +40,14 @@ Este artigo documenta os controles de segurança incorporados ao gateway de VPN 
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Observações|
+| Controle de segurança | Sim/Não | Anotações|
 |---|---|--|
 | Autenticação| Sim | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) para gerenciar o serviço e configurar o gateway de VPN do Azure. |
 | Autorização| Sim | Suporte à autorização via [RBAC](../role-based-access-control/overview.md). |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Observações |
+| Controle de segurança | Sim/Não | Anotações |
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | N/D | Dados de cliente de trânsito de gateway de VPN, não armazena dados do cliente |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O gateway de VPN criptografa os pacotes do cliente entre os gateways de VPN do Azure e os dispositivos de VPN locais do cliente (S2S) ou clientes VPN (P2S). Os gateways de VPN também dão suporte à criptografia de VNet para VNet. |
@@ -57,7 +57,7 @@ Este artigo documenta os controles de segurança incorporados ao gateway de VPN 
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 
-| Controle de segurança | Sim/Não | Observações|
+| Controle de segurança | Sim/Não | Anotações|
 |---|---|--|
 | Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Para operações de gerenciamento, o estado de uma configuração de gateway de VPN do Azure pode ser exportado como um modelo de Azure Resource Manager e com controle de versão ao longo do tempo. |
 

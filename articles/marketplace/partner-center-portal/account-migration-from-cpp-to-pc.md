@@ -1,6 +1,6 @@
 ---
-title: Migração de conta do Cloud Partner Portal para o Partner Center - mercado comercial para o Azure
-description: Como migrar sua conta de CPP para Partner Center - marketplace comercial para Azure
+title: Migração de conta do Portal do Cloud Partner para o Partner Center-Marketplace comercial para o Azure
+description: Como migrar sua conta do CPP para o Partner Center-Marketplace comercial para o Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,85 +8,85 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024414"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
 
-Se você tiver uma conta CPP (Cloud Partner Portal) existente, as configurações da sua conta precisam ser migradas para a Partner Center.
+Se você tiver uma conta de Portal do Cloud Partner (CPP) existente, suas configurações de conta precisarão ser migradas para o Partner Center.
 
-## <a name="account-migration-process"></a>Processo de migração de contas
+## <a name="account-migration-process"></a>Processo de migração de conta
 
-Se você é um usuário com a função Proprietário no CPP para uma determinada conta, um banner amarelo será mostrado na página do Perfil do Editor. Você pode pertencer a um dos dois seguintes casos:
+Se você for um usuário com a função de proprietário em CPP para uma determinada conta, uma faixa amarela será mostrada na página de perfil do Publicador. Você pode pertencer a um dos dois casos a seguir:
 
-- Sua conta já foi migrada e você está pronto para gerenciar suas Configurações de Conta no Partner Center.
-- Sua conta não foi migrada para o Partner Center e você precisa tomar mais medidas.
+- Sua conta já foi migrada e você está pronto para gerenciar as configurações de conta no Partner Center.
+- Sua conta não foi migrada para o Partner Center e você precisa realizar uma ação adicional.
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>Sua conta foi migrada para o Partner Center
 
-Para todas as contas que concluíram a migração do CPP para o Partner Center, o gerenciamento de contas acontecerá no Partner Center. Alterações como adição/exclusão do usuário serão sincronizadas de volta ao CPP.
+Para todas as contas que concluíram a migração do CPP para o Partner Center, o gerenciamento de conta ocorrerá no Partner Center. Alterações como adição/exclusão de usuário serão sincronizadas de volta para CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Você ainda não migrou sua conta para o Partner Center
 
-Clique no banner para iniciar seu processo de migração da conta. Espera-se que você insira os seguintes itens:
+Clique na faixa para iniciar o processo de migração de sua conta. Você deve inserir os seguintes itens:
 
-1. Endereço de e-mail de trabalho: <br> <br> Na maioria dos casos, faça login com o endereço de e-mail que você usa para entrar no CPP. Em certos casos, um endereço de e-mail diferente deve ser usado:
+1. Endereço de email de trabalho: <br> <br> Na maioria dos casos, entre com o endereço de email que você usa para entrar em CPP. Em determinados casos, um endereço de email diferente deve ser usado:
 
-    * Conta Microsoft: Se a conta CPP for uma conta da Microsoft, digite um e-mail de trabalho válido associado ao inquilino para quem o ID da Microsoft Partner Network (MPN) está registrado. Para obter mais informações, consulte [Inscreva-se no Microsoft Partner Network Program](#sign-up-for-microsoft-partner-network-program).
+    * Conta Microsoft: se a conta de CPP for uma conta Microsoft, insira um email de trabalho válido associado ao locatário para o qual a ID de Microsoft Partner Network (MPN) está registrada. Para obter mais informações, consulte [inscrever-se para Microsoft Partner Network programa](#sign-up-for-microsoft-partner-network-program).
 
-    * Incompatibilidade de inquilino: Se o seu endereço de e-mail de trabalho não pertencer ao inquilino associado ao Microsoft Partner Network ID presente em sua conta CPP, então você verá um erro. Para superar esse erro, digite um endereço de e-mail associado ao inquilino. Uma mensagem de erro fornecerá o nome do inquilino.
+    * Incompatibilidade de locatário: se seu endereço de email de trabalho não pertencer ao locatário associado à ID de Microsoft Partner Network presente na sua conta de CPP, você verá um erro. Para mover após esse erro, insira um endereço de email associado ao locatário. Uma mensagem de erro fornecerá o nome do locatário.
 
-2. Inscreva-se no programa Microsoft Partner Network
+2. Inscrever-se no programa Microsoft Partner Network
 
-    Se sua conta CPP não tiver um ID da Rede de Parceiros Microsoft ou tiver uma inválida, você precisará se inscrever no programa Microsoft Partner Network como parte do processo de ativação.
+    Se sua conta de CPP não tiver uma ID de Microsoft Partner Network ou tiver uma que seja inválida, você precisará se inscrever no programa de Microsoft Partner Network como parte do processo de ativação.
 
-## <a name="publishers-moving-from-cpp"></a>Editores saindo do CPP
+## <a name="publishers-moving-from-cpp"></a>Publicadores mudando de CPP
 
-Se sua conta foi migrada do Portal de Parceiros na [Nuvem (CPP),](https://cloudpartner.azure.com)você não precisa criar uma nova conta do Partner Center. Você deveria ter recebido um link personalizado para sua nova conta do Partner Center por e-mail e em uma notificação de banner após fazer login na sua conta CPP existente.
+Se sua conta tiver sido migrada do [portal do Cloud Partner (CPP)](https://cloudpartner.azure.com), você não precisará criar uma nova conta do Partner Center. Você deve ter recebido um link personalizado para sua nova conta do Partner Center por email e em uma notificação de banner depois de fazer logon na sua conta de CPP existente.
 
-Depois de habilitar sua nova conta do Partner Center visitando este link personalizado, você pode retornar à sua conta visitando o painel de [marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
+Depois de habilitar sua nova conta do Partner Center visitando este link personalizado, você pode retornar à sua conta visitando o painel do [Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
 
-O contrato de publicação e as informações do perfil da empresa serão migrados para sua nova conta do Partner Center, juntamente com quaisquer informações de perfil de pagamento de conta previamente configuradas, contas de usuário e permissões e ofertas ativas associadas à sua conta CPP.
+As informações do contrato de publicação e do perfil da empresa serão migradas para sua nova conta do Partner Center, juntamente com as informações de perfil de pagamento da conta previamente configuradas, contas de usuário e permissões e ofertas ativas associadas à sua conta de CPP.
 
-Depois que as informações da sua conta forem transferidas do CPP para a Partner Center, você não usará mais o CPP para fazer atualizações de conta ou gerenciar usuários, permissões e faturamento. Por um tempo limitado, todas as atualizações de conta que você fizer no Partner Center serão automaticamente atualizadas em sua conta CPP somente leitura até que o portal CPP seja eventualmente preterido.
+Depois que as informações da conta forem movidas do CPP para o Partner Center, você não usará mais o CPP para fazer atualizações de conta ou gerenciar usuários, permissões e cobrança. Por um período limitado, as atualizações de conta feitas no Partner Center serão automaticamente atualizadas em sua conta de CPP somente leitura até que o portal de CPP seja eventualmente preterido.
 
-## <a name="sign-up-for-microsoft-partner-network-program"></a>Inscreva-se no programa Microsoft Partner Network
+## <a name="sign-up-for-microsoft-partner-network-program"></a>Inscrever-se no programa Microsoft Partner Network
 
-As empresas que desejam fazer parceria com a Microsoft devem se juntar à Microsoft Partner Network (MPN) e obter um ID MPN. Se você já é um membro da Rede de Parceiros Microsoft e tem um ID MPN, mantenha as informações à mão, pois você precisará durante o processo de ativação da conta.  
+As empresas que desejam fazer parceria com a Microsoft devem ingressar no Microsoft Partner Network (MPN) e obter uma ID de MPN. Se você já é membro do Microsoft Partner Network e tem uma ID MPN, mantenha as informações à mão, pois você precisará dela durante o processo de ativação da conta.  
 
-Se você não é um membro da Microsoft Partner Network, você pode [se juntar aqui](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obter um ID MPN. Anote seu ID MPN, pois você precisará inseri-lo durante o processo de ativação da conta.
+Se você não for membro da Microsoft Partner Network, poderá [ingressar aqui](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) para obter uma ID de MPN. Anote sua ID do MPN, pois você precisará inseri-la durante o processo de ativação da conta.
 
-Para saber mais sobre a Microsoft Partner Network, consulte [Junte-se à Rede de Parceiros da Microsoft](https://partner.microsoft.com/en-US/membership) no site do parceiro. Para saber mais sobre os benefícios do ISV na Rede de Parceiros Microsoft, consulte o [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
+Para saber mais sobre o Microsoft Partner Network, consulte [ingressar o Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) no site do parceiro. Para saber mais sobre os benefícios do ISV na Microsoft Partner Network, consulte o [Hub de recursos do ISV](https://partner.microsoft.com/isv-resource-hub).  
 
-## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Move Dynamics 365 e PowerApps oferecem ao Partner Center
+## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Mover as ofertas do Dynamics 365 e do PowerApps para o Partner Center
 
-Para agilizar a gestão de contas e ofertas para as operações Dynamics 365 Customer Engagement, PowerApps e Dynamics 365, as ofertas foram transferidas para o [Partner Center](https://partner.microsoft.com/). A mudança garante que o mesmo conteúdo esteja disponível para catálogos públicos e vendedores.
+Para simplificar a conta e oferecer gerenciamento para o engajamento do cliente do Dynamics 365, o PowerApps e as operações do Dynamics 365, as ofertas foram movidas para o [Partner Center](https://partner.microsoft.com/). A movimentação garante que o mesmo conteúdo esteja disponível para catálogos públicos e do vendedor.
 
-Para obter informações específicas sobre o que precisa ser feito até **15 de outubro de 2019** para as ofertas de Engajamento do Cliente Dynamics 365, PowerApps e Dynamics 365, siga as instruções abaixo.
+Para obter informações específicas sobre o que precisa ser feito em **15 de outubro de 2019** para suas ofertas de operações do engajamento do cliente do Dynamics 365, do PowerApps e do Dynamics 365, siga as instruções abaixo.
 
 > [!NOTE]
-> Isso não se aplica às ofertas da Dynamics 365 Business Central.  
+> Isso não se aplica às ofertas do Dynamics 365 Business central.  
 
-1. Se sua conta de adesão ao MPN foi originalmente criada no Partner Membership Center (PMC), entre na [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar se sua conta foi migrada. Se você vir uma tela de perfil com seu ID MPN, você está pronto para continuar. Caso assim, você precisa iniciar a migração da sua conta seguindo as instruções no [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Se você precisar de ajuda, visite [o suporte](https://partner.microsoft.com/support?issueid=100-0077).
-2. Vá para a página de visão geral do [Mercado Comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se você vir "Commercial Marketplace" no painel de navegação esquerdo, você está inscrito e deve continuar até o próximo passo. Se não, [inscreva-se no mercado comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) agora.
-3. Confirme se suas ofertas estão no AppSource [pesquisando por suas ofertas](https://appsource.microsoft.com/). Se suas ofertas já estiverem no AppSource, continue até o próximo passo. Para qualquer oferta que não seja no AppSource, crie uma [nova oferta de engajamento do cliente Dynamics 365](create-new-customer-engagement-offer.md) ou uma nova oferta de [operações Dynamics 365](create-new-operations-offer.md).
-4. Na [página Contratos](https://partner.microsoft.com/dashboard/account/agreements)do Partner Center, certifique-se de ter revisado e aceito o **Adendo ISV de Aplicações de Negócios**.
-5. Nas configurações da Conta do Partner Center, certifique-se de que suas informações de cobrança estão [completas.](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)
-6. Envie cada oferta nova e existente para certificação e publicação, mesmo que suas ofertas tenham sido previamente certificadas.
-    * Complete as telas de informações, incluindo o fornecimento de seu aplicativo para certificação, bem como informações de marketing. Selecione **Enviar** (canto superior direito da tela) até 15 de outubro de **2019**. Essas etapas devem ser concluídas para evitar impactona disponibilidade da oferta.
-    * Se elegível, você pode solicitar para participar do nível premium durante este processo.
-    * A certificação ou recertificação exige que seu aplicativo suporte a versão mais recente da nossa Plataforma de Aplicativos de Negócios.
-    * Uma vez que seu aplicativo tenha sido aprovado, você receberá um e-mail para retornar à oferta e selecionará "ir ao vivo" para permitir que a oferta entre no ar no Microsoft AppSource.
+1. Se sua conta de associação do MPN foi originalmente criada no centro de associação de parceiros (PMC), entre no [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar que sua conta foi migrada. Se você vir uma tela de perfil com sua ID do MPN, você estará pronto para continuar. Caso contrário, você precisará iniciar a migração da sua conta seguindo os prompts no [centro de associação do parceiro](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Se precisar de ajuda, visite [suporte](https://partner.microsoft.com/support?issueid=100-0077).
+2. Vá para a [página Visão geral do Marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Se você vir "marketplace comercial" no painel de navegação esquerdo, você estará registrado e deverá continuar para a próxima etapa. Caso contrário, [Registre-se no Marketplace comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) agora.
+3. Confirme se suas ofertas estão em AppSource [pesquisando suas ofertas](https://appsource.microsoft.com/). Se suas ofertas já estiverem em AppSource, vá para a próxima etapa. Para qualquer oferta que não esteja em AppSource, crie uma [nova oferta de compromisso do cliente do dynamics 365](create-new-customer-engagement-offer.md) ou uma [nova oferta de operações do Dynamics 365](create-new-operations-offer.md).
+4. Na [página contratos](https://partner.microsoft.com/dashboard/account/agreements)do Partner Center, verifique se você analisou e aceitou o **adendo Business Applications ISV**.
+5. Nas [configurações de conta](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)do Partner Center, verifique se as informações de cobrança estão concluídas.
+6. Envie cada oferta nova e existente para certificação e publicação, mesmo que suas ofertas tenham sido certificadas anteriormente.
+    * Conclua as telas de informações, incluindo fornecer seu aplicativo para certificação, bem como informações de marketing. Selecione **Enviar** (canto superior direito da tela) em **15 de outubro de 2019**. Essas etapas devem ser concluídas para evitar o impacto da disponibilidade da oferta.
+    * Se qualificado, você pode solicitar a participação na camada Premium durante esse processo.
+    * A certificação ou a recertificação exige que seu aplicativo dê suporte à versão mais recente de nossa plataforma de Business Applications.
+    * Depois que seu aplicativo tiver sido aprovado, você receberá um email para retornar à oferta e selecionar "entrar em tempo real" para permitir que a oferta fique ativa em Microsoft AppSource.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Obtenha ajuda de especialistas e colegas em fóruns e descubra blogs, webinars, vídeos, eventos e muito mais no [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
+Obtenha ajuda de especialistas e colegas em fóruns e descubra Blogs, webinars, vídeos, eventos e muito mais no [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Se você precisar de ajuda para publicar, certificar ou gerenciar suas ofertas de marketplace, [envie um bilhete de suporte](https://partner.microsoft.com/support/v2/?stage=1).
+Se você precisar de ajuda para publicar, certificar ou gerenciar suas ofertas do Marketplace, [envie um tíquete de suporte](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="next-step"></a>Próxima etapa
 
-- [Gerencie sua conta de mercado comercial no Partner Center](./manage-account.md)
+- [Gerenciar sua conta do Marketplace comercial no Partner Center](./manage-account.md)

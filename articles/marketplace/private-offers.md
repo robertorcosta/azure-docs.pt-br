@@ -1,5 +1,5 @@
 ---
-title: Ofertas privadas | Mercado Azure
+title: Ofertas privadas | Azure Marketplace
 description: Ofertas particulares no Azure Marketplace para editores de aplicativos e serviços.
 author: qianw211
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
 ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681424"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 
 As ofertas particulares no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) permitem que os editores criem SKUs visíveis apenas para clientes segmentados.
 
-## <a name="unlock-enterprise-deals-with-private-offers"></a>Desbloqueie negócios corporativos com ofertas privadas
+## <a name="unlock-enterprise-deals-with-private-offers"></a>Desbloqueie acordos empresariais com ofertas privadas
 
 Os clientes empresariais usam cada vez mais os mercados on-line para encontrar, experimentar e comprar soluções em nuvem. Agora, com ofertas privadas, os editores podem usar o marketplace para compartilhar de forma privada soluções personalizadas com clientes segmentados com recursos que as empresas exigem:
 
@@ -39,28 +39,28 @@ Para *ofertas novas ou existentes com SKUs ou planos públicos*, os editores pod
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) ---> 
 
-SKUs particulares e planos são componentes de uma oferta e só são visíveis e comprados pelos clientes segmentados. SKUs e planos particulares podem reutilizar as imagens de base e/ou oferecer metadados já publicados para um SKU ou plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem de base e oferecer metadados. Para o aplicativo Virtual Machine e Azure oferece apenas, quando um SKU privado compartilha uma imagem base com um SKU público, qualquer alteração na imagem base da oferta se propagará em todas as SKUs públicas e privadas usando essa imagem base.
+SKUs particulares e planos são componentes de uma oferta e só são visíveis e comprados pelos clientes segmentados. SKUs e planos particulares podem reutilizar as imagens de base e/ou oferecer metadados já publicados para um SKU ou plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem de base e oferecer metadados. Para as ofertas de máquina virtual e aplicativo do Azure somente, quando uma SKU privada compartilha uma imagem base com um SKU público, todas as alterações na imagem base da oferta serão propagadas em todas as SKUs públicas e privadas usando essa imagem base.
 
-Para *novas ofertas que incluam apenas SKUs ou planos privados*, os editores podem criar ofertas como qualquer outra oferta e marcar os SKUs ou os planos como privados. As ofertas que possuem apenas SKUs privadas ou planos não serão descobertas ou acessíveis através do mercado comercial da Microsoft ou do [portal Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
+Para *novas ofertas que incluam apenas SKUs ou planos privados*, os editores podem criar ofertas como qualquer outra oferta e marcar os SKUs ou os planos como privados. As ofertas que têm apenas os SKUs ou os planos privados não poderão ser descobertos ou acessíveis por meio do Microsoft Commercial Marketplace ou do [portal do Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estão associados à oferta.
 
-## <a name="targeting-customers-with-private-offers"></a>Direcionamento de clientes com ofertas privadas
+## <a name="targeting-customers-with-private-offers"></a>Direcionando clientes com ofertas privadas
 
-Para ofertas privadas novas e existentes, os editores podem segmentar clientes usando identificadores de assinatura. Os editores que usam uma oferta de Máquina Virtual ou Aplicativo Azure AD podem restringir a disponibilidade de um SKU particular a um ID individual de assinatura do Azure ou carregar um CSV de até 20.000 IDs de assinatura do Azure. Ao usar uma oferta privada do SaaS App, os editores podem associar um ID de inquilino para restringir a disponibilidade de um plano privado, usando a abordagem manual ou de upload do CSV.
+Para ofertas privadas novas e existentes, os editores podem segmentar clientes usando identificadores de assinatura. Os editores que usam uma oferta de Máquina Virtual ou Aplicativo Azure AD podem restringir a disponibilidade de um SKU particular a um ID individual de assinatura do Azure ou carregar um CSV de até 20.000 IDs de assinatura do Azure. Ao usar uma oferta privada de aplicativo SaaS, os editores podem associar uma ID de locatário para restringir a disponibilidade de um plano privado, usando a abordagem de carregamento manual ou CSV.
 
-Depois que uma oferta é certificada e publicada, os clientes podem ser atualizados ou removidos do SKU ou do Plan em questão de minutos, usando o recurso Sincronizar assinaturas privadas. Esse recurso permite que os editores atualizem de forma rápida e fácil a lista de clientes aos quais o SKU ou plano privado é apresentado sem certificar ou publicar a oferta novamente.
+Depois que uma oferta é certificada e publicada, os clientes podem ser atualizados ou removidos do SKU ou do Plan em questão de minutos, usando o recurso Sincronizar assinaturas privadas. Esse recurso permite que os editores atualizem com rapidez e facilidade a lista de clientes para os quais a SKU ou o plano privado é apresentado sem certificar ou publicar a oferta novamente.
 
-## <a name="deploying-private-offers"></a>Implantação de ofertas privadas
+## <a name="deploying-private-offers"></a>Implantando ofertas privadas
 
-Ofertas privadas só são descobertas através do [portal Azure](https://azure.microsoft.com/features/azure-portal/) e não são mostradas no [Microsoft AppSource](https://appsource.microsoft.com/) ou [no Azure Marketplace](https://azuremarketplace.microsoft.com). Para saber mais sobre a publicação nas diferentes vitrines do mercado comercial, consulte [Determine sua opção de publicação](./determine-your-listing-type.md).
+As ofertas privadas só são descobertas por meio do [portal do Azure](https://azure.microsoft.com/features/azure-portal/) e não são mostradas no [Microsoft AppSource](https://appsource.microsoft.com/) ou no [Azure Marketplace](https://azuremarketplace.microsoft.com). Para saber mais sobre como publicar para as diferentes vitrines do Marketplace comercial, consulte [determinar sua opção de publicação](./determine-your-listing-type.md).
 
-Uma vez logado no portal do Microsoft Azure, os clientes podem selecionar o elemento de navegação do Marketplace para acessar suas ofertas privadas. Ofertas privadas também aparecerão nos resultados de pesquisa e podem ser implantadas através da linha de comando e modelos do Azure Resource Manager como qualquer outra oferta.
+Uma vez logado no portal do Microsoft Azure, os clientes podem selecionar o elemento de navegação do Marketplace para acessar suas ofertas privadas. As ofertas privadas também aparecerão nos resultados da pesquisa e poderão ser implantadas por meio de modelos de linha de comando e Azure Resource Manager como qualquer outra oferta.
 
 ![[Ofertas privadas]](./media/marketplace-publishers-guide/private-offer.png)
 
-Ofertas particulares também aparecerão nos resultados da pesquisa. Basta procurar o distintivo "Soldado".
+Ofertas particulares também aparecerão nos resultados da pesquisa. Basta procurar o selo "privado".
 
 >[!Note]
->As ofertas privadas não são suportadas com assinaturas estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
+>Ofertas privadas não são suportadas com assinaturas estabelecidas por meio de um revendedor do CSP (programa de provedor de soluções na nuvem).
 
 <!---
 ## Next steps

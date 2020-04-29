@@ -1,6 +1,6 @@
 ---
-title: Verificações de linha de base e personalizados
-description: Conheça o conceito do Azure Security Center para a linha de base de IoT.
+title: Linhas de base e verificações personalizadas
+description: Saiba mais sobre o conceito da central de segurança do Azure para a linha de base da IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,35 +16,35 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311651"
 ---
-# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro de Segurança Do Azure para linha de base ioT e verificações personalizadas
+# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Central de segurança do Azure para linha de base IoT e verificações personalizadas
 
-Este artigo explica o Azure Security Center para a linha de base ioT e resume todas as propriedades associadas das verificações personalizadas da linha de base.
+Este artigo explica a central de segurança do Azure para a linha de base IoT e resume todas as propriedades associadas de verificações personalizadas de linha de base.
 
 ## <a name="baseline"></a>Linha de base
 
-Uma linha de base estabelece o comportamento padrão para cada dispositivo e facilita o estabelecimento de comportamentos incomuns ou desvio de normas esperadas.
+Uma linha de base estabelece o comportamento padrão para cada dispositivo e torna mais fácil estabelecer comportamento incomum ou desvio de normas esperadas.
 
-## <a name="baseline-custom-checks"></a>Verificações personalizadas da linha de base
+## <a name="baseline-custom-checks"></a>Verificações personalizadas de linha de base
 
-As verificações personalizadas da linha de base estabelecem uma lista personalizada de verificações para cada linha de base do dispositivo usando o gêmeo de **identidade do módulo** do dispositivo.
+As verificações personalizadas de linha de base estabelecem uma lista personalizada de verificações para cada linha de base de dispositivo usando a **identidade do módulo** "/" do dispositivo.
 
-## <a name="setting-baseline-properties"></a>Definindo propriedades da linha de base
+## <a name="setting-baseline-properties"></a>Definindo propriedades de linha de base
 
-1. No seu IoT Hub, localize e selecione o dispositivo que deseja alterar.
-1. Clique no dispositivo e clique no módulo **de segurança azureiot.**
-1. Clique em **'Gêmeo de identidade do módulo '**
-1. Carregue o arquivo **de verificações personalizadas** da linha de base para o dispositivo.
-1. Adicione propriedades de linha de base ao módulo de segurança e clique **em Salvar**.
+1. No Hub IoT, localize e selecione o dispositivo que você deseja alterar.
+1. Clique no dispositivo e, em seguida, clique no módulo **azureiotsecurity** .
+1. Clique em **identidade do módulo**.
+1. Carregue o arquivo de **verificações personalizadas de linha de base** no dispositivo.
+1. Adicione Propriedades de linha de base ao módulo de segurança e clique em **salvar**.
 
-### <a name="baseline-custom-check-file-example"></a>Exemplo de arquivo de verificação personalizado da linha de base
+### <a name="baseline-custom-check-file-example"></a>Exemplo de arquivo de verificação personalizada de linha de base
 
-Para configurar verificações personalizadas da linha de base:
+Para configurar verificações personalizadas de linha de base:
 
    ```json
     "desired": {
@@ -62,19 +62,19 @@ Para configurar verificações personalizadas da linha de base:
     },
    ```
 
-## <a name="baseline-custom-check-properties"></a>Propriedades de verificação personalizada da linha de base
+## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
-| Nome| Status | Valores válidos| Valores padrão| Descrição |
+| Name| Status | Valores válidos| Valores padrão| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|linha de baseVerificações de vidahabilitadas|Necessário: verdadeiro |Valores válidos: **Boolean** |Valor padrão: **falso** |Intervalo de tempo máximo antes que mensagens de alta prioridade seja enviada.|
-|linha de baseCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **String**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração xml da linha de base|
-|linha de baseCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **String**, **nulo** |Valor padrão: **nulo** |`sha256sum`do arquivo de configuração xml. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
+|baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
+|baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|
+|baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |`sha256sum`do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
 
-Para revisar exemplos adicionais de linha de base, consulte [o exemplo de linha de base personalizado -1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e o exemplo de linha de base personalizado [-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
+Para examinar exemplos de linha de base adicionais, consulte [exemplo de linha de base personalizado-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e [exemplo de linha de base personalizado-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Acesse seus [dados de segurança brutos](how-to-security-data-access.md)
+- Acessar seus [dados brutos de segurança](how-to-security-data-access.md)
 - [Investigar um dispositivo](how-to-investigate-device.md)
-- Entenda e explore [recomendações de segurança](concept-recommendations.md)
-- Entenda e explore [alertas de segurança](concept-security-alerts.md)
+- Entender e explorar as [recomendações de segurança](concept-recommendations.md)
+- Entender e explorar [alertas de segurança](concept-security-alerts.md)

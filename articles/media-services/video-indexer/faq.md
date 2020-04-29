@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre o Video Indexer - Azure
 titleSuffix: Azure Media Services
-description: Este artigo dá respostas a perguntas frequentes sobre o Azure Media Services Video Indexer.
+description: Este artigo fornece respostas para as perguntas frequentes sobre os serviços de mídia do Azure Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
 ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767204"
 ---
-# <a name="video-indexer-frequently-asked-questions"></a>Indexador de vídeo frequentemente fez perguntas
+# <a name="video-indexer-frequently-asked-questions"></a>Video Indexer perguntas frequentes
 
 Este artigo responde perguntas frequentes sobre o Video Indexer.
 
@@ -34,7 +34,7 @@ Algumas das operações que podem ser executadas pelo Video Indexer em arquivos 
 * Identificar e extrair a fala e identificar os locutores.
 * Identificar e extrair o texto na tela em um vídeo.
 * Detectar objetos em um arquivo de vídeo.
-* Identifique marcas (por exemplo: Microsoft) a partir de faixas de áudio e texto na tela em um vídeo.
+* Identificar marcas (por exemplo: Microsoft) de faixas de áudio e texto na tela em um vídeo.
 * Detectar e reconhecer rostos de um banco de dados de celebridades e um banco de dados de rostos definido pelo usuário.
 * Extrair os tópicos discutidos, mas não necessariamente mencionados no conteúdo de áudio e vídeo.
 * Criar legendas ocultas ou subtítulos com base na faixa de áudio.
@@ -43,7 +43,7 @@ Para obter mais informações e mais recursos do Video Indexer, confira [Visão 
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Como fazer para começar a utilizar o Video Indexer?
 
-O Video Indexer inclui uma oferta de avaliação gratuita que fornece 600 minutos na interface Web e 2.400 minutos por meio da API. Você pode [se conectar à interface Web do Video Indexer](https://www.videoindexer.ai/) e testá-lo por conta própria usando qualquer identidade da Web, sem precisar configurar uma assinatura do Azure. Siga [este laboratório de introdução fácil](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) para ter uma melhor idéia de como usar o Video Indexer.
+O Video Indexer inclui uma oferta de avaliação gratuita que fornece 600 minutos na interface Web e 2.400 minutos por meio da API. Você pode [se conectar à interface Web do Video Indexer](https://www.videoindexer.ai/) e testá-lo por conta própria usando qualquer identidade da Web, sem precisar configurar uma assinatura do Azure. Siga [este laboratório de introdução fácil](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) para obter uma ideia melhor de como usar Video indexer.
 
 Para indexar vídeos e arquivos de áudio em escala, você pode conectar o Video Indexer a uma assinatura paga do Microsoft Azure. Você pode encontrar mais informações de preço na página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
@@ -61,7 +61,7 @@ Não, o Video Indexer fornece a integração de vários modelos de machine learn
 
 O Video Indexer dá suporte aos formatos de mídia mais comuns. Consulte a lista [Formatos padrão do Codificador de Mídia do Azure](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para saber mais.
 
-### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Como faço para carregar um arquivo de mídia no Video Indexer e quais são as limitações?
+### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Como fazer carregar um arquivo de mídia no Video Indexer e quais são as limitações?
 
 No portal da Web do Video Indexer, é possível carregar um arquivo de mídia usando a caixa de diálogo correspondente ou direcionando para uma URL que hospeda diretamente o arquivo de origem (consulte o [exemplo](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Qualquer URL que hospeda o conteúdo de mídia usando um iFrame de conteúdo ou código incorporado não funcionará (consulte o [exemplo](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
 
@@ -70,9 +70,9 @@ Para obter mais informações, consulte este [guia de instruções](https://docs
 #### <a name="limitations"></a>Limitações
 
 * O nome do vídeo não pode exceder 80 caracteres.
-* Se você enviar um vídeo usando byte array, o tamanho do vídeo é limitado a 2GB (e 30GB ao usar URL). 
+* Se você carregar um vídeo usando a matriz de bytes, o tamanho do vídeo será limitado a 2GB (e 30 GB ao usar a URL). 
 
-Para obter a lista completa, consulte [Carregar considerações e limitações](upload-index-videos.md#uploading-considerations-and-limitations).
+Para obter uma lista abrangente, consulte [carregando considerações e limitações](upload-index-videos.md#uploading-considerations-and-limitations).
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo leva para o Video Indexer extrair insights de uma mídia?
 
@@ -80,25 +80,25 @@ A quantidade de tempo que leva para indexar um arquivo de áudio ou vídeo usand
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Posso criar fluxos de trabalho personalizados para automatizar processos com o Video Indexer?
 
-Sim, é possível integrar o Video Indexer a tecnologias sem servidor, como os Aplicativos Lógicos, o Flow e as [Azure Functions](https://azure.microsoft.com/services/functions/). Saiba mais sobre os conectores do [Aplicativo Lógico](https://azure.microsoft.com/services/logic-apps/) e do [Flow](https://flow.microsoft.com/en-us/) para o Video Indexer [aqui](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). Você pode ver alguns projetos de automação feitos por parceiros no repo [Amostras do Indexador de Vídeo.](https://github.com/Azure-Samples/media-services-video-indexer)
+Sim, é possível integrar o Video Indexer a tecnologias sem servidor, como os Aplicativos Lógicos, o Flow e as [Azure Functions](https://azure.microsoft.com/services/functions/). Saiba mais sobre os conectores do [Aplicativo Lógico](https://azure.microsoft.com/services/logic-apps/) e do [Flow](https://flow.microsoft.com/en-us/) para o Video Indexer [aqui](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). Você pode ver alguns projetos de automação feitos por parceiros no repositório de [exemplos de video indexer](https://github.com/Azure-Samples/media-services-video-indexer) .
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>Em quais regiões do Azure o Video Indexer está disponível?
 
 Você pode ver quais regiões do Azure o Video Indexer está disponível na página [regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
-### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar modelos de indexador de vídeo para o meu caso de uso específico? 
+### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar modelos de Video Indexer para meu caso de uso específico? 
 
-Sim. No Video Indexer você pode personalizar alguns dos modelos disponíveis para melhor atender às suas necessidades. 
+Sim. No Video Indexer você pode personalizar alguns dos modelos disponíveis para atender melhor às suas necessidades. 
 
-Por exemplo, nosso modelo Person suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas você também pode treiná-lo para reconhecer outros rostos que não estão nesse banco de dados. 
+Por exemplo, nosso modelo Person dá suporte a rostos prontos para uso de 1 milhão de reconhecimento de celebridade, mas você também pode treiná-lo para reconhecer outras faces que não estão nesse banco de dados. 
 
-Para obter detalhes, consulte artigos sobre personalização de modelos [person,](customize-person-model-overview.md) [brands](customize-brands-model-overview.md)e [language.](customize-language-model-overview.md) 
+Para obter detalhes, consulte artigos sobre como personalizar [pessoas](customize-person-model-overview.md), [marcas](customize-brands-model-overview.md)e modelos de [idioma](customize-language-model-overview.md) . 
 
-###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos na minha biblioteca?
+###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos em minha biblioteca?
 
-Sim. Pressione o botão **editar vídeo** do visor da biblioteca ou o botão abrir **no editor** do mostrador do player para chegar à guia **Projetos.** Você pode criar um novo projeto e adicionar mais vídeos de sua biblioteca para editá-los juntos, uma vez que você estiver pronto, você pode renderizar seu vídeo e baixar. 
+Sim. Pressione o botão **Editar vídeo** na exibição da biblioteca ou no botão **abrir no editor** da exibição do Player para ir para a guia **projetos** . Você pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los, quando terminar, poderá renderizar o vídeo e o download. 
 
-Se você quiser obter insights sobre o seu novo vídeo, indexie-o com o Video Indexer e ele aparecerá em sua biblioteca com seus insights.
+Se você quiser obter informações sobre seu novo vídeo, indexe-o com Video Indexer e ele será exibido em sua biblioteca com suas informações.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>O que é o SLA para o Video Indexer?
 
@@ -134,7 +134,7 @@ De acordo com os [Termos de Serviços Online do Azure](https://www.microsoftvolu
 
 Sim, o conteúdo e seus insights são mantidos na região do Azure, a menos que você tenha uma configuração manual na sua assinatura do Azure que utiliza várias regiões do Azure. 
 
-### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Qual é a política de privacidade do Video Indexer?
+### <a name="what-is-the-privacy-policy-for-video-indexer"></a>Qual é a política de privacidade para Video Indexer?
 
 O Video Indexer é coberto pela [Política de Privacidade da Microsoft](https://privacy.microsoft.com/privacystatement). A política de privacidade explica os dados pessoais que a Microsoft processa, como a Microsoft os processa e para qual finalidade. Para saber mais sobre privacidade, consulte a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter).
 
@@ -142,20 +142,20 @@ O Video Indexer é coberto pela [Política de Privacidade da Microsoft](https://
 
 Atualmente, o Video Indexer tem a certificação SOC. Para revisar a certificação do Video Indexer, consulte a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings?product=Azure).
 
-### <a name="what-is-the-difference-between-private-and-public-videos"></a>Qual é a diferença entre vídeos privados e públicos? 
+### <a name="what-is-the-difference-between-private-and-public-videos"></a>Qual é a diferença entre vídeos públicos e privados? 
 
-Quando os vídeos são carregados no Video Indexer, você pode escolher entre duas configurações de privacidade: privada e pública. Vídeos públicos são acessíveis para qualquer pessoa, incluindo usuários anônimos e não identificados. Os privados são restritos exclusivamente aos membros da conta. 
+Quando os vídeos são carregados no Video Indexer, você pode escolher entre duas configurações de privacidade: privado e público. Os vídeos públicos podem ser acessados por qualquer pessoa, incluindo usuários anônimos e não identificados. Os tipos privados são restritos exclusivamente aos membros da conta. 
 
-### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>Tentei enviar um vídeo como público e ele foi marcado por conteúdo inapropriado ou ofensivo, o que isso significa? 
+### <a name="i-tried-to-upload-a-video-as-public-and-it-was-flagged-for-inappropriate-or-offensive-content-what-does-that-mean"></a>Tentei carregar um vídeo como público e ele foi sinalizado para conteúdo impróprio ou ofensivo, o que isso significa? 
 
-Ao enviar um vídeo para o Video Indexer, uma análise automática de conteúdo é feita por algoritmos e modelos, a fim de garantir que nenhum conteúdo inapropriado será apresentado publicamente. Se um vídeo for considerado suspeito como contendo conteúdo explícito, não será possível defini-lo como público. No entanto, os membros da conta ainda podem acessá-lo como um vídeo privado (visualizá-lo, baixar os insights e artefatos extraídos e realizar outras operações disponíveis para os membros da conta).   
+Ao carregar um vídeo para Video Indexer, uma análise automática de conteúdo é feita por algoritmos e modelos para ter certeza de que nenhum conteúdo inadequado será apresentado publicamente. Se for considerado suspeito que um vídeo contenha conteúdo explícito, não será possível defini-lo como público. No entanto, os membros da conta ainda podem acessá-lo como um vídeo privado (exibi-lo, baixar as informações e artefatos extraídos e executar outras operações disponíveis para membros da conta).   
 
 Para definir o vídeo para acesso público, você pode: 
 
-* Construa sua própria camada de interface (como aplicativo ou site) e use-a para interagir com o serviço de indexador de vídeo. Dessa forma, o vídeo permanece privado em nosso portal e seus usuários podem interagir com ele através de sua interface. Por exemplo, você ainda pode obter os insights ou permitir a visualização do vídeo em sua própria interface. 
-* Solicite uma revisão humana do conteúdo, o que resultaria na remoção da restrição assumindo que o conteúdo não está explícito. 
+* Crie sua própria camada de interface (como aplicativo ou site) e use-a para interagir com o serviço de Video Indexer. Dessa forma, o vídeo permanece privado em nosso portal e seus usuários podem interagir com ele por meio de sua interface. Por exemplo, você ainda pode obter informações ou permitir a exibição do vídeo em sua própria interface. 
+* Solicite uma revisão humana do conteúdo, o que resultaria na remoção da restrição, supondo que o conteúdo não seja explícito. 
 
-    Essa opção pode ser explorada se o site do Video Indexer for usado diretamente por seus usuários como a camada de interface e para visualização pública (não autenticada). 
+    Essa opção pode ser explorada se o site Video Indexer for usado diretamente por seus usuários como a camada de interface e para exibição pública (não autenticada). 
 
 ## <a name="api-questions"></a>Perguntas de API
 
@@ -191,21 +191,21 @@ Os tokens de acesso são necessários para usar as APIs do Video Indexer para fi
 
 Os tokens de acesso expiram a cada hora, portanto, você precisa gerar um novo token de acesso a cada hora. 
 
-### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quais são as opções de login para o portal do Desenvolvedor do Indexador de Vídeo?
+### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quais são as opções de logon para Video Indexer portal do desenvolvedor?
 
-Você pode fazer login usando a conta do Azure AD, microsoft, conta do Google ou conta do Facebook. 
+Você pode fazer logon usando o Azure AD, conta Microsoft, conta do Google ou conta do Facebook. 
 
-Depois de registrar sua conta de e-mail usando um provedor de identidade, você não poderá usar esta conta de e-mail com outro provedor de identidade.
+Depois de registrar sua conta de email usando um provedor de identidade, você não poderá usar essa conta de email com outro provedor de identidade.
 
 ## <a name="billing-questions"></a>Perguntas sobre cobrança
 
 ### <a name="how-much-does-video-indexer-cost"></a>Quanto custa o Video Indexer?
 
-O Video Indexer usa um modelo de pagamento conforme o uso, com base na duração da entrada de conteúdo que você indexar. Encargos adicionais podem ser aplicáveis para codificação, streaming, armazenamento, uso da rede e unidades reservadas de mídia. Para obter mais informações, consulte a página [de preços.](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)
+O Video Indexer usa um modelo de pagamento conforme o uso, com base na duração da entrada de conteúdo que você indexar. Encargos adicionais podem ser aplicáveis para codificação, streaming, armazenamento, uso da rede e unidades reservadas de mídia. Para obter mais informações, consulte a página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) .
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando sou cobrado por usar o Video Indexer?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando sou cobrado por usar Video Indexer?
 
-Ao enviar um vídeo a ser indexado, o usuário definirá a indexação para ser análise de vídeo, análise de áudio ou ambos. Isso determinará quais SKUs serão cobrados. Se houver um erro de nível crítico durante o processamento, um código de erro será retornado como resposta. Nesse caso, não há cobrança.  Um erro crítico pode ser causado por um bug em nosso código ou uma falha crítica em uma dependência interna que o serviço possui. Erros como identificação errada ou extração de insights não são considerados críticos e uma resposta é devolvida. Em qualquer caso em que uma resposta válida (código de erro) seja devolvida, ocorre o faturamento.
+Ao enviar um vídeo a ser indexado, o usuário definirá a indexação como análise de vídeo, análise de áudio ou ambos. Isso determinará quais SKUs serão cobrados. Se houver um erro de nível crítico durante o processamento, um código de erro será retornado como uma resposta. Nesse caso, não ocorre nenhuma cobrança.  Um erro crítico pode ser causado por um bug em nosso código ou uma falha crítica em uma dependência interna que o serviço tem. Erros como identificação incorreta ou extração de insight não são considerados críticos e uma resposta é retornada. Em qualquer caso em que uma resposta válida (sem código de erro) for retornada, a cobrança ocorrerá.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>O Video Indexer oferece uma avaliação gratuita?
 

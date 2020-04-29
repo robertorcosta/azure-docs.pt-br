@@ -1,5 +1,5 @@
 ---
-title: 'Faça o D: unidade de uma VM um disco de dados '
+title: 'Tornar a unidade D: de uma VM um disco de dados '
 description: 'Descreve como alterar letras de unidade de uma VM do Windows para que seja possível usar a unidade D: como uma unidade de dados.'
 services: virtual-machines-windows
 author: cynthn
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82083415"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usar a unidade D: como uma unidade de dados em uma VM do Windows
@@ -28,7 +28,7 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual. Para faz
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Mover temporariamente o pagefile.sys para a unidade C
 1. Conectar-se à máquina virtual. 
-2. Clique com o botão direito do mouse no menu **Iniciar** e selecione **Sistema**.
+2. Clique com o botão direito do mouse no menu **Iniciar** e selecione **sistema**.
 3. No menu à esquerda, selecione **Configurações avançadas do sistema**.
 4. Na seção **Desempenho**, selecione **Configurações**.
 5. Selecione a guia **Avançado** .
@@ -47,7 +47,7 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual. Para faz
 6. Na Letra da unidade, selecione a unidade **D** e clique em **OK**. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Mova o pagefile.sys de volta para a unidade de armazenamento temporário
-1. Clique com o botão direito do mouse no menu **Iniciar** e selecione **Sistema**
+1. Clique com o botão direito do mouse no menu **Iniciar** e selecione **sistema**
 2. No menu à esquerda, selecione **Configurações avançadas do sistema**.
 3. Na seção **Desempenho**, selecione **Configurações**.
 4. Selecione a guia **Avançado** .

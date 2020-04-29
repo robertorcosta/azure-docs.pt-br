@@ -1,6 +1,6 @@
 ---
-title: Criar o contêiner de perfil FSLogix Azure Files Active Directory Domain Services - Azure
-description: Este artigo descreve como criar um contêiner de perfil FSLogix com arquivos Azure e serviços de domínio do diretório ativo do Azure.
+title: Criar contêiner de perfil FSLogix arquivos do Azure Active Directory Domain Services-Azure
+description: Este artigo descreve como criar um contêiner de perfil do FSLogix com arquivos e Azure Active Directory Domain Services do Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,104 +9,104 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81265766"
 ---
-# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Crie um contêiner de perfil FSLogix com arquivos Azure
+# <a name="create-an-fslogix-profile-container-with-azure-files"></a>Criar um contêiner de perfil do FSLogix com os arquivos do Azure
 
-Este artigo mostrará como criar um contêiner de perfil FSLogix com arquivos Azure e Azure Active Directory Domain Services (AD DS).
+Este artigo mostrará como criar um contêiner de perfil FSLogix com arquivos do Azure e Azure Active Directory Domain Services (AD DS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já configurou uma instância Azure AD DS. Se você ainda não tiver um, siga as instruções em [Criar um domínio gerenciado básico](../active-directory-domain-services/tutorial-create-instance.md) primeiro e depois retorne aqui.
+Este artigo pressupõe que você já configurou uma instância de AD DS do Azure. Se você ainda não tiver um, siga as instruções em [criar um domínio gerenciado básico](../active-directory-domain-services/tutorial-create-instance.md) primeiro e, em seguida, retorne aqui.
 
-## <a name="add-azure-ad-ds-admins"></a>Adicionar administradores Azure AD DS
+## <a name="add-azure-ad-ds-admins"></a>Adicionar administradores de AD DS do Azure
 
-Para adicionar admins adicionais, você cria um novo usuário e concede-lhes permissões.
+Para adicionar administradores adicionais, você cria um novo usuário e concede a eles permissões.
 
-Para adicionar um admin:
+Para adicionar um administrador:
 
-1. Selecione O Diretório Ativo do **Azure** na barra lateral e selecione **Todos os usuários**e selecione Novo **usuário**.
+1. Selecione **Azure Active Directory** na barra lateral, selecione **todos os usuários**e, em seguida, selecione **novo usuário**.
 
-2.  Digite os detalhes do usuário nos campos.
+2.  Insira os detalhes do usuário nos campos.
 
-3. No painel diretório ativo do Azure no lado esquerdo da tela, selecione **Grupos**.
+3. No painel de Azure Active Directory no lado esquerdo da tela, selecione **grupos**.
 
-4. Selecione o **grupo Administradores AAD DC.**
+4. Selecione o grupo de **Administradores do AAD DC** .
 
-5. No painel esquerdo, selecione **Membros**e selecione **Adicionar membros** no painel principal. Isso mostrará uma lista de todos os usuários disponíveis no Azure AD. Selecione o nome do perfil de usuário que você acabou de criar.
+5. No painel esquerdo, selecione **Membros**e, em seguida, selecione **adicionar membros** no painel principal. Isso mostrará uma lista de todos os usuários disponíveis no Azure AD. Selecione o nome do perfil de usuário que você acabou de criar.
 
-## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
+## <a name="set-up-an-azure-storage-account"></a>Configurar uma conta de armazenamento do Azure
 
-Agora é hora de ativar a autenticação do Azure AD DS sobre o SMB (Server Message Block, bloco de mensagens do servidor). 
+Agora é hora de habilitar a autenticação de AD DS do Azure sobre o protocolo SMB. 
 
 Para habilitar a autenticação:
 
-1. Se você ainda não tiver, configure e implante uma conta de armazenamento v2 Azure de uso geral seguindo as instruções em [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md).
+1. Se você ainda não fez isso, configure e implante uma conta de armazenamento do Azure de uso geral v2 seguindo as instruções em [criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
-2. Depois de terminar de configurar sua conta, selecione **Ir para recurso**.
+2. Depois de concluir a configuração da sua conta, selecione **ir para o recurso**.
 
-3. Selecione **Configuração** no painel do lado esquerdo da tela e, em seguida, habilite a **autenticação do Diretório Ativo do Azure para arquivos Azure** no painel principal. Quando terminar, selecione **Salvar**.
+3. Selecione **configuração** no painel no lado esquerdo da tela e, em seguida, habilite **a autenticação de Azure Active Directory para os arquivos do Azure** no painel principal. Quando terminar, selecione **Salvar**.
 
-4. Selecione **Visão geral** no painel no lado esquerdo da tela e, em seguida, selecione **Arquivos** no painel principal.
+4. Selecione **visão geral** no painel no lado esquerdo da tela e, em seguida, selecione **arquivos** no painel principal.
 
-5. Selecione **'Compartilhar arquivo'** e digite o **Nome** e a **Cota** nos campos que aparecem no lado direito da tela.
+5. Selecione **compartilhamento de arquivos** e insira o **nome** e a **cota** nos campos que aparecem no lado direito da tela.
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
-Outros usuários precisarão de permissões de acesso para acessar seu compartilhamento de arquivos. Para fazer isso, você precisará atribuir a cada usuário uma função com as permissões de acesso apropriadas.
+Outros usuários precisarão de permissões de acesso para acessar o compartilhamento de arquivos. Para fazer isso, você precisará atribuir a cada usuário uma função com as permissões de acesso apropriadas.
 
-Para atribuir permissões de acesso aos usuários:
+Para atribuir permissões de acesso de usuários:
 
-1. A partir do portal Azure, abra o compartilhamento de arquivos criado em [Configurar uma conta do Azure Storage](#set-up-an-azure-storage-account).
+1. No portal do Azure, abra o compartilhamento de arquivos que você criou em [Configurar uma conta de armazenamento do Azure](#set-up-an-azure-storage-account).
 
-2. Selecione **controle de acesso (IAM)**.
+2. Selecione **controle de acesso (iam)**.
 
 3. Selecione **Adicionar uma atribuição de função**.
 
-4. Na guia **'Adicionar função',** selecione a função incorporada apropriada na lista de papéis. Você precisará pelo menos selecionar **O Contribuinte de Compartilhamento de Dados de Arquivos de Armazenamento SMB** para obter permissões adequadas.
+4. Na guia **Adicionar atribuição de função** , selecione a função interna apropriada na lista função. Você precisará, pelo menos, selecionar **colaborador de compartilhamento SMB de dados de arquivo de armazenamento** para a conta para obter as permissões adequadas.
 
-5. Para **atribuir acesso a,** selecione **usuário, grupo ou principal de serviço do Azure Active Directory**.
+5. Para **atribuir acesso a**, selecione **Azure Active Directory usuário, grupo ou entidade de serviço**.
 
-6. Selecione um nome ou endereço de e-mail para a identidade target Azure Active Directory.
+6. Selecione um nome ou endereço de email para a identidade de Azure Active Directory de destino.
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
-## <a name="get-the-storage-account-access-key"></a>Obtenha a chave de acesso da conta de armazenamento
+## <a name="get-the-storage-account-access-key"></a>Obter a chave de acesso da conta de armazenamento
 
 Em seguida, você precisará obter a chave de acesso para sua conta de armazenamento.
 
 Para obter a chave de acesso da conta de armazenamento:
 
-1. Na barra lateral do portal Azure, selecione **Contas de armazenamento**.
+1. Na barra lateral portal do Azure, selecione **contas de armazenamento**.
 
 2. Na lista de contas de armazenamento, selecione a conta para a qual você habilitou o Azure AD DS e criou as funções personalizadas nas etapas acima.
 
-3. Em **Configurações,** selecione **Teclas de acesso** e copie a chave da **chave1**.
+3. Em **configurações**, selecione **chaves de acesso** e copie a chave da **key1**.
 
-4. Vá para a guia **Máquinas Virtuais** e localize qualquer VM que se torne parte do seu pool de host.
+4. Vá para a guia **máquinas virtuais** e localize qualquer VM que se tornará parte do seu pool de hosts.
 
-5. Selecione o nome da máquina virtual (VM) em **Máquinas Virtuais (adVM)** e selecione **Conectar**
+5. Selecione o nome da máquina virtual (VM) em **máquinas virtuais (adVM)** e selecione **conectar**
 
-    Isso irá baixar um arquivo RDP que permitirá que você faça login na VM com suas próprias credenciais.
+    Isso fará o download de um arquivo RDP que permitirá que você entre na VM com suas próprias credenciais.
 
-    ![Uma captura de tela da guia RDP da janela Conectar à máquina virtual.](media/rdp-tab.png)
+    ![Uma captura de tela da guia RDP da janela conectar-se à máquina virtual.](media/rdp-tab.png)
 
-6. Quando você tiver feito o assinatura na VM, execute um prompt de comando como administrador.
+6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
-7. Execute o comando a seguir:
+7. Execute o seguinte comando:
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
      ```
 
-    - Substitua por `<desired-drive-letter>` uma letra de unidade `y:`de sua escolha (por exemplo, ).
-    - Substitua todas `<storage-account-name>` as instâncias com o nome da conta de armazenamento especificada anteriormente.
-    - Substitua pelo `<share-name>` nome do compartilhamento que você criou anteriormente.
-    - Substitua pela `<storage-account-key>` chave da conta de armazenamento do Azure.
+    - Substitua `<desired-drive-letter>` por uma letra da unidade de sua escolha (por exemplo `y:`,).
+    - Substitua todas as instâncias `<storage-account-name>` de pelo nome da conta de armazenamento especificada anteriormente.
+    - Substitua `<share-name>` pelo nome do compartilhamento que você criou anteriormente.
+    - Substitua `<storage-account-key>` pela chave da conta de armazenamento do Azure.
 
     Por exemplo:  
   
@@ -114,14 +114,14 @@ Para obter a chave de acesso da conta de armazenamento:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Execute o seguinte comando para conceder ao usuário acesso total ao compartilhamento de arquivos do Azure.
+8. Execute o comando a seguir para conceder ao usuário acesso completo ao compartilhamento de arquivos do Azure.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(f)
      ```
 
-    - Substitua pela `<mounted-drive-letter>` letra da unidade que deseja que o usuário use.
-    - Substitua pelo `<user-email>` UPN do usuário que usará esse perfil para acessar as VMs do host de sessão.
+    - Substitua `<mounted-drive-letter>` pela letra da unidade que você deseja que o usuário use.
+    - Substitua `<user-email>` pelo UPN do usuário que usará esse perfil para acessar as VMs do host de sessão.
 
     Por exemplo:
      
@@ -131,44 +131,44 @@ Para obter a chave de acesso da conta de armazenamento:
 
 ## <a name="create-a-profile-container"></a>Criar um contêiner de perfil
 
-Agora que seus perfis estão prontos, vamos criar um contêiner de perfil FSLogix.
+Agora que seus perfis estão prontos para uso, vamos criar um contêiner de perfil FSLogix.
 
-Para configurar um contêiner de perfil FSLogix:
+Para configurar um contêiner de perfil do FSLogix:
 
-1. Faça login no VM de host de sessão configurado no início deste artigo e, em seguida, [baixe e instale o agente FSLogix](/fslogix/install-ht/).
+1. Entre na VM host da sessão que você configurou no início deste artigo e, em seguida, [Baixe e instale o agente do FSLogix](/fslogix/install-ht/).
 
-2. Descompacte o arquivo do agente FSLogix que você baixou e vá para **x64** > **Releases,** em seguida, abra **FSLogixAppsSetup.exe**.
+2. Descompacte o arquivo do agente FSLogix que você baixou e vá para**versões** **x64** > e, em seguida, abra **FSLogixAppsSetup. exe**.
 
-3. Uma vez que o instalador seja lançado, selecione **Eu concordo com os termos e condições da licença.** Se aplicável, forneça uma nova chave.
+3. Depois que o instalador for iniciado, selecione **concordo com os termos e condições de licença.** Se aplicável, forneça uma nova chave.
 
 4. Selecione **Instalar**.
 
-5. Abra **a unidade C,** depois vá para os aplicativos**FSLogix** >  **de arquivos** > do programa**para** ter certeza de que o agente FSLogix foi instalado corretamente.
+5. Abra a **unidade C**e vá para **arquivos** > de programas**FSLogix** > **aplicativos** para certificar-se de que o agente FSLogix foi instalado corretamente.
 
      >[!NOTE]
-     > Se houver várias VMs no pool de host, você precisará repetir as etapas 1 a 5 para cada VM.
+     > Se houver várias VMs no pool de hosts, você precisará repetir as etapas de 1 a 5 para cada VM.
 
-6. Execute **O Editor de Registro** (RegEdit) como administrador.
+6. Execute o **Editor do registro** (regedit) como administrador.
 
-7. Navegue até o**software** > **de HKEY_LOCAL_MACHINE** >  **de computador** > **FSLogix,** clique com o botão direito do mouse no **FSLogix,** selecione **Novo**e selecione **Teca**.
+7. Navegue até **computador** > **HKEY_LOCAL_MACHINE** > **software** > **FSLogix**, clique com o botão direito do mouse em **FSLogix**, selecione **novo**e selecione **chave**.
 
-8. Crie uma nova chave chamada **Perfis**.
+8. Crie uma nova chave chamada **perfis**.
 
-9.  Clique com o botão direito do mouse em **Perfis,** selecione **Novo**e selecione **DWORD (32 bits).** Nomeie o valor **Ativado** e defina o valor **de Dados** como **1**.
+9.  Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor DWORD (32 bits).** Nomeie o valor como **habilitado** e defina o valor de **dados** como **1**.
 
-    ![Uma captura de tela da tecla Profiles. O arquivo REG_DWORD é destacado e seu valor de Dados é definido como 1.](media/dword-value.png)
+    ![Uma captura de tela da chave de perfis. O arquivo de REG_DWORD é realçado e seu valor de dados é definido como 1.](media/dword-value.png)
 
-10. Clique com o botão direito do mouse em **Perfis,** selecione **Novo**e selecione **Valor de Várias Cordas**. Nomeie o valor **VHDLocations** e defina o `\\fsprofile.file.core.windows.net\share` URI para o compartilhamento De arquivos Azure como o valor de Dados.
+10. Clique com o botão direito do mouse em **perfis**, selecione **novo**e, em seguida, selecione **valor de cadeia de caracteres múltipla**. Nomeie o valor **VHDLocations** e defina Insira o URI para o compartilhamento `\\fsprofile.file.core.windows.net\share` de arquivos do Azure como o valor de dados.
 
-    ![Uma captura de tela da tecla Profiles mostrando o arquivo VHDLocations. Seu valor de dados mostra o URI para o compartilhamento de arquivos do Azure.](media/multi-string-value.png)
+    ![Uma captura de tela da chave de perfis que mostra o arquivo VHDLocations. Seu valor de dados mostra o URI para o compartilhamento de arquivos do Azure.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Atribuir usuários a um host de sessão
 
-Agora você precisará atribuir usuários ao seu host de sessão.
+Agora, você precisará atribuir usuários ao seu host de sessão.
 
-Para atribuir aos usuários:
+Para atribuir usuários:
 
-1. Execute o Windows PowerShell como administrador e execute o cmdlet a seguir para fazer login no Windows Virtual Desktop com o PowerShell:
+1. Execute o Windows PowerShell como administrador e execute o seguinte cmdlet para entrar na área de trabalho virtual do Windows com o PowerShell:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -181,9 +181,9 @@ Para atribuir aos usuários:
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   Quando solicitado para credenciais, digite o mesmo usuário que foi concedido a função TenantCreator, RDS Owner ou RDS Contributor no inquilino do Windows Virtual Desktop.
+   Quando solicitado a fornecer credenciais, insira o mesmo usuário que recebeu a função de colaborador TenantCreator, RDS Owner ou RDS no locatário da área de trabalho virtual do Windows.
 
-2. Execute os cmdlets a seguir para atribuir o usuário ao grupo de desktop remoto:
+2. Execute os seguintes cmdlets para atribuir o usuário ao grupo de área de trabalho remota:
 
      ```powershell
      $tenant = "<your-wvd-tenant>"
@@ -197,7 +197,7 @@ Para atribuir aos usuários:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-    Como os cmdlets anteriores, `<your-wvd-tenant>` `<wvd-pool>`certifique-se de substituir , e `<user-principal>` com os valores relevantes.
+    Como os cmdlets anteriores, certifique-se de `<your-wvd-tenant>`substituir `<wvd-pool>`, e `<user-principal>` pelos valores relevantes.
 
     Por exemplo:
 
@@ -213,31 +213,31 @@ Para atribuir aos usuários:
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
-## <a name="make-sure-your-profile-works"></a>Certifique-se de que seu perfil funciona
+## <a name="make-sure-your-profile-works"></a>Verifique se o seu perfil funciona
 
-Agora tudo o que você tem que fazer é ter certeza de que o perfil que você criou existe e funciona como planejado.
+Agora tudo o que você precisa fazer é verificar se o perfil criado existe e funciona como pretendido.
 
 Para verificar seu perfil:
 
-1. Abra um navegador e vá para [o cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Abra um navegador e vá para [o cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-2. Faça login com a conta de usuário atribuída ao grupo De desktop remoto.
+2. Entre com a conta de usuário atribuída ao grupo de Área de Trabalho Remota.
 
-3. Uma vez estabelecida a sessão de usuário, abra o portal do Azure e faça login com uma conta administrativa.
+3. Depois que a sessão de usuário for estabelecida, abra o portal do Azure e entre com uma conta administrativa.
 
-4. Na barra lateral, selecione **Contas de armazenamento**.
+4. Na barra lateral, selecione **contas de armazenamento**.
 
-5. Selecione a conta de armazenamento configurada como o compartilhamento de arquivos para o pool de host de sessão e habilitado com o Azure AD DS.
+5. Selecione a conta de armazenamento configurada como o compartilhamento de arquivos para o pool de hosts de sessão e habilitada com o Azure AD DS.
 
-6. Selecione o ícone **Arquivos** e expanda seu compartilhamento.
+6. Selecione o ícone **arquivos** e expanda seu compartilhamento.
 
-    Se tudo estiver configurado corretamente, você deve ver um **Diretório** com um `<user SID>-<username>`nome formatado assim: .
+    Se tudo estiver configurado corretamente, você verá um **diretório** com um nome que é formatado da seguinte maneira: `<user SID>-<username>`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você está procurando maneiras alternativas de criar contêineres de perfil FSLogix, confira os seguintes artigos:
+Se você estiver procurando maneiras alternativas de criar contêineres de perfil FSLogix, confira os seguintes artigos:
 
-- [Crie um recipiente de perfil para um pool de host usando um compartilhamento de arquivos](create-host-pools-user-profile.md).
-- [Crie um contêiner de perfil FSLogix para um pool de hosts usando arquivos do Azure NetApp](create-fslogix-profile-container.md)
+- [Crie um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).
+- [Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files](create-fslogix-profile-container.md)
 
-Você pode encontrar informações mais detalhadas sobre conceitos relacionados a contêineres FSlogix para arquivos Azure em [contêineres de perfil FSLogix e arquivos Azure](fslogix-containers-azure-files.md).
+Você pode encontrar informações mais detalhadas sobre os conceitos relacionados aos contêineres do FSlogix para arquivos do Azure em [contêineres de perfil do FSlogix e arquivos do Azure](fslogix-containers-azure-files.md).

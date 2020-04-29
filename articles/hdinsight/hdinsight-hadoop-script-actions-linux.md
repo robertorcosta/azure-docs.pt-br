@@ -1,6 +1,6 @@
 ---
-title: Desenvolver ações de script para personalizar clusters Azure HDInsight
-description: Aprenda a usar scripts Bash para personalizar clusters HDInsight. As ações de script permitem que você execute scripts durante ou após a criação de cluster para alterar as configurações de configuração do cluster ou instalar software adicional.
+title: Desenvolver ações de script para personalizar os clusters do Azure HDInsight
+description: Saiba como usar scripts bash para personalizar os clusters HDInsight. As ações de script permitem executar scripts durante ou após a criação do cluster para alterar as definições de configuração de cluster ou instalar software adicional.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767543"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
@@ -44,7 +44,7 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 * [Usar os recursos pré-compilados](#bPS4)
 * [Certifique-se de que o script de personalização do cluster seja idempotente](#bPS3)
 * [Garantir alta disponibilidade da arquitetura de cluster](#bPS5)
-* [Configure os componentes personalizados para usar o armazenamento Azure Blob](#bPS6)
+* [Configurar os componentes personalizados para usar o armazenamento de BLOBs do Azure](#bPS6)
 * [Gravar informações para STDOUT e STDERR](#bPS7)
 * [Salvar arquivos como ASCII com terminações de linha LF](#bps8)
 * [Usar a lógica de repetição para recuperar-se de erros transitórios](#bps9)
@@ -75,7 +75,7 @@ fi
 
 ### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Direcionar a versão do sistema operacional
 
-O HDInsight é baseado na distribuição Linux do Ubuntu. Versões diferentes do HDInsight contam com versões diferentes do Ubuntu, o que pode afetar o comportamento do seu script. Por exemplo, HDInsight 3.4 e versões mais recentes são baseados em versões do Ubuntu que usam o Upstart. As versões 3.5 e posteriores se baseiam no Ubuntu 16.04, que usa Systemd. O Systemd e Upstart contam com comandos diferentes, portanto seu script deve ser escrito para funcionar com ambos.
+O HDInsight é baseado na distribuição de Ubuntu Linux. Versões diferentes do HDInsight contam com versões diferentes do Ubuntu, o que pode afetar o comportamento do seu script. Por exemplo, HDInsight 3.4 e versões mais recentes são baseados em versões do Ubuntu que usam o Upstart. As versões 3.5 e posteriores se baseiam no Ubuntu 16.04, que usa Systemd. O Systemd e Upstart contam com comandos diferentes, portanto seu script deve ser escrito para funcionar com ambos.
 
 Outra diferença importante entre o HDInsight 3.4 e o 3.5 é que o `JAVA_HOME` agora aponta para o Java 8. O código a seguir demonstra como determinar se o script está sendo executado no Ubuntu 14 ou 16:
 
@@ -123,7 +123,7 @@ A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azu
 > [!IMPORTANT]  
 > A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, as amostras fornecidas pela [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) Microsoft são armazenadas na conta de armazenamento. Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) de armazenamento. Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
 
 ### <a name="use-pre-compiled-resources"></a><a name="bPS4"></a>Usar os recursos pré-compilados
 
@@ -133,11 +133,11 @@ Para reduzir o tempo necessário de execução do script, evite operações que 
 
 Os scripts devem ser idempotentes. Se o script for executado várias vezes, ele deverá retornar o cluster ao mesmo estado a cada vez.
 
-Por exemplo, um script que modifica arquivos de configuração não deve adicionar entradas duplicadas se for emtempos várias vezes.
+Por exemplo, um script que modifica os arquivos de configuração não deve adicionar entradas duplicadas, se executado várias vezes.
 
 ### <a name="ensure-high-availability-of-the-cluster-architecture"></a><a name="bPS5"></a>Garantir alta disponibilidade da arquitetura de cluster
 
-Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; as ações de script são executadas em ambos esses nós. Se os componentes instalados esperarem apenas um nó de cabeça, não instale os componentes em ambos os nós da cabeça.
+Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; as ações de script são executadas em ambos esses nós. Se os componentes que você instalar esperam apenas um nó de cabeçalho, não instale os componentes em ambos os nós de cabeçalho.
 
 > [!IMPORTANT]  
 > Os serviços fornecidos como parte do HDInsight são projetados para failover entre os dois nós de cabeçalho, conforme necessário. Essa funcionalidade não se estende a componentes personalizados instalados por meio de ações de script. Se você precisar de alta disponibilidade para componentes personalizados, você deverá implementar seu próprio mecanismo de failover.
@@ -146,7 +146,7 @@ Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que est
 
 Os componentes que você instala no cluster podem ter uma configuração padrão que usa o armazenamento HDFS (Sistema de Arquivos Distribuído do Apache Hadoop). O HDInsight usa o Armazenamento de Blobs do Azure ou o Azure Data Lake Storage como o repositório padrão. Ambos fornecem um sistema de arquivos compatível com HDFS que faz os dados persistirem mesmo que o cluster seja excluído. Talvez você precise configurar os componentes instalados para usar o WASB ou ADL em vez de HDFS.
 
-Para a maioria das operações, você não precisa especificar o sistema de arquivos. Por exemplo, o arquivo hadoop-common.jar do sistema de arquivos local para o armazenamento em cluster:
+Para a maioria das operações, você não precisa especificar o sistema de arquivos. Por exemplo, o seguinte copia o arquivo Hadoop-Common. jar do sistema de arquivos local para o armazenamento de cluster:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -159,7 +159,7 @@ Neste exemplo, o comando `hdfs` usa o armazenamento de cluster padrão de modo t
 HDInsight registra em log a saída do script que é gravada para STDOUT e STDERR. Você pode exibir essas informações usando a interface do usuário da Web do Ambari.
 
 > [!NOTE]  
-> O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação de clusters e a criação falhar, consulte ['Solucionar as ações](./troubleshoot-script-action.md) de script' para obter outras formas de acessar informações registradas.
+> O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, consulte [solucionar problemas de ações de script](./troubleshoot-script-action.md) para outras maneiras de acessar informações registradas.
 
 A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo:
 
@@ -173,11 +173,11 @@ Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo
 >&2 echo "An error occurred installing Foo"
 ```
 
-Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)o redirecionamento do IO, consulte .
+Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de e [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)/s, consulte.
 
-Para obter mais informações sobre a visualização de informações registradas por ações de script, consulte [''Solucionar as ações do script'.](./troubleshoot-script-action.md)
+Para obter mais informações sobre como exibir informações registradas em log por ações de script, consulte [solucionar problemas de ações de script](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salvar arquivos como ASCII com terminações de linha LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salvar arquivos como ASCII com terminações de linha de LF
 
 Scripts de Bash devem ser armazenados com formato ASCII, com linhas terminadas em LF. Os arquivos que são armazenados como UTF-8 ou usam CRLF como o terminação de linha podem falhar com o seguinte erro:
 
@@ -188,7 +188,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Use a lógica de repetição para se recuperar de erros transitórios
 
-Ao baixar arquivos, instalar pacotes usando apt-get ou outras ações que transmitam dados pela internet, a ação pode falhar devido a erros transitórios de rede. Por exemplo, o recurso remoto com o que você está se comunicando pode estar no processo de falhar em um nó de backup.
+Ao baixar arquivos, instalar pacotes usando apt-get ou outras ações que transmitem dados pela Internet, a ação pode falhar devido a erros transitórios de rede. Por exemplo, o recurso remoto com o qual você está se comunicando pode estar no processo de failover para um nó de backup.
 
 Para tornar o script resistente a erros transitórios, você pode implementar lógica de repetição. A função a seguir demonstra como implementar a lógica de repetição. Ela tenta realizar a operação novamente três vezes antes de falhar.
 
@@ -226,7 +226,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helper-methods-for-custom-scripts"></a><a name="helpermethods"></a>Métodos auxiliares para scripts personalizados
 
-Os métodos auxiliares da Ação de Script são utilitários que podem ser usados durante a gravação de scripts personalizados. Esses métodos estão [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) contidos no roteiro. Use o seguinte para baixá-los e usá-los como parte do script:
+Os métodos auxiliares da Ação de Script são utilitários que podem ser usados durante a gravação de scripts personalizados. Esses métodos estão contidos no [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Use o seguinte para baixá-los e usá-los como parte do script:
 
 ```bash
 # Import the helper method module.
@@ -237,7 +237,7 @@ Os auxiliares a seguir, disponíveis para uso em seu script:
 
 | Uso do auxiliar | Descrição |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não sobreescreve um arquivo existente. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
 | `test_is_headnode` |Se executado em um nó de cabeçalho do cluster, retorna 1. Caso contrário, 0. |
 | `test_is_datanode` |Se o nó atual é um nó de dados (de trabalho), retorna 1; caso contrário, 0. |
@@ -288,7 +288,7 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Storage com o HDInsight, consulte [Quickstart: Configure clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta do Azure Data Lake Storage__ que está associada com o cluster do HDInsight. Para obter mais informações sobre como usar Azure Data Lake Storage com o HDInsight, consulte [início rápido: configurar clusters no hdinsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
     > A entidade de serviço que HDInsight usa para acessar o Data Lake Storage deve ter acesso de leitura para o script.
@@ -322,19 +322,19 @@ Para obter mais informações sobre como usar cada método, consulte [Como usar 
 
 ## <a name="custom-script-samples"></a><a name="sampleScripts"></a>Exemplos de script personalizado
 
-A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Veja [Instalar e usar o Hue nos clusters HDInsight](hdinsight-hadoop-hue-linux.md) como exemplo de ação de script.
+A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte [instalar e usar o matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md) como uma ação de script de exemplo.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-A seguir, erros que você pode encontrar ao usar scripts que você desenvolveu:
+Estes são os erros que podem surgir ao usar os scripts que você desenvolveu:
 
-**Erro** `$'\r': command not found`: . Às vezes, seguido por `syntax error: unexpected end of file`.
+**Erro**: `$'\r': command not found`. Às vezes, seguido por `syntax error: unexpected end of file`.
 
 *Causa*: este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
 
 Esse problema ocorre geralmente quando o script é criado em um ambiente Windows, já que CRLF é uma terminação de linha comum para muitos editores de texto no Windows.
 
-*Resolução*: Se for uma opção no seu editor de texto, selecione o formato Unix ou LF para o final da linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
+*Resolução*: se for uma opção em seu editor de texto, selecione formato UNIX ou LF para a terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
 
 > [!NOTE]  
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
@@ -346,7 +346,7 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica o arquivo diretamente |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contém uma versão apenas com terminações LF. |
 
-**Erro** `line 1: #!/usr/bin/env: No such file or directory`: .
+**Erro**: `line 1: #!/usr/bin/env: No such file or directory`.
 
 *Causa*: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
 

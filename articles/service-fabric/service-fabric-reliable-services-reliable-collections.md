@@ -1,13 +1,13 @@
 ---
-title: Introdução a Coleções Confiáveis
+title: Introdução às coleções confiáveis
 description: Os serviços com monitoração de estado do Service Fabric fornecem coleções confiáveis que permitem escrever aplicativos em nuvem altamente disponíveis, escalonáveis e com baixa latência.
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398425"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -26,7 +26,7 @@ As Coleções Confiáveis podem ser interpretadas como a evolução natural das 
 * Replicadas: alterações de estado são replicadas para alta disponibilidade.
 * Assíncronas: as APIs são assíncronas para garantir que os threads não sejam bloqueados quando gerarem E/S.
 * Transacionais: as APIs utilizam a abstração de transações para que você possa gerenciar facilmente várias Coleções Confiáveis dentro de um serviço.
-* Persistido ou Volátil: Os dados podem ser permaneciados em disco para durabilidade contra paralisações em larga escala (por exemplo, uma queda de energia no data center). Algumas Coleções Confiáveis também suportam um modo volátil (com [ressalvas)](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)onde todos os dados são mantidos na memória, como um cache replicado na memória.
+* Persistente ou volátil: os dados podem ser persistidos em disco para durabilidade em caso de interrupções em grande escala (por exemplo, uma interrupção de energia do Datacenter). Algumas coleções confiáveis também dão suporte a um modo volátil (com [advertências](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)), em que todos os dados são mantidos na memória, como um cache na memória replicada.
 
 As Coleções Confiáveis fornecem garantias de coerência forte prontas para uso para facilitar o raciocínio sobre o estado do aplicativo.
 A coerência forte é obtida com a garantia de que as confirmações de transação só são concluídas depois que toda a transação tiver sido registrada em uma quorum de réplicas que seja a maioria, incluindo a primária.
@@ -35,7 +35,7 @@ Para obter consistência mais fraca, os aplicativos podem confirmar para o clien
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent** ):
 
 * Assíncronas: retorna uma tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
-* Sem parâmetros `ConditionalValue<T>` de `bool` saída: Usa para retornar um e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
+* Nenhum parâmetro de saída: `ConditionalValue<T>` usa para retornar `bool` um e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 * Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
@@ -46,11 +46,11 @@ Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Diretrizes de coleta confiáveis & recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [Diretrizes de coleta confiável & recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Transações e Bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
-  * [Backup e Restauração](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização da Coleção Confiável](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: a407461e20eefe29dd410ac6ed547b33287a5be8
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82145420"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Solucionar erros de runbook
@@ -114,7 +114,7 @@ Você recebe o seguinte erro ao trabalhar com o `Select-AzureSubscription`cmdlet
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 
 Esse erro pode ocorrer se:
 

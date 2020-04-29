@@ -1,5 +1,5 @@
 ---
-title: Modelo do Azure Resource Manager para espaço de trabalho do Log Analytics
+title: Modelo de Azure Resource Manager para Log Analytics espaço de trabalho
 description: Você pode usar os modelos do Azure Resource Manager para criar e configurar workspaces do Log Analytics.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,19 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
 ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81768122"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar o espaço de trabalho do Log Analytics usando modelos do Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar [os modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure Monitor. Os exemplos das tarefas que você pode executar com os modelos incluem:
+Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Os exemplos das tarefas que você pode executar com os modelos incluem:
 
-* Crie um espaço de trabalho, incluindo a definição do nível de preços e da reserva de capacidade
+* Criar um espaço de trabalho, incluindo a definição de tipo de preço e reserva de capacidade
 * Adicionar uma solução
 * Criar pesquisas salvas
 * Criar um grupo de computadores
@@ -27,7 +27,7 @@ Você pode usar [os modelos do Azure Resource Manager](../../azure-resource-mana
 * Coletar contadores de desempenho de computadores Linux e Windows
 * Coletar eventos de syslog em computadores Linux 
 * Coletar eventos dos logs de eventos do Windows
-* Colete registros personalizados do computador Windows
+* Coletar logs personalizados do computador com Windows
 * Adicionar o agente de análise de logs a uma máquina virtual do Azure
 * Configurar a análise de logs para indexar os dados coletados usando o diagnóstico do Azure
 
@@ -40,28 +40,28 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
+| Pesquisar      | savedSearches | 2015-03-20 |
 | Fonte de dados | datasources   | 2015-11-01-preview |
 | Solução    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 
-O exemplo a seguir cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado para exigir apenas o nome e a localização do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como modo de controle de [acesso,](design-logs-deployment.md#access-control-mode)nível de precificação, retenção e nível de reserva de capacidade.
+O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON está configurado para exigir apenas o nome e o local do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como [modo de controle de acesso](design-logs-deployment.md#access-control-mode), tipo de preço, retenção e nível de reserva de capacidade.
 
 > [!WARNING]
-> O modelo a seguir cria um espaço de trabalho do Log Analytics e configura a coleta de dados. Isso pode alterar suas configurações de faturamento. Revisar [Gerenciar o uso e os custos com o Azure Monitor Logs](manage-cost-storage.md) para entender o faturamento dos dados coletados em um espaço de trabalho do Log Analytics antes de aplicá-los em seu ambiente Azure.
+> O modelo a seguir cria um espaço de trabalho Log Analytics e configura a coleta de dados. Isso pode alterar suas configurações de cobrança. Examine [gerenciar o uso e os custos com logs de Azure monitor](manage-cost-storage.md) para entender a cobrança dos dados coletados em um espaço de trabalho log Analytics antes de aplicá-los em seu ambiente do Azure.
 
-Para reserva de capacidade, você define uma reserva de capacidade selecionada `CapacityReservation` para ingerindo dados `capacityReservationLevel`especificando o SKU e um valor em GB para a propriedade . A lista a seguir detalha os valores e o comportamento suportados ao configurá-lo.
+Para a reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, `CapacityReservation` ESPECIFICANDO a SKU e um valor em GB `capacityReservationLevel`para a propriedade. A lista a seguir detalha os valores com suporte e o comportamento ao configurá-lo.
 
-- Uma vez definido o limite de reserva, você não pode mudar para um SKU diferente dentro de 31 dias.
+- Depois de definir o limite de reserva, você não poderá alterar para um SKU diferente dentro de 31 dias.
 
-- Uma vez definido o valor da reserva, você só pode aumentá-lo dentro de 31 dias.
+- Depois de definir o valor de reserva, você só poderá aumentá-lo dentro de 31 dias.
 
-- Você só pode definir `capacityReservationLevel` o valor de em múltiplos de 100, com um valor máximo de 50000.
+- Você só pode definir o valor de `capacityReservationLevel` em múltiplos de 100, com um valor máximo de 50000.
 
-- Se você aumentar o nível de reserva, o temporizador será redefinido e você não poderá alterá-lo por mais 31 dias a partir desta atualização.  
+- Se você aumentar o nível de reserva, o temporizador será redefinido e você não poderá alterá-lo por mais 31 dias a partir dessa atualização.  
 
-- Se você modificar qualquer outra propriedade para o espaço de trabalho, mas mantiver o limite de reserva para o mesmo nível, o temporizador não será redefinido. 
+- Se você modificar qualquer outra propriedade para o espaço de trabalho, mas reter o limite de reserva para o mesmo nível, o temporizador não será redefinido. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implantar modelo
 
@@ -149,15 +149,15 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
     ```
 
    >[!NOTE]
-   >Para configurações de reserva de capacidade, use essas propriedades em "sku":
-   >* "nome": "Reserva de capacidade",
+   >Para configurações de reserva de capacidade, use essas propriedades em "SKU":
+   >* "Name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edite o modelo para atender às suas necessidades. Considere criar um [arquivo de parâmetros do Gerenciador](../../azure-resource-manager/templates/parameter-files.md) de recursos em vez de passar parâmetros como valores inline. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais propriedades e os valores são suportados. 
+2. Edite o modelo para atender às suas necessidades. Considere a criação de um [arquivo de parâmetros do Resource Manager](../../azure-resource-manager/templates/parameter-files.md) em vez de passar parâmetros como valores embutidos. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais propriedades e os valores são suportados. 
 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.
 
-4. Você está pronto para implantar o modelo. Você usa o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome e o local do espaço de trabalho como parte do comando. O nome do espaço de trabalho deve ser globalmente único em todas as assinaturas do Azure.
+4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando. O nome do espaço de trabalho deve ser globalmente exclusivo em todas as assinaturas do Azure.
 
    * No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
    
@@ -179,8 +179,8 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 O exemplo de modelo a seguir ilustra como:
 
 1. Adicionar soluções ao workspace
-2. Crie pesquisas salvas. Para garantir que as implantações não sobreponham as pesquisas salvas acidentalmente, uma propriedade eTag deve ser adicionada no recurso "savedSearches" para substituir e manter a idempotência das pesquisas salvas.
-3. Criar função salva. O eTag deve ser adicionado à função de substituição e manter a idempotência.
+2. Criar pesquisas salvas. Para garantir que as implantações não substituam as pesquisas salvas acidentalmente, uma propriedade eTag deve ser adicionada ao recurso "savedSearches" para substituir e manter o Idempotência de pesquisas salvas.
+3. Criar função salva. A eTag deve ser adicionada para substituir a função e manter Idempotência.
 4. Criar um grupo de computadores
 5. Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
 6. Coletar contadores de desempenho de disco lógico de computadores Linux (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
@@ -188,7 +188,7 @@ O exemplo de modelo a seguir ilustra como:
 8. Coletar eventos de Erro e Aviso no Log de Eventos do Aplicativo dos computadores Windows
 9. Coletar o contador de desempenho de Mbytes Disponíveis de Memória de computadores Windows
 10. Coletar logs do IIS e logs de Eventos do Windows gravados pelo diagnóstico do Azure para uma conta de armazenamento
-11. Colete registros personalizados do computador Windows
+11. Coletar logs personalizados do computador com Windows
 
 ```json
 {
@@ -663,7 +663,7 @@ Para implantar o modelo de exemplo:
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>Linha de comando
+#### <a name="command-line"></a>Linha de Comando
 
 ```cmd
 azure config mode arm

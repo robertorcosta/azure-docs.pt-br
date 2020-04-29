@@ -1,6 +1,6 @@
 ---
-title: Consultar arquivos JSON usando SQL sob demanda (visualização)
-description: Esta seção explica como ler arquivos JSON usando SQL sob demanda no Azure Synapse Analytics.
+title: Consultar arquivos JSON usando o SQL sob demanda (versão prévia)
+description: Esta seção explica como ler arquivos JSON usando o SQL sob demanda no Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 645baf9102785d223fd1f23ae52a4609725f795b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770803"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando SQL sob demanda (visualização) no Azure Synapse Analytics
+# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL sob demanda (visualização) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON.
+Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics. O objetivo da consulta é ler arquivos JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de ler o resto deste artigo, revise os seguintes artigos:
+Antes de ler o restante deste artigo, examine os seguintes artigos:
 
 - [Configuração inicial](query-data-storage.md#first-time-setup)
 - [Pré-requisitos](query-data-storage.md#prerequisites)
 
-## <a name="sample-json-files"></a>Amostra de arquivos JSON
+## <a name="sample-json-files"></a>Arquivos JSON de exemplo
 
-A seção abaixo contém scripts de exemplo para ler arquivos JSON. Os arquivos são armazenados em um contêiner *json,* *livros*de pastas e contêm uma única entrada de livro com a seguinte estrutura:
+A seção a seguir contém scripts de exemplo para ler arquivos JSON. Os arquivos são armazenados em um contêiner *JSON* , em *livros*de pastas e contêm uma única entrada de livro com a seguinte estrutura:
 
 ```json
 {
@@ -47,9 +47,9 @@ A seção abaixo contém scripts de exemplo para ler arquivos JSON. Os arquivos 
 }
 ```
 
-## <a name="read-json-files"></a>Leia arquivos JSON
+## <a name="read-json-files"></a>Ler arquivos JSON
 
-Para processar arquivos JSON usando JSON_VALUE e [JSON_QUERY,](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)você precisa ler o arquivo JSON do armazenamento como uma única coluna. O script a seguir lê o arquivo *book1.json* como uma única coluna:
+Para processar arquivos JSON usando JSON_VALUE e [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), você precisa ler o arquivo JSON do armazenamento como uma única coluna. O script a seguir lê o arquivo *book1. JSON* como uma única coluna:
 
 ```sql
 SELECT
@@ -68,11 +68,11 @@ FROM
 ```
 
 > [!NOTE]
-> Você está lendo todo o arquivo JSON como uma única linha ou coluna. Assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR são definidos como 0x0b.
+> Você está lendo o arquivo JSON inteiro como uma única linha ou coluna. Portanto, FIELDTERMINATOR, FIELDQUOTE e timeterminator são definidos como 0x0B.
 
 ## <a name="query-json-files-using-json_value"></a>Consultar arquivos JSON usando JSON_VALUE
 
-A consulta abaixo mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de um livro intitulado *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected artigos*:
+A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, Publicador) de um livro intitulado *probabilística e métodos estatísticos em Cryptology, uma introdução dos artigos selecionados*:
 
 ```sql
 SELECT
@@ -96,7 +96,7 @@ WHERE
 
 ## <a name="query-json-files-using-json_query"></a>Consultar arquivos JSON usando JSON_QUERY
 
-A consulta a seguir mostra como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+A consulta a seguir mostra como usar [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar objetos e matrizes (autores) de um livro intitulado *probabilística e métodos estatísticos no Cryptology, uma introdução dos tópicos selecionados*:
 
 ```sql
 SELECT
@@ -119,7 +119,7 @@ WHERE
 
 ## <a name="query-json-files-using-openjson"></a>Consultar arquivos JSON usando OPENJSON
 
-A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ele recuperará objetos e propriedades dentro de um livro intitulado *Métodos Probabilísticos e Estatísticos em Criptografia, Uma Introdução por Artigos Selecionados*:
+A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ele recuperará objetos e propriedades em um livro intitulado *probabilística e métodos estatísticos no Cryptology, uma introdução dos artigos selecionados*:
 
 ```sql
 SELECT
@@ -142,7 +142,7 @@ WHERE
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os próximos artigos desta série demonstrarão como:
+Os próximos artigos desta série demonstram como:
 
 - [Consultando pastas e vários arquivos](query-folders-multiple-csv-files.md)
 - [Criar e usar modos de exibição](create-use-views.md)

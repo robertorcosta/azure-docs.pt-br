@@ -1,7 +1,7 @@
 ---
-title: Registro de aplicativos de API web protegido | Azure
+title: Registro de aplicativo de API Web protegido | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como construir uma API web protegida e as informações que você precisa para registrar o aplicativo.
+description: Saiba como criar uma API Web protegida e as informações necessárias para registrar o aplicativo.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,100 +13,100 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868839"
 ---
-# <a name="protected-web-api-app-registration"></a>API web protegida: registro de aplicativos
+# <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
-Este artigo explica as especificidades do registro do aplicativo para uma API web protegida.
+Este artigo explica as especificidades de registro de aplicativo para uma API Web protegida.
 
-Para obter as etapas comuns para registrar um aplicativo, consulte [Quickstart: Registre um aplicativo com a plataforma de identidade Microsoft](quickstart-register-app.md).
+Para ver as etapas comuns para registrar um aplicativo, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md).
 
-## <a name="accepted-token-version"></a>Versão de token aceita
+## <a name="accepted-token-version"></a>Versão do token aceito
 
-O ponto final da plataforma de identidade da Microsoft pode emitir tokens v1.0 e tokens v2.0. Para obter mais informações sobre esses tokens, consulte [Tokens de acesso](access-tokens.md).
+O ponto de extremidade da plataforma de identidade da Microsoft pode emitir tokens v 1.0 e v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
 
-A versão de token aceita depende do valor **dos tipos de conta suportados** que você escolher ao criar seu aplicativo.
+A versão do token aceito depende do valor dos **tipos de conta com suporte** que você escolher ao criar seu aplicativo.
 
-- Se o valor dos tipos de **conta suportadas** for **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão do token aceita é v2.0.
-- Caso contrário, a versão do token aceita é v1.0.
+- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão de token aceita é v 2.0.
+- Caso contrário, a versão do token aceita é v 1.0.
 
-Depois de criar o aplicativo, você pode determinar ou alterar a versão de token aceita seguindo estas etapas:
+Depois de criar o aplicativo, você pode determinar ou alterar a versão do token aceito seguindo estas etapas:
 
-1. No portal Azure, selecione seu aplicativo e **selecione Manifest**.
-1. Encontre o acesso à **propriedadeTokenAcceptedVersion** no manifesto. O valor padrão da propriedade é 2.
-1. O valor especifica para o Azure Active Directory (Azure AD) que a versão de token que a API web aceita.
-    - Se o valor for 2, a API da Web aceita tokens v2.0.
-    - Se o valor for **nulo,** a API da Web aceita tokens v1.0.
-1. Se você alterou a versão do token, **selecione Salvar**.
+1. No portal do Azure, selecione seu aplicativo e, em seguida, selecione **manifesto**.
+1. Localize a propriedade **accessTokenAcceptedVersion** no manifesto. O valor padrão da propriedade é 2.
+1. O valor especifica para Azure Active Directory (AD do Azure) qual versão de token aceita pela API da Web.
+    - Se o valor for 2, a API da Web aceitará tokens v 2.0.
+    - Se o valor for **NULL**, a API da Web aceitará tokens v 1.0.
+1. Se você alterou a versão do token, selecione **salvar**.
 
 > [!NOTE]
-> A API web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API web a partir do ponto final da plataforma de identidade Microsoft (v2.0), o cliente recebe um token que indica qual versão de token a API da Web aceita.
+> A API da Web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API Web do ponto de extremidade da plataforma Microsoft Identity (v 2.0), o cliente obtém um token que indica qual versão de token a API da Web aceita.
 
-## <a name="no-redirect-uri"></a>Sem redirecionar uri
+## <a name="no-redirect-uri"></a>Nenhum URI de redirecionamento
 
-As APIs da Web não precisam registrar um URI de redirecionamento porque nenhum usuário está conectado interativamente.
+APIs da Web não precisam registrar um URI de redirecionamento porque nenhum usuário está conectado interativamente.
 
 ## <a name="exposed-api"></a>API exposta
 
-Outras configurações específicas para APIs da Web são a API exposta e os escopos expostos.
+Outras configurações específicas para APIs Web são a API exposta e os escopos expostos.
 
-### <a name="application-id-uri-and-scopes"></a>Uri id de aplicativo e escopos
+### <a name="application-id-uri-and-scopes"></a>URI e escopos da ID do aplicativo
 
-Os escopos geralmente `resourceURI/scopeName`têm o formulário . Para o Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é `https://graph.microsoft.com/user.read`um atalho para .
+Os escopos geralmente têm `resourceURI/scopeName`o formato. Por Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read`.
 
 Durante o registro do aplicativo, você precisa definir esses parâmetros:
 
-- O recurso URI
+- O URI do recurso
 - Um ou mais escopos
 - Uma ou mais funções de aplicativo
 
-Por padrão, o portal de registro de `api://{clientId}`aplicativos recomenda que você use o recurso URI . Este URI é único, mas não é legível humano. Se você alterar o URI, certifique-se de que o novo valor é único.
+Por padrão, o portal de registro de aplicativos recomenda que você use o URI `api://{clientId}`de recurso. Esse URI é exclusivo, mas não é legível por humanos. Se você alterar o URI, verifique se o novo valor é exclusivo.
 
-Para aplicativos de clientes, os escopos aparecem como *permissões delegadas* e as funções do aplicativo aparecem como *permissões de aplicativos* para sua API web.
+Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
-Os escopos também aparecem na janela de consentimento apresentada aos usuários do seu aplicativo. Então você precisa fornecer as strings correspondentes que descrevem o escopo:
+Os escopos também aparecem na janela de consentimento que é apresentada aos usuários do seu aplicativo. Portanto, você precisa fornecer as cadeias de caracteres correspondentes que descrevem o escopo:
 
 - Como visto por um usuário.
-- Como visto por um inquilino, que pode conceder consentimento de admin.
+- Como visto por um administrador de locatários, que pode conceder consentimento de administrador.
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Expondo permissões delegadas (escopos)
 
-1. Selecione **Expor uma API** no registro do aplicativo.
+1. Selecione **expor uma API** no registro do aplicativo.
 1. Selecione **Adicionar um escopo**.
-1. Se solicitado, aceite o ID`api://{clientId}`uri de aplicativo proposto , selecionando **Salvar e Continuar**.
-1. Especifique esses valores:
+1. Se solicitado, aceite o URI da ID do aplicativo proposto`api://{clientId}`() selecionando **salvar e continuar**.
+1. Especifique estes valores:
     - Selecione **nome do escopo** e insira **access_as_user**.
-    - Selecione **Quem pode consentir** e **certifique-se de que os admins e os usuários estão selecionados.**
-    - Selecione **o nome de exibição de consentimento do Admin** e digite **Access TodoListService como usuário**.
-    - Selecione **a descrição do consentimento do Admin** e digite A **aPI da Web TodoListService como usuário**.
-    - Selecione **o nome de exibição de consentimento do usuário** e digite Access **TodoListService como usuário**.
-    - Selecione **a descrição do consentimento do usuário** e digite **AaCIA todalistService como usuário**.
-    - Mantenha o valor **do Estado** definido **como Ativado**.
+    - Selecione **quem pode consentir** e se certificar de que **Administradores e usuários** está selecionado.
+    - Selecione **nome de exibição do consentimento do administrador** e insira **TodoListService de acesso como um usuário**.
+    - Selecione **Descrição de consentimento do administrador** e digite **acessar a API Web do TodoListService como um usuário**.
+    - Selecione **nome de exibição do consentimento do usuário** e insira **TodoListService de acesso como um usuário**.
+    - Selecione a **Descrição de consentimento do usuário** e insira **acessa a API Web TodoListService como um usuário**.
+    - Mantenha o valor de **estado** definido como **habilitado**.
  1. Selecione **Adicionar escopo**.
 
-### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Se sua API web for chamada por um aplicativo daemon
+### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Se sua API Web for chamada por um aplicativo daemon
 
-Nesta seção, você aprende como registrar sua API web protegida para que os aplicativos daemon possam chamá-la com segurança.
+Nesta seção, você aprenderá a registrar sua API Web protegida para que os aplicativos de daemon possam chamá-la com segurança.
 
-- Você declara e expõe apenas *permissões de aplicativos* porque os aplicativos daemon não interagem com os usuários. Permissões delegadas não fariam sentido.
-- Os administradores de inquilinos podem exigir que o Azure AD emita tokens de API da Web apenas para aplicativos que se registraram para acessar uma das permissões de solicitação da API.
+- Você declara e expõe *permissões de aplicativo* somente porque os aplicativos de daemon não interagem com os usuários. As permissões delegadas não farão sentido.
+- Os administradores de locatários podem exigir que o Azure AD emita tokens de API da Web somente para aplicativos que se registraram para acessar uma das permissões de aplicativo da API.
 
-#### <a name="exposing-application-permissions-app-roles"></a>Expondo permissões de aplicativos (funções de aplicativo)
+#### <a name="exposing-application-permissions-app-roles"></a>Expondo permissões de aplicativo (funções de aplicativo)
 
-Para expor as permissões de aplicativo, você precisa editar o manifesto.
+Para expor permissões de aplicativo, você precisa editar o manifesto.
 
-1. No registro de inscrição para sua inscrição, selecione **Manifest**.
-1. Para editar o manifesto, encontre a `appRoles` configuração e adicione as funções do aplicativo. As definições de função são fornecidas no bloco JSON da amostra a seguir.
-1. Deixe `allowedMemberTypes` definido `"Application"` para apenas.
-1. Certifique-se de que `id` é um GUID único.
-1. `displayName` Certifique-se `value` e não contenha espaços.
+1. No registro do aplicativo para seu aplicativo, selecione **manifesto**.
+1. Para editar o manifesto, localize a `appRoles` configuração e adicione funções de aplicativo. As definições de função são fornecidas no bloco JSON de exemplo a seguir.
+1. Deixe `allowedMemberTypes` definido como `"Application"` somente.
+1. Certifique- `id` se de que seja um GUID exclusivo.
+1. Certifique- `displayName` se `value` de que não contêm espaços.
 1. Salve o manifesto.
 
-A amostra a seguir `appRoles`mostra o `id` conteúdo de , onde o valor de pode ser qualquer GUID único.
+O exemplo a seguir mostra o conteúdo `appRoles`de, onde o valor `id` de pode ser qualquer Guid exclusivo.
 
 ```json
 "appRoles": [
@@ -123,31 +123,31 @@ A amostra a seguir `appRoles`mostra o `id` conteúdo de , onde o valor de pode s
 ],
 ```
 
-#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Garantir que o Azure AD emita tokens para sua API web para permitir apenas clientes
+#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Garantindo que o Azure AD emita tokens para sua API Web somente para clientes permitidos
 
-A API web verifica a função do aplicativo. Essa função é a maneira de um desenvolvedor de software expor permissões de aplicativos. Você também pode configurar o Azure AD para emitir tokens de API apenas para aplicativos que o administrador de inquilinos aprova para acesso à API.
+A API da Web verifica a função do aplicativo. Essa função é uma maneira do desenvolvedor de software de expor permissões de aplicativo. Você também pode configurar o Azure AD para emitir tokens de API somente para aplicativos que o administrador de locatários aprova para acesso à API.
 
-Para adicionar essa maior segurança:
+Para adicionar esse aumento de segurança:
 
-1. Vá para a página **visão geral** do aplicativo para o seu registro do aplicativo.
-1. Em **aplicativo gerenciado no diretório local,** selecione o link com o nome do seu aplicativo. O rótulo para esta seleção pode ser truncado. Por exemplo, você pode ver **aplicativo gerenciado em ...**
+1. Vá para a página de **visão geral** do aplicativo para o registro do aplicativo.
+1. Em **aplicativo gerenciado no diretório local**, selecione o link com o nome do seu aplicativo. O rótulo dessa seleção pode ser truncado. Por exemplo, você pode ver o **aplicativo gerenciado no.** ..
 
    > [!NOTE]
    >
-   > Quando você seleciona este link, você vai para a página **Visão geral do aplicativo corporativo.** Esta página está associada ao diretor de serviço para sua aplicação no inquilino onde você a criou. Você pode ir para a página de registro do aplicativo usando o botão de volta do seu navegador.
+   > Ao selecionar esse link, você vai para a página **visão geral do aplicativo empresarial** . Essa página é associada à entidade de serviço para seu aplicativo no locatário onde você a criou. Você pode ir para a página de registro do aplicativo usando o botão voltar do seu navegador.
 
-1. Selecione a página **Propriedades** na seção **Gerenciar** as páginas do aplicativo Empresa.
-1. Se você quiser que o Azure AD permita o acesso à sua **Yes**API web apenas de certos clientes, defina **a atribuição de usuário necessária?**
+1. Selecione a página **Propriedades** na seção **gerenciar** das páginas do aplicativo empresarial.
+1. Se você quiser que o Azure AD permita o acesso à sua API Web somente de determinados clientes, defina **atribuição de usuário necessária?** para **Sim**.
 
    > [!IMPORTANT]
    >
-   > Se você definir **a atribuição de usuário necessária?** para **Sim**, o Azure AD verifica as atribuições da função do aplicativo de um cliente quando ele solicita um token de acesso à API da Web. Se o cliente não for atribuído a nenhuma função do aplicativo, o Azure AD retornará a mensagem\> de erro "invalid_client: AADSTS501051: O nome do aplicativo \<\> \<não é atribuído a uma função para a API web".
+   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: \<AADSTS501051:\> o nome do aplicativo de aplicativo não está \<atribuído a\>uma função para a API da Web".
    >
-   > Se você mantiver **a atribuição de usuário necessária?** Definido como **No**, o Azure AD não verificará as atribuições da função do aplicativo quando um cliente solicitar um token de acesso para sua API web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público. Qualquer aplicativo pode acessar a API sem ter que solicitar permissões para ela.
+   > Se você mantiver a **atribuição de usuário necessária?** definida como **não**, o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
    >
-   > Mas, como explicado na seção anterior, sua API web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo admin inquilino. A API realiza essa verificação validando que o token de acesso tem uma reclamação de funções e que o valor para esta reclamação está correto. Na amostra JSON anterior, `access_as_application`o valor é .
+   > Mas, conforme explicado na seção anterior, sua API Web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo administrador de locatários. A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. No exemplo JSON anterior, o valor é `access_as_application`.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

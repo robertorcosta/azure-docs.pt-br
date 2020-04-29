@@ -1,5 +1,5 @@
 ---
-title: Exemplo apasso da infra-estrutura do Azure
+title: Instruções de infraestrutura do Azure de exemplo
 description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 43e96b891e60dfcf8bc3c29b202bb60213905372
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869461"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
@@ -45,7 +45,7 @@ O projeto resultante deve incorporar:
 Todos os itens acima seguem estas convenções de nomenclatura:
 
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
-  * Para este exemplo, "**azos**" (Azure Online Store) é o nome da carga de trabalho de TI e "**uso**" (East US 2) é o local
+  * Para este exemplo, "**AZOs**" (Azure Online Store) é o nome da carga de trabalho de ti e "**use**" (leste dos EUA 2) é o local
 * As redes virtuais usam AZOS-USE-VN **[número]**
 * Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 * Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**

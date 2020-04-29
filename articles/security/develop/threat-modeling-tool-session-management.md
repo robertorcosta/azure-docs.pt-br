@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161500"
+ms.locfileid: "82203855"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessão
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **AD do Azure**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
+| **Azure AD**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
 | Dispositivo IoT | <ul><li>[Usar tempos de vida finitos para tokens SaS gerados](#finite-tokens)</li></ul> |
 | **Azure DocumentDB** | <ul><li>[Usar tempos de vida mínimos de tokens para tokens de Recurso gerados](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implementar o logoff apropriado usando métodos WsFederation ao usar o ADFS](#wsfederation-logout)</li></ul> |
@@ -37,7 +37,7 @@ ms.locfileid: "73161500"
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | AD do Azure | 
+| **Componente**               | Azure AD | 
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -221,7 +221,7 @@ Todos os aplicativos baseados em HTTP que usam cookies devem especificar HttpOnl
 | **Tecnologias aplicáveis** | Formulários da Web |
 | **Atributos**              | N/D  |
 | **Referências**              | [Propriedade FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Etapas** | O valor da propriedade RequireSSL é definido no arquivo de configuração para um aplicativo ASP.NET usando o atributo requireSSL do elemento de configuração. Especifique no arquivo web.config para seu aplicativo ASP.NET se o protocolo SSL (Secure Sockets Layer) é necessário para retornar o cookie de autenticação de formulários para o servidor configurando o atributo requireSSL.|
+| **Etapas** | O valor da propriedade RequireSSL é definido no arquivo de configuração para um aplicativo ASP.NET usando o atributo requireSSL do elemento de configuração. Você pode especificar no arquivo Web. config para seu aplicativo ASP.NET se o TLS (segurança de camada de transporte), anteriormente conhecido como SSL (protocolo SSL), é necessário para retornar o cookie de autenticação de formulários ao servidor definindo o atributo requireSSL.|
 
 ### <a name="example"></a>Exemplo 
 O exemplo de código a seguir define o atributo requireSSL no arquivo Web.config.

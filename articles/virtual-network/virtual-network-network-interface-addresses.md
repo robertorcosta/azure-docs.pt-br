@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142513"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
@@ -52,10 +52,10 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [públicos](#public) e [pr
 4. Em **Configurações de IP**, selecione **+ Adicionar**.
 5. Especifique o seguinte, em seguida, selecione **OK**:
 
-   |Configuração|Obrigatório?|Detalhes|
+   |Setting|Necessário?|Detalhes|
    |---|---|---|
    |Name|Sim|Deve ser exclusivo ao adaptador de rede|
-   |Tipo|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+   |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
    |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
@@ -76,7 +76,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 3. Em **CONFIGURAÇÕES**, selecione **Configurações de IP**.
 4. Selecione a configuração de IP que você deseja modificar na lista.
 5. Altere as configurações, conforme desejado, usando as informações sobre as configurações na etapa 5 de [Adicionar uma configuração de IP](#add-ip-addresses).
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 >[!NOTE]
 >Se o adaptador de rede primário tiver várias configurações de IP, e você alterar o endereço IP privado da configuração de IP primário, será necessário reatribuir manualmente todos os endereços IP secundários para o adaptador de rede no Windows (isso não é necessário para Linux). Para atribuir manualmente endereços IP a uma interface de rede em um sistema operacional, consulte [Atribuir vários endereços IP a máquinas virtuais](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
@@ -130,7 +130,7 @@ Além de uma configuração de IP primário, um adaptador de rede pode ter vári
 
 Você pode atribuir os seguintes tipos de endereços IP a uma [configuração de IP](#ip-configurations):
 
-### <a name="private"></a>Privado
+### <a name="private"></a>Particular
 
 Os endereços [IPv4](#ipv4) ou IPv6 privados permitem que uma máquina virtual se comunique com outros recursos em uma rede virtual ou em outras redes conectadas. 
 

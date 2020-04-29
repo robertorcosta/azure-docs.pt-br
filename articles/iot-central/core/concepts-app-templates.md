@@ -1,6 +1,6 @@
 ---
-title: Quais são os modelos de aplicativos no Azure IoT Central | Microsoft Docs
-description: Os modelos de aplicativos do Azure IoT Central permitem que você entre no desenvolvimento de soluções IoT.
+title: O que são modelos de aplicativos no Azure IoT Central | Microsoft Docs
+description: Os modelos de aplicativo IoT Central do Azure permitem que você vá para o desenvolvimento da solução de IoT.
 author: philmea
 ms.author: philmea
 ms.date: 10/25/2019
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024669"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativo?
 
-Os modelos de aplicativos no Azure IoT Central são uma ferramenta para ajudar os construtores de soluções a iniciar o desenvolvimento de suas soluções IoT. Você pode usar modelos de aplicativos para tudo, desde ter uma noção do que é possível, até personalizar totalmente e seu aplicativo de revenda para seus clientes.
+Os modelos de aplicativo no Azure IoT Central são uma ferramenta para ajudar os criadores de solução a início rápido seu desenvolvimento de solução de IoT. Você pode usar modelos de aplicativo para tudo, desde o que é possível, para personalizar totalmente e seu aplicativo para revenda para seus clientes.
 
-Os modelos de inscrição consistem em:
+Os modelos de aplicativo consistem em:
 
 - painéis de operador de exemplo;
-- Modelos de dispositivos de amostra
+- Modelos de dispositivo de exemplo
 - Dispositivos simulados que produzem dados em tempo real
 - regras e trabalhos pré-configurados e
-- Documentação rica, incluindo tutoriais e como fazer
+- Documentação avançada, incluindo tutoriais e instruções
 
-Você escolhe o modelo de aplicativo ao criar sua aplicação. Você não pode alterar o modelo depois que o aplicativo é criado.
+Você escolhe o modelo de aplicativo ao criar seu aplicativo. Você não pode alterar o modelo depois que o aplicativo é criado.
 
 ## <a name="custom-templates"></a>Modelos personalizados
 
-Se você quiser criar seu aplicativo do zero, escolha um dos dois modelos de aplicativos personalizados:
+Se você quiser criar seu aplicativo do zero, escolha um dos dois modelos de aplicativo personalizados:
 
 - Aplicativo personalizado
-- Aplicativo personalizado (legado)
+- Aplicativo personalizado (Herdado)
 
-Escolha o modelo **de aplicativo Personalizado,** a menos que você tenha uma razão específica para usar o modelo legado.
+Escolha o modelo de **aplicativo personalizado** , a menos que você tenha um motivo específico para usar o modelo herdado.
 
-## <a name="industry-focused-templates"></a>Modelos focados na indústria
+## <a name="industry-focused-templates"></a>Modelos focados no setor
 
-AZure IoT Central é uma plataforma de aplicativos agnósticos do setor. Os modelos de aplicativos são exemplos focados no setor disponíveis para essas indústrias hoje, com mais por vir no futuro:
+O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os modelos de aplicativo são exemplos voltados para o setor disponíveis para esses setores hoje, com mais informações sobre o futuro:
 
 - [Varejo](../retail/overview-iot-central-retail.md)
   - Logística conectada
   - Centro de distribuição digital
   - Análise na loja – Monitoramento de condição
   - Análise na loja – finalizar compra
-  - Gerenciamento inteligente de estoque
+  - Gerenciamento de inventário inteligente
 - [Energia](../energy/overview-iot-central-energy.md)
-  - Monitoramento de medidor inteligente
-  - Monitoramento de painéis solares
+  - Monitoramento do medidor inteligente
+  - Monitoramento do painel solar
 - [Governamental](../government/overview-iot-central-government.md)
-  - Gestão de resíduos conectados
-  - Monitoramento do consumo de água
-  - Monitoramento da qualidade da água
+  - Gerenciamento de resíduos conectado
+  - Monitoramento de consumo de água
+  - Monitoramento de qualidade da água
 - [Saúde](../healthcare/overview-iot-central-healthcare.md).
   - Monitoramento contínuo do paciente
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você sabe quais são os modelos de aplicativos da IoT Central, comece [criando um aplicativo central de IoT](quick-deploy-iot-central.md).
+Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central.md).

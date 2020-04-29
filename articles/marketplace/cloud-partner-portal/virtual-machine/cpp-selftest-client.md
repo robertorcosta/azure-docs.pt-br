@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
 ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143204"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
@@ -67,11 +67,11 @@ A tabela a seguir descreve os campos da API.
 
 |      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
-|  Authorization     |  A cadeia de caracteres "portador xxxx-xxxx-xxxx-xxxxx" contém o token de cliente Azure Active Directory (AD), que pode ser criado usando o PowerShell.          |
+|  Autorização     |  A cadeia de caracteres "portador xxxx-xxxx-xxxx-xxxxx" contém o token de cliente Azure Active Directory (AD), que pode ser criado usando o PowerShell.          |
 |  DNSName           |  Nome DNS da VM a ser testada    |
 |  Usuário              |  Nome de usuário para entrar na VM         |
 |  Senha          |  Senha para entrar na VM          |
-|  Sistema operacional                |  Sistema operacional da VM: `Linux` ou `Windows`          |
+|  SO                |  Sistema operacional da VM: `Linux` ou `Windows`          |
 |  PortNo            |  Abra o número da porta para se conectar à VM. O número da porta é normalmente `22` para Linux e `5986` para Windows.          |
 |  |  |
 
@@ -278,7 +278,7 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 
     ![Configurar o multilocatário para o aplicativo](./media/stclient-yes-multitenant.png)
 
-18. Clique em **Salvar**.
+18. Selecione **Salvar**.
 19. Em **Configurações**, selecione **Chaves**.
 20. Crie uma chave secreta selecionando a caixa de texto **DESCRIÇÃO** da chave. Configure os seguintes campos:
 

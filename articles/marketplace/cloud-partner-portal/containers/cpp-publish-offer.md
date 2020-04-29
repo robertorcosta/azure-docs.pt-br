@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
 ms.openlocfilehash: 58e096a3b25b16e54cf2f18935dcf4a2d44cd767
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146207"
 ---
 # <a name="publish-container-offer"></a>Publicar oferta de contêiner
@@ -30,7 +30,7 @@ O diagrama a seguir mostra as principais etapas no processo de publicação para
 A tabela a seguir descreve cada etapa de publicação. Um tempo estimado para concluir cada etapa também é dado.
 
 
-|  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Certificação                  | 1 semana | A oferta é analisada pela equipe de certificação do Azure. A oferta é exeminada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se atende aos critérios de qualificação. Para obter mais informações, consulte os [pré-requisitos](./cpp-prerequisites.md) e [preparando seus ativos técnicos](./cpp-create-technical-assets.md). Comentários serão fornecidos se um problema for encontrado. |

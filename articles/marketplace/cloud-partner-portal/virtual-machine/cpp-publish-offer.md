@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: dsindona
 ms.openlocfilehash: f66ce0c15e976898d5022bf5705a82fe0969ec07
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147651"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicar uma oferta de máquina virtual
@@ -27,7 +27,7 @@ A tabela a seguir descreve essas etapas e fornece uma estimativa de tempo máxim
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Teste de unidade validação (opcional) | 2 horas | Se você tiver selecionado para habilitar o Test Drive, a Microsoft valida a configuração do Test Drive, sua implantação e replicação através das regiões selecionadas. |

@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar uma máquina virtual do Azure usando java
+title: Criar e gerenciar uma máquina virtual do Azure usando o Java
 description: Use o Java e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte.
 services: virtual-machines-windows
 author: cynthn
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870022"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs Windows no Azure usando o Java
@@ -33,7 +33,7 @@ São necessários cerca de 20 minutos para a conclusão destas etapas.
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
 1. Se você ainda não fez isso, instale o [Java](https://aka.ms/azure-jdks).
-2. Instale [a Maven](https://maven.apache.org/download.cgi).
+2. Instale o [Maven](https://maven.apache.org/download.cgi).
 3. Crie uma nova pasta e o projeto:
     
     ```
@@ -127,7 +127,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua ** &lt;o&gt; id de assinatura** pelo identificador de assinatura, ** &lt;&gt; ** o id do aplicativo do aplicativo active, a ** &lt;chave&gt; de autenticação** com a chave do aplicativo e ** &lt;&gt; ** o id do inquilino pelo identificador do inquilino.
+    Substitua ** &lt;Subscription-ID&gt; ** pelo seu identificador de assinatura, ** &lt;ID&gt; do aplicativo** com o identificador do aplicativo Active Directory, ** &lt;a&gt; chave de autenticação** com a chave do aplicativo e ** &lt;a&gt; ID do locatário** pelo identificador do locatário.
 
 2. Salve o arquivo.
 3. Defina uma variável de ambiente chamada AZURE_AUTH_LOCATION no shell com o caminho completo para o arquivo de autenticação.
@@ -182,7 +182,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem ser contidos em [um grupo de recursos](../../azure-resource-manager/management/overview.md).
+Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao bloco try no método principal:
 

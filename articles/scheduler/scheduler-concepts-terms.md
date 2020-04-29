@@ -10,18 +10,18 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878384"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
 > [!IMPORTANT]
-> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, [migre para o Azure Logic Apps o](../scheduler/migrate-from-scheduler-to-logic-apps.md) mais rápido possível. 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
 >
-> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
@@ -31,7 +31,7 @@ A API REST do Agendador do Azure expõe e usa essas entidades principais, ou rec
 |--------|-------------|
 | **Trabalho** | Define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de fila de Barramento de Serviço ou de tópico do Barramento de Serviço. | 
 | **Coleção de trabalhos** | Contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos na coleção. Como proprietário de uma assinatura do Azure, você pode criar coleções de trabalhos e trabalhos de grupo com base em limites de aplicativo ou uso. Uma coleção de trabalhos tem estes atributos: <p>– Restrita a uma região. <br>– Permite que você imponha cotas para que possa restringir o uso de todos os trabalhos em uma coleção. <br>– As cotas incluem MaxJobs e MaxRecurrence. | 
-| **Histórico de trabalho** | Descreve os detalhes para a execução de um trabalho, por exemplo, o status e os detalhes da resposta. |
+| **Histórico de trabalhos** | Descreve os detalhes para a execução de um trabalho, por exemplo, o status e os detalhes da resposta. |
 ||| 
 
 ## <a name="entity-management"></a>Gerenciamento de entidade
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 O Agendador do Azure é compatível com vários tipos de trabalho: 
 
-* Trabalhos HTTP, incluindo trabalhos HTTPS que suportam TLS, para quando você tiver o ponto final para um serviço ou carga de trabalho existente
+* Trabalhos HTTP, incluindo trabalhos HTTPS que dão suporte a TLS, para quando você tem o ponto de extremidade para um serviço ou carga de trabalho existente
 * Trabalhos de fila de armazenamento para cargas de trabalho que usam filas de armazenamento, como o envio de mensagens para filas de armazenamento
 * Trabalhos de fila do Barramento de Serviço para cargas de trabalho que usam filas do Barramento de Serviço
 * Trabalhos de tópico do Barramento de Serviço para cargas de trabalho que usam tópicos do Barramento de Serviço
@@ -84,13 +84,13 @@ O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execu�
 
 | Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
-| [**Starttime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**Ação**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
+| [**startTime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**Action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes para a ação secundária que é executada se a ação principal falha |
-| [**Recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
+| [**Recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes repetir uma ação | 
-| [**Estado**](#state) | Sim | Os detalhes do estado atual do trabalho |
-| [**Status**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
+| [**state**](#state) | Sim | Os detalhes do estado atual do trabalho |
+| [**Estado**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
 ||||
 
 Aqui está um exemplo que mostra uma definição de trabalho abrangente para uma ação HTTP com detalhes de elemento mais completos descritos nas seções posteriores: 
@@ -249,15 +249,15 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 | Propriedade | Obrigatório | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequência** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
-| **Intervalo** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
-| **schedule** | Não | Varia | Os detalhes de agendamentos mais avançados e complexos. Veja **hours**, **minutes**, **weekDays**, **months** e **monthDays** | 
-| **Horas** | Não | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
-| **Minutos** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
+| **intervalo** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
+| **agendamento** | Não | Varia | Os detalhes de agendamentos mais avançados e complexos. Veja **hours**, **minutes**, **weekDays**, **months** e **monthDays** | 
+| **duração** | Não | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
+| **alguns** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
 | **months** | Não | 1 a 12 | Uma matriz com os meses para quando executar o trabalho | 
 | **monthDays** | Não | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
-| **Semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
-| **count** | Não | <*Nenhum*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
-| **Endtime** | Não | <*Nenhum*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **Dias da semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
+| **contagem** | Não | <*None*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **Final** | Não | <*None*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
 ||||
 
 Para obter mais informações sobre esses elementos, consulte [Criar agendamentos complexos e recorrências avançadas](../scheduler/scheduler-advanced-complexity.md).

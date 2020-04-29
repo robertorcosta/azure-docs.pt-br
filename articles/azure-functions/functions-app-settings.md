@@ -4,10 +4,10 @@ description: Documentação de referência para as configurações de aplicativo
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: e2d168d8828d17e13f875e3b2555c7db0d4ba32d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656794"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
@@ -20,34 +20,34 @@ Há outras opções de configuração global no arquivo [host.json](functions-ho
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-A chave de instrumentação para Insights de Aplicativos. Use apenas `APPINSIGHTS_INSTRUMENTATIONKEY` um `APPLICATIONINSIGHTS_CONNECTIONSTRING`ou . Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). 
+A chave de instrumentação para Application Insights. Use apenas um `APPINSIGHTS_INSTRUMENTATIONKEY` ou `APPLICATIONINSIGHTS_CONNECTIONSTRING`. Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|555555555-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
 
 ## <a name="applicationinsights_connectionstring"></a>APPLICATIONINSIGHTS_CONNECTIONSTRING
 
-A seqüência de conexões para Insights de Aplicativos. Use `APPLICATIONINSIGHTS_CONNECTIONSTRING` em `APPINSIGHTS_INSTRUMENTATIONKEY` vez de quando seu aplicativo de função requer as personalizações adicionadas suportadas usando a seqüência de conexões. Para obter mais informações, consulte [conexões de strings](../azure-monitor/app/sdk-connection-string.md). 
+A cadeia de conexão para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTIONSTRING` em vez `APPINSIGHTS_INSTRUMENTATIONKEY` de quando seu aplicativo de funções exigir as personalizações adicionadas com suporte usando a cadeia de conexão. Para obter mais informações, consulte [cadeias de conexão](../azure-monitor/app/sdk-connection-string.md). 
 
 |Chave|Valor de exemplo|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=[key];IngestionEndpoint=[url]; LiveEndpoint=[url]; ProfilerEndpoint=[url]; SnapshotEndpoint=[url];|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey = [chave]; IngestionEndpoint = [url]; LiveEndpoint = [url]; ProfilerEndpoint = [url]; SnapshotEndpoint = [url];|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Na versão 2.x e nas versões posteriores do tempo de execução Functions, configura o comportamento do aplicativo com base no ambiente de tempo de execução. Este valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode `AZURE_FUNCTIONS_ENVIRONMENT` definir para qualquer valor, mas [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) são suportados: [Desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Estadiamento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [Produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não é definido, ele `Development` é padrão `Production` em um ambiente local e no Azure. Esta configuração deve `ASPNETCORE_ENVIRONMENT` ser usada em vez de definir o ambiente de tempo de execução. 
+Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como `Development` padrão um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez `ASPNETCORE_ENVIRONMENT` de para definir o ambiente de tempo de execução. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exibi-los na guia **Monitor** do portal. Esta configuração só é válida para aplicativos que visam a versão 1.x do tempo de execução funções do Azure. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Para saber mais, consulte [os requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
+Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exibi-los na guia **Monitor** do portal. Essa configuração só é válida para aplicativos que têm como destino a versão 1. x do tempo de execução de Azure Functions. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Para saber mais, consulte [requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
 > [!NOTE]
-> Para melhor desempenho e experiência, as versões 2.x e posteriores `AzureWebJobsDashboard`usam APPINSIGHTS_INSTRUMENTATIONKEY e App Insights para monitoramento em vez de .
+> Para obter melhor desempenho e experiência, o tempo de execução versão 2. x e versões posteriores usam APPINSIGHTS_INSTRUMENTATIONKEY e o app insights para monitoramento em vez de `AzureWebJobsDashboard`.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -103,7 +103,7 @@ Caminho para o compilador usado para TypeScript. Permite substituir o padrão se
 
 ## <a name="function_app_edit_mode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Dita se a edição no portal Azure está ativada. Os valores válidos são "readwrite" e "readonly".
+Determina se a edição no portal do Azure está habilitada. Os valores válidos são "readwrite" e "readonly".
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -117,31 +117,31 @@ A versão do runtime do Functions para usar nesse aplicativo de funções. Um ti
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
-## <a name="functions_v2_compatibility_mode"></a>FUNÇÕES\_V2\_\_MODO DE COMPATIBILIDADE
+## <a name="functions_v2_compatibility_mode"></a>Modo\_de\_compatibilidade\_do Functions v2
 
-Esta configuração permite que seu aplicativo de função seja executado em um modo compatível com a versão 2.x na versão 3.x runtime. Use esta configuração somente se encontrar problemas ao [atualizar seu aplicativo de função da versão 2.x para 3.x do tempo de execução](functions-versions.md#migrating-from-2x-to-3x). 
+Essa configuração permite que seu aplicativo de funções seja executado em um modo compatível com versão 2. x no tempo de execução da versão 3. x. Use essa configuração somente se encontrar problemas ao [atualizar seu aplicativo de funções da versão 2. x para 3. x do tempo de execução](functions-versions.md#migrating-from-2x-to-3x). 
 
 >[!IMPORTANT]
-> Esta configuração destina-se apenas como uma solução de curto prazo enquanto você atualiza seu aplicativo para ser executado corretamente na versão 3.x. Esta configuração é suportada desde que o [tempo de execução 2.x seja suportado](functions-versions.md). Se você encontrar problemas que impeçam o aplicativo de ser executado na versão 3.x sem usar esta configuração, por favor, [denuncie seu problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+> Essa configuração destina-se somente como uma solução alternativa de curto prazo enquanto você atualiza seu aplicativo para ser executado corretamente na versão 3. x. Há suporte para essa configuração, contanto que o [tempo de execução 2. x tenha suporte](functions-versions.md). Se você encontrar problemas que impeçam que seu aplicativo seja executado na versão 3. x sem usar essa configuração, informe [seu problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Requer que a VERSÃO DE `~3` [EXTENSÃO\_\_FUNCTIONS](functions-app-settings.md#functions_extension_version) seja definida como .
-
-|Chave|Valor de exemplo|
-|---|------------|
-|FUNÇÕES\_V2\_\_MODO DE COMPATIBILIDADE|true|
-
-## <a name="functions_worker_process_count"></a>FUNÇÕES\_\_CONTAGEM DE PROCESSOS DO\_TRABALHADOR
-
-Especifica o número máximo de processos de trabalhador `1`de idiomas, com um valor padrão de . O valor máximo `10`permitido é . As invocações de funções são distribuídas uniformemente entre os processos do trabalhador linguístico. Os processos do trabalhador de idiomas são gerados\_a\_\_cada 10 segundos até que a contagem definida pela CONTAGEM DE PROCESSOS DO TRABALHADOR FUNCTIONS seja alcançada. Usar vários processos de trabalhador de idiomas não é o mesmo que [dimensionar](functions-scale.md). Considere usar essa configuração quando sua carga de trabalho tiver uma mistura de invocações vinculadas à CPU e à I/O. Esta configuração se aplica a todos os idiomas non-.NET.
+Exige que [a\_versão\_de extensão](functions-app-settings.md#functions_extension_version) de funções `~3`seja definida como.
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNÇÕES\_\_CONTAGEM DE PROCESSOS DO\_TRABALHADOR|2|
+|Modo\_de\_compatibilidade\_do Functions v2|true|
+
+## <a name="functions_worker_process_count"></a>contagem\_de\_processos\_de trabalho do Functions
+
+Especifica o número máximo de processos de trabalho de idioma, com um valor `1`padrão de. O valor máximo permitido é `10`. As invocações de função são distribuídas uniformemente entre os processos de trabalho de linguagem. Os processos de trabalho de idioma são gerados a cada 10 segundos até que a\_contagem\_de\_processo de trabalho de funções definida pela função seja atingida. O uso de vários processos de trabalho de idioma não é o mesmo que o [dimensionamento](functions-scale.md). Considere usar essa configuração quando sua carga de trabalho tiver uma combinação de invocações associadas à CPU e de e/s. Essa configuração se aplica a todos os idiomas do non-.NET.
+
+|Chave|Valor de exemplo|
+|---|------------|
+|contagem\_de\_processos\_de trabalho do Functions|2|
 
 
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
-O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso irá corresponder ao idioma que está sendo usado em seu aplicativo (por exemplo, "dotnet"). Para funções em vários idiomas, você precisará publicá-las em vários aplicativos, cada um com um valor de runtime de trabalho correspondente.  Os valores válidos são `dotnet` `node` (C#/F#), `java` (JavaScript/TypeScript), (Java), `powershell` (PowerShell) e `python` (Python).
+O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso irá corresponder ao idioma que está sendo usado em seu aplicativo (por exemplo, "dotnet"). Para funções em vários idiomas, você precisará publicá-las em vários aplicativos, cada um com um valor de runtime de trabalho correspondente.  Os valores válidos `dotnet` são (C#/f #) `node` , (JavaScript/TypeScript) `java` , (Java) `powershell` , (PowerShell) e `python` (Python).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -149,7 +149,7 @@ O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Somente para consumo & planos Premium. Cadeia de conexão para a conta de armazenamento na qual o código do aplicativo de funções e a configuração são armazenados. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Para consumo & apenas planos Premium. Cadeia de conexão para a conta de armazenamento na qual o código do aplicativo de funções e a configuração são armazenados. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -157,7 +157,7 @@ Somente para consumo & planos Premium. Cadeia de conexão para a conta de armaze
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Somente para consumo & planos Premium. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Para consumo & apenas planos Premium. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -176,12 +176,12 @@ O número máximo de instâncias que o aplicativo de funções pode alcançar. O
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-_Só para janelas._  
-Define a versão do Node.js para usar ao executar seu aplicativo de função no Windows. Você deve usar um tilde (~) para que o tempo de execução use a versão mais recente disponível da versão principal direcionada. Por exemplo, quando `~10`definido para , a versão mais recente do Node.js 10 é usada. Quando uma versão principal é direcionada com um tilde, você não precisa atualizar manualmente a versão menor. 
+_Somente Windows._  
+Define a versão do node. js a ser usada ao executar seu aplicativo de funções no Windows. Você deve usar um til (~) para que o tempo de execução use a versão mais recente disponível da versão principal de destino. Por exemplo, quando definido como `~10`, a versão mais recente do node. js 10 é usada. Quando uma versão principal é destinada a um til, você não precisa atualizar manualmente a versão secundária. 
 
 |Chave|Valor de exemplo|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
 
 ## <a name="website_run_from_package"></a>SITE\_EXECUTAR\_DO\_PACOTE
 
@@ -199,8 +199,8 @@ Por padrão, os proxies de funções utilizarão um atalho para enviar chamadas 
 
 |Chave|Valor|Descrição|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL backend apontando para uma função no aplicativo de função local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front end HTTP para o Aplicativo de função|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Esse é o valor padrão. Chamadas com uma URL backend apontando para uma função no aplicativo de função local serão encaminhadas diretamente para essa função|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor padrão. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

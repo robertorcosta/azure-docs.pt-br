@@ -1,6 +1,6 @@
 ---
 title: Configurar sentinela (visualização)
-description: Explica como configurar o Azure Sentinel para receber dados do seu Azure Security Center para solução IoT.
+description: Explica como configurar o Azure Sentinel para receber dados de sua central de segurança do Azure para a solução de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,55 +14,55 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: fe8e4c1b08f96e5f6b2fc7649f7a4361616b7c87
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311313"
 ---
-# <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Conecte seus dados do Azure Security Center for IoT ao Azure Sentinel (visualização)
+# <a name="connect-your-data-from-azure-security-center-for-iot-to-azure-sentinel-preview"></a>Conectar seus dados da central de segurança do Azure para IoT ao Azure Sentinel (versão prévia)
 
 > [!IMPORTANT]
-> O Azure Security Center for IoT data connector no Azure Sentinel está atualmente em visualização pública.
-> Este recurso é fornecido sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A central de segurança do Azure para o conector de dados do IoT no Azure Sentinel está atualmente em visualização pública.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Neste guia, saiba como conectar seu Azure Security Center para dados De IoT ao Azure Sentinel.
+Neste guia, saiba como conectar sua central de segurança do Azure para dados de IoT ao Azure Sentinel.
 
 > [!div class="checklist"]
 > * Pré-requisitos
 > * Configurações de conexão
-> * Exibição de alerta do Log Analytics
+> * Log Analytics exibição de alerta
 
-Conecte alertas do Azure Security Center para IoT e transmita-os diretamente para o Azure Sentinel.
+Conecte os alertas da central de segurança do Azure para IoT e transmita-os diretamente para o Azure Sentinel.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ter permissões **de leitura** e **gravação** do Workspace.
-- **O Azure Security Center for IoT** deve ser **habilitado** em seus Hubs de IoT relevantes.
-- Você deve ter permissões **de leitura** e **gravação** no **Azure IoT Hub** que deseja conectar.
-- Você também deve ter **permissões de leitura** e **gravação** no grupo de recursos **Do Azure IoT Hub**.
+- Você deve ter permissões de **leitura** e **gravação** do espaço de trabalho.
+- A **central de segurança do Azure para IOT** deve ser **habilitada** em seus hubs (s) IOT relevantes.
+- Você deve ter permissões de **leitura** e **gravação** no **Hub IOT do Azure** que deseja conectar.
+- Você também deve ter permissões de **leitura** e **gravação** no **grupo de recursos do Hub IOT do Azure**.
 
 > [!NOTE]
-> Você deve ter o licenciamento de nível Padrão do Azure Security Center em execução em sua assinatura para enviar alertas gerais de recursos do Azure. Com o licenciamento de nível gratuito necessário para o Azure Security Center for IoT, apenas o Azure Security Center para alertas relacionados à IoT será encaminhado para o Azure Sentinel.
+> Você deve ter o licenciamento da camada Standard da central de segurança do Azure em execução na sua assinatura para enviar alertas gerais de recursos do Azure. Com o licenciamento de camada gratuita necessário para a central de segurança do Azure para IoT, somente a central de segurança do Azure para alertas relacionados a IoT será encaminhada para o Azure Sentinel.
 
-## <a name="connect-to-azure-security-center-for-iot"></a>Conecte-se ao Azure Security Center para IoT
+## <a name="connect-to-azure-security-center-for-iot"></a>Conectar-se à central de segurança do Azure para IoT
 
-1. No Azure Sentinel, selecione **conectores de dados** e clique no Centro de Segurança Do Azure para azulejo **IoT.**
-1. Na parte inferior do painel direito, clique em **Abrir a página do conector**.
-1. Clique **em Conectar**, ao lado de cada assinatura do IoT Hub cujos alertas e alertas de dispositivo você deseja transmitir no Azure Sentinel.
-    - Se o Azure Security Center for IoT não estiver habilitado nesse Hub, você verá uma mensagem de aviso Habilitar. Clique no **link Ativar** para iniciar e ativar o serviço.
-1. Você pode decidir se deseja que os alertas do Azure Security Center for IoT gerem automaticamente incidentes no Azure Sentinel. Em **Criar incidentes,** **selecione Habilitar** a regra para criar automaticamente incidentes a partir dos alertas gerados.  Essa regra pode ser alterada ou editada sob as regras **do Analytics** > **Active.**
+1. No Azure Sentinel, selecione **conectores de dados** e clique no bloco **central de segurança do Azure para IOT** .
+1. Na parte inferior do painel direito, clique em **abrir página do conector**.
+1. Clique em **conectar**, ao lado de cada assinatura do Hub IOT cujos alertas e alertas de dispositivo você deseja transmitir para o Azure Sentinel.
+    - Se a central de segurança do Azure para IoT não estiver habilitada nesse Hub, você verá uma mensagem de aviso de habilitação. Clique no link **habilitar** para iniciar e habilitar o serviço.
+1. Você pode decidir se deseja que os alertas da central de segurança do Azure para IoT gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes**, selecione **habilitar** para habilitar a regra para criar automaticamente incidentes a partir dos alertas gerados.  Essa regra pode ser alterada ou editada em regras**ativas** de **análise** > .
 
 > [!NOTE]
->Pode levar 10 segundos ou mais para atualizar a lista do hub depois de fazer alterações de conexão.
+>Pode levar 10 segundos ou mais para atualizar a lista de hubs depois de fazer alterações de conexão.
 
-## <a name="log-analytics-alert-display"></a>Exibição de alerta do Log Analytics
+## <a name="log-analytics-alert-display"></a>Log Analytics exibição de alertas
 
-Para usar o esquema relevante no Log Analytics para exibir o Azure Security Center para alertas de IoT:
+Para usar o esquema relevante no Log Analytics para exibir a central de segurança do Azure para alertas de IoT:
 
-1. **Abrir logs** > **SecurityInsights** > **SecurityAlert**ou procurar **o SecurityAlert**.
-1. Filtrar para ver apenas o Azure Security Center para alertas gerados por IoT usando o seguinte filtro kql:
+1. Abra **logs** > **SecurityInsights** > **SecurityAlert**ou pesquise por **SecurityAlert**.
+1. Filtre para ver apenas a central de segurança do Azure para alertas gerados por IoT usando o seguinte filtro kql:
 
 ```kusto
 SecurityAlert | where ProductName == "Azure Security Center for IoT"
@@ -70,12 +70,12 @@ SecurityAlert | where ProductName == "Azure Security Center for IoT"
 
 ### <a name="service-notes"></a>Notas de serviço
 
-Depois de conectar um IoT Hub, os dados do hub estão disponíveis no Azure Sentinel aproximadamente 15 minutos depois.
+Depois de conectar um hub IoT, os dados do Hub estarão disponíveis no Azure Sentinel aproximadamente 15 minutos mais tarde.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu como conectar o Azure Security Center para IoT ao Azure Sentinel. Para saber mais sobre detecção de ameaças e acesso a dados de segurança, consulte os seguintes artigos:
+Neste documento, você aprendeu a conectar a central de segurança do Azure para IoT ao Azure Sentinel. Para saber mais sobre a detecção de ameaças e o acesso a dados de segurança, consulte os seguintes artigos:
 
-- Aprenda a usar o Azure Sentinel para [obter visibilidade sobre seus dados e ameaças potenciais](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
+- Saiba como usar o Azure Sentinel para [obter visibilidade de seus dados e ameaças em potencial](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
 
-- Saiba como [acessar seus dados de segurança de IoT](how-to-security-data-access.md)
+- Saiba como [acessar seus dados de segurança de IOT](how-to-security-data-access.md)

@@ -8,10 +8,10 @@ ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
 ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148195"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrar hubs de eventos do Azure com o link privado do Azure (versão prévia)
@@ -209,7 +209,7 @@ Há quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma conexão de ponto de extremidade privado
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 2. Na barra de pesquisa, digite **hubs de eventos**.
 3. Selecione o **namespace** que você deseja gerenciar.
 4. Selecione a guia **rede** .

@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024992"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
@@ -49,7 +49,7 @@ Depois que a topologia de rede está em vigor, o primeiro laboratório/laborató
 4. Configure o DevTest Labs para usar políticas como agendas, fórmulas, VMs declaráveis, imagens personalizadas ou gerenciamento de custos.
 5. Estabeleça um repositório online como Git/Azure Repos.
 6. Decida sobre o uso de repositórios públicos ou privados, ou ainda uma combinação de ambos. Organize modelos de JSON para implantações e sustentabilidade a longo prazo.
-7. Se necessário, crie artefatos personalizados. Esta etapa é opcional. 
+7. Se necessário, crie artefatos personalizados. Essa etapa é opcional. 
 
 ## <a name="milestone-3-documentation-support-learn-and-improve"></a>Marco 3: documentação, suporte, aprendizado e melhora
 As equipes-piloto iniciais podem exigir suporte detalhado para que possam começar. Use as experiências deles para garantir que a documentação correta e o suporte estejam preparados para distribuição contínua do Azure DevTest Labs.

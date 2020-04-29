@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 46ecf1bf2f5bd7900677cd115f8571ec3551a874
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134267"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209019"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -55,7 +55,7 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 |Banco de dados do Azure para MySQL (Microsoft. DBforMySQL/Servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Banco de dados do Azure para MariaDB (Microsoft. DBforMariaDB/Servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft. keyvault/cofres)|cofre|privatelink.vaultcore.azure.net|
-|Serviço kubernetes do Azure – API kubernetes (Microsoft. ContainerService/managedClusters)    | managedCluster | {GUID}. privatelink. <region>. azmk8s.Io|
+|Serviço kubernetes do Azure – API kubernetes (Microsoft. ContainerService/managedClusters)    | managedCluster | {GUID}. privatelink. {Region}. azmk8s. Io|
 |Azure Search (Microsoft. Search/SearchServices)|searchService|privatelink.search.windows.net|   
 |Registro de contêiner do Azure (Microsoft. ContainerRegistry/registros) | Registro | privatelink.azurecr.io |
 |Configuração de Azure App (Microsoft. Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|

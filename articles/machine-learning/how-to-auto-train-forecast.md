@@ -11,10 +11,10 @@ ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137341"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
@@ -53,7 +53,7 @@ Considerando dados maiores, modelos de aprendizado profundo, como o ForecastTCN 
 O ML automatizado fornece aos usuários os modelos de série temporal nativa e de aprendizado profundo como parte do sistema de recomendação. 
 
 
-Modelos| Descrição | Benefícios
+Modelos| Descrição | Vantagens
 ----|----|---
 Prophet (visualização)|O Prophet funciona melhor com a série temporal que tem efeitos sazonais fortes e várias estações de dados históricos. | Preciso & rápido, robusto a exceções, dados ausentes e alterações consideráveis na sua série temporal.
 ARIMA automático (visualização)|A média de movimentação integrada de regressão automática (ARIMA) executa melhor, quando os dados são estáticos. Isso significa que suas propriedades estatísticas como a média e a variância são constantes em todo o conjunto. Por exemplo, se você virar uma moeda, a probabilidade de você obter o cabeçote será de 50%, independentemente se você virar hoje, amanhã ou ano seguinte.| Ótimo para a série monovariável, já que os valores anteriores são usados para prever os valores futuros.
@@ -134,7 +134,7 @@ Para tarefas de previsão, o Machine Learning automatizado usa etapas de pré-pr
 
 O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto define as configurações e os dados necessários para uma tarefa de aprendizado de máquina automatizada. Semelhante a um problema de regressão, você define parâmetros de treinamento padrão, como tipo de tarefa, número de iterações, dados de treinamento e número de validações cruzadas. Para tarefas de previsão, há parâmetros adicionais que devem ser definidos para afetar o experimento. A tabela a seguir explica cada parâmetro e seu uso.
 
-| Nome&nbsp;do parâmetro | Descrição | Necessária |
+| Nome&nbsp;do parâmetro | Descrição | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Usado para especificar a coluna datetime nos dados de entrada usados para criar a série temporal e inferir sua frequência.|✓|
 |`grain_column_names`|Nome (s) definindo grupos de séries individuais nos dados de entrada. Se a granulação não for definida, o conjunto de dados será considerado uma série temporal.||

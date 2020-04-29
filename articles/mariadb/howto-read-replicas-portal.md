@@ -1,50 +1,50 @@
 ---
-title: Gerenciar réplicas de leitura - Portal Azure - Banco de dados Azure para MariaDB
-description: Este artigo descreve como configurar e gerenciar réplicas de leitura no Banco de Dados Do Azure para MariaDB usando o portal
+title: Gerenciar réplicas de leitura-portal do Azure-banco de dados do Azure para MariaDB
+description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/21/2020
 ms.openlocfilehash: 20d8e46d6fa6b031c809d629a6af41e8e682bcef
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025077"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no Banco de Dados Do Azure para MariaDB usando o portal Azure
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o portal do Azure
 
-Neste artigo, você aprenderá como criar e gerenciar réplicas de leitura no banco de dados Do Azure para o serviço MariaDB usando o portal Azure.
+Neste artigo, você aprenderá a criar e gerenciar réplicas de leitura no banco de dados do Azure para o serviço MariaDB usando o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [banco de dados Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que será usado como servidor mestre.
+- Um [banco de dados do Azure para o servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que será usado como o servidor mestre.
 
 > [!IMPORTANT]
-> O recurso de réplica de leitura está disponível apenas para o Banco de Dados Azure para servidores MariaDB nos níveis de preços de Propósito Geral ou Memória Otimizada. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
+> O recurso ler réplica só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Assegure-se de que o servidor principal esteja em um desses níveis de preços.
 
 ## <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
 Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione o banco de dados Azure existente para o servidor MariaDB que você deseja usar como um mestre. Essa ação abre a página **Visão geral** do runbook.
+2. Selecione o banco de dados do Azure existente para o servidor MariaDB que você deseja usar como mestre. Essa ação abre a página **Visão geral** do runbook.
 
-3. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+3. Selecione **replicação** no menu, em **configurações**.
 
 4. Selecione **Adicionar réplica**.
 
-   ![Banco de dados Azure para MariaDB - Replicação](./media/howto-read-replica-portal/add-replica.png)
+   ![Banco de dados do Azure para MariaDB-replicação](./media/howto-read-replica-portal/add-replica.png)
 
-5. Digite um nome para o servidor de réplica.
+5. Insira um nome para o servidor de réplica.
 
-    ![Banco de dados Azure para MariaDB - Nome da réplica](./media/howto-read-replica-portal/replica-name.png)
+    ![Banco de dados do Azure para MariaDB-nome da réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Selecione o local para o servidor de réplicas. O local padrão é o mesmo do servidor mestre.
+6. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor mestre.
 
-    ![Banco de dados Azure para MariaDB - Localização de réplica](./media/howto-read-replica-portal/replica-location.png)
+    ![Banco de dados do Azure para MariaDB-local da réplica](./media/howto-read-replica-portal/replica-location.png)
 
 7. Selecione **OK** para confirmar a criação da réplica.
 
@@ -53,7 +53,7 @@ Um servidor de réplica de leitura pode ser criado usando as seguintes etapas:
 
 Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado no blade **Replication**.
 
-   ![Banco de dados Azure para MariaDB - Listas de réplicas](./media/howto-read-replica-portal/list-replica.png)
+   ![Banco de dados do Azure para MariaDB-listar réplicas](./media/howto-read-replica-portal/list-replica.png)
 
 ## <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
 
@@ -62,41 +62,41 @@ Depois que o servidor de réplica tiver sido criado, ele poderá ser visualizado
 
 Para interromper a replicação entre um servidor mestre e um servidor de réplica do portal do Azure, use as seguintes etapas:
 
-1. No portal Azure, selecione seu banco de dados master Azure para servidor MariaDB. 
+1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB. 
 
-2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+2. Selecione **replicação** no menu, em **configurações**.
 
 3. Selecione o servidor de réplica para o qual você deseja interromper a replicação.
 
-   ![Banco de dados Azure para MariaDB - Parar o servidor de replicação](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![Banco de dados do Azure para MariaDB-parar replicação selecionar servidor](./media/howto-read-replica-portal/stop-replication-select.png)
 
-4. Selecione **'Stop replication '**
+4. Selecione **parar replicação**.
 
-   ![Banco de dados Azure para MariaDB - Parar a replicação](./media/howto-read-replica-portal/stop-replication.png)
+   ![Banco de dados do Azure para MariaDB-interromper replicação](./media/howto-read-replica-portal/stop-replication.png)
 
 5. Confirme se deseja interromper a replicação clicando em **OK**.
 
-   ![Banco de dados Azure para MariaDB - Confirmar a replicação de stop](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![Banco de dados do Azure para MariaDB-parar confirmação de replicação](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## <a name="delete-a-replica-server"></a>Excluir um servidor de réplica
 
 Para excluir um servidor de réplica de leitura do portal do Azure, use as seguintes etapas:
 
-1. No portal Azure, selecione seu banco de dados master Azure para servidor MariaDB.
+1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB.
 
-2. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
+2. Selecione **replicação** no menu, em **configurações**.
 
 3. Selecione o servidor de réplica que você deseja excluir.
 
-   ![Banco de dados Azure para MariaDB - Exclua o servidor selecionado de réplica](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![Banco de dados do Azure para MariaDB-excluir réplica selecionar servidor](./media/howto-read-replica-portal/delete-replica-select.png)
 
-4. Selecione **'Excluir'**
+4. Selecionar **excluir réplica**
 
-   ![Banco de dados Azure para MariaDB - Excluir réplica](./media/howto-read-replica-portal/delete-replica.png)
+   ![Banco de dados do Azure para MariaDB-excluir réplica](./media/howto-read-replica-portal/delete-replica.png)
 
 5. Digite o nome da réplica e clique em **Excluir** para confirmar a exclusão da réplica.  
 
-   ![Banco de dados Azure para MariaDB - Exclua réplica confirmar](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Banco de dados do Azure para MariaDB-excluir confirmação de réplica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## <a name="delete-a-master-server"></a>Excluir um servidor mestre
 
@@ -105,19 +105,19 @@ Para excluir um servidor de réplica de leitura do portal do Azure, use as segui
 
 Para excluir um servidor mestre do portal do Azure, use as seguintes etapas:
 
-1. No portal Azure, selecione seu banco de dados master Azure para servidor MariaDB.
+1. Na portal do Azure, selecione o servidor mestre do banco de dados do Azure para MariaDB.
 
-2. Na **visão geral,** **selecione Excluir**.
+2. Na **visão geral**, selecione **excluir**.
 
-   ![Banco de dados Azure para MariaDB - Delete master](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![Banco de dados do Azure para MariaDB-excluir mestre](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. Digite o nome do servidor mestre e clique em **excluir** para confirmar a exclusão do servidor mestre.  
 
-   ![Banco de dados Azure para MariaDB - Delete master](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Banco de dados do Azure para MariaDB-excluir mestre](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
 
-1. No [portal Azure,](https://portal.azure.com/)selecione a réplica do banco de dados Azure para o servidor MariaDB que deseja monitorar.
+1. Na [portal do Azure](https://portal.azure.com/), selecione a réplica do banco de dados do Azure para o servidor MariaDB que você deseja monitorar.
 
 2. Na seção **Monitoramento** da barra lateral, selecione **Métricas**:
 
@@ -129,7 +129,7 @@ Para excluir um servidor mestre do portal do Azure, use as seguintes etapas:
 
    ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
-5. Veja o atraso de replicação para o intervalo de tempo selecionado. A imagem abaixo exibe os últimos 30 minutos para uma grande carga de trabalho.
+5. Veja o atraso de replicação para o intervalo de tempo selecionado. A imagem abaixo exibe os últimos 30 minutos para uma carga de trabalho grande.
 
    ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 

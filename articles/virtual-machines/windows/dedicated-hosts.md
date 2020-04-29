@@ -1,6 +1,6 @@
 ---
-title: Visão geral dos Hosts Dedicados do Azure para máquinas virtuais
-description: Saiba mais sobre como os Hosts Dedicados do Azure podem ser usados para implantar máquinas virtuais.
+title: Visão geral dos hosts dedicados do Azure para máquinas virtuais
+description: Saiba mais sobre como os hosts dedicados do Azure podem ser usados para implantar máquinas virtuais.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -9,23 +9,23 @@ ms.date: 01/09/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 9709408f006cbcc5786a4e5a854abcd20affd693
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082825"
 ---
-# <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados azure
+# <a name="azure-dedicated-hosts"></a>Hosts dedicados do Azure
 
-O Azure Dedicated Host é um serviço que fornece servidores físicos - capazes de hospedar uma ou mais máquinas virtuais - dedicados a uma assinatura do Azure. Hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como recurso. Você pode provisionar hosts dedicados dentro de uma região, região de disponibilidade e domínio de falha. Em seguida, você pode colocar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
+O host dedicado do Azure é um serviço que fornece servidores físicos capazes de hospedar uma ou mais máquinas virtuais-dedicadas a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados em nossos data centers, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, zona de disponibilidade e domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você pode implantar um host dedicado usando [o Azure PowerShell,](dedicated-hosts-powershell.md)o [portal](dedicated-hosts-portal.md)e [o Azure CLI](../linux/dedicated-hosts-cli.md).
+- Você pode implantar um host dedicado usando [Azure PowerShell](dedicated-hosts-powershell.md), o [portal](dedicated-hosts-portal.md)e o [CLI do Azure](../linux/dedicated-hosts-cli.md).
 
-- Há um modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa tanto zonas quanto domínios de falha para máxima resiliência em uma região.
+- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
 
-- Você também pode economizar custos com uma [instância reservada de hosts dedicados do Azure](../prepay-dedicated-hosts-reserved-instances.md).
+- Você também pode economizar em custos com uma [instância reservada de hosts dedicados do Azure](../prepay-dedicated-hosts-reserved-instances.md).
