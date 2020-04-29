@@ -1,5 +1,5 @@
 ---
-title: Recuperar operações API | Mercado Azure
+title: Recuperar API de operações | Azure Marketplace
 description: Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255865"
 ---
 # <a name="retrieve-operations"></a>Recuperar operações
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada. O cliente pode usar parâmetros de consulta para filtrar as operações em execução.
 
@@ -34,8 +34,8 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  String       |
-|  offerId           |  Identificador da oferta                                                                                              |  String       |
+|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
+|  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  api-version       | Última versão da API |    Data      |
 |  |  |  |
@@ -178,7 +178,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GoLive`      |
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
-|  status                      | Status da operação, `not started` \| `running` \| `failed` \| `completed`também. Apenas uma operação pode ter um status `running` por vez. |
+|  status                      | `not started` \| `running` \| `failed` \| Status da operação, seja `completed`. Apenas uma operação pode ter um status `running` por vez. |
 |  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
@@ -188,16 +188,16 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | A duração estimada desta operação |
 | id | O identificador exclusivo para o processo de etapa |
-| descrição | Descrição da etapa |
-| stepName | O nome amigável para o passo |
-| status | O status da etapa, ou `notStarted` \| `running` \| `failed` \|`completed` |
-|  da nuvem para o dispositivo | Quaisquer notificações ou avisos encontrados durante a etapa. Matriz de cadeias de caracteres |
-| Progresspercentage | Um inteiro de 0 a 100 indicando a progressão da etapa |
+| description | Descrição da etapa |
+| stepName | O nome amigável para a etapa |
+| status | O status da etapa, seja `notStarted` \| `running` \| `failed` \|`completed` |
+| da nuvem para o dispositivo | Quaisquer notificações ou avisos encontrados durante a etapa. Matriz de cadeia de caracteres |
+| progressPercentage | Um inteiro de 0 a 100 indicando a progressão da etapa |
 | | |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  |   **Descrição**                                                                                  |
+| **Auto-completar**  |   **Descrição**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
 |  200      | `OK` - A solicitação foi processada com êxito e as operações solicitadas foram retornadas.        |
 |  400      | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                    |

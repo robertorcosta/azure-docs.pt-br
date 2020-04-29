@@ -1,6 +1,6 @@
 ---
 title: Criando, atualizando estatísticas
-description: Recomendações e exemplos para criar e atualizar estatísticas de otimização de consultas em tabelas no pool Synapse SQL.
+description: Recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta em tabelas no pool de SQL do Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,102 +12,102 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985857"
 ---
-# <a name="table-statistics-in-synapse-sql-pool"></a>Estatísticas da tabela no pool Synapse SQL
+# <a name="table-statistics-in-synapse-sql-pool"></a>Estatísticas de tabela no pool de SQL Synapse
 
-Neste artigo, você encontrará recomendações e exemplos para criar e atualizar estatísticas de otimização de consultas em tabelas no pool SQL.
+Neste artigo, você encontrará recomendações e exemplos para criar e atualizar estatísticas de otimização de consulta em tabelas no pool do SQL.
 
 ## <a name="why-use-statistics"></a>Por que usar estatísticas
 
-Quanto mais o pool SQL souber sobre seus dados, mais rápido ele poderá executar consultas contra ele. Depois de carregar dados no pool SQL, coletar estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar suas consultas.
+Quanto mais pool de SQL souber sobre seus dados, mais rápido ele poderá executar consultas em relação a ele. Depois de carregar os dados no pool SQL, coletar estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar suas consultas.
 
-O otimizador de consulta de pool SQL é um otimizador baseado em custos. Ele compara o custo de vários planos de consulta, e então escolhe o plano com o menor custo. Na maioria dos casos, ele escolhe o plano que executará o mais rápido.
+O otimizador de consulta do pool do SQL é um otimizador baseado em custo. Ele compara o custo de vários planos de consulta e escolhe o plano com o menor custo. Na maioria dos casos, ele escolhe o plano que executará o mais rápido.
 
-Por exemplo, se o otimizador estimar que a data em que sua consulta está filtrando retornará uma linha, ela escolherá um plano. Se estimar que a data selecionada retornará 1 milhão de linhas, retornará um plano diferente.
+Por exemplo, se o otimizador estimar que a data em que a consulta está filtrando retornará uma linha, ela escolherá um plano. Se ele estimar que a data selecionada retornará 1 milhão linhas, ela retornará um plano diferente.
 
 ## <a name="automatic-creation-of-statistic"></a>Criação automática de estatística
 
-Quando a opção de AUTO_CREATE_STATISTICS de banco de dados está ativada, o pool SQL analisa as consultas de usuário recebidas para estatísticas ausentes.
+Quando a opção AUTO_CREATE_STATISTICS do banco de dados está ativada, o pool do SQL analisa as consultas de usuário de entrada para obter as estatísticas ausentes.
 
-Se faltam estatísticas, o otimizador de consulta cria estatísticas em colunas individuais no predicado de consulta ou condição de adesão para melhorar as estimativas de cardinalidade para o plano de consulta.
+Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção para melhorar as estimativas de cardinalidade para o plano de consulta.
 
 > [!NOTE]
 > Criação automática de estatísticas está atualmente ativada por padrão.
 
-Você pode verificar se o pool SQL AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
+Você pode verificar se o pool do SQL tem AUTO_CREATE_STATISTICS configurado executando o seguinte comando:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-Se o pool SQL não tiver AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite esta propriedade executando o seguinte comando:
+Se o pool do SQL não tiver AUTO_CREATE_STATISTICS configurado, recomendamos que você habilite essa propriedade executando o seguinte comando:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-Essas declarações desencadearão a criação automática de estatísticas:
+Essas instruções irão disparar a criação automática de estatísticas:
 
 - SELECT
 - INSERT-SELECT
 - CTAS
 - UPDATE
 - Delete (excluir)
-- EXPLIQUE quando se contém uma junta ou a presença de um predicado é detectada
+- Explique quando contém uma junção ou se a presença de um predicado é detectada
 
 > [!NOTE]
 > Criação automática de estatísticas não é criada em tabelas temporárias ou externas.
 
-A criação automática de estatísticas é feita de forma sincronizada para que você possa incorrer em um desempenho de consulta ligeiramente degradado se suas colunas estiverem faltando estatísticas. O tempo para criar estatísticas para uma única coluna depende do tamanho da tabela.
+A criação automática de estatísticas é feita de forma síncrona para que você possa incorrer em um desempenho de consulta ligeiramente degradado se suas colunas estiverem com estatísticas ausentes. O tempo para criar estatísticas para uma única coluna depende do tamanho da tabela.
 
-Para evitar a degradação de desempenho mensurável, você deve garantir que as estatísticas tenham sido criadas primeiro executando a carga de trabalho de referência antes de traçar o perfil do sistema.
+Para evitar a degradação do desempenho mensurável, você deve garantir que as estatísticas tenham sido criadas primeiro executando a carga de trabalho do parâmetro de comparação antes de criar o perfil do sistema.
 
 > [!NOTE]
-> A criação de estatísticas será registrada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) sob um contexto diferente do usuário.
+> A criação de estatísticas será registrada em [Sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) em um contexto de usuário diferente.
 
-Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode visualizar estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Quando são criadas estatísticas automáticas, terão o formato: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. Você pode exibir estatísticas que já foram criadas executando o comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) :
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-O table_name é o nome da tabela que contém as estatísticas a serem exibidas. Esta mesa não pode ser uma mesa externa. O alvo é o nome do índice de destino, estatísticas ou coluna para o qual exibir informações estatísticas.
+O table_name é o nome da tabela que contém as estatísticas a serem exibidas. Esta tabela não pode ser uma tabela externa. O destino é o nome do índice de destino, estatísticas ou coluna para o qual exibir informações de estatísticas.
 
 ## <a name="update-statistics"></a>Atualizar estatísticas
 
-Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Cada vez que novas linhas são carregadas no pool SQL, novas datas de carga ou datas de transação são adicionadas. Essas adições alteram a distribuição de dados e tornam as estatísticas desatualizadas.
+Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Cada vez que novas linhas são carregadas no pool SQL, novas datas de carregamento ou datas de transação são adicionadas. Essas adições alteram a distribuição de dados e tornam as estatísticas desatualizadas.
 
-As estatísticas de uma coluna de país/região em uma tabela de clientes podem nunca precisar ser atualizadas, uma vez que a distribuição dos valores geralmente não muda. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados.
+As estatísticas em uma coluna de país/região em uma tabela de cliente talvez nunca precisem ser atualizadas, pois a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados.
 
-No entanto, se o seu pool SQL contém apenas um país/região, e você traz dados de um novo país/região, resultando em dados de vários países/regiões sendo armazenados, então você precisa atualizar as estatísticas na coluna país/região.
+No entanto, se o pool do SQL contiver apenas um país/região e você inserir dados de um novo país/região, resultando em dados de vários países/regiões que estão sendo armazenados, você precisará atualizar as estatísticas na coluna país/região.
 
 O seguinte são recomendações atualizando estatísticas:
 
 |||
 |-|-|
 | **Frequência de atualizações de estatísticas**  | Conservadora: diária </br> Depois de carregar ou transformar os dados |
-| **amostragem** |  Menos de 1 bilhão de linhas, use amostragem padrão (20%). </br> Com mais de 1 bilhão de linhas, use amostragem de 2%. |
+| **amostragem** |  Menos de 1.000.000.000 linhas, use amostragem padrão (20 por cento). </br> Com mais de 1.000.000.000 linhas, use a amostragem de dois por cento. |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 
-Esta pergunta não é aquela que pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser antigo se não houver nenhuma alteração importante nos dados subjacentes.
+Essa pergunta não é aquela que pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser antigo se não houver nenhuma alteração importante nos dados subjacentes.
 
 > [!TIP]
 > Quando o número de linhas mudar substancialmente, ou houver uma alteração material na distribuição de valores para uma coluna, *então*, significa que é hora de atualizar as estatísticas.
 
-Não há uma visão de gerenciamento dinâmica para determinar se os dados dentro da tabela mudaram desde a última vez que as estatísticas foram atualizadas. Saber a idade de suas estatísticas pode lhe fornecer parte do quadro.
+Não há nenhuma exibição de gerenciamento dinâmico para determinar se os dados dentro da tabela foram alterados desde a última atualização das estatísticas. Conhecer a idade de suas estatísticas pode fornecer uma parte da imagem.
 
 Você pode usar a seguinte consulta para determinar a última vez que suas estatísticas foram atualizadas em cada tabela.
 
 > [!NOTE]
-> Se houver uma mudança material na distribuição de valores para uma coluna, você deve atualizar as estatísticas independentemente da última vez que foram atualizadas.
+> Se houver uma alteração de material na distribuição de valores para uma coluna, você deverá atualizar as estatísticas independentemente da última vez em que foram atualizadas.
 
 ```sql
 SELECT
@@ -136,21 +136,21 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Colunas de data** em um pool SQL, por exemplo, geralmente precisam de atualizações estatísticas frequentes. Cada vez que novas linhas são carregadas no pool SQL, novas datas de carga ou datas de transação são adicionadas. Essas adições alteram a distribuição de dados e tornam as estatísticas desatualizadas.
+As **colunas de data** em um pool do SQL, por exemplo, geralmente precisam de atualizações de estatísticas frequentes. Cada vez que novas linhas são carregadas no pool SQL, novas datas de carregamento ou datas de transação são adicionadas. Essas adições alteram a distribuição de dados e tornam as estatísticas desatualizadas.
 
 Por outro lado, as estatísticas de uma coluna de gênero em uma tabela de clientes talvez nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados.
 
-Se o seu pool SQL contém apenas um gênero e um novo requisito resulta em vários gêneros, então você precisa atualizar estatísticas na coluna de gênero.
+Se o seu pool do SQL contiver apenas um gênero e um novo requisito resultar em vários gêneros, você precisará atualizar as estatísticas na coluna sexo.
 
 Para obter mais informações, consulte as diretrizes gerais para [Estatísticas](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="implementing-statistics-management"></a>Implementação do gerenciamento de estatísticas
 
-Muitas vezes é uma boa ideia estender seu processo de carregamento de dados para garantir que as estatísticas sejam atualizadas no final da carga para evitar/minimizar o bloqueio ou a disputa de recursos entre consultas simultâneas.  
+Geralmente, é uma boa ideia estender o processo de carregamento de dados para garantir que as estatísticas sejam atualizadas no final da carga para evitar/minimizar a contenção de recursos ou bloqueio entre consultas simultâneas.  
 
-É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. O carregamento de dados é um lugar lógico para implementar alguns processos de gestão.
+É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. O carregamento de dados é um local lógico para implementar alguns processos de gerenciamento.
 
-Os seguintes princípios orientadores são fornecidos para atualizar suas estatísticas:
+Os seguintes princípios de orientação são fornecidos para atualizar suas estatísticas:
 
 - Certifique-se de que cada tabela carregada tenha pelo menos um objeto de estatísticas atualizado. Isso atualiza as informações do tamanho da tabela (contagem de linhas e contagem de páginas) como parte da atualização de estatísticas.
 - Concentre-se em colunas que participam de cláusulas JOIN, GROUP BY, ORDER BY e DISTINCT.
@@ -166,9 +166,9 @@ Estes exemplos mostram como usar várias opções para a criação de estatísti
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Criar estatísticas de coluna única com opções padrão
 
-Para criar estatísticas em uma coluna, forneça um nome para o objeto estatístico e o nome da coluna.
+Para criar estatísticas em uma coluna, forneça um nome para o objeto de estatísticas e o nome da coluna.
 
-Esta sintaxe usa todas as opções padrão. Por padrão, o pool SQL amostra **20%** da tabela quando cria estatísticas.
+Esta sintaxe usa todas as opções padrão. Por padrão, o pool SQL amostra **20 por cento** da tabela ao criar estatísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -231,12 +231,12 @@ Para obter a referência completa, consulte [CREATE STATISTICS](/sql/t-sql/state
 
 ### <a name="create-multi-column-statistics"></a>Criar estatísticas de várias colunas
 
-Para criar um objeto de estatística de várias colunas, use os exemplos anteriores, mas especifique mais colunas.
+Para criar um objeto de estatísticas de várias colunas, use os exemplos anteriores, mas especifique mais colunas.
 
 > [!NOTE]
 > O histograma, que é usado para estimar o número de linhas no resultado da consulta, está disponível apenas para a primeira coluna listada na definição do objeto estatístico.
 
-Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas sobre *a categoria do produto\_* e sub_category do *produto:\_*
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas *na\_categoria do produto* e *sub_category do produto\_*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -268,7 +268,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Use um procedimento armazenado para criar estatísticas em todas as colunas em um banco de dados
 
-O pool SQL não possui um procedimento armazenado no sistema equivalente ao sp_create_stats no SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
+O pool do SQL não tem um procedimento armazenado do sistema equivalente a sp_create_stats em SQL Server. Esse procedimento armazenado cria um objeto de estatísticas de coluna única em todas as colunas do banco de dados que ainda não tenham estatísticas.
 
 O exemplo a seguir ajudará você a começar o projeto do banco de dados. Fique à vontade para adaptá-lo às suas necessidades.
 
@@ -358,19 +358,19 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Para criar estatísticas em todas as colunas da tabela usando os padrões, execute o procedimento armazenado.
+Para criar estatísticas em todas as colunas na tabela usando os padrões, execute o procedimento armazenado.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
 
-Para criar estatísticas em todas as colunas da tabela usando um fullscan, ligue para este procedimento.
+Para criar estatísticas em todas as colunas na tabela usando um FULLSCAN, chame esse procedimento.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-Para criar estatísticas de amostra em todas as colunas da tabela, insira 3 e o percentual da amostra. Este procedimento usa uma taxa amostral de 20%.
+Para criar estatísticas de amostra em todas as colunas da tabela, insira 3 e o percentual da amostra. Este procedimento usa uma taxa de amostragem de 20%.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
@@ -397,11 +397,11 @@ Por exemplo:
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
-Ao atualizar objetos de estatísticas específicos, você pode minimizar o tempo e os recursos necessários para o gerenciamento de estatísticas. Fazer isso requer algum pensamento para escolher os melhores objetos estatísticos para atualizar.
+Ao atualizar objetos de estatísticas específicos, você pode minimizar o tempo e os recursos necessários para o gerenciamento de estatísticas. Fazer isso requer algumas idéias para escolher os melhores objetos de estatísticas a serem atualizados.
 
 ### <a name="update-all-statistics-on-a-table"></a>Atualizar todas as estatísticas de uma tabela
 
-Um método simples para atualizar todos os objetos estatísticos em uma tabela é:
+Um método simples para atualizar todos os objetos de estatísticas em uma tabela é:
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -413,10 +413,10 @@ Por exemplo:
 UPDATE STATISTICS dbo.table1;
 ```
 
-A declaração UPDATE STATISTICS é fácil de usar. Lembre-se de que isso atualizará *todas* as estatísticas na tabela e, portanto, poderá executar mais trabalho do que o necessário. Se o desempenho não é um problema, esta é a maneira mais fácil e completa de garantir que as estatísticas estão atualizadas.
+A instrução UPDATE STATISTICs é fácil de usar. Lembre-se de que isso atualizará *todas* as estatísticas na tabela e, portanto, poderá executar mais trabalho do que o necessário. Se o desempenho não for um problema, essa é a maneira mais fácil e completa de garantir que as estatísticas estejam atualizadas.
 
 > [!NOTE]
-> Ao atualizar todas as estatísticas em uma tabela, o pool SQL faz uma varredura para mostrar a tabela para cada objeto estatístico. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, talvez seja mais eficiente atualizar estatísticas individuais com base na necessidade.
+> Ao atualizar todas as estatísticas em uma tabela, o pool do SQL faz uma verificação para obter uma amostra da tabela para cada objeto de estatísticas. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, talvez seja mais eficiente atualizar estatísticas individuais com base na necessidade.
 
 Para ver uma implementação de um procedimento `UPDATE STATISTICS`, consulte [Tabelas Temporárias](sql-data-warehouse-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento anterior `CREATE STATISTICS`, mas o resultado é o mesmo.
 
@@ -500,7 +500,7 @@ DBCC SHOW_STATISTICS() mostra os dados contidos em um objeto de estatísticas. E
 Os metadados de cabeçalho sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna de chave do objeto de estatísticas. O vetor de densidade mede a correlação entre colunas.
 
 > [!NOTE]
-> O pool SQL calcula as estimativas de cardinalidade com qualquer um dos dados no objeto estatístico.
+> O pool do SQL computa estimativas de cardinalidade com qualquer um dos dados no objeto de estatísticas.
 
 ### <a name="show-header-density-and-histogram"></a>Mostrar cabeçalho, densidade e histograma
 
@@ -532,11 +532,11 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## <a name="dbcc-show_statistics-differences"></a>Diferenças do DBCC SHOW_STATISTICS()
 
-O DBCC SHOW_STATISTICS() é mais rigorosamente implementado no pool SQL em comparação com o SQL Server:
+O DBCC SHOW_STATISTICS () é mais estritamente implementado no pool do SQL em comparação com SQL Server:
 
 - Não há suporte para recursos não documentados.
 - Não é possível usar Stats_stream.
-- Não é possível unir resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER DENSITY_VECTOR JOIN.
+- Não é possível unir resultados para subconjuntos específicos de dados estatísticos. Por exemplo, STAT_HEADER INGRESSAr DENSITY_VECTOR.
 - NO_INFOMSGS não pode ser definido para a supressão de mensagem.
 - Não é possível usar colchetes em nomes de estatísticas.
 - Não é possível usar nomes de coluna para identificar objetos de estatísticas.

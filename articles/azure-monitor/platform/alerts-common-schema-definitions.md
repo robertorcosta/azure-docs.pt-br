@@ -1,26 +1,26 @@
 ---
-title: Definições de esquema de alerta no Monitor Do Azure
-description: Entendendo as definições comuns de esquema de alerta para o Azure Monitor
+title: Definições de esquema de alerta no Azure Monitor
+description: Compreendendo as definições comuns de esquema de alerta para Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114452"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
-Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para o Azure Monitor, incluindo as de webhooks, Apps de lógica azure, funções do Azure e runbooks de automação do Azure. 
+Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para Azure monitor, incluindo aquelas para WebHooks, aplicativos lógicos do azure, Azure Functions e Runbooks de automação do Azure. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Essas instâncias são descritas no esquema comum nas seguintes seções:
-* **Essenciais**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
-* **Contexto de alerta**: Um conjunto de campos que descreve a causa do alerta, com campos que variam de acordo com o tipo de alerta. Por exemplo, um alerta métrico inclui campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registro de atividade situou informações sobre o evento que gerou o alerta. 
+* **Essentials**: um conjunto de campos padronizados, comuns em todos os tipos de alertas, que descrevem em qual recurso o alerta está, junto com os metadados de alerta comuns adicionais (por exemplo, severidade ou descrição). 
+* **Contexto de alerta**: um conjunto de campos que descreve a causa do alerta, com campos que variam de acordo com o tipo de alerta. Por exemplo, um alerta de métrica inclui campos como o nome da métrica e o valor da métrica no contexto do alerta, enquanto um alerta do log de atividades tem informações sobre o evento que gerou o alerta. 
 
-**Carga de alerta de amostra**
+**Conteúdo de alerta de exemplo**
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -73,21 +73,21 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 | Campo | Descrição|
 |:---|:---|
-| alertId | O GUID identifica exclusivamente a instância de alerta. |
+| alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
-| Severity | A gravidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
-| signalType | Identifica o sinal no qual a regra de alerta foi definida. Valores possíveis: Métrica, Log ou Registro de Atividades. |
-| monitorCondição | Quando um alerta dispara, a condição do monitor do alerta é definida como **disparou**. Quando a condição subjacente que causou o alerta de incêndio se dissipar, a condição do monitor é definida como **Resolvida**.   |
-| serviço de monitoramento | O serviço de monitoramento ou solução que gerou o alerta. Os campos para o contexto de alerta são ditados pelo serviço de monitoramento. |
-| alertaTargetIds | A lista dos IDs do Azure Resource Manager que são alvos afetados de um alerta. Para um alerta de log definido em uma instância de espaço de trabalho do Log Analytics ou do Application Insights, é o respectivo espaço de trabalho ou aplicativo. |
-| originAlertId | O ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
-| demitidoDateTime | A data e a hora em que a ocorrência de alerta foi disparada no Tempo Universal Coordenado (UTC). |
-| resolvidoDateTime | A data e a hora em que a condição do monitor para a instância de alerta é definida **como Resolvida** em UTC. Atualmente, apenas aplicável para alertas métricos.|
-| descrição | A descrição, conforme definido na regra de alerta. |
-|essencialversion| O número da versão para a seção essentials.|
-|alertContextVersion | O número da `alertContext` versão para a seção. |
+| Severity | A severidade do alerta. Valores possíveis: Sev0, Sev1, Sev2, Sev3 ou Sev4. |
+| sinaltype | Identifica o sinal no qual a regra de alerta foi definida. Valores possíveis: métrica, log ou log de atividades. |
+| monitorCondition | Quando um alerta é **disparado, a condição**do monitor do alerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definida como **resolvida**.   |
+| monitoringService | O serviço de monitoramento ou a solução que gerou o alerta. Os campos para o contexto de alerta são determinados pelo serviço de monitoramento. |
+| alertTargetIds | A lista das IDs de Azure Resource Manager que são afetadas os destinos de um alerta. Para um alerta de log definido em um espaço de trabalho Log Analytics ou Application Insights instância, ele é o respectivo espaço de trabalho ou aplicativo. |
+| originAlertId | A ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
+| firedDateTime | A data e a hora em que a instância de alerta foi acionada no UTC (tempo Universal Coordenado). |
+| resolvedDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida como **resolvida** em UTC. Atualmente aplicável somente a alertas de métricas.|
+| description | A descrição, conforme definido na regra de alerta. |
+|essentialsVersion| O número de versão da seção Essentials.|
+|alertContextVersion | O número de versão da `alertContext` seção. |
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "essentials": {
@@ -115,7 +115,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -149,11 +149,11 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> Para alertas de log que tenham um assunto de e-mail personalizado e/ou carga útil JSON definida, permitir que o esquema comum reverta o assunto de e-mail e/ou esquema de carga para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga de alertas de log se eles causarem o tamanho do alerta para cruzar esse limite. Você pode determinar isso verificando a bandeira `IncludeSearchResults`. Quando os resultados da pesquisa não forem incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Para alertas de log que têm um assunto de email personalizado e/ou conteúdo JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de carga para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludeSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -220,7 +220,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--application-insights"></a>`monitoringService` = `Application Insights`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -285,7 +285,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--activity-log---administrative"></a>`monitoringService` = `Activity Log - Administrative`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -312,7 +312,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--activity-log---policy"></a>`monitoringService` = `Activity Log - Policy`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -345,7 +345,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--activity-log---autoscale"></a>`monitoringService` = `Activity Log - Autoscale`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -375,7 +375,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--activity-log---security"></a>`monitoringService` = `Activity Log - Security`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -408,7 +408,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 #### <a name="monitoringservice--servicehealth"></a>`monitoringService` = `ServiceHealth`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -452,7 +452,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 #### <a name="monitoringservice--resource-health"></a>`monitoringService` = `Resource Health`
 
-**Valores amostrais**
+**Valores de exemplo**
 ```json
 {
   "alertContext": {
@@ -482,5 +482,5 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs).
-- Aprenda [a criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
+- Saiba [como criar um aplicativo lógico que usa o esquema de alerta comum para lidar com todos os seus alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
 

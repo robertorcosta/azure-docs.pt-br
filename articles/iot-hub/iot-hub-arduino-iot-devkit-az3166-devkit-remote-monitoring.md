@@ -1,5 +1,5 @@
 ---
-title: Conecte o MXChip IoT DevKit ao monitoramento remoto do Hub Azure IoT
+title: Conectar o MXChip IoT DevKit ao monitoramento remoto do Hub IoT do Azure
 description: Neste tutorial, saiba como enviar status de sensores em IoT DevKit AZ3166 para o acelerador de solução de monitoramento remoto do Azure IoT.
 author: liydu
 manager: jeffya
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
 ms.openlocfilehash: 598e361949b000724645c841910b1682a7bbb1a3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258449"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conectar o MXChip IoT DevKit ao acelerador de solução de Monitoramento Remoto do Azure IoT
@@ -31,7 +31,7 @@ Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-a
 
 Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por meio de um desses dois métodos:
 
-* Ativar uma [conta gratuita de 30 dias do Microsoft Azure](https://azure.microsoft.com/free/)
+* Ativar uma [avaliação gratuita de 30 dias Microsoft Azure conta](https://azure.microsoft.com/free/)
 
 * Declare seu [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você for assinante do MSDN ou o Visual Studio
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: d3a2dfba98f83d34c3e83ec865e3b692f7dbacd2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254216"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
@@ -62,7 +62,7 @@ Se você estiver usando o armazenamento de BLOBs do Azure como a origem para o s
 - Transferências em GB: a quantidade de dados transferidos para preencher os caches da CDN.
 
 > [!NOTE]
-> A partir de outubro de 2019, se você estiver usando o Azure CDN da Microsoft, o custo da transferência de dados do Origins hospedado no Azure para o CDN PoPs é gratuito. Azure CDN da Verizon e Azure CDN da Akamai estão sujeitos às taxas descritas abaixo.
+> A partir de outubro de 2019, se você estiver usando a CDN do Azure da Microsoft, o custo da transferência de dados de origens hospedadas no Azure para PoPs da CDN será gratuito. A CDN do Azure da Verizon e a CDN do Azure da Akamai estão sujeitas às tarifas descritas abaixo.
 
 Para saber mais sobre a cobrança do Armazenamento do Microsoft Azure, confira [Noções básicas sobre cobrança no armazenamento do Azure – largura de banda, transações e capacidade](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
@@ -87,8 +87,8 @@ Cada vez que um POP da CDN precisa preencher seu cache, ele faz uma solicitaçã
 
 - Influência da TTL: uma TTL superior para um objeto significa que ele precisa ser obtido da origem com menos frequência. Isso também significa que os clientes, como navegadores, podem armazenar em cache o objeto mais longo, o que pode reduzir as transações para a CDN.
 
-## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quais serviços de origem são elegíveis para transferência gratuita de dados com CDN do Azure da Microsoft? 
-Se você usar um dos seguintes serviços do Azure como sua origem CDN, você não será cobrado da transferência de dados da Origem para os PoPs do CDN. 
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quais serviços de origem estão qualificados para a transferência de dados gratuita com a CDN do Azure da Microsoft? 
+Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não será cobrado da transferência de dados da origem para os PoPs da CDN. 
 
 - Armazenamento do Azure
 - Serviços de Mídia do Azure

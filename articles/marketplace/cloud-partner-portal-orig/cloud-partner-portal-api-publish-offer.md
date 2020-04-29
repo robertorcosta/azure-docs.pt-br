@@ -1,5 +1,5 @@
 ---
-title: Publicar uma oferta | Mercado Azure
+title: Publicar uma oferta | Azure Marketplace
 description: API para publicar a oferta especificada.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 960d5facb53f20719045c5fdbe2179f549aca3f2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255933"
 ---
 # <a name="publish-an-offer"></a>Publicar uma oferta
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Inicia o processo de publicação da oferta especificada. Essa ligação é uma operação demorada.
 
@@ -28,8 +28,8 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador do editor, por exemplo `contoso`      |   String       |
-|  offerId       | Identificador da oferta                                 |   String       |
+|  publisherId   | Identificador do editor, por exemplo `contoso`      |   Cadeia de caracteres       |
+|  offerId       | Identificador da oferta                                 |   Cadeia de caracteres       |
 |  api-version   | Última versão da API                        |   Data         |
 |  |  |
 
@@ -80,13 +80,13 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 |  **Nome**             |    **Valor**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Location    | O caminho relativo para recuperar o status desta operação     |
+| Local    | O caminho relativo para recuperar o status da operação     |
 |  |  |
 
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código** |  **Descrição**                                                                                                                           |
+| **Auto-completar** |  **Descrição**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
 | 202   | `Accepted` – a solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para rastrear a operação iniciada. |
 | 400   | `Bad/Malformed request` – O corpo da resposta de erro pode fornecer mais informações.                                                               |

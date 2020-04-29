@@ -1,6 +1,6 @@
 ---
-title: Safelist os URLs do portal Azure em seu firewall ou servidor proxy
-description: Adicione esses URLs ao bypass do servidor proxy para se comunicar com o portal Azure e seus serviços
+title: ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
+description: Adicione essas URLs ao bypass do servidor proxy para se comunicar com o portal do Azure e seus serviços
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255039"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Safelist os URLs do portal Azure em seu firewall ou servidor proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
 
-Você pode configurar dispositivos de segurança no local para contornar as restrições de segurança para os URLs do portal Azure. Essa configuração pode melhorar o desempenho e a conectividade entre sua rede local ou ampla e a nuvem Azure.
+Você pode configurar dispositivos de segurança locais para ignorar as restrições de segurança para as URLs de portal do Azure. Essa configuração pode melhorar o desempenho e a conectividade entre sua rede local ou de longa distância e a nuvem do Azure.
 
-Os administradores de rede geralmente implantam servidores proxy, firewalls ou outros dispositivos. Esses dispositivos ajudam a proteger e dar controle sobre como os usuários acessam a internet. Regras projetadas para proteger os usuários podem, por vezes, bloquear ou retardar o tráfego legítimo da Internet relacionado aos negócios. Este tráfego inclui comunicações entre você e o Azure. Para otimizar a conectividade entre sua rede e o portal Azure e seus serviços, recomendamos que você adicione URLs do portal Azure à sua lista de segurança.
+Os administradores de rede geralmente implantam servidores proxy, firewalls ou outros dispositivos. Esses dispositivos ajudam a proteger e fornecem controle sobre como os usuários acessam a Internet. As regras projetadas para proteger os usuários às vezes podem bloquear ou reduzir o tráfego de Internet legítimo relacionado aos negócios. Esse tráfego inclui comunicações entre você e o Azure. Para otimizar a conectividade entre a rede e o portal do Azure e seus serviços, recomendamos que você adicione portal do Azure URLs à sua assafe.
 
-## <a name="azure-portal-urls-for-proxy-bypass"></a>URLs do portal Azure para bypass proxy
+## <a name="azure-portal-urls-for-proxy-bypass"></a>URLs de portal do Azure para bypass de proxy
 
-Os pontos finais da URL para safelist para o portal Azure são específicos para a nuvem Dozure onde sua organização está implantada. Para permitir que o tráfego de rede para esses pontos finais contorne as restrições, selecione sua nuvem. Em seguida, adicione a lista de URLs ao seu servidor proxy ou firewall.
+Os pontos de extremidade de URL para a lista segura para os portal do Azure são específicos para a nuvem do Azure em que sua organização está implantada. Para permitir que o tráfego de rede para esses pontos de extremidade ignore as restrições, selecione sua nuvem. Em seguida, adicione a lista de URLs ao seu servidor proxy ou firewall.
 
-#### <a name="public-cloud"></a>[Nuvem Pública](#tab/public-cloud)
+#### <a name="public-cloud"></a>[Nuvem pública](#tab/public-cloud)
 
 ```
 *.aadcdn.microsoftonline-p.com
@@ -77,6 +77,6 @@ Os pontos finais da URL para safelist para o portal Azure são específicos para
 ---
 
 > [!NOTE]
-> O tráfego para esses pontos finais usa portas TCP padrão para HTTP (80) e HTTPS (443).
+> O tráfego para esses pontos de extremidade usa portas TCP padrão para HTTP (80) e HTTPS (443).
 >
 >

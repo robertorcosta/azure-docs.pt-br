@@ -1,5 +1,5 @@
 ---
-title: Chaves primárias, estrangeiras e únicas
+title: Chaves primárias, estrangeiras e exclusivas
 description: Suporte a restrições de tabela no pool Synapse SQL no Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,32 +12,32 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990762"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave única no pool Synapse SQL
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave exclusiva no pool SQL Synapse
 
-Saiba mais sobre as restrições de tabela no pool Synapse SQL, incluindo chave primária, tecla estrangeira e chave única.
+Saiba mais sobre as restrições de tabela no pool do SQL Synapse, incluindo chave primária, chave estrangeira e chave exclusiva.
 
 ## <a name="table-constraints"></a>Restrições de tabela
 
-O pool Synapse SQL suporta essas restrições de tabela: 
-- Key PRIMARY só é suportado quando não agrupados e NÃO APLICADOs são usados.    
-- A restrição UNIQUE só é suportada com NÃO APLICADO é usado.
+O pool SQL Synapse dá suporte a essas restrições de tabela: 
+- Só há suporte para a chave primária quando não CLUSTERIZAdo e não imposto são usados.    
+- Só há suporte para a restrição UNIQUE quando não imposta é usado.
 
-Para obter sintaxe, consulte [TABELA ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) e [TABELA CRIAR](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+Para sintaxe, marque [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) e [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-A restrição FOREIGN KEY não é suportada no pool Synapse SQL.  
+Não há suporte para a restrição de chave estrangeira no pool SQL Synapse.  
 
 
 ## <a name="remarks"></a>Comentários
 
-Ter chave primária e/ou chave exclusiva permite que o mecanismo de pool SQL sinapse gere um plano de execução ideal para uma consulta.  Todos os valores em uma coluna de chave primária ou uma coluna de restrição única devem ser únicos.
+Ter a chave primária e/ou a chave exclusiva permite que o mecanismo de pool do SQL Synapse gere um plano de execução ideal para uma consulta.  Todos os valores em uma coluna de chave primária ou uma coluna de restrição UNIQUE devem ser exclusivos.
 
-Depois de criar uma tabela com chave primária ou restrição única no pool Synapse SQL, os usuários precisam ter certeza de que todos os valores nessas colunas são únicos.  Uma violação disso pode fazer com que a consulta retorne resultado impreciso.  Este exemplo mostra como uma consulta pode retornar resultado impreciso se a chave principal ou a coluna de restrição exclusiva incluir valores duplicados.  
+Depois de criar uma tabela com uma restrição PRIMARY KEY ou Unique no pool SQL Synapse, os usuários precisam garantir que todos os valores nessas colunas sejam exclusivos.  Uma violação disso pode fazer com que a consulta retorne um resultado impreciso.  Este exemplo mostra como uma consulta pode retornar um resultado impreciso se a coluna de restrição PRIMARY KEY ou Unique tiver valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,12 @@ a1          total
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma tabela de bilhar Synapse SQL com uma chave principal: 
+Crie uma tabela do pool SQL do Synapse com uma chave primária: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Crie uma tabela de bilhar Synapse SQL com uma restrição única:
+Crie uma tabela de pools SQL do Synapse com uma restrição UNIQUE:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +177,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar as tabelas para o seu pool Synapse SQL, o próximo passo é carregar dados na tabela. Para obter um tutorial de carregamento, consulte ['Carregar dados' para o pool Synapse SQL](load-data-wideworldimportersdw.md).
+Depois de criar as tabelas para o pool SQL do Synapse, a próxima etapa será carregar os dados na tabela. Para obter um tutorial de carregamento, consulte [carregando dados no pool de SQL do Synapse](load-data-wideworldimportersdw.md).

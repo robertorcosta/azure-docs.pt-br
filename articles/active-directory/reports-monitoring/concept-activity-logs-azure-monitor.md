@@ -1,6 +1,6 @@
 ---
-title: A atividade do Azure Active Directory faz logs no Monitor Azure | Microsoft Docs
-description: Introdução à atividade do Azure Active Directory registra no Monitor Do Azure
+title: Azure Active Directory logs de atividades em Azure Monitor | Microsoft Docs
+description: Introdução à Azure Active Directory de logs de atividades no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261016"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Monitor Do Azure
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
-Você pode encaminhar os logs de atividade do Azure Active Directory (Azure AD) para vários pontos finais para retenção de longo prazo e insights de dados. Esse recurso permite que você:
+Você pode rotear logs de atividade do Azure Active Directory (Azure AD) para vários pontos de extremidade para retenção de longo prazo e insights de dados. Esse recurso permite que você:
 
 * Arquive os logs de atividades do Azure AD em uma conta de armazenamento do Azure para reter os dados por um longo período.
 * Transmita os logs de atividade do Azure AD para um hub de eventos do Azure para análise, usando ferramentas populares de SIEM (Gerenciamento de Eventos e Informações de Segurança) como Splunk e QRadar.
@@ -41,8 +41,8 @@ Você pode encaminhar os logs de atividade do Azure Active Directory (Azure AD) 
 
 É possível rotear logs de auditoria e logs de entrada do Azure AD para sua conta de armazenamento do Azure, hub de eventos, logs do Azure Monitor ou solução personalizada usando esse recurso. 
 
-* **Logs de auditoria**: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de cada tarefa realizada em seu inquilino.
-* **Loglogs de login**: Com o [relatório de atividade de login,](concept-sign-ins.md)você pode determinar quem executou as tarefas que são relatadas nos registros de auditoria.
+* **Logs de auditoria**: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
+* **Logs de entrada**: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
@@ -70,7 +70,7 @@ Se você já tiver uma licença do Azure AD, precisará de uma assinatura do Azu
 
 ### <a name="storage-size-for-activity-logs"></a>Tamanho do armazenamento para logs de atividades
 
-Cada evento de trilha de auditoria usa cerca de 2 KB de armazenamento de dados. Os registros de registro de eventos são cerca de 4 KB de armazenamento de dados. Para um locatário com 100 mil usuários, o que poderia gerar cerca de 1,5 milhão de eventos por dia, seria necessário cerca de 3 GB de armazenamento de dados por dia. Já que as gravações ocorrem em lotes de aproximadamente cinco minutos, é possível estimar aproximadamente 9 mil operações de gravação por mês. 
+Cada evento de trilha de auditoria usa cerca de 2 KB de armazenamento de dados. Os logs de eventos de entrada são cerca de 4 KB de armazenamento de dados. Para um locatário com 100 mil usuários, o que poderia gerar cerca de 1,5 milhão de eventos por dia, seria necessário cerca de 3 GB de armazenamento de dados por dia. Já que as gravações ocorrem em lotes de aproximadamente cinco minutos, é possível estimar aproximadamente 9 mil operações de gravação por mês. 
 
 
 A tabela a seguir contém uma estimativa de custo, dependendo do tamanho do locatário, para uma conta de armazenamento de uso geral v2 no Oeste dos EUA com pelo menos um ano de retenção. Para criar uma estimativa mais precisa para o volume de dados que você prevê em seu aplicativo, use a [calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -98,13 +98,13 @@ Eventos são colocados em lotes com intervalos de cinco minutos, aproximadamente
 
 Por exemplo, cerca de 18 eventos por segundo ocorrem normalmente para um locatário grande de mais de 100 mil usuários, uma taxa que equivale a 5.400 eventos a cada cinco minutos. Como os logs de auditoria têm cerca de 2 KB por evento, isso equivale a 10.8 MB de dados. Portanto, 43 mensagens são enviadas ao hub de eventos naquele intervalo de cinco minutos. 
 
-A tabela a seguir contém custos estimados por mês para um hub de eventos básico no Oeste dos EUA, dependendo do volume de dados de eventos que podem variar de inquilino para inquilino, conforme muitos fatores, como comportamento de login do usuário etc. Para calcular uma estimativa precisa do volume de dados que você antecipa para sua aplicação, use a [calculadora de preços Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+A tabela a seguir contém custos estimados por mês para um hub de eventos básico no oeste dos EUA, dependendo do volume de dados do evento que pode variar de locatário para locatário, de acordo com muitos fatores, como o comportamento de entrada do usuário, etc. Para calcular uma estimativa precisa do volume de dados que você prevê para seu aplicativo, use a [calculadora de preços dos hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoria do log | Número de usuários | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100.000 | 18 | 5.400 | 10.8 MB | 43 | 371.520 | US$ 10,83 |
 | Audit | 1,000 | 0,1 | 52 | 104 KB | 1 | 8.640 | US$ 10,80 |
-| Entradas | 100.000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
+| Entradas | 100.000 | 18000 | 5,4 milhões | 10,8 GB | 42188 | 364.504.320 | $23.09 |  
 | Entradas | 1,000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3.611.520 | US$ 11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerações de custo dos logs do Azure Monitor
@@ -113,9 +113,9 @@ A tabela a seguir contém custos estimados por mês para um hub de eventos bási
 
 | Categoria do log       | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est.) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| Auditoria e Logins | 100.000         | 16,500,000     | 495,000,000                |  $1093,00                       |
-| Audit              | 100.000         | 1,500,000      | 45.000.000                 |  $246.66                     |
-| Entradas           | 100.000         | 15.000.000     | 450,000,000                |  $847.28                     |
+| Auditoria e entradas | 100.000         | 16,5 milhões     | 495 milhões                |  $1093                       |
+| Audit              | 100.000         | 1,5 milhões      | 45.000.000                 |  $246.66                     |
+| Entradas           | 100.000         | 15.000.000     | 450 milhões                |  $847.28                     |
 
 
 
@@ -150,9 +150,9 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 ---
 
-**P: O que acontece se um administrador altera o período de retenção de uma configuração de diagnóstico?**
+**P: o que acontece se um administrador altera o período de retenção de uma configuração de diagnóstico?**
 
-**R:** A nova política de retenção será aplicada aos logs coletados após a alteração. Os logs coletados antes da alteração da política não serão afetados.
+**R**: a nova política de retenção será aplicada aos logs coletados após a alteração. Os logs coletados antes da alteração da política não serão afetados.
 
 ---
 
@@ -180,7 +180,7 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **P: quais ferramentas de SIEM têm suporte atualmente?** 
 
-**A**: **A:** Atualmente, o Azure Monitor é suportado por [Splunk,](tutorial-integrate-activity-logs-with-splunk.md)IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R**: **a**: atualmente, o Azure monitor é suportado por [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, a [lógica do resumo](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm e LOGZ.IO. Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
@@ -198,7 +198,7 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **P: posso acessar os dados de um hub de eventos sem usar uma ferramenta de SIEM externa?** 
 
-**A:** Sim. Para acessar os logs do aplicativo personalizado, você pode usar a [API dos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+**R**: Sim. Para acessar os logs do aplicativo personalizado, você pode usar a [API dos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
 
 ---
 

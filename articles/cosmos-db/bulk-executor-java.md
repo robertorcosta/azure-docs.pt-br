@@ -1,6 +1,6 @@
 ---
-title: Use a biblioteca Java do executor a granel no Azure Cosmos DB para executar operações de importação e atualização em massa
-description: Importação e atualização a granel documentos Azure Cosmos DB usando biblioteca Java executor a granel
+title: Usar a biblioteca Java do executor em massa no Azure Cosmos DB para executar operações de importação e atualização em massa
+description: Importação e atualização em massa de Azure Cosmos DB documentos usando a biblioteca Java do executor em massa
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,34 +10,34 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985636"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como usar a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar documentos Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você constrói um aplicativo Java que gera documentos aleatórios e eles são importados em massa para um contêiner Do Azure Cosmos. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
+Este tutorial fornece instruções sobre como usar a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar Azure Cosmos DB documentos. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você cria um aplicativo Java que gera documentos aleatórios e eles são importados em massa em um contêiner Cosmos do Azure. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
 
-Atualmente, a biblioteca de executores em massa é suportada apenas por contas API AQL DB SQL e API Gremlin do Azure Cosmos. Este artigo descreve como usar a biblioteca Java executor a granel com contas API SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cosmos DB contas da API do SQL e da API do Gremlin. Este artigo descreve como usar a biblioteca Java do executor em massa com contas da API do SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Você pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e compromissos. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).  
+* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).  
 
-* [Kit de desenvolvimento Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable)  
+* [Java Development Kit (JDK) 1.7 +](/java/azure/jdk/?view=azure-java-stable)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
 
   - Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 
-* [Baixe](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário [Maven](https://maven.apache.org/)  
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário [Maven](https://maven.apache.org/)  
   
   - No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 
-* Crie uma conta API AcsI SQL do Azure Cosmos usando as etapas descritas na seção [de criação](create-sql-api-java.md#create-a-database-account) de conta de banco de dados do artigo Java quickstart.
+* Crie uma conta de API do SQL Azure Cosmos DB usando as etapas descritas na seção [criar conta de banco de dados](create-sql-api-java.md#create-a-database-account) do artigo de início rápido do Java.
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
@@ -51,7 +51,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importar dados em massa no Azure Cosmos DB
 
-1. As seqüências de conexão do Azure Cosmos DB são lidas como argumentos e atribuídas a variáveis definidas no arquivo CmdLineConfiguration.java.  
+1. As cadeias de conexão do Azure Cosmos DB são lidas como argumentos e atribuídas às variáveis definidas no arquivo CmdLineConfiguration. java.  
 
 2. Em seguida, o objeto de DocumentClient é inicializado usando as instruções a seguir:  
 
@@ -88,7 +88,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. Chame a importaçãoDe AaPI que gera documentos aleatórios para importar em massa em um contêiner Do Azure Cosmos. Você pode configurar as configurações de linha de comando no arquivo CmdLineConfiguration.java.
+4. Chame a API importl que gera documentos aleatórios para importação em massa em um contêiner Cosmos do Azure. Você pode configurar as configurações de linha de comando no arquivo CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -118,8 +118,8 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |int getNumberOfDocumentsImported()  |   O número total de documentos que foram importados com êxito sem os documentos fornecidos para a chamada de API de importação em massa.      |
    |double getTotalRequestUnitsConsumed()   |  O total de unidades de solicitação (RU) consumidas pela chamada de API de importação em massa.       |
    |Duration getTotalTimeTaken()   |    O tempo total gasto pela chamada de API de importação em massa para concluir a execução.     |
-   |\<Exceção de> de obtererros() |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
-   |Listar\<objeto> getBadInputDocuments()  |    A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. O usuário deve corrigir os documentos retornados e repetir a importação. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).     |
+   |Listar\<exceção> GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
+   |Listar\<objeto> getBadInputDocuments ()  |    A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. O usuário deve corrigir os documentos retornados e repetir a importação. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter o aplicativo de importação em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 
@@ -155,7 +155,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Ligue para a atualizaçãoTodas as API que geram documentos aleatórios para serem importadas em massa em um contêiner Do Azure Cosmos. Você pode configurar as configurações de linha de comando a serem passadas no arquivo CmdLineConfiguration.java.
+2. Chame a API updateAll que gera documentos aleatórios a serem importados em massa em um contêiner Cosmos do Azure. Você pode configurar as configurações de linha de comando a serem passadas no arquivo CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -182,7 +182,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |double getTotalRequestUnitsConsumed() |  O total de unidades de solicitação (RU) consumidas pela chamada de API de atualização em massa.       |
    |Duration getTotalTimeTaken()  |   O tempo total gasto pela chamada de API de atualização em massa para concluir a execução.      |
-   |\<Exceção de> de obtererros()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
+   |Listar\<exceção> GetErrors ()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
 
 3. Depois de ter o aplicativo de atualização em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 
@@ -203,10 +203,10 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
 * Para ter o melhor desempenho, execute o aplicativo de uma VM do Azure na mesma região da sua região de gravação da conta do Cosmos DB.  
 * Para alcançar maior taxa de transferência:  
 
-   * Defina o tamanho da pilha do JVM para um número grande o suficiente para evitar qualquer problema de memória no manuseio de um grande número de documentos. Tamanho do heap sugerido: max (3GB, 3 * tamanho de (todos os documentos passados para API de importação em massa em um lote)).  
+   * Defina o tamanho do heap da JVM para um número grande o suficiente para evitar qualquer problema de memória na manipulação de um grande número de documentos. Tamanho do heap sugerido: max (3GB, 3 * tamanho de (todos os documentos passados para API de importação em massa em um lote)).  
    * Há um tempo de pré-processamento, devido ao qual você obterá maior taxa de transferência ao executar operações em massa com um grande número de documentos. Portanto, se você deseja importar 10.000.000 documentos, executar a importação em massa 10 vezes em 10 lotes de documentos, cada um de tamanho 1.000.000, é preferível do que a execução da importação em massa 100 vezes em 100 lotes de documentos, cada um de tamanho 100.000 documentos.  
 
-* Recomenda-se instanciar um único objeto DocumentBulkExecutor para toda a aplicação dentro de uma única máquina virtual que corresponda a um contêiner Azure Cosmos específico.  
+* É recomendável criar uma instância de um único objeto DocumentBulkExecutor para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos do Azure específico.  
 
 * Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.
 

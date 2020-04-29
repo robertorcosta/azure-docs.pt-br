@@ -1,16 +1,16 @@
 ---
-title: Depurar aplicativos de malha de serviço do Azure no Linux
+title: Depurar aplicativos Service Fabric do Azure no Linux
 description: Saiba como monitorar e diagnosticar seus serviços do Service Fabric em um computador de desenvolvimento Linux local.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991323"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração local de desenvolvimento de máquinas Linux
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador Linux local
 
 
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Para obter mais informações, consulte os [exemplos de código no GitHub](https
 ## <a name="debugging-service-fabric-c-applications"></a>Depuração de aplicativos C# do Service Fabric
 
 
-Várias estruturas estão disponíveis para rastreamento de aplicativos CoreCLR no Linux. Para obter mais informações, consulte [.NET Extensões para Registro](https://github.com/dotnet/extensions/tree/master/src/Logging).  Uma vez que o EventSource é familiar aos desenvolvedores do C#, este artigo usa EventSource para rastreamento em exemplos de CoreCLR no Linux.
+Várias estruturas estão disponíveis para rastreamento de aplicativos CoreCLR no Linux. Para obter mais informações, consulte [extensões .net para registro em log](https://github.com/dotnet/extensions/tree/master/src/Logging).  Uma vez que o EventSource é familiar aos desenvolvedores do C#, este artigo usa EventSource para rastreamento em exemplos de CoreCLR no Linux.
 
 A primeira etapa é incluir System.Diagnostics.Tracing para que você possa escrever seus logs na memória, fluxos de saída ou arquivos de console.  Para registrar em log usando o EventSource, adicione o projeto a seguir a seu project.json:
 

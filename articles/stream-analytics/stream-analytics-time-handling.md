@@ -1,6 +1,6 @@
 ---
 title: Noções básicas sobre a manipulação de horas no Azure Stream Analytics
-description: Saiba como funciona o manuseio de tempo no Azure Stream Analytics, como escolher o melhor horário de início, como lidar com eventos tardios e precoces e métricas de manipulação de tempo.
+description: Saiba como a manipulação de tempo funciona em Azure Stream Analytics, como escolher a melhor hora de início, como lidar com eventos atrasados e antigos e métricas de tratamento de tempo.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115134"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
@@ -22,11 +22,11 @@ Neste artigo, abordaremos como você pode fazer escolhas de design para resolver
 
 Para um melhor quadro de discussão, vamos definir alguns conceitos informativos:
 
-- **Hora do evento**: A hora em que o evento original aconteceu. Por exemplo, quando um carro em movimento na rodovia se aproxima de uma cabine de pedágio.
+- **Hora do evento**: a hora em que o evento original ocorreu. Por exemplo, quando um carro em movimento na rodovia se aproxima de uma cabine de pedágio.
 
-- **Tempo de processamento**: O momento em que o evento chega ao sistema de processamento e é observado. Por exemplo, quando o sensor de uma cabine de pedágio detecta o carro e o sistema do computador leva alguns segundos para processar os dados.
+- **Tempo de processamento**: a hora em que o evento atinge o sistema de processamento e é observado. Por exemplo, quando o sensor de uma cabine de pedágio detecta o carro e o sistema do computador leva alguns segundos para processar os dados.
 
-- **Watermark**: Um marcador de tempo de evento que indica até que ponto os eventos foram insanados para o processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
+- **Marca d' água**: um marcador de tempo de evento que indica até que ponto os eventos foram inseridos no processador de streaming. As marcas-d'água permitem que o sistema indique claramente o andamento da ingestão dos eventos. Pela natureza dos fluxos, os dados do evento de entrada nunca param, de modo que as marcas-d'água indicam o andamento até um determinado ponto no fluxo.
 
    O conceito de marca-d'água é importante. As marcas-d'água permitem que o Stream Analytics determine quando o sistema pode gerar resultados completos, corretos e repetíveis que não precisem ser retraídos. O processamento pode ser feito de forma garantida, além de ser previsível e repetível. Por exemplo, se uma recontagem precisa ser feita por alguma condição de tratamento de erro, as marcas-d'água são pontos seguros de partida e término.
 
@@ -44,7 +44,7 @@ O Stream Analytics fornece aos usuários duas opções para escolher a hora do e
 
 2. **Hora do aplicativo** (também chamado de Hora do Evento)
 
-   A hora do aplicativo é atribuída quando o evento é gerado, e faz parte da carga do evento. Para processar eventos por tempo de aplicativo, use o **Carimbo de tempo por** cláusula na consulta selecionada. Se a cláusula **Timestamp by** estiver ausente, os eventos serão processados na hora de chegada.
+   A hora do aplicativo é atribuída quando o evento é gerado, e faz parte da carga do evento. Para processar eventos por hora do aplicativo, use a cláusula **timestamp by** na consulta SELECT. Se a cláusula **Timestamp by** estiver ausente, os eventos serão processados na hora de chegada.
 
    É importante usar um carimbo de data/hora na carga quando a lógica temporal estiver envolvida. Dessa forma, os atrasos no sistema de origem ou na rede podem ser considerados.
 
@@ -96,7 +96,7 @@ Talvez você tenha notado outro conceito chamado janela de chegada antecipada, q
 
 Como o Azure Stream Analytics garante que ela sempre gere resultados completos, você pode especificar a **hora de início do trabalho** como a primeira hora de saída do trabalho, não a hora de entrada. A hora de início do trabalho é necessária para que a janela completa seja processada, não apenas metade da janela.
 
-O Stream Analytics deriva a hora de início da especificação da consulta. No entanto, como o agente do evento de entrada é indexado apenas pela hora de chegada, o sistema precisa converter a hora de início do evento em hora de chegada. O sistema pode iniciar o processamento de eventos desse ponto no agente do evento de entrada. Com o limite da janela de chega antecipada, a conversão é direta. É o tempo de início do evento menos a janela de chegada de 5 minutos. Este cálculo também significa que o sistema descarta todos os eventos que são vistos como tendo um tempo de evento 5 minutos mais amenos do que o tempo de chegada.
+O Stream Analytics deriva a hora de início da especificação da consulta. No entanto, como o agente do evento de entrada é indexado apenas pela hora de chegada, o sistema precisa converter a hora de início do evento em hora de chegada. O sistema pode iniciar o processamento de eventos desse ponto no agente do evento de entrada. Com o limite da janela de chega antecipada, a conversão é direta. É a hora do evento inicial menos a janela de chegada inicial de 5 minutos. Esse cálculo também significa que o sistema descarta todos os eventos que são vistos como tendo um tempo de evento 5 minutos ealier do que a hora de chegada.
 
 Esse conceito é usado para garantir que o processamento seja repetível, independentemente de onde você começa a gerar a saída. Sem esse mecanismo, não seria possível garantir a repetibilidade, como muitos outros sistemas de streaming alegam que fazem.
 
@@ -163,7 +163,7 @@ O Azure Stream Analytics usa o progresso de marca-d'água como o gatilho somente
 
 Ao usar [agregações em janela](stream-analytics-window-functions.md), o serviço produz apenas saídas no final das janelas. Em alguns casos, os usuários talvez queiram ver agregações parciais geradas das janelas. As agregações parciais atualmente não têm suporte no Azure Stream Analytics.
 
-Em outras soluções de streaming, os eventos de saída podem ser materializados em vários pontos de gatilho, dependendo das circunstâncias externas. É possível em algumas soluções que os eventos de saída para uma determinada janela de tempo poderiam ser gerados várias vezes. Como os valores de entrada são refinados, os resultados agregados se tornam mais precisos. Os eventos poderiam ser especulados primeiro e revisados ao longo do tempo. Por exemplo, quando um determinado dispositivo estivesse offline da rede, um valor estimado poderia ser usado por um sistema. Mais tarde, o mesmo dispositivo ficaria online para a rede. Assim, os dados reais do evento poderiam ser incluídos no fluxo de entrada. Os resultados de processar essa janela de tempo produz uma saída mais precisa.
+Em outras soluções de streaming, os eventos de saída podem ser materializados em vários pontos de gatilho, dependendo das circunstâncias externas. É possível em algumas soluções que os eventos de saída de uma determinada janela de tempo poderiam ser gerados várias vezes. Como os valores de entrada são refinados, os resultados agregados se tornam mais precisos. Os eventos poderiam ser especulados primeiro e revisados ao longo do tempo. Por exemplo, quando um determinado dispositivo estivesse offline da rede, um valor estimado poderia ser usado por um sistema. Mais tarde, o mesmo dispositivo ficaria online para a rede. Assim, os dados reais do evento poderiam ser incluídos no fluxo de entrada. Os resultados de processar essa janela de tempo produz uma saída mais precisa.
 
 ## <a name="illustrated-example-of-watermarks"></a>Exemplo ilustrado de marcas-d'água
 
@@ -171,7 +171,7 @@ As imagens a seguir ilustram o andamento das marcas-d'água em diferentes circun
 
 Esta tabela mostra os dados de exemplo que são colocados no gráfico abaixo. Observe que a hora do evento e a hora de chegada variam, às vezes correspondendo, às vezes, não.
 
-| Hora do evento | Hora de chegada | deviceId |
+| Hora do evento | Hora de chegada | DeviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2
@@ -208,7 +208,7 @@ Nesta ilustração, as seguintes tolerâncias são usadas:
 
    4. Quando o sexto evento (device3) é processado, a hora de chegada (12:17) e a hora do evento (12:12) estão abaixo do nível de marca-d'água. A hora do evento é ajustada para o nível da marca-d'água (12:17).
 
-   5. Quando o décimo segundo evento (dispositivo3) é processado, o tempo de chegada (12:27) é 6 minutos antes do horário do evento (12:21). A política de chegada tardia é aplicada. A hora do evento é ajustada (12:22), que está acima da marca-d'água (12:21), de modo que nenhum ajuste é aplicado.
+   5. Quando o décimo-segundo evento (dispositivo3) é processado, a hora de chegada (12:27) é de 6 minutos à frente da hora do evento (12:21). A política de chegada tardia é aplicada. A hora do evento é ajustada (12:22), que está acima da marca-d'água (12:21), de modo que nenhum ajuste é aplicado.
 
 2. Segunda ilustração da marca-d'água progredindo sem uma política de chegada antecipada:
 

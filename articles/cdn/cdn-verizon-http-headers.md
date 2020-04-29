@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: allensu
 ms.openlocfilehash: d2208f6769c8051b38bdafb92d62ec03cb2d668c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253553"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon específicos para o mecanismo de regras de CDN do Microsoft Azure
@@ -42,7 +42,7 @@ X-Host | Indica o nome do host da solicitação. | cdn.mydomain.com
 X-Midgress | Indica se a solicitação foi proxy por meio de um servidor adicional de CDN. Por exemplo, um servidor de proteção do servidor de origem POP ou um servidor POP de gateway de servidor para ADN. <br />Esse cabeçalho é adicionado à solicitação somente quando o tráfego de midgress ocorrer. Nesse caso, o cabeçalho é definido como 1 para indicar que a solicitação foi proxy por meio de um servidor adicional de CDN.| 1
 [Host](#host-request-header) | Identifica o host e a porta em que o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica a lista de failover de servidores de Gateway ADN atribuído a uma origem de cliente. <br />Blindagem da origem: indica o conjunto de blindagem dos servidores de origem atribuído a uma origem de cliente. | `icn1,hhp1,hnd1`
-X-EC-_&lt;nome&gt;_ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
+X-EC-_&lt;Name&gt;_ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
 
 ## <a name="via-request-header"></a>Através do cabeçalho da solicitação
 O formato por meio do qual o cabeçalho de solicitação `Via` identifica um servidor POP é especificado pela seguinte sintaxe:

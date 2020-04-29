@@ -1,5 +1,5 @@
 ---
-title: Failover em vários pontos finais do CDN do Azure com o Gerenciador de Tráfego
+title: Failover entre vários pontos de extremidade da CDN do Azure com o Gerenciador de tráfego
 description: Saiba mais sobre como definir o Gerenciador de tráfego do Azure com pontos de extremidade da CDN do Azure.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: 3d4f77a0fb9b8005729a6e9d35f254eb522b690e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259843"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade de CDN do Azure com o Gerenciador de Tráfego do Azure
@@ -77,12 +77,12 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
     >
 
 
-2.  Do seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade do CDN (Akamai). Selecione **Adicionar domínio personalizado** e entrada *cdndemo101.dustydogpetcare.online*. Verifique se a marca de seleção para validar o domínio personalizado está verde. 
+2.  Do seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade do CDN (Akamai). Selecione **Adicionar domínio personalizado** e insira *cdndemo101. dustydogpetcare. online*. Verifique se a marca de seleção para validar o domínio personalizado está verde. 
 
     A CDN do Azure usa o subdomínio *cdnverify* para validar o mapeamento de DNS para concluir este processo de registro. Para obter mais informações, consulte [criar um registro DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Esta etapa permite que a CDN do Azure reconheça o domínio personalizado para que ele possa responder a suas solicitações.
     
     > [!NOTE]
-    > Para habilitar o TLS em um **CDN azure a partir de perfis Akamai,** você deve nomear diretamente o domínio personalizado para o seu ponto final. cdnverify para habilitação do TLS ainda não está suportado. 
+    > Para habilitar o TLS em um **Azure CDN do Akamai** Profiles, você deve fazer o CNAME direto do domínio personalizado para seu ponto de extremidade. Ainda não há suporte para o cdnverify para habilitar o TLS. 
     >
 
 3.  Retorne ao site do provedor de domínio do seu domínio personalizado e atualize o primeiro mapeamento de DNS criado para que o domínio personalizado seja mapeado para o segundo ponto de extremidade do CDN.
@@ -91,7 +91,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Seu perfil de CDN do Azure, selecione o segundo ponto de extremidade do CDN (Verizon) e repita a etapa 2. Selecione **Adicionar domínio personalizado**e entrada *cdndemo101.dustydogpetcare.online*.
+4. Seu perfil de CDN do Azure, selecione o segundo ponto de extremidade do CDN (Verizon) e repita a etapa 2. Selecione **Adicionar domínio personalizado**e insira *cdndemo101. dustydogpetcare. online*.
  
 Depois de concluir essas etapas, seu serviço de multi-CDN com recursos de failover é configurado com o Gerenciador de Tráfego do Azure. Você poderá acessar o teste de URLs do seu domínio personalizado. Para testar a funcionalidade, desative o ponto de extremidade CDN principal e verifique se a solicitação foi movida corretamente para o ponto de extremidade CDN secundário. 
 

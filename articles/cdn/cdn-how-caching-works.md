@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253706"
 ---
 # <a name="how-caching-works"></a>Como funciona o cache
@@ -86,7 +86,7 @@ A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HT
 - Similar a `Cache-Control: max-age`.
 - Usado quando `Cache-Control` não existe.
 
-**Pragma:**
+**Pragma**
    - Não é atendido pela CDN do Azure, por padrão.
    - Cabeçalho herdado introduzido no HTTP 1.0; com suporte para compatibilidade com versões anteriores.
    - Usado como um cabeçalho de solicitação de cliente com a seguinte diretiva: `no-cache`. Essa diretiva instrui o servidor a entregar uma nova versão do recurso.
@@ -96,7 +96,7 @@ A CDN do Azure fornece suporte aos seguintes cabeçalhos de diretiva de cache HT
 
 Quando o cache está obsoleto, validadores de cache HTTP são usados para comparar a versão armazenada em cache de um arquivo com a versão no servidor de origem. **A CDN Standard/Premium do Azure da Verizon** é compatível com os validadores `ETag` e `Last-Modified` por padrão, ao passo que **a CDN Standard da Microsoft** e **Azure CDN Standard da Akamai** é compatível apenas `Last-Modified` por padrão.
 
-**ETag:**
+**ETag**
 - **A CDN Standard/Premium do Azure da Verizon** é compatível `ETag` por padrão, ao passo que **a CDN Standard do Azure da Microsoft** e a **CDN Standard do Azure da Akamai** não.
 - `ETag` define uma cadeia de caracteres que é exclusiva para cada arquivo e versão de um arquivo. Por exemplo, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduzido no HTTP 1.1 e é mais atual do que `Last-Modified`. Útil quando a última data de modificação for difícil de determinar.
@@ -126,8 +126,8 @@ A tabela a seguir descreve o comportamento de cache padrão para os produtos da 
 
 |    | Microsoft: entrega web geral | Verizon: entrega web geral | Verizon: DSA | Akamai: entrega web geral | Akamai: DSA | Akamai: download de arquivo grande | Akamai: streaming de mídia geral ou VoD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origem da honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
-| **Duração do cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
+| **Honrar origem**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
+| **Duração do cache da CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Aceitar a origem**: especifica se deve aceitar os cabeçalhos de diretiva de cache com suporte, se eles existirem na resposta HTTP do servidor de origem.
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: ea4bfadd55935712a292355dc25fb778b1523c75
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261833"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
@@ -33,7 +33,7 @@ Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, refer
 
 [Esse recurso](event-hubs-for-kafka-ecosystem-overview.md) fornece um ponto de extremidade que permite aos clientes se comunicarem com Hubs de Eventos usando o protocolo Kafka. Essa integração oferece aos clientes um ponto de extremidade do Kafka. Isso permite que os clientes configurem seus aplicativos Kafka existentes para se comunicar com Hubs de Eventos, fornecendo uma alternativa para executar seus próprios clusters do Kafka. Os Hubs de Eventos do Apache Kafka dá suporte ao protocolo Kafka 1.0 e posterior. 
 
-Com essa integração, você não precisa executar clusters Kafka ou gerenciá-los com zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
+Com essa integração, você não precisa executar clusters Kafka ou gerenciá-los com o Zookeeper. Isso também permite que você trabalhe com alguns dos recursos mais exigentes de Hubs de Eventos, como Capturar, Inflação Automática e Recuperação de Desastre Geográfico.
 
 Essa integração também permite que aplicativos como o Mirror Maker ou estruturas como o Kafka Connect para trabalhar sem clusters somente com alterações de configuração. 
 
@@ -43,9 +43,9 @@ Qualquer entidade que envie dados para um hub de eventos é um produtor de event
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e runtimes, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. É uma prática recomendada para os editores desconhecerem partições dentro do hub de eventos e especificar apenas uma *chave de partição* (introduzida na próxima seção), ou sua identidade através de seu token SAS.
+Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e runtimes, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. É uma prática recomendada para os editores não conhecerem as partições no Hub de eventos e especificar apenas uma *chave de partição* (introduzida na próxima seção) ou sua identidade por meio de seu token SAS.
 
-A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos de rede mais altos ao inicializar a sessão, no entanto, o HTTPS requer sobrecarga suplementar de TLS para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
+A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos de rede mais altos ao inicializar a sessão; no entanto, o HTTPS requer sobrecarga adicional de TLS para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
 
 ![Hubs de Eventos](./media/event-hubs-features/partition_keys.png)
 
@@ -71,11 +71,11 @@ A [Captura dos Hubs de Eventos](event-hubs-capture-overview.md) permite que voc�
 
 ## <a name="sas-tokens"></a>Tokens SAS
 
-O Event Hubs usa *assinaturas de acesso compartilhado,* que estão disponíveis no namespace e no nível do hub de eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, os Hubs de Evento podem regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados com apenas **privilégios de envio** em um hub de eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-sas.md).
+Os hubs de eventos usam *assinaturas de acesso compartilhado*, que estão disponíveis no namespace e no nível do hub de eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, os Hubs de Evento podem regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **envio** em um hub de eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Consumidores de evento
 
-Qualquer entidade que leia dados de eventos de um hub de eventos é um *consumidor de eventos.* Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados. O cliente não precisa buscar pela disponibilidade de dados.
+Qualquer entidade que lê dados de eventos de um hub de eventos é um *consumidor de eventos*. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados. O cliente não precisa buscar pela disponibilidade de dados.
 
 ### <a name="consumer-groups"></a>Grupos de consumidores
 
@@ -110,8 +110,8 @@ Um *deslocamento* é a posição de um evento dentro de uma partição. Você po
 Se um leitor se desconecta de uma partição, ao se reconectar, ele começa a ler no ponto de verificação que foi anteriormente enviado pelo último leitor dessa partição nesse grupo de consumidores. Quando o leitor se conecta, ele passa esse deslocamento para o hub de eventos para especificar o local para começar a ler. Assim, você pode usar o ponto de verificação para marcar eventos como "concluídos" por aplicativos de downstream e oferecer resiliência caso ocorra um failover entre leitores em execução em máquinas diferentes. É possível retornar aos dados mais antigos, especificando um deslocamento inferior desse processo de ponto de verificação. Por meio desse mecanismo, o ponto de verificação permite resiliência de failover e reprodução de fluxo de eventos.
 
 > [!NOTE]
-> Se você estiver usando o Azure Blob Storage como o armazenamento de pontos de verificação em um ambiente que suporta uma versão diferente do Storage Blob SDK do que aqueles normalmente disponíveis no Azure, você precisará usar o código para alterar a versão aPI do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se você estiver executando [hubs de eventos em uma versão 2002 do Azure Stack Hub,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Neste caso, você precisa usar o código para segmentar a versão de API do serviço de armazenamento para 2017-11-09. Para obter um exemplo sobre como segmentar uma versão específica da API de armazenamento, consulte essas amostras no GitHub: 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
+> - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)

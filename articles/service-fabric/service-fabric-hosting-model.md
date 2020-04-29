@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115047"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Microsoft Azure Service Fabric
@@ -122,7 +122,7 @@ Uma cópia ativa de um *ServicePackage* em um nó é referido como um [pacote de
 ## <a name="guest-executable-and-container-applications"></a>Aplicativos executáveis e de contêiner convidados
 O Service Fabric trata o [executável do convidado][a2] e [contêiner][a3] como serviços sem estado, que são independentes. Não há runtime do Service Fabric em *ServiceHost* (um processo ou contêiner). Como esses serviços são independentes, o número de réplicas por *ServiceHost* não é aplicável a esses serviços. A configuração mais comum usada com esses serviços é a partição única, com [InstanceCount][c2] igual a -1 (uma cópia do código de serviço em execução em cada nó do cluster). 
 
-O **ServicePackageActivationMode** padrão para esses serviços é **SharedProcess**, nesse caso, o Service Fabric apenas ativa uma cópia do *ServicePackage* em um nó para um determinado aplicativo.  Isso significa que apenas uma cópia do código de serviço executará um nó. Se você quiser que várias cópias de seu código de serviço sejam executadas em um nó, especifique **ServicePackageActivationMode** como **ExclusiveProcess** no momento da criação do serviço. Por exemplo, é possível fazer isso quando criar vários serviços (*Service1* para *ServiceN*) do *ServiceType* (especificado em *ServiceManifest*) ou quando o serviço é multiparticionado. 
+O **ServicePackageActivationMode** padrão para esses serviços é **SharedProcess**, nesse caso Service Fabric ativa apenas uma cópia do *pacote* de serviço em um nó para um determinado aplicativo.  Isso significa que apenas uma cópia do código de serviço executará um nó. Se você quiser que várias cópias de seu código de serviço sejam executadas em um nó, especifique **ServicePackageActivationMode** como **ExclusiveProcess** no momento da criação do serviço. Por exemplo, é possível fazer isso quando criar vários serviços (*Service1* para *ServiceN*) do *ServiceType* (especificado em *ServiceManifest*) ou quando o serviço é multiparticionado. 
 
 ## <a name="change-the-hosting-model-of-an-existing-service"></a>Alterar o modelo de hospedagem de um serviço existente
 No momento, não é possível alterar o modelo de hospedagem de um serviço existente de Processo Compartilhado para Processo Exclusivo (ou vice-versa).
@@ -138,15 +138,15 @@ Para a maioria dos aplicativos, é possível modelar o aplicativo no Service Fab
 Para determinados casos, o Service Fabric também permite mais de um *ServiceType* por *ServicePackage* (e um *CodePackage* pode registrar mais de um *ServiceType*). Veja a seguir alguns dos cenários em que essas configurações podem ser úteis:
 
 - Você deseja otimizar a utilização de recursos, gerando menos processos e com maior densidade de réplica por processo.
-- Réplicas de diferentes *serviceTypes* precisam compartilhar alguns dados comuns que têm uma alta inicialização ou custo de memória.
+- Réplicas de diferentes *tipos de tipo* precisam compartilhar alguns dados comuns que têm um alto custo de inicialização ou de memória.
 - Você tem uma oferta de serviço gratuita e deseja limitar a utilização de recursos colocando todas as réplicas do serviço no mesmo processo.
 
-O modelo de hospedagem de Processo Exclusivo não é coerente com um modelo de aplicativo que possui vários *ServiceTypes* por *ServicePackage*. Isso porque vários *ServiceTypes* por *ServicePackage* são projetados para obter maior compartilhamento de recursos entre as réplicas e permitem maior densidade de réplicas por processo. O modelo de Processo Exclusivo é projetado para alcançar resultados diferentes.
+O modelo de hospedagem de Processo Exclusivo não é coerente com um modelo de aplicativo que possui vários *ServiceTypes* por *ServicePackage*. Isso ocorre porque vários *tipos* de recurso por *pacote de pacotes* são projetados para alcançar um compartilhamento de recursos maior entre réplicas e permite maior densidade de réplica por processo. O modelo de Processo Exclusivo é projetado para alcançar resultados diferentes.
 
 Considere o caso de vários *ServiceTypes* por *ServicePackage*, com um *CodePackage* diferente registrando cada *ServiceType*. Vamos supor que tenhamos um *ServicePackage* 'MultiTypeServicePackage', que tem dois *CodePackages*:
 
 - “MyCodePackageA”, que registra *ServiceType* “MyServiceTypeA”.
-- 'MyCodePackageB', que registra *o ServiceType* 'MyServiceTypeB'.
+- ' MyCodePackageB ', que registra o *ServiceType* ' MyServiceTypeB '.
 
 Agora, vamos supor que criamos um aplicativo **fabric:/SpecialApp**. No **fabric:/SpecialApp**, criamos dois serviços a seguir com o modelo de Processo Exclusivo:
 

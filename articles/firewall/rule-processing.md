@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
 ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113445"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
-Você pode configurar regras de NAT, regras de rede e regras de aplicativos no Firewall do Azure. As coletas de regras são processadas de acordo com o tipo de regra em ordem de prioridade, números mais baixos para números mais altos de 100 a 65.000. Um nome de coleção de regras pode ter apenas letras, números, sublinhados, períodos ou hífens. Ele deve começar com uma letra ou número, e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
+Você pode configurar regras de NAT, regras de rede e regras de aplicativos no firewall do Azure. As coleções de regras são processadas de acordo com o tipo de regra em ordem de prioridade, números menores para números mais altos de 100 a 65.000. Um nome de coleção de regras pode ter apenas letras, números, sublinhados, pontos ou hifens. Ele deve começar com uma letra ou número e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
 
-É melhor inicialmente espaçar seus números de prioridade de coleta de regras em 100 incrementos (100, 200, 300, e assim por diante) para que você tenha espaço para adicionar mais coleções de regras, se necessário.
+É melhor espaçar inicialmente os números de prioridade da coleção de regras em incrementos de 100 (100, 200, 300 e assim por diante) para que você tenha espaço para adicionar mais coleções de regras, se necessário.
 
 > [!NOTE]
-> Se você habilitar a filtragem baseada em inteligência de ameaças, essas regras são de maior prioridade e são sempre processadas primeiro. A filtragem de inteligência de ameaças pode negar o tráfego antes que quaisquer regras configuradas sejam processadas. Para obter mais informações, consulte [a filtragem baseada em ameaças do Azure Firewall](threat-intel.md).
+> Se você habilitar a filtragem baseada em inteligência contra ameaças, essas regras serão de prioridade mais alta e sempre serão processadas primeiro. A filtragem de inteligência de ameaças pode negar o tráfego antes que qualquer regra configurada seja processada. Para obter mais informações, consulte [filtragem baseada em inteligência contra ameaças do firewall do Azure](threat-intel.md).
 
 ## <a name="outbound-connectivity"></a>Conectividade de saída
 
 ### <a name="network-rules-and-applications-rules"></a>Regras de rede e regras de aplicativos
 
-Se você configurar regras de rede e regras de aplicativo, então as regras da rede serão aplicadas em ordem de prioridade antes das regras do aplicativo. As regras estão sendo encerradas. Então, se uma correspondência é encontrada em uma regra de rede, nenhuma outra regra é processada.  Se não houver correspondência de regra de rede e se o protocolo for HTTP, HTTPS ou MSSQL, o pacote será então avaliado pelas regras do aplicativo em ordem de prioridade. Se ainda não for encontrado nenhum jogo, o pacote será avaliado em relação à cobrança das [regras de infra-estrutura](infrastructure-fqdns.md). Se ainda não houver nenhuma correspondência, o pacote será negado por padrão.
+Se você configurar regras de rede e regras de aplicativo, as regras de rede serão aplicadas em ordem de prioridade antes das regras de aplicativo. As regras estão sendo encerradas. Portanto, se uma correspondência for encontrada em uma regra de rede, não serão processadas outras regras.  Se não houver nenhuma correspondência de regra de rede, e se o protocolo for HTTP, HTTPS ou MSSQL, o pacote será então avaliado pelas regras de aplicativo em ordem de prioridade. Se ainda não for encontrada nenhuma correspondência, o pacote será avaliado em relação à [coleção de regras de infraestrutura](infrastructure-fqdns.md). Se ainda não houver nenhuma correspondência, o pacote será negado por padrão.
 
 ## <a name="inbound-connectivity"></a>Conectividade de entrada
 
 ### <a name="nat-rules"></a>Regras de NAT
 
-A conectividade de entrada da Internet pode ser ativada configurando o DNAT (Destination Network Address Translation, tradução de endereço de rede de destino) conforme descrito no [Tutorial: Filtrar tráfego de entrada com o DNAT do Firewall Azure usando o portal Azure](tutorial-firewall-dnat.md). As regras nat são aplicadas priormente antes das regras da rede. Se uma correspondência for encontrada, será adicionada uma regra de rede correspondente implícita para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido.
+A conectividade de Internet de entrada pode ser habilitada Configurando DNAT (conversão de endereços de rede de destino) conforme descrito em [tutorial: filtrar o tráfego de entrada com o Firewall do Azure DNAT usando o portal do Azure](tutorial-firewall-dnat.md). As regras de NAT são aplicadas em prioridade antes das regras de rede. Se uma correspondência for encontrada, será adicionada uma regra de rede correspondente implícita para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido.
 
-As regras do aplicativo não são aplicadas para conexões de entrada. Portanto, se você quiser filtrar o tráfego HTTP/S de entrada, você deve usar o WAF (Web Application Firewall). Para obter mais informações, consulte O que é o Firewall de Aplicativos Web do [Azure?](../web-application-firewall/overview.md)
+As regras de aplicativo não são aplicadas a conexões de entrada. Portanto, se você quiser filtrar o tráfego HTTP/S de entrada, deverá usar o WAF (firewall do aplicativo Web). Para obter mais informações, consulte [o que é o Firewall do aplicativo Web do Azure?](../web-application-firewall/overview.md)
 
 ## <a name="examples"></a>Exemplos
 
@@ -42,60 +42,60 @@ Os exemplos a seguir mostram os resultados de algumas dessas combinações de re
 
 ### <a name="example-1"></a>Exemplo 1
 
-A conexão com google.com é permitida por causa de uma regra de rede correspondente.
+A conexão com o google.com é permitida devido a uma regra de rede correspondente.
 
-**Regra da rede**
+**Regra de rede**
 
 - Ação: permitir
 
 
 |name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
-|Permitir-web     |TCP|Endereço IP|*|Endereço IP|*|80.443
+|Permitir-Web     |TCP|Endereço IP|*|Endereço IP|*|80.443
 
-**Regra de aplicação**
+**Regra de aplicativo**
 
-- Ação: Negar
+- Ação: negar
 
-|name  |Tipo de origem  |Fonte  |Protocolo:Porta|Alvo FQDNs|
+|name  |Tipo de origem  |Fonte  |Protocolo: porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
-|Deny-google     |Endereço IP|*|http:80,https:443|google.com
+|Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
 
-**Resultado**
+**Disso**
 
-A conexão com google.com é permitida porque o pacote corresponde à regra de rede *Allow-web.* O processamento de regras pára neste momento.
+A conexão com google.com é permitida porque o pacote corresponde à regra de rede *Allow-Web* . O processamento da regra é interrompido neste ponto.
 
 ### <a name="example-2"></a>Exemplo 2
 
-O tráfego SSH é negado porque uma coleta de regras de rede *Deny* de maior prioridade bloqueia-a.
+O tráfego SSH é negado porque uma coleção de regras de rede de *negação* de prioridade mais alta o bloqueia.
 
 **Coleção de regras de rede 1**
 
-- Nome: Coleção de permitir
+- Nome: permitir-coleção
 - Prioridade: 200
 - Ação: permitir
 
 |name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
-|Permitir-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
+|Allow-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
 **Coleção de regras de rede 2**
 
-- Nome: Deny-collection
+- Nome: Deny-Collection
 - Prioridade: 100
-- Ação: Negar
+- Ação: negar
 
 |name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
-|Deny-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
+|Negar-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
-**Resultado**
+**Disso**
 
-As conexões SSH são negadas porque uma coleta de regras de rede de maior prioridade bloqueia-a. O processamento de regras pára neste momento.
+As conexões SSH são negadas porque uma coleção de regras de rede de prioridade mais alta a bloqueia. O processamento da regra é interrompido neste ponto.
 
-## <a name="rule-changes"></a>Mudanças de regras
+## <a name="rule-changes"></a>Alterações de regra
 
-Se você alterar uma regra para negar tráfego permitido anteriormente, quaisquer sessões existentes relevantes serão retiradas.
+Se você alterar uma regra para negar tráfego anteriormente permitido, todas as sessões existentes relevantes serão descartadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

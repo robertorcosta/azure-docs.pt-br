@@ -1,5 +1,5 @@
 ---
-title: Dimensione verticalmente os conjuntos de escalas de máquinas virtuais do Azure
+title: Dimensionar verticalmente os conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Como dimensionar verticalmente uma máquina virtual em resposta a alertas de monitoramento com a Automação do Azure
 author: mimckitt
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mimckitt
 ms.openlocfilehash: c28c50ef78f67daa6adc4022d8feb559f5c1c1f0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273351"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
@@ -38,7 +38,7 @@ Você pode definir o dimensionamento vertical para ser disparado com base em ale
 4. Adicione um alerta em seu conjunto de dimensionamento de máquinas virtuais usando uma notificação de webhook.
 
 > [!NOTE]
-> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não é suportado tamanhos de máquina virtual restritos escala para cima/para baixo não é suportado. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
+> Devido ao tamanho da primeira máquina virtual, os tamanhos para expansão podem ser limitados devido à disponibilidade de outros tamanhos no cluster em que a máquina virtual atual está implantada. Nos Runbooks de automação publicados usados neste artigo, levamos isso em conta e dimensionamos apenas dentro dos pares de tamanhos da VM abaixo. Isso significa que uma máquina virtual Standard_D1v2 não será expandida repentinamente para Standard_G5 ou reduzida para Basic_A0. Também não há suporte para expansão/redução de tamanhos de máquina virtual restritos. Você pode optar por dimensionar entre os seguintes pares de tamanhos:
 > 
 > | Par de dimensionamento de tamanhos de VM |  |
 > | --- | --- |

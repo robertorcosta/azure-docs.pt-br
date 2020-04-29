@@ -4,10 +4,10 @@ description: Descreve como particionar os serviços com estado do Service Fabric
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115158"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric
@@ -44,11 +44,11 @@ A Figura 2 mostra a distribuição de 10 partições antes e depois do dimension
 Como resultado a expansão é atingida pois as solicitações de clientes são distribuídas entre computadores, o desempenho geral do aplicativo é aprimorado e a contenção no acesso a partes de dados é reduzida.
 
 ## <a name="plan-for-partitioning"></a>Plano de particionamento
-Antes de implementar um serviço, você deve sempre considerar a estratégia de particionamento necessária para a escala. Existem diferentes maneiras, mas todas elas se concentram no que a aplicação precisa alcançar. Para o contexto deste artigo, vamos considerar alguns dos aspectos mais importantes.
+Antes de implementar um serviço, você deve sempre considerar a estratégia de particionamento necessária para escalar horizontalmente. Há diferentes maneiras, mas todas elas se concentram no que o aplicativo precisa atingir. Para o contexto deste artigo, vamos considerar alguns dos aspectos mais importantes.
 
 Uma boa abordagem é pensar sobre a estrutura do estado que precisará ser particionado como a primeira etapa.
 
-Veja abaixo um exemplo simples Se você fosse construir um serviço para uma pesquisa em todo o condado, você poderia criar uma partição para cada cidade do condado. Em seguida, poderia armazenar os votos para cada pessoa na cidade na partição que corresponde à cidade. A Figura 3 ilustra um conjunto de pessoas e a cidade em que residem.
+Veja abaixo um exemplo simples Se você fosse criar um serviço para uma sondagem em todo o Condado, poderia criar uma partição para cada cidade na região. Em seguida, poderia armazenar os votos para cada pessoa na cidade na partição que corresponde à cidade. A Figura 3 ilustra um conjunto de pessoas e a cidade em que residem.
 
 ![Partição simples](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -115,7 +115,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
 > 
 > 
 
-1. Abra **o visual studio** > **file** > **novo** > **projeto**.
+1. Abra > **arquivo**do **Visual Studio** > **novo** > **projeto**.
 2. Na caixa de diálogo **Novo Projeto** escolha um aplicativo do Service Fabric.
 3. Dê ao projeto o nome de “AlphabetPartitions”.
 4. Na caixa de diálogo **Criar um Serviço**, escolha o serviço **Com Estado** e nomeie-o "Alphabet.Processing".
@@ -152,7 +152,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
    
     Várias réplicas do serviço podem ser hospedadas no mesmo computador, portanto, esse endereço deve ser exclusivo para a réplica. É por isso que a ID de partição + ID da réplica estão na URL. HttpListener pode escutar em vários endereços na mesma porta, se o prefixo de URL for exclusivo.
    
-    O GUID extra existe para um caso avançado em que as réplicas secundárias também escutam solicitações de somente leitura. Quando esse for o caso, você deve certificar-se de que um novo endereço exclusivo é usado durante a transição do principal para o secundário para forçar os clientes a resolver o endereço novamente. '+' é usado como endereço aqui para que a réplica ouça em todos os hosts disponíveis (IP, FQDN, localhost, etc.) O código abaixo mostra um exemplo.
+    O GUID extra existe para um caso avançado em que as réplicas secundárias também escutam solicitações de somente leitura. Quando esse for o caso, você deve certificar-se de que um novo endereço exclusivo é usado durante a transição do principal para o secundário para forçar os clientes a resolver o endereço novamente. ' + ' é usado como o endereço aqui para que a réplica escute em todos os hosts disponíveis (IP, FQDN, localhost, etc.) O código a seguir mostra um exemplo.
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()

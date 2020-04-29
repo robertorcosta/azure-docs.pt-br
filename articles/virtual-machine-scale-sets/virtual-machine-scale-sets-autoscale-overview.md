@@ -11,10 +11,10 @@ ms.date: 05/29/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010334"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -35,7 +35,7 @@ Você pode criar regras de dimensionamento automático que incorporam métricas 
 As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
 - [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [PowerShell do Azure](tutorial-autoscale-powershell.md)
 - [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
@@ -132,11 +132,11 @@ Os exemplos a seguir são cenários que podem se beneficiar com o uso de regras 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode criar regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas abaixo:
 
-- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [PowerShell do Azure](tutorial-autoscale-powershell.md)
 - [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
-Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [escala automática vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [autoescala vertical com conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

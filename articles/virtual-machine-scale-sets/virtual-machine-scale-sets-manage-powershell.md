@@ -1,5 +1,5 @@
 ---
-title: Gerenciar conjuntos de escala de máquinas virtuais com o Azure PowerShell
+title: Gerenciar conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell
 description: Cmdlets do Azure PowerShell comuns para gerenciar conjuntos de dimensionamento de máquina virtual, tais como, iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: jushiman
 ms.openlocfilehash: 5794fb40b49a575c12f6855292c41014fabf3b8c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011592"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerenciar um conjunto de dimensionamento da máquina virtual usando o Azure PowerShell
@@ -85,7 +85,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reiniciar VMs em um conjunto de dimensionamento
-Para reiniciar uma ou mais VMs em um conjunto de [escalas, use Restart-AzVms](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
+Para reiniciar uma ou mais VMs em um conjunto de dimensionamento, use [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite que você especifique uma ou mais VMs para reiniciar. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
 
 O exemplo a seguir reinicia a instância *0* no conjunto de dimensionamento chamado *myScaleSet* e o grupo de recursos *myResourceGroup*. Use seus próprios valores, da seguinte maneira:
 

@@ -1,5 +1,5 @@
 ---
-title: Implantar um aplicativo para um conjunto de escala de máquina virtual do Azure
+title: Implantar um aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como implantar aplicativos em instâncias de máquina virtual Linux e Windows em um conjunto de dimensionamento
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: jushiman
 ms.openlocfilehash: e157db79f1835a8ca891dd360a99e3319565d1d4
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011456"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implantar o aplicativo em conjuntos de dimensionamento de máquinas virtuais
@@ -26,15 +26,15 @@ Quando você usa uma das imagens de plataforma do Azure para criar as instância
 Para reduzir o gerenciamento de configuração e a hora para provisionar uma VM, você pode criar uma imagem de VM personalizada que está pronta para executar o aplicativo assim que uma instância é provisionada no conjunto de dimensionamento. Para obter mais informações sobre como criar e usar uma imagem de VM personalizada com um conjunto de dimensionamento, consulte os seguintes tutoriais:
 
 - [CLI do Azure](tutorial-use-custom-image-cli.md)
-- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+- [PowerShell do Azure](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Instalar um aplicativo com a Extensão de Script Personalizado
 A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão. Para obter mais informações sobre como instalar um aplicativo com uma extensão de script personalizado, consulte os seguintes tutoriais:
 
 - [CLI do Azure](tutorial-install-apps-cli.md)
-- [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Modelo de Gerenciador de recursos do Azure](tutorial-install-apps-template.md)
+- [PowerShell do Azure](tutorial-install-apps-powershell.md)
+- [Modelo do Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalar um aplicativo em uma VM do Windows com o DSC do PowerShell
@@ -42,7 +42,7 @@ A [DSC (Configuração de Estado Desejado) do PowerShell](/powershell/scripting/
 
 A extensão de DSC do PowerShell permite que você personalize as instâncias de VM em um conjunto de dimensionamento com o PowerShell. O exemplo a seguir:
 
-- Instrui as instâncias vm a baixar um pacote DSC do GitHub -*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Instrui as instâncias de VM para baixar um pacote de DSC do GitHub-*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Define a extensão para executar um script de instalação – `configure-http.ps1`
 - Obtém informações sobre um conjunto de dimensionamento com [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Aplica a extensão nas instâncias da VM com [Update-AzVmss](/powershell/module/az.compute/update-azvmss)

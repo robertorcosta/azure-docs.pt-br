@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114107"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comuns que causam a reciclagem de funções
@@ -51,14 +51,14 @@ Para garantir que a configuração `DiagnosticsConnectionString` esteja correta 
 
 * A configuração `DiagnosticsConnectionString` aponta para uma conta de armazenamento válida no Azure.  
   Por padrão, essa configuração aponta para a conta de armazenamento emulada, portanto você deve alterar explicitamente essa configuração antes de implantar o pacote de aplicativos. Se você não alterar essa configuração, uma exceção será gerada quando a instância de função tentar iniciar o monitor de diagnóstico. Isso poderá fazer com que a instância de função seja reciclada por tempo indeterminado.
-* A cadeia de conexão é especificada no [formato](../storage/common/storage-configure-connection-string.md)a seguir. (O protocolo deve ser especificado como HTTPS.) Substitua *o MyAccountName* pelo nome da sua conta de armazenamento e *o MyAccountKey* pela sua chave de acesso:    
+* A cadeia de conexão é especificada no [formato](../storage/common/storage-configure-connection-string.md)a seguir. (O protocolo deve ser especificado como HTTPS.) Substitua *AccountName* pelo nome da sua conta de armazenamento e *myAccountKey* pela sua chave de acesso:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
   Se estiver desenvolvendo seu aplicativo com as Ferramentas do Azure para o Microsoft Visual Studio, você poderá usar as páginas de propriedade para definir esse valor.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>O certificado exportado não inclui a chave privada
-Para executar uma função web no TLS, você deve garantir que seu certificado de gerenciamento exportado inclua a chave privada. Se você usar o *Gerenciador de Certificados do Windows* para exportar o certificado, selecione **Sim** para a opção **Exportar a chave privada**. O certificado deve ser exportado no formato PFX, que é o único formato atualmente com suporte.
+Para executar uma função Web em TLS, você deve garantir que o certificado de gerenciamento exportado inclua a chave privada. Se você usar o *Gerenciador de Certificados do Windows* para exportar o certificado, selecione **Sim** para a opção **Exportar a chave privada**. O certificado deve ser exportado no formato PFX, que é o único formato atualmente com suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira mais [artigos sobre solução de problemas](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) para serviços de nuvem.
@@ -68,4 +68,4 @@ Veja mais cenários de reciclagem da função na [Série de blogs de Kevin Willi
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Executar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Funcionam]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

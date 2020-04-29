@@ -1,6 +1,6 @@
 ---
-title: Depurar cabeçalhos HTTP para CDN azure da Microsoft | Microsoft Docs
-description: Os cabeçalhos de solicitação de cache de depuração fornecem informações adicionais sobre a política de cache aplicada ao ativo solicitado. Esses cabeçalhos são específicos do Azure CDN da Microsoft.
+title: Depurar cabeçalhos HTTP para a CDN do Azure da Microsoft | Microsoft Docs
+description: Cabeçalhos de solicitação de cache de depuração fornece informações adicionais sobre a política de cache aplicada ao ativo solicitado. Esses cabeçalhos são específicos para a CDN do Azure da Microsoft.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: allensu
 ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260404"
 ---
-# <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Depurar cabeçalho HTTP para CDN azure da Microsoft
-O cabeçalho `X-Cache`de resposta de depuração, fornece detalhes sobre qual camada da pilha de CDN o conteúdo foi servido. Este cabeçalho é específico do Azure CDN da Microsoft.
+# <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Depurar o cabeçalho HTTP para a CDN do Azure da Microsoft
+O cabeçalho de resposta de `X-Cache`depuração,, fornece detalhes sobre a camada da pilha CDN da qual o conteúdo foi servido. Esse cabeçalho é específico para a CDN do Azure da Microsoft.
 
 ### <a name="response-header-format"></a>Formato do cabeçalho de resposta
 
 Cabeçalho | Descrição
 -------|------------
-X-Cache: TCP_HIT | Este cabeçalho é devolvido quando o conteúdo é servido a partir do cache de borda CDN. 
-X-Cache: TCP_REMOTE_HIT | Este cabeçalho é retornado quando o conteúdo é servido a partir do cache regional CDN (camada de escudo Origin)
-X-Cache: TCP_MISS | Este cabeçalho é devolvido quando há uma falha de cache, e o conteúdo é servido a partir da Origem. 
+X-cache: TCP_HIT | Esse cabeçalho é retornado quando o conteúdo é servido do cache de borda da CDN. 
+X-cache: TCP_REMOTE_HIT | Esse cabeçalho é retornado quando o conteúdo é servido do cache regional da CDN (camada de blindagem de origem)
+X-cache: TCP_MISS | Esse cabeçalho é retornado quando há um erro de cache e o conteúdo é servido da origem. 
 
 

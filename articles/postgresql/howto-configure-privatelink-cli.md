@@ -1,24 +1,24 @@
 ---
-title: Private Link - Azure CLI - Banco de dados Azure para PostgreSQL - Servidor único
-description: Saiba como configurar link privado para banco de dados Azure para postgreSQL- Único servidor do Azure CLI
+title: Link privado-CLI do Azure-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como configurar o link privado para o banco de dados do Azure para PostgreSQL-servidor único do CLI do Azure
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: a6baf8b4609382be4a5a31d12cac581da2c17de6
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011660"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o Private Link for Azure Database para PostgreSQL - Servidor único usando CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único usando a CLI
 
-Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o Azure CLI para criar uma VM em uma Rede Virtual Azure e um Banco de Dados Azure para servidor PostgreSQL Single com um ponto final privado do Azure.
+Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o CLI do Azure para criar uma VM em uma rede virtual do Azure e um servidor único do banco de dados do Azure para PostgreSQL com um ponto de extremidade privado do Azure.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure onde o Banco de Dados Azure para PostgreSQL - Servidor único suporta níveis de preços otimizados para propósito geral e memória otimizada.
+> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL-o servidor único dá suporte a tipos de preço Uso Geral e com otimização de memória.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,14 +32,14 @@ Se você optar por instalar e usar a CLI do Azure localmente, este guia de iníc
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de criar qualquer recurso, você deve criar um grupo de recursos para hospedar a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização da *Europa Ocidental:*
+Antes de criar qualquer recurso, você deve criar um grupo de recursos para hospedar a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westeurope* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma Rede Virtual com a rede [az vnet criar](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
+Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -68,8 +68,8 @@ az vm create \
 ```
  Anote o Endereço IP Público da VM. Você usará esse endereço para conectar-se à VM pela Internet na próxima etapa.
 
-## <a name="create-an-azure-database-for-postgresql---single-server"></a>Criar um banco de dados Azure para PostgreSQL - Servidor único 
-Crie um banco de dados Azure para PostgreSQL com o comando az postgres server create. Lembre-se de que o nome do seu PostgreSQL Server deve ser único em todo o Azure, então substitua o valor do espaço reservado entre parênteses pelo seu próprio valor único: 
+## <a name="create-an-azure-database-for-postgresql---single-server"></a>Criar um banco de dados do Azure para PostgreSQL-servidor único 
+Crie um banco de dados do Azure para PostgreSQL com o comando AZ postgres Server CREATE. Lembre-se de que o nome do seu servidor PostgreSQL deve ser exclusivo no Azure, portanto, substitua o valor do espaço reservado entre colchetes com seu próprio valor exclusivo: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -82,10 +82,10 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Observe que o ID do servidor ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` PostgreSQL é semelhante ao Você usará o PostgreSQL Server ID na próxima etapa. 
+Observe que a ID do servidor PostgreSQL é ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` semelhante a você usará a ID do servidor PostgreSQL na próxima etapa. 
 
 ## <a name="create-the-private-endpoint"></a>Criar um Ponto de Extremidade Privado 
-Crie um ponto final privado para o servidor PostgreSQL em sua Rede Virtual: 
+Crie um ponto de extremidade privado para o servidor PostgreSQL em sua rede virtual: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -98,7 +98,7 @@ az network private-endpoint create \
  ```
 
 ## <a name="configure-the-private-dns-zone"></a>Configurar a Zona DNS Privada 
-Crie uma zona de DNS privada para o domínio do servidor PostgreSQL e crie um link de associação com a Rede Virtual. 
+Crie uma zona de DNS privado para o domínio do servidor PostgreSQL e crie um link de associação com a rede virtual. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -122,7 +122,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> O FQDN na configuração de DNS do cliente não resolve o IP privado configurado. Você terá que configurar uma região DNS para o FQDN configurado como mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
+> O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
@@ -149,7 +149,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
 
-## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acesse o servidor PostgreSQL privadamente a partir da VM
+## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Acessar o servidor PostgreSQL de forma privada da VM
 
 1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
 
@@ -164,26 +164,26 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link privado para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo eu usei [o estúdio Azure Data](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
+3. Teste a conexão de link particular para o servidor PostgreSQL usando qualquer cliente disponível. No exemplo abaixo, usei o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para realizar a operação.
 
-4. Em **Nova conexão,** digite ou selecione essas informações:
+4. Em **nova conexão**, insira ou selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **PostgreSQL**.|
-    | Nome do servidor| Selecione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | Nome de usuário | Digite o username@servername nome de usuário como é fornecido durante a criação do servidor PostgreSQL. |
-    |Senha |Digite uma senha fornecida durante a criação do servidor PostgreSQL. |
-    |SSL|Selecione **Obrigatório**.|
+    | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
+    | Nome de usuário | Insira o nome username@servername de usuário como fornecido durante a criação do servidor PostgreSQL. |
+    |Senha |Insira uma senha fornecida durante a criação do servidor PostgreSQL. |
+    |SSL|Selecione **obrigatório**.|
     ||
 
 5. Selecione Conectar.
 
 6. Procurar bancos de dados no menu à esquerda.
 
-7. (Opcionalmente) Criar ou consultar informações do servidor postgreSQL.
+7. Opcionalmente Crie ou consulte informações do servidor postgreSQL.
 
-8. Feche a conexão remota da área de trabalho para myVm.
+8. Feche a conexão de área de trabalho remota para myVm.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
@@ -193,4 +193,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

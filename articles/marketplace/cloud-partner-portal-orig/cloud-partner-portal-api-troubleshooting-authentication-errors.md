@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas erros comuns de autenticação | Mercado Azure
+title: Solucionando problemas de erros comuns de autenticação | Azure Marketplace
 description: Fornece assistência com erros de autenticação comuns ao usar as APIs do Portal do Cloud Partner.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: d8fd1eb4bef987b4a8605e4be780512a914ec8b5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255984"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Solução de problemas de erros de autenticação comuns
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Este artigo fornece assistência para erros de autenticação comuns ao usar as APIs do Portal do Cloud Partner.
 

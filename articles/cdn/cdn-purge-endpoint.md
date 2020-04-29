@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: allensu
 ms.openlocfilehash: ebbb0dd059ce2bcf4a3bc260ed6d426d5be09dfe
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260251"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
@@ -52,7 +52,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
    > 
    > 
 4. Selecione os ativos que você deseja limpar dos nós de borda.  Para limpar todos os ativos, clique na caixa de seleção **Limpar todos** .  Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto **Caminho**. Veja abaixo os formatos com suporte no caminho.
-    1. **Expurgo de URL único**: Expurgue o ativo individual especificando a`/pictures/strasbourg.png`URL completa, com ou sem a extensão do arquivo, por exemplo;`/pictures/strasbourg`
+    1. **Limpeza de URL única**: Limpe o ativo individual ESPECIFICANDO a URL completa, com ou sem a extensão de arquivo, por`/pictures/strasbourg.png`exemplo,;`/pictures/strasbourg`
     2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com `/*` no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por `/*`, por exemplo, `/pictures/*`.  Observe que, no momento, a limpeza do caractere curinga não é compatível com a CDN do Azure do Akamai. 
     3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
    
@@ -69,7 +69,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
     ![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> As solicitações de expurgo levam aproximadamente 10 minutos para serem processadas com **o Azure CDN da Microsoft,** aproximadamente 2 minutos com **CDN Azure da Verizon** (padrão e premium) e aproximadamente 10 segundos com **CDN Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
+> As solicitações de limpeza levam cerca de 10 minutos para serem processadas com a **CDN do Azure da Microsoft**, aproximadamente 2 minutos com a **CDN do Azure da Verizon** (Standard e Premium) e aproximadamente 10 segundos com a **CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
 > 
 > 
 

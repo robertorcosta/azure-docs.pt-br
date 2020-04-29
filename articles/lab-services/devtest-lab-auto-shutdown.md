@@ -1,6 +1,6 @@
 ---
 title: Gerenciar políticas de desligamento automático no Azure DevTest Labs | Microsoft Docs
-description: Aprenda a definir a política de desligamento automático de um laboratório para que as máquinas virtuais sejam desligadas automaticamente quando não estiverem em uso.
+description: Saiba como definir a política de desligamento automático para um laboratório para que as máquinas virtuais sejam desligadas automaticamente quando não estiverem em uso.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: spelluru
 ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81270903"
 ---
-# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configure o desligamento automático para máquinas virtuais de laboratório e computação no Azure DevTest Labs
+# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar o desligamento automático para máquinas virtuais de laboratório e computação no Azure DevTest Labs
 
-Este artigo explica como configurar configurações de desligamento automático para VMs de laboratório em DevTest Labs e VMs de computação. 
+Este artigo explica como definir as configurações de desligamento automático para VMs de laboratório no DevTest Labs e VMs de computação. 
 
-## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configure o desligamento automático para VMs de laboratório (DevTest Labs)
-O Azure DevTest Labs permite que você controle o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) para cada laboratório. Este artigo mostra como configurar a política de desligamento automático para uma conta de laboratório e configurar configurações de desligamento automático para um laboratório na conta do laboratório. Para exibir como definir cada política de laboratório, confira [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configurar o desligamento automático para VMs de laboratório (DevTest Labs)
+O Azure DevTest Labs permite que você controle o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) para cada laboratório. Este artigo mostra como configurar a política de desligamento automático para uma conta de laboratório e definir as configurações de desligamento automático para um laboratório na conta do laboratório. Para exibir como definir cada política de laboratório, confira [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ### <a name="set-auto-shutdown-policy-for-a-lab"></a>Definir a política de desligamento automático para um laboratório
 Como proprietário de um laboratório, você pode configurar uma programação de desligamento para todas as VMs em seu laboratório. Ao fazer isso, você pode economizar custos com a execução de máquinas que não estão sendo usadas (ociosas). Você pode impor uma política de desligamento em todas as suas VMs de laboratório de forma centralizada, mas também salvar os usuários de seu laboratório com o esforço de configurar um cronograma para suas máquinas individuais. Esse recurso permite que você defina a política em sua programação de laboratório, desde a não oferta de controle a controle total, até seus usuários de laboratório. Como proprietário de um laboratório, você pode configurar essa política seguindo as etapas a seguir:
@@ -37,86 +37,86 @@ Como proprietário de um laboratório, você pode configurar uma programação d
 
     ![Opções de política de desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-### <a name="configure-auto-shutdown-settings"></a>Configure as configurações de desligamento automático
-A política de desligamento automático ajuda a minimizar o desperdício de laboratório, permitindo que você especifique o tempo que as VMs deste laboratório desligaram.
+### <a name="configure-auto-shutdown-settings"></a>Definir configurações de desligamento automático
+A política de desligamento automático ajuda a minimizar o desperdício de laboratório, permitindo que você especifique a hora em que as VMs do laboratório são desligadas.
 
 Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.   
 4. Selecione **Configuração e políticas**.
 
     ![Painel de configurações de política](./media/devtest-lab-set-lab-policy/policies-menu.png)
-5. No painel **configuração e políticas** do laboratório, selecione **Auto-shutdown** em **Agendas**.
+5. No painel **configuração e políticas** do laboratório, selecione **desligamento automático** em **agendas**.
    
     ![Desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
 7. Se você habilitar essa política, especifique a hora (e fuso horário) para desligar todas as VMs no laboratório atual.
-8. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [Notificações.](#notifications) 
-9. Clique em **Salvar**.
+8. Especifique **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) . 
+9. Selecione **Salvar**.
 
-    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel de gerenciamento da VM e altere a configuração **de autoshutdown.**
+    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel Gerenciamento da VM e altere sua configuração de **desligamento** automático.
     
 > [!NOTE]
-> Se você atualizar o cronograma de desligamento automático para o seu laboratório ou uma máquina virtual de laboratório específica dentro de 30 minutos do horário programado atual, o tempo de desligamento atualizado será aplicado para o cronograma do dia seguinte. 
+> Se você atualizar a agenda de desligamento automático para seu laboratório ou para uma máquina virtual de laboratório específica dentro de 30 minutos da hora agendada atual, o tempo de desligamento atualizado será aplicado na agenda do dia seguinte. 
 
 ### <a name="user-sets-a-schedule-and-can-opt-out"></a>O usuário define um agendamento e pode recusar
 Se você definir seu laboratório para essa política, os usuários do laboratório poderão substituir ou desativar a programação do laboratório. Essa opção concede aos usuários de laboratório controle total sobre o cronograma de desligamento automático de suas VMs. Os usuários de laboratório não veem nenhuma alteração na página de programação de desligamento automático da VM.
 
-![Opção de política de desligamento automático - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+![Opção de política de desligamento automático-1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
 
 ### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>O usuário define um agendamento e não pode recusar
 Se você definir seu laboratório para essa política, os usuários do laboratório poderão substituir a programação do laboratório. No entanto, eles não podem desativar a política de desligamento automático. Essa opção garante que todas as máquinas do seu laboratório estejam em um cronograma de desligamento automático. Os usuários de laboratório podem atualizar o cronograma de desligamento automático de suas VMs e configurar notificações de desligamento.
 
-![Opção de política de desligamento automático - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+![Opção de política de desligamento automático-2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
 
 ### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>O usuário não tem controle sobre o cronograma definido pelo administrador do laboratório
 Se você definir seu laboratório para essa política, os usuários do laboratório não poderão substituir ou recusar a programação do laboratório. Essa opção oferece ao administrador do laboratório o controle completo da programação de cada máquina no laboratório. Os usuários de laboratório só podem configurar notificações de desligamento automático para suas VMs.
 
-![Opção de política de desligamento automático - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+![Opção de política de desligamento automático-3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
 ### <a name="notifications"></a>Notificações
-Uma vez configurado o desligamento automático pelo proprietário do laboratório, as notificações serão enviadas aos usuários do laboratório 30 minutos antes do desligamento automático acionado se alguma de suas VMs for afetada. Esta opção dá aos usuários de laboratório a chance de salvar seu trabalho antes do desligamento. A notificação também fornece links para cada VM para as seguintes ações:
+Após o desligamento automático configurado pelo proprietário do laboratório, as notificações serão enviadas para os usuários do laboratório 30 minutos antes do desligamento automático ser disparado se qualquer uma de suas VMs for afetada. Essa opção dá aos usuários do laboratório a oportunidade de salvar seu trabalho antes do desligamento. A notificação também fornece links para cada VM para as seguintes ações:
 
-- Pule o desligamento automático para este momento
-- Soneca o desligamento automático por uma hora ou 2 horas, para que eles possam continuar trabalhando na VM.
+- Ignorar o desligamento automático para este tempo
+- Adiar o desligamento automático por uma hora ou 2 horas, para que eles possam continuar trabalhando na VM.
 
-A notificação é enviada através do ponto final do gancho da Web configurado ou de um endereço de e-mail especificado pelos proprietários de laboratório nas configurações de desligamento automático. Os webhooks permitem que você construa ou configure integrações que se inscrevam em determinados eventos. Quando um desses eventos é acionado, o DevTest Labs enviará uma carga HTTP POST para a URL configurada do webhook. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+A notificação é enviada por meio do ponto de extremidade de gancho da Web configurado ou de um endereço de email especificado pelos proprietários do laboratório nas configurações de desligamento automático. WebHooks permitem que você crie ou configure integrações que assinam determinados eventos. Quando um desses eventos for disparado, o DevTest Labs enviará uma carga HTTP POST para a URL configurada do webhook. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-Recomendamos que você use ganchos web porque eles são amplamente suportados por vários aplicativos (por exemplo, Slack, Azure Logic Apps, e assim por diante.) e permite que você implemente seu próprio caminho para enviar notificações. Como exemplo, este artigo orienta você sobre como obter notificação de desligamento automático de e-mails usando aplicativos azure logic. Primeiro, vamos rapidamente passar pelas etapas básicas para ativar a notificação de desligamento automático em seu laboratório.   
+Recomendamos que você use os ganchos da Web porque eles são amplamente suportados por vários aplicativos (por exemplo, margem de atraso, aplicativos lógicos do Azure e assim por diante) e permite que você implemente sua própria maneira de enviar notificações. Por exemplo, este artigo explica como obter notificações de desligamento automático de emails usando aplicativos lógicos do Azure. Primeiro, vamos percorrer rapidamente as etapas básicas para habilitar a notificação de desligamento automático em seu laboratório.   
 
-### <a name="create-a-logic-app-that-receives-email-notifications"></a>Crie um aplicativo lógico que recebe notificações por e-mail
-[O Azure Logic Apps](../logic-apps/logic-apps-overview.md) fornece muitos conectores fora da caixa que facilitam a integração de um serviço com outros clientes, como o Office 365 e o twitter. No alto nível, as etapas para configurar um App Lógico para notificação por e-mail podem ser divididas em quatro fases: 
+### <a name="create-a-logic-app-that-receives-email-notifications"></a>Criar um aplicativo lógico que recebe notificações por email
+Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) fornecem muitos conectores prontos para uso que facilitam a integração de um serviço com outros clientes, como o Office 365 e o Twitter. No alto nível, as etapas para configurar um aplicativo lógico para notificação por email podem ser divididas em quatro fases: 
 
 - Crie um aplicativo lógico. 
-- Configure o modelo incorporado.
-- Integre-se ao seu cliente de e-mail
-- Obtenha a URL do Webhook.
+- Configure o modelo interno.
+- Integre com seu cliente de email
+- Obtenha a URL do webhook.
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-Para começar, crie um aplicativo lógico na sua assinatura do Azure usando as seguintes etapas:
+Para começar, crie um aplicativo lógico em sua assinatura do Azure usando as seguintes etapas:
 
-1. Selecione **+ Crie um recurso** no menu esquerdo, selecione **Integração**e selecione **Logic App**. 
+1. Selecione **+ criar um recurso** no menu à esquerda, selecione **integração**e selecione **aplicativo lógico**. 
 
     ![Novo menu de aplicativo lógico](./media/devtest-lab-auto-shutdown/new-logic-app.png)
-2. No **App Logic - Criar** página, siga estas etapas: 
-    1. Digite um **nome** para o aplicativo lógico.
+2. Na página **aplicativo lógico – criar** , siga estas etapas: 
+    1. Insira um **nome** para o aplicativo lógico.
     2. Selecione sua **assinatura**do Azure.
     3. Crie um novo **grupo de recursos** ou selecione um grupo de recursos existente. 
     4. Selecione um **local** para o aplicativo lógico. 
 
-        ![Novo aplicativo lógico - configurações](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
-3. Nas **Notificações,** **selecione Ir para recurso** na notificação. 
+        ![Novo aplicativo lógico-configurações](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
+3. Nas **notificações**, selecione **ir para o recurso** na notificação. 
 
     ![Ir para o recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
-4. Selecione **o designer de aplicativos Logic** na categoria Ferramentas de **Implantação.**
+4. Selecione **Designer de aplicativo lógico** na categoria **ferramentas de implantação** .
 
-    ![Selecione HTTP Solicitação/Resposta](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
-5. Na página **HTTP Request-Response,** **selecione Use este modelo**. 
+    ![Selecionar solicitação/resposta HTTP](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
+5. Na página **solicitação-resposta http** , selecione **usar este modelo**. 
 
-    ![Selecione Usar esta opção de modelo](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
-6. Copie o Seguinte JSON na seção **Esquema JSON do Corpo de Solicitação:** 
+    ![Selecione usar esta opção de modelo](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
+6. Copie o JSON a seguir na seção **esquema JSON do corpo da solicitação** : 
 
     ```json
     {
@@ -173,53 +173,53 @@ Para começar, crie um aplicativo lógico na sua assinatura do Azure usando as s
     }
     ```
     
-    ![Solicitar corpo JSON Schema](./media/devtest-lab-auto-shutdown/request-json.png)
-7. Selecione **+ Novo passo** no designer, e siga estes passos:
-    1. Procure **o Office 365 Outlook - Envie um e-mail**. 
-    2. Selecione **Enviar um e-mail** de **Ações**. 
+    ![Esquema JSON do corpo da solicitação](./media/devtest-lab-auto-shutdown/request-json.png)
+7. Selecione **+ nova etapa** no designer e siga estas etapas:
+    1. Pesquise pelo **Office 365 Outlook-enviar um email**. 
+    2. Selecione **enviar um email** de **ações**. 
     
-        ![Enviar opção de e-mail](./media/devtest-lab-auto-shutdown/select-send-email.png)
-    3. Selecione **Entrar** para entrar em sua conta de e-mail. 
-    4. Selecione **campo TO** e escolha o proprietário.
-    5. Selecione **ASSUNTO**e insira um assunto da notificação por e-mail. Por exemplo: "Desligamento da máquina vmName for Lab: labName."
-    6. Selecione **BODY**e defina o conteúdo do corpo para notificação por e-mail. Por exemplo: "vmName está programado para desligar em 15 minutos. Pule esse desligamento clicando em URL. Atraso de desligamento por uma hora: atrasoUrl60. Atraso de desligamento por 2 horas: atrasoUrl120."
+        ![Opção Enviar email](./media/devtest-lab-auto-shutdown/select-send-email.png)
+    3. Selecione **entrar** para entrar em sua conta de email. 
+    4. Selecione **para** o campo e escolha proprietário.
+    5. Selecione **assunto**e insira um assunto da notificação por email. Por exemplo: "desligamento do Machine vmName for Lab: labName."
+    6. Selecione **corpo**e defina o conteúdo do corpo para notificação por email. Por exemplo: "vmName está agendado para desligar em 15 minutos. Ignore esse desligamento clicando em: URL. Atrasar o desligamento por uma hora: delayUrl60. Atraso no desligamento por 2 horas: delayUrl120. "
 
-        ![Solicitar corpo JSON Schema](./media/devtest-lab-auto-shutdown/email-options.png)
-1. Selecione **Salvar** na barra de ferramentas. Agora, você pode copiar a **URL HTTP POST**. Selecione o botão copiar para copiar a URL na área de transferência. 
+        ![Esquema JSON do corpo da solicitação](./media/devtest-lab-auto-shutdown/email-options.png)
+1. Selecione **Salvar** na barra de ferramentas. Agora, você pode copiar a **URL http post**. Selecione o botão Copiar para copiar a URL para a área de transferência. 
 
-    ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
+    ![URL do webhook](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
-## <a name="configure-autoshutdown-for-compute-vms"></a>Configure o desligamento automático para VMs de computação
+## <a name="configure-autoshutdown-for-compute-vms"></a>Configurar o desligamento automático para VMs de computação
 
-1. Na página **da máquina Virtual,** selecione **Desligamento automático** no menu à esquerda na seção **Operações.** 
-2. Na **página de desligamento automático,** selecione **Ativado** para ativar essa diretiva e desativa-a para desativá-la. **Off**
-3. Se você habilitar esta diretiva, especifique a **hora** (e **fuso horário)** em que a VM deve ser desligada.
-4. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [Notificações.](#notifications) 
-9. Clique em **Salvar**.
+1. Na página **máquina virtual** , selecione **desligamento automático** no menu à esquerda na seção **operações** . 
+2. Na página **desligamento automático** , selecione **ativado** para habilitar essa política e **desativado** para desabilitá-la.
+3. Se você habilitar essa política, especifique a **hora** (e o **fuso horário**) em que a VM deve ser desligada.
+4. Especifique **Sim** ou **não** para a opção de enviar uma notificação 30 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) . 
+9. Selecione **Salvar**.
 
-    ![Configure o desligamento automático para uma VM de computação](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+    ![Configurar o desligamento automático para uma VM de computação](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
 
-### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Exibir registros de atividades para atualizações de desligamento automático
-Quando você atualiza a configuração de desligamento automático, você verá a atividade registrada no registro de atividades da VM. 
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Exibir logs de atividade para atualizações de desligamento automático
+Ao atualizar a configuração de desligamento automático, você verá a atividade registrada no log de atividades da VM. 
 
-1. No [portal Azure,](https://portal.azure.com)navegue até a página inicial da sua VM.
-2. Selecione **O registro de atividades** no menu esquerdo. 
+1. Na [portal do Azure](https://portal.azure.com), navegue até o Home Page da VM.
+2. Selecione **log de atividades** no menu à esquerda. 
 3. Remover **recurso: mycomputevm** dos filtros.
-3. Confirme se você vê a operação Adicionar ou modificar horários no registro de **atividades.** Se você não vê-lo, espere por algum momento e atualize o registro de atividades.
+3. Confirme que você vê a operação **Adicionar ou modificar agendas** no log de atividades. Se você não o vir, aguarde algum tempo e atualize o log de atividades.
 
-    ![Entrada de registro de atividades](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
-4. Selecione a operação **Adicionar ou modificar horários** para ver as seguintes informações na página **Resumo:**
+    ![Entrada do log de atividades](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Selecione a operação **Adicionar ou modificar agendas** para ver as seguintes informações na página **Resumo** :
 
-    - Nome da operação (Adicionar ou modificar horários)
+    - Nome da operação (adicionar ou modificar agendas)
     - A data e a hora em que a configuração de desligamento automático foi atualizada.
-    - O endereço de e-mail do usuário que atualizou a configuração. 
+    - O endereço de email do usuário que atualizou a configuração. 
 
-        ![Resumo da entrada do registro de atividades](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
-5. Alterne para a guia **Alterar histórico** na página Adicionar ou **modificar horários,** você verá o histórico de alterações para a configuração. No exemplo a seguir, o horário de desligamento foi alterado de 19:00 para 18:00 em 10 de abril de 2020 às 15:18:47 EST. E a configuração foi desativada às 15:25:09 EST. 
+        ![Resumo da entrada do log de atividades](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Alterne para a guia **histórico de alterações** na página **Adicionar ou modificar agendas** , você vê o histórico de alterações para a configuração. No exemplo a seguir, o tempo de desligamento foi alterado de 7 para 6 PM em 10 de abril de 2020 à EST 15:18:47. E, a configuração foi desabilitada em 15:25:09 EST. 
 
-    ![Registro de atividades - alterar histórico](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
-6. Para ver mais detalhes sobre a operação, mude para a guia **JSON** na página **Adicionar ou modificar horários.**
+    ![Log de atividades – histórico de alterações](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. Para ver mais detalhes sobre a operação, alterne para a guia **JSON** na página **Adicionar ou modificar agendas** .
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber como definir todas as políticas, consulte [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+Para saber como definir todas as políticas, consulte [definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).
 

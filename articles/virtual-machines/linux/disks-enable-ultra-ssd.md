@@ -1,6 +1,6 @@
 ---
-title: Discos ultra para VMs Linux - Discos gerenciados do Azure
-description: Conheça os discos ultra para VMs do Azure
+title: Ultra discos para VMs Linux – Azure Managed disks
+description: Saiba mais sobre os ultra discos para VMs do Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 683920b192e9feec382740b7e54dcb87d3098ddc
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008614"
 ---
-# <a name="using-azure-ultra-disks"></a>Usando discos ultra Azure
+# <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
 
-Este artigo explica como implantar e usar um disco ultra, para obter informações conceituais sobre ultra discos, consulte [quais tipos de disco estão disponíveis no Azure?](disks-types.md#ultra-disk)
+Este artigo explica como implantar e usar um ultra Disk, para obter informações conceituais sobre ultra disks, consulte [quais tipos de disco estão disponíveis no Azure?](disks-types.md#ultra-disk).
 
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

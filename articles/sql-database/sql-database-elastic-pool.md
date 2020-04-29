@@ -1,5 +1,5 @@
 ---
-title: Gerenciar vários bancos de dados com piscinas elásticas
+title: Gerenciar vários bancos de dados com pools elásticos
 description: Gerenciar e dimensionar vários Bancos de Dados SQL – centenas de milhares – usando pools elásticos. Um preço para os recursos que você pode distribuir quando necessário.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 04/09/2020
 ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80998986"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
@@ -95,13 +95,13 @@ Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar rec
 
  para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos da computação para bancos de dados individuais.
 
-Observe que este exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
+Observação Este exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
 ### <a name="resource-utilization-per-database"></a>Utilização de recursos por banco de dados
 
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
-**Exemplo de modelo de compra baseado em DTU**: Um banco de dados S3 que atinge 100 DTUs e, em média, usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+**Exemplo de modelo de compra baseado em DTU**: um banco de dados S3 que atinge picos de 100 DTUs e em média usa 67 DTUs ou menos é um bom candidato para compartilhar eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto
 
@@ -110,9 +110,9 @@ O melhor tamanho para um pool depende dos recursos agregados necessários para t
 - O máximo de recursos utilizados por todos os bancos de dados no pool (seja o máximo de DTUs ou de vCores, dependendo da escolha do modelo de recursos).
 - Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
-Para obter níveis e limites de serviço disponíveis para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o modelo de compra baseado em [vCore](sql-database-service-tiers-vcore.md).
+Para as camadas de serviço e limites disponíveis para cada modelo de recurso, consulte o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados únicos:
+As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
@@ -128,7 +128,7 @@ As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do qu
 5. Compare o preço do pool da Etapa 5 com o preço do uso dos tamanhos da computação apropriados para bancos de dados individuais.
 
 > [!IMPORTANT]
-> Se o número de bancos de dados em um pool se aproximar do máximo suportado, certifique-se de considerar o [gerenciamento de recursos em piscinas elásticas densas](sql-database-elastic-pool-resource-management.md).
+> Se o número de bancos de dados em um pool se aproximar do máximo com suporte, certifique-se de considerar o [Gerenciamento de recursos em pools elásticos densos](sql-database-elastic-pool-resource-management.md).
 > 
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Usando outros recursos de Banco de Dados SQL com pools elásticos
@@ -147,11 +147,11 @@ Os bancos de dados em pool normalmente dão suporte aos mesmos [recursos de cont
 
   A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **Geo-restauração**
+- **Restauração geográfica**
 
   A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Restaurar um Banco de Dados SQL do Azure ou fazer failover para um secundário](sql-database-disaster-recovery.md)
 
-- **Geo-replicação ativa**
+- **Replicação geográfica ativa**
 
   Para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-active-geo-replication.md) ou um [grupo de failover automático](sql-database-auto-failover-group.md).
 
@@ -159,14 +159,14 @@ Os bancos de dados em pool normalmente dão suporte aos mesmos [recursos de cont
 
 Há duas maneiras de criar um pool elástico no Portal do Azure.
 
-1. Vá ao [portal Azure](https://portal.azure.com) para criar uma piscina elástica. Procure e selecione **O Azure SQL**.
-2. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode visualizar informações adicionais sobre piscinas elásticas selecionando **mostrar detalhes** no bloco **de bancos de dados.**
-3. No bloco **de bancos de dados,** selecione **O pool Elástico** no tipo de **redropdown do tipo recurso** e selecione **Criar**:
+1. Vá para a [portal do Azure](https://portal.azure.com) para criar um pool elástico. Pesquise e selecione **SQL do Azure**.
+2. Selecione **+Adicionar** para abrir a página **Selecionar opção de implantação do SQL**. Você pode exibir informações adicionais sobre pools elásticos selecionando **Mostrar detalhes** no bloco **bancos de dados** .
+3. No bloco **bancos de dados** , selecione **pool elástico** na lista suspensa **tipo de recurso** e, em seguida, selecione **criar**:
 
    ![Criar um pool elástico](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
 
-1. Ou você pode criar um pool elástico navegando para um servidor Azure SQL existente e clicando **+ Novo pool** para criar um pool diretamente nesse servidor.
+1. Ou você pode criar um pool elástico navegando até um servidor SQL do Azure existente e clicando em **+ novo pool** para criar um pool diretamente nesse servidor.
 
 > [!NOTE]
 > Você pode criar vários pools em um servidor, mas não pode adicionar bancos de dados de servidores diferentes ao mesmo pool.
@@ -181,7 +181,7 @@ Quando tiver concluído a configuração do pool, você poderá clicar em "Aplic
 
 No Portal do Azure, é possível monitorar a utilização de um pool elástico e os bancos de dados no pool. Você também pode criar um conjunto de alterações para o pool elástico e enviar todas as alterações ao mesmo tempo. Essas alterações incluem adicionar ou remover bancos de dados, alterar as configurações de pool elástico ou alterar suas configurações de banco de dados.
 
-Para começar a monitorar o pool elástico, localize e abra um pool elástico no portal. Você verá primeiro uma tela que lhe dá uma visão geral do status do seu pool elástico. Isso inclui:
+Para começar a monitorar o pool elástico, localize e abra um pool elástico no portal. Primeiro, você verá uma tela que fornece uma visão geral do status do pool elástico. Isso inclui:
 
 - Monitorar gráficos mostrando o uso de recursos do pool elástico
 - Alertas e recomendações recentes, se disponíveis, para o pool elástico
@@ -214,20 +214,20 @@ Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no 
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  A SnelStart usou piscinas elásticas com o Azure SQL Database para expandir rapidamente seus serviços de negócios a uma taxa de 1.000 novos bancos de dados SQL do Azure por mês.
+  O SnelStart usou pools elásticos com o banco de dados SQL do Azure para expandir rapidamente seus serviços de negócios a uma taxa de 1.000 novos bancos de dados SQL do Azure por mês.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  A Umbraco usa piscinas elásticas com o Azure SQL Database para rapidamente prover e dimensionar serviços para milhares de inquilinos na nuvem.
+  O Umbraco usa pools elásticos com o banco de dados SQL do Azure para provisionar e dimensionar rapidamente os serviços para milhares de locatários na nuvem.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   A Daxko/CSI usa piscinas elásticas com o Banco de Dados SQL Do Azure para acelerar seu ciclo de desenvolvimento e melhorar seus serviços e desempenho ao cliente.    
+   O Daxko/CSI usa pools elásticos com o banco de dados SQL do Azure para acelerar seu ciclo de desenvolvimento e aprimorar seus serviços e desempenho do cliente.    
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre preços, consulte [Preços de pool elásticos](https://azure.microsoft.com/pricing/details/sql-database/elastic).
+- Para obter informações sobre preços, consulte [preços do pool elástico](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool-scale.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).
-- Para saber mais sobre o gerenciamento de recursos em pools elásticos com muitas bases de dados, consulte [o gerenciamento de recursos em piscinas elásticas densas.](sql-database-elastic-pool-resource-management.md)
+- Para saber mais sobre o gerenciamento de recursos em pools elásticos com muitos bancos de dados, consulte [Gerenciamento de recursos em pools elásticos densos](sql-database-elastic-pool-resource-management.md).

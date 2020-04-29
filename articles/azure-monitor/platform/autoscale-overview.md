@@ -1,14 +1,14 @@
 ---
-title: Escala automática em VMs, Serviços de Nuvem e Aplicativos Web
+title: Dimensionamento automático em VMs, serviços de nuvem e aplicativos Web
 description: Dimensionamento automático no Microsoft Azure. É aplicável a Máquinas Virtuais, conjuntos de dimensionamento de máquinas virtuais, Serviços de Nuvem e Aplicativos Web.
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114134"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
@@ -79,13 +79,13 @@ A lista completa de campos configuráveis e descrições está disponível na [A
 
 Para obter exemplos de código, consulte
 
-* [Configuração avançada de escala automática usando modelos do Gerenciador de recursos para conjuntos de escala vm](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
+* [Configuração avançada de dimensionamento automático usando modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Dimensionamento horizontal vs. vertical
 O dimensionamento automático ocorre apenas horizontalmente, que é um aumento ("out") ou uma diminuição ("in") do número de instâncias de VM.  O dimensionamento horizontal é mais flexível em uma nuvem, pois permite que você potencialmente execute milhares de VMs para manipular carga.
 
-Já o dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna as VMs mais ("para cima") ou menos ("para baixo") potentes. A potência é medida na memória, velocidade da CPU, espaço em disco, etc.  O dimensionamento vertical tem mais limitações. Ele depende da disponibilidade de um hardware maior, que atinge rapidamente um limite superior e pode variar por região. O dimensionamento vertical normalmente também exige que uma VM pare e reinicie.
+Já o dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna as VMs mais ("para cima") ou menos ("para baixo") potentes. A potência é medida na memória, na velocidade da CPU, no espaço em disco, etc.  O dimensionamento vertical tem mais limitações. Ele depende da disponibilidade de um hardware maior, que atinge rapidamente um limite superior e pode variar por região. O dimensionamento vertical normalmente também exige que uma VM pare e reinicie.
 
 
 ## <a name="methods-of-access"></a>Métodos de acesso
@@ -94,7 +94,7 @@ Você pode configurar o dimensionamento automático via
 * [Azure portal](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [CLI (Interface de linha de comando) de plataforma cruzada](../../azure-monitor/platform/cli-samples.md#autoscale)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços com suporte para o dimensionamento automático
 | Serviço | Esquema e Documentos |
@@ -104,7 +104,7 @@ Você pode configurar o dimensionamento automático via
 | Máquinas Virtuais: Clássico |[Dimensionamento de conjuntos de disponibilidade da máquina virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Máquinas Virtuais: Conjuntos de Dimensionamento do Windows |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas Virtuais: Conjunto de Dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Máquinas Virtuais: Exemplo para Windows |[Configuração avançada de escala automática usando modelos do Gerenciador de recursos para conjuntos de escala vm](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Máquinas Virtuais: Exemplo para Windows |[Configuração avançada de dimensionamento automático usando modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Serviço de Gerenciamento de API|[Dimensionar automaticamente uma instância do Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -112,7 +112,7 @@ Para saber mais sobre o dimensionamento automático, use as Explicações Passo 
 
 * [Métricas comuns de dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Use ações de autoescala para enviar notificações de alerta de e-mail e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Solução de Problemas do Dimensionamento Automático dos Conjuntos de Dimensionamento da Máquina Virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: allensu
 ms.openlocfilehash: 26559adf183a5e008d77b87654a1bd4dabebbca0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253825"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
@@ -27,7 +27,7 @@ Com a explosão de mídia social, comércio eletrônico e a Web extremamente per
 
 A funcionalidade da CDN (rede de distribuição de conteúdo) padrão inclui a capacidade de armazenar arquivos em cache mais próximos dos usuários finais para acelerar a entrega de arquivos estáticos. No entanto, com aplicativos Web dinâmicos, armazenar em cache esse conteúdo em localizações de borda não é possível porque o servidor gera o conteúdo em resposta ao comportamento do usuário. Acelerar a entrega desse tipo de conteúdo é mais complexo do que o cache de borda tradicional e exige uma solução de ponta a ponta que ajuste bem cada elemento ao longo de todo o caminho de dados, do início à entrega. Com a otimização de DSA (aceleração de site dinâmico) da CDN do Azure, o desempenho de páginas da Web com conteúdo dinâmico é melhorado de maneira significativa.
 
-A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração dinâmica do site da Microsoft é oferecida via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Para perfis **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
@@ -76,8 +76,8 @@ Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos 
 
 Aceleração de site dinâmico na CDN do Azure acelera a entrega de ativos dinâmicos usando as técnicas a seguir:
 
--   [Otimização de rotas](#route-optimization)
--   [Otimizações do TCP](#tcp-optimizations)
+-   [Otimização de rota](#route-optimization)
+-   [Otimizações de TCP](#tcp-optimizations)
 -   [Pré-busca de objeto(CDN do Azure da Akamai, somente)](#object-prefetch-azure-cdn-from-akamai-only)
 -   [Compactação da imagem adaptável (CDN do Azure da Akamai, somente)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
@@ -169,7 +169,7 @@ Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache 
 
 Para acessar o mecanismo de regras:
     
-1. Na página de perfil do **CDN,** selecione **Gerenciar**.  
+1. Na página **perfil CDN** , selecione **gerenciar**.  
     
     ![Botão Gerenciar perfil da CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 

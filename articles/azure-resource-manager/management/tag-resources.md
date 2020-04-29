@@ -1,41 +1,41 @@
 ---
-title: Marque recursos, grupos de recursos e assinaturas para organização lógica
+title: Marcar recursos, grupos de recursos e assinaturas para a organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255117"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar seus recursos e hierarquia de gerenciamento do Azure
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
-Você aplica tags aos seus recursos do Azure, grupos de recursos e assinaturas para organizá-las logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
+Você aplica marcas aos recursos, grupos de recursos e assinaturas do Azure para organizá-los logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
-Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [nomenclatura de recursos e guia de decisão de marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Os nomes das etiquetas são insensíveis a casos. Os valores da marca são sensíveis a maiúsculas e minúsculas.
+> Os nomes de marca não diferenciam maiúsculas de minúsculas. Os valores de marca diferenciam maiúsculas de minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="required-access"></a>Acesso necessário
 
-Para aplicar tags a um recurso, você deve ter acesso à gravação do tipo de recurso **Microsoft.Resources/tags.** A [função Contribuinte de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) permite que você aplique tags a uma entidade sem ter acesso à própria entidade. Atualmente, a função de contribuinte de tags não pode aplicar tags a recursos ou grupos de recursos através do portal. Ele pode aplicar tags para assinaturas através do portal. Ele suporta todas as operações de tag através do PowerShell e da API REST.  
+Para aplicar marcas a um recurso, você deve ter acesso de gravação ao tipo de recurso **Microsoft. Resources/Tags** . A função de [colaborador de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) permite aplicar marcas a uma entidade sem ter acesso à própria entidade. Atualmente, a função de colaborador de marca não pode aplicar marcas a recursos ou grupos de recursos por meio do Portal. Ele pode aplicar marcas às assinaturas por meio do Portal. Ele dá suporte a todas as operações de marca por meio do PowerShell e da API REST.  
 
-A função [contribuinte](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário para aplicar tags a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário para aplicar marcas a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-### <a name="apply-tags"></a>Aplicar tags
+### <a name="apply-tags"></a>Aplicar marcas
 
-O Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o módulo Az.Resources 1.12.0 ou posterior. Você pode verificar `Get-Module Az.Resources`sua versão com . Você pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou posterior.
+O Azure PowerShell oferece dois comandos para aplicar marcas- [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o módulo AZ. Resources 1.12.0 ou posterior. Você pode verificar sua versão com `Get-Module Az.Resources`. Você pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou posterior.
 
-O **New-AzTag** substitui todas as tags no recurso, grupo de recursos ou assinatura. Ao chamar o comando, passe no ID de recurso da entidade que deseja marcar.
+O **New-AzTag** substitui todas as marcas no recurso, no grupo de recursos ou na assinatura. Ao chamar o comando, passe a ID de recurso da entidade que você deseja marcar.
 
-O exemplo a seguir aplica um conjunto de tags em uma conta de armazenamento:
+O exemplo a seguir aplica um conjunto de marcas a uma conta de armazenamento:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -43,7 +43,7 @@ $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-Quando o comando for concluído, observe que o recurso tem duas tags.
+Quando o comando for concluído, observe que o recurso tem duas marcas.
 
 ```output
 Properties :
@@ -53,7 +53,7 @@ Properties :
         Status  Normal
 ```
 
-Se você executar o comando novamente, mas desta vez com tags diferentes, observe que as tags anteriores serão removidas.
+Se você executar o comando novamente, mas desta vez com marcas diferentes, observe que as marcas anteriores são removidas.
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
@@ -68,14 +68,14 @@ Properties :
         Team         Compliance
 ```
 
-Para adicionar tags a um recurso que já possui tags, use **Update-AzTag**. Defina o parâmetro **-Operação** para **Mesclar**.
+Para adicionar marcas a um recurso que já tem marcas, use **Update-AzTag**. Defina o parâmetro **-Operation** para **mesclar**.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Observe que as duas novas tags foram adicionadas às duas tags existentes.
+Observe que as duas novas marcas foram adicionadas às duas marcas existentes.
 
 ```output
 Properties :
@@ -87,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-Cada nome de tag pode ter apenas um valor. Se você fornecer um novo valor para uma tag, o valor antigo será substituído mesmo se você usar a operação de mesclagem. O exemplo a seguir altera a tag Status de Normal para Verde.
+Cada nome de marca pode ter apenas um valor. Se você fornecer um novo valor para uma marca, o valor antigo será substituído mesmo se você usar a operação de mesclagem. O exemplo a seguir altera a marca de status de normal para verde.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -104,14 +104,14 @@ Properties :
         Environment  Production
 ```
 
-Quando você define o parâmetro **-Operação** para **substituir,** as tags existentes são substituídas pelo novo conjunto de tags.
+Quando você define o parâmetro **-Operation** como **replace**, as marcas existentes são substituídas pelo novo conjunto de marcas.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
-Apenas as novas tags permanecem no recurso.
+Somente as novas marcas permanecem no recurso.
 
 ```output
 Properties :
@@ -122,9 +122,9 @@ Properties :
         Project     ECommerce
 ```
 
-Os mesmos comandos também funcionam com grupos de recursos ou assinaturas. Você passa no identificador para o grupo de recursos ou assinatura que deseja marcar.
+Os mesmos comandos também funcionam com grupos de recursos ou assinaturas. Você passa o identificador do grupo de recursos ou da assinatura que deseja marcar.
 
-Para adicionar um novo conjunto de tags a um grupo de recursos, use:
+Para adicionar um novo conjunto de marcas a um grupo de recursos, use:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -132,7 +132,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 ```
 
-Para atualizar as tags de um grupo de recursos, use:
+Para atualizar as marcas de um grupo de recursos, use:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Production"}
@@ -140,7 +140,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
 ```
 
-Para adicionar um novo conjunto de tags a uma assinatura, use:
+Para adicionar um novo conjunto de marcas a uma assinatura, use:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Dev"}
@@ -148,7 +148,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
 ```
 
-Para atualizar as tags para uma assinatura, use:
+Para atualizar as marcas de uma assinatura, use:
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Web Apps"}
@@ -165,59 +165,59 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 ### <a name="list-tags"></a>Listar marcas
 
-Para obter as tags de um recurso, grupo de recursos ou assinatura, use o comando [Get-AzTag](/powershell/module/az.resources/get-aztag) e passe no ID de recurso para a entidade.
+Para obter as marcas de um recurso, grupo de recursos ou assinatura, use o comando [Get-AzTag](/powershell/module/az.resources/get-aztag) e passe a ID do recurso para a entidade.
 
-Para ver as tags de um recurso, use:
+Para ver as marcas de um recurso, use:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 Get-AzTag -ResourceId $resource.id
 ```
 
-Para ver as tags de um grupo de recursos, use:
+Para ver as marcas de um grupo de recursos, use:
 
 ```azurepowershell-interactive
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-Para ver as tags de uma assinatura, use:
+Para ver as marcas de uma assinatura, use:
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-### <a name="list-by-tag"></a>Lista por tag
+### <a name="list-by-tag"></a>Listar por marca
 
-Para obter recursos que tenham um nome e valor específicos da tag, use:
+Para obter recursos que têm um nome e valor de marca específicos, use:
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-Para obter recursos que tenham um nome de tag específico com qualquer valor de tag, use:
+Para obter recursos que têm um nome de marca específico com qualquer valor de marca, use:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-Para obter grupos de recursos que tenham um nome e valor específicos da tag, use:
+Para obter os grupos de recursos que têm um nome e valor de marca específicos, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
 ```
 
-### <a name="remove-tags"></a>Remover tags
+### <a name="remove-tags"></a>Remover marcas
 
-Para remover tags específicas, use **Update-AzTag** e set **-Operation** to **Delete**. Passe nas tags que deseja excluir.
+Para remover marcas específicas, use **Update-AzTag** e Set **-Operation** para **excluir**. Passe as marcas que você deseja excluir.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
 Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
 ```
 
-As tags especificadas são removidas.
+As marcas especificadas são removidas.
 
 ```output
 Properties :
@@ -226,7 +226,7 @@ Properties :
         CostCenter  00123
 ```
 
-Para remover todas as tags, use o comando [Remove-AzTag.](/powershell/module/az.resources/remove-aztag)
+Para remover todas as marcas, use o comando [Remove-AzTag](/powershell/module/az.resources/remove-aztag) .
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
@@ -235,39 +235,39 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-### <a name="apply-tags"></a>Aplicar tags
+### <a name="apply-tags"></a>Aplicar marcas
 
-Ao adicionar tags a um grupo de recursos ou recurso, você pode substituir as tags existentes ou anexar novas tags às tags existentes.
+Ao adicionar marcas a um grupo de recursos ou recurso, você pode substituir as marcas existentes ou acrescentar novas marcas a marcas existentes.
 
-Para substituir as tags em um recurso, use:
+Para substituir as marcas em um recurso, use:
 
 ```azurecli-interactive
 az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para anexar uma tag às tags existentes em um recurso, use:
+Para acrescentar uma marca às marcas existentes em um recurso, use:
 
 ```azurecli-interactive
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para substituir as tags existentes em um grupo de recursos, use:
+Para substituir as marcas existentes em um grupo de recursos, use:
 
 ```azurecli-interactive
 az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-Para anexar uma tag às tags existentes em um grupo de recursos, use:
+Para acrescentar uma marca às marcas existentes em um grupo de recursos, use:
 
 ```azurecli-interactive
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Atualmente, o Azure CLI não suporta a aplicação de tags em assinaturas.
+Atualmente, CLI do Azure não dá suporte à aplicação de marcas em assinaturas.
 
 ### <a name="list-tags"></a>Listar marcas
 
-Para ver as tags existentes para um recurso, use:
+Para ver as marcas existentes de um recurso, use:
 
 ```azurecli-interactive
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
@@ -288,7 +288,7 @@ Esse script retorna o seguinte formato:
 }
 ```
 
-### <a name="list-by-tag"></a>Lista por tag
+### <a name="list-by-tag"></a>Listar por marca
 
 Para obter todos os recursos que tem marca e valor específicos, use `az resource list`:
 
@@ -302,9 +302,9 @@ Para obter grupos de recursos que têm uma marca específica, use `az group list
 az group list --tag Dept=IT
 ```
 
-### <a name="handling-spaces"></a>Movimentação de espaços
+### <a name="handling-spaces"></a>Espaços de manuseio
 
-Se os nomes ou valores da sua tag incluem espaços, você deve dar alguns passos extras. O exemplo a seguir aplica todas as tags de um grupo de recursos aos seus recursos quando as tags podem conter espaços.
+Se os nomes ou valores de marcação incluírem espaços, você deverá executar algumas etapas adicionais. O exemplo a seguir aplica todas as marcas de um grupo de recursos a seus recursos quando as marcas podem conter espaços.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -322,11 +322,11 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Modelos
 
-Você pode marcar recursos, grupos de recursos e assinaturas durante a implantação com um modelo do Gerenciador de recursos.
+Você pode marcar recursos, grupos de recursos e assinaturas durante a implantação com um modelo do Resource Manager.
 
 ### <a name="apply-values"></a>Aplicar valores
 
-O exemplo a seguir implanta uma conta de armazenamento com três tags. Duas das tags`Dept` `Environment`( e ) são definidas como valores literais. Uma tag`LastDeployed`( ) é definida como um parâmetro que é padrão para a data atual.
+O exemplo a seguir implanta uma conta de armazenamento com três marcas. Duas das marcas (`Dept` e `Environment`) são definidas como valores literais. Uma marca (`LastDeployed`) é definida como um parâmetro que usa como padrão a data atual.
 
 ```json
 {
@@ -363,7 +363,7 @@ O exemplo a seguir implanta uma conta de armazenamento com três tags. Duas das 
 }
 ```
 
-### <a name="apply-an-object"></a>Aplique um objeto
+### <a name="apply-an-object"></a>Aplicar um objeto
 
 Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar esse objeto para o elemento de marca. Essa abordagem fornece mais flexibilidade do que o exemplo anterior porque o objeto pode ter propriedades diferentes. Cada propriedade no objeto se torna uma marca separada para o recurso. O exemplo a seguir tem um parâmetro chamado `tagValues` que é aplicado ao elemento de marca.
 
@@ -401,9 +401,9 @@ Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar
 }
 ```
 
-### <a name="apply-a-json-string"></a>Aplique uma seqüência JSON
+### <a name="apply-a-json-string"></a>Aplicar uma cadeia de caracteres JSON
 
-Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. Toda a seqüência JSON é armazenada como uma tag que não pode exceder 256 caracteres. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
+Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
 
 ```json
 {
@@ -434,9 +434,9 @@ Para armazenar diversos valores em uma única marca, aplica uma cadeia de caract
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Aplicar tags do grupo de recursos
+### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
 
-Para aplicar tags de um grupo de recursos a um recurso, use a função [resourceGroup.](../templates/template-functions-resource.md#resourcegroup) Ao obter o valor `tags[tag-name]` da tag, use `tags.tag-name` a sintaxe em vez da sintaxe, porque alguns caracteres não são analisados corretamente na notação de nota.
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](../templates/template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use `tags[tag-name]` a sintaxe em vez `tags.tag-name` da sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
 
 ```json
 {
@@ -468,9 +468,9 @@ Para aplicar tags de um grupo de recursos a um recurso, use a função [resource
 }
 ```
 
-### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicar tags a grupos de recursos ou assinaturas
+### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Aplicar marcas a grupos de recursos ou assinaturas
 
-Você pode adicionar tags a um grupo de recursos ou assinatura implantando o tipo de recurso **Microsoft.Resources/tags.** As tags são aplicadas ao grupo de recursos de destino ou assinatura para a implantação. Cada vez que você implanta o modelo, você substitui quaisquer tags que foram aplicadas anteriormente.
+Você pode adicionar marcas a um grupo de recursos ou assinatura implantando o tipo de recurso **Microsoft. Resources/Tags** . As marcas são aplicadas ao grupo de recursos de destino ou à assinatura para a implantação. Cada vez que você implanta o modelo, você substitui todas as marcas que foram aplicadas anteriormente.
 
 ```json
 {
@@ -503,7 +503,7 @@ Você pode adicionar tags a um grupo de recursos ou assinatura implantando o tip
 }
 ```
 
-Para aplicar as tags a um grupo de recursos, use powershell ou Cli do Azure. Implantar no grupo de recursos que você deseja marcar.
+Para aplicar as marcas a um grupo de recursos, use o PowerShell ou CLI do Azure. Implante no grupo de recursos que você deseja marcar.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -513,7 +513,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile http
 az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-Para aplicar as tags a uma assinatura, use powershell ou Azure CLI. Implante na assinatura que você deseja marcar.
+Para aplicar as marcas a uma assinatura, use o PowerShell ou CLI do Azure. Implante na assinatura que você deseja marcar.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -523,7 +523,7 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-O modelo a seguir adiciona as tags de um objeto a um grupo de recursos ou assinatura.
+O modelo a seguir adiciona as marcas de um objeto a um grupo de recursos ou assinatura.
 
 ```json
 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -559,16 +559,16 @@ O modelo a seguir adiciona as tags de um objeto a um grupo de recursos ou assina
 
 ## <a name="rest-api"></a>API REST
 
-Para trabalhar com tags através da API Azure REST, use:
+Para trabalhar com marcas por meio da API REST do Azure, use:
 
-* [Tags - Criar ou Atualizar no Escopo](/rest/api/resources/tags/createorupdateatscope) (operação PUT)
-* [Tags - Atualização no escopo](/rest/api/resources/tags/updateatscope) (operação PATCH)
-* [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (operação GET)
-* [Tags - Excluir no escopo](/rest/api/resources/tags/deleteatscope) (operação DELETE)
+* [Marcas – criar ou atualizar no escopo](/rest/api/resources/tags/createorupdateatscope) (operação put)
+* [Marcas – atualizar no escopo](/rest/api/resources/tags/updateatscope) (operação de patch)
+* [Marcas-obter no escopo](/rest/api/resources/tags/getatscope) (operação get)
+* [Marcas – excluir no escopo](/rest/api/resources/tags/deleteatscope) (operação de exclusão)
 
-## <a name="inherit-tags"></a>Etiquetas herdar
+## <a name="inherit-tags"></a>Herdar marcas
 
-As tags aplicadas ao grupo de recursos ou assinatura não são herdadas pelos recursos. Para aplicar tags de um grupo de assinatura ou recurso aos recursos, consulte [Azure Policies - tags](tag-policies.md).
+As marcas aplicadas ao grupo de recursos ou à assinatura não são herdadas pelos recursos. Para aplicar marcas de uma assinatura ou grupo de recursos aos recursos, consulte [políticas do Azure – marcas](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Marcas e cobrança
 
@@ -583,17 +583,17 @@ Para operações de API REST, confira [Referência da API REST de cobrança do A
 As seguintes limitações se aplicam a marcas:
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
-* Atualmente, os grupos de gerenciamento não suportam tags.
-* Cada recurso, grupo de recursos e assinatura pode ter um máximo de 50 pares de nomes/valor de tag. Se você precisar aplicar mais tags do que o número máximo permitido, use uma seqüência JSON para o valor da tag. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Um grupo de recursos ou assinatura pode conter muitos recursos que cada um tem 50 pares de nomes/valor de tag.
+* Atualmente, os grupos de gerenciamento não dão suporte a marcas.
+* Cada recurso, grupo de recursos e assinatura podem ter um máximo de 50 pares de nome/valor de marca. Se você precisar aplicar mais marcas do que o número máximo permitido, use uma cadeia de caracteres JSON para o valor da marca. A cadeia de caracteres JSON pode conter diversos valores que são aplicados a um único nome de marca. Um grupo de recursos ou uma assinatura pode conter muitos recursos, cada um com pares de nome/valor de marca 50.
 * O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres. Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
-* VMs generalizadas não suportam tags.
+* As VMs generalizadas não dão suporte a marcas.
 * As marcas não podem ser aplicadas a recursos clássicos como Serviços de Nuvem.
 * Os nomes das marcas não podem conter esses caracteres: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Atualmente, as zonas De DNS do Azure e os serviços de Traffic Manger também não permitem o uso de espaços na tag.
+   > Atualmente, as zonas DNS do Azure e os serviços do Gerenciador de tráfego também não permitem o uso de espaços na marca.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se você pode aplicar uma tag a um tipo de recurso, consulte [Suporte a tags para recursos do Azure](tag-support.md).
-* Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+* Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [nomenclatura de recursos e guia de decisão de marcação](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).

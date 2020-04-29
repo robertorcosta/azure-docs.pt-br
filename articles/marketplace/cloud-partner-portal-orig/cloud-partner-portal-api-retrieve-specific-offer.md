@@ -1,5 +1,5 @@
 ---
-title: Recupere uma API de oferta específica | Mercado Azure
+title: Recuperar uma API de oferta específica | Azure Marketplace
 description: A API recupera a oferta especificada no namespace do editor.
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255900"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Recupere a oferta especificada no namespace do editor.  
 
@@ -43,9 +43,9 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Po exemplo, Contoso                                                        | String        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
-| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer       |
+| publisherId | publisherId. Po exemplo, Contoso                                                        | Cadeia de caracteres        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia de caracteres        |
+| Versão     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer       |
 | slotId      | O slot do qual a oferta deve ser recuperada pode ser um dos a seguir:      <br/>  - `Draft` (padrão) recupera a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` recupera a versão da oferta atualmente na visualização.     <br/>  -  `Production` recupera a versão da oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
@@ -177,7 +177,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  publisherId    | Identificador exclusivo do editor                                                                                              |
 |  status         | Status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo.                                  |
 |  ID             | GUID que identifica exclusivamente a oferta                                                                                         |
-|  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Isso é incrementado após cada publicação.    |
+|  Versão        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Isso é incrementado após cada publicação.    |
 |  definição     | Definição real da carga de trabalho                                                                                               |
 |  changedTime    | Data e hora em UTC de quando a oferta foi modificada pela última vez                                                                                   |
 |  |  |
@@ -185,7 +185,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  | **Descrição**                                                                                                                 |
+| **Auto-completar**  | **Descrição**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK` - A solicitação foi processada com êxito e todas as ofertas do editor foram devolvidas ao cliente.               |
 |  400      | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                                                 |
@@ -202,7 +202,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
 |  Executando                    | O envio da oferta está sendo processado.          |
-|  Teve êxito                  | O envio da oferta concluiu o processamento.    |
+|  Êxito                  | O envio da oferta concluiu o processamento.    |
 |  Canceled                   | O envio da oferta foi cancelado.                |
-|  Falhou                     | O envio da oferta falhou.                      |
+|  Failed (Falha)                     | O envio da oferta falhou.                      |
 |  |  |

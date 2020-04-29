@@ -1,5 +1,5 @@
 ---
-title: Cancelar operação API | Mercado Azure
+title: Cancelar API de operação | Azure Marketplace
 description: Cancela operações.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256426"
 ---
 # <a name="cancel-operation"></a>Cancelar operação
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Essa API cancela uma operação atualmente em andamento na oferta. Use [Recuperar API de operações](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` para passar a essa API. Geralmente, o cancelamento é uma operação síncrona, no entanto, em alguns cenários complexos uma nova operação pode ser necessária para cancelar uma operação existente. Nesse caso, o corpo da resposta HTTP contém o local da operação que deve ser usado para consultar o status.
 
@@ -29,8 +29,8 @@ Essa API cancela uma operação atualmente em andamento na oferta. Use [Recupera
 
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador do publicar, por exemplo, `contoso`         |   String          |
-| offerId      |  Identificador da oferta                                     |   String          |
+| publisherId  |  Identificador do publicar, por exemplo, `contoso`         |   Cadeia de caracteres          |
+| offerId      |  Identificador da oferta                                     |   Cadeia de caracteres          |
 | api-version  |  Versão atual da API                               |    Data           |
 |  |  |  |
 
@@ -77,12 +77,12 @@ Essa API cancela uma operação atualmente em andamento na oferta. Use [Recupera
 
 |  **Nome**             |    **Valor**                       |
 |  ---------            |    ----------                      |
-| Location    | O caminho relativo para recuperar o status desta operação. |
+| Local    | O caminho relativo para recuperar o status da operação. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código**  |  **Descrição**                                                                       |
+| **Auto-completar**  |  **Descrição**                                                                       |
 |  ------   |  ------------------------------------------------------------------------               |
 |  200      | OK. A solicitação foi processada com êxito e a operação é cancelada de forma síncrona. |
 |  202      | Aceita. A solicitação foi processada com êxito e a operação está em processo de cancelamento. A localização da operação de cancelamento é retornada no cabeçalho de resposta. |

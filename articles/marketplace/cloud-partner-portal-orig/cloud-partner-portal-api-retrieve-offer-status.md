@@ -1,5 +1,5 @@
 ---
-title: Recuperar o status de oferecer | Mercado Azure
+title: Recuperar status da oferta | Azure Marketplace
 description: API recupera o status atual da oferta.
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255899"
 ---
 # <a name="retrieve-offer-status"></a>Recuperar status da oferta
 
 > [!NOTE]
-> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
+> As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão funcionando depois que suas ofertas forem migradas para o Partner Center. A integração apresenta pequenas alterações. Examine as alterações listadas em [portal do Cloud Partner referência de API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue a funcionar após a migração para o Partner Center.
 
 Recupera o status atual da oferta.
 
@@ -27,8 +27,8 @@ Recupera o status atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador do editor, por exemplo `Contoso`  |     String     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
+|  publisherId    | Identificador do editor, por exemplo `Contoso`  |     Cadeia de caracteres     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia de caracteres     |
 |  api-version    | Última versão da API                        |     Data       |
 |  |  |
 
@@ -124,23 +124,23 @@ Recupera o status atual da oferta.
 |  **Nome**             |    **Descrição**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | O status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo. |
-|   da nuvem para o dispositivo             | Matriz de mensagens associadas à oferta                                                    |
+|  da nuvem para o dispositivo             | Matriz de mensagens associadas à oferta                                                    |
 |  etapas                | Matriz das etapas que a oferta passa durante a publicação uma oferta                      |
 |  estimatedTimeFrame   | Estimativa do tempo que levaria para concluir essa etapa, em formato amigável                       |
 |  id                   | Identificador da etapa                                                                         |
 |  stepName             | Nome da etapa                                                                               |
-|  descrição          | Descrição da etapa                                                                        |
+|  description          | Descrição da etapa                                                                        |
 |  status               | Status da etapa. Para a lista de valores possíveis, consulte [Status da etapa](#step-status) abaixo.    |
-|   da nuvem para o dispositivo             | Matriz de mensagens relacionadas à etapa                                                          |
+|  da nuvem para o dispositivo             | Matriz de mensagens relacionadas à etapa                                                          |
 |  processPercentage    | Porcentagem de conclusão da etapa                                                              |
 |  previewLinks         | *Não implementado atualmente*                                                                    |
 |  liveLinks            | *Não implementado atualmente*                                                                    |
-|  notificationEmails   | Preterido por ofertas migradas para o Partner Center. Os e-mails de notificação para ofertas migradas serão enviados para o e-mail especificado sob as informações de contato do Vendedor nas configurações da Conta.<br><br>Para ofertas não migradas, a lista de endereços de e-mail separadas por comma será notificada sobre o andamento da operação        |
+|  notificationEmails   | Preteridas para as ofertas migradas para o Partner Center. Os emails de notificação para ofertas migradas serão enviados para o email especificado nas informações de contato do vendedor nas configurações da conta.<br><br>Para ofertas não migradas, lista separada por vírgulas de endereços de email a serem notificados do progresso da operação        |
 |  |  |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
-| **Código** |   **Descrição**                                                                                 |
+| **Auto-completar** |   **Descrição**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` - A solicitação foi processada com êxito e o status atual da oferta foi retornado. |
 |  400     | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                 |
@@ -155,9 +155,9 @@ Recupera o status atual da oferta.
 |  NotStarted                  | A oferta é nova e não iniciada.                            |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.                 |
 |  Executando                     | O envio da oferta está sendo processado.                     |
-|  Teve êxito                   | O envio da oferta concluiu o processamento.               |
+|  Êxito                   | O envio da oferta concluiu o processamento.               |
 |  Canceled                    | O envio da oferta foi cancelado.                           |
-|  Falhou                      | O envio da oferta falhou.                                 |
+|  Failed (Falha)                      | O envio da oferta falhou.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Status da etapa

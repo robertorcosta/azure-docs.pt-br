@@ -1,5 +1,5 @@
 ---
-title: Use o Azure PowerShell para ativar diagnósticos em uma VM do Windows
+title: Usar Azure PowerShell para habilitar o diagnóstico em uma VM do Windows
 services: virtual-machines-windows
 documentationcenter: ''
 description: Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: mimckitt
 ms.openlocfilehash: 16e1dba8c430a5c1e1d1d69910b8ed2c8d0b8138
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262835"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
@@ -44,7 +44,7 @@ Se o arquivo de configuração de diagnóstico especificar um elemento **Storage
 
 Se nenhuma **StorageAccount** tiver sido especificada na configuração de diagnóstico, você precisará passar o parâmetro *StorageAccountName* para o cmdlet. Se o parâmetro *StorageAccountName* for especificado, o cmdlet sempre usará a conta de armazenamento que está especificada no parâmetro, não aquela que está especificada no arquivo de configuração de diagnóstico.
 
-Se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente da assinatura da VM, você precisará passar explicitamente os parâmetros *StorageAccountName* e *StorageAccountKey* para o cmdlet. O parâmetro *StorageAccountKey* não é necessário quando a conta de armazenamento de diagnóstico está na mesma assinatura, uma vez que o cmdlet pode consultar e definir automaticamente o valor de chave ao habilitar a extensão de diagnóstico. No entanto, se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente, então o cmdlet pode não ser capaz de obter a chave automaticamente e você precisa especificar explicitamente a chave através do parâmetro *StorageAccountKey.*  
+Se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente da assinatura da VM, você precisará passar explicitamente os parâmetros *StorageAccountName* e *StorageAccountKey* para o cmdlet. O parâmetro *StorageAccountKey* não é necessário quando a conta de armazenamento de diagnóstico está na mesma assinatura, uma vez que o cmdlet pode consultar e definir automaticamente o valor de chave ao habilitar a extensão de diagnóstico. No entanto, se a conta de armazenamento de diagnóstico estiver em uma assinatura diferente, o cmdlet poderá não conseguir obter a chave automaticamente e você precisará especificar explicitamente a chave por meio do parâmetro *StorageAccountKey* .  
 
     Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 

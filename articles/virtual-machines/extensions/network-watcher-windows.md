@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: f226e240a59b33c2913919495410b1a4923b4902
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261662"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
@@ -64,10 +64,10 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| Name | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publicador | Microsoft.Azure.NetworkWatcher |
+| editor | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentWindows |
 | typeHandlerVersion | 1.4 |
 
@@ -109,4 +109,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, veja a documentação Guia de Usuário do Observador de Rede ou contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Caso precise de mais ajuda em qualquer ponto deste artigo, veja a documentação Guia de Usuário do Observador de Rede ou contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

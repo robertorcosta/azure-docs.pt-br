@@ -1,6 +1,6 @@
 ---
-title: Tabelas de indexação
-description: Recomendações e exemplos para tabelas de indexação no pool Synapse SQL.
+title: Indexando tabelas
+description: Recomendações e exemplos para indexação de tabelas no pool SQL do Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011014"
 ---
-# <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação no pool Synapse SQL
+# <a name="indexing-tables-in-synapse-sql-pool"></a>Indexando tabelas no pool do SQL Synapse
 
-Recomendações e exemplos para tabelas de indexação no pool Synapse SQL.
+Recomendações e exemplos para indexação de tabelas no pool SQL do Synapse.
 
 ## <a name="index-types"></a>Tipos de índice
 
-O pool Synapse SQL oferece várias opções de indexação, incluindo [índices de columnstore agrupados,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [índices agrupados e índices não agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e uma opção não-índice também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+O pool SQL Synapse oferece várias opções de indexação, incluindo [índices columnstore clusterizados](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [índices clusterizados e índices não clusterizados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), além de uma opção que não é de índice, também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Para criar uma tabela com um índice, consulte a documentação [DO POOL CREATE TABLE (Pool Synapse SQL).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (pool de SQL do Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ## <a name="clustered-columnstore-indexes"></a>Índice columnstore clusterizado
 
-Por padrão, o pool Synapse SQL cria um índice de columnstore agrupado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
+Por padrão, o pool SQL Synapse cria um índice columnstore clusterizado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
 
 Para criar uma tabela columnstore clusterizada, basta especificar CLUSTERED COLUMNSTORE INDEX na cláusula WITH, ou não incluir a cláusula WITH:
 
@@ -48,13 +48,13 @@ Há alguns cenários em que columnstore clusterizado pode não ser uma boa opç�
 
 - Tabelas ColumnStore não dão suporte a varchar (max), nvarchar (max) e varbinary (max). Considere o heap ou índice clusterizado.
 - As tabelas ColumnStore podem ser menos eficientes para dados transitórios. Considere a possibilidade de tabelas heap ou até mesmo temporárias.
-- Mesas pequenas com menos de 60 milhões de filas. Considere as tabelas de heap.
+- Tabelas pequenas com menos de 60 milhões linhas. Considere as tabelas de heap.
 
 ## <a name="heap-tables"></a>Tabelas de heap
 
-Quando você está aterrissando temporariamente os dados no pool Synapse SQL, você pode descobrir que o uso de uma tabela de pilha torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  Após o carregamento de dados, você pode criar índices na tabela para obter um desempenho mais rápido da consulta.  
+Quando você estiver temporariamente destinando dados no pool do SQL Synapse, você verá que usar uma tabela de heap torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  Após o carregamento de dados, você pode criar índices na tabela para um desempenho de consulta mais rápido.  
 
-As tabelas de columnstore do cluster começam a obter uma compressão ideal quando há mais de 60 milhões de linhas.  Para pequenas tabelas de visualização, menos de 60 milhões de linhas, considere usar o HEAP ou o índice agrupado para um desempenho mais rápido de consulta. 
+As tabelas columnstore do cluster começam a alcançar uma compactação ideal quando há mais de 60 milhões linhas.  Para tabelas de pesquisa pequenas, menos de 60 milhões linhas, considere o uso de HEAP ou índice clusterizado para um desempenho de consulta mais rápido. 
 
 Para criar uma tabela de heap, basta especificar HEAP na cláusula WITH:
 
@@ -70,7 +70,7 @@ WITH ( HEAP );
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Índices clusterizados e não clusterizados
 
-Os índices clusterizados podem superar o desempenho de tabelas columnstore clusterizadas quando uma única linha precisa ser recuperada rapidamente. Para consultas em que uma única ou muito poucas linhas de análise são necessárias para executar com extrema velocidade, considere um índice de cluster ou um índice secundário não agrupado. A desvantagem de usar um índice clusterizado é que apenas as consultas que se beneficiam são aquelas que usam um filtro altamente seletivo na coluna de índice clusterizado. Para melhorar o filtro em outras colunas, um índice não clusterizado pode ser adicionado a outras colunas. No entanto, cada índice adicionado a uma tabela adiciona espaço e tempo de processamento às cargas.
+Os índices clusterizados podem superar o desempenho de tabelas columnstore clusterizadas quando uma única linha precisa ser recuperada rapidamente. Para consultas em que uma pesquisa de linha única ou muito poucas é necessária para executar com velocidade extrema, considere um índice de cluster ou um índice secundário não clusterizado. A desvantagem de usar um índice clusterizado é que apenas as consultas que se beneficiam são aquelas que usam um filtro altamente seletivo na coluna de índice clusterizado. Para melhorar o filtro em outras colunas, um índice não clusterizado pode ser adicionado a outras colunas. No entanto, cada índice adicionado a uma tabela adiciona espaço e tempo de processamento às cargas.
 
 Para criar uma tabela de índice clusterizado, basta especificar o CLUSTERED INDEX na cláusula WITH:
 
@@ -84,7 +84,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Para adicionar um índice não agrupado em uma tabela, use a seguinte sintaxe:
+Para adicionar um índice não clusterizado em uma tabela, use a seguinte sintaxe:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -171,7 +171,7 @@ Depois de executar a consulta, você poderá começar a analisar os dados e seus
 | [OPEN_rowgroup_rows_MAX] |Como acima |
 | [OPEN_rowgroup_rows_AVG] |Como acima |
 | [CLOSED_rowgroup_rows] |Analise as linhas do grupo de linhas fechado como uma verificação de integridade. |
-| [CLOSED_rowgroup_count] |O número de grupos de linhas fechados deverá ser baixo se algum for visto. Grupos de linhas fechadas podem ser convertidos em grupos de linha compactados usando o ALTER INDEX ... REORGANIZE o comando. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
+| [CLOSED_rowgroup_count] |O número de grupos de linhas fechados deverá ser baixo se algum for visto. Os grupos de linhas fechados podem ser convertidos em grupos de linhas compactados usando a instrução ALTER INDEX... Comando reorganizar. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
 | [CLOSED_rowgroup_rows_MIN] |Os grupos de linhas fechados devem ter uma taxa de preenchimento alta. Se a taxa de preenchimento de um grupo de linhas fechado for baixa, será necessário fazer outra análise do columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Como acima |
 | [CLOSED_rowgroup_rows_AVG] |Como acima |
@@ -200,17 +200,17 @@ Um alto volume de operações DML pesadas que atualizam e excluem linhas pode ca
 - A inserção de uma linha a adiciona a uma tabela interna da rowstore chamada de rowgroup delta. A linha inserida não é convertida para a columnstore, até que o rowgroup delta esteja cheio e marcado como fechado. Rowgroups são fechados quando atingem a capacidade máxima de 1.048.576 linhas.
 - A atualização de uma linha no formato columnstore é processada como uma exclusão lógica e, em seguida, como uma inserção. A linha inserida pode ser armazenada no repositório delta.
 
-As operações de atualização e inserção em lote que excedem o limite em massa de 102.400 linhas por distribuição alinhada em partição vão diretamente no formato columnstore. No entanto, supondo a ocorrência de uma distribuição uniforme, seria necessário modificar mais de 6.144 milhões de linhas em uma única operação para que isso ocorresse. Se o número de linhas para uma determinada distribuição alinhada à partição for inferior a 102.400, as linhas vão para o armazenamento delta e permanecem lá até que linhas suficientes tenham sido inseridas ou modificadas para fechar o grupo de linhas ou o índice tenha sido reconstruído.
+As operações de atualização e inserção em lote que excedem o limite em massa de 102.400 linhas por distribuição alinhada em partição vão diretamente no formato columnstore. No entanto, supondo a ocorrência de uma distribuição uniforme, seria necessário modificar mais de 6.144 milhões de linhas em uma única operação para que isso ocorresse. Se o número de linhas de uma determinada distribuição alinhada por partição for menor que 102.400, as linhas vão para o repositório Delta e permanecem lá até que as linhas suficientes tenham sido inseridas ou modificadas para fechar o grupo de linhas ou o índice tenha sido recriado.
 
 ### <a name="small-or-trickle-load-operations"></a>Operações de carregamento pequenas ou lentas
 
-Pequenas cargas que fluem para a piscina Synapse SQL também são às vezes conhecidas como cargas de gotejamento. Normalmente, elas representam um fluxo quase constante de dados que estão sendo incluídos pelo sistema. No entanto, como esse fluxo é quase contínuo, o volume de linhas não é grande. Frequentemente, os dados ficam consideravelmente abaixo do limite necessário para um carregamento direto no formato columnstore.
+Pequenas cargas que fluem no pool do SQL Synapse também são conhecidas como cargas de Trickle. Normalmente, elas representam um fluxo quase constante de dados que estão sendo incluídos pelo sistema. No entanto, como esse fluxo é quase contínuo, o volume de linhas não é grande. Frequentemente, os dados ficam consideravelmente abaixo do limite necessário para um carregamento direto no formato columnstore.
 
 Nessas situações, é melhor levar os dados primeiro ao armazenamento de blobs do Azure e deixá-los se acumularem antes do carregamento. Essa técnica é conhecida normalmente como *micro envio em lote*.
 
 ### <a name="too-many-partitions"></a>Número excessivo de partições
 
-Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes da partição, o pool Synapse SQL já divide seus dados em 60 bancos de dados.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você dividir sua tabela em 100 partições, então sua tabela precisa de pelo menos 6 bilhões de linhas para se beneficiar de um índice de columnstore agrupado (60 distribuições *100 partições* 1 milhão de linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
+Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, o pool SQL Synapse já divide seus dados em bancos de dado 60.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você particionar sua tabela em 100 partições, sua tabela precisará de pelo menos 6.000.000.000 linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições *100 partições* 1 milhão linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
 
 Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore clusterizados abaixo do ideal.
 
@@ -228,9 +228,9 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
 
-Faça login como usuário a partir da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recursos mais alta, e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
+Entre como o usuário da etapa 1 (por exemplo, loaduser), que agora está usando uma classe de recurso mais alta e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
-Alternativamente, em vez de reconstruir o índice, você poderia copiar a tabela para uma nova tabela [usando CTAS](sql-data-warehouse-develop-ctas.md). Qual é a melhor opção? Para grandes volumes de dados, CTAS é geralmente mais rápido do que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Para volumes menores de dados, ALTER INDEX é mais fácil de usar e não exige a troca da tabela.
+Como alternativa, em vez de recompilar o índice, você pode copiar a tabela para uma nova tabela [usando CTAS](sql-data-warehouse-develop-ctas.md). Qual é a melhor opção? Para grandes volumes de dados, CTAS é geralmente mais rápido do que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Para volumes menores de dados, ALTER INDEX é mais fácil de usar e não exige a troca da tabela.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Reconstruir um índice no pool Synapse SQL é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+A recriação de um índice no pool SQL Synapse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para obter mais detalhes sobre a recriação de partições usando CTAS, consulte [Usando partições no pool Synapse SQL](sql-data-warehouse-tables-partition.md).
+Para obter mais detalhes sobre como recriar partições usando o CTAS, consulte [usando partições no pool SQL Synapse](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

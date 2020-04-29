@@ -1,6 +1,6 @@
 ---
-title: Azure CDN da Verizon Premium rege os recursos do motor | Microsoft Docs
-description: Documentação de referência para CDN Azure dos recursos do mecanismo de regras Verizon Premium.
+title: Recursos do mecanismo de regras da CDN do Azure da Verizon Premium | Microsoft Docs
+description: Documentação de referência para os recursos do mecanismo de regras do Azure CDN do Verizon Premium.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253485"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN da Verizon Premium rege os recursos do motor
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure da Verizon Premium
 
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-verizon-premium-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
@@ -39,23 +39,23 @@ Esses recursos são projetados para personalizar quando e como o conteúdo é ar
 Nome | Finalidade
 -----|--------
 [Parâmetros de Largura de Banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) estarão ativos.
-[Estrangulamento da largura de banda](#bandwidth-throttling) | Limita a largura de banda para a resposta fornecida pelo ponto de presença (POP).
+[Limitação de largura de banda](#bandwidth-throttling) | Limita a largura de banda para a resposta fornecida pelo ponto de presença (POP).
 [Ignorar o Cache](#bypass-cache) | Determina se a solicitação deve ignorar o cache.
 [Tratamento de Cabeçalho Cache-Control](#cache-control-header-treatment) | Controla a geração de cabeçalhos `Cache-Control` pelo POP quando o recurso Idade Máxima Externa está ativo.
 [Cadeia de Caracteres da Consulta da Chave de Cache](#cache-key-query-string) | Determina se a chave de cache inclui ou exclui parâmetros de cadeia de caracteres de consulta associados a uma solicitação.
 [Regravação da Chave de Cache](#cache-key-rewrite) | Regrava a chave de cache associada a uma solicitação.
-[Preenchimento completo do cache](#complete-cache-fill) | Determina o que acontece quando uma solicitação resulta em uma perda no cache parcial em um POP.
+[Concluir preenchimento de cache](#complete-cache-fill) | Determina o que acontece quando uma solicitação resulta em uma perda no cache parcial em um POP.
 [Compactar Tipos de Arquivo](#compress-file-types) | Define os formatos de arquivo para os arquivos que são compactados no servidor.
 [Idade Máxima Interna Padrão](#default-internal-max-age) | Determina o intervalo de idade máxima padrão para a revalidação de cache do POP para o servidor de origem.
 [Tratamento do Cabeçalho Expira](#expires-header-treatment) | Controla a geração de cabeçalhos `Expires` por um POP quando o recurso Idade Máxima Externa está ativo.
 [Idade Máxima Externa](#external-max-age) | Determina o intervalo de idade máxima para a revalidação de cache do navegador para o POP.
 [Forçar Idade Máxima Interna](#force-internal-max-age) | Determina o intervalo de idade máxima para a revalidação de cache do POP para o servidor de origem.
 [Suporte a H.264 (Download Progressivo de HTTP)](#h264-support-http-progressive-download) | Determina os tipos de formatos de arquivo H.264 que podem ser usados para transmitir conteúdo.
-[Pedido de honra sem cache](#honor-no-cache-request) | Determina se as solicitações sem cache do cliente HTTP são encaminhadas para o servidor de origem.
+[Respeitar solicitação no-cache](#honor-no-cache-request) | Determina se as solicitações sem cache do cliente HTTP são encaminhadas para o servidor de origem.
 [Ignorar Ausência de Cache de Origem](#ignore-origin-no-cache) | Determina se o CDN ignorará determinadas diretivas atendidas por um servidor de origem.
 [Ignorar Intervalos Insatisfatórios](#ignore-unsatisfiable-ranges) | Determina a resposta que será retornada aos clientes quando uma solicitação gerar um código de status 416 Intervalo Solicitado Insatisfatório.
 [Máximo de Estado Obsoleto Interno](#internal-max-stale) | Controla quanto tempo após o tempo de expiração normal um ativo em cache pode ser atendido por um POP quando este não puder revalidar o ativo em cache no servidor de origem.
-[Compartilhamento parcial de cache](#partial-cache-sharing) | Determina se uma solicitação pode gerar conteúdo parcialmente em cache.
+[Compartilhamento de cache parcial](#partial-cache-sharing) | Determina se uma solicitação pode gerar conteúdo parcialmente em cache.
 [Pré-validar Conteúdo Armazenado em Cache](#prevalidate-cached-content) | Determina se o conteúdo em cache é elegível para revalidação antecipada antes do TTL expirar.
 [Atualizar Arquivos de Cache de Zero Byte](#refresh-zero-byte-cache-files) | Determina como a solicitação de cliente HTTP para um ativo de cache de zero byte é tratado pelos POPs.
 [Definir Códigos de Status Armazenáveis em Cache](#set-cacheable-status-codes) | Define o conjunto de códigos de status que pode resultar em conteúdo armazenado em cache.
@@ -165,7 +165,7 @@ Nome | Finalidade
 [Redirecionamento de URL](#url-redirect) | Redireciona as solicitações por meio do cabeçalho Local.
 [Regravação de URL](#url-rewrite)  | Regrava a URL da solicitação.
 
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Azure CDN do motor de regras Verizon Premium apresenta referência
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Referência de recursos do mecanismo de regras do Azure CDN da Verizon Premium
 
 ---
 
@@ -178,7 +178,7 @@ Valor|Result
 habilitado | O cabeçalho de resposta Age será incluído na resposta enviada ao solicitante.
 Desabilitado | O cabeçalho de resposta Age será excluído da resposta enviada ao solicitante.
 
-**Comportamento Padrão**: Desativado.
+**Comportamento padrão**: desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -216,7 +216,7 @@ Opção|Descrição
 Kbytes por segundo|Defina essa opção como a largura de banda máxima (Kb por segundo) que pode ser usada para fornecer a resposta.
 Segundos de Prebuf|Defina essa opção para o número de segundos que os POPs devem aguardar até a largura de banda ser limitada. A finalidade desse período de tempo de largura de banda irrestrita é impedir que um player de mídia sofra problemas de intermitência ou de buffer devido à limitação de largura de banda.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -303,7 +303,7 @@ Passagem|Garante que o cabeçalho `Cache-Control` produzido pelo recurso externo
 Adicionar se Ausente|Se um cabeçalho `Cache-Control` não tiver sido recebido do servidor de origem, essa opção adiciona o cabeçalho `Cache-Control` produzido pelo recurso Max-Age Externo. Essa opção é útil para garantir que um cabeçalho `Cache-Control` seja atribuído a todos os ativos.
 Remover| Essa opção garante que um cabeçalho `Cache-Control` não seja incluído na resposta do cabeçalho. Se um cabeçalho `Cache-Control` já tiver sido atribuído, será removido da resposta de cabeçalho.
 
-**Comportamento padrão:** Substituir.
+**Comportamento padrão:** Gravado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -338,7 +338,7 @@ Para duplicar o comportamento de cache da cadeia de caracteres de consulta "sem 
 
 O seguinte exemplo de uso para esse recurso fornece um exemplo de solicitação e a chave de cache padrão:
 
-- **Solicitação de amostra:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Solicitação de exemplo:** http://wpc.0001.&lt;D&gt;omain/800001/Origin/Folder/Asset.htm? SessionID = 1234&language = en&userid = 01
 - **Default cache-key:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Incluir
@@ -367,7 +367,7 @@ Este tipo de configuração geraria a seguinte chave de cache de parâmetro de c
 Configuração de exemplo:
 
 - **Tipo:** Excluir
-- **Parâmetros:** usado em sessão
+- **Parâmetro (s):** userid sessão
 
 Este tipo de configuração geraria a seguinte chave de cache de parâmetro de cadeia de caracteres de consulta:
 
@@ -400,7 +400,7 @@ Configure esse recurso definindo as duas seguintes opções:
 Opção|Descrição
 --|--
 Caminho Original| Defina o caminho relativo para os tipos de solicitações cuja chave de cache é regravada. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão.
-Novo Caminho|Defina o caminho relativo para o novo cache-key. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão. Esse caminho relativo pode ser construído dinamicamente através do uso de [variáveis HTTP](cdn-http-variables.md).
+Novo Caminho|Defina o caminho relativo para o novo cache-key. Um caminho relativo pode ser definido selecionando um caminho de origem de base e, em seguida, definindo uma expressão regular padrão. Esse caminho relativo pode ser construído dinamicamente com o uso de [variáveis http](cdn-http-variables.md).
 
 **Comportamento padrão:** o cache-key da solicitação é determinado pelo URI de solicitação.
 
@@ -458,12 +458,12 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Regex de Parâmetro de Cookie
 - País/Região
 - Dispositivo
-- Microsoft Edge Cname
+- CNAME do Microsoft Edge
 - Domínio de Referência
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método de Solicitação
+- Método Request
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -514,9 +514,9 @@ Por padrão, o campo de log personalizado é chamado de "x-ec_custom-1". O nome 
 
 O formato para especificar cabeçalhos de solicitação e resposta é definido da seguinte forma:
 
-Tipo de Cabeçalho|Formatar|Exemplos
+Tipo de Cabeçalho|Formato|Exemplos
 -|-|-
-Cabeçalho da Solicitação|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Cabeçalho da Solicitação|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referenciador} i <br/> %{Authorization}i
 Cabeçalho de Resposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informações de chave:
@@ -556,7 +556,7 @@ Valor|Result
 habilitado|Solicitações para cabeçalhos de resposta do cache de depuração retornarão uma resposta que inclui o cabeçalho X-EC-Debug.
 Desabilitado|O cabeçalho de resposta X-EC-Debug será excluído da resposta.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -595,7 +595,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método de Solicitação
+- Método Request
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -683,7 +683,7 @@ Valor|Result
 habilitado|As solicitações podem ser redirecionadas.
 Desabilitado|As solicitações não serão redirecionadas.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -722,7 +722,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método de Solicitação
+- Método Request
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -767,7 +767,7 @@ Para todo o tráfego de produção, é altamente recomendável deixar esse recur
 
 O status de cache que será relatado a uma solicitação que pode ser encaminhada para um servidor de origem devido a esse recurso é `TCP_Client_Refresh_Miss`. O relatório de Status do Cache, que está disponível no módulo de relatório de Núcleo, fornece informações estatísticas por status de cache. Este relatório permite controlar o número e a porcentagem de solicitações que são encaminhadas para um servidor de origem devido a esse recurso.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -806,7 +806,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método de Solicitação
+- Método Request
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -830,7 +830,7 @@ Valor|Result
 habilitado|Impede que os POPs respondam a uma solicitação inválida de intervalo de bytes com um código de status 416 Intervalo Solicitado Insatisfatório. Em vez disso, os servidores distribuirão o ativo solicitado e retornarão uma resposta 200 OK ao cliente.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é cumprir o código de status 416 Intervalo Solicitado Insatisfatório.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -874,7 +874,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Literal de Cabeçalho de Solicitação
 - Regex do Cabeçalho da Solicitação
 - Curinga de Cabeçalho de Solicitação
-- Método de Solicitação
+- Método Request
 - Esquema de Solicitação
 - Literal da Consulta da URL
 - Regex da consulta da URL
@@ -896,7 +896,7 @@ Valor|Result
 habilitado|Permite o armazenamento de cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso. Se uma URL não contiver uma cadeia de caracteres de consulta, essa opção não terá efeito.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é ignorar as cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -991,7 +991,7 @@ Informações de chave:
 - Os seguintes cabeçalhos são reservados e não podem ser modificados por este recurso:
     - accept-encoding
     - age
-    - conexão
+    - connection
     - content-encoding
     - content-length
     - content-range
@@ -1022,7 +1022,7 @@ Valor|Result
 habilitado|As solicitações podem gerar conteúdo parcialmente em cache.
 Desabilitado|As solicitações só podem gerar uma versão totalmente em cache do conteúdo solicitado.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1040,7 +1040,7 @@ Informações de chave:
 
 - Selecionar "Desativado" como a unidade de tempo requer que a revalidação ocorra após o TTL do conteúdo em cache expirar. O tempo não deve ser especificado e é ignorado.
 
-**Comportamento padrão:** Desligou. A revalidação só pode ocorrer após a expiração do TTL do conteúdo armazenado em cache.
+**Comportamento padrão:** Desconto. A revalidação só pode ocorrer após a expiração do TTL do conteúdo armazenado em cache.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1086,9 +1086,9 @@ Valor|Result
 habilitado|Faz o POP buscar novamente o ativo do servidor de origem.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é fornecer ativos de cache válidos mediante solicitação.
 
-Este recurso não é necessário para o armazenamento em cache e o fornecimento de conteúdo corretos, mas pode ser útil como solução alternativa. Por exemplo, geradores de conteúdo dinâmicos em servidores de origem inadvertidamente podem fazer com que respostas de 0 byte sejam enviadas aos POPs. Esses tipos de respostas normalmente são armazenados em cache pelos POPs. Se você sabe que uma resposta de 0 byte nunca é uma resposta válida para tal conteúdo, esse recurso pode impedir que esses tipos de ativos sejam atendidos aos seus clientes.
+Este recurso não é necessário para o armazenamento em cache e o fornecimento de conteúdo corretos, mas pode ser útil como solução alternativa. Por exemplo, geradores de conteúdo dinâmicos em servidores de origem inadvertidamente podem fazer com que respostas de 0 byte sejam enviadas aos POPs. Esses tipos de respostas normalmente são armazenados em cache pelos POPs. Se você souber que uma resposta de 0 byte nunca é uma resposta válida para tal conteúdo, esse recurso poderá impedir que esses tipos de ativos sejam servidos para seus clientes.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1153,7 +1153,7 @@ Valor|Result
 habilitado|Conteúdo obsoleto será fornecido ao solicitante quando ocorrer um erro durante a conexão com um servidor de origem.
 Desabilitado|O erro do servidor de origem será encaminhado ao solicitante.
 
-**Comportamento padrão:** Desativado
+**Comportamento padrão:** Desabilitado
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1168,11 +1168,11 @@ Desabilitado|O erro do servidor de origem será encaminhado ao solicitante.
 Informações de chave:
 
 - O comportamento desse recurso varia de acordo com a unidade de tempo selecionada.
-    - **Unidade de tempo:** especifique um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas, etc.) para permitir a entrega de conteúdo obsoleto. Este tipo de configuração permite que o CDN amplie o tempo que ele pode fornecer conteúdo antes de exigir validação de acordo com a seguinte fórmula: **TTL** + **Sodérdia Enquanto Revalidar tempo**
+    - **Unidade de tempo:** especifique um período de tempo e selecione uma unidade de tempo (por exemplo, segundos, minutos, horas, etc.) para permitir a entrega de conteúdo obsoleto. Esse tipo de configuração permite que a CDN estenda o período de tempo que pode fornecer conteúdo antes de exigir a validação de acordo com a seguinte fórmula: **TTL** + **obsoleto enquanto tempo de revalidação**
     - **Desativado:** selecione "Desativado" para exigir revalidação para que uma solicitação de conteúdo obsoleto possa ser atendida.
         - Não especifique um período de tempo, pois ele é inaplicável e será ignorado.
 
-**Comportamento padrão:** Desligou. A revalidação deve ocorrer para que o conteúdo solicitado possa ser fornecido.
+**Comportamento padrão:** Desconto. A revalidação deve ocorrer para que o conteúdo solicitado possa ser fornecido.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1188,7 +1188,7 @@ Se a Autenticação Baseada em Token for habilitada, somente solicitações que 
 
 A chave de criptografia que será usada para criptografar e descriptografar valores de token é determinada pelas opções de Chave Primária e Chave de Backup na página de Autenticação de Token. Lembre-se de que as chaves de criptografia são específicas da plataforma.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 Este recurso toma precedência sobre os recursos com a exceção do recurso de Regenerar URL.
 
@@ -1275,7 +1275,7 @@ Valor|Result
 habilitado|Faz com que o POP ignore maiúsculas e minúsculas durante a comparação de URLs para os parâmetros de Autenticação Baseada em Token.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é que comparações de URL para Autenticação de Token diferenciem maiúsculas de minúsculas.
 
-**Comportamento padrão:** Desativado.
+**Comportamento padrão:** Desabilitado.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1298,7 +1298,7 @@ Valor|Result
 habilitado|A opção Value define o nome do parâmetro de cadeia de caracteres de consulta por meio do qual os tokens devem ser definidos.
 Desabilitado|Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
 
-**Comportamento padrão:** Desativado. Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
+**Comportamento padrão:** Desabilitado. Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
 
 [Voltar ao início](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1320,7 +1320,7 @@ Destino| Defina a URL para a qual as solicitações acima serão redirecionadas.
 
 É altamente recomendável usar uma URL absoluta. O uso de uma URL relativa pode redirecionar URLs da CDN para um caminho inválido.
 
-**Cenário amostral**
+**Cenário de exemplo**
 
 Este exemplo mostra como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http:\//marketing.azureedge.net/brochures
 
@@ -1328,7 +1328,7 @@ As solicitações serão redirecionadas para esta URL CNAME de borda base: http:
 
 Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![Redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
-**Pontos-chave:**
+**Pontos principais:**
 
 - O recurso de Redirecionamento de URL define as URLs de solicitação que serão redirecionadas. Como resultado, as condições de correspondência adicionais não são necessárias. Embora a condição de correspondência tenha sido definida como "Sempre", somente as solicitações que apontarem para a pasta "folhetos" na origem do cliente de "marketing" serão redirecionadas.
 - Todas as solicitações correspondentes serão redirecionadas para a URL CNAME de borda definida na opção Destination.
@@ -1360,8 +1360,8 @@ Informações de chave:
 
 Opção|Descrição
 -|-
- Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/><br/>  - **Fonte (ou ponto de acesso ao conteúdo):** Selecione um caminho relativo que identifique um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
- Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifique um servidor de origem. <br/>    2. Definir um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor.
+ Origem e Padrão | Essas configurações definem um padrão de URI de solicitação que identifica o tipo de solicitações que podem ser reconfiguradas. Serão regravadas somente as solicitações cuja URL atender aos seguintes critérios: <br/><br/>  - **Origem (ou ponto de acesso de conteúdo):** Selecione um caminho relativo que identifique um servidor de origem. Esta é a seção  _/XXXX/_ e o nome do ponto de extremidade. <br/><br/> - **Origem (padrão):** deve ser definido um padrão que identifica solicitações pelo caminho relativo. Este padrão de expressão regular deve definir um caminho que é iniciado diretamente após o ponto de acesso a conteúdo selecionado anteriormente (veja acima). <br/> Certifique-se de que os critérios de URI da solicitação (ou seja, Origem e padrão) definidos anteriormente não entram em conflito com as condições de correspondência definidas para esse recurso. Especificar um padrão; se você usar um valor em branco como o padrão, todas as cadeias de caracteres serão correspondidas.
+ Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor.
 
  Esse recurso permite que os POPs regravem a URL sem executar um redirecionamento tradicional. Ou seja, o solicitante receberá o mesmo código de resposta que obteria se a URL regravada tivesse sido solicitada.
 
@@ -1379,7 +1379,7 @@ Este exemplo mostra como redirecionar uma borda CNAME URL de MAIÚSCULAS para mi
 
 Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![Redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
-**Pontos-chave:**
+**Pontos principais:**
 
 - O recurso de Reescrita de URL define as URLs de solicitação que serão reescritas. Como resultado, as condições de correspondência adicionais não são necessárias. Embora a condição de correspondência tenha sido definida como "Sempre", somente as solicitações que apontarem para a pasta "folhetos" na origem do cliente de "marketing" serão reescritas.
 
@@ -1422,7 +1422,7 @@ Esse recurso inclui critérios de correspondência que devem ser atendidos para 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Referência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference.md)
-- [Regras de expressões condicionais do motor](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Expressões condicionais do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Condições de correspondência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Substitua o comportamento HTTP usando o mecanismo de regras](cdn-verizon-premium-rules-engine.md)
 - [Visão geral da CDN do Azure](cdn-overview.md)

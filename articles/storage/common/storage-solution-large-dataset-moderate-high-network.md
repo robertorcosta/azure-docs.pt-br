@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: cfe450972acda3affbea6cbe3d262bc4b1956dc9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262852"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com largura de banda de rede moderada a alta
@@ -73,7 +73,7 @@ Se estiver usando transferência de dados offline, use a tabela a seguir para en
 |    Criptografia                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    Hardware                         |     Fornecido pela Microsoft          |    Fornecido pela Microsoft                            |    Fornecido pela Microsoft                    |    Fornecido pelo cliente                   |
 |    interface de rede                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ-45, QSFP+                           |    SATA II/SATA III                    |
-|    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Alta](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
+|    Integração de parceiros              |    Alguns                         |    [Elevada](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Elevada](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
 |    Remessa                         |    Gerenciado pela Microsoft            |    Gerenciado pela Microsoft                             |    Gerenciado pela Microsoft                     |    Gerenciado pelo cliente                    |
 | Use quando os dados são movidos         |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Entre fronteiras geográficas, por exemplo, dos EUA para a UE|
 |    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
@@ -83,7 +83,7 @@ Se estiver usando a transferência de dados online, use a tabela na seção a se
 
 ### <a name="high-network-bandwidth"></a>Largura de banda da rede alta
 
-|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    SDKs, APIs REST do Armazenamento do Azure                   |    Gateway da caixa de dados ou borda da caixa de dados          |    Fábrica de dados do Azure                                            |
+|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    SDKs, APIs REST do Armazenamento do Azure                   |    Gateway do Data Box ou Data Box Edge          |    Fábrica de dados do Azure                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de dados                  |    Blobs do Azure, Azure Files, Tabelas do Azure    |    Blobs do Azure, Azure Files, Tabelas do Azure    |    Blobs do Azure, Azure Files                           |   Dá suporte a mais de 70 conectores de dados para os formatos e armazenamentos de dados    |
 |    Fator forma                |    Ferramentas da linha de comando                        |    Interface programática                    |    A Microsoft fornece um dispositivo virtual <br>ou físico     |    Serviço no portal do Azure                                            |
@@ -100,7 +100,7 @@ Se estiver usando a transferência de dados online, use a tabela na seção a se
 
     - [Transferir dados com o Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
     - [Transferir dados com o Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Transferir dados com o AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - Entenda como:
     - [Transferir dados com o Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Transformar dados com o Data Box Edge antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).

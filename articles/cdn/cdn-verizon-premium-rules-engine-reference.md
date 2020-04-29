@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: bda817712faf1f54287e880dc62ef2b08273ff42
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253383"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>CDN azure da Verizon Premium rege referência do motor
+# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure da Verizon Premium
 
 Este artigo lista as descrições detalhadas dos recursos e condições de correspondência disponíveis para o mecanismo de regras da [CDN (Rede de Distribuição de Conteúdo)](cdn-verizon-premium-rules-engine.md).
 
@@ -71,12 +71,12 @@ Caractere especial | Descrição
 Space | Normalmente, um caractere de espaço é tratado como um caractere literal.
 'valor' | Aspas simples são tratadas como caracteres literais. Um conjunto de aspas simples não tem significado especial.
 
-Condições de correspondência e recursos que suportam expressões regulares aceitam padrões definidos por Expressões Regulares Compatíveis perl (PCRE).
+As condições de correspondência e os recursos que oferecem suporte a expressões regulares aceitam padrões definidos por PCRE (expressões regulares compatíveis com Perl).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
-- [Regras de expressões condicionais do motor](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Condições de correspondência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Expressões condicionais do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Recursos do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Substitua o comportamento HTTP usando o mecanismo de regras](cdn-verizon-premium-rules-engine.md)
 - [Visão geral da CDN do Azure](cdn-overview.md)

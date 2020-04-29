@@ -11,19 +11,19 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272586"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderar texto no console da API
 
-Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para escanear o conteúdo do texto para obter palavrões e compará-lo com listas personalizadas e compartilhadas.
+Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
-Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [visão geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegar até a referência da API
 
@@ -69,7 +69,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP:
 
 ## <a name="analyze-the-response"></a>Analisar a resposta
 
-A resposta a seguir mostra as várias informações da API. Contém palavrões potenciais, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
+A resposta a seguir mostra as várias informações da API. Ele contém possíveis obscenidades, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
 
 > [!NOTE]
 > O recurso “Classificação” assistido por computador está na visualização e suporta apenas o inglês.
@@ -133,8 +133,8 @@ A resposta a seguir mostra as várias informações da API. Contém palavrões p
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções da resposta JSON, consulte o guia conceitual [de moderação de texto.](text-moderation-api.md)
+Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use a API REST em seu código ou siga o [quickstart do .NET SDK](dotnet-sdk-quickstart.md) para se integrar ao seu aplicativo.
+Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para integrar com seu aplicativo.

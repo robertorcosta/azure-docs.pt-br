@@ -1,67 +1,67 @@
 ---
-title: Remova o TLS 1.0 e o 1.1 do uso com o Cache Azure para Redis
-description: Saiba como remover o TLS 1.0 e o 1.1 do seu aplicativo ao se comunicar com o Cache Azure para Redis
+title: Remova o TLS 1,0 e 1,1 do uso com o cache do Azure para Redis
+description: Saiba como remover o TLS 1,0 e 1,1 do seu aplicativo ao se comunicar com o cache do Azure para Redis
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
 ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261206"
 ---
-# <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova o TLS 1.0 e o 1.1 do uso com o Cache Azure para Redis
+# <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova o TLS 1,0 e 1,1 do uso com o cache do Azure para Redis
 
-Há um empurrão em todo o setor para o uso exclusivo da versão 1.2 (Transport Layer Security) (Transport Layer Security) 1.2 ou posterior. As versões TLS 1.0 e 1.1 são conhecidas por serem suscetíveis a ataques como BEAST e POODLE, e ter outras fraquezas de Vulnerabilidades e Exposições Comuns (CVE). Eles também não suportam os métodos modernos de criptografia e suítes de cifras recomendadas pelos padrões de conformidade da Indústria de Cartões de Pagamento (PCI). Este [blog de segurança TLS](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explica algumas dessas vulnerabilidades com mais detalhes.
+Há um push em todo o setor para o uso exclusivo da TLS (Transport Layer Security) versão 1,2 ou posterior. As versões 1,0 e 1,1 do TLS são conhecidas como suscetíveis a ataques como fera e POODLE, e têm pontos fracos de vulnerabilidades e exposições (CVE) comuns. Eles também não dão suporte aos métodos de criptografia modernos e conjuntos de codificação recomendados pelos padrões de conformidade do setor de cartão de pagamento (PCI). Este [blog de segurança do TLS](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explica algumas dessas vulnerabilidades mais detalhadamente.
 
-Como parte deste esforço, faremos as seguintes alterações no Cache do Azure para Redis:
+Como parte desse esforço, vamos fazer as seguintes alterações no cache do Azure para Redis:
 
-* **Fase 1:** Configuraremos a versão TLS mínima padrão para ser 1.2 para instâncias de cache recém-criadas. (Este costumava ser TLS 1.0.) As instâncias de cache existentes não serão atualizadas neste momento. Você poderá alterar [a versão TLS mínima](cache-configure.md#access-ports) de volta para 1.0 ou 1.1 para compatibilidade retrógrada, se necessário. Essa alteração pode ser feita através do portal Azure ou de outras APIs de gerenciamento.
-* **Fase 2:** Vamos parar de suportar as versões TLS 1.0 e 1.1. Após essa alteração, seu aplicativo será obrigado a usar o TLS 1.2 ou posterior para se comunicar com seu cache.
+* **Fase 1:** Configuraremos a versão padrão mínima do TLS como 1,2 para instâncias de cache recém-criadas. (Isso costumava ser o TLS 1,0.) As instâncias de cache existentes não serão atualizadas neste ponto. Você terá permissão para [alterar a versão mínima do TLS](cache-configure.md#access-ports) de volta para 1,0 ou 1,1 para compatibilidade com versões anteriores, se necessário. Essa alteração pode ser feita por meio do portal do Azure ou de outras APIs de gerenciamento.
+* **Fase 2:** Vamos parar de dar suporte às versões 1,0 e 1,1 do TLS. Após essa alteração, seu aplicativo será solicitado a usar o TLS 1,2 ou posterior para se comunicar com o cache.
 
-Além disso, como parte desta mudança, estaremos removendo o suporte para suítes cypher mais antigas e inseguras.  Nossas suítes cypher suportadas serão restritas ao seguinte quando o cache for configurado com uma versão TLS mínima de 1.2.
+Além disso, como parte dessa alteração, removeremos o suporte para pacotes de criptografia mais antigos e inseguros.  Nossos pacotes criptografia com suporte serão restritos ao seguinte quando o cache for configurado com uma versão de TLS mínima de 1,2.
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 
-Este artigo fornece orientações gerais sobre como detectar dependências dessas versões TLS anteriores e removê-las de seu aplicativo.
+Este artigo fornece diretrizes gerais sobre como detectar dependências dessas versões anteriores do TLS e removê-las do seu aplicativo.
 
-As datas em que essas alterações entrarem em vigor são:
+As datas em que essas alterações entram em vigor são:
 
 | Nuvem               | Data de início da fase 1 | Data de início da fase 2      |
 |---------------------|--------------------|-------------------------|
-| Azure (global)      |  13 de janeiro de 2020  | 11 de maio de 2020 (prorrogado) |
+| Azure (global)      |  13 de janeiro de 2020  | 11 de maio de 2020 (estendido) |
 | Azure Government    |  13 de março de 2020    | 11 de maio de 2020            |
 | Azure Alemanha       |  13 de março de 2020    | 11 de maio de 2020            |
 | Azure China         |  13 de março de 2020    | 11 de maio de 2020            |
 
-## <a name="check-whether-your-application-is-already-compliant"></a>Verifique se sua aplicação já está em conformidade
+## <a name="check-whether-your-application-is-already-compliant"></a>Verifique se seu aplicativo já está em conformidade
 
-A maneira mais fácil de descobrir se seu aplicativo funcionará com o TLS 1.2 é definir o valor mínimo da **versão TLS** para TLS 1.2 em um teste ou cache de estágio que ele usa. A configuração **da versão TLS mínima** está nas [configurações avançadas](cache-configure.md#advanced-settings) da instância de cache no portal Azure. Se o aplicativo continuar funcionando como esperado após essa mudança, provavelmente será compatível. Você pode precisar configurar algumas bibliotecas de clientes Redis usadas pelo seu aplicativo especificamente para habilitar o TLS 1.2, para que eles possam se conectar ao Cache do Azure para Redis sobre esse protocolo de segurança.
+A maneira mais fácil de descobrir se seu aplicativo funcionará com o TLS 1,2 é definir o valor de **versão mínima do TLS** como TLS 1,2 em um cache de teste ou de preparo que ele usa. A configuração de **versão mínima do TLS** está nas [Configurações avançadas](cache-configure.md#advanced-settings) de sua instância de cache no portal do Azure. Se o aplicativo continuar funcionando conforme o esperado após essa alteração, provavelmente será compatível. Talvez seja necessário configurar algumas bibliotecas de cliente do Redis usadas pelo seu aplicativo especificamente para habilitar o TLS 1,2, para que eles possam se conectar ao cache do Azure para Redis sobre o protocolo de segurança.
 
-## <a name="configure-your-application-to-use-tls-12"></a>Configure seu aplicativo para usar o TLS 1.2
+## <a name="configure-your-application-to-use-tls-12"></a>Configurar seu aplicativo para usar o TLS 1,2
 
-A maioria dos aplicativos usa bibliotecas de clientes Redis para lidar com a comunicação com seus caches. Aqui estão instruções para configurar algumas das bibliotecas de clientes populares, em várias linguagens e frameworks de programação, para usar o TLS 1.2.
+A maioria dos aplicativos usa bibliotecas de cliente do Redis para lidar com a comunicação com seus caches. Aqui estão as instruções para configurar algumas das bibliotecas de cliente populares, em várias linguagens de programação e estruturas, para usar o TLS 1,2.
 
 ### <a name="net-framework"></a>.NET Framework
 
-Os clientes Redis .NET usam a versão TLS mais antiga por padrão no .NET Framework 4.5.2 ou anterior, e usam a versão TLS mais recente no .NET Framework 4.6 ou posterior. Se você estiver usando uma versão mais antiga do .NET Framework, você pode ativar o TLS 1.2 manualmente:
+Os clientes do Redis .NET usam a versão mais antiga do TLS por padrão no .NET Framework 4.5.2 ou anterior e usam a versão mais recente do TLS no .NET Framework 4,6 ou posterior. Se você estiver usando uma versão mais antiga do .NET Framework, poderá habilitar o TLS 1,2 manualmente:
 
-* **StackExchange.Redis:** Definir `ssl=true` `sslprotocols=tls12` e na seqüência de conexão.
-* **ServiceStack.Redis:** Siga as instruções [serviceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) e requer ServiceStack.Redis v5.6 no mínimo.
+* **Stackexchange. Redis:** Defina `ssl=true` e `sslprotocols=tls12` na cadeia de conexão.
+* **Perstack. Redis:** Siga as instruções do [perstack. Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) e exija o perstack. Redis v 5.6 no mínimo.
 
 ### <a name="net-core"></a>.NET Core
 
-Os clientes Redis .NET Core usam a versão TLS mais recente por padrão.
+Os clientes do Redis .NET Core usam a versão mais recente do TLS por padrão.
 
 ### <a name="java"></a>Java
 
-Os clientes Redis Java usam O TLS 1.0 na versão Java 6 ou anterior. Jedis, Alface e Redisson não podem se conectar ao Cache Azure para Redis se o TLS 1.0 estiver desativado no cache. Atualize sua estrutura Java para usar novas versões TLS.
+Os clientes Redis Java usam o TLS 1,0 na versão 6 ou anterior do Java. Jedis, lettuce e Redisson não podem se conectar ao cache do Azure para Redis se o TLS 1,0 estiver desabilitado no cache. Atualize sua estrutura Java para usar novas versões de TLS.
 
-Para Java 7, os clientes Redis não usam O TLS 1.2 por padrão, mas podem ser configurados para ele. Jedis permite que você especifique as configurações TLS subjacentes com o seguinte trecho de código:
+Para o Java 7, os clientes Redis não usam o TLS 1,2 por padrão, mas podem ser configurados para ele. Jedis permite que você especifique as configurações de TLS subjacentes com o seguinte trecho de código:
 
 ``` Java
 SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
@@ -77,21 +77,21 @@ shardInfo.setPassword("cachePassword");
 Jedis jedis = new Jedis(shardInfo);
 ```
 
-Os clientes Alface e Redisson ainda não suportam especificar a versão TLS, então eles quebrarão se o cache aceitar apenas conexões TLS 1.2. Correções para esses clientes estão sendo revisadas, então verifique com esses pacotes se há uma versão atualizada com este suporte.
+Os clientes lettuce e Redisson ainda não dão suporte à especificação da versão do TLS, portanto, eles serão interrompidos se o cache aceitar somente conexões TLS 1,2. As correções para esses clientes estão sendo revisadas, portanto, verifique com esses pacotes uma versão atualizada com esse suporte.
 
-No Java 8, o TLS 1.2 é usado por padrão e não deve exigir atualizações para a configuração do cliente na maioria dos casos. Por segurança, teste sua aplicação.
+No Java 8, o TLS 1,2 é usado por padrão e não deve exigir atualizações para a configuração do cliente na maioria dos casos. Para ser seguro, teste seu aplicativo.
 
 ### <a name="nodejs"></a>Node.js
 
-Node Redis e IORedis usam TLS 1.2 por padrão.
+O node Redis e o IORedis usam TLS 1,2 por padrão.
 
 ### <a name="php"></a>PHP
 
 #### <a name="predis"></a>Predis
  
-* Versões anteriores ao PHP 7: O Predis suporta apenas o TLS 1.0. Essas versões não funcionam com o TLS 1.2; você deve atualizar para usar o TLS 1.2.
+* Versões anteriores ao PHP 7: Predis dá suporte apenas a TLS 1,0. Essas versões não funcionam com o TLS 1,2; Você deve atualizar para usar o TLS 1,2.
  
-* PHP 7.0 a PHP 7.2.1: O Predis usa apenas O TLS 1.0 ou 1.1 por padrão. Você pode usar a seguinte solução para usar o TLS 1.2. Especifique o TLS 1.2 ao criar a instância do cliente:
+* PHP 7,0 a PHP 7.2.1: Predis usa somente TLS 1,0 ou 1,1 por padrão. Você pode usar a solução alternativa a seguir para usar o TLS 1,2. Especifique o TLS 1,2 ao criar a instância do cliente:
 
   ``` PHP
   $redis=newPredis\Client([
@@ -105,19 +105,19 @@ Node Redis e IORedis usam TLS 1.2 por padrão.
   ]);
   ```
 
-* PHP 7.3 e versões posteriores: Predis usa a versão TLS mais recente.
+* PHP 7,3 e versões posteriores: o Predis usa a versão mais recente do TLS.
 
 #### <a name="phpredis"></a>PhpRedis
 
-PhpRedis não suporta TLS em nenhuma versão PHP.
+PhpRedis não dá suporte a TLS em nenhuma versão do PHP.
 
 ### <a name="python"></a>Python
 
-Redis-py usa TLS 1.2 por padrão.
+Redis-py usa TLS 1,2 por padrão.
 
 ### <a name="go"></a>GO
 
-O Redigo usa o TLS 1.2 por padrão.
+O RediGO usa TLS 1,2 por padrão.
 
 ## <a name="additional-information"></a>Informações adicionais
 

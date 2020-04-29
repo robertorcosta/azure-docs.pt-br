@@ -1,5 +1,5 @@
 ---
-title: Trabalhe com procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
+title: Trabalhar com procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
 description: Este artigo apresenta conceitos, como procedimentos armazenados, gatilhos e funções definidas pelo usuário, do Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
@@ -8,40 +8,40 @@ ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010538"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
-O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API SQL no Azure Cosmos DB, você pode escrever **procedimentos** **armazenados, gatilhos**e **funções definidas pelo usuário (UDFs)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Crie e execute gatilhos, procedimentos armazenados e UDFs usando o [portal do Azure](https://portal.azure.com/), a [API de consulta integrada à linguagem do JavaScript no Azure Cosmos DB](javascript-query-api.md) e os [SDKs de cliente da API do SQL do Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+O Azure Cosmos DB fornece execução transacional e integrada à linguagem de JavaScript. Ao usar a API do SQL no Azure Cosmos DB, você pode gravar **procedimentos armazenados**, **gatilhos**e **UDFs (funções definidas pelo usuário)** na linguagem JavaScript. Escreva sua lógica em JavaScript que é executada dentro do mecanismo de banco de dados. Crie e execute gatilhos, procedimentos armazenados e UDFs usando o [portal do Azure](https://portal.azure.com/), a [API de consulta integrada à linguagem do JavaScript no Azure Cosmos DB](javascript-query-api.md) e os [SDKs de cliente da API do SQL do Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Benefícios do uso da programação do servidor
 
 A escrita de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) em JavaScript permite que você crie aplicativos sofisticados e que eles tenham as seguintes vantagens:
 
-* **Lógica processual:** JavaScript como uma linguagem de programação de alto nível que fornece interface rica e familiar para expressar a lógica de negócios. Você pode executar uma sequência de operações complexas nos dados.
+* **Lógica de procedimento:** JavaScript como uma linguagem de programação de alto nível que fornece uma interface rica e familiar para expressar a lógica de negócios. Você pode executar uma sequência de operações complexas nos dados.
 
-* **Transações atômicas:** O Azure Cosmos DB garante que as operações de banco de dados realizadas dentro de um único procedimento armazenado ou um gatilho são atômicas. Essa funcionalidade atômica permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas as operações ou nenhuma delas seja bem-sucedida.
+* **Transações atômicas:** Azure Cosmos DB garante que as operações de banco de dados executadas em um único procedimento armazenado ou um gatilho sejam atômicas. Essa funcionalidade atômica permite que um aplicativo combine operações relacionadas em um único lote, de modo que todas as operações ou nenhuma delas seja bem-sucedida.
 
-* **Desempenho:** Os dados JSON são intrinsecamente mapeados para o sistema de tipo de linguagem JavaScript. Esse mapeamento permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda para o código em execução. Há outros benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados, que incluem:
+* **Desempenho:** Os dados JSON são mapeados intrinsecamente para o sistema de tipos de linguagem JavaScript. Esse mapeamento permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda para o código em execução. Há outros benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados, que incluem:
 
-   * *Loteamento:* Você pode agrupar operações como inserções e enviá-las em massa. Os custos de latência do tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente.
+   * *Envio em lote:* Você pode agrupar operações como inserções e enviá-las em massa. Os custos de latência do tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente.
 
-   * *Pré-compilação:* Procedimentos armazenados, gatilhos e UDFs são implicitamente pré-compilados para o formato de código de byte, a fim de evitar o custo de compilação no momento de cada invocação do script. Devido à pré-compilação, a invocação de procedimentos armazenados é rápida e tem um volume baixo.
+   * *Pré-compilação:* Procedimentos armazenados, gatilhos e UDFs são implicitamente compilados para o formato de código de bytes para evitar o custo de compilação no momento de cada invocação de script. Devido à pré-compilação, a invocação de procedimentos armazenados é rápida e tem um volume baixo.
 
-   * *Sequenciamento:* Às vezes, as operações precisam de um mecanismo de acionamento que possa realizar uma ou atualizações adicionais aos dados. Além da Atomicidade, também há benefícios de desempenho com a execução do servidor.
+   * *Sequenciamento:* Às vezes, as operações precisam de um mecanismo de disparo que possa executar uma ou mais atualizações para os dados. Além da Atomicidade, também há benefícios de desempenho com a execução do servidor.
 
-* **Encapsulamento:** Os procedimentos armazenados podem ser usados para agrupar a lógica em um só lugar. O encapsulamento adiciona uma camada de abstração aos dados, o que permite que você desenvolva seus aplicativos de maneira independente dos dados. Essa camada de abstração é útil quando os dados são sem esquema e você não precisa gerenciar a adição de lógica extra diretamente no aplicativo. A abstração permite manter os dados seguros simplificando o acesso pelos scripts.
+* **Encapsulamento:** Os procedimentos armazenados podem ser usados para agrupar lógica em um único local. O encapsulamento adiciona uma camada de abstração aos dados, o que permite que você desenvolva seus aplicativos de maneira independente dos dados. Essa camada de abstração é útil quando os dados são sem esquema e você não precisa gerenciar a adição de lógica extra diretamente no aplicativo. A abstração permite manter os dados seguros simplificando o acesso pelos scripts.
 
 > [!TIP]
-> Os procedimentos armazenados são mais adequados para operações que são pesadas para gravação e exigem uma transação através de um valor-chave de partição. Ao decidir se deve usar os procedimentos armazenados, otimize em torno de encapsular a quantidade máxima de gravações possível. De um modo geral, os procedimentos armazenados não são os meios mais eficientes para fazer grandes operações de leitura ou consulta, portanto, usar procedimentos armazenados para emudar um grande número de leituras para retornar ao cliente não produzirá o benefício desejado. Para o melhor desempenho, essas operações de leitura pesada devem ser feitas do lado do cliente, usando o Cosmos SDK. 
+> Os procedimentos armazenados são mais adequados para operações que são de gravação pesada e exigem uma transação em um valor de chave de partição. Ao decidir se deseja usar procedimentos armazenados, otimize o encapsulamento da quantidade máxima de gravações possível. Em termos gerais, os procedimentos armazenados não são os meios mais eficientes para fazer grandes quantidades de operações de leitura ou consulta; portanto, o uso de procedimentos armazenados para enviar grandes quantidades de leituras em lotes para retornar ao cliente não produzirá o benefício desejado. Para obter o melhor desempenho, essas operações de leitura pesada devem ser feitas no lado do cliente, usando o SDK do cosmos. 
 
 ## <a name="transactions"></a>Transactions
 
-A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID**. ACID é um acrônimo bem conhecido que significa: **Uma**tomicidade, onsistencia **C,** **eu**solção, e **D**urability. 
+A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID**. ACID é um acrônimo bem conhecido que significa: **uma**tomicity, **C**onsistency, **I**solation e **D**urability. 
 
 * A atomicidade garante que todas as operações feitas dentro de uma transação sejam tratadas como uma única unidade e que nenhuma delas ou todas elas sejam confirmadas. 
 
@@ -55,7 +55,7 @@ No Azure Cosmos DB, o runtime do JavaScript é hospedado dentro do mecanismo de 
 
 ### <a name="scope-of-a-transaction"></a>Escopo de uma transação
 
-Os procedimentos armazenados estão associados a um contêiner Azure Cosmos e a execução do procedimento armazenado é escopo de uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor-chave de partição lógico durante a execução que define a partição lógica para o escopo da transação. Para obter mais informações, confira o artigo [Particionamento do Azure Cosmos DB](partition-data.md).
+Os procedimentos armazenados são associados a um contêiner Cosmos do Azure e a execução do procedimento armazenado é delimitada a uma chave de partição lógica. Os procedimentos armazenados devem incluir um valor de chave de partição lógica durante a execução que define a partição lógica para o escopo da transação. Para obter mais informações, confira o artigo [Particionamento do Azure Cosmos DB](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Confirmação e reversão
 
@@ -69,7 +69,7 @@ Os procedimentos armazenados e os gatilhos são sempre executados na réplica pr
 
 Todas as operações do Azure Cosmos DB precisam ser concluídas dentro da duração de tempo limite especificada. Essa restrição se aplica a funções do JavaScript – procedimentos armazenados, gatilhos e funções definidas pelo usuário. Se uma operação não for concluída dentro desse limite de tempo, a transação será revertida.
 
-Garanta que as funções do JavaScript sejam concluídas dentro do limite de tempo ou implemente um modelo baseado em continuação para criar um lote/retomar a execução. A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no contêiner do Azure Cosmos (por exemplo, criação, leitura, atualização e exclusão de itens) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, ele será uma indicação de que o procedimento precisará encapsular a execução porque o script está consumindo mais tempo ou uma taxa de transferência provisionada maior do que o valor configurado. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila. Assim, as operações devem ser enfileiradas uma de cada vez usando a convenção de retorno de chamada do JavaScript para gerenciar o fluxo de controle do script. Como os scripts são executados em um ambiente do servidor, eles são estritamente controlados. Os scripts que violam repetidamente os limites de execução podem ser marcados como inativos e não podem ser executados e devem ser recriados para respeitar os limites de execução.
+Garanta que as funções do JavaScript sejam concluídas dentro do limite de tempo ou implemente um modelo baseado em continuação para criar um lote/retomar a execução. A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no contêiner do Azure Cosmos (por exemplo, criação, leitura, atualização e exclusão de itens) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, ele será uma indicação de que o procedimento precisará encapsular a execução porque o script está consumindo mais tempo ou uma taxa de transferência provisionada maior do que o valor configurado. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila. Portanto, as operações devem ser enfileiradas uma de cada vez usando a Convenção de retorno de chamada do JavaScript para gerenciar o fluxo de controle do script. Como os scripts são executados em um ambiente do servidor, eles são estritamente controlados. Os scripts que violam repetidamente os limites de execução podem ser marcados como inativos e não podem ser executados e devem ser recriados para respeitar os limites de execução.
 
 As funções do JavaScript também estão sujeitas à [capacidade de taxa de transferência provisionada](request-units.md). As funções do JavaScript podem acabar usando um grande número de unidades de solicitação em um curto período e podem ter a taxa limitada se o limite da capacidade de taxa de transferência provisionada é atingido. É importante observar que os scripts consomem uma taxa de transferência adicional, além da taxa de transferência gasta executando operações de banco de dados, embora essas operações de banco de dados sejam um pouco mais baratas do que a execução das mesmas operações no cliente.
 
@@ -83,14 +83,14 @@ O Azure Cosmos DB fornece gatilhos que podem ser invocados com a execução de u
 
 ### <a name="post-triggers"></a>Pós-gatilhos
 
-Semelhante a pré-gatilhos, pós-gatilhos, também estão associados a uma operação em um item do Azure Cosmos e eles não requerem nenhum parâmetro de entrada. Eles correm *após* a operação ter concluído e têm acesso à mensagem de resposta que é enviada ao cliente. Para obter exemplos, confira o artigo [Como escrever gatilhos](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Semelhantes aos pré-gatilhos, pós-gatilhos, também são associados a uma operação em um item Cosmos do Azure e não exigem nenhum parâmetro de entrada. Eles são executados *após* a conclusão da operação e têm acesso à mensagem de resposta que é enviada ao cliente. Para obter exemplos, confira o artigo [Como escrever gatilhos](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
-> Os gatilhos registrados não são executados automaticamente quando suas operações correspondentes (criar / excluir / substituir / atualizar) acontecem. Eles precisam ser chamados explicitamente ao executar essas operações. Para saber mais, veja como executar o artigo [triggers.](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)
+> Os gatilhos registrados não são executados automaticamente quando suas operações correspondentes (criar/excluir/substituir/atualizar) acontecem. Eles precisam ser chamados explicitamente ao executar essas operações. Para saber mais, consulte [o artigo como executar gatilhos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) .
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Funções definidas pelo usuário
 
-[As funções definidas pelo usuário](sql-query-udfs.md) (UDFs) são usadas para estender a sintaxe de linguagem de consulta da API SQL e implementar a lógica de negócios personalizada facilmente. Elas podem ser chamadas somente em consultas. As UDFs não têm acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias. Para obter exemplos, confira o artigo [Como escrever funções definidas pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs).
+As UDFs ( [funções definidas pelo usuário](sql-query-udfs.md) ) são usadas para estender a sintaxe da linguagem de consulta da API do SQL e implementar a lógica de negócios personalizada facilmente. Elas podem ser chamadas somente em consultas. As UDFs não têm acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias. Para obter exemplos, confira o artigo [Como escrever funções definidas pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de consulta integrada à linguagem do JavaScript
 

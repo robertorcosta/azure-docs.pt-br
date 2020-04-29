@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas em escala automática com conjuntos de escala de máquinavirtual
+title: Solucionar problemas de dimensionamento automático com conjuntos de escala de máquina virtual
 description: Solução de problemas de dimensionamento automático com conjuntos de escala de máquina virtual. Compreenda os problemas típicos encontrados e como resolvê-los.
 author: mimckitt
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: mimckitt
 ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273368"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
@@ -64,7 +64,7 @@ Alguns aspectos a serem considerados incluem:
     
     Você mesmo também pode examinar os dados. Examine a conta de armazenamento do Azure usando um gerenciador de nuvem. Por exemplo, usando o [Visual Studio Cloud Explorer](https://visualstudiogallery.msdn.microsoft.com/aaef6e67-4d99-40bc-aacf-662237db85a2), faça logon e escolha a assinatura do Azure que você está usando. Em seguida, observe o nome de conta de armazenamento de Diagnóstico mencionado na definição de extensão de Diagnóstico em seu modelo de implantação.
     
-    ![Gerenciador de Nuvem][explorer]
+    ![Cloud Explorer][explorer]
     
     Você verá um monte de tabelas em que os dados de cada VM estão sendo armazenados. Usando o Linux e a métrica de CPU como exemplo, procure linhas mais recentes. O Visual Studio Cloud Explorer oferece suporte a uma linguagem de consulta, de modo que você possa executar uma consulta. Por exemplo, você pode executar uma consulta para "Carimbo de data/hora gt Data/Hora’2016-02-02T21:20:00Z’" para garantir que obtém os eventos mais recentes. O fuso horário corresponde ao UTC. Os dados exibidos correspondem às regras de escala que você configurou? No exemplo seguinte, a CPU do computador 20 começou a aumentar para 100% nos últimos 5 minutos.
     

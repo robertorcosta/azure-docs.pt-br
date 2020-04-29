@@ -1,6 +1,6 @@
 ---
-title: Especificar imagens de mercado para um laboratório no Azure Lab Services
-description: Este artigo mostra como especificar as imagens do Marketplace que o criador do laboratório pode usar para criar laboratórios em uma conta de laboratório no Azure Lab Services.
+title: Especificar imagens do Marketplace para um laboratório no Azure Lab Services
+description: Este artigo mostra como especificar as imagens do Marketplace que o criador de laboratório pode usar para criar laboratórios em uma conta de laboratório no Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: spelluru
 ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257684"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificar imagens do Marketplace disponíveis para os criadores de laboratório
 Como proprietário da conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta de laboratório. 
 
-## <a name="select-images-available-for-labs"></a>Selecione imagens disponíveis para laboratórios
-Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). Você pode filtrar a lista para ver apenas imagens ativadas/desativadas selecionando a única/opção **Ativada****desativada** na lista de baixa na parte superior. 
+## <a name="select-images-available-for-labs"></a>Selecionar imagens disponíveis para laboratórios
+Selecione **Imagens do Marketplace** no menu esquerdo. Por padrão, você deve ver a lista completa de imagens (habilitadas e desabilitadas). Você pode filtrar a lista para ver apenas as imagens habilitadas/desabilitadas selecionando apenas a opção **habilitado**/somente**desabilitado** na lista suspensa na parte superior. 
     
 ![Página Imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
@@ -34,33 +34,33 @@ As imagens do Marketplace exibidas na lista são apenas aquelas que atendem as s
 - Usa o Azure Resource Manager para provisionar VMs
 - Não requer a compra de um plano de licenciamento extra
 
-## <a name="disable-images-for-a-lab"></a>Desativar imagens para um laboratório 
-Para desativar uma única imagem para um laboratório, selecione **... (elipse)** na última coluna e **selecione Desativar imagem**. 
+## <a name="disable-images-for-a-lab"></a>Desabilitar imagens de um laboratório 
+Para desabilitar uma única imagem para um laboratório, selecione **... (reticências)** na última coluna, selecione **desabilitar imagem**. 
 
 ![Desabilitar uma imagem](../media/tutorial-setup-lab-account/disable-one-image.png) 
 
-Alternativamente, selecione a caixa de seleção antes do nome da imagem e **selecione Desativar imagens selecionadas** na barra de ferramentas. 
+Como alternativa, marque a caixa de seleção antes do nome da imagem e selecione **desabilitar imagens selecionadas** na barra de ferramentas. 
 
-Para desativar várias imagens ao mesmo tempo, selecione caixas de seleção antes dos nomes das imagens e **selecione Desativar imagens selecionadas** na barra de ferramentas. 
+Para desabilitar várias imagens ao mesmo tempo, selecione caixas de seleção antes dos nomes da imagem e selecione **desabilitar imagens selecionadas** na barra de ferramentas. 
 
 ![Desabilitar várias imagens](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
 
 
-## <a name="enable-images-for-a-lab"></a>Habilite imagens para um laboratório
-Para habilitar uma imagem desativada, selecione **... (elipse)** na última coluna e selecione **Ativar imagem**. Alternativamente, selecione a caixa de seleção antes do nome da imagem e **selecione Habilitar imagens selecionadas** na barra de ferramentas. 
+## <a name="enable-images-for-a-lab"></a>Habilitar imagens para um laboratório
+Para habilitar uma imagem desabilitada, selecione **... (reticências)** na última coluna, selecione **habilitar imagem**. Como alternativa, marque a caixa de seleção antes do nome da imagem e selecione **Habilitar imagens selecionadas** na barra de ferramentas. 
 
-Para desativar várias imagens ao mesmo tempo, selecione caixas de seleção antes dos nomes das imagens e **selecione Ativar imagens selecionadas** na barra de ferramentas. 
+Para desabilitar várias imagens ao mesmo tempo, selecione caixas de seleção antes dos nomes da imagem e selecione **Habilitar imagens selecionadas** na barra de ferramentas. 
 
-## <a name="enable-images-at-the-time-of-lab-creation"></a>Habilite imagens no momento da criação do laboratório
+## <a name="enable-images-at-the-time-of-lab-creation"></a>Habilitar imagens no momento da criação do laboratório
 Você pode habilitar mais imagens no momento da criação do laboratório: 
 
-1. Faça login no site do [Azure Lab Services](https://labs.azure.com) usando credenciais **do proprietário da conta de laboratório**
-2. Selecione a imagem padrão da máquina virtual ou a seta para baixo. 
-3. Selecione **Habilitar mais opções de imagem**. 
+1. Entre no site do [Azure Lab Services](https://labs.azure.com) usando as credenciais do **proprietário da conta do laboratório**
+2. Selecione a imagem de máquina virtual padrão ou a seta para baixo. 
+3. Selecione **habilitar mais opções de imagem**. 
 
-    ![Habilite mais opções de imagem](../media/specify-marketplace-images/enable-more-images-menu.png)
+    ![Habilitar mais opções de imagem](../media/specify-marketplace-images/enable-more-images-menu.png)
 4. Siga as instruções da seção anterior para habilitar as imagens selecionadas. 
-5. Você pode precisar fechar a nova janela **de laboratório** e reabri-la para ver as imagens selecionadas na etapa anterior. 
+5. Talvez seja necessário fechar a nova janela do **laboratório** e reabri-la para ver as imagens selecionadas na etapa anterior. 
 
 
 

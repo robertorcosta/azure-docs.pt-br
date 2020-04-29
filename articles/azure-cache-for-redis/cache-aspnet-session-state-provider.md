@@ -1,16 +1,16 @@
 ---
 title: Provedor de estado de sessão ASP.NET de cache
-description: Aprenda a armazenar ASP.NET Estado de Sessão na memória usando o Cache Do Azure para Redis.
+description: Saiba como armazenar o estado de sessão ASP.NET na memória usando o cache do Azure para Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010895"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provedor de Estado de Sessão ASP.NET para o Cache do Azure para Redis
@@ -82,10 +82,10 @@ A seção comentada fornece um exemplo dos atributos e as configurações de exe
 Configure os atributos usando os valores da sua folha de cache no Portal do Microsoft Azure e defina os demais valores conforme sua preferência. Para obter instruções sobre como acessar as propriedades do cache, consulte [Definir configurações do Cache Redis do Azure](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** – especifique o ponto de extremidade do seu cache.
-* **porta** – use a porta não-TLS/SSL ou a porta TLS/SSL, dependendo das configurações do TLS.
+* **porta** – Use sua porta não TLS/SSL ou sua porta TLS/SSL, dependendo das configurações de TLS.
 * **accessKey** – use a chave primária ou secundária do seu cache.
-* **ssl** – verdadeiro se você quiser proteger as comunicações cache/cliente com TLS; caso contrário, falso. Especifique a porta correta.
-  * A porta não-TLS está desativada por padrão para novos caches. Especifique a verdade para que esta configuração use a porta TLS. Para obter mais informações sobre como ativar a porta não-TLS, consulte a seção ['Portas de acesso'](cache-configure.md#access-ports) no [tópico Configurar um](cache-configure.md) cache.
+* **SSL** – verdadeiro se você quiser proteger as comunicações de cache/cliente com TLS; caso contrário, false. Especifique a porta correta.
+  * A porta não TLS é desabilitada por padrão para novos caches. Especifique true para que essa configuração Use a porta TLS. Para obter mais informações sobre como habilitar a porta não TLS, consulte a seção [portas de acesso](cache-configure.md#access-ports) no tópico [configurar um cache](cache-configure.md) .
 * **throwOnError** – true se você quiser que uma exceção seja lançada em caso de falha, ou false se quiser que a operação falhe silenciosamente. Você pode verificar a existência de uma falha na propriedade estática Microsoft.Web.Redis.RedisSessionStateProvider.LastException. O padrão é true.
 * **retryTimeoutInMilliseconds** – as operações que apresentam falhas recebem uma nova tentativa durante esse intervalo, especificado em milissegundos. A primeira nova tentativa ocorre após 20 milissegundos e outras novas tentativas ocorrem a cada segundo até que o intervalo de retryTimeoutInMilliseconds expire. Imediatamente após esse intervalo, a operação será repetida uma última vez. Se a operação ainda falhar, a exceção será lançada de volta ao chamador, dependendo da configuração de throwOnError. O valor padrão é 0, que significa nenhuma tentativa nova.
 * **databaseId** – especifica qual banco de dados usar para os dados de saída do cache. Se esse campo não for especificado, o valor padrão 0 será usado.
@@ -128,8 +128,8 @@ Para saber mais sobre o estado da sessão e outras práticas recomendadas, consu
 
 ## <a name="third-party-session-state-providers"></a>Provedores de estado de sessão de terceiros
 
-* [Ncache](https://www.alachisoft.com/ncache/session-index.html)
-* [Incêndio apache](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>Próximas etapas
 

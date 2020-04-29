@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de escala de máquinas virtuais de autoescala no portal Azure
+title: Dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 description: Como criar regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: jushiman
 ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010283"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
@@ -42,12 +42,12 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     
     | Parâmetro              | Explicação                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Agregação de Tempo*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
-    | *Nome métrico*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
+    | *Agregação de tempo*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
+    | *Nome da métrica*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
     | *Estatística de intervalo de agregação* | Define como as métricas coletadas em cada intervalo de agregação devem ser agregadas para análise.                             | Média        |
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
-    | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
-    | *Duração*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
+    | *Os*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
+    | *Permanência*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
     | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
@@ -70,7 +70,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                      | Menor que   |
-    | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 30             |
+    | *Os*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                         | Reduzir porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                             | 20             |
 
@@ -120,7 +120,7 @@ Para ver como as regras de dimensionamento automático são aplicadas, selecione
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [escala automática vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [autoescala vertical com conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

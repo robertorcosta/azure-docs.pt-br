@@ -1,6 +1,6 @@
 ---
-title: Políticas e termos de mercado comercial | Azure
-description: As políticas e termos do mercado comercial da Microsoft aplicam-se a todos os editores e ofertas no Microsoft Azure Marketplace.
+title: Políticas e termos do Marketplace comercial | Azure
+description: As políticas e os termos do Microsoft Commercial Marketplace se aplicam a todos os Publicadores e ofertas no Microsoft Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: dsindona
 ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262155"
 ---
-# <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do mercado comercial
+# <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 
 >[!Note]
->"Mercado comercial da Microsoft" significa uma plataforma de propriedade ou operada da Microsoft, porém nomeada, através da qual as ofertas podem ser apresentadas ou adquiridas pelos clientes. Salvo especificação em contrário, o mercado comercial inclui o Microsoft Azure Marketplace e o Microsoft AppSource.
+>"Microsoft Commercial Marketplace" quer dizer uma plataforma de propriedade da Microsoft ou operada, no entanto, nomeada, por meio da qual as ofertas podem ser apresentadas ou adquiridas pelos clientes. A menos que especificado de outra forma, o Marketplace comercial inclui o Microsoft Azure Marketplace e Microsoft AppSource.
 
-Obrigado por seu interesse em publicar ofertas no mercado comercial. Estamos comprometidos em fazer parceria com você para construir uma rica fonte de soluções em nuvem e uma linha de ofertas de negócios, que encantam clientes em todo o mundo e ajudam você a construir seu negócio.
+Agradecemos seu interesse em publicar ofertas no Marketplace comercial. Estamos comprometidos em fazer uma parceria com você para criar uma fonte avançada de soluções de nuvem e uma linha de ofertas de negócios, que fascinam os clientes em todo o mundo e o ajudarão a criar seus negócios.
 
-As ofertas no mercado devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência ao cliente e oferecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, por favor, deixe-nos saber comentando no [fórum Azure Marketplace e Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+As ofertas do Marketplace devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência do cliente e fornecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, informe-nos com comentários no [Azure Marketplace e no fórum de Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Políticas e termos
 
@@ -35,6 +35,6 @@ As ofertas no mercado devem estar em conformidade com nossas políticas e termos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite a página do [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
+Visite a página [Guia de publicação do Marketplace comercial](./marketplace-publishers-guide.md) .
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: GRUPO POR cláusula no Azure Cosmos DB
+title: Cláusula GROUP BY no Azure Cosmos DB
 description: Saiba mais sobre a cláusula GROUP BY para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261594"
 ---
-# <a name="group-by-clause-in-azure-cosmos-db"></a>GRUPO POR cláusula no Azure Cosmos DB
+# <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY no Azure Cosmos DB
 
 A cláusula GROUP BY divide os resultados da consulta de acordo com os valores de uma ou mais propriedades especificadas.
 
 > [!NOTE]
-> Azure Cosmos DB atualmente suporta GROUP BY em .NET SDK 3.3 e acima, bem como JavaScript SDK 3.4 e acima.
-> O suporte para outros sdks de idioma não está disponível no momento, mas está planejado.
+> O Azure Cosmos DB atualmente dá suporte a GROUP BY no SDK do .NET 3,3 e superior, bem como ao SDK do JavaScript 3,4 e superior.
+> O suporte para outros SDK do idioma não está disponível no momento, mas está planejado.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -39,21 +39,21 @@ A cláusula GROUP BY divide os resultados da consulta de acordo com os valores d
 
 - `<scalar_expression>`
   
-   Qualquer expressão escalar é permitida, exceto para subqueries escalares e agregados escalares. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há limite para o número de expressões individuais ou a cardinalidade de cada expressão.
+   Qualquer expressão escalar é permitida, exceto para subconsultas escalares e agregações escalares. Cada expressão escalar deve conter pelo menos uma referência de propriedade. Não há nenhum limite para o número de expressões individuais ou a cardinalidade de cada expressão.
 
 ## <a name="remarks"></a>Comentários
   
-  Quando uma consulta usa uma cláusula GROUP BY, a cláusula SELECT só pode conter o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [as funções do sistema agregado,](sql-query-aggregates.md)que podem aparecer na cláusula SELECT sem serem incluídas na cláusula GROUP BY. Você também pode sempre incluir valores literais na cláusula SELECT.
+  Quando uma consulta usa uma cláusula GROUP BY, a cláusula SELECT pode conter apenas o subconjunto de propriedades e funções do sistema incluídas na cláusula GROUP BY. Uma exceção são [funções de sistema agregadas](sql-query-aggregates.md), que podem aparecer na cláusula SELECT sem serem incluídas na cláusula Group by. Você também pode incluir sempre valores literais na cláusula SELECT.
 
-  A cláusula GRUPO POR DEVE SER após a cláusula SELECT, FROM e WHERE e antes da cláusula LIMITE DE COMPENSAÇÃO. No momento, você não pode usar GROUP BY com uma cláusula ORDER BY, mas isso está planejado.
+  A cláusula GROUP BY deve ser posterior à cláusula SELECT, FROM e WHERE e antes da cláusula de limite de deslocamento. No momento, você não pode usar GROUP BY com uma cláusula ORDER BY, mas isso é planejado.
 
   A cláusula GROUP BY não permite nenhum dos seguintes:
   
-- A exclusão de propriedades ou funções do sistema de aliasing (aliasing ainda é permitida dentro da cláusula SELECT)
+- Propriedades de alias ou funções do sistema de alias (a alias ainda é permitida dentro da cláusula SELECT)
 - Subconsultas
-- Funções agregadas do sistema (estas só são permitidas na cláusula SELECT)
+- Funções de sistema agregadas (somente são permitidas na cláusula SELECT)
 
-Consultas com uma função de sistema agregado `GROUP BY` e uma subconsulta com não são suportadas. Por exemplo, a seguinte consulta não é suportada:
+Não há suporte para consultas com uma função de sistema agregada e uma subconsulta com `GROUP BY` . Por exemplo, não há suporte para a seguinte consulta:
 
 ```sql
 SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
@@ -61,9 +61,9 @@ SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName
 
 ## <a name="examples"></a>Exemplos
 
-Esses exemplos utilizam o conjunto de dados nutricionais disponível através do [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+Esses exemplos usam o conjunto de dados nutrição disponível por meio do [Playground para Consultas Azure Cosmos DB](https://www.documentdb.com/sql/demo).
 
-Por exemplo, aqui está uma consulta que retorna a contagem total de itens em cada foodGroup:
+Por exemplo, aqui está uma consulta que retorna a contagem total de itens em cada um dos alimentos:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -71,7 +71,7 @@ FROM Food f
 GROUP BY f.foodGroup
 ```
 
-Alguns resultados são (top keyword é usado para limitar resultados):
+Alguns resultados são (a palavra-chave TOP é usada para limitar os resultados):
 
 ```json
 [{
@@ -92,7 +92,7 @@ Alguns resultados são (top keyword é usado para limitar resultados):
 }]
 ```
 
-Esta consulta tem duas expressões usadas para dividir resultados:
+Essa consulta tem duas expressões usadas para dividir os resultados:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup, f.version
@@ -125,7 +125,7 @@ Alguns resultados são:
 }]
 ```
 
-Esta consulta tem uma função do sistema na cláusula GROUP BY:
+Esta consulta tem uma função de sistema na cláusula GROUP BY:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, UPPER(f.foodGroup) AS upperFoodGroup
@@ -154,7 +154,7 @@ Alguns resultados são:
 }]
 ```
 
-Esta consulta usa palavras-chave e funções do sistema na expressão de propriedade do item:
+Essa consulta usa as duas palavras-chave e funções do sistema na expressão de Propriedade do item:
 
 ```sql
 SELECT COUNT(1) AS foodGroupCount, ARRAY_CONTAINS(f.tags, {name: 'orange'}) AS containsOrangeTag,  f.version BETWEEN 0 AND 2 AS correctVersion
@@ -181,4 +181,4 @@ Os resultados são:
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funções agregadas](sql-query-aggregates.md)
+- [Funções de agregação](sql-query-aggregates.md)

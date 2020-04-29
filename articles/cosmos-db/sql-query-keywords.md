@@ -1,25 +1,25 @@
 ---
-title: Palavras-chave SQL para Azure Cosmos DB
-description: Saiba mais sobre as palavras-chave SQL para Azure Cosmos DB.
+title: Palavras-chave do SQL para Azure Cosmos DB
+description: Saiba mais sobre palavras-chave do SQL para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: tisande
 ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261560"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 
-Este artigo detalha palavras-chave que podem ser usadas em consultas Azure Cosmos DB SQL.
+Este artigo fornece detalhes sobre palavras-chave que podem ser usadas em Azure Cosmos DB consultas SQL.
 
 ## <a name="between"></a>BETWEEN
 
-Você pode `BETWEEN` usar a palavra-chave para expressar consultas contra intervalos de strings ou valores numéricos. Por exemplo, a consulta a seguir retorna todos os itens em que a nota da primeira criança é de 1 a 5 anos, inclusive.
+Você pode usar a `BETWEEN` palavra-chave para expressar consultas em intervalos de cadeias de caracteres ou valores numéricos. Por exemplo, a consulta a seguir retorna todos os itens nos quais a classificação do primeiro filho é 1-5, inclusive.
 
 ```sql
     SELECT *
@@ -27,17 +27,17 @@ Você pode `BETWEEN` usar a palavra-chave para expressar consultas contra interv
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Você também pode `BETWEEN` usar a `SELECT` palavra-chave na cláusula, como no exemplo a seguir.
+Você também pode usar a `BETWEEN` palavra-chave `SELECT` na cláusula, como no exemplo a seguir.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-Na API SQL, ao contrário do ANSI SQL, você pode expressar consultas de intervalo contra propriedades de tipos mistos. Por exemplo, `grade` pode ser `5` um número como em `grade4` alguns itens e uma seqüência como em outros. Nestes casos, como em JavaScript, a comparação `Undefined`entre os dois tipos diferentes resulta em , de modo que o item é ignorado.
+Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de intervalo em Propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma cadeia de `grade4` caracteres como em outros. Nesses casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined`, portanto, o item é ignorado.
 
 > [!TIP]
-> Para tempos de execução de consulta mais rápidos, crie uma política de indexação `BETWEEN` que use um tipo de índice de intervalo em relação a quaisquer propriedades numéricas ou caminhos que a cláusula filtra.
+> Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em quaisquer `BETWEEN` propriedades numéricas ou caminhos que a cláusula filtra.
 
 ## <a name="distinct"></a>DISTINTO
 
@@ -58,7 +58,7 @@ Os resultados são:
 ]
 ```
 
-Você também pode projetar objetos únicos. Neste caso, o campo lastName não existe em um dos dois documentos, então a consulta retorna um objeto vazio.
+Você também pode projetar objetos exclusivos. Nesse caso, o campo lastName não existe em um dos dois documentos, portanto, a consulta retorna um objeto vazio.
 
 ```sql
 SELECT DISTINCT f.lastName
@@ -83,7 +83,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-Esta consulta projeta uma matriz que contém o nome dado de cada criança com duplicatas removidas. Esta matriz é aliased como ChildNames e projetada na consulta externa.
+Essa consulta projeta uma matriz que contém o especificador de cada filho com duplicatas removidas. Essa matriz tem um alias como Filhonames e projetada na consulta externa.
 
 Os resultados são:
 
@@ -103,7 +103,7 @@ Os resultados são:
 ]
 ```
 
-Consultas com uma função de sistema agregado `DISTINCT` e uma subconsulta com não são suportadas. Por exemplo, a seguinte consulta não é suportada:
+Não há suporte para consultas com uma função de sistema agregada e uma subconsulta com `DISTINCT` . Por exemplo, não há suporte para a seguinte consulta:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -111,7 +111,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Use a palavra-chave IN para verificar se um valor especificado corresponde a algum valor em uma lista. Por exemplo, a consulta a seguir retorna `id` todos `WakefieldFamily` `AndersenFamily`os itens da família onde está ou .
+Use a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, a consulta a seguir retorna todos os itens da `id` família `WakefieldFamily` em `AndersenFamily`que o é ou.
 
 ```sql
     SELECT *
@@ -119,7 +119,7 @@ Use a palavra-chave IN para verificar se um valor especificado corresponde a alg
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
-O exemplo a seguir retorna todos os itens onde o estado é qualquer um dos valores especificados:
+O exemplo a seguir retorna todos os itens em que o estado é qualquer um dos valores especificados:
 
 ```sql
     SELECT *
@@ -127,15 +127,15 @@ O exemplo a seguir retorna todos os itens onde o estado é qualquer um dos valor
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-A API SQL fornece suporte para [iteração sobre matrizes JSON,](sql-query-object-array.md#Iteration)com uma nova construção adicionada através da palavra-chave in na fonte FROM.
+A API do SQL fornece suporte para [iteração em matrizes JSON](sql-query-object-array.md#Iteration), com uma nova construção adicionada por meio da palavra-chave in na fonte from.
 
-Se você incluir sua `IN` chave de partição no filtro, sua consulta será filtrada automaticamente apenas para as partições relevantes.
+Se você incluir sua chave de partição no `IN` filtro, sua consulta será filtrada automaticamente somente para as partições relevantes.
 
 ## <a name="top"></a>INÍCIO
 
-A palavra-chave TOP `N` retorna o primeiro número de resultados de consulta em uma ordem indefinida. Como melhor prática, use `ORDER BY` TOP com a cláusula `N` para limitar os resultados ao primeiro número de valores pedidos. A combinação dessas duas cláusulas é a única maneira de indicar previsivelmente quais linhas TOP afeta.
+A palavra-chave TOP retorna `N` o primeiro número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a `ORDER BY` cláusula para limitar os resultados para o primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
 
-Você pode usar TOP com um valor constante, como no exemplo a seguir, ou com um valor variável usando consultas parametrizadas.
+Você pode usar TOP com um valor constante, como no exemplo a seguir, ou com um valor de variável usando consultas parametrizadas.
 
 ```sql
     SELECT TOP 1 *

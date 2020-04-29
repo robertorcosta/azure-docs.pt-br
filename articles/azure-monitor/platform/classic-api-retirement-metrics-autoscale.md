@@ -1,14 +1,14 @@
 ---
-title: Retire as APIs de implantação para métricas e autoescala do Azure Monitor
+title: Desativar APIs de implantação para Azure Monitor métricas e dimensionamento automático
 description: APIs clássicas de métricas e de dimensionamento automático, também chamadas de Gerenciamento de Serviços do Azure (ASM) ou modelo de implantação RDFE sendo desativado
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114222"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Desativação do Azure Monitor de APIs do modelo de implantação clássico para métricas e dimensionamento automático
@@ -73,9 +73,9 @@ Não haverá nenhum impacto direto sobre os serviços do Azure ou as cargas de t
 
 Todas as chamadas para as APIs clássicas listadas anteriormente falharão e retornarão mensagens de erro semelhantes a:
 
-Para autoescala: *Esta API foi depreciada. Use os modelos Azure portal, Azure Monitor SDK, PowerShell, CLI ou Resource Manager para gerenciar configurações de escala automática*.  
+Para dimensionamento automático: *essa API foi preterida. Use os modelos portal do Azure, SDK do Azure Monitor, PowerShell, CLI ou Resource Manager para gerenciar as configurações de dimensionamento automático*.  
 
-Para métricas: *Esta API foi depreciada. Use o portal Azure, Azure Monitor SDK, PowerShell, CLI para consultar métricas*.
+Para métricas: *essa API foi preterida. Use o portal do Azure, o SDK do Azure Monitor, o PowerShell, a CLI para consultar métricas*.
 
 ## <a name="email-notifications"></a>Notificações por email
 

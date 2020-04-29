@@ -1,6 +1,6 @@
 ---
-title: Adicionar diagnósticos de & de monitoramento a uma máquina virtual do Azure
-description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnósticos do Azure.
+title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure
+description: Use um modelo de Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mimckitt
@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81258823"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
@@ -177,6 +177,6 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 * **Average**: o valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, consulte [201-VM-Monitoring-Diagnostics-Extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implante o modelo do Azure Resource Manager usando o [Azure PowerShell](../windows/ps-template.md) ou a [Linha de Comando do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Saiba mais sobre [a autoria de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
+* Saiba mais sobre a [criação de modelos de Azure Resource Manager](../../resource-group-authoring-templates.md)

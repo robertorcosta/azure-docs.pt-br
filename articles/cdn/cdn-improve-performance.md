@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253757"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
@@ -101,8 +101,8 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure dos perfis da Microsoft
 
 Para o **Padrão CDN do Azure dos perfis da Microsoft**, somente arquivos elegíveis são compactados. Para se qualificar para a compactação, um arquivo deve:
-- Seja de um tipo MIME [configurado para compactação](#enabling-compression).
-- Seja maior que 1 KB
+- Ser de um tipo MIME que foi [configurado para compactação](#enabling-compression).
+- Ser maior que 1 KB
 - Ser menor que 8 MB
 
 Esses perfis dão suporte às seguintes codificações de compactação:
@@ -139,7 +139,7 @@ Esses perfis dão suporte somente à codificação de compactação gzip. Quando
 As tabelas a seguir descrevem o comportamento de compactação CDN do Azure para cada cenário:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>A compactação é desabilitada ou arquivo não está qualificado para compactação
-| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | &nbsp; &nbsp; Notas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | &nbsp; &nbsp; Observações&nbsp; do&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Não compactado |Não compactado | |
@@ -149,7 +149,7 @@ As tabelas a seguir descrevem o comportamento de compactação CDN do Azure para
 | Não compactado |Não armazenado em cache |Não compactado | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compactação está habilitada ou o arquivo está qualificado para compactação
-| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | Resposta CDN para o cliente | Observações |
+| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | Resposta CDN para o cliente | Anotações |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |CDN transcodifica entre os formatos com suporte. |
 | Compressed |Não compactado |Compressed |CDN executa uma compactação. |

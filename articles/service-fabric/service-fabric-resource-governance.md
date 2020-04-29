@@ -4,10 +4,10 @@ description: O Azure Service Fabric permite especificar os limites de recurso pa
 ms.topic: conceptual
 ms.date: 8/9/2017
 ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115138"
 ---
 # <a name="resource-governance"></a>Governança de recursos
@@ -23,7 +23,7 @@ Há suporte para a governança de recursos no Service Fabric de acordo com o [pa
 
 * *CPU* (nome da métrica `servicefabric:/_CpuCores`): um núcleo lógico que está disponível no computador host. Todos os núcleos em todos os nós têm o mesmo peso.
 
-* *Memória* (nome `servicefabric:/_MemoryInMB`métrico ): A memória é expressa em megabytes, e mapeia a memória física disponível na máquina.
+* *Memória* (nome `servicefabric:/_MemoryInMB`da métrica): a memória é expressa em megabytes e é mapeada para a memória física que está disponível no computador.
 
 Para essas duas métricas, o [Gerenciador de Recursos de Cluster](service-fabric-cluster-resource-manager-cluster-description.md) controla a capacidade total do cluster, a carga em cada nó do cluster e os recursos restantes no cluster. Essas duas métricas são equivalentes a qualquer outro usuário ou métrica personalizada. Todos os recursos existentes podem ser usados com elas:
 
@@ -32,7 +32,7 @@ Para essas duas métricas, o [Gerenciador de Recursos de Cluster](service-fabric
 * Ao [descrever um cluster](service-fabric-cluster-resource-manager-cluster-description.md), a capacidade armazenada em buffer pode ser definida para essas duas métricas.
 
 > [!NOTE]
-> [O relatório de carga dinâmica](service-fabric-cluster-resource-manager-metrics.md) não é suportado para essas métricas; cargas para essas métricas são definidas no momento da criação.
+> Não há suporte para o [relatório de carga dinâmica](service-fabric-cluster-resource-manager-metrics.md) para essas métricas; as cargas para essas métricas são definidas no momento da criação.
 
 ## <a name="resource-governance-mechanism"></a>Mecanismo de governança de recursos
 
@@ -46,7 +46,7 @@ Neste ponto, a soma dos limites é igual à capacidade do nó. Um processo e um 
 
 No entanto, há duas situações em que outros processos podem brigar pela CPU. Nessas situações, um processo e um contêiner do nosso exemplo poderá ter o problema do vizinho barulhento:
 
-* *Combinação de serviços e contêineres controlados e não controlados*: se um usuário criar um serviço sem nenhuma governança de recursos especificada, o runtime considerará que ele não está consumindo nenhum recurso e poderá colocá-lo no nó de nosso exemplo. Nesse caso, esse novo processo efetivamente consume alguns recursos da CPU à custa dos serviços que já estão sendo executados no nó. Há duas soluções para este problema. Não misturar serviços controlados e não controlado no mesmo cluster ou usar [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que esses dois tipos de serviços não terminem no mesmo conjunto de nós.
+* *Combinação de serviços e contêineres controlados e não controlados*: se um usuário criar um serviço sem nenhuma governança de recursos especificada, o runtime considerará que ele não está consumindo nenhum recurso e poderá colocá-lo no nó de nosso exemplo. Nesse caso, esse novo processo efetivamente consume alguns recursos da CPU à custa dos serviços que já estão sendo executados no nó. Há duas soluções para esse problema. Não misturar serviços controlados e não controlado no mesmo cluster ou usar [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que esses dois tipos de serviços não terminem no mesmo conjunto de nós.
 
 * *Quando outro processo for iniciado no nó, fora do Service Fabric (por exemplo, um serviço do SO)*: nessa situação, o processo fora do Service Fabric também competirá pela CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nó corretamente para a conta para a sobrecarga do sistema operacional, conforme mostrado na próxima seção.
 
@@ -66,7 +66,7 @@ Este é um exemplo de como instruir o Service Fabric a usar 50% da CPU disponív
 </Section>
 ```
 
-Para a maioria dos clientes e cenários, a detecção automática de capacidades de nó para a CPU e a memória é a configuração recomendada (a detecção automática é ligada por padrão). No entanto, se você precisar de configuração manual completa das capacidades de nó, você pode configurá-los por tipo de nó usando o mecanismo para descrever os nódulos no cluster. Aqui está um exemplo de como configurar o tipo de nó com quatro núcleos e 2 GB de memória:
+Para a maioria dos clientes e cenários, a detecção automática de capacidades de nó para CPU e memória é a configuração recomendada (a detecção automática é ativada por padrão). No entanto, se precisar de configuração manual completa de capacidades do nó, você poderá configurá-las por tipo de nó usando o mecanismo para descrever os nós no cluster. Aqui está um exemplo de como configurar o tipo de nó com quatro núcleos e 2 GB de memória:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -101,16 +101,16 @@ Para obter o desempenho ideal, a seguinte configuração também deve ser ativad
 ```
 
 > [!IMPORTANT]
-> A partir da versão 7.0 do Service Fabric, atualizamos a regra de como as capacidades de recurso do nó são calculadas nos casos em que o usuário fornece manualmente os valores para capacidades de recurso de nó. Vamos considerar o seguinte cenário:
+> A partir do Service Fabric versão 7,0, atualizamos a regra para como as capacidades de recursos de nó são calculadas nos casos em que o usuário fornece manualmente os valores para as capacidades de recurso do nó. Vamos considerar o seguinte cenário:
 >
-> * Há 10 núcleos de cpu no total no nó
-> * O SF está configurado para usar 80% dos recursos totais para os serviços do usuário (configuração padrão), o que deixa um buffer de 20% para os outros serviços em execução no nó (serviços do sistema incl. Service Fabric)
-> * O usuário decide substituir manualmente a capacidade de recurso do nó para a métrica dos núcleos da CPU e define-a em 5 núcleos
+> * Há 10 núcleos de CPU total no nó
+> * O it está configurado para usar 80% do total de recursos para os serviços de usuário (configuração padrão), que deixa um buffer de 20% para os outros serviços em execução no nó (incluindo Service Fabric serviços do sistema)
+> * O usuário decide substituir manualmente a capacidade do recurso de nó para a métrica de núcleos de CPU e a define como 5 núcleos
 >
-> Alteramos a regra sobre como a capacidade disponível para serviços de usuário da Malha de Serviço é calculada da seguinte forma:
+> Alteramos a regra sobre como a capacidade disponível para serviços de usuário Service Fabric é calculada da seguinte maneira:
 >
-> * Antes do Service Fabric 7.0, a capacidade disponível para serviços do usuário seria calculada para **5 núcleos** (buffer de capacidade de 20% é ignorado)
-> * A partir do Service Fabric 7.0, a capacidade disponível para serviços de usuário seria calculada para **4 núcleos** (buffer de capacidade de 20% não é ignorado)
+> * Antes de Service Fabric 7,0, a capacidade disponível para serviços de usuário seria calculada para **5 núcleos** (o buffer de capacidade de 20% é ignorado)
+> * A partir do Service Fabric 7,0, a capacidade disponível para serviços de usuário seria calculada para **4 núcleos** (o buffer de capacidade de 20% não é ignorado)
 
 ## <a name="specify-resource-governance"></a>Especificar a governança de recurso
 
@@ -135,7 +135,7 @@ Os limites da governança de recursos são especificados no manifesto do aplicat
   </ServiceManifestImport>
 ```
 
-Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcleo nos nós em que ele é colocado. Este pacote de serviço contém dois pacotes de código **(CodeA1** e **CodeA2),** e ambos especificam o `CpuShares` parâmetro. A proporção de CpuShares 512:256 divide o núcleo entre os dois pacotes de códigos.
+Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcleo nos nós em que ele é colocado. Esse pacote de serviço contém dois pacotes de código (**CodeA1** e **CodeA2**) e ambos especificam o `CpuShares` parâmetro. A proporção de CpuShares 512:256 divide o núcleo entre os dois pacotes de códigos.
 
 Portanto, neste exemplo, CodeA1 obtém dois terços de um núcleo e CodeA2 obtém um terço de um núcleo (e uma reserva de garantia flexível dele). Se CpuShares não forem especificados para pacotes de códigos, o Service Fabric dividirá os núcleos igualmente entre eles.
 
@@ -143,7 +143,7 @@ Os limites de memória são absolutos e, portanto, os dois pacotes de códigos s
 
 ### <a name="using-application-parameters"></a>Usando parâmetros de aplicativo
 
-Ao especificar as configurações de governança de recursos, é possível usar [parâmetros de aplicativos](service-fabric-manage-multiple-environment-app-configuration.md) para gerenciar várias configurações de aplicativos. O exemplo a seguir mostra o uso de parâmetros do aplicativo:
+Ao especificar as configurações de governança de recursos, é possível usar [parâmetros de aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) para gerenciar várias configurações de aplicativo. O exemplo a seguir mostra o uso de parâmetros do aplicativo:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -188,15 +188,15 @@ Neste exemplo, os valores de parâmetro padrão são definidos para o ambiente d
 >
 > Quando são usados parâmetros de aplicativo para especificar a governança dos recursos, o Service Fabric não pode ser rebaixado para uma versão anterior à versão 6.1.
 
-## <a name="enforcing-the-resource-limits-for-user-services"></a>Aplicando os limites de recursos para serviços de usuário
+## <a name="enforcing-the-resource-limits-for-user-services"></a>Impondo os limites de recursos para serviços de usuário
 
-Embora a aplicação de governança de recursos aos serviços da Malha de Serviços garanta que esses serviços controlados por recursos não possam exceder sua cota de recursos, muitos usuários ainda precisam executar alguns de seus serviços de Malha de Serviço em modo não governado. Ao usar serviços de malha de serviço não regidos, é possível encontrar situações em que serviços "descontrolados" desgovernados consomem todos os recursos disponíveis nos nós de malha de serviço, o que pode levar a problemas sérios como:
+Ao aplicar a governança de recursos aos seus serviços de Service Fabric garante que esses serviços controlados por recursos não possam exceder sua cota de recursos, muitos usuários ainda precisam executar alguns dos serviços Service Fabric no modo não controlado. Ao usar serviços de Service Fabric não governados, é possível executar situações em que serviços não governados "descontrolados" consomem todos os recursos disponíveis nos nós de Service Fabric, o que pode levar a problemas sérios, como:
 
-* Fome de recursos de outros serviços em execução nos nós (incluindo serviços do sistema Service Fabric)
-* Nódulos terminando em um estado insalubre
-* APIs de gerenciamento de cluster de malha de serviço sem resposta
+* Consumo de recursos de outros serviços em execução nos nós (incluindo Service Fabric serviços do sistema)
+* Nós terminando em um estado não íntegro
+* APIs de gerenciamento de Cluster Service Fabric sem resposta
 
-Para evitar que essas situações ocorram, a Service Fabric permite que você *imponha os limites de recursos para todos os serviços de usuário da Service Fabric em execução no nó* (tanto governados quanto não governados) para garantir que os serviços do usuário nunca usem mais do que a quantidade especificada de recursos. Isso é alcançado definindo o valor para a configuração EnforceUserServiceMetricCapacidades na seção PlacementAndLoadBalanceing do ClusterManifest para true. Esta configuração é desatada por padrão.
+Para evitar que essas situações ocorram, Service Fabric permite que você *aplique os limites de recursos para todos os Service Fabric serviços de usuário em execução no nó* (governados e não controlados) para garantir que os serviços de usuário nunca usarão mais do que a quantidade especificada de recursos. Isso é feito definindo o valor para a configuração EnforceUserServiceMetricCapacities na seção PlacementAndLoadBalancing de ClusterManifest como true. Essa configuração é desativada por padrão.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -204,10 +204,10 @@ Para evitar que essas situações ocorram, a Service Fabric permite que você *
 </Section>
 ```
 
-Observações adicionais:
+Comentários adicionais:
 
-* A aplicação do limite `servicefabric:/_CpuCores` de `servicefabric:/_MemoryInMB` recursos só se aplica às métricas e aos recursos
-* A aplicação do limite de recursos só funciona se as capacidades de nó para as métricas de recursos estiverem disponíveis para o Service Fabric, seja através de mecanismo de detecção automática, ou através de usuários especificando manualmente as capacidades do nó (conforme explicado na [configuração do Cluster para habilitar](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) a seção de controle de recursos).Se as capacidades de nó não estiverem configuradas, o recurso de aplicação do limite de recursos não poderá ser usado, uma vez que o Service Fabric não pode saber quantos recursos reservar para serviços do usuário.A Service Fabric emitirá um aviso de saúde se "EnforceUserServiceMetricCapacidades" for verdadeira, mas as capacidades de nó não estiverem configuradas.
+* A imposição de limite de recursos `servicefabric:/_CpuCores` só `servicefabric:/_MemoryInMB` se aplica às métricas de recurso e
+* A imposição de limite de recursos só funciona se as capacidades de nó para as métricas de recurso estiverem disponíveis para Service Fabric, seja por meio do mecanismo de detecção automática ou por usuários especificando manualmente as capacidades do nó (conforme explicado na seção [configuração do cluster para habilitar a governança de recursos](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ).Se as capacidades do nó não estiverem configuradas, o recurso de imposição de limite de recursos não poderá ser usado, pois Service Fabric não poderá saber a quantidade de recursos reservados para os serviços do usuário.Service Fabric emitirá um aviso de integridade se "EnforceUserServiceMetricCapacities" for true, mas as capacidades do nó não estiverem configuradas.
 
 ## <a name="other-resources-for-containers"></a>Outros recursos para contêineres
 

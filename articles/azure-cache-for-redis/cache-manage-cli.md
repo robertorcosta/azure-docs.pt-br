@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o Cache do Azure para Redis usando o Azure classic CLI
+title: Gerenciar o cache do Azure para Redis usando a CLI clássica do Azure
 description: Saiba como instalar a CLI clássica do Azure em qualquer plataforma, como usá-lo para conectar-se a conta do Azure e como criar e gerenciar um Azure Cache para Redis clássico.
 author: yegu-ms
 ms.service: cache
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: f71476d7d41ae45d2f1014ed1b257870622487e6
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81010827"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerenciar o Azure Cache para Redis usando a CLI clássica do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
-> * [Cli clássico do Azure](cache-manage-cli.md)
+> * [CLI clássica do Azure](cache-manage-cli.md)
 >
 
 A CLI clássica do Azure é uma ótima maneira de gerenciar a infraestrutura do Azure em qualquer plataforma. Este artigo mostra como criar e gerenciar as instâncias do Azure Cache para Redis usando a CLI clássica do Azure.
@@ -29,7 +29,7 @@ A CLI clássica do Azure é uma ótima maneira de gerenciar a infraestrutura do 
 Para criar e gerenciar instâncias do Azure Cache para Redis usando a CLI clássica do Azure, é necessário concluir as etapas a seguir.
 
 * Você deve ter uma conta do Azure. Se não tiver uma, você poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
-* [Instale o Azure classic CLI](../cli-install-nodejs.md).
+* [Instale a CLI clássica do Azure](../cli-install-nodejs.md).
 * Conecte a instalação da CLI do Azure a uma conta pessoal do Azure, ou a uma conta corporativa ou de estudante do Azure, e faça logon a partir da CLI clássica usando o comando `azure login`.
 * Antes de executar qualquer um dos comandos a seguir, alterne a CLI clássica para o modo Gerenciador de Recursos, executando o comando `azure config mode arm`. Para obter mais informações, consulte [Use a CLI clássica do Azure para gerenciar recursos e grupos de recursos do Azure](../xplat-cli-azure-resource-manager.md).
 
@@ -43,16 +43,16 @@ As propriedades a seguir são usadas durante a criação e a atualização de in
 | local |-l, --location |Local para criar o cache. |
 | tamanho |-z, --size |Tamanho do Azure Cache para Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |SKU Redis. Deve ser um destes: [Básico, Standard, Premium] |
-| EnableNonSslPort |-e, --enable-non-ssl-port |Propriedade EnableNonSslPort do Azure Cache para Redis. Adicione este sinalizador se quiser ativar a porta não-TLS/SSL para o cache |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Propriedade EnableNonSslPort do Azure Cache para Redis. Adicione esse sinalizador se você quiser habilitar a porta não TLS/SSL para o cache |
 | Configuração do Redis |-c, --redis-configuration |Configuração do Redis. Insira uma cadeia de caracteres JSON formatada de valores e chaves de configuração aqui. Format:"{"":"","":""}" |
 | Configuração do Redis |-f, --redis-configuration-file |Configuração do Redis. Insira o caminho de um arquivo que contenha os valores e as chaves de configuração aqui. Formato da entrada do arquivo: {"":"","":""} |
 | Contagem de Fragmento |-r, --shard-count |Número de Fragmentos para criar um cache de Cluster Premium com clustering. |
 | Rede Virtual |-v, --virtual-network |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo de chave |-t, --key-type |Tipo de chave a ser renovada. Valores válidos: [Primary, Secondary] |
-| StaticIP |-p, --static-ip \<static-ip\> |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. |
-| Sub-rede |t, --sub-neta \<\> |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
-| VirtualNetwork |-v, --rede \<virtual-rede virtual-rede\> |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Subscription |-s, --subscription |O identificador da assinatura. |
+| StaticIP |-p,--static-IP \<static-IP\> |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. |
+| Sub-rede |t,--sub \<-rede sub-rede\> |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. |
+| VirtualNetwork |-v,--virtual-rede \<Virtual-Network\> |Ao hospedar o cache em uma VNET, especifica a ID de recurso ARM exata da rede virtual para implantar o Azure Cache para Redis. Exemplo de formato: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Assinatura |-s, --subscription |O identificador da assinatura. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Consulte todos os comandos do Azure Cache para Redis
 Para ver todos os comandos do Azure Cache para Redis e seus parâmetros, use o comando `azure rediscache -h`.

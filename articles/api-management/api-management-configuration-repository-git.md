@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259146"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
@@ -52,7 +52,7 @@ Para exibir e definir as configurações do Git, clique no menu **Segurança** e
 ![Habilitar o GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Quaisquer segredos que não sejam definidos como Valores Nomeados serão armazenados no repositório e permanecerão em seu histórico até que você desabilite e rehabilite o acesso ao Git. Os Valores nomeados fornecem um lugar seguro para gerenciar valores de seqüência constantes, incluindo segredos, em todas as configurações e políticas de API, para que você não precise armazená-los diretamente em suas instruções de política. Para saber mais, confira [Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
+> Os segredos que não estiverem definidos como valores nomeados serão armazenados no repositório e permanecerão em seu histórico até você desabilitar e reabilitar o acesso ao git. Os valores nomeados fornecem um local seguro para gerenciar valores de cadeia de caracteres constantes, incluindo segredos, em todas as políticas e configuração de API, para que você não precise armazená-los diretamente em suas instruções de política. Para saber mais, confira [Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
 >
 >
 

@@ -1,39 +1,39 @@
 ---
-title: Configure o Blockchain Data Manager usando o portal Azure - Azure Blockchain Service
-description: Crie e gerencie o Blockchain Data Manager para o Azure Blockchain Service usando o portal Azure.
+title: Configurar Gerenciador de Dados Blockchain usando portal do Azure-serviço Blockchain do Azure
+description: Criar e gerenciar Blockchain Gerenciador de Dados para o serviço Blockchain do Azure usando o portal do Azure.
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
 ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260591"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
 
-Configure o Blockchain Data Manager para o Azure Blockchain Service para capturar dados blockchain e enviá-los para um Tópico de Grade de Eventos do Azure.
+Configure o Blockchain Gerenciador de Dados para o serviço Blockchain do Azure para capturar dados do Blockchain e enviá-los para um tópico da grade de eventos do Azure.
 
-Para configurar uma instância do Blockchain Data Manager, você:
+Para configurar uma instância de Gerenciador de Dados do Blockchain, você:
 
-* Crie uma instância do Blockchain Data Manager para um nó de transação do Azure Blockchain Service
-* Adicione suas aplicações blockchain
+* Criar uma instância de Gerenciador de Dados do Blockchain para um nó de transação do serviço Blockchain do Azure
+* Adicionar seus aplicativos blockchain
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Quickstart completo: Crie um membro blockchain usando o portal Azure](create-member.md) ou [Quickstart: Crie um membro blockchain do Azure Blockchain Service usando o Azure CLI](create-member-cli.md). O nível Padrão *de* Serviço blockchain do Azure é recomendado ao usar o Blockchain Data Manager.
-* Criar um [tópico da grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Conclua [o início rápido: criar um membro do blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro Blockchain do serviço blockchain do Azure usando o CLI do Azure](create-member-cli.md). A camada *Standard* do serviço Blockchain do Azure é recomendada ao usar o Blockchain Gerenciador de dados.
+* Criar um [tópico de grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Aprenda sobre [Manipuladores de eventos na Grade de Eventos do Azure](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Criar instância
 
-Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação Azure Blockchain Service. Somente usuários com acesso ao nó de transação podem criar uma conexão. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação. O Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informações devolvidas do web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas [de transações.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
+Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação Azure Blockchain Service. Somente os usuários com acesso ao nó de transação podem criar uma conexão. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação. Blockchain Gerenciador de Dados publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informações retornadas das consultas [getblock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e [gettransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) de Web3. ETH.
 
-Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do Azure. Você configura uma conexão de saída única quando cria a instância. O Gerenciador de Dados de Blockchain é compatível com várias conexões de saída aos Tópico da Grade de Eventos para qualquer instância especificada do Gerenciador de Dados de Blockchain. Você pode enviar dados de blockchain para um único destino ou para vários destinos. Para adicionar outro destino, basta adicionar conexões de saída adicionais à instância.
+Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do Azure. Você configura uma conexão de saída única quando cria a instância. O Gerenciador de Dados de Blockchain é compatível com várias conexões de saída aos Tópico da Grade de Eventos para qualquer instância especificada do Gerenciador de Dados de Blockchain. Você pode enviar dados de blockchain para um único destino ou para vários destinos. Para adicionar outro destino, basta adicionar outras conexões de saída à instância.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Vá para o membro do Azure Blockchain Service que deseja conectar-se ao Blockchain Data Manager. Selecione **Gerenciador de Dados do Blockchain**.
+1. Vá para o membro do serviço Blockchain do Azure que você deseja conectar ao Blockchain Gerenciador de Dados. Selecione **Gerenciador de Dados do Blockchain**.
 1. Selecione **Adicionar**.
 
     ![Adicionar Gerenciador de Dados do Blockchain](./media/data-manager-portal/add-instance.png)
@@ -42,29 +42,29 @@ Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do A
 
     Configuração | Descrição
     --------|------------
-    Nome | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome blockchain Data Manager pode conter letras e números minúsculos e tem um comprimento máximo de 20 caracteres.
-    Nó de transação | Escolha um nó de transação. Apenas nós de transação que você tenha acesso de leitura estão listados.
+    Nome | Insira um nome exclusivo para um Gerenciador de Dados do Blockchain conectado. O nome de Gerenciador de Dados Blockchain pode conter letras minúsculas e números e tem um comprimento máximo de 20 caracteres.
+    Nó de transação | Escolha um nó de transação. Somente os nós de transação aos quais você tem acesso de leitura são listados.
     Nome da conexão | Insira um nome exclusivo para a conexão de saída pela qual os dados da transação de blockchain são enviados.
-    Ponto de extremidade da Grade de Eventos | Escolha um tópico de grade de eventos na mesma assinatura que a instância do Blockchain Data Manager.
+    Ponto de extremidade da Grade de Eventos | Escolha um tópico de grade de eventos na mesma assinatura que a instância de Gerenciador de Dados do Blockchain.
 
 1. Selecione **OK**.
 
-    Leva menos de um minuto para criar uma instância do Gerenciador de Dados do Blockchain. Depois que a instância for implantada, ela será iniciada automaticamente. Uma instância do Blockchain Data Manager em execução captura eventos blockchain do nó de transação e envia dados para as conexões de saída.
+    Leva menos de um minuto para criar uma instância do Gerenciador de Dados do Blockchain. Depois que a instância for implantada, ela será iniciada automaticamente. Uma instância de Gerenciador de Dados em execução Blockchain captura eventos de Blockchain do nó de transação e envia dados para as conexões de saída.
 
-    A nova instância aparece na lista de instâncias do Blockchain Data Manager para o membro do Azure Blockchain Service.
+    A nova instância aparece na lista de instâncias de Gerenciador de Dados Blockchain para o membro do serviço Blockchain do Azure.
 
-    ![Lista de instâncias de membros de dados de blockchain](./media/data-manager-portal/instance-list.png)
+    ![Lista de instâncias de membro de dados Blockchain](./media/data-manager-portal/instance-list.png)
 
 ## <a name="add-blockchain-application"></a>Adicionar aplicativo blockchain
 
-Se você adicionar um aplicativo blockchain, o Blockchain Data Manager decodifica o estado de propriedade e evento para o aplicativo. Caso contrário, apenas dados de bloco bruto e transações brutas são enviados. O Blockchain Data Manager também descobre endereços de contrato quando o contrato é implantado. Você pode adicionar vários aplicativos blockchain a uma instância do Blockchain Data Manager.
+Se você adicionar um aplicativo blockchain, Blockchain Gerenciador de Dados decodificará o evento e o estado da propriedade para o aplicativo. Caso contrário, somente os dados brutos de bloco e de transação bruto serão enviados. Blockchain Gerenciador de Dados também descobre os endereços de contrato quando o contrato é implantado. Você pode adicionar vários aplicativos blockchain a uma instância de Gerenciador de Dados do Blockchain.
 
 > [!IMPORTANT]
-> Atualmente, os aplicativos blockchain que declaram [tipos de array solidity](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) ou [tipos de mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não são totalmente suportados. As propriedades declaradas como array ou tipos de mapeamento não serão decodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg.*
+> Atualmente, os aplicativos blockchain que declaram [tipos de matriz](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) de solidez ou [tipos de mapeamento](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) não têm suporte total. As propriedades declaradas como tipos de matriz ou de mapeamento não serão decodificadas em mensagens *ContractPropertiesMsg* ou *DecodedContractEventsMsg* .
 
-O Blockchain Data Manager requer um contrato inteligente ABI e um arquivo bytecode implantado para adicionar o aplicativo.
+O Blockchain Gerenciador de Dados requer uma ABI de contrato inteligente e um arquivo de código de bytes implantado para adicionar o aplicativo.
 
-### <a name="get-contract-abi-and-bytecode"></a>Obter contrato ABI e bytecode
+### <a name="get-contract-abi-and-bytecode"></a>Obter ABI do contrato e código de bytes
 
 O ABI do contrato define as interfaces do contrato inteligente. Ele descreve como interagir com o contrato inteligente. Você pode usar a [Extensão Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) para copiar a ABI do contrato para a área de transferência.
 
@@ -158,17 +158,17 @@ Para cada blob, gere uma assinatura de acesso compartilhado.
 
 Você pode excluir a conta de Armazenamento do Azure ou usá-la para configurar mais aplicativos de blockchain. Se quiser excluir a conta de Armazenamento do Azure, você poderá excluir o grupo de recursos. A exclusão do grupo de recursos também exclui a conta de armazenamento associada e todos os outros recursos associados ao grupo de recursos.
 
-## <a name="stop-instance"></a>Exemplo de parada
+## <a name="stop-instance"></a>Parar instância
 
-Interrompa a instância do Blockchain Manager quando você quiser parar de capturar eventos blockchain e enviar dados para as conexões de saída. Quando a ocorrência é interrompida, não são cobradas taxas para o Blockchain Data Manager. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/blockchain-service).
+Pare a instância do Gerenciador de Blockchain quando desejar parar de capturar eventos de Blockchain e enviar dados para as conexões de saída. Quando a instância é interrompida, nenhum encargo é incorrido para Blockchain Gerenciador de Dados. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/blockchain-service).
 
-1. Vá para **Visão Geral** e selecione **Stop**.
+1. Acesse **visão geral** e selecione **parar**.
 
-    ![Exemplo de parada](./media/data-manager-portal/stop-instance.png)
+    ![Parar instância](./media/data-manager-portal/stop-instance.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando o Blockchain Data Manager e o Azure Cosmos DB.
+Experimente o próximo tutorial Criando um Gerenciador de mensagens de transação blockchain usando o Blockchain Gerenciador de Dados e o Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Usar o Gerenciador de Dados do Blockchain para enviar dados para o Azure Cosmos DB](data-manager-cosmosdb.md)

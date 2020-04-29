@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260489"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
@@ -151,7 +151,7 @@ Os termos usados na sintaxe são definidos da seguinte maneira:
 
 - MATimePeriod: Converte o valor de idade máxima (ou seja, MASeconds) aproximado equivalente a uma unidade maior (por exemplo, em dias). 
 
-- UnixTime: Indica o carimbo de tempo do cache do conteúdo solicitado no tempo Unix (também conhecido como tempo POSIX ou época Unix). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
+- Unixtime: indica o carimbo de data/hora do cache do conteúdo solicitado no tempo do UNIX (também conhecido como tempo POSIX ou época do UNIX). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
 
     Se o servidor de origem não utiliza um servidor de cache HTTP de terceiros ou se o servidor não retorna o cabeçalho de resposta de Idade, em seguida, o carimbo de data/hora sempre será a data/hora quando o ativo foi recuperado ou revalidado. Caso contrário, os servidores POP usarão o campo de idade para calcular o tempo de vida do ativo da seguinte maneira: Recuperação/RevalidateDateTime - Idade.
 

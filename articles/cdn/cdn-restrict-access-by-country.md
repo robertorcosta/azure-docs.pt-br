@@ -1,6 +1,6 @@
 ---
-title: Restringir o conteúdo do CDN do Azure por país/região | Microsoft Docs
-description: Saiba como restringir o acesso por país/região ao seu conteúdo CDN do Azure usando o recurso de filtragem geográfica.
+title: Restringir o conteúdo da CDN do Azure por país/região | Microsoft Docs
+description: Saiba como restringir o acesso por país/região ao conteúdo da CDN do Azure usando o recurso de filtragem geográfica.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: allensu
 ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260149"
 ---
-# <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo do CDN do Azure por país/região
+# <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo da CDN do Azure por país/região
 
 ## <a name="overview"></a>Visão geral
-Quando um usuário solicita o conteúdo, por padrão, o conteúdo é exibido, independentemente da localização do usuário que fez a solicitação. No entanto, em alguns casos, você pode querer restringir o acesso ao seu conteúdo por país/região. Com o recurso *de geofiltragem,* você pode criar regras sobre caminhos específicos no ponto final do CDN para permitir ou bloquear conteúdo em países/regiões selecionados.
+Quando um usuário solicita o conteúdo, por padrão, o conteúdo é exibido, independentemente da localização do usuário que fez a solicitação. No entanto, em alguns casos, talvez você queira restringir o acesso ao seu conteúdo por país/região. Com o recurso de *filtragem geográfica* , você pode criar regras em caminhos específicos no ponto de extremidade da CDN para permitir ou bloquear conteúdo em países/regiões selecionados.
 
 > [!IMPORTANT]
 > **A CDN Standard do Azure dos perfis da Microsoft** não oferecem suporte baseado no caminho da filtragem geográfica.
@@ -46,26 +46,26 @@ Na caixa **PATH**, especifique o caminho relativo para o local ao qual os usuár
 
 Por exemplo, todos os filtros de caminho de diretório a seguir são válidos:   
 */*                                 
-*/Fotos/*     
-*/Fotos/Estrasburgo/*     
+*Contida*     
+*/Photos/Strasbourg/*     
 */Fotos/Estrasburgo/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definir o tipo de ação
 
 Na lista **AÇÃO**, selecione **Permitir** ou **Bloquear**: 
 
-- **Permitir**: Somente usuários dos países/regiões especificados podem acessar os ativos solicitados no caminho recursivo.
+- **Permitir**: somente os usuários dos países/regiões especificados têm acesso permitido aos ativos solicitados do caminho recursivo.
 
-- **Bloco**: Os usuários dos países/regiões especificados têm acesso negado aos ativos solicitados no caminho recursivo. Se nenhuma outra opção de filtragem de país/região tiver sido configurada para esse local, todos os outros usuários terão acesso permitido.
+- **Bloquear**: os usuários dos países/regiões especificados têm acesso negado aos ativos solicitados do caminho recursivo. Se nenhuma outra opção de filtragem de país/região tiver sido configurada para esse local, todos os outros usuários terão acesso permitido.
 
 Por exemplo, uma regra de filtragem geográfica para bloquear o caminho */Fotos/Estrasburgo/* filtra os arquivos a seguir:     
-*\//http:\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http\<:\//Endpoint>. azureedge.net/photos/Strasbourg/1000.jpg*
+*http:\//\<Endpoint>. azureedge.net/photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Definir os países/regiões
-Na lista CÓDIGOS DE **PAÍS,** selecione os países/regiões que deseja bloquear ou permita o caminho. 
+Na lista **códigos de país** , selecione os países/regiões que você deseja bloquear ou permitir para o caminho. 
 
-Depois de terminar de selecionar os países/regiões, selecione **Salvar** para ativar a nova regra de filtragem geográfica. 
+Depois de concluir a seleção dos países/regiões, selecione **salvar** para ativar a nova regra de filtragem geográfica. 
 
 ![Regras de filtragem geográfica](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
@@ -89,14 +89,14 @@ Para perfis**CDN Premium do Azure da Verizon**, a interface do usuário para cri
 
     A página **Etapa Dois:** aparece. 
 
-5. Selecione um ou mais países/regiões da lista e selecione **Concluir** para ativar a regra. 
+5. Selecione um ou mais países/regiões na lista e, em seguida, selecione **concluir** para ativar a regra. 
     
     A nova regra aparece na tabela na página **Filtragem por País/Região**.
 
     ![Regras de filtragem geográfica](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
-Na tabela de regras de filtragem de país/região, selecione o ícone excluir ao lado de uma regra para excluí-lo ou do ícone de edição para modificá-lo.
+Na tabela regras de filtragem de país/região, selecione o ícone excluir ao lado de uma regra para excluí-la ou o ícone Editar para modificá-la.
 
 ## <a name="considerations"></a>Considerações
 * As alterações na configuração de filtragem geográfica não são efetivadas imediatamente:
@@ -108,7 +108,7 @@ Na tabela de regras de filtragem de país/região, selecione o ícone excluir ao
 
 * A configuração de filtragem geográfica associada ao caminho relativo é aplicada recursivamente a esse caminho.
 
-* Apenas uma regra pode ser aplicada para o mesmo caminho relativo. Ou seja, não é possível criar vários filtros de país/região que apontam para o mesmo caminho relativo. No entanto, como os filtros de país/região são recursivos, uma pasta pode ter vários filtros de país/região. Em outras palavras, uma subpasta de uma pasta previamente configurada pode ser atribuída a um filtro de país/região diferente.
+* Apenas uma regra pode ser aplicada para o mesmo caminho relativo. Ou seja, você não pode criar vários filtros de país/região que apontam para o mesmo caminho relativo. No entanto, como os filtros de país/região são recursivos, uma pasta pode ter vários filtros de país/região. Em outras palavras, uma subpasta de uma pasta configurada anteriormente pode ser atribuída a um filtro de país/região diferente.
 
-* O recurso de geofiltragem usa códigos de países para definir os países/regiões dos quais uma solicitação é permitida ou bloqueada para um diretório seguro. Embora os perfis da Akamai e da Verizon deem suporte para a maioria dos códigos do país, existem algumas diferenças. Para obter mais informações, consulte [os códigos de país do Azure CDN](/previous-versions/azure/mt761717(v=azure.100)). 
+* O recurso de filtragem geográfica usa códigos de país para definir os países/regiões dos quais uma solicitação é permitida ou bloqueada para um diretório protegido. Embora os perfis da Akamai e da Verizon deem suporte para a maioria dos códigos do país, existem algumas diferenças. Para obter mais informações, consulte [códigos de país da CDN do Azure](/previous-versions/azure/mt761717(v=azure.100)). 
 

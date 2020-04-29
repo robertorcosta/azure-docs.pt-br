@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985925"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para a entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -37,11 +37,11 @@ Este tópico mostra os cenários comuns de entrega de conteúdo [ao vivo](#live_
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
 * O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**.
 
-    Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar o empacotamento e a criptografia dinâmicos, o ponto de extremidade de streaming deve estar no estado **Em execução**.
+    Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento e a criptografia dinâmicos, o ponto de extremidade de streaming deve estar no estado **Em execução**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Os objetos normalmente usados durante o desenvolvimento no modelo AMS OData
 
@@ -65,7 +65,7 @@ Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?a
     É recomendável aplicar a opção de criptografia de armazenamento ao ativo de saída para proteger o conteúdo em repouso.
 3. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico).
 
-    Se o seu ativo estiver criptografado, você **deve** configurar a política de entrega de ativos.
+    Se o ativo for armazenamento criptografado, você **deverá** configurar a política de entrega de ativos.
 4. Publicar o ativo criando um localizador OnDemand.
 5. Fluxo de conteúdo publicado.
 
@@ -153,12 +153,12 @@ Os clientes AMS podem dimensionar os pontos de extremidade do streaming, process
 
 * Uma conta dos Serviços de Mídia está associada a um Tipo de Unidade Reservada que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**.
 
-    Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com **Unidades Reservadas** (RUs). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
+    Além de especificar o tipo de unidade reservada, você pode especificar para provisionar sua conta com **unidades reservadas** (RUs). O número de URs provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em determinada conta.
 
     >[!NOTE]
     >As URs trabalham para paralelizar todo o processamento de mídia, incluindo os trabalhos de indexação, usando o Azure Media Indexer. No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
 
-    Para obter mais informações, consulte [o dimensionamento do processamento de mídia](media-services-portal-scale-media-processing.md).
+    Para obter mais informações, consulte [escala de processamento de mídia](media-services-portal-scale-media-processing.md).
 * Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia. Para saber mais, consulte [Gerenciar contas de armazenamento](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Disponibilidade de recursos dos Serviços de Mídia nos datacenters
@@ -169,7 +169,7 @@ Esta seção fornece detalhes sobre a disponibilidade de recursos dos Serviços 
 
 #### <a name="availability"></a>Disponibilidade
 
-Use [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) para determinar se os Serviços de Mídia estão disponíveis em um data center específico.
+Use os [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) para determinar se os serviços de mídia estão disponíveis em um datacenter específico.
 
 ### <a name="streaming-endpoints"></a>Pontos de extremidade de streaming 
 
@@ -177,7 +177,7 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome|Status|Datacenters
+|Name|Status|Datacenters
 |---|---|---|
 |Standard|GA|Todos|
 |Premium|GA|Todos|
@@ -204,7 +204,7 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Alguns processadores de mídia de análise serão aposentados. Para as datas de aposentadoria, consulte o tópico [componentes legados.](legacy-components.md)
+> Alguns processadores de mídia de análise serão desativados. Para as datas de desativação, consulte o tópico [componentes herdados](legacy-components.md) .
 
 #### <a name="availability"></a>Disponibilidade
 
@@ -265,6 +265,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

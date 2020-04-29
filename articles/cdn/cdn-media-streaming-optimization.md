@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 2931dffaaab2d06b2c06f03770a66d78d6466787
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260439"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Otimização de streaming de mídia com a CDN do Azure 
@@ -79,7 +79,7 @@ Depois de criar o ponto de extremidade, ele aplica a otimização a todos os arq
 
 ### <a name="caching"></a>Cache
 
-Se a **CDN Standard do Azure da Akamai** detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da entrega Web geral. (Veja a lista completa na tabela a seguir.) Como sempre, os cabeçalhos de controle de cache ou Expirações enviados da origem são honrados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
+Se a **CDN Standard do Azure da Akamai** detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da entrega Web geral. (Consulte a lista completa na tabela a seguir.) Como sempre, os cabeçalhos cache-Control ou Expires enviados da origem são respeitados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
 
 O tempo de cache negativo curto é útil para descarregamento de origem quando muitos usuários solicitam um fragmento que ainda não existe. Um exemplo é um transmissão ao vivo em que os pacotes não estão disponíveis na origem nesse segundo. O intervalo de cache mais longo também ajuda a descarregar as solicitações da origem, já que o conteúdo de vídeo normalmente não é modificado.
  
