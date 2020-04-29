@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277278"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associação de saída dos Hubs de Notificação para Azure Functions
@@ -21,7 +21,7 @@ Os Hubs de Notificação do Azure devem ser configurados para os PNS (Serviços 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> O Google [preteriu o Google Cloud Messaging (GCM) em favor do Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Esta vinculação de saída não suporta FCM. Para enviar notificações usando fcm, use a [API firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) diretamente em sua função ou use [notificações de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> O Google [preteriu Google Cloud Messaging (GCM) em favor do firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Esta associação de saída não dá suporte a FCM. Para enviar notificações usando o FCM, use a [API do firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) diretamente em sua função ou use notificações de [modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
@@ -29,9 +29,9 @@ As associações de Hubs de notificação são fornecidas no [Microsoft.Azure.We
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superior
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-Esta vinculação não está disponível nas Funções 2.x ou superior.
+Essa associação não está disponível no functions 2. x e superior.
 
 ## <a name="example---template"></a>Exemplo - modelo
 
@@ -43,8 +43,8 @@ Consulte o exemplo específico a um idioma:
 * [Script do C# - assíncrono](#c-script-template-example---asynchronous)
 * [Script do C# - JSON](#c-script-template-example---json)
 * [Script do C# - tipos de biblioteca](#c-script-template-example---library-types)
-* [F #](#f-template-example)
-* [Javascript](#javascript-template-example)
+* [Fixo #](#f-template-example)
+* [JavaScript](#javascript-template-example)
 
 ### <a name="c-script-template-example---out-parameter"></a>Exemplo de modelo de script do C# - parâmetro out
 
@@ -249,13 +249,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** |n/d| Deve ser definido como `notificationHub`. |
-|**direction** |n/d| Deve ser definido como `out`. | 
-|**name** |n/d| Nome da variável usada no código de função para a mensagem do hub de notificação. |
-|**tagExpression** |**TagExpression** | As expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos registrados para receber notificações que correspondem à expressão de marca.  Para obter mais informações, consulte [As expressões de roteamento e tag](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
+|**tipo** |N/D| Deve ser definido como `notificationHub`. |
+|**direção** |N/D| Deve ser definido como `out`. | 
+|**name** |N/D| Nome da variável usada no código de função para a mensagem do hub de notificação. |
+|**tagExpression** |**TagExpression** | As expressões de marca permitem que você especifique que as notificações sejam entregues a um conjunto de dispositivos registrados para receber notificações que correspondem à expressão de marca.  Para obter mais informações, consulte [expressões de marca e de roteamento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome do recurso de hub de notificação no portal do Azure. |
-|**Conexão** | **ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Hubs de Notificação.  A cadeia de caracteres de conexão deve ser definida como o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Veja [Configuração da cadeia de conexão](#connection-string-setup) posteriormente neste artigo.|
-|**Plataforma** | **Plataforma** | A propriedade platform indica a plataforma de cliente à qual sua notificação se destina. Por padrão, se a propriedade da plataforma é omitida da associação de saída, as notificações de modelo podem ser usadas para atingir qualquer plataforma configurada no Hub de Notificação do Azure. Para obter mais informações sobre como usar modelos em geral para enviar várias notificações de plataforma com um Hub de Notificação do Azure, consulte [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Quando definida, **platform** deve ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Para obter mais informações sobre como configurar o hub de notificação para APNS e receber a notificação em um aplicativo cliente, consulte [Enviar notificações push para iOS com hubs de notificação do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Mensagens de dispositivos Amazon](https://developer.amazon.com/device-messaging). Para obter mais informações sobre como configurar o hub de notificação para ADM e receber a notificação de um aplicativo Kindle, consulte [Introdução aos Hubs de Notificação para aplicativos Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Serviços de Notificação por Push do Windows](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) visando plataformas Windows. Também há suporte para Windows Phone 8.1 e posterior pelo WNS. Para mais informações, consulte [Introdução aos Hubs de Notificação para aplicativos da Plataforma Universal do Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Serviço de Notificação por Push da Microsoft](/previous-versions/windows/apps/ff402558(v=vs.105)). Essa plataforma dá suporte a plataformas mais antigas do Windows Phone e Windows Phone 8. Para mais informações, consulte [Como enviar notificações por push com Hubs de Notificação do Azure no Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**connection** | **ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Hubs de Notificação.  A cadeia de caracteres de conexão deve ser definida como o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Veja [Configuração da cadeia de conexão](#connection-string-setup) posteriormente neste artigo.|
+|**platform** | **Plataforma** | A propriedade platform indica a plataforma de cliente à qual sua notificação se destina. Por padrão, se a propriedade da plataforma é omitida da associação de saída, as notificações de modelo podem ser usadas para atingir qualquer plataforma configurada no Hub de Notificação do Azure. Para obter mais informações sobre como usar modelos em geral para enviar várias notificações de plataforma com um Hub de Notificação do Azure, consulte [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Quando definida, **platform** deve ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Apple Push Notification Service. Para obter mais informações sobre como configurar o Hub de notificação para APNS e receber a notificação em um aplicativo cliente, consulte como [enviar notificações por push para o Ios com os hubs de notificação do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obter mais informações sobre como configurar o hub de notificação para ADM e receber a notificação de um aplicativo Kindle, consulte [Introdução aos Hubs de Notificação para aplicativos Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>&mdash;[Serviços de Notificação por Push do Windows](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) visando plataformas Windows. Também há suporte para Windows Phone 8.1 e posterior pelo WNS. Para mais informações, consulte [Introdução aos Hubs de Notificação para aplicativos da Plataforma Universal do Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Serviço de Notificação por Push da Microsoft](/previous-versions/windows/apps/ff402558(v=vs.105)). Essa plataforma dá suporte a plataformas mais antigas do Windows Phone e Windows Phone 8. Para mais informações, consulte [Como enviar notificações por push com Hubs de Notificação do Azure no Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

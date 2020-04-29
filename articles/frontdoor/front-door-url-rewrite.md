@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente do Azure - Url Rewrite | Microsoft Docs
-description: Este artigo ajuda você a entender como o Azure Front Door faz a REescrita de URL para suas rotas, se configurada.
+title: Porta frontal do Azure-regravação de URL | Microsoft Docs
+description: Este artigo ajuda você a entender como a porta frontal do Azure faz a regravação da URL para suas rotas, se configurada.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471465"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Regeneração de URL (caminho personalizado de encaminhamento)
-O Azure Front Door suporta regravação de URL, permitindo que você configure um **caminho de encaminhamento personalizado** opcional para usar ao construir a solicitação para encaminhar para o backend. Por padrão, se nenhum caminho de encaminhamento personalizado for fornecido, o Front Door copiará o caminho de URL de entrada para a URL usada na solicitação encaminhada. O cabeçalho do Host usado na solicitação encaminhada ficará conforme configurado no back-end selecionado. Leia [Cabeçalho de host de back-end](front-door-backend-pool.md#hostheader) para saber o que ele faz e como configurá-lo.
+A porta frontal do Azure dá suporte à regravação de URL, permitindo que você configure um **caminho de encaminhamento personalizado** opcional para usar ao construir a solicitação para encaminhar para o back-end. Por padrão, se nenhum caminho de encaminhamento personalizado for fornecido, o Front Door copiará o caminho de URL de entrada para a URL usada na solicitação encaminhada. O cabeçalho do Host usado na solicitação encaminhada ficará conforme configurado no back-end selecionado. Leia [Cabeçalho de host de back-end](front-door-backend-pool.md#hostheader) para saber o que ele faz e como configurá-lo.
 
 A melhor parte da regeneração de URL usando o caminho de encaminhamento personalizado é que ele copiará qualquer parte do caminho de entrada que corresponda ao caminho curinga para o caminho encaminhado (esses segmentos de caminho são os segmentos em **verde** no exemplo a seguir):
 </br>
@@ -42,12 +42,12 @@ Por exemplo, se lermos na segunda linha, veremos que para a solicitação de ent
 
 | Solicitação de entrada       | Caminho de correspondência mais específica | /          | /fwd/          | /foo/          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| www\.contoso.com/            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www\.**contoso.com/ sub**     | /\*                      | /**Sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
+| contoso.com/\.www            | /\*                      | /          | /fwd/          | /foo/          | /foo/bar/          |
+| sub\.contoso.com/**sub** da Web     | /\*                      | /**projeto**   | /fwd/**sub**   | /foo/**sub**   | /foo/bar/**sub**   |
 | www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
-| www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
-| www\.**contoso.com/foo/ bar** | /foo/\*                  | /**Bar**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
+| contoso.com/foo\.www         | /foo                     | /          | /fwd/          | /foo/          | /foo/bar/          |
+| contoso.com/foo/\.www        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/bar/          |
+| barra\.de**bar** contoso.com/foo/da Web | /foo/\*                  | /**ênfase**   | /fwd/**bar**   | /foo/**bar**   | /foo/bar/**bar**   |
 
 
 ## <a name="optional-settings"></a>Configurações opcionais

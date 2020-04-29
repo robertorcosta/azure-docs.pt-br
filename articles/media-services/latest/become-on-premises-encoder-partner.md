@@ -1,6 +1,6 @@
 ---
-title: Torne-se um parceiro de codificador no local - Azure Media Services
-description: Este artigo discute como verificar seus codificadores de transmissão ao vivo no local.
+title: Torne-se um parceiro de codificador local-serviços de mídia do Azure
+description: Este artigo discute como verificar seus codificadores de transmissão ao vivo local.
 services: media-services
 author: johndeu
 manager: johndeu
@@ -9,13 +9,13 @@ ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79298624"
 ---
-# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar seu codificador de transmissão ao vivo no local
+# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Como verificar seu codificador de transmissão ao vivo local
 
 Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Serviços de Mídia promovem seu produto, recomendando seu codificador aos clientes corporativos. Para tornar-se um parceiro de codificador local, é necessário verificar a compatibilidade do seu codificador local com os Serviços de Mídia. Para fazer isso, conclua as seguintes verificações.
 
@@ -27,9 +27,9 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 2. Crie e inicie um evento ao vivo de **passagem**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar o fluxo ao vivo com múltiplas taxas de bits para os Serviços de Mídia.
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
-5. Crie um novo objeto **Asset.**
+5. Crie um novo objeto de **ativo** .
 6. Crie uma **saída ao vivo** e use o nome do ativo que você criou.
-7. Crie um **localizador de streaming** com os tipos de diretiva de **streaming** incorporados.
+7. Crie um **localizador de streaming** com os tipos de **política de streaming** internos.
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas.
 9. Obtenha o nome do host para o **Ponto de Extremidade de Streaming** do qual você deseja transmitir.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
@@ -46,9 +46,9 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 2. Crie e inicie o evento ao vivo de **codificação ativa**. <br/> Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador para enviar por push uma transmissão ao vivo de taxa de bits única para os Serviços de Mídia.
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
-5. Crie um novo objeto **Asset.**
+5. Crie um novo objeto de **ativo** .
 6. Crie uma **saída ao vivo** e use o nome do ativo que você criou.
-7. Crie um **localizador de streaming** com os tipos de diretiva de **streaming** incorporados.
+7. Crie um **localizador de streaming** com os tipos de **política de streaming** internos.
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas.
 9. Obtenha o nome do host para o **Ponto de Extremidade de Streaming** do qual você deseja transmitir.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
@@ -69,7 +69,7 @@ Por fim, envie por email as configurações registradas e os parâmetros dos arq
 
 ## <a name="see-also"></a>Confira também
 
-[Codificadores testados no local](recommended-on-premises-live-encoders.md)
+[Codificadores locais testados](recommended-on-premises-live-encoders.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

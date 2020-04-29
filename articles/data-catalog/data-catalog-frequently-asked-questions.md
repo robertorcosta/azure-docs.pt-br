@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79409012"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -53,13 +53,13 @@ Para obter uma lista de fontes de dados com suporte no momento, consulte [DSR do
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Como fazer para solicitar suporte para outra fonte de dados?
 Para enviar solicitações de recurso e outros comentários, vá aos [Fóruns do Catálogo de Dados do Azure](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
-## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Por que eu recebo um catálogo de erros *já existe* quando tento criar um novo catálogo?
+## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Por que eu obtenho um catálogo de erros *já existe* quando tento criar um novo catálogo?
 
-Quando você compra o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365 / Power BI é gerenciada na página administração do Office 365. 
+Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página de administração do Office 365. 
 
-No entanto, esse tipo de catálogo de dados não possui uma **opção de administrador** e não está visível no portal **Azure**. Não é possível excluir esse tipo de catálogo de dados. Da mesma forma, você não está autorizado a renomear o catálogo de dados e não pode movê-lo para outra região. 
+No entanto, esse tipo de catálogo de dados não tem uma **opção de administrador** e não é visível no **portal do Azure**. Você não pode excluir este tipo de catálogo de dados. Da mesma forma, você não tem permissão para renomear o catálogo de dados e não pode movê-lo para outra região. 
 
-As contas dos usuários que recebem uma licença Power BI Pro automática têm acesso ao catálogo de dados devido ao Contrato de Licença quando se inscreveram para o Office 365 E5 com a Licença Power BI Pro. Esse tipo de usuário tem acesso total a ativos de catálogo de dados sem privilégios administrativos. Esse tipo de usuário *não* faz parte da função **do Usuário do Catálogo** no Catálogo de Dados do Azure.
+Contas de usuários que recebem uma licença de Power BI Pro automática têm acesso ao catálogo de dados devido ao contrato de licença quando eles se inscreveram no Office 365 E5 com a licença de Power BI Pro. Esse tipo de usuário tem acesso completo aos ativos do catálogo de dados sem privilégios administrativos. Esse tipo de usuário *não* faz parte da função de **usuário de catálogo** no catálogo de dados do Azure.
 
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Como fazer para usar o Catálogo de Dados?
@@ -87,7 +87,7 @@ As propriedades específicas diferem de uma fonte de dados para outra, porém, e
 >
 
 > [!NOTE]
-> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais SQL Server *inlono is on-premises* que não possuem uma propriedade de **descrição** de primeira classe, a ferramenta de registro de origem de dados do Catálogo de Dados extrai o valor da **propriedade estendida ms_description** para objetos e colunas. Esta propriedade não é suportada para O SQL Azure. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Para fontes de dados como SQL Server Analysis Services que têm uma propriedade **Description** de primeira classe, a ferramenta de registro de fonte de dados do Catálogo de Dados extrai esse valor da propriedade. Para bancos de dados relacionais SQL Server *locais* que não têm uma propriedade de **Descrição** de primeira classe, a ferramenta de registro de fonte de dados do catálogo é extraída do valor da **MS_Description** propriedade estendida para objetos e colunas. Não há suporte para essa propriedade para SQL Azure. Para saber mais, confira [Como usar propriedades estendidas em objetos de banco de dados](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 

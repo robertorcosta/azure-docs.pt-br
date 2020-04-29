@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3eec6583ebdff35d7e40d2eec305a947de0cb87c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299441"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -26,17 +26,17 @@ ms.locfileid: "79299441"
 
 ## <a name="powershell"></a>PowerShell
 
-Você pode usar o Azure PowerShell para criar um instantâneo incremental. Você precisará da versão mais recente do Azure PowerShell, o seguinte comando irá instalá-lo ou atualizar sua instalação existente para o mais recente:
+Você pode usar Azure PowerShell para criar um instantâneo incremental. Você precisará da versão mais recente do Azure PowerShell, o seguinte comando o instalará ou atualizará a instalação existente para o mais recente:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
 ```
 
-Uma vez instalado, faça login na `az login`sessão powershell com .
+Depois de instalado, faça logon na sua sessão do PowerShell `az login`com.
 
-Para criar um instantâneo incremental com o Azure PowerShell, defina a `-Incremental` configuração com [o New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) com o parâmetro e passe-o como uma variável para [O Novo-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) através do `-Snapshot` parâmetro.
+Para criar um instantâneo incremental com Azure PowerShell, defina a configuração com [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) com o `-Incremental` parâmetro e, em seguida, passe-o como uma variável para [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) por meio do `-Snapshot` parâmetro.
 
-Substituir `<yourDiskNameHere>` `<yourResourceGroupNameHere>`, `<yourDesiredSnapShotNameHere>` e com seus valores, então você pode usar o seguinte script para criar um instantâneo incremental:
+Substitua `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`e `<yourDesiredSnapShotNameHere>` por seus valores, você pode usar o script a seguir para criar um instantâneo incremental:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
@@ -47,9 +47,9 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-Você pode identificar instantâneos incrementais `SourceResourceId` do `SourceUniqueId` mesmo disco com as propriedades dos snapshots. `SourceResourceId`é o ID de recurso do Azure Resource Manager do disco pai. `SourceUniqueId`é o valor herdado da `UniqueId` propriedade do disco. Se você quiser excluir um disco e criar um novo disco `UniqueId` com o mesmo nome, o valor da propriedade será alterado.
+Você pode identificar instantâneos incrementais do mesmo disco com o `SourceResourceId` e as `SourceUniqueId` Propriedades de instantâneos. `SourceResourceId`é a ID de recurso Azure Resource Manager do disco pai. `SourceUniqueId`é o valor herdado da `UniqueId` Propriedade do disco. Se você for excluir um disco e, em seguida, criar um novo disco com o mesmo nome, o valor `UniqueId` da propriedade será alterado.
 
-Você pode `SourceResourceId` `SourceUniqueId` usar e criar uma lista de todos os instantâneos associados a um determinado disco. Substitua pelo `<yourResourceGroupNameHere>` seu valor e, em seguida, você pode usar o seguinte exemplo para listar seus instantâneos incrementais existentes:
+Você pode usar `SourceResourceId` e `SourceUniqueId` para criar uma lista de todos os instantâneos associados a um disco específico. Substitua `<yourResourceGroupNameHere>` pelo seu valor e, em seguida, você pode usar o exemplo a seguir para listar seus instantâneos incrementais existentes:
 
 ```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
@@ -69,7 +69,7 @@ $incrementalSnapshots
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-Você também pode usar os modelos do Azure Resource Manager para criar um instantâneo incremental. Você precisará ter certeza de que o apiVersion está definido para **2019-03-01** e que a propriedade incremental também está definida como verdadeira. O trecho a seguir é um exemplo de como criar um instantâneo incremental com modelos do Gerenciador de recursos:
+Você também pode usar modelos de Azure Resource Manager para criar um instantâneo incremental. Você precisará certificar-se de que apiVersion está definido como **2019-03-01** e que a propriedade incremental também é definida como true. O trecho a seguir é um exemplo de como criar um instantâneo incremental com modelos do Resource Manager:
 
 ```json
 {
@@ -105,4 +105,4 @@ Você também pode usar os modelos do Azure Resource Manager para criar um insta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser ver o código de amostra demonstrando a capacidade diferencial de instantâneos incrementais, usando o .NET, consulte backups do [Copy Azure Managed Disks para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Se você quiser ver um exemplo de código que demonstra a capacidade diferencial de instantâneos incrementais, usando o .NET, consulte [copiar backups de Managed disks do Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ms.openlocfilehash: f7dc7b520cba2bbf2351d93795a1a26b3b5124be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471346"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
@@ -34,7 +34,7 @@ O HDInsight fornece vários tipos de cluster, que são ajustados para cargas de 
 
 Use a tabela a seguir para descobrir diferentes formas de usar o Hive com HDInsight:
 
-| **Use esse método** se você quiser... | ...consultas **interativas** | ... processamento **em lote** | ... desse **sistema operacional cliente** |
+| **Use esse método** se você quiser... | ...consultas **interativas** | ... processamento **em lotes** | ... desse **sistema operacional cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Ferramentas do HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X ou Windows |
 | [Ferramentas do HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -45,7 +45,7 @@ Use a tabela a seguir para descobrir diferentes formas de usar o Hive com HDInsi
 
 ## <a name="hiveql-language-reference"></a>Referência da linguagem HiveQL
 
-A referência à língua hiveQL está disponível no manual do [idioma](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+A referência de linguagem HiveQL está disponível no [manual de idioma](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive e estrutura de dados
 
@@ -83,10 +83,10 @@ Há dois tipos de tabelas que você pode criar com o Hive:
 
     Use tabelas externas quando uma das condições a seguir se aplicar:
 
-    * Os dados também são usados fora do Hive. Por exemplo, os arquivos de dados são atualizados por outro processo (que não bloqueia os arquivos.)
+    * Os dados também são usados fora do Hive. Por exemplo, os arquivos de dados são atualizados por outro processo (que não bloqueia os arquivos).
     * Os dados devem permanecer no local anterior, mesmo depois de descartar a tabela.
     * Você precisa de um local personalizado, como uma conta de armazenamento não padrão.
-    * Um programa diferente da colmeia gerencia o formato de dados, localização e assim por diante.
+    * Um programa que não seja o hive gerencia o formato de dados, o local e assim por diante.
 
 Para obter mais informações, confira a publicação do blog [Introdução às tabelas internas e externas do Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/).
 
@@ -134,11 +134,11 @@ No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 |de |Descrição |
 |---|---|
 |DROP TABLE|Se a tabela já existir, exclua-a.|
-|CRIAR TABELA EXTERNA|Cria uma nova mesa **externa** em Hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
-|FORMATO DA LINHA|Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
-|ARMAZENADO COMO LOCAL DE ARQUIVO DE TEXTO|Diz a Colmeia onde os `example/data` dados são armazenados (o diretório) e que são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.|
+|CREATE EXTERNAL TABLE|Cria uma nova tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
+|FORMATO DE LINHA|Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
+|ARMAZENADO COMO LOCAL DO TEXTFILE|Informa ao hive onde os dados são armazenados ( `example/data` o diretório) e que são armazenados como texto. Os dados podem estar em um arquivo ou distribuídos em vários arquivos dentro do diretório.|
 |SELECT|Seleciona uma contagem de todas as linhas nas quais a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, já que há três linhas que contêm esse valor.|
-|INPUT__FILE__NAME COMO '%.log'|Hive tenta aplicar o esquema a todos os arquivos do diretório. Neste caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.|
+|INPUT__FILE__NAME como '%. log '|O hive tenta aplicar o esquema a todos os arquivos no diretório. Nesse caso, o diretório contém arquivos que não correspondem ao esquema. Para evitar dados incorretos nos resultados, essa instrução informa ao Hive que devemos retornar apenas dados de arquivos que terminam em .log.|
 
 > [!NOTE]  
 > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizado ou uma operação MapReduce.
@@ -166,9 +166,9 @@ Essas instruções executam as seguintes ações:
 
 |de |Descrição |
 |---|---|
-|CRIAR TABELA SE NÃO EXISTIR|Se a mesa não existe, crie-a. Como a **palavra-chave EXTERNAL** não é usada, esta declaração cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
+|CREATE TABLE SE NÃO EXISTIR|Se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.|
-|INSERIR SOBREGRAVAÇÃO ... Selecione|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.|
+|INSERIR SUBSTITUIÇÃO... Não|Seleciona as linhas na tabela **log4jLogs** que contém **[ERROR]** e insere os dados na tabela **errorLogs**.|
 
 > [!NOTE]  
 > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
@@ -177,7 +177,7 @@ Essas instruções executam as seguintes ações:
 
 ### <a name="apache-tez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. Tez é ativado por padrão.  Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
+[Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicativos com uso intenso de dados como o Hive executem de maneira muito mais eficiente em escala. O tez é habilitado por padrão.  Os [documentos de design do Apache Hive no Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contêm vários detalhes das escolhas de implantação e configurações de ajuste.
 
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 
@@ -211,6 +211,6 @@ O Apache Oozie é um sistema de fluxo de trabalho e coordenação que gerencia t
 
 Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Carregar dados para hdinsight](../hdinsight-upload-data.md)
+* [Carregar dados no HDInsight](../hdinsight-upload-data.md)
 * [Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight](./python-udf-hdinsight.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)

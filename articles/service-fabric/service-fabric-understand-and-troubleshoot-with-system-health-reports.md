@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282010"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
@@ -20,7 +20,7 @@ Os componentes do Service Fabric do Azure apresentam relatórios de integridade 
 > 
 > 
 
-Os relatórios de integridade do sistema dão visibilidade da funcionalidade do cluster e do aplicativo e sinalizam problemas. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem nenhum monitoramento de saúde da lógica empresarial do serviço ou detecção de processos que não estão respondendo. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
+Os relatórios de integridade do sistema dão visibilidade da funcionalidade do cluster e do aplicativo e sinalizam problemas. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades são implementadas e estão se comportando corretamente da perspectiva do Service Fabric. Os relatórios não fornecem nenhum monitoramento de integridade da lógica de negócios do serviço ou detecção de processos que não estão respondendo. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas à respectiva lógica.
 
 > [!NOTE]
 > Os relatórios de integridade enviados pelos watchdogs do usuário ficam visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ela. O mesmo é verdadeiro quando uma nova instância da entidade é criada. Um exemplo é quando uma nova instância de réplica de serviço persistente com estado é criada. Todos os relatórios associados à instância antiga são excluídos e removidos do repositório.
@@ -45,7 +45,7 @@ A entidade de integridade do cluster é criada automaticamente no repositório d
 O relatório especifica o tempo limite de concessão global como a TTL (vida útil). O relatório é enviado novamente a cada metade da duração do tempo de vida útil, desde que a condição permaneça ativa. O evento é removido automaticamente quando expira. O comportamento de remover quando expirado garante que o relatório seja removido corretamente do repositório de integridade, mesmo que o nó de relatório esteja inoperante.
 
 * **SourceId**: System.Federation
-* **Imóvel**: Começa com **bairro** e inclui informações de nó.
+* **Propriedade**: começa com **ambiente** e inclui informações de nó.
 * **Próximas etapas**: investigue o motivo da perda da vizinhança. Por exemplo, verifique a comunicação entre os nós do cluster.
 
 ### <a name="rebuild"></a>Recriar
@@ -53,32 +53,32 @@ O relatório especifica o tempo limite de concessão global como a TTL (vida út
 O serviço FM (Gerenciador de Failover) gerencia as informações sobre os nós de cluster. Quando o FM perde os dados e entra na perda de dados, ele não pode garantir que tem as informações mais atualizadas sobre os nós de cluster. Nesse caso, o sistema passa por uma recompilação e o System.FM coleta dados de todos os nós no cluster para recompilar o estado. Às vezes, devido a questões de rede ou nó, a recompilação pode ficar atrasada ou paralisada. O mesmo pode acontecer com o serviço FMM (Failover Manager Master). O FMM é um serviço de sistema sem estado que controla onde todos os FMs estão no cluster. O primário do FMM é sempre o nó com a ID mais próxima de 0. Se esse nó for removido, uma recompilação será disparada.
 Quando uma das condições anteriores ocorre, o **System.FM** ou **System.FMM** sinaliza um relatório de erros. A recompilação pode ficar paralisada em uma das duas fases:
 
-* **Aguardando transmissão**: FM/FMM aguarda a resposta da mensagem de transmissão dos outros nós.
+* **Aguardando difusão**: FM/FMM aguarda a resposta da mensagem de difusão dos outros nós.
 
-  * **Próximos passos**: Investigue se há um problema de conexão de rede entre nós.
-* **Aguardando os nódulos**: FM/FMM já recebeu uma resposta de transmissão dos outros nós e aguarda uma resposta de nomes específicos. O relatório de integridade lista os nós dos quais o FM/FMM está aguardando uma resposta.
-   * **Próximos passos**: Investigue a conexão de rede entre o FM/FMM e os nós listados. Investigue cada nó listado quanto a outros possíveis problemas.
+  * **Próximas etapas**: investigue se há um problema de conexão de rede entre os nós.
+* **Aguardando nós**: FM/FMM já recebeu uma resposta de difusão dos outros nós e está aguardando uma resposta de nós específicos. O relatório de integridade lista os nós dos quais o FM/FMM está aguardando uma resposta.
+   * **Próximas etapas**: investigue a conexão de rede entre o FM/FMM e os nós listados. Investigue cada nó listado quanto a outros possíveis problemas.
 
 * **SourceID**: System.FM ou System.FMM
 * **Propriedade**: Recompilação.
 * **Próximas etapas**: investigar a conexão de rede entre os nós, bem como o estado de todos os nós específicos que são listados na descrição do relatório de integridade.
 
-### <a name="seed-node-status"></a>Status do nó de sementes
-**System.FM** informa um aviso de nível de cluster se alguns nós de sementes não estiverem saudáveis. Nós de sementes são os nós que mantêm a disponibilidade do cluster subjacente. Esses nós ajudam a garantir que o cluster permaneça ativo estabelecendo concessões com outros nós e servindo como agentes de desempate durante determinados tipos de falhas de rede. Se a maioria dos nós de sementes estiver no cluster e eles não forem trazidos de volta, o cluster é automaticamente desligado. 
+### <a name="seed-node-status"></a>Status do nó de semente
+O **System.FM** relatará um aviso de nível de cluster se alguns nós de propagação não estiverem íntegros. Os nós de semente são os nós que mantêm a disponibilidade do cluster subjacente. Esses nós ajudam a garantir que o cluster permaneça ativo estabelecendo concessões com outros nós e servindo como agentes de desempate durante determinados tipos de falhas de rede. Se a maioria dos nós de semente estiver inoperante no cluster e eles não forem trazidos de volta, o cluster será desligado automaticamente. 
 
-Um nó de sementes não é saudável se seu status de nó estiver baixo, removido ou desconhecido.
-O relatório de aviso para o status do nó de sementes listará todos os nós de sementes insalubres com informações detalhadas.
+Um nó de semente não estará íntegro se o status do nó for inoperante, removido ou desconhecido.
+O relatório de aviso para o status do nó de semente listará todos os nós de semente não íntegros com informações detalhadas.
 
-* **FonteID:** System.FM
+* **SourceID**: System.FM
 * **Propriedade**: SeedNodeStatus
-* **Próximos passos**: Se este aviso for em e-mail no cluster, siga abaixo as instruções para corrigi-lo: Para cluster executando a versão 6.5 ou superior: Para o cluster Service Fabric no Azure, depois que o nó de semente sumir, o Service Fabric tentará alterá-lo automaticamente para um nó não-semente. Para que isso aconteça, certifique-se de que o número de nódulos não-sementes no tipo de nó primário seja maior ou igual ao número de nódulos de sementes Down. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso.
-Dependendo do status do cluster, pode levar algum tempo para corrigir o problema. Feito isso, o relatório de aviso é automaticamente liberado.
+* **Próximas etapas**: se este aviso aparecer no cluster, siga as instruções abaixo para corrigi-lo: para cluster em execução Service Fabric versão 6,5 ou superior: para Service Fabric cluster no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós que não são de semente no tipo de nó primário é maior ou igual ao número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso.
+Dependendo do status do cluster, pode levar algum tempo para corrigir o problema. Quando isso for feito, o relatório de aviso será limpo automaticamente.
 
-Para o cluster autônomo service fabric, para limpar o relatório de aviso, todos os nós de sementes precisam se tornar saudáveis. Dependendo do motivo pelo qual os nós de sementes não são saudáveis, diferentes ações precisam ser tomadas: se o nó de sementes é baixo, os usuários precisam trazer esse nó de semente para cima; se o nó de semente for removido ou desconhecido, este nó [de sementes precisa ser removido do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
-O relatório de aviso é automaticamente limpo quando todos os nós de sementes se tornam saudáveis.
+Para Service Fabric cluster autônomo, para limpar o relatório de aviso, todos os nós de semente precisam se tornar íntegros. Dependendo de por que os nós de semente não estão íntegros, ações diferentes precisam ser tomadas: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; Se o nó de semente for removido ou desconhecido, esse nó semente [precisará ser removido do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+O relatório de aviso é limpo automaticamente quando todos os nós de propagação se tornam íntegros.
 
-Para a execução de cluster saqueda versão Service Fabric com mais de 6,5: Neste caso, o relatório de aviso precisa ser limpo manualmente. **Os usuários devem certificar-se de que todos os nós de sementes se tornem saudáveis antes de limpar o relatório**: se o nó de semente estiver baixo, os usuários precisam levantar esse nó de semente;se o nó de semente for removido ou desconhecido, esse nó de semente precisa ser removido do cluster.
-Depois que todos os nós de sementes se tornarem saudáveis, use seguindo o comando da Powershell para limpar o relatório de [aviso:](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport)
+Para o cluster que executa a versão Service Fabric mais antiga que 6,5: nesse caso, o relatório de aviso precisa ser limpo manualmente. **Os usuários devem garantir que todos os nós de semente se tornem íntegros antes de limpar o relatório**: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; se o nó semente for removido ou desconhecido, esse nó semente precisará ser removido do cluster.
+Depois que todos os nós de semente se tornarem íntegros, use o comando a seguir do PowerShell para [limpar o relatório de aviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
@@ -119,7 +119,7 @@ HealthEvents          :
 **System.FabricNode** relata um aviso quando os certificados usados pelo nó estão prestes a expirar. Há três certificados por nó: **Certificate_cluster**, **Certificate_server** e **Certificate_default_client**. Quando falta pelo menos duas semanas para expirar, o estado de integridade do relatório é OK. Quando a expiração é dentro de duas semanas, o tipo de relatório é um aviso. O tempo de vida útil desses eventos é infinito; eles são removidos quando um nó deixa o cluster.
 
 * **SourceId**: System.FabricNode
-* **Propriedade**: Começa com **Certificado** e contém mais informações sobre o tipo de certificado.
+* **Propriedade**: começa com **certificado** e contém mais informações sobre o tipo de certificado.
 * **Próximas etapas**: atualize os certificados se eles estiverem prestes a expirar.
 
 ### <a name="load-capacity-violation"></a>Violação da capacidade de carga
@@ -143,7 +143,7 @@ System.CM, que representa o serviço do Gerenciador de Cluster, é a autoridade 
 System.CM relata OK quando o aplicativo é criado ou atualizado. Ele informa ao repositório de integridade quando o aplicativo é excluído para que possa ser removido do repositório.
 
 * **SourceId**: System.CM
-* **Propriedade**: Estado.
+* **Propriedade**: estado.
 * **Próximas etapas**: se o aplicativo tiver sido criado ou atualizado, ele deverá incluir o relatório de integridade do Gerenciador de Cluster. Caso contrário, verifique o estado do aplicativo ao emitir uma consulta. Por exemplo, use o cmdlet do PowerShell **Get-ServiceFabricApplication -ApplicationName** *applicationName*.
 
 O exemplo a seguir mostra o evento de estado no aplicativo **fabric:/WordCount** :
@@ -176,7 +176,7 @@ System.FM, que representa o serviço do Gerenciador de Failover, é a autoridade
 System.FM relata OK quando o serviço é criado. Ele exclui a entidade do repositório de integridade quando o serviço é excluído.
 
 * **SourceId**: System.FM
-* **Propriedade**: Estado.
+* **Propriedade**: estado.
 
 O exemplo a seguir mostra o evento de estado no serviço **fabric:/WordCount/WordCountWebService**:
 
@@ -222,7 +222,7 @@ Se a partição estiver abaixo da contagem mínima de réplica, ela relatará um
 Outros eventos importantes incluem avisos quando a reconfiguração demora mais que o esperado e quando o build demora mais que o esperado. Os tempos esperados para build ou reconfiguração podem ser configurados conforme os cenários de serviço. Por exemplo, se um serviço tiver um terabyte de estado, como o Banco de Dados SQL do Azure, o build demorará mais do que demoraria para um serviço com uma pequena quantidade de estado.
 
 * **SourceId**: System.FM
-* **Propriedade**: Estado.
+* **Propriedade**: estado.
 * **Próximas etapas**: se o estado de integridade não está OK, é possível que algumas réplicas não tenham sido criadas, abertas ou promovidas para o primário ou secundário corretamente. 
 
 Se a descrição indicar uma perda de quorum, examinar o relatório de integridade detalhado quanto a réplicas inoperantes e deixá-las operantes novamente ajudará a deixar a partição online novamente.
@@ -395,7 +395,7 @@ Em casos como o exemplo, investigação adicional é necessária. Investigue a i
 System.RA relata OK quando a réplica é criada.
 
 * **SourceId**: System.RA
-* **Propriedade**: Estado.
+* **Propriedade**: estado.
 
 O exemplo a seguir mostra uma réplica íntegra:
 
@@ -639,30 +639,30 @@ HealthEvents          :
 
 A propriedade e o texto indicam qual API ficou paralisada. As próximas etapas a serem tomadas para diferentes APIs paralisadas são diferentes. Qualquer API em *IStatefulServiceReplica* ou no *IStatelessServiceInstance* geralmente é um bug no código de serviço. A seção a seguir descreve como elas são convertidas no [modelo de Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica.Open**: Este aviso indica `CreateServiceInstanceListeners` `ICommunicationListener.OpenAsync`que uma chamada para `OnOpenAsync` , ou se substituída, está presa.
+- **IStatefulServiceReplica. Open**: esse aviso indica que uma chamada para `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`ou se substituído, `OnOpenAsync` está paralisada.
 
 - **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: o caso mais comum é um serviço que não respeita o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync` ou, se substituído, `OnCloseAsync` esteja paralisado.
 
-- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: o caso mais comum é um serviço que não está respeitando o token de cancelamento passado para `RunAsync`. Neste cenário, a melhor solução é reiniciar a réplica.
+- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: o caso mais comum é um serviço que não está respeitando o token de cancelamento passado para `RunAsync`. Nesse cenário, a melhor solução é reiniciar a réplica.
 
-- **IStatefulServiceReplica.ChangeRole(P)**: O caso mais comum é que `RunAsync`o serviço não retornou uma tarefa de .
+- **IStatefulServiceReplica. ChangeRole (P)**: o caso mais comum é que o serviço não retornou uma tarefa de `RunAsync`.
 
-Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo: 
+Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo:
 
 - **IReplicator.CatchupReplicaSet**: este aviso indica que um dos seguintes. Há réplicas insuficientes. Para verificar se esse é o caso, observe o status de réplica das réplicas na partição ou o relatório de integridade System.FM para uma reconfiguração paralisada. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser utilizado para determinar o progresso de todas as réplicas. O problema está nas réplicas cujo valor `LastAppliedReplicationSequenceNumber` está atrás do valor `CommittedSequenceNumber` do primário.
 
-- **IReplicator.BuildReplica\<(> replicação remota)**: Este aviso indica um problema no processo de compilação. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
+- **IReplicator. BuildReplica (\<replicaid remota>)**: esse aviso indica um problema no processo de compilação. Para obter mais informações, consulte [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md) (Ciclo de vida da réplica). Isso pode acontecer devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [Configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [Especificar recursos em um manifesto de serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 
 ### <a name="replicator-system-health-reports"></a>Relatórios de integridade do sistema replicador
-**Fila de replicação completa:**
-**System.Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
+**Fila de replicação cheia:**
+**System. Replicator** relata um aviso quando a fila de replicação está cheia. Na primária, a fila de replicação normalmente fica cheia porque uma ou mais réplicas secundárias são lentas em confirmar operações. No local secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso será removido quando a fila não estiver mais cheia.
 
 * **SourceId**: System.Replicator
 * **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função da réplica.
 * **Próximas etapas**: se o relatório estiver no primário, verifique a conexão entre os nós no cluster. Se todas as conexões estiverem íntegras, pode haver pelo menos um secundário lento com uma latência de disco alta para aplicar as operações. Se o relatório estiver no secundário, verifique primeiro o uso e o desempenho do disco no nó. Em seguida, verifique a conexão de saída do nó lento para o primário.
 
 **RemoteReplicatorConnectionStatus:**
-**System.Replicator** na réplica primária relata um aviso quando a conexão com um replicador secundário (remoto) não é saudável. O endereço do replicador remoto é mostrado na mensagem do relatório, o que facilita detectar se a configuração errada foi aprovada ou se há problemas de rede entre os replicadores.
+**System. Replicator** na réplica primária relata um aviso quando a conexão com um replicador secundário (remoto) não está íntegra. O endereço do replicador remoto é mostrado na mensagem do relatório, o que facilita detectar se a configuração errada foi aprovada ou se há problemas de rede entre os replicadores.
 
 * **SourceId**: System.Replicator
 * **Propriedade**: **RemoteReplicatorConnectionStatus**.
@@ -678,7 +678,7 @@ Outras chamadas à API que podem ficar paralisadas estão na interface **IReplic
 **System.NamingService** relata a integridade na réplica primária quando uma operação de Nomenclatura demora mais do que o aceitável. Exemplos de operações de Nomeação: [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados no FabricClient. Por exemplo, eles podem ser encontrados em [métodos de gerenciamento do serviço](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gerenciamento de propriedade](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> O serviço de Nomenclatura resolve nomes de serviço para um local no cluster. Os usuários podem usá-lo para gerenciar nomes e propriedades de serviço. É um serviço particionado-persistente do Service Fabric. Uma das partições representa o *Proprietário da Autoridade,* que contém metadados sobre todos os nomes e serviços de Malha de Serviço. Os nomes da malha de serviço são mapeados para diferentes partições, chamadas partições *do Proprietário de nomes,* de modo que o serviço é extensível. Leia mais sobre o [Serviço de nomenclatura](service-fabric-architecture.md).
+> O serviço de Nomenclatura resolve nomes de serviço para um local no cluster. Os usuários podem usá-lo para gerenciar nomes e propriedades de serviço. É um serviço particionado-persistente do Service Fabric. Uma das partições representa o *proprietário da autoridade*, que contém metadados sobre todos os nomes de Service Fabric e serviços. Os nomes de Service Fabric são mapeados para partições diferentes, chamadas de partições de *proprietário de nome* , para que o serviço seja extensível. Leia mais sobre o [Serviço de nomenclatura](service-fabric-architecture.md).
 > 
 > 
 

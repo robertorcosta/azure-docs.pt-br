@@ -1,23 +1,23 @@
 ---
-title: Reverter o erro para a implantação bem-sucedida
-description: Especifique que uma implantação com falha deve reverter para uma implantação bem-sucedida.
+title: Reverter em caso de erro para a implantação bem-sucedida
+description: Especifique que uma implantação com falha deve ser revertida para uma implantação bem-sucedida.
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460136"
 ---
-# <a name="rollback-on-error-to-successful-deployment"></a>Reversão do erro para implantação bem-sucedida
+# <a name="rollback-on-error-to-successful-deployment"></a>Reverter em caso de erro para implantação bem-sucedida
 
-Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Essa funcionalidade é útil se você tiver um bom estado conhecido para a implantação da sua infra-estrutura e quiser reverter para este estado. Há uma série de ressalvas e restrições:
+Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
 
-- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode mudar os parâmetros.
-- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e quaisquer configurações de recursos são definidas para o estado anterior. Certifique-se de entender completamente os [modos de implantação](./deployment-modes.md).
-- A reimplantação afeta apenas os recursos, quaisquer alterações de dados não são afetadas.
-- Você só pode usar esse recurso com implantações de grupos de recursos, não implantações de nível de grupo de assinatura ou gerenciamento. Para obter mais informações sobre a implantação do nível de assinatura, consulte [Criar grupos de recursos e recursos no nível de assinatura](./deploy-to-subscription.md).
+- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
+- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
+- A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
+- Você pode usar esse recurso somente com implantações de grupo de recursos, não assinaturas ou implantações no nível do grupo de gerenciamento. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
 - Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
 
 Para usar essa opção, as implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação atual com falha pode substituir a implantação bem-sucedida anteriormente no histórico.

@@ -1,6 +1,6 @@
 ---
-title: Exceções outofmemoryerror para Apache Spark no Azure HDInsight
-description: Várias exceções outofmemoryError para o cluster Apache Spark no Azure HDInsight
+title: Exceções de OutOfMemoryError para Apache Spark no Azure HDInsight
+description: Várias exceções OutOfMemoryError para o cluster Apache Spark no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,21 +8,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271961"
 ---
-# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções outofmemoryerror para Apache Spark no Azure HDInsight
+# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceções de OutOfMemoryError para Apache Spark no Azure HDInsight
 
-Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao usar componentes Apache Spark em clusters Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Cenário: Exceção de memóriaFalha para Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Cenário: exceção OutOfMemoryError para Apache Spark
 
 ### <a name="issue"></a>Problema
 
-O aplicativo Apache Spark falhou com uma exceção outofmemoryError não tratada. Você pode receber uma mensagem de erro semelhante a:
+O aplicativo Apache Spark falhou com uma exceção sem tratamento OutOfMemoryError. Você pode receber uma mensagem de erro semelhante a:
 
 ```error
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439)
@@ -54,17 +54,17 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Causa
 
-A causa mais provável dessa exceção é que não há memória de heap suficiente alocada para as JVMs (máquinas virtuais Java). Estes JVMs são lançados como executores ou drivers como parte do aplicativo Apache Spark.
+A causa mais provável dessa exceção é que não há memória de heap suficiente alocada para as JVMs (máquinas virtuais Java). Esses JVMs são iniciados como executores ou drivers como parte do aplicativo Apache Spark.
 
 ### <a name="resolution"></a>Resolução
 
-1. Determine o tamanho máximo dos dados com os quais o aplicativo Spark lidará. Faça uma estimativa do tamanho com base no tamanho máximo dos dados de entrada, os dados intermediários produzidos pela transformação dos dados de entrada e os dados de saída produzidos transformando ainda mais os dados intermediários. Se a estimativa inicial não for suficiente, aumente ligeiramente o tamanho e iteraaté que os erros de memória diminuam.
+1. Determine o tamanho máximo dos dados com os quais o aplicativo Spark lidará. Faça uma estimativa do tamanho com base no máximo do tamanho dos dados de entrada, os dados intermediários produzidos transformando os dados de entrada e os dados de saída produzidos mais transformando os dados intermediários. Se a estimativa inicial não for suficiente, aumente o tamanho ligeiramente e itere até que os erros de memória sejam sublados.
 
-1. Verifique se o cluster HDInsight a ser usado tem recursos suficientes em termos de memória e também núcleos para aceitar o aplicativo Spark. Isso pode ser determinado visualizando a seção Métricas de cluster da UI YARN do cluster para os valores de **Memória Usada** vs. **Memória Total** e **VCores Usados** vs. **VCores Total**.
+1. Verifique se o cluster HDInsight a ser usado tem recursos suficientes em termos de memória e também núcleos para aceitar o aplicativo Spark. Isso pode ser determinado exibindo a seção métricas de cluster da interface do usuário do amYARN do cluster para os valores de **memória usados** versus **total de memória** e **VCores usados** versus o **total de VCores**.
 
-    ![visão de memória do núcleo do fio](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    ![exibição de memória do yarn Core](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
-1. Defina as seguintes configurações de Faísca para valores apropriados. Equilibre os requisitos de aplicação com os recursos disponíveis no cluster. Esses valores não devem exceder 90% da memória disponível e dos núcleos como visto pelo YARN, e também devem atender ao requisito mínimo de memória do aplicativo Spark:
+1. Defina as seguintes configurações do Spark com os valores apropriados. Equilibre os requisitos do aplicativo com os recursos disponíveis no cluster. Esses valores não devem exceder 90% da memória e dos núcleos disponíveis, conforme exibido pelo YARN, e também devem atender ao requisito mínimo de memória do aplicativo Spark:
 
     ```
     spark.executor.instances (Example: 8 for 8 executor count)
@@ -90,11 +90,11 @@ A causa mais provável dessa exceção é que não há memória de heap suficien
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Cenário: Java heap space error when trying to open Apache Spark history server
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Cenário: erro de espaço de heap de Java ao tentar abrir o servidor de histórico de Apache Spark
 
 ### <a name="issue"></a>Problema
 
-Você recebe o seguinte erro ao abrir eventos no servidor Spark History:
+Você recebe o seguinte erro ao abrir eventos no servidor de histórico do Spark:
 
 ```
 scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lang.OutOfMemoryError)
@@ -102,9 +102,9 @@ scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lan
 
 ### <a name="cause"></a>Causa
 
-Este problema é muitas vezes causado pela falta de recursos ao abrir grandes arquivos de eventos de faísca. O tamanho do heap Spark é definido como 1 GB por padrão, mas grandes arquivos de eventos Spark podem exigir mais do que isso.
+Esse problema geralmente é causado por uma falta de recursos ao abrir grandes arquivos Spark-Event. O tamanho do heap do Spark é definido como 1 GB por padrão, mas grandes arquivos de eventos do Spark podem exigir mais do que isso.
 
-Se você quiser verificar o tamanho dos arquivos que você está tentando carregar, você pode executar os seguintes comandos:
+Se você quiser verificar o tamanho dos arquivos que está tentando carregar, poderá executar os seguintes comandos:
 
 ```bash
 hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0274_1/
@@ -116,25 +116,25 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>Resolução
 
-Você pode aumentar a memória do `SPARK_DAEMON_MEMORY` Spark History Server editando a propriedade na configuração Spark e reiniciando todos os serviços.
+Você pode aumentar a memória do servidor de histórico do Spark `SPARK_DAEMON_MEMORY` editando a propriedade na configuração do Spark e reiniciando todos os serviços.
 
-Você pode fazer isso dentro da interface do usuário do navegador Ambari selecionando a seção Spark2/Config/Advanced spark2-env.
+Você pode fazer isso de dentro da interface do usuário do navegador do Ambari selecionando a seção Spark2/config/Advanced Spark2-env.
 
-![Seção avançada de faísca2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+![Seção spark2-env avançada](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-Adicione a seguinte propriedade para alterar a memória Spark `SPARK_DAEMON_MEMORY=4g`History Server de 1g para 4g: .
+Adicione a seguinte propriedade para alterar a memória do servidor de histórico do Spark de 1g `SPARK_DAEMON_MEMORY=4g`para 4G:.
 
-![Propriedade spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+![Propriedade do Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
-Certifique-se de reiniciar todos os serviços afetados da Ambari.
+Certifique-se de reiniciar todos os serviços afetados do Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Cenário: O Livy Server não consegue iniciar no cluster Apache Spark
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Cenário: falha na inicialização do servidor Livy no cluster Apache Spark
 
 ### <a name="issue"></a>Problema
 
-O Livy Server não pode ser iniciado em um Apache Spark [(Spark 2.1 no Linux (HDI 3.6)]. Tentando reiniciar os resultados na seguinte pilha de erros, a partir dos logs da Livy:
+O servidor Livy não pode ser iniciado em um Apache Spark [(Spark 2,1 no Linux (HDI 3,6)]. A tentativa de reiniciar os resultados na seguinte pilha de erros, dos logs do Livy:
 
 ```log
 17/07/27 17:52:50 INFO CuratorFrameworkImpl: Starting
@@ -194,37 +194,37 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread`destaca que o SISTEMA OPERACIONAL não pode atribuir mais threads nativos aos JVMs. Confirmou que esta Exceção é causada pela violação do limite de contagem de segmentos por processo.
+`java.lang.OutOfMemoryError: unable to create new native thread`OS destaques do sistema operacional não podem atribuir mais threads nativos a JVMs. Confirmado que essa exceção é causada pela violação do limite de contagem de thread por processo.
 
-Quando o Livy Server termina inesperadamente, todas as conexões para Clusters Spark também são encerradas, o que significa que todos os empregos e dados relacionados serão perdidos. No mecanismo de recuperação de sessão HDP 2.6 foi introduzido, livy armazena os detalhes da sessão no Zookeeper para serem recuperados depois que o Servidor Lívio está de volta.
+Quando o Livy Server termina inesperadamente, todas as conexões com clusters Spark também são encerradas, o que significa que todos os trabalhos e dados relacionados serão perdidos. No mecanismo de recuperação de sessão do HDP 2,6 foi introduzido, o Livy armazena os detalhes da sessão em Zookeeper a serem recuperados depois que o servidor de Livy estiver de volta.
 
-Quando um grande número de empregos são enviados via Livy, como parte da alta disponibilidade para as lojas do Livy Server, essas sessões são em ZK (em clusters HDInsight) e recuperam essas sessões quando o serviço Livy é reiniciado. Na reinicialização após o término inesperado, a Livy cria um thread por sessão e isso acumula um certo número de sessões a serem recuperadas, causando a criação de muitos threads.
+Quando um grande número de trabalhos é enviado via Livy, como parte da alta disponibilidade do Livy Server armazena esses Estados de sessão no ZK (em clusters HDInsight) e recupera essas sessões quando o serviço do Livy é reiniciado. Ao reiniciar após o encerramento inesperado, o Livy cria um thread por sessão e acumula um determinado número de sessões a serem recuperadas, causando o excesso de threads sendo criados.
 
 ### <a name="resolution"></a>Resolução
 
 Exclua todas as entradas usando as etapas detalhadas abaixo.
 
-1. Obtenha o endereço IP dos Ádeis do Zookeeper usando
+1. Obter o endereço IP dos nós Zookeeper usando
 
     ```bash
     grep -R zk /etc/hadoop/conf  
     ```
 
-1. Acima comando listado todos os zookeepers para o meu cluster
+1. O comando acima listou todos os zookeepers para o meu cluster
 
     ```bash
     /etc/hadoop/conf/core-site.xml:      <value>zk1-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk2-      hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk4-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
-1. Obtenha todo o endereço IP dos nós do zookeeper usando ping Ou você também pode se conectar ao zookeeper a partir de headnode usando o nome zk
+1. Obtenha todo o endereço IP dos nós Zookeeper usando ping ou você também pode se conectar ao Zookeeper no cabeçalho usando o nome do ZK
 
     ```bash
     /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server zk2-hwxspa:2181
     ```
 
-1. Uma vez conectado ao zookeeper execute o seguinte comando para listar todas as sessões que são tentadas para reiniciar.
+1. Quando você estiver conectado ao Zookeeper, execute o comando a seguir para listar todas as sessões que foram tentadas de reiniciar.
 
-    1. A maioria dos casos pode ser uma lista de mais de 8000 sessões ####
+    1. A maioria dos casos pode ser uma lista com mais de 8000 sessões ####
 
         ```bash
         ls /livy/v1/batch
@@ -236,10 +236,10 @@ Exclua todas as entradas usando as etapas detalhadas abaixo.
         rmr /livy/v1/batch
         ```
 
-1. Aguarde que o comando acima seja concluído e o cursor retorne o prompt e, em seguida, reinicie o serviço Livy da Ambari, que deve ter sucesso.
+1. Aguarde até que o comando acima seja concluído e o cursor para retornar o prompt e reinicie o serviço Livy de Ambari, que deve ter sucesso.
 
 > [!NOTE]
-> `DELETE`a sessão lívida uma vez que é concluída sua execução. As sessões de lote da Livy não serão excluídas automaticamente assim que o aplicativo spark for concluído, que é por design. Uma sessão livy é uma entidade criada por uma solicitação DO POST contra o servidor Livy Rest. Uma `DELETE` chamada é necessária para excluir essa entidade. Ou devemos esperar o GC entrar em ação.
+> `DELETE`a sessão Livy depois de concluir sua execução. As sessões do lote Livy não serão excluídas automaticamente assim que o aplicativo Spark for concluído, o que é por design. Uma sessão Livy é uma entidade criada por uma solicitação POST em relação ao servidor REST Livy. É `DELETE` necessária uma chamada para excluir essa entidade. Ou devemos aguardar até que o GC seja ativado.
 
 ---
 
@@ -247,12 +247,12 @@ Exclua todas as entradas usando as etapas detalhadas abaixo.
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* [Visão geral do gerenciamento de memória spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+* [Visão geral do gerenciamento de memória do Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Depuração do aplicativo Spark em clusters HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Depurando o aplicativo Spark em clusters HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais [detalhadas, consulte Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

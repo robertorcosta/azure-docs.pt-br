@@ -1,24 +1,24 @@
 ---
-title: Implantar recursos para o grupo de gestão
-description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Gerenciador de Recursos do Azure.
+title: Implantar recursos no grupo de gerenciamento
+description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: 863d1330412fa238b820eb0f1f05351fc723de6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460306"
 ---
-# <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gestão
+# <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
-À medida que sua organização amadurece, você pode precisar definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseados em funções](../../role-based-access-control/overview.md) para um grupo de gerenciamento. Com os modelos de nível de grupo de gerenciamento, você pode declararmente aplicar políticas e atribuir funções no nível do grupo de gerenciamento.
+À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) para um grupo de gerenciamento. Com os modelos de nível de grupo de gerenciamento, você pode aplicar políticas declarativamente e atribuir funções no nível do grupo de gerenciamento.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
 Você pode implantar os seguintes tipos de recursos no nível do grupo de gerenciamento:
 
-* [implantações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que implantam em assinaturas ou grupos de recursos.
+* [implantações](/azure/templates/microsoft.resources/deployments) – para modelos aninhados que são implantados em assinaturas ou grupos de recursos.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -27,7 +27,7 @@ Você pode implantar os seguintes tipos de recursos no nível do grupo de gerenc
 
 ### <a name="schema"></a>Esquema
 
-O esquema que você usa para implantações de grupos de gerenciamento é diferente do esquema para implantações de grupos de recursos.
+O esquema usado para implantações de grupo de gerenciamento é diferente do esquema para implantações de grupo de recursos.
 
 Para modelos, use:
 
@@ -35,7 +35,7 @@ Para modelos, use:
 https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
 ```
 
-O esquema para um arquivo de parâmetros é o mesmo para todos os escopos de implantação. Para arquivos de parâmetros, use:
+O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetro, use:
 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
@@ -43,9 +43,9 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
-Os comandos para implantações de grupos de gerenciamento são diferentes dos comandos para implantações de grupos de recursos.
+Os comandos para implantações de grupo de gerenciamento são diferentes dos comandos para implantações de grupo de recursos.
 
-Para a Cli do Azure, use [aaz deployment mg criar](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+Para CLI do Azure, use [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \
@@ -55,7 +55,7 @@ az deployment mg create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
-Para o Azure PowerShell, use [new-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
+Para Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
 New-AzManagementGroupDeployment `
@@ -65,32 +65,32 @@ New-AzManagementGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
-Para a API REST, use [Implantações - Crie no escopo do grupo de gerenciamento](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
+Para a API REST, use [implantações-criar no escopo do grupo de gerenciamento](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
 
-## <a name="deployment-location-and-name"></a>Local e nome de implantação
+## <a name="deployment-location-and-name"></a>Local e nome da implantação
 
-Para implantações de nível de grupo de gerenciamento, você deve fornecer um local para a implantação. A localização da implantação é separada da localização dos recursos que você implanta. O local de implantação especifica onde armazenar dados de implantação.
+Para implantações no nível do grupo de gerenciamento, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
 
 Você pode fornecer um nome para a implantação ou usar o nome de implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, o local é imutável. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+Para cada nome de implantação, o local é imutável. Não é possível criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Usar funções de modelo
 
-Para implantações de grupos de gerenciamento, existem algumas considerações importantes ao usar funções de modelo:
+Para implantações de grupo de gerenciamento, há algumas considerações importantes ao usar funções de modelo:
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
-* A [função de assinatura ()](template-functions-resource.md#subscription) **não** é suportada.
+* **Não** há suporte para a função [Subscription ()](template-functions-resource.md#subscription) .
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter o ID de recursos para recursos usados em implantações de nível de grupo de gerenciamento. Não forneça um valor para o parâmetro do grupo de recursos.
+* A função [resourceId()](template-functions-resource.md#resourceid) é suportada. Use-o para obter a ID de recurso para recursos que são usados em implantações no nível do grupo de gerenciamento. Não forneça um valor para o parâmetro do grupo de recursos.
 
-  Por exemplo, para obter o ID de recurso para uma definição de diretiva, use:
+  Por exemplo, para obter a ID de recurso para uma definição de política, use:
   
   ```json
   resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
   
-  O ID de recurso retornado tem o seguinte formato:
+  A ID de recurso retornada tem o seguinte formato:
   
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -100,7 +100,7 @@ Para implantações de grupos de gerenciamento, existem algumas considerações 
 
 ### <a name="define-policy"></a>Definir política
 
-O exemplo a seguir mostra como [definir](../../governance/policy/concepts/definition-structure.md) uma política no nível do grupo de gestão.
+O exemplo a seguir mostra como [definir](../../governance/policy/concepts/definition-structure.md) uma política no nível do grupo de gerenciamento.
 
 ```json
 {
@@ -166,12 +166,12 @@ O exemplo a seguir atribui uma definição de política existente ao grupo de ge
 }
 ```
 
-## <a name="template-sample"></a>Amostra de modelo
+## <a name="template-sample"></a>Exemplo de modelo
 
-* [Crie um grupo de recursos, uma política e uma atribuição de políticas.](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)
+* [Crie um grupo de recursos, uma política e uma atribuição de política](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre comoatribuir funções, consulte [Gerenciar o acesso aos recursos do Azure usando modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para obter um exemplo de implantação de configurações de workspace para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Você também pode implantar modelos no [nível de assinatura](deploy-to-subscription.md) e nível de [inquilino](deploy-to-tenant.md).
+* Você também pode implantar modelos no nível de [assinatura](deploy-to-subscription.md) e [nível de locatário](deploy-to-tenant.md).

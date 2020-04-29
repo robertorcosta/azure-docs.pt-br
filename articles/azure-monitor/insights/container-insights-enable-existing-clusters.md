@@ -1,29 +1,29 @@
 ---
-title: Monitore um cluster Azure Kubernetes Service (AKS) implantado | Microsoft Docs
-description: Saiba como ativar o monitoramento de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contêineres já implantados em sua assinatura.
+title: Monitorar um cluster do AKS (serviço kubernetes do Azure) implantado | Microsoft Docs
+description: Saiba como habilitar o monitoramento de um cluster AKS (serviço kubernetes do Azure) com Azure Monitor para contêineres já implantados em sua assinatura.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.openlocfilehash: 8589ea71b5c7affadc61d5e4543f734a660ab543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275445"
 ---
-# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilite o monitoramento do cluster Azure Kubernetes Service (AKS) já implantado
+# <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar o monitoramento do cluster AKS (serviço kubernetes do Azure) já implantado
 
-Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o cluster Kubernetes gerenciado hospedado no [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) que já foram implantados em sua assinatura.
+Este artigo descreve como configurar Azure Monitor para contêineres para monitorar o cluster kubernetes gerenciado hospedado no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/) que já foi implantado em sua assinatura.
 
-Você pode habilitar o monitoramento de um cluster AKS já implantado usando um dos métodos suportados:
+Você pode habilitar o monitoramento de um cluster AKS que já está implantado usando um dos métodos com suporte:
 
 * CLI do Azure
 * Terraform
-* [Do Azure Monitor](#enable-from-azure-monitor-in-the-portal) ou [diretamente do cluster AKS](#enable-directly-from-aks-cluster-in-the-portal) no portal Azure
-* Com o [modelo do Azure Resource Manager fornecido](#enable-using-an-azure-resource-manager-template) usando o `New-AzResourceGroupDeployment` cmdlet Do Azure PowerShell ou com o Azure CLI.
+* [De Azure monitor](#enable-from-azure-monitor-in-the-portal) ou [diretamente do cluster AKs](#enable-directly-from-aks-cluster-in-the-portal) no portal do Azure
+* Com o [modelo de Azure Resource Manager fornecido](#enable-using-an-azure-resource-manager-template) usando o cmdlet `New-AzResourceGroupDeployment` Azure PowerShell ou com CLI do Azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça login no [portal Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Habilitar usando a CLI do Azure
 
@@ -39,11 +39,11 @@ A saída será semelhante à seguinte:
 provisioningState       : Succeeded
 ```
 
-### <a name="integrate-with-an-existing-workspace"></a>Integre-se a um espaço de trabalho existente
+### <a name="integrate-with-an-existing-workspace"></a>Integrar com um espaço de trabalho existente
 
-Se você preferir integrar-se a um espaço de trabalho existente, execute as seguintes etapas para `--workspace-resource-id` primeiro identificar o ID completo de recursos do espaço de trabalho do Log Analytics necessário para o parâmetro e, em seguida, execute o comando para ativar o complemento de monitoramento em relação ao espaço de trabalho especificado.  
+Se você preferir integrar com um espaço de trabalho existente, execute as etapas a seguir para primeiro identificar a ID de recurso completo do seu espaço de `--workspace-resource-id` trabalho de log Analytics necessário para o parâmetro e, em seguida, execute o comando para habilitar o complemento de monitoramento no espaço de trabalho especificado.  
 
-1. Liste todas as assinaturas às que você tenha acesso usando o seguinte comando:
+1. Liste todas as assinaturas às quais você tem acesso usando o seguinte comando:
 
     ```azurecli
     az account list --all -o table
@@ -59,7 +59,7 @@ Se você preferir integrar-se a um espaço de trabalho existente, execute as seg
 
     Copie o valor de **SubscriptionId**.
 
-2. Mude para a assinatura que hospeda o espaço de trabalho do Log Analytics usando o seguinte comando:
+2. Alterne para a assinatura que hospeda o espaço de trabalho Log Analytics usando o seguinte comando:
 
     ```azurecli
     az account set -s <subscriptionId of the workspace>
@@ -71,9 +71,9 @@ Se você preferir integrar-se a um espaço de trabalho existente, execute as seg
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, encontre o nome do espaço de trabalho e copie o ID de recurso completo desse espaço de trabalho do Log Analytics o **id de**campo.
+    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
 
-4. Execute o seguinte comando para ativar o complemento de `--workspace-resource-id` monitoramento, substituindo o valor do parâmetro. O valor da seqüência deve estar dentro das cotações duplas:
+4. Execute o comando a seguir para habilitar o complemento de monitoramento, substituindo o valor `--workspace-resource-id` do parâmetro. O valor da cadeia de caracteres deve estar entre aspas duplas:
 
     ```azurecli
     az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"
@@ -100,11 +100,11 @@ Se você preferir integrar-se a um espaço de trabalho existente, execute as seg
 
 2. Adicione [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) após as etapas na documentação do Terraform.
 
-## <a name="enable-from-azure-monitor-in-the-portal"></a>Habilitar a partir do Monitor Do Azure no portal
+## <a name="enable-from-azure-monitor-in-the-portal"></a>Habilitar de Azure Monitor no portal
 
 Para habilitar o monitoramento do seu contêiner AKS no portal do Azure por meio do Azure Monitor, faça o seguinte:
 
-1. No portal Azure, selecione **Monitor**.
+1. Na portal do Azure, selecione **Monitor**.
 
 2. Selecione **Contêineres** na lista.
 
@@ -122,11 +122,11 @@ Para habilitar o monitoramento do seu contêiner AKS no portal do Azure por meio
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster.
 
-## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Habilite diretamente do cluster AKS no portal
+## <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Habilitar diretamente do cluster AKS no portal
 
-Para habilitar o monitoramento diretamente de um de seus clusters AKS no portal Azure, faça o seguinte:
+Para habilitar o monitoramento diretamente de um dos seus clusters AKS no portal do Azure, faça o seguinte:
 
-1. No portal Azure, selecione **Todos os serviços**.
+1. Na portal do Azure, selecione **todos os serviços**.
 
 2. Na lista de recursos, comece digitando **Contêineres**.  A lista filtra com base na sua entrada.
 
@@ -148,7 +148,7 @@ Para habilitar o monitoramento diretamente de um de seus clusters AKS no portal 
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir dados operacionais para o cluster.
 
-## <a name="enable-using-an-azure-resource-manager-template"></a>Habilite o uso de um modelo do Azure Resource Manager
+## <a name="enable-using-an-azure-resource-manager-template"></a>Habilitar usando um modelo de Azure Resource Manager
 
 Esse método inclui dois modelos JSON. Um modelo especifica a configuração para habilitar o monitoramento e o outro contém valores de parâmetro que você configura para especificar o seguinte:
 
@@ -159,7 +159,7 @@ Esse método inclui dois modelos JSON. Um modelo especifica a configuração par
 >O modelo precisa ser implantado no mesmo grupo de recursos que o cluster.
 >
 
-O espaço de trabalho do Log Analytics deve ser criado antes de ativar o monitoramento usando o Azure PowerShell ou o CLI. Para criar o workspace, você pode configurá-lo por meio do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
+O espaço de trabalho do Log Analytics deve ser criado antes de habilitar o monitoramento usando Azure PowerShell ou a CLI. Para criar o workspace, você pode configurá-lo por meio do [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
 Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, veja:
 
@@ -167,7 +167,7 @@ Se você não estiver familiarizado com o conceito de implantação de recursos 
 
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a versão 2.0.59 do Azure CLI ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.59 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Criar e executar um modelo
 
@@ -256,15 +256,15 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     }
     ```
 
-4. Editar os valores para **aksResourceId** e **aksResourceLocation** usando os valores na página **AKS Overview** para o cluster AKS. O valor para **workspaceResourceId** é a ID do recurso completa do espaço de trabalho do Log Analytics, que inclui o nome do espaço de trabalho.
+4. Edite os valores de **aksResourceId** e **aksResourceLocation** usando os valores na página de **visão geral do AKS** para o cluster AKs. O valor para **workspaceResourceId** é a ID do recurso completa do espaço de trabalho do Log Analytics, que inclui o nome do espaço de trabalho.
 
-    Editar os valores para **aksResourceTagValues** para corresponder aos valores de tag existentes especificados para o cluster AKS.
+    Edite os valores de **aksResourceTagValues** para corresponder aos valores de marca existentes especificados para o cluster AKs.
 
 5. Salve esse arquivo como **existingClusterParam.json** em uma pasta local.
 
 6. Você está pronto para implantar o modelo.
 
-   * Para implantar com o Azure PowerShell, use os seguintes comandos na pasta que contém o modelo:
+   * Para implantar com Azure PowerShell, use os seguintes comandos na pasta que contém o modelo:
 
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
@@ -276,7 +276,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
        provisioningState       : Succeeded
        ```
 
-   * Para implantar com o Azure CLI, execute os seguintes comandos:
+   * Para implantar com o CLI do Azure, execute os seguintes comandos:
 
        ```azurecli
        az login
@@ -367,4 +367,4 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 
-* Com o monitoramento habilitado para coletar a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho em execução neles, aprenda [a usar o](container-insights-analyze.md) Monitor Do Azure para contêineres.
+* Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster AKS e das cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.

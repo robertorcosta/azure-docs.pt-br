@@ -1,6 +1,6 @@
 ---
 title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Descreve conceitos de provisionamento de serviços específicos para dispositivos com o Serviço de Provisionamento de Dispositivos (DPS) e o IoT Hub
+description: Descreve os conceitos de provisionamento de serviço específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -9,17 +9,17 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285208"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 
 O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar do Hub IoT que você usa para configurar o provisionamento de dispositivo sem interação para um Hub IoT especificado. Com o Serviço de Provisionamento de Dispositivos, é possível [provisionar automaticamente](concepts-auto-provisioning.md) milhões de dispositivos de maneira segura e escalonável.
 
-O provisionamento de dispositivos é um processo de duas partes. A primeira parte é estabelecer a conexão inicial entre o dispositivo e a solução IoT *registrando* o dispositivo. A segunda parte é aplicar a *configuração* apropriada ao dispositivo com base nos requisitos específicos da solução. Quando as duas etapas forem concluídas, o dispositivo será totalmente *provisionado*. O Serviço de Provisionamento de Dispositivos automatiza as etapas para fornecer uma experiência perfeita de provisionamento para o dispositivo.
+O provisionamento de dispositivos é um processo de duas partes. A primeira parte é estabelecer a conexão inicial entre o dispositivo e a solução de IoT *registrando* o dispositivo. A segunda parte é aplicar a *configuração* apropriada ao dispositivo com base nos requisitos específicos da solução. Quando as duas etapas forem concluídas, o dispositivo será totalmente *provisionado*. O Serviço de Provisionamento de Dispositivos automatiza as etapas para fornecer uma experiência perfeita de provisionamento para o dispositivo.
 
 Este artigo fornece uma visão geral dos conceitos de provisionamento mais aplicáveis para gerenciar o *serviço*. Este artigo é muito relevante para todas as personas envolvidas na [etapa de configuração de nuvem](about-iot-dps.md#cloud-setup-step) da preparação de um dispositivo para implantação.
 
@@ -57,7 +57,7 @@ Há dois tipos de registros com suporte pelo Serviço de Provisionamento de Disp
 
 ### <a name="enrollment-group"></a>Grupo de registro
 
-Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Os grupos de matrícula suportam tanto x.509 quanto simétricos. Todos os dispositivos do grupo de matrícula X.509 apresentam certificados X.509 que foram assinados pela mesma raiz ou autoridade de certificado intermediário (CA). Cada dispositivo no grupo de registro de chaves simétricas apresenta tokens SAS derivados da chave simétrica do grupo. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
+Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Os grupos de registro dão suporte a X. 509, bem como ao Symmetric. Todos os dispositivos no grupo de registro X. 509 apresentam certificados X. 509 que foram assinados pela mesma raiz ou AC (autoridade de certificação) intermediária. Cada dispositivo no grupo de registro de chave simétrica apresenta tokens SAS derivados da chave simétrica do grupo. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
 
 > [!TIP]
 > É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.

@@ -17,13 +17,13 @@ ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79365859"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como: Configurar a criptografia de token AD SAML do Azure
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Como configurar a criptografia de token SAML do Azure AD
 
 > [!NOTE]
 > A criptografia de token é um recurso premium do Azure Active Directory (Azure AD). Para saber mais sobre as edições, os recursos e os preços do Azure AD, confira [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -56,7 +56,7 @@ Para configurar a criptografia de token SAML, siga as etapas abaixo:
 
 Você pode adicionar o certificado público à sua configuração de aplicativo no portal do Azure.
 
-1. Vá para o [portal Azure.](https://portal.azure.com)
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 
 1. Acesse a folha **Azure Active Directory > Aplicativos empresariais** e selecione o aplicativo para o qual você deseja configurar a criptografia de token.
 
@@ -67,7 +67,7 @@ Você pode adicionar o certificado público à sua configuração de aplicativo 
     > [!NOTE]
     > A opção **Criptografia de Token** está disponível somente para aplicativos SAML que foram configurados a partir da folha **Aplicativos Empresariais** no portal do Azure, do aplicativo Galeria de Aplicativos ou de um aplicativo inexistente na galeria. Para outros aplicativos, esta opção de menu não está disponível. Para aplicativos registrados por meio da experiência de **Registros de aplicativo** no portal do Azure, você pode configurar a criptografia para tokens SAML usando o manifesto do aplicativo, o Microsoft Graph ou o PowerShell.
 
-1. Na página **de criptografia Token,** selecione **Certificado de Importação** para importar o arquivo .cer que contém seu certificado X.509 público.
+1. Na página **criptografia de token** , selecione **importar certificado** para importar o arquivo. cer que contém seu certificado X. 509 público.
 
     ![Importar o arquivo .cer que contém o certificado X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
@@ -123,15 +123,15 @@ Ao configurar uma keyCredential usando o Graph, o PowerShell ou o manifesto do a
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Configurar a criptografia de token usando o PowerShell
 
-1. Use o mais recente módulo Azure AD PowerShell para se conectar ao seu inquilino.
+1. Use o módulo mais recente do PowerShell do Azure AD para se conectar ao seu locatário.
 
-1. Defina as configurações de criptografia de token usando o comando **[Set-AzureApplication.](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)**
+1. Defina as configurações de criptografia de token usando o comando **[set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Leia as configurações de criptografia de token usando os seguintes comandos.
+1. Leia as configurações de criptografia de token usando os comandos a seguir.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>

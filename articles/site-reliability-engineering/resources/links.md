@@ -1,6 +1,6 @@
 ---
-title: Coleções e digeres de links da SRE | Microsoft Docs
-description: Amplie seu conhecimento em engenharia de confiabilidade do local com esses recursos
+title: Conjuntos de links e resumos do SRE | Microsoft Docs
+description: Amplie seu conhecimento sobre a engenharia de confiabilidade do site com estes recursos
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
 ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471244"
 ---
-# <a name="sources-for-site-reliability-engineering-information"></a>Fontes para informações de engenharia de confiabilidade do local
+# <a name="sources-for-site-reliability-engineering-information"></a>Fontes para informações de engenharia de confiabilidade do site
 
-Existem muitas, muitas fontes para informações de engenharia de confiabilidade do site (SRE) na web.
+Há muitas, muitas fontes para informações de SRE (Engenharia de confiabilidade de site) na Web.
 
-## <a name="curated-link-lists"></a>Listas de links com curadoria
+## <a name="curated-link-lists"></a>Listas de links organizadas
 
-Aqui estão algumas listas de links com curadoria para tópicos relacionados à SRE e SRE:
+Aqui estão algumas boas listas organizadas de links para tópicos relacionados a SRE e SRE:
 
-* [Engenharia de confiabilidade do local incrível](https://github.com/dastergon/awesome-sre)
-* [Ferramentas incríveis de engenharia de confiabilidade do local](https://github.com/SquadcastHub/awesome-sre-tools)
-* [Os padrões de sistemas escaláveis, confiáveis e performantes em larga escala](http://awesome-scalability.com)
-* [sistemas distribuídos incríveis](https://github.com/theanalyst/awesome-distributed-systems)
-* [Consenso Incrível](https://github.com/dgryski/awesome-consensus)
-* [monitoramento incrível](https://github.com/crazy-canux/awesome-monitoring)
-* [Observabilidade incrível](https://github.com/adriannovegil/awesome-observability)
+* [Engenharia de confiabilidade do site incrível](https://github.com/dastergon/awesome-sre)
+* [Ferramentas de engenharia de site incrível](https://github.com/SquadcastHub/awesome-sre-tools)
+* [Os padrões de sistemas escalonáveis, confiáveis e com desempenho em larga escala](http://awesome-scalability.com)
+* [Awesome-Distributed-Systems](https://github.com/theanalyst/awesome-distributed-systems)
+* [Consenso incrível](https://github.com/dgryski/awesome-consensus)
+* [incrível – monitoramento](https://github.com/crazy-canux/awesome-monitoring)
+* [Observação incrível](https://github.com/adriannovegil/awesome-observability)
 
-## <a name="weekly-digests-of-interest-to-site-reliability-engineers"></a>Resumos semanais de interesse para engenheiros de confiabilidade do local
+## <a name="weekly-digests-of-interest-to-site-reliability-engineers"></a>Resumos semanais de interesse para engenheiros de confiabilidade do site
 
-* [SRE Weekly](https://sreweekly.com) - "SRE Weekly é um boletim informativo dedicado a tudo relacionado a manter um site ou serviço disponível da forma mais consistente possível."
-* [Devops Weekly](https://www.devopsweekly.com) - "Uma fatia semanal de devops notícias trazidas a você por Gareth Rushgrove."
-* [Esta semana em DevOps](https://thisweekindevops.com) - "DevOps notícias sem o hype."
-* [KubeWeekly](https://kubeweekly.io) - "Os boletins semanais para todas as coisas Kubernetes."
+* [SRE semanalmente](https://sreweekly.com) -"SRE Weekly é um boletim informativo dedicado a tudo relacionado à manutenção de um site ou serviço disponível da maneira mais consistente possível".
+* [DevOps semanalmente](https://www.devopsweekly.com) -"uma fatia semanal da DevOps News trouxe a você por Gareth Rushgrove."
+* [Esta semana no DevOps](https://thisweekindevops.com) -"DevOps News sem a atenção".
+* [KubeWeekly](https://kubeweekly.io) -"os boletins informativos semanais de tudo kubernetes".

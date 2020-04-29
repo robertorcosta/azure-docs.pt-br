@@ -1,5 +1,5 @@
 ---
-title: Gerencie o Azure Data Lake Analytics usando o Azure CLI
+title: Gerenciar Azure Data Lake Analytics usando CLI do Azure
 description: Este artigo descreve como usar a CLI do Azure para gerenciar trabalhos, fontes de dados e usuários do Data Lake Analytics.
 services: data-lake-analytics
 author: jasonwhowell
@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454356"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar o Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
@@ -91,7 +91,7 @@ Listar contas da Análise Data Lake em um grupo de recursos específico
 No momento, o Data Lake Analytics dá suporte às duas fontes de dados a seguir:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Armazenamento Azure](../storage/common/storage-introduction.md)
+* [Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 Quando você cria uma conta da Análise, é necessário designar uma conta do Armazenamento do Azure Data Lake como a conta de armazenamento padrão. A conta de armazenamento padrão do Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise, é possíveis adicionar outras contas do Armazenamento do Data Lake e/ou uma conta do Armazenamento do Azure. 
 
@@ -213,7 +213,7 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 
 ## <a name="see-also"></a>Confira também
 * [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Comece com o Data Lake Analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)
-* [Gerencie o Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitore e soluciona problemas do Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Introdução ao Data Lake Analytics usando portal do Azure](data-lake-analytics-get-started-portal.md)
+* [Gerenciar Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-manage-use-portal.md)
+* [Monitorar e solucionar problemas de trabalhos do Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

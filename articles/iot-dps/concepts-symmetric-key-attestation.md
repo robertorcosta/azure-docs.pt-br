@@ -1,6 +1,6 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – atestado de chave simétrica
-description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o Serviço de Provisionamento de Dispositivos IoT (DPS).
+description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o DPS (serviço de provisionamento de dispositivos IoT).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271506"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica

@@ -1,6 +1,6 @@
 ---
-title: Use ferramentas SDKs do serviço de provisionamento de dispositivos do Hub Azure IoT
-description: Este documento analisa as ferramentas fornecidas nos SDKs do Azure IoT Hub Device Provisioning Service (DPS) para desenvolvimento
+title: Usar ferramentas de SDKs do serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Este documento revisa as ferramentas fornecidas nos SDKs do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para desenvolvimento
 author: robinsh
 ms.author: robinsh
 ms.date: 04/09/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271519"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como usar as ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para provisionamento

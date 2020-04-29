@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282322"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitoramento de desempenho para Reliable Actors
@@ -50,7 +50,7 @@ Para a categoria `Service Fabric Actor`, os nomes da instância do contador est�
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação da cadeia de caracteres de um inteiro de 64 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
@@ -69,7 +69,7 @@ Para a categoria `Service Fabric Actor Method`, os nomes da instância do contad
 
 *ActorsRuntimeMethodId* é a representação da cadeia de caracteres de um inteiro de 32 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação da cadeia de caracteres de um inteiro de 64 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
@@ -162,5 +162,5 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

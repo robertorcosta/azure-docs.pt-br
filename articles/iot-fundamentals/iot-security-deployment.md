@@ -1,6 +1,6 @@
 ---
 title: Proteger a implantação de IoT (Internet das Coisas) do Azure | Microsoft Docs
-description: Este artigo detalha como proteger sua implantação de IoT do Azure. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente.
+description: Este artigo fornece detalhes sobre como proteger sua implantação do Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f0fbb1214015c088e7e1585840213faba06b59f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284766"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Proteja sua implantação da Internet das Coisas (IoT)

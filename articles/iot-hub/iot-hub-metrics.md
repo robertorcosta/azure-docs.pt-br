@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284428"
 ---
 # <a name="understand-iot-hub-metrics"></a>Entender as métricas de Hub IoT
@@ -21,7 +21,7 @@ As métricas do Hub IoT fornecem dados melhores sobre o estado dos recursos IoT 
 As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub IoT no portal do Azure.
 
 > [!NOTE]
-> Você pode usar métricas do IoT Hub para visualizar informações sobre dispositivos IoT Plug and Play conectados ao seu IoT Hub. Os dispositivos IoT Plug and Play fazem parte da [pré-visualização pública ioT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
+> Você pode usar as métricas do Hub IoT para exibir informações sobre dispositivos IoT Plug and Play conectados ao seu hub IoT. Os dispositivos IoT Plug and Play fazem parte da [Visualização pública do iot plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Como exibir métricas de IoT Hub
 
@@ -47,10 +47,10 @@ O Hub IoT fornece várias métricas que dão uma visão geral da integridade do 
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Tentativas de envio de mensagem de telemetria|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|Nenhum|
 |d2c.telemetry.ingress.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria do dispositivo para nuvem enviadas com êxito para o hub IoT|Nenhum|
-|c2d.commands.egress.complete.success|Entregas de mensagens C2D concluídas|Contagem|Total|Número de entregas de mensagens nuvem-dispositivo concluídas com sucesso pelo dispositivo|Nenhum|
-|c2d.commands.egress.abandon.success|Mensagens C2D abandonadas|Contagem|Total|Número de mensagens nuvem-dispositivo abandonadas pelo dispositivo|Nenhum|
-|c2d.commands.egress.reject.success|Mensagens C2D rejeitadas|Contagem|Total|Número de mensagens nuvem-dispositivo rejeitadas pelo dispositivo|Nenhum|
-|C2DMessagesExpirado|Mensagens C2D expiradas (visualização)|Contagem|Total|Número de mensagens de nuvem para dispositivo expiradas|Nenhum|
+|c2d.commands.egress.complete.success|Entregas de mensagem C2D concluídas|Contagem|Total|Número de entregas de mensagem da nuvem para o dispositivo concluídas com êxito pelo dispositivo|Nenhum|
+|c2d.commands.egress.abandon.success|C2D mensagens abandonadas|Contagem|Total|Número de mensagens da nuvem para o dispositivo abandonadas pelo dispositivo|Nenhum|
+|c2d.commands.egress.reject.success|Mensagens C2D rejeitadas|Contagem|Total|Número de mensagens da nuvem para o dispositivo rejeitadas pelo dispositivo|Nenhum|
+|C2DMessagesExpired|C2D mensagens expiradas (visualização)|Contagem|Total|Número de mensagens de nuvem para o dispositivo expiradas|Nenhum|
 |devices.totalDevices|Total de dispositivos (preterido)|Contagem|Total|Número de dispositivos registrados para o seu hub IoT|Nenhum|
 |devices.connectedDevices.allProtocol|Dispositivos conectados (preteridos) |Contagem|Total|Número de dispositivos registrados ao seu hub IoT|Nenhum|
 |d2c.telemetry.egress.success|Roteamento: mensagens de telemetria entregues|Contagem|Total|O número de vezes que as mensagens foram entregues com êxito a todos os pontos de extremidade usando o roteamento do Hub IoT. Se uma mensagem é encaminhada para vários pontos de extremidade, esse valor aumenta em um para cada entrega bem-sucedida. Se uma mensagem é entregue ao mesmo ponto de extremidade várias vezes, esse valor aumenta em um para cada entrega bem-sucedida.|Nenhum|
@@ -70,8 +70,8 @@ O Hub IoT fornece várias métricas que dão uma visão geral da integridade do 
 |d2c.endpoints.latency.storage|Roteamento: latência de mensagem para armazenamento|Milissegundos|Média|A latência média (milissegundos) entre a entrada da mensagem no Hub IoT e a entrada da mensagem de telemetria em um ponto de extremidade de armazenamento.|Nenhum|
 |d2c.endpoints.egress.storage.bytes|Roteamento: dados entregues ao armazenamento|Bytes|Total|A quantidade de dados (bytes) de roteamento do Hub IoT entregue aos pontos de extremidade de armazenamento.|Nenhum|
 |d2c.endpoints.egress.storage.blobs|Roteamento: blobs entregues ao armazenamento|Contagem|Total|O número de vezes que o roteamento do Hub IoT entregou blobs aos pontos de extremidade de armazenamento.|Nenhum|
-|EventGridEntregas|Entregas da Event Grid (pré-visualização)|Contagem|Total|O número de eventos do IoT Hub publicados no Event Grid. Use a dimensão Resultado para o número de solicitações bem sucedidas e com falha. A dimensão EventType mostrahttps://aka.ms/ioteventgrid)o tipo de evento ( .|Resourceid<br/>Resultado<br/>EventType|
-|EventGridLatency|Latência do Grid de Eventos (visualização)|Milissegundos|Média|A latência média (milissegundos) de quando o evento Iot Hub foi gerado até quando o evento foi publicado para event Grid. Este número é uma média entre todos os tipos de eventos. Use a dimensão EventType para ver a latência de um tipo específico de evento.|Resourceid<br/>EventType|
+|EventGridDeliveries|Entregas da grade de eventos (visualização)|Contagem|Total|O número de eventos do Hub IoT publicados na grade de eventos. Use a dimensão de resultado para o número de solicitações bem-sucedidas e com falha. A dimensão EventType mostra o tipo de eventohttps://aka.ms/ioteventgrid)(.|Identificação<br/>Disso<br/>EventType|
+|EventGridLatency|Latência da grade de eventos (versão prévia)|Milissegundos|Média|A latência média (milissegundos) de quando o evento do Hub IOT foi gerado quando o evento foi publicado na grade de eventos. Esse número é uma média entre todos os tipos de evento. Use a dimensão EventType para ver a latência de um tipo específico de evento.|Identificação<br/>EventType|
 |d2c.twin.read.success|Leituras de gêmeos dos dispositivos bem-sucedidas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
 |d2c.twin.read.failure|Leituras de gêmeos dos dispositivos com falhas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo com falhas.|Nenhum|
 |d2c.twin.read.size|Tamanho da resposta das leituras de gêmeos dos dispositivos|Bytes|Média|A média, o mínimo e o máximo de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|Nenhum|
@@ -119,6 +119,6 @@ Depois da visão geral das métricas do Hub IoT, acesse este link para saber mai
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 
 * [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

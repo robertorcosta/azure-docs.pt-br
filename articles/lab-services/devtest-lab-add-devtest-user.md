@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79284272"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
@@ -64,10 +64,10 @@ A tabela a seguir ilustra as ações que podem ser executadas por usuários em c
 Os proprietários e os usuários podem ser adicionados no nível do laboratório por meio do portal do Azure. Um usuário pode ser externo com uma [Conta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account)válida.
 As etapas a seguir vão orientá-lo durante o processo de adição de um proprietário ou de um usuário a um laboratório nos Azure DevTest Labs:
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.
-4. Na lâmina do laboratório, selecione **Configuração e políticas**. 
+4. Na folha do laboratório, selecione **configuração e políticas**. 
 5. Na página **Configuração e políticas**, selecione **Controle de acesso (IAM)** no menu à esquerda. 
 6. Selecione **Adicionar atribuição de função** na barra de ferramentas para adicionar um usuário a uma função.
 1. Na janela **Adicionar permissões**, execute as ações a seguir: 
@@ -119,13 +119,13 @@ Você pode adicionar outros proprietários a um laboratório por meio da folha d
 
 Para adicionar um proprietário a uma assinatura do Azure, siga estas etapas:
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços** e, em seguida, selecione **Assinaturas** na lista.
 3. Selecione a assinatura desejada.
 4. Selecione o ícone **Acesso** . 
    
     ![Usuários do Access](./media/devtest-lab-add-devtest-user/access-users.png)
-5. Na lâmina **Usuários,** selecione **Adicionar**.
+5. Na folha **usuários** , selecione **Adicionar**.
    
     ![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. Na folha **Selecionar uma função**, selecione **Proprietário**.

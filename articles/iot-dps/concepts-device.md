@@ -1,6 +1,6 @@
 ---
 title: Conceitos de dispositivo no provisionamento do dispositivo do Azure | Microsoft Docs
-description: Descreve conceitos de provisionamento de dispositivos específicos para dispositivos com DPS (Device Provisioning Service) e IoT Hub
+description: Descreve os conceitos de provisionamento de dispositivos específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285156"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do Serviço de Provisionamento de Dispositivos no Hub IoT
@@ -44,14 +44,14 @@ Os segredos de dispositivo também podem ser armazenados em software (memória),
 
 ## <a name="registration-id"></a>ID de registro
 
-A ID do registro é usada para identificar exclusivamente um dispositivo no Serviço de Provisionamento de Dispositivos. A ID do dispositivo deve ser exclusiva no [escopo da ID](#id-scope) do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. O ID de registro é alfanumérico, caso insensível, e pode conter caracteres especiais, incluindo cólon, período, sublinhado e hífen.
+A ID do registro é usada para identificar exclusivamente um dispositivo no Serviço de Provisionamento de Dispositivos. A ID do dispositivo deve ser exclusiva no [escopo da ID](#id-scope) do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. A ID de registro é alfanumérica, não diferencia maiúsculas de minúsculas e pode conter caracteres especiais, incluindo dois pontos, ponto, sublinhado e hífen.
 
 * No caso do TPM, a ID de registro é fornecida pelo próprio TPM.
 * No caso de atestado com base em X.509, a ID do registro é fornecida como o nome da entidade do certificado.
 
 ## <a name="device-id"></a>Id do Dispositivo
 
-A ID do dispositivo é a ID como ela aparece no Hub IoT. A ID do dispositivo desejada pode ser definida na entrada do registro, mas sua definição não é necessária. A definição do ID do dispositivo desejado só é suportada em matrículas individuais. Se nenhuma ID de dispositivo desejada for especificada na lista de registro, a ID do registro será usada como a ID do dispositivo ao registrar o dispositivo. Saiba mais sobre as [IDs de dispositivo do Hub IoT](../iot-hub/iot-hub-devguide-identity-registry.md).
+A ID do dispositivo é a ID como ela aparece no Hub IoT. A ID do dispositivo desejada pode ser definida na entrada do registro, mas sua definição não é necessária. A configuração da ID de dispositivo desejada só tem suporte em registros individuais. Se nenhuma ID de dispositivo desejada for especificada na lista de registro, a ID do registro será usada como a ID do dispositivo ao registrar o dispositivo. Saiba mais sobre as [IDs de dispositivo do Hub IoT](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## <a name="id-scope"></a>Escopo da ID
 

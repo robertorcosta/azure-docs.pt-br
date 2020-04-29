@@ -1,6 +1,6 @@
 ---
-title: Segurança de rede para recursos da Azure Event Grid
-description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
+title: Segurança de rede para recursos da grade de eventos do Azure
+description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
 services: event-grid
 author: VidyaKukke
 ms.service: event-grid
@@ -8,96 +8,96 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
 ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79300148"
 ---
-# <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da Azure Event Grid
-Este artigo descreve como usar os seguintes recursos de segurança com o Azure Event Grid: 
+# <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
+Este artigo descreve como usar os seguintes recursos de segurança com a grade de eventos do Azure: 
 
-- Tags de serviço para saída (visualização)
-- Regras de firewall IP para ingestão (visualização)
-- Pontos finais privados para ingestão (visualização)
+- Marcas de serviço para saída (versão prévia)
+- Regras de firewall IP para entrada (versão prévia)
+- Pontos de extremidade privados para entrada (versão prévia)
 
 
 ## <a name="service-tags"></a>Marcas de serviço
-Uma tag de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gerencia os prefixos de endereço englobados pela tag de serviço e atualiza automaticamente a tag de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para obter mais informações sobre tags de serviço, consulte [visão geral das tags de serviço](../virtual-network/service-tags-overview.md).
+Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade das atualizações frequentes para as regras de segurança de rede. Para obter mais informações sobre marcas de serviço, consulte [visão geral das marcas de serviço](../virtual-network/service-tags-overview.md).
 
-Você pode usar tags de serviço para definir controles de acesso à rede em [grupos](../virtual-network/security-overview.md#security-rules) de segurança de rede ou [Firewall Azure](../firewall/service-tags.md). Use tags de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da tag de serviço (por exemplo, **AzureEventGrid**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos](../virtual-network/security-overview.md#security-rules) de segurança de rede ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço no lugar de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **AzureEventGrid**) no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
-| Tag de serviço | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall Do Azure? |
+| Marca de serviço | Finalidade | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com o Firewall do Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Grade de Eventos do Azure. <br/><br/>*Nota:* Esta tag abrange os pontos finais da Azure Event Grid no Centro-Sul dos EUA, Leste dos EUA, Leste dos EUA 2, US West 2 e US Central apenas. | Ambos | Não | Não |
+| AzureEventGrid | Grade de Eventos do Azure. <br/><br/>*Observação:* Esta marca aborda os pontos de extremidade da grade de eventos do Azure no centro-sul dos EUA, leste dos EUA, leste dos EUA 2, oeste dos EUA 2 e Centro dos EUA apenas. | Ambos | Não | Não |
 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
-O Azure Event Grid suporta controles de acesso baseados em IP para publicação em tópicos e domínios. Com controles baseados em IP, você pode limitar os editores a um tópico ou domínio a apenas um conjunto de máquinas e serviços em nuvem aprovados. Este recurso complementa os [mecanismos de autenticação](security-authentication.md) suportados pela Event Grid.
+A grade de eventos do Azure dá suporte a controles de acesso baseados em IP para publicação em tópicos e domínios. Com controles baseados em IP, você pode limitar os editores a um tópico ou domínio a apenas um conjunto de computadores e serviços de nuvem aprovados. Esse recurso complementa os [mecanismos de autenticação](security-authentication.md) com suporte na grade de eventos.
 
-Por padrão, tópico e domínio são acessíveis a partir da internet, desde que a solicitação venha com autenticação e autorização válidas. Com firewall IP, você pode restringi-lo ainda mais a apenas um conjunto de endereços IP ou faixas de endereçoIP na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida).
+Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IP ou intervalos de endereços IP na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido).
 
 
-## <a name="private-endpoints"></a>Pontos finais privados
-Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir a ingestão de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. Um ponto final privado é uma interface de rede especial para um serviço Azure em seu VNet. Quando você cria um ponto final privado para o seu tópico ou domínio, ele fornece conectividade segura entre os clientes em seu VNet e seu recurso Event Grid. O ponto final privado é atribuído a um endereço IP da faixa de endereço IP do seu VNet. A conexão entre o ponto final privado e o serviço Event Grid usa um link privado seguro.
+## <a name="private-endpoints"></a>Pontos de extremidade privados
+Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. Um ponto de extremidade privado é uma interface de rede especial para um serviço do Azure em sua VNet. Quando você cria um ponto de extremidade privado para seu tópico ou domínio, ele fornece conectividade segura entre clientes em sua VNet e seu recurso de grade de eventos. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de grade de eventos usa um link privado seguro.
 
 ![Diagrama de arquitetura](./media/network-security/architecture-diagram.png)
 
-O uso de pontos finais privados para o recurso Event Grid permite:
+O uso de pontos de extremidade privados para o recurso da grade de eventos permite que você:
 
-- Proteja o acesso ao seu tópico ou domínio a partir de uma rede de backbone VNet sobre a Microsoft em oposição à internet pública.
-- Conecte-se com segurança a partir de redes locais que se conectam ao VNet usando VPN ou ExpressRoutes com peering privado.
+- Proteja o acesso ao seu tópico ou domínio de uma VNet pela rede de backbone da Microsoft em oposição à Internet pública.
+- Conecte-se com segurança de redes locais que se conectam à VNet usando VPN ou Expressroute ao qual com emparelhamento privado.
 
-Quando você cria um ponto final privado para um tópico ou domínio em seu VNet, uma solicitação de consentimento é enviada para aprovação ao proprietário do recurso. Se o usuário que solicitar a criação do ponto final privado também for proprietário do recurso, essa solicitação de consentimento será automaticamente aprovada. Caso contrário, a conexão está em estado **pendente** até ser aprovada. Os aplicativos no VNet podem se conectar ao serviço Event Grid através do ponto final privado sem problemas, usando as mesmas strings de conexão e mecanismos de autorização que eles usariam de outra forma. Os proprietários de recursos podem gerenciar solicitações de consentimento e os pontos finais privados, através da guia **pontos finais privados** para o recurso no portal Azure.
+Quando você cria um ponto de extremidade privado para um tópico ou domínio em sua VNet, uma solicitação de consentimento é enviada para aprovação para o proprietário do recurso. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário do recurso, essa solicitação de consentimento será aprovada automaticamente. Caso contrário, a conexão estará em estado **pendente** até ser aprovada. Os aplicativos na VNet podem se conectar ao serviço de grade de eventos por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. Os proprietários de recursos podem gerenciar solicitações de consentimento e os pontos de extremidade privados, por meio da guia **pontos de extremidade particulares** para o recurso no portal do Azure.
 
-### <a name="connect-to-private-endpoints"></a>Conecte-se a pontos finais privados
-Os editores em um VNet usando o ponto final privado devem usar a mesma seqüência de conexões para o tópico ou domínio que os clientes que se conectam ao ponto final público. A resolução DNS encaminha automaticamente conexões do VNet para o tópico ou domínio por um link privado. Event Grid cria uma [zona de DNS privada](../dns/private-dns-overview.md) anexada ao VNet com a atualização necessária para os pontos finais privados, por padrão. No entanto, se você estiver usando seu próprio servidor DNS, talvez seja necessário fazer alterações adicionais na configuração do DNS.
+### <a name="connect-to-private-endpoints"></a>Conectar-se a pontos de extremidade privados
+Os editores em uma VNet usando o ponto de extremidade privado devem usar a mesma cadeia de conexão para o tópico ou domínio como clientes que se conectam ao ponto de extremidade público. A resolução DNS roteia automaticamente as conexões da VNet para o tópico ou domínio por meio de um link privado. A grade de eventos cria uma [zona DNS privada](../dns/private-dns-overview.md) anexada à VNet com a atualização necessária para os pontos de extremidade privados, por padrão. No entanto, se você estiver usando seu próprio servidor DNS, talvez seja necessário fazer alterações adicionais na configuração do DNS.
 
-### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos finais privados
-Quando você cria um ponto final privado, o registro DNS CNAME para o recurso `privatelink`é atualizado para um alias em um subdomínio com o prefixo . Por padrão, é criada uma região DNS privada que corresponde ao subdomínio do link privado. 
+### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
+Quando você cria um ponto de extremidade privado, o registro DNS CNAME do recurso é atualizado para um alias em um subdomínio com o `privatelink`prefixo. Por padrão, é criada uma zona DNS privada que corresponde ao subdomínio do link privado. 
 
-Quando você resolve a URL de ponto final de tópico ou domínio de fora do VNet com o ponto final privado, ele resolve para o ponto final público do serviço. Os registros de recursos do DNS para 'topicA', quando **resolvidos de fora do VNet** hospedando o ponto final privado, serão:
+Quando você resolve o tópico ou a URL do ponto de extremidade do domínio de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço. Os registros de recurso DNS para ' Topica ', quando resolvidos de **fora da VNet** que hospeda o ponto de extremidade privado, serão:
 
 | Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<perfil gerente de tráfego azul\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<perfil do Gerenciador de tráfego do Azure\>
 
-Você pode negar ou controlar o acesso de um cliente fora do VNet através do ponto final público usando o [firewall IP](#ip-firewall). 
+Você pode negar ou controlar o acesso de um cliente fora da VNet por meio do ponto de extremidade público usando o [Firewall de IP](#ip-firewall). 
 
-Quando resolvido a partir do VNet que hospeda o ponto final privado, a URL de ponto final de tópico ou domínio se resolve para o endereço IP do ponto final privado. Os registros de recursos do DNS para o tópico 'topicA', quando **resolvidos de dentro do VNet** hospedando o ponto final privado, serão:
+Quando resolvido da VNet que hospeda o ponto de extremidade privado, o tópico ou a URL do ponto de extremidade do domínio é resolvido para o endereço IP do ponto de extremidade privado. Os registros de recurso DNS para o tópico ' Topica ', quando resolvidos de **dentro da VNet** que hospeda o ponto de extremidade privado, serão:
 
 | Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | Um         | 10.0.0.5
 
-Essa abordagem permite o acesso ao tópico ou ao domínio usando a mesma seqüência de conexões para clientes no VNet que hospeda os pontos finais privados e clientes fora do VNet.
+Essa abordagem permite o acesso ao tópico ou ao domínio usando a mesma cadeia de conexão para clientes na VNet que hospeda os pontos de extremidade privados e clientes fora da VNet.
 
-Se você estiver usando um servidor DNS personalizado em sua rede, os clientes podem resolver o FQDN para o tópico ou ponto final de domínio para o endereço IP de ponto final privado. Configure seu servidor DNS para delegar seu subdomínio de link privado à zona DNS privada para o VNet ou configure os registros A para `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` com o endereço IP de ponto final privado.
+Se você estiver usando um servidor DNS personalizado em sua rede, os clientes poderão resolver o FQDN do tópico ou do ponto de extremidade do domínio para o endereço IP do ponto de extremidade privado. Configure o servidor DNS para delegar seu subdomínio de link privado para a zona DNS privada para a VNet ou configure os registros a `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` para com o endereço IP do ponto de extremidade privado.
 
-O nome da zona `privatelink.eventgrid.azure.net`DNS recomendado é .
+O nome de zona DNS recomendado `privatelink.eventgrid.azure.net`é.
 
-### <a name="private-endpoints-and-publishing"></a>Pontos finais privados e publicações
+### <a name="private-endpoints-and-publishing"></a>Pontos de extremidade privados e publicação
 
-A tabela a seguir descreve os vários estados da conexão de ponto final privado e os efeitos na publicação:
+A tabela a seguir descreve os vários Estados da conexão de ponto de extremidade privada e os efeitos na publicação:
 
-| Estado da Conexão   |  Publicar com sucesso (Sim/Não) |
+| Estado da Conexão   |  Publicação com êxito (Sim/não) |
 | ------------------ | -------------------------------|
 | Aprovado           | Sim                            |
 | Rejeitado           | Não                             |
-| Pendente            | Não                             |
+| Pending (Pendente)            | Não                             |
 | Desconectado       | Não                             |
 
-Para que a publicação seja bem sucedida, o estado privado de conexão de ponto final deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal Azure. A única possibilidade é excluir a conexão e criar uma nova.
+Para que a publicação seja bem-sucedida, o estado de conexão do ponto de extremidade privado deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal do Azure. A única possibilidade é excluir a conexão e criar uma nova, em vez disso.
 
 ## <a name="pricing-and-quotas"></a>Preços e cotas
-**Os pontos finais privados** só estão disponíveis com tópicos e domínios de nível premium. Event Grid permite que até 64 conexões de ponto final privado sejam criadas por tópico ou domínio. Para atualizar do nível básico para o nível premium, consulte o artigo [do nível de preços de atualização.](update-tier.md)
+Os **pontos de extremidade privados** só estão disponíveis com os tópicos e os domínios da camada Premium. A grade de eventos permite que até 64 conexões de ponto de extremidade privado sejam criadas por tópico ou domínio. Para atualizar da camada básica para a camada Premium, consulte o artigo [atualizar o tipo de preço](update-tier.md) .
 
-**O** recurso ip firewall está disponível em níveis básicos e premium do Event Grid. Permitimos que até 16 regras de Firewall IP sejam criadas por tópico ou domínio.
+O recurso de **Firewall de IP** está disponível nas camadas básica e Premium da grade de eventos. Permitimos que até 16 regras de firewall IP sejam criadas por tópico ou domínio.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode configurar o firewall IP para o recurso Event Grid para restringir o acesso à internet pública a partir de apenas um conjunto seleto de endereços IP ou faixas de endereços IP. Para obter instruções passo a passo, consulte [Configurar firewall IP](configure-firewall.md).
+Você pode configurar o firewall IP para o recurso de grade de eventos para restringir o acesso pela Internet pública de apenas um conjunto selecionado de endereços IP ou intervalos de endereços IP. Para obter as instruções passo a passo, consulte [Configurar o firewall de IP](configure-firewall.md).
 
-Você pode configurar pontos finais privados para restringir o acesso somente de redes virtuais selecionadas. Para obter instruções passo a passo, consulte [Configure pontos finais privados](configure-private-endpoints.md).
+Você pode configurar pontos de extremidade privados para restringir o acesso somente de redes virtuais selecionadas. Para obter as instruções passo a passo, consulte [Configurar pontos de extremidade privados](configure-private-endpoints.md).

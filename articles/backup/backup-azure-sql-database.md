@@ -4,22 +4,22 @@ description: Este artigo explica como fazer backup do SQL Server para o Azure. O
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79408753"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
-[O Azure Backup](backup-overview.md) oferece uma solução especializada baseada em fluxo para fazer backup do SQL Server em execução em VMs Azure. Essa solução está alinhada com os benefícios do Azure Backup de backup de infra-estrutura zero, retenção a longo prazo e gerenciamento central. Além disso, fornece as seguintes vantagens especificamente para o SQL Server:
+O [backup do Azure](backup-overview.md) oferece uma solução especializada baseada em fluxo para fazer backup SQL Server em execução em VMs do Azure. Essa solução se alinha com os benefícios do backup do Azure de backup sem infraestrutura, retenção de longo prazo e gerenciamento central. Além disso, ele fornece as seguintes vantagens especificamente para SQL Server:
 
-1. Backups de carga de trabalho que suportam todos os tipos de backup - completo, diferencial e log
-2. RPO de 15 min (objetivo de ponto de recuperação) com backups de log freqüentes
-3. Recuperação point-in-time até um segundo
+1. Backups com reconhecimento de carga de trabalho que dão suporte a todos os tipos de backup-completo, diferencial e log
+2. RPO de 15 minutos (objetivo de ponto de recuperação) com backups de log frequentes
+3. Recuperação pontual de até um segundo
 4. Backup e restauração de nível de banco de dados individual
 
-Para visualizar os cenários de backup e restauração que apoiamos hoje, consulte a [matriz de suporte](sql-support-matrix.md#scenario-support).
+Para exibir os cenários de backup e restauração aos quais damos suporte hoje, consulte a [matriz de suporte](sql-support-matrix.md#scenario-support).
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -62,7 +62,7 @@ Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
       ![Abra a pasta Segurança/Logons para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Clique com o botão direito do mouse na pasta **Logins** e selecione **Novo Login**. Em **Logon – Novo**, selecione **Pesquisar**.
+  3. Clique com o botão direito do mouse na pasta **logons** e selecione **novo logon**. Em **Logon – Novo**, selecione **Pesquisar**.
 
       ![Na caixa de diálogo Logon – Novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -109,7 +109,7 @@ Adicione logins do **NT AUTHORITY\SYSTEM** e do **NT Service\AzureWLBackupPlugin
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (de 1 a 7 acima) para adicionar o logon de NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existe, verifique se tem a função de servidor sysadmin e, em Status, se tem a permissão de concessão para se conectar ao mecanismo de banco de dados e faça logon como Habilitado.
-9. Após a concessão da permissão, **redescubra DBs** no portal: Carga de trabalho de infra-estrutura **->** **->** de backup do cofre no Azure VM:
+9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no **->** Portal: **->** backup do cofre infraestrutura de carga em VM do Azure:
 
     ![Redescobrir bancos de dados no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

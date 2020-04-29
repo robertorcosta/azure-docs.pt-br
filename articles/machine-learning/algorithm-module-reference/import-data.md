@@ -1,7 +1,7 @@
 ---
-title: 'Dados de importação: Referência do módulo'
+title: 'Importar dados: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo Importar dados no Azure Machine Learning para carregar dados em um pipeline de aprendizado de máquina a partir de serviços de dados em nuvem existentes.
+description: Saiba como usar o módulo importar dados no Azure Machine Learning para carregar dados em um pipeline de Machine Learning de serviços de dados em nuvem existentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,83 +10,83 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: d124fdc15bd34743b237985a66cc35625f5d9a4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456192"
 ---
-# <a name="import-data-module"></a>Módulo de dados de importação
+# <a name="import-data-module"></a>Importar módulo de dados
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use este módulo para carregar dados em um pipeline de aprendizado de máquina a partir de serviços de dados em nuvem existentes. 
+Use este módulo para carregar dados em um pipeline de Machine Learning dos serviços de dados de nuvem existentes. 
 
 > [!Note]
-> Todas as funcionalidades fornecidas por este módulo podem ser feitas por **datastore** e **conjuntos de dados** na página de pouso worksapce. Recomendamos que você use **datastore** e **dataset** que inclui recursos adicionais, como monitoramento de dados. Para saber mais, veja [como acessar dados](../how-to-access-data.md) e como registrar [conjuntos de dados.](../how-to-create-register-datasets.md)
-> Depois de registrar um conjunto de dados, você pode encontrá-lo na categoria **Conjuntos de** -> **dados Meus Conjuntos de Dados** na interface do designer. Este módulo é reservado para usuários do Studio (clássico) para uma experiência familiar. 
+> Toda a funcionalidade fornecida por esse módulo pode ser feita pelo **armazenamento de datastore** e por **conjuntos de valores** na página de aterrissagem espaço. É recomendável que você use o **armazenamento** de dados e o **DataSet** , que inclui recursos adicionais, como o monitoramento de dados. Para obter mais informações, consulte [o artigo como acessar dados](../how-to-access-data.md) e [como registrar os DataSets](../how-to-create-register-datasets.md) .
+> Depois de registrar um conjunto de registros, você pode encontrá-lo na categoria **conjuntos** -> de os**meus conjuntos** de valores na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
 >
 
-O módulo **de dados de importação** suporta dados de leitura das seguintes fontes:
+O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
 
 - URL via HTTP
-- Armazenamentoem em nuvem do Azure através [**de Datastores**](../how-to-access-data.md))
-    - Recipiente Azure Blob
+- Armazenamentos em nuvem do Azure por meio de [**repositórios de armazenamento**](../how-to-access-data.md))
+    - Contêiner de blob do Azure
     - Compartilhamento de arquivos do Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
     - Banco de Dados SQL do Azure
-    - Azure PostgreSQL    
+    - PostgreSQL do Azure    
 
-Antes de usar o armazenamento em nuvem, você precisa registrar um datastore no seu espaço de trabalho azure Machine Learning primeiro. Para obter mais informações, consulte [Como acessar dados](../how-to-access-data.md). 
+Antes de usar o armazenamento em nuvem, você precisa registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning primeiro. Para obter mais informações, consulte [como acessar dados](../how-to-access-data.md). 
 
-Depois de definir os dados que deseja e se conectar à fonte, os **[Dados de Importação](./import-data.md)** inferem o tipo de dados de cada coluna com base nos valores que ela contém e carregam os dados em seu pipeline de designer. A saída de Dados de **Importação** é um conjunto de dados que pode ser usado com qualquer pipeline de designer.
+Depois de definir os dados desejados e conectar-se à origem, **[importar dados](./import-data.md)** infere o tipo de dados de cada coluna com base nos valores que ele contém e carrega os dados em seu pipeline de designer. A saída de **Import data** é um conjunto de dados que pode ser usado com qualquer pipeline de designer.
 
-Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos dados reexecutando [dados de importação](./import-data.md).
+Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Como configurar dados de importação
 
-1. Adicione o módulo **Dados de Importação** ao seu pipeline. Você pode encontrar este módulo na categoria **Entrada e Saída de Dados** no designer.
+1. Adicione o módulo **importar dados** ao seu pipeline. Você pode encontrar esse módulo na categoria **entrada e saída de dados** no designer.
 
 1. Selecione o módulo para abrir o painel direito.
 
-1. Selecione **A origem dos dados**e escolha o tipo de origem de dados. Pode ser HTTP ou datastore.
+1. Selecione **fonte de dados**e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
-    Se você escolher o datastore, você pode selecionar os datastores existentes que já estão registrados no seu espaço de trabalho do Azure Machine Learning ou criar um novo datastore. Em seguida, defina o caminho dos dados para importar no datastore. Você pode navegar facilmente pelo caminho clicando em **Procurar caminho** ![de importação-data-path](media/module/import-data-path.png)
+    Se você escolher repositório de armazenamento, poderá selecionar os repositórios de armazenamento existentes que já estão registrados em seu espaço de trabalho Azure Machine Learning ou criar um novo repositório de armazenamento. Em seguida, defina o caminho dos dados a serem importados no datastore. Você pode navegar facilmente pelo caminho clicando em **procurar caminho** ![importar-Data-Path](media/module/import-data-path.png)
 
-1. Selecione o esquema de visualização para filtrar as colunas que deseja incluir. Você também pode definir configurações avançadas como Delimitr em opções de Análise.
+1. Selecione o esquema de visualização para filtrar as colunas que você deseja incluir. Você também pode definir configurações avançadas como delimitador nas opções de análise.
 
-    ![visualização de dados de importação](media/module/import-data.png)
+    ![importação-dados-visualização](media/module/import-data.png)
 
-1. A caixa de seleção, **reger a saída,** decide se executa o módulo para regenerar a saída no tempo de execução. 
+1. A caixa de seleção, **regenerar saída**, decide se o módulo deve ser executado para regenerar a saída em tempo de execução. 
 
-    É por padrão não selecionado, o que significa que se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
+    Ele é, por padrão, desmarcado, o que significa que, se o módulo tiver sido executado com os mesmos parâmetros anteriormente, o sistema reutilizará a saída da última execução para reduzir o tempo de execução. 
 
-    Se for selecionado, o sistema executará o módulo novamente para regenerar a saída. Então selecione essa opção quando os dados subjacentes no armazenamento forem atualizados, ele pode ajudar a obter os dados mais recentes.
+    Se estiver selecionado, o sistema executará o módulo novamente para regenerar a saída. Portanto, selecione essa opção quando os dados subjacentes no armazenamento forem atualizados, ele poderá ajudar a obter os dados mais recentes.
 
 
-1. Envie o oleoduto.
+1. Envie o pipeline.
 
-    Quando o Import Data carrega os dados no designer, ele infere o tipo de dados de cada coluna com base nos valores que ele contém, seja numérico ou categórico.
+    Quando os dados de importação carregam os dados no designer, ele infere o tipo de dados de cada coluna com base nos valores que ele contém, numéricos ou categóricos.
 
     Se houver um cabeçalho, ele será usado para nomear as colunas do conjunto de dados de saída.
 
-    Se não houver cabeçalhos de coluna existentes nos dados, novos nomes de coluna serão gerados usando o formato col1, col2,... , coln*.
+    Se não houver nenhum cabeçalho de coluna existente nos dados, novos nomes de coluna serão gerados usando o formato Col1, Col2,... , coln*.
 
 ## <a name="results"></a>Resultados
 
-Quando a importação for concluída, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com sucesso.
+Quando a importação for concluída, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
 
-Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **do conjunto de dados Registrar** na guia **Saídas** no painel direito do módulo. Escolha um nome para o conjunto de dados. O conjunto de dados salvo preserva os dados no momento da economia, o conjunto de dados não é atualizado quando o pipeline é reexecutado, mesmo que o conjunto de dados no pipeline mude. Isso pode ser útil para tirar instantâneos de dados.
+Se você quiser salvar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito do módulo. Escolha um nome para o conjunto de um. O DataSet salvo preserva os dados no momento de salvá-los, o DataSet não é atualizado quando o pipeline é executado novamente, mesmo que o conjunto de dados no pipeline seja alterado. Isso pode ser útil para tirar instantâneos de dados.
 
-Depois de importar os dados, pode precisar de algumas preparações adicionais para modelagem e análise:
+Depois de importar os dados, talvez sejam necessários alguns preparativos adicionais para modelagem e análise:
 
-- Use [Editar metadados](./edit-metadata.md) para alterar nomes de colunas, para lidar com uma coluna como um tipo de dados diferente ou para indicar que algumas colunas são rótulos ou recursos.
+- Use [Editar metadados](./edit-metadata.md) para alterar nomes de coluna, para manipular uma coluna como um tipo de dados diferente ou para indicar que algumas colunas são rótulos ou recursos.
 
-- Use [Selecionar colunas no conjunto de dados](./select-columns-in-dataset.md) para selecionar um subconjunto de colunas para transformar ou usar na modelagem. As colunas transformadas ou removidas podem ser facilmente reunidos ao conjunto de dados original usando o módulo [Adicionar colunas.](./add-columns.md)  
+- Use [selecionar colunas no conjunto](./select-columns-in-dataset.md) de linhas para selecionar um subconjunto de colunas para transformar ou usar na modelagem. As colunas transformadas ou removidas podem ser facilmente reassociadas ao conjunto de os originais usando o módulo [adicionar colunas](./add-columns.md) .  
 
-- Use [Partição e Amostra](./partition-and-sample.md) para dividir o conjunto de dados, realizar amostragem ou obter as linhas n superiores.
+- Use [Partition e Sample](./partition-and-sample.md) para dividir o conjunto de registros, executar amostragem ou obter as n primeiras linhas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
