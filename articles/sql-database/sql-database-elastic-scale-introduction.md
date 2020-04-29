@@ -9,10 +9,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 44c6147402cbe05e62c091863cb0bd4f9235bfab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061639"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalando horizontalmente com o Banco de Dados SQL do Azure
@@ -20,7 +20,7 @@ Você pode escalar horizontalmente bancos de dados SQL do Azure com facilidade u
 
 * [Biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md): a biblioteca de cliente é um recurso que permite criar e manter bancos de dados fragmentados.  Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 * [Ferramenta de mesclagem/divisão do Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md): move dados entre bancos de dados fragmentados. Essa ferramenta é útil para mover dados de um banco de dados multilocatário para um banco de dados de locatário único (ou vice-versa). Consulte [Tutorial de ferramenta da Divisão de Mesclagem do Banco de Dados Elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabalhos de banco de dados elásticos](elastic-jobs-overview.md): Use trabalhos para gerenciar um grande número de bancos de dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
+* [Trabalhos de banco de dados elástico](elastic-jobs-overview.md): Use trabalhos para gerenciar um grande número de bancos de dados SQL do Azure. Execute operações administrativas facilmente, como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, desempenho de coleta de dados ou coleção de telemetria do locatário (cliente), usando trabalhos.
 * [Consulta do Banco de Dados Elástico](sql-database-elastic-query-overview.md) (visualização): permite executar uma consulta Transact-SQL que abranja vários bancos de dados. Isso permite a conexão com ferramentas de relatório, como Excel, Power BI, Tableau, etc.
 * [Transações elásticas](sql-database-elastic-transactions-overview.md): esse recurso permite a execução de transações que abrangem vários bancos de dados no Banco de Dados SQL do Azure. As transações de banco de dados elástico estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
@@ -51,17 +51,17 @@ A figura a seguir mostra as dimensões horizontal e vertical da colocação em e
 
 ![Expansão horizontal versus vertical][2]
 
-O dimensionamento horizontal refere-se à adição ou remoção de bancos de dados para ajustar a capacidade ou o desempenho geral, também chamado de "dimensionamento". A fragmentação, na qual os dados são particionados em um conjunto de bancos de dados estruturados de forma idêntica, é uma maneira comum de implementara a escala horizontal.  
+O dimensionamento horizontal refere-se à adição ou remoção de bancos de dados a fim de ajustar a capacidade ou o desempenho geral, também chamado de "expansão horizontal". A fragmentação, na qual os dados são particionados em um conjunto de bancos de dados estruturados de forma idêntica, é uma maneira comum de implementara a escala horizontal.  
 
-O dimensionamento vertical refere-se ao aumento ou diminuição do tamanho da computação de um banco de dados individual, também conhecido como "dimensionamento".
+O dimensionamento vertical refere-se ao aumento ou redução do tamanho de computação de um banco de dados individual, também conhecido como "escalar verticalmente".
 
-A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinação dessas duas estratégias. Por exemplo, um aplicativo Software as a Service pode usar dimensionamento horizontal para prover novos clientes finais e dimensionamento vertical para permitir que o banco de dados de cada cliente final cresça ou reduza os recursos conforme necessário pela carga de trabalho.
+A maioria dos aplicativos de banco de dados de escala de nuvem usa uma combinação dessas duas estratégias. Por exemplo, um aplicativo de software como serviço pode usar o dimensionamento horizontal para provisionar novos clientes finais e o dimensionamento vertical para permitir que o banco de dados de cada cliente final aumente ou reduza os recursos conforme a necessidade da carga de trabalho.
 
 * A escala horizontal é gerenciada com a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md).
 * A escala vertical é realizada usando cmdlets do Azure PowerShell para alterar a camada de serviço ou colocando os bancos de dados em um pool elástico.
 
 ## <a name="sharding"></a>Fragmentação
-*Fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais são muitas vezes chamados de "inquilinos". Fragmentação pode ser necessária por vários motivos:  
+*Fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica entre vários bancos de dados independentes. É especialmente popular com desenvolvedores de nuvem que estão criando ofertas de SaaS (software como serviço) para clientes finais ou empresas. Esses clientes finais costumam ser chamados de "locatários". Fragmentação pode ser necessária por vários motivos:  
 
 * A quantidade total de dados é muito grande para caber dentro das restrições de um banco de dados individual
 * A taxa de transferência de transação da carga de trabalho geral excede as capacidades de um banco de dados individual
@@ -73,11 +73,11 @@ Em outros cenários, como inclusão de dados de dispositivos distribuídos, a fr
 A fragmentação funciona melhor quando todas as transações em um aplicativo podem ser restrita a um único valor de uma chave de fragmentação. Isso garante que todas as transações são locais para um banco de dados específico.
 
 ## <a name="multi-tenant-and-single-tenant"></a>Multilocatário e único locatário
-Alguns aplicativos usam a abordagem mais simples de criar um banco de dados separado para cada locatário. Essa abordagem é o **padrão de fragmentação de locatário único** que fornece isolamento, capacidade de backup/restauração e dimensionamento de recursos na granularidade do locatário. Com a fragmentação de locatário único, cada banco de dados está associado a um valor de ID específico do locatário (ou o valor de chave de cliente), mas essa chave não deve sempre estar presente nos próprios dados. É responsabilidade do aplicativo encaminhar cada solicitação para o banco de dados apropriado - e a biblioteca do cliente pode simplificar isso.
+Alguns aplicativos usam a abordagem mais simples de criar um banco de dados separado para cada locatário. Essa abordagem é o **padrão de fragmentação de locatário único** que fornece isolamento, capacidade de backup/restauração e dimensionamento de recursos na granularidade do locatário. Com a fragmentação de locatário único, cada banco de dados está associado a um valor de ID específico do locatário (ou o valor de chave de cliente), mas essa chave não deve sempre estar presente nos próprios dados. É responsabilidade do aplicativo rotear cada solicitação para o banco de dados apropriado – e a biblioteca de cliente pode simplificar isso.
 
 ![Único locatário versus multilocatários][4]
 
-Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse padrão é um **padrão de fragmentação multilocatário** típico, que pode ser orientado pelo fato de que um aplicativo gerencia um grande número de locatários pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, o nível de aplicativo é responsável por direcionar a solicitação de um inquilino para o banco de dados apropriado, e isso pode ser suportado pela biblioteca de clientes de banco de dados elástico. Além disso, a segurança em nível de linha pode ser usada para filtrar quais linhas cada inquilino pode acessar - para [detalhes, consulte aplicativos multi-inquilinos com ferramentas de banco de dados elásticas e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistribuir dados entre bancos de dados pode ser necessário com o padrão de fragmentação de multilocatário, e isso é facilitado pela ferramenta de divisão/mesclagem de banco de dados elástico. Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse padrão é um **padrão de fragmentação multilocatário** típico, que pode ser orientado pelo fato de que um aplicativo gerencia um grande número de locatários pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, a camada de aplicativo é responsável por rotear a solicitação de um locatário para o banco de dados apropriado e isso pode ser suportado pela biblioteca de cliente do banco de dados elástico. Além disso, a segurança em nível de linha pode ser usada para filtrar quais linhas cada locatário pode acessar-para obter detalhes, consulte [aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistribuir dados entre bancos de dados pode ser necessário com o padrão de fragmentação de multilocatário, e isso é facilitado pela ferramenta de divisão/mesclagem de banco de dados elástico. Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Mover dados de bancos de dados de vários locatários para de um locatário
 Ao criar um aplicativo SaaS, é comum para oferecer aos clientes em potencial uma versão de avaliação do software. Nesse caso, é econômico usar um banco de dados multilocatário para os dados. No entanto, quando um cliente em potencial se torna um cliente, um banco de dados de um único locatário é melhor, já que fornece maior desempenho. Se o cliente tiver criado dados durante o período de avaliação, use a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md) para mover os dados do banco de dados multilocatário para o novo banco de dados de um único locatário.

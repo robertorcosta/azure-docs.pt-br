@@ -1,5 +1,5 @@
 ---
-title: Use identidades gerenciadas em uma máquina virtual para adquirir token de acesso - Azure AD
+title: Usar identidades gerenciadas em uma máquina virtual para adquirir o token de acesso-Azure AD
 description: Instruções passo a passo e exemplos para usar identidades gerenciadas para recursos do Azure em máquinas virtuais para adquirir um token de acesso OAuth.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a58103bad3914bd0c0c6e70f8e3d2882271e1070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80049202"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso 
@@ -79,7 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Um campo de cabeçalho de solicitação HTTP, exigido por identidades gerenciadas para recursos do Azure como uma atenuação contra ataque SSRF (Server Side Request Forgery). Esse valor deve ser definido como "true", com todas as letras minúsculas. |
 | `object_id` | (Opcional) Um parâmetro de string de consulta, indicando o object_id da identidade gerenciada para a qual você deseja o token. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário.|
 | `client_id` | (Opcional) Um parâmetro de cadeia de consulta, indicando o client_id da identidade gerenciada para a qual você deseja o token. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário.|
-| `mi_res_id` | (Opcional) Um parâmetro de seqüência de consulta, indicando o mi_res_id (ID de recurso do Azure) da identidade gerenciada para a sua identidade gerenciada que você gostaria que o token para. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário. |
+| `mi_res_id` | Adicional Um parâmetro de cadeia de caracteres de consulta, que indica a mi_res_id (ID de recurso do Azure) da identidade gerenciada para a qual você gostaria de obter o token. Obrigatório, se a VM tiver várias identidades gerenciadas atribuídas ao usuário. |
 
 Solicitação de exemplo usando as identidades gerenciadas do Ponto de Extremidade de Extensão de VM dos recursos do Azure *(previsão de reprovação em janeiro de 2019)*:
 
@@ -365,19 +365,19 @@ Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá o JSON com 
 | Elemento | Descrição |
 | ------- | ----------- |
 | error   | Identificador do erro. |
-| error_description | Descrição detalhada do erro. **As descrições de erros podem mudar a qualquer momento. Não escreva código que se baseia em valores na descrição do erro.**|
+| error_description | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não grave o código que ramifica com base nos valores na descrição do erro.**|
 
 ### <a name="http-response-reference"></a>Referência de resposta HTTP
 
 Esta seção documenta as possíveis respostas de erro. Um status "200 OK" é uma resposta bem-sucedida, e o token de acesso está contido no JSON do corpo de resposta, no elemento access_token.
 
-| Código de status | Erro | Descrição do erro | Solução |
+| Código de status | Erro do | Descrição do erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Solicitação Inválida | invalid_resource | AADSTS50001: O * \<aplicativo\> * chamado URI não foi encontrado no inquilino chamado * \<TENANT-ID\>*. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Talvez você tenha enviado a solicitação de autenticação ao locatário errado.\ | (Apenas Linux) |
+| 400 Solicitação Inválida | invalid_resource | AADSTS50001: o aplicativo chamado * \<URI\> * não foi encontrado no locatário chamado * \<Tenant-ID\>*. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Talvez você tenha enviado a solicitação de autenticação ao locatário errado.\ | (Apenas Linux) |
 | 400 Solicitação Inválida | bad_request_102 | Cabeçalho de metadados necessário não especificado | O campo de cabeçalho de solicitação `Metadata` está ausente da solicitação ou está formatado incorretamente. O valor deve ser especificado como `true`, com todas as letras minúsculas. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
-| 401 Não Autorizado | unknown_source | URI de origem * \<desconhecida\>* | Verifique se o URI da solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
+| 401 Não Autorizado | unknown_source | URI de origem desconhecido * \<\>* | Verifique se o URI da solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
 |           | invalid_request | A solicitação não tem um parâmetro obrigatório, inclui um valor de parâmetro inválido, inclui um parâmetro mais de uma vez ou está malformada. |  |
-|           | unauthorized_client | O cliente não está autorizado a solicitar um token de acesso usando este método. | Causada por uma solicitação que não usou o loopback local para chamar a extensão ou em uma VM que não tenha identidades gerenciadas para recursos do Azure configuradas corretamente. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), se precisar de ajuda com a configuração da VM. |
+|           | unauthorized_client | O cliente não está autorizado a solicitar um token de acesso usando este método. | Causado por uma solicitação que não usou o loopback local para chamar a extensão ou em uma VM que não tem identidades gerenciadas para recursos do Azure configurados corretamente. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), se precisar de ajuda com a configuração da VM. |
 |           | access_denied | O proprietário do recurso ou o servidor de autorização negou a solicitação. |  |
 |           | unsupported_response_type | O servidor de autorização não dá suporte à obtenção de um token de acesso usando este método. |  |
 |           | invalid_scope | O escopo solicitado é inválido, desconhecido ou malformado. |  |
@@ -391,7 +391,7 @@ Limitação limites se aplicam ao número de chamadas feitas para o ponto de ext
 
 Para tentar novamente, é recomendável a estratégia a seguir: 
 
-| **Estratégia de repetição** | **Configurações** | **Valores** | **Como funciona** |
+| **Estratégia de repetição** | **Configurações** | **Valores** | **Como isso funciona** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Contagem de repetição<br />Retirada mín.<br />Retirada máx.<br />Retirada delta<br />Primeira repetição rápida |5<br />0 s<br />60 s<br />2 s<br />false |1ª tentativa — intervalo de 0 s<br />2ª tentativa — intervalo de ~2 s<br />3ª tentativa — intervalo de ~6 s<br />4ª tentativa — intervalo de ~14 s<br />5ª tentativa — intervalo de ~30 s |
 

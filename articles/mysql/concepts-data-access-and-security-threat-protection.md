@@ -1,16 +1,16 @@
 ---
-title: Proteção avançada contra ameaças - Banco de dados Azure para MySQL
-description: Aprenda conceitos sobre Proteção avançada contra ameaças, que detecta atividades anômalas de banco de dados indicando potenciais ameaças à segurança do banco de dados.
+title: Proteção avançada contra ameaças-banco de dados do Azure para MySQL
+description: Aprenda conceitos sobre a proteção avançada contra ameaças, que detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 01ac6ccbc2789d2052bab07e2da51630b6dbf581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537152"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Proteção Avançada contra Ameaças do Banco de Dados do Azure para MySQL
@@ -18,9 +18,9 @@ ms.locfileid: "79537152"
 A Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
 > [!NOTE]
-> O Advanced Threat Protection está em pré-visualização pública.
+> A proteção avançada contra ameaças está em visualização pública.
 
-A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avançada de Dados, que é um pacote unificado para funcionalidades avançadas de segurança. O Advanced Threat Protection pode ser acessado e gerenciado através do [portal Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/mysql/serversecurityalertpolicies). O recurso está disponível para servidores gerais otimizados para propósitos e memória.
+A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avançada de Dados, que é um pacote unificado para funcionalidades avançadas de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/mysql/serversecurityalertpolicies). O recurso está disponível para servidores Uso Geral e com otimização de memória.
 
 > [!NOTE]
 > A funcionalidade de Proteção Avançada contra Ameaças **não** está disponível nestas regiões de nuvem soberana e do Azure Governamental: US Gov – Texas, US Gov – Arizona, US Gov Iowa, US Gov – Virgínia, Leste do US DoD, Região Central do US DoD, Região Central da Alemanha, Norte da Alemanha, Leste da China e Leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para ver a disponibilidade geral do produto.

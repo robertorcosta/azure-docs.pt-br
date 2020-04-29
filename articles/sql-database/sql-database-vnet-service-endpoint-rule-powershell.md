@@ -1,6 +1,6 @@
 ---
-title: PowerShell para pontos finais do VNet e regras para bancos de dados únicos e agrupados
-description: Fornece scripts PowerShell para criar e gerenciar pontos finais do Serviço Virtual para o banco de dados SQL do Azure e o Synapse do Azure.
+title: PowerShell para pontos de extremidade de VNet e regras para bancos de dados individuais e em pool
+description: Fornece scripts do PowerShell para criar e gerenciar pontos de extremidade de serviço virtual para o banco de dados SQL do Azure e o Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,18 +12,18 @@ ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
 tags: azure-synapse
 ms.openlocfilehash: 1e8ec394eab1df0aebe394b8acebc74c7ed49e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124696"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: criar um ponto de extremidade de Serviço Virtual e uma regra VNet para SQL
 
-*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dados únicos e o pool elástico no Banco de Dados [SQL do](sql-database-technical-overview.md) Azure ou para seus bancos de dados no [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações que são enviadas de sub-redes particulares em redes virtuais.
+*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dado único e pool elástico no [banco de dados SQL](sql-database-technical-overview.md) do Azure ou em seus bancos de dados no [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao servidor Azure SQL e ao Banco de Dados SQL e ao data warehouse no Azure Synapse que são criados no servidor SQL do Azure. Para simplificar, o Banco de Dados SQL é usado quando se refere tanto ao Banco de Dados SQL quanto ao Sinapse Azure. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
+> Este artigo se aplica ao SQL Server do Azure e ao banco de dados SQL e data warehouse no Azure Synapse que são criados no SQL Server do Azure. Para simplificar, o banco de dados SQL é usado ao fazer referência ao banco de dados SQL e ao Azure Synapse. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
 
 Este artigo fornece e explica um script do PowerShell que realiza as seguintes ações:
 
@@ -38,19 +38,19 @@ Suas motivações para criar uma regra são explicadas em: [Pontos de extremidad
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 ## <a name="major-cmdlets"></a>Cmdlets principais
 
-Este artigo enfatiza o **cmdlet New-AzSqlServerVirtualNetworkRule** que adiciona o ponto final da sub-rede à lista de controle de acesso (ACL) do servidor Azure SQL Database, criando assim uma regra.
+Este artigo enfatiza o cmdlet **New-AzSqlServerVirtualNetworkRule** que adiciona o ponto de extremidade de sub-rede à lista de controle de acesso (ACL) do seu servidor de banco de dados SQL do Azure, criando uma regra.
 
-A lista a seguir mostra a seqüência de outros cmdlets *principais* que você deve executar para se preparar para sua chamada para **New-AzSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "Regra da rede virtual"](#a-script-30):
+A lista a seguir mostra a sequência de outros cmdlets *principais* que você deve executar para se preparar para a chamada para **New-AzSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "Regra da rede virtual"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): Cria um objeto de sub-rede.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Cria sua rede virtual, dando-lhe a sub-rede.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Atribui um ponto final do Serviço Virtual à sua sub-rede.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Persiste atualizações feitas em sua rede virtual.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): Depois que sua sub-rede for um ponto final, adicione sua sub-rede como uma regra de rede virtual, na ACL do servidor Azure SQL Database.
+1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): cria um objeto de sub-rede.
+2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): cria sua rede virtual, fornecendo-a à sub-rede.
+3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): atribui um ponto de extremidade de serviço virtual à sua sub-rede.
+4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): mantém atualizações feitas em sua rede virtual.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): depois que a sub-rede for um ponto de extremidade, o adicionará sua sub-rede como uma regra de rede virtual, na ACL do seu servidor de banco de dados SQL do Azure.
    - Esse cmdlet oferece o parâmetro **-IgnoreMissingVNetServiceEndpoint**, iniciando no Módulo do PowerShell do Azure RM versão 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para execução do PowerShell

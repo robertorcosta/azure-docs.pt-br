@@ -1,5 +1,5 @@
 ---
-title: Código de buffer do anel XEvent
+title: Código do buffer de anéis do XEvent
 description: Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213978"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
@@ -42,7 +42,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta e uma assinatura do Azure. Você pode se inscrever para um [teste gratuito.](https://azure.microsoft.com/pricing/free-trial/)
+* Uma conta e uma assinatura do Azure. Você pode se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer banco de dados no qual você possa criar uma tabela.
   
   * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
@@ -54,7 +54,7 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 
 ## <a name="code-sample"></a>Exemplo de código
 
-Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir pode ser executado no Banco de Dados SQL do Azure ou no Microsoft SQL Server. A diferença é a presença do nó “_database” no nome de algumas exibições de gerenciamento dinâmico (DMVs) na cláusula FROM na Etapa 5. Por exemplo: 
+Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir pode ser executado no Banco de Dados SQL do Azure ou no Microsoft SQL Server. A diferença é a presença do nó “_database” no nome de algumas exibições de gerenciamento dinâmico (DMVs) na cláusula FROM na Etapa 5. Por exemplo:
 
 * sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
@@ -222,7 +222,7 @@ Para exibir os resultados, clicamos na célula no título de coluna **target_dat
 
 Em seguida, no painel de resultados, clicamos na célula no título de coluna **target_data_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
 
-A saída é mostrada no bloco a seguir. Parece longo, mas são ** \<** apenas dois eventos>elementos.
+A saída é mostrada no bloco a seguir. Parece longo, mas é apenas dois ** \<** elementos de>de eventos.
 
 &nbsp;
 

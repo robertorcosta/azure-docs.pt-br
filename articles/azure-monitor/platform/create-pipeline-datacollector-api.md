@@ -1,5 +1,5 @@
 ---
-title: Use a API de coleta de dados para criar um pipeline de dados
+title: Usar a API do coletor de dados para criar um pipeline de dados
 description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST ao espaço de trabalho do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como carregar os dados armazenados em arquivos de uma maneira automatizada.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
 ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055106"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do Coletor de Dados
@@ -20,7 +20,7 @@ O [API do coletor de dados do Azure Monitor](data-collector-api.md) permite que 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar informações geográficas coletadas por padrão pelo Application Insights SDK a dados personalizados contendo a população de todos os países/regiões do mundo, com o objetivo de identificar onde deveríamos estar gastando mais dólares de marketing. 
+No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar as informações geográficas coletadas por padrão pelo SDK do Application Insights a dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar mais os dólares de marketing. 
 
 Usamos uma fonte de dados pública, como as [Perspectivas Demográficas Mundiais do ONU](https://esa.un.org/unpd/wpp/) para essa finalidade. Os dados terão o seguinte esquema simples:
 

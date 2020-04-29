@@ -1,6 +1,6 @@
 ---
 title: Trabalhos de Banco de Dados Elástico (versão prévia)
-description: Configure os trabalhos de banco de dados elásticos (visualização) para executar scripts Transact-SQL (T-SQL) em um conjunto de um ou mais bancos de dados SQL Do Azure
+description: Configurar trabalhos de banco de dados elástico (versão prévia) para executar scripts Transact-SQL (T-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214485"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
@@ -27,19 +27,19 @@ Se você nunca tiver usado os Trabalhos elásticos, [saiba mais sobre os conceit
 ## <a name="create-and-configure-the-agent"></a>Criar e configurar o agente
 
 1. Crie ou identifique um S0 vazio ou um banco de dados SQL superior. Esse banco de dados será usado como o *Banco de dados de trabalhos* durante a criação do agente de Trabalho Elástico.
-2. Crie um agente de trabalho elástico no [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) ou com [a PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+2. Crie um agente de trabalho elástico no [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) ou com o [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
    ![Criando um agente de Trabalho Elástico](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Criar, executar e gerenciar trabalhos
 
-1. Crie uma credencial para execução de emprego no *banco de dados de trabalho* usando [PowerShell](elastic-jobs-powershell.md) ou [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Defina o grupo-alvo (os bancos de dados contra os quais você deseja executar o trabalho) usando [PowerShell](elastic-jobs-powershell.md) ou [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+1. Crie uma credencial para a execução do trabalho no *banco de dados de trabalho* usando o [PowerShell](elastic-jobs-powershell.md) ou o [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Defina o grupo de destino (os bancos de dados nos quais você deseja executar o trabalho) usando o [PowerShell](elastic-jobs-powershell.md) ou o [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
 3. Crie uma credencial de agente de trabalho em cada banco de dados em que o trabalho será executado [(adicione o usuário (ou função) para cada banco de dados no grupo)](sql-database-manage-logins.md). Para obter um exemplo, confira o [tutorial do PowerShell](elastic-jobs-powershell.md).
-4. Crie um trabalho usando [PowerShell](elastic-jobs-powershell.md) ou [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+4. Crie um trabalho usando o [PowerShell](elastic-jobs-powershell.md) ou o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Adicione etapas de trabalho usando o [PowerShell](elastic-jobs-powershell.md) ou o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Execute um trabalho usando [PowerShell](elastic-jobs-powershell.md#run-the-job) ou [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitore o status de execução de trabalho usando o portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+6. Execute um trabalho usando o [PowerShell](elastic-jobs-powershell.md#run-the-job) ou o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Monitore o status de execução do trabalho usando o portal, o [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) ou o [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -49,7 +49,7 @@ Os trabalhos usam [credenciais no escopo do banco de dados](/sql/t-sql/statement
 
 A configuração das devidas credenciais para executar um trabalho pode ser um pouco confusa e, portanto, tenha os seguintes pontos em mente:
 
-- As credenciais de escopo do banco de dados devem ser criadas no *banco de dados job*.
+- As credenciais no escopo do banco de dados devem ser criadas no *banco de dados do trabalho*.
 - **Todos os bancos de dados de destino devem ter um logon com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com êxito** (`jobuser` no diagrama abaixo).
 - As credenciais podem ser reutilizadas entre os trabalhos e as senhas de credencial são criptografadas e protegidas contra usuários que têm acesso somente leitura a objetos de trabalho.
 
@@ -77,7 +77,7 @@ Atualmente, a versão prévia está limitada a 100 trabalhos simultâneos.
 
 Para que os recursos não fiquem sobrecarregados ao executar trabalhos em bancos de dados em um pool elástico do SQL, os trabalhos podem ser configurados para limitar o número de bancos de dados em que o trabalho pode ser executado simultaneamente.
 
-Defina o número de bancos de dados `sp_add_jobstep` simultâneos em que um trabalho é executado definindo o parâmetro do `@max_parallelism` procedimento armazenado em T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
+Defina o número de bancos de dados simultâneos em que um trabalho é executado definindo `sp_add_jobstep` o parâmetro do `@max_parallelism` procedimento armazenado no T-SQL ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Melhores práticas para a criação de trabalhos
 
@@ -99,5 +99,5 @@ Da mesma forma, um script deve ser capaz de realizar a execução com êxito tes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Crie e gerencie trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
 - [Criar e gerenciar Trabalhos Elásticos usando T-SQL (Transact-SQL)](elastic-jobs-tsql.md)

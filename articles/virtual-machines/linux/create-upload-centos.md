@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar um Linux VHD baseado no CentOS
+title: Criar e carregar um VHD do Linux baseado em CentOS
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux baseado em CentOS.
 author: gbowerman
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/25/2019
 ms.author: guybo
 ms.openlocfilehash: 8899249fd284f69fa26bab8cd70aaf6a67fbb83c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066775"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
@@ -23,13 +23,13 @@ Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já instalou um sistema operacional Linux CentOS (ou derivado similar) em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, [consulte Instalar a função Hyper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
+Este artigo pressupõe que você já instalou um sistema operacional Linux CentOS (ou derivado similar) em um disco rígido virtual. Existem várias ferramentas para criar arquivos .vhd, por exemplo, uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do CentOS**
 
 * Veja também as [Notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
 * O formato VHDX não tem suporte no Azure, somente o **VHD fixo**.  Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd. Se você estiver usando o VirtualBox, isso significará selecionar **Tamanho fixo** em vez do padrão alocado dinamicamente durante a criação do disco.
-* Ao instalar o sistema *Linux,* recomenda-se que você use partições padrão em vez de LVM (muitas vezes o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM idêntica para solução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados nos discos de dados.
+* Ao instalar o sistema Linux, é *recomendável* que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM idêntica para solução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados nos discos de dados.
 * É necessário suporte a kernel para montar sistemas de arquivos UDF. Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à VM do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a VM.
 * Versões de kernel do Linux abaixo de 2.6.37 não dão suporte ao NUMA no Hyper-V com tamanhos maiores de VM. Esse problema afeta principalmente distribuições mais antigas usando kernel Red Hat 2.6.32 upstream e foi corrigido no RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados anteriores a 2.6.37 ou com base em RHEL anteriores a 2.6.32-504 devem definir o parâmetro de inicialização `numa=off` na linha de comando do kernel em grub.conf. Para obter mais informações, consulte Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
@@ -165,7 +165,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
 
     Como alternativa, você pode seguir as instruções de instalação manual [página de download do LIS](https://www.microsoft.com/download/details.aspx?id=51612) para instalar o RPM para sua VM.
 
-12. Instale o Azure Linux Agent e as dependências. Inicie e habilite o serviço waagent:
+12. Instale o agente Linux do Azure e as dependências. Iniciar e habilitar o serviço waagent:
 
     ```bash
     sudo yum install python-pyasn1 WALinuxAgent
@@ -217,7 +217,7 @@ Este artigo pressupõe que você já instalou um sistema operacional Linux CentO
     logout
     ```
 
-17. Clique em **Action -> Shut Down** no Hyper-V Manager. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+17. Clique em **ação-> desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
 
@@ -342,7 +342,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Se construir a imagem do **VMware, VirtualBox ou KVM:** Certifique-se de que os drivers Hyper-V estão incluídos nos initramfs:
+10. Se estiver criando a imagem do **VMware, VirtualBox ou KVM:** Verifique se os drivers do Hyper-V estão incluídos no initramfs:
 
     Edite `/etc/dracut.conf`e adicione o conteúdo:
 
@@ -383,7 +383,7 @@ A preparação de uma máquina virtual CentOS 7 para o Azure é muito parecida c
     logout
     ```
 
-14. Clique em **Action -> Shut Down** no Hyper-V Manager. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+14. Clique em **ação-> desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

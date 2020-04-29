@@ -1,6 +1,6 @@
 ---
-title: Liste definições de função no Azure RBAC usando o portal Azure, Azure PowerShell, Azure CLI ou REST API | Microsoft Docs
-description: Aprenda a listar funções incorporadas e personalizadas no Azure RBAC usando o portal Azure, Azure PowerShell, Azure CLI ou Rest API.
+title: Listar definições de função no RBAC do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST | Microsoft Docs
+description: Saiba como listar funções internas e personalizadas no RBAC do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,29 +15,29 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062995"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Definições de função de lista no Azure RBAC
+# <a name="list-role-definitions-in-azure-rbac"></a>Listar definições de função no RBAC do Azure
 
-Uma definição de função é uma coleção de permissões que podem ser executadas, como ler, escrever e excluir. Normalmente ela é chamada apenas de função. [O RBAC (Azure Role-based Access Control, controle de acesso baseado em função)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
+Uma definição de função é uma coleção de permissões que podem ser executadas, como leitura, gravação e exclusão. Normalmente ela é chamada apenas de função. O [RBAC (controle de acesso baseado em função) do Azure](overview.md) tem mais de 120 [funções internas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções internas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
 
-Para ver a lista de funções de administrador do Diretório Ativo do Azure, consulte [as permissões de função administradorno Diretório Ativo do Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
 ### <a name="list-all-roles"></a>Listar todas as funções
 
-Siga estas etapas para listar todas as funções no portal Azure.
+Siga estas etapas para listar todas as funções no portal do Azure.
 
-1. No portal Azure, clique em **Todos os serviços** e selecione qualquer escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
+1. No portal do Azure, clique em **todos os serviços** e, em seguida, selecione qualquer escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
 
 1. Clique no recurso específico.
 
-1. Clique **em Acessar controle (IAM)**.
+1. Clique em **controle de acesso (iam)**.
 
 1. Clique na guia **Funções** para ver uma lista de todas as funções integradas e personalizadas.
 
@@ -69,7 +69,7 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### <a name="list-a-role-definition"></a>Liste uma definição de função
+### <a name="list-a-role-definition"></a>Listar uma definição de função
 
 Para listar os detalhes de uma função específica, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -92,7 +92,7 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### <a name="list-a-role-definition-in-json-format"></a>Liste uma definição de função no formato JSON
+### <a name="list-a-role-definition-in-json-format"></a>Listar uma definição de função no formato JSON
 
 Para listar uma função no formato JSON, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -126,9 +126,9 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Permissões de lista de uma definição de função
+### <a name="list-permissions-of-a-role-definition"></a>Listar permissões de uma definição de função
 
-Para listar as permissões de uma função específica, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Para listar as permissões para uma função específica, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | FL Actions, NotActions
@@ -166,7 +166,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### <a name="list-all-roles"></a>Listar todas as funções
 
-Para listar todas as funções no Azure CLI, use [a lista de definição de funções az](/cli/azure/role/definition#az-role-definition-list).
+Para listar todas as funções em CLI do Azure, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
@@ -195,7 +195,7 @@ az role definition list --output json | jq '.[] | {"roleName":.roleName, "descri
 ...
 ```
 
-O exemplo a seguir lista todas as funções incorporadas.
+O exemplo a seguir lista todas as funções internas.
 
 ```azurecli
 az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
@@ -221,9 +221,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-a-role-definition"></a>Liste uma definição de função
+### <a name="list-a-role-definition"></a>Listar uma definição de função
 
-Para listar detalhes de uma função, use [a lista de definição de função az](/cli/azure/role/definition#az-role-definition-list).
+Para listar os detalhes de uma função, use a [lista de definição de função AZ](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --name <role_name>
@@ -267,9 +267,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-### <a name="list-permissions-of-a-role-definition"></a>Permissões de lista de uma definição de função
+### <a name="list-permissions-of-a-role-definition"></a>Listar permissões de uma definição de função
 
-O exemplo a seguir lista apenas as *ações* e *nãoAções* da função *Contribuinte.*
+O exemplo a seguir lista apenas *actions* as ações *e as não ações da* função *colaborador* .
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -288,7 +288,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-O exemplo a seguir lista apenas as ações da função *Contribuinte de Máquina Virtual.*
+O exemplo a seguir lista apenas as ações da função *colaborador da máquina virtual* .
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -316,7 +316,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-definitions"></a>Lista de definições de função
 
-Para listar definições de função, use a API [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST. Para refinar seus resultados, especifique um escopo e um filtro opcional.
+Para listar definições de função, use as [definições de função-lista](/rest/api/authorization/roledefinitions/list) de API REST. Para refinar seus resultados, especifique um escopo e um filtro opcional.
 
 1. Comece com a solicitação a seguir:
 
@@ -324,7 +324,7 @@ Para listar definições de função, use a API [Role Definitions - List](/rest/
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={$filter}&api-version=2015-07-01
     ```
 
-1. Dentro do URI, substitua *{escopo}* com o escopo para o qual você deseja listar as definições de função.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar as definições de função.
 
     > [!div class="mx-tableFixed"]
     > | Escopo | Type |
@@ -334,19 +334,19 @@ Para listar definições de função, use a API [Role Definitions - List](/rest/
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Recurso |
 
-    No exemplo anterior, o microsoft.web é um provedor de recursos que se refere a uma instância do App Service. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [os provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md) e as operações de [provedor de recursos do Azure Resource Manager](resource-provider-operations.md)suportadas.  
+    No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/management/resource-providers-and-types.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
      
-1. Substitua *{filter}* com a condição que deseja aplicar para filtrar a lista de definição da função.
+1. Substitua *{Filter}* pela condição que você deseja aplicar para filtrar a lista de definições de função.
 
     > [!div class="mx-tableFixed"]
     > | Filtrar | Descrição |
     > | --- | --- |
-    > | `$filter=atScopeAndBelow()` | Lista definições de função para o escopo especificado e quaisquer subscópios. |
-    > | `$filter=type+eq+'{type}'` | Lista definições de função do tipo especificado. Tipo de função `CustomRole` `BuiltInRole`pode ser ou . |
+    > | `$filter=atScopeAndBelow()` | Lista as definições de função para o escopo especificado e quaisquer Subescopos. |
+    > | `$filter=type+eq+'{type}'` | Lista as definições de função do tipo especificado. O tipo de função pode `CustomRole` ser `BuiltInRole`ou. |
 
-### <a name="list-a-role-definition"></a>Liste uma definição de função
+### <a name="list-a-role-definition"></a>Listar uma definição de função
 
-Para listar os detalhes de uma função específica, use as [Definições de Função - Obter](/rest/api/authorization/roledefinitions/get) ou Role [Definitions - Obter por ID](/rest/api/authorization/roledefinitions/getbyid) REST API.
+Para listar os detalhes de uma função específica, use as [definições de função-Get](/rest/api/authorization/roledefinitions/get) ou [definições de função-Get por ID](/rest/api/authorization/roledefinitions/getbyid) API REST.
 
 1. Comece com a solicitação a seguir:
 
@@ -354,13 +354,13 @@ Para listar os detalhes de uma função específica, use as [Definições de Fun
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-    Para uma definição de função no nível do diretório, você pode usar esta solicitação:
+    Para uma definição de função de nível de diretório, você pode usar esta solicitação:
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
-1. Dentro do URI, substitua *{escopo}* com o escopo para o qual você deseja listar a definição de função.
+1. Dentro do URI, substitua *{Scope}* pelo escopo para o qual você deseja listar a definição de função.
 
     > [!div class="mx-tableFixed"]
     > | Escopo | Type |
@@ -376,5 +376,5 @@ Para listar os detalhes de uma função específica, use as [Definições de Fun
 
 - [Funções internas para recursos do Azure](built-in-roles.md)
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
-- [Listar atribuições de função usando o Azure RBAC e o portal Azure](role-assignments-list-portal.md)
-- [Adicionar ou remover atribuições de função usando o Azure RBAC e o portal Azure](role-assignments-portal.md)
+- [Listar atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-list-portal.md)
+- [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-portal.md)

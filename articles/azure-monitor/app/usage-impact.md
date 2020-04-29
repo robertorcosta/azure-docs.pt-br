@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671028"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
@@ -56,7 +56,7 @@ O Impact dá suporte a propriedades padrão e personalizadas, além de medidas. 
 2. Escolha “País ou região” no menu suspenso **analisar como o**
 3. Para o menu suspenso **afeta o uso do**, selecione um evento personalizado que corresponda a um elemento de interface do usuário na exibição de página que você escolheu na etapa 1.
 
-Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique **por uso** para ver a variação de conversão para o seu evento personalizado com base no país/região.
+Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique por **uso** para exibir a variação de conversão em seu evento personalizado com base no país/região.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta Impact calcula essas taxas de conversão?

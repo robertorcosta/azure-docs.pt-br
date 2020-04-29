@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs
-description: A função de trabalhador do Azure é usada para o desenvolvimento generalizado e pode realizar processamento de fundo para uma função web. Conheça o esquema de função do trabalhador do Azure.
+title: Esquema de Def. WorkerRole do Azure Cloud Services | Microsoft Docs
+description: A função de trabalho do Azure é usada para desenvolvimento generalizado e pode executar o processamento em segundo plano para uma função Web. Saiba mais sobre o esquema de função de trabalho do Azure.
 services: cloud-services
 ms.custom: ''
 ms.date: 04/14/2015
@@ -14,10 +14,10 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534364"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema WorkerRole de definição dos Serviços de Nuvem do Azure
@@ -88,19 +88,19 @@ O formato básico do arquivo de definição de serviço que contém uma função
 ## <a name="schema-elements"></a>Elementos de esquema
 O arquivo de definição de serviço inclui estes elementos, descritos em detalhes nas seções subsequentes neste tópico:
 
-[Workerrole](#WorkerRole)
+[WorkerRole](#WorkerRole)
 
-[Configurationsettings](#ConfigurationSettings)
+[ConfigurationSettings](#ConfigurationSettings)
 
 [Configuração](#Setting)
 
 [LocalResources](#LocalResources)
 
-[Localstorage](#LocalStorage)
+[LocalStorage](#LocalStorage)
 
-[Extremidade](#Endpoints)
+[Pontos de extremidade](#Endpoints)
 
-[Inputendpoint](#InputEndpoint)
+[InputEndpoint](#InputEndpoint)
 
 [InternalEndpoint](#InternalEndpoint)
 
@@ -116,7 +116,7 @@ O arquivo de definição de serviço inclui estes elementos, descritos em detalh
 
 [Certificado](#Certificate)
 
-[Imports](#Imports)
+[Importar](#Imports)
 
 [Importar](#Import)
 
@@ -124,7 +124,7 @@ O arquivo de definição de serviço inclui estes elementos, descritos em detalh
 
 [Ambiente](#Environment)
 
-[Entrypoint](#EntryPoint)
+[Ponto](#EntryPoint)
 
 [NetFxEntryPoint](#NetFxEntryPoint)
 
@@ -132,7 +132,7 @@ O arquivo de definição de serviço inclui estes elementos, descritos em detalh
 
 [Variável](#Variable)
 
-[RoleInstanceValueInstância](#RoleInstanceValue)
+[RoleInstanceValue](#RoleInstanceValue)
 
 [Inicialização](#Startup)
 
@@ -142,7 +142,7 @@ O arquivo de definição de serviço inclui estes elementos, descritos em detalh
 
 [Conteúdo](#Content)
 
-[Diretório de Origem](#SourceDirectory)
+[SourceDirectory](#SourceDirectory)
 
 ##  <a name="workerrole"></a><a name="WorkerRole"></a> WorkerRole
 O elemento `WorkerRole` descreve uma função útil para o desenvolvimento generalizado e pode executar o processamento em segundo plano para uma função web. Um serviço pode conter zero ou mais funções de trabalho.
@@ -151,7 +151,7 @@ A tabela a seguir descreve os atributos do elemento `WorkerRole`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. O nome da função de trabalho. O nome da função deve ser exclusivo.|
+|name|cadeia de caracteres|Obrigatórios. O nome da função de trabalho. O nome da função deve ser exclusivo.|
 |enableNativeCodeExecution|booleano|Opcional. O valor padrão é `true`; a execução de código nativo e a confiança total são habilitadas por padrão. Defina este atributo como `false` para desabilitar a execução de código nativo para a função de trabalho e usar a confiança parcial do Azure em vez disso.|
 |vmsize|string|Opcional. Defina esse valor para alterar o tamanho da máquina virtual alocada para esta função. O valor padrão é `Small`. Para obter uma lista de tamanhos de máquinas virtuais possíveis e seus atributos, consulte [Tamanhos de máquina virtual para os Serviços de Nuvem do Azure](cloud-services-sizes-specs.md).|
 
@@ -165,11 +165,11 @@ A tabela a seguir descreve os atributos do elemento `Setting`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome exclusivo para a definição de configuração.|
+|name|cadeia de caracteres|Obrigatórios. Um nome exclusivo para a definição de configuração.|
 
 As definições de configuração para uma função são pares de nome e valor declarados no arquivo de definição de serviço e definidos no arquivo de configuração de serviço.
 
-##  <a name="localresources"></a><a name="LocalResources"></a>Recursos locais
+##  <a name="localresources"></a><a name="LocalResources"></a>LocalResources
 O elemento `LocalResources` descreve a coleção de recursos de armazenamento local para uma função de trabalho. Esse elemento é o pai do elemento `LocalStorage`.
 
 ##  <a name="localstorage"></a><a name="LocalStorage"></a> LocalStorage
@@ -182,7 +182,7 @@ A tabela a seguir descreve os atributos do elemento `LocalStorage`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome exclusivo para o repositório local.|
+|name|cadeia de caracteres|Obrigatórios. Um nome exclusivo para o repositório local.|
 |cleanOnRoleRecycle|booleano|Opcional. Indica se o repositório local deve ser limpo quando a função é reiniciada. O valor padrão é `true`.|
 |sizeInMb|INT|Opcional. A quantidade desejada de espaço de armazenamento a ser alocado para o repositório local, em MB. Se não estiver especificada, o espaço de armazenamento padrão alocado será 100 MB. A quantidade mínima de espaço de armazenamento que pode ser alocada é 1 MB.<br /><br /> O tamanho máximo dos recursos locais depende do tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquina virtual para os Serviços de Nuvem](cloud-services-sizes-specs.md).|
 
@@ -205,23 +205,23 @@ A tabela a seguir descreve os atributos do elemento `InputEndpoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome exclusivo para o ponto de extremidade externo.|
-|protocolo|string|Obrigatórios. O protocolo de transporte para o ponto de extremidade externo. Para uma função de trabalho, os valores possíveis são `HTTP`, `HTTPS`, `UDP` ou `TCP`.|
+|name|cadeia de caracteres|Obrigatórios. Um nome exclusivo para o ponto de extremidade externo.|
+|protocolo|cadeia de caracteres|Obrigatórios. O protocolo de transporte para o ponto de extremidade externo. Para uma função de trabalho, os valores possíveis são `HTTP`, `HTTPS`, `UDP` ou `TCP`.|
 |porta|INT|Obrigatórios. A porta do ponto de extremidade externo. É possível especificar qualquer número da porta escolhido, mas os números da porta especificados para cada função no serviço devem ser exclusivos.<br /><br /> Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
-|certificado|string|Obrigatório para um ponto de extremidade HTTPS. O nome de um certificado definido por um elemento `Certificate`.|
+|certificado|cadeia de caracteres|Obrigatório para um ponto de extremidade HTTPS. O nome de um certificado definido por um elemento `Certificate`.|
 |localPort|INT|Opcional. Especifica uma porta usada para conexões internas no ponto de extremidade. O atributo `localPort` mapeia a porta externa no ponto de extremidade para uma porta interna em uma função. Isso é útil em cenários em que uma função deve se comunicar com um componente interno em uma porta diferente da que está exposta externamente.<br /><br /> Se não estiver especificado, o valor de `localPort` será o mesmo que o do atributo `port`. Defina o valor de `localPort` como "*" para atribuir automaticamente uma porta não alocada que pode ser descoberta usando a API de runtime.<br /><br /> Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).<br /><br /> O atributo `localPort` só está disponível usando o SDK do Azure versão 1.3 ou superior.|
 |ignoreRoleInstanceStatus|booleano|Opcional. Quando o valor deste atributo é definido como `true`, o status de um serviço é ignorado e o ponto de extremidade não será removido pelo balanceador de carga. Definir esse valor como `true` é útil para depurar instâncias ocupadas de um serviço. O valor padrão é `false`. **Observação:** um ponto de extremidade ainda poderá receber tráfego mesmo quando a função não estiver em um estado Pronto.|
 |loadBalancerProbe|string|Opcional. O nome da sonda do balanceador de carga associada ao ponto de extremidade de entrada. Para obter mais informações, consulte o [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md) (Esquema LoadBalancerProbe).|
 
-##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>Internalendpoint
+##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>InternalEndpoint
 O elemento `InternalEndpoint` descreve um ponto de extremidade interno para uma função de trabalho. Um ponto de extremidade interno está disponível somente para outras instâncias de função em execução dentro do serviço; ele não está disponível para clientes fora do serviço. Uma função de trabalho pode ter até cinco pontos de extremidade internos HTTP, UDP ou TCP.
 
 A tabela a seguir descreve os atributos do elemento `InternalEndpoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome exclusivo para o ponto de extremidade interno.|
-|protocolo|string|Obrigatórios. O protocolo de transporte para o ponto de extremidade interno. Os valores possíveis são `HTTP`, `TCP`, `UDP` ou `ANY`.<br /><br /> Um valor de `ANY` especifica que qualquer protocolo, qualquer porta é permitida.|
+|name|cadeia de caracteres|Obrigatórios. Um nome exclusivo para o ponto de extremidade interno.|
+|protocolo|cadeia de caracteres|Obrigatórios. O protocolo de transporte para o ponto de extremidade interno. Os valores possíveis são `HTTP`, `TCP`, `UDP` ou `ANY`.<br /><br /> Um valor de `ANY` especifica que qualquer protocolo, qualquer porta é permitida.|
 |porta|INT|Opcional. A porta usada para conexões com balanceamento de carga interno no ponto de extremidade. Um ponto de extremidade com balanceamento de carga usa duas portas. A porta usada para o endereço IP público e a porta usada no endereço IP privado. Normalmente, elas são definidas como a mesma coisa, mas você pode optar por usar portas diferentes.<br /><br /> Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).<br /><br /> O atributo `Port` só está disponível usando o SDK do Azure versão 1.3 ou superior.|
 
 ##  <a name="instanceinputendpoint"></a><a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
@@ -233,16 +233,16 @@ A tabela a seguir descreve os atributos do elemento `InstanceInputEndpoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome exclusivo para o ponto de extremidade.|
+|name|cadeia de caracteres|Obrigatórios. Um nome exclusivo para o ponto de extremidade.|
 |localPort|INT|Obrigatórios. Especifica a porta interna que todas as instâncias de função escutarão a fim de receber tráfego de entrada encaminhado do balanceador de carga. Os valores possíveis variam entre 1 e 65535, inclusive.|
-|protocolo|string|Obrigatórios. O protocolo de transporte para o ponto de extremidade interno. Os valores possíveis são `udp` ou `tcp`. Use `tcp` para tráfego baseado em http/https.|
+|protocolo|cadeia de caracteres|Obrigatórios. O protocolo de transporte para o ponto de extremidade interno. Os valores possíveis são `udp` ou `tcp`. Use `tcp` para tráfego baseado em http/https.|
 
-##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AlocaçãoPublicPortFrom
+##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AllocatePublicPortFrom
 O elemento `AllocatePublicPortFrom` descreve o intervalo de porta pública que pode ser usado por clientes externos para acessar cada ponto de extremidade de entrada de instância. O número da porta pública (VIP) é alocado desse intervalo e atribuído a cada ponto de extremidade de instância de função individual durante a implantação e a atualização do locatário. Esse elemento é o pai do elemento `FixedPortRange`.
 
 O elemento `AllocatePublicPortFrom` só está disponível usando o SDK do Azure versão 1.7 ou superior.
 
-##  <a name="fixedport"></a><a name="FixedPort"></a>Porto Fixo
+##  <a name="fixedport"></a><a name="FixedPort"></a>FixedPort
 O elemento `FixedPort` especifica a porta para o ponto de extremidade interno, que permite conexões com balanceamento de carga no ponto de extremidade.
 
 O elemento `FixedPort` só está disponível usando o SDK do Azure versão 1.3 ou superior.
@@ -266,29 +266,29 @@ A tabela a seguir descreve os atributos do elemento `FixedPortRange`.
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
 |Min|INT|Obrigatórios. A porta mínima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
-|max|string|Obrigatórios. A porta máxima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
+|max|cadeia de caracteres|Obrigatórios. A porta máxima no intervalo. Os valores possíveis variam entre 1 e 65535, inclusive (SDK do Azure versão 1.7 ou superior).|
 
-##  <a name="certificates"></a><a name="Certificates"></a> Certificates
+##  <a name="certificates"></a><a name="Certificates"></a>Certificado
 O elemento `Certificates` descreve a coleção de certificados para uma função de trabalho. Esse elemento é o pai do elemento `Certificate`. Uma função pode ter qualquer número de certificados associados. Para obter mais informações sobre o uso do elemento certificates, consulte [Modify the Service Definition file with a certificate](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files) (Modificar o arquivo de definição de serviço com um certificado).
 
-##  <a name="certificate"></a><a name="Certificate"></a>Certificado
+##  <a name="certificate"></a><a name="Certificate"></a>Certificate
 O elemento `Certificate` descreve um certificado associado a uma função de trabalho.
 
 A tabela a seguir descreve os atributos do elemento `Certificate`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. Um nome para esse certificado, usado para se referir a ele quando ele é associado a um elemento `InputEndpoint` de HTTPS.|
-|storeLocation|string|Obrigatórios. O local do repositório de certificados em que esse certificado pode ser encontrado no computador local. Os valores possíveis são `CurrentUser` e `LocalMachine`.|
-|storeName|string|Obrigatórios. O nome do repositório de certificados em que esse certificado reside no computador local. Os valores possíveis incluem os nomes de repositório interno `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook` ou qualquer nome de repositório personalizado. Se um nome de repositório personalizado for especificado, ele será criado automaticamente.|
+|name|cadeia de caracteres|Obrigatórios. Um nome para esse certificado, usado para se referir a ele quando ele é associado a um elemento `InputEndpoint` de HTTPS.|
+|storeLocation|cadeia de caracteres|Obrigatórios. O local do repositório de certificados em que esse certificado pode ser encontrado no computador local. Os valores possíveis são `CurrentUser` e `LocalMachine`.|
+|storeName|cadeia de caracteres|Obrigatórios. O nome do repositório de certificados em que esse certificado reside no computador local. Os valores possíveis incluem os nomes de repositório interno `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook` ou qualquer nome de repositório personalizado. Se um nome de repositório personalizado for especificado, ele será criado automaticamente.|
 |permissionLevel|string|Opcional. Especifica as permissões de acesso fornecidas aos processos de função. Se você desejar que apenas processos com privilégios elevados possam acessar a chave privada, especifique a permissão `elevated`. A permissão `limitedOrElevated` permite que todos os processos de função acessem a chave privada. Os valores possíveis são `limitedOrElevated` ou `elevated`. O valor padrão é `limitedOrElevated`.|
 
-##  <a name="imports"></a><a name="Imports"></a>Importações
+##  <a name="imports"></a><a name="Imports"></a>Importar
 O elemento `Imports` descreve uma coleção de módulos de importação para uma função de trabalho que adicionam componentes ao sistema operacional convidado. Esse elemento é o pai do elemento `Import`. Esse elemento é opcional e uma função pode ter apenas um bloco de runtime.
 
 O elemento `Imports` só está disponível usando o SDK do Azure versão 1.3 ou superior.
 
-##  <a name="import"></a><a name="Import"></a>Importação
+##  <a name="import"></a><a name="Import"></a>Importe
 O elemento `Import` especifica um módulo a ser adicionado ao sistema operacional convidado.
 
 O elemento `Import` só está disponível usando o SDK do Azure versão 1.3 ou superior.
@@ -297,9 +297,9 @@ A tabela a seguir descreve os atributos do elemento `Import`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|moduleName|string|Obrigatórios. O nome do módulo a ser importado. Os módulos de importação válidos são:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> Os módulos RemoteAccess e RemoteForwarder permitem que você configure sua instância de função para conexões de área de trabalho remota. Para obter mais informações, consulte [Enable Remote Desktop Connection](cloud-services-role-enable-remote-desktop-new-portal.md) (Habilitar Conexão de Área de Trabalho Remota).<br /><br /> O módulo Diagnóstico permite coletar dados de diagnóstico para uma instância de função|
+|moduleName|cadeia de caracteres|Obrigatórios. O nome do módulo a ser importado. Os módulos de importação válidos são:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> Os módulos RemoteAccess e RemoteForwarder permitem que você configure sua instância de função para conexões de área de trabalho remota. Para obter mais informações, consulte [Enable Remote Desktop Connection](cloud-services-role-enable-remote-desktop-new-portal.md) (Habilitar Conexão de Área de Trabalho Remota).<br /><br /> O módulo Diagnóstico permite coletar dados de diagnóstico para uma instância de função|
 
-##  <a name="runtime"></a><a name="Runtime"></a>Runtime
+##  <a name="runtime"></a><a name="Runtime"></a>Appmodel
 O elemento `Runtime` descreve uma coleção de configurações de variável de ambiente para uma função de trabalho que controlam o ambiente de runtime do processo de host do Azure. Esse elemento é o pai do elemento `Environment`. Esse elemento é opcional e uma função pode ter apenas um bloco de runtime.
 
 O elemento `Runtime` só está disponível usando o SDK do Azure versão 1.3 ou superior.
@@ -313,7 +313,7 @@ A tabela a seguir descreve os atributos do elemento `Runtime`:
 ##  <a name="environment"></a><a name="Environment"></a>Ambiente
 O elemento `Environment` descreve uma coleção de configurações de variável de ambiente para uma função de trabalho. Esse elemento é o pai do elemento `Variable`. Uma função pode ter qualquer número de conjunto de variáveis de ambiente.
 
-##  <a name="variable"></a><a name="Variable"></a>Variável
+##  <a name="variable"></a><a name="Variable"></a>Ela
 O elemento `Variable` especifica uma variável de ambiente a ser definida no sistema operacional convidado.
 
 O elemento `Variable` só está disponível usando o SDK do Azure versão 1.3 ou superior.
@@ -322,7 +322,7 @@ A tabela a seguir descreve os atributos do elemento `Variable`:
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|name|string|Obrigatórios. O nome da variável de ambiente a ser definida.|
+|name|cadeia de caracteres|Obrigatórios. O nome da variável de ambiente a ser definida.|
 |value|string|Opcional. O valor a ser definido para a variável de ambiente. É necessário incluir um atributo de valor ou um elemento `RoleInstanceValue`.|
 
 ##  <a name="roleinstancevalue"></a><a name="RoleInstanceValue"></a> RoleInstanceValue
@@ -334,7 +334,7 @@ A tabela a seguir descreve os atributos do elemento `RoleInstanceValue`.
 | --------- | ---- | ----------- |
 |xpath|string|Opcional. Caminho do local de configurações de implantação para a instância. Para obter mais informações, consulte [Variáveis de configuração com o XPath](cloud-services-role-config-xpath.md).<br /><br /> É necessário incluir um atributo de valor ou um elemento `RoleInstanceValue`.|
 
-##  <a name="entrypoint"></a><a name="EntryPoint"></a>Entrypoint
+##  <a name="entrypoint"></a><a name="EntryPoint"></a>Ponto
 O elemento `EntryPoint` especifica o ponto de entrada para uma função. Esse elemento é o pai dos elementos `NetFxEntryPoint`. Esses elementos permitem que você especifique um aplicativo diferente do WaWorkerHost.exe padrão para atuar como o ponto de entrada da função.
 
 O elemento `EntryPoint` só está disponível usando o SDK do Azure versão 1.5 ou superior.
@@ -349,10 +349,10 @@ A tabela a seguir descreve os atributos do elemento `NetFxEntryPoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|assemblyName|string|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta `commandLine` ** \\%ROLEROOT%\Approot** (não especifique ** \\%ROLEROOT%\Approot** in , presume-se). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta ** \\%ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.|
-|targetFrameworkVersion|string|Obrigatórios. A versão do .NET Framework na qual esse assembly foi criado. Por exemplo, `targetFrameworkVersion="v4.0"`.|
+|assemblyName|cadeia de caracteres|Obrigatórios. O caminho e o nome do arquivo do assembly que contém o ponto de entrada. O caminho é relativo à pasta ** \\%ROLEROOT%\Approot** (não especifique ** \\%ROLEROOT%\Approot** em `commandLine`, é pressuposto). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A ** \\pasta%ROLEROOT%\Approot** representa a pasta do aplicativo para sua função.|
+|targetFrameworkVersion|cadeia de caracteres|Obrigatórios. A versão do .NET Framework na qual esse assembly foi criado. Por exemplo, `targetFrameworkVersion="v4.0"`.|
 
-##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a>Ponto de entrada do programa
+##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a>ProgramEntryPoint
 O elemento `ProgramEntryPoint` especifica o programa a ser executado para uma função. O elemento `ProgramEntryPoint` permite que você especifique um ponto de entrada de programa que não seja baseado em um assembly .NET.
 
 > [!NOTE]
@@ -362,7 +362,7 @@ A tabela a seguir descreve os atributos do elemento `ProgramEntryPoint`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|commandLine|string|Obrigatórios. O caminho o nome do arquivo e argumentos da linha de comando do programa a ser executado. O caminho é relativo à pasta **%ROLEROOT%\Approot** (não especifique **%ROLEROOT%\Approot** em commandLine; ele é presumido). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta **%ROLEROOT%\Approot** representa a pasta do aplicativo da função.<br /><br /> Se o programa for encerrado, a função será reciclada. Portanto, geralmente, defina o programa para continuar sendo executado, em vez de ser um programa que apenas é inicializado e executa uma tarefa finita.|
+|commandLine|cadeia de caracteres|Obrigatórios. O caminho o nome do arquivo e argumentos da linha de comando do programa a ser executado. O caminho é relativo à pasta **%ROLEROOT%\Approot** (não especifique **%ROLEROOT%\Approot** em commandLine; ele é presumido). **%ROLEROOT%** é uma variável de ambiente mantida pelo Azure e ela representa o local da pasta raiz da sua função. A pasta **%ROLEROOT%\Approot** representa a pasta do aplicativo da função.<br /><br /> Se o programa for encerrado, a função será reciclada. Portanto, geralmente, defina o programa para continuar sendo executado, em vez de ser um programa que apenas é inicializado e executa uma tarefa finita.|
 |setReadyOnProcessStart|booleano|Obrigatórios. Especifica se a instância de função aguarda o programa de linha de comando indicar que ele é iniciado. Este valor deve ser definido como `true` neste momento. Definir o valor como `false` é reservado para uso futuro.|
 
 ##  <a name="startup"></a><a name="Startup"></a>Inicialização
@@ -374,7 +374,7 @@ A tabela a seguir descreve o atributo do elemento `Startup`.
 | --------- | ---- | ----------- |
 |priority|INT|Apenas para uso interno.|
 
-##  <a name="task"></a><a name="Task"></a>Tarefa
+##  <a name="task"></a><a name="Task"></a>Agenda
 O elemento `Task` especifica a tarefa de inicialização que ocorre quando a função é iniciada. As tarefas de inicialização podem ser usadas para executar tarefas que preparam a função a ser executada, como instalar componentes de software ou executar outros aplicativos. As tarefas são executadas na ordem em que aparecem dentro do bloco de elemento `Startup`.
 
 O elemento `Task` só está disponível usando o SDK do Azure versão 1.3 ou superior.
@@ -383,16 +383,16 @@ A tabela a seguir descreve os atributos do elemento `Task`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|commandLine|string|Obrigatórios. Um script, como um arquivo CMD, que contém os comandos a serem executados. O comando de inicialização e os arquivos de lote devem ser salvos no formato ANSI. Os formatos de arquivo que definem um marcador de ordem de byte no início do arquivo não serão processados corretamente.|
-|executionContext|string|Especifica o contexto no qual o script é executado.<br /><br /> -   `limited` [Padrão] – Executa com os mesmos privilégios que a função que hospeda o processo.<br />-   `elevated` – Executa com privilégios de administrador.|
-|taskType|string|Especifica o comportamento de execução do comando.<br /><br /> -   `simple` [Padrão] – O sistema aguarda a tarefa ser encerrada antes de iniciar outras tarefas.<br />-   `background` – O sistema não aguarda a tarefa ser encerrada.<br />-   `foreground` – Semelhante à tela de fundo, a função de exceção não é reiniciada até que todas as tarefas em primeiro plano sejam encerradas.|
+|commandLine|cadeia de caracteres|Obrigatórios. Um script, como um arquivo CMD, que contém os comandos a serem executados. O comando de inicialização e os arquivos de lote devem ser salvos no formato ANSI. Os formatos de arquivo que definem um marcador de ordem de byte no início do arquivo não serão processados corretamente.|
+|executionContext|cadeia de caracteres|Especifica o contexto no qual o script é executado.<br /><br /> -   `limited` [Padrão] – Executa com os mesmos privilégios que a função que hospeda o processo.<br />-   `elevated` – Executa com privilégios de administrador.|
+|taskType|cadeia de caracteres|Especifica o comportamento de execução do comando.<br /><br /> -   `simple` [Padrão] – O sistema aguarda a tarefa ser encerrada antes de iniciar outras tarefas.<br />-   `background` – O sistema não aguarda a tarefa ser encerrada.<br />-   `foreground` – Semelhante à tela de fundo, a função de exceção não é reiniciada até que todas as tarefas em primeiro plano sejam encerradas.|
 
-##  <a name="contents"></a><a name="Contents"></a>Conteúdo
+##  <a name="contents"></a><a name="Contents"></a>Índice
 O elemento `Contents` descreve a coleção de conteúdo para uma função de trabalho. Esse elemento é o pai do elemento `Content`.
 
 O elemento `Contents` só está disponível usando o SDK do Azure versão 1.5 ou superior.
 
-##  <a name="content"></a><a name="Content"></a>Conteúdo
+##  <a name="content"></a><a name="Content"></a>Disputa
 O elemento `Content` define o local de origem do conteúdo a ser copiado para a máquina virtual do Azure e o caminho de destino para o qual ele é copiado.
 
 O elemento `Content` só está disponível usando o SDK do Azure versão 1.5 ou superior.
@@ -401,11 +401,11 @@ A tabela a seguir descreve os atributos do elemento `Content`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|destino|string|Obrigatórios. Local na máquina virtual do Azure no qual o conteúdo é colocado. Esse local é relativo à pasta **%ROLEROOT%\Approot**.|
+|destino|cadeia de caracteres|Obrigatórios. Local na máquina virtual do Azure no qual o conteúdo é colocado. Esse local é relativo à pasta **%ROLEROOT%\Approot**.|
 
 Esse elemento é o pai do elemento `SourceDirectory`.
 
-##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>Diretório de Origem
+##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>SourceDirectory
 O elemento `SourceDirectory` define o diretório local do qual o conteúdo é copiado. Use esse elemento para especificar o conteúdo local a ser copiado para a máquina virtual do Azure.
 
 O elemento `SourceDirectory` só está disponível usando o SDK do Azure versão 1.5 ou superior.
@@ -414,9 +414,9 @@ A tabela a seguir descreve os atributos do elemento `SourceDirectory`.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|caminho|string|Obrigatórios. Caminho relativo ou absoluto de um diretório local cujo conteúdo será copiado para a máquina virtual do Azure. Há suporte para a expansão de variáveis de ambiente no caminho de diretório.|
+|path|cadeia de caracteres|Obrigatórios. Caminho relativo ou absoluto de um diretório local cujo conteúdo será copiado para a máquina virtual do Azure. Há suporte para a expansão de variáveis de ambiente no caminho de diretório.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)
 
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672116"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Use o Apache Pig com o Apache Hadoop no HDInsight
@@ -30,11 +30,11 @@ O Pig permite que você defina o processamento como uma série de transformaçõ
 
 A linguagem do Pig Latin permite descrever o fluxo de dados a partir de dados brutos, por meio de uma ou mais transformações, para produzir a saída desejada. Os programas em Pig Latin seguem este padrão geral:
 
-* **Carga**: Leia dados a serem manipulados a partir do sistema de arquivos.
+* **Carregar**: ler dados a serem manipulados do sistema de arquivos.
 
-* **Transformar**: Manipular os dados.
+* **Transformação**: manipule os dados.
 
-* **Despejar ou armazenar**: Saída de dados para a tela ou armazená-los para processamento.
+* **Despejar ou armazenar**: dados de saída na tela ou armazená-los para processamento.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo usuário
 
@@ -91,7 +91,7 @@ Saiba mais sobre o Feature Pack do Azure para SSIS [aqui][ssispack].
 
 Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
-* [Carregar dados para hdinsight](hdinsight-upload-data.md)
+* [Carregar dados no HDInsight](hdinsight-upload-data.md)
 * [Usar o Apache Hive com o HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Usar o Apache Sqoop com HDInsight](hdinsight-use-sqoop.md)
 * [Usar trabalhos do MapReduce com o HDInsight](./hadoop/hdinsight-use-mapreduce.md)

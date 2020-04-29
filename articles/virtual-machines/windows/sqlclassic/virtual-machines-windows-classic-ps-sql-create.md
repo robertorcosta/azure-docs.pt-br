@@ -1,5 +1,5 @@
 ---
-title: Crie um VM clássico do SQL Server (PowerShell)
+title: Criar uma VM SQL Server clássica (PowerShell)
 description: Fornece etapas e scripts do PowerShell para criar uma VM do Azure com imagens da galeria de máquinas virtuais do SQL Server. Este tópico usa o modo de implantação clássico.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77914782"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell (Clássico)
@@ -29,7 +29,7 @@ ms.locfileid: "77914782"
 Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Server no Azure usando os cmdlets do PowerShell.
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e Classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 Para obter a versão do Resource Manager desse tópico, consulte [Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
 

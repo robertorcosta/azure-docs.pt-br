@@ -1,6 +1,6 @@
 ---
 title: Esquema de NetworkConfiguration dos Serviços de Nuvem do Azure | Microsoft Docs
-description: Conheça os elementos filho do elemento Configuração de rede do arquivo de configuração de serviço, que especifica valores de Rede Virtual e DNS.
+description: Saiba mais sobre os elementos filho do elemento NetworkConfiguration do arquivo de configuração de serviço, que especifica os valores de rede virtual e DNS.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529281"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Esquema de NetworkConfiguration de configuração dos Serviços de Nuvem do Azure
@@ -73,5 +73,5 @@ A tabela a seguir descreve os elementos filho do elemento `NetworkConfiguration`
 | Sub-rede | Opcional. Especifica a sub-rede correspondente ao nome da sub-rede no arquivo de configuração de rede. O nome da sub-rede é definido por uma cadeia de caracteres para o atributo `name`.|
 | ReservedIP | Opcional. Especifica o endereço IP reservado que deve ser associado à implantação. É necessário usar Criar endereço IP reservado para criar o endereço IP reservado. Cada implantação em um serviço de nuvem pode ser associada a um endereço IP reservado. O nome do endereço IP reservado é definido por uma cadeia de caracteres para o atributo `name`.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)

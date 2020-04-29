@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671589"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Escrever código para acompanhar as solicitações com o Application Insights
@@ -45,7 +45,7 @@ Para acompanhar solicitações manualmente, faça o seguinte:
         }
         ```
 
-        Não há suporte para chamar `StartOperation<RequestTelemetry>` dentro de outro escopo `StartOperation<RequestTelemetry>`. Você pode usar `StartOperation<DependencyTelemetry>` no escopo aninhado, em vez disso. Por exemplo:   
+        Não há suporte para chamar `StartOperation<RequestTelemetry>` dentro de outro escopo `StartOperation<RequestTelemetry>`. Você pode usar `StartOperation<DependencyTelemetry>` no escopo aninhado, em vez disso. Por exemplo:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

@@ -1,5 +1,5 @@
 ---
-title: Extensões e recursos do Azure VM para Windows
+title: Recursos e extensões de VM do Azure para Windows
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd6439bf1b1f52b8e63819e8e519fc4971d1bc2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066850"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
@@ -35,7 +35,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
-- Configure o monitoramento de uma VM com a extensão VM do Log Analytics Agent. Para obter mais informações, consulte [Conecte as VMs do Azure aos registros do Monitor do Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure uma VM do Azure ao usar o Chef. Para obter mais informações, consulte [Automatizar a implantação de VM do Azure com o Chef](../../chef/chef-automation.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -50,7 +50,7 @@ Para lidar com a extensão na VM, você precisa ter o agente do Windows Azure in
 
 O agente de VM do Azure gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de VMs do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Microsoft Azure Marketplace e pode ser instalado manualmente em sistemas operacionais com suporte. O agente de VM do Azure para Windows é conhecido como o agente Convidado do Windows.
 
-Para obter informações sobre sistemas operacionais suportados e instruções de instalação, consulte [o agente de máquina virtual Azure](agent-windows.md).
+Para obter informações sobre sistemas operacionais e instruções de instalação com suporte, consulte [agente de máquina virtual do Azure](agent-windows.md).
 
 #### <a name="supported-agent-versions"></a>Versões do agente com suporte
 
@@ -65,14 +65,14 @@ Algumas extensões não têm suporte em todos os sistemas de operacionais e pode
 
 #### <a name="network-access"></a>Acesso de rede
 
-Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [suportada](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, você não precisa permitir o acesso ao Armazenamento Azure na região da VM, como pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações de agentes (recurso HostGAPlugin através do canal privilegiado no IP privado [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, pois pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)de IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
-> Se você bloqueou o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente do acima. São necessárias as portas 80, 443 e 32526.
+> Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
 
-Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que requerem acesso ao Azure Storage ou ao Azure Active Directory, você pode permitir o acesso usando [tags de serviço do Azure NSG](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para armazenamento ou AzureActiveDirectory.
+Os agentes só podem ser usados para baixar os pacotes de extensão e o status do relatório. Por exemplo, se uma instalação da extensão precisar baixar um script do GitHub (Script Personalizado) ou precisar ter acesso ao Armazenamento do Microsoft Azure (Backup do Azure), então outras portas de firewall/Grupo de Segurança de Rede precisarão ser abertas. Diferentes extensões têm requisitos diferentes, já que são aplicativos por si só. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para armazenamento ou AzureActiveDirectory.
 
-O Windows Guest Agent não tem suporte ao servidor proxy para você redirecionar solicitações de tráfego de agentes através, o que significa que o Agente Convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no Host através do IP 168.63.129.16.
+O agente convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego do agente por meio do, o que significa que o agente convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no host por meio de 168.63.129.16 IP.
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
@@ -252,9 +252,9 @@ A movimentação da propriedade **comando para execução** para a configuraçã
 }
 ```
 
-Em uma VM Azure IaaS que usa extensões, no console de certificados, você pode ver certificados que têm o assunto **_Gerador de Certificado scérfica do Windows Azure CRP_**. Em um Classic RDFE VM, esses certificados têm o nome de assunto **_Windows Azure Service Management for Extensions_**.
+Em uma VM IaaS do Azure que usa extensões, no console certificados, você pode ver certificados que têm o assunto **_gerador de certificado do Microsoft Azure CRP_**. Em uma VM RDFE clássica, esses certificados têm o nome da entidade **_Gerenciamento de serviços do Windows Azure para extensões_**.
 
-Esses certificados garantem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas por extensões. Os certificados são construídos pelo controlador de malha Azure e passados para o Agente VM. Se você parar e iniciar a VM todos os dias, um novo certificado pode ser criado pelo controlador de malha. O certificado é armazenado na loja de certificados pessoais do computador. Esses certificados podem ser excluídos. O Agente VM recria certificados, se necessário.
+Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado é armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como agentes e extensões são atualizados?
 
@@ -353,7 +353,7 @@ Cada extensão de VM pode ter etapas de solução de problemas específicas à e
 
 As seguintes etapas de solução de problemas aplicam-se a todas as extensões da VM.
 
-1. Para verificar o registro do agente convidado do Windows, veja a atividade quando sua extensão estava sendo provisionada em *C:\WindowsAzure\Logs\WaAppAgent.log*
+1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.log*
 
 2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 
@@ -371,7 +371,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 ### <a name="view-extension-status"></a>Exibir o status da extensão
 
-Depois que uma extensão de VM tiver sido executada contra uma VM, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para retornar o status de extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
+Depois que uma extensão de VM for executada em uma VM, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para retornar o status da extensão. O *Substatus [0]* mostra que o provisionamento de extensão foi bem-sucedido, o que significa que foi implantado com sucesso na VM, mas que houve falha na execução da extensão dentro da VM, *Substatus [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -425,8 +425,8 @@ Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 | --- | --- | --- |
 | Extensão de script personalizado para o Windows |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão de DSC para o Windows](dsc-overview.md) |
-| Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão do Diagnóstico Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[VM Access Extension para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

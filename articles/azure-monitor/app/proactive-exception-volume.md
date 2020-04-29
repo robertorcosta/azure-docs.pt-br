@@ -1,13 +1,13 @@
 ---
-title: Aumento anormal no volume de exceções - Azure Application Insights
-description: Monitore as exceções dos aplicativos com detecção inteligente no Azure Application Insights para padrões incomuns em volume de exceção.
+title: Aumento anormal no volume de exceção – insights de Aplicativo Azure
+description: Monitore as exceções de aplicativo com detecção inteligente no Aplicativo Azure insights de padrões incomuns no volume de exceção.
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671759"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (visualização)
@@ -26,5 +26,5 @@ Não, uma notificação não significa que seu aplicativo definitivamente tem um
 ## <a name="how-do-i-fix-it"></a>Como corrigi-la?
 As notificações incluem informações de diagnóstico para oferecer suporte no processo de diagnóstico:
 1. **Triagem.** A notificação mostra quantos usuários ou quantas solicitações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** O problema está afetando todo o tráfego ou apenas algumas operações? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção contém informações sobre o método do qual a exceção foi lançada, bem como o tipo de exceção. Você também pode usar o relatórios de vinculação para dar suporte a informações e itens relacionados para ajudá-lo a diagnosticar o problema.
+2. **Com.** O problema está afetando todo o tráfego ou apenas algumas operações? Essas informações podem ser obtidas na notificação.
+3. **Tect.** A detecção contém informações sobre o método do qual a exceção foi lançada, bem como o tipo de exceção. Você também pode usar o relatórios de vinculação para dar suporte a informações e itens relacionados para ajudá-lo a diagnosticar o problema.

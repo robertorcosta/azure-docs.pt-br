@@ -12,40 +12,40 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 739bba7ed9ab4770a762c08fccc422ce048ae11d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214086"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
-Esta página fornece informações sobre o banco de dados SQL do Azure e problemas de desempenho de instânciagerenciagerenciada detectados através do registro de recursos [do Intelligent Insights.](sql-database-intelligent-insights.md) Métricas e registros de recursos podem ser transmitidos para [logs do Monitor do Azure,](../azure-monitor/insights/azure-sql.md) [Hubs de Eventos Do Azure,](../azure-monitor/platform/resource-logs-stream-event-hubs.md) [Armazenamento Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alerta e emissão de relatórios.
+Esta página fornece informações sobre o banco de dados SQL do Azure e Instância Gerenciada problemas de desempenho detectados por meio do log de recursos [Intelligent insights](sql-database-intelligent-insights.md) . Métricas e logs de recursos podem ser transmitidos para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 > [!NOTE]
 > Para obter um guia rápido de solução de problemas de desempenho do Banco de Dados SQL usando o Intelligent Insights, confira o fluxograma [Fluxo recomendado para solução de problemas](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) neste documento.
 
 ## <a name="detectable-database-performance-patterns"></a>Padrões detectáveis de desempenho do banco de dados
 
-O Intelligent Insights detecta automaticamente problemas de desempenho com bancos de dados no Banco de Dados SQL do Azure com base em tempos de espera, erros ou intervalos de tempo de execução de consulta. As saídas do Intelligent Insights detectaram padrões de desempenho no registro de recursos do Banco de Dados SQL. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
+O Intelligent Insights detecta automaticamente os problemas de desempenho com bancos de dados no Azure SQL Database com base em tempos de espera de execução de consulta, erros ou tempos limite. Intelligent Insights gera padrões de desempenho detectados para o log de recursos do banco de dados SQL. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
 
 | Padrões de desempenho detectáveis | Descrição do Banco de Dados SQL do Azure e dos pools elásticos | Descrição dos bancos de dados na Instância Gerenciada |
 | :------------------- | ------------------- | ------------------- |
 | [Atingindo os limites do recurso](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho do banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorada atingiram os limites. Isso está afetando o desempenho do Banco de Dados SQL. | O consumo de recursos de CPU está atingindo os limites da Instância Gerenciada. Isso está afetando o desempenho do banco de dados. |
 | [Aumento da carga de trabalho](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados. Isso está afetando o desempenho do Banco de Dados SQL. | Foi detectado um aumento da carga de trabalho. Isso está afetando o desempenho do banco de dados. |
-| [Demanda de memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os trabalhadores que solicitaram concessões de memória têm que esperar por alocações de memória por quantidades estatisticamente significativas de tempo, ou um aumento do acúmulo de trabalhadores que solicitaram concessões de memória. Isso está afetando o desempenho do Banco de Dados SQL. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
+| [Demanda de memória](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os trabalhadores que solicitaram concessões de memória precisam aguardar as alocações de memória para quantidades estatisticamente significativas, ou um aumento de acumulação de trabalhos que solicitou concessão de memória existe. Isso está afetando o desempenho do Banco de Dados SQL. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
 | [Bloqueio](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Bloqueio de banco de dados excessivo foi detectado, afetando o desempenho do Banco de Dados SQL. | Bloqueio de banco de dados excessivo foi detectado, afetando o desempenho do banco de dados. |
 | [Aumento de MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho do Banco de Dados SQL. | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho do banco de dados. |
 | [Contenção de pagelatch](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do Banco de Dados SQL. | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do banco de dados. |
 | [Índice Ausente](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Foi detectada a ausência do índice, afetando o desempenho do Banco de Dados SQL. | Foi detectada a ausência do índice, afetando o desempenho do banco de dados. |
-| [Nova Consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada nova consulta que afeta o desempenho geral do Banco de Dados SQL. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
+| [Nova consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Foi detectada nova consulta que afeta o desempenho geral do Banco de Dados SQL. | Foi detectada nova consulta que afeta o desempenho geral do banco de dados. |
 | [Aumento da Estatística de Espera](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Foi detectado um aumento dos tempos de espera, afetando o desempenho do Banco de Dados SQL. | Foi detectado um aumento dos tempos de espera, afetando o desempenho do banco de dados. |
-| [Disputa tempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do Banco de Dados SQL. | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do banco de dados. |
-| [Escassez de DTU de piscina elástica](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A insuficiência de eDTUs no pool elástico está afetando o desempenho do Banco de Dados SQL. | Não disponível para a Instância Gerenciada, pois usa o modelo de vCore. |
+| [Contenção de TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do Banco de Dados SQL. | Vários threads estão tentando acessar os mesmos recursos de TempDB, provocando um gargalo. Isso está afetando o desempenho do banco de dados. |
+| [Escassez de DTU do pool elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | A insuficiência de eDTUs no pool elástico está afetando o desempenho do Banco de Dados SQL. | Não disponível para a Instância Gerenciada, pois usa o modelo de vCore. |
 | [Regressão do plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detectado um novo plano ou uma alteração na carga de trabalho de um plano existente. Isso está afetando o desempenho do Banco de Dados SQL. | Foi detectado um novo plano ou uma alteração na carga de trabalho de um plano existente. Isso está afetando o desempenho do banco de dados. |
 | [Alteração do valor de configuração no escopo do banco de dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Foi detectada uma alteração de configuração no Banco de Dados SQL que está afetando o desempenho do banco de dados. | Foi detectada uma alteração de configuração no banco de dados que está afetando seu desempenho. |
 | [Cliente lento](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do Banco de Dados SQL. | O cliente de aplicativo lento não pode consumir a saída do banco de dados rápido o suficiente. Isso está afetando o desempenho do banco de dados. |
-| [Downgrade de nível de preços](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do Banco de Dados SQL. | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do banco de dados. |
+| [Downgrade de tipo de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do Banco de Dados SQL. | A ação de downgrade do tipo de preço diminuiu os recursos disponíveis. Isso está afetando o desempenho do banco de dados. |
 
 > [!TIP]
 > Para otimização contínua do desempenho do Banco de Dados SQL, habilite [Ajuste automático do Banco de Dados SQL do Azure](sql-database-automatic-tuning.md). Esse recurso exclusivo de inteligência interna do Banco de Dados SQL monitora continuamente seu banco de dados SQL, ajusta de modo automático os índices e aplica correções de plano de execução de consulta.
@@ -215,13 +215,13 @@ O log de diagnóstico gera informações sobre detalhes de tempo de espera eleva
 
 Como o sistema não conseguiu identificar com sucesso a causa raiz das consultas de baixo desempenho, as informações de diagnóstico são um bom ponto de partida para solução de problemas manual. Você pode otimizar o desempenho das consultas. É uma boa prática buscar apenas os dados que você precisa usar e simplificar e dividir consultas complexas em partes menores.
 
-Para obter mais informações sobre como otimizar o desempenho da consulta, consulte [Afinação de Consulta](https://msdn.microsoft.com/library/ms176005.aspx).
+Para obter mais informações sobre como otimizar o desempenho da consulta, consulte [ajuste de consulta](https://msdn.microsoft.com/library/ms176005.aspx).
 
 ## <a name="tempdb-contention"></a>Contenção de TempDB
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
-Esse padrão de desempenho detectável indica uma condição de desempenho do banco de dados na qual existe um gargalo de threads que tentam acessar recursos do tempDB. (Esta condição não está relacionada ao IO.) O cenário típico para este problema de desempenho são centenas de consultas simultâneas que todos criam, usam e, em seguida, derrubam pequenas tabelas tempDB. O sistema detectou que o número de consultas simultâneas que usam as mesmas tabelas tempDB aumentou com uma significância estatística suficiente para afetar o desempenho do banco de dados em comparação à linha de base de desempenho dos últimos sete dias.
+Esse padrão de desempenho detectável indica uma condição de desempenho do banco de dados na qual existe um gargalo de threads que tentam acessar recursos do tempDB. (Essa condição não está relacionada a e/s.) O cenário típico para esse problema de desempenho é centenas de consultas simultâneas que criam, usam e depois descartam pequenas tabelas tempDB. O sistema detectou que o número de consultas simultâneas que usam as mesmas tabelas tempDB aumentou com uma significância estatística suficiente para afetar o desempenho do banco de dados em comparação à linha de base de desempenho dos últimos sete dias.
 
 ### <a name="troubleshooting"></a>Solução de problemas
 
@@ -235,7 +235,7 @@ Para obter mais informações, consulte [Introdução às tabelas com otimizaç�
 
 Esse padrão de desempenho detectável indica uma degradação no desempenho de carga de trabalho de banco de dados atual em comparação à linha de base dos últimos sete dias. É devido à falta de DTUs disponíveis no pool elástico de sua assinatura.
 
-Os recursos no Banco de Dados SQL são tipicamente referidos como [recursos DTU](sql-database-purchase-models.md#dtu-based-purchasing-model), que consistem em uma medida combinada de recursos de CPU e IO (Data and Transaction log IO). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
+Os recursos no banco de dados SQL são normalmente chamados de [recursos de DTU](sql-database-purchase-models.md#dtu-based-purchasing-model), que consistem em uma medida combinada de recursos de CPU e e/s (dados e e/s de log de transações). [Recursos de pool elástico do Azure](sql-database-elastic-pool.md) são usados como um pool de recursos disponíveis de eDTU compartilhados entre vários bancos de dados para fins de dimensionamento. Quando os recursos de eDTU disponíveis em seu pool elástico não forem suficientemente grandes para dar suporte a todos os bancos de dados no pool, um problema de desempenho de insuficiência de DTU no pool elástico será detectado pelo sistema.
 
 ### <a name="troubleshooting"></a>Solução de problemas
 
@@ -319,16 +319,16 @@ Se você tiver reduzido seu tipo de preço e, portanto, os DTUs disponíveis par
 
 Acesse o Intelligent Insights por meio do portal do Azure indo para Análise de SQL do Azure. Tente localizar o alerta de desempenho de entrada e selecione-o. Identifique o que está acontecendo na página de detecções. Observe a análise da causa raiz fornecida do problema, o texto da consulta, as tendências de tempo da consulta e a evolução do incidente. Tente resolver o problema usando a recomendação Intelligent Insights para mitigar o problema de desempenho.
 
-[![Gráfico de fluxo de solução de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
+[![Fluxograma de solução de problemas](./media/sql-database-intelligent-insights/intelligent-insights-troubleshooting-flowchart.png)](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/intelligent-insight/Troubleshoot%20Azure%20SQL%20Database%20performance%20issues%20using%20Intelligent%20Insight.pdf)
 
 > [!TIP]
 > Selecione o fluxograma para baixar uma versão em PDF.
 
-O Intelligent Insights geralmente precisa de uma hora para executar a análise da causa raiz do problema de desempenho. Se você não puder localizar o problema no Intelligent Insights e ele for crucial para você, use o Repositório de Consultas para identificar manualmente a causa raiz do problema de desempenho. (Normalmente, essas questões têm menos de uma hora de idade.) Para obter mais informações, consulte [o desempenho do Monitor usando a Loja de Consulta](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+O Intelligent Insights geralmente precisa de uma hora para executar a análise da causa raiz do problema de desempenho. Se você não puder localizar o problema no Intelligent Insights e ele for crucial para você, use o Repositório de Consultas para identificar manualmente a causa raiz do problema de desempenho. (Normalmente, esses problemas têm menos de uma hora.) Para obter mais informações, consulte [monitorar o desempenho usando o repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda conceitos [de Intelligent Insights.](sql-database-intelligent-insights.md)
+- Saiba mais sobre os conceitos de [Intelligent insights](sql-database-intelligent-insights.md) .
 - Use o [log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitore o [Banco de Dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Saiba como [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).

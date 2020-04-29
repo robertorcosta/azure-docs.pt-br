@@ -1,6 +1,6 @@
 ---
 title: Amostras de banco de dados, código e projeto do Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve recursos para aprender sobre amostras de código, projeto e banco de dados para os Serviços de Análise do Azure.
+description: Este artigo descreve os recursos para aprender sobre códigos, projetos e amostras de banco de dados para Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78247833"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras do Azure Analysis Services
@@ -26,9 +26,9 @@ O repositório do [Analysis Services](https://github.com/Microsoft/Analysis-Serv
 
 [Adventure Works para o Analysis Services](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) no GitHub é o projeto de modelo tabular de exemplo mais comumente usado. Você pode baixar um projeto do VS ou um modelo de banco de dados tabular de exemplo concluído.
 
-## <a name="sample-database-on-azure"></a>Banco de dados de amostras no Azure
+## <a name="sample-database-on-azure"></a>Banco de dados de exemplo no Azure
 
-O Azure Synapse Analytics (SQL Data Warehouse) fornece um banco de dados AdventureWorksDW de exemplo que pode ser incluído em um recurso provisionado. Para saber mais, consulte [Quickstart: Crie e consulte um pool Synapse Analytics Do Azure Synapse](/azure/sql-data-warehouse/create-data-warehouse-portal).
+O Azure Synapse Analytics (SQL Data Warehouse) fornece um exemplo de banco de dados AdventureWorksDW que pode ser incluído em um recurso provisionado. Para saber mais, consulte [início rápido: criar e consultar um pool de SQL do Azure Synapse Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Bancos de dados de exemplo no GitHub
 
@@ -46,5 +46,5 @@ Se você tem um servidor do Analysis Services no Portal do Azure, você pode cri
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial de Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Tutorial da Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Gateway de Dados Local do Azure](analysis-services-gateway.md)  

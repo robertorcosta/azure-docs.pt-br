@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: Este artigo ajuda você a configurar o ExpressRoute Direct usando o Azure CLI
+title: 'Azure ExpressRoute: configurar ExpressRoute direto: CLI'
+description: Este artigo ajuda você a configurar o ExpressRoute direto usando o CLI do Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481969"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure o ExpressRoute Direct usando o Azure CLI
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direto usando o CLI do Azure
 
 Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Para obter mais informações, confira [Sobre a conexão do ExpressRoute Direct](expressroute-erdirect-about.md).
 
@@ -38,7 +38,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az account set --subscription "<subscription ID>"
    ```
 
-2. Registre-se recadastrou sua assinatura no Microsoft.Network para acessar as APIs expressrouteportslocation e expressrouteport
+2. Registre novamente sua assinatura para Microsoft. Network para acessar as APIs expressrouteportslocation e expressrouteport
 
    ```azurecli
    az provider register --namespace Microsoft.Network
@@ -49,7 +49,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az network express-route port location list
    ```
 
-   **Saída de exemplo**
+   **Exemplo de saída**
   
    ```output
    [
@@ -116,7 +116,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    az network express-route port location show -l "Equinix-Ashburn-DC2"
    ```
 
-   **Saída de exemplo**
+   **Exemplo de saída**
 
    ```output
    {
@@ -154,7 +154,7 @@ Você pode usar o Azure ExpressRoute Direct para conectar-se diretamente à rede
    > Você também pode definir o atributo **Encapsulamento** para **Dot1Q**. 
    >
 
-   **Saída de exemplo**
+   **Exemplo de saída**
 
    ```output
    {
@@ -222,7 +222,7 @@ Use esse processo para conduzir um teste de camada 1. Certifique-se de que cada 
    ```azurecli
    az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
    ```
-   **Saída de exemplo**
+   **Exemplo de saída**
 
    ```output
    {
@@ -284,9 +284,9 @@ Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso E
 
 Você pode usar as larguras de bandas de circuito adicionais no ExpressRoute Direct apenas para dar suporte aos cenários estabelecidos aqui. As larguras de banda são 40 Gbps e 100 Gbps.
 
-**SkuTier** pode ser Local, Standard ou Premium.
+**SkuTier** pode ser local, Standard ou Premium.
 
-**O SkuFamily** deve ser medidoData apenas porque ilimitado não é suportado no ExpressRoute Direct.
+**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
 Crie um circuito no recurso ExpressRoute Direct:
 
   ```azurecli
@@ -295,7 +295,7 @@ Crie um circuito no recurso ExpressRoute Direct:
 
   Outras larguras de banda incluem: 5 Gbps, 10 Gbps e 40 Gbps.
 
-  **Saída de exemplo**
+  **Exemplo de saída**
 
   ```output
   {

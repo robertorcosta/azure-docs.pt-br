@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671827"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados do Application Insights Telemetry
@@ -38,7 +38,7 @@ O Application Insights fornece três tipos de dados adicionais para telemetria p
 * [Evento](data-model-event-telemetry.md) – Normalmente usado para capturar a interação do usuário com o serviço para analisar os padrões de uso.
 * [Métrica](data-model-metric-telemetry.md) – Usada para relatar medidas escalares periódicas.
 
-Cada item de telemetria pode definir as informações de [contexto,](data-model-context.md) como versão do aplicativo ou id de sessão do usuário. Contexto é um conjunto de campos fortemente digitados que desbloqueiam certos cenários. Quando a versão do aplicativo é inicializada corretamente, o Application Insights pode detectar novos padrões no comportamento do aplicativo correlacionado com a reimplantação. A Id da sessão pode ser usada para calcular a interrupção ou o impacto de um problema em relação aos usuários. Calcular a contagem distinta de valores de id de sessão para determinadas dependência com falha, rastreamento de erro ou exceção crítica dá uma boa compreensão de um impacto.
+Cada item de telemetria pode definir as [informações de contexto](data-model-context.md) , como a versão do aplicativo ou a ID de sessão do usuário. O contexto é um conjunto de campos fortemente tipados que desbloqueia determinados cenários. Quando a versão do aplicativo é inicializada corretamente, o Application Insights pode detectar novos padrões no comportamento do aplicativo correlacionado com a reimplantação. A Id da sessão pode ser usada para calcular a interrupção ou o impacto de um problema em relação aos usuários. Calcular a contagem distinta de valores de id de sessão para determinadas dependência com falha, rastreamento de erro ou exceção crítica dá uma boa compreensão de um impacto.
 
 O modelo do Application Insights Telemetry define uma forma de [correlacionar](../../azure-monitor/app/correlation.md) telemetria à operação da qual ele faz parte. Por exemplo, uma solicitação pode tomar informações de diagnóstico registradas e de chamadas de um Banco de Dados SQL. Você pode definir o contexto de correlação para esses itens de telemetria aproximam esse contexto novamente da telemetria de solicitação.
 

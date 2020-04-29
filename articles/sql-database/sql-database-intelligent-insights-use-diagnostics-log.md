@@ -1,5 +1,5 @@
 ---
-title: Registro de diagnósticos de desempenho do Intelligent Insights
+title: Log de diagnóstico de desempenho Intelligent Insights
 description: O recurso Insights inteligentes fornece um log de diagnóstico de problemas de desempenho do banco de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209461"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
-Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar este registro de diagnóstico para [logs do Monitor Do Azure,](../azure-monitor/insights/azure-sql.md) [Hubs de Eventos Do Azure,](../azure-monitor/platform/resource-logs-stream-event-hubs.md) [Armazenamento Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alerta e emissão de relatórios.
+Esta página apresenta informações sobre como usar o log de diagnóstico de desempenho do Banco de Dados SQL do Azure gerado pelo [Intelligent Insights](sql-database-intelligent-insights.md), seu formato e os dados que ele contém para suas necessidades desenvolvimento personalizadas. Você pode enviar esse log de diagnóstico para [Azure monitor logs](../azure-monitor/insights/azure-sql.md), [hubs de eventos do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage)ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="log-header"></a>Cabeçalho do log
 
@@ -134,7 +134,7 @@ A última parte do log de desempenho do Intelligent Insights refere-se à análi
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Você pode usar o registro de desempenho do Intelligent Insights com [logs do Monitor Do Azure]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para recursos personalizados de alerta e emissão de relatórios.
+Você pode usar o log de desempenho Intelligent Insights com [Azure monitor logs]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
 
 ## <a name="next-steps"></a>Próximas etapas
 

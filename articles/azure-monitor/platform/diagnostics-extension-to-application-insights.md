@@ -1,5 +1,5 @@
 ---
-title: Envie dados do Azure Diagnostics para o Application Insights
+title: Enviar dados de Diagnóstico do Azure para Application Insights
 description: Atualize a configuração pública do Diagnóstico do Azure para enviar dados ao Application Insights.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672320"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights
@@ -66,9 +66,9 @@ Exemplo de configuração de um coletor para o Application Insights:
     - O atributo *name* refere-se exclusivamente a esse canal.
     - O atributo *loglevel* permite que você especifique o nível de log permitido pelo canal. Os níveis de log disponíveis, organizados do que contém mais para o que contém menos informações, são:
         - Detalhado
-        - Informações
+        - Informações do
         - Aviso
-        - Erro
+        - Erro do
         - Crítico
 
 Um canal funciona como um filtro e permite que você selecione níveis de log específicos para enviar ao coletor de destino. Por exemplo, você poderia coletar logs detalhados e enviá-los ao armazenamento, mas enviar apenas os Erros ao coletor.
@@ -210,7 +210,7 @@ Na configuração anterior, as linhas a seguir apresentam estes significados:
 
 - **Os canais só registro o tipo e não contadores de desempenho.** Se você especificar um canal com um elemento contador de desempenho, ele será ignorado.
 - **O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure.** Por exemplo: não é possível coletar erros do Log de Aplicativo no elemento Logs e tentar enviar logs Detalhados ao coletor do Application Insights. O atributo *scheduledTransferLogLevelFilter* sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor.
-- **Não é possível enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights.** Por exemplo, qualquer coisa especificada o nó *Diretórios.* No caso de Despejos de Memória, o despejo de memória real é enviado ao armazenamento de blobs, e somente uma notificação da geração do despejo é enviada ao Application Insights.
+- **Não é possível enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights.** Por exemplo, qualquer coisa especificada no nó *diretórios* . No caso de Despejos de Memória, o despejo de memória real é enviado ao armazenamento de blobs, e somente uma notificação da geração do despejo é enviada ao Application Insights.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [exibir as informações de diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) no Application Insights.

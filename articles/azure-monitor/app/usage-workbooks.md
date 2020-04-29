@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670994"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
@@ -19,7 +19,7 @@ As Pastas de Trabalho combinam texto, [consultas de Análise](https://docs.mic
 
 As pastas de trabalho são úteis para cenários como:
 
-* Explorando o uso do seu aplicativo quando você não sabe as métricas de interesse com antecedência: número de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, os livros de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as ótimas para esse tipo de exploração de forma livre.
+* Explorando o uso de seu aplicativo quando você não conhece as métricas de interesse com antecedência: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
 * Explicar para sua equipe sobre o desempenho de um recurso recém-liberado, mostrando contagens de usuário para as principais interações e outras métricas.
 * Compartilhar os resultados de um experimento A/B no aplicativo com outros membros de sua equipe. Você pode explicar as metas do experimento com um texto e, depois, mostrar cada métrica de uso e consulta do Analytics usada para avaliar o experimento, junto com textos explicativos claros que indicam se cada métrica estava acima ou abaixo da meta.
 * Relatar o impacto de uma interrupção no uso do aplicativo, combinando dados, explicação de texto e uma discussão das próximas etapas para prevenir interrupções no futuro.
@@ -153,9 +153,9 @@ Há quatro tipos diferentes de parâmetros que têm suporte no momento:
   |         |          |
    | ---------------- |:-----|
    | **Texto**    | o usuário editará uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
-   | **Queda** | O usuário escolherá de um conjunto de valores. |
+   | **Lista suspensa** | O usuário escolherá de um conjunto de valores. |
    | **Seletor de intervalo de tempo**| O usuário escolherá um conjunto predefinido de valores de intervalo de tempo ou escolherá um intervalo de tempo personalizado.|
-   | **Catador de recursos** | O usuário irá escolher dentre os recursos selecionados para a pasta de trabalho.|
+   | **Seletor de recursos** | O usuário irá escolher dentre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
@@ -199,7 +199,7 @@ Gera o resultado:
 
 ![Controles de edição da seção Pastas de Trabalho do Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Um exemplo mais aplicável é usar um dropdown para escolher de um conjunto de países/regiões pelo nome:
+Um exemplo mais aplicável é usar uma lista suspensa para escolher um conjunto de países/regiões por nome:
 
 ```
 customEvents

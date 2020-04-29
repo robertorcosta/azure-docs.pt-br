@@ -1,5 +1,5 @@
 ---
-title: Segurança aprimorada do nível padrão - Azure Security Center
+title: Segurança aprimorada da camada Standard-central de segurança do Azure
 description: " Saiba como para integrar-se à Central de Segurança do Azure Standard para uma segurança aprimorada. "
 services: security-center
 documentationcenter: na
@@ -14,25 +14,25 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
 ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77912045"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração à Central de Segurança do Azure Standard para uma segurança aprimorada
-Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida. Você pode experimentar o Standard gratuitamente. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) do Security Center para obter mais informações.
+Atualize para a Central de Segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida. Você pode experimentar o Standard gratuitamente. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/security-center/) da central de segurança para obter mais informações.
 
-O nível padrão do Security Center inclui:
+A camada Standard da central de segurança inclui:
 
 - **Segurança híbrida** – Obtenha uma exibição unificada sobre a segurança em todas as suas cargas de trabalho locais e na nuvem. Aplique políticas de segurança e avalie continuamente a segurança de suas cargas de trabalho de nuvem híbrida a fim de garantir a conformidade com padrões de segurança. Colete, pesquise e analise dados de segurança de uma variedade de fontes, inclusive firewalls e outras soluções de parceiros.
-- **Alertas de segurança** - Use análises avançadas e o Microsoft Intelligent Security Graph para obter uma vantagem sobre os ataques cibernéticos em evolução. Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
+- **Alertas de segurança** -use a análise avançada e a gráfico de segurança inteligente da Microsoft para obter uma borda sobre ataques cibernéticos em evolução. Aproveite a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação. Simplifique a investigação com ferramentas interativas e inteligência contextual contra ameaças.
 - **Controles de acesso e de aplicativo** – Bloqueie malwares e outros aplicativos indesejados aplicando recomendações de lista de permissões adaptada para suas cargas de trabalho específicas e baseada em aprendizado de máquina. Reduza a superfície de ataque da rede com acesso controlado Just-In-Time às portas de gerenciamento em VMs do Azure, reduzindo drasticamente a exposição à ataques de força bruta e outros ataques de rede.
 
 ## <a name="detecting-unprotected-resources"></a>Detectando recursos desprotegidos
 A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
 
-Você pode atualizar uma assinatura inteira do Azure para o nível Standard, que é herdado por todos os recursos suportados dentro da assinatura. A aplicação do nível Padrão em um espaço de trabalho aplica-se a todos os recursos reportados ao espaço de trabalho.
+Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que é herdada por todos os recursos com suporte na assinatura. A aplicação da camada Standard a um espaço de trabalho se aplica a todos os recursos que se reportam ao espaço de trabalho.
 
 > [!NOTE]
 > Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes. O [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite que você aplique um escopo à solução e direcione a um subconjunto de computadores no workspace. Se você estiver usando o direcionamento de solução, a Central de Segurança listará o workspace como não tendo uma solução.
@@ -40,7 +40,7 @@ Você pode atualizar uma assinatura inteira do Azure para o nível Standard, que
 >
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Atualizar uma assinatura ou workspace do Azure
-Para atualizar uma assinatura ou espaço de trabalho para o padrão:
+Para atualizar uma assinatura ou um espaço de trabalho para o Standard:
 1. No menu principal da Central de Segurança, selecione **Introdução**.
   ![Guia de Introdução](./media/security-center-onboarding/get-started.png)
 2. Em **Atualização**, a Central de Segurança lista as assinaturas e os workspaces qualificados para a integração. 
@@ -52,7 +52,7 @@ Para atualizar uma assinatura ou espaço de trabalho para o padrão:
 
 
    > [!NOTE]
-   > Os recursos gratuitos do Security Center são aplicados apenas às Suas VMs e VMSS do Azure. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Padrão, os recursos Padrão serão aplicados a todas as VMs do Azure, conjuntos de escala VM e computadores não-Azure reportados ao espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
+   > Os recursos gratuitos da central de segurança são aplicados somente às VMs do Azure e VMSS. Os recursos Gratuitos não serão aplicados aos computadores não Azure. Se você selecionar Standard, os recursos padrão serão aplicados a todas as VMs do Azure, conjuntos de dimensionamento de VM e computadores não Azure que relatam para o espaço de trabalho. É recomendável que você aplique a Standard para proporcionar segurança avançada tanto para seus recursos do Azure quanto para os não Azure.
    >
 
 ## <a name="onboard-non-azure-computers"></a>Integrar computadores não Azure
@@ -79,7 +79,7 @@ Se você tiver workspaces existentes, eles serão listados em **Adicionar novos 
 
    ![Adicionar um novo workspace][4]
 
-2. Em **Segurança e Auditoria,** selecione **OMS Workspace** para criar um novo espaço de trabalho.
+2. Em **segurança e auditoria**, selecione **espaço de trabalho do OMS** para criar um novo espaço de trabalho.
    > [!NOTE]
    > Os workspaces do OMS agora são chamados de workspaces do Log Analytics.
 3. Em **Workspace OMS**, insira as informações do seu workspace.
@@ -108,7 +108,7 @@ Você pode adicionar um computador, seguindo o fluxo de trabalho de **Integraç�
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como integrar recursos Azure e não Azure para se beneficiar da segurança avançada da Central de Segurança. Para fazer mais com os recursos integrados, veja
 
-- [Habilite a coleta de dados](security-center-enable-data-collection.md)
+- [Habilitar coleta de dados](security-center-enable-data-collection.md)
 - [Relatório de inteligência de ameaças](security-center-threat-report.md)
 - [Acesso à VM Just-In-Time](security-center-just-in-time.md)
 

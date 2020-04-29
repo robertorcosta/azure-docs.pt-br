@@ -1,53 +1,53 @@
 ---
-title: Gatilho de armazenamento Do Zure Blob e vinculações para funções do Azure
-description: Aprenda a usar o gatilho de armazenamento Azure Blob e as amarras em Funções Azure.
+title: Gatilhos e associações do armazenamento de BLOBs do Azure para Azure Functions
+description: Aprenda a usar o gatilho e as associações do armazenamento de BLOBs do Azure no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277226"
 ---
-# <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vinculações de armazenamento do Azure Blob para visão geral das funções do Azure
+# <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Associações de armazenamento de BLOBs do Azure para Azure Functions visão geral
 
-As funções do Azure [integram-se ao Armazenamento Azure](https://docs.microsoft.com/azure/storage/) através [de gatilhos e vinculações](./functions-triggers-bindings.md). A integração com o armazenamento Blob permite que você construa funções que reagem a alterações nos dados blob, bem como valores de leitura e gravação.
+O Azure Functions integra-se com o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) por meio [de gatilhos e associações](./functions-triggers-bindings.md). A integração com o armazenamento de BLOBs permite que você crie funções que reajam a alterações em dados de BLOB, bem como valores de leitura e gravação.
 
 | Ação | Type |
 |---------|---------|
-| Execute uma função como alterações de dados de armazenamento blob | [Gatilho](./functions-bindings-storage-blob-trigger.md) |
-| Leia os dados de armazenamento blob em uma função | [Vinculação de entrada](./functions-bindings-storage-blob-input.md) |
-| Permitir uma função para gravar dados de armazenamento blob |[Vinculação de saída](./functions-bindings-storage-blob-output.md) |
+| Executar uma função como alterações de dados do armazenamento de BLOBs | [Gatilho](./functions-bindings-storage-blob-trigger.md) |
+| Ler dados do armazenamento de BLOBs em uma função | [Associação de entrada](./functions-bindings-storage-blob-input.md) |
+| Permitir que uma função grave dados de armazenamento de BLOBs |[Associação de saída](./functions-bindings-storage-blob-output.md) |
 
-## <a name="add-to-your-functions-app"></a>Adicione ao seu aplicativo Functions
+## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
-### <a name="functions-2x-and-higher"></a>Funções 2.x e superior
+### <a name="functions-2x-and-higher"></a>Funções 2. x e posteriores
 
-Trabalhar com o gatilho e as amarras requer que você faça referência ao pacote apropriado. O pacote NuGet é usado para bibliotecas de classe .NET, enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
+Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Idioma                                        | Adicione por...                                   | Comentários 
+| Linguagem                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalando o [pacote NuGet,]versão 3.x | |
-| C# Script, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | [Recomenda-se que a extensão Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) use com o Visual Studio Code. |
-| C# Script (somente on-line no portal Azure)         | Adicionando uma vinculação                            | Para atualizar as extensões de vinculação existentes sem ter que republicar seu aplicativo de função, consulte [Atualizar suas extensões]. |
+| C#                                              | Instalando o [pacote NuGet], versão 3. x | |
+| Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) é recomendada para uso com Visual Studio Code. |
+| Script C# (somente online em portal do Azure)         | Adicionando uma associação                            | Para atualizar as extensões de associação existentes sem precisar republicar seu aplicativo de funções, consulte [atualizar suas extensões]. |
 
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Atualize suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualizar suas extensões]: ./install-update-binding-extensions-manual.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funções 1.x
 
-Os aplicativos Functions 1.x têm automaticamente uma referência ao pacote [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet, versão 2.x.
+Os aplicativos do Functions 1. x têm automaticamente uma referência ao pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Execute uma função quando os dados de armazenamento blob mudarem](./functions-bindings-storage-blob-trigger.md)
-- [Leia os dados de armazenamento blob quando uma função é executada](./functions-bindings-storage-blob-input.md)
-- [Escreva dados de armazenamento blob de uma função](./functions-bindings-storage-blob-output.md)
+- [Executar uma função quando os dados do armazenamento de BLOBs forem alterados](./functions-bindings-storage-blob-trigger.md)
+- [Ler dados do armazenamento de BLOBs quando uma função é executada](./functions-bindings-storage-blob-input.md)
+- [Gravar dados de armazenamento de blobs de uma função](./functions-bindings-storage-blob-output.md)

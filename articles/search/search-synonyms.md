@@ -1,7 +1,7 @@
 ---
-title: Sinônimos de expansão de consulta sobre um índice de pesquisa
+title: Sinônimos para expansão de consulta em um índice de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Crie um mapa de sinônimo para expandir o escopo de uma consulta de pesquisa em um índice de pesquisa cognitiva do Azure. O escopo é ampliado para incluir termos equivalentes fornecidos por você em uma lista.
+description: Crie um mapa de sinônimos para expandir o escopo de uma consulta de pesquisa em um índice de Pesquisa Cognitiva do Azure. O escopo é ampliado para incluir termos equivalentes fornecidos por você em uma lista.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -9,27 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78194335"
 ---
-# <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos na Busca Cognitiva do Azure
+# <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
 Sinônimos nos termos equivalentes associados do mecanismo de pesquisa que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha de fornecer realmente o termo. Por exemplo, considerando o termo "cão" e as associações de sinônimo de "canino" e "filhote de cão", qualquer documento contendo "cão", "canino" ou "filhote de cão" cairá dentro do escopo da consulta.
 
-Na Pesquisa Cognitiva do Azure, a expansão do sinônimo é feita na hora da consulta. Você pode adicionar mapas de sinônimo a um serviço sem interromper as operações existentes. Você pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem necessidade de recriar o índice.
+No Azure Pesquisa Cognitiva, a expansão do sinônimo é feita no momento da consulta. Você pode adicionar mapas de sinônimo a um serviço sem interromper as operações existentes. Você pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem necessidade de recriar o índice.
 
 ## <a name="create-synonyms"></a>Criar sinônimos
 
-Não há suporte de portal para criar sinônimos, mas você pode usar a API REST ou o .NET SDK. Para começar com rest, recomendamos [o uso do Carteiro](search-get-started-postman.md) e a formulação de solicitações usando esta API: Crie Mapas de [Sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para desenvolvedores C#, você pode começar com [Adicionar Sinônimos na Pesquisa Cognitiva do Azure usando C#](search-synonyms-tutorial-sdk.md).
+Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para desenvolvedores de C#, você pode começar a [Adicionar sinônimos na pesquisa cognitiva do Azure usando C#](search-synonyms-tutorial-sdk.md).
 
-Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso, você pode aplicar essa proteção ao conteúdo do seu mapa de sinônimos.
+Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso, poderá aplicar essa proteção ao conteúdo do seu mapa de sinônimos.
 
 ## <a name="use-synonyms"></a>Usar sinônimos
 
-Na Pesquisa Cognitiva do Azure, o suporte a sinônimos é baseado em mapas de sinônimos que você define e faz upload para o seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em um índice do serviço de pesquisa.
+No Azure Pesquisa Cognitiva, o suporte a sinônimos é baseado em mapas de sinônimos que você define e carrega em seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em um índice do serviço de pesquisa.
 
 Mapas de sinônimo e índices são mantidos de maneira independente. Depois de definir um mapa de sinônimo e carregá-lo em seu serviço, habilite o recurso de sinônimo em um campo, adicionando uma nova propriedade chamada **synonymMaps** à definição de campo. Criar, atualizar e excluir um mapa de sinônimo é sempre uma operação de documento inteiro, o que significa que você não pode criar, atualizar nem excluir partes do mapa sinônimo incrementalmente. Até mesmo uma única entrada a atualização requer um recarregamento.
 
@@ -45,7 +45,7 @@ Você pode criar vários mapas de sinônimos para o aplicativo de pesquisa (por 
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Adicione ou atualize um mapa de sinônimos em seu serviço, usando POST ou PUT.
 
-Mapas de sinônimos são carregados no serviço via POST ou PUT. Cada regra deve ser delimitada por um caractere de nova linha ('\n'). Você pode definir até 5.000 regras por mapa de sinônimo em um serviço gratuito e 20.000 regras por mapa em todas as outras SKUs. Cada regra pode ter até 20 expansões.
+Mapas de sinônimos são carregados no serviço via POST ou PUT. Cada regra deve ser delimitada por um caractere de nova linha ('\n'). Você pode definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e 20.000 regras por mapa em todas as outras SKUs. Cada regra pode ter até 20 expansões.
 
 Os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se você tiver um dicionário de sinônimos em um formato diferente e quiser usá-lo diretamente, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
@@ -76,14 +76,14 @@ Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se 
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinônimo Apache Solr
 
-O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. As regras de mapeamento seguem a especificação do filtro de código aberto do Apache Solr, descrita neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
+O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. As regras de mapeamento aderem à especificação de filtro de sinônimos de software livre do Apache Solr, descritas neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
 ```
 USA, United States, United States of America
 ```
 
 Com a regra acima, uma consulta de pesquisa "EUA" será expandida para "EUA" OR "Estados Unidos" OR "Estados Unidos da América".
 
-Mapeamento explícito é indicado por uma seta "=>". Quando especificado, uma seqüência de termo de uma consulta de pesquisa que corresponda ao lado esquerdo de "=>" será substituída pelas alternativas no lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash." ou "WA" serão regravadas como "WA". Mapeamento explícito só é aplicável na direção especificada e não regrava a consulta "WA" para "Washington" nesse caso.
+Mapeamento explícito é indicado por uma seta "=>". Quando especificado, uma sequência de termo de uma consulta de pesquisa que corresponde ao lado esquerdo de "=>" será substituída pelas alternativas no lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash." ou "WA" serão regravadas como "WA". Mapeamento explícito só é aplicável na direção especificada e não regrava a consulta "WA" para "Washington" nesse caso.
 ```
 Washington, Wash., WA => WA
 ```
@@ -159,4 +159,4 @@ Se houver um índice em um ambiente de desenvolvimento (não produção), experi
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Crie um mapa de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Criar um mapa de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

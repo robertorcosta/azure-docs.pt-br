@@ -17,10 +17,10 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2c12372dbc47548755c0680b0acb7a93360a0987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617479"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -223,7 +223,7 @@ Você já configurou um cluster WSFC utilizado para uma instância SAP ASCS/SCS 
 
 ![Figura 1: Uma instância SAP ASCS/SCS e SOFS implantada em dois clusters][sap-ha-guide-figure-8007]
 
-_**Figura 1:** Uma instância SAP ASCS/SCS e SOFS implantados em dois clusters_
+_**Figura 1:** Uma instância do SAP ASCS/SCS e SOFS implantadas em dois clusters_
 
 > [!IMPORTANT]
 > A instalação deve atender às seguintes condições:
@@ -238,15 +238,15 @@ A meta é instalar várias instâncias clusterizadas do SAP Advanced Business Ap
 
 ![Figura 2: configuração de vários SIDs do SAP em dois clusters][sap-ha-guide-figure-8008]
 
-_**Figura 2:** Configuração sap multi-SID em dois clusters_
+_**Figura 2:** Configuração de vários SID do SAP em dois clusters_
 
-A instalação de um sistema adicional de **>SAP \<SID2** é idêntica à instalação de um \<sistema DE> SID. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
+A instalação de um sistema **de \<>do SAP SID2** adicional é idêntica à instalação de \<um sistema de> Sid. Duas etapas adicionais de preparação são necessárias no cluster ASCS/SCS, bem como no cluster SOFS de compartilhamento de arquivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Prepare a infraestrutura para um cenário de vários SIDs do SAP
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Prepare a infraestrutura no controlador de domínio
 
-Crie o grupo \< ** \<de\<domínio Domínio>\SAP_ SID2>_GlobalAdmin**, por exemplo, com SID2> = PR2. O nome do grupo de domínio é \<Domain>\SAP_PR2_GlobalAdmin.
+Crie o domínio do grupo \< ** \<de domínio>\<\ SAP_ SID2>_GlobalAdmin**, por exemplo, com SID2> = PR2. O nome do grupo de domínio é \<Domain>\SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Prepare a infraestrutura no cluster ASCS/SCS
 
@@ -260,7 +260,7 @@ Estas etapas são descritas em [Preparação da infraestrutura para um cenário 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Prepare a infraestrutura em um cluster SOFS usando o Host Global do SAP existente
 
-Você pode reutilizar \<o SAPGlobalHost> e volume1 \<do primeiro sistema sap SID1>.
+Você pode reutilizar o \<SAPGlobalHost existente> e Volume1 do primeiro sistema \<do SAP SID1>.
 
 ![Figura 3: SOFS com vários SIDs é o mesmo que o nome de Host Global do SAP][sap-ha-guide-figure-8014]
 
@@ -270,7 +270,7 @@ _**Figura 3:** SOFS com vários SIDs é o mesmo que o nome de Host Global do SAP
 >Para o segundo sistema **SAP \<SID2>**, o mesmo Volume1 e a mesma rede **\<SAPGlobalHost>** estão sendo usados.
 >Como você já definiu **SAPMNT** como o nome do compartilhamento para vários sistemas SAP, para reutilizar o nome de rede **\<SAPGlobalHost >**, você deve usar o mesmo **Volume1**.
 >
->O caminho do \<arquivo para o host global\\SID2> é C:\ClusterStorage**Volume1**\usr\sap\<SID2>\SYS\.
+>O caminho do arquivo para \<o host SID2> global é\\C:\ClusterStorage**Volume1**\usr\sap\<SID2> \sys\.
 >
 
 Para o sistema \<SID2>, você deve preparar o Host Global do SAP ..\SYS\.. pasta no cluster SOFS.
@@ -326,7 +326,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Prepare a infraestrutura no cluster SOFS usando um Host Global do SAP diferente
 
-Você pode configurar o segundo SOFS (por exemplo, a segunda função de cluster SOFS com ** \<sapGlobalHost2>** e um **Volume2** diferente para o segundo ** \<SID2>**).
+Você pode configurar o segundo SOFS (por exemplo, a segunda função de cluster SOFS com ** \<SAPGlobalHost2>** e um **Volume2** diferente para a segunda ** \<SID2>**).
 
 ![Figura 4: SOFS com vários SIDs é o mesmo que o nome de host 2 GLOBAL do SAP][sap-ha-guide-figure-8015]
 
@@ -393,7 +393,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Para criar um compartilhamento de arquivos SAPMNT no Volume2 com o \< * \<SAPGlobalHost2>* nome de host para o segundo sap SID2>, inicie o assistente Adicionar compartilhamento de **arquivos** no Failover Cluster Manager.
+Para criar um compartilhamento de arquivos SAPMNT no Volume2 com o nome de host do * \<SAPGlobalHost2>* para \<o segundo> do SAP SID2, inicie o assistente para **Adicionar compartilhamento de arquivos** em Gerenciador de cluster de failover.
 
 Clique com o botão direito do mouse no grupo de clusters SOFS **saoglobal2** e escolha **Adicionar Compartilhamento de Arquivos**.
 
@@ -405,19 +405,19 @@ _**Figura 6:** Iniciar assistente de "Adicionar compartilhamento de arquivos"_
 
 ![Figura 7: Escolher "Compartilhamento SMB – Rápido"][sap-ha-guide-figure-8018]
 
-_**Figura 7:** Selecione "SMB Share – Quick"_
+_**Figura 7:** Selecione "compartilhamento SMB – rápido"_
 
 <br>
 
 ![Figura 8: Escolher "sapglobalhost2" e especificar o caminho no Volume2][sap-ha-guide-figure-8019]
 
-_**Figura 8:** Selecione "sapglobalhost2" e especifique o caminho no Volume2_
+_**Figura 8:** Selecione "sapglobalhost2" e especifique o caminho em Volume2_
 
 <br>
 
-![Figura 9: Definir o nome do compartilhamento de arquivos para "sapmnt"][sap-ha-guide-figure-8020]
+![Figura 9: definir o nome do compartilhamento de arquivos como "sapmnt"][sap-ha-guide-figure-8020]
 
-_**Figura 9:** Definir o nome do compartilhamento de arquivos como "sapmnt"_
+_**Figura 9:** Defina o nome do compartilhamento de arquivos como "sapmnt"_
 
 <br>
 
@@ -439,7 +439,7 @@ _**Figura 11:** Atribuir "Controle total" para grupo de usuários e contas de co
 
 ![Figura 12: Escolher "Criar"][sap-ha-guide-figure-8023]
 
-_**Figura 12:** Selecione "Criar"_
+_**Figura 12:** Selecione "criar"_
 
 <br>
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell Quickstart - PowerShell
-description: Aprenda a usar o PowerShell no seu navegador com o Azure Cloud Shell.
+title: Guia de início rápido do Azure Cloud Shell-PowerShell
+description: Saiba como usar o PowerShell em seu navegador com Azure Cloud Shell.
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
 ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273001"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido do PowerShell no Azure Cloud Shell
@@ -332,7 +332,7 @@ Para saber como criar um perfil, consulte [Sobre perfis][profile].
 
 ## <a name="use-git"></a>Usar o Git
 
-Para clonar um repo do Git no Cloud Shell, você precisa criar um [token de acesso pessoal][githubtoken] e usá-lo como nome de usuário. Quando tiver seu token, faça um clone do repositório da seguinte maneira:
+Para clonar um repositório git no Cloud Shell, você precisa criar um [token de acesso pessoal][githubtoken] e usá-lo como o nome de usuário. Quando tiver seu token, faça um clone do repositório da seguinte maneira:
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

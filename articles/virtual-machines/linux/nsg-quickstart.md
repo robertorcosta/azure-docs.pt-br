@@ -1,6 +1,6 @@
 ---
-title: Abra portas para uma VM com a Cli do Azure
-description: Aprenda a abrir uma porta / criar um ponto final para sua VM usando o Azure CLI.
+title: Abrir portas para uma VM com CLI do Azure
+description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM usando o CLI do Azure.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066627"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abra portas e pontos finais para uma VM com a CLI azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir portas e pontos de extremidade para uma VM com o CLI do Azure
 
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI do Azure. 
 
@@ -37,7 +37,7 @@ Para obter mais controle sobre as regras, como a definição de um intervalo de 
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Criar um Grupo de Segurança de Rede e suas regras
-Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* na localização *eastus:*
+Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup* no local *eastus* :
 
 ```azurecli
 az network nsg create \
@@ -87,5 +87,5 @@ Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás 
 ## <a name="next-steps"></a>Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-* [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Visão geral de Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [O que é um Grupo de Segurança de Rede (NSG)?](../../virtual-network/security-overview.md)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78196972"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerenciar aplicativos para vários ambientes
@@ -40,9 +40,9 @@ A configuração que você fornece pode ser dividida em duas categorias:
 
 Ao criar instâncias de um aplicativo nomeado no Service Fabric, você tem a opção de passar parâmetros. A maneira de fazer isso depende de como você cria a instância do aplicativo.
 
-  - No PowerShell, [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) o cmdlet toma os parâmetros da aplicação como um hashtable.
-  - Usando sfctl, [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) o comando toma parâmetros como uma seqüência JSON. O script install.sh usa sfctl.
-  - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parâmetros no projeto do aplicativo. Esses arquivos de parâmetros são usados ao publicar no Visual Studio, usando o Azure DevOps Services ou o Azure DevOps Server. No Visual Studio, os arquivos de parâmetro são passados para o script Deploy-FabricApplication.ps1.
+  - No PowerShell, o [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet usa os parâmetros do aplicativo como uma tabela de hash.
+  - Usando sfctl, o [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) comando usa parâmetros como uma cadeia de caracteres JSON. O script install.sh usa sfctl.
+  - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parâmetros no projeto do aplicativo. Esses arquivos de parâmetro são usados durante a publicação do Visual Studio, usando Azure DevOps Services ou Azure DevOps Server. No Visual Studio, os arquivos de parâmetro são passados para o script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Próximas etapas
 Os artigos a seguir mostram como usar alguns dos conceitos descritos aqui:

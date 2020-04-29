@@ -1,5 +1,5 @@
 ---
-title: Série Av2 - Azure Virtual Machines
+title: Série Av2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Av2.
 services: virtual-machines
 author: migerdes
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163940"
 ---
 # <a name="av2-series"></a>Série Av2
 
-As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. As VMs da série Av2 têm as configurações de desempenho e memória da CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. O tamanho é acelerado para oferecer desempenho consistente do processador para a instância de execução, independentemente do hardware em que ele é implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual. Alguns casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores web de baixo tráfego, bancos de dados pequenos a médios, prova de conceitos e repositórios de código.
+As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware e processadores. As VMs da série Av2 têm configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada, como desenvolvimento e teste. O tamanho é limitado para oferecer desempenho de processador consistente para a instância em execução, independentemente do hardware no qual ele está implantado. Para determinar o hardware físico no qual esse tamanho é implantado, consulte o hardware virtual de dentro da Máquina Virtual. Alguns casos de uso de exemplo incluem servidores de desenvolvimento e teste, servidores Web de tráfego baixo, bancos de dados pequenos a médios, prova de conceitos e repositórios de código.
 
 ACU: 100
 
 Armazenamento Premium: sem suporte
 
-Cache de armazenamento premium: não suportado
+Armazenamento em cache Premium: sem suporte
 
-Migração ao vivo: Suportado
+Migração ao Vivo: com suporte
 
-Atualizações de preservação de memória: suportado
+Atualizações de preservação de memória: com suporte
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Throughput de armazenamento temporário máximo: IOPS/Read MBps/Write MBps | Discos de dados máximos/throughput: IOPS | Máxima NICs/Largura de banda de rede esperada (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2/250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2/500  |
@@ -44,7 +44,7 @@ Atualizações de preservação de memória: suportado
 
 - [Propósito geral](sizes-general.md)
 - [Memória otimizada](sizes-memory.md)
-- [Otimizado para armazenamento](sizes-storage.md)
+- [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)

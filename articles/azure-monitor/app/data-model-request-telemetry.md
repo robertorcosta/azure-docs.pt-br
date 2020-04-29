@@ -1,14 +1,14 @@
 ---
-title: Modelo de dados para telemetria de solicitação - Azure Application Insights
+title: Modelo de dados para telemetria de solicitação-Aplicativo Azure insights
 description: Modelo de dados do Application Insights para telemetria de solicitações
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671895"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
@@ -17,11 +17,11 @@ Um item de telemetria de solicitação (em [Application Insights](../../azure-mo
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 O nome da solicitação representa o caminho de código necessário para processar a solicitação. Valor de baixa cardinalidade para permitir melhor agrupamento de solicitações. Para solicitações HTTP, ele representa o método HTTP e o modelo do caminho de URL como `GET /values/{id}` sem um valor real de `id`.
 
-O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleta de nomes de solicitação por ASP.NET Web SDK no post do [blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleção de nomes de solicitação pelo SDK da Web do ASP.NET na [postagem do blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Comprimento máximo: 1.024 caracteres
 
@@ -53,7 +53,7 @@ Resultado de uma execução de solicitação. Código de status HTTP para solici
 
 Comprimento máximo: 1.024 caracteres
 
-## <a name="success"></a>Sucesso
+## <a name="success"></a>Êxito
 
 Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, uma solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
 

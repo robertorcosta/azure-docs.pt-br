@@ -11,13 +11,13 @@ ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: d8dde76753e58c713763c16230e5461fef43be88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067343"
 ---
-# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerencie piscinas elásticas no banco de dados SQL do Azure
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerenciar Pools elásticos no banco de dados SQL do Azure
 
 Com um pool elástico, você pode determinar a quantidade de recursos que o pool elástico requer para lidar com a carga de trabalho de seus bancos de dados e a quantidade de recursos para cada banco de dados em pool.
 
@@ -39,7 +39,7 @@ A partir deste ponto, é possível fazer qualquer combinação das alterações 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados em pool com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerenciar os servidores do Banco de Dados SQL para um pool elástico, confira [Criar e gerenciar servidores do Banco de Dados SQL](sql-database-servers.md). Para criar e gerenciar regras de firewall, consulte [criar e gerenciar regras de firewall usando o PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
@@ -101,17 +101,17 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados 
 
 | Comando | Descrição |
 | --- | --- |
-|[Piscinas elásticas - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
+|[Pools elásticos – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria um novo pool elástico ou atualiza um pool elástico existente.|
 |[Pools elásticos – Excluir](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Excluir o pool elástico.|
 |[Pools elásticos – Obter](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtém um pool elástico.|
-|[Piscinas elásticas - Lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
-|[Piscinas elásticas - Atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Atualiza um pool elástico existente.|
-|[Atividades de piscina elástica](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
-|[Atividades de banco de dados de pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retorna as atividades nos bancos de dados dentro de um pool elástico.|
-|[Bancos de dados - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
+|[Pools elásticos – listar por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Retorna uma lista de pools elásticos em um servidor.|
+|[Pools elásticos – atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Atualiza um pool elástico existente.|
+|[Atividades do pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retorna as atividades do pool elástico.|
+|[Atividades de banco de dados do pool elástico](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retorna as atividades nos bancos de dados dentro de um pool elástico.|
+|[Bancos de dados – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém um banco de dados.|
 |[Bancos de dados – listar por pool elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[Bancos de dados - Lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
+|[Bancos de dados-listar por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
 |[Bancos de Dados – Atualizar](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
 
 ## <a name="next-steps"></a>Próximas etapas

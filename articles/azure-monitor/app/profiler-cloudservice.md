@@ -7,27 +7,27 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671657"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Criar o perfil de Serviços de Nuvem do Azure ativos com o Application Insights
 
 Você também pode implantar o Application Insights Profiler nesses serviços:
-* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicativos do Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Application Insights Profiler é instalado com a extensão de Diagnóstico do Azure. Você só precisa configurar o Diagnóstico do Azure para instalar o Profiler e enviar perfis para o recurso Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Habilitar o Profiler para os Serviços de Nuvem do Azure
-1. Verifique se você está usando [o .NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais novo. Se você estiver usando a família OS 4, você precisará instalar o .NET Framework 4.6.1 ou mais novo com uma [tarefa de inicialização.](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet) O OS Family 5 inclui uma versão compatível do .NET Framework por padrão. 
+1. Verifique se você está usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais recente. Se estiver usando a família de sistemas operacionais 4, você precisará instalar .NET Framework 4.6.1 ou mais recente com uma [tarefa de inicialização](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). A família 5 do so inclui uma versão compatível do .NET Framework por padrão. 
 
 1. Adicione o [SDK do Application Insights aos Serviços de Nuvem do Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-    **O bug no profiler que navega no WAD for Cloud Services foi corrigido.** A versão mais recente do WAD (1.12.2.0) para Cloud Services funciona com todas as versões recentes do App Insights SDK. Os hosts do Cloud Service atualizarão o WAD automaticamente, mas não é imediato. Para forçar um upgrade, você pode reimplantar seu serviço ou reiniciar o nó.
+    **O bug no criador de perfil que acompanha o WAD para serviços de nuvem foi corrigido.** A versão mais recente do WAD (1.12.2.0) para serviços de nuvem funciona com todas as versões recentes do SDK do App insights. Os hosts do serviço de nuvem atualizarão automaticamente o WAD, mas não será imediato. Para forçar uma atualização, você pode reimplantar o serviço ou reinicializar o nó.
 
 1. Acompanhe as solicitações com o Application Insights:
 
@@ -35,7 +35,7 @@ O Application Insights Profiler é instalado com a extensão de Diagnóstico do 
 
     * Funções de trabalho, [adicione código para acompanhar as solicitações.](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)
 
-1. Configure a extensão Azure Diagnostics para ativar o Profiler:
+1. Configure a extensão de Diagnóstico do Azure para habilitar o Profiler:
 
     a. Localize o arquivo [diagnostics.wadcfgx do ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *Diagnóstico do Azure* para sua função de aplicativo, como mostrado aqui:  
 

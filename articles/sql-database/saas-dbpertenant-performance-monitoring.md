@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativo Saas: Monitore o desempenho de muitas bases de dados'
+title: 'Aplicativo SaaS: monitorar o desempenho de vários bancos de dados'
 description: Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214459"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS
@@ -52,15 +52,15 @@ Os pools e os bancos de dados nos pools, devem ser monitorados para garantir que
 * Para evitar precisar monitorar o desempenho manualmente, é mais eficaz **definir alertas que são disparados quando os bancos de dados ou os pools se desviam dos intervalos normais**.
 * Para responder às flutuações de curto prazo no tamanho da computação agregado de um pool, o **nível de eDTU do pool pode ser aumentado ou reduzido**. Se esse flutuação ocorre de maneira regular ou previsível, **o dimensionamento do pool pode ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
 * Para responder a flutuações de longo prazo ou alterações no número de bancos de dados, **os bancos de dados individuais podem ser movidos para outros pools**.
-* Para responder a aumentos de curto prazo na carga de um banco de dados *individual*, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um tamanho da computação individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preventivamente para garantir que o banco de dados tenha sempre os recursos necessários e para evitar impacto em outras bases de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
+* Para responder a aumentos de curto prazo na carga de um banco de dados *individual*, **bancos de dados individuais podem ser retirados de um pool e serem atribuídos a um tamanho da computação individual**. Depois que a carga for reduzida, o banco de dados poderá ser retornado ao pool. Quando isso é conhecido com antecedência, os bancos de dados podem ser movidos preemptivamente para garantir que o banco de dados sempre tenha os recursos de que precisa e para evitar o impacto em outros bancos de dados no pool. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são muito convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume, onde você está trabalhando com muitos recursos, [os logs do Monitor Do Azure](saas-dbpertenant-log-analytics.md) podem ser usados. Este é um serviço separado do Azure que fornece análises sobre logs emitidos reunidos em um espaço de trabalho do Log Analytics. Os logs do Monitor do Azure podem coletar telemetria de muitos serviços e serem usados para consultar e definir alertas.
+Para cenários de alto volume, nos quais você está trabalhando com muitos recursos, [Azure monitor logs](saas-dbpertenant-log-analytics.md) podem ser usados. Esse é um serviço do Azure separado que fornece análise sobre logs emitidos coletados em um espaço de trabalho Log Analytics. Os logs de Azure Monitor podem coletar telemetria de vários serviços e serem usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts de banco de dados multi-inquilino saas de tickets e o código-fonte do aplicativo estão disponíveis no repo [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Provisionar locatários adicionais
 
@@ -69,12 +69,12 @@ Embora os pools possam ser econômicos com apenas dois bancos de dados S3, quant
 Se você já provisionou um lote de locatários em um tutorial anterior, vá para a seção [Simular o uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases).
 
 1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
-1. Definir **$DemoScenario** = **1**, **Provisão de um lote de inquilinos**
+1. Definir **$DemoScenario** = **1**, **provisionar um lote de locatários**
 1. Pressione **F5** para executar o script.
 
 O script implantará 17 locatários em menos de cinco minutos.
 
-O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [Resource Manager](../azure-resource-manager/index.yml) que cria um lote de locatários, que, por padrão, copia o banco de dados **basetenantdb** no servidor de catálogo para criar os novos bancos de dados de locatário. Em seguida, ele os registra no catálogo e, por fim, inicializa-os com o nome de locatário e o tipo de local. Isso é consistente com a maneira como o aplicativo WTP provisiona um locatário novo. Quaisquer alterações feitas no *basetenantdb* são aplicadas a quaisquer novos inquilinos provisionados posteriormente. Consulte o [tutorial Gerenciamento do Esquema](saas-tenancy-schema-management.md) para saber como fazer alterações de esquema em bancos de dados de locatário *existentes* (incluindo o banco de dados *basetenantdb*).
+O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [Resource Manager](../azure-resource-manager/index.yml) que cria um lote de locatários, que, por padrão, copia o banco de dados **basetenantdb** no servidor de catálogo para criar os novos bancos de dados de locatário. Em seguida, ele os registra no catálogo e, por fim, inicializa-os com o nome de locatário e o tipo de local. Isso é consistente com a maneira como o aplicativo WTP provisiona um locatário novo. As alterações feitas em *basetenantdb* são aplicadas a todos os novos locatários provisionados posteriormente. Consulte o [tutorial Gerenciamento do Esquema](saas-tenancy-schema-management.md) para saber como fazer alterações de esquema em bancos de dados de locatário *existentes* (incluindo o banco de dados *basetenantdb*).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simular o uso em todos os bancos de dados de locatário
 
@@ -84,14 +84,14 @@ O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [
 |:--|:--|
 | 2 | Gerar carga de intensidade normal (aproximadamente 40 DTU) |
 | 3 | Gerar carga com picos mais longos e mais frequentes por banco de dados|
-| 4 | Gerar carga com rajadas dtu mais altas por banco de dados (aproximadamente 80 DTU)|
-| 5 | Gerar uma carga normal mais uma carga alta em um único inquilino (aproximadamente 95 DTU)|
+| 4 | Gerar carga com intermitências de DTU mais altas por banco de dados (aproximadamente 80 DTU)|
+| 5 | Gerar uma carga normal mais uma carga alta em um único locatário (aproximadamente 95 DTU)|
 | 6 | Gerar carga desbalanceada entre vários pools|
 
 O gerador de carga aplica uma carga *sintética* somente da CPU em cada banco de dados de locatário. O gerador inicia um trabalho para cada banco de dados de locatário, que chama um procedimento armazenado que gera a carga periodicamente. Os níveis de carga (em eDTUs), a duração e os intervalos variam em todos os bancos de dados, simulando uma atividade de locatário imprevisível.
 
 1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
-1. Definir **$DemoScenario** = **2**, Gerar carga de *intensidade normal*.
+1. Defina **$DemoScenario** = **2**, *gerar carga de intensidade normal*.
 1. Pressione **F5** para aplicar uma carga em todos os seus bancos de dados de locatário.
 
 O aplicativo de banco de dados multilocatário SaaS Wingtip Tickets é um aplicativo SaaS, e a carga real em um aplicativo SaaS normalmente é esporádica e imprevisível. Para simular isso, o gerador de carga gera uma carga aleatória distribuída entre todos os locatários. São necessários vários minutos para que o padrão de carga surja. Portanto execute o gerador de carga durante 3 a 5 minutos antes de tentar monitorar a carga nas próximas seções.
@@ -147,7 +147,7 @@ A **longo prazo**, considere a possibilidade de otimizar o uso de consultas ou d
 
 Você pode simular um pool ocupado aumentando a carga produzida pelo gerador. Fazendo com que os bancos de dados fiquem intermitentes com mais frequência e por mais tempo, aumentando a carga agregada no pool sem alterar os requisitos dos bancos de dados individuais. O portal ou o PowerShell podem ser usados para escalar verticalmente o pool facilmente. Este exercício usa o portal.
 
-1. Definir *$DemoScenario* = **3**, Gerar carga _com rajadas mais longas e mais freqüentes por banco_ de dados para aumentar a intensidade da carga agregada no pool sem alterar a carga máxima exigida por cada banco de dados.
+1. Defina *$DemoScenario* = **3**, _gerar carga com intermitências mais longas e mais frequentes por banco de dados_ para aumentar a intensidade da carga agregada no pool sem alterar a carga de pico exigida por cada banco de dados.
 1. Pressione **F5** para aplicar uma carga em todos os seus bancos de dados de locatário.
 
 1. Acesse **Pool1** no Portal do Azure.
@@ -158,7 +158,7 @@ Monitore o aumento no uso de eDTUs do pool no gráfico superior. São necessári
 1. Ajuste a configuração **eDTU do Pool** para **100**. Alterar o eDTU do pool não altera as configurações por banco de dados (que ainda é, no máximo, de 50 eDTU por banco de dados). Veja as configurações por banco de dados no lado direito da página **Configurar pool**.
 1. Clique em **Salvar** para enviar a solicitação para dimensionar o pool.
 
-Volte ao **Pool1** > **Overview** para visualizar os gráficos de monitoramento. Monitore o efeito do fornecimento de mais recursos ao pool (embora com poucos bancos de dados e uma carga aleatória não seja sempre fácil observar conclusivamente, até a execução durante um período). Enquanto estiver examinando os gráficos lembre-se que 100% no gráfico superior agora representa 100 eDTUs, enquanto que no gráfico inferior, 100% ainda representa 50 eDTUs, pois o máximo por banco de dados ainda é de 50 eDTUs.
+Volte para **Pool1** > **visão geral** para exibir os gráficos de monitoramento. Monitore o efeito do fornecimento de mais recursos ao pool (embora com poucos bancos de dados e uma carga aleatória não seja sempre fácil observar conclusivamente, até a execução durante um período). Enquanto estiver examinando os gráficos lembre-se que 100% no gráfico superior agora representa 100 eDTUs, enquanto que no gráfico inferior, 100% ainda representa 50 eDTUs, pois o máximo por banco de dados ainda é de 50 eDTUs.
 
 Os bancos de dados permanecem online e totalmente disponíveis durante todo o processo. No último momento, como cada banco de dados está pronto para ser habilitado com a nova eDTU de pool, as conexões ativas serão interrompidas. O código do aplicativo sempre deve ser escrito para repetir conexões interrompidas e, assim, ser reconectado ao banco de dados no pool escalonado verticalmente.
 
@@ -195,7 +195,7 @@ Se um banco de dados individual em um pool apresentar uma alta carga constante, 
 Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta carga quando os ingressos de um concerto popular são disponibilizados para a venda.
 
 1. No **PowerShell ISE**, abra o script \\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Definir **$DemoScenario = 5, Gerar uma carga normal mais uma carga alta em um único inquilino (aproximadamente 95 DTU).**
+1. Defina **$DemoScenario = 5, gerar uma carga normal mais uma carga alta em um único locatário (aproximadamente 95 DTU).**
 1. Defina **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute o script usando **F5**.
 
@@ -218,7 +218,7 @@ Depois que a carga alta no banco de dados contosoconcerthall diminuir, você dev
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gerenciamento de desempenho
 
-**Dimensionamento preemptivo** No exercício acima, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se a administração da Contoso Concert Hall tivesse informado wingtips da iminente venda de ingressos, o banco de dados poderia ter sido removido da piscina preventivamente. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
+**Dimensionamento preemptivo** No exercício acima, em que você explorou como dimensionar um banco de dados isolado, você sabia qual banco de dados procurar. Se o gerenciamento da Contoso Concert Hall tiver informado wingtips da venda de tíquete iminente, o banco de dados poderia ter sido movido para fora do pool de forma preventiva. Caso contrário, ele provavelmente exigiria um alerta no pool ou no banco de dados para observar o que estava acontecendo. Você não gostaria de saber sobre isso por meio dos outros locatários do pool reclamando a respeito de degradação do desempenho. E se o locatário puder prever quanto tempo ele precisará de recursos adicionais você poderá configurar um runbook de Automação do Azure para mover o banco de dados para fora do pool e, em seguida, retorná-lo em um agendamento definido.
 
 **Dimensionamento de autoatendimento de locatário** Como o dimensionamento é uma tarefa facilmente chamada por meio da API de gerenciamento, você pode criar a capacidade de dimensionar bancos de dados de locatário em seu aplicativo voltado para o locatário e oferecê-lo como um recurso do seu serviço SaaS. Por exemplo, permita que os locatários autoadministrem o escalonamento e a redução vertical, talvez vinculado diretamente à cobrança deles!
 
@@ -245,5 +245,5 @@ Neste tutorial, você aprenderá a:
 
 * [Tutoriais que compilam a implantação do aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) adicionais
 * [Pools elásticos do SQL](sql-database-elastic-pool.md)
-* [Automação azure](../automation/automation-intro.md)
-* [Logs do Monitor do Azure](saas-dbpertenant-log-analytics.md) - Configuração e uso do tutorial de logs do Monitor do Azure
+* [Automação do Azure](../automation/automation-intro.md)
+* [Azure monitor logs](saas-dbpertenant-log-analytics.md) -Configurando e usando o tutorial de logs de Azure monitor

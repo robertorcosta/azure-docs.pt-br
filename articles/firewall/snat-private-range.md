@@ -1,6 +1,6 @@
 ---
-title: Azure Firewall SNAT faixas de endereços IP privados
-description: Você pode configurar faixas privadas de endereço IP para que o firewall não seja tráfego SNAT para esses endereços IP.
+title: Intervalos de endereços IP privados de SNAT do firewall do Azure
+description: Você pode configurar intervalos privados de endereço IP para que o firewall não SNAT o tráfego para esses endereços IP.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.author: victorh
 ms.openlocfilehash: ed8cef00b7de67458c607373c724a3717f14a7cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064806"
 ---
-# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure Firewall SNAT faixas de endereços IP privados
+# <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalos de endereços IP privados de SNAT do firewall do Azure
 
-O Azure Firewall não snat com regras de rede quando o endereço IP de destino está em uma faixa de endereço IP privada por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). As regras do aplicativo são sempre aplicadas usando um [proxy transparente,](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) independentemente do endereço IP de destino.
+O Firewall do Azure não SNAT com regras de rede quando o endereço IP de destino está em um intervalo de endereços IP privado por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). As regras de aplicativo sempre são aplicadas usando um [proxy transparente](https://wikipedia.org/wiki/Proxy_server#Transparent_proxy) , independentemente do endereço IP de destino.
 
-Se sua organização usar um intervalo de endereçoIP público para redes privadas, o Azure Firewall SNATs será o tráfego para um dos endereços IP privados de firewall no AzureFirewallSubnet. No entanto, você pode configurar o Firewall Azure para **não** SNAT sua faixa pública de endereçoIP.
+Se sua organização usa um intervalo de endereços IP públicos para redes privadas, o Firewall do Azure SNATs o tráfego para um dos endereços IP privados do firewall em AzureFirewallSubnet. No entanto, você pode configurar o Firewall do Azure para **não** SNAT de seu intervalo de endereços IP públicos.
 
-## <a name="configure-snat-private-ip-address-ranges"></a>Configurar faixas de endereço IP privado SNAT
+## <a name="configure-snat-private-ip-address-ranges"></a>Configurar intervalos de endereços IP privados SNAT
 
-Você pode usar o Azure PowerShell para especificar um intervalo de endereçoIP que o firewall não snat.
+Você pode usar Azure PowerShell para especificar um intervalo de endereços IP que o firewall não irá SNAT.
 
 ### <a name="new-firewall"></a>Novo firewall
 
@@ -31,13 +31,13 @@ Para um novo firewall, o comando Azure PowerShell é:
 `New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
 
 > [!NOTE]
-> O IANAPrivateRanges é expandido para os padrões atuais no Azure Firewall, enquanto as outras faixas são adicionadas a ele.
+> O IANAPrivateRanges é expandido para os padrões atuais no firewall do Azure, enquanto os outros intervalos são adicionados a ele.
 
 Para obter mais informações, consulte [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
 ### <a name="existing-firewall"></a>Firewall existente
 
-Para configurar um firewall existente, use os seguintes comandos do Azure PowerShell:
+Para configurar um firewall existente, use os seguintes comandos de Azure PowerShell:
 
 ```azurepowershell
 $azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
@@ -47,7 +47,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ### <a name="templates"></a>Modelos
 
-Você pode adicionar o `additionalProperties` seguinte à seção:
+Você pode adicionar o seguinte à `additionalProperties` seção:
 
 ```
 "additionalProperties": {

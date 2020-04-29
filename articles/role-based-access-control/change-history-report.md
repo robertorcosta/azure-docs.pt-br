@@ -1,6 +1,6 @@
 ---
-title: Exibir registros de atividades para alterações do Azure RBAC
-description: Exibir registros de atividades para o controle de acesso baseado em função do Azure (Azure RBAC) alterações nos recursos do Azure nos últimos 90 dias.
+title: Exibir logs de atividade para alterações do RBAC do Azure
+description: Exibir logs de atividade para o controle de acesso baseado em função (RBAC do Azure) para recursos do Azure nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,19 +16,19 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2024bd14241184338195ed635039bae774da816
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78161748"
 ---
-# <a name="view-activity-logs-for-azure-rbac-changes"></a>Exibir registros de atividades para alterações do Azure RBAC
+# <a name="view-activity-logs-for-azure-rbac-changes"></a>Exibir logs de atividade para alterações do RBAC do Azure
 
-Às vezes, você precisa de informações sobre as alterações do Controle de acesso baseado em função do Azure (Azure RBAC), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações nas atribuições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md). Você pode visualizar os registros de atividades para ver todas as alterações do Azure RBAC nos últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações do Azure RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém fizer alterações nas atribuições de função ou definições de função em suas assinaturas, as alterações serão registradas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações do RBAC do Azure nos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações registradas em log
 
-Aqui estão as operações relacionadas ao RBAC do Azure que estão lognadas no Registro de atividades:
+Aqui estão as operações relacionadas ao RBAC do Azure que são registradas no log de atividades:
 
 - Criar atribuição de função
 - Excluir atribuição de função
@@ -37,18 +37,18 @@ Aqui estão as operações relacionadas ao RBAC do Azure que estão lognadas no 
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-A maneira mais fácil para começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de operações de atribuição de função no registro de atividades. Ele também inclui uma opção para baixar os logs como um arquivo CSV.
+A maneira mais fácil para começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de operações de atribuição de função no log de atividades. Ele também inclui uma opção para baixar os logs como um arquivo CSV.
 
 ![Logs de atividade usando o portal – captura de tela](./media/change-history-report/activity-log-portal.png)
 
-O log de atividades no portal tem vários filtros. Aqui estão os filtros relacionados ao Azure RBAC:
+O log de atividades no portal tem vários filtros. Aqui estão os filtros relacionados ao RBAC do Azure:
 
 | Filtrar | Valor |
 | --------- | --------- |
 | Categoria de evento | <ul><li>Administrativo</li></ul> |
 | Operação | <ul><li>Criar atribuição de função</li><li>Excluir atribuição de função</li><li>Criar ou atualizar definição de função personalizada</li><li>Excluir definição de função personalizada</li></ul> |
 
-Para obter mais informações sobre registros de atividades, consulte [Exibir registros de atividades para monitorar ações sobre recursos](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Para obter mais informações sobre logs de atividade, consulte [Exibir logs de atividades para monitorar ações em recursos](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -95,13 +95,13 @@ Properties              :
 
 Para exibir logs de atividade com a CLI do Azure, use o comando [lista de log de atividades do monitor az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
-Este comando lista os logs de atividade em um grupo de recursos a partir de 27 de fevereiro, olhando para a frente sete dias:
+Esse comando lista os logs de atividade em um grupo de recursos de 27 de fevereiro, olhando sete dias para frente:
 
 ```azurecli
 az monitor activity-log list --resource-group pharma-sales --start-time 2020-02-27 --offset 7d
 ```
 
-Este comando lista os registros de atividades para o provedor de recursos Autorização a partir de 27 de fevereiro, olhando para a frente sete dias:
+Este comando lista os logs de atividade do provedor de recursos de autorização de 27 de fevereiro, olhando sete dias para frente:
 
 ```azurecli
 az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 2020-02-27 --offset 7d
@@ -109,7 +109,7 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 ## <a name="azure-monitor-logs"></a>Logs do Azure Monitor
 
-[Os logs do Azure Monitor](../log-analytics/log-analytics-overview.md) são outra ferramenta que você pode usar para coletar e analisar as alterações do Azure RBAC para todos os seus recursos do Azure. Os registros do Monitor do Azure têm os seguintes benefícios:
+[Os logs de Azure monitor](../log-analytics/log-analytics-overview.md) é outra ferramenta que você pode usar para coletar e analisar as alterações do RBAC do Azure para todos os seus recursos do Azure. Os logs de Azure Monitor têm os seguintes benefícios:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, Power BI e outras ferramentas
@@ -118,15 +118,15 @@ az monitor activity-log list --namespace "Microsoft.Authorization" --start-time 
 
 Aqui estão as etapas básicas para começar:
 
-1. [Crie um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+1. [Crie um espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Configurar a solução Análise do Log de Atividades](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) para seu workspace.
 
-1. [Exibir os logs de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma maneira rápida de navegar até a página Visão geral da solução Activity Log Analytics é clicar na opção **Logs.**
+1. [Exibir os logs de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma maneira rápida de navegar até a página de visão geral da solução Análise do Log de Atividades é clicar na opção **logs** .
 
-   ![Opção de logs do Azure Monitor no portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Opção de logs de Azure Monitor no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcionalmente, use o [Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar e visualizar os logs. Para obter mais informações, consulte [Iniciar com consultas de log do Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+1. Opcionalmente, use o [Azure Monitor log Analytics](../azure-monitor/log-query/get-started-portal.md) para consultar e exibir os logs. Para obter mais informações, consulte Introdução [às consultas de log de Azure monitor](../azure-monitor/log-query/get-started-queries.md).
 
 Aqui está uma consulta que retorna novas atribuições de função organizadas por provedor de recursos de destino:
 

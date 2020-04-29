@@ -1,6 +1,6 @@
 ---
-title: Parceiros e locais de WAN virtuais do Azure | Microsoft Docs
-description: Este artigo contém uma lista de parceiros WAN virtuais do Azure e localizações do hub.
+title: Parceiros e locais de WAN virtual do Azure | Microsoft Docs
+description: Este artigo contém uma lista de parceiros de WAN virtual do Azure e locais de Hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,17 +9,17 @@ ms.date: 02/12/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ms.openlocfilehash: 3976f4114df6222d34f19e2bb44fd05d53057321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123278"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros WAN Virtual e localizações de hub virtual
 
-Este artigo fornece informações sobre regiões e parceiros suportados pela WAN virtual para conectividade no Virtual Hub.
+Este artigo fornece informações sobre regiões e parceiros virtuais com suporte da WAN para conectividade com o Hub virtual.
 
-A WAN Virtual do Azure é um serviço de rede que fornece conectividade otimizada e automatizada entre branches por meio do Azure. A WAN Virtual permite que você conecte e configure dispositivos de branch para se comunicar com o Azure. Isso pode ser feito manualmente ou usando dispositivos do provedor através de um parceiro WAN virtual. O uso de dispositivos parceiros permite facilidade de uso, simplificação da conectividade e gerenciamento de configuração.
+A WAN Virtual do Azure é um serviço de rede que fornece conectividade otimizada e automatizada entre branches por meio do Azure. A WAN Virtual permite que você conecte e configure dispositivos de branch para se comunicar com o Azure. Isso pode ser feito manualmente ou usando dispositivos de provedor por meio de um parceiro de WAN virtual. O uso de dispositivos de parceiros permite facilitar o uso, simplificar a conectividade e o gerenciamento de configuração.
 
 A conectividade do dispositivo local é estabelecida em uma forma automatizada para o Hub Virtual. Um hub virtual é uma rede virtual gerenciada pela Microsoft. O hub contém vários pontos de extremidade de serviço para habilitar a conectividade de sua rede local (vpnsite). Você só pode ter um hub por região.
 
@@ -34,13 +34,13 @@ A automação de alto nível seguinte é configurada no centro de gerenciamento/
 * Download automático de informações de conectividade do Azure
 * Configuração de dispositivo de branch local 
 
-Alguns parceiros de conectividade podem estender a automação para incluir a criação do Gateway de VPN e VNet do Hub Virtual do Azure. Se você quiser saber mais sobre automação, consulte [as diretrizes de automação para parceiros de WAN virtuais.](virtual-wan-configure-automation-providers.md)
+Alguns parceiros de conectividade podem estender a automação para incluir a criação do Gateway de VPN e VNet do Hub Virtual do Azure. Se você quiser saber mais sobre a automação, consulte [diretrizes de automação para parceiros de WAN virtual](virtual-wan-configure-automation-providers.md).
 
-## <a name="connectivity-through-partners"></a><a name="partners"></a>Conectividade através de parceiros
+## <a name="connectivity-through-partners"></a><a name="partners"></a>Conectividade por meio de parceiros
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Os seguintes parceiros estão programados em nosso roteiro para um futuro próximo: 128 Tecnologias, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink e VMWare Velocloud.
+Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink e VMWare Velocloud.
 
 ## <a name="locations"></a><a name="locations"></a>Localizações
 
@@ -50,4 +50,4 @@ Os seguintes parceiros estão programados em nosso roteiro para um futuro próxi
 
 * Para obter mais informações sobre a WAN Virtual, consulte as [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md).
 
-* Para obter mais informações sobre como automatizar a conectividade com o Azure Virtual WAN, consulte [as diretrizes de automação para parceiros WAN virtuais](virtual-wan-configure-automation-providers.md).
+* Para obter mais informações sobre como automatizar a conectividade com a WAN virtual do Azure, consulte [diretrizes de automação para parceiros de WAN virtual](virtual-wan-configure-automation-providers.md).

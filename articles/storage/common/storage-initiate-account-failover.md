@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 0c619224201d6225d5e5c127b342f71f2f7fced9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535345"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
@@ -29,9 +29,9 @@ Este artigo mostra como iniciar um failover de conta para sua conta de armazenam
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de executar um failover de conta em sua conta de armazenamento, certifique-se de que você realizou a seguinte etapa:
+Antes de executar um failover de conta em sua conta de armazenamento, verifique se você executou a seguinte etapa:
 
-- Verifique se a conta de armazenamento está configurada para usar GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Para obter mais informações sobre armazenamento geo-redundante, consulte [a redundância do Azure Storage](storage-redundancy.md).
+- Verifique se a conta de armazenamento está configurada para usar GRS (armazenamento com redundância geográfica) ou RA-GRS (armazenamento com redundância geográfica com acesso de leitura). Para obter mais informações sobre o armazenamento com redundância geográfica, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Implicações importantes de failover da conta
 
@@ -59,14 +59,14 @@ Para iniciar um failover da conta do portal do Azure, siga estas etapas:
 
     ![Caixa de diálogo de confirmação de que mostra a captura de tela de um failover de conta](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para usar o PowerShell para iniciar um failover de conta, você deve primeiro instalar o módulo de versão prévia 6.0.1. Para instalar o módulo, siga estas etapas:
 
 1. Desinstale as instalações anteriores do Azure PowerShell:
 
     - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
-    - Remova todos os módulos `%Program Files%\WindowsPowerShell\Modules` **Azure** de .
+    - Remova todos **Azure** os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
 
 1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
 
@@ -82,7 +82,7 @@ Para usar o PowerShell para iniciar um failover de conta, você deve primeiro in
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instale um módulo de visualização do Azure Storage que suporte o failover da conta:
+1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte ao failover de conta:
 
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
@@ -96,7 +96,7 @@ Para iniciar um failover de conta do PowerShell, execute o seguinte comando:
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para usar a CLI do Azure para iniciar um failover de conta, execute os seguintes comandos:
 
@@ -110,5 +110,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Recuperação de desastre e failover de conta (versão prévia) no Armazenamento do Azure](storage-disaster-recovery-guidance.md)
-- [Projetando aplicativos altamente disponíveis usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: Construa um aplicativo altamente disponível com armazenamento Blob](../blobs/storage-create-geo-redundant-storage.md) 
+- [Criando aplicativos altamente disponíveis usando o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 

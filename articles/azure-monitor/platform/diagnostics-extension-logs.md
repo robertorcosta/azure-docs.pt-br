@@ -1,28 +1,28 @@
 ---
-title: Use o armazenamento blob para IIS e armazenamento de mesa para eventos no Monitor Azure | Microsoft Docs
-description: O Azure Monitor pode ler os registros dos serviços do Azure que escrevem diagnósticos em registros de armazenamento de tabelaou IIS gravados para armazenamento blob.
+title: Usar o armazenamento de BLOB para o IIS e o armazenamento de tabelas para eventos no Azure Monitor | Microsoft Docs
+description: Azure Monitor pode ler os logs dos serviços do Azure que gravam diagnósticos em armazenamento de tabela ou logs do IIS gravados no armazenamento de BLOBs.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672388"
 ---
-# <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico sinuoso do Azure para o Azure Monitor Logs
-A extensão de diagnóstico do Azure é um [agente no Azure Monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado de recursos computacionais do Azure, incluindo máquinas virtuais. Este artigo descreve como coletar dados coletados pela extensão de diagnóstico do Azure Storage para o Azure Monitor Logs.
+# <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico do Azure para logs de Azure Monitor
+A extensão de diagnóstico do Azure é um [agente no Azure monitor](agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado dos recursos de computação do Azure, incluindo máquinas virtuais. Este artigo descreve como coletar dados coletados pela extensão de diagnóstico do armazenamento do Azure para Azure Monitor logs.
 
 > [!NOTE]
-> O agente Log Analytics no Azure Monitor é tipicamente o método preferido para coletar dados do sistema operacional convidado no Azure Monitor Logs. Consulte [a visão geral dos agentes do Monitor Do Azure](agents-overview.md) para obter uma comparação detalhada dos agentes.
+> O agente de Log Analytics no Azure Monitor normalmente é o método preferencial para coletar dados do sistema operacional convidado em logs de Azure Monitor. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma comparação detalhada dos agentes.
 
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
-A extensão de diagnóstico do Azure armazena dados em uma conta do Azure Storage. Para que o Azure Monitor Logs colete esses dados, ele deve estar nos seguintes locais:
+A extensão de diagnóstico do Azure armazena dados em uma conta de armazenamento do Azure. Para que os logs de Azure Monitor coletem esses dados, eles devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Location |
+| Tipo de Log | Tipo de recurso | Local |
 | --- | --- | --- |
 | Logs IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
 | syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
@@ -32,32 +32,32 @@ A extensão de diagnóstico do Azure armazena dados em uma conta do Azure Storag
 | Logs de Eventos do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (Armazenamento de Tabelas) |
 | Logs do ETW do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (Armazenamento de Tabelas) |
 
-## <a name="data-types-not-supported"></a>Tipos de dados não suportados
+## <a name="data-types-not-supported"></a>Tipos de dados sem suporte
 
 - Dados de desempenho do sistema operacional convidado
-- Logs iIS de sites do Azure
+- Logs do IIS de sites do Azure
 
 
-## <a name="enable-azure-diagnostics-extension"></a>Habilite a extensão de diagnósticos do Azure
-Consulte Instalar e configurar a [extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md) ou [usar o Linux Diagnostic Extension para monitorar métricas e registros](../../virtual-machines/extensions/diagnostics-linux.md) para obter detalhes sobre a instalação e configuração da extensão de diagnóstico. Isso permitirá que você especifique a conta de armazenamento e configure a coleta dos dados que deseja encaminhar aos Logs do Monitor do Azure.
+## <a name="enable-azure-diagnostics-extension"></a>Habilitar a extensão de diagnóstico do Azure
+Consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (wad)](diagnostics-extension-windows-install.md) ou [usar a extensão de diagnóstico do Linux para monitorar métricas e logs](../../virtual-machines/extensions/diagnostics-linux.md) para obter detalhes sobre como instalar e configurar a extensão de diagnóstico. Isso irá permitir inatividade-lo a especificar a conta de armazenamento e configurar a coleta dos dados que você deseja encaminhar para Azure Monitor logs.
 
 
-## <a name="collect-logs-from-azure-storage"></a>Coletar logs do Armazenamento Azure
-Use o seguinte procedimento para permitir a coleta de dados de extensão de diagnósticos de uma conta do Azure Storage:
+## <a name="collect-logs-from-azure-storage"></a>Coletar logs do armazenamento do Azure
+Use o procedimento a seguir para habilitar a coleta de dados de extensão de diagnóstico de uma conta de armazenamento do Azure:
 
-1. No portal Azure, vá para **Log Analytics Workspaces** e selecione seu espaço de trabalho.
-1. Clique **em Armazenar contas logs** na seção Fontes de dados do espaço de **trabalho** do menu.
-2. Clique **em Adicionar**.
-3. Selecione a **conta Armazenamento** que contém os dados a serem coletados.
-4. Selecione o **Tipo de dados** que deseja coletar.
-5. O valor para Origem é preenchido automaticamente com base no tipo de dados.
+1. Na portal do Azure, acesse **log Analytics espaços de trabalho** e selecione seu espaço de trabalho.
+1. Clique em **logs de contas de armazenamento** na seção fontes de dados de espaço de **trabalho** do menu.
+2. Clique em **Adicionar**.
+3. Selecione a **conta de armazenamento** que contém os dados a serem coletados.
+4. Selecione o **tipo de dados** que você deseja coletar.
+5. O valor de source é preenchido automaticamente com base no tipo de dados.
 6. Clique em **OK** para salvar a configuração.
-7. Repita para tipos adicionais de dados.
+7. Repita para tipos de dados adicionais.
 
-Em aproximadamente 30 minutos, você pode ver dados da conta de armazenamento no espaço de trabalho do Log Analytics. Você só verá os dados gravados no armazenamento após a configuração ser aplicada. O espaço de trabalho não lê os dados pré-existentes da conta de armazenamento.
+Em aproximadamente 30 minutos, você poderá ver os dados da conta de armazenamento no espaço de trabalho Log Analytics. Você só verá os dados gravados no armazenamento após a configuração ser aplicada. O espaço de trabalho não lê os dados preexistentes da conta de armazenamento.
 
 > [!NOTE]
-> O portal não valida se a fonte existe na conta de armazenamento ou se novos dados estão sendo gravados.
+> O portal não valida se a origem existe na conta de armazenamento ou se novos dados estão sendo gravados.
 
 
 

@@ -8,15 +8,15 @@ ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059378"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
 
-É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste artigo, você cria pools back-end usando [conjuntos de escala de máquinavirtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
+É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste artigo, você cria pools de back-end usando [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
 
 Neste artigo, você aprenderá como:
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este procedimento requer a versão 1.0.0 ou posterior do módulo Azure PowerShell. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, esse procedimento exigirá o Azure PowerShell módulo versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -509,7 +509,7 @@ Altere a URL para http://&lt;ip-address&gt;:8080/video/test.htm, substituindo o 
 
 Agora, altera a URL para http://&lt;ip-address&gt;:8081/images/test.htm, substituindo o endereço IP para &lt;ip-address&gt;, e você deverá ver o tráfego redirecionado de volta para o pool de back-end de imagens no http://&lt;ip-address&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway do aplicativo e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

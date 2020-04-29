@@ -1,5 +1,5 @@
 ---
-title: Obtenha dados de uso da Máquina Virtual do Azure usando a API REST
+title: Obter dados de uso da máquina virtual do Azure usando a API REST
 description: Use as APIs REST do Azure para coletar métricas de utilização para uma Máquina Virtual.
 author: rloutlaw
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944749"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métricas de uso da Máquina Virtual usando a API REST
@@ -29,20 +29,20 @@ Usar a seguinte solicitação GET para coletar a [Métrica de CPU de porcentagem
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
 ```
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Os cabeçalhos a seguir são necessários: 
 
 |Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Obrigatórios. Defina como `application/json`.|  
+|*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
 |*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos do Azure associado ao recurso. É possível obter esse valor na API do Azure Resource Manager, na CLI ou no portal. |
 | vmname | O nome da Máquina Virtual do Azure. |
 | metricnames | Lista separada por vírgulas de [métricas válidas do Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |

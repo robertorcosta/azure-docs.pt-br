@@ -1,5 +1,5 @@
 ---
-title: Migrar VMs para Gerenciador de Recursos usando o Azure CLI
+title: Migrar VMs para o Gerenciador de recursos usando CLI do Azure
 description: Este artigo apresenta a migração de recursos com suporte da plataforma do modelo clássico para o Azure Resource Manager usando a CLI do Azure
 author: tanmaygore
 manager: vashan
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: c41292a05e5c857cd0b1c120784a400f2f5410ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78945349"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% das VMs IaaS estão usando [o Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente aposentadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa depreciação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Hoje, cerca de 90% das VMs de IaaS estão usando [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente desativadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa reprovação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Estas etapas mostram como usar a CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager. O artigo requer a [CLI clássica do Azure](../../cli-install-nodejs.md). Como a CLI do Azure só é aplicável para recursos do Azure Resource Manager, ela não pode ser usada para essa migração.
 
@@ -63,7 +63,7 @@ Selecione a assinatura do Azure usando o seguinte comando.
 > 
 > 
 
-Registre-se no provedor de recursos de migração usando o comando a seguir. Note que, em alguns casos, este comando se esespera. No entanto, o registro será bem sucedido.
+Registre-se no provedor de recursos de migração usando o comando a seguir. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro será bem-sucedido.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 

@@ -1,6 +1,6 @@
 ---
-title: 'WAN virtual: inquilino do Azure AD para diferentes grupos de usuários: autenticação Azure AD'
-description: Você pode usar o P2S VPN para se conectar ao seu VNet usando a autenticação Azure AD
+title: 'WAN virtual: locatário do Azure AD para grupos de usuários diferentes: autenticação do Azure AD'
+description: Você pode usar a VPN P2S para se conectar à sua VNet usando a autenticação do Azure AD
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: alzam
 ms.openlocfilehash: af5ff5817ee9ae7e6d7432fe281ecb440bf25b9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060709"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Crie um inquilino do Azure Active Directory para conexões de protocolo P2S OpenVPN
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário de Azure Active Directory para conexões de protocolo P2S OpenVPN
 
-Ao se conectar ao seu VNet, você pode usar autenticação baseada em certificados ou autenticação RADIUS. No entanto, quando você usa o protocolo Open VPN, você também pode usar a autenticação do Azure Active Directory. Se você quiser que diferentes usuários sejam capazes de se conectar a diferentes gateways, você pode registrar vários aplicativos em AD e vinculá-los a diferentes gateways.
+Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certificado ou a autenticação RADIUS. No entanto, ao usar o protocolo VPN aberto, você também pode usar a autenticação Azure Active Directory. Se desejar que um conjunto diferente de usuários seja capaz de se conectar a diferentes gateways, você poderá registrar vários aplicativos no AD e vinculá-los a diferentes gateways.
 
-Este artigo ajuda você a configurar um inquilino Azure AD para autenticação P2S OpenVPN e criar e registrar vários aplicativos no Azure AD para permitir acesso diferente para diferentes usuários e grupos.
+Este artigo ajuda você a configurar um locatário do Azure AD para autenticação P2S OpenVPN e criar e registrar vários aplicativos no Azure AD para permitir acesso diferente para diferentes usuários e grupos.
 
 > [!NOTE]
-> A autenticação Azure AD é&reg; suportada apenas para conexões de protocolo OpenVPN.
+> A autenticação do Azure AD tem suporte apenas&reg; para conexões de protocolo OpenVPN.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
 
-## <a name="6-create-a-new-p2s-configuration"></a><a name="site"></a>6. Crie uma nova configuração P2S
+## <a name="6-create-a-new-p2s-configuration"></a><a name="site"></a>6. criar uma nova configuração do P2S
 
 Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
@@ -45,11 +45,11 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
    ```
 
    > [!NOTE]
-   > Não use o ID de aplicativo do cliente Azure VPN nos comandos acima: Ele concederá a todos os usuários acesso ao gateway. Use o ID do aplicativo registrado.
+   > Não use a ID do aplicativo do cliente de VPN do Azure nos comandos acima: ele concederá a todos os usuários acesso ao gateway. Use a ID dos aplicativos que você registrou.
 
-## <a name="7-edit-hub-assignment"></a><a name="hub"></a>7. Editar atribuição do hub
+## <a name="7-edit-hub-assignment"></a><a name="hub"></a>7. Editar atribuição de Hub
 
-1. Navegue até a lâmina **Hubs** a WAN virtual.
+1. Navegue até a folha **hubs** na WAN virtual.
 
 2. Selecione o hub ao qual deseja associar a configuração do servidor de VPN e clique nas reticências (...).
 
@@ -63,11 +63,11 @@ Uma configuração P2S define os parâmetros para conexão de clientes remotos.
 
 5. Insira o **Pool de endereços** do qual os endereços IP serão atribuídos aos clientes VPN.
 
-6. Clique em **Confirmar**.
+6. Clique em **confirmar**.
 
 7. Essa operação pode levar até 30 minutos para ser concluída.
 
-## <a name="8-download-vpn-profile"></a><a name="device"></a>8. Baixar o perfil VPN
+## <a name="8-download-vpn-profile"></a><a name="device"></a>8. baixar perfil VPN
 
 Use o perfil VPN para configurar seus clientes.
 
@@ -79,18 +79,18 @@ Use o perfil VPN para configurar seus clientes.
 
 4. Use o arquivo de perfil para configurar os clientes VPN.
 
-5. Extrair o arquivo zip baixado.
+5. Extraia o arquivo zip baixado.
 
-6. Navegue até a pasta "AzureVPN" sem zíper.
+6. Navegue até a pasta "AzureVPN" descompactada.
 
-7. Anote a localização do arquivo "azurevpnconfig.xml". O azurevpnconfig.xml contém a configuração da conexão VPN e pode ser importado diretamente para o aplicativo Azure VPN Client. Você também pode distribuir este arquivo para todos os usuários que precisam se conectar por e-mail ou outros meios. O usuário precisará de credenciais Ad válidas do Azure para se conectar com sucesso.
+7. Anote o local do arquivo "azurevpnconfig. xml". O azurevpnconfig. xml contém a configuração para a conexão VPN e pode ser importado diretamente para o aplicativo cliente VPN do Azure. Você também pode distribuir esse arquivo para todos os usuários que precisam se conectar por email ou outros meios. O usuário precisará de credenciais válidas do Azure AD para se conectar com êxito.
 
-## <a name="9-configure-user-vpn-clients"></a>9. Configurar clientes DE VPN do usuário
+## <a name="9-configure-user-vpn-clients"></a>9. configurar clientes VPN de usuário
 
 Para se conectar, você precisará baixar o Cliente VPN do Azure e importar o perfil do cliente VPN baixado nas etapas anteriores em cada computador que deseja se conectar à VNet.
 
 > [!NOTE]
-> A autenticação Azure AD é&reg; suportada apenas para conexões de protocolo OpenVPN.
+> A autenticação do Azure AD tem suporte apenas&reg; para conexões de protocolo OpenVPN.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Para baixar o Cliente VPN do Azure
@@ -133,21 +133,21 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
 1. Para diagnosticar problemas de conexão, você pode usar a ferramenta **Diagnosticar**. Selecione as reticências (...) ao lado da conexão VPN que você deseja diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar**.
 
-    ![diagnosticar](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. Na página **Propriedades de Conexão**, selecione **Executar Diagnóstico**.
 
-    ![diagnosticar](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. Entre com suas credenciais.
 
-    ![diagnosticar](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
 
 4. Exiba os resultados do diagnóstico.
 
-    ![diagnosticar](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
+    ![diagnose](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose4.jpg)
 
-## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. Veja sua WAN virtual
+## <a name="10-view-your-virtual-wan"></a><a name="viewwan"></a>10. exibir sua WAN virtual
 
 1. Navegue até a WAN virtual.
 
@@ -155,7 +155,7 @@ Use este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para baixar o C
 
 3. Na seção Hubs e conexões, você pode exibir status do hub, site, região, status de conexão de VPN e bytes de entrada e saída.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Quando não precisar mais desses recursos, você poderá utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 

@@ -1,13 +1,13 @@
 ---
-title: Detectar vazamento de memória - Azure Application Insights Smart Detection
+title: Detectar vazamento de memória-detecção inteligente de insights de Aplicativo Azure
 description: Monitorar aplicativos com o Azure Application Insights para possíveis perdas de memória.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671691"
 ---
 # <a name="memory-leak-detection-preview"></a>Detecção de perda de memória (visualização)
@@ -25,5 +25,5 @@ Não, uma notificação não significa que seu aplicativo definitivamente tem um
 ## <a name="how-do-i-fix-it"></a>Como corrigi-la?
 As notificações incluem informações de diagnóstico para oferecer suporte no processo de análise de diagnóstico:
 1. **Triagem.** A notificação mostra o aumento na quantidade de memória (em GB) e o intervalo de tempo em que a memória aumentou. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** Quantas máquinas apresentaram o padrão de perda de memória? Quantas exceções foram acionadas durante a potencial perda de memória? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção contém o padrão de perda de memória, mostrando o consumo de memória do processo ao longo do tempo. Você também pode usar o relatórios de vinculação para dar suporte a informações e itens relacionados para ajudá-lo a diagnosticar o problema.
+2. **Com.** Quantas máquinas apresentaram o padrão de perda de memória? Quantas exceções foram acionadas durante a potencial perda de memória? Essas informações podem ser obtidas na notificação.
+3. **Tect.** A detecção contém o padrão de perda de memória, mostrando o consumo de memória do processo ao longo do tempo. Você também pode usar o relatórios de vinculação para dar suporte a informações e itens relacionados para ajudá-lo a diagnosticar o problema.

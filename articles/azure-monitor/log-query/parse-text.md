@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
 ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672439"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
@@ -139,7 +139,7 @@ Se os dados estão formatados em uma estrutura conhecida, use uma das funções 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)
 - [IPv4](/azure/kusto/query/parse-ipv4function)
-- [Url](/azure/kusto/query/parseurlfunction)
+- [URL](/azure/kusto/query/parseurlfunction)
 - [Consulta de URL](/azure/kusto/query/parseurlqueryfunction)
 - [Caminho do arquivo](/azure/kusto/query/parsepathfunction)
 - [Agente do usuário](/azure/kusto/query/parse-useragentfunction)

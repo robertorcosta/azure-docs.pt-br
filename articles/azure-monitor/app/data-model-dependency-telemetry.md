@@ -1,21 +1,21 @@
 ---
-title: Modelo de dados de dependência do acessa-se no azure Monitor Insights
+title: Modelo de dados de dependência de Application Insights Azure Monitor
 description: Modelo de dados do Application Insights para telemetria de dependências
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671912"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependências: modelo de dados do Application Insights
 
 A telemetria de dependência (em [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa uma interação do componente monitorado com um componente remoto como SQL ou um ponto de extremidade HTTP.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do comando iniciado com esta chamada de dependência. Valor de baixa cardinalidade. Os exemplos são o nome do procedimento armazenado e o modelo do caminho da URL.
 
@@ -43,7 +43,7 @@ Duração da solicitação no formato: `DD.HH:MM:SS.MMMMMM`. Deve ser menor que 
 
 Código de resultado de uma chamada de dependência. Os exemplos são o código de erro do SQL e o código de status HTTP.
 
-## <a name="success"></a>Sucesso
+## <a name="success"></a>Êxito
 
 Indicação de chamada bem-sucedida ou malsucedida.
 

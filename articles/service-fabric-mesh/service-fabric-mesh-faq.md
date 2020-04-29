@@ -1,14 +1,14 @@
 ---
-title: Perguntas comuns para malha de malha de malha de serviço do Azure
+title: Perguntas comuns sobre a malha de Service Fabric do Azure
 description: Saiba mais sobre perguntas frequentes e respostas relacionadas à Malha do Microsoft Azure Service Fabric.
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252502"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
@@ -23,17 +23,17 @@ Faça perguntas, obtenha respostas de engenheiros da Microsoft e relate problema
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Qual é o custo de participar da versão prévia?
 
-No momento, não há cobranças para a implantação de aplicativos ou contêineres na pré-visualização Mesh. Por favor, observe as atualizações em maio para habilitação para faturamento. No entanto, encorajamos você a excluir os recursos que você implanta e não deixá-los em execução a menos que você esteja testando-os ativamente.
+No momento, não há encargos para implantar aplicativos ou contêineres na visualização de malha. Verifique se há atualizações no pode ser habilitado para a cobrança. No entanto, incentivamos você a excluir os recursos implantados e não deixá-los em execução, a menos que esteja testando-os ativamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Há um limite de cota do número de núcleos e RAM?
 
 Sim. As cotas de cada assinatura são:
 
-- Número de aplicações: 5
+- Número de aplicativos: 5
 - Núcleos por aplicativo: 12
 - Total de RAM por aplicativo: 48 GB
-- Pontos finais de Rede e Ingress: 5
-- Volumes azure que você pode anexar: 10
+- Pontos de extremidade de rede e entrada: 5
+- Volumes do Azure que você pode anexar: 10
 - Número de réplicas de serviço: 3
 - O maior contêiner que pode ser implantado é limitado a 4 núcleos e 16 GB de RAM.
 - É possível alocar núcleos parciais para os contêineres em incrementos de 0,5 núcleos até um máximo de 6 núcleos.
@@ -44,7 +44,7 @@ Atualmente, limitamos o tempo de vida de um aplicativo a dois dias. Isso é para
 
 Se isso acontecer, você poderá validar que o sistema a desliga executando o comando `az mesh app show` na CLI do Azure . Verifique se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-Por exemplo:  
+Por exemplo: 
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -77,7 +77,7 @@ Para excluir o grupo de recursos, use o comando `az group delete <nameOfResource
 
 ## <a name="deployments"></a>Implantações
 
-### <a name="what-container-images-are-supported"></a>Quais imagens de contêiner são suportadas?
+### <a name="what-container-images-are-supported"></a>Quais imagens de contêiner têm suporte?
 
 Se você estiver desenvolvendo em um computador com Windows Fall Creators Update (versão 1709), somente poderá usar as imagens do docker da versão 1709 do Windows.
 
@@ -93,11 +93,11 @@ As imagens do SO do contêiner a seguir podem ser usadas para implantar serviço
     - Sem limitações conhecidas
 
 > [!NOTE]
-> As ferramentas do Visual Studio para Mesh ainda não suportam a implantação em contêineres do Windows Server 2019 e 1809.
+> As ferramentas do Visual Studio para malha ainda não dão suporte à implantação em contêineres do Windows Server 2019 e 1809.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Que tipos de aplicativos posso implantar? 
 
-Você pode implantar qualquer coisa que seja executada em contêineres que se encaixem nas restrições colocadas em um recurso de aplicação (veja acima para obter mais informações sobre cotas). Se detectarmos que você está usando o Mesh para executar cargas de trabalho ilegais ou abusar do sistema (ou seja, mineração), então reservamos o direito de encerrar suas implantações e bloquear sua assinatura de execução no serviço. Por favor, entre em contato conosco se você tiver alguma dúvida sobre como executar uma carga de trabalho específica. 
+Você pode implantar qualquer coisa que seja executada em contêineres que caibam dentro das restrições colocadas em um recurso de aplicativo (veja acima para obter mais informações sobre cotas). Se detectarmos que você está usando a malha para executar cargas de trabalho ilegais ou abusando o sistema (ou seja, mineração), reservamos o direito de encerrar suas implantações e impedir que sua assinatura seja executada no serviço. Entre em contato conosco se tiver alguma dúvida sobre como executar uma carga de trabalho específica. 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiência do desenvolvedor
 
@@ -106,8 +106,8 @@ Você pode implantar qualquer coisa que seja executada em contêineres que se en
 As consultas DNS de saída de um contêiner para o serviço DNS do Service Fabric poderão falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
 
 - Use o Windows Fall Creators update (versão 1709) ou superior como sua imagem de contêiner base.
-- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName.ApplicationName.
-- No arquivo do Docker para seu serviço, adicionar `EXPOSE <port>` onde a porta é a porta na qual você está expondo seu serviço. Por exemplo: 
+- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName. ApplicationName.
+- No arquivo do Docker para seu serviço, adicionar `EXPOSE <port>` onde a porta é a porta na qual você está expondo seu serviço. Por exemplo:
 
 ```Dockerfile
 EXPOSE 80
@@ -121,7 +121,7 @@ Use `{serviceName}.{applicationName}` no seu cluster de desenvolvimento local. N
 
 A Malha do Azure não dá suporte à resolução de DNS nos aplicativos.
 
-Para outros problemas conhecidos de DNS com a execução de um cluster de desenvolvimento service fabric no Windows 10, consulte: [Depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues)de DNS .
+Para outros problemas de DNS conhecidos com a execução de um cluster de desenvolvimento Service Fabric no Windows 10, consulte: [depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Rede
 
@@ -141,9 +141,9 @@ Vários aplicativos não podem ser implantados em um cluster de um nó. Para ate
 - Use um cluster de cinco nós durante a implantação de vários aplicativos em um cluster local.
 - Remova os aplicativos que não estão sendo testados.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>O VS Tooling tem suporte limitado para contêineres windows
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>As ferramentas do VS têm suporte limitado para contêineres do Windows
 
-A ferramenta Visual Studio só suporta a implantação de Contêineres Windows com uma versão base do Sistema Operacional do Windows Server 1709 e 1803 hoje. 
+As ferramentas do Visual Studio dão suporte apenas à implantação de contêineres do Windows com uma versão base do sistema operacional do Windows Server 1709 e 1803 hoje. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Falhas de recurso e outros problemas conhecidos
 

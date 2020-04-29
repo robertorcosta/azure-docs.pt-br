@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure grupo de disponibilidade'
+title: 'Tutorial: configurar o grupo de disponibilidade'
 description: Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060185"
 ---
-# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configure grupo de disponibilidade no Azure SQL Server VM manualmente
+# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: configurar o grupo de disponibilidade na VM de SQL Server do Azure manualmente
 
 Este tutorial mostra como criar um grupo de disponibilidade Always On do SQL Server em Máquinas Virtuais do Azure. O tutorial completo cria um Grupo de Disponibilidade com uma réplica do banco de dados em dois SQL Servers.
 
@@ -42,8 +42,8 @@ A tabela a seguir lista os pré-requisitos que precisam ser concluídos antes de
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores SQL | -Em um conjunto de disponibilidade do Azure <br/> -Em um único domínio <br/> -Com o recurso Cluster de Failover instalado |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Compartilhamento de arquivos para a testemunha do cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do serviço SQL Server Agent | Conta do domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do serviço SQL Server Agent | Conta de domínio |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Portas de firewall abertas | - SQL Server: **1433** para instância padrão <br/> - Ponto de extremidade de espelhamento de banco de dados: **5022** ou outra porta disponível <br/> - Probabilidade de integridade do endereço IP do balanceador de carga do grupo de disponibilidade: **59999** ou qualquer porta disponível <br/> - Investigação de integridade do endereço IP do balanceador de carga do núcleo do cluster: **58888** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar o recurso Cluster de Failover à VM | Os dois SQL Servers precisam desse recurso |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta do domínio de instalação | - Administrador local em cada SQL Server <br/> - Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
@@ -52,7 +52,7 @@ A tabela a seguir lista os pré-requisitos que precisam ser concluídos antes de
 Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para a criação de Grupos de Disponibilidade AlwaysOn em Máquinas Virtuais do Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se esses pré-requisitos já foram concluídos,vá para [Criar Cluster](#CreateCluster).
 
   >[!NOTE]
-  > Muitas das etapas fornecidas neste tutorial agora podem ser automatizadas com [a Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) e [a Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Muitas das etapas fornecidas neste tutorial agora podem ser automatizadas com a [CLI de VM do Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) e com os [modelos de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -76,14 +76,14 @@ Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de f
    | --- | --- |
    | Antes de começar |Usar padrões |
    | Selecionar Servidores |Digite o primeiro nome do SQL Server em **Digite o nome do servidor** e clique em **Adicionar**. |
-   | Aviso de Validação |Selecione **No. Não preciso de suporte da Microsoft para este cluster e, portanto, não quero executar os testes de validação. Quando eu clicar em Avançar, continue Criando o cluster**. |
+   | Aviso de Validação |Selecione **não. não preciso de suporte da Microsoft para este cluster e, portanto, não quero executar os testes de validação. Quando eu clicar em avançar, continuará criando o cluster**. |
    | Ponto de Acesso para Administrar o Cluster |Digite um nome de cluster, por exemplo, **SQLAGCluster1** em **Nome do Cluster**.|
    | Confirmação |Use os padrões, a menos que você esteja usando Espaços de Armazenamento. Consulte a observação após esta tabela. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Definir o endereço IP de cluster de failover do Windows Server
 
   > [!NOTE]
-  > No Windows Server 2019, o cluster cria um **nome de servidor distribuído** em vez do nome da rede de **cluster**. Se você estiver usando o Windows Server 2019, pule todas as etapas que se referem ao nome principal do cluster neste tutorial. Você pode criar um nome de rede de cluster usando [o PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Revise o blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) para obter mais informações. 
+  > No Windows Server 2019, o cluster cria um **nome de servidor distribuído** em vez do **nome de rede do cluster**. Se você estiver usando o Windows Server 2019, ignore todas as etapas que se referem ao nome de núcleo do cluster neste tutorial. Você pode criar um nome de rede de cluster usando o [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Examine o [objeto cluster de failover de blog: cluster de rede](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) para obter mais informações. 
 
 1. Em **Gerenciador de Cluster de Failover**, role para baixo até **Recursos Principais de Cluster** e expanda os detalhes do cluster. Você verá os recursos **Nome** e **Endereço IP** no estado **Falha**. O recurso de endereço IP não pode ficar online porque o cluster recebeu o mesmo endereço IP que a própria máquina, ou seja, um endereço duplicado.
 
@@ -116,7 +116,7 @@ Adicione o outro SQL Server ao cluster.
 
 1. Clique em **Avançar**.
 
-1. Clique em **concluir**.
+1. Clique em **Concluir**.
 
    O Gerenciador de Cluster de Failover mostra que o cluster tem um novo nó e o lista no contêiner **Nós**.
 
@@ -124,11 +124,11 @@ Adicione o outro SQL Server ao cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Adicionar um compartilhamento de arquivos de quorum de cluster
 
-Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para criar um quorum de cluster. Este tutorial usa um quorum Maioria de Compartilhamento de Arquivos e Nós. Para saber mais, consulte [Noções básicas sobre configurações de quorum em um cluster de failover](https://technet.microsoft.com/library/cc731739.aspx).
+Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para criar um quorum de cluster. Este tutorial usa um quorum Maioria de Compartilhamento de Arquivos e Nós. Para saber mais, confira [Noções básicas sobre configurações de quorum em um cluster de failover](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Conecte-se ao servidor membro de testemunha de compartilhamento de arquivos com uma sessão de área de trabalho remota.
 
-1. No **Gerenciador do Servidor**, clique em **Ferramentas**. Gerenciamento **de computadores abertos**.
+1. No **Gerenciador do Servidor**, clique em **Ferramentas**. Abra o **Gerenciamento do computador**.
 
 1. Clique em **pastas compartilhadas**.
 
@@ -142,7 +142,7 @@ Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para cri
 
 1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Avançar**.
 
-1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique **em Personalizado...**.
+1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **personalizado...**.
 
 1. Em **Personalizar Permissões**, clique em **Adicionar... **.
 
@@ -179,7 +179,7 @@ Em seguida, configure o quorum do cluster.
 
 1. Verifique as configurações em **Confirmação**. Clique em **Avançar**.
 
-1. Clique em **concluir**.
+1. Clique em **Concluir**.
 
 Os recursos principais de cluster são configurados com uma testemunha de compartilhamento de arquivos.
 
@@ -230,7 +230,7 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="create-a-backup-share"></a><a name="backupshare"></a>Criar um compartilhamento de backup
 
-1. No primeiro SQL Server em **Gerenciador do Servidor**, clique em **Ferramentas**. Gerenciamento **de computadores abertos**.
+1. No primeiro SQL Server em **Gerenciador do Servidor**, clique em **Ferramentas**. Abra o **Gerenciamento do computador**.
 
 1. Clique em **pastas compartilhadas**.
 
@@ -244,7 +244,7 @@ Repeat these steps on the second SQL Server.
 
 1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Avançar**.
 
-1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique **em Personalizado...**.
+1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **personalizado...**.
 
 1. Em **Personalizar Permissões**, clique em **Adicionar... **.
 
@@ -270,7 +270,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 * Crie um banco de dados no SQL Server primeiro.
 * Faça um backup completo e um backup de log de transações do banco de dados
 * Restaure os backups completo e de log no segundo SQL Server com a opção **NORECOVERY**
-* Crie o Grupo de Disponibilidade (**AG1)** com confirmação síncrona, failover automático e réplicas secundárias legíveis
+* Criar o grupo de disponibilidade (**AG1**) com confirmação síncrona, failover automático e réplicas secundárias legíveis
 
 ### <a name="create-the-availability-group"></a>Crie o Grupo de Disponibilidade:
 
@@ -301,7 +301,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 
     ![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo foi, ** \\ \\ \<First SQL\>\\Server \Backup**. Clique em **Avançar**.
+8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, ele foi, ** \\ \\ \<primeiro SQL Server\>\backup\\**. Clique em **Avançar**.
 
    >[!NOTE]
    >A sincronização completa usa um backup completo do banco de dados na primeira instância do SQL Server e o restaura na segunda instância. Em caso de grandes bancos de dados, a sincronização completa não é recomendada porque pode levar muito tempo. Você pode reduzir esse tempo manualmente usando um backup do banco de dados e restaurando-o com `NO RECOVERY`. Se o banco de dados já foi restaurado com `NO RECOVERY` no segundo SQL Server antes da configuração do Grupo de Disponibilidade, escolha **Somente junção**. Se você quiser usar o backup depois de configurar o Grupo de Disponibilidade, escolha **Ignorar sincronização inicial de dados**.
@@ -315,7 +315,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
     >[!NOTE]
     >Há um aviso para a configuração de ouvinte porque você não configurou um ouvinte de Grupo de Disponibilidade. Você pode ignorar esse aviso porque, nas máquinas virtuais do Azure, o ouvinte é criado depois do balanceador de carga do Azure.
 
-10. Na página **Resumo**, clique em **Concluir** e aguarde enquanto o assistente configura o novo Grupo de Disponibilidade. Na página **Progresso**, você pode clicar em **Mais detalhes** para exibir o progresso detalhado. Assim que o assistente estiver concluído, inspecione a página **Resultados** para verificar se o Grupo de disponibilidade foi criado com sucesso.
+10. Na página **Resumo**, clique em **Concluir** e aguarde enquanto o assistente configura o novo Grupo de Disponibilidade. Na página **Progresso**, você pode clicar em **Mais detalhes** para exibir o progresso detalhado. Quando o assistente for concluído, inspecione a página **resultados** para verificar se o grupo de disponibilidade foi criado com êxito.
 
      ![Novo assistente de AG, Resultados](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/74-results.png)
 11. Clique em **Fechar** para sair do assistente.
@@ -351,14 +351,14 @@ Nas máquinas virtuais do Azure, um Grupo de Disponibilidade do SQL Server preci
 Um Azure Load Balancer pode ser um Standard Load Balancer ou um Balanceador de Carga Básico. O Standard Load Balancer possui mais recursos que o Balanceador de Carga Básico. Para um grupo de disponibilidade, o Standard Load Balancer é necessário se você usar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter detalhes sobre a diferença entre os tipos de balanceadores de carga, consulte [Comparação de SKU do Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
 
 1. No portal do Azure, vá para o grupo de recursos em que estão seus SQL Servers e clique em **+Adicionar**.
-1. Procure o **Balanceador de Carga**. Escolha o balanceador de carga publicado pela Microsoft.
+1. Procure **Load Balancer**. Escolha o balanceador de carga publicado pela Microsoft.
 
    ![AG no Gerenciador de Cluster de Failover](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
 1. Clique em **Criar**.
 1. Configure os seguintes parâmetros para o balanceador de carga.
 
-   | Configuração | Campo |
+   | Setting | Campo |
    | --- | --- |
    | **Nome** |Use um nome para o balanceador de carga, por exemplo, **sqlLB**. |
    | **Tipo** |Interna |
@@ -408,7 +408,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 59999 |
    | **Intervalo**  | O tempo entre as tentativas de investigação, em segundos |5 |
-   | **Limiar insalubre** | O número de falhas de investigação consecutivas que deve ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
+   | **Limite não íntegro** | O número de falhas de investigação consecutivas que deve ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
 1. Clique em **OK** para definir a investigação de integridade.
 
@@ -428,7 +428,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
    | **Investigação** |O nome especificado para o teste | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Lista suspensa | **Nenhum** |
    | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **IP flutuante (retorno direto do servidor)** | |habilitado |
+   | **IP flutuante (retorno de servidor direto)** | |habilitado |
 
    > [!WARNING]
    > O retorno de servidor direto é definido durante a criação. Ele não pode ser alterado.
@@ -451,7 +451,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
    | **Protocolo** | Escolher TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 58888 |
    | **Intervalo**  | O tempo entre as tentativas de investigação, em segundos |5 |
-   | **Limiar insalubre** | O número de falhas de investigação consecutivas que deve ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
+   | **Limite não íntegro** | O número de falhas de investigação consecutivas que deve ocorrer para uma máquina virtual ser considerada não íntegra  | 2 |
 
 1. Clique em **OK** para definir a investigação de integridade.
 
@@ -469,19 +469,19 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
    | **Investigação** |O nome especificado para o teste | WSFCEndPointProbe |
    | **Persistência da sessão** | Lista suspensa | **Nenhum** |
    | **Tempo limite de ociosidade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **IP flutuante (retorno direto do servidor)** | |habilitado |
+   | **IP flutuante (retorno de servidor direto)** | |habilitado |
 
    > [!WARNING]
    > O retorno de servidor direto é definido durante a criação. Ele não pode ser alterado.
 
 1. Clique em **OK** para definir as regras de balanceamento de carga.
 
-## <a name="configure-the-listener"></a><a name="configure-listener"></a>Configure o ouvinte
+## <a name="configure-the-listener"></a><a name="configure-listener"></a>Configurar o ouvinte
 
 A próxima etapa é configurar um ouvinte do Grupo de Disponibilidade no cluster de failover.
 
 > [!NOTE]
-> Este tutorial mostra como criar um ouvinte usando um endereço IP de ILB. Para criar um ou mais ouvintes usando um ou mais endereços IP, consulte [O ouvinte do Create Availability Group e o balanceador de carga | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Este tutorial mostra como criar um ouvinte usando um endereço IP de ILB. Para criar um ou mais ouvintes usando um ou mais endereços IP, consulte [criar ouvinte de grupo de disponibilidade e balanceador de carga | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
@@ -493,7 +493,7 @@ No SQL Server Management Studio, defina a porta do ouvinte.
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-1. Navegue até **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**.
+1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade**ouvintes do grupo de disponibilidade**.
 
 1. Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
@@ -507,7 +507,7 @@ Para testar a conexão:
 
 1. RDP para um SQL Server que está na mesma rede virtual, mas não tem a réplica. Você pode usar o outro SQL Server no cluster.
 
-1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica principal através do ouvinte com autenticação do Windows:
+1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
 
    ```cmd
    sqlcmd -S <listenerName> -E

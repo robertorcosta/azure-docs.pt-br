@@ -1,5 +1,5 @@
 ---
-title: Série Fsv2 - Azure Virtual Machines
+title: Série Fsv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série Fsv2.
 services: virtual-machines
 author: brbell
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: f28c6b61aee3c8cbc078db1c2cfb48ed1fba4554
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164841"
 ---
 # <a name="fsv2-series"></a>Série Fsv2
 
-A série Fsv2 é baseada no processador Intel® Xeon® Platinum 8168. Possui uma velocidade de relógio Turbo de 3,4 GHz e uma frequência turbo de núcleo único de 3,7 GHz. As instruções ® Intel AVX-512 são novas em processadores Intel Scalable. Essas instruções fornecem até um aumento de desempenho 2X para cargas de trabalho de processamento de vetores em operações de ponto flutuante de precisão única e dupla. Em outras palavras, eles são muito rápidos para qualquer carga de trabalho computacional.
+A série Fsv2 é baseada no processador Intel® Xeon® Platinum 8168. Ele apresenta uma velocidade de clock de Turbo principal de 3,4 GHz e uma frequência máxima de Turbo de núcleo único de 3,7 GHz. As instruções Intel® AVX-512 são novas em processadores escalonáveis da Intel. Essas instruções fornecem um aumento de desempenho 2X para cargas de trabalho de processamento de vetores em operações de ponto flutuante de precisão única e dupla. Em outras palavras, eles são realmente rápidos para qualquer carga de trabalho computacional.
 
-As VMs da série FSV2 possuem tecnologia Intel® Hyper-Threading.
+O recurso de VMs da série Fsv2 Intel® tecnologia Hyper-Threading.
 
 ACU: 195 - 210
 
 Armazenamento Premium: com suporte
 
-Cache de armazenamento premium: suportado
+Cache de armazenamento Premium: com suporte
 
-Migração ao vivo: Suportado
+Migração ao Vivo: com suporte
 
-Atualizações de preservação de memória: suportado
+Atualizações de preservação de memória: com suporte
 
-| Tamanho | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Máximo de armazenamento em cache e armazenamento temporário: IOPS/MBps (tamanho de cache em GiB) | Máximo throughput de disco sem cache: IOPS/MBps | Máxima NICs/Largura de banda de rede esperada (Mbps) |
+| Tamanho | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2/875   |
 | Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2/1750  |
@@ -41,17 +41,17 @@ Atualizações de preservação de memória: suportado
 | Standard_F64s_v2 | 64 | 128 | 512 | 32 | 128000/1024 (1024) | 80000/1100 | 8/28000 |
 | Standard_F72s_v2<sup>1, 2</sup> | 72 | 144 | 576 | 32 | 144000/1152 (1520) | 80000/1100 | 8/30000 |
 
-<sup>1</sup> O uso de mais de 64 vCPU requer um desses sistemas operacionais de hóspedes suportados:
+<sup>1</sup> o uso de mais de 64 vCPU exige um destes sistemas operacionais convidados com suporte:
 
 - Windows Server 2016 ou posterior
-- Ubuntu 16.04 LTS ou posterior, com kernel afinado do Azure (4.15 kernel ou posterior)
-- Less 12 SP2 ou posterior
-- Versão 6.7 ou CentOS 6.7 a 6.10, com o pacote LIS 4.3.1 (ou posterior) fornecido pela Microsoft instalado
-- Versão 7.3 do RHEL ou CentOS, com o pacote LIS 4.2.1 (ou posterior) fornecido pela Microsoft instalado
-- RHEL ou CentOS versão 7.6 ou posterior
+- Ubuntu 16, 4 LTS ou posterior, com kernel ajustado do Azure (kernel 4,15 ou posterior)
+- SLES 12 SP2 ou posterior
+- RHEL ou CentOS versão 6,7 até 6,10, com o pacote LIS fornecido pela Microsoft 4.3.1 (ou posterior) instalado
+- RHEL ou CentOS versão 7,3, com o pacote LIS fornecido pela Microsoft 4.2.1 (ou posterior) instalado
+- RHEL ou CentOS versão 7,6 ou posterior
 - Oracle Linux com UEK4 ou posterior
-- Debian 9 com o kernel backports, Debian 10 ou posterior
-- CoreOS com um kernel 4.14 ou posterior
+- Debian 9 com o kernel de backports, Debian 10 ou posterior
+- CoreOS com um kernel 4,14 ou posterior
 
 <sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
@@ -61,7 +61,7 @@ Atualizações de preservação de memória: suportado
 
 - [Propósito geral](sizes-general.md)
 - [Memória otimizada](sizes-memory.md)
-- [Otimizado para armazenamento](sizes-storage.md)
+- [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)

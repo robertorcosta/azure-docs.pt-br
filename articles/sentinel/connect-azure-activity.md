@@ -1,6 +1,6 @@
 ---
-title: Conecte os dados de atividade do Azure ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar os dados do Azure Activity ao Azure Sentinel.
+title: Conectar dados de atividade do Azure ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar os dados de atividade do Azure ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,34 +16,34 @@ ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
 ms.openlocfilehash: 82dfcaf3394703aae531c828a1b96ad290bab798
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124982"
 ---
-# <a name="connect-data-from-azure-activity-log"></a>Conecte dados do registro de atividades do Azure
+# <a name="connect-data-from-azure-activity-log"></a>Conectar dados do log de atividades do Azure
 
-Você pode transmitir logs do [Azure Activity log](../azure-monitor/platform/platform-logs-overview.md) no Azure Sentinel com um único clique. O registro atividade é um registro de assinatura que registra e exibe eventos de nível de assinatura em todo o Azure, desde dados operacionais do Azure Resource Manager até atualizações sobre eventos de Saúde do Serviço. Usando o registro atividade, você pode determinar o 'o que, quem e quando' para qualquer operação de gravação (PUT, POST, DELETE) realizada nos recursos da sua assinatura. Você também pode aprender o status da operação e outras propriedades relevantes. O registro de atividades não inclui operações de leitura (GET) para recursos que usam o modelo Classic/"RDFE". 
+Você pode transmitir logs do [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para o Azure Sentinel com um único clique. O log de atividades é um log de assinatura que registra e exibe eventos de nível de assinatura no Azure, de Azure Resource Manager dados operacionais a atualizações em eventos de integridade do serviço. Usando o log de atividades, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, DELETE) executada nos recursos em sua assinatura. Você também pode aprender o status da operação e outras propriedades relevantes. O log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo clássico/"RDFE". 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Seu usuário deve ter permissões de contribuinte para o espaço de trabalho do Log Analytics.
-- Seu usuário deve ter permissões do Leitor para qualquer assinatura cujos logs você deseja transmitir no Azure Sentinel.
+- Seu usuário deve ter permissões de colaborador para o espaço de trabalho Log Analytics.
+- Seu usuário deve ter permissões de leitor para qualquer assinatura cujos logs você deseja transmitir para o Azure Sentinel.
 
-## <a name="set-up-the-azure-activity-connector"></a>Configure o conector Azure Activity
+## <a name="set-up-the-azure-activity-connector"></a>Configurar o conector de atividades do Azure
 
-1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**. Na lista de conectores, clique em **Atividade do Azure**e, em seguida, no botão **de página do conector Aberto** no canto inferior direito.
+1. No menu de navegação do Azure Sentinel, selecione **conectores de dados**. Na lista de conectores, clique em **atividade do Azure**e, em seguida, no botão **abrir página do conector** no canto inferior direito.
 
-2. Na guia **Instruções,** clique no link **Configurar atividade do Azure activity >** link.
+2. Na guia **instruções** , clique no link **Configurar Logs de atividades do Azure >** .
 
-3. No **painel de log do Azure Activity,** selecione as assinaturas cujos registros você deseja transmitir no Azure Sentinel. 
+3. No painel **log de atividades do Azure** , selecione as assinaturas cujos logs você deseja transmitir para o Azure Sentinel. 
 
-4. No painel de assinatura que abre à direita, clique **em Conectar**.
+4. No painel assinatura que é aberto à direita, clique em **conectar**.
 
-5. Para usar o esquema relevante no Log Analytics para alertas de atividade do Azure, digite `AzureActivity` na janela de consulta.
+5. Para usar o esquema relevante no Log Analytics para alertas de atividade do Azure `AzureActivity` , digite na janela de consulta.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar o registro de atividades do Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu a conectar o log de atividades do Azure ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
-- Comece a detectar ameaças com o Azure Sentinel, usando regras [incorporadas](tutorial-detect-threats-built-in.md) ou [personalizadas.](tutorial-detect-threats-custom.md)
+- Comece a detectar ameaças com o Azure Sentinel, usando regras [internas](tutorial-detect-threats-built-in.md) ou [personalizadas](tutorial-detect-threats-custom.md) .

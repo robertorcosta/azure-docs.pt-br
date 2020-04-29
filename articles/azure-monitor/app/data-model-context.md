@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671856"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: modelo de dados do Application Insights
@@ -74,7 +74,7 @@ Comprimento máximo: 64
 
 ## <a name="anonymous-user-id"></a>Id de usuário anônimo
 
-Id de usuário anônimo. Representa o usuário final do aplicativo. Quando a telemetria é enviada de um serviço, o contexto de usuário é sobre o usuário que iniciou a operação no serviço.
+ID de usuário anônimo. Representa o usuário final do aplicativo. Quando a telemetria é enviada de um serviço, o contexto de usuário é sobre o usuário que iniciou a operação no serviço.
 
 A [Amostragem](../../azure-monitor/app/sampling.md) é uma das técnicas para minimizar a quantidade de telemetria coletada. O algoritmo de amostragem tenta fazer a amostragem de toda a telemetria correlacionada. A id de usuário anônimo é usado para a geração de pontuação de amostragem. A id de usuário anônimo deve ser um valor suficientemente aleatório. 
 
@@ -85,14 +85,14 @@ Comprimento máximo: 128
 
 ## <a name="authenticated-user-id"></a>Id de usuário autenticado
 
-Id de usuário autenticado. O oposto de id de usuário anônimo, este campo representa o usuário com um nome amigável. As informações de PII não são coletadas por padrão pela maioria dos SDKs.
+ID de usuário autenticado. O oposto da ID de usuário anônimo, esse campo representa o usuário com um nome amigável. As informações de PII não são coletadas por padrão pela maioria dos SDKs.
 
 Comprimento máximo: 1024
 
 
 ## <a name="account-id"></a>Id de conta
 
-Em aplicativos multilocatário, é a ID da conta ou o nome com o qual o usuário está agindo. Exemplos podem ser id de assinatura para o portal Azure ou nome do blog para uma plataforma de blog.
+Em aplicativos multilocatário, é a ID da conta ou o nome com o qual o usuário está agindo. Os exemplos podem ser a ID de assinatura para portal do Azure ou nome de blog para uma plataforma de blog.
 
 Comprimento máximo: 1024
 
@@ -113,7 +113,7 @@ Comprimento máximo: 256
 
 ## <a name="internal-sdk-version"></a>Interno: versão de SDK
 
-Versão do SDK. Consulte [este artigo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
+Versão do SDK. Consulte [Este artigo](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) para obter informações.
 
 Comprimento máximo: 64
 

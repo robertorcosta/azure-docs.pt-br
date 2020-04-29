@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535362"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
@@ -42,11 +42,11 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 ![Painel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantagens
-- Integração profunda no Azure. As visualizações podem ser fixadas em dashboards de várias páginas do Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.
+- Integração profunda no Azure. As visualizações podem ser fixadas em painéis de várias páginas do Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.
 - Suporta métricas e logs.
 - Combine dados de várias origens, incluindo a saída do [Metrics Explorer](platform/metrics-charts.md), das [consultas do Log Analytics](log-query/log-query-overview.md) e dos [mapas](app/app-map.md), e a disponibilidade no Application Insights.
 - Opção para os painéis de pessoais ou compartilhadas. Integrado com a autenticação baseada em função do Azure [(RBAC)](../role-based-access-control/overview.md).
-- Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Registra atualização a cada hora, com uma opção de atualização manual sob demanda clicando no ícone "atualizar" em uma determinada visualização, ou atualizando o painel completo.
+- Atualização automática. A atualização de métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os logs são atualizados a cada hora, com uma opção de atualização manual sob demanda clicando no ícone "atualizar" em uma determinada visualização ou atualizando o painel completo.
 - Painéis de métricas parametrizadas com carimbo de data/hora e parâmetros personalizados.
 - Opções de layout flexível.
 - Modo de tela inteira.
@@ -111,12 +111,12 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 ## <a name="azure-monitor-views"></a>Modos de exibição do Monitor do Azure
 
 > [!IMPORTANT]
-> As opiniões estão em processo de depreciação. Consulte [o designer de visualização do Azure Monitor para o guia de transição de livros de trabalho](platform/view-designer-conversion-overview.md) para obter orientações sobre a conversão de visualizações em livros de trabalho.
+> As exibições estão no processo de serem preteridas. Consulte [Guia de transição do designer de exibição para pastas de trabalho do Azure monitor](platform/view-designer-conversion-overview.md) para obter orientação sobre como converter exibições em pastas de trabalho.
 
 As [exibições no Azure Monitor](platform/view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
 
 
-![Visualizar](media/visualizations/view.png)
+![Exibir](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de log.
@@ -137,7 +137,7 @@ As [exibições no Azure Monitor](platform/view-designer.md) permitem que você 
 - Aprenda sobre os [dados coletados pelo Azure Monitor](platform/data-platform.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [workbooks](../azure-monitor/app/usage-workbooks.md).
+- Saiba mais sobre [pastas de trabalho](../azure-monitor/app/usage-workbooks.md).
 - Saiba mais sobre [importar dados de log no Power BI](../azure-monitor/platform/powerbi.md).
 - Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../azure-monitor/platform/grafana-plugin.md).
 

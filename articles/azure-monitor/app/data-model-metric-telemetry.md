@@ -1,14 +1,14 @@
 ---
-title: Modelo de dados para telemetria métrica - Azure Application Insights
+title: Modelo de dados para telemetria de métrica-Aplicativo Azure insights
 description: Modelo de dados do Application Insights para telemetria de métricas
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671963"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
@@ -33,7 +33,7 @@ Métrica representando os contadores de processo e de sistema:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Trabalho em andamento... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo médio de execução de solicitações
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Trabalho em andamento... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | número de solicitações aguardando processamento em uma fila
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome da métrica que você gostaria de ver na interface do usuário e no portal do Application Insights. 
 

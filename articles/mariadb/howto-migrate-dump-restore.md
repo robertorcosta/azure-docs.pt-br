@@ -1,5 +1,5 @@
 ---
-title: Migrar com dump e restauração - Banco de Dados Azure para MariaDB
+title: Migrar com despejo e restauração-banco de dados do Azure para MariaDB
 description: Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de dados no Banco de Dados do Azure para MariaDB, usando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164535"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrar seu banco de dados MariaDB para o banco de dados do Azure para MariaDB usando despejo e restauração
@@ -21,11 +21,11 @@ Este artigo explica duas maneiras comuns de fazer backup e restaurar bancos de d
 ## <a name="before-you-begin"></a>Antes de começar
 Para acompanhar este guia de instruções, você precisa do seguinte:
 - [Criar banco de dados do Azure para o servidor MariaDB - portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
-- utilitário de linha de comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) instalado em uma máquina.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) ou outra ferramenta MySQL de terceiros para fazer comandos de despejo e restauração.
+- utilitário de linha de comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) instalado em um computador.
+- MySQL Workbench o [download do MySQL Workbench](https://dev.mysql.com/downloads/workbench/) ou outra ferramenta MySQL de terceiros para executar comandos de despejo e restauração.
 
 ## <a name="use-common-tools"></a>Usar ferramentas comuns
-Use utilitários e ferramentas comuns como MySQL Workbench ou mysqldump para conectar e restaurar remotamente dados no Banco de Dados Do Azure para MariaDB. Use essas ferramentas em sua máquina cliente com uma conexão com a Internet para se conectar ao Banco de Dados do Azure para MariaDB. Use uma conexão criptografada SSL para obter melhores práticas de segurança, consulte também [Configurar conectividade SSL no Banco de Dados do Azure para o MariaDB](concepts-ssl-connection-security.md). Você não precisa mover os arquivos de despejo para nenhum local de nuvem especial ao migrar para o Banco de Dados do Azure para o MariaDB. 
+Use ferramentas e utilitários comuns, como MySQL Workbench ou mysqldump, para se conectar e restaurar dados remotamente para o Azure Database para MariaDB. Use essas ferramentas em sua máquina cliente com uma conexão com a Internet para se conectar ao Banco de Dados do Azure para MariaDB. Use uma conexão criptografada SSL para obter melhores práticas de segurança, consulte também [Configurar conectividade SSL no Banco de Dados do Azure para o MariaDB](concepts-ssl-connection-security.md). Você não precisa mover os arquivos de despejo para nenhum local de nuvem especial ao migrar para o Banco de Dados do Azure para o MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usos comuns de despejo e restauração
 Você pode usar os utilitários MySQL, como mysqldump e mysqlpump, para despejar e carregar bancos de dados em um Banco de Dados do Azure para o servidor MariaDB em vários cenários comuns. 
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>Crie um banco de dados no servidor de destino
-Crie um banco de dados vazio no Banco de Dados do Azure de destino para o servidor MariaDB no qual você deseja migrar os dados. Use uma ferramenta como MySQL Workbench para criar o banco de dados. O banco de dados pode ter o mesmo nome que o banco de dados que contém os dados de despejo ou você pode criar um banco de dados com um nome diferente.
+Crie um banco de dados vazio no Banco de Dados do Azure de destino para o servidor MariaDB no qual você deseja migrar os dados. Use uma ferramenta como o MySQL Workbench para criar o banco de dados. O banco de dados pode ter o mesmo nome que o banco de dados que contém os dados de despejo ou você pode criar um banco de dados com um nome diferente.
 
 Para se conectar, localize as informações de conexão na **Visão geral** do Banco de Dados do Azure para MariaDB.
 
@@ -105,7 +105,7 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 Para exportar, você pode usar a ferramenta phpMyAdmin que você pode já ter instalado localmente em seu ambiente. Para exportar seu banco de dados MariaDB usando o PHPMyAdmin:
 1. Abra o phpMyAdmin.
 2. Selecione o banco de dados. Clique no nome do banco de dados na lista à esquerda. 
-3. Clique no link **Exportar.** Aparece uma nova página para exibir o despejo do banco de dados.
+3. Clique no link **Exportar** . Aparece uma nova página para exibir o despejo do banco de dados.
 4. Na área de Exportação, clique no link **Selecionar Tudo** para selecionar as tabelas no banco de dados. 
 5. Na área de opções do SQL, clique nas opções apropriadas. 
 6. Clique na opção **Salvar como arquivo** e na opção de compactação correspondente e, em seguida, clique no botão **Ir**. Uma caixa de diálogo deve aparecer solicitando que você salve o arquivo localmente.
@@ -116,11 +116,11 @@ Importar o banco de dados é semelhante à exportação. As seguintes ações oc
 2. Na página de configuração do phpMyAdmin, clique em **Adicionar** para adicionar seu banco de dados do Azure para o servidor MariaDB. Forneça os detalhes de conexão e informações de logon.
 3. Crie um banco de dados com o nome adequado e selecione-o na lista à esquerda da tela. Para reconfigurar o banco de dados existente, clique no nome do banco de dados, selecione todas as caixas de seleção ao lado dos nomes da tabela e selecione **Remover** para excluir as tabelas existentes. 
 4. Clique no link **SQL** para mostrar a página onde você pode digitar os comandos SQL ou fazer upload do arquivo SQL. 
-5. Use o botão **procurar** para encontrar o arquivo do banco de dados. 
+5. Use o botão **procurar** para localizar o arquivo de banco de dados. 
 6. Clique no botão **Ir** para exportar o backup, execute os comandos SQL e recrie o banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Conecte aplicativos ao Banco de Dados Azure para MariaDB](./howto-connection-string.md).
+- [Conectar aplicativos ao banco de dados do Azure para MariaDB](./howto-connection-string.md).
  
 <!--
 - For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).

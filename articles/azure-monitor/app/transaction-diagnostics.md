@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671130"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação entre componentes unificado
@@ -66,9 +66,9 @@ Esse painel recolhível mostra os outros resultados que atendem aos critérios d
 
 O [Application Insights Profiler](../../azure-monitor/app/profiler.md) ou o [depurador de instantâneos](snapshot-debugger.md) ajuda com diagnósticos de nível de código de problemas de falha e desempenho. Com essa experiência, você pode ver Rastreamentos do Profiler ou instantâneos de qualquer componente com um único clique.
 
-Se você não conseguiu que o Profiler funcionasse, entre em contato com **o\@serviceprofilerhelp microsoft.com**
+Se você não conseguiu obter o criador de perfil, entre em contato com **serviceprofilerhelp\@Microsoft.com**
 
-Se você não conseguiu que o Snapshot Debugger funcionasse, entre em contato com **o snapshothelp\@microsoft.com**
+Se você não pôde obter Depurador de Instantâneos funcionando, entre em contato com **snapshothelp\@Microsoft.com**
 
 ![Integração do Profiler](media/transaction-diagnostics/profilerTraces.png)
 
@@ -84,7 +84,7 @@ Motivos possíveis:
 
 Se você tiver acesso e os componentes estiverem instrumentados com os SDKs mais recentes do Application Insights, avise-nos através do canal de comentários superior direito.
 
-*Vejo filas duplicadas para as dependências. Isso é esperado?*
+*Vejo linhas duplicadas para as dependências. Isso é esperado?*
 
 Nesse momento, mostramos a chamada de dependência de saída separada da solicitação de entrada. Normalmente, as duas chamadas parecem idênticas, apenas o valor da duração sendo diferente devido à viagem de ida e volta da rede. O ícone principal e o estilo distinto das barras de duração ajudam a diferenciá-las. Essa apresentação dos dados está confusa? Envie-nos seus comentários!
 

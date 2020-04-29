@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configure BFD'
+title: 'Azure ExpressRoute: configurar o BFD'
 description: Este artigo fornece instruções sobre como configurar a BFD (Detecção de Encaminhamento Bidirecional) no emparelhamento privado de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
 ms.openlocfilehash: 378b639e89ffd46f6b32d7004f934104dd4b5407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064851"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD no ExpressRoute
 
-O ExpressRoute suporta a Detecção de Encaminhamento Bidirecional (BFD) tanto em peering privado quanto no Microsoft. Ao habilitar o BFD via ExpressRoute, você pode agilizar a detecção de falhas de link entre os dispositivos Microsoft Enterprise edge (MSEE) e os roteadores nos quais você encerra o circuito ExpressRoute (CE/PE). É possível terminar o ExpressRoute nos dispositivos de roteamento de Borda de Clientes ou dispositivos de roteamento de Borda do Parceiro (se tiver optado pelo serviço de conexão gerenciado da Camada 3). Este documento explica a necessidade de BFD e de como habilitar a BFD no ExpressRoute.
+O ExpressRoute dá suporte à detecção de encaminhamento bidirecional (BFD) em emparelhamento privado e da Microsoft. Ao habilitar o BFD no ExpressRoute, você pode acelerar a detecção de falhas de link entre os dispositivos do Microsoft Enterprise Edge (MSEE) e os roteadores nos quais você encerra o circuito do ExpressRoute (CE/PE). É possível terminar o ExpressRoute nos dispositivos de roteamento de Borda de Clientes ou dispositivos de roteamento de Borda do Parceiro (se tiver optado pelo serviço de conexão gerenciado da Camada 3). Este documento explica a necessidade de BFD e de como habilitar a BFD no ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Necessidade de BFD
 
@@ -26,16 +26,16 @@ O diagrama a seguir mostra o benefício de habilitar BFD no circuito do ExpressR
 
 Nos dispositivos MSEE, o tempo em espera e de keep alive de BGP são tipicamente configurados como 60 e 180 segundos, respectivamente. Portanto, após uma falha de vínculo, levaria até três minutos para detectar qualquer falha de vínculo e alternar o tráfego para uma conexão alternativa.
 
-É possível controlar os temporizadores de BGP, configurando o tempo em espera e de keep alive de BGP inferior no dispositivo de emparelhamento de borda de clientes. Se os temporizadores de BGP forem incompatíveis entre os dois dispositivos de emparelhamento, a sessão de BGP entre os pares usaria o valor temporal inferior. O keep alive de BGP pode ser definido em apenas três segundos e o tempo em espera na ordem de dezenas de segundos. No entanto, definir os temporizadores BGP agressivamente é menos preferível porque o protocolo é intensivo em processos.
+É possível controlar os temporizadores de BGP, configurando o tempo em espera e de keep alive de BGP inferior no dispositivo de emparelhamento de borda de clientes. Se os temporizadores de BGP forem incompatíveis entre os dois dispositivos de emparelhamento, a sessão de BGP entre os pares usaria o valor temporal inferior. O keep alive de BGP pode ser definido em apenas três segundos e o tempo em espera na ordem de dezenas de segundos. No entanto, definir os temporizadores BGP agressivamente é menos preferível, pois o protocolo tem uso intensivo de processo.
 
 Nesse cenário, a BFD pode ajudar. A BFD fornece detecção de falha de vínculo de baixa sobrecarga em um intervalo de tempo em fração de segundos. 
 
 
 ## <a name="enabling-bfd"></a>Habilitar BFD
 
-A BFD é configurada por padrão em todas as interfaces de emparelhamento privado do ExpressRoute criadas recentemente nos MSEEs. Portanto, para habilitar o BFD, basta configurar o BFD em seus CEs/PEs (tanto em seus dispositivos primários quanto secundários). A configuração do BFD é um processo de duas etapas: você precisa configurar o BFD na interface e, em seguida, vinculá-lo à sessão BGP.
+A BFD é configurada por padrão em todas as interfaces de emparelhamento privado do ExpressRoute criadas recentemente nos MSEEs. Portanto, para habilitar BFD, você precisa apenas configurar o BFD em seu CEs/PEs (ambos em seus dispositivos primários e secundários). A configuração do BFD é um processo de duas etapas: você precisa configurar o BFD na interface e, em seguida, vinculá-lo à sessão BGP.
 
-Um exemplo de configuração CE/PE (usando cisco IOS XE) é mostrado abaixo. 
+Um exemplo de configuração de CE/PE (usando o Cisco IOS XE) é mostrado abaixo. 
 
     interface TenGigabitEthernet2/0/0.150
        description private peering to Azure
@@ -63,7 +63,7 @@ Um exemplo de configuração CE/PE (usando cisco IOS XE) é mostrado abaixo.
 Entre pares de BFD, o mais lento dos dois pares determina a taxa de transmissão. Os intervalos de transmissão/recepção de BFD dos MSEEs estão definidos para 300 milissegundos. Em determinados cenários, o intervalo pode ser definido em um valor mais alto de 750 milissegundos. Ao configurar valores maiores você poderá forçar esses intervalos a serem mais longos, porém, não mais curtos.
 
 >[!NOTE]
->Se você configurou circuitos ExpressRoute geo-redundantes ou usa conectividade IPSec VPN site-to-site como backup; habilitar o BFD ajudaria o failover mais rápido após uma falha de conectividade do ExpressRoute. 
+>Se você tiver configurado circuitos do ExpressRoute com redundância geográfica ou usar a conectividade VPN IPSec de site a site como backup; a habilitação de BFD ajudará o failover mais rápido após uma falha de conectividade do ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,49 +1,49 @@
 ---
-title: Envie dados da extensão de diagnósticos do Windows Azure para o Azure Event Hubs
-description: Configure a extensão de diagnóstico no Azure Monitor para enviar dados ao Azure Event Hub para que você possa encaminhá-los para locais fora do Azure.
+title: Enviar dados da extensão de diagnóstico do Windows Azure para os hubs de eventos do Azure
+description: Configure a extensão de diagnóstico no Azure Monitor para enviar dados para o Hub de eventos do Azure para que você possa encaminhá-lo para locais fora do Azure.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77672524"
 ---
-# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envie dados da extensão de diagnósticos do Windows Azure para o Azure Event Hubs
-A extensão de diagnóstico do Azure é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo descreve como enviar dados da extensão do Windows Azure Diagnostic (WAD) para [o Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) para que você possa encaminhar para locais fora do Azure.
+# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Enviar dados da extensão de diagnóstico do Windows Azure para os hubs de eventos do Azure
+A extensão de diagnóstico do Azure é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo descreve como enviar dados da extensão de diagnóstico do Windows Azure (WAD) para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) para que você possa encaminhar para locais fora do Azure.
 
-## <a name="supported-data"></a>Dados suportados
+## <a name="supported-data"></a>Dados com suporte
 
-Os dados coletados do sistema operacional convidado que podem ser enviados para o Event Hubs incluem o seguinte. Outras fontes de dados coletadas pela WAD, incluindo registros de IIS e dumps de acidentes, não podem ser enviadas para o Event Hubs.
+Os dados coletados do sistema operacional convidado que podem ser enviados aos hubs de eventos incluem o seguinte. Outras fontes de dados coletadas por WAD, incluindo logs do IIS e despejos de memória, não podem ser enviadas para os hubs de eventos.
 
 * Eventos de ETW (Rastreamento de Eventos para Windows)
 * Contadores de desempenho
-* Registros de eventos do Windows, incluindo registros de aplicativos no registro de eventos do Windows
+* Logs de eventos do Windows, incluindo logs de aplicativos no log de eventos do Windows
 * Logs de infraestrutura do Diagnóstico do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Extensão de diagnóstico do Windows 1.6 ou superior. Consulte [as versões do esquema de configuração de extensão do Azure Diagnostics e o histórico](diagnostics-extension-versions.md) de um histórico de versões e uma visão geral da [extensão do Azure Diagnostics](diagnostics-extension-overview.md) para obter recursos suportados.
-* O namespace do Event Hubs deve ser sempre provisionado. Consulte Comece com o Event Hubs para obter [detalhes.](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Extensão de diagnóstico do Windows 1,6 ou superior. Consulte [diagnóstico do Azure versões de esquema de configuração de extensão e o histórico](diagnostics-extension-versions.md) para obter um histórico de versão e uma [visão geral de extensão de diagnóstico do Azure](diagnostics-extension-overview.md) para recursos com suporte.
+* O namespace de hubs de eventos sempre deve ser provisionado. Consulte Introdução [aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) para obter detalhes.
 
 
 ## <a name="configuration-schema"></a>Esquema de configuração
-Consulte Instalar e configurar a [extensão de diagnóstico do Windows Azure (WAD)](diagnostics-extension-windows-install.md) para obter diferentes opções para habilitar e configurar a extensão de diagnóstico e o esquema de configuração do [Azure Diagnostics](diagnostics-extension-schema-windows.md) para uma referência do esquema de configuração. O resto deste artigo descreverá como usar essa configuração para enviar dados para um hub de eventos. 
+Consulte [instalar e configurar a extensão de diagnóstico do Windows Azure (wad)](diagnostics-extension-windows-install.md) para diferentes opções para habilitar e configurar a extensão de diagnóstico e [diagnóstico do Azure esquema de configuração](diagnostics-extension-schema-windows.md) para uma referência do esquema de configuração. O restante deste artigo descreverá como usar essa configuração para enviar dados para um hub de eventos. 
 
-O Azure Diagnostics sempre envia registros e métricas para uma conta do Azure Storage. Você pode configurar um ou mais *saqueadores de dados* que enviam dados para locais adicionais. Cada pia é definida no [elemento SinksConfig](diagnostics-extension-schema-windows.md#sinksconfig-element) da configuração pública com informações confidenciais na configuração privada. Esta configuração para hubs de eventos usa os valores na tabela a seguir.
+O Diagnóstico do Azure sempre envia logs e métricas para uma conta de armazenamento do Azure. Você pode configurar um ou mais *coletores de dados* que enviam dados para locais adicionais. Cada coletor é definido no [elemento SinksConfig](diagnostics-extension-schema-windows.md#sinksconfig-element) da configuração pública com informações confidenciais na configuração privada. Essa configuração para os hubs de eventos usa os valores na tabela a seguir.
 
 | Propriedade | Descrição |
 |:---|:---|
-| Nome | Nome descritivo para a pia. Usado na configuração para especificar quais fontes de dados enviar para o dissipador. |
-| Url  | Url do hub de \<eventos no formulário event-hubs-namespace\>.servicebus.windows.net/\<nome do hub de eventos\>.          |
-| CompartilhadoAccessKeyName | Nome de uma política de acesso compartilhado para o hub de eventos que tenha pelo menos **Enviar** autoridade. |
-| SharedAccessKey     | Chave primária ou secundária da política de acesso compartilhado para o hub de eventos. |
+| Nome | Nome descritivo do coletor. Usado na configuração para especificar quais fontes de dados enviar para o coletor. |
+| Url  | URL do \<Hub de eventos no formato Event-hubs-namespace\>. ServiceBus.Windows.NET/\<evento-Hub-Name.\>          |
+| SharedAccessKeyName | Nome de uma política de acesso compartilhado para o Hub de eventos que tem pelo menos a autoridade de **envio** . |
+| SharedAccessKey     | Chave primária ou secundária da política de acesso compartilhado para o Hub de eventos. |
 
-Exemplos de configurações públicas e privadas são mostrados abaixo. Esta é uma configuração mínima com um único contador de desempenho e registro de eventos para ilustrar como configurar e usar o dissipador de dados do hub de eventos. Consulte o esquema de [configuração do Azure Diagnostics](diagnostics-extension-schema-windows.md) para obter um exemplo mais complexo.
+As configurações públicas e privadas de exemplo são mostradas abaixo. Essa é uma configuração mínima com um único contador de desempenho e log de eventos para ilustrar como configurar e usar o coletor de dados do hub de eventos. Consulte [diagnóstico do Azure esquema de configuração](diagnostics-extension-schema-windows.md) para obter um exemplo mais complexo.
 
 ### <a name="public-configuration"></a>Configuração pública
 
@@ -107,7 +107,7 @@ Exemplos de configurações públicas e privadas são mostrados abaixo. Esta é 
 
 
 ## <a name="configuration-options"></a>Opções de configuração
-Para enviar dados para um dissipador de dados, você especifica o atributo **sinks** no nó da fonte de dados. Onde você coloca o atributo **das pias** determina o escopo da atribuição. No exemplo a seguir, o atributo **sinks** é definido para o nó **PerformanceCounters,** que fará com que todos os contadores de desempenho infantil sejam enviados para o hub de eventos.
+Para enviar dados para um coletor de dados, especifique o atributo **Sinks** no nó da fonte de dados. Onde você coloca o atributo **Sinks** determina o escopo da atribuição. No exemplo a seguir, o atributo **Sinks** é definido para o nó **PerformanceCounters** , que fará com que todos os contadores de desempenho filho sejam enviados para o Hub de eventos.
 
 ```JSON
 "PerformanceCounters": {
@@ -131,7 +131,7 @@ Para enviar dados para um dissipador de dados, você especifica o atributo **sin
 ```
 
 
-No exemplo a seguir, o atributo **sinks** é aplicado diretamente em três contadores, o que fará com que apenas os contadores de desempenho sejam enviados para o hub de eventos. 
+No exemplo a seguir, o atributo **Sinks** é aplicado diretamente a três contadores, o que fará com que apenas esses contadores de desempenho sejam enviados para o Hub de eventos. 
 
 ```JSON
 "PerformanceCounters": {
@@ -164,20 +164,20 @@ No exemplo a seguir, o atributo **sinks** é aplicado diretamente em três conta
 }
 ```
 
-## <a name="validating-configuration"></a>Validação de configuração
-Você pode usar uma variedade de métodos para validar que os dados estão sendo enviados para o hub de eventos. o método ne simples é usar a captura do Event Hubs conforme descrito em [eventos de captura através do Azure Event Hubs no Azure Blob Storage ou no Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
+## <a name="validating-configuration"></a>Validando a configuração
+Você pode usar uma variedade de métodos para validar que os dados estão sendo enviados para o Hub de eventos. o método simples é usar a captura de hubs de eventos conforme descrito em [eventos de captura por meio dos hubs de eventos do Azure no armazenamento de BLOBs do Azure ou Azure data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
 
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Solucionar problemas dos coletores dos Hubs de Eventos
 
-- Veja a tabela de armazenamento do Azure **WADDiagnosticInfrastructureLogsTable** que contém registros e erros para o próprio Azure Diagnostics. Uma opção é usar uma ferramenta, como o [Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com) , para se conectar a essa conta de armazenamento, exibir essa tabela e adicionar uma consulta por carimbo de data/hora nas últimas 24 horas. Você pode usar a ferramenta para exportar um arquivo .csv e abri-lo em um aplicativo, como o Microsoft Excel. O Excel facilita a pesquisa de cadeias de caracteres de cartão, como **EventHubs**, para ver qual erro é relatado.  
+- Examine a tabela de armazenamento do Azure **WADDiagnosticInfrastructureLogsTable** que contém logs e erros para diagnóstico do Azure si mesmo. Uma opção é usar uma ferramenta, como o [Gerenciador de Armazenamento do Azure](https://www.storageexplorer.com) , para se conectar a essa conta de armazenamento, exibir essa tabela e adicionar uma consulta por carimbo de data/hora nas últimas 24 horas. Você pode usar a ferramenta para exportar um arquivo .csv e abri-lo em um aplicativo, como o Microsoft Excel. O Excel facilita a pesquisa de cadeias de caracteres de cartão, como **EventHubs**, para ver qual erro é relatado.  
 
-- Verifique se o seu hub de eventos foi provisionado com êxito. Todas as informações de conexão na seção **PrivateConfig** da configuração devem corresponder aos valores do seu recurso, conforme visto no portal. Certifique-se de que você tem uma política SAS definida (*SendRule* no exemplo) no portal e que a permissão *enviar* é concedida.  
+- Verifique se o seu hub de eventos foi provisionado com êxito. Todas as informações de conexão na seção **PrivateConfig** da configuração devem corresponder aos valores de seu recurso, como visto no Portal. Verifique se você tem uma política de SAS definida (*SendRule* no exemplo) no portal e se a permissão de *envio* é concedida.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral de Hubs de Evento](../../event-hubs/event-hubs-about.md)
-* [Criar um hub de eventos](../../event-hubs/event-hubs-create.md)
+* [Criar um Hub de Evento](../../event-hubs/event-hubs-create.md)
 * [Perguntas frequentes dos Hubs de Eventos](../../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->

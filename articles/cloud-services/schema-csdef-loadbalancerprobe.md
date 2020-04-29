@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services Def. LoadBalancerProbe Schema | Microsoft Docs
-description: O LoadBalancerProbe definido pelo cliente é um teste de saúde de pontos finais em instâncias de função. Ele combina com funções web ou de trabalhador em um arquivo de definição de serviço.
+title: Esquema de Def. LoadBalancerProbe do Azure Cloud Services | Microsoft Docs
+description: O LoadBalancerProbe definido pelo cliente é uma investigação de integridade de pontos de extremidade em instâncias de função. Ele combina com funções Web ou de trabalho em um arquivo de definição de serviço.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537339"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição dos Serviços de Nuvem do Azure
@@ -64,5 +64,5 @@ A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)

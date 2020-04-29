@@ -1,5 +1,5 @@
 ---
-title: Consulta de bancos de dados fragmentos
+title: Consultar bancos de dados fragmentados
 description: Execute consultas entre fragmentos usando a biblioteca de cliente de banco de dados elástico.
 services: sql-database
 ms.service: sql-database
@@ -9,10 +9,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: ae14a9fd8fc8479eac596fb694e12e3e0a9027f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067310"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta de múltiplos fragmentos usando ferramentas do banco de dados elástico
@@ -63,6 +63,6 @@ Uma limitação com as consultas de vários fragmentos no momento é a ausência
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Consultas de vários fragmentos e operações de divisão/mesclagem
 
-Consultas de vários fragmentos não verificam se shardlets do banco de dados consultado estão participando de operações de divisão/mesclagem em andamento. (Consulte [Dimensionar usando a ferramenta de mesclagem split-merge do Banco de Dados Elástico](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências onde linhas do mesmo fragmento mostram para vários bancos de dados na mesma consulta de vários fragmentos. Lembre-se dessas limitações e considere drenar as operações de divisão/mesclagem em execução e alterações no mapa de fragmentos ao executar consultas de vários fragmentos.
+Consultas de vários fragmentos não verificam se shardlets do banco de dados consultado estão participando de operações de divisão/mesclagem em andamento. (Consulte [dimensionamento usando a ferramenta de divisão/mesclagem do banco de dados elástico](sql-database-elastic-scale-overview-split-and-merge.md).) Isso pode levar a inconsistências em que as linhas do mesmo shardlet mostram para vários bancos de dados na mesma consulta de vários fragmentos. Lembre-se dessas limitações e considere drenar as operações de divisão/mesclagem em execução e alterações no mapa de fragmentos ao executar consultas de vários fragmentos.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

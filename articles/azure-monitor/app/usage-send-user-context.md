@@ -1,5 +1,5 @@
 ---
-title: IDs de contexto do usuário para rastrear atividades - Azure Application Insights
+title: IDs de contexto de usuário para acompanhar informações de Aplicativo Azure de atividade
 description: Acompanhe como os usuários navegam pelo serviço, atribuindo a cada um deles uma cadeia de identificação exclusiva e persistente no Application Insights.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670926"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights

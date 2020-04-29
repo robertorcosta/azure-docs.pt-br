@@ -1,5 +1,5 @@
 ---
-title: Políticas de Colmeia Apache em Apache Ranger - Azure HDInsight
+title: Políticas de Apache Hive no Apache Ranger – Azure HDInsight
 description: Aprenda a configurar as políticas do Apache Ranger para o Hive no serviço do Azure HDInsight com o Enterprise Security Package.
 author: omidm1
 ms.author: omidm
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78196919"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
-Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o driver Excel e ODBC para se conectar às tabelas colmeias no HDInsight.
+Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, use o Excel e o driver ODBC para se conectar a tabelas Hive no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conectar-se à interface do usuário de Administração do Apache Ranger
 **Para conectar-se à interface do usuário de Administrador do Ranger**
 
-1. A partir de um navegador, navegue até `https://CLUSTERNAME.azurehdinsight.net/Ranger/` a Interface do Administrador do Ranger onde CLUSTERNAME é o nome do seu cluster.
+1. Em um navegador, navegue até a interface do usuário do `https://CLUSTERNAME.azurehdinsight.net/Ranger/` administrador do Ranger em onde ClusterName é o nome do cluster.
 
    > [!NOTE]  
    > O Ranger usa credenciais diferentes das utilizadas pelo cluster Apache Hadoop. Para evitar que os navegadores usem credenciais do Hadoop armazenadas em cache, use a nova janela de navegador InPrivate para se conectar à interface do usuário de Administração do Ranger.
@@ -50,18 +50,18 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 
 1. Abrir a Interface de Usuário de Administração do Ranger. Confira Conectar-se à interface do usuário de Administração do Apache Ranger.
 2. Selecione **CLUSTERNAME_Hive**, em **Hive**. Você deverá ver duas políticas de pré-configuração.
-3. Selecione **Adicionar nova diretiva**e, em seguida, digite os seguintes valores:
+3. Selecione **Adicionar nova política**e, em seguida, insira os seguintes valores:
 
     |Propriedade |Valor |
     |---|---|
-    |Nome da política|read-hivesampletable-all|
-    |Banco de dados hive|default|
+    |Nome da política|Read-hivesampletable-All|
+    |Banco de dados do hive|default|
     |tabela|hivesampletable|
-    |Coluna Colmeia|*|
+    |Coluna do hive|*|
     |Selecionar usuário|hiveuser1|
     |Permissões|select|
 
-    ![Políticas de Colmeia hdinsight ESP Ranger configuram](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    ![Configuração de políticas de hive do HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
     > [!NOTE]  
     > Se um usuário de domínio não estiver populado em Selecionar Usuário, aguarde alguns instantes para que o Ranger seja sincronizado com o AAD.
@@ -72,10 +72,10 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 
     |Propriedade |Valor |
     |---|---|
-    |Nome da política|read-hivesampletable-devicemake|
-    |Banco de dados hive|default|
+    |Nome da política|Leia-hivesampletable-devicemake|
+    |Banco de dados do hive|default|
     |tabela|hivesampletable|
-    |Coluna colmeia|clientid, dispositivomake|
+    |Coluna do hive|ClientID, devicemake|
     |Selecionar usuário|hiveuser2|
     |Permissões|select|
 
@@ -86,13 +86,13 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Propriedade  |Descrição |
  | --- | --- |
  | Nome da Fonte de Dados | Forneça um nome para a sua fonte de dados |
- | Host | Entre CLUSTERNAME.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
+ | Host | Insira CLUSTERNAME.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
  | Porta | Use **443**. (Essa porta foi alterada de 563 para 443.) |
- | Banco de dados | Use **Default**. |
+ | Banco de dados | Usar **padrão**. |
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se for diferente. |
+ | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.
@@ -107,29 +107,29 @@ Na última seção, você configurou duas políticas.  hiveuser1 tem a permissã
 
     ![Abrir o assistente de conexão de dados](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Na lista de paradas, selecione o nome de origem de dados que você criou na última seção e, em seguida, selecione **OK**.
+1. Na lista suspensa, selecione o nome da fonte de dados que você criou na última seção e, em seguida, selecione **OK**.
 
-1. Para o primeiro uso, uma caixa de diálogo **de driver ODBC** será aberta. Selecione **Windows** no menu esquerdo. Em seguida, **selecione Conectar** para abrir a janela **Navegador.**
+1. Para o primeiro uso, uma caixa de diálogo do **driver ODBC** será aberta. Selecione **Windows** no menu à esquerda. Em seguida, selecione **conectar** para abrir a janela **navegador** .
 
 1. Aguarde até que a caixa de diálogo **Selecionar Banco de Dados e Tabela** seja aberta. Isso pode levar alguns segundos.
 
-1. Selecione **a tabela de colmeias**e selecione **Next**.
+1. Selecione **hivesampletable**e, em seguida, selecione **Avançar**.
 
 1. Selecione **Concluir**.
 
-1. No diálogo **Importar Dados** , você pode alterar ou especificar a consulta. Para isso, selecione **Propriedades**. Isso pode levar alguns segundos.
+1. No diálogo **Importar Dados** , você pode alterar ou especificar a consulta. Para fazer isso, selecione **Propriedades**. Isso pode levar alguns segundos.
 
-1. Selecione a guia **Definição.** O texto de comando é:
+1. Selecione a guia **definição** . O texto do comando é:
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   De acordo com as políticas do Ranger definidas por você, hiveuser1 tem permissão select em todas as colunas.  Portanto, esta consulta funciona com as credenciais do hiveuser1, mas esta consulta não funciona com as credenciais do hiveuser2.
+   De acordo com as políticas do Ranger definidas por você, hiveuser1 tem permissão select em todas as colunas.  Portanto, essa consulta funciona com as credenciais do hiveuser1, mas essa consulta não funciona com as credenciais do hiveuser2.
 
-1. Selecione **OK** para fechar a caixa de diálogo Propriedades de conexão.
+1. Selecione **OK** para fechar a caixa de diálogo Propriedades da conexão.
 
-1. Selecione **OK** para fechar a caixa de diálogo **Dados de** importação.  
+1. Selecione **OK** para fechar a caixa de diálogo **importar dados** .  
 
-1. Digite novamente a senha para hiveuser1 e clique em **OK**. Leva alguns segundos para que os dados sejam importados para o Excel. Quando estiver pronto, você verá 11 colunas de dados.
+1. Digite novamente a senha para hiveuser1 e clique em **OK**. Leva alguns segundos para que os dados sejam importados para o Excel. Quando terminar, você deverá ver 11 colunas de dados.
 
 Para testar a segunda política (read-hivesampletable-devicemake) que você criou na seção anterior
 
@@ -146,7 +146,7 @@ Para testar a segunda política (read-hivesampletable-devicemake) que você crio
 
         SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
 
-    Quando estiver pronto, você verá duas colunas de dados importados.
+    Quando terminar, você deverá ver duas colunas de dados importadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

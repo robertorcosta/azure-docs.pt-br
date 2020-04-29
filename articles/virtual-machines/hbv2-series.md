@@ -1,5 +1,5 @@
 ---
-title: Série HBv2 - Azure Virtual Machines
+title: Série HBv2-máquinas virtuais do Azure
 description: Especificações para as VMs da série HBv2.
 services: virtual-machines
 author: vermagit
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
 ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164790"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
-As VMs da série HBv2 são otimizadas para aplicações impulsionadas pela largura de banda da memória, como dinâmica de fluidos, análise de elementos finitos e simulação de reservatório. As VMs HBv2 possuem 120 núcleos de processador AMD EPYC 7742, 4 GB de RAM por núcleo de CPU e nenhuma multithreading simultânea. Cada VM HBv2 fornece até 340 GB/seg de largura de banda de memória e até 4 teraFLOPS de computação FP64.
+As VMs da série HBv2 são otimizadas para aplicativos orientados por largura de banda de memória, como dinâmica de fluidos, análise de elemento finito e simulação de reservatório. HBv2 VMs Feature 120 AMD EPYC 7742 núcleos de processador, 4 GB de RAM por núcleo de CPU e nenhum multithread simultâneo. Cada VM HBv2 fornece até 340 GB/s de largura de banda de memória e até 4 teraFLOPS de computação FP64.
 
 Armazenamento Premium: com suporte
 
-Migração ao vivo: não suportado
+Migração ao Vivo: sem suporte
 
-Atualizações de preservação de memória: não suportadas
+Atualizações de preservação de memória: sem suporte
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Freqüência da CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho RDMA (Gb/s) | Suporte ao MPI | Armazenamento temporário (GB) | Discos de dados máximos | Max Ethernet NICs |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Máximo de NICs Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Todos | 480 + 960 | 8 | 1 |
 
@@ -35,7 +35,7 @@ Atualizações de preservação de memória: não suportadas
 
 - [Propósito geral](sizes-general.md)
 - [Memória otimizada](sizes-memory.md)
-- [Otimizado para armazenamento](sizes-storage.md)
+- [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)

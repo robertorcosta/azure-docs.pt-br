@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: seodec18
 ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067082"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realize a análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning Studio (clássico)
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Executar análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
-Este artigo descreve como configurar rapidamente um trabalho simples do Azure Stream Analytics que integra o Azure Machine Learning Studio (clássico). Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
+Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio (clássico). Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
 
 > [!TIP]
-> É altamente recomendável usar [UDFs de aprendizado de máquina do Azure](machine-learning-udf.md) em vez do Azure Machine Learning Studio (clássico) UDF para melhorar o desempenho e a confiabilidade.
+> É altamente recomendável usar [Azure Machine Learning UDFs](machine-learning-udf.md) em vez de Azure Machine Learning Studio UDF (clássico) para melhorar o desempenho e a confiabilidade.
 
 Você pode aplicar o que aprendeu com este artigo a cenários como estes:
 
@@ -48,14 +48,14 @@ Antes de começar, verifique se você tem:
 Em um nível alto, para concluir as tarefas demonstradas neste artigo, você fará o seguinte:
 
 1. Criar uma conta de armazenamento do Azure e um contêiner de armazenamento de blobs e carregar um arquivo de entrada formatado em CSV para o contêiner.
-3. Adicione um modelo de análise de sentimentoda Cortana Intelligence Gallery ao seu espaço de trabalho (clássico) Azure Machine Learning Studio (clássico) e implante esse modelo como um serviço web no espaço de trabalho machine learning.
+3. Adicione um modelo de análise de sentimentos da Cortana Intelligence Gallery ao seu espaço de trabalho Azure Machine Learning Studio (clássico) e implante esse modelo como um serviço Web no espaço de trabalho Machine Learning.
 5. Criar um trabalho do Stream Analytics que chame esse serviço Web como uma função para determinar o sentimento da entrada de texto.
 6. Iniciar o trabalho do Stream Analytics e verificar a saída.
 
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Criar um contêiner de armazenamento e carregar o arquivo de entrada CSV
 Nesta etapa, você pode usar qualquer arquivo CSV, como o disponível no GitHub.
 
-1. No portal Azure, clique **em Criar uma** > conta de**armazenamento** > **de**recursos .
+1. No portal do Azure, clique em **criar um recurso** > **armazenamento** > **conta de armazenamento**.
 
 2. Forneça um nome (`samldemo` no exemplo). O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
 
@@ -63,7 +63,7 @@ Nesta etapa, você pode usar qualquer arquivo CSV, como o disponível no GitHub.
 
     ![informe os detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. No portal do Azure, selecione a conta de armazenamento. Na lâmina da conta de armazenamento, ** + &nbsp;** clique em **Containers** e clique em Contêiner para criar o armazenamento blob.
+4. No portal do Azure, selecione a conta de armazenamento. Na folha da conta de armazenamento, clique em **contêineres** e, em seguida, clique em ** + &nbsp;contêiner** para criar o armazenamento de BLOBs.
 
     ![Criar um contêiner de armazenamento de blob para entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -120,9 +120,9 @@ Agora você pode criar um trabalho do Stream Analytics que leia os tweets de exe
 
 ### <a name="create-the-job"></a>Criar o trabalho
 
-1. Vá para o [portal Azure.](https://portal.azure.com)  
+1. Vá para o [Portal do Azure](https://portal.azure.com).  
 
-2. Clique **em Criar um recurso** > **internet of Things** > **Stream Analytics trabalho**. 
+2. Clique em **criar um recurso** > **Internet das coisas** > **Stream Analytics trabalho**. 
 
 3. Dê ao trabalho o nome de `azure-sa-ml-demo`, especifique uma assinatura, especifique um grupo de recursos existente ou crie um novo e selecione o local para o trabalho.
 
@@ -143,7 +143,7 @@ O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente pa
    |---------|---------|
    |**Alias de entrada** | Use o nome `datainput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento criada anteriormente.  |
-   |**Recipiente**  | Selecione o contêiner criado anteriormente (`azuresamldemoblob`)        |
+   |**Contêiner**  | Selecione o contêiner criado anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização do evento**  |  Selecione **CSV**       |
 
    ![Configurações para a nova entrada de trabalho do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
@@ -163,7 +163,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
    |---------|---------|
    |**Alias de saída** | Use o nome `datamloutput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento criada anteriormente.  |
-   |**Recipiente**  | Selecione o contêiner criado anteriormente (`azuresamldemoblob`)        |
+   |**Contêiner**  | Selecione o contêiner criado anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização do evento**  |  Selecione **CSV**       |
 
    ![Configurações para a nova saída de trabalho do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
@@ -178,14 +178,14 @@ Nesta seção do tutorial, você define uma função do trabalho de Stream Analy
 
 1. Verifique se que você tem a URL do serviço Web e a chave de API baixada anteriormente na pasta de trabalho do Excel.
 
-2. Navegue até sua lâmina de trabalho > **Funções** > **+ Adicione** > **AzureML**
+2. Navegue até sua folha de trabalho > **funções** > **+ Adicionar** > **AzureML**
 
 3. Preencha a folha **Função do Azure Machine Learning** com estes valores:
 
    |Campo  |Valor  |
    |---------|---------|
    | **Alias da função** | Use o nome `sentiment` e selecione a opção **Fornecer as configurações de função do Azure Machine Learning manualmente**, que oferece uma opção para inserir a URL e a chave.      |
-   | **Url**| Cole a URL do serviço Web.|
+   | **URL**| Cole a URL do serviço Web.|
    |**Chave** | Cole a chave de API. |
   
    ![Configurações para adicionar uma função de Machine Learning para o trabalho de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
@@ -257,7 +257,7 @@ Você também pode exibir as métricas relacionadas à função de Azure Machine
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrar API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

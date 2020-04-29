@@ -1,6 +1,6 @@
 ---
-title: Mova uma VM usando o Azure CLI
-description: Mova uma VM para outro grupo de recursos ou assinatura do Azure usando o Azure CLI.
+title: Mover uma VM no usando o CLI do Azure
+description: Mova uma VM para outra assinatura ou grupo de recursos do Azure usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944596"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mova uma VM para outro grupo de assinatura ou recurso
-Este artigo orienta você sobre como mover uma máquina virtual (VM) entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover uma VM para outra assinatura ou grupo de recursos
+Este artigo explica como mover uma VM (máquina virtual) entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
 > [!IMPORTANT]
 >Novas IDs de recurso são criadas como parte da mudança. Depois que a VM for movida, você precisará atualizar suas ferramentas e scripts para usar as novas IDs de recursos.

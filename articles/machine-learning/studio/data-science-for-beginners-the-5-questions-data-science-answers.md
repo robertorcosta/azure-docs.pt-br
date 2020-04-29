@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204436"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
@@ -31,7 +31,7 @@ Este primeiro vídeo é sobre os tipos de perguntas que a ciência de dados pode
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados levando cerca de 25 minutos no total. Confira todos os cinco vídeos:
 
 * Vídeo 1: As cinco perguntas que a ciência de dados responde
-* Vídeo 2: [Seus dados estão prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Vídeo 2: [seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
 * Video 3: [Faça uma pergunta que você possa responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
 * Vídeo 4: [Preveja uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
@@ -66,7 +66,7 @@ Essa família de algoritmos é chamada de classificação de duas classes.
 
 Ela é útil para qualquer pergunta que tenha apenas duas respostas possíveis.
 
-Por exemplo: 
+Por exemplo:
 
 * Este pneu falhará nos próximos 1000 Km: Sim ou não?
 * O que traz mais clientes: um cupom de $5 ou 25% de desconto?
@@ -78,12 +78,12 @@ A próxima pergunta que a ciência de dados pode responder é: Isso é estranho?
 
 ![Algoritmos de detecção de anomalias: Isso é estranho?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-Se você tem um cartão de crédito, você já se beneficiou da detecção de anomalias. Sua empresa de cartão de crédito analisa os padrões de compra, para que possam alertar você sobre uma possíveis fraudes. Os encargos "estranhos" podem ser uma compra em uma loja onde você normalmente não compra, ou uma compra de um item muito caro.
+Se você tiver um cartão de crédito, já terá se beneficiado da detecção de anomalias. Sua empresa de cartão de crédito analisa os padrões de compra, para que possam alertar você sobre uma possíveis fraudes. Os encargos "estranhos" podem ser uma compra em uma loja onde você normalmente não compra, ou uma compra de um item muito caro.
 
 Essa questão pode ser útil de várias formas. Por exemplo:
 
 * Se você tiver um carro com medidores de pressão, talvez queira saber: Esse medidor está lendo normalmente?
-* Se você está monitorando a internet, você gostaria de saber: Essa mensagem da internet é típica?
+* Se você estiver monitorando a Internet, convém saber: esta é a mensagem da Internet típica?
 
 A detecção de anomalias sinaliza comportamentos ou eventos incomuns ou inesperados. Ela dá dicas sobre onde procurar problemas.
 
@@ -102,7 +102,7 @@ Eles ajudam a responder qualquer pergunta cuja resposta seja um número.
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Pergunta 4: Como isso é organizado? usa algoritmos de clustering
 Agora, as duas últimas perguntas são um pouco mais avançadas.
 
-Às vezes, você deseja compreender a estrutura de um conjunto de dados - Como isso é organizado? Para esta pergunta, você não tem exemplos para os quais já conhece os resultados.
+Às vezes, você deseja compreender a estrutura de um conjunto de dados - Como isso é organizado? Para essa pergunta, você não tem exemplos dos quais já conhece os resultados.
 
 Há muitas maneiras de revelar a estrutura dos dados. Uma abordagem é o clustering. Ele separa os dados em "grupos" naturais, para facilitar a interpretação. Com o clustering, não há uma resposta correta.
 
@@ -135,5 +135,5 @@ Algoritmos de aprendizado de reforço coletam os dados conforme eles surgem, apr
 Então é isso, As cinco perguntas que a ciência de dados pode responder.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Experimente um primeiro experimento de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
+* [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

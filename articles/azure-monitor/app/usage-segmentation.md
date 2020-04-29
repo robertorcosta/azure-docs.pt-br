@@ -1,5 +1,5 @@
 ---
-title: Análise de uso, sessão e eventos no Azure Application Insights
+title: Análise de usuário, sessão e evento no Aplicativo Azure insights
 description: Análise demográfica dos usuários de seu aplicativo Web.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670977"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
