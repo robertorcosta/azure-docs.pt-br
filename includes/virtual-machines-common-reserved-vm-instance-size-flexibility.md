@@ -5,24 +5,24 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 02-18-2020
 ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471441"
 ---
-Ao comprar uma VM Instance reservada, você pode optar por otimizar, por exemplo, flexibilidade de tamanho ou prioridade de capacidade. Para obter mais informações sobre como definir ou alterar a configuração otimizada para instâncias de VM reservadas, consulte [Alterar a configuração otimizar para instâncias vm reservadas](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+Ao comprar uma instância de VM reservada, você pode optar por otimizar a flexibilidade de tamanho da instância ou a prioridade da capacidade. Para obter mais informações sobre como configurar ou alterar a configuração de otimização para instâncias de VM reservadas, consulte [alterar a configuração de otimização para instâncias de VM reservadas](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
-Com uma instância de máquina virtual reservada que é otimizada para flexibilidade de tamanho por exemplo, a reserva que você compra pode aplicar-se aos tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de instância. Por exemplo, se você comprar uma reserva para um tamanho VM que está listado na série DSv2, como Standard_DS5_v2, o desconto de reserva pode se aplicar aos outros quatro tamanhos que estão listados no mesmo grupo de flexibilidade de tamanho de instância:
+Com uma instância de máquina virtual reservada que é otimizada para flexibilidade de tamanho de instância, a reserva que você compra pode se aplicar a tamanhos de máquinas virtuais (VMs) no mesmo grupo de flexibilidade de tamanho de instância. Por exemplo, se você comprar uma reserva para um tamanho de VM listado na série DSv2, como Standard_DS5_v2, o desconto de reserva poderá ser aplicado aos outros quatro tamanhos listados no mesmo grupo de flexibilidade de tamanho de instância:
 
 - Standard_DS1_v2
 - Standard_DS2_v2
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-Mas esse desconto de reserva não se aplica a tamanhos de VMs que estão listados em diferentes grupos de flexibilidade de tamanho de instância, como SKUs na Série DSv2 High Memory: Standard_DS11_v2, Standard_DS12_v2 e assim por diante.
+Mas esse desconto de reserva não se aplica a tamanhos de VMs que estão listados em diferentes grupos de flexibilidade de tamanho de instância, como SKUs na série DSv2 de memória alta: Standard_DS11_v2, Standard_DS12_v2 e assim por diante.
 
-Dentro do grupo de flexibilidade de tamanho de exemplo, o número de VMs que o desconto de reserva se aplica depende do tamanho da VM que você escolhe quando compra uma reserva. Isso também depende das VMs que você tem em execução. A coluna razão compara a pegada relativa para cada tamanho de VM nesse grupo de flexibilidade de tamanho de instância. Use o valor da proporção para calcular como o desconto de reserva se aplica às VMs você tem em execução.
+Dentro do grupo de flexibilidade do tamanho da instância, o número de VMs a que o desconto de reserva se aplica depende do tamanho da VM que você escolher ao comprar uma reserva. Isso também depende das VMs que você tem em execução. A coluna ratio compara a superfície relativa para cada tamanho de VM nesse grupo de flexibilidade de tamanho de instância. Use o valor da proporção para calcular como o desconto de reserva se aplica às VMs você tem em execução.
 
 ## <a name="examples"></a>Exemplos
 
@@ -38,8 +38,8 @@ As seções a seguir mostram quais tamanhos estão no mesmo grupo de série de t
 
 ## <a name="instance-size-flexibility-ratio-for-vms"></a>Taxa de flexibilidade de tamanho de instância para VMs 
 
-CSV abaixo tem os grupos de flexibilidade de tamanho de ocorrência, ArmSkuName e as proporções.  
+O CSV abaixo tem os grupos de flexibilidade de tamanho de instância, ArmSkuName e as proporções.  
 
-[Proporções de flexibilidade de tamanho de instância](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
+[Taxas de flexibilidade de tamanho de instância](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv)
 
-Vamos manter a URL do arquivo e o esquema fixo para que você possa consumir este arquivo de forma programática. Os dados também estarão disponíveis através da API em breve.
+Manteremos a URL do arquivo e o esquema fixo para que você possa consumir esse arquivo programaticamente. Os dados também estarão disponíveis por meio da API em breve.

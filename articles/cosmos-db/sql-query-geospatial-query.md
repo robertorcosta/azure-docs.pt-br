@@ -1,35 +1,35 @@
 ---
-title: Consultando dados geoespaciais com o Azure Cosmos DB
-description: Consultando dados espaciais com o Azure Cosmos DB
+title: Consultando dados geoespaciais com Azure Cosmos DB
+description: Consultando dados espaciais com Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566316"
 ---
-# <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consultando dados geoespaciais com o Azure Cosmos DB
+# <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consultando dados geoespaciais com Azure Cosmos DB
 
-Este artigo abordará como consultar dados geoespaciais no Azure Cosmos DB usando SQL e LINQ. Atualmente, armazenar e acessar dados geoespaciais é suportado apenas por contas API Azure Cosmos DB SQL. O Azure Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. Para obter mais informações sobre o conjunto completo de funções incorporadas na linguagem SQL, consulte [Funções do sistema de consulta no Azure Cosmos DB](sql-query-system-functions.md).
+Este artigo explicará como consultar dados geoespaciais em Azure Cosmos DB usando o SQL e o LINQ. Atualmente, o armazenamento e o acesso a dados geoespaciais têm suporte apenas Azure Cosmos DB contas da API do SQL. O Azure Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. Para obter mais informações sobre o conjunto completo de funções internas na linguagem SQL, consulte [funções do sistema de consulta no Azure Cosmos DB](sql-query-system-functions.md).
 
 ## <a name="spatial-sql-built-in-functions"></a>Funções internas espaciais do SQL
 
-Aqui está uma lista de funções do sistema geoespacial úteis para consulta no Azure Cosmos DB:
+Aqui está uma lista de funções geoespaciais do sistema úteis para consulta no Azure Cosmos DB:
 
-|**Uso**|**Descrição**|
+|**Usage**|**Descrição**|
 |---|---|
 | ST_DISTANCE (spatial_expr, spatial_expr) | Retorna a distância entre as duas expressões de ponto GeoJSON, Polígono ou LineString.|
 |ST_WITHIN (spatial_expr, spatial_expr) | Retorna uma expressão booliana que indica se o primeiro objeto GeoJSON (Ponto, Polígono ou LineString) está em um segundo objeto GeoJSON (Ponto, Polígono ou LineString).|
 |ST_INTERSECTS (spatial_expr, spatial_expr)| Retorna uma expressão booliana que indica se os dois objetos GeoJSON especificados (Ponto, Polígono ou LineString) se cruzam.|
 |ST_ISVALID| Retorna um valor Booliano que indica se a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida.|
-| ST_ISVALIDDETAILED| Retorna um valor JSON contendo um valor booleano se a expressão GeoJSON Point, Polygon ou LineString especificada for válida. Se inválido, ele retorna a razão como um valor de string.|
+| ST_ISVALIDDETAILED| Retorna um valor JSON que contém um valor booliano se a expressão de ponto geojson, polígono ou LineString especificada é válida. Se for inválido, ele retornará o motivo como um valor de cadeia de caracteres.|
 
-As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, aqui está uma consulta que retorna todos os documentos familiares que `ST_DISTANCE` estão dentro de 30 km do local especificado usando a função incorporada.
+As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, aqui está uma consulta que retorna todos os documentos de família que estão dentro de 30 km do local especificado `ST_DISTANCE` usando a função interna.
 
 **Consulta**
 
@@ -47,11 +47,11 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
     }]
 ```
 
-Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais informações sobre indexação espacial, consulte [indexação geoespacial](sql-query-geospatial-index.md). Se você não tiver um índice espacial para os caminhos especificados, a consulta fará uma varredura do contêiner.
+Se você incluir a indexação espacial em sua política de indexação, as "consultas de distância" serão servidas com eficiência por meio do índice. Para obter mais informações sobre a indexação espacial, consulte [indexação geoespacial](sql-query-geospatial-index.md). Se você não tiver um índice espacial para os caminhos especificados, a consulta fará uma verificação do contêiner.
 
-`ST_WITHIN`pode ser usado para verificar se um ponto está dentro de um Polígono. Normalmente, os Polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
+`ST_WITHIN`pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os Polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
-Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou seja, os Polígonos não devem conter orifícios neles.
+Os argumentos Polygon `ST_WITHIN` no podem conter apenas um único anel, ou seja, os polígonos não devem conter buracos neles.
 
 **Consulta**
 
@@ -73,7 +73,7 @@ Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou se
 ```
 
 > [!NOTE]
-> Da mesma forma como os tipos sem correspondência funcionam na consulta do Azure Cosmos DB, se o valor de localização especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se a consulta não retornar `ST_ISVALIDDETAILED` resultados, execute para depurar por que o tipo espacial é inválido.
+> Da mesma forma como os tipos sem correspondência funcionam na consulta do Azure Cosmos DB, se o valor de localização especificado em um dos argumentos for malformado ou inválido, ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar nenhum resultado, `ST_ISVALIDDETAILED` execute para depurar por que o tipo espacial é inválido.
 >
 >
 
@@ -99,7 +99,7 @@ O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou se
     }]
 ```
 
-`ST_ISVALID`e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). `ST_ISVALID`retorna apenas um valor `ST_ISVALIDDETAILED` booleano, e retorna o Boolean e uma seqüência contendo a razão pela qual é considerado inválido.
+`ST_ISVALID`e `ST_ISVALIDDETAILED` pode ser usado para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). `ST_ISVALID`retorna apenas um valor booliano e `ST_ISVALIDDETAILED` retorna o booliano e uma cadeia de caracteres que contém o motivo pelo qual ele é considerado inválido.
 
 **Consulta**
 
@@ -115,7 +115,7 @@ O Azure Cosmos DB também dá suporte à execução de consultas inversas, ou se
     }]
 ```
 
-Essas funções também podem ser usadas para validar Polígonos. Por exemplo, aqui `ST_ISVALIDDETAILED` usamos para validar um Polígono que não está fechado.
+Essas funções também podem ser usadas para validar Polígonos. Por exemplo, aqui, usamos `ST_ISVALIDDETAILED` para validar um polígono que não está fechado.
 
 **Consulta**
 
@@ -136,11 +136,11 @@ Essas funções também podem ser usadas para validar Polígonos. Por exemplo, a
     }]
 ```
 
-## <a name="linq-querying-in-the-net-sdk"></a>Consulta linq no .NET SDK
+## <a name="linq-querying-in-the-net-sdk"></a>Consultas LINQ no SDK do .NET
 
 O SDK do .NET do SQL também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do SQL traduz as chamadas desse método nas chamadas de função internas do SQL equivalentes (ST_DISTANCE e ST_WITHIN, respectivamente).
 
-Aqui está um exemplo de uma consulta LINQ que encontra todos os `location` documentos no contêiner Azure Cosmos cujo valor está dentro de um raio de 30 km do ponto especificado usando LINQ.
+Aqui está um exemplo de uma consulta LINQ que localiza todos os documentos no contêiner Cosmos do Azure `location` cujo valor está dentro de um raio de 30 km do ponto especificado usando LINQ.
 
 **Consulta LINQ para distância**
 
@@ -152,7 +152,7 @@ Aqui está um exemplo de uma consulta LINQ que encontra todos os `location` docu
     }
 ```
 
-Da mesma forma, aqui está uma consulta `location` para encontrar todos os documentos que estão dentro da caixa especificada/Polygon.
+Da mesma forma, aqui está uma consulta para localizar todos os `location` documentos cujo está dentro da caixa/polígono especificada.
 
 **Consulta LINQ para dentro**
 
@@ -181,5 +181,5 @@ Da mesma forma, aqui está uma consulta `location` para encontrar todos os docum
 Agora que você aprendeu a usar o suporte geoespacial no Azure Cosmos DB, em seguida, poderá:
 
 * Saiba mais sobre a [Consulta do Azure Cosmos DB](sql-query-getting-started.md)
-* Saiba mais sobre [dados de localização geoespacial e geojson no Azure Cosmos DB](sql-query-geospatial-intro.md)
-* Saiba mais sobre [dados espaciais do Índice com o Azure Cosmos DB](sql-query-geospatial-index.md)
+* Saiba mais sobre [os dados geoespaciais e de localização geojson no Azure Cosmos DB](sql-query-geospatial-intro.md)
+* Saiba mais sobre [dados espaciais de índice com Azure Cosmos DB](sql-query-geospatial-index.md)

@@ -1,6 +1,6 @@
 ---
-title: Implantar & configurar o Firewall Azure em rede híbrida usando o PowerShell
-description: Neste artigo, você aprende como implantar e configurar o Firewall Azure usando o Azure PowerShell.
+title: Implantar & configurar o Firewall do Azure na rede híbrida usando o PowerShell
+description: Neste artigo, você aprenderá a implantar e configurar o Firewall do Azure usando o Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471747"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
@@ -25,7 +25,7 @@ Para este artigo, você cria três redes virtuais:
 
 - **VNet-Hub**: o firewall está nessa rede virtual.
 - **VNet-Spoke**: a rede virtual spoke representa a carga de trabalho localizada no Azure.
-- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, pode ser conectada por uma conexão VPN ou ExpressRoute. Para simplificar, este artigo usa uma conexão de gateway VPN, e uma rede virtual localizada no Azure é usada para representar uma rede local.
+- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, pode ser conectada por uma conexão VPN ou ExpressRoute. Para simplificar, este artigo usa uma conexão de gateway de VPN e uma rede virtual localizada no Azure é usada para representar uma rede local.
 
 ![Firewall em uma rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -43,28 +43,28 @@ Neste artigo, você aprenderá como:
 > * Criar as máquinas virtuais
 > * Testar o firewall
 
-Se você quiser usar o portal Azure em vez de completar este tutorial, consulte [Tutorial: Implante e configure o Firewall Azure em uma rede híbrida usando o portal Azure](tutorial-hybrid-portal.md).
+Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte [tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo exige que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
+Este artigo requer que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 Há três requisitos principais para que este cenário funcione corretamente:
 
-- Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação da rota do gateway de rede virtual deve ser **desativada** nesta tabela de rotas.
+- Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação de rota do gateway de rede virtual deve ser **desabilitada** nesta tabela de rotas.
 - Uma UDR na sub-rede do gateway do hub precisa apontar para o endereço IP do firewall como o próximo salto para as redes spoke.
 
    Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 - Verifique se você definiu **AllowGatewayTransit** ao emparelhar a VNet-Hub com a VNet-Spoke e **UseRemoteGateways** ao emparelhar a VNet-Spoke com a VNet-Hub.
 
-Consulte a seção [Criar rotas](#create-the-routes) neste artigo para ver como essas rotas são criadas.
+Consulte a seção [criar rotas](#create-the-routes) neste artigo para ver como essas rotas são criadas.
 
 >[!NOTE]
 >O Firewall do Azure deve ter conectividade direta com a Internet. Se seu AzureFirewallSubnet aprender uma rota padrão para sua rede local via BGP, você deve substituir isso por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 >
->O Firewall Azure pode ser configurado para suportar túneis forçados. Para obter mais informações, consulte [o azure Firewall forced tunneling](forced-tunneling.md).
+>O Firewall do Azure pode ser configurado para dar suporte ao túnel forçado. Para obter mais informações, consulte [túnel forçado do firewall do Azure](forced-tunneling.md).
 
 >[!NOTE]
 >O tráfego entre VNETs diretamente emparelhadas é roteado diretamente, mesmo se uma UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar o tráfego de sub-rede para sub-rede para o firewall nesse cenário, uma UDR precisa conter o prefixo de rede da sub-rede de destino explicitamente em ambas as sub-redes.
@@ -75,7 +75,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="declare-the-variables"></a>Declarar as variáveis
 
-O exemplo a seguir declara as variáveis que utilizam os valores deste artigo. Em alguns casos, é preciso substituir alguns valores pelos seus próprios para trabalhar em sua assinatura. Modifique as variáveis, se for necessário, e depois copie e cole em seu console do PowerShell.
+O exemplo a seguir declara as variáveis usando os valores deste artigo. Em alguns casos, é preciso substituir alguns valores pelos seus próprios para trabalhar em sua assinatura. Modifique as variáveis, se for necessário, e depois copie e cole em seu console do PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -464,7 +464,7 @@ No portal do Azure, conecte a máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Abra um navegador web no **VM-Onprem**e navegue até\<http://\>IP privado vm-spoke-01 .
+Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP\>privado.
 
 Você deverá ver a página padrão dos Serviços de Informações da Internet.
 
@@ -489,7 +489,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Agora execute os testes novamente. Todos devem falhar nesse momento. Feche as áreas de trabalho remotas existentes antes de testar a alteração das regras.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou se não forem mais necessários, exclua o grupo de recursos **FW-Hybrid-Test** para excluir todos os recursos relacionados ao firewall.
 

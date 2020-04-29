@@ -1,7 +1,7 @@
 ---
 title: Definição de interface para habilidades personalizadas
 titleSuffix: Azure Cognitive Search
-description: Interface personalizada de extração de dados para habilidade personalizada da Web-API em um pipeline de enriquecimento de IA na Pesquisa Cognitiva do Azure.
+description: Interface de extração de dados personalizada para habilidade personalizada de API Web em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77500264"
 ---
-# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de pesquisa cognitiva do Azure
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
-Um [pipeline de enriquecimento](cognitive-search-concept-intro.md) no Azure Cognitive Search pode ser montado a partir [de habilidades cognitivas incorporadas,](cognitive-search-predefined-skills.md) bem como [habilidades personalizadas](cognitive-search-custom-skill-web-api.md) que você pessoalmente cria e adiciona ao pipeline. Neste artigo, aprenda a criar uma habilidade personalizada que exponha uma interface que permita que ela seja incluída em um pipeline de enriquecimento de IA. 
+Um [pipeline de enriquecimento](cognitive-search-concept-intro.md) no Azure pesquisa cognitiva pode ser montado de [habilidades cognitivas internas](cognitive-search-predefined-skills.md) , bem como [habilidades personalizadas](cognitive-search-custom-skill-web-api.md) que você cria pessoalmente e adiciona ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite que ela seja incluída em um pipeline de enriquecimento de ia. 
 
-Criar uma habilidade personalizada oferece a você uma maneira de adicionar transformações únicas ao seu conteúdo. Uma habilidade personalizada será executada de forma independente, aplicando qualquer etapa de enriquecimento que você precisar. Por exemplo, você poderá definir entidades personalizadas específicas por campo, compilar modelos de classificação personalizada para diferenciar contratos e documentos financeiros e corporativos, ou adicionar uma habilidade de reconhecimento de fala para ir ainda mais longe com arquios de áudio para conteúdos relevantes. Para obter um exemplo passo a passo, consulte [Exemplo: Criando uma habilidade personalizada para o enriquecimento de IA](cognitive-search-create-custom-skill-example.md).
+Criar uma habilidade personalizada oferece a você uma maneira de adicionar transformações únicas ao seu conteúdo. Uma habilidade personalizada será executada de forma independente, aplicando qualquer etapa de enriquecimento que você precisar. Por exemplo, você poderá definir entidades personalizadas específicas por campo, compilar modelos de classificação personalizada para diferenciar contratos e documentos financeiros e corporativos, ou adicionar uma habilidade de reconhecimento de fala para ir ainda mais longe com arquios de áudio para conteúdos relevantes. Para obter um exemplo passo a passo, consulte [exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md).
 
  Para qualquer recurso personalizado que você precisar, haverá uma interface simples e clara para conectar uma habilidade personalizada ao resto do pipeline de enriquecimento. O único requisito para a inclusão em um [conjunto de qualificações](cognitive-search-defining-skillset.md) é a capacidade de aceitar entradas e saídas de maneiras que possam ser utilizadas no conjunto de qualificações como um todo. O foco deste artigo é sobre os formatos de entrada e saída exigidos pelo pipeline de enriquecimento.
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de habilidades personalizadas da API da Web
 
-Personalize os pontos de extremidade da habilidade da API da Web por tempo limite padrão caso eles não retornem uma resposta dentro de uma janela de 30 segundos. O pipeline de indexação é síncrono, e a indexação produzirá um erro de tempo limite se a resposta não for recebida nesse intervalo.  É possível configurar o tempo para até 230 segundos, definindo o parâmetro de tempo livre:
+Personalize os pontos de extremidade da habilidade da API da Web por tempo limite padrão caso eles não retornem uma resposta dentro de uma janela de 30 segundos. O pipeline de indexação é síncrono, e a indexação produzirá um erro de tempo limite se a resposta não for recebida nesse intervalo.  É possível configurar o tempo limite para até 230 segundos, definindo o parâmetro timeout:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -34,11 +34,11 @@ Personalize os pontos de extremidade da habilidade da API da Web por tempo limit
         "timeout": "PT230S",
 ```
 
-Certifique-se de que o URI está seguro (HTTPS).
+Verifique se o URI é seguro (HTTPS).
 
 Atualmente, o único mecanismo para interagir com uma habilidade personalizada é por meio de uma interface da API da Web. A API da Web precisa atender aos requisitos descritos nesta seção.
 
-### <a name="1--web-api-input-format"></a>1. Formato de entrada da API web
+### <a name="1--web-api-input-format"></a>1. formato de entrada da API Web
 
 A API da Web deve aceitar uma matriz de registros a serem processados. Cada registro deve conter um “recipiente de propriedades” que é a entrada fornecida à API da Web. 
 
@@ -83,7 +83,7 @@ Para ser mais concreto, conforme o exemplo acima, a API da Web deve esperar soli
 ```
 Na realidade, o serviço pode ser chamado com centenas ou milhares de registros em vez de apenas os três mostrados aqui.
 
-### <a name="2-web-api-output-format"></a>2. Formato de saída da API web
+### <a name="2-web-api-output-format"></a>2. formato de saída da API Web
 
 O formato da saída é um conjunto de registros que contêm um *recordId* e um recipiente de propriedades 
 
@@ -124,7 +124,7 @@ Conforme mostrado no exemplo anterior, você pode retornar mensagens de erro e d
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Utilizando qualificações personalizadas do conjunto de qualificações
 
-Ao criar um enriquecedor da API da Web, você pode descrever parâmetros e cabeçalhos HTTP como parte da solicitação. O trecho abaixo mostra como parâmetros de solicitação e cabeçalhos HTTP *opcionais* podem ser descritos como parte da definição de skillset. Os cabeçalhos HTTP não são um requisito, mas permitem que você adicione recursos adicionais de configuração à sua habilidade e os defina a partir da definição de skillset.
+Ao criar um enriquecedor da API da Web, você pode descrever parâmetros e cabeçalhos HTTP como parte da solicitação. O trecho de código a seguir mostra como os parâmetros de solicitação e os cabeçalhos HTTP *opcionais* podem ser descritos como parte da definição do congrau de habilidade. Os cabeçalhos HTTP não são um requisito, mas permitem que você adicione recursos de configuração adicionais à sua habilidade e defina-os a partir da definição de conjunto de qualificações.
 
 ```json
 {
@@ -156,10 +156,10 @@ Ao criar um enriquecedor da API da Web, você pode descrever parâmetros e cabe�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo cobriu os requisitos de interface necessários para integrar uma habilidade personalizada em um skillset. Clique nos links a seguir para saber mais sobre habilidades personalizadas e composição de skillset.
+Este artigo abordou os requisitos de interface necessários para integrar uma habilidade personalizada em um contratador de habilidades. Clique nos links a seguir para saber mais sobre habilidades personalizadas e composição do contratador de habilidades.
 
-+ [Power Skills: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Exemplo: Criar uma habilidade personalizada para o enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
++ [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

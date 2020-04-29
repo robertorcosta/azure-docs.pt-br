@@ -1,5 +1,5 @@
 ---
-title: Recursos úteis ao trabalhar com o Azure Sentinel| Microsoft Docs
+title: Recursos úteis ao trabalhar com o Azure Sentinel | Microsoft Docs
 description: Este documento fornece uma lista de recursos úteis ao trabalhar com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,70 +16,70 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
 ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585264"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com o Azure Sentinel
 
 
 
-Este artigo lista recursos que podem ajudá-lo a obter mais informações sobre como trabalhar com o Azure Sentinel.
+Este artigo lista os recursos que podem ajudá-lo a obter mais informações sobre como trabalhar com o Azure Sentinel.
 
-Conectores de aplicativos azure logic:<https://docs.microsoft.com/connectors/>
+Conectores de aplicativos lógicos do Azure:<https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Auditoria e relatórios
-Os registros de auditoria do Azure Sentinel são mantidos nos [Registros de Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Os logs de auditoria do Azure Sentinel são mantidos nos [logs de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-As seguintes operações suportadas podem ser auditadas.
+As operações com suporte a seguir podem ser auditadas.
 
 |Nome da operação|    Tipo de recurso|
 |----|----|
-|Criar ou atualizar a carteira de trabalho  |Microsoft.Insights/livros de trabalho|
-|Excluir agenda de trabalho    |Microsoft.Insights/livros de trabalho|
+|Criar ou atualizar pasta de trabalho  |Microsoft. insights/pastas de trabalho|
+|Excluir pasta de trabalho    |Microsoft. insights/pastas de trabalho|
 |Definir fluxo de trabalho   |Microsoft.Logic/workflows|
 |Excluir fluxo de trabalho    |Microsoft.Logic/workflows|
-|Criar pesquisa salva    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Excluir pesquisa salva    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Atualizar regras de alerta |Microsoft.SecurityInsights/alertRules|
-|Excluir regras de alerta |Microsoft.SecurityInsights/alertRules|
-|Atualizar ações de resposta a regras de alerta |Microsoft.SecurityInsights/alertaRegras/ações|
-|Excluir ações de resposta a regras de alerta |Microsoft.SecurityInsights/alertaRegras/ações|
-|Atualizar marcadores   |Microsoft.SecurityInsights/marcadores|
-|Excluir marcadores   |Microsoft.SecurityInsights/marcadores|
-|Atualizar casos   |Microsoft.SecurityInsights/Cases|
-|Atualizar investigação de caso  |Microsoft.SecurityInsights/Cases/investigações|
-|Criar comentários de caso   |Microsoft.SecurityInsights/Cases/comentários|
-|Atualizar conectores de dados |Microsoft.SecurityInsights/dataConnectors|
-|Excluir conectores de dados |Microsoft.SecurityInsights/dataConnectors|
-|Atualizar configurações    |Microsoft.SecurityInsights/configurações|
+|Criar pesquisa salva    |Microsoft. OperationalInsights/Workspaces/savedSearches|
+|Excluir pesquisa salva    |Microsoft. OperationalInsights/Workspaces/savedSearches|
+|Atualizar regras de alerta |Microsoft. SecurityInsights/alertRules|
+|Excluir regras de alerta |Microsoft. SecurityInsights/alertRules|
+|Atualizar ações de resposta da regra de alerta |Microsoft. SecurityInsights/alertRules/Actions|
+|Excluir ações de resposta da regra de alerta |Microsoft. SecurityInsights/alertRules/Actions|
+|Atualizar indicadores   |Microsoft. SecurityInsights/bookmarks|
+|Excluir indicadores   |Microsoft. SecurityInsights/bookmarks|
+|Atualizar casos   |Microsoft. SecurityInsights/casos|
+|Atualizar investigação de caso  |Microsoft. SecurityInsights/casos/investigações|
+|Criar comentários de caso   |Microsoft. SecurityInsights/casos/comentários|
+|Atualizar conectores de dados |Microsoft. SecurityInsights/dataconnecters|
+|Excluir conectores de dados |Microsoft. SecurityInsights/dataconnecters|
+|Atualizar configurações    |Microsoft. SecurityInsights/Settings|
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Ver dados de auditoria e relatórios no Azure Sentinel
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Exibir dados de auditoria e relatórios no Azure Sentinel
 
-Você pode visualizar esses dados transmitindo-os do log do Azure Activity no Azure Sentinel, onde você pode então realizar pesquisas e análises sobre ele.
+Você pode exibir esses dados transmitindo-os do log de atividades do Azure para o Azure Sentinel, em que você pode executar pesquisa e análise nele.
 
-1. Conecte a fonte de dados [do Azure Activity.](connect-azure-activity.md) Depois disso, os eventos de auditoria são transmitidos para uma nova tabela na tela **Logs** chamada AzureActivity.
-2. Em seguida, consultar os dados usando KQL, como faria com qualquer outra tabela.
+1. Conecte a fonte de dados da [atividade do Azure](connect-azure-activity.md) . Depois de fazer isso, os eventos de auditoria são transmitidos em uma nova tabela na tela de **logs** chamada AzureActivity.
+2. Em seguida, consulte os dados usando KQL, como faria com qualquer outra tabela.
 
 
 
 ## <a name="vendor-documentation"></a>Documentação do fornecedor
 
-| **Fornecedor**  | **Use incidente no Azure Sentinel** | **Link**|
+| **Fabricante**  | **Usar o incidente no Azure Sentinel** | **Link**|
 |----|----|----|
 | GitHub| Usado para acessar a página da Comunidade| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configurar CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| Pluralsight | Curso da Linguagem de Consulta Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| PluralSight | Curso da Linguagem de Consulta Kusto| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
 ## <a name="blogs-and-forums"></a>Blogs e fóruns
 
-Poste suas perguntas no [espaço TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para o Azure Sentinel.
+Poste suas perguntas no [espaço do TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para o Azure Sentinel.
 
-Veja as postagens do blog do Azure Sentinel da [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [do Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+Veja as postagens no blog do Azure Sentinel do [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com o Azure Sentinel. Você encontrará informações adicionais sobre segurança e conformidade do Azure no [blog Microsoft Azure Security and Compliance](https://blogs.msdn.com/b/azuresecurity/).
+Neste documento, você tem uma lista de recursos que são úteis quando você está trabalhando com o Azure Sentinel. Você encontrará informações adicionais sobre a segurança e a conformidade do Azure no [blog Microsoft Azure segurança e conformidade](https://blogs.msdn.com/b/azuresecurity/).

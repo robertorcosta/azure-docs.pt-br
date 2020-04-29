@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
 ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77586267"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Como configurar a hora de início do processador do feed de alterações
@@ -54,4 +54,4 @@ O processador do feed de alterações será inicializado e começará a ler as a
 Agora continue para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 
 * [Visão geral do processador do feed de alterações](change-feed-processor.md)
-* [Como usar o avaliador do feed de alterações](how-to-use-change-feed-estimator.md)
+* [Usar o estimador do feed de alterações](how-to-use-change-feed-estimator.md)

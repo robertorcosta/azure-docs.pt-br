@@ -1,6 +1,6 @@
 ---
-title: Ver usuários do portal Azure VMware CloudSimple - Azure VMware Solution by CloudSimple
-description: Descreve como visualizar a lista de usuários que têm acesso ao portal CloudSimple através do portal Azure
+title: Exibir usuários do portal do Azure VMware CloudSimple-solução VMware do Azure por CloudSimple
+description: Descreve como exibir a lista de usuários que têm acesso ao portal do CloudSimple por meio do portal do Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f9043fbbb77059eb4e4ed42dbef8a42e5790d565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77563999"
 ---
-# <a name="view-the-list-of-cloudsimple-portal-users"></a>Veja a lista de usuários do portal CloudSimple
+# <a name="view-the-list-of-cloudsimple-portal-users"></a>Exibir a lista de usuários do portal do CloudSimple
 
-Os usuários são adicionados à lista de usuários quando acessam pela primeira vez o portal CloudSimple. Para visualizar a lista de usuários que têm acesso ao portal CloudSimple através do Azure, [acesse o portal CloudSimple](access-cloudsimple-portal.md), selecione **Conta** no menu lateral e, em seguida, selecione **Usuários** no portal CloudSimple.
+Os usuários são adicionados à lista de usuários quando acessam o portal do CloudSimple pela primeira vez. Para exibir a lista de usuários que têm acesso ao portal do CloudSimple por meio do Azure, [acesse o portal do CloudSimple](access-cloudsimple-portal.md), selecione **conta** no menu lateral e, em seguida, selecione **usuários** no portal do CloudSimple.
 
-* Para exibir os detalhes do usuário, incluindo a assinatura do Azure, o inquilino e os IDs do usuário, clique em uma entrada na página **Usuários.**
+* Para exibir os detalhes do usuário, incluindo a assinatura do Azure, o locatário e as IDs de usuário, clique em uma entrada na página **usuários** .
 
-* Para exibir um registro de atividade de auditoria para um usuário, selecione a guia **Registro de auditoria.**
-* Para bloquear ou desbloquear uma conta de usuário, clique no alternador **Bloqueado** ao exibir os detalhes do usuário. Quando a conta é desbloqueada, o usuário pode acessar o portal CloudSimple. Quando a conta é bloqueada, o acesso ao portal é bloqueado.
+* Para exibir um log de auditoria de atividade para um usuário, selecione a guia **log de auditoria** .
+* Para bloquear ou desbloquear uma conta de usuário, clique na alternância **bloqueada** ao exibir os detalhes do usuário. Quando a conta é desbloqueada, o usuário pode acessar o portal do CloudSimple. Quando a conta estiver bloqueada, o acesso ao portal será bloqueado.

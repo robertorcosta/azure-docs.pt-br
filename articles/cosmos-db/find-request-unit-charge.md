@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
 ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585893"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontrar o preço de Unidade de Solicitação no Azure Cosmos DB
@@ -25,7 +25,7 @@ Se você estiver usando a API do SQL, terá várias opções para encontrar o co
 
 Atualmente, você pode encontrar o preço de solicitação no portal do Azure somente para uma consulta SQL.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) e alimente-a com alguns dados ou selecione uma conta do Azure Cosmos existente que já contenha dados.
 
@@ -81,7 +81,7 @@ Os objetos retornados do [SDK do .NET v3](https://www.nuget.org/packages/Microso
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
-Para obter mais informações, consulte [Quickstart: Crie um aplicativo web .NET usando uma conta De API SQL no Azure Cosmos DB](create-sql-api-dotnet.md).
+Para obter mais informações, consulte [início rápido: compilar um aplicativo Web .NET usando uma conta da API do SQL no Azure Cosmos DB](create-sql-api-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Usar o SDK do Java
 
@@ -111,7 +111,7 @@ feedResponse.forEach(result -> {
 });
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo Java usando uma conta API Azure Cosmos DB SQL](create-sql-api-java.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo Java usando uma conta Azure Cosmos DB API do SQL](create-sql-api-java.md).
 
 ### <a name="use-the-nodejs-sdk"></a>Usar o SDK do Node.js
 
@@ -146,7 +146,7 @@ while (query.hasMoreResults()) {
 }
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo Node.js usando uma conta API Azure Cosmos DB SQL](create-sql-api-nodejs.md). 
+Para obter mais informações, consulte [início rápido: criar um aplicativo node. js usando uma conta Azure Cosmos DB API do SQL](create-sql-api-nodejs.md). 
 
 ### <a name="use-the-python-sdk"></a>Usar o SDK do Python
 
@@ -162,7 +162,7 @@ response = client.ExecuteStoredProcedure(
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo Python usando uma conta API Azure Cosmos DB SQL](create-sql-api-python.md). 
+Para obter mais informações, consulte [início rápido: criar um aplicativo Python usando uma conta Azure Cosmos DB API do SQL](create-sql-api-python.md). 
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
@@ -172,7 +172,7 @@ O preço de RU é exposto por um [comando de banco de dados](https://docs.mongod
 
 Atualmente, você pode encontrar o preço de solicitação no portal do Azure somente para uma consulta.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e alimente-a com alguns dados ou selecione uma conta existente que já contenha dados.
 
@@ -203,7 +203,7 @@ Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatist
 double requestCharge = (double)stats["RequestCharge"];
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo web .NET usando uma API Azure Cosmos DB para MongoDB](create-mongodb-dotnet.md).
+Para obter mais informações, consulte [início rápido: compilar um aplicativo Web .NET usando uma API Azure Cosmos DB para MongoDB](create-mongodb-dotnet.md).
 
 ### <a name="use-the-mongodb-java-driver"></a>Usar o driver do Java do MongoDB
 
@@ -215,7 +215,7 @@ Document stats = database.runCommand(new Document("getLastRequestStatistics", 1)
 Double requestCharge = stats.getDouble("RequestCharge");
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo web usando a API Azure Cosmos DB para MongoDB e o Java SDK](create-mongodb-java.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo Web usando a API Azure Cosmos DB para MongoDB e o SDK do Java](create-mongodb-java.md).
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Usar o driver do Node.js do MongoDB
 
@@ -228,7 +228,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 });
 ```
 
-Para obter mais informações, consulte [Quickstart: Migre um aplicativo web Existente do MongoDB Node.js para o Azure Cosmos DB](create-mongodb-nodejs.md).
+Para obter mais informações, consulte [início rápido: migrar um aplicativo Web node. js do MongoDB existente para Azure Cosmos DB](create-mongodb-nodejs.md).
 
 ## <a name="cassandra-api"></a>API Cassandra
 
@@ -243,7 +243,7 @@ RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo Cassandra usando o .NET SDK e o Azure Cosmos DB](create-cassandra-dotnet.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo Cassandra usando o SDK do .net e Azure Cosmos DB](create-cassandra-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Usar o SDK do Java
 
@@ -254,7 +254,7 @@ ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tabl
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo Cassandra usando o Java SDK e o Azure Cosmos DB](create-cassandra-java.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo Cassandra usando o SDK do Java e Azure Cosmos DB](create-cassandra-java.md).
 
 ## <a name="gremlin-api"></a>API do Gremlin
 
@@ -273,7 +273,7 @@ ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result
 double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo .NET Framework ou Core usando uma conta API Do Azure Cosmos DB Gremlin](create-graph-dotnet.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo .NET Framework ou Core usando uma conta de API do Gremlin Azure Cosmos DB](create-graph-dotnet.md).
 
 ### <a name="use-the-java-sdk"></a>Usar o SDK do Java
 
@@ -284,7 +284,7 @@ ResultSet results = client.submit("g.V().count()");
 Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
 ```
 
-Para obter mais informações, consulte [Quickstart: Crie um banco de dados gráfico no Azure Cosmos DB usando o Java SDK](create-graph-java.md).
+Para obter mais informações, consulte [início rápido: criar um banco de dados de grafo no Azure Cosmos DB usando o SDK do Java](create-graph-java.md).
 
 ## <a name="table-api"></a>API de Tabela
 
@@ -299,7 +299,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-Para obter mais informações, consulte [Quickstart: Construa um aplicativo de API de tabela usando o .NET SDK e o Azure Cosmos DB](create-table-dotnet.md).
+Para obter mais informações, consulte [início rápido: criar um aplicativo API de tabela usando o SDK do .net e o Azure Cosmos DB](create-table-dotnet.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -309,6 +309,6 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
-* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Aprovisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Provisionar a taxa de transferência para um contêiner](how-to-provision-container-throughput.md)
 * [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

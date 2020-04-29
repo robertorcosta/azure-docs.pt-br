@@ -1,13 +1,13 @@
 ---
 title: Instalar Servidor de Backup do Azure no Azure Stack
-description: Neste artigo, saiba como usar o Azure Backup Server para proteger ou fazer backup de cargas de trabalho no Azure Stack.
+description: Neste artigo, saiba como usar Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77583428"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
@@ -163,7 +163,7 @@ Há duas maneiras de baixar o instalador do Servidor de Backup do Azure. Você p
 
     ![Centro de download 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    O tamanho de download de todos os arquivos de instalação é maior que 3 GB. Em um link de download de 10 Mbps, baixar todos os arquivos de instalação pode levar até 60 minutos. Os arquivos são baixados para o local de download especificado.
+    O tamanho do download de todos os arquivos de instalação é maior que 3 GB. Em um link de download de 10 Mbps, baixar todos os arquivos de instalação pode levar até 60 minutos. Os arquivos são baixados para o local de download especificado.
 
 ## <a name="extract-azure-backup-server-install-files"></a>Extrair os arquivos de instalação do Servidor de Backup do Azure
 
@@ -320,7 +320,7 @@ A primeira cópia de backup é mantida no armazenamento anexado ao computador do
 
 O Servidor de Backup do Azure requer conectividade com o serviço de Backup Azure para que o produto funcione com êxito. Para validar se o computador tem conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do PowerShell do Servidor de Backup do Azure. Se a saída do cmdlet for TRUE, existe conectividade, caso contrário, não existe nenhuma conectividade.
 
-Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para saber o estado da sua assinatura e gerenciá-la, entre no [portal de assinaturas.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+Ao mesmo tempo, a assinatura do Azure deve estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, entre no portal de [assinatura](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Quando você souber o estado da conectividade do Azure e da assinatura do Azure, poderá usar a tabela abaixo para descobrir o impacto sobre a funcionalidade de backup/restauração oferecida.
 
@@ -335,7 +335,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione os seguintes endereços de domínio na lista de permitir o firewall/proxy:
+Se um firewall ou um proxy estiver impedindo o acesso ao Azure, adicione os seguintes endereços de domínio na lista de permissões do perfil de firewall/proxy:
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

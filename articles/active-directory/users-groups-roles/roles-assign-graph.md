@@ -1,6 +1,6 @@
 ---
-title: Atribuir funções de administrador admin azure com API do Microsoft Graph | Microsoft Docs
-description: Atribuir e remover funções de administrador AD do Azure com API gráfico no Diretório Ativo do Azure
+title: Atribuir funções de administrador do Azure AD com a API Microsoft Graph | Microsoft Docs
+description: Atribuir e remover funções de administrador do Azure AD com o API do Graph no Azure Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,21 +14,21 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77559140"
 ---
-# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizados usando a API do Microsoft Graph no Azure Active Directory 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API de Microsoft Graph no Azure Active Directory 
 
-Você pode automatizar como atribuir funções a contas de usuário usando a API do Microsoft Graph. Este artigo abrange as operações POST, GET e DELETE em RoleAssignments.
+Você pode automatizar a forma como atribui funções a contas de usuário usando a API Microsoft Graph. Este artigo aborda as operações POST, GET e DELETE no roleAssignments.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Conecte-se ao seu inquilino Azure AD usando uma conta de administrador Global ou administrador de identidade privilegiada para atribuir ou remover funções.
+Conecte-se ao seu locatário do Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
 
-## <a name="post-operations-on-roleassignment"></a>Operações POST em RoleAssignment
+## <a name="post-operations-on-roleassignment"></a>Operações POST no RoleAssignment
 
 Solicitação HTTP para criar uma atribuição de função entre um usuário e uma definição de função.
 
@@ -55,7 +55,7 @@ Resposta
 HTTP/1.1 201 Created
 ```
 
-Solicitação HTTP para criar uma atribuição de função onde a definição principal ou função não existe
+Solicitação HTTP para criar uma atribuição de função na qual a definição de entidade ou função não existe
 
 POST
 
@@ -79,10 +79,10 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para criar uma única atribuição de função com escopo de recurso em uma definição de função incorporada.
+Solicitação HTTP para criar uma atribuição de função com escopo de recurso único em uma definição de função interna.
 
 > [!NOTE] 
-> As funções incorporadas hoje têm uma limitação onde podem ser escopo apenas para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recursos únicos não funciona para funções incorporadas, mas funciona para funções personalizadas.
+> Atualmente, as funções internas têm uma limitação em que podem ser escopos somente para o escopo "/" de toda a organização ou o escopo "/AU/*". O escopo de recurso único não funciona para funções internas, mas funciona para funções personalizadas.
 
 POST
 
@@ -124,9 +124,9 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## <a name="get-operations-on-roleassignment"></a>OBTER operações em RoleAssignment
+## <a name="get-operations-on-roleassignment"></a>OBTER operações no RoleAssignment
 
-Solicitação HTTP para obter uma atribuição de função para um determinado diretor
+Solicitação HTTP para obter uma atribuição de função para uma determinada entidade
 
 GET
 
@@ -192,7 +192,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="delete-operations-on-roleassignment"></a>EXCLUA operações na atribuição de papéis
+## <a name="delete-operations-on-roleassignment"></a>Operações de exclusão no RoleAssignment
 
 Solicitação HTTP para excluir uma atribuição de função entre um usuário e uma definição de função.
 
@@ -221,7 +221,7 @@ Resposta
 HTTP/1.1 404 Not Found
 ```
 
-Solicitação HTTP para excluir uma atribuição de função entre a definição de função auto e incorporada
+Solicitação HTTP para excluir uma atribuição de função entre a definição de função própria e interna
 
 Delete (excluir)
 

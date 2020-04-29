@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77539001"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerenciar um modelo de sala de aula no Azure Lab Services
@@ -28,26 +28,26 @@ Este artigo descreve como criar e gerenciar uma máquina virtual de modelo em um
 ## <a name="set-or-update-template-title-and-description"></a>Definir ou atualizar modelo de título e descrição
 Use as etapas a seguir para definir o título e descrição para a primeira vez e atualizá-los mais tarde. 
 
-1. Na página **Modelo,** digite o novo **título** para o laboratório.  
-2. Digite a nova **descrição** do modelo. Quando você move o foco para fora da caixa de texto, ele é salvo automaticamente. 
+1. Na página **modelo** , insira o novo **título** para o laboratório.  
+2. Insira a nova **Descrição** para o modelo. Quando você move o foco para fora da caixa de texto, ele é salvo automaticamente. 
 
     ![Nome do modelo e descrição](../media/how-to-create-manage-template/template-name-description.png)
 
-## <a name="update-a-template-vm"></a>Atualize um modelo VM
-Use as seguintes etapas para atualizar um modelo VM.  
+## <a name="update-a-template-vm"></a>Atualizar uma VM de modelo
+Use as etapas a seguir para atualizar uma VM de modelo.  
 
-1. Aguarde até que o modelo VM seja iniciado e, em seguida, **selecione Conectar ao modelo** na barra de ferramentas para se conectar à VM do modelo e siga as instruções. Se for uma máquina Windows, você verá uma opção para baixar o arquivo RDP. 
-1. Uma vez que você se conectar ao modelo e fazer alterações, ele não terá mais a mesma configuração que as máquinas virtuais publicadas pela última vez para seus usuários. As alterações de modelo não serão refletidas nas máquinas virtuais existentes de seus usuários até depois que você publicar novamente.
+1. Aguarde até que a VM de modelo seja iniciada e, em seguida, selecione **conectar ao modelo** na barra de ferramentas para se conectar à VM de modelo e siga as instruções. Se for um computador Windows, você verá uma opção para baixar o arquivo RDP. 
+1. Quando você se conectar ao modelo e fizer alterações, ele não terá mais a mesma configuração que as máquinas virtuais publicadas pela última vez para os usuários. As alterações de modelo não serão refletidas nas máquinas virtuais existentes de seus usuários até que você publique novamente.
 
     ![Conectar à VM modelo](../media/how-to-create-manage-template/connect-template-vm.png)
     
 1. Instale o software necessário para que os alunos façam o laboratório (por exemplo, Visual Studio, Gerenciador de Armazenamento do Azure etc.). 
 1. Desconecte (feche sua sessão de área de trabalho remota) da VM modelo. 
-1. **Interrompa** o modelo VM selecionando **'Stop's template**. 
-1. Siga as etapas na próxima seção para **publicar** o modelo atualizado VM. 
+1. **Pare** a VM do modelo selecionando **parar modelo**. 
+1. Siga as etapas na próxima seção para **publicar** a VM de modelo atualizada. 
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM modelo  
-Nessa etapa, você publica a VM de modelo. Quando você publica o modelo VM, o Azure Lab Services cria VMs no laboratório usando o modelo. Todas as máquinas virtuais têm a mesma configuração que o modelo.
+Nessa etapa, você publica a VM de modelo. Quando você publica a VM de modelo, o Azure Lab Services cria VMs no laboratório usando o modelo. Todas as máquinas virtuais têm a mesma configuração que o modelo.
 
 
 1. Na página **Modelo**, selecione **Publicar** na barra de ferramentas. 

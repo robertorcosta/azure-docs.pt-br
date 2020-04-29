@@ -1,7 +1,7 @@
 ---
-title: Reconstruir um índice de pesquisa
+title: Recriar um índice de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma reconstrução completa ou indexação parcial para atualizar um índice de Pesquisa Cognitiva Do Azure.
+description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma recompilação completa ou indexação parcial para atualizar um índice de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77498371"
 ---
-# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como reconstruir um índice na Pesquisa Cognitiva do Azure
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
 
-Este artigo explica como reconstruir um índice de Pesquisa Cognitiva Do Azure, as circunstâncias em que as reconstruções são necessárias e recomendações para mitigar o impacto das reconstruções em solicitações de consulta em andamento.
+Este artigo explica como recriar um índice de Pesquisa Cognitiva do Azure, as circunstâncias sob as quais as recompilações são necessárias e recomendações para mitigar o impacto de recompilações em solicitações de consulta em andamento.
 
-Um *recompilar* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices invertidos com base no campo. Na Pesquisa Cognitiva do Azure, você não pode soltar e recriar campos individuais. Para recompilar um índice, todo o armazenamento de campo deve ser excluído, recriado com base em um esquema de índice existente ou revisado e, em seguida, novamente preenchido com os dados enviados por push para o índice ou extraídos de fontes externas. 
+Um *recompilar* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices invertidos com base no campo. No Azure Pesquisa Cognitiva, não é possível descartar e recriar campos individuais. Para recompilar um índice, todo o armazenamento de campo deve ser excluído, recriado com base em um esquema de índice existente ou revisado e, em seguida, novamente preenchido com os dados enviados por push para o índice ou extraídos de fontes externas. 
 
 É comum recompilar índices durante o desenvolvimento, mas você também precisará recompilar um índice de nível de produção para acomodar alterações estruturais, como a adição de tipos complexos ou de campos a sugestores.
 
 ## <a name="rebuild-conditions"></a>Recompilar condições
 
-Solte e recrie um índice se alguma das seguintes condições for verdadeira. 
+Remova e recrie um índice se qualquer uma das condições a seguir for verdadeira. 
 
 | Condição | Descrição |
 |-----------|-------------|
@@ -33,12 +33,12 @@ Solte e recrie um índice se alguma das seguintes condições for verdadeira.
 | Atribuir um analisador a um campo | Os [analisadores](search-analyzers.md) são definidos em um índice e, em seguida, são atribuídos aos campos. É possível adicionar uma nova definição de analisador a um índice a qualquer momento, mas só é possível *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para as propriedades **analyzer** e **indexAnalyzer**. A propriedade **searchAnalyzer** é uma exceção (é possível atribuir essa propriedade a um campo existente). |
 | Atualizar ou excluir uma definição de analisador em um índice | Não é possível excluir nem alterar uma configuração de analisador existente (analisador, gerador de token, filtro de token ou filtro de caracteres) no índice, a menos que você recompile todo o índice. |
 | Adicionar um campo a um sugestor | Se um campo já existir e você desejar adicioná-lo a um constructo [Sugestores](index-add-suggesters.md), será necessário recompilar o índice. |
-| Excluir um campo | Para remover fisicamente todos os rastreamentos de um campo, você precisa recriar o índice. Quando uma reconstrução imediata não é prática, você pode modificar o código do aplicativo para desativar o acesso ao campo "excluído" ou usar o [parâmetro de consulta $select](search-query-odata-select.md) para escolher quais campos estão representados no conjunto de resultados. Fisicamente, a definição e o conteúdo do campo permanecem no índice até a próxima recompilação, quando você aplica um esquema que omite o campo em questão. |
-| Alternar camadas | Se você precisar de mais capacidade, não há atualização no local no portal Azure. Um novo serviço deve ser criado, e os índices devem ser construídos do zero no novo serviço. Para ajudar a automatizar esse processo, você pode usar o código de amostra **de restauração de backup de índice** neste [repo de amostra Azure Cognitive Search .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples). Este aplicativo fará backup do seu índice para uma série de arquivos JSON e, em seguida, recriará o índice em um serviço de pesquisa especificado.|
+| Excluir um campo | Para remover fisicamente todos os rastreamentos de um campo, você precisa recriar o índice. Quando uma recompilação imediata não é prática, você pode modificar o código do aplicativo para desabilitar o acesso ao campo "excluído" ou usar o [parâmetro de consulta $SELECT](search-query-odata-select.md) para escolher quais campos são representados no conjunto de resultados. Fisicamente, a definição e o conteúdo do campo permanecem no índice até a próxima recompilação, quando você aplica um esquema que omite o campo em questão. |
+| Alternar camadas | Se você precisar de mais capacidade, não haverá nenhuma atualização in-loco no portal do Azure. Um novo serviço deve ser criado e os índices devem ser criados a partir do zero no novo serviço. Para ajudar a automatizar esse processo, você pode usar o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples). Esse aplicativo fará o backup do índice em uma série de arquivos JSON e, em seguida, recriará o índice em um serviço de pesquisa que você especificar.|
 
-## <a name="update-conditions"></a>Atualizar condições
+## <a name="update-conditions"></a>Condições de atualização
 
-Muitas outras modificações podem ser feitas sem impactar as estruturas físicas existentes. Especificamente, as seguintes alterações *não* requerem uma reconstrução do índice. Para essas alterações, você pode [atualizar uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/update-index) com suas alterações.
+Muitas outras modificações podem ser feitas sem afetar as estruturas físicas existentes. Especificamente, as alterações a seguir *não* exigem uma recompilação de índice. Para essas alterações, você pode [atualizar uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/update-index) com suas alterações.
 
 + Adicionar um novo campo
 + Definir o atributo **recuperável** em um campo existente
@@ -48,25 +48,25 @@ Muitas outras modificações podem ser feitas sem impactar as estruturas física
 + Adicionar, atualizar ou excluir configurações de CORS
 + Adicionar, atualizar ou excluir synonymMaps
 
-Quando você adiciona um novo campo, os documentos indexados existentes recebem um valor nulo para o novo campo. Em uma atualização de dados futura, os valores dos dados de origem externa substituem as nulas adicionadas pelo Azure Cognitive Search. Para obter mais informações sobre como atualizar o conteúdo do índice, consulte [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Quando você adiciona um novo campo, os documentos indexados existentes recebem um valor nulo para o novo campo. Em uma atualização futura de dados, os valores de dados de origem externos substituem os nulos adicionados pelo Azure Pesquisa Cognitiva. Para obter mais informações sobre como atualizar o conteúdo do índice, consulte [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="how-to-rebuild-an-index"></a>Como recompilar um índice
 
-Durante o desenvolvimento, o esquema de índice muda com freqüência. Você pode planejar para ele criando índices que podem ser excluídos, recriados e recarregados rapidamente com um pequeno conjunto de dados representativos.
+Durante o desenvolvimento, o esquema de índice é alterado com frequência. Você pode planejar isso criando índices que podem ser excluídos, recriados e recarregados rapidamente com um pequeno conjunto de dados representativos.
 
-Para aplicativos já em produção, é recomendável criar um novo índice que é executado lado a lado de um índice existente para evitar a inatividade de consulta. Seu código de aplicativo fornece redirecionamento para o novo índice.
+Para aplicativos já em produção, é recomendável criar um novo índice que é executado lado a lado de um índice existente para evitar a inatividade de consulta. O código do aplicativo fornece redirecionamento para o novo índice.
 
-A indexação não é executada em segundo plano e o serviço equilibrará a indexação adicional em relação às consultas em andamento. Durante a indexação, você pode [monitorar solicitações de consulta](search-monitor-queries.md) no portal para garantir que as consultas estejam sendo completadas em tempo hábil.
+A indexação não é executada em segundo plano e o serviço balanceia a indexação adicional em relação a consultas contínuas. Durante a indexação, você pode [monitorar solicitações de consulta](search-monitor-queries.md) no portal para garantir que as consultas sejam concluídas oportunamente.
 
-1. Determine se uma reconstrução é necessária. Se você estiver apenas adicionando campos ou alterando alguma parte do índice que não está relacionada aos campos, você pode simplesmente [atualizar a definição](https://docs.microsoft.com/rest/api/searchservice/update-index) sem excluí-la, recriar e recarregá-la totalmente.
+1. Determine se uma recompilação é necessária. Se você estiver apenas adicionando campos ou alterando alguma parte do índice que não esteja relacionado a campos, talvez seja possível simplesmente [atualizar a definição](https://docs.microsoft.com/rest/api/searchservice/update-index) sem excluir, recriar e recarregá-la completamente.
 
-1. [Obtenha uma definição](https://docs.microsoft.com/rest/api/searchservice/get-index) de índice no caso de precisar dele para referência futura.
+1. [Obtenha uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) caso você precise dela para referência futura.
 
-1. [Solte o índice existente,](https://docs.microsoft.com/rest/api/searchservice/delete-index)assumindo que você não está executando índices novos e antigos lado a lado. 
+1. [Descarte o índice existente](https://docs.microsoft.com/rest/api/searchservice/delete-index), supondo que você não esteja executando índices novos e antigos lado a lado. 
 
-   Todas as consultas que direcionam esse índice são descartadas imediatamente. Lembre-se que a exclusão de um índice é irreversível, destruindo o armazenamento físico para a coleta de campos e outras construções. Pare para pensar sobre as implicações antes de deixá-lo cair. 
+   Todas as consultas que direcionam esse índice são descartadas imediatamente. Lembre-se de que a exclusão de um índice é irreversível, destruindo o armazenamento físico para a coleção Fields e outras construções. Pause para pensar nas implicações antes de descartá-la. 
 
-1. [Crie um índice revisado,](https://docs.microsoft.com/rest/api/searchservice/create-index)onde o corpo da solicitação inclua definições de campo alteradas ou modificadas.
+1. [Crie um índice revisado](https://docs.microsoft.com/rest/api/searchservice/create-index), em que o corpo da solicitação inclui definições de campo alteradas ou modificadas.
 
 1. [Carregue o índice com documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de uma fonte externa.
 
@@ -75,15 +75,15 @@ Quando você cria o índice, o armazenamento físico é alocado para cada campo 
 Quando você carrega o índice, o índice invertido de cada campo é preenchido com todas as palavras exclusivas, indexadas de cada documento, com um mapa das IDs do documento correspondentes. Por exemplo, durante a indexação de um conjunto de dados de hotéis, um índice invertido criado para um campo de cidade pode conter os termos para Seattle, Portland e assim por diante. Documentos que incluem Seattle ou Portland no campo Cidade teriam sua ID de documento listada juntamente com o termo. Em qualquer operação [Adicionar, atualizar ou excluir](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), os termos e a lista de IDs de documento são atualizadas de acordo.
 
 > [!NOTE]
-> Se você tiver rigorosos requisitos de SLA, você pode considerar o provisionamento de um novo serviço especificamente para esse trabalho, com o desenvolvimento e indexação ocorrendo em isolamento completo de um índice de produção. Um serviço separado é executado em seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento estiver concluído, você deixaria o novo índice no lugar, redirecionando consultas para o novo ponto final e índice, ou executaria o código final para publicar um índice revisado no seu serviço original de Pesquisa Cognitiva do Azure. Atualmente, não há nenhum mecanismo para mover um índice pronto para uso para outro serviço.
+> Se você tiver rigorosos requisitos de SLA, você pode considerar o provisionamento de um novo serviço especificamente para esse trabalho, com o desenvolvimento e indexação ocorrendo em isolamento completo de um índice de produção. Um serviço separado é executado em seu próprio hardware, eliminando qualquer possibilidade de contenção de recursos. Quando o desenvolvimento for concluído, você deixaria o novo índice em vigor, redirecionando as consultas para o novo ponto de extremidade e índice, ou executaria o código concluído para publicar um índice revisado em seu serviço de Pesquisa Cognitiva do Azure original. Atualmente, não há nenhum mecanismo para mover um índice pronto para uso para outro serviço.
 
 ## <a name="check-for-updates"></a>Verificar atualizações
 
 Você pode começar a consultar um índice, assim que o primeiro documento for carregado. Se você souber a ID de um documento, a [API REST de Procurar documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) retorna o documento específico. Para testes mais amplos, você deve aguardar até que o índice seja totalmente carregado e, em seguida, usar consultas para verificar o contexto em que você espera ver.
 
-Você pode usar [o Search Explorer](search-explorer.md) ou uma ferramenta de teste da Web como o [Carteiro](search-get-started-postman.md) para verificar se há conteúdo atualizado.
+Você pode usar o [Search Explorer](search-explorer.md) ou uma ferramenta de teste na Web como o [postmaster](search-get-started-postman.md) para verificar o conteúdo atualizado.
 
-Se você adicionou ou renomeou um campo, use [$select](search-query-odata-select.md) para retornar esse campo:`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
+Se você adicionou ou renomeou um campo, use [$Select](search-query-odata-select.md) para retornar esse campo:`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>Confira também
 
@@ -92,6 +92,6 @@ Se você adicionou ou renomeou um campo, use [$select](search-query-odata-select
 + [Indexando no portal](search-import-data-portal.md)
 + [Indexador do Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Indexador do Azure Cosmos DB](search-howto-index-cosmosdb.md)
-+ [Indexador de armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md)
-+ [Indexador de armazenamento de tabelas azure](search-howto-indexing-azure-tables.md)
-+ [Segurança na Busca Cognitiva do Azure](search-security-overview.md)
++ [Indexador de armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md)
++ [Indexador de armazenamento de tabela do Azure](search-howto-indexing-azure-tables.md)
++ [Segurança no Azure Pesquisa Cognitiva](search-security-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Autenticação Azure AD para StorSimple 8000 no Gerenciador de dispositivos
+title: Autenticação do Azure AD para o StorSimple 8000 no Device Manager
 description: Explica como usar a autenticação baseada no AAD para o serviço, gerar uma nova chave de registro e realizar o registro manual dos dispositivos.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77470897"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usar a nova autenticação para o StorSimple
@@ -54,9 +54,9 @@ Se estiver usando um dispositivo StorSimple da série 8000, use a tabela a segui
 
 | Se o dispositivo estiver em execução| Realize a seguinte ação                                    |
 |--------------------------|------------------------|
-| Atualização 5 ou posterior e o dispositivo offline. <br> Um alerta é exibido informando que a URL não está na lista de permissões.|1. Modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication).<br>2. [Obtenha a chave de registro AAD do serviço](#aad-based-registration-keys).<br>3. [Conecte-se à interface Windows PowerShell do dispositivo da série StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. `Redo-DeviceRegistration` Use cmdlet para registrar o dispositivo através do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
+| Atualização 5 ou posterior e o dispositivo offline. <br> Um alerta é exibido informando que a URL não está na lista de permissões.|1. modifique as regras de firewall para incluir a URL de autenticação. Consulte [URLs de autenticação](#url-changes-for-aad-authentication).<br>2. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys).<br>3. [Conecte-se à interface do Windows PowerShell do dispositivo StorSimple 8000 Series](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. use `Redo-DeviceRegistration` o cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
 | Atualização 5 ou posterior e o dispositivo online.| Nenhuma ação é necessária.                                       |
-| Atualização 4 ou anterior e o dispositivo offline. |1. Modifique as regras de firewall para incluir a URL de autenticação.<br>2. [Baixe a Atualização 5 através do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Aplique a Atualização 5 através do método hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Obtenha a chave de registro AAD do serviço](#aad-based-registration-keys).<br>5. [Conecte-se à interface Windows PowerShell do dispositivo da série StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. `Redo-DeviceRegistration` Use cmdlet para registrar o dispositivo através do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
+| Atualização 4 ou anterior e o dispositivo offline. |1. modifique as regras de firewall para incluir a URL de autenticação.<br>2. [Baixe a atualização 5 por meio do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [aplique a atualização 5 por meio do método de hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [obtenha a chave de registro do AAD do serviço](#aad-based-registration-keys).<br>5. [Conecte-se à interface do Windows PowerShell do dispositivo StorSimple 8000 Series](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. use `Redo-DeviceRegistration` o cmdlet para registrar o dispositivo por meio do Windows PowerShell. Forneça a chave que você obteve na etapa anterior.|
 | Atualização 4 ou anterior e o dispositivo online. |Modifique as regras de firewall para incluir a URL de autenticação.<br> Instale a Atualização 5 por meio do portal do Azure.              |
 | Aplique a redefinição de fábrica para uma versão anterior à Atualização 5.      |O portal mostra uma chave de registro baseada no AAD enquanto o dispositivo está executando o software mais antigo. Siga as etapas no cenário anterior para os casos em que o dispositivo executa a Atualização 4 ou anterior.              |
 

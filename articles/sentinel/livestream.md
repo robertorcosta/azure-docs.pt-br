@@ -1,6 +1,6 @@
 ---
-title: Use a caça livestream no Azure Sentinel para detectar ameaças| Microsoft Docs
-description: Este artigo descreve como usar a caça livestream no Azure Sentinel para acompanhar os dados.
+title: Use transmissão ao vivo de busca no Azure Sentinel para detectar ameaças | Microsoft Docs
+description: Este artigo descreve como usar o transmissão ao vivo de busca no Azure Sentinel para manter o controle dos dados.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,100 +16,100 @@ ms.workload: na
 ms.date: 12/06/2019
 ms.author: yelevin
 ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77582119"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use a caça ao vivo no Azure Sentinel para detectar ameaças
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use transmissão ao vivo de caça no Azure Sentinel para detectar ameaças
 
 > [!IMPORTANT]
-> Caça ao vivo no Azure Sentinel está atualmente em visualização pública e gradualmente rolando para os inquilinos.
-> Este recurso é fornecido sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Buscar transmissão ao vivo no Azure Sentinel está atualmente em visualização pública e distribuíndo gradualmente para locatários.
+> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Use o livestream de caça para criar sessões interativas que permitem testar consultas recém-criadas à medida que os eventos ocorrem, receba notificações das sessões quando uma correspondência for encontrada e inicie investigações, se necessário. Você pode criar rapidamente uma sessão de livestream usando qualquer consulta do Log Analytics.
+Use a busca de transmissão ao vivo para criar sessões interativas que permitem testar consultas recém-criadas à medida que ocorrem eventos, obter notificações das sessões quando uma correspondência for encontrada e iniciar investigações, se necessário. Você pode criar rapidamente uma sessão transmissão ao vivo usando qualquer consulta de Log Analytics.
 
-- **Teste consultas recém-criadas à medida que os eventos ocorrem**
+- **Testar consultas recém-criadas conforme ocorrem eventos**
     
-    Você pode testar e ajustar consultas sem conflitos com as regras atuais que estão sendo aplicadas ativamente aos eventos. Depois de confirmar que essas novas consultas funcionam como esperado, é fácil promovê-las a regras de alerta personalizadas, selecionando uma opção que eleva a sessão a um alerta.
+    Você pode testar e ajustar as consultas sem conflitos com as regras atuais que estão sendo aplicadas ativamente aos eventos. Depois de confirmar que essas novas consultas funcionam conforme o esperado, é fácil promovê-las para regras de alerta personalizadas, selecionando uma opção que eleva a sessão a um alerta.
 
 - **Seja notificado quando as ameaças ocorrerem**
     
-    Você pode comparar os feeds de dados de ameaças com dados de log agregados e ser notificado quando uma correspondência ocorrer. Os feeds de dados de ameaças são fluxos contínuos de dados relacionados a ameaças potenciais ou atuais, de modo que a notificação pode indicar uma ameaça potencial à sua organização. Crie uma sessão de livestream em vez de uma regra de alerta personalizada quando você quiser ser notificado de um problema em potencial sem as despesas gerais de manter uma regra de alerta personalizada.
+    Você pode comparar feeds de dados de ameaça a dados de log agregados e ser notificado quando ocorrer uma correspondência. Os feeds de dados de ameaça são fluxos contínuos de dados relacionados a ameaças potenciais ou atuais, portanto, a notificação pode indicar uma ameaça potencial à sua organização. Crie uma sessão transmissão ao vivo em vez de uma regra de alerta personalizada quando desejar ser notificado de um problema potencial sem as sobrecargas de manter uma regra de alerta personalizada.
 
-- **Iniciar investigações**
+- **Investigações de lançamento**
     
-    Se houver uma investigação ativa que envolva um ativo como um host ou usuário, você pode visualizar atividades específicas (ou qualquer) nos dados de log como ocorre nesse ativo. Você pode ser notificado quando essa atividade ocorrer.
+    Se houver uma investigação ativa que envolva um ativo, como um host ou usuário, você poderá exibir a atividade específica (ou qualquer) nos dados de log conforme ele ocorrer nesse ativo. Você pode ser notificado quando essa atividade ocorrer.
 
 
-## <a name="create-a-livestream-session"></a>Crie uma sessão de livestream
+## <a name="create-a-livestream-session"></a>Criar uma sessão transmissão ao vivo
 
-Você pode criar uma sessão de livestream a partir de uma consulta de caça existente ou criar sua sessão do zero.
+Você pode criar uma sessão transmissão ao vivo de uma consulta de busca existente ou criar sua sessão do zero.
 
-1. No portal Azure, navegue até a Caça**ao Gerenciamento de** > Ameaças **Sentinelas** > .**Hunting**
+1. No portal do Azure, navegue até **sentinela** > **Threat Management** > **busca**.
 
-2. Para criar uma sessão de livestream a partir de uma consulta de caça:
+2. Para criar uma sessão transmissão ao vivo de uma consulta de busca:
     
-    1. Na guia **Consultas,** localize a consulta de caça a ser usada.
-    2. Clique com o botão direito do mouse na consulta e **selecione Adicionar ao livestream**. Por exemplo: 
-    
-    > [!div class="mx-imgBorder"]
-    > ![criar sessão livestream a partir da consulta de caça do Azure Sentinel](./media/livestream/livestream-from-query.png)
-
-3. Para criar uma sessão de livestream do zero: 
-    
-    1. Selecione a guia **Livestream**
-    2. Selecione **Ir para livestream**.
-    
-4. No painel **livestream:**
-    
-    - Se você iniciou o livestream a partir de uma consulta, revise a consulta e faça quaisquer alterações que deseja fazer.
-    - Se você começou o livestream do zero, crie sua consulta. 
-
-5. Selecione **Reproduzir** na barra de comando.
-    
-    A barra de status a barra de comando indica se sua sessão livestream está sendo realizada ou pausada. No exemplo a seguir, a sessão está sendo executado:
+    1. Na guia **consultas** , localize a consulta de busca a ser usada.
+    2. Clique com o botão direito do mouse na consulta e selecione **Adicionar a transmissão ao vivo**. Por exemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![criar sessão livestream da caça Azure Sentinel](./media/livestream/livestream-session.png)
+    > ![criar sessão transmissão ao vivo da consulta de busca do Azure Sentinel](./media/livestream/livestream-from-query.png)
 
-6. Selecione **Salvar** na barra de comando.
+3. Para criar uma sessão transmissão ao vivo do zero: 
     
-    A menos que você **selecione Pausa**, a sessão continua a ser executada até que você esteja fora do portal Azure.
+    1. Selecione a guia **transmissão ao vivo**
+    2. Selecione **ir para transmissão ao vivo**.
+    
+4. No painel **transmissão ao vivo** :
+    
+    - Se você iniciou o transmissão ao vivo de uma consulta, examine a consulta e faça as alterações que deseja fazer.
+    - Se você iniciou o transmissão ao vivo do zero, crie sua consulta. 
 
-## <a name="view-your-livestream-sessions"></a>Veja suas sessões ao vivo
-
-1. No portal Azure, navegue até a guia **Sentinel** > **Threat Management** > **Hunting** > **Livestream.**
-
-2. Selecione a sessão livestream que deseja exibir ou editar. Por exemplo: 
+5. Selecione **reproduzir** na barra de comandos.
+    
+    A barra de status na barra de comandos indica se a sessão transmissão ao vivo está em execução ou em pausa. No exemplo a seguir, a sessão está em execução:
     
     > [!div class="mx-imgBorder"]
-    > ![criar sessão livestream a partir da consulta de caça do Azure Sentinel](./media/livestream/livestream-tab.png)
+    > ![criar sessão transmissão ao vivo da busca do Azure Sentinel](./media/livestream/livestream-session.png)
+
+6. Selecione **salvar** na barra de comandos.
     
-    Sua sessão livestream selecionada é aberta para você tocar, pausar, editar e assim por diante.
+    A menos que você selecione **Pausar**, a sessão continuará a ser executada até que você saia da portal do Azure.
 
-## <a name="receive-notifications-when-new-events-occur"></a>Receba notificações quando novos eventos ocorrem
+## <a name="view-your-livestream-sessions"></a>Exibir suas sessões do transmissão ao vivo
 
-Como as notificações livestream para novos eventos usam notificações do portal Azure, você vê essas notificações sempre que usa o portal Azure. Por exemplo: 
+1. Na portal do Azure, navegue até **sentinela** > **Threat Management** > **caça** > **transmissão ao vivo** guia.
 
-![Notificação do portal Azure para livestream](./media/livestream/notification.png)
+2. Selecione a sessão transmissão ao vivo que você deseja exibir ou editar. Por exemplo:
+    
+    > [!div class="mx-imgBorder"]
+    > ![criar sessão transmissão ao vivo da consulta de busca do Azure Sentinel](./media/livestream/livestream-tab.png)
+    
+    A sessão transmissão ao vivo selecionada é aberta para reprodução, pausa, edição e assim por diante.
 
-Selecione a notificação para abrir o painel **Livestream.**
+## <a name="receive-notifications-when-new-events-occur"></a>Receber notificações quando novos eventos ocorrerem
+
+Como as notificações do transmissão ao vivo para novos eventos usam notificações de portal do Azure, você vê essas notificações sempre que usa o portal do Azure. Por exemplo:
+
+![Notificação de portal do Azure para transmissão ao vivo](./media/livestream/notification.png)
+
+Selecione a notificação para abrir o painel **transmissão ao vivo** .
  
-## <a name="elevate-a-livestream-session-to-an-alert"></a>Elevar uma sessão de livestream a um alerta
+## <a name="elevate-a-livestream-session-to-an-alert"></a>Elevar uma sessão transmissão ao vivo a um alerta
 
-Você pode promover uma sessão de livestream para um novo alerta selecionando **Elevate para alertar** da barra de comando na sessão de livestream relevante:
+Você pode promover uma sessão transmissão ao vivo para um novo alerta selecionando **elevar para alerta** na barra de comandos na sessão transmissão ao vivo relevante:
 
 > [!div class="mx-imgBorder"]
-> ![Elevar a sessão livestream a um alerta](./media/livestream/elevate-to-alert.png)
+> ![Elevar a sessão transmissão ao vivo a um alerta](./media/livestream/elevate-to-alert.png)
 
-Essa ação abre o assistente de criação de regras, que está prepovoado com a consulta associada à sessão livestream.
+Essa ação abre o assistente de criação de regras, que é preenchido previamente com a consulta associada à sessão transmissão ao vivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a usar a caça ao vivo no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste artigo, você aprendeu a usar o transmissão ao vivo de busca no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
-- [Caça proativamente por ameaças](hunting.md)
-- [Use notebooks para executar campanhas de caça automatizadas](notebooks.md)
+- [Busca de ameaças de forma proativa](hunting.md)
+- [Use blocos de anotações para executar campanhas de busca automatizadas](notebooks.md)

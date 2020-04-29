@@ -1,21 +1,21 @@
 ---
 title: Cláusula SELECT no Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL SELECT para Azure Cosmos DB. Use o SQL como uma linguagem de consulta Azure Cosmos DB JSON.
+description: Saiba mais sobre a cláusula SQL SELECT para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
 ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469928"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
 
-Cada consulta consiste em uma cláusula SELECT e cláusulas opcionais [de](sql-query-from.md) e [onde,](sql-query-where.md) de acordo com as normas ANSI SQL. Normalmente, a origem da cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na fonte para recuperar um subconjunto de itens JSON. A cláusula SELECT projeta os valores JSON solicitados na lista selecionada.
+Cada consulta consiste em uma cláusula SELECT e em cláusulas opcional from e [Where](sql-query-where.md) , por padrões [de](sql-query-from.md) SQL ANSI. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em seguida, a cláusula SELECT projeta os valores JSON solicitados na lista de seleção.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -52,7 +52,7 @@ SELECT <select_specification>
  
 - `DISTINCT`
   
-  Especifica que as duplicatas das propriedades projetadas devem ser removidas.  
+  Especifica que duplicatas de propriedades projetadas devem ser removidas.  
 
 - `<scalar_expression>`  
 
@@ -78,7 +78,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser
   
 ## <a name="examples"></a>Exemplos
 
-O exemplo de consulta `address` `Families` SELECT `id` `AndersenFamily`a seguir retorna de cujas correspondências :
+O exemplo de consulta SELECT a `address` seguir `Families` retorna `id` de `AndersenFamily`cujas correspondências:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ Os resultados são:
 ```
 
 ### <a name="quoted-property-accessor"></a>Acessador de propriedade entre aspas
-Você pode acessar propriedades usando o operador de propriedade citado []. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Esta sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome de uma palavra-chave SQL ou palavra reservada.
+Você pode acessar as propriedades usando o operador de propriedade entre aspas []. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Você pode acessar propriedades usando o operador de propriedade citado []. Por 
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
 
-O exemplo a seguir projeta `f.address.state` `f.address.city`duas propriedades aninhadas, e .
+O exemplo a seguir projeta duas propriedades `f.address.state` aninhadas `f.address.city`e.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ Os resultados são:
 ```
 ### <a name="json-expressions"></a>Expressões JSON
 
-A projeção também suporta expressões JSON, como mostrado no exemplo a seguir:
+A projeção também oferece suporte a expressões JSON, conforme mostrado no exemplo a seguir:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como a amostra `$1`não fornece nenhuma chave, a cláusula usa o nome da variável argumento implícito . A consulta a seguir retorna duas `$1` `$2`variáveis de argumento implícitas: e .
+No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome `$1`da variável de argumento implícito. A consulta a seguir retorna duas variáveis de argumento `$1` implícitas: e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -171,9 +171,9 @@ Os resultados são:
 ```
 ## <a name="reserved-keywords-and-special-characters"></a>Palavras-chave reservadas e caracteres especiais
 
-Se seus dados contêm propriedades com os mesmos nomes de palavras-chave reservadas, como "ordem" ou "Grupo", então as consultas contra esses documentos resultarão em erros de sintaxe. Você deve incluir explicitamente `[]` a propriedade no caractere para executar a consulta com sucesso.
+Se seus dados contiverem Propriedades com os mesmos nomes de palavras-chave reservadas, como "Order" ou "Group", as consultas nesses documentos resultarão em erros de sintaxe. Você deve incluir explicitamente a propriedade no `[]` caractere para executar a consulta com êxito.
 
-Por exemplo, aqui está um documento `order` com `price($)` uma propriedade nomeada e uma propriedade que contém caracteres especiais:
+Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
 
 ```json
 {
@@ -190,7 +190,7 @@ Por exemplo, aqui está um documento `order` com `price($)` uma propriedade nome
 }
 ```
 
-Se você executar uma consulta `order` que `price($)` inclua a propriedade ou propriedade, você receberá um erro de sintaxe.
+Se você executar uma consulta que inclui a `order` propriedade ou `price($)` Propriedade, receberá um erro de sintaxe.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -216,6 +216,6 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Começando](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [CLÁUSULA WHERE](sql-query-where.md)
+- [Cláusula WHERE](sql-query-where.md)

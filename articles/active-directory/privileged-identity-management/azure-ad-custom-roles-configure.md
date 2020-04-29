@@ -1,5 +1,5 @@
 ---
-title: Configurar a função personalizada do Azure AD - Controle de Identidade Privilegiada (PIM)
+title: Configurar o PIM (função personalizada Privileged Identity Management do Azure AD)
 description: Como configurar funções personalizadas do Azure AD no PIM (Privileged Identity Management)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77498691"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas do Azure AD no Privileged Identity Management
@@ -28,7 +28,7 @@ ms.locfileid: "77498691"
 Um administrador de funções com privilégios pode alterar as configurações de função que se aplicam a um usuário quando eles ativam sua atribuição a uma função personalizada e a outros administradores de aplicativo que estão atribuindo funções personalizadas.
 
 > [!NOTE]
-> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir o banner a seguir, essas funções devem ser gerenciadas [na experiência de funções incorporadas](pim-how-to-activate-role.md) e este artigo não se aplica:
+> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-activate-role.md) e este artigo não se aplicará:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -56,13 +56,13 @@ Há várias configurações que você pode definir.
 
 É possível escolher uma destas opções de duração de atribuição *qualificada*.
 
-- **Permitir atribuição elegível permanente**: Os administradores podem atribuir a adesão permanente elegível.
-- **Expirar a atribuição elegível depois:** Os administradores podem exigir que todas as atribuições elegíveis tenham uma data de início e término especificada.
+- **Permitir atribuição qualificada permanente**: os administradores podem atribuir uma associação qualificada permanente.
+- **Expirar atribuição qualificada após**: os administradores podem exigir que todas as atribuições qualificadas tenham uma data de início e de término especificada.
 
 Além disso, você pode escolher uma destas opções de duração da atribuição *ativa*:
 
-- **Permitir atribuição ativa permanente**: Os administradores podem atribuir membros ativos permanentes.
-- **Expirar atribuição ativa depois:** Os administradores podem exigir que todas as atribuições ativas tenham uma data de início e término especificadas.
+- **Permitir atribuição ativa permanente**: os administradores podem atribuir uma associação ativa permanente.
+- **Expirar atribuição ativa após**: os administradores podem exigir que todas as atribuições ativas tenham uma data de início e de término especificada.
 
 ### <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
 
