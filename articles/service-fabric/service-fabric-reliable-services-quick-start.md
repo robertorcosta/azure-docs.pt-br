@@ -1,14 +1,14 @@
 ---
-title: 'Crie seu primeiro aplicativo de malha de serviço em C #'
+title: 'Criar seu primeiro aplicativo Service Fabric em C #'
 description: Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
 ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083783"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
@@ -32,11 +32,11 @@ Para começar a usar os Reliable Services, você só precisa entender alguns con
 
 Um serviço sem estado é um tipo de serviço que atualmente está na norma dos aplicativos em nuvem. Ele é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de modo confiável nem altamente disponibilizados. Se uma instância de um serviço sem estado for desligada, todo seu estado interno será perdido. Nesse tipo de serviço, o estado deve ser mantido em um repositório externo, como em Tabelas do Azure ou um banco de dados SQL, para que ele se torne altamente disponível e confiável.
 
-Inicie o Visual Studio 2017 ou o Visual Studio 2019 como administrador e crie um novo projeto de aplicativo service fabric chamado *HelloWorld*:
+Inicie o Visual Studio 2017 ou o Visual Studio 2019 como administrador e crie um novo projeto de aplicativo Service Fabric chamado *HelloWorld*:
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo aplicativo do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Em seguida, crie um projeto de serviço apátrida usando **o .NET Core 2.0** chamado *HelloWorldStateless*:
+Em seguida, crie um projeto de serviço sem estado usando o **.NET Core 2,0** chamado *HelloWorldStateless*:
 
 ![Na segunda caixa de diálogo, criar um projeto de serviço sem estado](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -71,7 +71,7 @@ Neste tutorial, enfatizaremos o método de ponto de entrada `RunAsync()` . É aq
 O modelo de projeto inclui um exemplo de implementação de `RunAsync()` que incrementa uma contagem progressiva.
 
 > [!NOTE]
-> Para obter detalhes sobre como trabalhar com uma pilha de comunicação, consulte [Comunicação de serviço com ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+> Para obter detalhes sobre como trabalhar com uma pilha de comunicação, consulte [comunicação de serviço com o ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### <a name="runasync"></a>RunAsync
 
@@ -119,13 +119,13 @@ No mesmo aplicativo *HelloWorld*, é possível adicionar um novo serviço clican
 
 ![Adicione um serviço ao aplicativo da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecione **.NET Core 2.0 -> Stateful Service** e nomeie-o *HelloWorldStateful*. Clique em **OK**.
+Selecione **.NET Core 2,0-> serviço com estado** e nomeie-o *HelloWorldStateful*. Clique em **OK**.
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo serviço com estado do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 Seu aplicativo agora deve ter dois serviços: o serviço sem estado *HelloWorldStateless* e o serviço com estado *HelloWorldStateful*.
 
-Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade de um *provedor de estado* que pode armazenar o estado de forma confiável. O Service Fabric vem com uma implementação de provedor de estado chamada [Coleções Confiáveis,](service-fabric-reliable-services-reliable-collections.md)que permite criar estruturas de dados replicadas através do Reliable State Manager. Por padrão, um serviço confiável com estado usa esse provedor de estado.
+Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade de um *provedor de estado* que pode armazenar o estado de forma confiável. Service Fabric vem com uma implementação de provedor de estado chamada [coleções confiáveis](service-fabric-reliable-services-reliable-collections.md), que permite criar estruturas de dados replicadas por meio do Gerenciador de estado confiável. Por padrão, um serviço confiável com estado usa esse provedor de estado.
 
 Abra **HelloWorldStateful.cs** em *HelloWorldStateful*, que contém o método RunAsync a seguir:
 
@@ -176,7 +176,7 @@ As Reliable Collections podem armazenar qualquer tipo .NET, incluindo tipos pers
 * O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e as Coleções Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nas Coleções Confiáveis deve ser *serializável*. Por padrão, as Coleções Confiáveis usam [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para serialização, de modo que é importante verificar se seus tipos têm [suporte do Serializador de Contrato de Dados](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) quando você usa o serializador padrão.
 * Os objetos são replicados para alta disponibilidade quando você confirma uma transação nas Reliable Collections. Objetos armazenados nas Reliable Collections são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
   
-   É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve reinserir o objeto de volta ao dicionário ou usar um dos métodos de *atualização* no dicionário.
+   É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve inserir novamente o objeto de volta no dicionário ou usar um dos métodos de *atualização* no dicionário.
 
 O Gerenciador De Estado Confiável gerencia as Coleções Confiáveis para você. Basta solicitar ao Gerenciador de Estado Confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O Gerenciador de Estado Confiável assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O Gerenciador de Estado Confiável faz esse trabalho para você e jé otimizado para repetir visitas.
 
@@ -193,7 +193,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Coleções confiáveis têm muitas das `System.Collections.Generic` mesmas operações que suas e `System.Collections.Concurrent` contrapartes, exceto para a Linguagem Integrada Query (LINQ). As operações nas Coleções Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
+As coleções confiáveis têm muitas das mesmas operações que suas `System.Collections.Generic` e `System.Collections.Concurrent` contraparte, exceto para LINQ (consulta integrada à linguagem). As operações nas Coleções Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
 
 As operações de Coleção Confiável são *transacionais*, de modo que você pode manter o estado consistente entre várias Coleções Confiáveis e operações. Por exemplo, você pode remover um item de trabalho de uma Fila Confiável, executar uma operação nele e salvar o resultado em um Dicionário Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
@@ -218,7 +218,7 @@ Depois que os serviços começaram a ser executados, você poderá exibir os eve
 
 [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 
-[Atualização de aplicativos](service-fabric-application-upgrade.md)
+[Atualização de aplicativo](service-fabric-application-upgrade.md)
 
 [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

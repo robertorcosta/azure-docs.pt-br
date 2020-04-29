@@ -1,6 +1,6 @@
 ---
-title: Recuperar um painel excluído no portal Azure | Microsoft Docs
-description: Se você excluir um painel publicado no portal Azure, você pode recuperar o painel de controle.
+title: Recuperar um painel excluído no portal do Azure | Microsoft Docs
+description: Se você excluir um painel publicado no portal do Azure, poderá recuperar o painel.
 services: azure-portal
 author: mgblythe
 ms.author: mblythe
@@ -9,32 +9,32 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77133284"
 ---
-# <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recupere um painel excluído no portal Azure
+# <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Recuperar um painel excluído no portal do Azure
 
-Se você estiver na nuvem pública do Azure e excluir um painel _publicado_ no portal Azure, você pode recuperar esse painel dentro de 14 dias após a exclusão. Se você está em uma nuvem do governo Azure ou o painel não é publicado, você não pode recuperá-lo, e você deve reconstruí-lo. Para obter mais informações sobre a publicação de um painel, consulte [Publicar painel](azure-portal-dashboard-share-access.md#publish-dashboard). Siga estas etapas para recuperar um painel publicado:
+Se você estiver na nuvem pública do Azure e excluir um painel _publicado_ no portal do Azure, poderá recuperar esse painel dentro de 14 dias da exclusão. Se você estiver em uma nuvem do Azure governamental ou o painel não estiver publicado, você não poderá recuperá-lo e deverá reconstruí-lo. Para obter mais informações sobre como publicar um painel, consulte [publicar painel](azure-portal-dashboard-share-access.md#publish-dashboard). Siga estas etapas para recuperar um painel publicado:
 
-1. No menu portal do Azure, selecione **Grupos de recursos**e selecione o grupo de recursos onde você publicou o painel (por padrão, ele é chamado **dashboards**).
+1. No menu portal do Azure, selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos em que você publicou o painel (por padrão, eles são nomeados como **painéis**).
 
-1. Em **Registro de atividades,** expanda a operação **'Excluir painel'.** Selecione a guia **Alterar histórico** e, em seguida, ** \<selecione recurso\>excluído**.
+1. Em **log de atividades**, expanda a operação **excluir painel** . Selecione a guia **histórico de alterações** e, em seguida, selecione ** \<recurso\>excluído**.
 
     ![Captura de tela da guia histórico de alterações](media/recover-shared-deleted-dashboard/change-history-tab.png)
 
-1. Selecione e copie o conteúdo do painel esquerdo e salve um arquivo de texto com uma extensão de arquivo _.json._ O portal usa o arquivo JSON para recriar o painel.
+1. Selecione e copie o conteúdo do painel esquerdo e, em seguida, salve em um arquivo de texto com uma extensão de arquivo _. JSON_ . O portal usa o arquivo JSON para recriar o painel.
 
-    ![Captura de tela do diff história de mudança](media/recover-shared-deleted-dashboard/change-history-diff.png)
+    ![Captura de tela da diferença do histórico de alterações](media/recover-shared-deleted-dashboard/change-history-diff.png)
 
-1. No menu do portal Azure, selecione **Dashboards**e selecione **Upload**.
+1. No menu portal do Azure, selecione **painéis**e, em seguida, selecione **carregar**.
 
     ![Captura de tela do upload do painel](media/recover-shared-deleted-dashboard/dashboard-upload.png)
 
 1. Selecione o arquivo JSON que você salvou. O portal recria o painel com o mesmo nome e elementos do painel excluído.
 
-1. Selecione **Compartilhar** para publicar o painel e restabelecer o controle de acesso apropriado.
+1. Selecione **compartilhar** para publicar o painel e restabelecer o controle de acesso apropriado.
 
-    ![Captura de tela do compartilhamento de dashboard](media/recover-shared-deleted-dashboard/dashboard-share.png)
+    ![Captura de tela do compartilhamento de painel](media/recover-shared-deleted-dashboard/dashboard-share.png)

@@ -8,14 +8,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137491"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
-Este artigo descreve como consultar e visualizar todos os dados de registro do Application Insights em um só lugar, mesmo quando eles estão em diferentes assinaturas do Azure, como um substituto para a depreciação do Application Insights Connector. O número de recursos do Application Insights que você pode incluir em uma única consulta é limitado a 100.
+Este artigo descreve como consultar e exibir todos os seus Application Insights dados de log em um único local, mesmo quando eles estão em assinaturas diferentes do Azure, como uma substituição para a reprovação da Conector do Application Insights. O número de recursos de Application Insights que você pode incluir em uma única consulta é limitado a 100.
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Abordagem recomendada para consultar vários recursos do Application Insights 
 Listar vários recursos do Application Insights em uma consulta pode ser complicado e difícil de manter. Em vez disso, você pode aproveitar a função para separar a lógica da consulta do escopo dos aplicativos.  
@@ -27,9 +27,9 @@ Crie uma função usando o operador de união com a lista de aplicativos e, em s
 Você pode modificar os aplicativos listados a qualquer momento navegando até o Gerenciador de consultas no seu workspace e selecionando a função para editar e salvar, ou então, usando o cmdlet `SavedSearch` do PowerShell. 
 
 >[!NOTE]
->Este método não pode ser usado com alertas de log porque a validação de acesso dos recursos da regra de alerta, incluindo espaços de trabalho e aplicativos, é realizada na hora da criação do alerta. Adicionando novos recursos à função após a criação do alerta não ser suportado. Se você preferir usar a função para escopo de recursos em alertas de log, você precisa editar a regra de alerta no portal ou com um modelo de Gerenciador de recursos para atualizar os recursos com escopo. Alternativamente, você pode incluir a lista de recursos na consulta de alerta de log.
+>Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
 
-O comando `withsource= SourceApp` adiciona aos resultados uma coluna que designa o aplicativo que enviou o log. O operador de análise é opcional neste exemplo e usa para extrair o nome do aplicativo da propriedade SourceApp. 
+O comando `withsource= SourceApp` adiciona aos resultados uma coluna que designa o aplicativo que enviou o log. O operador Parse é opcional neste exemplo e usa para extrair o nome do aplicativo da propriedade SourceApp. 
 
 ```
 union withsource=SourceApp 
@@ -70,11 +70,11 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | message |
+| AvailabilityMessage | mensagem |
 | AvailabilityRunLocation | local |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
-| AvailabilityTimestamp |  timestamp |
+| AvailabilityTimestamp | timestamp |
 | Navegador | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
@@ -87,11 +87,11 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | message | 
+| ExceptionMessage | mensagem | 
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| Sistema operacional | client_OS | 
+| SO | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
