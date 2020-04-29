@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80984973"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET de Tabela do Azure CosmosDB: download e notas de versão
@@ -26,8 +26,8 @@ ms.locfileid: "80984973"
 
 |   |   |
 |---|---|
-|**Download do SDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
-|**Guia de Início Rápido**|[Azure CosmosDB: Compilar um aplicativo com o .NET e a API de Tabela](create-table-dotnet.md)|
+|**Download do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**Início rápido**|[Azure CosmosDB: Compilar um aplicativo com o .NET e a API de Tabela](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de Tabela no .NET](tutorial-develop-table-dotnet.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
@@ -80,9 +80,9 @@ ms.locfileid: "80984973"
 
 A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
-A `Microsoft.Azure.CosmosDB.Table` biblioteca está disponível apenas para .NET Framework e está em modo de manutenção e será preterida em breve. Novos recursos e funcionalidades e otimizações só são adicionados à biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)como tal, é recomendável que você atualize para [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+Atualmente `Microsoft.Azure.CosmosDB.Table` , a biblioteca está disponível somente para .NET Framework e está no modo de manutenção e será preterida em breve. Novos recursos e funcionalidades e otimizações são adicionados somente à biblioteca de .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), por isso é recomendável que você atualize para [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-O pacote de visualização [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido. O SDK WindowsAzure.Storage-PremiumTable será desativado em 15 de novembro de 2018, quando as solicitações para o SDK obsoleto não serão permitidas. 
+O pacote de visualização [WindowsAzure. Storage-premiumtable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido. O SDK WindowsAzure.Storage-PremiumTable será desativado em 15 de novembro de 2018, quando as solicitações para o SDK obsoleto não serão permitidas. 
 
 Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rejeitada pelo serviço.
 <br/>
@@ -90,11 +90,11 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 de setembro de 2019| |
-| [2.1.0](#2.1.0) |22 janeiro de 2019|01 de Abril de 2020 |
-| [2.0.0](#2.0.0) |26 de setembro de 2018|01 de março de 2020 |
-| [1.1.3](#1.1.3) |17 de julho de 2018|01 de Dezembro de 2019 |
-| [1.1.1](#1.1.1) |26 de março de 2018|01 de Dezembro de 2019 |
-| [1.1.0](#1.1.0) |21 de fevereiro de 2018|01 de Dezembro de 2019 |
+| [2.1.0](#2.1.0) |22 janeiro de 2019|01 de abril de 2020 |
+| [2.0.0](#2.0.0) |26 de setembro de 2018|1º de março de 2020 |
+| [1.1.3](#1.1.3) |17 de julho de 2018|1º de dezembro de 2019 |
+| [1.1.1](#1.1.1) |26 de março de 2018|1º de dezembro de 2019 |
+| [1.1.0](#1.1.0) |21 de fevereiro de 2018|1º de dezembro de 2019 |
 | [1.0.0](#1.0.0) |15 de novembro de 2017|15 de novembro de 2019 |
 | 0.9.0-preview |11 de novembro de 2017 |11 de novembro de 2019 |
 

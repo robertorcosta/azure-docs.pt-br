@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente do Azure - Monitoramento de correspondência de regras de roteamento | Microsoft Docs
-description: Este artigo ajuda você a entender como o Azure Front Door corresponde a qual regra de roteamento deve ser usada para uma solicitação recebida
+title: Regra de roteamento de porta frontal do Azure que corresponde ao monitoramento | Microsoft Docs
+description: Este artigo ajuda você a entender como a porta frontal do Azure corresponde à regra de roteamento a ser usada para uma solicitação de entrada
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878588"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
 
-Depois de estabelecer uma conexão e fazer um aperto de mão TLS, quando uma solicitação pousa em um ambiente front door uma das primeiras coisas que o Front Door faz é determinar a partir de todas as configurações, qual regra de roteamento específica para corresponder à solicitação e, em seguida, tomar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
+Depois de estabelecer uma conexão e fazer um handshake de TLS, quando uma solicitação chega em um ambiente de porta de front-end, uma das primeiras coisas que a porta da frente faz é determinar de todas as configurações, a regra de roteamento específica para corresponder à solicitação e, em seguida, pegar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota do Front Door
 Uma configuração de regra de roteamento do Front Door é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Fazemos a correspondência da solicitação de entrada om o lado esquerdo da rota enquanto o lado direito define como podemos processar a solicitação.
@@ -29,7 +29,7 @@ Uma configuração de regra de roteamento do Front Door é composta por duas par
 As propriedades a seguir determinam se a solicitação de entrada corresponde à regra de roteamento (ou lado esquerdo):
 
 * **Protocolos HTTP** (HTTP/HTTPS)
-* **Hosts** (por exemplo,\. \*www foo.com, .bar.com)
+* **Hosts** (por exemplo,\.www foo.com \*,. bar.com)
 * **Caminhos** (por exemplo, /\*, /users/\*, /file.gif)
 
 Essas propriedades são expandidas internamente para que cada combinação de Protocolo/Host/Caminho seja um possível conjunto de correspondências.
@@ -52,19 +52,19 @@ Para explicar esse processo ainda mais, vamos examinar um exemplo de configuraç
 |-------|--------------------|-------|
 | Um | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
-| C | www\.fabrikam.com foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
 Se as solicitações de entrada a seguir forem enviadas para a porta da frente, elas precisarão ser combinadas com as seguintes regras de roteamentos de acima:
 
 | Host de front-end de entrada | Regras de roteamentos com correspondência |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www\.fabrikam.com | C |
+| fabrikam.com\.www | C |
 | images.fabrikam.com | Erro 400: solicitação inválida |
 | foo.adventure-works.com | C |
 | contoso.com | Erro 400: solicitação inválida |
-| www\.adventure-works.com | Erro 400: solicitação inválida |
-| www\.northwindtraders.com | Erro 400: solicitação inválida |
+| adventure-works.com\.www | Erro 400: solicitação inválida |
+| northwindtraders.com\.www | Erro 400: solicitação inválida |
 
 ### <a name="path-matching"></a>Correspondência de caminho
 Depois de determinar o host de front-end específico e filtrar possíveis regras de roteamentos para apenas as rotas com aquele host de front-end, o Front Door então filtrará as regras de roteamento com base no caminho solicitado. Usamos uma lógica semelhante que a de hosts com front-end:
@@ -93,19 +93,19 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 
 | Solicitação de entrada    | Rota correspondente |
 |---------------------|---------------|
-| www\.contoso.com/            | Um             |
-| www\.contoso.com/a           | B             |
-| www\.contoso.com/ab          | C             |
-| www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | B             |
-| www\.contoso.com/abc/        | E             |
-| www\.contoso.com/abc/d       | F             |
-| www\.contoso.com/abc/def     | G             |
-| www\.contoso.com/abc/defzzz  | F             |
-| www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | B             |
-| www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | B             |
+| contoso.com/\.www            | Um             |
+| contoso.com/a\.www           | B             |
+| contoso.com/ab\.www          | C             |
+| contoso.com/abc\.www         | D             |
+| contoso.com/abzzz\.www       | B             |
+| contoso.com/abc/\.www        | E             |
+| contoso.com/abc/d\.www       | F             |
+| contoso.com/abc/def\.www     | G             |
+| contoso.com/abc/defzzz\.www  | F             |
+| contoso.com/abc/def/ghi\.www | F             |
+| contoso.com/path\.www        | B             |
+| contoso.com/path/\.www       | H             |
+| contoso.com/path/zzz\.www    | B             |
 
 >[!WARNING]
 > </br> Se não houver regras de roteamento para um host de front-end de correspondência exata com um Caminho de rota catch-all (`/*`), não haverá uma correspondência com nenhuma regra de roteamento.

@@ -9,22 +9,22 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80986797"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Clientes do Windows
 
-1. Baixe e instale o cliente OpenVPN (versão 2.4 ou superior) no site oficial do [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
+1. Baixe e instale o cliente do OpenVPN (versão 2,4 ou superior) no site oficial do [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
 2. Faça o download do perfil VPN para o gateway. Isso pode ser feito na guia Configuração ponto a site no portal do Azure ou com "New-AzVpnClientConfiguration" no PowerShell.
 3. Descompacte o perfil. Em seguida, abra o arquivo de configuração *vpnconfig.ovpn* da pasta OpenVPN usando o Bloco de Notas.
-4. Exporte o certificado de cliente ponto a ponto que você criou e carregou para sua configuração P2S no gateway. Use os links do artigo a seguir:
+4. Exporte o certificado de cliente ponto a site criado e carregado para a configuração do P2S no gateway. Use os seguintes links de artigo:
 
-   * [Instruções do GATEWAY VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
+   * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
-   * [Instruções de WAN virtuais](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
+   * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
 5. Extraia a chave privada e a impressão digital base64 do *.pfx*. Há várias maneiras de fazer isso. Usar o OpenSSL no computador é uma maneira. O arquivo *profileinfo.txt* contém a chave privada e a impressão digital da CA e do certificado do Cliente. Certifique-se de usar a impressão digital do certificado do cliente.
 
    ```
@@ -40,7 +40,7 @@ ms.locfileid: "80986797"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra *profileinfo.txt* no Bloco de Notas. Para obter a chave privada, selecione o texto (incluindo e entre) "-----INICIAR CHAVE PRIVADA-----" e "-----FIM DE CHAVE PRIVADA-----" e copie-o.
+8. Abra *profileinfo.txt* no Bloco de Notas. Para obter a chave privada, selecione o texto (incluindo e entre) "-----iniciar a chave privada-----" e "-----END PRIVATE KEY-----" e copie-o.
 9. Retorne para o arquivo vpnconfig.ovpn no Bloco de Notas e localize esta seção. Cole a chave privada substituindo tudo entre e "key" e "/key".
 
    ```
@@ -56,57 +56,57 @@ ms.locfileid: "80986797"
 
 ## <a name="mac-clients"></a><a name="mac"></a>Clientes Mac
 
-1. Baixe e instale um cliente OpenVPN, como [tunnelBlick](https://tunnelblick.net/downloads.html). 
+1. Baixe e instale um cliente OpenVPN, como [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Faça o download do perfil VPN para o gateway. Isso pode ser feito na guia Configuração ponto a site no portal do Azure ou usando "New-AzVpnClientConfiguration" no PowerShell.
-3. Descompacte o perfil. Abra o arquivo de configuração vpnconfig.ovpn da pasta OpenVPN em um editor de texto.
+3. Descompacte o perfil. Abra o arquivo de configuração vpnconfig. ovpn da pasta OpenVPN em um editor de texto.
 4. Preencha a seção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Em um certificado formatado em PEM, basta abrir o arquivo .cer e copiar a chave base64 entre os cabeçalhos de certificado. Use os links de artigo a seguir para obter informações sobre como exportar um certificado para obter a chave pública codificada:
 
-   * [Instruções do GATEWAY VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
+   * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
    
-   * [Instruções de WAN virtuais](../articles/virtual-wan/certificates-point-to-site.md#cer)
-5. Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Consulte [a exportar sua chave privada](https://openvpn.net/community-resources/how-to/#pki) no site do OpenVPN para obter informações sobre como extrair uma chave privada.
+   * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#cer)
+5. Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Consulte [exportar sua chave privada](https://openvpn.net/community-resources/how-to/#pki) no site do OpenVPN para obter informações sobre como extrair uma chave privada.
 6. Não altere os outros campos. Use a configuração preenchida da entrada do cliente para se conectar à VPN.
 7. Clique duas vezes no arquivo de perfil para criar o perfil em Tunnelblick.
-8. Inicie tunnelblick da pasta de aplicativos.
-9. Clique no ícone Tunnelblick na bandeja do sistema e escolha conectar.
+8. Inicie o Tunnelblick na pasta aplicativos.
+9. Clique no ícone de Tunnelblick na bandeja do sistema e selecione conectar.
 
 > [!IMPORTANT]
 >Somente iOS 11.0 e posteriores e MacOS 10.13 e posteriores são compatíveis com o protocolo OpenVPN.
 >
-## <a name="ios-clients"></a><a name="iOS"></a>Clientes iOS
+## <a name="ios-clients"></a><a name="iOS"></a>clientes iOS
 
-1. Instale o cliente OpenVPN (versão 2.4 ou superior) na loja de aplicativos.
+1. Instale o cliente OpenVPN (versão 2,4 ou superior) na loja de aplicativos.
 2. Faça o download do perfil VPN para o gateway. Isso pode ser feito na guia Configuração ponto a site no portal do Azure ou usando "New-AzVpnClientConfiguration" no PowerShell.
-3. Descompacte o perfil. Abra o arquivo de configuração vpnconfig.ovpn da pasta OpenVPN em um editor de texto.
+3. Descompacte o perfil. Abra o arquivo de configuração vpnconfig. ovpn da pasta OpenVPN em um editor de texto.
 4. Preencha a seção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Em um certificado formatado em PEM, basta abrir o arquivo .cer e copiar a chave base64 entre os cabeçalhos de certificado. Use os links de artigo a seguir para obter informações sobre como exportar um certificado para obter a chave pública codificada:
 
-   * [Instruções do GATEWAY VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
+   * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) 
    
-   * [Instruções de WAN virtuais](../articles/virtual-wan/certificates-point-to-site.md#cer)
-5. Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Consulte [Exportar sua chave privada](https://openvpn.net/community-resources/how-to/#pki) no site do OpenVPN para obter informações sobre como extrair uma chave privada.
+   * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#cer)
+5. Preencha a seção de chave privada com a chave privada do certificado de cliente P2S em base64. Consulte [exportar sua chave privada](https://openvpn.net/community-resources/how-to/#pki) no site do OpenVPN para obter informações sobre como extrair uma chave privada.
 6. Não altere os outros campos.
-7. Envie o arquivo de perfil (.ovpn) para sua conta de e-mail configurada no aplicativo de e-mail do seu iPhone. 
-8. Abra o e-mail no aplicativo de e-mail no iPhone e toque no arquivo anexado
+7. Envie por email o arquivo de perfil (. ovpn) para sua conta de email configurada no aplicativo de email em seu iPhone. 
+8. Abra o email no aplicativo de email no iPhone e toque no arquivo anexado
 
-    ![Abra o e-mail](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
+    ![Abrir email](./media/vpn-gateway-vwan-config-openvpn-clients/ios2.png)
 
-9. Toque em **Mais** se você não ver Copiar para a opção **OpenVPN**
+9. Toque em **mais** se você não vir **a opção Copiar para OpenVPN**
 
     ![Mais](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
-10. Toque em **Copiar para OpenVPN** 
+10. Toque em **copiar para OpenVPN** 
 
-    ![Cópia para OpenVPN](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
+    ![Copiar para OpenVPN](./media/vpn-gateway-vwan-config-openvpn-clients/ios4.png)
 
-11. Toque em **ADD** na página **Importar perfil**
+11. Toque em **Adicionar** na página **importar perfil**
 
     ![Adicionar](./media/vpn-gateway-vwan-config-openvpn-clients/ios5.png)
 
-12. Toque em **ADD** na página **Perfil Importado**
+12. Toque em **Adicionar** na página de **perfil importado**
 
-    ![Toque em ADICIONAR](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
+    ![Toque em Adicionar](./media/vpn-gateway-vwan-config-openvpn-clients/ios6.png)
 
-13. Inicie o aplicativo OpenVPN e deslize o interruptor na página **Perfil** para conectar
+13. Inicie o aplicativo OpenVPN e deslize a opção na página **perfil** diretamente para conectar
 
     ![Conectar](./media/vpn-gateway-vwan-config-openvpn-clients/ios8.png)
 
@@ -122,11 +122,11 @@ ms.locfileid: "80986797"
    sudo service network-manager restart
    ```
 3. Faça o download do perfil VPN para o gateway. Isso pode ser feito na guia Configuração ponto a site no portal do Azure.
-4. Exporte o certificado de cliente P2S que você criou e carregou para sua configuração P2S no gateway. Use os links do artigo a seguir:
+4. Exporte o certificado de cliente P2S que você criou e carregou para sua configuração P2S no gateway. Use os seguintes links de artigo:
 
-   * [Instruções do GATEWAY VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
+   * Instruções do [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
    
-   * [Instruções de WAN virtuais](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
+   * Instruções de [Wan virtual](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
 5. Extraia a chave privada e a impressão digital base64 do .pfx. Há várias maneiras de fazer isso. Usar OpenSSL no computador é uma maneira.
 
     ```
@@ -145,7 +145,7 @@ ms.locfileid: "80986797"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra o profileinfo.txt em um editor de texto. Para obter a chave privada, selecione o texto incluindo e entre "-----BEGIN PRIVATE KEY-----" e "-----END PRIVATE KEY-----" e copie-o.
+8. Abra o profileinfo.txt em um editor de texto. Para obter a chave privada, selecione o texto que inclui e entre "-----BEGIN PRIVATE KEY-----" e "-----END PRIVATE KEY-----" e copie-o.
 
 9. Abra o arquivo vpnconfig.ovpn em um editor de texto e localize esta seção. Cole a chave privada substituindo tudo entre e "key" e "/key".
 

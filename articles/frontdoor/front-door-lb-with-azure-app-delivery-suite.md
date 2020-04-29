@@ -1,6 +1,6 @@
 ---
-title: Porta Da Frente do Azure - Balanceamento de carga com o pacote de entrega de aplicativos do Azure | Microsoft Docs
-description: Este artigo ajuda você a aprender sobre como o Azure recomenda o balanceamento de carga com seu pacote de entrega de aplicativos
+title: Azure front door-balanceamento de carga com o pacote de entrega de aplicativos do Azure | Microsoft Docs
+description: Este artigo ajuda você a aprender como o Azure recomenda o balanceamento de carga com seu pacote de entrega de aplicativos
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,40 +12,40 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80875275"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 
 ## <a name="introduction"></a>Introdução
-O Microsoft Azure fornece vários serviços globais e regionais para gerenciar como o tráfego de sua rede é distribuído e a carga equilibrada: Gerenciador de tráfego, porta frontal, gateway de aplicativo e balanceador de carga.  Junto com as muitas regiões e arquiteturas de zona do Azure, usar esses serviços juntos permite que você crie aplicativos de alto desempenho, robustos e dimensionáveis.
+O Microsoft Azure fornece vários serviços globais e regionais para gerenciar como o tráfego de rede é distribuído e com balanceamento de carga: Gerenciador de tráfego, porta frontal, gateway de aplicativo e Load Balancer.  Junto com as muitas regiões e arquiteturas de zona do Azure, usar esses serviços juntos permite que você crie aplicativos de alto desempenho, robustos e dimensionáveis.
 
 ![Pacote de entrega de aplicativos ][1]
  
 Esses serviços são divididos em duas categorias:
-1. **Serviços globais de balanceamento de carga,** como O Gerenciador de Tráfego e a Porta da Frente distribuem o tráfego de seus usuários finais através de seus backends regionais, através de nuvens ou até mesmo de seus serviços híbridos no local. O balanceamento de carga global roteia o tráfego para o back-end do serviço mais próximo e reage a alterações na confiabilidade ou no desempenho do serviço para manter o desempenho máximo sempre ativo para seus usuários. 
-2. **Serviços regionais de balanceamento de carga,** como o Standard Load Balancer ou o Application Gateway, fornecem a capacidade de distribuir tráfego em redes virtuais (VNETs) através de suas máquinas virtuais (VMs) ou pontos finais de serviço zonal dentro de uma região.
+1. Os **serviços de balanceamento de carga global** , como o Traffic Manager e a porta de front-end, distribuem o tráfego dos seus usuários finais entre os back-ends regionais, entre nuvens ou até mesmo seus serviços híbridos no local. O balanceamento de carga global roteia o tráfego para o back-end do serviço mais próximo e reage a alterações na confiabilidade ou no desempenho do serviço para manter o desempenho máximo sempre ativo para seus usuários. 
+2. **Serviços de balanceamento de carga regionais** , como Standard Load Balancer ou gateway de aplicativo, fornecem a capacidade de distribuir o tráfego dentro de redes virtuais (VNETs) em suas VMs (máquinas virtuais) ou pontos de extremidade de serviço zonais em uma região.
 
-A combinação de serviços globais e regionais em seu aplicativo fornece uma maneira confiável, performática e segura de roteamento de tráfego de e para seus usuários para seus serviços DeS, PaaS ou local. Na próxima seção, descrevemos cada um desses serviços.
+A combinação de serviços globais e regionais em seu aplicativo fornece uma maneira segura, de alto desempenho e confiável de rotear o tráfego de e para seus usuários para seus serviços de IaaS, PaaS ou local. Na próxima seção, descrevemos cada um desses serviços.
 
 ## <a name="global-load-balancing"></a>Balanceamento de carga global
 **O Gerenciador de Tráfego** fornece balanceamento de carga DNS global. Ele analisa as solicitações de entrada DNS e responde com um back-end íntegro e que esteja de acordo com a política de roteamento selecionada pelo cliente. Opções de métodos de roteamento são:
 - Roteamento de desempenho para enviar o solicitante ao back-end mais próximo em termos de latência.
-- Roteamento prioritário para direcionar todo o tráfego para um backend, com outros backends como backup.
+- Roteamento de prioridade para direcionar todo o tráfego para um back-end, com outros back-ends como backup.
 - Roteamento ponderado round robin, que distribui o tráfego com base no peso atribuído a cada back-end.
 - Roteamento geográfico para garantir que os solicitantes localizados em regiões geográficas específicas sejam direcionados para os back-ends mapeados para essas regiões (por exemplo, todas as solicitações da Espanha devem ser direcionadas para a região França Central do Azure)
 - Roteamento da sub-rede que permite que você mapeie intervalos de endereço IP para back-ends para que solicitações provenientes deles sejam enviadas para o back-end especificado (por exemplo, todos os usuários que estão se conectando do intervalo de endereços IP da matriz corporativa devem obter conteúdo Web diferente daquele de usuários gerais)
 
-O cliente se conecta diretamente ao back-end. O Gerenciador de Tráfego do Azure detecta quando um back-end não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a documentação [do Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) para saber mais sobre o serviço.
+O cliente se conecta diretamente ao back-end. O Gerenciador de Tráfego do Azure detecta quando um back-end não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a documentação [do Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) para saber mais sobre o serviço.
 
-**O Azure Front Door** oferece aceleração dinâmica do site (DSA), incluindo o balanceamento de carga HTTP global.  Ele analisa as rotas de solicitações HTTP de entrada para o back-end/região de serviço mais próximo para o nome de host, caminho de URL e regras configuradas especificados.  
+A **porta frontal do Azure** fornece a aceleração de site dinâmico (DSA), incluindo balanceamento de carga http global.  Ele analisa as rotas de solicitações HTTP de entrada para o back-end/região de serviço mais próximo para o nome de host, caminho de URL e regras configuradas especificados.  
 O Front Door encerra as solicitações HTTP na borda da rede da Microsoft e investiga ativamente para detectar alterações de latência ou integridade do aplicativo ou da infraestrutura.  O Front Door então sempre encaminha o tráfego para o back-end mais rápido e disponível (íntegro). Consulte os detalhes da [arquitetura de roteamento](front-door-routing-architecture.md) e os [métodos de roteamentos de tráfego](front-door-routing-methods.md) do Front Door para saber mais sobre o serviço.
 
 ## <a name="regional-load-balancing"></a>Balanceamento de carga regional
-O Gateway de Aplicativo fornece o ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade da fazenda web descarregando a terminação TLS intensiva em CPU para o gateway de aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e capacidade de hospedar vários sites com um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento.
+O Gateway de Aplicativo fornece o ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade web farm descarregando a terminação TLS com uso intensivo de CPU para o gateway de aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e capacidade de hospedar vários sites com um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento.
 O Load Balancer é uma parte integral da pilha do Azure SDN e fornece serviços de balanceamento de carga de camada 4 de baixa latência e de alto desempenho para todos protocolos TCP e UDP. Ele gerencia conexões de entrada e saída. Você pode configurar pontos de extremidade públicos e internos com balanceamento de carga e definir regras para mapear as conexões de entrada para destinos de pool de back-end usando opções TCP e HTTP de investigação de integridade para gerenciar a disponibilidade do serviço.
 
 
@@ -54,18 +54,18 @@ Ao escolher um balanceador de carga global entre o Gerenciador de Tráfego e o A
 - **Redundância de várias áreas geográficas**: se uma região ficar inativa, o tráfego será roteado sem interrupção para a região mais próxima sem qualquer intervenção do proprietário do aplicativo.
 - **Roteamento para a região mais próxima:** automaticamente o tráfego é roteado para a região mais próxima
 
-</br>A tabela a seguir descreve as diferenças entre o Gerenciador de Tráfego e o Porta Da Frente do Azure:</br>
+</br>A tabela a seguir descreve as diferenças entre o Gerenciador de tráfego e a porta frontal do Azure:</br>
 
 | Gerenciador de Tráfego | Porta da frente do Azure |
 | --------------- | ------------------------ |
-|**Qualquer protocolo:** uma vez que o Gerenciador de Tráfego funciona na camada de DNS, você pode rotear qualquer tipo de tráfego de rede: HTTP, TCP, UDP etc. | **Aceleração HTTP:** Com o Front Door, o tráfego é proxido na borda da rede da Microsoft.  Por causa disso, as solicitações HTTP(S) veem melhorias de latência e de throughput reduzindo a latência para negociação de TLS e usando conexões quentes do AFD para o seu aplicativo.|
-|**Roteamento no local:** Com o roteamento em uma camada DNS, o tráfego sempre vai de ponto a ponto.  O roteamento da sua filial para o datacenter no local pode tomar um caminho direto; mesmo em sua própria rede usando o Traffic Manager. | **Escalabilidade independente:** uma vez que o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
+|**Qualquer protocolo:** uma vez que o Gerenciador de Tráfego funciona na camada de DNS, você pode rotear qualquer tipo de tráfego de rede: HTTP, TCP, UDP etc. | **Aceleração de http:** Com o tráfego de porta de front-end é o proxy na borda da rede da Microsoft.  Por isso, as solicitações HTTP (S) veem as melhorias de latência e taxa de transferência reduzindo a latência da negociação TLS e usando conexões ativas de AFD para seu aplicativo.|
+|**Roteamento local:** Com o roteamento em uma camada DNS, o tráfego sempre passa do ponto a ponto.  O roteamento de sua filial para seu datacenter local pode usar um caminho direto; mesmo em sua própria rede usando o Gerenciador de tráfego. | **Escalabilidade independente:** uma vez que o Front Door funciona com solicitação HTTP, solicitações para diferentes caminhos de URL podem ser roteadas para diferentes pools de serviço regionais/de back-end (microsserviços) com base em regras e na integridade de cada microsserviço de aplicativo.|
 |**Formato de cobrança:** a cobrança com base no DNS é dimensionada com seus usuários e para serviços com mais usuários, atingindo um platô para reduzir o custo de um uso mais alto. |**Segurança embutida:** o Front Door habilita regras como limitação de taxa e ACL de IP para permitir que você proteja seu back-ends antes que o tráfego chegue a seu aplicativo. 
 
 </br>Devido aos benefícios de desempenho, capacidade de operação e segurança para cargas de trabalho HTTP com o Front Door, é recomendável que os clientes usem o Front Door para suas cargas de trabalho HTTP.    O Gerenciador de Tráfego e o Front Door podem ser usados em paralelo para atender a todo o tráfego para seu aplicativo. 
 
 ## <a name="building-with-azures-application-delivery-suite"></a>Como criar com o pacote de entrega de aplicativos do Azure 
-É recomendável que todos os sites da Web, APIs e serviços sejam geograficamente redundantes e entreguem tráfego para seus usuários do local mais próximo (menor latência) sempre que possível.  A combinação de serviços do Traffic Manager, Front Door, Application Gateway e Load Balancer permite que você construa geograficamente e zonalmente redundante para maximizar a confiabilidade, a escala e o desempenho.
+É recomendável que todos os sites da Web, APIs e serviços sejam geograficamente redundantes e entreguem tráfego para seus usuários do local mais próximo (menor latência) sempre que possível.  A combinação de serviços do Gerenciador de tráfego, da porta frontal, do gateway de aplicativo e do Load Balancer permite que você crie geograficamente e zonally redundantes para maximizar a confiabilidade, a escala e o desempenho.
 
 No diagrama a seguir, descrevemos um serviço de exemplo que usa uma combinação de todos esses serviços para criar um serviço Web global.   Neste caso, o arquiteto usou Gerenciador de Tráfego para rotear para back-ends global para entrega de arquivo e objeto, enquanto usou o Front Door para rotear globalmente caminhos de URL que correspondem ao padrão /store/* para o serviço migrado para o Serviço de Aplicativo ao rotear todas as outras solicitações para Gateways de Aplicativo regionais.
 
@@ -78,7 +78,7 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 ![Arquitetura detalhada do pacote de entrega de aplicativos][2] 
 
 > [!NOTE]
-> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga oferecidos pelo Azure. O Gateway de Aplicativo, o Front Door, o Load Balancer e o Gerenciador de Tráfego podem ser associados e combinados para melhor atender às necessidades de balanceamento de carga. Por exemplo, se não for necessário o descarregamento TLS/SSL ou o processamento da Camada 7, o Balancer de carga poderá ser usado no lugar do Gateway de aplicativo.
+> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga oferecidos pelo Azure. O Gateway de Aplicativo, o Front Door, o Load Balancer e o Gerenciador de Tráfego podem ser associados e combinados para melhor atender às necessidades de balanceamento de carga. Por exemplo, se o descarregamento de TLS/SSL ou o processamento de camada 7 não for necessário, Load Balancer poderá ser usado no lugar do gateway de aplicativo.
 
 
 ## <a name="next-steps"></a>Próximas etapas

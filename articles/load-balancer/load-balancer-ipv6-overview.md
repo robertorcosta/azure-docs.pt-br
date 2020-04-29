@@ -1,6 +1,6 @@
 ---
-title: Visão geral do IPv6 - Azure Load Balancer
-description: Com este caminho de aprendizado, comece com o suporte iPv6 para O Balancer de Carga Azure e VMs balanceados de carga.
+title: Visão geral do IPv6-Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar o suporte a IPv6 para Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981844"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
 
 
 >[!NOTE] 
->Este conteúdo foi substituído pelo [IPv6 para o Azure VNet Overview](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). O Azure recomenda que novas implantações iPv6 usem os novos recursos do IPv6 para Redes Virtuais Azure.
+>Este conteúdo foi substituído pelo [IPv6 para a visão geral da VNet do Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). O Azure recomenda novas implantações de IPv6 use o novo IPv6 para recursos de redes virtuais do Azure.
 
 >[!NOTE]
 >O Azure Load Balancer oferece suporte a dois tipos diferentes: Basic e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](load-balancer-standard-overview.md).
 
-Os balanceadores básicos de carga voltados para a Internet SKU podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
+Os balanceadores de carga voltados para a Internet da SKU básica podem ser implantados com um endereço IPv6. Além de conectividade IPv4, isso permite os seguintes recursos:
 
 * Conectividade IPv6 nativa ponta a ponta entre clientes de Internet pública e VMs (máquinas virtuais) do Azure por meio do balanceador de carga.
 * Saída IPv6 nativa ponta a ponta entre VMs e clientes habilitados para IPv6 da Internet pública.
@@ -49,7 +49,7 @@ O suporte nativo a IPv6 para VMs implantadas por meio do Azure Resource Manager 
 3. Conexões IPv6 nativas iniciadas por entrada e saída
 4. Protocolos com suporte, como TCP, UDP e HTTP(S), permitem uma ampla gama de arquiteturas de serviço
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Essa funcionalidade permite os seguintes benefícios principais:
 
@@ -81,7 +81,7 @@ Limitações
 * **No momento, não há suporte** para alterar o parâmetro loadDistributionMethod para IPv6.
 * **No momento, não há suporte** para IPs IPv6 reservados (em que IPAllocationMethod = estático).
 * O NAT64 (conversão de IPv6 para IPv4) não é compatível.
-* A atribuição de uma NIC secundária que se refira a uma sub-rede IPv6 em um pool de back-end não é **suportada no momento**.
+* **No momento, não há suporte**para a anexação de uma NIC secundária que se refere a uma sub-rede IPv6 a um pool de back-ends.
 
 ## <a name="next-steps"></a>Próximas etapas
 

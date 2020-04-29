@@ -1,7 +1,7 @@
 ---
-title: Depurar e solucionar problemas de pipelines de aprendizado de máquina em Insights de Aplicativos
+title: Depurar e solucionar problemas de pipelines do Machine Learning no Application Insights
 titleSuffix: Azure Machine Learning
-description: Adicione o registro aos seus pipelines de treinamento e pontuação em lote e visualize os resultados registrados no Application Insights.
+description: Adicione o log aos pipelines de Pontuação de treinamento e de lote e exiba os resultados registrados em Application Insights.
 services: machine-learning
 author: sanpil
 ms.author: sanpil
@@ -12,34 +12,34 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982354"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Depurar e solucionar problemas de pipelines de aprendizado de máquina em Insights de Aplicativos
+# <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Depurar e solucionar problemas de pipelines do Machine Learning no Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-A biblioteca python [OpenCensus](https://opencensus.io/quickstart/python/) pode ser usada para direcionar logs para Insights de aplicativos de seus scripts. Agregar logs de pipeline em um só lugar permite que você construa consultas e diagnostice problemas. O uso do Application Insights permitirá rastrear logs ao longo do tempo e comparar registros de pipeline em corridas.
+A Biblioteca Python [OpenCensus](https://opencensus.io/quickstart/python/) pode ser usada para rotear logs para Application insights de seus scripts. A agregação de logs de execuções de pipeline em um único local permite que você crie consultas e diagnostique problemas. O uso de Application Insights permitirá que você acompanhe os logs ao longo do tempo e compare os logs de pipeline entre as execuções.
 
-Ter seus logs em um lugar uma vez fornecerá um histórico de exceções e mensagens de erro. Como o Application Insights se integra aos Alertas do Azure, você também pode criar alertas com base em consultas do Application Insights.
+Ter seus logs em vigor fornecerá um histórico de exceções e mensagens de erro. Como o Application Insights se integra aos alertas do Azure, você também pode criar alertas com base em consultas Application Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as etapas para criar um espaço de trabalho [de Aprendizado de Máquina do Azure](./how-to-manage-workspace.md) e crie seu primeiro [pipeline](./how-to-create-your-first-pipeline.md)
+* Siga as etapas para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [criar seu primeiro pipeline](./how-to-create-your-first-pipeline.md)
 * [Configure seu ambiente de desenvolvimento](./how-to-configure-environment.md) para instalar o SDK do Azure Machine Learning.
-* Instale localmente o pacote [OpenCensus Azure Monitor Exporter:](https://pypi.org/project/opencensus-ext-azure/)
+* Instale o pacote de [exportador do OpenCensus Azure monitor](https://pypi.org/project/opencensus-ext-azure/) localmente:
   ```python
   pip install opencensus-ext-azure
   ```
-* Crie uma [instância do Application Insights](../azure-monitor/app/opencensus-python.md) (este doc também contém informações sobre como obter a seqüência de conexões para o recurso)
+* Criar uma [instância de Application insights](../azure-monitor/app/opencensus-python.md) (este documento também contém informações sobre como obter a cadeia de conexão para o recurso)
 
 ## <a name="getting-started"></a>Introdução
 
-Esta seção é uma introdução específica para usar o OpenCensus a partir de um pipeline de Machine Learning do Azure. Para obter um tutorial detalhado, consulte [Exportadores do OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+Esta seção é uma introdução específica para usar o OpenCensus de um pipeline Azure Machine Learning. Para obter um tutorial detalhado, consulte [OpenCensus Azure monitor exportadores](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure sua [Configuração de Execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) com a dependência do opencensus-ext-azure. Configure `APPLICATIONINSIGHTS_CONNECTION_STRING` a variável de ambiente.
+Adicione um PythonScriptStep ao seu pipeline do Azure ML. Configure seu [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) com a dependência em opencensus-ext-Azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável de ambiente.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -72,14 +72,14 @@ pipeline = Pipeline(workspace=ws, steps=[sample_step])
 pipeline.submit(experiment_name="Logging_Experiment")
 ```
 
-Crie um arquivo chamado `sample_step.py`. Importe a classe AzureLogHandler para fazer logs de rota para Insights de aplicativos. Você também precisará importar a biblioteca Python Logging.
+Crie um arquivo chamado `sample_step.py`. Importe a classe AzureLogHandler para rotear logs para Application Insights. Você também precisará importar a biblioteca de registro em log do Python.
 
 ```python
 from opencensus.ext.azure.log_exporter import AzureLogHandler
 import logging
 ```
 
-Em seguida, adicione o AzureLogHandler ao logger python.
+Em seguida, adicione o AzureLogHandler ao agente de log do Python.
 
 ```python
 logger = logging.getLogger(__name__)
@@ -91,32 +91,32 @@ logger.addHandler(AzureLogHandler())
 logger.warning("I will be sent to Application Insights")
 ```
 
-## <a name="logging-with-custom-dimensions"></a>Registro com dimensões personalizadas
+## <a name="logging-with-custom-dimensions"></a>Registro em log com dimensões personalizadas
  
-Por padrão, os logs encaminhados ao Application Insights não terão contexto suficiente para rastrear até a execução ou experimento. Para tornar os registros acionáveis para o diagnóstico de problemas, são necessários campos adicionais. 
+Por padrão, os logs encaminhados para Application Insights não terão contexto suficiente para rastrear de volta para a execução ou experimento. Para tornar os logs acionáveis para diagnosticar problemas, são necessários campos adicionais. 
 
-Para adicionar esses campos, dimensões personalizadas podem ser adicionadas para fornecer contexto a uma mensagem de log. Um exemplo é quando alguém quer exibir logs em vários passos na mesma execução do pipeline.
+Para adicionar esses campos, é possível adicionar dimensões personalizadas para fornecer contexto a uma mensagem de log. Um exemplo é quando alguém deseja exibir logs em várias etapas na mesma execução de pipeline.
 
-As Dimensões Personalizadas compõem um dicionário de pares de valor-chave (armazenados como string, string). O dicionário é então enviado para o Application Insights e exibido como uma coluna nos resultados da consulta. Suas dimensões individuais podem ser usadas como [parâmetros de consulta.](#additional-helpful-queries)
+As dimensões personalizadas compõem um dicionário de pares chave-valor (armazenados como cadeia de caracteres, Cadeia de caracteres). Em seguida, o dicionário é enviado para Application Insights e exibido como uma coluna nos resultados da consulta. Suas dimensões individuais podem ser usadas como [parâmetros de consulta](#additional-helpful-queries).
 
 ### <a name="helpful-context-to-include"></a>Contexto útil para incluir
 
-| Campo                          | Raciocínio/Exemplo                                                                                                                                                                       |
+| Campo                          | Raciocínio/exemplo                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| parent_run_id                  | Pode consultar logs para aqueles com o mesmo parent_run_id para ver logs ao longo do tempo para todas as etapas, em vez de ter que mergulhar em cada etapa individual                                        |
-| step_id                        | Pode consultar logs para aqueles com o mesmo step_id para ver onde um problema ocorreu com um escopo estreito apenas para a etapa individual                                                        |
-| step_name                      | Pode consultar logs para ver o desempenho do passo ao longo do tempo. Também ajuda a encontrar um step_id para corridas recentes sem mergulhar no portal UI                                          |
-| experiment_name                | Pode consultar através de logs para ver o desempenho do experimento ao longo do tempo. Também ajuda a encontrar um parent_run_id ou step_id para corridas recentes sem mergulhar no portal UI                   |
-| run_url                 | Pode fornecer um link diretamente de volta para a corrida para investigação. |
+| parent_run_id                  | Pode consultar logs para aqueles com o mesmo parent_run_id para ver os logs ao longo do tempo para todas as etapas, em vez de ter que se aprofundar em cada etapa individual                                        |
+| step_id                        | Pode consultar logs para aqueles com o mesmo step_id para ver onde ocorreu um problema com um escopo estreito apenas para a etapa individual                                                        |
+| step_name                      | Pode consultar logs para ver o desempenho da etapa ao longo do tempo. Também ajuda a encontrar uma step_id para execuções recentes Sem mergulhar na interface do usuário do portal                                          |
+| experiment_name                | Pode consultar entre logs para ver o desempenho do teste ao longo do tempo. Também ajuda a encontrar uma parent_run_id ou step_id para execuções recentes Sem mergulhar na interface do usuário do portal                   |
+| run_url                 | Pode fornecer um link diretamente de volta para a execução para investigação. |
 
 **Outros campos úteis**
 
-Esses campos podem exigir instrumentação de código adicional e não são fornecidos pelo contexto de execução.
+Esses campos podem exigir Instrumentação de código adicional e não são fornecidos pelo contexto de execução.
 
-| Campo                   | Raciocínio/Exemplo                                                                                                                                                                                                           |
+| Campo                   | Raciocínio/exemplo                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| build_url/build_version | Se usar CI/CD para implantar, este campo pode correlacionar logs à versão de código que forneceu a lógica de passo e pipeline. Este link pode ajudar ainda a diagnosticar problemas ou identificar modelos com características específicas (valores de log/métrico) |
-| run_type                       | Pode diferenciar entre diferentes tipos de modelo, ou treinamento vs. corridas de pontuação |
+| build_url/build_version | Se estiver usando CI/CD para implantar, esse campo poderá correlacionar os logs à versão do código que forneceu a lógica de etapa e pipeline. Esse link pode ajudar a diagnosticar problemas ou identificar modelos com características específicas (valores de log/métrica) |
+| run_type                       | Pode diferenciar entre diferentes tipos de modelo ou treinamento versus execuções de Pontuação |
 
 ### <a name="creating-a-custom-dimensions-dictionary"></a>Criando um dicionário de dimensões personalizadas
 
@@ -138,33 +138,33 @@ custom_dimensions = {
 logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
 ```
 
-## <a name="opencensus-python-logging-considerations"></a>Considerações de registro do OpenCensus Python
+## <a name="opencensus-python-logging-considerations"></a>Considerações de log do Python OpenCensus
 
-O OpenCensus AzureLogHandler é usado para direcionar os logs python para o Application Insights. Como resultado, as nuances de registro python devem ser consideradas. Quando um logger é criado, ele tem um nível de registro padrão e mostrará registros maiores ou iguais a esse nível. Uma boa referência para o uso de recursos de registro Python é o [Livro de Receitas de Registro](https://docs.python.org/3/howto/logging-cookbook.html).
+O OpenCensus AzureLogHandler é usado para rotear os logs do Python para Application Insights. Como resultado, as nuances de log do Python devem ser consideradas. Quando um agente é criado, ele tem um nível de log padrão e mostrará os logs maiores ou iguais a esse nível. Uma boa referência para usar os recursos de log do Python é o [manual de registro em log](https://docs.python.org/3/howto/logging-cookbook.html).
 
-A `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiente é necessária para a biblioteca OpenCensus. Recomendamos definir essa variável de ambiente em vez de passá-la como parâmetro de pipeline para evitar passar em torno de strings de conexão de texto simples.
+A `APPLICATIONINSIGHTS_CONNECTION_STRING` variável de ambiente é necessária para a biblioteca OpenCensus. É recomendável definir essa variável de ambiente em vez de passá-la como um parâmetro de pipeline para evitar passar pelas cadeias de conexão de texto não criptografado.
 
 ## <a name="querying-logs-in-application-insights"></a>Consultando logs no Application Insights
 
-Os registros encaminhados para o Application Insights serão exibidos em 'traces' ou 'exceções'. Certifique-se de ajustar sua janela de tempo para incluir a execução do pipeline.
+Os logs roteados para o Application Insights aparecerão em ' rastreamentos ' ou ' exceções '. Certifique-se de ajustar sua janela de tempo para incluir a execução do pipeline.
 
-![Resultado da consulta de insights do aplicativo](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
+![Application Insights resultado da consulta](./media/how-to-debug-pipelines-application-insights/traces-application-insights-query.png)
 
-O resultado no Application Insights mostrará a mensagem de log e o nível, o caminho do arquivo e o número da linha de código. Ele também mostrará quaisquer dimensões personalizadas incluídas. Nesta imagem, o dicionário customDimensions mostra os pares de teclas/valor da amostra de [código](#creating-a-custom-dimensions-dictionary)anterior .
+O resultado em Application Insights mostrará a mensagem de log e o nível, o caminho do arquivo e o número da linha de código. Ele também mostrará todas as dimensões personalizadas incluídas. Nesta imagem, o dicionário customDimensions mostra os pares de chave/valor do exemplo de [código](#creating-a-custom-dimensions-dictionary)anterior.
 
 ### <a name="additional-helpful-queries"></a>Consultas úteis adicionais
 
-Algumas das consultas abaixo usam 'customDimensions.Level'. Esses níveis de gravidade correspondem ao nível com o que o registro Python foi originalmente enviado. Para obter informações adicionais sobre consulta, consulte [Consultas de log do Monitor do Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Algumas das consultas abaixo usam ' customDimensions. Level '. Esses níveis de severidade correspondem ao nível no qual o log do Python foi originalmente enviado. Para obter informações adicionais de consulta, consulte [Azure monitor log queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 | Caso de uso                                                               | Consulta                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Registrar resultados para dimensões personalizadas específicas, por exemplo 'parent_run_id' | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
-| Os resultados de todos os treinamentos serão executados nos últimos 7 dias                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
-| Resultados de log com gravidadeErro de nível dos últimos 7 dias              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
-| Contagem de resultados de log com gravidadeErro de nível nos últimos 7 dias     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
+| Registrar resultados para uma dimensão personalizada específica, por exemplo, ' parent_run_id ' | <pre>traces \| <br>where customDimensions.parent_run_id == '931024c2-3720-11ea-b247-c49deda841c1</pre> |
+| Registrar resultados para todas as execuções de treinamento nos últimos 7 dias                     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.run_type == 'training'</pre>           |
+| Registrar resultados com o erro nível dos últimos 7 dias              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
+| Contagem de resultados de log com erro nível nos últimos 7 dias     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Uma vez que você tenha logs na instância do Application Insights, eles podem ser usados para definir [os alertas do Azure Monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
+Depois que você tiver logs em sua instância de Application Insights, eles poderão ser usados para definir [Azure monitor alertas](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
 
-Você também pode adicionar resultados de consultas a um [Painel Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) para obter informações adicionais.
+Você também pode adicionar resultados de consultas a um [painel do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) para obter informações adicionais.

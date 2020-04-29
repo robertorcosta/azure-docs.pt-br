@@ -1,7 +1,7 @@
 ---
-title: Análise de Sentimento Kubernetes config e implantar etapas
+title: Análise de Sentimento as etapas de configuração e implantação do kubernetes
 titleSuffix: Azure Cognitive Services
-description: Análise de Sentimento Kubernetes config e implantar etapas
+description: Análise de Sentimento as etapas de configuração e implantação do kubernetes
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,45 +10,45 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: b43299974034f55b57b86191b3556c3d5c2ee83b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877792"
 ---
-### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Implantar o contêiner de análise de sentimento em um cluster AKS
+### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Implantar o contêiner de Análise de Sentimento em um cluster AKS
 
-1. Abra o Azure CLI e entre no Azure.
+1. Abra o CLI do Azure e entre no Azure.
 
     ```azurecli
     az login
     ```
 
-1. Faça login no cluster AKS. `your-cluster-name` Substitua `your-resource-group` e com os valores apropriados.
+1. Entre no cluster AKS. Substitua `your-cluster-name` e `your-resource-group` pelos valores apropriados.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Depois que este comando é executado, ele relata uma mensagem semelhante à seguinte:
+    Depois que esse comando é executado, ele relata uma mensagem semelhante à seguinte:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Se você tiver várias assinaturas disponíveis para você `az aks get-credentials` em sua conta do Azure e o comando retornar com um erro, um problema comum é que você está usando a assinatura errada. Defina o contexto da sessão CLI do Azure para usar a mesma assinatura com a que você criou os recursos e tente novamente.
+    > Se você tiver várias assinaturas disponíveis em sua conta do Azure e o `az aks get-credentials` comando retornar com um erro, um problema comum é que você está usando a assinatura incorreta. Defina o contexto de sua sessão de CLI do Azure para usar a mesma assinatura com a qual você criou os recursos e tente novamente.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Abra o editor de texto escolhido. Este exemplo usa o Visual Studio Code.
+1. Abra o editor de texto de sua escolha. Este exemplo usa Visual Studio Code.
 
     ```console
     code .
     ```
 
-1. Dentro do editor de texto, crie um novo arquivo chamado *sentiment.yaml*e cole o Seguinte YAML nele. Certifique-se `billing/value` de `apikey/value` substituir e com suas próprias informações.
+1. No editor de texto, crie um novo arquivo chamado *sentimentos. YAML*e cole o YAML a seguir nele. Certifique-se de `billing/value` substituir `apikey/value` e por suas próprias informações.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -95,25 +95,25 @@ ms.locfileid: "80877792"
     ```
 
 1. Salve o arquivo e feche o editor de texto.
-1. Execute o comando `apply` Kubernetes com o arquivo *sentiment.yaml* como seu alvo:
+1. Execute o comando `apply` kubernetes com o arquivo *sentimentos. YAML* como seu destino:
 
     ```console
     kubectl apply -f sentiment.yaml
     ```
 
-    Depois que o comando aplica com sucesso a configuração de implantação, uma mensagem aparece semelhante à seguinte saída:
+    Depois que o comando aplicar com êxito a configuração de implantação, uma mensagem será semelhante à seguinte saída:
 
     ```output
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Verifique se a cápsula foi implantada:
+1. Verifique se o Pod foi implantado:
 
     ```console
     kubectl get pods
     ```
 
-    A saída para o status de execução do pod:
+    A saída do status de execução do pod:
 
     ```output
     NAME                         READY     STATUS    RESTARTS   AGE
@@ -126,7 +126,7 @@ ms.locfileid: "80877792"
     kubectl get services
     ```
 
-    A saída para o status de execução do serviço de *sentimento* no pod:
+    A saída do status de execução do serviço de *sentimentos* no pod:
 
     ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE

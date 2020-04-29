@@ -1,6 +1,6 @@
 ---
-title: A bordo de um domínio raiz ou ápice para um portal front door existente - Azure
-description: Aprenda a embarcar em um domínio raiz ou ápice para uma porta frontal existente usando o portal Azure.
+title: Carregar um domínio raiz ou Apex para uma porta frontal existente-portal do Azure
+description: Saiba como carregar um domínio raiz ou Apex para uma porta frontal existente usando o portal do Azure.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
@@ -8,72 +8,72 @@ ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878877"
 ---
-# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>A bordo de um domínio raiz ou ápice em sua porta da frente
-O Azure Front Door usa registros CNAME para validar a propriedade de domínios para onboarding de domínios personalizados. Além disso, o Front Door não expõe o endereço IP frontend associado ao seu perfil da Porta da Frente e, portanto, você não pode mapear seu domínio ápice para um endereço IP, se a intenção é abordo dele para o Azure Front Door.
+# <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Carregar um domínio raiz ou Apex na sua porta frontal
+A porta frontal do Azure usa registros CNAME para validar a propriedade do domínio para a integração de domínios personalizados. Além disso, a porta frontal não expõe o endereço IP de front-end associado ao seu perfil de porta frontal e, portanto, não é possível mapear seu domínio Apex para um endereço IP, se a intenção for integrar-o à porta frontal do Azure.
 
-O protocolo DNS previne a atribuição de registros CNAME no ápice da zona. Por exemplo, se `contoso.com`o seu domínio é; você pode criar registros `somelabel.contoso.com`CNAME para; mas você não pode criar `contoso.com` CNAME para si mesmo. Essa restrição apresenta um problema para os proprietários de aplicativos que têm aplicativos balanceados de carga atrás do Azure Front Door. Uma vez que o uso de um perfil da Porta da Frente requer a criação de um registro CNAME, não é possível apontar para o perfil da Porta da Frente a partir do ápice da região.
+O protocolo DNS previne a atribuição de registros CNAME no ápice da zona. Por exemplo, se seu domínio for `contoso.com`; Você pode criar registros CNAME para `somelabel.contoso.com`o; Mas você não pode criar CNAME `contoso.com` para si mesmo. Essa restrição apresenta um problema para proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás da porta frontal do Azure. Como o uso de um perfil de porta frontal requer a criação de um registro CNAME, não é possível apontar para o perfil de porta frontal do Apex da zona.
 
-Este problema é resolvido usando registros de alias no DNS do Azure. Ao contrário dos registros CNAME, os registros de alias são criados no ápice da região e os proprietários de aplicativos podem usá-lo para apontar o registro do ápice da região para um perfil do Front Door que tem pontos finais públicos. Os proprietários de aplicativos apontam para o mesmo perfil do Front Door que é usado para qualquer outro domínio dentro de sua região de DNS. Por `contoso.com` exemplo, `www.contoso.com` e pode apontar para o mesmo perfil da Porta da Frente. 
+Esse problema é resolvido usando registros de alias no DNS do Azure. Ao contrário dos registros CNAME, os registros de alias são criados no Apex da zona e os proprietários do aplicativo podem usá-lo para apontar o registro de Apex da zona para um perfil de porta frontal que tenha pontos de extremidade públicos. Os proprietários de aplicativo apontam para o mesmo perfil de porta frontal usado para qualquer outro domínio dentro de sua zona DNS. Por exemplo, `contoso.com` e `www.contoso.com` pode apontar para o mesmo perfil de porta frontal. 
 
-Mapear seu ápice ou domínio raiz para o perfil da Porta da Frente basicamente requer o achatamento do CNAME ou perseguição de DNS, que é um mecanismo onde no provedor de DNS resolve recursivamente a entrada CNAME até atingir um endereço IP. Essa funcionalidade é suportada pelo Azure DNS para pontos finais da Porta da Frente. 
+O mapeamento de seu Apex ou domínio raiz para o perfil de porta frontal basicamente requer o nivelamento de CNAME ou a caça de DNS, que é um mecanismo no qual o provedor DNS resolve recursivamente a entrada CNAME até atingir um endereço IP. Essa funcionalidade é suportada pelo DNS do Azure para pontos de extremidade de porta frontal. 
 
 > [!NOTE]
-> Existem outros provedores de DNS também que suportam o achatamento do CNAME ou perseguição de DNS, no entanto, o Azure Front Door recomenda o uso do Azure DNS para seus clientes para hospedar seus domínios.
+> Também há outros provedores DNS que dão suporte ao nivelamento CNAME ou à procura de DNS. no entanto, a porta frontal do Azure recomenda usar o DNS do Azure para seus clientes para hospedar seus domínios.
 
-Você pode usar o portal Azure para embarcar um domínio apex em sua Porta da Frente e habilitar HTTPS nele associando-o a um certificado de rescisão TLS. Os domínios apex também são chamados de domínios raiz ou nu.
+Você pode usar a portal do Azure para carregar um domínio Apex na sua porta frontal e habilitar o HTTPS nele associando-o a um certificado para terminação de TLS. Os domínios Apex também são chamados de domínios raiz ou Naked.
 
 Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
-> * Crie um registro de alias que aponte para o perfil da Porta da Frente
-> * Adicione o domínio raiz à porta da frente
+> * Criar um registro de alias que aponte para o perfil de porta frontal
+> * Adicionar o domínio raiz à porta frontal
 > * Configurar HTTPS no domínio raiz
 
 > [!NOTE]
-> Este tutorial requer que você já tenha um perfil da Porta da Frente criado. Consulte outros tutoriais como [Quickstart: Crie uma porta frontal](./quickstart-create-front-door.md) ou crie uma porta da frente com HTTP para o [redirecionamento HTTPS](./front-door-how-to-redirect-https.md) para começar.
+> Este tutorial requer que você já tenha um perfil de porta de front-end criado. Consulte outros tutoriais como [o início rápido: criar uma porta frontal](./quickstart-create-front-door.md) ou [criar uma porta frontal com o redirecionamento de http para https](./front-door-how-to-redirect-https.md) para começar.
 
-## <a name="create-an-alias-record-for-zone-apex"></a>Crie um registro de alias para o ápice da zona
+## <a name="create-an-alias-record-for-zone-apex"></a>Criar um registro de alias para o Apex da zona
 
-1. Abra a configuração **do Azure DNS** para que o domínio seja a bordo.
-2. Crie ou edite o registro para o ápice da região.
-3. Selecione o **tipo** de registro como _Um_ registro e, em seguida, selecione _Sim_ para conjunto de **registros Alias**. **O tipo de alias** deve ser definido como _recurso Do Zure_.
-4. Escolha a assinatura do Azure onde o perfil da Porta da Frente está hospedado e selecione o recurso Porta da Frente na lista suspensa **do recurso Dozure.**
+1. Abra a configuração de **DNS do Azure** para o domínio a ser integrado.
+2. Crie ou edite o registro do Apex da zona.
+3. Selecione o **tipo** de registro como _um_ registro e, em seguida, selecione _Sim_ para conjunto de **registros de alias**. O **tipo de alias** deve ser definido como _recurso do Azure_.
+4. Escolha a assinatura do Azure em que o perfil de porta frontal está hospedado e, em seguida, selecione o recurso de porta frontal na lista suspensa de **recursos do Azure** .
 5. Clique em **OK** para enviar suas alterações.
 
-    ![Registro de alias para ápice de zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
+    ![Registro de alias para o Apex da zona](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. A etapa acima criará um registro de ápice de zona apontando para o recurso Front Door `afdverify.contosonews.com`e `afdverify.<name>.azurefd.net` também um mapeamento de registro CNAME 'afdverify' (exemplo - ) para o qual será usado para onboarding do domínio no perfil da Porta da Frente.
+6. A etapa acima criará um registro de Apex de zona apontando para o recurso de porta frontal e também um mapeamento de registro CNAME ' afdverify `afdverify.contosonews.com`' ( `afdverify.<name>.azurefd.net` exemplo-) para o qual será usado para integração do domínio em seu perfil de porta frontal.
 
-## <a name="onboard-the-custom-domain-on-your-front-door"></a>A bordo do domínio personalizado em sua porta da frente
+## <a name="onboard-the-custom-domain-on-your-front-door"></a>Carregar o domínio personalizado na sua porta frontal
 
-1. Na guia de designer front door, clique no ícone '+' na seção Hosts do Frontend para adicionar um novo domínio personalizado.
-2. Digite o nome de domínio raiz ou ápice `contosonews.com`no campo de nome de host personalizado, exemplo .
-3. Uma vez que o mapeamento CNAME do domínio para a porta da frente seja validado, clique em **Adicionar** para adicionar o domínio personalizado.
-4. Clique **em Salvar** para enviar as alterações.
+1. Na guia Designer de porta frontal, clique no ícone "+" na seção hosts de front-end para adicionar um novo domínio personalizado.
+2. Insira o nome de domínio raiz ou Apex no campo nome de host personalizado, `contosonews.com`por exemplo.
+3. Depois que o mapeamento CNAME do domínio para sua porta frontal for validado, clique em **Adicionar** para adicionar o domínio personalizado.
+4. Clique em **salvar** para enviar as alterações.
 
 ![Menu de domínio personalizado](./media/front-door-apex-domain/front-door-onboard-apex-domain.png)
 
-## <a name="enable-https-on-your-custom-domain"></a>Habilite https em seu domínio personalizado
+## <a name="enable-https-on-your-custom-domain"></a>Habilitar HTTPS em seu domínio personalizado
 
-1. Clique no domínio personalizado que foi adicionado e na seção **Domínio personalizado HTTPS,** altere o status para **Ativado**.
-2. Selecione o **tipo de gerenciamento de certificados** para _'Usar meu próprio certificado'_.
-
-> [!WARNING]
-> O tipo de gerenciamento gerenciado do Front Door não é suportado atualmente para domínios ápices ou root. A única opção disponível para habilitar HTTPS em um ápice ou domínio raiz para o Front Door é usar seu próprio certificado TLS/SSL personalizado hospedado no Azure Key Vault.
-
-3. Certifique-se de configurar as permissões certas para o Front Door acessar seu cofre de chaves, conforme observado na ui, antes de prosseguir para a próxima etapa.
-4. Escolha uma **conta do Key Vault** da sua assinatura atual e selecione a versão **secreta** e **secreta** apropriada para mapear para o certificado certo.
-5. Clique em **Atualizar** para salvar a seleção e, em seguida, clique **em Salvar**.
-6. Clique **em Atualizar** após alguns minutos e clique novamente no domínio personalizado para ver o progresso do provisionamento de certificados. 
+1. Clique no domínio personalizado que foi adicionado e sob a seção **domínio personalizado https**, altere o status para **habilitado**.
+2. Selecione o **tipo de gerenciamento de certificado** para _' usar meu próprio certificado '_.
 
 > [!WARNING]
-> Certifique-se de que você criou regras de roteamento apropriadas para o seu domínio apex ou adicionou o domínio às regras de roteamento existentes.
+> No momento, não há suporte para o tipo de gerenciamento de certificado gerenciado de porta frontal para Apex ou domínios raiz. A única opção disponível para habilitar HTTPS em um Apex ou domínio raiz para a porta frontal é usar seu próprio certificado TLS/SSL personalizado hospedado no Azure Key Vault.
+
+3. Verifique se você configurou as permissões corretas para a porta frontal acessar o cofre de chaves, conforme observado na interface do usuário, antes de prosseguir para a próxima etapa.
+4. Escolha uma **conta de Key Vault** da sua assinatura atual e, em seguida, selecione a **versão** **secreta** e secreta apropriada para mapear para o certificado correto.
+5. Clique em **Atualizar** para salvar a seleção e, em seguida, clique em **salvar**.
+6. Clique em **Atualizar** após alguns minutos e, em seguida, clique no domínio personalizado novamente para ver o progresso do provisionamento de certificado. 
+
+> [!WARNING]
+> Verifique se você criou as regras de roteamento apropriadas para seu domínio Apex ou adicionou o domínio às regras de roteamento existentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

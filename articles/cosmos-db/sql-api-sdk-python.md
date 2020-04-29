@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API, SDK & recursos do SQL Python'
+title: 'Azure Cosmos DB: API do Python do SQL, recursos de & do SDK'
 description: Saiba tudo sobre o SDK e a API do SQL Python, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Python para o Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,16 +9,16 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982898"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -26,14 +26,14 @@ ms.locfileid: "80982898"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [Sql](sql-api-query-reference.md)
-> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](sql-api-query-reference.md)
+> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Baixar o SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação de API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-cosmos-python)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**Introdução**|[Introdução ao SDK do Python](sql-api-python-application.md)|
@@ -71,7 +71,7 @@ ms.locfileid: "80982898"
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Esta versão do SDK requer a versão mais recente do [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
+* Esta versão do SDK requer a versão mais recente do [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * Correção de bug de dicionário de agregação.
@@ -84,7 +84,7 @@ ms.locfileid: "80982898"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
-* Adicionada uma opção para desativar a verificação TLS ao executar contra o Cosmos DB Emulador.
+* Adicionada uma opção para desabilitar a verificação de TLS ao executar no emulador de Cosmos DB.
 * Removida a restrição do módulo de solicitações dependentes para serem exatamente 2.10.0.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
 * Adicionado suporte para habilitar o registro em log de script durante a execução do procedimento armazenado.
@@ -100,7 +100,7 @@ ms.locfileid: "80982898"
 * Suporte às consultas TOP/ORDERBY de coleções particionadas adicionado.
 
 ### <a name="190"></a><a name="1.9.0"/>1.9.0
-* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações estranguladas recebem uma taxa de solicitação muito grande exceção, código de erro 429.) Por padrão, o Azure Cosmos DB tenta novamente nove vezes para cada solicitação quando o código de erro 429 é encontrado, honrando a repetiçãoApós o tempo no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Esse tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
+* Suporte à política de repetições para solicitações limitadas adicionado. (As solicitações limitadas recebem uma exceção de taxa de solicitação muito grande, código de erro 429.) Por padrão, Azure Cosmos DB repete nove vezes para cada solicitação quando o código de erro 429 for encontrado, respeitando o tempo de retryAfter no cabeçalho de resposta. Um intervalo de repetição fixo agora poderá ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy, se você quiser ignorar o tempo retryAfter retornado pelo servidor entre as repetições. O Azure Cosmos DB agora aguarda um período máximo de 30 segundos para cada solicitação que está sendo limitada (independentemente da contagem de repetições) e retorna a resposta com o código de erro 429. Esse tempo também pode ser substituído na propriedade RetryOptions, no objeto ConnectionPolicy.
 * O Cosmos DB agora retorna x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms como os cabeçalhos de resposta em cada solicitação para indicar a contagem de repetições restritas e o tempo cumulativo que a solicitação aguardou entre as tentativas.
 * A classe RetryPolicy foi removida e a propriedade correspondente (retry_policy) foi exposta na classe document_client. Como alternativa, foi introduzida uma classe RetryOptions, expondo a propriedade RetryOptions na classe ConnectionPolicy, que pode ser usada para substituir algumas das opções de repetição padrão.
 
@@ -145,12 +145,12 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é rejeitada pelo serviço.
 
 > [!WARNING]
-> Todas as versões do Python SDK para API SQL antes da versão **1.0.0** foram retiradas em 29 de fevereiro de **2016**. 
+> Todas as versões do SDK do Python para a API do SQL anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**. 
 > 
 > 
 
 > [!WARNING]
-> Todas as versões 1.x e 2.x do Python SDK para API SQL serão retiradas em 30 de agosto de **2020**. 
+> Todas as versões 1. x e 2. x do SDK do Python para a API do SQL serão desativadas em **30 de agosto de 2020**. 
 > 
 > 
 

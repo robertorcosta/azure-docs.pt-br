@@ -4,15 +4,15 @@ description: Saiba como integrar um cliente ao gerenciamento de recursos delegad
 ms.date: 10/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985160"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implantar uma política que pode ser corrigida em uma assinatura delegada
 
-[O Azure Lighthouse](../overview.md) permite que os provedores de serviços criem e editem definições de políticas dentro de uma assinatura delegada. No entanto, para implantar políticas que usam uma [tarefa de remediação](../../governance/policy/how-to/remediate-resources.md) (ou seja, políticas com o [efeito deployIfNotExist](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modificar),](../../governance/policy/concepts/effects.md#modify) você precisará criar uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) no inquilino do cliente. Essa identidade gerenciada pode ser usada pelo Azure Policy para implantar o modelo na política. Há etapas necessárias para habilitar esse cenário, não apenas quando você integra o cliente ao gerenciamento de recursos delegados do Azure, mas também quando implanta a política propriamente dita.
+O [Azure Lighthouse](../overview.md) permite que os provedores de serviços criem e editem definições de política em uma assinatura delegada. No entanto, para implantar políticas que usam uma [tarefa de correção](../../governance/policy/how-to/remediate-resources.md) (ou seja, políticas com o efeito [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [Modificar](../../governance/policy/concepts/effects.md#modify) ), você precisará criar uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente. Essa identidade gerenciada pode ser usada pelo Azure Policy para implantar o modelo na política. Há etapas necessárias para habilitar esse cenário, não apenas quando você integra o cliente ao gerenciamento de recursos delegados do Azure, mas também quando implanta a política propriamente dita.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Criar um usuário que pode atribuir funções a uma identidade gerenciada no locatário do cliente
 
@@ -22,7 +22,7 @@ Para permitir que um **principalId** crie uma identidade gerenciada no locatári
 
 Depois que o cliente for integrado, o **principalId** criado nessa autorização poderá atribuir essas funções internas a identidades gerenciadas no locatário do cliente. No entanto, elas não terão nenhuma outra permissão normalmente associada à função de Administrador de Acesso do Usuário.
 
-O exemplo a seguir mostra um **principalId** que terá a função de Administrador de Acesso do Usuário. Este usuário poderá atribuir duas funções incorporadas a identidades gerenciadas no inquilino do cliente: Contribuinte e Colaborador do Log Analytics.
+O exemplo a seguir mostra um **principalId** que terá a função de Administrador de Acesso do Usuário. Esse usuário poderá atribuir duas funções internas a identidades gerenciadas no locatário do cliente: colaborador e colaborador de Log Analytics.
 
 ```json
 {
@@ -40,7 +40,7 @@ O exemplo a seguir mostra um **principalId** que terá a função de Administrad
 
 Depois de criar o usuário com as permissões necessárias, conforme descrito acima, esse usuário pode implantar políticas no locatário do cliente que usam tarefas de correção.
 
-Por exemplo, digamos que você queria habilitar diagnósticos nos recursos do Azure Key Vault no inquilino do cliente, conforme ilustrado nesta [amostra](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo do Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
+Por exemplo, digamos que você queria habilitar o diagnóstico em Azure Key Vault recursos no locatário do cliente, conforme ilustrado neste [exemplo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo do Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
 
 Observe que a criação da atribuição de política a ser usada com uma assinatura delegada deve ser feita atualmente por meio de APIs, não no portal do Azure. Ao fazer isso, a **apiVersion** deve ser definida para **2019-04-01-preview**, que inclui a nova propriedade **delegatedManagedIdentityResourceId**. Essa propriedade permite incluir uma identidade gerenciada que reside no locatário do cliente (em uma assinatura ou grupo de recursos que foi integrado ao gerenciamento de recursos delegados do Azure).
 

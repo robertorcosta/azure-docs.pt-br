@@ -9,25 +9,25 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878962"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Agendador do Azure
 
 > [!IMPORTANT]
-> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, [migre para o Azure Logic Apps o](../scheduler/migrate-from-scheduler-to-logic-apps.md) mais rápido possível. 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
 >
-> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 Os trabalhos do Agendador do Azure podem precisar chamar serviços que exigem autenticação, como outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados. O serviço chamado pode determinar se o trabalho do Agendador poderá acessar seus recursos solicitados. 
 
 O Agendador oferece suporte a esses modelos de autenticação: 
 
 * Autenticação de *certificado de cliente* ao usar certificados de cliente SSL/TLS
-* *Autenticação básica*
+* Autenticação *básica*
 * Autenticação *OAuth do AD*
 
 ## <a name="add-or-remove-authentication"></a>Adicionar ou remover a autenticação
@@ -48,9 +48,9 @@ Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique e
 | Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar um certificado de cliente SSL/TLS |
-| **type** | Sim | O tipo de autenticação. Para certificados clienteSL/TLS, o `ClientCertificate`valor é . |
-| **Pfx** | Sim | Conteúdo codificado na base64 do arquivo PFX |
-| **senha** | Sim | A senha para acessar o arquivo PFX |
+| **type** | Sim | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor `ClientCertificate`é. |
+| **pfx** | Sim | Conteúdo codificado na base64 do arquivo PFX |
+| **password** | Sim | A senha para acessar o arquivo PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo da resposta – certificado do cliente 
@@ -60,8 +60,8 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 | Elemento | Descrição | 
 |---------|-------------| 
 | **autenticação (elemento pai)** | O objeto de autenticação para usar um certificado de cliente SSL/TLS |
-| **type** | O tipo de autenticação. Para certificados clienteSL/TLS, o `ClientCertificate`valor é . |
-| **Certificatethumbprint** |A impressão digital do certificado |
+| **type** | O tipo de autenticação. Para certificados de cliente SSL/TLS, o valor `ClientCertificate`é. |
+| **certificateThumbprint** |A impressão digital do certificado |
 | **certificateSubjectName** |O nome distinto da entidade do certificado |
 | **certificateExpiration** | A data de validade do certificado |
 ||| 
@@ -169,8 +169,8 @@ Ao adicionar a autenticação usando o modelo `Basic`, especifique estes element
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar a autenticação básica | 
 | **type** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
-| **Username** | Sim | Nome de usuário para autenticação | 
-| **senha** | Sim | Senha para autenticação |
+| **usu** | Sim | Nome de usuário para autenticação | 
+| **password** | Sim | Senha para autenticação |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo da resposta - Básico
@@ -181,7 +181,7 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 |---------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar a autenticação básica |
 | **type** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
-| **Username** | O nome de usuário autenticado |
+| **usu** | O nome de usuário autenticado |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>Exemplo de solicitação REST - Basic
@@ -287,10 +287,10 @@ Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifiqu
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | Sim | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
 | **type** | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
-| **Inquilino** | Sim | O identificador do locatário para o locatário do Azure AD. Para encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell. |
-| **Público** | Sim | Esse valor é configurado para `https://management.core.windows.net/`. | 
-| **Clientid** | Sim | O identificador de cliente para o aplicativo do Azure AD | 
-| **Segredo** | Sim | O segredo para o cliente que está solicitando o token | 
+| **vários** | Sim | O identificador do locatário para o locatário do Azure AD. Para encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell. |
+| **platéia** | Sim | Esse valor é configurado para `https://management.core.windows.net/`. | 
+| **clientId** | Sim | O identificador de cliente para o aplicativo do Azure AD | 
+| **RADIUS** | Sim | O segredo para o cliente que está solicitando o token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo de resposta - Active Directory OAuth
@@ -301,9 +301,9 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 |---------|-------------|
 | **autenticação (elemento pai)** | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
 | **type** | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
-| **Inquilino** | O identificador do locatário para o locatário do Azure AD |
-| **Público** | Esse valor é configurado para `https://management.core.windows.net/`. |
-| **Clientid** | O identificador de cliente para o aplicativo do Azure AD |
+| **vários** | O identificador do locatário para o locatário do Azure AD |
+| **platéia** | Esse valor é configurado para `https://management.core.windows.net/`. |
+| **clientId** | O identificador de cliente para o aplicativo do Azure AD |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Exemplo de solicitação REST - OAuth do Active Directory

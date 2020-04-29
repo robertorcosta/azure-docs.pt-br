@@ -1,7 +1,7 @@
 ---
-title: Crie um recurso de cluster do Azure Kubernetes Service
+title: Criar um recurso de cluster do serviço kubernetes do Azure
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso Azure Kubernetes Service (AKS).
+description: Saiba como criar um recurso de AKS (serviço de kubernetes do Azure).
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,42 +10,42 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: d01245a76c5210a1843307b543f98d4f1d59d2cc
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877791"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Crie um recurso de cluster do Azure Kubernetes Service
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
 
-1. Vá para [o Serviço Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **Criar**.
+1. Vá para o [serviço kubernetes do Azure](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **criar**.
 
-1. Na guia **Noções Básicas,** digite as seguintes informações:
+1. Na guia **noções básicas** , insira as seguintes informações:
 
     |Configuração|Valor|
     |--|--|
     |Subscription|Selecione a assinatura apropriada.|
     |Resource group|Selecione um grupo de recursos disponível.|
-    |Nome do cluster kubernetes|Digite um nome (minúscula).|
+    |Nome do cluster kubernetes|Insira um nome (em minúsculas).|
     |Região|Selecione um local próximo.|
-    |Versão Kubernetes|Qualquer valor marcado como **(padrão)**.|
-    |Prefixo de nome DNS|Criado automaticamente, mas você pode substituir.|
-    |Tamanho do nó|Padrão DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nodos|Deixe o controle deslizante no valor padrão.|
+    |Versão do kubernetes|Qualquer que seja o valor marcado como **(padrão)**.|
+    |Prefixo do nome DNS|Criado automaticamente, mas você pode substituir.|
+    |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
+    |Contagem de nós|Deixe o controle deslizante no valor padrão.|
 
-1. Na guia **Escala,** deixe os **nós virtuais** e os **conjuntos de escala vm definidos** como valores padrão.
-1. Na guia **Autenticação,** deixe o **diretor do serviço** e a modo **RBAC** definido como valores padrão.
-1. Na guia **Rede, digite** as seguintes seleções:
+1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de VM** definidos com seus valores padrão.
+1. Na guia **autenticação** , deixe a **entidade de serviço** e **habilite o RBAC** definido com seus valores padrão.
+1. Na guia **rede** , insira as seguintes seleções:
 
     |Configuração|Valor|
     |--|--|
     |Roteamento de aplicativo HTTP|Não|
     |Configuração de rede|Basic|
 
-1. Na guia **Monitoramento,** **certifique-se de** que o monitoramento de contêiner enable está definido como **Sim**e deixe o **espaço de trabalho do Log Analytics** como o valor padrão.
-1. Na guia **Tags,** deixe os pares nome/valor em branco por enquanto.
-1. Selecione **Revisar e Criar**.
-1. Após a validação passar, selecione **Criar**.
+1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
+1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
+1. Selecione **revisar e criar**.
+1. Depois que a validação for aprovada, selecione **criar**.
 
 > [!NOTE]
-> Se a validação falhar, pode ser por causa de um erro "Service principal". Volte para a guia **Autenticação** e, em seguida, volte para **Resenha + criar,** onde a validação deve ser executada e depois passar.
+> Se a validação falhar, isso pode ser devido a um erro de "entidade de serviço". Volte para a guia **autenticação** e, em seguida, volte para **revisar + criar**, em que a validação deve ser executada e, em seguida, passada.

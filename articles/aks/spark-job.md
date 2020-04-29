@@ -1,21 +1,21 @@
 ---
 title: Executar um trabalho do Apache Spark com o AKS (Serviço de Kubernetes do Azure)
-description: Use o Azure Kubernetes Service (AKS) para criar e executar um trabalho apache spark para processamento de dados em larga escala.
+description: Use o AKS (serviço kubernetes do Azure) para criar e executar um trabalho de Apache Spark para processamento de dados em larga escala.
 author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80877620"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 
-[Apache Spark][apache-spark] é um motor rápido para processamento de dados em larga escala. A partir do [Spark versão 2.3.0][spark-latest-release], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
+[Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir do [Spark versão 2.3.0][spark-latest-release], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,13 +40,13 @@ Crie um grupo de recursos para o cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Crie um diretor de serviço para o cluster. Depois que ele for criado, você precisará do aplicativo service principal e senha para o próximo comando.
+Crie uma entidade de serviço para o cluster. Depois que ele for criado, você precisará do appId e da senha da entidade de serviço para o próximo comando.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Crie o cluster AKS com nós `Standard_D3_v2`de tamanho e valores de appId e senha passados como parâmetros de serviço-principal e cliente-secreto.
+Crie o cluster AKS com nós de tamanho `Standard_D3_v2`e os valores de AppID e senha passados como parâmetros de entidade de serviço e de cliente-segredo.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -293,7 +293,7 @@ Pi is roughly 3.152155760778804
 
 No exemplo acima, o arquivo Jar do Spark foi carregado no armazenamento do Azure. Outra opção é empacotar o arquivo Jar em imagens do Docker personalizadas internas.
 
-Para fazer isso, localize o diretório `dockerfile` da imagem do Spark localizada em `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione `ADD` uma declaração `jar` para `WORKDIR` o `ENTRYPOINT` trabalho spark em algum lugar entre e declarações.
+Para fazer isso, localize o diretório `dockerfile` da imagem do Spark localizada em `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/`. Adicione uma `ADD` instrução para o trabalho `jar` do Spark em `WORKDIR` algum `ENTRYPOINT` lugar entre as declarações e.
 
 Atualize o caminho do Jar para o local do arquivo `SparkPi-assembly-0.1.0-SNAPSHOT.jar` no sistema de desenvolvimento. Também é possível utilizar seu próprio arquivo Jar personalizado.
 

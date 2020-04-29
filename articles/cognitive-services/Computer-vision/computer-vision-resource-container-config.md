@@ -1,7 +1,7 @@
 ---
 title: Configure os contêineres - Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra como configurar as configurações necessárias e opcionais para os recipientes Reconhecer texto na Visão de Computador.
+description: Este artigo mostra como definir as configurações obrigatórias e opcionais para contêineres de Reconhecimento de Texto no Pesquisa Visual Computacional.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 04/01/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 3be302019c712c13bd29d7ed3781151a1648e847
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879302"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Configurar recipientes Docker de visão de computador
+# <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
 
-Você configura o ambiente de tempo de execução do contêiner Computer Vision usando os `docker run` argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+Você configura o ambiente de tempo de execução do contêiner de `docker run` pesquisa Visual computacional usando os argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)configurações [`Eula`](#eula-setting) e configurações são usadas em conjunto, e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não vai começar. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md).
+> As [`ApiKey`](#apikey-configuration-setting)configurações [`Billing`](#billing-configuration-setting),, [`Eula`](#eula-setting) e são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](computer-vision-how-to-install-containers.md).
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A `ApiKey` configuração especifica a `Cognitive Services` chave de recurso do Azure usada para rastrear as informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve [`Billing`](#billing-configuration-setting) ser uma chave válida para o recurso _Serviços Cognitivos_ especificado para a configuração.
+A `ApiKey` configuração especifica a chave `Cognitive Services` de recurso do Azure usada para rastrear informações de cobrança para o contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _Serviços cognitivas_ especificado [`Billing`](#billing-configuration-setting) para a definição de configuração.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal Azure: Gerenciamento de recursos de **serviços cognitivos,** em **Chaves**
+* Portal do Azure: gerenciamento de recursos de **Serviços cognitivas** , em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
@@ -43,13 +43,13 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A `Billing` configuração especifica o uri ponto final do recurso _Serviços Cognitivos_ no Azure usado para medir informações de cobrança para o contêiner. Você deve especificar um valor para essa configuração e o valor deve ser um URI de ponto final válido para um recurso _de Serviços Cognitivos_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _Serviços cognitivas_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _Serviços cognitivas_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal Azure: Visão Geral **dos Serviços Cognitivos,** rotulado`Endpoint`
+* Portal do Azure: visão geral **dos serviços cognitivas** , rotulados`Endpoint`
 
-Lembre-se `vision/v1.0` de adicionar o roteamento ao URI de ponto final, conforme mostrado na tabela a seguir. 
+Lembre-se de `vision/v1.0` adicionar o roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
 |Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -88,25 +88,25 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`.  Quando em execução, o contêiner continuará a ser executado até que você o [pare](computer-vision-how-to-install-containers.md#stop-the-container).
 
-* **Caractere de continuação de linha**: Os comandos Docker `\`nas seções a seguir usam a barra traseira, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
-* **Ordem de argumento**: Não altere a ordem dos argumentos a menos que você esteja muito familiarizado com os contêineres Docker.
+* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra `\`invertida,, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host. 
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja muito familiarizado com contêineres do Docker.
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Espaço reservado | Valor | Formato ou exemplo |
 |-------------|-------|---|
-| **{API_KEY}** | A tecla de `Computer Vision` ponto final do `Computer Vision` recurso na página Chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | O valor do ponto final de faturamento `Computer Vision` está disponível na página Visão Geral do Azure.| Consulte [a coleta de parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para exemplos explícitos. |
+| **{API_KEY}** | A chave do ponto de `Computer Vision` extremidade do recurso na `Computer Vision` página de chaves do Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `Computer Vision` disponível na página Visão geral do Azure.| Consulte [coletando parâmetros necessários](computer-vision-how-to-install-containers.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](computer-vision-how-to-install-containers.md#billing).
-> O valor do ApiKey é a `Cognitive Services` **chave** da página chaves do Azure Resource.
+> O valor de ApiKey é a **chave** da página `Cognitive Services` de chaves de recurso do Azure.
 
-## <a name="container-docker-examples"></a>Exemplos de Container Docker
+## <a name="container-docker-examples"></a>Exemplos de Docker de contêiner
 
-Os exemplos de Docker a seguir são para o contêiner Ler.
+Os exemplos do Docker a seguir são para o contêiner de leitura.
 
 ### <a name="basic-example"></a>Exemplo básico
 
@@ -118,7 +118,7 @@ Os exemplos de Docker a seguir são para o contêiner Ler.
   ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Exemplo de registro 
+### <a name="logging-example"></a>Exemplo de log 
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -131,4 +131,4 @@ Os exemplos de Docker a seguir são para o contêiner Ler.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Revisar [como instalar e executar contêineres](computer-vision-how-to-install-containers.md).
+* Examine [como instalar e executar contêineres](computer-vision-how-to-install-containers.md).

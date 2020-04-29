@@ -1,5 +1,5 @@
 ---
-title: Executar contêiner de detecção de idiomas no Serviço Kubernetes
+title: Executar Detecção de Idioma contêiner no serviço kubernetes
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Implante o contêiner de detecção de idioma, com o exemplo em execução, no Serviço de Kubernetes do Azure e teste-o em um navegador da Web.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: cdd1cf255c943c8dc6d55a5b749b30357bdcd373
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876718"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de linguagem text analytics no Serviço Azure Kubernetes
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de idioma Análise de Texto no serviço kubernetes do Azure
 
 Saiba como implantar o contêiner de detecção de idioma. Este procedimento mostra como criar os contêineres locais do Docker, efetuar push dos contêineres para seu próprio registro de contêiner privado, executar o contêiner no cluster de Kubernetes e testá-lo em um navegador da Web.
 
@@ -27,7 +27,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 * Use uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Git](https://git-scm.com/downloads) em seu sistema operacional, para que você possa clonar o [exemplo](https://github.com/Azure-Samples/cognitive-services-containers-samples) usado neste procedimento.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Mecanismo do Docker](https://www.docker.com/products/docker-engine) e valide se a CLI do Docker funciona em uma janela do console.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * Um recurso do Azure com o tipo de preço correto. Nem todos os tipos de preços funcionam com esse contêiner:
@@ -36,7 +36,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ## <a name="running-the-sample"></a>Executando o exemplo
 
-Este procedimento carrega e executa o exemplo de Contêiner de Serviços Cognitivos para detecção de idioma. O exemplo tem dois contêineres, um para o aplicativo cliente e outro para o contêiner de Serviços Cognitivos. Vamos levar essas duas imagens para o Registro de Contêineres do Azure. Depois que elas estiverem em seu próprio registro, crie um Serviço de Kubernetes do Azure para acessar essas imagens e executar os contêineres. Quando os contêineres estiverem em execução, use a CLI **kubectl** para observar o desempenho dos contêineres. Acesse o aplicativo cliente com uma solicitação HTTP e veja os resultados.
+Este procedimento carrega e executa o exemplo de Contêiner de Serviços Cognitivos para detecção de idioma. O exemplo tem dois contêineres, um para o aplicativo cliente e outro para o contêiner de Serviços Cognitivos. Enviaremos essas duas imagens para o registro de contêiner do Azure. Depois que elas estiverem em seu próprio registro, crie um Serviço de Kubernetes do Azure para acessar essas imagens e executar os contêineres. Quando os contêineres estiverem em execução, use a CLI **kubectl** para observar o desempenho dos contêineres. Acesse o aplicativo cliente com uma solicitação HTTP e veja os resultados.
 
 ![Ideia conceitual da execução de contêineres de amostra](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
@@ -404,7 +404,7 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)
+> [Contêineres de serviços cognitivas](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

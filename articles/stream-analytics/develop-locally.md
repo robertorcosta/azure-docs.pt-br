@@ -1,37 +1,37 @@
 ---
-title: Desenvolver e depurar empregos do Azure Stream Analytics localmente
-description: Aprenda a desenvolver e testar os trabalhos do Azure Stream Analytics no seu computador local antes de executá-los no portal Azure.
+title: Desenvolva e depure Azure Stream Analytics trabalhos localmente
+description: Saiba como desenvolver e testar trabalhos de Azure Stream Analytics no computador local antes de executá-los no portal do Azure.
 ms.author: mamccrea
 author: mamccrea
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 736fce1d4b347e36ad5c10ca89ad0627104a0232
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879837"
 ---
-# <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Desenvolver e depurar empregos do Azure Stream Analytics localmente
+# <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Desenvolva e depure Azure Stream Analytics trabalhos localmente
 
-Embora você seja capaz de criar e testar os trabalhos do Azure Stream Analytics no portal Azure, muitos desenvolvedores preferem uma experiência de desenvolvimento local. O Stream Analytics facilita o uso do editor de código e das ferramentas de desenvolvimento favoritas para criar e testar trabalhos com transmissões de eventos ao vivo do Azure Event Hub, IoT Hub e Blob Storage usando um único nó em funcionamento em tempo de execução local. Você também pode enviar empregos para o Azure diretamente do seu ambiente de desenvolvimento local.
+Embora você possa criar e testar trabalhos de Azure Stream Analytics no portal do Azure, muitos desenvolvedores preferem uma experiência de desenvolvimento local. Stream Analytics facilita o uso do editor de código favorito e das ferramentas de desenvolvimento para criar e testar trabalhos com fluxos de eventos ao vivo do hub de eventos do Azure, do Hub IoT e do armazenamento de BLOBs usando um tempo de execução local de nó único totalmente funcional. Você também pode enviar trabalhos para o Azure diretamente do seu ambiente de desenvolvimento local.
 
 ## <a name="local-development-environments"></a>Ambientes de desenvolvimento locais
 
-A maneira como você desenvolve trabalhos de Stream Analytics em seu computador local depende de suas preferências de ferramentas e disponibilidade de recursos. Consulte [a comparação dos recursos do Azure Stream Analytics](feature-comparison.md) para ver quais recursos são suportados para cada ambiente de desenvolvimento.
+A maneira pela qual você desenvolve Stream Analytics trabalhos no computador local depende das suas preferências de ferramentas e da disponibilidade dos recursos. Confira [Azure Stream Analytics comparação de recursos](feature-comparison.md) para ver quais recursos têm suporte para cada ambiente de desenvolvimento.
 
 Os ambientes na tabela a seguir dão suporte a desenvolvimento local:
 
 |Ambiente                              |Descrição    |
 |-----------------------------------------|------------|
-|[Visual Studio Code](visual-studio-code-explore-jobs.md)| A [extensão Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) para Visual Studio Code permite que você autorize, gerencie e teste seu trabalho de análise de fluxo local mente e na nuvem com o rico IntelliSense e controle de origem nativo. Suporta desenvolvimento em Linux, MacOS e Windows. Para saber mais, consulte [Criar um trabalho do Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md).|
-|[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |O Stream Analytics Tools faz parte das cargas de trabalho de desenvolvimento e processamento de dados do Azure no Visual Studio. Você pode usar o Visual Studio para escrever funções e desserializadores personalizados c# definidos pelo usuário. Para saber mais, consulte [Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md).|
-|[Prompt de comando ou terminal](stream-analytics-tools-for-visual-studio-cicd.md)|O pacote Azure Stream Analytics CI/CD NuGet fornece ferramentas para a construção de projetos do estúdio Visual, testes locais em uma máquina arbitrária. O pacote Azure Stream Analytics CI/CD npm fornece ferramentas para compilações de projetos do Visual Studio Code (que gera um modelo de Gerenciador de Recursos do Azure) em uma máquina arbitrária.|
+|[Visual Studio Code](visual-studio-code-explore-jobs.md)| A [extensão de ferramentas de Azure Stream Analytics](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) para Visual Studio Code permite que você crie, gerencie e teste seu trabalho do Stream Analytics localmente e na nuvem com IntelliSense rico e controle de código-fonte nativo. Dá suporte ao desenvolvimento em Linux, MacOS e Windows. Para saber mais, confira [criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md).|
+|[Visual Studio 2019](stream-analytics-tools-for-visual-studio-install.md) |Stream Analytics ferramentas faz parte do desenvolvimento do Azure e das cargas de trabalho de processamento e armazenamento de dados no Visual Studio. Você pode usar o Visual Studio para gravar funções personalizadas definidas pelo usuário e desserializadores do C#. Para saber mais, confira [criar um trabalho de Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md).|
+|[Prompt de comando ou terminal](stream-analytics-tools-for-visual-studio-cicd.md)|O pacote NuGet Azure Stream Analytics CI/CD fornece ferramentas para compilação de projeto do Visual Studio, teste local em um computador arbitrário. O pacote Azure Stream Analytics CI/CD NPM fornece ferramentas para Visual Studio Code compilações de projeto (que gera um modelo de Azure Resource Manager) em um computador arbitrário.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Test Stream Analytics consulta localmente com dados de amostra usando visual studio code](visual-studio-code-local-run.md)
-* [Test Stream Analytics consulta localmente contra entrada de transmissão ao vivo usando visual Studio Code](visual-studio-code-local-run-live-input.md)
+* [Testar Stream Analytics consultas localmente com dados de exemplo usando Visual Studio Code](visual-studio-code-local-run.md)
+* [Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)
 * [Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md)

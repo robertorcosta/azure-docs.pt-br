@@ -1,6 +1,6 @@
 ---
 title: Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs
-description: Este artigo discute medidas para melhorar a segurança do gerenciamento remoto enquanto administra os ambientes do Microsoft Azure, incluindo serviços de nuvem, máquinas virtuais e aplicativos personalizados.
+description: Este artigo aborda as etapas para aprimorar a segurança de gerenciamento remoto durante a administração de Microsoft Azure ambientes, incluindo serviços de nuvem, máquinas virtuais e aplicativos personalizados.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981300"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
@@ -119,7 +119,7 @@ Um Gateway de Área de Trabalho Remota é um serviço de proxy RDP com base em p
 Em geral, a proteção das estações de trabalho de administrador para uso com a nuvem é semelhante às práticas usadas para qualquer estação de trabalho local (por exemplo, compilação minimizada e permissões restritivas). Alguns aspectos exclusivos do gerenciamento de nuvem são mais semelhantes ao gerenciamento corporativo remoto ou fora de banda. Eles incluem o uso e a auditoria de credenciais, o acesso remoto com segurança avançada e a detecção e a resposta a ameaças.
 
 ### <a name="authentication"></a>Autenticação
-Você pode usar restrições de logon do Azure para restringir os endereços IP de origem para acessar ferramentas administrativas e solicitações de acesso de auditoria. Para ajudar o Azure a identificar clientes de gerenciamento (estações de trabalho e/ou aplicativos), você pode configurar tanto o SMAPI (através de ferramentas desenvolvidas pelo cliente, como cmdlets do Windows PowerShell) quanto o portal Azure para exigir que os certificados de gerenciamento do lado do cliente sejam instalados, além de certificados TLS/SSL. Também recomendamos que o acesso de administrador exija a autenticação multifator.
+Você pode usar restrições de logon do Azure para restringir os endereços IP de origem para acessar ferramentas administrativas e solicitações de acesso de auditoria. Para ajudar o Azure a identificar clientes de gerenciamento (estações de trabalho e/ou aplicativos), você pode configurar o SMAPI (por meio de ferramentas desenvolvidas pelo cliente, como cmdlets do Windows PowerShell) e o portal do Azure exigir a instalação de certificados de gerenciamento do lado do cliente, além de certificados TLS/SSL. Também recomendamos que o acesso de administrador exija a autenticação multifator.
 
 Alguns aplicativos ou serviços que você implanta no Azure podem ter seus próprios mecanismos de autenticação para acesso do administrador e do usuário final, enquanto outros aproveitam plenamente o Azure AD. Dependendo de você federar credenciais por meio de serviços do AD FS (Serviços de Federação do Active Directory), usar a sincronização de diretório ou manter contas de usuário somente na nuvem, o uso do [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte do Azure AD Premium) o ajuda a gerenciar ciclos de vida de identidades entre os recursos.
 
@@ -138,7 +138,7 @@ A imposição de políticas que inclui controles de acesso estritos utiliza meca
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações principais para uma estação de trabalho protegida. Os maiores diferenciais entre elas são o custo, a usabilidade e a acessibilidade, mantendo um perfil de segurança semelhante em todas as opções. A tabela a seguir fornece uma breve análise dos benefícios e riscos de cada uma delas. (Observe que "computador corporativo" se refere a uma configuração de computador desktop padrão que seria implantada para todos os usuários do domínio, independentemente das funções.)
 
-| Configuração | Benefícios | Desvantagens |
+| Configuração | Vantagens | Desvantagens |
 | --- | --- | --- |
 | Estação de trabalho protegida autônoma |Estação de trabalho rigidamente controlada |custo mais alto para áreas de trabalho dedicadas |
 | - | Risco reduzido de explorações de aplicativos |Maior esforço de gerenciamento |
@@ -176,7 +176,7 @@ Não presuma que, como uma estação de trabalho foi bloqueada, outros requisito
 
 | O que não fazer | O que fazer |
 | --- | --- |
-| Não envie credenciais por e-mail para acesso ao administrador ou outros segredos (por exemplo, TLS/SSL ou certificados de gerenciamento) |Mantenha a confidencialidade fornecendo nomes de contas e senhas por voz (mas não os armazenando na caixa postal), execute uma instalação remota de certificados de cliente/servidor (por meio de uma sessão criptografada), baixe de um compartilhamento de rede protegido ou distribua manualmente por meio de mídia removível. |
+| Não envie credenciais por email para acesso de administrador ou outros segredos (por exemplo, TLS/SSL ou certificados de gerenciamento) |Mantenha a confidencialidade fornecendo nomes de contas e senhas por voz (mas não os armazenando na caixa postal), execute uma instalação remota de certificados de cliente/servidor (por meio de uma sessão criptografada), baixe de um compartilhamento de rede protegido ou distribua manualmente por meio de mídia removível. |
 | - | Gerencie os ciclos de vida de certificado de gerenciamento. |
 | Não armazene senhas de contas não criptografadas ou sem hash no armazenamento de aplicativos (como em planilhas, sites do SharePoint ou compartilhamentos de arquivos). |Estabeleça princípios de gerenciamento de segurança e políticas de proteção do sistema os e aplique-os a seu ambiente de desenvolvimento. |
 | - | Use regras de anexação de certificados do [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) para garantir o acesso apropriado a sites SSL/TLS do Azure. |

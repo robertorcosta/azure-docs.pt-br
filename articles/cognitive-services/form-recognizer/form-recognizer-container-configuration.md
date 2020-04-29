@@ -1,5 +1,5 @@
 ---
-title: Como configurar um recipiente para Reconhecimento de Formulário
+title: Como configurar um contêiner para o reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
 description: Saiba como configurar o contêiner do Reconhecimento de Formulários para analisar dados de formulário e de tabela.
 author: aahill
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879149"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar contêineres do Reconhecimento de Formulários
@@ -23,14 +23,14 @@ Usando os contêineres do Reconhecimento de Formulários do Azure, é possível 
 Configure o ambiente de tempo de execução do contêiner do Reconhecimento de Formulários usando os argumentos de comando `docker run`. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Para ver alguns exemplos, consulte a seção ["Exemplos de comandos docker run"](#example-docker-run-commands). As configurações específicas do contêiner são as configurações de cobrança.
 
 > [!IMPORTANT]
-> Os recipientes Do Reconhecimento de Formulário atualmente usam a versão 1.0 da API do Reconhecimento de Formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
+> No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)configurações [`Eula`](#eula-setting) são usadas juntas. Você precisa fornecer valores válidos para as três configurações; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](form-recognizer-container-howto.md#billing).
+> As [`ApiKey`](#apikey-configuration-setting)configurações [`Billing`](#billing-configuration-setting),, [`Eula`](#eula-setting) e são usadas juntas. Você precisa fornecer valores válidos para as três configurações; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](form-recognizer-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
@@ -50,7 +50,7 @@ Você pode encontrar essa configuração no portal do Azure, em **Visão Geral d
 
 |Obrigatório| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
-|Sim| `Billing` | String | Uri ponto final de faturamento. Para obter mais informações sobre a obtenção do URI de faturamento, consulte [a coleta de parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -71,7 +71,7 @@ Você pode encontrar essa configuração no portal do Azure, em **Visão Geral d
 
 ## <a name="mount-settings"></a>Configurações de montagem
 
-Use montagens de associação para ler e gravar dados do contêiner e para ele. Você pode especificar um suporte de entrada `--mount` ou uma montagem de saída especificando a opção no [ `docker run` comando](https://docs.docker.com/engine/reference/commandline/run/).
+Use montagens de associação para ler e gravar dados do contêiner e para ele. Você pode especificar uma montagem de entrada ou uma montagem de saída especificando `--mount` a opção no [ `docker run` comando](https://docs.docker.com/engine/reference/commandline/run/).
 
 O contêiner do Reconhecimento de Formulários exige uma montagem de entrada e uma montagem de saída. A montagem de entrada pode ser somente leitura e é necessária para acessar os dados que serão usados para treinamento e pontuação. A montagem de saída deve ser gravável e será usada para armazenar os modelos e os dados temporários.
 
@@ -86,8 +86,8 @@ A sintaxe exata do local da montagem do host varia de acordo com o sistema opera
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`. Quando em execução, o contêiner continuará a ser executado até que você o [pare](form-recognizer-container-howto.md#stop-the-container).
 
-* **Caractere de continuação de linha**: Os comandos Docker\\nas seções a seguir usam uma barra traseira ( ) como um caractere de continuação de linha. Substitua ou remova esse caractere, dependendo dos requisitos do sistema operacional de seu computador host.
-* **Ordem de argumento**: Não altere a ordem dos argumentos a menos que você esteja familiarizado com os contêineres Docker.
+* **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam uma barra\\invertida () como um caractere de continuação de linha. Substitua ou remova esse caractere, dependendo dos requisitos do sistema operacional de seu computador host.
+* **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 
 Substitua {_argument_name_} na tabela a seguir por seus próprios valores:
 
@@ -96,9 +96,9 @@ Substitua {_argument_name_} na tabela a seguir por seus próprios valores:
 | **{FORM_RECOGNIZER_API_KEY}** | A chave usada para iniciar o contêiner. Ela está disponível na página Chaves de Reconhecimento de Formulários do portal do Azure. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | O valor de URI do ponto de extremidade de cobrança está disponível na página Visão Geral do Reconhecimento de Formulários do portal do Azure.|
 | **{COMPUTER_VISION_API_KEY}** | A chave está disponível na página Chaves de API de Pesquisa Visual Computacional do portal do Azure.|
-| **{COMPUTER_VISION_ENDPOINT_URI}** | O ponto de extremidade de cobrança. Se você estiver usando um recurso baseado em nuvem da Pesquisa Visual Computacional, o valor do URI estará disponível na página Visão Geral da API de Pesquisa Visual Computacional do portal do Azure. Se você estiver usando um contêiner *de texto de reconhecimento de serviços cognitivos,* use `docker run` a URL de ponto final de cobrança que é passada para o contêiner no comando. |
+| **{COMPUTER_VISION_ENDPOINT_URI}** | O ponto de extremidade de cobrança. Se você estiver usando um recurso baseado em nuvem da Pesquisa Visual Computacional, o valor do URI estará disponível na página Visão Geral da API de Pesquisa Visual Computacional do portal do Azure. Se você estiver usando um contêiner *cognitiva-Services-Recognize-Text* , use a URL do ponto de extremidade de cobrança que é passada `docker run` para o contêiner no comando. |
 
-Consulte [os parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters) para obter detalhes sobre como obter esses valores.
+Consulte [coletando parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters) para obter detalhes sobre como obter esses valores.
 
 [!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: CA permitida para habilitar HTTPS personalizado na porta da frente do Azure
+title: Autoridade de certificação permitida para habilitar HTTPS personalizado na porta frontal do Azure
 description: Se você estiver usando seu próprio certificado para habilitar HTTPS em um domínio personalizado, deverá usar uma AC (autoridade de certificação) permitida para criá-lo.
 services: frontdoor
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
 ms.openlocfilehash: 611f5730afed4c3a84b81d6acfd33b633c532bbc
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80874663"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autoridades de certificados permitidas para habilitar HTTPS personalizado na Porta da Frente do Azure
+# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autoridades de certificação permitidas para habilitar o HTTPS personalizado na porta frontal do Azure
 
-Para um domínio personalizado do Azure Front Door, quando você [habilita o recurso HTTPS usando seu próprio certificado,](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate)você deve usar uma autoridade de certificado (CA) permitida para criar seu certificado TLS/SSL. Caso contrário, se você usar uma AC não permitida ou um certificado autoassinado, sua solicitação será rejeitada.
+Para um domínio personalizado do Azure front door, ao [habilitar o recurso https usando seu próprio certificado](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), você deve usar uma AC (autoridade de certificação) permitida para criar seu certificado TLS/SSL. Caso contrário, se você usar uma AC não permitida ou um certificado autoassinado, sua solicitação será rejeitada.
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

@@ -9,34 +9,34 @@ ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887416"
 ---
-O estouro de disco é suportado para SSDs premium. O estouro é suportado em qualquer tamanho de disco SSD premium <= 512 GiB (P20 ou abaixo). Esses tamanhos de disco suportam estourar com o melhor esforço e utilizam um sistema de crédito para gerenciar o estouro. Os créditos se acumulam em um balde estourado sempre que o tráfego de disco está abaixo da meta de desempenho provisionada para o tamanho do disco e consomem créditos quando o tráfego estoura além do alvo. O tráfego de disco é rastreado contra iOPS e largura de banda no alvo provisionado. A explosão de disco não contornará as limitações de tamanho da máquina virtual (VM) no IOPS ou no throughput.
+A intermitência de disco tem suporte para SSDs Premium. A intermitência tem suporte em qualquer tamanho de disco SSD Premium <= 512 GiB (P20 ou abaixo). Esses tamanhos de disco dão suporte à intermitência em uma base de melhor esforço e utilizam um sistema de crédito para gerenciar a intermitência. Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego de disco está abaixo do destino de desempenho provisionado para seu tamanho de disco e consome créditos quando o tráfego ultrapassa o destino. O tráfego de disco é rastreado em IOPS e largura de banda no destino provisionado. A intermitência de disco não ignorará as limitações de tamanho de máquina virtual (VM) em IOPS ou taxa de transferência.
 
-O estouro de disco é ativado por padrão em novas implantações dos tamanhos de disco que o suportam. Os tamanhos de disco existentes, se eles suportam a explosão de disco, podem permitir a explosão através de qualquer um dos seguintes métodos:
+A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se oferecerem suporte a intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos:
 
-- Desconecte e reconecte o disco.
-- Pare e ligue a VM.
+- Desanexe e anexe novamente o disco.
+- Pare e inicie a VM.
 
-## <a name="burst-states"></a>Estados estourados
+## <a name="burst-states"></a>Estados de intermitência
 
-Todos os tamanhos de disco aplicáveis a estouro começarão com um balde de crédito de estouro completo quando o disco estiver conectado a uma máquina virtual. A duração máxima do estouro é determinada pelo tamanho do balde de crédito estourado. Você só pode acumular créditos não utilizados até o tamanho do balde de crédito. A qualquer momento, seu balde de crédito de estouro de disco pode estar em um dos três estados seguintes: 
+Todos os tamanhos de disco aplicáveis de intermitência começarão com um Bucket de crédito de intermitência completa quando o disco for anexado a uma máquina virtual. A duração máxima da intermitência é determinada pelo tamanho do Bucket de crédito de intermitência. Você só pode acumular créditos não utilizados até o tamanho do Bucket de crédito. A qualquer momento, o Bucket de crédito de intermitência de disco pode estar em um dos três seguintes Estados: 
 
-- Acumulando, quando o tráfego de disco estiver usando menos do que a meta de desempenho provisionada. Você pode acumular crédito se o tráfego de disco estiver além de alvos IOPS ou largura de banda ou ambos. Você ainda pode acumular créditos de IO quando estiver consumindo a largura de banda total do disco, vice-versa.  
+- A acumulação, quando o tráfego de disco está usando menos do que o destino de desempenho provisionado. Você pode acumular crédito se o tráfego de disco estiver além de destinos de largura de banda ou IOPS ou ambos. Você ainda pode acumular créditos de e/s quando estiver consumindo largura de banda completa do disco, vice-versa.  
 
-- Em declínio, quando o tráfego de disco está usando mais do que a meta de desempenho provisionada. O tráfego estourado consumirá créditos independentemente do IOPS ou da largura de banda. 
+- Recusando, quando o tráfego de disco estiver usando mais do que o destino de desempenho provisionado. O tráfego de intermitência consumirá de forma independente os créditos de IOPS ou largura de banda. 
 
-- Permanecendo constante, quando o tráfego de disco está exatamente na meta de desempenho provisionada. 
+- Constante restante, quando o tráfego de disco está exatamente no destino de desempenho provisionado. 
 
-Os tamanhos de disco que fornecem suporte de estouro junto com as especificações de estouro são resumidos na tabela abaixo.
+Os tamanhos de disco que fornecem suporte de intermitência juntamente com as especificações de intermitência são resumidos na tabela a seguir.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-O estouro de disco está disponível em todas as regiões da Nuvem Pública.
+A intermitência de disco está disponível em todas as regiões na nuvem pública.
 
 ## <a name="disk-sizes"></a>Tamanhos do disco
 
@@ -44,10 +44,10 @@ O estouro de disco está disponível em todas as regiões da Nuvem Pública.
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
-Para você ter uma ideia melhor de como isso funciona, aqui estão alguns exemplos de cenários:
+Para dar uma ideia melhor de como isso funciona, veja alguns cenários de exemplo:
 
-- Um cenário comum que pode se beneficiar do estouro do disco é o inicialização mais rápido da VM e o lançamento de aplicativos em discos do SO. Tome um VM Linux com uma imagem de 8 GiB OS como exemplo. Se usarmos um disco P2 como disco do SO, o alvo provisionado é 120 IOPS e 25 MiB. Quando a VM começar, haverá um pico de leitura no disco do SISTEMA OPERACIONAL carregando os arquivos de inicialização. Com a introdução do estouro, você pode ler a velocidade máxima de explosão de 3500 IOPS e 170 MiB, acelerando o tempo de carga em pelo menos 6x. Após a inicialização da VM, o nível de tráfego no disco do SISTEMA OPERACIONAL geralmente é baixo, já que a maioria das operações de dados pelo aplicativo será contra os discos de dados conectados. Se o tráfego estiver abaixo da meta provisionada, você acumulará créditos.
+- Um cenário comum que pode se beneficiar da intermitência de disco é a inicialização de VM mais rápida e o início do aplicativo em discos do sistema operacional. Pegue uma VM do Linux com uma imagem do sistema operacional 8 GiB como exemplo. Se usarmos um disco P2 como o disco do sistema operacional, o destino provisionado será de 120 IOPS e 25 MiB. Quando a VM for iniciada, haverá um pico de leitura para o disco do sistema operacional que carrega os arquivos de inicialização. Com a introdução da intermitência, você pode ler a velocidade máxima de intermitência de 3500 IOPS e 170 MiB, acelerando o tempo de carregamento por pelo menos 6 vezes. Após a inicialização da VM, o nível de tráfego no disco do sistema operacional geralmente é baixo, pois a maioria das operações de dados pelo aplicativo será feita nos discos de dados anexados. Se o tráfego estiver abaixo do destino provisionado, você acumulará créditos.
 
-- Se você estiver hospedando um ambiente de área de trabalho virtual remota, sempre que um usuário ativo lança um aplicativo como o AutoCAD, o tráfego de leitura para o disco do SO aumenta significativamente. Neste caso, o tráfego estourado consumirá créditos acumulados, permitindo que você ultrapasse o alvo provisionado e lance o aplicativo muito mais rápido.
+- Se você estiver hospedando um ambiente de área de trabalho virtual remota, sempre que um usuário ativo iniciar um aplicativo como o AutoCAD, a leitura do tráfego para o disco do sistema operacional aumentará significativamente. Nesse caso, o tráfego de intermitência consumirá Créditos acumulados, permitindo que você vá além do destino provisionado e inicie o aplicativo muito mais rapidamente.
 
-- Um disco P1 tem um alvo provisionado de 120 IOPS e 25 MiB. Se o tráfego real no disco foi de 100 IOPS e 20 MiB no último intervalo de 1 segundo, então os 20 IOs e 5 MB não utilizados são creditados ao balde de estouro do disco. Os créditos na caçamba estourada podem ser usados posteriormente quando o tráfego exceder a meta provisionada, até o limite máximo de estouro. O limite máximo de estouro define o teto do tráfego de disco, mesmo que você tenha créditos estourados para consumir. Neste caso, mesmo que você tenha 10.000 IOs no balde de crédito, um disco P1 não pode emitir mais do que o estouro máximo de 3.500 IO por segundo.  
+- Um disco P1 tem um destino provisionado de 120 IOPS e 25 MiB. Se o tráfego real no disco era de 100 IOPS e 20 MiB no intervalo de 1 segundo anterior, os 20 IOs não utilizados e 5 MB são creditados no Bucket de intermitência do disco. Os créditos no Bucket de intermitência podem ser usados posteriormente quando o tráfego excede o destino provisionado, até o limite máximo de intermitência. O limite máximo de intermitência define o teto do tráfego de disco, mesmo se você tiver créditos de intermitência a serem consumidos. Nesse caso, mesmo se você tiver 10.000 IOs no Bucket de crédito, um disco P1 não poderá emitir mais do que a intermitência máxima de 3.500 e/s por segundo.  

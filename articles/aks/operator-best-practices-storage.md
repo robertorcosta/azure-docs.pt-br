@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80877891"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
@@ -40,7 +40,7 @@ A tabela a seguir descreve os tipos de armazenamento disponíveis e suas funcion
 
 Os dois principais tipos de armazenamento fornecidos para volumes no AKS são apoiados pelos Discos do Azure ou Arquivos do Azure. Para melhorar a segurança, os dois tipos de armazenamento usam a Criptografia do Serviço de Armazenamento do Azure (SSE) por padrão, que criptografa os dados em repouso. No momento, os discos não podem ser criptografados usando a Criptografia de Disco do Azure no nível do nó do AKS.
 
-Tanto os arquivos Azure quanto os discos Azure estão disponíveis nos níveis de desempenho Padrão e Premium:
+Os arquivos do Azure e os discos do Azure estão disponíveis nos níveis de desempenho Standard e Premium:
 
 - Os discos *Premium* são apoiados por discos de estado sólido e alto desempenho (SSDs). Os discos Premium são recomendados para todas as cargas de trabalho de produção.
 - Os discos *Standard* são apoiados por discos giratórios regulares (HDDs) e são bons para arquivamento ou dados pouco acessados.
@@ -76,7 +76,7 @@ Você usa volumes persistentes quando precisa anexar o armazenamento aos pods. E
 
 ![Declarações de volumes persistentes em um cluster de serviços de Kubernetes do Azure (AKS)](media/concepts-storage/persistent-volume-claims.png)
 
-Uma declaração de volume persistente (PVC) permite criar dinamicamente o armazenamento conforme necessário. Os discos do Azure subjacentes são criados conforme as solicitações dos pods. Na definição de pod, você solicita que um volume seja criado e anexado a um caminho de montagem designado.
+Uma declaração de volume persistente (PVC) permite criar dinamicamente o armazenamento conforme necessário. Os discos do Azure subjacentes são criados conforme as solicitações dos pods. Na definição do pod, você solicita que um volume seja criado e anexado a um caminho de montagem designado.
 
 No caso dos conceitos sobre como criar e usar volumes dinamicamente, confira [Declarações de Volumes Persistentes][aks-concepts-storage-pvcs].
 
@@ -88,9 +88,9 @@ Para obter mais informações sobre as opções de classe de armazenamento, conf
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja e faça backup de seus dados
 
-**Orientação de práticas recomendadas** - Fazer backup de seus dados usando uma ferramenta apropriada para o seu tipo de armazenamento, como Velero ou Azure Site Recovery. Verifique a integridade e a segurança desses backups.
+**Diretrizes de práticas recomendadas** -faça backup dos dados usando uma ferramenta apropriada para seu tipo de armazenamento, como Velero ou Azure site Recovery. Verifique a integridade e a segurança desses backups.
 
-Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Você pode precisar procurar seus aplicativos para fazer as gravações em disco antes de executar a operação de snapshot. [O Velero][velero] pode fazer backup de volumes persistentes, juntamente com recursos e configurações adicionais de cluster. Se você não puder [remover o estado de seus aplicativos][remove-state], faça o backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
+Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez seja necessário procurar seus aplicativos para liberar gravações no disco antes de executar a operação de instantâneo. O [Velero][velero] pode fazer backup de volumes persistentes juntamente com configurações e recursos de cluster adicionais. Se você não puder [remover o estado de seus aplicativos][remove-state], faça o backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
 
 Entenda as limitações das diferentes abordagens de backups de dados e se será preciso desativar os dados antes de tirar o instantâneo. Os backups de dados não necessariamente permitem que você restaure seu ambiente de aplicativo da implantação do cluster. Para saber mais sobre esses cenários, confira [Práticas recomendadas para a continuidade dos negócios e recuperação de desastres no AKS][best-practices-multi-region].
 

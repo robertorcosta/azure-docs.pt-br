@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API SQL Java, Recursos & SDK'
+title: 'Azure Cosmos DB: API Java do SQL, recursos de & do SDK'
 description: Saiba tudo sobre o SDK e a API Java do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java do SQL do Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,16 +9,16 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
 ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80983595"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -26,75 +26,75 @@ ms.locfileid: "80983595"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [Sql](sql-api-query-reference.md)
-> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](sql-api-query-reference.md)
+> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
 O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suporte assíncrono, use o [Java SDK assíncrono da API do SQL](sql-api-sdk-async-java.md). 
 
 | |  |
 |---|---|
 |**Baixe o SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
-|**Documentação de API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
+|**Documentação da API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
-|**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos web com O Azure Cosmos DB](sql-api-java-application.md)|
+|**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com Azure Cosmos DB](sql-api-java-application.md)|
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="247"></a><a name="2.4.7"/>2.4.7
-* Corrige o problema do tempo de tempo do pool de conexão.
-* Corrige a atualização do token auth em repetições internas.
+* Corrige o problema de tempo limite do pool de conexões.
+* Corrige a atualização do token de autenticação em repetições internas.
 
 ### <a name="246"></a><a name="2.4.6"/>2.4.6
-* Atualizada a tag de política de replicação do lado do cliente correta no banco de dadosConta e fez o banco de dadosA configuração da conta é feita a partir do cache.
+* Atualização da marca de política de réplica do lado do cliente correta em databaseAccount e fez databaseAccount leituras de configuração do cache.
 
 ### <a name="245"></a><a name="2.4.5"/>2.4.5
-* Evitando a repetição do erro de intervalo da chave de partição inválida, se o usuário fornecer pkRangeId.
+* Evitando a repetição em um erro de intervalo de chaves de partição inválido, se o usuário fornecer pkRangeId.
 
 ### <a name="244"></a><a name="2.4.4"/>2.4.4
-* Atualizações otimizadas do cache de faixa de configuração de partição.
-* Corrige o cenário em que o SDK não entretém a dica de divisão de partição do servidor e resulta em atualização incorreta de caches de roteamento lateral do cliente.
+* Atualizações otimizadas do cache do intervalo de chaves de partição.
+* Corrige o cenário em que o SDK não tem a relação de divisão da partição do servidor e resulta na atualização incorreta de caches de roteamento do lado do cliente.
 
 ### <a name="242"></a><a name="2.4.2"/>2.4.2
 * Atualizações otimizadas do cache de coleta.
 
 ### <a name="241"></a><a name="2.4.1"/>2.4.1
-* Adicionado suporte para recuperar a mensagem de exceção interna da seqüência de diagnóstico de solicitação.
+* Adicionado suporte para recuperar a mensagem de exceção interna da cadeia de caracteres de diagnóstico de solicitação.
 
 ### <a name="240"></a><a name="2.4.0"/>2.4.0
-* Introduziu aapi de versão em PartitionKeyDefinition.
+* Introduziu a API da versão em PartitionKeyDefinition.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Adicionado suporte de tempo extra separado para o modo direto.
+* Adicionado suporte de tempo limite separado para o modo direto.
 
 ### <a name="223"></a><a name="2.2.3"/>2.2.3
-* Consumir mensagem de erro nula do serviço e produzir exceção do cliente de documento.
+* Consumindo mensagem de erro nula do serviço e produzindo exceção do cliente de documento.
 
 ### <a name="222"></a><a name="2.2.2"/>2.2.2
-* Melhoria da conexão do soquete, adicionando o padrão SoKeepAlive verdadeiro.
+* Melhoria da conexão de soquete, adicionando SoKeepAlive padrão true.
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
-* Adicionado solicitação de suporte de seqüência de seqüeique de diagnósticos.
+* Suporte à cadeia de caracteres de diagnóstico de solicitação adicionado.
 
 ### <a name="213"></a><a name="2.1.3"/>2.1.3
-* Bug corrigido em PartitionKey para Hash V2.
+* Corrigido o bug em PartitionKey para hash v2.
 
 ### <a name="212"></a><a name="2.1.2"/>2.1.2
-* Adicionado suporte para índices compostos.
-* Corrigimos o bug no gerenciador global de endpoint para forçar a atualização.
-* Corrigimos o bug para upserts com pré-condições no modo direto.
+* Suporte adicionado para índices compostos.
+* Corrigido o bug no global Endpoint Manager para forçar a atualização.
+* Corrigido o bug para upserts com pré-condições no modo direto.
 
 ### <a name="211"></a><a name="2.1.1"/>2.1.1
-* Corrigida bug no cache do endereço do gateway.
+* Corrigido o bug no cache de endereços do gateway.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Suporte à gravação de várias regiões adicionado ao modo direto.
 * Adicionada compatibilidade com a manipulação IOExceptions geradas como exceções de ServiceUnavailable, de um proxy.
 * Corrigido um bug na política de repetição de descoberta do ponto de extremidade.
 * Corrigido um bug para garantir que as exceções de ponteiro nulo não sejam geradas no BaseDatabaseAccountConfigurationProvider.
-* Corrigimos um bug para garantir que o QueryIterator não retorne nulos.
+* Corrigido um bug para garantir que QueryIterator não retorne nulos.
 * Corrigido um bug para garantir a que PartitionKey grande seja permitida
 
 ### <a name="200"></a><a name="2.0.0"/>2.0.0
@@ -131,7 +131,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 
 ### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * Melhor desempenho de serialização Json.
-* Esta versão do SDK requer a versão mais recente do [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
+* Esta versão do SDK requer a versão mais recente do [emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Alterações internas para bibliotecas de amigos da Microsoft.
@@ -162,7 +162,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 * Adicionado suporte para alteração de feed.
 * Adicionado suporte para informações de cota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o log de script de procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
-* Corrigimos um bug no qual a consulta no modo DirectHttps pode parar de responder ao encontrar falhas no acelerador.
+* Corrigido um bug em que a consulta no modo DirectHttps pode parar de responder ao encontrar falhas de restrição.
 * Corrigido um bug no modo de sessão de consistência.
 * Corrigido um erro que pode causar a NullReferenceException no HttpContext quando a taxa de solicitação é alta.
 * Desempenho aprimorado de modo DirectHttps.
@@ -250,7 +250,7 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será rejeitada pelo serviço.
 
 > [!WARNING]
-> Todas as versões **1.x** do SQL SDK para Java serão retiradas em **30 de maio de 2020**.
+> Todas as versões **1. x** do SDK do SQL para Java serão desativadas em **30 de maio de 2020**.
 > 
 >
 
@@ -269,14 +269,14 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [2.4.4](#2.4.4) |24 de outubro de 2019 |--- |
 | [2.4.2](#2.4.2) |26 de setembro de 2019 |--- |
 | [2.4.1](#2.4.1) |18 de julho de 2019 |--- |
-| [2.4.0](#2.4.0) |04 de Maio de 2019 |--- |
-| [2.3.0](#2.3.0) |Apr 24, 2019 |--- |
-| [2.2.3](#2.2.3) |Apr 16, 2019 |--- |
-| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
+| [2.4.0](#2.4.0) |04 de maio de 2019 |--- |
+| [2.3.0](#2.3.0) |24 de abril de 2019 |--- |
+| [2.2.3](#2.2.3) |16 de abril de 2019 |--- |
+| [2.2.2](#2.2.2) |05 de abril de 2019 |--- |
 | [2.2.0](#2.2.0) |27 de março de 2019 |--- |
-| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
-| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
-| [2.1.1](#2.1.1) |13 de dez de 2018 |--- |
+| [2.1.3](#2.1.3) |13 de março de 2019 |--- |
+| [2.1.2](#2.1.2) |09 de março de 2019 |--- |
+| [2.1.1](#2.1.1) |13 de dezembro de 2018 |--- |
 | [2.1.0](#2.1.0) |20 de novembro de 2018 |--- |
 | [2.0.0](#2.0.0) |21 de setembro de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de setembro de 2018 |30 de maio de 2020 |

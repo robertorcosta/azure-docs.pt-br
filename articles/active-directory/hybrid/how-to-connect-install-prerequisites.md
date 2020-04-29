@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6446b039d90e04c9fe7fca28b361f620183a0292
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80875734"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
@@ -29,9 +29,9 @@ Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure A
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você precisará.
 
-### <a name="azure-ad"></a>AD do Azure
+### <a name="azure-ad"></a>Azure AD
 * Um locatário do Azure AD. Você recebe uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode usar um dos seguintes portais para gerenciar o Azure AD Connect:
-  * O [portal Azure.](https://portal.azure.com)
+  * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).  
 * [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que você planeja usar no AD do Azure. Por exemplo, se você planeja usar contoso.com para os usuários, em seguida, verifique se este domínio foi verificado e se não está usando apenas o domínio padrão contoso.onmicrosoft.com.
 * Um locatário do Azure AD pode ter, por padrão, 50 mil objetos. Quando você verificar seu domínio, o limite aumentará para 300 mil objetos. Se precisar de mais objetos no Azure AD, precisará abrir um caso de suporte para aumentar ainda mais o limite. Se você precisar de mais de 500 mil objetos, precisará de uma licença, como Office 365, Azure AD Básico, Azure AD Premium ou Enterprise Mobility and Security.
@@ -43,51 +43,51 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 ### <a name="on-premises-active-directory"></a>Active Directory local
 * A versão de esquema do AD e o nível funcional de floresta devem ser o Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
 * Se você pretende usar o recurso **write-back de senha**, os Controladores de Domínio devem estar no Windows Server 2008 R2 ou posterior.
-* O controlador de domínio usado pelo Azure AD deve ser gravável. Não é **suportado** usar um RODC (controlador de domínio somente leitura) e o Azure AD Connect não segue nenhum redirecionamento de gravação.
+* O controlador de domínio usado pelo Azure AD deve ser gravável. **Não há suporte** para o uso de um RODC (controlador de domínio somente leitura) e Azure ad Connect não segue redirecionamentos de gravação.
 * **Não há suporte** para o uso de florestas/domínios locais que usam nomes NetBios “com pontos” (nome que contém um ponto “.”).
 * É recomendável [habilitar a lixeira do Active Directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Servidor do Azure AD Connect
 >[!IMPORTANT]
->O servidor Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente de Nível 0, conforme documentado no [modelo de nível administrativo do Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+>O servidor de Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente da camada 0, conforme documentado no [modelo de camada administrativa Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * O Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials anteriores a 2019 (o Windows Server Essentials 2019 é compatível). O servidor deve estar usando o Windows Server standard ou superior.
-* A instalação do Azure AD Connect em um Controlador de Domínio não é recomendada devido a práticas de segurança e configurações mais restritivas que podem impedir que o Azure AD Connect seja instalado corretamente.
+* A instalação do Azure AD Connect em um controlador de domínio não é recomendada devido a práticas de segurança e configurações mais restritivas que podem impedir que Azure AD Connect sejam instalados corretamente.
 * O servidor do Azure AD Connect deve ter uma GUI completa instalada. **Não há suporte** para a instalação no núcleo do servidor.
 >[!IMPORTANT]
->A instalação do Azure AD Connect no servidor de pequenas empresas, no essencial do servidor ou no núcleo do servidor não é suportada.
+>Não há suporte para a instalação do Azure AD Connect no Small Business Server, no Server Essentials ou no Server Core.
 
-* O Azure AD Connect deve ser instalado no Windows Server 2012 ou posterior. Este servidor deve ser acompanhado por domínio e pode ser um controlador de domínio ou um servidor membro.
-* O servidor Azure AD Connect não deve ter a diretiva de grupo de transcrição do PowerShell ativada se você estiver usando o assistente Azure AD Connect para gerenciar a configuração Do ADFS. Você poderá habilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração de sincronização.
+* Azure AD Connect deve ser instalado no Windows Server 2012 ou posterior. Esse servidor deve estar ingressado no domínio e pode ser um controlador de domínio ou um servidor membro.
+* O servidor de Azure AD Connect não deve ter a transcrição do PowerShell Política de Grupo habilitada se você estiver usando Azure AD Connect assistente para gerenciar a configuração do ADFS. Você poderá habilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração de sincronização.
 * Se os Serviços de Federação do Active Directory estiverem sendo implantados, os servidores onde o AD FS ou Proxy de Aplicativo Web será instalado devem ser Windows Server 2012 R2 ou posterior. [O gerenciamento remoto do Windows](#windows-remote-management) deve estar habilitado nesses servidores para instalação remota.
-* Se os Serviços da Federação de Diretórios Ativos forem implantados, você precisará de [certificados TLS/SSL](#tlsssl-certificate-requirements).
+* Se Serviços de Federação do Active Directory (AD FS) estiver sendo implantado, você precisará de [certificados TLS/SSL](#tlsssl-certificate-requirements).
 * Se os Serviços de Federação do Active Directory (AD FS) estiverem sendo implantados, você precisará configurar a [resolução de nomes](#name-resolution-for-federation-servers).
-* Se os administradores globais tiverem o **https://secure.aadcdn.microsoftonline-p.com** MFA ativado, então a URL deve estar na lista de sites confiáveis. Você deverá adicionar esse site à lista de sites confiáveis quando receber um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
-* A Microsoft recomenda endurecer o servidor Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico do ambiente de TI.  Seguir as recomendações abaixo diminuirá os riscos de segurança para sua organização.
+* Se os administradores globais tiverem a MFA habilitada, a **https://secure.aadcdn.microsoftonline-p.com** URL deverá estar na lista de sites confiáveis. Você deverá adicionar esse site à lista de sites confiáveis quando receber um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
+* A Microsoft recomenda proteger o servidor de Azure AD Connect para diminuir a superfície de ataque de segurança para esse componente crítico de seu ambiente de ti.  Seguir as recomendações abaixo diminuirá os riscos de segurança para sua organização.
 
-* Implantar o Azure AD Connect em um servidor unido de domínio e restringir o acesso administrativo a administradores de domínio ou outros grupos de segurança fortemente controlados.
+* Implante Azure AD Connect em um servidor ingressado no domínio e restrinja o acesso administrativo a administradores de domínio ou a outros grupos de segurança rigidamente controlados.
 
 Para obter mais informações, consulte: 
 
 * [Protegendo grupos de administradores](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Protegendo contas de administrador incorporadas](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Protegendo contas de administrador internas](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Melhoria da segurança e sustentação reduzindo superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Melhoria e manutenção da segurança ao reduzir as superfícies de ataque](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Reduzindo a superfície de ataque do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Reduzindo a superfície de ataque de Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado pelo Azure AD Connect
-* O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express) é instalado. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos. Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode afetar o [desempenho do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
-* Se você usar uma instalação diferente do SQL Server, então esses requisitos se aplicam:
-  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server de 2012 (com o service pack mais recente) para o SQL Server 2019. O Banco de Dados SQL do Microsoft Azure **não tem suporte** como banco de dados.
+* O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Por padrão, um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express) é instalado. O SQL Server Express tem um limite de tamanho de 10GB que permite que você gerencie aproximadamente 100.000 objetos. Se precisar gerenciar um volume maior de objetos de diretório, você precisa apontar o assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação SQL Server pode afetar o [desempenho do Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Se você usar uma instalação diferente do SQL Server, esses requisitos se aplicarão:
+  * O Azure AD Connect dá suporte a todas as versões do Microsoft SQL Server do 2012 (com o Service Pack mais recente) para SQL Server 2019. O Banco de Dados SQL do Microsoft Azure **não tem suporte** como banco de dados.
   * Deve usar uma ordenação de SQL que não diferencia maiúsculas de minúsculas. Essas ordenações são identificadas com um \_CI_ no nome. **Não há suporte** para a utilização de uma ordenação de maiúsculas e minúsculas, identificado por \_CS_ em seu nome.
   * Você só pode ter um mecanismo de sincronização por instância do SQL. **Não há suporte** para compartilhar uma instância do SQL com FIM/MIM Sync, DirSync ou Azure AD Sync.
 
 ### <a name="accounts"></a>Contas
 * Uma conta de Administrador Global do Azure AD para o locatário do Azure AD ao qual você deseja se integrar. Essa conta deve ser uma **conta corporativa ou de estudante** e não pode ser uma **conta da Microsoft**.
-* Se você usar [configurações expressas](reference-connect-accounts-permissions.md#express-settings-installation) ou upgrade do DirSync, então você deve ter uma conta do Administrador corporativo para o seu Diretório Ativo no local.
-* Se você usar o caminho de instalação de configurações personalizadas, então você terá mais opções. Para obter mais informações, consulte [Configurações de instalação personalizadas](reference-connect-accounts-permissions.md#custom-installation-settings).
+* Se você usar [as configurações expressas](reference-connect-accounts-permissions.md#express-settings-installation) ou atualizar do DirSync, deverá ter uma conta de administrador corporativo para seu Active Directory local.
+* Se você usar o caminho de instalação de configurações personalizadas, terá mais opções. Para obter mais informações, consulte [configurações de instalação personalizadas](reference-connect-accounts-permissions.md#custom-installation-settings).
 
 ### <a name="connectivity"></a>Conectividade
 * O servidor do Azure AD Connect precisa da resolução de DNS para a intranet e a Internet. O servidor DNS deve conseguir resolver nomes tanto para o Active Directory local quanto para os pontos de extremidade do Azure AD.
@@ -110,7 +110,7 @@ Para obter mais informações, consulte:
     </system.net>
 ```
 
-* Se o servidor proxy precisar de autenticação, a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](how-to-connect-install-custom.md#install-required-components). Você também precisa de uma mudança diferente para machine.config. Com essa mudança no machine.config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
+* Se o servidor proxy precisar de autenticação, a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](how-to-connect-install-custom.md#install-required-components). Você também precisa de uma alteração diferente em Machine. config. Com essa alteração em Machine. config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](reference-connect-accounts-permissions.md#adsync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
 
 ```
     <system.net>
@@ -145,13 +145,13 @@ O Azure AD Connect depende do Microsoft PowerShell e do .NET Framework 4.5.1. Vo
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Habilitar TLS 1.2 no Azure Connect AD
-Antes da versão 1.1.614.0, o Azure AD Connect usa TLS 1.0 por padrão para criptografar a comunicação entre o servidor do mecanismo de sincronização e o Azure AD. Você pode alterar isso configurando aplicativos .NET para usar o TLS 1.2 por padrão no servidor. Saiba mais sobre o TLS 1.2 em [Microsoft Security Advisory 2960358 ](https://technet.microsoft.com/security/advisory/2960358).
+Antes da versão 1.1.614.0, o Azure AD Connect usa TLS 1.0 por padrão para criptografar a comunicação entre o servidor do mecanismo de sincronização e o Azure AD. Você pode alterar isso Configurando aplicativos .NET para usar o TLS 1,2 por padrão no servidor. Saiba mais sobre o TLS 1.2 em [Microsoft Security Advisory 2960358 ](https://technet.microsoft.com/security/advisory/2960358).
 
-1.  Certifique-se de ter o hotfix .NET 4.5.1 instalado para o seu sistema operacional, consulte [o Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). É possível ter esse hotfix ou uma versão posterior já instalada no servidor.
+1.  Verifique se você tem o hotfix do .NET 4.5.1 instalado para seu sistema operacional, consulte [o comunicado de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). É possível ter esse hotfix ou uma versão posterior já instalada no servidor.
     ```
 2. For all operating systems, set this registry key and restart the server.
     ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto"=dword:00000001
+    HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\.NETFramework\v4.0.30319 "SchUseStrongCrypto" = DWORD: 00000001
     ```
 4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 

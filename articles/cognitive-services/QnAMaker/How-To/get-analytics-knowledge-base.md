@@ -1,5 +1,5 @@
 ---
-title: Analytics sobre base de conhecimento - QnA Maker
+title: Análise na base de conhecimentos-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: O QnA Maker armazena todos os logs de chat e outros dados telemétricos, se você habilitou o App Insights durante a criação do serviço do QnA Maker. Execute os exemplos de consultas para obter seus logs de bate-papo do App Insights.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
 ms.openlocfilehash: d247c55112bc1c3cd921c0eda8e4ddadd6b5aed9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878061"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter a análise em sua base de dados de conhecimento
@@ -26,7 +26,7 @@ O QnA Maker armazena todos os logs de bate-papo e outros dados de telemetria, se
 
     ![Selecione o seu recurso do Application Insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selecione **Log (Analytics)**. Uma nova janela será aberta onde você pode consultar os dados de telemetria do QnA Maker.
+2. Selecione **log (análise)**. Uma nova janela será aberta onde você pode consultar os dados de telemetria do QnA Maker.
 
 3. Cole a consulta a seguir e execute-a.
 
@@ -46,7 +46,7 @@ O QnA Maker armazena todos os logs de bate-papo e outros dados de telemetria, se
 
     Clique em **Executar** para executar a consulta.
 
-    [![Execute a consulta para determinar perguntas, respostas e pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![Executar a consulta para determinar as perguntas, as respostas e a Pontuação dos usuários](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outras análises em sua base de dados de conhecimento do QnA Maker
 
@@ -99,7 +99,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>Perguntas sem resposta
+### <a name="unanswered-questions"></a>Perguntas não respondidas
 
 ```kusto
 // Unanswered questions
@@ -121,4 +121,4 @@ traces | extend id = operation_ParentId
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Escolha a capactia](./improve-knowledge-base.md)
+> [Escolha capactiy](./improve-knowledge-base.md)

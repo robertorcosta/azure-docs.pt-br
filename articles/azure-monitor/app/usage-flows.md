@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights User Flows analisa fluxos de navegação
+title: Aplicativo Azure insights Fluxos dos Usuários analisa os fluxos de navegação
 description: Analise como os usuários navegam entre as páginas e recursos de seu aplicativo Web.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892437"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
@@ -39,19 +39,19 @@ Para começar a responder perguntas com a ferramenta Fluxos de Usuário, escolha
 
 1. Clique no link no título **O que os usuários fazem depois de...?**, ou clique no botão**Editar**.
 2. Selecione uma exibição de página, evento personalizado ou exceção do menu suspenso **Evento inicial**.
-3. Clique **em Criar gráfico**.
+3. Clique em **criar grafo**.
 
 A coluna "Etapa 1" da visualização mostra o que os usuários fizeram com mais frequência logo após o evento inicial, ordenados de cima para baixo, do mais ao menos frequente. A coluna "Etapa 2" e as colunas subsequentes mostram que os usuários fizeram depois disso, criando uma imagem de todas as maneiras em que os usuários navegam por meio de seu site.
 
 Por padrão, a ferramenta Fluxos de Usuário faz uma amostragem aleatória apenas das últimas 24 horas de exibições de página e eventos personalizados do seu site. No menu Editar, você pode aumentar o intervalo de tempo e alterar o equilíbrio entre desempenho e precisão para amostragem aleatória.
 
-Se alguns dos eventos personalizados e modos de exibição de página não são relevantes para você, clique no **X** nos nós que você deseja ocultar. Depois de selecionar os nós que deseja ocultar, clique no botão **Criar gráfico** abaixo da visualização. Para ver todos os nós que você escondeu, clique no botão **Editar** e, em seguida, olhe para a seção **Eventos Excluídos.**
+Se alguns dos eventos personalizados e modos de exibição de página não são relevantes para você, clique no **X** nos nós que você deseja ocultar. Depois de selecionar os nós que você deseja ocultar, clique no botão **criar grafo** abaixo da visualização. Para ver todos os nós que você ocultou, clique no botão **Editar** e examine a seção **eventos excluídos** .
 
 Se as exibições de página ou eventos personalizados que você espera ver na visualização estão ausentes:
 
-* Verifique a seção **Eventos Excluídos** no menu **Editar.**
+* Verifique a seção **eventos excluídos** no menu **Editar** .
 * Use os botões de adição em **Outros** nós para incluir eventos menos frequentes na visualização.
-* Se a exibição de página ou evento personalizado que você espera for enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar.**
+* Se o modo de exibição de página ou evento personalizado esperado for enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar** .
 * Certifique-se de que a exibição de página, evento personalizado ou exceção que você espera está configurado para ser coletado pelo SDK do Application Insights no código-fonte do seu site. [Saiba mais sobre como coletar eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md)
 
 Se você quiser ver mais etapas na visualização, use os menus suspensos **Etapas anteriores** e **Próximas etapas** acima da visualização.
@@ -66,9 +66,9 @@ Se o evento inicial é um evento personalizado, a primeira coluna mostra o que o
 
 ## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Quais são os locais com maior rotatividade pelos usuários em seu site?
 
-Observe os nós **session ended** que aparecem em alta em uma coluna na visualização, especialmente no início de um fluxo. Isso significa que muitos usuários provavelmente saíram do seu site depois de seguir o caminho precedente de páginas e interações de interface do usuário. Algumas vezes a rotatividade é esperada – depois de concluir uma compra em um site de comércio eletrônico, por exemplo – mas geralmente a rotatividade é um sinal de problemas de design, baixo desempenho ou outros problemas com seu site, os quais podem ser melhorados.
+Observe os nós de **sessão encerrados** que aparecem em alto em uma coluna na visualização, especialmente no início de um fluxo. Isso significa que muitos usuários provavelmente saíram do seu site depois de seguir o caminho precedente de páginas e interações de interface do usuário. Algumas vezes a rotatividade é esperada – depois de concluir uma compra em um site de comércio eletrônico, por exemplo – mas geralmente a rotatividade é um sinal de problemas de design, baixo desempenho ou outros problemas com seu site, os quais podem ser melhorados.
 
-Tenha em mente que os nós **do Session Ended** são baseados apenas na telemetria coletada por este recurso Application Insights. Se o Application Insights não receber a telemetria para determinadas interações do usuário, os usuários poderão ainda ter interagido com seu site dessas maneiras depois que a ferramenta Fluxos de Usuário diz que a sessão foi finalizada.
+Tenha em mente que os nós **encerrados da sessão** são baseados apenas na telemetria coletada por esse Application insights recurso. Se o Application Insights não receber a telemetria para determinadas interações do usuário, os usuários poderão ainda ter interagido com seu site dessas maneiras depois que a ferramenta Fluxos de Usuário diz que a sessão foi finalizada.
 
 ## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Há locais em que os usuários repetem a mesma ação repetidamente?
 

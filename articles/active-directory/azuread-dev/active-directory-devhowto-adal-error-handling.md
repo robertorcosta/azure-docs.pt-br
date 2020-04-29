@@ -1,5 +1,5 @@
 ---
-title: Erro do aplicativo cliente ADAL lidando com as melhores práticas | Azure
+title: Práticas recomendadas de tratamento de erro do aplicativo cliente ADAL | Azure
 description: Apresenta diretrizes e práticas recomendadas em tratamento de erro para aplicativos cliente ADAL.
 services: active-directory
 author: rwike77
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981062"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
@@ -44,7 +44,7 @@ Há um conjunto de erros gerados pelo sistema operacional, que pode exigir um tr
 
 ### <a name="application-scenarios"></a>Cenários de aplicativos
 
-- [Aplicativos clientes nativos](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (iOS, Android, .NET Desktop ou Xamarin)
+- Aplicativos [cliente nativos](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#native-client) (Ios, Android, .net desktop ou Xamarin)
 - Aplicativos de [cliente da Web](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#web-client) que chamam um [recurso](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Casos de erro e etapas práticas
@@ -54,7 +54,7 @@ Basicamente, há dois casos de erros AcquireTokenSilent:
 | Caixa | Descrição |
 |------|-------------|
 | **Caso 1**: o erro pode ser resolvido com uma entrada interativa | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
-| **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também pode tentar uma repetição em algum momento posterior, mas quando e como depende do comportamento do aplicativo e da experiência desejada do usuário final. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
+| **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também pode tentar uma nova tentativa posteriormente, mas quando e como depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
 
 ### <a name="net"></a>.NET
 
@@ -189,7 +189,7 @@ O sistema operacional também pode gerar um conjunto de erros, que exigem o trat
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de erro e etapas práticas: aplicativos de cliente nativo
 
-Se você estiver criando um aplicativo de cliente nativo, há alguns casos de tratamento de erro a serem considerados que estão relacionados a problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, um aplicativo não deve realizar repetições imediatas, mas sim esperar pela interação do usuário final que solicita um login. 
+Se você estiver criando um aplicativo de cliente nativo, há alguns casos de tratamento de erro a serem considerados que estão relacionados a problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, um aplicativo não deve executar repetições imediatas, mas sim aguardar a interação do usuário final que solicita uma entrada. 
 
 Há alguns casos especiais em que uma única repetição pode resolver o problema. Por exemplo, quando um usuário precisa habilitar dados em um dispositivo ou concluir o download do agente do Azure Active Directory depois da falha inicial. 
 
@@ -199,8 +199,8 @@ O tratamento de erro em aplicativos nativos podem ser definido por dois casos:
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Erro sem nova tentativa (a maioria dos casos) | 1. Não tente uma nova tentativa imediata. Apresentar a interface do usuário final com base no erro específico que invoca uma repetição (por exemplo, "Tente entrar novamente" ou "Baixar aplicativo de corretor AD do Azure"). |
-| **Caso 2**:<br>Erro com nova tentativa | 1. Realize uma única repetição, pois o usuário final pode ter entrado em um estado que resulta em um sucesso.<br><br>2. Se a repetição falhar, apresente a ui do usuário final com base no erro específico que invoca uma repetição ("Tente entrar novamente", "Baixar aplicativo de corretor Azure AD", etc.). |
+| **Caso 1**:<br>Erro sem nova tentativa (a maioria dos casos) | 1. não tente repetir a tentativa imediata. Apresente a interface do usuário final com base no erro específico que invoca uma nova tentativa (por exemplo, "tentar entrar novamente" ou "baixar o aplicativo Azure AD Broker"). |
+| **Caso 2**:<br>Erro com nova tentativa | 1. execute uma única tentativa, pois o usuário final pode ter inserido um estado que resulta em um êxito.<br><br>2. se a repetição falhar, apresente a interface do usuário final com base no erro específico que invoca uma nova tentativa ("tentar entrar novamente", "baixar o aplicativo Azure AD Broker", etc.). |
 
 > [!IMPORTANT]
 > Se uma conta de usuário for passada para ADAL em uma chamada silenciosa e falhar, a solicitação interativa subsequente permitirá que o usuário final entre usando uma conta diferente. Depois de um AcquireToken bem-sucedido usando uma conta de usuário, o aplicativo deverá verificar se o usuário conectado corresponde ao objeto de usuário local do aplicativo. Uma incompatibilidade não gera uma exceção (exceto no Objetivo C), mas deve ser considerada em casos em que um usuário seja conhecido localmente antes das solicitações de autenticação (como uma chamada silenciosa com falha).
@@ -211,9 +211,9 @@ O tratamento de erro em aplicativos nativos podem ser definido por dois casos:
 As seguintes diretrizes fornecem exemplos para o tratamento de erro com todos os métodos ADAL AcquireToken(...) não silenciosos, *exceto*: 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(..., ClientCredential, ...)
-- AcquireTokenAsync(..., ClientAssertion, ...)
-- AcquireTokenAsync(..., UserAssertion,...)   
+- AcquireTokenAsync (..., ClientCredential,...)
+- AcquireTokenAsync (..., ClientAssertion,...)
+- AcquireTokenAsync (..., userdeclaration,...)   
 
 O código seria implementado da seguinte maneira:
 
@@ -373,9 +373,9 @@ Um AcquireToken com falha tem os seguintes casos:
 
 |  |  |
 |------|-------------|
-| **Caso 1**:<br>Pode ser resolvido com uma solicitação interativa | 1. Se o login() falhar, não realize uma nova tentativa imediata. Repita somente após a ação do usuário solicitar uma nova tentativa.|
-| **Caso 2**:<br>Não pode ser resolvido com uma solicitação interativa. O erro pode sofrer nova tentativa. | 1. Realize uma única repetição à medida que o usuário final principal entrou em um estado que resulta em um sucesso.<br><br>2. Se a tentativa falhar novamente, apresente ao usuário final uma ação baseada no erro específico que pode invocar uma repetição ("Tente entrar novamente"). |
-| **Caso 3**:<br>Não pode ser resolvido com uma solicitação interativa. O erro não pode sofrer nova tentativa. | 1. Não tente uma nova tentativa imediata. Apresente ao usuário final uma ação com base no erro específico que pode invocar uma nova tentativa ("Tentar entrar novamente"). |
+| **Caso 1**:<br>Pode ser resolvido com uma solicitação interativa | 1. se o logon () falhar, não execute a repetição imediata. Repita somente após a ação do usuário solicitar uma nova tentativa.|
+| **Caso 2**:<br>Não pode ser resolvido com uma solicitação interativa. O erro pode sofrer nova tentativa. | 1. faça uma única tentativa, pois a principal do usuário final inseriu um estado que resulta em um êxito.<br><br>2. se a repetição falhar, apresente ao usuário final uma ação com base no erro específico que pode invocar uma nova tentativa ("tentar entrar novamente"). |
+| **Caso 3**:<br>Não pode ser resolvido com uma solicitação interativa. O erro não pode sofrer nova tentativa. | 1. não tente repetir a tentativa imediata. Apresente ao usuário final uma ação com base no erro específico que pode invocar uma nova tentativa ("Tentar entrar novamente"). |
 
 O código seria implementado da seguinte maneira:
 
@@ -481,8 +481,8 @@ Criamos um [exemplo completo](https://github.com/Azure-Samples/active-directory-
 
 ## <a name="error-and-logging-reference"></a>Referência de erro e registro em log
 
-### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registro de informações pessoais identificáveis & informações de identificação organizacional 
-Por padrão, o registro ADAL não captura ou registra qualquer informação pessoal identificável ou informações de identificação organizacional. A biblioteca permite que os desenvolvedores de aplicativos ativem esse recurso por meio de um setter na classe de Agente. Ao registrar informações pessoais identificáveis ou de identificação organizacional, o aplicativo assume a responsabilidade de manusear dados altamente confidenciais e cumprir quaisquer requisitos normativos.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Registrando informações de identificação pessoal & informações de identificação organizacional 
+Por padrão, o registro em log da ADAL não captura nem registra informações de identificação pessoal nem informações de identificação organizacional. A biblioteca permite que os desenvolvedores de aplicativos ativem esse recurso por meio de um setter na classe de Agente. Ao registrar informações pessoais de identificação pessoal ou informações de identificação organizacional, o aplicativo assume a responsabilidade por manipular dados altamente confidenciais com segurança e obedecer a quaisquer requisitos regulatórios.
 
 ### <a name="net"></a>.NET
 
@@ -543,7 +543,7 @@ Para explorar erros ADAL específicos, o código-fonte no [repositório azure-ac
 
 #### <a name="operating-system-errors"></a>Erros do sistema operacional
 
-Os erros de iOS podem surgir durante a entrada quando os usuários utilizam exibições da Web e a natureza da autenticação. Isso pode ser causado por condições como erros de TLS, tempos ou erros de rede:
+Os erros de iOS podem surgir durante a entrada quando os usuários utilizam exibições da Web e a natureza da autenticação. Isso pode ser causado por condições como erros de TLS, tempos limite ou erros de rede:
 
 - Para compartilhamento de direitos, os logons não são persistentes e o cache aparece vazio. Você pode resolver adicionando a seguinte linha de código ao conjunto de chaves:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - Para o conjunto de erros NsUrlDomain, a ação muda de acordo com a lógica do aplicativo. Consulte a [documentação de referência NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) para obter instâncias específicas que possam ser tratadas.
@@ -585,7 +585,7 @@ window.Logging = {
 
 Use a seção de comentários a seguir para fazer comentários e nos ajudar a refinar e modelar o conteúdo.
 
-[![Mostra o botão "Entrar com a Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[![Mostra o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

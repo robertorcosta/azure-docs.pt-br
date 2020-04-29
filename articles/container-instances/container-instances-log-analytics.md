@@ -1,23 +1,23 @@
 ---
-title: Coletar & analisar registros de recursos
-description: Saiba como enviar registros de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para logs do Monitor do Azure
+title: Coletar & analisar logs de recursos
+description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: danlep
 ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892386"
 ---
-# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contêineres e registro de instâncias com logs do Monitor Do Azure
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
-Os espaços de trabalho do Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também de recursos e recursos locais em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados de eventos e logs aos logs do Azure Monitor.
+Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas de recursos do Azure, mas também recursos e recursos locais em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados de eventos e logs aos logs do Azure Monitor.
 
-Para enviar dados de registro e eventos de grupos de contêineres para logs do Azure Monitor, especifique um ID do espaço de trabalho do Log Analytics existente e uma chave de espaço de trabalho ao configurar um grupo de contêineres. 
+Para enviar dados de log e eventos do grupo de contêineres para Azure Monitor logs, especifique uma ID do espaço de trabalho Log Analytics e uma chave do espaço de trabalho existentes ao configurar um grupo de contêineres. 
 
-As seções a seguir descrevem como criar um grupo de contêiner ativado por registro e como consultar logs. Você também pode [atualizar um grupo de contêineres](container-instances-update.md) com um ID de espaço de trabalho e uma chave de espaço de trabalho para ativar o registro.
+As seções a seguir descrevem como criar um grupo de contêineres habilitado para registro em log e como consultar logs. Você também pode [atualizar um grupo de contêineres](container-instances-update.md) com uma ID do espaço de trabalho e uma chave do espaço de trabalho para habilitar o log.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -38,17 +38,17 @@ As Instâncias de Contêiner do Azure precisam de permissão para enviar dados a
 Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
-1. Em **Configurações,** selecione **Configurações avançadas**
-1. Selecione **Fontes** > **conectadas Servidores Windows** (ou Servidores **Linux**-- o ID e as chaves são os mesmos para ambos)
+1. Em **configurações**, selecione **Configurações avançadas**
+1.  > Selecione **fontes conectadas****servidores Windows** (ou **servidores Linux**--a ID e as chaves são as mesmas para ambos)
 1. Anote:
    * **ID DO WORKSPACE**
-   * **CHAVE PRIMÁRIA**
+   * **PRIMARY KEY**
 
 ## <a name="create-container-group"></a>Criar grupo de contêineres
 
 Agora que você tem a ID e do espaço de trabalho do Log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para log.
 
-Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres que consiste em um único contêiner [fluente:][fluentd] Azure CLI e Azure CLI com um modelo YAML. O recipiente fluente produz várias linhas de saída em sua configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres que consiste em um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contêiner fluentd produz várias linhas de saída em sua configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
 ### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 
@@ -107,9 +107,9 @@ Após implantar o grupo de contêineres, poderá demorar vários minutos (até 1
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
 1. Em **Geral**, selecione **Logs**  
 1. Digite a seguinte consulta: `ContainerInstanceLog_CL | limit 50`
-1. Selecione **Executar**
+1. Selecione **executar**
 
-Você deverá ver vários resultados exibidos pela consulta. Se no início você não ver nenhum resultado, espere alguns minutos e selecione o botão **Executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no formato de **Tabela**. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.
+Você deverá ver vários resultados exibidos pela consulta. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no formato de **Tabela**. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.
 
 ![Pesquisa de Logs no portal do Azure][log-search-01]
 
@@ -120,9 +120,9 @@ Você também pode exibir eventos para instâncias de contêiner no portal do Az
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
 1. Em **Geral**, selecione **Logs**  
 1. Digite a seguinte consulta: `ContainerEvent_CL | limit 50`
-1. Selecione **Executar**
+1. Selecione **executar**
 
-Você deverá ver vários resultados exibidos pela consulta. Se no início você não ver nenhum resultado, espere alguns minutos e selecione o botão **Executar** para executar a consulta novamente. Por padrão, as entradas são exibidas no formato de **Tabela**. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada individual.
+Você deverá ver vários resultados exibidos pela consulta. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas são exibidas no formato de **Tabela**. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada individual.
 
 ![Resultados da pesquisa de eventos no portal do Azure][log-search-02]
 
@@ -132,7 +132,7 @@ Os logs do Azure Monitor incluem uma [linguagem de consulta][query_lang] extensa
 
 A estrutura básica de uma consulta é a tabela de origem (neste artigo, `ContainerInstanceLog_CL` ou `ContainerEvent_CL`) seguida por uma série de operadores separados pelo caractere de pipe (`|`). É possível encadear vários operadores para refinar os resultados e executar funções avançadas.
 
-Para ver os resultados da consulta de exemplo, cole a seguinte consulta na caixa de texto da consulta e selecione o botão **Executar** para executar a consulta. Esta consulta exibe todas as entradas de log cujo campo de "Mensagem" contém a palavra "warn":
+Para ver os resultados da consulta de exemplo, Cole a consulta a seguir na caixa de texto de consulta e selecione o botão **executar** para executar a consulta. Esta consulta exibe todas as entradas de log cujo campo de "Mensagem" contém a palavra "warn":
 
 ```query
 ContainerInstanceLog_CL

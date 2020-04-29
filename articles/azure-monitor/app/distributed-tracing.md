@@ -1,23 +1,23 @@
 ---
 title: Rastreamento distribuído no Azure Application Insights | Microsoft Docs
-description: Fornece informações sobre o suporte da Microsoft para rastreamento distribuído através de nossa parceria no projeto OpenCensus
+description: Fornece informações sobre o suporte da Microsoft para rastreamento distribuído por meio de nossa parceria no projeto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892250"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
 
-O advento das modernas arquiteturas de nuvem e [microsserviços](https://azure.com/microservices) deu origem a serviços simples e implantáveis independentes que podem ajudar a reduzir custos e aumentar a disponibilidade e o throughput. Mas, embora esses movimentos tenham tornado os serviços individuais mais fáceis de entender como um todo, eles tornaram os sistemas globais mais difíceis de raciocinar e depurar.
+O advento das arquiteturas modernas de nuvem e de [microserviço](https://azure.com/microservices) deu origem aos serviços simples e implantáveis de forma independente que podem ajudar a reduzir os custos enquanto aumentam a disponibilidade e a taxa de transferência. Mas embora esses movimentos tenham tornado serviços individuais mais fáceis de entender como um todo, eles tornaram os sistemas em geral mais difíceis de descobrir e depurar.
 
-Em arquiteturas monolíticas, nos acostumamos a depurar com pilhas de chamadas. Pilhas de chamadas são ferramentas incríveis que mostram o fluxo de execução (Método A que chama o Método B que chama o Método C), junto com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução em um único processo, mas como depuramos quando a chamada estiver em um limite de processo, não uma simples referência na pilha local? 
+Em arquiteturas monolíticos, estamos acostumados a depurar com pilhas de chamadas. Pilhas de chamadas são ferramentas incríveis que mostram o fluxo de execução (Método A que chama o Método B que chama o Método C), junto com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução em um único processo, mas como depuramos quando a chamada estiver em um limite de processo, não uma simples referência na pilha local? 
 
 É aí que entra o rastreamento distribuído.  
 
@@ -27,11 +27,11 @@ O Azure Monitor também oferece uma exibição de [mapa de aplicativo](https://d
 
 ## <a name="how-to-enable-distributed-tracing"></a>Como habilitar o rastreamento distribuído
 
-Permitir o rastreamento distribuído entre os serviços em um aplicativo é tão simples quanto adicionar o agente adequado, SDK ou biblioteca a cada serviço, com base na linguagem em que o serviço foi implementado.
+Habilitar o rastreamento distribuído entre os serviços em um aplicativo é tão simples quanto adicionar o agente, o SDK ou a biblioteca apropriada a cada serviço, com base no idioma em que o serviço foi implementado.
 
-## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Habilitando via Insights de Aplicativos através de instrumentação automática ou SDKs
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Habilitando via Application Insights por meio de instrumentação ou SDKs automáticos
 
-Os agentes do Application Insights e/ou SDKs para .NET, .NET Core, Java, Node.js e JavaScript suportam rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
+Os agentes de Application Insights e/ou SDKs para .NET, .NET Core, Java, Node. js e JavaScript oferecem suporte ao rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
@@ -55,5 +55,5 @@ O site do OpenCensus mantém a documentação de referência da API para [Python
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Guia de uso do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Mapa de aplicativos](./../../azure-monitor/app/app-map.md)
+* [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

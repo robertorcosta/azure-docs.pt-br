@@ -1,19 +1,19 @@
 ---
 title: Criar um aplicativo de funções no portal do Azure
-description: Crie um novo aplicativo de função no Azure a partir do portal.
+description: Crie um novo aplicativo de funções no Azure por meio do Portal.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
 ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985007"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
 
-Este tópico mostra como usar funções do Azure para criar um aplicativo de função no portal Azure. Um aplicativo de funções é o contêiner que hospeda a execução de funções individuais. 
+Este tópico mostra como usar Azure Functions para criar um aplicativo de funções no portal do Azure. Um aplicativo de funções é o contêiner que hospeda a execução de funções individuais. 
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
@@ -23,20 +23,20 @@ Depois de criar o aplicativo de funções, é possível criar funções individu
 
 ## <a name="service-plans"></a>Planos de serviço
 
-O Azure Functions tem três planos de serviço diferentes: plano de consumo, plano Premium e plano Dedicado (App Service). Você deve escolher seu plano de serviço quando seu aplicativo de função for criado e ele não poderá ser alterado posteriormente. Para obter mais informações, consulte [Escolher um plano de hospedagem do Azure Functions](functions-scale.md).
+Azure Functions tem três planos de serviço diferentes: plano de consumo, plano Premium e plano dedicado (serviço de aplicativo). Você deve escolher seu plano de serviço quando seu aplicativo de funções for criado e não puder ser alterado posteriormente. Para obter mais informações, consulte [Escolher um plano de hospedagem do Azure Functions](functions-scale.md).
 
-Se você está planejando executar funções JavaScript em um plano Dedicated (App Service), você deve escolher um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+Se você estiver planejando executar funções JavaScript em um plano dedicado (serviço de aplicativo), escolha um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Ao criar um aplicativo de função, você deve criar ou vincular a uma conta de armazenamento Azure de uso geral que suporte o armazenamento Blob, Fila e Tabela. Internamente, o Functions usa o Armazenamento para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um aplicativo de funções.
+Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. Internamente, o Functions usa o Armazenamento para operações como gerenciamento de gatilhos e log de execuções de função. Algumas contas de armazenamento não dão suporte a filas e tabelas, como contas de armazenamento somente blob, Armazenamento Premium do Azure e contas de armazenamento de uso geral com replicação ZRS. Essas contas são filtradas na folha Conta de Armazenamento durante a criação de um aplicativo de funções.
 
 >[!NOTE]
 >Ao usar o plano de hospedagem de Consumo, o código da função e os arquivos de configuração da associação são armazenados no armazenamento de Arquivos do Azure na conta de armazenamento principal. Ao excluir a conta de armazenamento principal, esse conteúdo será excluído e não poderá ser recuperado.
 
-Para saber mais sobre os tipos de contas de armazenamento, consulte [Introduzindo os Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
+Para saber mais sobre os tipos de conta de armazenamento, consulte [apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

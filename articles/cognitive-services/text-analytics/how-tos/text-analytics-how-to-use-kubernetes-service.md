@@ -1,7 +1,7 @@
 ---
-title: Executar serviço Azure Kubernetes - Análise de texto
+title: Executar serviço kubernetes do Azure-Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Implante a imagem do contêiner Text Analytics no Azure Kubernetes Service e teste-a em um navegador da Web.
+description: Implante a imagem de contêiner Análise de Texto no serviço kubernetes do Azure e teste-a em um navegador da Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 155f32ee76f69fe0f16e7698123381fdc12efd0e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877793"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner Text Analytics no Azure Kubernetes Service
+# <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner de Análise de Texto no serviço kubernetes do Azure
 
-Saiba como implantar a imagem de contêiner Azure Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) no Azure Kubernetes Service (AKS). Este procedimento mostra como criar um recurso de Text Analytics, como criar uma imagem de análise de sentimento associada e como exercitar essa orquestração dos dois a partir de um navegador. O uso de contêineres pode desviar sua atenção do gerenciamento da infra-estrutura para, em vez disso, focar no desenvolvimento de aplicativos.
+Saiba como implantar os serviços cognitivas do Azure [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) a imagem de contêiner no AKs (serviço kubernetes do Azure). Este procedimento mostra como criar um recurso de Análise de Texto, como criar uma imagem de análise de opiniões associada e como exercitar essa orquestração dos dois em um navegador. Usar contêineres pode mudar sua atenção para longe de gerenciar a infraestrutura para se concentrar no desenvolvimento de aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não use a Azure Cloud Shell. Você precisará do seguinte:
+Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente. Não use Azure Cloud Shell. Você precisará do seguinte:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um editor de texto, por exemplo, [Visual Studio Code](https://code.visualstudio.com/download).
-* O [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
-* O [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalado.
+* O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
+* A [CLI do kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalada.
 * Um recurso do Azure com o tipo de preço correto. Nem todos os tipos de preços funcionam com esse contêiner:
-    * **Recurso do Azure Text Analytics** apenas com níveis f0 ou de preços padrão.
-    * **Recurso do Azure Cognitive Services** com a camada de preços S0.
+    * O recurso **análise de texto do Azure** somente com tipos de preço F0 ou Standard.
+    * Recurso de **Serviços cognitivas do Azure** com o tipo de preço S0.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-#### <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-deploy.md)]
 
@@ -49,7 +49,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment)
 
 [!INCLUDE [Sentiment Analysis Kubernetes config and deploy steps](../includes/sentiment-analysis-kubernetes-config-deploy.md)]
 
@@ -59,5 +59,5 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Use mais [contêineres de Serviços Cognitivos](../../cognitive-services-container-support.md)
-* Use o [serviço conectado ao text analytics](../vs-text-connected-service.md)
+* Usar mais [contêineres de serviços cognitivas](../../cognitive-services-container-support.md)
+* Usar o [serviço conectado do análise de texto](../vs-text-connected-service.md)

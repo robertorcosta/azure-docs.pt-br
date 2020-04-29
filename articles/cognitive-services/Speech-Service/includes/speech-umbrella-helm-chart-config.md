@@ -1,7 +1,7 @@
 ---
-title: Instale recipientes de fala
+title: Instalar contêineres de fala
 titleSuffix: Azure Cognitive Services
-description: Detalha as opções de configuração do gráfico do leme do guarda-chuva de fala.
+description: Detalha as opções de configuração do gráfico de Helm de fala.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80874324"
 ---
-### <a name="speech-umbrella-chart"></a>Fala (gráfico de guarda-chuvas)
+### <a name="speech-umbrella-chart"></a>Fala (gráfico de abrangência)
 
-Os valores no gráfico "guarda-chuva" de nível superior sobrepõem os valores de subgráfico correspondentes. Portanto, todos os valores personalizados no local devem ser adicionados aqui.
+Os valores no gráfico "abrangência" de nível superior substituem os valores de Subgráficos correspondentes. Portanto, todos os valores personalizados locais devem ser adicionados aqui.
 
 |Parâmetro|Descrição|Padrão|
 | -- | -- | -- | -- |
-| `speechToText.enabled` | Se o serviço **de fala para texto** está habilitado. | `true` |
-| `speechToText.verification.enabled` | Se `helm test` a capacidade de serviço **de voz a texto** está ativada. | `true` |
-| `speechToText.verification.image.registry` | O repositório de `helm test` imagem docker que usa para testar o serviço **de fala para texto.** Helm cria um pod separado dentro do cluster para testes e puxa a imagem *de uso de teste* deste registro. | `docker.io` |
-| `speechToText.verification.image.repository` | O repositório de `helm test` imagem docker que usa para testar o serviço **de fala para texto.** O pod de teste helm usa este repositório para puxar a imagem *de uso de teste.* | `antsu/on-prem-client` |
-| `speechToText.verification.image.tag` | A tag de `helm test` imagem docker usada para o serviço **de fala-texto.** O pod de teste helm usa esta tag para puxar a imagem *de uso de teste.* | `latest` |
-| `speechToText.verification.image.pullByHash` | Se a imagem docker *de uso de teste* é puxada pelo hash. Se `true` `speechToText.verification.image.hash` , deve ser adicionado, com valor de hash de imagem válido. | `false` |
-| `speechToText.verification.image.arguments` | Os argumentos usados para executar a imagem docker *de uso de teste.* O pod de teste helm passa `helm test`esses argumentos para o recipiente durante a execução . | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
-| `textToSpeech.enabled` | Se o **serviço texto-para-fala** está habilitado. | `true` |
-| `textToSpeech.verification.enabled` | Se `helm test` a capacidade de serviço **de voz a texto** está ativada. | `true` |
-| `textToSpeech.verification.image.registry` | O repositório de `helm test` imagem docker que usa para testar o serviço **de fala para texto.** Helm cria um pod separado dentro do cluster para testes e puxa a imagem *de uso de teste* deste registro. | `docker.io` |
-| `textToSpeech.verification.image.repository` | O repositório de `helm test` imagem docker que usa para testar o serviço **de fala para texto.** O pod de teste helm usa este repositório para puxar a imagem *de uso de teste.* | `antsu/on-prem-client` |
-| `textToSpeech.verification.image.tag` | A tag de `helm test` imagem docker usada para o serviço **de fala-texto.** O pod de teste helm usa esta tag para puxar a imagem *de uso de teste.* | `latest` |
-| `textToSpeech.verification.image.pullByHash` | Se a imagem docker *de uso de teste* é puxada pelo hash. Se `true` `textToSpeech.verification.image.hash` , deve ser adicionado, com valor de hash de imagem válido. | `false` |
-| `textToSpeech.verification.image.arguments` | Os argumentos a serem executados com a imagem docker *de uso de teste.* O pod de teste do leme `helm test`passa esses argumentos para o contêiner ao executar . | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |
+| `speechToText.enabled` | Se o serviço de **fala a texto** está habilitado. | `true` |
+| `speechToText.verification.enabled` | Se a `helm test` capacidade de serviço de **fala a texto** está habilitada. | `true` |
+| `speechToText.verification.image.registry` | O repositório de imagens do Docker que `helm test` o usa para testar o serviço de **fala em texto** . O Helm cria um pod separado dentro do cluster para testar e efetua pull da imagem de *uso de teste* desse registro. | `docker.io` |
+| `speechToText.verification.image.repository` | O repositório de imagens do Docker que `helm test` o usa para testar o serviço de **fala em texto** . O pod de teste do Helm usa esse repositório para efetuar pull da imagem *de uso de teste* . | `antsu/on-prem-client` |
+| `speechToText.verification.image.tag` | A marca de imagem do Docker `helm test` usada com para o serviço de **fala a texto** . O pod de teste Helm usa essa marca para efetuar pull da imagem *de uso de teste* . | `latest` |
+| `speechToText.verification.image.pullByHash` | Se a imagem do Docker de *teste de uso* é retirada por hash. Se `true`, `speechToText.verification.image.hash` deve ser adicionado, com um valor de hash de imagem válido. | `false` |
+| `speechToText.verification.image.arguments` | Os argumentos usados para executar a imagem do Docker de *uso de teste* . O pod de teste Helm passa esses argumentos para o contêiner `helm test`durante a execução. | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
+| `textToSpeech.enabled` | Se o serviço de **conversão de texto em fala** está habilitado. | `true` |
+| `textToSpeech.verification.enabled` | Se a `helm test` capacidade de serviço de **fala a texto** está habilitada. | `true` |
+| `textToSpeech.verification.image.registry` | O repositório de imagens do Docker que `helm test` o usa para testar o serviço de **fala em texto** . O Helm cria um pod separado dentro do cluster para testar e efetua pull da imagem de *uso de teste* desse registro. | `docker.io` |
+| `textToSpeech.verification.image.repository` | O repositório de imagens do Docker que `helm test` o usa para testar o serviço de **fala em texto** . O pod de teste do Helm usa esse repositório para efetuar pull da imagem *de uso de teste* . | `antsu/on-prem-client` |
+| `textToSpeech.verification.image.tag` | A marca de imagem do Docker `helm test` usada com para o serviço de **fala a texto** . O pod de teste Helm usa essa marca para efetuar pull da imagem *de uso de teste* . | `latest` |
+| `textToSpeech.verification.image.pullByHash` | Se a imagem do Docker de *teste de uso* é retirada por hash. Se `true`, `textToSpeech.verification.image.hash` deve ser adicionado, com um valor de hash de imagem válido. | `false` |
+| `textToSpeech.verification.image.arguments` | Os argumentos a serem executados com a imagem do Docker de *uso de teste* . O pod de teste Helm passa esses argumentos para o contêiner `helm test`durante a execução. | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |

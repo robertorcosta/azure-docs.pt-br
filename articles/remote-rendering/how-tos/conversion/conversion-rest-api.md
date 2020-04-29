@@ -1,55 +1,55 @@
 ---
-title: A API de conversão de ativos REST
-description: Descreve como converter um ativo através da API REST
+title: A API REST de conversão de ativos
+description: Descreve como converter um ativo por meio da API REST
 author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887037"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usar a API REST de conversão de modelo
 
-O serviço [de conversão do modelo](model-conversion.md) é controlado através de uma [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Este artigo descreve os detalhes da API do serviço de conversão.
+O serviço de [conversão de modelo](model-conversion.md) é controlado por meio de uma [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Este artigo descreve os detalhes da API do serviço de conversão.
 
 ## <a name="regions"></a>Regiões
 
-Consulte a [lista de regiões disponíveis](../../reference/regions.md) para as URLs base para enviar as solicitações.
+Consulte a [lista de regiões disponíveis](../../reference/regions.md) para as URLs de base para as quais enviar as solicitações.
 
 ## <a name="common-headers"></a>Cabeçalhos comuns
 
 ### <a name="common-request-headers"></a>Cabeçalhos de solicitação comuns
 
-Estes cabeçalhos devem ser especificados para todas as solicitações:
+Esses cabeçalhos devem ser especificados para todas as solicitações:
 
-- O cabeçalho **de autorização** deve ter o valor de "Portador [*TOKEN*]", onde [*TOKEN*] é um [token de acesso de serviço](../tokens.md).
+- O cabeçalho **Authorization** deve ter o valor de "portador [*token*]", onde [*token*] é um [token de acesso de serviço](../tokens.md).
 
 ### <a name="common-response-headers"></a>Cabeçalhos de resposta comuns
 
 Todas as respostas contêm estes cabeçalhos:
 
-- O cabeçalho **MS-CV** contém uma seqüência única que pode ser usada para rastrear a chamada dentro do serviço.
+- O cabeçalho **MS-CV** contém uma cadeia de caracteres exclusiva que pode ser usada para rastrear a chamada dentro do serviço.
 
 ## <a name="endpoints"></a>Pontos de extremidade
 
-O serviço de conversão fornece três pontos finais da API REST para:
+O serviço de conversão fornece três pontos de extremidade da API REST para:
 
-- iniciar a conversão do modelo usando uma conta de armazenamento vinculada à sua conta de renderização remota do Azure. 
-- iniciar a conversão do modelo usando assinaturas de acesso compartilhadas fornecidas *(SAS)*.
-- consultar o status de conversão
+- Inicie a conversão de modelo usando uma conta de armazenamento vinculada à sua conta de renderização remota do Azure. 
+- Inicie a conversão de modelo usando as *assinaturas de acesso compartilhado (SAS)* fornecidas.
+- consultar o status da conversão
 
 ### <a name="start-conversion-using-a-linked-storage-account"></a>Iniciar conversão usando uma conta de armazenamento vinculada
-Sua conta de renderização remota do Azure precisa ter acesso à conta de armazenamento fornecida seguindo as etapas de como [vincular contas de armazenamento](../create-an-account.md#link-storage-accounts).
+Sua conta de renderização remota do Azure precisa ter acesso à conta de armazenamento fornecida seguindo as etapas sobre como [vincular contas de armazenamento](../create-an-account.md#link-storage-accounts).
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversões/create | POST |
+| /v1/accounts/**AccountId**/Conversions/Create | POST |
 
-Retorna o ID da conversão em curso, embrulhado em um documento JSON. O nome de campo é "conversionId".
+Retorna a ID da conversão em andamento, encapsulada em um documento JSON. O nome do campo é "conversãoid".
 
 #### <a name="request-body"></a>Corpo da solicitação
 
@@ -72,21 +72,21 @@ Retorna o ID da conversão em curso, embrulhado em um documento JSON. O nome de 
     }
 }
 ```
-### <a name="start-conversion-using-provided-shared-access-signatures"></a>Iniciar conversão usando assinaturas de acesso compartilhadas fornecidas
-Se sua conta ARR não estiver vinculada à sua conta de armazenamento, esta interface REST permite que você forneça acesso usando *assinaturas de acesso compartilhado (SAS)*.
+### <a name="start-conversion-using-provided-shared-access-signatures"></a>Iniciar conversão usando assinaturas de acesso compartilhado fornecidas
+Se sua conta do ARR não estiver vinculada à sua conta de armazenamento, essa interface REST permitirá que você forneça acesso usando *SAS (assinaturas de acesso compartilhado)*.
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversões/createWithSharedAccessSignature | POST |
+| /v1/accounts/**AccountId**/Conversions/createWithSharedAccessSignature | POST |
 
-Retorna o ID da conversão em curso, embrulhado em um documento JSON. O nome de campo é "conversionId".
+Retorna a ID da conversão em andamento, encapsulada em um documento JSON. O nome do campo é "conversãoid".
 
 #### <a name="request-body"></a>Corpo da solicitação
 
-O órgão de solicitação é o mesmo que na chamada create REST acima, mas a entrada e a saída contêm *tokens SAS (SAS).* Esses tokens fornecem acesso à conta de armazenamento para ler a entrada e escrever o resultado da conversão.
+O corpo da solicitação é o mesmo da chamada de criação REST acima, mas a entrada e a saída contêm *tokens de SAS (assinaturas de acesso compartilhado)*. Esses tokens fornecem acesso à conta de armazenamento para ler a entrada e gravar o resultado da conversão.
 
 > [!NOTE]
-> Esses tokens Uri SAS são as strings de consulta e não o URI completo. 
+> Esses tokens de URI de SAS são as cadeias de caracteres de consulta e não o URI completo. 
 
 
 ```json
@@ -110,21 +110,21 @@ O órgão de solicitação é o mesmo que na chamada create REST acima, mas a en
 }
 ```
 
-### <a name="poll-conversion-status"></a>Status de conversão de pesquisa
-O status de uma conversão contínua iniciada com uma das chamadas REST acima pode ser consultado usando a seguinte interface:
+### <a name="poll-conversion-status"></a>Status da conversão de sondagem
+O status de uma conversão em andamento iniciada com uma das chamadas REST acima pode ser consultado usando a seguinte interface:
 
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversões/conversõesId**conversionId** | GET |
+| /v1/accounts/**AccountId**/Conversions/**conversionid** | GET |
 
 Retorna um documento JSON com um campo "status" que pode ter os seguintes valores:
 
-- "Correndo"
+- Executado
 - "Success"
-- "Fracasso"
+- Failure
 
-Se o status for "Falha", haverá um campo adicional de "erro" com um subcampo de "mensagem" contendo informações de erro. Logs adicionais serão carregados no recipiente de saída.
+Se o status for "Failure", haverá um campo "Error" adicional com um subcampo "Message" contendo informações de erro. Logs adicionais serão carregados no seu contêiner de saída.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,7 +1,7 @@
 ---
 title: Marcas de imagem de contêiner dos Serviços Cognitivos
 titleSuffix: Azure Cognitive Services
-description: Uma lista abrangente de todas as tags de imagem de contêiner do Serviço Cognitivo.
+description: Uma listagem abrangente de todas as marcas de imagem de contêiner de serviço cognitiva.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,26 +10,26 @@ ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878758"
 ---
-# <a name="azure-cognitive-services-container-image-tags"></a>Tags de imagem de contêiner azure Cognitive Services
+# <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
-O Azure Cognitive Services oferece muitas imagens de contêineres. Os registros de contêineres e os repositórios correspondentes variam entre as imagens do contêiner. Cada nome de imagem do contêiner oferece várias tags. Uma tag de imagem de contêiner é um mecanismo de versão da imagem do contêiner. Este artigo destina-se a ser usado como uma referência abrangente para listar todas as imagens de contêineres dos Serviços Cognitivos e suas etiquetas disponíveis.
+Os serviços cognitivas do Azure oferecem muitas imagens de contêiner. Os registros de contêiner e os repositórios correspondentes variam entre as imagens de contêiner. Cada nome de imagem de contêiner oferece várias marcas. Uma marca de imagem de contêiner é um mecanismo de controle de versão da imagem de contêiner. Este artigo destina-se a ser usado como uma referência abrangente para listar todas as imagens de contêiner de serviços cognitivas e suas marcas disponíveis.
 
 > [!TIP]
-> Ao [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)utilizar, preste muita atenção ao invólucro do registro do contêiner, repositório, nome da imagem do contêiner e tag correspondente - pois são **sensíveis ao caso**.
+> Ao usar [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)o, preste muita atenção à capitalização do registro de contêiner, do repositório, do nome da imagem de contêiner e da marca correspondente, pois eles diferenciam **maiúsculas de minúsculas**.
 
 ## <a name="anomaly-detector"></a>Detector de Anomalias
 
-A imagem [do recipiente do Detector de Anomalias][ad-containers] pode ser encontrada no registro do `containerpreview.azurecr.io` contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-anomaly-detector`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`do contêiner totalmente qualificado é, .
+A imagem de contêiner do [detector de anomalias][ad-containers] pode ser `containerpreview.azurecr.io` encontrada no registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-anomaly-detector`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -37,11 +37,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="computer-vision"></a>Visual Computacional
 
-A imagem do contêiner [Computer][cv-containers] `containerpreview.azurecr.io` Vision pode ser encontrada no registro do contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-read`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-read`do contêiner totalmente qualificado é, .
+A imagem de contêiner [Pesquisa Visual computacional][cv-containers] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-read`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-read`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.011580001-amd64-preview` |       |
@@ -50,11 +50,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="face"></a>Face
 
-A imagem [do][fa-containers] contêiner Face `containerpreview.azurecr.io` pode ser encontrada no registro do contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-face`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-face`do contêiner totalmente qualificado é, .
+A imagem de contêiner de [face][fa-containers] pode ser encontrada `containerpreview.azurecr.io` no registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-face`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-face`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -68,11 +68,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="form-recognizer"></a>Reconhecimento de Formulários
 
-A imagem do contêiner [Form Recognizer][fr-containers] pode ser encontrada no registro do `containerpreview.azurecr.io` contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-form-recognizer`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer`do contêiner totalmente qualificado é, .
+A imagem de contêiner do [reconhecedor de formulário][fr-containers] pode `containerpreview.azurecr.io` ser encontrada no registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-form-recognizer`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -81,11 +81,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="language-understanding-luis"></a>Reconhecimento Vocal (LUIS)
 
-A [LUIS][lu-containers] imagem do contêiner LUIS `mcr.microsoft.com` pode ser encontrada no sindicato de registro de contêineres. Ele reside dentro `azure-cognitive-services` do repositório `luis`e é nomeado . O nome da imagem `mcr.microsoft.com/azure-cognitive-services/luis`do contêiner totalmente qualificado é, .
+A imagem de contêiner [Luis][lu-containers] pode ser encontrada na `mcr.microsoft.com` agregação do registro de contêiner. Ele reside no `azure-cognitive-services` repositório e é nomeado `luis`. O nome da imagem de contêiner totalmente qualificado `mcr.microsoft.com/azure-cognitive-services/luis`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -97,13 +97,13 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 | `1.1.007360001-amd64-preview` |       |
 | `1.1.007020001-amd64-preview` |       |
 
-## <a name="custom-speech-to-text"></a>Discurso personalizado para texto
+## <a name="custom-speech-to-text"></a>Fala Personalizada para texto
 
-A imagem personalizada do contêiner de fala `containerpreview.azurecr.io` para [texto][sp-cstt] pode ser encontrada no registro do contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-custom-speech-to-text`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`do contêiner totalmente qualificado é, .
+A imagem de contêiner de [fala personalizada para texto][sp-cstt] pode ser encontrada no registro `containerpreview.azurecr.io` de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-custom-speech-to-text`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem            | Observações |
+| Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
 | `2.1.1-amd64-preview` |       |
@@ -111,482 +111,482 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 | `2.0.2-amd64-preview` |       |
 | `2.0.0-amd64-preview` |       |
 
-## <a name="custom-text-to-speech"></a>Texto-para-fala personalizado
+## <a name="custom-text-to-speech"></a>Conversão de texto em fala personalizada
 
-A imagem personalizada do contêiner [texto-para-fala][sp-ctts] pode ser encontrada no registro do `containerpreview.azurecr.io` contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-custom-text-to-speech`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`do contêiner totalmente qualificado é, .
+A imagem de contêiner de [texto em fala personalizado][sp-ctts] pode ser encontrada no registro `containerpreview.azurecr.io` de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-custom-text-to-speech`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem            | Observações |
+| Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.3.0-amd64-preview` |       |
 
 ## <a name="speech-to-text"></a>Conversão de fala em texto
 
-A imagem do contêiner [Fala-a-texto][sp-stt] pode ser encontrada no registro do `containerpreview.azurecr.io` contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-speech-to-text`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`do contêiner totalmente qualificado é, .
+A imagem de contêiner de [fala em texto][sp-stt] pode ser encontrada no registro `containerpreview.azurecr.io` de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-speech-to-text`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                  | Observações                                    |
+| Marcas de imagem                  | Observações                                    |
 |-----------------------------|:-----------------------------------------|
-| `latest`                    | Imagem do `en-US` contêiner com o local. |
-| `2.1.1-amd64-ar-ae-preview` | Imagem do `ar-AE` contêiner com o local. |
-| `2.1.1-amd64-ar-eg-preview` | Imagem do `ar-EG` contêiner com o local. |
-| `2.1.1-amd64-ar-kw-preview` | Imagem do `ar-KW` contêiner com o local. |
-| `2.1.1-amd64-ar-qa-preview` | Imagem do `ar-QA` contêiner com o local. |
-| `2.1.1-amd64-ar-sa-preview` | Imagem do `ar-SA` contêiner com o local. |
-| `2.1.1-amd64-ca-es-preview` | Imagem do `ca-ES` contêiner com o local. |
-| `2.1.1-amd64-da-dk-preview` | Imagem do `da-DK` contêiner com o local. |
-| `2.1.1-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `2.1.1-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `2.1.1-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `2.1.1-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `2.1.1-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `2.1.1-amd64-en-nz-preview` | Imagem do `en-NZ` contêiner com o local. |
-| `2.1.1-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `2.1.1-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `2.1.1-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `2.1.1-amd64-fi-fi-preview` | Imagem do `fi-FI` contêiner com o local. |
-| `2.1.1-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `2.1.1-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `2.1.1-amd64-gu-in-preview` | Imagem do `gu-IN` contêiner com o local. |
-| `2.1.1-amd64-hi-in-preview` | Imagem do `hi-IN` contêiner com o local. |
-| `2.1.1-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `2.1.1-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.1.1-amd64-ko-kr-preview` | Imagem do `ko-KR` contêiner com o local. |
-| `2.1.1-amd64-mr-in-preview` | Imagem do `mr-IN` contêiner com o local. |
-| `2.1.1-amd64-nb-no-preview` | Imagem do `nb-NO` contêiner com o local. |
-| `2.1.1-amd64-nl-nl-preview` | Imagem do `nl-NL` contêiner com o local. |
-| `2.1.1-amd64-pl-pl-preview` | Imagem do `pl-PL` contêiner com o local. |
-| `2.1.1-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `2.1.1-amd64-pt-pt-preview` | Imagem do `pt-PT` contêiner com o local. |
-| `2.1.1-amd64-ru-ru-preview` | Imagem do `ru-RU` contêiner com o local. |
-| `2.1.1-amd64-sv-se-preview` | Imagem do `sv-SE` contêiner com o local. |
-| `2.1.1-amd64-ta-in-preview` | Imagem do `ta-IN` contêiner com o local. |
-| `2.1.1-amd64-te-in-preview` | Imagem do `te-IN` contêiner com o local. |
-| `2.1.1-amd64-th-th-preview` | Imagem do `th-TH` contêiner com o local. |
-| `2.1.1-amd64-tr-tr-preview` | Imagem do `tr-TR` contêiner com o local. |
-| `2.1.1-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `2.1.1-amd64-zh-hk-preview` | Imagem do `zh-HK` contêiner com o local. |
-| `2.1.1-amd64-zh-tw-preview` | Imagem do `zh-TW` contêiner com o local. |
-| `2.1.0-amd64-ar-ae-preview` | Imagem do `ar-AE` contêiner com o local. |
-| `2.1.0-amd64-ar-eg-preview` | Imagem do `ar-EG` contêiner com o local. |
-| `2.1.0-amd64-ar-kw-preview` | Imagem do `ar-KW` contêiner com o local. |
-| `2.1.0-amd64-ar-qa-preview` | Imagem do `ar-QA` contêiner com o local. |
-| `2.1.0-amd64-ar-sa-preview` | Imagem do `ar-SA` contêiner com o local. |
-| `2.1.0-amd64-ca-es-preview` | Imagem do `ca-ES` contêiner com o local. |
-| `2.1.0-amd64-da-dk-preview` | Imagem do `da-DK` contêiner com o local. |
-| `2.1.0-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `2.1.0-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `2.1.0-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `2.1.0-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `2.1.0-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `2.1.0-amd64-en-nz-preview` | Imagem do `en-NZ` contêiner com o local. |
-| `2.1.0-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `2.1.0-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `2.1.0-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `2.1.0-amd64-fi-fi-preview` | Imagem do `fi-FI` contêiner com o local. |
-| `2.1.0-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `2.1.0-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `2.1.0-amd64-gu-in-preview` | Imagem do `gu-IN` contêiner com o local. |
-| `2.1.0-amd64-hi-in-preview` | Imagem do `hi-IN` contêiner com o local. |
-| `2.1.0-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `2.1.0-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.1.0-amd64-ko-kr-preview` | Imagem do `ko-KR` contêiner com o local. |
-| `2.1.0-amd64-mr-in-preview` | Imagem do `mr-IN` contêiner com o local. |
-| `2.1.0-amd64-nb-no-preview` | Imagem do `nb-NO` contêiner com o local. |
-| `2.1.0-amd64-nl-nl-preview` | Imagem do `nl-NL` contêiner com o local. |
-| `2.1.0-amd64-pl-pl-preview` | Imagem do `pl-PL` contêiner com o local. |
-| `2.1.0-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `2.1.0-amd64-pt-pt-preview` | Imagem do `pt-PT` contêiner com o local. |
-| `2.1.0-amd64-ru-ru-preview` | Imagem do `ru-RU` contêiner com o local. |
-| `2.1.0-amd64-sv-se-preview` | Imagem do `sv-SE` contêiner com o local. |
-| `2.1.0-amd64-ta-in-preview` | Imagem do `ta-IN` contêiner com o local. |
-| `2.1.0-amd64-te-in-preview` | Imagem do `te-IN` contêiner com o local. |
-| `2.1.0-amd64-th-th-preview` | Imagem do `th-TH` contêiner com o local. |
-| `2.1.0-amd64-tr-tr-preview` | Imagem do `tr-TR` contêiner com o local. |
-| `2.1.0-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `2.1.0-amd64-zh-hk-preview` | Imagem do `zh-HK` contêiner com o local. |
-| `2.1.0-amd64-zh-tw-preview` | Imagem do `zh-TW` contêiner com o local. |
-| `2.0.3-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.0.2-amd64-ar-ae-preview` | Imagem do `ar-AE` contêiner com o local. |
-| `2.0.2-amd64-ar-eg-preview` | Imagem do `ar-EG` contêiner com o local. |
-| `2.0.2-amd64-ar-kw-preview` | Imagem do `ar-KW` contêiner com o local. |
-| `2.0.2-amd64-ar-qa-preview` | Imagem do `ar-QA` contêiner com o local. |
-| `2.0.2-amd64-ar-sa-preview` | Imagem do `ar-SA` contêiner com o local. |
-| `2.0.2-amd64-ca-es-preview` | Imagem do `ca-ES` contêiner com o local. |
-| `2.0.2-amd64-da-dk-preview` | Imagem do `da-DK` contêiner com o local. |
-| `2.0.2-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `2.0.2-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `2.0.2-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `2.0.2-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `2.0.2-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `2.0.2-amd64-en-nz-preview` | Imagem do `en-NZ` contêiner com o local. |
-| `2.0.2-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `2.0.2-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `2.0.2-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `2.0.2-amd64-fi-fi-preview` | Imagem do `fi-FI` contêiner com o local. |
-| `2.0.2-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `2.0.2-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `2.0.2-amd64-gu-in-preview` | Imagem do `gu-IN` contêiner com o local. |
-| `2.0.2-amd64-hi-in-preview` | Imagem do `hi-IN` contêiner com o local. |
-| `2.0.2-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `2.0.2-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.0.2-amd64-ko-kr-preview` | Imagem do `ko-KR` contêiner com o local. |
-| `2.0.2-amd64-mr-in-preview` | Imagem do `mr-IN` contêiner com o local. |
-| `2.0.2-amd64-nb-no-preview` | Imagem do `nb-NO` contêiner com o local. |
-| `2.0.2-amd64-nl-nl-preview` | Imagem do `nl-NL` contêiner com o local. |
-| `2.0.2-amd64-pl-pl-preview` | Imagem do `pl-PL` contêiner com o local. |
-| `2.0.2-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `2.0.2-amd64-pt-pt-preview` | Imagem do `pt-PT` contêiner com o local. |
-| `2.0.2-amd64-ru-ru-preview` | Imagem do `ru-RU` contêiner com o local. |
-| `2.0.2-amd64-sv-se-preview` | Imagem do `sv-SE` contêiner com o local. |
-| `2.0.2-amd64-ta-in-preview` | Imagem do `ta-IN` contêiner com o local. |
-| `2.0.2-amd64-te-in-preview` | Imagem do `te-IN` contêiner com o local. |
-| `2.0.2-amd64-th-th-preview` | Imagem do `th-TH` contêiner com o local. |
-| `2.0.2-amd64-tr-tr-preview` | Imagem do `tr-TR` contêiner com o local. |
-| `2.0.2-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `2.0.2-amd64-zh-hk-preview` | Imagem do `zh-HK` contêiner com o local. |
-| `2.0.2-amd64-zh-tw-preview` | Imagem do `zh-TW` contêiner com o local. |
-| `2.0.1-amd64-ar-ae-preview` | Imagem do `ar-AE` contêiner com o local. |
-| `2.0.1-amd64-ar-eg-preview` | Imagem do `ar-EG` contêiner com o local. |
-| `2.0.1-amd64-ar-kw-preview` | Imagem do `ar-KW` contêiner com o local. |
-| `2.0.1-amd64-ar-qa-preview` | Imagem do `ar-QA` contêiner com o local. |
-| `2.0.1-amd64-ar-sa-preview` | Imagem do `ar-SA` contêiner com o local. |
-| `2.0.1-amd64-ca-es-preview` | Imagem do `ca-ES` contêiner com o local. |
-| `2.0.1-amd64-da-dk-preview` | Imagem do `da-DK` contêiner com o local. |
-| `2.0.1-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `2.0.1-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `2.0.1-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `2.0.1-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `2.0.1-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `2.0.1-amd64-en-nz-preview` | Imagem do `en-NZ` contêiner com o local. |
-| `2.0.1-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `2.0.1-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `2.0.1-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `2.0.1-amd64-fi-fi-preview` | Imagem do `fi-FI` contêiner com o local. |
-| `2.0.1-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `2.0.1-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `2.0.1-amd64-gu-in-preview` | Imagem do `gu-IN` contêiner com o local. |
-| `2.0.1-amd64-hi-in-preview` | Imagem do `hi-IN` contêiner com o local. |
-| `2.0.1-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `2.0.1-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.0.1-amd64-ko-kr-preview` | Imagem do `ko-KR` contêiner com o local. |
-| `2.0.1-amd64-mr-in-preview` | Imagem do `mr-IN` contêiner com o local. |
-| `2.0.1-amd64-nb-no-preview` | Imagem do `nb-NO` contêiner com o local. |
-| `2.0.1-amd64-nl-nl-preview` | Imagem do `nl-NL` contêiner com o local. |
-| `2.0.1-amd64-pl-pl-preview` | Imagem do `pl-PL` contêiner com o local. |
-| `2.0.1-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `2.0.1-amd64-pt-pt-preview` | Imagem do `pt-PT` contêiner com o local. |
-| `2.0.1-amd64-ru-ru-preview` | Imagem do `ru-RU` contêiner com o local. |
-| `2.0.1-amd64-sv-se-preview` | Imagem do `sv-SE` contêiner com o local. |
-| `2.0.1-amd64-ta-in-preview` | Imagem do `ta-IN` contêiner com o local. |
-| `2.0.1-amd64-te-in-preview` | Imagem do `te-IN` contêiner com o local. |
-| `2.0.1-amd64-th-th-preview` | Imagem do `th-TH` contêiner com o local. |
-| `2.0.1-amd64-tr-tr-preview` | Imagem do `tr-TR` contêiner com o local. |
-| `2.0.1-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `2.0.1-amd64-zh-hk-preview` | Imagem do `zh-HK` contêiner com o local. |
-| `2.0.1-amd64-zh-tw-preview` | Imagem do `zh-TW` contêiner com o local. |
-| `2.0.0-amd64-ar-eg-preview` | Imagem do `ar-EG` contêiner com o local. |
-| `2.0.0-amd64-ca-es-preview` | Imagem do `ca-ES` contêiner com o local. |
-| `2.0.0-amd64-da-dk-preview` | Imagem do `da-DK` contêiner com o local. |
-| `2.0.0-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `2.0.0-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `2.0.0-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `2.0.0-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `2.0.0-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `2.0.0-amd64-en-nz-preview` | Imagem do `en-NZ` contêiner com o local. |
-| `2.0.0-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `2.0.0-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `2.0.0-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `2.0.0-amd64-fi-fi-preview` | Imagem do `fi-FI` contêiner com o local. |
-| `2.0.0-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `2.0.0-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `2.0.0-amd64-hi-in-preview` | Imagem do `hi-IN` contêiner com o local. |
-| `2.0.0-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `2.0.0-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `2.0.0-amd64-ko-kr-preview` | Imagem do `ko-KR` contêiner com o local. |
-| `2.0.0-amd64-nb-no-preview` | Imagem do `nb-NO` contêiner com o local. |
-| `2.0.0-amd64-nl-nl-preview` | Imagem do `nl-NL` contêiner com o local. |
-| `2.0.0-amd64-pl-pl-preview` | Imagem do `pl-PL` contêiner com o local. |
-| `2.0.0-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `2.0.0-amd64-pt-pt-preview` | Imagem do `pt-PT` contêiner com o local. |
-| `2.0.0-amd64-ru-ru-preview` | Imagem do `ru-RU` contêiner com o local. |
-| `2.0.0-amd64-sv-se-preview` | Imagem do `sv-SE` contêiner com o local. |
-| `2.0.0-amd64-th-th-preview` | Imagem do `th-TH` contêiner com o local. |
-| `2.0.0-amd64-tr-tr-preview` | Imagem do `tr-TR` contêiner com o local. |
-| `2.0.0-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `2.0.0-amd64-zh-hk-preview` | Imagem do `zh-HK` contêiner com o local. |
-| `2.0.0-amd64-zh-tw-preview` | Imagem do `zh-TW` contêiner com o local. |
-| `1.2.0-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.2.0-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.2.0-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.2.0-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.2.0-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.2.0-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.2.0-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.2.0-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.2.0-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.2.0-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.2.0-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.2.0-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.2.0-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.2.0-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `1.1.3-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.1.3-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.1.3-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.1.3-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.1.3-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.1.3-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.1.3-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.1.3-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.1.3-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.1.3-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.1.3-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.1.3-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.1.3-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.1.3-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `1.1.2-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.1.2-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.1.2-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.1.2-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.1.2-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.1.2-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.1.2-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.1.2-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.1.2-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.1.2-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.1.2-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.1.2-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.1.2-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.1.2-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `1.1.1-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.1.1-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.1.1-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.1.1-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.1.1-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.1.1-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.1.1-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.1.1-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.1.1-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.1.1-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.1.1-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.1.1-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.1.1-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.1.1-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `1.1.0-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.1.0-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.1.0-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.1.0-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.1.0-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.1.0-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.1.0-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.1.0-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.1.0-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.1.0-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.1.0-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.1.0-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.1.0-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.1.0-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
-| `1.0.0-amd64-de-de-preview` | Imagem do `de-DE` contêiner com o local. |
-| `1.0.0-amd64-en-au-preview` | Imagem do `en-AU` contêiner com o local. |
-| `1.0.0-amd64-en-ca-preview` | Imagem do `en-CA` contêiner com o local. |
-| `1.0.0-amd64-en-gb-preview` | Imagem do `en-GB` contêiner com o local. |
-| `1.0.0-amd64-en-in-preview` | Imagem do `en-IN` contêiner com o local. |
-| `1.0.0-amd64-en-us-preview` | Imagem do `en-US` contêiner com o local. |
-| `1.0.0-amd64-es-es-preview` | Imagem do `es-ES` contêiner com o local. |
-| `1.0.0-amd64-es-mx-preview` | Imagem do `es-MX` contêiner com o local. |
-| `1.0.0-amd64-fr-ca-preview` | Imagem do `fr-CA` contêiner com o local. |
-| `1.0.0-amd64-fr-fr-preview` | Imagem do `fr-FR` contêiner com o local. |
-| `1.0.0-amd64-it-it-preview` | Imagem do `it-IT` contêiner com o local. |
-| `1.0.0-amd64-ja-jp-preview` | Imagem do `ja-JP` contêiner com o local. |
-| `1.0.0-amd64-pt-br-preview` | Imagem do `pt-BR` contêiner com o local. |
-| `1.0.0-amd64-zh-cn-preview` | Imagem do `zh-CN` contêiner com o local. |
+| `latest`                    | Imagem de contêiner com `en-US` a localidade. |
+| `2.1.1-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
+| `2.1.1-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.1.1-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
+| `2.1.1-amd64-ar-qa-preview` | Imagem de contêiner com `ar-QA` a localidade. |
+| `2.1.1-amd64-ar-sa-preview` | Imagem de contêiner com `ar-SA` a localidade. |
+| `2.1.1-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.1.1-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.1.1-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.1.1-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.1.1-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.1.1-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.1.1-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.1.1-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.1.1-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.1.1-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.1.1-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.1.1-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.1.1-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.1.1-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.1.1-amd64-gu-in-preview` | Imagem de contêiner com `gu-IN` a localidade. |
+| `2.1.1-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.1.1-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.1.1-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.1.1-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.1.1-amd64-mr-in-preview` | Imagem de contêiner com `mr-IN` a localidade. |
+| `2.1.1-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.1.1-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.1.1-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.1.1-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.1.1-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.1.1-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.1.1-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.1.1-amd64-ta-in-preview` | Imagem de contêiner com `ta-IN` a localidade. |
+| `2.1.1-amd64-te-in-preview` | Imagem de contêiner com `te-IN` a localidade. |
+| `2.1.1-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.1.1-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.1.1-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.1.1-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.1.1-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `2.1.0-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
+| `2.1.0-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.1.0-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
+| `2.1.0-amd64-ar-qa-preview` | Imagem de contêiner com `ar-QA` a localidade. |
+| `2.1.0-amd64-ar-sa-preview` | Imagem de contêiner com `ar-SA` a localidade. |
+| `2.1.0-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.1.0-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.1.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.1.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.1.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.1.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.1.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.1.0-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.1.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.1.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.1.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.1.0-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.1.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.1.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.1.0-amd64-gu-in-preview` | Imagem de contêiner com `gu-IN` a localidade. |
+| `2.1.0-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.1.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.1.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.1.0-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.1.0-amd64-mr-in-preview` | Imagem de contêiner com `mr-IN` a localidade. |
+| `2.1.0-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.1.0-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.1.0-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.1.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.1.0-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.1.0-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.1.0-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.1.0-amd64-ta-in-preview` | Imagem de contêiner com `ta-IN` a localidade. |
+| `2.1.0-amd64-te-in-preview` | Imagem de contêiner com `te-IN` a localidade. |
+| `2.1.0-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.1.0-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.1.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.1.0-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.1.0-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `2.0.3-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.0.2-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
+| `2.0.2-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.0.2-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
+| `2.0.2-amd64-ar-qa-preview` | Imagem de contêiner com `ar-QA` a localidade. |
+| `2.0.2-amd64-ar-sa-preview` | Imagem de contêiner com `ar-SA` a localidade. |
+| `2.0.2-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.0.2-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.0.2-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.0.2-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.0.2-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.0.2-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.0.2-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.0.2-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.0.2-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.0.2-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.0.2-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.0.2-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.0.2-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.0.2-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.0.2-amd64-gu-in-preview` | Imagem de contêiner com `gu-IN` a localidade. |
+| `2.0.2-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.0.2-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.0.2-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.0.2-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.0.2-amd64-mr-in-preview` | Imagem de contêiner com `mr-IN` a localidade. |
+| `2.0.2-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.0.2-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.0.2-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.0.2-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.0.2-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.0.2-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.0.2-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.0.2-amd64-ta-in-preview` | Imagem de contêiner com `ta-IN` a localidade. |
+| `2.0.2-amd64-te-in-preview` | Imagem de contêiner com `te-IN` a localidade. |
+| `2.0.2-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.0.2-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.0.2-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.0.2-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.0.2-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `2.0.1-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
+| `2.0.1-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.0.1-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
+| `2.0.1-amd64-ar-qa-preview` | Imagem de contêiner com `ar-QA` a localidade. |
+| `2.0.1-amd64-ar-sa-preview` | Imagem de contêiner com `ar-SA` a localidade. |
+| `2.0.1-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.0.1-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.0.1-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.0.1-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.0.1-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.0.1-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.0.1-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.0.1-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.0.1-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.0.1-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.0.1-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.0.1-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.0.1-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.0.1-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.0.1-amd64-gu-in-preview` | Imagem de contêiner com `gu-IN` a localidade. |
+| `2.0.1-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.0.1-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.0.1-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.0.1-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.0.1-amd64-mr-in-preview` | Imagem de contêiner com `mr-IN` a localidade. |
+| `2.0.1-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.0.1-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.0.1-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.0.1-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.0.1-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.0.1-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.0.1-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.0.1-amd64-ta-in-preview` | Imagem de contêiner com `ta-IN` a localidade. |
+| `2.0.1-amd64-te-in-preview` | Imagem de contêiner com `te-IN` a localidade. |
+| `2.0.1-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.0.1-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.0.1-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.0.1-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.0.1-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `2.0.0-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.0.0-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.0.0-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.0.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.0.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.0.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.0.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.0.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.0.0-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.0.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.0.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.0.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.0.0-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.0.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.0.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.0.0-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.0.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.0.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.0.0-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.0.0-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.0.0-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.0.0-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.0.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.0.0-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.0.0-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.0.0-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.0.0-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.0.0-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.0.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.0.0-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.0.0-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `1.2.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.2.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.2.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.2.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.2.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.2.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.2.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.2.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.2.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.2.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.2.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.2.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.2.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.2.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `1.1.3-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.1.3-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.1.3-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.1.3-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.1.3-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.1.3-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.1.3-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.1.3-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.1.3-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.1.3-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.1.3-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.1.3-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.1.3-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.1.3-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `1.1.2-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.1.2-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.1.2-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.1.2-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.1.2-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.1.2-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.1.2-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.1.2-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.1.2-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.1.2-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.1.2-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.1.2-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.1.2-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.1.2-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `1.1.1-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.1.1-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.1.1-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.1.1-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.1.1-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.1.1-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.1.1-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.1.1-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.1.1-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.1.1-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.1.1-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.1.1-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.1.1-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.1.1-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `1.1.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.1.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.1.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.1.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.1.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.1.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.1.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.1.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.1.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.1.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.1.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.1.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.1.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.1.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `1.0.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `1.0.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `1.0.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `1.0.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `1.0.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `1.0.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `1.0.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `1.0.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `1.0.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `1.0.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `1.0.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `1.0.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `1.0.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `1.0.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 
-A imagem do contêiner [texto-para-fala][sp-tts] pode ser encontrada no registro do `containerpreview.azurecr.io` contêiner. Ele reside dentro `microsoft` do repositório `cognitive-services-text-to-speech`e é nomeado . O nome da imagem `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`do contêiner totalmente qualificado é, .
+A imagem de contêiner de [conversão de texto em fala][sp-tts] pode ser encontrada `containerpreview.azurecr.io` no registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-text-to-speech`. O nome da imagem de contêiner totalmente qualificado `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                                  | Observações                                                                      |
+| Marcas de imagem                                  | Observações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Imagem do `en-US` contêiner com `en-US-JessaRUS` a localização e a voz.        |
-| `1.3.0-amd64-ar-eg-hoda-preview`            | Imagem do `ar-EG` contêiner com `ar-EG-Hoda` a localização e a voz.            |
-| `1.3.0-amd64-ar-sa-naayf-preview`           | Imagem do `ar-SA` contêiner com `ar-SA-Naayf` a localização e a voz.           |
-| `1.3.0-amd64-bg-bg-ivan-preview`            | Imagem do `bg-BG` contêiner com `bg-BG-Ivan` a localização e a voz.            |
-| `1.3.0-amd64-ca-es-herenarus-preview`       | Imagem do `ca-ES` contêiner com `ca-ES-HerenaRUS` a localização e a voz.       |
-| `1.3.0-amd64-cs-cz-jakub-preview`           | Imagem do `cs-CZ` contêiner com `cs-CZ-Jakub` a localização e a voz.           |
-| `1.3.0-amd64-da-dk-hellerus-preview`        | Imagem do `da-DK` contêiner com `da-DK-HelleRUS` a localização e a voz.        |
-| `1.3.0-amd64-de-at-michael-preview`         | Imagem do `de-AT` contêiner com `de-AT-Michael` a localização e a voz.         |
-| `1.3.0-amd64-de-ch-karsten-preview`         | Imagem do `de-CH` contêiner com `de-CH-Karsten` a localização e a voz.         |
-| `1.3.0-amd64-de-de-hedda-preview`           | Imagem do `de-DE` contêiner com `de-DE-Hedda` a localização e a voz.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-Hedda` a localização e a voz.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-HeddaRUS` a localização e a voz.        |
-| `1.3.0-amd64-de-de-stefan-apollo-preview`   | Imagem do `de-DE` contêiner com `de-DE-Stefan-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-el-gr-stefanos-preview`        | Imagem do `el-GR` contêiner com `el-GR-Stefanos` a localização e a voz.        |
-| `1.3.0-amd64-en-au-catherine-preview`       | Imagem do `en-AU` contêiner com `en-AU-Catherine` a localização e a voz.       |
-| `1.3.0-amd64-en-au-hayleyrus-preview`       | Imagem do `en-AU` contêiner com `en-AU-HayleyRUS` a localização e a voz.       |
-| `1.3.0-amd64-en-ca-heatherrus-preview`      | Imagem do `en-CA` contêiner com `en-CA-HeatherRUS` a localização e a voz.      |
-| `1.3.0-amd64-en-ca-linda-preview`           | Imagem do `en-CA` contêiner com `en-CA-Linda` a localização e a voz.           |
-| `1.3.0-amd64-en-gb-george-apollo-preview`   | Imagem do `en-GB` contêiner com `en-GB-George-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-en-gb-hazelrus-preview`        | Imagem do `en-GB` contêiner com `en-GB-HazelRUS` a localização e a voz.        |
-| `1.3.0-amd64-en-gb-susan-apollo-preview`    | Imagem do `en-GB` contêiner com `en-GB-Susan-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-en-ie-sean-preview`            | Imagem do `en-IE` contêiner com `en-IE-Sean` a localização e a voz.            |
-| `1.3.0-amd64-en-in-heera-apollo-preview`    | Imagem do `en-IN` contêiner com `en-IN-Heera-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-en-in-priyarus-preview`        | Imagem do `en-IN` contêiner com `en-IN-PriyaRUS` a localização e a voz.        |
-| `1.3.0-amd64-en-in-ravi-apollo-preview`     | Imagem do `en-IN` contêiner com `en-IN-Ravi-Apollo` a localização e a voz.     |
-| `1.3.0-amd64-en-us-benjaminrus-preview`     | Imagem do `en-US` contêiner com `en-US-BenjaminRUS` a localização e a voz.     |
-| `1.3.0-amd64-en-us-guy24krus-preview`       | Imagem do `en-US` contêiner com `en-US-Guy24kRUS` a localização e a voz.       |
-| `1.3.0-amd64-en-us-jessa24krus-preview`     | Imagem do `en-US` contêiner com `en-US-Jessa24kRUS` a localização e a voz.     |
-| `1.3.0-amd64-en-us-jessarus-preview`        | Imagem do `en-US` contêiner com `en-US-JessaRUS` a localização e a voz.        |
-| `1.3.0-amd64-en-us-zirarus-preview`         | Imagem do `en-US` contêiner com `en-US-ZiraRUS` a localização e a voz.         |
-| `1.3.0-amd64-es-es-helenarus-preview`       | Imagem do `es-ES` contêiner com `es-ES-HelenaRUS` a localização e a voz.       |
-| `1.3.0-amd64-es-es-laura-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Laura-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-es-es-pablo-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Pablo-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-es-mx-hildarus-preview`        | Imagem do `es-MX` contêiner com `es-MX-HildaRUS` a localização e a voz.        |
-| `1.3.0-amd64-es-mx-raul-apollo-preview`     | Imagem do `es-MX` contêiner com `es-MX-Raul-Apollo` a localização e a voz.     |
-| `1.3.0-amd64-fi-fi-heidirus-preview`        | Imagem do `fi-FI` contêiner com `fi-FI-HeidiRUS` a localização e a voz.        |
-| `1.3.0-amd64-fr-ca-caroline-preview`        | Imagem do `fr-CA` contêiner com `fr-CA-Caroline` a localização e a voz.        |
-| `1.3.0-amd64-fr-ca-harmonierus-preview`     | Imagem do `fr-CA` contêiner com `fr-CA-HarmonieRUS` a localização e a voz.     |
-| `1.3.0-amd64-fr-ch-guillaume-preview`       | Imagem do `fr-CH` contêiner com `fr-CH-Guillaume` a localização e a voz.       |
-| `1.3.0-amd64-fr-fr-hortenserus-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-HortenseRUS` a localização e a voz.     |
-| `1.3.0-amd64-fr-fr-julie-apollo-preview`    | Imagem do `fr-FR` contêiner com `fr-FR-Julie-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-Paul-Apollo` a localização e a voz.     |
-| `1.3.0-amd64-he-il-asaf-preview`            | Imagem do `he-IL` contêiner com `he-IL-Asaf` a localização e a voz.            |
-| `1.3.0-amd64-hi-in-hemant-preview`          | Imagem do `hi-IN` contêiner com `hi-IN-Hemant` a localização e a voz.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem do `hi-IN` contêiner com `hi-IN-Kalpana-Apollo` a localização e a voz.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem do `hi-IN` contêiner com `hi-IN-Kalpana` a localização e a voz.         |
-| `1.3.0-amd64-hi-in-kalpana-preview`         | Imagem do `hi-IN` contêiner com `hi-IN-Kalpana` a localização e a voz.         |
-| `1.3.0-amd64-hr-hr-matej-preview`           | Imagem do `hr-HR` contêiner com `hr-HR-Matej` a localização e a voz.           |
-| `1.3.0-amd64-hu-hu-szabolcs-preview`        | Imagem do `hu-HU` contêiner com `hu-HU-Szabolcs` a localização e a voz.        |
-| `1.3.0-amd64-id-id-andika-preview`          | Imagem do `id-ID` contêiner com `id-ID-Andika` a localização e a voz.          |
-| `1.3.0-amd64-it-it-cosimo-apollo-preview`   | Imagem do `it-IT` contêiner com `it-IT-Cosimo-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-it-it-luciarus-preview`        | Imagem do `it-IT` contêiner com `it-IT-LuciaRUS` a localização e a voz.        |
-| `1.3.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem do `ja-JP` contêiner com `ja-JP-Ayumi-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-ja-jp-harukarus-preview`       | Imagem do `ja-JP` contêiner com `ja-JP-HarukaRUS` a localização e a voz.       |
-| `1.3.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem do `ja-JP` contêiner com `ja-JP-Ichiro-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-ko-kr-heamirus-preview`        | Imagem do `ko-KR` contêiner com `ko-KR-HeamiRUS` a localização e a voz.        |
-| `1.3.0-amd64-ms-my-rizwan-preview`          | Imagem do `ms-MY` contêiner com `ms-MY-Rizwan` a localização e a voz.          |
-| `1.3.0-amd64-nb-no-huldarus-preview`        | Imagem do `nb-NO` contêiner com `nb-NO-HuldaRUS` a localização e a voz.        |
-| `1.3.0-amd64-nl-nl-hannarus-preview`        | Imagem do `nl-NL` contêiner com `nl-NL-HannaRUS` a localização e a voz.        |
-| `1.3.0-amd64-pl-pl-paulinarus-preview`      | Imagem do `pl-PL` contêiner com `pl-PL-PaulinaRUS` a localização e a voz.      |
-| `1.3.0-amd64-pt-br-daniel-apollo-preview`   | Imagem do `pt-BR` contêiner com `pt-BR-Daniel-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-pt-br-heloisarus-preview`      | Imagem do `pt-BR` contêiner com `pt-BR-HeloisaRUS` a localização e a voz.      |
-| `1.3.0-amd64-pt-pt-heliarus-preview`        | Imagem do `pt-PT` contêiner com `pt-PT-HeliaRUS` a localização e a voz.        |
-| `1.3.0-amd64-ro-ro-andrei-preview`          | Imagem do `ro-RO` contêiner com `ro-RO-Andrei` a localização e a voz.          |
-| `1.3.0-amd64-ru-ru-ekaterinarus-preview`    | Imagem do `ru-RU` contêiner com `ru-RU-EkaterinaRUS` a localização e a voz.    |
-| `1.3.0-amd64-ru-ru-irina-apollo-preview`    | Imagem do `ru-RU` contêiner com `ru-RU-Irina-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-ru-ru-pavel-apollo-preview`    | Imagem do `ru-RU` contêiner com `ru-RU-Pavel-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-sk-sk-filip-preview`           | Imagem do `sk-SK` contêiner com `sk-SK-Filip` a localização e a voz.           |
-| `1.3.0-amd64-sl-si-lado-preview`            | Imagem do `sl-SI` contêiner com `sl-SI-Lado` a localização e a voz.            |
-| `1.3.0-amd64-sv-se-hedvigrus-preview`       | Imagem do `sv-SE` contêiner com `sv-SE-HedvigRUS` a localização e a voz.       |
-| `1.3.0-amd64-ta-in-valluvar-preview`        | Imagem do `ta-IN` contêiner com `ta-IN-Valluvar` a localização e a voz.        |
-| `1.3.0-amd64-te-in-chitra-preview`          | Imagem do `te-IN` contêiner com `te-IN-Chitra` a localização e a voz.          |
-| `1.3.0-amd64-th-th-pattara-preview`         | Imagem do `th-TH` contêiner com `th-TH-Pattara` a localização e a voz.         |
-| `1.3.0-amd64-tr-tr-sedarus-preview`         | Imagem do `tr-TR` contêiner com `tr-TR-SedaRUS` a localização e a voz.         |
-| `1.3.0-amd64-vi-vn-an-preview`              | Imagem do `vi-VN` contêiner com `vi-VN-An` a localização e a voz.              |
-| `1.3.0-amd64-zh-cn-huihuirus-preview`       | Imagem do `zh-CN` contêiner com `zh-CN-HuihuiRUS` a localização e a voz.       |
-| `1.3.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem do `zh-CN` contêiner com `zh-CN-Kangkang-Apollo` a localização e a voz. |
-| `1.3.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem do `zh-CN` contêiner com `zh-CN-Yaoyao-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-zh-hk-danny-apollo-preview`    | Imagem do `zh-HK` contêiner com `zh-HK-Danny-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-zh-hk-tracy-apollo-preview`    | Imagem do `zh-HK` contêiner com `zh-HK-Tracy-Apollo` a localização e a voz.    |
-| `1.3.0-amd64-zh-hk-tracyrus-preview`        | Imagem do `zh-HK` contêiner com `zh-HK-TracyRUS` a localização e a voz.        |
-| `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Imagem do `zh-TW` contêiner com `zh-TW-HanHanRUS` a localização e a voz.       |
-| `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Imagem do `zh-TW` contêiner com `zh-TW-Yating-Apollo` a localização e a voz.   |
-| `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem do `zh-TW` contêiner com `zh-TW-Zhiwei-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-Hedda` a localização e a voz.           |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-HeddaRUS` a localização e a voz.        |
-| `1.2.0-amd64-de-de-stefan-apollo-preview`   | Imagem do `de-DE` contêiner com `de-DE-Stefan-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-en-au-catherine-preview`       | Imagem do `en-AU` contêiner com `en-AU-Catherine` a localização e a voz.       |
-| `1.2.0-amd64-en-au-hayleyrus-preview`       | Imagem do `en-AU` contêiner com `en-AU-HayleyRUS` a localização e a voz.       |
-| `1.2.0-amd64-en-gb-george-apollo-preview`   | Imagem do `en-GB` contêiner com `en-GB-George-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-en-gb-hazelrus-preview`        | Imagem do `en-GB` contêiner com `en-GB-HazelRUS` a localização e a voz.        |
-| `1.2.0-amd64-en-gb-susan-apollo-preview`    | Imagem do `en-GB` contêiner com `en-GB-Susan-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-en-in-heera-apollo-preview`    | Imagem do `en-IN` contêiner com `en-IN-Heera-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-en-in-priyarus-preview`        | Imagem do `en-IN` contêiner com `en-IN-PriyaRUS` a localização e a voz.        |
-| `1.2.0-amd64-en-in-ravi-apollo-preview`     | Imagem do `en-IN` contêiner com `en-IN-Ravi-Apollo` a localização e a voz.     |
-| `1.2.0-amd64-en-us-benjaminrus-preview`     | Imagem do `en-US` contêiner com `en-US-BenjaminRUS` a localização e a voz.     |
-| `1.2.0-amd64-en-us-guy24krus-preview`       | Imagem do `en-US` contêiner com `en-US-Guy24kRUS` a localização e a voz.       |
-| `1.2.0-amd64-en-us-jessa24krus-preview`     | Imagem do `en-US` contêiner com `en-US-Jessa24kRUS` a localização e a voz.     |
-| `1.2.0-amd64-en-us-jessarus-preview`        | Imagem do `en-US` contêiner com `en-US-JessaRUS` a localização e a voz.        |
-| `1.2.0-amd64-en-us-zirarus-preview`         | Imagem do `en-US` contêiner com `en-US-ZiraRUS` a localização e a voz.         |
-| `1.2.0-amd64-es-es-helenarus-preview`       | Imagem do `es-ES` contêiner com `es-ES-HelenaRUS` a localização e a voz.       |
-| `1.2.0-amd64-es-es-laura-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Laura-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-es-es-pablo-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Pablo-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-es-mx-hildarus-preview`        | Imagem do `es-MX` contêiner com `es-MX-HildaRUS` a localização e a voz.        |
-| `1.2.0-amd64-es-mx-raul-apollo-preview`     | Imagem do `es-MX` contêiner com `es-MX-Raul-Apollo` a localização e a voz.     |
-| `1.2.0-amd64-fr-ca-caroline-preview`        | Imagem do `fr-CA` contêiner com `fr-CA-Caroline` a localização e a voz.        |
-| `1.2.0-amd64-fr-ca-harmonierus-preview`     | Imagem do `fr-CA` contêiner com `fr-CA-HarmonieRUS` a localização e a voz.     |
-| `1.2.0-amd64-fr-fr-hortenserus-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-HortenseRUS` a localização e a voz.     |
-| `1.2.0-amd64-fr-fr-julie-apollo-preview`    | Imagem do `fr-FR` contêiner com `fr-FR-Julie-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-fr-fr-paul-apollo-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-Paul-Apollo` a localização e a voz.     |
-| `1.2.0-amd64-it-it-cosimo-apollo-preview`   | Imagem do `it-IT` contêiner com `it-IT-Cosimo-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-it-it-luciarus-preview`        | Imagem do `it-IT` contêiner com `it-IT-LuciaRUS` a localização e a voz.        |
-| `1.2.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem do `ja-JP` contêiner com `ja-JP-Ayumi-Apollo` a localização e a voz.    |
-| `1.2.0-amd64-ja-jp-harukarus-preview`       | Imagem do `ja-JP` contêiner com `ja-JP-HarukaRUS` a localização e a voz.       |
-| `1.2.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem do `ja-JP` contêiner com `ja-JP-Ichiro-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-ko-kr-heamirus-preview`        | Imagem do `ko-KR` contêiner com `ko-KR-HeamiRUS` a localização e a voz.        |
-| `1.2.0-amd64-pt-br-daniel-apollo-preview`   | Imagem do `pt-BR` contêiner com `pt-BR-Daniel-Apollo` a localização e a voz.   |
-| `1.2.0-amd64-pt-br-heloisarus-preview`      | Imagem do `pt-BR` contêiner com `pt-BR-HeloisaRUS` a localização e a voz.      |
-| `1.2.0-amd64-zh-cn-huihuirus-preview`       | Imagem do `zh-CN` contêiner com `zh-CN-HuihuiRUS` a localização e a voz.       |
-| `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem do `zh-CN` contêiner com `zh-CN-Kangkang-Apollo` a localização e a voz. |
-| `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem do `zh-CN` contêiner com `zh-CN-Yaoyao-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-de-de-hedda-preview`           | Imagem do `de-DE` contêiner com `de-DE-Hedda` a localização e a voz.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-Hedda` a localização e a voz.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Imagem do `de-DE` contêiner com `de-DE-HeddaRUS` a localização e a voz.        |
-| `1.1.0-amd64-de-de-stefan-apollo-preview`   | Imagem do `de-DE` contêiner com `de-DE-Stefan-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-en-au-catherine-preview`       | Imagem do `en-AU` contêiner com `en-AU-Catherine` a localização e a voz.       |
-| `1.1.0-amd64-en-au-hayleyrus-preview`       | Imagem do `en-AU` contêiner com `en-AU-HayleyRUS` a localização e a voz.       |
-| `1.1.0-amd64-en-gb-george-apollo-preview`   | Imagem do `en-GB` contêiner com `en-GB-George-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-en-gb-hazelrus-preview`        | Imagem do `en-GB` contêiner com `en-GB-HazelRUS` a localização e a voz.        |
-| `1.1.0-amd64-en-gb-susan-apollo-preview`    | Imagem do `en-GB` contêiner com `en-GB-Susan-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-en-in-heera-apollo-preview`    | Imagem do `en-IN` contêiner com `en-IN-Heera-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-en-in-priyarus-preview`        | Imagem do `en-IN` contêiner com `en-IN-PriyaRUS` a localização e a voz.        |
-| `1.1.0-amd64-en-in-ravi-apollo-preview`     | Imagem do `en-IN` contêiner com `en-IN-Ravi-Apollo` a localização e a voz.     |
-| `1.1.0-amd64-en-us-benjaminrus-preview`     | Imagem do `en-US` contêiner com `en-US-BenjaminRUS` a localização e a voz.     |
-| `1.1.0-amd64-en-us-guy24krus-preview`       | Imagem do `en-US` contêiner com `en-US-Guy24kRUS` a localização e a voz.       |
-| `1.1.0-amd64-en-us-jessa24krus-preview`     | Imagem do `en-US` contêiner com `en-US-Jessa24kRUS` a localização e a voz.     |
-| `1.1.0-amd64-en-us-jessarus-preview`        | Imagem do `en-US` contêiner com `en-US-JessaRUS` a localização e a voz.        |
-| `1.1.0-amd64-en-us-zirarus-preview`         | Imagem do `en-US` contêiner com `en-US-ZiraRUS` a localização e a voz.         |
-| `1.1.0-amd64-es-es-helenarus-preview`       | Imagem do `es-ES` contêiner com `es-ES-HelenaRUS` a localização e a voz.       |
-| `1.1.0-amd64-es-es-laura-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Laura-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-es-es-pablo-apollo-preview`    | Imagem do `es-ES` contêiner com `es-ES-Pablo-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-es-mx-hildarus-preview`        | Imagem do `es-MX` contêiner com `es-MX-HildaRUS` a localização e a voz.        |
-| `1.1.0-amd64-es-mx-raul-apollo-preview`     | Imagem do `es-MX` contêiner com `es-MX-Raul-Apollo` a localização e a voz.     |
-| `1.1.0-amd64-fr-ca-caroline-preview`        | Imagem do `fr-CA` contêiner com `fr-CA-Caroline` a localização e a voz.        |
-| `1.1.0-amd64-fr-ca-harmonierus-preview`     | Imagem do `fr-CA` contêiner com `fr-CA-HarmonieRUS` a localização e a voz.     |
-| `1.1.0-amd64-fr-fr-hortenserus-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-HortenseRUS` a localização e a voz.     |
-| `1.1.0-amd64-fr-fr-julie-apollo-preview`    | Imagem do `fr-FR` contêiner com `fr-FR-Julie-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-fr-fr-paul-apollo-preview`     | Imagem do `fr-FR` contêiner com `fr-FR-Paul-Apollo` a localização e a voz.     |
-| `1.1.0-amd64-it-it-cosimo-apollo-preview`   | Imagem do `it-IT` contêiner com `it-IT-Cosimo-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-it-it-luciarus-preview`        | Imagem do `it-IT` contêiner com `it-IT-LuciaRUS` a localização e a voz.        |
-| `1.1.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem do `ja-JP` contêiner com `ja-JP-Ayumi-Apollo` a localização e a voz.    |
-| `1.1.0-amd64-ja-jp-harukarus-preview`       | Imagem do `ja-JP` contêiner com `ja-JP-HarukaRUS` a localização e a voz.       |
-| `1.1.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem do `ja-JP` contêiner com `ja-JP-Ichiro-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-ko-kr-heamirus-preview`        | Imagem do `ko-KR` contêiner com `ko-KR-HeamiRUS` a localização e a voz.        |
-| `1.1.0-amd64-pt-br-daniel-apollo-preview`   | Imagem do `pt-BR` contêiner com `pt-BR-Daniel-Apollo` a localização e a voz.   |
-| `1.1.0-amd64-pt-br-heloisarus-preview`      | Imagem do `pt-BR` contêiner com `pt-BR-HeloisaRUS` a localização e a voz.      |
-| `1.1.0-amd64-zh-cn-huihuirus-preview`       | Imagem do `zh-CN` contêiner com `zh-CN-HuihuiRUS` a localização e a voz.       |
-| `1.1.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem do `zh-CN` contêiner com `zh-CN-Kangkang-Apollo` a localização e a voz. |
-| `1.1.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem do `zh-CN` contêiner com `zh-CN-Yaoyao-Apollo` a localização e a voz.   |
-| `1.0.0-amd64-en-us-benjaminrus-preview`     | Imagem do `en-US` contêiner com `en-US-BenjaminRUS` a localização e a voz.     |
-| `1.0.0-amd64-en-us-guy24krus-preview`       | Imagem do `en-US` contêiner com `en-US-Guy24kRUS` a localização e a voz.       |
-| `1.0.0-amd64-en-us-jessa24krus-preview`     | Imagem do `en-US` contêiner com `en-US-Jessa24kRUS` a localização e a voz.     |
-| `1.0.0-amd64-en-us-jessarus-preview`        | Imagem do `en-US` contêiner com `en-US-JessaRUS` a localização e a voz.        |
-| `1.0.0-amd64-en-us-zirarus-preview`         | Imagem do `en-US` contêiner com `en-US-ZiraRUS` a localização e a voz.         |
-| `1.0.0-amd64-zh-cn-huihuirus-preview`       | Imagem do `zh-CN` contêiner com `zh-CN-HuihuiRUS` a localização e a voz.       |
-| `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem do `zh-CN` contêiner com `zh-CN-Kangkang-Apollo` a localização e a voz. |
-| `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem do `zh-CN` contêiner com `zh-CN-Yaoyao-Apollo` a localização e a voz.   |
+| `latest`                                    | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
+| `1.3.0-amd64-ar-eg-hoda-preview`            | Imagem de contêiner com `ar-EG` a localidade `ar-EG-Hoda` e a voz.            |
+| `1.3.0-amd64-ar-sa-naayf-preview`           | Imagem de contêiner com `ar-SA` a localidade `ar-SA-Naayf` e a voz.           |
+| `1.3.0-amd64-bg-bg-ivan-preview`            | Imagem de contêiner com `bg-BG` a localidade `bg-BG-Ivan` e a voz.            |
+| `1.3.0-amd64-ca-es-herenarus-preview`       | Imagem de contêiner com `ca-ES` a localidade `ca-ES-HerenaRUS` e a voz.       |
+| `1.3.0-amd64-cs-cz-jakub-preview`           | Imagem de contêiner com `cs-CZ` a localidade `cs-CZ-Jakub` e a voz.           |
+| `1.3.0-amd64-da-dk-hellerus-preview`        | Imagem de contêiner com `da-DK` a localidade `da-DK-HelleRUS` e a voz.        |
+| `1.3.0-amd64-de-at-michael-preview`         | Imagem de contêiner com `de-AT` a localidade `de-AT-Michael` e a voz.         |
+| `1.3.0-amd64-de-ch-karsten-preview`         | Imagem de contêiner com `de-CH` a localidade `de-CH-Karsten` e a voz.         |
+| `1.3.0-amd64-de-de-hedda-preview`           | Imagem de contêiner com `de-DE` a localidade `de-DE-Hedda` e a voz.           |
+| `1.3.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-Hedda` e a voz.           |
+| `1.3.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-HeddaRUS` e a voz.        |
+| `1.3.0-amd64-de-de-stefan-apollo-preview`   | Imagem de contêiner com `de-DE` a localidade `de-DE-Stefan-Apollo` e a voz.   |
+| `1.3.0-amd64-el-gr-stefanos-preview`        | Imagem de contêiner com `el-GR` a localidade `el-GR-Stefanos` e a voz.        |
+| `1.3.0-amd64-en-au-catherine-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-Catherine` e a voz.       |
+| `1.3.0-amd64-en-au-hayleyrus-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-HayleyRUS` e a voz.       |
+| `1.3.0-amd64-en-ca-heatherrus-preview`      | Imagem de contêiner com `en-CA` a localidade `en-CA-HeatherRUS` e a voz.      |
+| `1.3.0-amd64-en-ca-linda-preview`           | Imagem de contêiner com `en-CA` a localidade `en-CA-Linda` e a voz.           |
+| `1.3.0-amd64-en-gb-george-apollo-preview`   | Imagem de contêiner com `en-GB` a localidade `en-GB-George-Apollo` e a voz.   |
+| `1.3.0-amd64-en-gb-hazelrus-preview`        | Imagem de contêiner com `en-GB` a localidade `en-GB-HazelRUS` e a voz.        |
+| `1.3.0-amd64-en-gb-susan-apollo-preview`    | Imagem de contêiner com `en-GB` a localidade `en-GB-Susan-Apollo` e a voz.    |
+| `1.3.0-amd64-en-ie-sean-preview`            | Imagem de contêiner com `en-IE` a localidade `en-IE-Sean` e a voz.            |
+| `1.3.0-amd64-en-in-heera-apollo-preview`    | Imagem de contêiner com `en-IN` a localidade `en-IN-Heera-Apollo` e a voz.    |
+| `1.3.0-amd64-en-in-priyarus-preview`        | Imagem de contêiner com `en-IN` a localidade `en-IN-PriyaRUS` e a voz.        |
+| `1.3.0-amd64-en-in-ravi-apollo-preview`     | Imagem de contêiner com `en-IN` a localidade `en-IN-Ravi-Apollo` e a voz.     |
+| `1.3.0-amd64-en-us-benjaminrus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-BenjaminRUS` e a voz.     |
+| `1.3.0-amd64-en-us-guy24krus-preview`       | Imagem de contêiner com `en-US` a localidade `en-US-Guy24kRUS` e a voz.       |
+| `1.3.0-amd64-en-us-jessa24krus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-Jessa24kRUS` e a voz.     |
+| `1.3.0-amd64-en-us-jessarus-preview`        | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
+| `1.3.0-amd64-en-us-zirarus-preview`         | Imagem de contêiner com `en-US` a localidade `en-US-ZiraRUS` e a voz.         |
+| `1.3.0-amd64-es-es-helenarus-preview`       | Imagem de contêiner com `es-ES` a localidade `es-ES-HelenaRUS` e a voz.       |
+| `1.3.0-amd64-es-es-laura-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Laura-Apollo` e a voz.    |
+| `1.3.0-amd64-es-es-pablo-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Pablo-Apollo` e a voz.    |
+| `1.3.0-amd64-es-mx-hildarus-preview`        | Imagem de contêiner com `es-MX` a localidade `es-MX-HildaRUS` e a voz.        |
+| `1.3.0-amd64-es-mx-raul-apollo-preview`     | Imagem de contêiner com `es-MX` a localidade `es-MX-Raul-Apollo` e a voz.     |
+| `1.3.0-amd64-fi-fi-heidirus-preview`        | Imagem de contêiner com `fi-FI` a localidade `fi-FI-HeidiRUS` e a voz.        |
+| `1.3.0-amd64-fr-ca-caroline-preview`        | Imagem de contêiner com `fr-CA` a localidade `fr-CA-Caroline` e a voz.        |
+| `1.3.0-amd64-fr-ca-harmonierus-preview`     | Imagem de contêiner com `fr-CA` a localidade `fr-CA-HarmonieRUS` e a voz.     |
+| `1.3.0-amd64-fr-ch-guillaume-preview`       | Imagem de contêiner com `fr-CH` a localidade `fr-CH-Guillaume` e a voz.       |
+| `1.3.0-amd64-fr-fr-hortenserus-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-HortenseRUS` e a voz.     |
+| `1.3.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Julie-Apollo` e a voz.    |
+| `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Paul-Apollo` e a voz.     |
+| `1.3.0-amd64-he-il-asaf-preview`            | Imagem de contêiner com `he-IL` a localidade `he-IL-Asaf` e a voz.            |
+| `1.3.0-amd64-hi-in-hemant-preview`          | Imagem de contêiner com `hi-IN` a localidade `hi-IN-Hemant` e a voz.          |
+| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de contêiner com `hi-IN` a localidade `hi-IN-Kalpana-Apollo` e a voz.  |
+| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Imagem de contêiner com `hi-IN` a localidade `hi-IN-Kalpana` e a voz.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Imagem de contêiner com `hi-IN` a localidade `hi-IN-Kalpana` e a voz.         |
+| `1.3.0-amd64-hr-hr-matej-preview`           | Imagem de contêiner com `hr-HR` a localidade `hr-HR-Matej` e a voz.           |
+| `1.3.0-amd64-hu-hu-szabolcs-preview`        | Imagem de contêiner com `hu-HU` a localidade `hu-HU-Szabolcs` e a voz.        |
+| `1.3.0-amd64-id-id-andika-preview`          | Imagem de contêiner com `id-ID` a localidade `id-ID-Andika` e a voz.          |
+| `1.3.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de contêiner com `it-IT` a localidade `it-IT-Cosimo-Apollo` e a voz.   |
+| `1.3.0-amd64-it-it-luciarus-preview`        | Imagem de contêiner com `it-IT` a localidade `it-IT-LuciaRUS` e a voz.        |
+| `1.3.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ayumi-Apollo` e a voz.    |
+| `1.3.0-amd64-ja-jp-harukarus-preview`       | Imagem de contêiner com `ja-JP` a localidade `ja-JP-HarukaRUS` e a voz.       |
+| `1.3.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ichiro-Apollo` e a voz.   |
+| `1.3.0-amd64-ko-kr-heamirus-preview`        | Imagem de contêiner com `ko-KR` a localidade `ko-KR-HeamiRUS` e a voz.        |
+| `1.3.0-amd64-ms-my-rizwan-preview`          | Imagem de contêiner com `ms-MY` a localidade `ms-MY-Rizwan` e a voz.          |
+| `1.3.0-amd64-nb-no-huldarus-preview`        | Imagem de contêiner com `nb-NO` a localidade `nb-NO-HuldaRUS` e a voz.        |
+| `1.3.0-amd64-nl-nl-hannarus-preview`        | Imagem de contêiner com `nl-NL` a localidade `nl-NL-HannaRUS` e a voz.        |
+| `1.3.0-amd64-pl-pl-paulinarus-preview`      | Imagem de contêiner com `pl-PL` a localidade `pl-PL-PaulinaRUS` e a voz.      |
+| `1.3.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de contêiner com `pt-BR` a localidade `pt-BR-Daniel-Apollo` e a voz.   |
+| `1.3.0-amd64-pt-br-heloisarus-preview`      | Imagem de contêiner com `pt-BR` a localidade `pt-BR-HeloisaRUS` e a voz.      |
+| `1.3.0-amd64-pt-pt-heliarus-preview`        | Imagem de contêiner com `pt-PT` a localidade `pt-PT-HeliaRUS` e a voz.        |
+| `1.3.0-amd64-ro-ro-andrei-preview`          | Imagem de contêiner com `ro-RO` a localidade `ro-RO-Andrei` e a voz.          |
+| `1.3.0-amd64-ru-ru-ekaterinarus-preview`    | Imagem de contêiner com `ru-RU` a localidade `ru-RU-EkaterinaRUS` e a voz.    |
+| `1.3.0-amd64-ru-ru-irina-apollo-preview`    | Imagem de contêiner com `ru-RU` a localidade `ru-RU-Irina-Apollo` e a voz.    |
+| `1.3.0-amd64-ru-ru-pavel-apollo-preview`    | Imagem de contêiner com `ru-RU` a localidade `ru-RU-Pavel-Apollo` e a voz.    |
+| `1.3.0-amd64-sk-sk-filip-preview`           | Imagem de contêiner com `sk-SK` a localidade `sk-SK-Filip` e a voz.           |
+| `1.3.0-amd64-sl-si-lado-preview`            | Imagem de contêiner com `sl-SI` a localidade `sl-SI-Lado` e a voz.            |
+| `1.3.0-amd64-sv-se-hedvigrus-preview`       | Imagem de contêiner com `sv-SE` a localidade `sv-SE-HedvigRUS` e a voz.       |
+| `1.3.0-amd64-ta-in-valluvar-preview`        | Imagem de contêiner com `ta-IN` a localidade `ta-IN-Valluvar` e a voz.        |
+| `1.3.0-amd64-te-in-chitra-preview`          | Imagem de contêiner com `te-IN` a localidade `te-IN-Chitra` e a voz.          |
+| `1.3.0-amd64-th-th-pattara-preview`         | Imagem de contêiner com `th-TH` a localidade `th-TH-Pattara` e a voz.         |
+| `1.3.0-amd64-tr-tr-sedarus-preview`         | Imagem de contêiner com `tr-TR` a localidade `tr-TR-SedaRUS` e a voz.         |
+| `1.3.0-amd64-vi-vn-an-preview`              | Imagem de contêiner com `vi-VN` a localidade `vi-VN-An` e a voz.              |
+| `1.3.0-amd64-zh-cn-huihuirus-preview`       | Imagem de contêiner com `zh-CN` a localidade `zh-CN-HuihuiRUS` e a voz.       |
+| `1.3.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Kangkang-Apollo` e a voz. |
+| `1.3.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Yaoyao-Apollo` e a voz.   |
+| `1.3.0-amd64-zh-hk-danny-apollo-preview`    | Imagem de contêiner com `zh-HK` a localidade `zh-HK-Danny-Apollo` e a voz.    |
+| `1.3.0-amd64-zh-hk-tracy-apollo-preview`    | Imagem de contêiner com `zh-HK` a localidade `zh-HK-Tracy-Apollo` e a voz.    |
+| `1.3.0-amd64-zh-hk-tracyrus-preview`        | Imagem de contêiner com `zh-HK` a localidade `zh-HK-TracyRUS` e a voz.        |
+| `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Imagem de contêiner com `zh-TW` a localidade `zh-TW-HanHanRUS` e a voz.       |
+| `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Imagem de contêiner com `zh-TW` a localidade `zh-TW-Yating-Apollo` e a voz.   |
+| `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Imagem de contêiner com `zh-TW` a localidade `zh-TW-Zhiwei-Apollo` e a voz.   |
+| `1.2.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-Hedda` e a voz.           |
+| `1.2.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-HeddaRUS` e a voz.        |
+| `1.2.0-amd64-de-de-stefan-apollo-preview`   | Imagem de contêiner com `de-DE` a localidade `de-DE-Stefan-Apollo` e a voz.   |
+| `1.2.0-amd64-en-au-catherine-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-Catherine` e a voz.       |
+| `1.2.0-amd64-en-au-hayleyrus-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-HayleyRUS` e a voz.       |
+| `1.2.0-amd64-en-gb-george-apollo-preview`   | Imagem de contêiner com `en-GB` a localidade `en-GB-George-Apollo` e a voz.   |
+| `1.2.0-amd64-en-gb-hazelrus-preview`        | Imagem de contêiner com `en-GB` a localidade `en-GB-HazelRUS` e a voz.        |
+| `1.2.0-amd64-en-gb-susan-apollo-preview`    | Imagem de contêiner com `en-GB` a localidade `en-GB-Susan-Apollo` e a voz.    |
+| `1.2.0-amd64-en-in-heera-apollo-preview`    | Imagem de contêiner com `en-IN` a localidade `en-IN-Heera-Apollo` e a voz.    |
+| `1.2.0-amd64-en-in-priyarus-preview`        | Imagem de contêiner com `en-IN` a localidade `en-IN-PriyaRUS` e a voz.        |
+| `1.2.0-amd64-en-in-ravi-apollo-preview`     | Imagem de contêiner com `en-IN` a localidade `en-IN-Ravi-Apollo` e a voz.     |
+| `1.2.0-amd64-en-us-benjaminrus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-BenjaminRUS` e a voz.     |
+| `1.2.0-amd64-en-us-guy24krus-preview`       | Imagem de contêiner com `en-US` a localidade `en-US-Guy24kRUS` e a voz.       |
+| `1.2.0-amd64-en-us-jessa24krus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-Jessa24kRUS` e a voz.     |
+| `1.2.0-amd64-en-us-jessarus-preview`        | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
+| `1.2.0-amd64-en-us-zirarus-preview`         | Imagem de contêiner com `en-US` a localidade `en-US-ZiraRUS` e a voz.         |
+| `1.2.0-amd64-es-es-helenarus-preview`       | Imagem de contêiner com `es-ES` a localidade `es-ES-HelenaRUS` e a voz.       |
+| `1.2.0-amd64-es-es-laura-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Laura-Apollo` e a voz.    |
+| `1.2.0-amd64-es-es-pablo-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Pablo-Apollo` e a voz.    |
+| `1.2.0-amd64-es-mx-hildarus-preview`        | Imagem de contêiner com `es-MX` a localidade `es-MX-HildaRUS` e a voz.        |
+| `1.2.0-amd64-es-mx-raul-apollo-preview`     | Imagem de contêiner com `es-MX` a localidade `es-MX-Raul-Apollo` e a voz.     |
+| `1.2.0-amd64-fr-ca-caroline-preview`        | Imagem de contêiner com `fr-CA` a localidade `fr-CA-Caroline` e a voz.        |
+| `1.2.0-amd64-fr-ca-harmonierus-preview`     | Imagem de contêiner com `fr-CA` a localidade `fr-CA-HarmonieRUS` e a voz.     |
+| `1.2.0-amd64-fr-fr-hortenserus-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-HortenseRUS` e a voz.     |
+| `1.2.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Julie-Apollo` e a voz.    |
+| `1.2.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Paul-Apollo` e a voz.     |
+| `1.2.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de contêiner com `it-IT` a localidade `it-IT-Cosimo-Apollo` e a voz.   |
+| `1.2.0-amd64-it-it-luciarus-preview`        | Imagem de contêiner com `it-IT` a localidade `it-IT-LuciaRUS` e a voz.        |
+| `1.2.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ayumi-Apollo` e a voz.    |
+| `1.2.0-amd64-ja-jp-harukarus-preview`       | Imagem de contêiner com `ja-JP` a localidade `ja-JP-HarukaRUS` e a voz.       |
+| `1.2.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ichiro-Apollo` e a voz.   |
+| `1.2.0-amd64-ko-kr-heamirus-preview`        | Imagem de contêiner com `ko-KR` a localidade `ko-KR-HeamiRUS` e a voz.        |
+| `1.2.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de contêiner com `pt-BR` a localidade `pt-BR-Daniel-Apollo` e a voz.   |
+| `1.2.0-amd64-pt-br-heloisarus-preview`      | Imagem de contêiner com `pt-BR` a localidade `pt-BR-HeloisaRUS` e a voz.      |
+| `1.2.0-amd64-zh-cn-huihuirus-preview`       | Imagem de contêiner com `zh-CN` a localidade `zh-CN-HuihuiRUS` e a voz.       |
+| `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Kangkang-Apollo` e a voz. |
+| `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Yaoyao-Apollo` e a voz.   |
+| `1.1.0-amd64-de-de-hedda-preview`           | Imagem de contêiner com `de-DE` a localidade `de-DE-Hedda` e a voz.           |
+| `1.1.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-Hedda` e a voz.           |
+| `1.1.0-amd64-de-de-heddarus-preview`        | Imagem de contêiner com `de-DE` a localidade `de-DE-HeddaRUS` e a voz.        |
+| `1.1.0-amd64-de-de-stefan-apollo-preview`   | Imagem de contêiner com `de-DE` a localidade `de-DE-Stefan-Apollo` e a voz.   |
+| `1.1.0-amd64-en-au-catherine-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-Catherine` e a voz.       |
+| `1.1.0-amd64-en-au-hayleyrus-preview`       | Imagem de contêiner com `en-AU` a localidade `en-AU-HayleyRUS` e a voz.       |
+| `1.1.0-amd64-en-gb-george-apollo-preview`   | Imagem de contêiner com `en-GB` a localidade `en-GB-George-Apollo` e a voz.   |
+| `1.1.0-amd64-en-gb-hazelrus-preview`        | Imagem de contêiner com `en-GB` a localidade `en-GB-HazelRUS` e a voz.        |
+| `1.1.0-amd64-en-gb-susan-apollo-preview`    | Imagem de contêiner com `en-GB` a localidade `en-GB-Susan-Apollo` e a voz.    |
+| `1.1.0-amd64-en-in-heera-apollo-preview`    | Imagem de contêiner com `en-IN` a localidade `en-IN-Heera-Apollo` e a voz.    |
+| `1.1.0-amd64-en-in-priyarus-preview`        | Imagem de contêiner com `en-IN` a localidade `en-IN-PriyaRUS` e a voz.        |
+| `1.1.0-amd64-en-in-ravi-apollo-preview`     | Imagem de contêiner com `en-IN` a localidade `en-IN-Ravi-Apollo` e a voz.     |
+| `1.1.0-amd64-en-us-benjaminrus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-BenjaminRUS` e a voz.     |
+| `1.1.0-amd64-en-us-guy24krus-preview`       | Imagem de contêiner com `en-US` a localidade `en-US-Guy24kRUS` e a voz.       |
+| `1.1.0-amd64-en-us-jessa24krus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-Jessa24kRUS` e a voz.     |
+| `1.1.0-amd64-en-us-jessarus-preview`        | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
+| `1.1.0-amd64-en-us-zirarus-preview`         | Imagem de contêiner com `en-US` a localidade `en-US-ZiraRUS` e a voz.         |
+| `1.1.0-amd64-es-es-helenarus-preview`       | Imagem de contêiner com `es-ES` a localidade `es-ES-HelenaRUS` e a voz.       |
+| `1.1.0-amd64-es-es-laura-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Laura-Apollo` e a voz.    |
+| `1.1.0-amd64-es-es-pablo-apollo-preview`    | Imagem de contêiner com `es-ES` a localidade `es-ES-Pablo-Apollo` e a voz.    |
+| `1.1.0-amd64-es-mx-hildarus-preview`        | Imagem de contêiner com `es-MX` a localidade `es-MX-HildaRUS` e a voz.        |
+| `1.1.0-amd64-es-mx-raul-apollo-preview`     | Imagem de contêiner com `es-MX` a localidade `es-MX-Raul-Apollo` e a voz.     |
+| `1.1.0-amd64-fr-ca-caroline-preview`        | Imagem de contêiner com `fr-CA` a localidade `fr-CA-Caroline` e a voz.        |
+| `1.1.0-amd64-fr-ca-harmonierus-preview`     | Imagem de contêiner com `fr-CA` a localidade `fr-CA-HarmonieRUS` e a voz.     |
+| `1.1.0-amd64-fr-fr-hortenserus-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-HortenseRUS` e a voz.     |
+| `1.1.0-amd64-fr-fr-julie-apollo-preview`    | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Julie-Apollo` e a voz.    |
+| `1.1.0-amd64-fr-fr-paul-apollo-preview`     | Imagem de contêiner com `fr-FR` a localidade `fr-FR-Paul-Apollo` e a voz.     |
+| `1.1.0-amd64-it-it-cosimo-apollo-preview`   | Imagem de contêiner com `it-IT` a localidade `it-IT-Cosimo-Apollo` e a voz.   |
+| `1.1.0-amd64-it-it-luciarus-preview`        | Imagem de contêiner com `it-IT` a localidade `it-IT-LuciaRUS` e a voz.        |
+| `1.1.0-amd64-ja-jp-ayumi-apollo-preview`    | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ayumi-Apollo` e a voz.    |
+| `1.1.0-amd64-ja-jp-harukarus-preview`       | Imagem de contêiner com `ja-JP` a localidade `ja-JP-HarukaRUS` e a voz.       |
+| `1.1.0-amd64-ja-jp-ichiro-apollo-preview`   | Imagem de contêiner com `ja-JP` a localidade `ja-JP-Ichiro-Apollo` e a voz.   |
+| `1.1.0-amd64-ko-kr-heamirus-preview`        | Imagem de contêiner com `ko-KR` a localidade `ko-KR-HeamiRUS` e a voz.        |
+| `1.1.0-amd64-pt-br-daniel-apollo-preview`   | Imagem de contêiner com `pt-BR` a localidade `pt-BR-Daniel-Apollo` e a voz.   |
+| `1.1.0-amd64-pt-br-heloisarus-preview`      | Imagem de contêiner com `pt-BR` a localidade `pt-BR-HeloisaRUS` e a voz.      |
+| `1.1.0-amd64-zh-cn-huihuirus-preview`       | Imagem de contêiner com `zh-CN` a localidade `zh-CN-HuihuiRUS` e a voz.       |
+| `1.1.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Kangkang-Apollo` e a voz. |
+| `1.1.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Yaoyao-Apollo` e a voz.   |
+| `1.0.0-amd64-en-us-benjaminrus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-BenjaminRUS` e a voz.     |
+| `1.0.0-amd64-en-us-guy24krus-preview`       | Imagem de contêiner com `en-US` a localidade `en-US-Guy24kRUS` e a voz.       |
+| `1.0.0-amd64-en-us-jessa24krus-preview`     | Imagem de contêiner com `en-US` a localidade `en-US-Jessa24kRUS` e a voz.     |
+| `1.0.0-amd64-en-us-jessarus-preview`        | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
+| `1.0.0-amd64-en-us-zirarus-preview`         | Imagem de contêiner com `en-US` a localidade `en-US-ZiraRUS` e a voz.         |
+| `1.0.0-amd64-zh-cn-huihuirus-preview`       | Imagem de contêiner com `zh-CN` a localidade `zh-CN-HuihuiRUS` e a voz.       |
+| `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Kangkang-Apollo` e a voz. |
+| `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de contêiner com `zh-CN` a localidade `zh-CN-Yaoyao-Apollo` e a voz.   |
 
 ## <a name="key-phrase-extraction"></a>Extração de Frases-Chave
 
-A imagem do contêiner [De extração de frases-chave][ta-kp] pode ser encontrada no sindicato do registro de `mcr.microsoft.com` contêineres. Ele reside dentro `azure-cognitive-services` do repositório `keyphrase`e é nomeado . O nome da imagem `mcr.microsoft.com/azure-cognitive-services/keyphrase`do contêiner totalmente qualificado é, .
+A imagem de contêiner [extração de frases-chave][ta-kp] pode ser encontrada na `mcr.microsoft.com` agregação do registro de contêiner. Ele reside no `azure-cognitive-services` repositório e é nomeado `keyphrase`. O nome da imagem de contêiner totalmente qualificado `mcr.microsoft.com/azure-cognitive-services/keyphrase`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -597,11 +597,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="language-detection"></a>Detecção de Idioma
 
-A imagem do contêiner [Detecção de Idiomas][ta-la] pode ser encontrada no sindicato do registro de `mcr.microsoft.com` contêineres. Ele reside dentro `azure-cognitive-services` do repositório `language`e é nomeado . O nome da imagem `mcr.microsoft.com/azure-cognitive-services/language`do contêiner totalmente qualificado é, .
+A imagem de contêiner [detecção de idioma][ta-la] pode ser encontrada na `mcr.microsoft.com` agregação do registro de contêiner. Ele reside no `azure-cognitive-services` repositório e é nomeado `language`. O nome da imagem de contêiner totalmente qualificado `mcr.microsoft.com/azure-cognitive-services/language`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -612,11 +612,11 @@ Esta imagem do contêiner tem as seguintes tags disponíveis:
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimento
 
-A imagem do contêiner De `mcr.microsoft.com` análise de [sentimento][ta-se] pode ser encontrada no sindicato do registro de contêineres. Ele reside dentro `azure-cognitive-services` do repositório `sentiment`e é nomeado . O nome da imagem `mcr.microsoft.com/azure-cognitive-services/sentiment`do contêiner totalmente qualificado é, .
+A imagem de contêiner [análise de sentimento][ta-se] pode ser encontrada na `mcr.microsoft.com` agregação do registro de contêiner. Ele reside no `azure-cognitive-services` repositório e é nomeado `sentiment`. O nome da imagem de contêiner totalmente qualificado `mcr.microsoft.com/azure-cognitive-services/sentiment`é,.
 
-Esta imagem do contêiner tem as seguintes tags disponíveis:
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Tags de imagem                    | Observações |
+| Marcas de imagem                    | Observações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |

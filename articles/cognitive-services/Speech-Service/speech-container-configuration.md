@@ -1,7 +1,7 @@
 ---
-title: Configurar recipientes de fala
+title: Configurar contêineres de fala
 titleSuffix: Azure Cognitive Services
-description: O serviço de fala fornece a cada contêiner uma estrutura de configuração comum, para que você possa configurar e gerenciar facilmente o armazenamento, o registro e a telemetria e as configurações de segurança dos seus contêineres.
+description: O serviço de fala fornece a cada contêiner uma estrutura de configuração comum, para que você possa configurar e gerenciar facilmente o armazenamento, o registro em log e a telemetria e as configurações de segurança para seus contêineres.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877568"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
-Os contêineres de fala permitem que os clientes construam uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos da nuvem e a localidade de borda. Os quatro recipientes de fala que apoiamos agora são, **fala-a-texto,** **discurso-a-texto personalizado,** **texto-para-fala**e **texto-para-fala personalizado.**
+Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. Os quatro contêineres de fala para os quais damos suporte agora são, conversão de texto em **texto**, **personalizada de fala para texto**, conversão de textos em **fala**e **conversão personalizada**.
 
-O ambiente de tempo de execução do contêiner **Speech** é configurado usando os argumentos de `docker run` comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança.
+O **Speech** ambiente de tempo de execução do contêiner de `docker run` fala é configurado usando os argumentos do comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)configurações [`Eula`](#eula-setting) e configurações são usadas em conjunto, e você deve fornecer valores válidos para todos os três; caso contrário, seu contêiner não vai começar. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](speech-container-howto.md#billing).
+> As [`ApiKey`](#apikey-configuration-setting)configurações [`Billing`](#billing-configuration-setting),, [`Eula`](#eula-setting) e são usadas juntas, e você deve fornecer valores válidos para todos os três; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](speech-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e _Speech_ o valor deve [`Billing`](#billing-configuration-setting) ser uma chave válida para o recurso Speech especificado para a configuração.
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _fala_ especificado para [`Billing`](#billing-configuration-setting) a definição de configuração.
 
 Essa configuração pode ser localizada no seguinte local:
 
-- Portal Azure: Gerenciamento de recursos **do discurso,** em **Chaves**
+- Portal do Azure: gerenciamento **de recursos de fala** , em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
@@ -44,15 +44,15 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-A `Billing` configuração especifica o URI de ponto final do recurso _Speech_ no Azure usado para medir informações de cobrança para o contêiner. Você deve especificar um valor para essa configuração e o valor deve ser um URI de ponto final válido para um recurso _De fala_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _fala_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _fala_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-- Portal Azure: Visão geral **do discurso,** rotulado`Endpoint`
+- Portal do Azure: visão geral **da fala** , rotulada`Endpoint`
 
 | Obrigatório | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Sim | `Billing` | String | Uri ponto final de faturamento. Para obter mais informações sobre a obtenção do URI de faturamento, consulte [a coleta de parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+| Sim | `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -74,26 +74,26 @@ Essa configuração pode ser localizada no seguinte local:
 
 Use montagens de associação para ler e gravar dados do contêiner e para ele. Você pode especificar uma montagem de entrada ou saída especificando a opção `--mount` no comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Os recipientes Standard Speech não usam suportes de entrada ou saída para armazenar dados de treinamento ou serviço. No entanto, os recipientes de fala personalizados dependem de montagens de volume.
+Os contêineres de fala padrão não usam montagens de entrada ou de saída para armazenar dados de treinamento ou de serviço. No entanto, os contêineres de fala personalizados dependem de montagens de volume.
 
-A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do docker e as permissões de localização de montagem do host.
+A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host.
 
 | Opcional | Nome | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
-| Não permitido | `Input` | String | Os recipientes Standard Speech não usam isso. Os recipientes de fala personalizados usam [suportes de volume](#volume-mount-settings).                                                                                    |
+| Não permitido | `Input` | String | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
 | Opcional | `Output` | String | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Configurações de montagem de volume
 
-Os recipientes de fala personalizados usam [suportes de volume](https://docs.docker.com/storage/volumes/) para persistir modelos personalizados. Você pode especificar uma `-v` montagem `--volume`de volume adicionando a opção (ou ) ao comando [docker run.](https://docs.docker.com/engine/reference/commandline/run/)
+Os contêineres de fala personalizados usam [montagens de volume](https://docs.docker.com/storage/volumes/) para manter modelos personalizados. Você pode especificar uma montagem de volume adicionando a `-v` opção ( `--volume`ou) ao comando de [execução do Docker](https://docs.docker.com/engine/reference/commandline/run/) .
 
-Modelos personalizados são baixados na primeira vez que um novo modelo é ingerido como parte do comando custom speech container docker run. As corridas seqüenciais `ModelId` do mesmo para um recipiente de voz personalizado usarão o modelo anteriormente baixado. Se o suporte de volume não for fornecido, os modelos personalizados não poderão ser persistidos.
+Os modelos personalizados são baixados na primeira vez que um novo modelo é ingerido como parte do comando personalizado de execução do Docker de contêiner de fala. As execuções sequenciais `ModelId` do mesmo para um contêiner de fala personalizado usarão o modelo baixado anteriormente. Se a montagem de volume não for fornecida, os modelos personalizados não poderão ser persistidos.
 
-A configuração de montagem `:` de volume consiste em três campos separados de cor:
+A configuração de montagem de volume consiste em `:` três campos separados por cor:
 
-1. O primeiro campo é o nome do volume na máquina host, por _exemplo, c:\input_.
-2. O segundo campo é o diretório no recipiente, por exemplo _/usr/local/modelos_.
-3. O terceiro campo (opcional) é uma lista de opções separadas por comma, para obter mais informações veja [volumes de uso](https://docs.docker.com/storage/volumes/).
+1. O primeiro campo é o nome do volume no computador host, por exemplo, _C:\input_.
+2. O segundo campo é o diretório no contêiner, por exemplo, _/usr/local/Models_.
+3. O terceiro campo (opcional) é uma lista de opções separada por vírgulas, para obter mais informações, consulte [usar volumes](https://docs.docker.com/storage/volumes/).
 
 ### <a name="volume-mount-example"></a>Exemplo de montagem de volume
 
@@ -101,38 +101,38 @@ A configuração de montagem `:` de volume consiste em três campos separados de
 -v C:\input:/usr/local/models
 ```
 
-Este comando monta o diretório _de entrada c:\da_ máquina host para o diretório de contêineres _/usr/local/models._
+Esse comando monta o diretório _C:\input_ do computador host no diretório _/usr/local/Models_ do contêineres.
 
 > [!IMPORTANT]
-> As configurações de montagem de volume são aplicáveis apenas aos contêineres **de texto** para texto personalizado e de texto **personalizado.** Os recipientes padrão **de fala para texto** e **texto-para-fala** não usam montagens de volume.
+> As configurações de montagem de volume são aplicáveis somente a contêineres de **texto em fala** e de **fala personalizada para texto** . Os contêineres padrão de **fala para texto** e **conversão de texto em fala** não usam montagens de volume.
 
 ## <a name="example-docker-run-commands"></a>Comandos docker run de exemplo
 
 Os exemplos a seguir usam as definições de configuração para ilustrar como escrever e usar comandos `docker run`. Quando em execução, o contêiner continuará a ser executado até que você o [pare](speech-container-howto.md#stop-the-container).
 
-- **Caractere de continuação de linha**: Os comandos Docker `\`nas seções a seguir usam a barra traseira, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host.
-- **Ordem de argumento**: Não altere a ordem dos argumentos a menos que você esteja familiarizado com os contêineres Docker.
+- **Caractere de continuação de linha**: os comandos do Docker nas seções a seguir usam a barra `\`invertida,, como um caractere de continuação de linha. Substitua ou remova essa barra com base nos requisitos do sistema operacional de seu computador host.
+- **Ordem do argumento**: não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Espaço reservado | Valor | Formato ou exemplo |
 | ----------- | ----- | ----------------- |
-| **{API_KEY}** | A tecla de `Speech` ponto final do `Speech` recurso na página Chaves do Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
-| **{ENDPOINT_URI}** | O valor do ponto final de faturamento `Speech` está disponível na página Visão Geral do Azure. | Consulte [a coleta de parâmetros necessários](speech-container-howto.md#gathering-required-parameters) para exemplos explícitos. |
+| **{API_KEY}** | A chave do ponto de `Speech` extremidade do recurso na `Speech` página de chaves do Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| **{ENDPOINT_URI}** | O valor do ponto de extremidade de cobrança está `Speech` disponível na página Visão geral do Azure. | Consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters) para obter exemplos explícitos. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado. Para mais informações, consulte [Faturamento](#billing-configuration-setting).
-> O valor apiKey é a **chave** da página chaves do Recurso de Fala do Azure.
+> O valor de ApiKey é a **chave** da página de chaves de recurso de fala do Azure.
 
-## <a name="speech-container-docker-examples"></a>Exemplos de Docker de contêiner de fala
+## <a name="speech-container-docker-examples"></a>Exemplos do Docker do contêiner de fala
 
-Os exemplos de Docker a seguir são para o contêiner Speech.
+Os exemplos do Docker a seguir são para o contêiner de fala.
 
 ## <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
-### <a name="basic-example-for-speech-to-text"></a>Exemplo básico para Fala-para-texto
+### <a name="basic-example-for-speech-to-text"></a>Exemplo básico de conversão de fala em texto
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -142,7 +142,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-to-text"></a>Exemplo de registro de fala para texto
+### <a name="logging-example-for-speech-to-text"></a>Exemplo de log para conversão de fala em texto
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -153,9 +153,9 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-speech-to-text"></a>[Discurso personalizado para texto](#tab/cstt)
+## <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
-### <a name="basic-example-for-custom-speech-to-text"></a>Exemplo básico para discurso personalizado para texto
+### <a name="basic-example-for-custom-speech-to-text"></a>Exemplo básico para Fala Personalizada para texto
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -167,7 +167,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-custom-speech-to-text"></a>Exemplo de registro de fala personalizada para texto
+### <a name="logging-example-for-custom-speech-to-text"></a>Exemplo de log para Fala Personalizada para texto
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -182,7 +182,7 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tss)
 
-### <a name="basic-example-for-text-to-speech"></a>Exemplo básico para texto-para-fala
+### <a name="basic-example-for-text-to-speech"></a>Exemplo básico para conversão de texto em fala
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -192,7 +192,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-text-to-speech"></a>Exemplo de registro para texto-para-fala
+### <a name="logging-example-for-text-to-speech"></a>Exemplo de log para conversão de texto em fala
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -203,9 +203,9 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speech"></a>[Texto-para-fala personalizado](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-### <a name="basic-example-for-custom-text-to-speech"></a>Exemplo básico para texto-para-fala personalizado
+### <a name="basic-example-for-custom-text-to-speech"></a>Exemplo básico para conversão de texto em fala personalizada
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -217,7 +217,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-custom-text-to-speech"></a>Exemplo de registro para texto-para-fala personalizado
+### <a name="logging-example-for-custom-text-to-speech"></a>Exemplo de log para conversão de texto em fala personalizada
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \

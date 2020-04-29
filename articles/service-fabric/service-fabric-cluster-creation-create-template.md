@@ -1,13 +1,13 @@
 ---
-title: Crie um modelo de cluster de malha de serviço do Azure
+title: Criar um modelo de cluster de Service Fabric do Azure
 description: Saiba como criar um modelo do Resource Manager para um cluster do Service Fabric. Configure segurança, Azure Key Vault e Azure AD (Azure Active Directory) para autenticação de cliente.
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985364"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo do Resource Manager do cluster do Service Fabric
@@ -30,10 +30,10 @@ Este artigo usa o modelo de exemplo de [cluster seguro de cinco nós][service-fa
 > Para nuvens nacionais (Azure Governamental, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` para o modelo: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ## <a name="add-certificates"></a>Adicionar certificados
-Os certificados são adicionados a um modelo do Resource Manager de cluster quando você faz a referência ao Key Vault que contém as chaves de certificado. Adicione esses parâmetros e valores do cofre-chave em um arquivo de parâmetros do Resource Manager *(azuredeploy.parameters.json).*
+Os certificados são adicionados a um modelo do Resource Manager de cluster quando você faz a referência ao Key Vault que contém as chaves de certificado. Adicione esses valores e parâmetros de cofre de chaves em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*).
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Adicionar todos os certificados ao conjunto de dimensionamento de máquinas virtuais osProfile
-Todos os certificados instalados no cluster devem ser configurados na seção **osProfile** do recurso de conjunto de escalas (Microsoft.Compute/virtualMachineScaleSets). Essa ação instrui o provedor de recursos para instalar o certificado nas VMs. Essa instalação inclui o certificado do cluster e os certificados de segurança de aplicativo que você planeja usar para seus aplicativos:
+Todos os certificados instalados no cluster devem ser configurados na seção **osProfile** do recurso de conjunto de dimensionamento (Microsoft. Compute/virtualMachineScaleSets). Essa ação instrui o provedor de recursos para instalar o certificado nas VMs. Essa instalação inclui o certificado do cluster e os certificados de segurança de aplicativo que você planeja usar para seus aplicativos:
 
 ```json
 {
@@ -132,10 +132,10 @@ O certificado de autenticação do cluster tem que ser configurado tanto no recu
 
 ## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicionar a configuração do Azure AD para usar o Azure AD para acesso de cliente
 
-Adicione a as configurações do Microsoft Azure Active Directory a um modelo do Resource Manager de cluster fazendo referência ao cofre de chaves que contém as chaves de certificado. Adicione esses parâmetros e valores do Azure AD em um arquivo de parâmetros do Resource Manager *(azuredeploy.parameters.json).* 
+Adicione a as configurações do Microsoft Azure Active Directory a um modelo do Resource Manager de cluster fazendo referência ao cofre de chaves que contém as chaves de certificado. Adicione esses parâmetros e valores do Azure AD em um arquivo de parâmetros de modelo do Resource Manager (*azuredeploy. Parameters. JSON*). 
 
 > [!NOTE]
-> No Linux, os inquilinos e usuários do Azure AD devem ser criados antes de criar o cluster.  Para mais informações, leia [Configurar o Microsoft Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
+> No Linux, os locatários e usuários do Azure AD devem ser criados antes da criação do cluster.  Para mais informações, leia [Configurar o Microsoft Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ```json
 {
@@ -253,7 +253,7 @@ Agora que você tem um modelo para o cluster, saiba como [implantar o cluster no
 Para saber mais sobre as propriedades e a sintaxe JSON dos recursos implantados neste artigo, consulte:
 
 * [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
-* [Microsoft.Armazenamento/armazenamentoContas](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 * [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
