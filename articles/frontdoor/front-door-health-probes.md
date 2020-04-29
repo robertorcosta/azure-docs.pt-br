@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente do Azure - monitoramento de saúde backend | Microsoft Docs
-description: Este artigo ajuda você a entender como o Azure Front Door monitora a saúde de seus backends
+title: Porta frontal do Azure-monitoramento de integridade de back-end | Microsoft Docs
+description: Este artigo ajuda você a entender como a porta frontal do Azure monitora a integridade dos back-ends
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,32 +12,32 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471567"
 ---
 # <a name="health-probes"></a>Investigações de integridade
 
-Para determinar a saúde e a proximidade de cada backend de um determinado ambiente front door, cada ambiente da Porta da Frente envia periodicamente uma solicitação HTTP/HTTPS sintética para cada um dos seus backends configurados. O Front Door, em seguida, usa as respostas desses testes para determinar os "melhores" back-ends aos quais ele deve rotear as solicitações reais do cliente. 
+Para determinar a integridade e a proximidade de cada back-end de um determinado ambiente de porta frontal, cada ambiente de porta frontal envia periodicamente uma solicitação HTTP/HTTPS sintética para cada um dos back-ends configurados. O Front Door, em seguida, usa as respostas desses testes para determinar os "melhores" back-ends aos quais ele deve rotear as solicitações reais do cliente. 
 
 > [!WARNING]
-> Como o Front Door tem muitos ambientes de borda globalmente, o volume de solicitações de sonda de saúde para seus backends pode ser bastante alto - variando de 25 solicitações a cada minuto até até 1200 solicitações por minuto, dependendo da freqüência do teste de saúde configurado. Com a freqüência padrão do teste de 30 segundos, o volume do teste no backend deve ser de cerca de 200 solicitações por minuto.
+> Como a porta frontal tem muitos ambientes de borda globalmente, o volume de solicitações de investigação de integridade para seus back-ends pode ser muito alto, variando de 25 solicitações a cada minuto para até 1200 solicitações por minuto, dependendo da frequência de investigação de integridade configurada. Com a frequência de investigação padrão de 30 segundos, o volume de investigação em seu back-end deve ser de cerca de 200 solicitações por minuto.
 
 ## <a name="supported-protocols"></a>Protocolos com suporte
 
 O Front Door dá suporte para envio de investigações via protocolos HTTP ou HTTPS. Essas investigações são enviadas pelas mesmas portas TCP configuradas para rotear solicitações de clientes e não podem ser substituídas.
 
-## <a name="supported-http-methods-for-health-probes"></a>Métodos HTTP suportados para sondas de saúde
+## <a name="supported-http-methods-for-health-probes"></a>Métodos HTTP com suporte para investigações de integridade
 
-Front Door suporta os seguintes métodos HTTP para o envio das sondas de saúde:
+A porta frontal dá suporte aos seguintes métodos HTTP para enviar as investigações de integridade:
 
-1. **GET:** O método GET significa recuperar qualquer informação (na forma de uma entidade) identificada pelo Request-URI.
-2. **CABEÇA:** O método HEAD é idêntico ao GET, exceto que o servidor NÃO DEVE retornar um corpo de mensagem na resposta. Para novos perfis de Porta frontal, por padrão, o método do teste é definido como HEAD.
+1. **Obter:** O método GET significa recuperar qualquer informação (na forma de uma entidade) é identificada pelo URI da solicitação.
+2. **Cabeçalho:** O método HEAD é idêntico a GET, exceto que o servidor não deve retornar um corpo de mensagem na resposta. Para novos perfis de porta frontal, por padrão, o método de investigação é definido como HEAD.
 
 > [!NOTE]
-> Para reduzir a carga e o custo em seus backends, o Front Door recomenda o uso de solicitações de HEAD para sondas de saúde.
+> Para menor carga e custo em seus back-ends, a porta da frente recomenda o uso de solicitações HEAD para investigações de integridade.
 
 ## <a name="health-probe-responses"></a>Respostas de investigação de integridade
 
@@ -48,16 +48,16 @@ Front Door suporta os seguintes métodos HTTP para o envio das sondas de saúde:
 
 ## <a name="how-front-door-determines-backend-health"></a>Como o Front Doo l determina a integridade do back-end
 
-O Azure Front Door usa o mesmo processo de três etapas abaixo em todos os algoritmos para determinar a saúde.
+A porta frontal do Azure usa o mesmo processo de três etapas abaixo em todos os algoritmos para determinar a integridade.
 
 1. Excluir back-ends desabilitados.
 
 2. Exclua back-ends com erros de investigações de integridade:
     * Essa seleção é feita observando as últimas _n_ respostas de investigação de integridade. Se pelo menos _x_ estiver íntegro, o back-end será considerado íntegro.
 
-    * _n_ é configurado alterando a propriedade SampleSize em configurações de balanceamento de carga.
+    * _n_ é configurado alterando a propriedade Samples em configurações de balanceamento de carga.
 
-    * _x_ é configurado alterando a propriedade SuccessfulSamplesRequired em configurações de balanceamento de carga.
+    * _x_ é configurado alterando a propriedade SuccessfulSamplesRequired nas configurações de balanceamento de carga.
 
 3. Fora do conjunto de back-ends íntegros no pool de back-end, o Front Door também mede e mantém a latência (tempo de resposta) para cada back-end.
 
@@ -66,11 +66,11 @@ O Azure Front Door usa o mesmo processo de três etapas abaixo em todos os algor
 
 Se as investigações de integridade falharem em todos os back-end de um pool de back-end, o Front Door considerará todos os back-ends íntegros e roteará o tráfego em uma distribuição round robin em todos eles.
 
-Uma vez que qualquer backend retorne a um estado saudável, então a Porta da Frente retomará o algoritmo normal de balanceamento de carga.
+Depois que qualquer back-end retornar a um estado íntegro, a porta da frente retomará o algoritmo normal de balanceamento de carga.
 
-## <a name="disabling-health-probes"></a>Desabilitando testes de saúde
+## <a name="disabling-health-probes"></a>Desabilitando investigações de integridade
 
-Se você tiver um único backend em seu pool de backend, você pode optar por desativar os testes de saúde reduzindo a carga no backend do aplicativo. Mesmo que você tenha vários backends na piscina de backend, mas apenas um deles está em estado habilitado, você pode desativar as sondas de saúde.
+Se você tiver um único back-end em seu pool de back-end, poderá optar por desabilitar as investigações de integridade reduzindo a carga no back-end do aplicativo. Mesmo se você tiver vários back-ends no pool de back-end, mas apenas um deles estiver no estado habilitado, você poderá desabilitar investigações de integridade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

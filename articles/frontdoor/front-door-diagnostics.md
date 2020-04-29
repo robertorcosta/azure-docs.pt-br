@@ -1,6 +1,6 @@
 ---
-title: Monitoramento de métricas e logs na Porta da Frente do Azure| Microsoft Docs
-description: Este artigo descreve as diferentes métricas e registros de acesso que o Azure Front Door suporta
+title: Monitoramento de métricas e logs na porta frontal do Azure | Microsoft Docs
+description: Este artigo descreve as diferentes métricas e logs de acesso aos quais a porta frontal do Azure dá suporte
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,99 +12,99 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: b935355cce36a6e26b168db286ab40248f8f0f68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471720"
 ---
-# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na Porta da Frente do Azure
+# <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
-Usando o Azure Front Door, você pode monitorar os recursos das seguintes maneiras:
+Usando a porta frontal do Azure, você pode monitorar os recursos das seguintes maneiras:
 
-- **Métricas**. Aporta Frontal do Azure atualmente tem sete métricas para visualizar contadores de desempenho.
-- **Logs**. Os registros de atividade e diagnóstico permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
+- **Métricas**. Atualmente, a porta frontal do Azure tem sete métricas para exibir os contadores de desempenho.
+- **Logs**. Os logs de atividade e diagnóstico permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
 ### <a name="metrics"></a>Métricas
 
-As métricas são um recurso para certos recursos do Azure que permitem visualizar contadores de desempenho no portal. As métricas disponíveis da Porta da Frente:
+As métricas são um recurso para determinados recursos do Azure que permitem Exibir contadores de desempenho no Portal. A seguir estão as métricas de porta frontal disponíveis:
 
 | Métrica | Nome de exibição da métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
 | RequestCount | Contagem de solicitações | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pelo Front Door.  |
 | RequestSize | Tamanho da solicitação | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como solicitações de clientes para o Front Door. |
 | ResponseSize | Tamanho da resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas do Front Door para clientes. |
-| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado a partir da solicitação do cliente recebida pelo Front Door até que o cliente reconheceu o último byte de resposta da Porta da Frente. |
+| TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado a partir da solicitação do cliente recebida pela porta frontal até que o cliente confirme o último byte de resposta da porta frontal. |
 | BackendRequestCount | Contagem de solicitações de back-end | Contagem | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de solicitações enviadas do Front Door aos back-ends. |
 | BackendRequestLatency | Latência de solicitação de back-end | Milissegundos | Back-end | O tempo calculado de quando a solicitação foi enviada pelo Front Door ao back-end até o Front Door receber o último byte de resposta do back-end. |
 | BackendHealthPercentage | Percentual de integridade do back-end | Porcentagem | Back-end</br>BackendPool | O percentual de investigações de integridade bem-sucedidas do Front Door aos back-ends. |
 | WebApplicationFirewallRequestCount | Contagem de solicitações do Firewall de Aplicativo Web | Contagem | PolicyName</br>RuleName</br>Ação | O número de solicitações de cliente processadas pela segurança da camada de aplicativo do Front Door. |
 
-## <a name="activity-logs"></a><a name="activity-log"></a>Registros de atividades
+## <a name="activity-logs"></a><a name="activity-log"></a>Logs de atividade
 
-Os registros de atividades fornecem informações sobre as operações feitas na Porta da Frente. Eles também determinam o que, quem e quando para quaisquer operações de gravação (put, post ou delete) tomadas na Porta da Frente.
+Os logs de atividade fornecem informações sobre as operações realizadas na porta da frente. Eles também determinam o que, quem e quando para qualquer operação de gravação (put, post ou Delete) realizada na porta frontal.
 
 >[!NOTE]
->Os registros de atividade não incluem operações de leitura (get). Eles também não incluem operações que você executa usando o portal Azure ou a API de gerenciamento original.
+>Os logs de atividade não incluem operações de leitura (Get). Eles também não incluem operações que você executa usando o portal do Azure ou a API de gerenciamento original.
 
-A atividade de acesso faz login na porta da frente ou em todos os registros de seus recursos do Azure no Azure Monitor. Para exibir logs de atividade:
+Acesse os logs de atividade em sua porta de front-end ou todos os logs dos recursos do Azure no Azure Monitor. Para exibir logs de atividade:
 
-1. Selecione a instância da porta da frente.
-2. Selecione **o registro de atividades**.
+1. Selecione sua instância de porta frontal.
+2. Selecione **log de atividades**.
 
     ![Log de atividades](./media/front-door-diagnostics/activity-log.png)
 
-3. Escolha um escopo de filtragem e, em seguida, **selecione Aplicar**.
+3. Escolha um escopo de filtragem e, em seguida, selecione **aplicar**.
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registros de diagnóstico
-Os registros de diagnóstico fornecem informações ricas sobre operações e erros que são importantes para auditoria e solução de problemas. Os registros de diagnóstico diferem dos registros de atividade.
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Logs de diagnóstico
+Os logs de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria e solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades.
 
-Os registros de atividades fornecem insights sobre as operações feitas nos recursos do Azure. Os registros de diagnóstico fornecem informações sobre as operações realizadas pelo seu recurso. Para obter mais informações, consulte [os registros de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
+Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações executadas pelo recurso. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Logs de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
 
-Para configurar registros de diagnóstico para a porta da frente:
+Para configurar os logs de diagnóstico para sua porta frontal:
 
-1. Selecione a porta da frente do Azure.
+1. Selecione sua porta frontal do Azure.
 
 2. Escolha **configurações de diagnóstico**.
 
-3. Selecione **Ativar diagnóstico**. Arquive registros de diagnóstico junto com métricas para uma conta de armazenamento, transmita-os para um centro de eventos ou envie-os para logs do Monitor do Azure.
+3. Selecione **Ativar diagnóstico**. Arquive logs de diagnóstico junto com as métricas para uma conta de armazenamento, transmita-os para um hub de eventos ou envie-os para Azure Monitor logs.
 
-A porta da frente fornece atualmente registros de diagnóstico (em lote por hora). Os registros de diagnóstico fornecem solicitações individuais de API com cada entrada com o seguinte esquema:
+Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de diagnóstico fornecem solicitações de API individuais com cada entrada com o seguinte esquema:
 
 | Propriedade  | Descrição |
 | ------------- | ------------- |
-| Nome de backendHost | Se a solicitação estava sendo encaminhada para um backend, este campo representa o nome de hospedagem do backend. Este campo ficará em branco se a solicitação for redirecionada ou encaminhada para um cache regional (quando o cache estiver ativado para a regra de roteamento). |
-| CacheStatus | Para cenários de cache, este campo define o acerto/erro de cache no POP |
-| ClientIp | Endereço IP do cliente que fez a solicitação. Se houve um cabeçalho X-Forwarded-For na solicitação, então o IP do cliente será escolhido do mesmo. |
+| BackendHostname | Se a solicitação estava sendo encaminhada para um back-end, esse campo representa o nome do host do back-end. Esse campo ficará em branco se a solicitação tiver sido redirecionada ou encaminhada para um cache regional (quando o Caching estiver habilitado para a regra de roteamento). |
+| CacheStatus | Para cenários de cache, esse campo define o impacto/perda do cache no POP |
+| ClientIp | Endereço IP do cliente que fez a solicitação. Se houver um cabeçalho X-Forwardd-for na solicitação, o IP do cliente será escolhido do mesmo. |
 | ClientPort | A porta IP do cliente que fez a solicitação. |
 | HttpMethod | Método HTTP usado pela solicitação. |
-| HttpStatusCode | O código de status HTTP retornou do proxy. |
-| Detalhes do Status http | Status resultante na solicitação. O significado desse valor de string pode ser encontrado em uma tabela de referência status. |
+| HttpStatusCode | O código de status HTTP retornado do proxy. |
+| HttpStatusDetails | Status resultante na solicitação. O significado desse valor de cadeia de caracteres pode ser encontrado em uma tabela de referência de status. |
 | HttpVersion | Tipo de solicitação ou conexão. |
-| POP | Nome curto da borda onde o pedido desembarcou. |
-| RequestBytes | O tamanho da mensagem de solicitação HTTP em bytes, incluindo os cabeçalhos de solicitação e o órgão de solicitação. |
-| Requesturi | URI da solicitação recebida. |
-| ResponseBytes | Bytes enviados pelo servidor backend como resposta.  |
-| Nome de regra de roteamento | O nome da regra de roteamento que o pedido correspondia. |
-| Securityprotocol | A versão do protocolo TLS/SSL usada pela solicitação ou nula se não houver criptografia. |
-| Escudo de Origem de SenttoOrigin | Campo booleano representando se houve uma falha de cache no primeiro ambiente e a solicitação foi enviada para o cache regional. Ignore este campo se a regra de roteamento for um redirecionamento ou quando não tiver o cache ativado. |
-| TimeTaken | O tempo que a ação levou, em milissegundos. |
-| Referência de rastreamento | A seqüência de referência única que identifica uma solicitação atendida pelo Front Door, também enviada como cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos registros de acesso para uma solicitação específica. |
+| POP | Nome curto da borda em que a solicitação descarregou. |
+| RequestBytes | O tamanho da mensagem de solicitação HTTP em bytes, incluindo os cabeçalhos de solicitação e o corpo da solicitação. |
+| RequestUri | URI da solicitação recebida. |
+| ResponseBytes | Bytes enviados pelo servidor de back-end como a resposta.  |
+| RoutingRuleName | O nome da regra de roteamento com a qual a solicitação foi correspondida. |
+| SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. |
+| SentToOriginShield | Campo booliano que representa se houve uma perda de cache no primeiro ambiente e a solicitação foi enviada para o cache regional. Ignore este campo se a regra de roteamento for um redirecionamento ou quando o cache não estiver habilitado. |
+| TimeTaken | O período de tempo que a ação levou, em milissegundos. |
+| TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente, também enviada como o cabeçalho X-Azure-ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 
-**Nota:** Para várias configurações de roteamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, sentToOriginShield e campo POP podem responder com valores diferentes. A tabela abaixo explica os diferentes valores que esses campos terão para vários cenários:
+**Observação:** Para várias configurações de roteamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, sentToOriginShield e POP Field podem responder com valores diferentes. A tabela abaixo explica os valores diferentes, que esses campos terão para vários cenários:
 
-| Cenários | Contagem de entradas de log | POP | Nome de backendHost | Escudo de Origem de SenttoOrigin | CacheStatus |
+| Cenários | Contagem de entradas de log | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regra de roteamento sem cache ativado | 1 | Código EDGE POP | Backend onde o pedido foi encaminhado | Falso | CONFIG_NOCACHE |
-| Regra de roteamento com cache ativado. Cache atingido na borda POP | 1 | Código EDGE POP | Vazio | Falso | Atingido |
-| Regra de roteamento com cache ativado. Cache falha na borda POP, mas cache hit no cache pai POP | 2 | 1. Código EDGE POP</br>2. Código POP do cache dos pais | 1. Arquivo POP de cache painome de host</br>2. Vazio | 1. Verdade</br>2. Falso | 1. MISS</br>2. PARTIAL_HIT |
-| Regra de roteamento com cache ativado. Cache falha tanto na borda quanto no cache pai POP | 2 | 1. Código EDGE POP</br>2. Código POP do cache dos pais | 1. Arquivo POP de cache painome de host</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
+| Regra de roteamento sem Caching habilitado | 1 | Código POP do Edge | Back-end em que a solicitação foi encaminhada | Falso | CONFIG_NOCACHE |
+| Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | Falso | CONTADOR |
+| Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
+| Regra de roteamento com Caching habilitado. Perda de cache na borda e no POP de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Crie um perfil da Porta da Frente](quickstart-create-front-door.md)
-- [Como funciona a Porta da Frente](front-door-routing-architecture.md)
+- [Criar um perfil de porta de front-end](quickstart-create-front-door.md)
+- [Como funciona a porta frontal](front-door-routing-architecture.md)

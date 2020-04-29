@@ -1,5 +1,5 @@
 ---
-title: Filtragem geogeografe em um domínio para o Serviço de Porta Frontal do Azure
+title: Filtragem geográfica em um domínio para o serviço de porta frontal do Azure
 description: Neste artigo, você aprenderá sobre a política de filtragem geográfica do Azure Front Door Service
 services: web-application-firewall
 author: vhorne
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472598"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica em um domínio do Azure Front Door?
@@ -43,7 +43,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | BB | Barbados|
 | BD | Bangladesh|
 | BE | Bélgica|
-| BF | Burkina Faso|
+| BF | Burquina Faso|
 | BG | Bulgária|
 | BH | Bahrein|
 | BI | Burundi|
@@ -105,7 +105,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | IQ | Iraque|
 | IR | Irã, República Islâmica do|
 | IS | Islândia|
-| IT | Itália|
+| TI | Itália|
 | JM | Jamaica|
 | JO | Jordânia|
 | JP | Japão|
@@ -133,7 +133,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | MD | Moldávia, República da|
 | MG | Madagascar|
 | MK | Macedônia do Norte|
-| ML | Mali|
+| ML | Máli|
 | MM | Myanmar|
 | MN | Mongólia|
 | MO | RAE de Macau|
@@ -196,7 +196,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | EUA | Estados Unidos|
 | UY | Uruguai|
 | UZ | Uzbequistão|
-| VC | São Vincent e Granadinas|
+| VC | São Vicente e Granadinas|
 | VE | Venezuela|
 | VG | Ilhas Virgens Britânicas|
 | VI | Ilhas Virgens Americanas|

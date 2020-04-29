@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de configuração do Azure Front Door
+title: Solucionar problemas de configuração de porta frontal do Azure
 description: Neste tutorial, você aprenderá como solucionar você mesmo alguns dos problemas comuns que pode enfrentar com o Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -13,39 +13,39 @@ ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
 ms.openlocfilehash: 962c884eb8adc05e5d50b6b254d5c3f0b18af556
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471499"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 
-Este artigo descreve como solucionar problemas de alguns dos problemas comuns de roteamento que você pode enfrentar para a configuração do Azure Front Door.
+Este artigo descreve como solucionar alguns dos problemas de roteamento comuns que você pode enfrentar para sua configuração de porta frontal do Azure.
 
-## <a name="503-response-from-front-door-after-a-few-seconds"></a>Resposta 503 da Porta da Frente após alguns segundos
+## <a name="503-response-from-front-door-after-a-few-seconds"></a>503 resposta da porta frontal após alguns segundos
 
 ### <a name="symptom"></a>Sintoma
 
-- As solicitações regulares enviadas para o seu backend sem passar pela Porta da Frente estão tendo sucesso, mas ir pela Porta da Frente resulta em 503 respostas de erro.
+- As solicitações regulares enviadas ao seu back-end sem passar pela porta frontal estão com sucesso, mas passar por meio da porta frontal resulta em respostas de erro 503.
 
-- A falha da Porta da Frente aparece após alguns segundos (normalmente em torno de 30 segundos)
+- A falha da porta frontal é mostrada após alguns segundos (normalmente em cerca de 30 segundos)
 
 ### <a name="cause"></a>Causa
 
-Esse sintoma acontece quando o backend leva além da configuração de tempo de tempo (o padrão é de 30 segundos) para receber a solicitação da Porta da Frente ou se leva além desse valor de tempo para enviar uma resposta à solicitação da Porta da Frente. 
+Esse sintoma acontece quando o back-end leva além da configuração de tempo limite (o padrão é 30 segundos) para receber a solicitação da porta frontal ou se ela levar além desse valor de tempo limite para enviar uma resposta para a solicitação da porta frontal. 
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-- Envie a solicitação diretamente para o seu backend (sem passar pela Porta da Frente) e veja qual é o tempo habitual necessário para o seu backend responder.
-- Envie a solicitação via Front Door e veja se você está vendo alguma resposta 503. Se não, então isso pode não ser um problema de tempo. Contate o suporte.
-- Se ir através do Front Door resultar em código de resposta de erro 503, configure o campo sendReceiveTimeout para sua Porta da Frente para estender o tempo inicial padrão até 4 minutos (240 segundos). A configuração `backendPoolSettings` está sob `sendRecvTimeoutSeconds`o e é chamado . 
+- Envie a solicitação ao seu back-end diretamente (sem passar pela porta frontal) e veja qual é o tempo normal que leva para o back-end responder.
+- Envie a solicitação por meio da porta frontal e veja se você está vendo quaisquer respostas de 503. Caso contrário, isso pode não ser um problema de tempo limite. Contate o suporte.
+- Se passar por meio da porta frontal resultar no código de resposta de erro 503, configure o campo sendReceiveTimeout para sua porta frontal para estender o tempo limite padrão de até 4 minutos (240 segundos). A configuração está sob a `backendPoolSettings` e é chamada `sendRecvTimeoutSeconds`. 
 
-## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Solicitações enviadas ao domínio personalizado retorna 400 Status Code
+## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>As solicitações enviadas para o domínio personalizado retorna o código de status 400
 
 ### <a name="symptom"></a>Sintoma
 
-- Você criou uma Porta da Frente, mas uma solicitação para o host de domínio ou frontend está retornando um código de status HTTP 400.
+- Você criou uma porta frontal, mas uma solicitação ao host de domínio ou front-end está retornando um código de status HTTP 400.
 
 - Você criou um mapeamento DNS de um domínio personalizado para o host de front-end configurado. No entanto, enviar uma solicitação para o nome de host do domínio personalizado retorna um código de status HTTP 400 e não aparece rotear para os back-ends que você configurou.
 
@@ -57,15 +57,15 @@ Esse sintoma poderá acontecer se você não tiver configurado uma regra de rote
 
 Adicione uma regra de roteamento do domínio personalizado para o pool de back-end desejado.
 
-## <a name="front-door-is-not-redirecting-http-to-https"></a>Front Door não está redirecionando HTTP para HTTPS
+## <a name="front-door-is-not-redirecting-http-to-https"></a>A porta frontal não está redirecionando HTTP para HTTPS
 
 ### <a name="symptom"></a>Sintoma
 
-Sua Porta frontal tem uma regra de roteamento que diz redirecionar HTTP para HTTPS, mas acessar o domínio ainda mantém HTTP como protocolo.
+Sua porta frontal tem uma regra de roteamento que diz redirecionar HTTP para HTTPS, mas o acesso ao domínio ainda mantém o HTTP como o protocolo.
 
 ### <a name="cause"></a>Causa
 
-Esse comportamento pode acontecer se você não tiver configurado corretamente as regras de roteamento para a sua Porta da Frente. Basicamente, sua configuração atual não é específica e pode ter regras conflitantes.
+Esse comportamento pode acontecer se você não tiver configurado corretamente as regras de roteamento para sua porta frontal. Basicamente, a configuração atual não é específica e pode ter regras conflitantes.
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
@@ -79,8 +79,8 @@ Esse comportamento pode acontecer se você não tiver configurado corretamente a
 
 Há várias causas possíveis para esse sintoma:
 
-- O backend não é um backend público voltado para o público e não é visível para a Porta da Frente.
-- O backend está mal configurado, o que está fazendo com que a Porta da Frente envie a solicitação errada (ou seja, seu backend só aceita HTTP, mas você não desverificou permitindo HTTPS então o Front Door está tentando encaminhar solicitações HTTPS).
+- O back-end não é um back-end voltado para o público e não é visível para a porta da frente.
+- O back-end está configurado incorretamente, o que está fazendo com que a porta frontal envie a solicitação incorreta (ou seja, seu back-end só aceita HTTP, mas você não selecionou a permissão HTTPS, portanto a porta frontal está tentando encaminhar solicitações HTTPS).
 - O back-end está rejeitando o cabeçalho de host que foi enviado com a solicitação ao back-end.
 - A configuração para o back-end ainda não foi totalmente implantada.
 
@@ -98,7 +98,7 @@ Há várias causas possíveis para esse sintoma:
 
 
 3. Verificar as configurações de regra de roteamento
-    - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. O campo _de protocolos aceitos_ determina quais solicitações a Porta da Frente deve aceitar e o _protocolo de encaminhamento_ determina qual protocolo a Porta da Frente deve usar para encaminhar a solicitação para o backend.
+    - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. O campo _protocolos aceitos_ determina quais solicitações a porta frontal deve aceitar e o _protocolo de encaminhamento_ determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
          - Por exemplo, se o back-end só aceitar solicitações HTTP, as seguintes configurações serão válidas:
             - Os _Protocolos aceitos_ são HTTP e HTTPS. O _Protocolo de encaminhamento_ é HTTP. Solicitação de correspondência não funcionará, já que o HTTPS é um protocolo permitido e, se uma solicitação tiver chegado como HTTPS, o Front Door tentará encaminhá-la usando HTTPS.
 

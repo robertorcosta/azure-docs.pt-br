@@ -1,6 +1,6 @@
 ---
 title: Esquema sobre eventos do Log de Atividades do Azure
-description: Descreve o esquema de evento para cada categoria no registro de atividades do Azure.
+description: Descreve o esquema de evento para cada categoria no log de atividades do Azure.
 author: bwren
 services: azure-monitor
 ms.topic: reference
@@ -8,16 +8,16 @@ ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79472734"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
-O [registro de atividades do Azure](platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de assinatura que tenham ocorrido no Azure. Este artigo descreve o esquema do evento para cada categoria. 
+O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve o esquema de evento para cada categoria. 
 
-Os exemplos abaixo mostram o esquema quando você acessa o registro de atividades do portal, PowerShell, CLI e API REST. O esquema é diferente quando você [transmite o registro de atividades para armazenamento ou Hubs de eventos](resource-logs-stream-event-hubs.md). Um mapeamento das propriedades para o esquema de [logs](diagnostic-logs-schema.md) de recursos é fornecido no final do artigo.
+Os exemplos a seguir mostram o esquema quando você acessa o log de atividades do portal, do PowerShell, da CLI e da API REST. O esquema é diferente quando você [transmite o log de atividades para o armazenamento ou hubs de eventos](resource-logs-stream-event-hubs.md). Um mapeamento das propriedades para o [esquema de logs de recursos](diagnostic-logs-schema.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativo
 Essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui alterações de controle de acesso baseado em função em uma assinatura.
@@ -118,10 +118,10 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | canais |Um dos seguintes valores: "Admin", "Operação" |
 | declarações |O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
 | correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
-| descrição |Descrição de texto estático de um evento. |
+| description |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
 | eventName | Nome amigável do evento administrativo. |
-| category | Sempre "Administrativo" |
+| category | Sempre "administrativo" |
 | httpRequest |Blob que descreve a solicitação Http. Geralmente inclui a “clientRequestId”, o “clientIpAddress” e o “método” (método HTTP. Por exemplo, PUT). |
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
@@ -262,7 +262,7 @@ Esta categoria contém o registro de qualquer evento de integridade do recurso o
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de alerta. |
+| description |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do alerta de evento. |
 | category | Sempre "ResourceHealth" |
 | eventTimestamp |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
@@ -357,9 +357,9 @@ Essa categoria contém o registro de todas as ativações de alertas do Azure. U
 | canais | Sempre "Administrador, Operação" |
 | declarações | Blob JSON com o SPN (nome da entidade de serviço) ou tipo de recurso do mecanismo de alerta. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de alerta. |
+| description |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do alerta de evento. |
-| category | Sempre "Alerta" |
+| category | Sempre "alerta" |
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, é o nome do grupo de recursos que contém o alerta em si. |
 | resourceProviderName |Nome do provedor de recursos para o recurso afetado, se for um alerta de métrica. Para outros tipos de alerta, é o nome do provedor de recursos do próprio alerta. |
@@ -467,7 +467,7 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 | canais | Sempre "Administrador, Operação" |
 | declarações | Blob JSON com o SPN (nome da entidade de serviço) ou tipo de recurso do mecanismo de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de dimensionamento automático. |
+| description |Descrição de texto estático do evento de dimensionamento automático. |
 | eventDataId |Identificador exclusivo do evento de dimensionamento automático. |
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
 | resourceGroupName |Nome do grupo de recursos para a configuração de dimensionamento automático. |
@@ -555,10 +555,10 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de segurança. |
+| description |Descrição de texto estático do evento de segurança. |
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
-| category | Sempre "Segurança" |
+| category | Sempre "segurança" |
 | ID |Identificador de recursos exclusivo do evento de segurança. |
 | level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso” e “Informativo” |
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
@@ -576,7 +576,7 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 | subscriptionId |ID de assinatura do Azure. |
 
 ## <a name="recommendation"></a>Recomendação
-Esta categoria contém o registro das novas recomendações geradas para os serviços. Um exemplo de uma recomendação seria "Use conjuntos de disponibilidade para tolerância a falhas melhorada." Existem quatro tipos de eventos de recomendação que podem ser gerados: Alta Disponibilidade, Desempenho, Segurança e Otimização de Custos. 
+Esta categoria contém o registro das novas recomendações geradas para os serviços. Um exemplo de uma recomendação seria "Use conjuntos de disponibilidade para tolerância a falhas melhorada." Há quatro tipos de eventos de recomendação que podem ser gerados: alta disponibilidade, desempenho, segurança e otimização de custos. 
 
 ### <a name="sample-event"></a>Evento de exemplo
 ```json
@@ -636,7 +636,7 @@ Esta categoria contém o registro das novas recomendações geradas para os serv
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
-| descrição |Descrição de texto estático do evento de recomendação |
+| description |Descrição de texto estático do evento de recomendação |
 | eventDataId | Identificador exclusivo do evento de recomendação. |
 | category | Sempre "Recomendação" |
 | ID |Identificador exclusivo do recurso do evento de recomendação. |
@@ -657,7 +657,7 @@ Esta categoria contém o registro das novas recomendações geradas para os serv
 
 ## <a name="policy"></a>Política
 
-Essa categoria contém registros de todas as operações de ação de efeito executadas pelo [Azure Policy](../../governance/policy/overview.md). Exemplos dos tipos de eventos que você veria nesta categoria incluem _Auditoria_ e _Negar_. Cada ação tomada pelo Policy é modelada como uma operação em um recurso.
+Essa categoria contém registros de todas as operações de ação de efeito executadas pelo [Azure Policy](../../governance/policy/overview.md). Exemplos dos tipos de eventos que você veria nessa categoria incluem _auditoria_ e _negação_. Cada ação tomada pelo Policy é modelada como uma operação em um recurso.
 
 ### <a name="sample-policy-event"></a>Evento do Policy de exemplo
 
@@ -749,7 +749,7 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 | canais | Eventos do Policy usam apenas o canal "Operation". |
 | declarações | O token JWT usado pelo Active Directory para autenticar o usuário ou o aplicativo a fim de executar essa operação no Resource Manager. |
 | correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
-| descrição | Este campo fica em branco para eventos do Policy. |
+| description | Este campo fica em branco para eventos do Policy. |
 | eventDataId | Identificador exclusivo de um evento. |
 | eventName | "BeginRequest" ou "EndRequest". "BeginRequest" é usado para avaliações de auditIfNotExists e deployIfNotExists atrasadas e quando um efeito deployIfNotExists inicia uma implantação de modelo. Todas as outras operações retornam "EndRequest". |
 | category | Declara um evento de log de atividades como pertencente a "Policy". |
@@ -773,14 +773,14 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 | relatedEvents | Este campo fica em branco para eventos do Policy. |
 
 
-## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema de contas de armazenamento e hubs de eventos
-Ao transmitir o registro de atividade do Azure para uma conta de armazenamento ou centro de eventos, os dados seguem o [esquema de registro de recursos](diagnostic-logs-schema.md). A tabela abaixo fornece um mapeamento das propriedades do esquema acima para o esquema de registros de recursos.
+## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema da conta de armazenamento e dos hubs de eventos
+Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hub de eventos, os dados seguem o [esquema do log de recursos](diagnostic-logs-schema.md). A tabela a seguir fornece um mapeamento das propriedades do esquema acima para o esquema de logs de recursos.
 
 > [!IMPORTANT]
-> O formato dos dados de registro de atividades gravados em uma conta de armazenamento alterado para JSON Lines em 1º de novembro de 2018. Consulte [Prepare-se para a alteração de formato para logs de recursos do Azure Monitor arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
 
 
-| Propriedade de esquema de logema de registros de recursos | Propriedade de esquema da API REST do Log de Atividades | Observações |
+| Propriedade de esquema dos logs de recursos | Propriedade de esquema da API REST do Log de Atividades | Anotações |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType e resourceGroupName são todos inferidos da resourceId. |
@@ -788,20 +788,20 @@ Ao transmitir o registro de atividade do Azure para uma conta de armazenamento o
 | category | Parte do nome da operação | Detalhamento do tipo de operação – "Gravação"/"Exclusão"/"Ação" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | descrição |  |
+| resultDescription | description |  |
 | durationMs | N/D | Sempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identidade | declarações e propriedades de autorização |  |
 | Nível | Nível |  |
-| local | N/D | Local do qual o evento foi processado. *Este não é o local do recurso, mas sim onde o evento foi processado. Esta propriedade será removida em uma atualização futura.* |
+| local | N/D | Local do qual o evento foi processado. *Esse não é o local do recurso, mas sim onde o evento foi processado. Esta propriedade será removida em uma atualização futura.* |
 | Propriedades | properties.eventProperties |  |
 | properties.eventCategory | category | Se properties.eventCategory não estiver presente, a categoria será "Administrativo" |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
-A seguir está um exemplo de um evento usando este esquema..
+Veja a seguir um exemplo de um evento que usa esse esquema.
 
 ``` JSON
 {
@@ -864,6 +864,6 @@ A seguir está um exemplo de um evento usando este esquema..
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o Registro de Atividades](platform-logs-overview.md)
-* [Crie uma configuração de diagnóstico para enviar o Registro de Atividades para o espaço de trabalho do Log Analytics, armazenamento do Azure ou hubs de eventos](diagnostic-settings.md)
+* [Saiba mais sobre o log de atividades](platform-logs-overview.md)
+* [Criar uma configuração de diagnóstico para enviar o log de atividades para Log Analytics espaço de trabalho, armazenamento do Azure ou hubs de eventos](diagnostic-settings.md)
 
