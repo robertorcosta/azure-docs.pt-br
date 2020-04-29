@@ -15,10 +15,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162983"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
@@ -61,7 +61,7 @@ A tabela a seguir resume os aplicativos nativos/plataformas nativas e navegadore
 | **Plataforma cliente** | **Compatibilidade com o DRM nativo** | **Navegador/aplicativo** | **Formatos de streaming** |
 | --- | --- | --- | --- |
 | **Smart TVs, STBs de operador, STBs OTT** |Basicamente PlayReady e/ou Widevine e/ou outros |Linux, Opera, WebKit, outros |Vários formatos |
-| **Dispositivos Windows 10 (Pc Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
+| **Dispositivos Windows 10 (Windows PC, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
 | **Dispositivos Android (telefone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), clientes OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -148,13 +148,13 @@ A tabela abaixo mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Player** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
-| **STS (serviço de token de segurança)** |AD do Azure |
+| **STS (serviço de token de segurança)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
-| **Gestão de chaves** |Não é necessário para a implementação de referência |
+| **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 
 Em outras palavras, tanto IDP quanto STS são usados com o Azure AD. A [API do Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/) é usada para o player. Os Serviços de Mídia e o Player de Mídia são compatíveis com DASH e CENC com DRM múltiplo.
@@ -217,12 +217,12 @@ A implementação inclui as seguintes etapas:
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Falha |
     | **Widevine** |Chrome, Firefox, Opera |Êxito |Falha |
-    | **Fairplay** |Safari no macOS      |Êxito |Falha |
+    | **FairPlay** |Safari no macOS      |Êxito |Falha |
     | **AES-128** |Navegadores mais modernos  |Êxito |Falha |
 
 Para obter informações sobre como configurar o Azure AD para um aplicativo player do ASP.NET MVC, consulte [Integrar um aplicativo OWIN com base em MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-Para obter mais informações, consulte [a autenticação do token JWT no Azure Media Services e a criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
+Para obter mais informações, consulte [autenticação de token JWT nos serviços de mídia do Azure e criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Para obter informações sobre o Azure AD:
 
@@ -398,7 +398,7 @@ Embora o Azure originalmente permitisse acesso somente por usuários de contas d
 
 Como o Azure AD confia no domínio da conta da Microsoft, você pode adicionar contas de qualquer um dos seguintes domínios ao locatário do Azure AD personalizado e usar a conta para entrar:
 
-| **Nome de domínio** | **Domínio** |
+| **Nome de domínio** | **Domain** |
 | --- | --- |
 | **Domínio de locatário do AD do Azure personalizado** |somename.onmicrosoft.com |
 | **Domínio corporativo** |microsoft.com |
@@ -477,6 +477,6 @@ Este documento abordou a CENC com DRM múltiplo nativo e o controle de acesso po
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

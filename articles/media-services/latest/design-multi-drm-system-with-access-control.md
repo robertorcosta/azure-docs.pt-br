@@ -1,6 +1,6 @@
 ---
-title: Um sistema de proteção de conteúdo multi-DRM - Azure Media Services v3
-description: Este artigo fornece uma descrição detalhada de como projetar um sistema de proteção de conteúdo multi-DRM com o Azure Media Services.
+title: Um sistema de proteção de conteúdo de vários DRM-serviços de mídia do Azure v3
+description: Este artigo fornece uma descrição detalhada de como criar um sistema de proteção de conteúdo de vários DRM com os serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,10 +15,10 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161776"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso 
@@ -133,13 +133,13 @@ A tabela abaixo mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Provedor de identidade (IDP)** |Active Directory do Azure (Azure AD) |
-| **STS (Serviço de Token Seguro)** |AD do Azure |
+| **Player** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **IDP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
+| **STS (Serviço de Token Seguro)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia do Azure |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade dos Serviços de Mídia do Azure |
-| **Gestão de chaves** |Não é necessário para a implementação de referência |
+| **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 
 Em outras palavras, tanto IDP quanto STS são usados pelo Microsoft Azure Active Directory. A [API do Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/) é usada para o player. Os Serviços de Mídia do Azure e o Player de Mídia do Azure são compatíveis com CENC em DASH, FairPlay em HLS, PlayReady em streaming suave e criptografia AES-128 para DASH, HLS e suave.
@@ -204,12 +204,12 @@ A implementação inclui as seguintes etapas:
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Falha |
     | **Widevine** |Chrome, Firefox, Opera |Êxito |Falha |
-    | **Fairplay** |Safari no macOS      |Êxito |Falha |
+    | **FairPlay** |Safari no macOS      |Êxito |Falha |
     | **AES-128** |Navegadores mais modernos  |Êxito |Falha |
 
 Para obter informações sobre como configurar o Azure AD para um aplicativo player do ASP.NET MVC, consulte [Integrar um aplicativo OWIN com base em MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-Para obter mais informações, consulte [a autenticação do token JWT no Azure Media Services e a criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
+Para obter mais informações, consulte [autenticação de token JWT nos serviços de mídia do Azure e criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Para obter informações sobre o Azure AD:
 
@@ -276,7 +276,7 @@ Embora o Azure originalmente permitisse acesso somente por usuários de contas d
 
 Como o Azure AD confia no domínio da conta da Microsoft, você pode adicionar contas de qualquer um dos seguintes domínios ao locatário do Azure AD personalizado e usar a conta para entrar:
 
-| **Nome de domínio** | **Domínio** |
+| **Nome de domínio** | **Domain** |
 | --- | --- |
 | **Domínio de locatário do AD do Azure personalizado** |somename.onmicrosoft.com |
 | **Domínio corporativo** |microsoft.com |

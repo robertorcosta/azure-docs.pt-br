@@ -1,54 +1,54 @@
 ---
-title: Gatilho de aquecimento das funções do Azure
-description: Entenda como usar o gatilho de aquecimento em Funções Azure.
+title: Azure Functions gatilho aquecimento
+description: Entenda como usar o gatilho aquecimento no Azure Functions.
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
-keywords: funções, funções, processamento de eventos, aquecimento, início a frio, premium, computação dinâmica, arquitetura sem servidor
+keywords: Azure functions, functions, processamento de eventos, aquecimento, Cold Start, Premium, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
 ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77167322"
 ---
-# <a name="azure-functions-warm-up-trigger"></a>Gatilho de aquecimento das funções do Azure
+# <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
-Este artigo explica como trabalhar com o gatilho de aquecimento em Funções Azure. O gatilho de aquecimento é suportado apenas para aplicativos de função em execução em um [plano Premium](functions-premium-plan.md). Um gatilho de aquecimento é invocado quando uma instância é adicionada para escalar um aplicativo de função em execução. Você pode usar um gatilho de aquecimento para pré-carregar dependências personalizadas durante o [processo de pré-aquecimento](./functions-premium-plan.md#pre-warmed-instances) para que suas funções estejam prontas para iniciar o processamento de solicitações imediatamente. 
+Este artigo explica como trabalhar com o gatilho aquecimento no Azure Functions. O gatilho aquecimento tem suporte apenas para aplicativos de funções em execução em um [plano Premium](functions-premium-plan.md). Um gatilho aquecimento é invocado quando uma instância é adicionada para dimensionar um aplicativo de funções em execução. Você pode usar um gatilho aquecimento para pré-carregar dependências personalizadas durante o [processo de pré-teste](./functions-premium-plan.md#pre-warmed-instances) para que suas funções estejam prontas para iniciar solicitações de processamento imediatamente. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superior
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-O pacote [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet, versão **3.0.5 ou superior,** é necessário. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/). 
+O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/). 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Gatilho
 
-O gatilho de aquecimento permite definir uma função que será executada em uma nova instância quando for adicionada ao seu aplicativo em execução. Você pode usar uma função de aquecimento para abrir conexões, carregar dependências ou executar qualquer outra lógica personalizada antes que seu aplicativo comece a receber tráfego. 
+O gatilho aquecimento permite que você defina uma função que será executada em uma nova instância quando ela for adicionada ao seu aplicativo em execução. Você pode usar uma função aquecimento para abrir conexões, carregar dependências ou executar qualquer outra lógica personalizada antes que seu aplicativo comece a receber tráfego. 
 
-O gatilho de aquecimento destina-se a criar dependências compartilhadas que serão usadas pelas outras funções em seu aplicativo. [Veja exemplos de dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
+O gatilho aquecimento destina-se a criar dependências compartilhadas que serão usadas por outras funções em seu aplicativo. [Veja exemplos de dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
 
-Observe que o gatilho de aquecimento só é chamado durante operações de scale-out, não durante reinicializações ou outras startups não dimensionadas. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho de aquecimento. O carregamento preguiçoso é um bom padrão para conseguir isso.
+Observe que o gatilho aquecimento é chamado apenas durante operações de expansão, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo. Um atributo de valor de retorno não é necessário.
 
 
-* Sua função deve ```warmup``` ser nomeada (case-insensitive) e pode haver apenas uma função de aquecimento por aplicativo.
-* Para usar o aquecimento como uma função de biblioteca de classe .NET, certifique-se de ter uma referência de pacote ao **Microsoft.Azure.WebJobs.Extensões >= 3.0.5**
+* Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
+* Para usar o aquecimento como uma função de biblioteca de classes .NET, verifique se você tem uma referência de pacote para **Microsoft. Azure. webjobs. Extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
-Comentários de espaço reservado mostram onde no aplicativo declarar e inicializar dependências compartilhadas. 
+Os comentários de espaço reservado mostram onde o aplicativo deve declarar e inicializar dependências compartilhadas. 
 [Saiba mais sobre dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
 
 ```cs
@@ -76,9 +76,9 @@ namespace WarmupSample
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
 
-O exemplo a seguir mostra um gatilho de aquecimento em um arquivo *function.json* e uma [função de script C#](functions-reference-csharp.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função script C#](functions-reference-csharp.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
 
-Sua função deve ```warmup``` ser nomeada (case-insensitive), e pode haver apenas uma função de aquecimento por aplicativo.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
 Aqui está o arquivo *function.json*:
 
@@ -105,11 +105,11 @@ public static void Run(ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra um gatilho de aquecimento em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Sua função deve ```warmup``` ser nomeada (case-insensitive) e pode haver apenas uma função de aquecimento por aplicativo.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
 Aqui está o arquivo *function.json*:
 
@@ -138,9 +138,9 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra um gatilho de aquecimento em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que será executada em cada nova instância quando for adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* e uma [função do Python](functions-reference-python.md) que será executada em cada nova instância quando ela for adicionada ao seu aplicativo.
 
-Sua função deve ```warmup``` ser nomeada (case-insensitive) e pode haver apenas uma função de aquecimento por aplicativo.
+Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
 Aqui está o arquivo *function.json*:
 
@@ -171,9 +171,9 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra um gatilho de aquecimento que é executado quando cada nova instância é adicionada ao seu aplicativo.
+O exemplo a seguir mostra um gatilho aquecimento que é executado quando cada nova instância é adicionada ao seu aplicativo.
 
-Sua função deve `warmup` ser nomeada (case-insensitive) e pode haver apenas uma função de aquecimento por aplicativo.
+Sua função deve ser nomeada `warmup` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
 ```java
 @FunctionName("Warmup")
@@ -186,13 +186,13 @@ public void run( ExecutionContext context) {
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 
-Em [bibliotecas de classe C#,](functions-dotnet-class-library.md)o atributo `WarmupTrigger` está disponível para configurar a função.
+Em [bibliotecas de classes C#](functions-dotnet-class-library.md), `WarmupTrigger` o atributo está disponível para configurar a função.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Este exemplo demonstra como usar o atributo [de aquecimento.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs)
+Este exemplo demonstra como usar o atributo [aquecimento](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) .
 
-Observe que sua função ```Warmup``` deve ser chamada e só pode haver uma função de aquecimento por aplicativo.
+Observe que sua função deve ser chamada ```Warmup``` e pode haver apenas uma função aquecimento por aplicativo.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -203,46 +203,46 @@ Observe que sua função ```Warmup``` deve ser chamada e só pode haver uma fun�
         }
 ```
 
-Para um exemplo completo, veja o exemplo do [gatilho](#trigger---example).
+Para obter um exemplo completo, consulte o [exemplo de gatilho](#trigger---example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Os atributos não são suportados pelo script C#.
+Não há suporte para atributos pelo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Os atributos não são suportados pelo JavaScript.
+Não há suporte para atributos pelo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os atributos não são suportados pelo Python.
+Não há suporte para atributos no Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O gatilho de aquecimento não é suportado em Java como um atributo.
+O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ---
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de `WarmupTrigger` vinculação que você definiu no arquivo *function.json* e no atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `WarmupTrigger` atributo.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type** | n/d| Obrigatório – deve ser definido como `warmupTrigger`. |
-| **direction** | n/d| Obrigatório – deve ser definido como `in`. |
-| **name** | n/d| Necessário - o nome da variável usado no código de função.|
+| **tipo** | N/D| Obrigatório – deve ser definido como `warmupTrigger`. |
+| **direção** | N/D| Obrigatório – deve ser definido como `in`. |
+| **name** | N/D| Required – o nome da variável usada no código de função.|
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-Nenhuma informação adicional é fornecida a uma função acionada de aquecimento quando for invocada.
+Nenhuma informação adicional é fornecida a uma função disparada por aquecimento quando ela é chamada.
 
 ## <a name="trigger---limits"></a>Gatilho - limites
 
-* O gatilho de aquecimento só está disponível para aplicativos em execução no [plano Premium](./functions-premium-plan.md).
-* O gatilho de aquecimento só é chamado durante operações de scale up, não durante reinicializações ou outras startups não-dimensionadas. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho de aquecimento. O carregamento preguiçoso é um bom padrão para conseguir isso.
-* O gatilho de aquecimento não pode ser invocado uma vez que uma instância já esteja em execução.
-* Só pode haver uma função de gatilho de aquecimento por aplicativo de função.
+* O gatilho aquecimento só está disponível para aplicativos em execução no [plano Premium](./functions-premium-plan.md).
+* O gatilho aquecimento é chamado somente durante operações de escala vertical, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
+* O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
+* Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 
 ## <a name="next-steps"></a>Próximas etapas
 

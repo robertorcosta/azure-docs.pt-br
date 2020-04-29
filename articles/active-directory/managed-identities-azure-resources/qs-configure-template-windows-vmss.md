@@ -1,5 +1,5 @@
 ---
-title: Configure modelo para usar identidades gerenciadas em conjuntos de escala de máquinas virtuais - Azure AD
+title: Configurar o modelo para usar identidades gerenciadas em conjuntos de dimensionamento de máquinas virtuais-Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais, usando um modelo do Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5e324ea20b2ea82fac5b5132893d3558bd3b41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425554"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configure identidades gerenciadas para recursos do Azure em uma escala de máquina virtual do Azure usando um modelo
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades gerenciadas para recursos do Azure em uma escala de máquina virtual do Azure usando um modelo
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -49,7 +49,7 @@ Neste artigo, você aprenderá como executar as seguintes identidades gerenciada
 
 Assim como com o Portal do Azure e o script, os modelos do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) permitem implantar recursos novos ou modificados definidos por um grupo de recursos do Azure. Há várias opções disponíveis para a edição e a implantação do modelo, tanto locais quanto baseadas em portal, incluindo:
 
-   - Usando um [modelo personalizado do Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite criar um modelo do zero ou baseá-lo em um modelo comum ou [rápido](https://azure.microsoft.com/documentation/templates/)existente.
+   - Usando um [modelo personalizado do Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), que permite que você crie um modelo a partir do zero ou baseie-o em um modelo comum ou de [início rápido](https://azure.microsoft.com/documentation/templates/)existente.
    - Derivar de um grupo de recursos existente, exportando um modelo da [implantação original](../../azure-resource-manager/templates/export-template-portal.md) ou do [estado atual da implantação](../../azure-resource-manager/templates/export-template-portal.md).
    - Usar um [editor JSON local (por exemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), depois carregar e implantar usando o PowerShell ou a CLI.
    - Usar o [projeto do Grupo de Recursos do Azure](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) do Visual Studio para criar e implantar um modelo.  
@@ -60,7 +60,7 @@ Independentemente da opção escolhido, a sintaxe do modelo será a mesma durant
 
 Nesta seção, você habilitará e desabilitará a identidade gerenciada atribuída ao sistema usando um modelo do Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Habilite a identidade gerenciada atribuída ao sistema durante a criação de um conjunto de escala de máquinas virtuais ou de um conjunto de escala de máquinavirtual existente
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Habilitar a identidade gerenciada atribuída pelo sistema durante a criação da criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquinas virtuais existente
 
 1. Se você entrar no Azure localmente ou por meio do Portal do Azure, use uma conta que esteja associada à assinatura do Azure que contém o conjunto de dimensionamento de máquinas virtuais.
 2. Para habilitar a identidade gerenciada atribuída ao sistema, carregue o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachinesScaleSets` de interesse dentro da seção recursos e adicione a propriedade `identity` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Use a seguinte sintaxe:
@@ -72,7 +72,7 @@ Nesta seção, você habilitará e desabilitará a identidade gerenciada atribu�
    ```
 
 > [!NOTE]
-> Você pode opcionalmente provisionar as identidades gerenciadas para a extensão de `extensionProfile` configuração de escala de máquina virtual de recursos do Azure, especificando-a no elemento do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [Migrar da extensão VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
+> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento `extensionProfile` de máquinas virtuais do Azure, especificando-o no elemento do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
 
 4. Quando tiver concluído, as seções a seguir deverão ser adicionadas à seção recurso do modelo e serem semelhantes ao seguinte:
@@ -196,7 +196,7 @@ Nesta seção, você atribui uma identidade gerenciada atribuída ao usuário a 
    }
    ```
 > [!NOTE]
-> Você pode opcionalmente provisionar as identidades gerenciadas para a extensão de `extensionProfile` configuração de escala de máquina virtual de recursos do Azure, especificando-a no elemento do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [Migrar da extensão VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
+> Opcionalmente, você pode provisionar as identidades gerenciadas para a extensão do conjunto de dimensionamento `extensionProfile` de máquinas virtuais do Azure, especificando-o no elemento do modelo. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Para obter mais informações, consulte [migrar da extensão de VM para o Azure IMDS para autenticação](howto-migrate-vm-extension.md).
 
 3. Quando terminar, seu modelo deverá ser semelhante ao seguinte:
 

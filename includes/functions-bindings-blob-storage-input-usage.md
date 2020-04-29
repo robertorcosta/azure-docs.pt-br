@@ -10,13 +10,13 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 512d05b245f1279a977ba61d5b4c4904fc0f6bf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77202119"
 ---
-Você pode usar os seguintes tipos de parâmetros para a ligação de entrada de bolha:
+Você pode usar os seguintes tipos de parâmetro para a associação de entrada de blob:
 
 * `Stream`
 * `TextReader`
@@ -24,10 +24,10 @@ Você pode usar os seguintes tipos de parâmetros para a ligação de entrada de
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`<sup>1</sup>
-* `CloudBlockBlob`<sup>1</sup>
-* `CloudPageBlob`<sup>1</sup>
-* `CloudAppendBlob`<sup>1</sup>
+* `ICloudBlob`<sup>uma</sup>
+* `CloudBlockBlob`<sup>uma</sup>
+* `CloudPageBlob`<sup>uma</sup>
+* `CloudAppendBlob`<sup>uma</sup>
 
 <sup>1</sup> Requer associação "inout" `direction` em *function.json* ou `FileAccess.ReadWrite` em uma biblioteca de classes C#.
 

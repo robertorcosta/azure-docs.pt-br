@@ -1,5 +1,5 @@
 ---
-title: Failover e recuperação de desastres para um StorSimple Cloud Appliance
+title: Failover e recuperação de desastre para um dispositivo de nuvem StorSimple
 description: Saiba como fazer o failover do seu dispositivo físico StorSimple da série 8000 para um dispositivo de nuvem.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77468738"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Fazer failover para um Dispositivo de Nuvem StorSimple

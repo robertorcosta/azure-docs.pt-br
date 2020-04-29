@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
 ms.openlocfilehash: daca108cfc8bb2e5b2a068170a4a0244c72c9592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77462591"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados SQL do Azure
@@ -24,54 +24,54 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Alterar recursos de computação (vCores ou DTUs)
 
-Depois de escolher inicialmente o número de vCores ou eDTUs, você pode escalar um pool elástico para cima ou para baixo dinamicamente com base na experiência real usando o [portal Azure,](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases) [PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)a [Cli Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Depois de escolher inicialmente o número de vCores ou eDTUs, você pode dimensionar um pool elástico para cima ou para baixo dinamicamente com base na experiência real usando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), o [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), o [CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da mudança do nível de serviço ou redimensionamento do tamanho da computação
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da alteração da camada de serviço ou redimensionamento do tamanho da computação
 
-Alterar o nível de serviço ou o tamanho do cálculo de um pool elástico segue um padrão semelhante ao de bancos de dados únicos e envolve principalmente o serviço executando as seguintes etapas:
+Alterar a camada de serviço ou o tamanho de computação de um pool elástico segue um padrão semelhante para bancos de dados individuais e, principalmente, envolve o serviço executando as seguintes etapas:
 
-1. Crie uma nova instância de computação para o pool elástico  
+1. Criar nova instância de computação para o pool elástico  
 
-    Uma nova instância de computação para o pool elástico é criada com o nível de serviço solicitado e o tamanho da computação. Para algumas combinações de alterações de nível de serviço e tamanho de computação, uma réplica de cada banco de dados deve ser criada na nova instância de computação que envolve copiar dados e pode influenciar fortemente a latência geral. Independentemente disso, os bancos de dados permanecem on-line durante esta etapa, e as conexões continuam sendo direcionadas para os bancos de dados na instância original da computação.
+    Uma nova instância de computação para o pool elástico é criada com a camada de serviço e o tamanho de computação solicitados. Para algumas combinações de camada de serviço e alterações de tamanho de computação, uma réplica de cada banco de dados deve ser criada na nova instância de computação que envolve a cópia de dados e pode influenciar de forma forte a latência geral. Independentemente disso, os bancos de dados permanecem online durante essa etapa, e as conexões continuam a ser direcionadas para os bancos de dados na instância de computação original.
 
-2. Alterne o roteamento de conexões para nova instância de computação
+2. Alternar o roteamento de conexões para a nova instância de computação
 
-    As conexões existentes aos bancos de dados na instância original da computação são descartadas. Quaisquer novas conexões são estabelecidas nos bancos de dados na nova instância de computação. Para algumas combinações de alterações de nível de serviço e tamanho de computação, os arquivos do banco de dados são separados e reconectados durante o switch.  Independentemente disso, o switch pode resultar em uma breve interrupção do serviço quando os bancos de dados estão indisponíveis geralmente por menos de 30 segundos e muitas vezes por apenas alguns segundos. Se houver transações de longa duração em execução quando as conexões forem retiradas, a duração desta etapa pode levar mais tempo para recuperar transações abortadas. [A recuperação acelerada do banco](sql-database-accelerated-database-recovery.md) de dados pode reduzir o impacto de abortar transações de longo prazo.
+    As conexões existentes com os bancos de dados na instância de computação original são descartadas. Todas as novas conexões são estabelecidas com os bancos de dados na nova instância de computação. Para algumas combinações de camada de serviço e alterações de tamanho de computação, os arquivos de banco de dados são desanexados e reanexados durante o comutador.  Independentemente da opção, o switch pode resultar em uma breve interrupção do serviço quando os bancos de dados estiverem indisponíveis geralmente por menos de 30 segundos e geralmente por apenas alguns segundos. Se houver transações de longa execução em execução quando as conexões forem descartadas, a duração dessa etapa poderá levar mais tempo para recuperar as transações anuladas. A [recuperação de banco de dados acelerada](sql-database-accelerated-database-recovery.md) pode reduzir o impacto da anulação de transações de longa execução.
 
 > [!IMPORTANT]
-> Nenhum dado é perdido durante qualquer etapa do fluxo de trabalho.
+> Nenhum dado é perdido durante qualquer etapa no fluxo de trabalho.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência de alterar o nível de serviço ou redimensionar o tamanho do cálculo
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência da alteração da camada de serviço ou redimensionamento do tamanho da computação
 
-A latência estimada para alterar o nível de serviço ou redimensionar o tamanho da computação de um único banco de dados ou pool elástico é parametrizada da seguinte forma:
+A latência estimada para alterar a camada de serviço ou redimensionar o tamanho de computação de um único banco de dados ou pool elástico é parametrizada da seguinte maneira:
 
-|Camada de serviço|Banco de dados único básico,</br>Padrão (S0-S1)|Piscina elástica básica,</br>Padrão (S2-S12), </br>Hiperescala, </br>Banco de dados único de Uso Geral ou piscina elástica|Banco de dados único premium ou empresarial crítico ou pool elástico|
+|Camada de serviço|Banco de dados individual básico,</br>Padrão (S0-S1)|Pool elástico básico,</br>Standard (S2-S12), </br>Em hiperescala </br>Uso Geral banco de dados individual ou pool elástico|Banco de dados único ou pool elástico Premium ou Comercialmente Crítico|
 |:---|:---|:---|:---|
-|**Banco de</br> dados único básico, Padrão (S0-S1)**|&bull;&nbsp;Latência temporal constante independente do espaço utilizado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
-|**Piscina elástica básica, </br>Standard </br>(S2-S12), Hyperscale, </br>General Purpose banco de dados único ou piscina elástica**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência temporal constante independente do espaço utilizado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
-|**Banco de dados único premium ou empresarial crítico ou pool elástico**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados utilizado devido à cópia de dados</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
+|**Banco de dados individual</br> básico, Standard (S0-S1)**|&bull;&nbsp;Latência de tempo constante independente do espaço usado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
+|**Pool elástico básico, </br>Standard (S2-S12), </br>hiperescala, </br>uso geral banco de dados individual ou pool elástico**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência de tempo constante independente do espaço usado</br>&bull;&nbsp;Normalmente, menos de 5 minutos|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
+|**Banco de dados único ou pool elástico Premium ou Comercialmente Crítico**|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|&bull;&nbsp;Latência proporcional ao espaço de banco de dados usado devido à cópia do dado</br>&bull;&nbsp;Normalmente, menos de 1 minuto por GB de espaço usado|
 
 > [!NOTE]
 >
-> - No caso de alterar o nível de serviço ou redimensionar o cálculo de um pool elástico, a soma do espaço utilizado em todos os bancos de dados do pool deve ser usada para calcular a estimativa.
-> - No caso de mover um banco de dados para/a partir de um pool elástico, apenas o espaço utilizado pelo banco de dados impacta a latência, não o espaço utilizado pelo pool elástico.
+> - No caso de alterar a camada de serviço ou redimensionar a computação para um pool elástico, a soma do espaço usado em todos os bancos de dados no pool deve ser usada para calcular a estimativa.
+> - No caso de mover um banco de dados para/de um pool elástico, somente o espaço usado pelo banco de dados afeta a latência, não o espaço usado pelo pool elástico.
 >
 > [!TIP]
-> Para monitorar as operações em andamento, consulte: [Gerenciar operações usando a API SQL REST,](https://docs.microsoft.com/rest/api/sql/operations/list) [Gerenciar operações usando CLI,](/cli/azure/sql/db/op) [monitorar operações usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para monitorar as operações em andamento, consulte: [gerenciar operações usando a API REST do SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerenciar operações usando a CLI](/cli/azure/sql/db/op), [monitorar operações usando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos do PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar o nível de serviço ou redimensionar o tamanho do cálculo
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar a camada de serviço ou redimensionar o tamanho da computação
 
-- Ao reduzir os vCores ou eDTUs para um pool elástico, o espaço utilizado na piscina deve ser menor do que o tamanho máximo permitido do nível de serviço de destino e eDTUs de pool.
+- Quando downsizing vCores ou eDTUs para um pool elástico, o espaço usado do pool deve ser menor do que o tamanho máximo permitido da camada de serviço de destino e do pool eDTUs.
 - Ao redimensionar eDTUs de um pool Elástico, um custo de armazenamento extra será aplicado se (1) o tamanho máximo de armazenamento do pool é compatível com o pool de destino, e (2) o tamanho máximo do armazenamento excede a quantidade de armazenamento incluída do pool de destino. Por exemplo, se um pool Standard de 100 eDTU com um tamanho máximo de 100 GB for reduzido para um pool Standard de 50 eDTU, um custo de armazenamento extra será aplicado, pois o pool de destino dá suporte a um tamanho máximo de 100 GB, e a quantidade de armazenamento incluído é somente de 50 GB. Assim, a quantidade de armazenamento extra será 100 GB – 50 GB = 50 GB. Para obter o preço do armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluído, esse custo extra poderá ser evitado por meio da redução do tamanho máximo do banco de dados para a quantidade incluída.
 
-### <a name="billing-during-rescaling"></a>Faturamento durante a redimensionamento
+### <a name="billing-during-rescaling"></a>Cobrança durante o redimensionamento
 
 Você será cobrado pelas horas em que um banco de dados existir usando a camada de serviço mais alta mais o tamanho da computação aplicado durante essas horas, independentemente do uso ou se o banco de dados ficou ativo por menos de uma hora. Por exemplo, se você criar um banco de dados individual e o excluir depois de cinco minutos, sua fatura apresentará uma cobrança referente a uma hora de banco de dados.
 
 ## <a name="change-elastic-pool-storage-size"></a>Alterar o tamanho do armazenamento do pool elástico
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço de arquivos no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
@@ -83,7 +83,7 @@ Você será cobrado pelas horas em que um banco de dados existir usando a camada
 - O preço do armazenamento para um pool elástico é a quantidade de armazenamento multiplicada pelo preço unitário do armazenamento da camada de serviço. Para obter detalhes sobre o preço de armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço de arquivos no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -92,7 +92,7 @@ Você será cobrado pelas horas em que um banco de dados existir usando a camada
 - O preço do armazenamento extra para um pool elástico é a quantidade de armazenamento extra multiplicada pelo preço unitário do armazenamento extra da camada de serviço. Para obter detalhes sobre o preço de armazenamento extra, confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço de arquivos no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

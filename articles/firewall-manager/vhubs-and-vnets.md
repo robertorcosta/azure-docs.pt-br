@@ -1,6 +1,6 @@
 ---
-title: Quais são as opções de arquitetura do Azure Firewall Manager?
-description: Compare e contraste usando a rede virtual hub ou arquiteturas de hub virtual seguras com o Azure Firewall Manager.
+title: Quais são as opções de arquitetura do Gerenciador de firewall do Azure?
+description: Compare e contraste usando a rede virtual do Hub ou arquiteturas de Hub virtual protegidas com o Gerenciador de firewall do Azure.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,41 +8,41 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77444570"
 ---
-# <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quais são as opções de arquitetura do Azure Firewall Manager?
+# <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quais são as opções de arquitetura do Gerenciador de firewall do Azure?
 
-O Azure Firewall Manager pode fornecer gerenciamento de segurança para dois tipos de arquitetura de rede:
+O Gerenciador de firewall do Azure pode fornecer gerenciamento de segurança para dois tipos de arquitetura de rede:
 
-- **centro virtual garantido**
+- **Hub virtual protegido**
 
-   Um [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) é um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de hub e spoke. Quando as políticas de segurança e roteamento estão associadas a esse hub, é referida como um *[hub virtual seguro](secured-virtual-hub.md)*. 
-- **hub rede virtual**
+   Um [Hub de WAN virtual do Azure](../virtual-wan/virtual-wan-about.md#resources) é um recurso gerenciado pela Microsoft que permite criar facilmente arquiteturas de Hub e spoke. Quando as políticas de segurança e roteamento são associadas a esse Hub, ele é conhecido como um *[Hub virtual protegido](secured-virtual-hub.md)*. 
+- **rede virtual do Hub**
 
-   Esta é uma rede virtual padrão do Azure que você cria e gerencia a si mesmo. Quando as políticas de segurança estão associadas a esse hub, ela é referida como uma *rede virtual de hub*. Neste momento, apenas a Política de Firewall do Azure é suportada. Você pode fazer redes virtuais com falas que contêm seus servidores e serviços de carga de trabalho. Você também pode gerenciar firewalls em redes virtuais autônomas que não são espiadas para qualquer conversa.
+   Essa é uma rede virtual do Azure padrão que você cria e gerencia por conta própria. Quando as políticas de segurança são associadas a esse Hub, elas são chamadas de *rede virtual do Hub*. Neste momento, há suporte apenas para a política de firewall do Azure. Você pode emparelhar redes virtuais que contêm seus serviços e servidores de carga de trabalho. Você também pode gerenciar firewalls em redes virtuais autônomas que não são emparelhadas com nenhum spoke.
 
 ## <a name="comparison"></a>Comparação
 
-A tabela a seguir compara essas duas opções de arquitetura e pode ajudá-lo a decidir qual é a certa para os requisitos de segurança da sua organização:
+A tabela a seguir compara essas duas opções de arquitetura e pode ajudá-lo a decidir qual delas é a mais adequada para os requisitos de segurança de sua organização:
 
 
 |  |**Rede virtual de hub**|**Hub virtual protegido**  |
 |---------|---------|---------|
-|**Recurso subjacente**     |Rede virtual|Virtual WAN Hub|
-|**Hub & Spoke**     |Usa peering de rede virtual|Automatizado usando conexão de rede virtual do hub|
-|**Conectividade on-prem**     |VPN Gateway até 10 Gbps e 30 conexões S2S; ExpressRoute|Mais vpn gateway escalável até 20 Gbps e 1000 conexões S2S; Rota Expressa|
-|**Conectividade automatizada de filiais usando O DDWAN**      |Sem suporte|Com suporte|
-|**Hubs por região**     |Múltiplas redes virtuais por região|Único Hub Virtual por região. Vários hubs possíveis com vários WANs virtuais|
-|**Firewall Azure – vários endereços IP públicos**      |Fornecida pelo cliente|Gerado automaticamente. Para estar disponível pela GA.|
-|**Zonas de disponibilidade de firewall do Azure**     |Com suporte|Não disponível na pré-visualização. Para estar disponível por GA|
-|**Segurança avançada na Internet com segurança de terceiros como parceiros de serviço**     |Conectividade VPN estabelecida e gerenciada pelo cliente ao serviço de parceiros de escolha|Automatizado via fluxo de parceiros de segurança confiável e experiência de gerenciamento de parceiros|
-|**Gerenciamento centralizado de rotas para direcionar o tráfego para o hub**     |Rota definida pelo usuário gerenciada pelo cliente|Suportado usando BGP|
-|**Firewall do Aplicativo Web no Gateway de Aplicativo** |Suportado em Rede Virtual|Atualmente apoiado em rede de raios|
-|**Solução de Virtualização de Rede**|Suportado em Rede Virtual|Atualmente apoiado em rede de raios|
+|**Recurso subjacente**     |Rede virtual|Hub WAN virtual|
+|**Hub & spoke**     |Usa o emparelhamento de rede virtual|Automatizado usando conexão de rede virtual do Hub|
+|**Conectividade local**     |Gateway de VPN de até 10 Gbps e 30 conexões S2S; ExpressRoute|Gateway de VPN mais escalonável de até 20 Gbps e 1000 conexões S2S; Rota expressa|
+|**Conectividade de ramificação automatizada usando SDWAN**      |Sem suporte|Com suporte|
+|**Hubs por região**     |Várias redes virtuais por região|Único Hub virtual por região. Vários hubs possíveis com várias WANs virtuais|
+|**Firewall do Azure – vários endereços IP públicos**      |Fornecida pelo cliente|Gerado automaticamente. Para estar disponível por GA.|
+|**Zonas de Disponibilidade de firewall do Azure**     |Com suporte|Não disponível na visualização. Para estar disponível por GA|
+|**Segurança avançada da Internet com segurança de terceiros como parceiros de serviço**     |Conectividade de VPN estabelecida e gerenciada pelo cliente para o serviço de parceiro de sua escolha|Automatizado por meio da experiência de gerenciamento de parceiros e do fluxo de parceiros de segurança confiável|
+|**Gerenciamento de rota centralizado para rotear o tráfego para o Hub**     |Rota definida pelo usuário gerenciada pelo cliente|Com suporte usando BGP|
+|**Firewall do Aplicativo Web no Gateway de Aplicativo** |Com suporte na rede virtual|Atualmente com suporte na rede spoke|
+|**Solução de Virtualização de Rede**|Com suporte na rede virtual|Atualmente com suporte na rede spoke|
 
 ## <a name="next-steps"></a>Próximas etapas
 

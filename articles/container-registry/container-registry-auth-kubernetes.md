@@ -1,42 +1,42 @@
 ---
-title: Autenticação do cluster Kubernetes
-description: Aprenda a fornecer a um cluster Kubernetes acesso a imagens em seu registro de contêineres do Azure criando um segredo de tração usando um principal de serviço
+title: Autenticar do cluster kubernetes
+description: Saiba como fornecer um cluster kubernetes com acesso a imagens em seu registro de contêiner do Azure criando um segredo de pull usando uma entidade de serviço
 ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
 ms.date: 02/10/2020
 ms.openlocfilehash: 0608ca0e0e53acf2f19910a7f1107dacf67d4e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77154888"
 ---
-# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Puxe imagens de um registro de contêiner azure para um cluster Kubernetes
+# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Efetuar pull de imagens de um registro de contêiner do Azure para um cluster kubernetes
 
-Você pode usar um registro de contêiner do Azure como fonte de imagens de contêineres com qualquer cluster Kubernetes, incluindo clusters Kubernetes "locais", como [minikube](https://minikube.sigs.k8s.io/) e [tipo](https://kind.sigs.k8s.io/). Este artigo mostra como criar um segredo de atração kubernetes baseado em um diretor de serviço do Azure Active Directory. Em seguida, use o segredo para retirar imagens de um registro de contêiner do Azure em uma implantação do Kubernetes.
+Você pode usar um registro de contêiner do Azure como uma fonte de imagens de contêiner com qualquer cluster kubernetes, incluindo clusters "locais" do kubernetes, como [minikube](https://minikube.sigs.k8s.io/) e [Kind](https://kind.sigs.k8s.io/). Este artigo mostra como criar um segredo de pull de kubernetes com base em uma entidade de serviço Azure Active Directory. Em seguida, use o segredo para efetuar pull de imagens de um registro de contêiner do Azure em uma implantação do kubernetes.
 
 > [!TIP]
-> Se você estiver usando o [Serviço Azure Kubernetes](../aks/intro-kubernetes.md)gerenciado, você também pode [integrar seu cluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) com um registro de contêiner Azure direcionado para retiradas de imagens. 
+> Se você estiver usando o [serviço kubernetes do Azure](../aks/intro-kubernetes.md)gerenciado, também poderá [integrar seu cluster](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) com um registro de contêiner de destino do Azure para pulls de imagem. 
 
-Este artigo pressupõe que você já criou um registro privado de contêineres do Azure. Você também precisa ter um cluster Kubernetes `kubectl` em execução e acessível através da ferramenta de linha de comando.
+Este artigo pressupõe que você já criou um registro de contêiner do Azure privado. Você também precisa ter um cluster kubernetes em execução e acessível por meio `kubectl` da ferramenta de linha de comando.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-Se você não salvar ou lembrar a senha principal do serviço, você pode redefini-la com o comando [az ad sp credencial reset:][az-ad-sp-credential-reset]
+Se você não salvar ou lembrar a senha da entidade de serviço, poderá redefini-la com o comando [AZ ad SP Credential Reset][az-ad-sp-credential-reset] :
 
 ```azurecli
 az ad sp credential reset  --name http://<service-principal-name> --query password --output tsv
 ```
 
-Este comando retorna uma nova senha válida para o seu diretor de serviço.
+Esse comando retorna uma senha nova e válida para sua entidade de serviço.
 
-## <a name="create-an-image-pull-secret"></a>Crie um segredo de atração de imagem
+## <a name="create-an-image-pull-secret"></a>Criar um segredo de pull de imagem
 
-Kubernetes usa um *segredo de atração de imagens* para armazenar informações necessárias para autenticar em seu registro. Para criar o segredo de tração para um registro de contêiner do Azure, você fornece o ID principal do serviço, a senha e o URL do registro. 
+O kubernetes usa um *segredo de pull de imagem* para armazenar as informações necessárias para autenticar o registro. Para criar o segredo de pull para um registro de contêiner do Azure, você fornece a ID da entidade de serviço, a senha e a URL do registro. 
 
-Crie um segredo de `kubectl` atração de imagem com o seguinte comando:
+Crie um segredo de pull de imagem com `kubectl` o seguinte comando:
 
 ```console
 kubectl create secret docker-registry <secret-name> \
@@ -49,15 +49,15 @@ onde:
 
 | Valor | Descrição |
 | :--- | :--- |
-| `secret-name` | Nome do segredo de atração de imagem, por exemplo, *acr-secret* |
-| `namespace` | Kubernetes namespace para colocar o segredo em <br/> Só é necessário se você quiser colocar o segredo em um namespace diferente do namespace padrão |
-| `container-registry-name` | Nome do seu registro de contêiner Azure |
-| `service-principal-ID` | ID do principal de serviço que será usado pela Kubernetes para acessar seu registro |
-| `service-principal-password` | Senha principal do serviço |
+| `secret-name` | Nome do segredo de pull da imagem, por exemplo, *ACR-Secret* |
+| `namespace` | Namespace kubernetes no qual colocar o segredo <br/> Necessário apenas se você quiser posicionar o segredo em um namespace diferente do namespace padrão |
+| `container-registry-name` | Nome do seu registro de contêiner do Azure |
+| `service-principal-ID` | ID da entidade de serviço que será usada pelo kubernetes para acessar o registro |
+| `service-principal-password` | Senha da entidade de serviço |
 
-## <a name="use-the-image-pull-secret"></a>Use o segredo de puxar a imagem
+## <a name="use-the-image-pull-secret"></a>Usar o segredo de pull da imagem
 
-Depois de criar o segredo de puxar a imagem, você pode usá-la para criar pods e implantações kubernetes. Forneça o nome do `imagePullSecrets` segredo no arquivo de implantação. Por exemplo: 
+Depois de criar o segredo de pull da imagem, você pode usá-lo para criar Kubernetess e implantações. Forneça o nome do segredo em `imagePullSecrets` no arquivo de implantação. Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -74,13 +74,13 @@ spec:
     - name: acr-secret
 ```
 
-No exemplo anterior, `your-awesome-app:v1` está o nome da imagem a ser retirada `acr-secret` do registro de contêiner do Azure, e é o nome do segredo de tração que você criou para acessar o registro. Quando você implanta o pod, o Kubernetes retira automaticamente a imagem do seu registro, se ela ainda não estiver presente no cluster.
+No exemplo anterior, `your-awesome-app:v1` é o nome da imagem a ser extraída do registro de contêiner do Azure e `acr-secret` é o nome do segredo de pull que você criou para acessar o registro. Quando você implantar o Pod, o kubernetes extrairá automaticamente a imagem do registro, se ela ainda não estiver presente no cluster.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre como trabalhar com os diretores de serviços e o Registro de Contêineres do Azure, consulte [a autenticação do Registro de Contêineres do Azure com os diretores de serviços](container-registry-auth-service-principal.md)
-* Saiba mais sobre segredos de atração de imagens na documentação do [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
+* Para saber mais sobre como trabalhar com entidades de serviço e o registro de contêiner do Azure, confira [autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md)
+* Saiba mais sobre segredos de pull de imagem na [documentação do kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 
 
 <!-- IMAGES -->
