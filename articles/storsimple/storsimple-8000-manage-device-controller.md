@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267762"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
@@ -124,39 +124,39 @@ Execute as etapas a seguir para redefinir o dispositivo Microsoft Azure StorSimp
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre como gerenciar controladores de dispositivo
 Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento de controladores de dispositivo StorSimple.
 
-**Q.**  O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
+**P.:**  O que acontece se ambos os controladores em meu dispositivo estão íntegros e ativados e eu reiniciar ou desligar o controlador ativo?
 
-**A.** Se ambos os controladores em seu dispositivo estiverem íntegros e ativados, sua confirmação será solicitada. Você pode optar por:
+**R.:** Se ambos os controladores em seu dispositivo estiverem íntegros e ativados, sua confirmação será solicitada. Você pode optar por:
 
 * **Reiniciar o controlador ativo** – Você será notificado de que reiniciar um controlador ativo fará com que o dispositivo faça failover para o controlador passivo. O controlador é reiniciado.
 * **Desligar um controlador ativo** – Você será notificado de que desligar um controlador ativo resultará em tempo de inatividade. Você também precisará pressionar o botão de energia no dispositivo para ligar o controlador.
 
-**Q.**  O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
+**P.:**  O que acontece se o controlador passivo em meu dispositivo estiver indisponível ou desligado e eu reiniciar ou desligar o controlador ativo?
 
-**A.**  Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
+**R.:**  Se o controlador passivo em seu dispositivo estiver indisponível ou desligado e você optar por:
 
 * **Reiniciar o controlador ativo** – Você será notificado de que continuar a operação resultará em uma interrupção temporária do serviço e sua confirmação será solicitada.
 * **Desligar um controlador ativo** – Você será notificado de que prosseguir com essa operação resultará em tempo de inatividade. Você também precisará pressionar o botão de energia em um ou ambos os controladores para ligar o dispositivo. Você recebe uma solicitação para fornecer sua confirmação.
 
-**Q.**  Quando o desligamento ou reinicialização do controlador falha durante a execução?
+**P.:**  Quando o desligamento ou reinicialização do controlador falha durante a execução?
 
-**A.**  Reiniciar ou desligar um controlador pode falhar se:
+**R.:**  Reiniciar ou desligar um controlador pode falhar se:
 
 * Uma atualização do dispositivo está em andamento.
 * Uma reinicialização de controlador já está em andamento.
 * Um desligamento do controlador já está em andamento.
 
-**Q.**  Como saber se um controlador foi reiniciado ou desligado?
+**P.:**  Como saber se um controlador foi reiniciado ou desligado?
 
-**A.** Você pode verificar o status do controlador na folha Controlador. O status do controlador indicará se um controlador está em processo de reinicialização ou desligamento. Além disso, a folha **Alertas** conterá um alerta informativo indicando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de atividade. Para saber mais sobre os logs de atividade, acesse [Exibir os logs de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**R.:** Você pode verificar o status do controlador na folha Controlador. O status do controlador indicará se um controlador está em processo de reinicialização ou desligamento. Além disso, a folha **Alertas** conterá um alerta informativo indicando se o controlador foi reiniciado ou desligado. As operações de reinicialização e desligamento do controlador também são registradas nos logs de atividade. Para saber mais sobre os logs de atividade, acesse [Exibir os logs de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
-**Q.** Há algum impacto sobre as E/Ss decorrente do failover do controlador?
+**P.:** Há algum impacto sobre as E/Ss decorrente do failover do controlador?
 
-**A.**  As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
+**R.:**  As conexões TCP entre iniciadores e controlador ativo serão redefinidas como resultado do failover do controlador, mas serão restabelecidas quando o controlador passivo assumir a operação. Pode haver uma pausa temporária (menos de 30 segundos) na atividade de E/S entre os iniciadores e o dispositivo no decorrer desta operação.
 
-**Q.**  Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
+**P.:**  Como posso retornar meu controlador de serviço depois de ele ter sido desligado e retirado de serviço?
 
-**A.** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
+**R.:** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).

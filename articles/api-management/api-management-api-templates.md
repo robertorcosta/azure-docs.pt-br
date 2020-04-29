@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265955"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
@@ -26,15 +26,15 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 Os modelos desta seção permitem personalizar o conteúdo das páginas de API no portal do desenvolvedor.  
   
--   [Lista de API](#APIList)  
+-   [Lista de APIs](#APIList)  
 -   [Operação](#Product)  
 -   [Exemplos de código](#CodeSamples)  
     -   [Curl](#Curl)  
-    -   [C #](#CSharp)  
+    -   [C#](#CSharp)  
     -   [Java](#Stub)  
-    -   [Javascript](#JavaScript)  
+    -   [JavaScript](#JavaScript)  
     -   [Objetivo C](#ObjectiveC)  
-    -   [Php](#PHP)  
+    -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
@@ -48,7 +48,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 ## <a name="api-list"></a><a name="APIList"></a> Lista de APIs  
  O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.  
   
- ![Lista de API do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API do Portal de Desenvolvedores aPIM")  
+ ![Lista de APIs do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API de modelos do APIM Developer Portal")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -113,10 +113,10 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>Operação  
+## <a name="operation"></a><a name="Product"></a>Operacional  
  O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.  
   
- ![Página de Operação do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação do APIM Developer Portal")  
+ ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -346,12 +346,12 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|`apiId`|string|O ID da API atual.|  
-|`apiName`|string|O nome da API.|  
-|`apiDescription`|string|Uma descrição para a API.|  
+|`apiId`|string|A ID da API atual.|  
+|`apiName`|cadeia de caracteres|O nome da API.|  
+|`apiDescription`|cadeia de caracteres|Uma descrição para a API.|  
 |`api`|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|A API atual.|  
 |`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|`sampleUrl`|string|A URL para a operação atual.|  
+|`sampleUrl`|cadeia de caracteres|A URL para a operação atual.|  
 |`operationMenu`|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
 |`consoleUrl`|URI|O URI para o botão **Experimente**.|  
 |`samples`|Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).|Os exemplos de código para a operação atual.|  
@@ -643,28 +643,28 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a> Exemplos de código  
+## <a name="code-samples"></a><a name="CodeSamples"></a>Exemplos de código  
  Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
   
- ![Modelos de código do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Amostras de código")  
+ ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor APIM")  
   
 -   [Curl](#Curl)  
   
--   [C #](#CSharp)  
+-   [C#](#CSharp)  
   
 -   [Java](#Stub)  
   
--   [Javascript](#JavaScript)  
+-   [JavaScript](#JavaScript)  
   
 -   [Objetivo C](#ObjectiveC)  
   
--   [Php](#PHP)  
+-   [PHP](#PHP)  
   
 -   [Python](#Python)  
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Onda  
+### <a name="curl"></a><a name="Curl"></a>Curl  
  O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="c"></a><a name="CSharp"></a>C #  
+### <a name="c"></a><a name="CSharp"></a>& #  
  O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -992,7 +992,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>Javascript  
+### <a name="javascript"></a><a name="JavaScript"></a>Linguagem  
  O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1193,7 +1193,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>Php  
+### <a name="php"></a><a name="PHP"></a>DESTINADOS  
  O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1401,7 +1401,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a> Ruby  
+### <a name="ruby"></a><a name="Ruby"></a>Rubi  
  O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  

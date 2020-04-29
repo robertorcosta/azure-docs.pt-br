@@ -1,19 +1,19 @@
 ---
-title: Dimensione um cluster de malha de serviço para dentro ou para fora
-description: Dimensione um cluster de malha de serviço para corresponder à demanda, definindo regras de escala automática para cada conjunto de escala de tipo de nó/máquina virtual. Adicionar ou remover nós de um cluster do Service Fabric
+title: Dimensionar ou reduzir horizontalmente um Service Fabric cluster
+description: Dimensione um cluster de Service Fabric de entrada ou saída para corresponder à demanda definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.openlocfilehash: 26ef13f38d525e4e493ad933bfb906dd36ed0070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258727"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente
 
 > [!WARNING]
-> Leia esta seção antes de escalar
+> Leia esta seção antes de dimensionar
 
 O dimensionamento de recursos de computação para originar a carga de trabalho de seu aplicativo requer planejamento intencional, quase sempre levará mais de uma hora para ser concluído em um ambiente de produção e exige que você entenda sua carga de trabalho e contexto de negócios; Na verdade, se você nunca fez essa atividade antes, é recomendável começar lendo e compreendendo [considerações sobre o planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md), antes de continuar com o restante deste documento. Esta recomendação é para evitar problemas não intencionais do LiveSite, e também é recomendado testar com sucesso as operações que você decidir executar em um ambiente que não seja de produção. A qualquer momento você pode [relatar problemas de produção ou solicitar suporte pago para o Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Para engenheiros alocados para executar essas operações que possuam contexto apropriado, este artigo descreverá as operações de dimensionamento, mas você deve decidir e entender quais operações são apropriadas para seu caso de uso; como os recursos a serem dimensionados (CPU, Armazenamento, Memória), a direção a ser dimensionada (vertical ou horizontalmente) e as operações a serem executadas (implantação de modelo de recurso, portal, PowerShell / CLI).
 
@@ -21,7 +21,7 @@ O dimensionamento de recursos de computação para originar a carga de trabalho 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Reduzir horizontalmente ou escalar horizontalmente um cluster do Service Fabric usando regra de dimensionamento automático ou manualmente
-Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento de tipos de [nós de malha de serviço.](service-fabric-cluster-nodetypes.md) Uma vez que os tipos de nó de malha de serviço em seu cluster são feitos de conjuntos de escala de máquina virtual no backend, você precisa configurar regras de escala automática para cada conjunto de escala de tipo de nó/máquina virtual.
+Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [tipos de nó Service Fabric](service-fabric-cluster-nodetypes.md) . Como os tipos de nó Service Fabric no cluster são compostos de conjuntos de dimensionamento de máquinas virtuais no back-end, você precisa configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
 
 > [!NOTE]
 > Sua assinatura precisa ter uma quantidade suficiente de núcleos para adicionar as novas VMs que compõe esse cluster. Atualmente, não há nenhuma validação de modelo. Logo, você receberá uma falha de tempo de implantação se qualquer um dos limites de cota for atingido. Além disso, um único tipo de nó não pode simplesmente exceder 100 nós por VMSS. Pode ser necessário adicionar VMSS para atingir a escala desejada, e o escalonamento automático não pode adicionar automaticamente VMSS. Adicionar in-loco do VMSS a um cluster ativo é uma tarefa desafiadora e, geralmente, isso resulta em usuários provisionando novos clusters com os tipos de nó apropriados provisionados no momento da criação; [planeje a capacidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) de acordo. 
@@ -39,8 +39,8 @@ Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/Virtu
 Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Defina regras de escala automática para o conjunto de escala de tipo de nó/máquina virtual
-Se o cluster tiver vários tipos de nó, repita isso para cada tipo de nó/conjuntos de escala de máquina virtual que você deseja dimensionar (dentro ou fora). Leve em conta o número de nós que você precisa ter antes de configurar o dimensionamento automático. O número mínimo de nós necessários para o tipo de nó primário é controlado pelo nível de confiabilidade escolhido. Leia mais sobre os [níveis de confiabilidade](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Definir regras de dimensionamento automático para o tipo de nó/conjunto de dimensionamento de máquinas virtuais
+Se o cluster tiver vários tipos de nó, repita isso para cada tipo de nó/conjuntos de dimensionamento de máquinas virtuais que você deseja dimensionar (para dentro ou para fora). Leve em conta o número de nós que você precisa ter antes de configurar o dimensionamento automático. O número mínimo de nós necessários para o tipo de nó primário é controlado pelo nível de confiabilidade escolhido. Leia mais sobre os [níveis de confiabilidade](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > A redução vertical do tipo de nó primário para um número inferior ao mínimo causará a instabilidade ou indisponibilidade do cluster. Isso poderá resultar em perda de dados de seus aplicativos e dos serviços do sistema.
@@ -49,25 +49,25 @@ Se o cluster tiver vários tipos de nó, repita isso para cada tipo de nó/conju
 
 Atualmente, o recurso de escala automática não é controlado pelas cargas que os aplicativos podem relatar ao Service Fabric. Portanto, nesse momento, o dimensionamento automático obtido é meramente controlado pelos contadores de desempenho que são emitidos por cada uma das instâncias do conjunto de dimensionamento de máquinas virtuais.  
 
-Siga estas instruções [para configurar a escala automática para cada conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Siga estas instruções [para configurar o dimensionamento automático para cada conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Em um cenário de redução de escala, a menos que seu tipo de nó tenha um nível de [durabilidade][durability] de Ouro ou Prata, você precisa chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome de nó apropriado. Para a durabilidade bronze, não é recomendado reduzir mais de um nó de cada vez.
+> Em um cenário de redução vertical, a menos que o tipo de nó tenha um [nível de durabilidade][durability] ouro ou prata, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome do nó apropriado. Para a durabilidade de bronze, não é recomendável reduzir mais de um nó por vez.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adicione manualmente VMs a um conjunto de escala de tipo de nó/máquina virtual
+## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adicionar VMs manualmente a um tipo de nó/conjunto de dimensionamento de máquinas virtuais
 
 Ao aumentar, você adicionar mais instâncias de máquina virtual ao conjunto de dimensionamento. Essas instâncias tornam-se os nós que o Service Fabric usa. O Service Fabric sabe quando o conjunto de dimensionamento tem mais instâncias adicionadas (aumentando) e reage automaticamente. 
 
 > [!NOTE]
-> Adicionar VMs leva tempo, então não espere que as adições sejam instantâneas. Então planeje adicionar capacidade com bastante antecedência, para permitir por mais de 10 minutos antes que a capacidade do VM esteja disponível para que as réplicas/instâncias de serviço estejam colocadas.
+> A adição de VMs leva tempo, portanto, não espere que as adições sejam instantâneas. Portanto, planeje adicionar capacidade com antecedência, para permitir mais de 10 minutos antes que a capacidade da VM esteja disponível para que as réplicas/instâncias de serviço sejam colocadas.
 > 
 
 ### <a name="add-vms-using-a-template"></a>Adicionar VMs usando um modelo
-Siga a amostra/instruções na [galeria de modelos quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar o número de VMs em cada tipo de nó. 
+Siga os exemplos/instruções na [Galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar o número de VMs em cada tipo de nó. 
 
-### <a name="add-vms-using-powershell-or-cli-commands"></a>Adicionar VMs usando comandos PowerShell ou CLI
+### <a name="add-vms-using-powershell-or-cli-commands"></a>Adicionar VMs usando os comandos do PowerShell ou da CLI
 O código a seguir obtém um conjunto de dimensionamento por nome e aumenta a **capacidade** do conjunto de dimensionamento em 1.
 
 ```powershell
@@ -87,16 +87,16 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Remova manualmente as VMs de um conjunto de escala de tipo de nó/máquina virtual
-Quando você escala em um tipo de nó, você remove as instâncias vm do conjunto de escalas. Se o tipo de nó é nível de durabilidade bronze, a Service Fabric não sabe o que aconteceu e informa que um nó desapareceu. Service Fabric então relata um estado não íntegro para o cluster. Para evitar esse estado ruim, você deve remover explicitamente o nó do cluster e remover o estado do nó.
+## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Remover manualmente as VMs de um tipo de nó/conjunto de dimensionamento de máquinas virtuais
+Ao dimensionar em um tipo de nó, você remove as instâncias de VM do conjunto de dimensionamento. Se o tipo de nó for nível de durabilidade bronze, Service Fabric não saberá o que aconteceu e relatará que um nó desapareceu. Service Fabric então relata um estado não íntegro para o cluster. Para evitar esse estado inadequado, você deve remover explicitamente o nó do cluster e remover o estado do nó.
 
-Os serviços do sistema de malha de serviço são executados no tipo de nó primário em seu cluster. Ao reduzir o tipo de nó primário, nunca reduza o número de instâncias para menos do que o nível de [confiabilidade](service-fabric-cluster-capacity.md) garante. 
+Os serviços do sistema do Service Fabric são executados no tipo de nó primário no cluster. Ao reduzir o tipo de nó primário, nunca reduza verticalmente o número de instâncias para menor do que a garantia da [camada de confiabilidade](service-fabric-cluster-capacity.md) . 
  
 Para um serviço com estado, você precisa de um determinado número de nós que devem estar sempre ativos para manter a disponibilidade e preservar o estado do serviço. No mínimo, é necessário que o número de nós seja igual à contagem de conjunto de réplicas de destino do serviço/partição.
 
 ### <a name="remove-the-service-fabric-node"></a>Remover o nó do Service Fabric
 
-As etapas para remover manualmente o estado do nó aplicam-se apenas aos tipos de nó com um nível de durabilidade *bronze.*  Para o nível de durabilidade *Silver* e *Gold,* essas etapas são feitas automaticamente pela plataforma. Para obter mais informações sobre durabilidade, consulte [Planejamento de capacidade do cluster do Service Fabric][durability].
+As etapas para remover manualmente o estado do nó se aplicam somente a tipos de nós com uma camada de durabilidade *bronze* .  Para a camada de durabilidade *prata* e *ouro* , essas etapas são feitas automaticamente pela plataforma. Para obter mais informações sobre durabilidade, consulte [Planejamento de capacidade do cluster do Service Fabric][durability].
 
 Para manter os nós do cluster distribuídos uniformemente entre domínios de falha e atualização e, portanto, habilitar sua utilização uniforme, o nó criado mais recentemente deve ser removido primeiro. Em outras palavras, os nós devem ser removidos na ordem inversa à de sua criação. O nó criado mais recentemente é aquele com o maior valor da propriedade `virtual machine scale set InstanceId`. Os exemplos de código a seguir retornam o nó criado mais recentemente.
 
@@ -200,10 +200,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Use as seguintes consultas **sfctl** para verificar o status de cada etapa
 >
-> **Verifique o status de desativação**
+> **Verificar status da desativação**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Verifique o status de parada**
+> **Verificar status de parada**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 

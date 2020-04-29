@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267528"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implantar o StorSimple Virtual Array - Provisionar no Hyper-V
@@ -88,7 +88,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
 #### <a name="to-provision-a-virtual-array"></a>Para provisionar uma matriz virtual
 1. No seu host do Windows Server, copie a imagem da matriz virtual em uma unidade local. Você baixou essa imagem (VHD ou VHDX) por meio do portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
-2. **Gerenciador de servidor aberto**. No canto superior direito, clique em **Ferramentas** e selecione **Gerenciador do Hyper-V**.
+2. Abra o **Server Manager**. No canto superior direito, clique em **Ferramentas** e selecione **Gerenciador do Hyper-V**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
@@ -143,7 +143,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 18. Na página **Especificar Nome e Localização**, forneça um **nome** e também uma **localização** (é possível navegar até um) para o disco de dados. Clique em **Avançar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco para provisão, revise a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Clique em **Avançar**.
+19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para obter mais informações sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no [documento de práticas recomendadas](storsimple-ova-best-practices.md). Clique em **Avançar**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Na página **Resumo**, examine os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Concluir** para criar o disco. O assistente é fechado e um disco rígido virtual é adicionado à sua máquina.
@@ -214,7 +214,7 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, você ve
 
 Caso observe algum outro erro durante a configuração inicial usando a interface do usuário da Web local, veja os seguintes fluxos de trabalho:
 
-* Execute testes de diagnóstico para [solucionar problemas na configuração da IU web](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+* Execute testes de diagnóstico para [solucionar problemas de configuração da interface do usuário](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Gere um pacote de log e exiba os arquivos de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="next-steps"></a>Próximas etapas

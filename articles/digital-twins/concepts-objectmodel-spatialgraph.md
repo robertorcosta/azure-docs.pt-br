@@ -1,5 +1,5 @@
 ---
-title: Entenda modelos de objetos e gráfico de inteligência espacial - Azure Digital Twins | Microsoft Docs
+title: Entender os modelos de objeto e o grafo de inteligência espacial – gêmeos digital do Azure | Microsoft Docs
 description: Use o serviço Gêmeos Digitais do Azure para modelar as relações entre pessoas, locais e dispositivos
 ms.author: alinast
 author: alinamstanciu
@@ -9,17 +9,17 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265201"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
 O recurso Gêmeos Digitais do Azure é um serviço de IoT do Azure que possibilita representações virtuais abrangentes de ambientes físicos e dispositivos, sensores e pessoas associados. Melhora o desenvolvimento ao organizar conceitos específicos de domínio em modelos úteis. Os modelos são situados dentro de um gráfico de inteligência espacial. Esses conceitos modelam fielmente os relacionamentos e as interações entre pessoas, espaços e dispositivos.
 
-Os modelos de objeto de Gêmeos Digitais descrevem conceitos, categorias e propriedades específicos do domínio. Os modelos são predefinidos pelos usuários que desejam adaptar a solução às suas necessidades específicas. Juntos, esses modelos de objetos de Gêmeos Digitais predefinidos compõem uma _ontologia._ A ontologia de construção inteligente descreve regiões, locais, andares, escritórios, zonas, salas de conferência e salas de foco. Uma ontologia da rede de energia descreve várias estações de energia, subestações, recursos energéticos e clientes. Com os modelos de objeto de Gêmeos Digitais e ontologias, diversos cenários e necessidades podem ser personalizados.
+Os modelos de objeto de Gêmeos Digitais descrevem conceitos, categorias e propriedades específicos do domínio. Os modelos são predefinidos pelos usuários que desejam adaptar a solução às suas necessidades específicas. Juntos, esses modelos de objeto de gêmeos digital predefinidos compõem um _ontologia_. A ontologia de construção inteligente descreve regiões, locais, andares, escritórios, zonas, salas de conferência e salas de foco. Uma ontologia da rede de energia descreve várias estações de energia, subestações, recursos energéticos e clientes. Com os modelos de objeto de Gêmeos Digitais e ontologias, diversos cenários e necessidades podem ser personalizados.
 
 Com os modelos de objeto de Gêmeos Digitais e uma ontologia implantada, é possível preencher um _grafo espacial_. Gráficos espaciais são representações virtuais das muitas relações entre espaços, dispositivos e pessoas que são relevantes para uma solução de IoT. Este diagrama mostra um exemplo de um gráfico espacial que usa a ontologia de construção inteligente.
 
@@ -31,7 +31,7 @@ O grafo espacial reúne usuários, dispositivos, sensores e espaços. Cada um es
 
 Modelos de objeto de Gêmeos Digitais dão suporte a estas categorias principais de objetos:
 
-- **Os espaços** são locais virtuais `Tenant`ou `Customer` `Region`físicos, por exemplo, e `Venue`.
+- Os **espaços** são locais virtuais ou físicos, por exemplo `Tenant`, `Customer` `Region`,, e `Venue`.
 - **Dispositivos** são equipamentos virtuais ou físicos, por exemplo, `AwesomeCompany Device` exemplo `Raspberry Pi 3`.
 - **Sensores** ão objetos que detectam eventos, por exemplo, `AwesomeCompany Temperature Sensor` e `AwesomeCompany Presence Sensor`.
 - **Usuários** identificam ocupantes e suas características.
@@ -41,9 +41,9 @@ Outras categorias de objetos são:
 - **Recursos** são anexados a um espaço e normalmente representam recursos do Azure a serem usados por objetos no grafo espacial, por exemplo, `IoTHub`.
 - **Blobs** são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo mime e metadados, por exemplo, `maps`, `pictures` e `manuals`.
 - **Tipos estendidos** são enumerações extensíveis que aumentam as entidades com características específicas, por exemplo `SpaceType` e `SpaceSubtype`.
-- **As ontologias** representam um conjunto de `Default`tipos `Building` `BACnet`estendidos, por exemplo, e `EnergyGrid`.
-- **Chaves e valores** de propriedade são características personalizadas de espaços, dispositivos, sensores e usuários. Eles podem ser usados junto com características internas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
-- **Funções** são conjuntos de permissões atribuídas a usuários e `Space Administrator` `User Administrator`dispositivos `Device Administrator`no gráfico espacial, por exemplo, e .
+- **Ontologies** representa um conjunto de tipos estendidos, por exemplo `Default`, `Building` `BACnet`,, e `EnergyGrid`.
+- **As chaves de propriedade e os valores** são características personalizadas de espaços, dispositivos, sensores e usuários. Eles podem ser usados junto com características internas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
+- As **funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo `Space Administrator` `User Administrator`,, e `Device Administrator`.
 - **Atribuições de funções** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
 - **Armazenamentos de chaves de seguranças** fornecem as chaves de segurança para todos os dispositivos na hierarquia sob um determinado objeto de espaço para permitir que o dispositivo comunique-se de maneira segura com Gêmeos Digitais.
 - **UDFs** (Funções Definidas pelo Usuário) permitem processamento de telemetria do sensor personalizável no grafo espacial. Por exemplo, uma UDF pode:
@@ -52,13 +52,13 @@ Outras categorias de objetos são:
   - Anexar metadados a um espaço.
   - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
 - **Correspondentes** são objetos que determinam quais UDFs são executadas para uma determinada mensagem de telemetria.
-- **Endpoints** são os locais onde mensagens de telemetria e eventos `Event Hub` `Service Bus`de `Event Grid`Gêmeos Digitais podem ser roteados, por exemplo, e .
+- Os **pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de gêmeos digital podem `Event Hub`ser `Service Bus`roteados `Event Grid`, por exemplo,, e.
 
 ## <a name="spatial-intelligence-graph"></a>Grafo de inteligência espacial
 
 Grafo espacial é o grafo hierárquico de espaços, dispositivos e pessoas definido no modelo de objeto de Gêmeos Digitais. O grafo espacial dá suporte para herança, filtragem, travessia, escalabilidade e extensibilidade. É possível gerenciar e interagir com o grafo espacial com uma coleção de APIs REST.
 
-Se você implantar um serviço de Gêmeos Digitais na assinatura, você se tornará o administrador global do nó raiz. Você receberá automaticamente o acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de Espaço. Provisione serviços usando a API de Dispositivo e os sensores usando a API do Sensor. [Ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para fornecer o gráfico a granel.
+Se você implantar um serviço de Gêmeos Digitais na assinatura, você se tornará o administrador global do nó raiz. Você receberá automaticamente o acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de Espaço. Provisione serviços usando a API de Dispositivo e os sensores usando a API do Sensor. As [ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
 
 **Herança de grafo**. A herança aplica-se às permissões e propriedades que descendem de um nó pai para todos os nós abaixo dele. Por exemplo, quando uma função é atribuída a um usuário em um determinado nó, o usuário tem as permissões dessa função para o nó fornecido e para cada nó abaixo dele. Cada chave de propriedade e tipo estendido definido para um determinado nó é herdado por todos os nós abaixo desse nó.
 
@@ -78,14 +78,14 @@ Após implantar os Gêmeos Digitais pelo [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substitua por |
+| Name | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
 | SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
 
  O formato completo da URL aparece nesta imagem.
 
-[![API de gerenciamento do portal de gêmeos digitais](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![API de gerenciamento do digital gêmeos Portal](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Para obter mais detalhes sobre como usar grafos de inteligência espacial, visite a versão prévia das APIs de Gerenciamento de Gêmeos Digitais do Azure.
 

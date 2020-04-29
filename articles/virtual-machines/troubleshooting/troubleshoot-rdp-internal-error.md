@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266917"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota
@@ -158,7 +158,7 @@ O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser a
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
@@ -166,7 +166,7 @@ O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser a
 
 Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
-1. Abra uma sessão de prompt de comando elevada **(Execute como administrador).**
+1. Abra uma sessão de prompt de comando com privilégios elevados (**Executar como administrador**).
 2. Execute o seguinte script:
 
     Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
@@ -195,7 +195,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
 #### <a name="reset-the-permission-for-machinekeys-folder"></a>Redefinir a permissão para a pasta MachineKeys
 
-1. Abra uma sessão de prompt de comando elevada **(Execute como administrador).**
+1. Abra uma sessão de prompt de comando com privilégios elevados (**Executar como administrador**).
 2. Execute o seguinte script. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 
         Md F:\temp

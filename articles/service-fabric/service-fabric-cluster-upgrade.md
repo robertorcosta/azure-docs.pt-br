@@ -1,14 +1,14 @@
 ---
 title: Atualizar um cluster do Azure Service Fabric
-description: Aprenda a atualizar a versão ou a configuração de um cluster Azure Service Fabric — definindo o modo de atualização de cluster, atualizando certificados, adicionando portas de aplicativos, fazendo patches do SO e o que você pode esperar quando as atualizações forem realizadas.
+description: Saiba mais sobre como atualizar a versão ou a configuração de um cluster de Service Fabric do Azure — definindo o modo de atualização de cluster, atualizando certificados, adicionando portas de aplicativo, realizando patches do sistema operacional e o que você pode esperar quando as atualizações são executadas.
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258649"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
@@ -17,7 +17,7 @@ Para qualquer sistema moderno, oferecer a possibilidade de atualização é fund
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de malha que é executada em seu cluster
 
-Certifique-se de que seu cluster está sempre executando uma [versão de malha suportada](service-fabric-versions.md). Cada vez que a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. Novos lançamentos são anunciados no blog da [equipe service fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+Verifique se o cluster está sempre executando uma [versão de malha com suporte](service-fabric-versions.md). Cada vez que a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior é marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. Novas versões são anunciadas no [blog da equipe do Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 14 dias antes da expiração da versão do cluster em execução, um evento de integridade é gerado, colocando seu cluster em um estado de integridade de aviso. O cluster permanecerá em um estado de aviso até você atualize para uma versão do Fabric com suporte.
 
@@ -25,21 +25,21 @@ Você pode definir o cluster para receber atualizações automáticas do Fabric,
 
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>Comportamento de atualização do Fabric durante as atualizações automáticas
 
-A Microsoft mantém o código de fábrica e a configuração executada em um cluster do Azure. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo não sofra impacto ou impacto mínimo devido a esses upgrades, os upgrades são realizados nas seguintes fases:
+A Microsoft mantém o código de fábrica e a configuração executada em um cluster do Azure. Executamos atualizações automáticas monitoradas no software de acordo com a necessidade. Essas atualizações podem ser feitas no código, na configuração ou em ambos. Para garantir que seu aplicativo sofra nenhum impacto ou impacto mínimo devido a essas atualizações, as atualizações são executadas nas seguintes fases:
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>Fase 1: uma atualização é executada usando todas as políticas de integridade do cluster
 
-Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de saúde do cluster (para saúde de nós e saúde de aplicação) são aderidas durante a atualização.
+Durante esta fase, as atualizações realizam um domínio de atualização por vez, e os aplicativos em execução no cluster continuam em execução sem qualquer tempo de inatividade. As políticas de integridade do cluster (para integridade do nó e integridade do aplicativo) são seguidas durante a atualização.
 
-Se as políticas de saúde de cluster não forem atendidas, a atualização será revertida e um e-mail será enviado ao proprietário da assinatura. O email contém as seguintes informações:
+Se as políticas de integridade do cluster não forem atendidas, a atualização será revertida e um email será enviado ao proprietário da assinatura. O email contém as seguintes informações:
 
 * Uma notificação de que precisamos reverter uma atualização de cluster.
 * Sugestões de ações corretivas, se houver alguma.
-* O número de dias *(n)* até executarmos a Fase 2.
+* O número de dias (*n*) até a execução da fase 2.
 
-Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Após os *dias n* a partir da data em que o e-mail foi enviado, vamos para a Fase 2.
+Tentamos executar a mesma atualização algumas vezes mais, caso alguma atualização falhe por motivos de infraestrutura. Após os *n* dias a partir da data em que o email foi enviado, continuamos para a fase 2.
 
-Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso é para evitar enviar-lhe muitos e-mails; receber um e-mail deve ser visto como uma exceção ao normal. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
+Se as políticas de integridade do cluster forem atendidas, a atualização será considerada bem-sucedida e marcada como concluída. Isso poderá acontecer durante a atualização inicial ou durante qualquer nova execução das atualizações desta fase. Nenhum email de confirmação será enviado após uma execução bem-sucedida. Isso é para evitar enviar muitos emails; o recebimento de um email deve ser visto como uma exceção ao normal. Esperamos que a maioria das atualizações do cluster tenha êxito sem afetar a disponibilidade de seu aplicativo.
 
 ### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: uma atualização é executada usando apenas as políticas de integridade padrão
 
@@ -105,7 +105,7 @@ O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Aprenda a escalar seu cluster para [dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)
 
 <!--Image references-->

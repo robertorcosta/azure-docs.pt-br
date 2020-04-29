@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastres hyper-V VM usando a recuperação do site do Azure e o PowerShell
+title: Recuperação de desastre de VM Hyper-V usando Azure Site Recovery e PowerShell
 description: Automatize a recuperação de desastre de VMs do Hyper-V para o Azure com o serviço Azure Site Recovery usando o PowerShell e o Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257986"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para máquinas virtuais do Hyper-V usando o PowerShell e o Azure Resource Manager
@@ -25,7 +25,7 @@ Este artigo descreve como usar o Windows PowerShell, junto com o Azure Resource 
 
 O Azure PowerShell fornece cmdlets para gerenciar o Azure usando o Windows PowerShell. Os cmdlets do PowerShell da Recuperação de Site disponíveis com o Azure PowerShell para o Azure Resource Manager permitem que você proteja e recupere seus servidores no Azure.
 
-Não é preciso ser um especialista no PowerShell para usar este artigo, mas é necessário entender os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações, consulte a documentação do [PowerShell](/powershell) e [o uso do Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Não é preciso ser um especialista no PowerShell para usar este artigo, mas é necessário entender os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações, consulte a [documentação do PowerShell](/powershell) e [usando Azure PowerShell com Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Os parceiros da Microsoft no programa CSP (Provedor de Solução na Nuvem) podem configurar e gerenciar a proteção dos servidores de clientes em suas respectivas assinaturas de CSP (assinaturas de locatário).
@@ -35,7 +35,7 @@ Não é preciso ser um especialista no PowerShell para usar este artigo, mas é 
 Verifique se estes pré-requisitos estão em vigor:
 
 - Uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). Além disso, você pode ler sobre [preços do Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-- PowerShell do Azure. Para obter informações sobre esta versão e como instalá-la, consulte [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+- PowerShell do Azure. Para obter informações sobre esta versão e como instalá-la, consulte [install Azure PowerShell](/powershell/azure/install-az-ps).
 
 Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-requisitos:
 
@@ -44,9 +44,9 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: Entrar em sua conta do Azure
 
-1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet traz uma página web solicita que `Connect-AzAccount`você tenha suas credenciais de conta: .
-   - Alternativamente, você pode incluir suas credenciais `Connect-AzAccount` de conta como um parâmetro no cmdlet, usando o parâmetro **Credencial.**
-   - Se você é um parceiro CSP trabalhando em nome de um inquilino, especifique o cliente como inquilino, usando seu inquilinoID ou nome de domínio principal do inquilino. Por exemplo: `Connect-AzAccount -Tenant "fabrikam.com"`
+1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicita suas credenciais de conta: `Connect-AzAccount`.
+   - Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no `Connect-AzAccount` cmdlet, usando o parâmetro **Credential** .
+   - Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Por exemplo: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
    ```azurepowershell
@@ -73,20 +73,20 @@ Além disso, o exemplo específico descrito neste artigo tem os seguintes pré-r
 
 ## <a name="step-2-set-up-the-vault"></a>Etapa 2: configurar o cofre
 
-1. Crie um grupo de recursos do Azure Resource Manager no qual você criará o cofre ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte maneira. A `$ResourceGroupName` variável contém o nome do grupo de recursos que deseja criar, e a variável $Geo contém a região Do Zure para criar o grupo de recursos (por exemplo, "Brasil Sul").
+1. Crie um grupo de recursos do Azure Resource Manager no qual você criará o cofre ou use um grupo de recursos existente. Crie um novo grupo de recursos da seguinte maneira. A `$ResourceGroupName` variável contém o nome do grupo de recursos que você deseja criar e a variável $geo contém a região do Azure na qual criar o grupo de recursos (por exemplo, "sul do Brasil").
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
    ```
 
-1. Para obter uma lista de grupos de `Get-AzResourceGroup` recursos em sua assinatura, execute o cmdlet.
+1. Para obter uma lista de grupos de recursos em sua assinatura, execute `Get-AzResourceGroup` o cmdlet.
 1. Crie um novo cofre dos Serviços de Recuperação do Azure da seguinte maneira:
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
    ```
 
-Você pode recuperar uma lista de `Get-AzRecoveryServicesVault` cofres existentes com o cmdlet.
+Você pode recuperar uma lista de cofres existentes com o `Get-AzRecoveryServicesVault` cmdlet.
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Etapa 3: Configurar o contexto do Cofre dos Serviços de Recuperação
 
@@ -106,7 +106,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
    ```
 
 1. Este cmdlet inicia um trabalho da Recuperação de Site para a criação do site e retorna um objeto de trabalho da Recuperação de Site. Aguarde a conclusão do trabalho e verifique se ele foi concluído com êxito.
-1. Use `Get-AzRecoveryServicesAsrJob` o cmdlet para recuperar o objeto de trabalho e verifique o estado atual do trabalho.
+1. Use o `Get-AzRecoveryServicesAsrJob` cmdlet para recuperar o objeto de trabalho e verificar o status atual do trabalho.
 1. Gere e baixe uma chave de registro para o site da seguinte maneira:
 
    ```azurepowershell
@@ -118,8 +118,8 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 ## <a name="step-5-install-the-provider-and-agent"></a>Etapa 5: instalar o Provedor e o agente
 
-1. Baixe o instalador para a versão mais recente do provedor da [Microsoft](https://aka.ms/downloaddra).
-1. Execute o instalador no host Hyper-V.
+1. Baixe o instalador para obter a versão mais recente do provedor da [Microsoft](https://aka.ms/downloaddra).
+1. Execute o instalador no host do Hyper-V.
 1. No final da instalação, vá para a etapa de registro.
 1. Quando solicitado, forneça a chave baixada e conclua o registro do host Hyper-V.
 1. Verifique se o host Hyper-V foi registrado no site da seguinte maneira:
@@ -130,13 +130,13 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Se você estiver executando um servidor de núcleo do Hyper-V, baixe o arquivo de instalação e siga estas etapas:
 
-1. Extrair os arquivos do _AzureSiteRecoveryProvider.exe_ para um diretório local executando este comando:
+1. Extraia os arquivos de _AzureSiteRecoveryProvider. exe_ para um diretório local executando este comando:
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
    ```
 
-1. Execute o comando a seguir:
+1. Execute o seguinte comando:
 
    ```console
    .\setupdr.exe /i
@@ -152,7 +152,7 @@ Se você estiver executando um servidor de núcleo do Hyper-V, baixe o arquivo d
 
 ## <a name="step-6-create-a-replication-policy"></a>Etapa 6: criar uma política de replicação
 
-Antes de iniciar, a conta de armazenamento especificada deve estar na mesma região do Azure que o cofre e deve ter a geo-replicação ativada.
+Antes de começar, a conta de armazenamento especificada deve estar na mesma região do Azure que o cofre e deve ter a replicação geográfica habilitada.
 
 1. Crie uma política de replicação da seguinte maneira:
 
@@ -182,7 +182,7 @@ Antes de iniciar, a conta de armazenamento especificada deve estar na mesma regi
 
 1. Aguarde o conclusão bem-sucedida do trabalho de associação.
 
-1. Recupere o mapeamento do recipiente de proteção.
+1. Recupere o mapeamento de contêiner de proteção.
 
    ```azurepowershell
    $ProtectionContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $protectionContainer
@@ -197,7 +197,7 @@ Antes de iniciar, a conta de armazenamento especificada deve estar na mesma regi
    $ProtectableItem = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
    ```
 
-1. Proteja a VM. Se a VM que você está protegendo tiver mais de um disco conectado a ele, especifique o disco do sistema operacional usando o parâmetro **OSDiskName.**
+1. Proteja a VM. Se a VM que você está protegendo tiver mais de um disco anexado a ela, especifique o disco do sistema operacional usando o parâmetro **OSDiskName** .
 
    ```azurepowershell
    $OSType = "Windows"          # "Windows" or "Linux"
@@ -216,7 +216,7 @@ Antes de iniciar, a conta de armazenamento especificada deve estar na mesma regi
    Completed
    ```
 
-1. Atualize as propriedades de recuperação (como o tamanho da função VM) e a rede Azure à qual anexar a Nic VM após failover.
+1. Atualize as propriedades de recuperação (como o tamanho da função VM) e a rede do Azure à qual anexar a NIC da VM após o failover.
 
    ```console
    PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
@@ -237,12 +237,12 @@ Antes de iniciar, a conta de armazenamento especificada deve estar na mesma regi
    ```
 
 > [!NOTE]
-> Se você deseja replicar em discos gerenciados habilitados para CMK no Azure, faça as seguintes etapas usando o Az PowerShell 3.3.0 em diante:
+> Se você quiser replicar em discos gerenciados habilitados para o CMK no Azure, execute as seguintes etapas usando AZ PowerShell 3.3.0 em diante:
 >
-> 1. Habilitar failover a discos gerenciados atualizando propriedades de VM
-> 1. Use `Get-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet para buscar o ID do disco para cada disco do item protegido
-> 1. Crie um objeto `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` de dicionário usando cmdlet para conter o mapeamento do ID de disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser pré-criados por você na região de destino.
-> 1. Atualize as propriedades `Set-AzRecoveryServicesAsrReplicationProtectedItem` da VM usando cmdlet passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetMap.**
+> 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
+> 1. Use o `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet para buscar a ID do disco de cada disco do item protegido
+> 1. Crie um objeto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` o cmdlet para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
+> 1. Atualize as propriedades da VM `Set-AzRecoveryServicesAsrReplicationProtectedItem` usando o cmdlet, passando o objeto Dictionary no parâmetro **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="step-8-run-a-test-failover"></a>Etapa 8: executar um failover de teste
 

@@ -1,15 +1,15 @@
 ---
-title: Cluster Resource Manager - Integração gerencial
+title: Gerenciador de recursos de cluster-integração de gerenciamento
 description: Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258740"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
@@ -93,7 +93,7 @@ Vamos falar sobre cada uma das diferentes restrições nesses relatórios de int
 ## <a name="blocklisting-nodes"></a>Incluir os nós em lista de bloqueio
 Outra mensagem de integridade reportada pelo Gerenciador de Recursos de Cluster é quando os nós são incluídos em uma lista de bloqueio. Você pode pensar na inclusão em uma lista de bloqueio como uma restrição temporária aplicada automaticamente a você. Os nós são incluídos na lista de bloqueio quando sofrem falhas repetidas ao iniciar instâncias desse tipo de serviço. Os nós são incluídos em uma lista de bloqueio de acordo com o tipo de serviço. Um nó pode ser incluído em uma lista de bloqueio para um tipo de serviço, mas não outro. 
 
-Você verá a inclusão em uma lista de bloqueio ocorrer com frequência durante o desenvolvimento: alguns bugs fazem com que o host de serviço falhe na inicialização. O Service Fabric tenta criar o host de serviço algumas vezes, e a falha continua ocorrendo. Após algumas tentativas, o nó é incluído em uma lista de bloqueio, e o Gerenciador de Recursos de Cluster tentará criar o serviço em outro lugar. Se essa falha continuar acontecendo em vários nós, talvez todos os nós válidos no cluster acabem bloqueados. A lista de bloqueios também pode remover tantos nós que não o suficiente pode iniciar o serviço com sucesso para atender à escala desejada. Normalmente, você verá erros ou avisos adicionais do Gerenciador de Recursos de Cluster, indicando que o serviço está abaixo da contagem desejada de réplicas ou de instâncias, bem como mensagens de integridade indicando o motivo da falha que está gerando a inclusão na lista de bloqueio.
+Você verá a inclusão em uma lista de bloqueio ocorrer com frequência durante o desenvolvimento: alguns bugs fazem com que o host de serviço falhe na inicialização. O Service Fabric tenta criar o host de serviço algumas vezes, e a falha continua ocorrendo. Após algumas tentativas, o nó é incluído em uma lista de bloqueio, e o Gerenciador de Recursos de Cluster tentará criar o serviço em outro lugar. Se essa falha continuar acontecendo em vários nós, talvez todos os nós válidos no cluster acabem bloqueados. O inclusão na lista também pode remover tantos nós que não suficientes podem iniciar o serviço com êxito para atender à escala desejada. Normalmente, você verá erros ou avisos adicionais do Gerenciador de Recursos de Cluster, indicando que o serviço está abaixo da contagem desejada de réplicas ou de instâncias, bem como mensagens de integridade indicando o motivo da falha que está gerando a inclusão na lista de bloqueio.
 
 A inclusão na lista de bloqueio não é uma condição permanente. Após alguns minutos, o nó é removido da lista de bloqueios, e o Service Fabric pode ativar novamente os serviços nesse nó. Se os serviços continuarem falhando, o nó será incluído na lista de bloqueio para esse tipo de serviço novamente. 
 
@@ -179,7 +179,7 @@ O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas e
 Se o ambiente estiver configurado corretamente, todas as restrições serão totalmente respeitadas, mesmo durante as atualizações. O mais importante é que o Gerenciador de Recursos de Cluster esteja observando suas restrições. Ao detectar uma violação, ele imediatamente informa e tenta corrigir o problema.
 
 ## <a name="the-preferred-location-constraint"></a>A restrição do local preferencial
-A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. O outro uso da restrição PreferredLocation é para a [ `PreferredPrimaryDomain` política de colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
+A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. O outro uso da restrição PreferredLocation é para a [ `PreferredPrimaryDomain` política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
 
 ## <a name="upgrades"></a>Atualizações
 O Cluster Resource Manager também ajuda durante atualizações de aplicativos e clusters, quando então ele tem dois trabalhos:

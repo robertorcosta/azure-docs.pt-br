@@ -1,5 +1,5 @@
 ---
-title: Instale o dispositivo Microsoft Azure StorSimple 8100
+title: Instalar Microsoft Azure StorSimple dispositivo 8100
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software.
 author: alkohli
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267580"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
@@ -42,7 +42,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Espuma inferior |
@@ -104,7 +104,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     **Fixando corrediças do trilho interno às laterais do compartimento**
    
-    Rótulo | Descrição
+    Rotular | Descrição
     ----- | -----------
     1     | Parafusos de cabeça abaulada M 3x4
     2     | Corrediças dos chassis
@@ -118,7 +118,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
    
     **Fixando os conjuntos de trilhos internos ao rack**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -144,7 +144,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -184,7 +184,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -195,7 +195,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     **Cabeamento de rede para o dispositivo**
 
-   |Rótulo | Descrição |
+   |Rotular | Descrição |
    |----- | ----------- |
    | Um    | LAN com acesso à Internet |
    | B    | Controlador 0 |

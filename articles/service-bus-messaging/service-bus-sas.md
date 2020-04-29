@@ -1,5 +1,5 @@
 ---
-title: Controle de acesso do Ônibus de Serviço Azure com assinaturas de acesso compartilhada
+title: Controle de acesso do barramento de serviço do Azure com assinaturas de acesso compartilhado
 description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259468"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
@@ -27,11 +27,11 @@ As *Assinaturas de Acesso Compartilhado* (SAS) são o mecanismo de segurança pr
 SAS protege o acesso ao Barramento de Serviço com base nas regras de autorização. Elas são configuradas em um namespace ou entidade de mensagens (retransmissão, fila ou tópico). Uma regra de autorização tem nome, está associada a direitos específicos e executa um par de chaves de criptografia. Use o nome e a chave da regra por meio do SDK do Barramento de Serviço ou em seu próprio código para gerar um token SAS. Um cliente pode passar o token para o Barramento de Serviço para comprovar a autorização para a operação solicitada.
 
 > [!NOTE]
-> O Azure Service Bus suporta autorizar o acesso a um namespace de Ônibus de Serviço e suas entidades usando o Azure Active Directory (Azure AD). Autorizar usuários ou aplicativos usando o token OAuth 2.0 devolvido pelo Azure AD proporciona maior segurança e facilidade de uso sobre assinaturas de acesso compartilhado (SAS). Com o Azure AD, não há necessidade de armazenar os tokens em seu código e arriscar possíveis vulnerabilidades de segurança.
+> O barramento de serviço do Azure dá suporte à autorização de acesso a um namespace do barramento de serviço e suas entidades usando o Azure Active Directory (AD do Azure). A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais.
 >
-> A Microsoft recomenda o uso do Azure AD com seus aplicativos de Ônibus de Serviço do Azure, quando possível. Para obter mais informações, consulte os seguintes artigos:
-> - [Autuar e autorizar um aplicativo com o Azure Active Directory para acessar as entidades de Ônibus de Serviço do Azure](authenticate-application.md).
-> - [Autenticar uma identidade gerenciada com o Azure Active Directory para acessar os recursos do Azure Service Bus](service-bus-managed-service-identity.md)
+> A Microsoft recomenda usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. Para obter mais informações, consulte os seguintes artigos:
+> - [Autentique e autorize um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure](authenticate-application.md).
+> - [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Visão geral das SAS
 
@@ -77,12 +77,12 @@ Qualquer cliente que tenha acesso ao nome de uma regra de autorização e a uma 
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**- Expiração do token instantâneo. Número inteiro que reflete os segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
-* **`skn`**- Nome da regra de autorização.
-* **`sr`**- URI do recurso que está sendo acessado.
-* **`sig`**- Assinatura.
+* **`se`**– Instantâneo de expiração do token. Número inteiro que reflete os segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
+* **`skn`**-Nome da regra de autorização.
+* **`sr`**-URI do recurso que está sendo acessado.
+* **`sig`** Signature.
 
-O `signature-string` é o hash SHA-256 calculado sobre o recurso URI **(escopo** conforme descrito na seção anterior) e a representação de seqüência do instantâneo de expiração do token, separada por LF.
+O `signature-string` é o hash SHA-256 calculado sobre o URI de recurso (**escopo** , conforme descrito na seção anterior) e a representação de cadeia de caracteres do instantâneo de expiração do token, separados por LF.
 
 O cálculo de hash é semelhante ao seguinte pseudocódigo e retorna um valor de hash de 256 bits/32 bytes.
 
@@ -94,7 +94,7 @@ O token contém os valores não hash para que o destinatário possa recalcular o
 
 O URI do recurso é o URI completo do recurso do Barramento de Serviço ao qual o acesso é solicitado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**O URI deve ser [codificado por cento](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**O URI deve ser [codificado por percentual](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 A regra de autorização de acesso compartilhado usada para assinar deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
@@ -191,7 +191,7 @@ Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP 
 
 Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **ReplyTo** dentro da mensagem AMQP; esse é o nó em que o serviço responde ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
 
-As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.NET Lite.](https://github.com/Azure/amqpnetlite) Isso é útil se você não puder usar o SDK oficial de ônibus de serviço (por exemplo, no\#WinRT, .NET Compact Framework, .NET Micro Framework e Mono) em desenvolvimento em C . Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se você não precisa de um conhecimento tão profundo sobre amqp, você pode usar o SDK oficial de ônibus de serviço com aplicativos .NET Framework, o que o fará por você.
+As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.net Lite](https://github.com/Azure/amqpnetlite) . Isso é útil se você não pode usar o SDK oficial do barramento de serviço (por exemplo, em WinRT, .NET Compact Framework, .NET micro Framework e mono\#) desenvolvendo em C. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se você não precisar desse conhecimento profundo sobre o AMQP, poderá usar o SDK oficial do barramento de serviço com .NET Framework aplicativos, o que fará isso para você.
 
 ### <a name="c35"></a>C&#35;
 
@@ -269,7 +269,7 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Enumerar Políticas de Privacidade |Gerenciar |Qualquer endereço de namespace |
 | Iniciar a escuta em um namespace |Escutar |Qualquer endereço de namespace |
 | Enviar mensagens a um ouvinte em um namespace |Enviar |Qualquer endereço de namespace |
-| **Fila** | | |
+| **Espera** | | |
 | Criar uma fila |Gerenciar |Qualquer endereço de namespace |
 | Excluir uma fila |Gerenciar |Qualquer endereço de fila válido |
 | Enumerar filas |Gerenciar |/$Resources/Queues |

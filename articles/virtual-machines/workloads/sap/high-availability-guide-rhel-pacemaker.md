@@ -1,5 +1,5 @@
 ---
-title: Configuração do Pacemaker no RHEL no Azure | Microsoft Docs
+title: Configurando o pacemaker no RHEL no Azure | Microsoft Docs
 description: Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: radeltch
 ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264473"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
@@ -55,28 +55,28 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação do Azure Virtual Machines para SAP no Linux (este artigo)][deployment-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
 * [Replicação do sistema SAP HANA no cluster de marca-passo](https://access.redhat.com/articles/3004101)
 * Documentação geral do RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-  * [Políticas de suporte para clusters de alta disponibilidade rhel - sbd e fence_sbd](https://access.redhat.com/articles/2800691)
-* Documentação RHEL específica do Azure:
+  * [Políticas de suporte para clusters de alta disponibilidade RHEL-SBD e fence_sbd](https://access.redhat.com/articles/2800691)
+* Documentação do RHEL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade do RHEL - máquinas virtuais do Microsoft Azure como membros de cluster](https://access.redhat.com/articles/3131341)
   * [Instalando e configurando um Cluster de alta disponibilidade do Red Hat Enterprise Linux 7.4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
-  * [Configure o SAP S/4HANA ASCS/ERS com o Autônomo Enqueue Server 2 (ENSA2) em Marcapasso no RHEL 7.6](https://access.redhat.com/articles/3974941)
+  * [Configurar o SAP S/4HANA ASCS/ERS com o servidor de enfileiramento autônomo 2 (ENSA2) no pacemaker no RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalação do Cluster
 
 ![Pacemaker na visão geral do RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 > [!NOTE]
-> Red Hat não suporta cão de guarda emulado por software. Red Hat não suporta SBD em plataformas em nuvem. Para obter detalhes, consulte Políticas de suporte para clusters de [alta disponibilidade rhel - sbd e fence_sbd](https://access.redhat.com/articles/2800691).
-> O único mecanismo de esgrima suportado para clusters Pacemaker Red Hat Enterprise Linux no Azure, é o agente de cerca do Azure.  
+> A Red Hat não dá suporte ao Watchdog emulado por software. A Red Hat não dá suporte a SBD em plataformas de nuvem. Para obter detalhes [, consulte políticas de suporte para clusters de alta disponibilidade RHEL-SBD e fence_sbd](https://access.redhat.com/articles/2800691).
+> O único mecanismo de isolamento com suporte para clusters de Red Hat Enterprise Linux de pacemaker no Azure, é o agente de limite do Azure.  
 
-Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[1]** - aplicável apenas ao nó 1 ou **[2]** - apenas aplicável ao nó 2.
+Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
 
 1. **[A] ** Registrar
 
@@ -88,7 +88,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Observe que, anexando um pool a uma imagem Azure Marketplace PAYG RHEL, você será efetivamente cobrado duas vezes pelo seu uso rhel: uma vez para a imagem PAYG e uma vez para o direito RHEL no pool que você anexar. Para mitigar isso, o Azure agora fornece imagens BYOS RHEL. Mais informações estão disponíveis [aqui.](../redhat/byos.md)
+   Observe que, ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado por seu uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para atenuar isso, o Azure agora fornece imagens BYOS RHEL. Mais informações estão disponíveis [aqui](../redhat/byos.md).
 
 1. **[A] ** RHEL habilitar para os repositórios do SAP
 
@@ -107,20 +107,20 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    </code></pre>
 
    > [!IMPORTANT]
-   > Recomendamos as seguintes versões do azure Fence agent (ou posterior) para que os clientes se beneficiem de um tempo de failover mais rápido, se uma parada de recursos falhar ou os nós de cluster não puderem mais comunicar quais dos outros:  
-   > RHEL 7.6: agentes de cerca-4.2.1-11.el7_6.8  
-   > RHEL 7.5: agentes de cerca-4.0.11-86.el7_5.8  
-   > RHEL 7.4: agentes de cerca-4.0.11-66.el7_4.12  
-   > Para obter mais informações, consulte [o Azure VM funcionando como um membro do cluster RHEL High Availability, demora muito tempo para ser cercado, ou a esgrima falha/ tempo-out antes que a VM seja desligada](https://access.redhat.com/solutions/3408711).
+   > Recomendamos as seguintes versões do agente de isolamento do Azure (ou posterior) para que os clientes se beneficiem de um tempo de failover mais rápido, se uma interrupção de recurso falhar ou se os nós de cluster não conseguirem se comunicar mais um com o outro:  
+   > RHEL 7,6: Fence-Agents-4.2.1-11. el7_6.8  
+   > RHEL 7,5: Fence-Agents-4.0.11-86. el7_5.8  
+   > RHEL 7,4: Fence-Agents-4.0.11-66. el7_4.12  
+   > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL leva muito tempo para ser decrescente ou o isolamento falha/expira antes de a VM ser desligada](https://access.redhat.com/solutions/3408711).
 
-   Verifique a versão do agente de cerca do Azure. Se necessário, atualize-o para uma versão igual ou posterior à indicada acima.
+   Verifique a versão do agente de limite do Azure. Se necessário, atualize-o para uma versão igual ou posterior à especificada acima.
 
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
 
    > [!IMPORTANT]
-   > Se você precisar atualizar o agente Azure Fence e se estiver usando a função personalizada, certifique-se de atualizar a função personalizada para incluir **o action powerOff**. Para obter [detalhes, consulte Criar uma função personalizada para o agente de cerca](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
+   > Se você precisar atualizar o agente de limite do Azure e, se estiver usando a função personalizada, certifique-se de atualizar a função personalizada para incluir a ação **estado desligado**. Para obter detalhes, consulte [criar uma função personalizada para o agente de isolamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** Configurar a resolução de nome do host
 
@@ -138,7 +138,7 @@ Os seguintes itens são prefixados com **[A]** - aplicável a todos os nós, **[
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[A] Alterar** a senha do hacluster para a mesma senha
+1. **[A]** alterar a senha do hacluster para a mesma senha
 
    <pre><code>sudo passwd hacluster
    </code></pre>
@@ -204,18 +204,18 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Abra a folha Azure Active Directory  
    Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
-1. Clique em Novo Registro
-1. Digite um nome, selecione "Contas apenas neste diretório de organização" 
-2. Selecione "Web" do tipo de aplicativo, digite um URL de login (por exemplo, http:\//localhost) e clique em Adicionar  
+1. Clique em novo registro
+1. Insira um nome, selecione "contas somente neste diretório da organização" 
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
    A URL de logon não é usada e pode ser qualquer URL válida
-1. Selecione Certificados e Segredos e clique em Novo segredo do cliente
-1. Digite uma descrição para uma nova tecla, selecione "Nunca expira" e clique em Adicionar
-1. Anote o Valor. Ele é usado como **senha** para o Diretor de Serviço
-1. Selecione Visão geral. Anote a ID do Aplicativo. Ele é usado como nome de usuário **(ID de login** nas etapas abaixo) do Service Principal
+1. Selecione certificados e segredos e clique em novo segredo do cliente
+1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
+1. Anote o Valor. Ele é usado como a **senha** para a entidade de serviço
+1. Selecione Visão geral. Anote a ID do Aplicativo. Ele é usado como o nome de usuário (**ID de logon** nas etapas abaixo) da entidade de serviço
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1] ** Criar uma função personalizada para o agente de isolamento
 
-A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa dar ao Service Principal permissões para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se você ainda não tiver criado a função personalizada, você pode criá-la usando o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa conceder permissões de entidade de serviço para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se você ainda não tiver criado a função personalizada, você pode criá-la usando o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o conteúdo às suas assinaturas, ou seja, substitua c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 pelas IDs da sua assinatura. Se você tiver apenas uma assinatura, remova a segunda entrada em AssignableScopes.
 

@@ -18,17 +18,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261327"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
 Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
 
 >[!IMPORTANT]
->Esteja ciente de que não é possível executar o assistente de instalação enquanto uma sincronização estiver em andamento.  Verifique se uma sincronização não está sendo executado antes de iniciar o assistente.
+>Lembre-se de que não é possível executar o assistente de instalação enquanto uma sincronização está em andamento.  Verifique se uma sincronização não está em execução antes de iniciar o assistente.
 
 Você pode encontrar o assistente de instalação no menu Iniciar chamado **Azure Connect AD**.
 
