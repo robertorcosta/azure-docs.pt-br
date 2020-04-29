@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- caos sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar o caos.
+title: CLI do Azure Service Fabric-sfctl caos
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar o caos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906170"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
@@ -18,7 +18,7 @@ Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
 ## <a name="subgroups"></a>Subgrupos
 |Subgrupo|Descrição|
 | --- | --- |
-| [schedule](service-fabric-sfctl-chaos-schedule.md) | Obter e definir a agenda do caos. |
+| [agendamento](service-fabric-sfctl-chaos-schedule.md) | Obter e definir a agenda do caos. |
 ## <a name="commands"></a>Comandos
 
 |Comando|Descrição|
@@ -41,7 +41,7 @@ Para obter o próximo segmento dos eventos do Chaos, especifique o ContinuationT
 | --hora de término utc | O horário do arquivo do Windows que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
 | --start-time-utc | O horário do arquivo do Windows que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -62,7 +62,7 @@ Obtenha o status do Chaos indicando se o Chaos está ou não em execução, os p
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -77,7 +77,7 @@ Obtenha o status do Chaos indicando se o Chaos está ou não em execução, os p
 ## <a name="sfctl-chaos-start"></a>início sfctl chaos
 Inicia o Chaos no cluster.
 
-Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâmetros passados no Chaos. Se o Chaos já estiver em execução quando esta chamada for feita, ela falhará com o código de erro FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte o artigo [Induzir caos controlado em clusters de malha de serviço](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) para obter mais detalhes.
+Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâmetros passados no Chaos. Se o Chaos já estiver em execução quando esta chamada for feita, ela falhará com o código de erro FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte o artigo [induzir o caos controlado em clusters Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) para obter mais detalhes.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -116,7 +116,7 @@ Impede que o Chaos execute novas falhas. Falhas em curso continuarão em execuç
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

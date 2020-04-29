@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl cluster
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar clusters.
+title: CLI do Azure Service Fabric-cluster sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar clusters.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906144"
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
@@ -47,7 +47,7 @@ Obtém uma lista de informações sobre a malha versões de código que são pro
 |Argumento|Descrição|
 | --- | --- |
 | --versão do código | A versão de produto do Service Fabric. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -69,7 +69,7 @@ Obtém uma lista de informações sobre a malha versões de configuração que s
 |Argumento|Descrição|
 | --- | --- |
 | --versão de configuração | A versão de configuração do Service Fabric. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -95,7 +95,7 @@ Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade re
 | --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
 | --include-system-application-health-statistics | Indica se as estatísticas de integridade devem incluir as estatísticas de integridade do aplicativo fabric\:/System. Falso por padrão. Se IncludeSystemApplicationHealthStatistics for definido como true, as estatísticas de integridade incluirão as entidades que pertencem ao aplicativo fabric \:/System. Caso contrário, o resultado da consulta inclui estatísticas de integridade somente para aplicativos de usuário. As estatísticas de integridade devem ser incluídas no resultado da consulta para que este parâmetro seja aplicado. |
 | --nodes-health-state-filter | Permite filtrar os objetos de estado de integridade de nó retornados no resultado da consulta de integridade do cluster com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Só retornam os nós que correspondem ao filtro. Todos os nós são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, o estado de integridade dos nós com o valor HealthState de OK (2) e Aviso (4) será retornado.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -110,13 +110,13 @@ Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade re
 ## <a name="sfctl-cluster-manifest"></a>Manifesto do cluster sfctl
 Obter o manifesto do cluster do Service Fabric.
 
-Obter o manifesto do cluster do Service Fabric. O manifesto de cluster contém propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, falhas e topoologias de domínio de upgrade, etc. Essas propriedades são especificadas como parte do arquivo ClusterConfig.JSON enquanto implantam um cluster autônomo. No entanto, a maioria das informações no manifesto do cluster é gerada internamente pela malha do serviço durante a implantação de cluster em outros cenários de implantação (por exemplo, ao usar o portal do Azure). O conteúdo do manifesto do cluster é apenas para fins informativos e os usuários não devem depender do formato do conteúdo do arquivo ou sua interpretação.
+Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém as propriedades do cluster que incluem diferentes tipos de nó no cluster, configurações de segurança, topologias de domínio de atualização e de falha, etc. Essas propriedades são especificadas como parte do arquivo ClusterConfig. JSON durante a implantação de um cluster autônomo. No entanto, a maioria das informações no manifesto do cluster é gerada internamente pela malha do serviço durante a implantação de cluster em outros cenários de implantação (por exemplo, ao usar o portal do Azure). O conteúdo do manifesto do cluster é apenas para fins informativos e os usuários não devem depender do formato do conteúdo do arquivo ou sua interpretação.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -131,7 +131,7 @@ Obter o manifesto do cluster do Service Fabric. O manifesto de cluster contém p
 ## <a name="sfctl-cluster-operation-cancel"></a>operação de cluster sfctl cancelamento
 Cancela uma operação com falha induzida pelo usuário.
 
-As APIs seguintes iniciam operações de\: falha que podem ser canceladas usando CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando.  Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. Nota\: importante se esta API for invocada com force==true, o estado interno pode ser deixado para trás.
+As APIs a seguir iniciam as operações de falha que podem ser\: canceladas usando CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando.  Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. Observação\: importante se essa API for chamada com Force = = true, o estado interno poderá ser deixado para trás.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -139,7 +139,7 @@ As APIs seguintes iniciam operações de\: falha que podem ser canceladas usando
 | --- | --- |
 | --id da operação [requerido] | Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente. |
 | -Force | Indica se deve normalmente revertê-lo e limpar o estado do sistema interno modificado executando a operação induzido pelo usuário. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -160,9 +160,9 @@ Obtém a lista de operações com falha induzido pelo usuário filtrados por ent
 
 |Argumento|Descrição|
 | --- | --- |
-| -filtro de estado | Usado para filtrar do OperationState para operações induzido pelo usuário. - 65535 - selecione All - 1 - selecione Running - 2 - selecione RollingBack - 8 - selecione Concluído - 16 - selecione Faulted - 32 - selecione Cancelado - 64 - selecione ForceCancelled.  Padrão\: 65535. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
-| --type-filter | Usado para filtrar OperationType para operações induzido pelo usuário. - 65535 - selecione todos - 1 - selecione PartitionDataLoss. - 2 - selecione PartitionQuorumLoss. - 4 - selecione PartiçãoRestart. - 8 - selecione NodeTransition.  Padrão\: 65535. |
+| -filtro de estado | Usado para filtrar do OperationState para operações induzido pelo usuário. -65535-selecionar tudo-1-selecionar em execução-2-selecionar RollingBack-8-selecionar concluído-16-selecionar com falha-32-selecionar cancelado-64-selecione ForceCancelled.  Padrão\: 65535. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --type-filter | Usado para filtrar OperationType para operações induzido pelo usuário. -65535-selecione tudo-1-Selecione PartitionDataLoss. -2-Selecione PartitionQuorumLoss. -4-Selecione PartitionRestart. -8-selecione NodeTransition.  Padrão\: 65535. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -185,7 +185,7 @@ Valide e provisione o código ou os pacotes de configuração de um cluster do S
 | --- | --- |
 | --caminho do arquivo do manifesto do cluster | O caminho do arquivo do manifesto do cluster. |
 | --caminho do arquivo do código | O caminho do pacote de código do cluster. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -206,7 +206,7 @@ Indica ao cluster do Service Fabric que ele deve tentar recuperar os serviços d
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -221,7 +221,7 @@ Indica ao cluster do Service Fabric que ele deve tentar recuperar os serviços d
 ## <a name="sfctl-cluster-report-health"></a>relatório de cluster sfctl integridade
 Envia um relatório de integridade sobre o cluster do Service Fabric.
 
-Envia um relatório de saúde sobre um cluster de tecido de serviço. O relatório deve conter as informações sobre a origem do relatório de integridade e propriedade na qual ele será relatado. O relatório é enviado a um nó de gateway do Service Fabric, que encaminha para o repositório de integridade. O relatório pode ser aceito pelo gateway, mas rejeitado pelo repositório de integridade após validação adicional. Por exemplo, o repositório de integridade pode rejeitar o relatório devido a um parâmetro inválido, como um número de sequência obsoleto. Para ver se o relatório foi aplicado na loja de saúde, execute getClusterHealth e verifique se o relatório aparece na seção HealthEvents.
+Envia um relatório de integridade em um Cluster Service Fabric. O relatório deve conter as informações sobre a origem do relatório de integridade e propriedade na qual ele será relatado. O relatório é enviado a um nó de gateway do Service Fabric, que encaminha para o repositório de integridade. O relatório pode ser aceito pelo gateway, mas rejeitado pelo repositório de integridade após validação adicional. Por exemplo, o repositório de integridade pode rejeitar o relatório devido a um parâmetro inválido, como um número de sequência obsoleto. Para ver se o relatório foi aplicado no repositório de integridade, execute GetClusterHealth e verifique se o relatório aparece na seção HealthEvents.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -250,16 +250,16 @@ Envia um relatório de saúde sobre um cluster de tecido de serviço. O relatór
 ## <a name="sfctl-cluster-select"></a>seleção do cluster sfctl
 Se conecta a um ponto de extremidade do cluster do Service Fabric.
 
-Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o arquivo de chave (chave) ou um único arquivo com ambos (. PEM). Não especifique ambos. Opcionalmente, se estiver se conectando a um cluster seguro, especifique também um caminho absoluto para um arquivo de pacote de autoridade de certificação ou o diretório de certificados de autoridade de certificação confiáveis.  Não há conexão com um cluster sem executar este comando primeiro, incluindo uma conexão com o host local. No entanto, não é necessário um ponto final explícito para se conectar a um cluster local.  Se usar um cert auto-assinado, ou outro certificado não assinado por um CA bem conhecido, passe no parâmetro --ca para garantir que a validação passe. Se não estiver em um cluster de produção, para contornar a validação do lado do cliente (útil para auto-assinatura ou não conhecido CA assinado), use a opção --no-verificar. Embora seja possível, não é recomendado para clusters de produção. Um erro de verificação de certificado pode resultar em outra forma.
+Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o arquivo de chave (chave) ou um único arquivo com ambos (. PEM). Não especifique ambos. Opcionalmente, se estiver se conectando a um cluster seguro, especifique também um caminho absoluto para um arquivo de pacote de autoridade de certificação ou o diretório de certificados de autoridade de certificação confiáveis.  Não há nenhuma conexão com um cluster sem executar esse comando primeiro, incluindo uma conexão com o localhost. No entanto, nenhum ponto de extremidade explícito é necessário para se conectar a um cluster local.  Se você estiver usando um certificado autoassinado ou outros certificados não assinados por uma autoridade de certificação bem conhecida, passe o parâmetro--CA para garantir que a validação passe. Se não estiver em um cluster de produção, para ignorar a validação do lado do cliente (útil para assinada por assinatura própria ou não conhecida), use a opção--no-Verify. Embora possível, não é recomendável para clusters de produção. Caso contrário, um erro de verificação de certificado poderá ocorrer.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --aad | Usar o Azure Active Directory para autenticação. |
-| --ca | Caminho absoluto para o diretório de certificados de autoridade de certificação para tratar como válido ou o arquivo de pacote de autoridade de certificação. Ao usar um diretório de certificados de autoridade de certificação, o `c_rehash <directory>` fornecido pelo OpenSSL deve ser executado pela primeira vez para computar os hashes do certificado e criar os links simbólicos apropriados. Isso é usado para verificar se o certificado devolvido pelo cluster é válido. |
+| --ca | Caminho absoluto para o diretório de certificados de autoridade de certificação para tratar como válido ou o arquivo de pacote de autoridade de certificação. Ao usar um diretório de certificados de autoridade de certificação, o `c_rehash <directory>` fornecido pelo OpenSSL deve ser executado pela primeira vez para computar os hashes do certificado e criar os links simbólicos apropriados. Isso é usado para verificar se o certificado retornado pelo cluster é válido. |
 | --cert | Caminho absoluto para um arquivo de certificado de cliente. |
-| --ponto final | URL do ponto de extremidade, incluindo o prefixo HTTPS ou HTTPS e porta do cluster. Normalmente, o ponto final se\:parecerá com https \://<seu url>19080. Se nenhum ponto final for dado, ele será padrão para http\://localhost\:19080.  Http\: \://localhost\:19080. |
+| --ponto de extremidade | URL do ponto de extremidade, incluindo o prefixo HTTPS ou HTTPS e porta do cluster. Normalmente, o ponto de extremidade será semelhante a\:https//<sua url>\:19080. Se nenhum ponto de extremidade for fornecido, ele usará\:como\:padrão http//localhost 19080.  Http\: \://localhost\:19080 padrão. |
 | --chave | Caminho absoluto para o arquivo de chave de certificado de cliente. |
 | --sem verificação | Desativar a verificação de certificados ao usar HTTPS, observe\:: essa é uma opção insegura e não deve ser usada para ambientes de produção. |
 | --pem | Caminho absoluto para o certificado de cliente, como um arquivo. PEM. |
@@ -298,7 +298,7 @@ Há suporte para desprovisionar o código e a configuração separadamente.
 | --- | --- |
 | --versão do código | A versão do pacote de código do cluster. |
 | --versão de configuração | A versão do manifesto de cluster. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -360,7 +360,7 @@ Mude cluster configuração ou código de atualização para o próximo domínio
 |Argumento|Descrição|
 | --- | --- |
 | – domínio de atualização [requerido] | O próximo domínio de atualização para essa atualização de cluster. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -381,7 +381,7 @@ Reverta a atualização de configuração ou código de um cluster do Service Fa
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -402,7 +402,7 @@ Obtém o progresso atual da atualização do cluster em andamento. Se nenhuma at
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

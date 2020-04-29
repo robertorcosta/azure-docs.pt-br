@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl rpm
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para o serviço de gerenciador de reparos.
+title: CLI do Azure Service Fabric-sfctl rpm
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o serviço do Gerenciador de reparo.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76904948"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -77,7 +77,7 @@ Essa API dá suporte à plataforma do Service Fabric; não é destinada a ser us
 |Argumento|Descrição|
 | --- | --- |
 | --filtro do executor | O nome do executor de reparos cujas tarefas declaradas devem ser incluídas na lista. |
-| -filtro de estado | Um bitwise OR dos valores a seguir, especificando qual estado de tarefa deve ser incluído na lista de resultados. <ul><li>1 - criada</li><li>2 - Reivindicado</li><li>4 - Preparação</li><li>8 - Aprovado</li><li>16 - Execução</li><li>32 - Restauração</li><li>64 - concluída</li></ul>
+| -filtro de estado | Um bitwise OR dos valores a seguir, especificando qual estado de tarefa deve ser incluído na lista de resultados. <ul><li>1 - criada</li><li>2-declarado</li><li>4-preparando</li><li>8-aprovado</li><li>16-executando</li><li>32-restaurando</li><li>64 - concluída</li></ul>
 | -filtro de id de tarefa | O prefixo de ID da tarefa de reparo a ser correspondido. |
 
 ### <a name="global-arguments"></a>Argumentos globais

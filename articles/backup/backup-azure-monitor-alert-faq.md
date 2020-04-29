@@ -1,52 +1,52 @@
 ---
-title: Monitoramento de perguntas frequentes sobre alertas e relatórios
-description: Neste artigo, descubra respostas para perguntas comuns sobre os relatórios Azure Backup Monitoring Alert e Azure Backup.
+title: Perguntas frequentes sobre monitoramento de alertas e relatórios
+description: Neste artigo, descubra respostas para perguntas comuns sobre o alerta de monitoramento de backup do Azure e os relatórios de backup do Azure.
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76989562"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento de backup do Azure - PERGUNTAS FREQUENTES
+# <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
-Este artigo responde a perguntas comuns sobre o monitoramento e a emissão de relatórios do Azure Backup.
+Este artigo responde a perguntas comuns sobre o monitoramento e o relatório de backup do Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como verificar se os dados de relatórios começaram a fluir para um espaço de trabalho do Log Analytics (LA) ?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Como fazer verificar se os dados de relatório começaram a fluir para um espaço de trabalho de Log Analytics (LA)?
 
-Navegue até o espaço de trabalho la configurado, navegue até o item do menu **Logs** e execute a consulta CoreAzureBackup | tomar 1. Se você ver um registro sendo devolvido, significa que os dados começaram a fluir para o espaço de trabalho. O empurrão de dados iniciais pode levar até 24 horas.
+Navegue até o espaço de trabalho de LA que você configurou, navegue até o item de menu **logs** e execute a consulta CoreAzureBackup | Leve um. Se você vir um registro que está sendo retornado, significa que os dados começaram a fluir para o espaço de trabalho. O push de dados inicial pode levar até 24 horas.
 
-### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência de pressão de dados para um espaço de trabalho la?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual é a frequência de envio de dados por push para um espaço de trabalho da LA?
 
-Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho do Log Analytics com algum atraso. Todos os eventos chegam ao espaço de trabalho do Log Analytics de 20 a 30 minutos depois de serem empurrados do cofre dos Serviços de Recuperação. Aqui estão mais detalhes sobre o lag:
+Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de 20 a 30 minutos após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
 
-* Em todas as soluções, os alertas incorporados do serviço de backup são empurrados assim que são criados. Assim, eles geralmente aparecem no espaço de trabalho do Log Analytics após 20 a 30 minutos.
-* Em todas as soluções, os trabalhos de backup demanda e os empregos de restauração são empurrados assim que terminam.
-* Para todas as soluções, exceto backup SQL, os trabalhos de backup programados são empurrados assim que terminam.
-* Para backup sql, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup programados completos, incluindo logs, são loteadas e empurradas a cada 6 horas.
-* Em todas as soluções, outras informações, como o item de backup, política, pontos de recuperação, armazenamento e assim por diante, são empurradas pelo menos uma vez por dia.
-* Uma alteração na configuração de backup (como alterar política ou editar política) desencadeia um impulso de todas as informações de backup relacionadas.
+* Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
+* Em todas as soluções, trabalhos de backup sob demanda e trabalhos de restauração são enviados por push assim que forem concluídos.
+* Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem concluídos.
+* Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
+* Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos uma vez por dia.
+* Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
 
-### <a name="how-long-can-i-retain-reporting-data"></a>Quanto tempo posso reter dados de relatórios?
+### <a name="how-long-can-i-retain-reporting-data"></a>Por quanto tempo posso manter os dados de relatórios?
 
-Depois de criar um espaço de trabalho la, você pode optar por reter dados por um máximo de 2 anos. Por padrão, um Espaço de Trabalho LA retém dados por 31 dias.
+Depois de criar um espaço de trabalho LA, você pode optar por manter os dados por um máximo de dois anos. Por padrão, um espaço de trabalho de LA retém dados por 31 dias.
 
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Verei todos os meus dados nos relatórios depois de configurar o Espaço de Trabalho de LA?
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Eu verá todos os meus dados em relatórios depois de configurar o espaço de trabalho LA?
 
- Todos os dados gerados após a configuração das configurações de diagnóstico são empurrados para o Espaço de Trabalho la e estão disponíveis nos relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho termina ou falha, ele é enviado para relatórios.
+ Todos os dados gerados depois que você define as configurações de diagnóstico são enviados por push para o espaço de trabalho LA e estão disponíveis em relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho for concluído ou falhar, ele será enviado aos relatórios.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso exibir relatórios entre cofres e assinaturas?
 
-Sim, você pode ver relatórios através de cofres e assinaturas, bem como regiões. Seus dados podem residir em um único espaço de trabalho la ou em um grupo de espaços de trabalho LA.
+Sim, você pode exibir relatórios entre cofres e assinaturas, bem como regiões. Seus dados podem residir em um único espaço de trabalho de LA ou em um grupo de espaços de trabalho de LA.
 
-### <a name="can-i-view-reports-across-tenants"></a>Posso ver relatórios entre inquilinos?
+### <a name="can-i-view-reports-across-tenants"></a>Posso exibir relatórios entre locatários?
 
-Se você é um usuário [do Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado às assinaturas de seus clientes ou espaços de trabalho LA, você pode usar relatórios de backup para visualizar dados em todos os seus inquilinos.
+Se você for um usuário [Lighthouse do Azure](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado aos espaços de trabalho assinaturas ou la de seus clientes, poderá usar relatórios de backup para exibir dados em todos os seus locatários.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
 
@@ -76,7 +76,7 @@ Um alerta é gerado em 20 minutos após a falha de backup do Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
 
-Sim. Nas seguintes situações, as notificações não são enviadas:
+Sim. Nas situações a seguir, as notificações não são enviadas:
 
 * Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
 * Quando um trabalho é cancelado

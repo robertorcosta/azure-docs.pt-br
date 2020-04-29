@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus amostras de mensagens visão geral
-description: As amostras de mensagens do Service Bus demonstram os principais recursos nas mensagens do Azure Service Bus. Fornece links para amostras no GitHub.
+title: Visão geral dos exemplos de mensagens do barramento de serviço do Azure
+description: Os exemplos de mensagens do barramento de serviço demonstram os principais recursos nas mensagens do barramento de serviço do Azure. Fornece links para exemplos no GitHub.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,18 +14,18 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773455"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
-Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). Atualmente, você pode encontrar as amostras nos seguintes lugares:
+Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos nos seguintes locais:
 
-| Linguagem de programação | Localização de SDK ou amostras |
+| Linguagem de programação | Local de exemplos ou SDK |
 | -------------------- | ----------------------- |
-| .NET, Java e Gerenciamento | https://github.com/Azure/azure-service-bus/ |
+| .NET, Java e gerenciamento | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
