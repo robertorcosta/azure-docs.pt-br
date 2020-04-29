@@ -1,5 +1,5 @@
 ---
-title: Processamento de dados e funções definidas pelo usuário - Azure Digital Twins| Microsoft Docs
+title: Processamento de dados e funções definidas pelo usuário – gêmeos digital do Azure | Microsoft Docs
 description: Visão geral do processamento de dados, dos correspondentes e das funções definidas pelo usuário com os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265175"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
@@ -32,7 +32,7 @@ Depois que os dispositivos enviam dados de telemetria para o Azure Digital Twins
 
 ## <a name="data-processing-objects"></a>Objetos de processamento de dados
 
-O processamento de dados no Azure Digital Twins consiste na definição de três objetos: *matchers,* *funções definidas pelo usuário*e *atribuições de funções*.
+O processamento de dados no Azure digital gêmeos consiste em definir três objetos: *correspondências*, *funções definidas pelo usuário*e *atribuições de função*.
 
 [![Objetos de processamento de dados dos Gêmeos Digitais do Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
@@ -104,7 +104,7 @@ As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métod
 - Crie uma notificação quando determinadas condições forem atendidas para uma leitura de sensor de entrada.
 - Anexe metadados de grafo à leitura do sensor antes de enviar uma notificação do sensor.
 
-Para obter mais informações, leia [Como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+Para obter mais informações, leia [como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exemplos
 
@@ -114,7 +114,7 @@ O [repositório GitHub para a amostra C# dos Gêmeos Digitais](https://github.co
 
 ### <a name="role-assignment"></a>Atribuição de função
 
-As ações de uma função definida pelo usuário estão sujeitas a controle de [acesso baseado em função](./security-role-based-access-control.md) de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o gráfico espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e a permissão para *CIAR*, *LER*, *ATUALIZAR*, ou *EXCLUIR* dados de gráfico em um determinado espaço. Um nível da função definido pelo usuário de acesso é verificado quando a função definida pelo usuário solicita o gráfico de dados ou tenta efetuar uma ação. Para obter mais informações, leia [o controle de acesso baseado em função](./security-create-manage-role-assignments.md).
+As ações de uma função definida pelo usuário estão sujeitas a controle de [acesso baseado em função](./security-role-based-access-control.md) de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o gráfico espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e a permissão para *CIAR*, *LER*, *ATUALIZAR*, ou *EXCLUIR* dados de gráfico em um determinado espaço. Um nível da função definido pelo usuário de acesso é verificado quando a função definida pelo usuário solicita o gráfico de dados ou tenta efetuar uma ação. Para obter mais informações, leia [controle de acesso baseado em função](./security-create-manage-role-assignments.md).
 
 É possível uma correspondência disparar uma função definida pelo usuário que não tenha atribuições de função. Nesse caso, a função definida pelo usuário não consegue ler nenhum dado do gráfico.
 

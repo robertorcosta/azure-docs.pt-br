@@ -1,5 +1,5 @@
 ---
-title: Crie e gerencie VMs reivindicados no Azure DevTest Labs | Microsoft Docs
+title: Criar e gerenciar VMs declaráveis no Azure DevTest Labs | Microsoft Docs
 description: Saiba como adicionar uma máquina virtual declarável a um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270791"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e, em seguida, selecione **DevTest Labs** na seção **DEVOPS**. Se você selecionar * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará o **DevTest Labs** no menu de navegação esquerdo para que você possa acessá-lo facilmente da próxima vez. Em seguida, será possível selecionar **DevTest Labs** no menu de navegação esquerdo.
 
     ![Todos os serviços – selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -72,7 +72,7 @@ Um usuário pode declarar qualquer VM na lista de “Máquinas virtuais declará
   ![Solicite uma VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Depois que um usuário reivindicar uma VM, o DevTest Labs iniciará a máquina e a moverá para a lista de usuários do laboratório de "Minhas máquinas virtuais". Isso significa que o usuário do laboratório agora terá privilégios de proprietário nesta máquina. O tempo necessário para esta etapa pode variar dependendo dos horários de início, bem como de quaisquer outras ações personalizadas que estão sendo realizadas durante o evento de solicitação. Uma vez reivindicada, a máquina não está mais disponível no pool reivindicado.  
+Depois que um usuário alegar uma VM, o DevTest Labs iniciará o computador e o moverá para a lista de "minhas máquinas virtuais" do usuário do laboratório. Isso significa que o usuário do laboratório agora terá privilégios de proprietário neste computador. O tempo necessário para esta etapa pode variar dependendo dos horários de inicialização, bem como quaisquer outras ações personalizadas sendo executadas durante o evento de declaração. Depois de reivindicado, o computador não está mais disponível no pool de declaração.  
 
 ## <a name="unclaim-a-vm"></a>Cancelar a declaração de uma VM
 
@@ -86,7 +86,7 @@ Quando um usuário termina de usar uma VM declarada e deseja disponibilizá-la p
 
   ![Cancele a declaração de uma VM no painel de gerenciamento da VM.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Quando um usuário não reivindica uma VM, ele não tem mais permissões de proprietário para aquela VM de laboratório específica e está disponível para ser reclamado por qualquer outro usuário de laboratório no estado que foi retrucado para a piscina. 
+Quando um usuário não alega uma VM, ele não tem mais permissões de proprietário para essa VM de laboratório específica e está disponível para ser reivindicado por qualquer outro usuário de laboratório no estado em que foi retured ao pool. 
 
 ### <a name="transferring-the-data-disk"></a>Transferindo o disco de dados
 Se uma VM requisitável tiver um disco de dados anexado a ela e um usuário cancelar a sua requisição, o disco de dados permanecerá com a VM. Quando outro usuário, então, requisitar essa VM, esse novo usuário requisitará o disco de dados assim como a VM.
@@ -99,4 +99,4 @@ Isso é conhecido como "transferência do disco de dados". O disco de dados torn
 
 ## <a name="next-steps"></a>Próximas etapas
 * Após sua criação, é possível conectar-se à VM selecionando **Conectar** em seu painel de gerenciamento.
-* Explore a [galeria de modelos quickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Explore a [Galeria de modelos do DevTest Labs Azure Resource Manager guia de início rápido](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

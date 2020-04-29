@@ -9,21 +9,21 @@ ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 6b4678b381e769993b01bbedd1cb4c0aeefc0cc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335062"
 ---
 | Recurso | Limite |
 | --- | :--- |
-| Clusters máximos por assinatura | 100 |
-| Nómáximo por cluster com conjuntos de disponibilidade de máquina virtual e SKU do balanceador de carga básico  | 100 |
-| Nómáximo por cluster com conjuntos de escala de máquina virtual e [Balancer de carga padrão SKU][standard-load-balancer] | 1000 (100 nodos por [piscina de nó)][node-pool] |
-| Pods máximos por nó: [Rede básica][basic-networking] com Kubenet | 110 |
-| Pods máximos por nó: [Rede avançada][advanced-networking] com interface de rede de contêineres Azure | Implantação da CLI do Azure: 30<sup>1</sup><br />Modelo do Azure Resource Manager: 30<sup>1</sup><br />Implantação do portal: 30 |
+| Máximo de clusters por assinatura | 100 |
+| Máximo de nós por cluster com conjuntos de disponibilidade de máquina virtual e SKU de Load Balancer básica  | 100 |
+| Máximo de nós por cluster com conjuntos de dimensionamento de máquinas virtuais e [Standard Load BALANCER SKU][standard-load-balancer] | 1000 (100 nós por [pool de nós][node-pool]) |
+| Pods máxima por nó: [sistema de rede básico][basic-networking] com Kubenet | 110 |
+| Pods máxima por nó: [rede avançada][advanced-networking] com a interface de rede de contêiner do Azure | Implantação da CLI do Azure: 30<sup>1</sup><br />Modelo de Azure Resource Manager: 30<sup>1</sup><br />Implantação do portal: 30 |
 
-<sup>1</sup> Quando você implanta um cluster Azure Kubernetes Service (AKS) com o azure CLI ou um modelo de Gerenciador de recursos, esse valor é configurável até 250 pods por nó. Você não pode configurar pods máximos por nó depois de já ter implantado um cluster AKS ou se você implantar um cluster usando o portal Azure.<br />
+<sup>1</sup> Quando você implanta um cluster do AKS (serviço kubernetes do Azure) com o CLI do Azure ou um modelo do Resource Manager, esse valor é configurado até 250 pods por nó. Não é possível configurar o pods máximo por nó depois que você já tiver implantado um cluster AKS ou se você implantar um cluster usando o portal do Azure.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

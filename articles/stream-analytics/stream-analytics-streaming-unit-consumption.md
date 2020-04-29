@@ -8,22 +8,22 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267346"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
-As Unidades de Streaming (SUs) representam os recursos de computação que são alocados para executar um trabalho de Stream Analytics. Quanto maior o número de SUs, mais recursos de CPU e memória são alocados para o trabalho. Esta capacidade permite que você se concentre na lógica de consulta e abstrai a necessidade de gerenciar o hardware para executar o trabalho do Stream Analytics de maneira oportuna.
+As unidades de streaming (SUs) representam os recursos de computação alocados para executar um trabalho de Stream Analytics. Quanto maior o número de SUs, mais recursos de CPU e memória são alocados para o trabalho. Esta capacidade permite que você se concentre na lógica de consulta e abstrai a necessidade de gerenciar o hardware para executar o trabalho do Stream Analytics de maneira oportuna.
 
 Para obter o processamento de streaming de baixa latência, os trabalhos do Azure Stream Analytics executam todo o processamento na memória. Quando a memória está acabando, o trabalho de streaming falha. Como resultado, em um trabalho de produção, é importante monitorar o uso de recursos de um trabalho de streaming e verificar se há recursos suficientes alocados para manter os trabalhos em execução 24/7.
 
 A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de memória da carga de trabalho. Para um trabalho de streaming com volume mínimo, a métrica costuma ficar entre 10 a 20%. Se a utilização SU% for baixa e eventos de entrada forem incluídos na lista de pendências, sua carga de trabalho provavelmente exigirá mais recursos de computação, o que requer o aumento do número de SUs. É melhor manter a métrica de SU abaixo de 80% para levar em conta os picos ocasionais. A Microsoft recomenda a configuração de um alerta na métrica de utilização SU de 80% para evitar o esgotamento de recursos. Para obter mais informações, consulte [Tutorial: Configurar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurar as Unidades de Streaming (SU) do Stream Analytics
-1. Faça login no [portal Azure](https://portal.azure.com/)
+1. Entrar no [portal do Azure](https://portal.azure.com/)
 
 2. Na lista de recursos, localize o trabalho do Stream Analytics que você deseja escalar e abra-o. 
 
@@ -32,7 +32,7 @@ A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de m
     ![Configuração de trabalho do Stream Analytics no Portal do Azure][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use o controle deslizante para definir o SUs para o trabalho. Observe que você está limitado a configurações específicas de SU. 
-5. Você pode alterar o número de SUs atribuídos ao seu trabalho mesmo quando ele estiver em execução. Isso não é possível se o seu trabalho usar uma [saída não particionada](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou tiver [uma consulta de várias etapas com diferentes valores DE PARTIÇÃO POR .](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values) Você talvez se restringiu a escolher a partir de um conjunto de valores SU quando o trabalho está em execução. 
+5. Você pode alterar o número de SUs atribuído ao seu trabalho, mesmo quando ele estiver em execução. Isso não será possível se seu trabalho usar uma [saída não particionada](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou tiver [uma consulta de várias etapas com uma partição diferente por valores](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Talvez você esteja restrito a escolher um conjunto de valores de SU quando o trabalho estiver em execução. 
 
 ## <a name="monitor-job-performance"></a>Monitorar o desempenho do trabalho
 Usando o portal do Azure, você pode acompanhar a taxa de transferência de um trabalho:
@@ -58,9 +58,9 @@ Elementos de consulta temporal (orientados ao tempo) são o conjunto principal d
 
 Observe que um trabalho com lógica de consulta complexa pode ter alta utilização de % de SU mesmo quando não estiver recebendo eventos de entrada continuamente. Isso pode acontecer após um aumento repentino nos eventos de entrada e saída. Se a consulta for complexa, o trabalho poderá continuar a manter o estado na memória.
 
-A utilização percentual da UA pode cair repentinamente para 0 por um curto período antes de voltar aos níveis esperados. Isso ocorre devido a erros transitórios ou atualizações iniciadas pelo sistema. O aumento do número de unidades de streaming para um trabalho pode não reduzir a utilização de SU% se a sua consulta não for [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+A utilização percentual da UA pode cair repentinamente para 0 por um curto período antes de voltar aos níveis esperados. Isso ocorre devido a erros transitórios ou atualizações iniciadas pelo sistema. O aumento do número de unidades de streaming para um trabalho pode não reduzir a utilização de SU% se a consulta não for [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
-Ao comparar a utilização durante um período de tempo, use [métricas de taxa de eventos](stream-analytics-monitoring.md). As métricas InputEvents e OutputEvents mostram quantos eventos foram lidos e processados. Existem métricas que indicam o número de eventos de erro também, como erros de desserialização. Quando o número de eventos por unidade de tempo aumenta, o SU aumenta na maioria dos casos.
+Ao comparar a utilização durante um período de tempo, use [métricas de taxa de eventos](stream-analytics-monitoring.md). As métricas InputEvents e OutputEvents mostram quantos eventos foram lidos e processados. Há métricas que indicam o número de eventos de erro também, como erros de desserialização. Quando o número de eventos por unidade de tempo aumenta, o SU% aumenta na maioria dos casos.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
 Um dos recursos exclusivos do trabalho do Azure Stream Analytics é a execução do processamento com estado, como funções de análise temporal, de junções temporais e de agregações em janela. Cada um desses operadores mantém as informações de estados.O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
@@ -86,7 +86,7 @@ Por exemplo, na consulta a seguir, o número associado a `clusterid` é a cardin
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-A fim de mitigar quaisquer problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Event Hub particionado por `clusterid`, e dimensionar a consulta permitindo que o sistema processe cada partição de entrada separadamente usando PARTITION **BY** como mostrado no exemplo abaixo:
+Para reduzir os problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos para o Hub de eventos particionado pelo `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition by** , conforme mostrado no exemplo abaixo:
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ Depois que a consulta é particionada horizontalmente, ela é espalhada em vári
 As partições do Hub de Evento devem ser particionadas pela chave de agrupamento para evitar a necessidade de uma etapa de redução. Para obter mais informações, confira [Visão Geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Junções temporais
-A memória consumida (tamanho do estado) de uma junta temporal é proporcional ao número de eventos na sala de agitação temporal da junta, que é a taxa de entrada do evento multiplicada pelo tamanho da sala de agitação. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado por taxa média de eventos.
+A memória consumida (tamanho do estado) de uma junção temporal é proporcional ao número de eventos no espaço de manobra temporal da junção, que é a taxa de entrada do evento multiplicada pelo tamanho do espaço da ondulação. Em outras palavras, a memória consumida por junções é proporcional ao intervalo de tempo DateDiff multiplicado por taxa média de eventos.
 
 O número de eventos sem correspondência na junção afeta a utilização da memória para a consulta. A consulta a seguir está tentando localizar as impressões de anúncio que geram cliques:
 
@@ -111,7 +111,7 @@ O número de eventos sem correspondência na junção afeta a utilização da me
 
 Neste exemplo, é possível que vários anúncios sejam exibidos e algumas pessoas cliquem neles, e é necessário manter todos os eventos em uma janela do tempo. A memória consumida é proporcional ao tamanho da janela e à taxa de eventos. 
 
-Para remediar isso, envie eventos para o Event Hub particionado pelas chaves de adesão (ID neste caso) e dimensione a consulta permitindo que o sistema processe cada partição de entrada separadamente usando **PARTITION BY** como mostrado:
+Para corrigir isso, envie eventos para o Hub de eventos particionado pelas chaves de junção (ID nesse caso) e escale horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **Partition,** conforme mostrado:
 
    ```sql
    SELECT clicks.id
@@ -147,7 +147,7 @@ Quando você adiciona uma função UDF, o Azure Stream Analytics carrega o runti
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar consultas paralelizáveis no Azure Stream Analytics](stream-analytics-parallelization.md)
-* [Scale Azure Stream Analytics empregos para aumentar o throughput](stream-analytics-scale-jobs.md)
+* [Dimensionar Azure Stream Analytics trabalhos para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
 
 <!--Image references-->
 

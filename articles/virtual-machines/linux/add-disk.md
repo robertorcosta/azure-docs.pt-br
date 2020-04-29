@@ -1,5 +1,5 @@
 ---
-title: Adicione um disco de dados ao Linux VM usando o Azure CLI
+title: Adicionar um disco de dados à VM do Linux usando o CLI do Azure
 description: Saiba como adicionar um disco de dados persistente à VM Linux com a CLI do Azure
 author: roygara
 manager: twooley
@@ -9,10 +9,10 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: a80a1fe21ba0b40aebf9e426e3d49f499c2d2a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250407"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
@@ -44,13 +44,13 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conectar-se à VM do Linux para montar o novo disco
 
-Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para obter mais informações, consulte [Como usar o SSH com o Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com a entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* com o nome de usuário *azureuser*:
+Para participar, formatar e montar o novo disco para que sua VM do Linux possa usá-lo, Secure Shell em sua VM. Para obter mais informações, consulte [como usar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo a seguir se conecta a uma VM com a entrada DNS pública de *mypublicdns.westus.cloudapp.azure.com* com o nome de usuário *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-Uma vez conectado a uma VM, você está pronto para anexar um disco. Primeiro, localize o disco usando `dmesg` (o método usado para descobrir o novo disco pode variar). O exemplo a seguir usa dmesg para filtrar em discos *SCSI:*
+Uma vez conectado a uma VM, você está pronto para anexar um disco. Primeiro, localize o disco usando `dmesg` (o método usado para descobrir o novo disco pode variar). O exemplo a seguir usa dmesg para filtrar em discos *SCSI* :
 
 ```bash
 dmesg | grep SCSI
@@ -67,7 +67,7 @@ A saída deverá ser semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> Recomenda-se que você use as versões mais recentes de fdisk ou parted que estão disponíveis para o seu distro.
+> É recomendável que você use as versões mais recentes do fdisk ou parcialmente disponíveis para seu distribuição.
 
 Aqui, *sdc* é o disco que queremos. Particione o disco com `parted`, se o tamanho do disco for de 2 tebibytes (TiB) ou maior, você deverá usar o particionamento GPT, mas se ele for menor que 2 TiB, você poderá usar o particionamento MBR ou GPT. Se você estiver usando o particionamento MBR, pode utilizar `fdisk`. Torne-o um disco primário na partição 1 e aceite os outros padrões. O exemplo a seguir inicia o processo `fdisk` em */dev/sdc*:
 
@@ -181,7 +181,7 @@ A saída deve ser semelhante ao seguinte exemplo:
 ```
 
 > [!NOTE]
-> Editar incorretamente o arquivo **/etc/fstab** pode resultar em um sistema não inicializado. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
 
 Em seguida, abra o arquivo */etc/fstab* em um editor de texto, conforme descrito a seguir:
 
@@ -198,9 +198,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > Remover um disco de dados posteriormente sem editar fstab pode fazer com que a VM falhe ao ser inicializada. A maioria das distribuições fornecem as opções de fstab *nofail* e/ou *nobootwait*. Essas opções permitem que um sistema inicialize mesmo se o disco não for montado no momento da inicialização. Consulte a documentação da distribuição para obter mais informações sobre esses parâmetros.
 >
-> A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você pode encontrar comportamento como descrito no [SSH não pode para Linux VM devido a erros de FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você pode encontrar um comportamento conforme descrito em [não pode SSH para VM Linux devido a erros de fstab](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 >
-> O Console Serial Azure VM pode ser usado para acesso ao console à Sua VM se a modificação do fstab resultou em uma falha de inicialização. Mais detalhes estão disponíveis na [documentação do Console Serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+> O console serial da VM do Azure pode ser usado para acesso ao console para sua VM se a modificação de fstab resultar em uma falha de inicialização. Mais detalhes estão disponíveis na [documentação do console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte a TRIM/UNMAP para Linux no Azure
 Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Esse recurso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas, podendo também economizar dinheiro se você criar arquivos grandes e depois excluí-los.

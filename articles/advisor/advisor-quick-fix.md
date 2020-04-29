@@ -1,44 +1,44 @@
 ---
-title: Correção rápida para recomendações do Advisor
-description: Realize a remediação em massa usando o Quick Fix no Advisor
+title: Correção de correção rápida para recomendações do Advisor
+description: Executar a correção em massa usando a correção rápida no Advisor
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
 ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502484"
 ---
-# <a name="quick-fix-remediation-for-advisor"></a>Correção rápida para advisor
-**O Quick Fix** permite uma maneira mais rápida e fácil de remediação para recomendação sobre vários recursos. Ele fornece capacidade para remediações em massa de recursos e ajuda você a otimizar suas assinaturas mais rapidamente com remediação em escala para seus recursos.
-O recurso está disponível apenas para algumas recomendações, através do portal Azure.
+# <a name="quick-fix-remediation-for-advisor"></a>Correção de correção rápida para o Advisor
+A **correção rápida** permite uma maneira mais rápida e fácil de remediação para recomendação em vários recursos. Ele fornece capacidade para remediações em massa de recursos e ajuda você a otimizar suas assinaturas mais rapidamente com a correção em escala para seus recursos.
+O recurso está disponível apenas para determinadas recomendações, por meio de portal do Azure.
 
 
-## <a name="steps-to-use-quick-fix"></a>Etapas para usar 'Correção rápida'
+## <a name="steps-to-use-quick-fix"></a>Etapas para usar a ' correção rápida '
 
-1. Na lista de recomendações que possuem o rótulo **Quick Fix,** clique na recomendação.
+1. Na lista de recomendações que têm o rótulo **correção rápida** , clique na recomendação.
 
-   ![Correção rápida do conselheiro](./media/quick-fix-1.png)
+   ![Correção rápida do Advisor](./media/quick-fix-1.png)
    
-   *Os preços na imagem são, por exemplo, apenas para fins*
+   *Os preços na imagem são apenas para fins de exemplo*
 
-2. Na página de detalhes da recomendação, você verá a lista de recursos para os quais você tem essa recomendação. Selecione todos os recursos que deseja remediar para a recomendação.
+2. Na página detalhes da recomendação, você verá uma lista de recursos para os quais você tem essa recomendação. Selecione todos os recursos que você deseja corrigir para a recomendação.
 
-   ![Correção rápida do conselheiro](./media/quick-fix-2.png)
+   ![Correção rápida do Advisor](./media/quick-fix-2.png)
    
-   *Os preços na imagem são, por exemplo, apenas para fins*
+   *Os preços na imagem são apenas para fins de exemplo*
 
-3. Depois de selecionar os recursos, clique no botão **Correção rápida** para remediar em massa.
+3. Depois de selecionar os recursos, clique no botão **correção rápida** para corrigir em massa.
 
    > [!NOTE]
-   > Alguns dos recursos listados podem ser desativados, porque você não tem as permissões apropriadas para modificá-los.
+   > Alguns dos recursos listados podem estar desabilitados, pois você não tem as permissões apropriadas para modificá-los.
    
    > [!NOTE]
-   > Se houver outras implicações, além dos benefícios mencionados no Advisor, você será comunicado na experiência para ajudá-lo a tomar decisões de remediação informadas.
+   > Se houver outras implicações, além dos benefícios mencionados no Advisor, você será comunicado na experiência para ajudá-lo a tomar decisões de correção informadas.
    
-4. Você receberá uma notificação para a conclusão da remediação. Você verá um erro se houver recursos que não sejam remediados e recursos no modo selecionado na exibição da lista de recursos.  
+4. Você receberá uma notificação para a conclusão da correção. Você verá um erro se houver recursos que não são corrigidos e recursos no modo selecionado na exibição de lista de recursos.  
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -49,5 +49,5 @@ Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-* [Recomendações de Excelência Operacional do Orientador](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
+* [API REST do Advisor](https://docs.microsoft.com/rest/api/advisor/)

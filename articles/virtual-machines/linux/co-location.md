@@ -1,20 +1,20 @@
 ---
-title: Co-localizar VMs Linux
-description: Saiba como a co-localização dos recursos do Azure VM pode melhorar a latência.
+title: Colocalizar VMs do Linux
+description: Saiba como a colocalização de recursos de VM do Azure pode melhorar a latência.
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: d2fd8a2cd7dac7b1d3c78691c84a861d924005ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250277"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Co-localizar recursos para melhor latência
+# <a name="co-locate-resources-for-improved-latency"></a>Colocalizar recursos para maior latência
 
-Ao implantar seu aplicativo no Azure, espalhar instâncias entre regiões ou zonas de disponibilidade cria latência de rede, o que pode afetar o desempenho geral do seu aplicativo. 
+Ao implantar seu aplicativo no Azure, a difusão de instâncias entre regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. 
 
 ## <a name="proximity-placement-groups"></a>Grupos de posicionamento de proximidade
 
@@ -22,10 +22,10 @@ Ao implantar seu aplicativo no Azure, espalhar instâncias entre regiões ou zon
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Implante uma VM para um [grupo de colocação de proximidade](proximity-placement-groups.md) usando o Cli do Azure.
+Implante uma VM em um [grupo de posicionamento de proximidade](proximity-placement-groups.md) usando o CLI do Azure.
 
-Aprenda a testar a [latência da rede](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Saiba como [testar a latência de rede](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Saiba como otimizar o [throughput da rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Saiba como [otimizar a taxa de transferência de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-Saiba como [usar grupos de colocação de proximidade com aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Saiba como [usar grupos de posicionamento de proximidade com aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

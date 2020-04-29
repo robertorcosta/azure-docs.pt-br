@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254645"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
@@ -87,7 +87,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
 
 #### <a name="to-view-volume-information"></a>Para exibir informações de volume
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager. 
-2. No painel **Escopo**, clique no nó **Volumes**. Uma lista de volumes locais e montados, incluindo todos os volumes do Azure StorSimple, aparece no painel **Resultados** . As colunas no painel **Resultados** são configuráveis. (Clique com o botão direito do mouse no nó **Volumes,** **selecione Exibir**e **selecione Adicionar/Remover colunas**.)
+2. No painel **Escopo**, clique no nó **Volumes**. Uma lista de volumes locais e montados, incluindo todos os volumes do Azure StorSimple, aparece no painel **Resultados** . As colunas no painel de **resultados** são configuráveis. (Clique com o botão direito do mouse no nó **volumes** , selecione **Exibir**e, em seguida, selecione **Adicionar/remover colunas**.)
    
     ![Configurar as colunas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
@@ -102,7 +102,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
 Use o procedimento a seguir para excluir um volume do StorSimple Snapshot Manager.
 
 > [!NOTE]
-> Você não poderá excluir um volume se ele fizer parte de um grupo de volumes. (A opção excluir não está disponível para volumes que são membros de um grupo de volumes.) Você deve excluir todo o grupo de volume para excluir o volume.
+> Você não poderá excluir um volume se ele fizer parte de um grupo de volumes. (A opção Excluir não está disponível para volumes que são membros de um grupo de volumes.) Você deve excluir o grupo de volumes inteiro para excluir o volume.
 
 #### <a name="to-delete-a-volume"></a>Para excluir um volume
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
@@ -134,7 +134,7 @@ Use o procedimento a seguir para configurar um backup de um volume básico e, em
 Antes de começar:
 
 * Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
-* Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, vá para [Implantar o Gerenciador de instantâneos StorSimple](storsimple-snapshot-manager-deployment.md).
+* Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, acesse [implantar o StorSimple snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>Para configurar o backup de um volume básico
 1. Crie um volume básico no dispositivo StorSimple.
@@ -145,11 +145,11 @@ Antes de começar:
    
     ![Criar Grupo de Volumes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
 6. Na caixa de diálogo **Criar Grupo de Volume**, digite um nome para o grupo de volumes, atribua o volume dinâmico espelhado para este grupo e, em seguida, clique em **OK**.
-7. No painel **Escopo**, expanda o nó **Grupos de volume**. O novo grupo de volumes deve aparecer o nó **Grupos de volume.** 
+7. No painel **Escopo**, expanda o nó **Grupos de volume**. O novo grupo de volumes deve aparecer no nó **grupos de volumes** . 
 8. Clique com o botão direito no nome do grupo de volumes.
    
    * Para iniciar um trabalho de backup interativo (sob demanda), clique em **Fazer Backup**. 
-   * Para programar um backup automático, clique em **Criar política de backup**. Na página Geral ****, selecione um grupo de volumes na lista. Na página **Agenda**, insira os detalhes da agenda. Quanto tiver concluído, clique em **OK**. 
+   * Para programar um backup automático, clique em **Criar política de backup**. Na página Geral ****, selecione um grupo de volumes na lista. Na página **Agenda**, insira os detalhes da agenda. Quando terminar, clique em **OK**. 
 9. Para confirmar que a tarefa de backup já começou, expanda o nó em **Trabalhos** no painel de **Escopo** e, em seguida, clique no nó **Executar**. A lista de tarefas em execução no momento aparece no painel de **Resultados**. 
 
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configurar e fazer backup de um volume espelhado dinâmico
@@ -162,7 +162,7 @@ Conclua as seguintes etapas para configurar o backup de um volume espelhado din�
 Antes de começar:
 
 * Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
-* Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, vá para [Implantar o Gerenciador de instantâneos StorSimple](storsimple-snapshot-manager-deployment.md).
+* Instale e configure o StorSimple Snapshot Manager. Para obter mais informações, acesse [implantar o StorSimple snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configure dois volumes no dispositivo StorSimple. (Nos exemplos, os volumes disponíveis são **Disco 1** e **Disco 2**.) 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Etapa 1: Usar o Gerenciamento de Disco para criar um volume espelhado dinâmico
@@ -202,7 +202,7 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 6. Clique com o botão direito no nome do grupo de volumes. 
    
    * Para iniciar um trabalho de backup interativo (sob demanda), clique em **Fazer Backup**. 
-   * Para programar um backup automático, clique em **Criar política de backup**. Na página **Geral**, selecione o grupo de volume na lista. Na página **Agenda**, insira os detalhes da agenda. Quanto tiver concluído, clique em **OK**. 
+   * Para programar um backup automático, clique em **Criar política de backup**. Na página **Geral**, selecione o grupo de volume na lista. Na página **Agenda**, insira os detalhes da agenda. Quando terminar, clique em **OK**. 
 7. Você pode monitorar o trabalho de backup enquanto ele é executado. No painel **Escopo**, expanda o nó **Trabalhos** e, em seguida, clique em **Em execução**. Os detalhes do trabalho aparecem no painel **Resultados**. Quando o trabalho de backup é concluído, os detalhes são transferidos para a lista de trabalhos **Últimas 24 horas**. 
 
 ## <a name="next-steps"></a>Próximas etapas

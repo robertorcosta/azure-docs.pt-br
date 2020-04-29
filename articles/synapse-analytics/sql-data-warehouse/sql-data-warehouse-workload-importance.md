@@ -1,6 +1,6 @@
 ---
 title: Importância da carga de trabalho
-description: Orientação para definir a importância para consultas de pool SQL sinapse no Azure Synapse Analytics.
+description: Diretrizes para definir a importância para consultas de pool de Synapse SQL no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,58 +12,58 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744047"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho do Azure Synapse Analytics
 
-Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução para solicitações de pool Synapse Synapse no Azure Synapse.
+Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução de solicitações do pool do SQL Synapse no Azure Synapse.
 
 ## <a name="importance"></a>Importância
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-As necessidades dos negócios podem exigir que as cargas de trabalho de armazenamento de dados sejam mais importantes do que outras.  Considere um cenário onde os dados de vendas críticas da missão são carregados antes do período fiscal fechar.  Cargas de dados para outras fontes, como dados meteorológicos, não têm SLAs rigorosos. Definir alta importância para uma solicitação de carregar dados de vendas e baixa importância para uma solicitação de carregamento de dados meteorológicos garante que a carga de dados de vendas obtenha primeiro acesso aos recursos e seja concluída mais rapidamente.
+As necessidades comerciais podem exigir que as cargas de trabalho de data warehousing sejam mais importantes do que outras.  Considere um cenário em que os dados de vendas de missão crítica são carregados antes do fechamento do período fiscal.  Cargas de dados para outras fontes, como dados de clima, não têm SLAs estritos. Definir a alta importância para uma solicitação para carregar dados de vendas e baixa importância para uma solicitação para carregar dados meteorológicos garante que o carregamento dos dados de vendas receba o primeiro acesso aos recursos e seja concluído mais rapidamente.
 
 ## <a name="importance-levels"></a>Níveis de importância
 
-Há cinco níveis de importância: baixo, below_normal, normal, above_normal e alto.  As solicitações que não definem a importância são atribuídas ao nível padrão do normal. Pedidos que têm o mesmo nível de importância têm o mesmo comportamento de agendamento que existe hoje.
+Há cinco níveis de importância: baixa, below_normal, normal, above_normal e alta.  As solicitações que não definem a importância são atribuídas ao nível padrão normal. As solicitações que têm o mesmo nível de importância têm o mesmo comportamento de agendamento que existe hoje.
 
 ## <a name="importance-scenarios"></a>Cenários de importância
 
-Além do cenário de importância básica descrito acima com vendas e dados meteorológicos, existem outros cenários em que a importância da carga de trabalho ajuda a atender às necessidades de processamento e consulta de dados.
+Além do cenário de importância básica descrito acima com dados de vendas e clima, há outros cenários em que a importância da carga de trabalho ajuda a atender às necessidades de processamento e consulta de dados.
 
 ### <a name="locking"></a>Bloqueio
 
-O acesso aos bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [comutação de partição](sql-data-warehouse-tables-partition.md) ou [OBJETO RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool Synapse SQL no Azure Synapse otimiza para o throughput. Otimizar para throughput significa que, ao executar e enfileirar solicitações têm as mesmas necessidades de bloqueio e recursos estão disponíveis, as solicitações enfileiradas podem contornar solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitação mais cedo. Uma vez aplicada a importância da carga de trabalho às solicitações com maiores necessidades de bloqueio. Solicitação com maior importância será executada antes da solicitação com menor importância.
+O acesso a bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [troca de partição](sql-data-warehouse-tables-partition.md) ou [renomear objeto](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool SQL Synapse no Azure Synapse otimiza para a taxa de transferência. Otimizar para taxa de transferência significa que, quando as solicitações em execução e em fila tiverem as mesmas necessidades de bloqueio e os recursos estiverem disponíveis, as solicitações enfileiradas poderão ignorar as solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitações anteriormente. Quando a importância da carga de trabalho é aplicada a solicitações com mais necessidades de bloqueio. A solicitação com maior importância será executada antes da solicitação com menor importância.
 
 Considere o exemplo a seguir:
 
-- O Q1 está executando e selecionando ativamente dados do SalesFact.
-- O Q2 está na fila esperando o Q1 ser concluído.  Ele foi enviado às 9h e está tentando dividir novos dados para SalesFact.
-- O 3º trimestre é enviado às 9:01 am e deseja selecionar dados do SalesFact.
+- Q1 está executando ativamente e selecionando dados de SalesFact.
+- O Q2 está na fila aguardando a conclusão de Q1.  Ele foi enviado às 9h e está tentando particionar novos dados no SalesFact.
+- Q3 é enviado em 9:01am e deseja selecionar dados de SalesFact.
 
-Se o Q2 e o Q3 tiverem a mesma importância e o Q1 ainda estiver sendo executado, o Q3 começará a ser executado. O 2º trimestre continuará esperando por um bloqueio exclusivo no SalesFact.  Se o Q2 tiver maior importância que o Q3, o Q3 esperará até o 2º trimestre antes de começar a execução.
+Se Q2 e Q3 tiverem a mesma importância e Q1 ainda estiver em execução, Q3 começará a ser executado. O Q2 continuará aguardando um bloqueio exclusivo em SalesFact.  Se Q2 tiver maior importância do que Q3, Q3 aguardará até que Q2 seja concluído antes de iniciar a execução.
 
 ### <a name="non-uniform-requests"></a>Solicitações não uniformes
 
-Outro cenário em que a importância pode ajudar a atender às demandas de consulta é quando solicitações com diferentes classes de recursos são submetidas.  Como foi mencionado anteriormente, sob a mesma importância, a piscina Synapse SQL no Azure Synapse otimiza para o throughput. Quando as solicitações de tamanho misto (como smallrc ou mediumrc) estiverem na fila, o pool Synapse SQL escolherá a solicitação de chegada mais antiga que se encaixa nos recursos disponíveis. Se a importância da carga de trabalho for aplicada, a solicitação de maior importância será agendada em seguida.
+Outro cenário em que a importância pode ajudar a atender às demandas de consulta é quando as solicitações com diferentes classes de recursos são enviadas.  Como foi mencionado anteriormente, sob a mesma importância, o pool SQL do Synapse no Azure Synapse otimiza para a taxa de transferência. Quando solicitações de tamanho misto (como smallrc ou mediumrc) são enfileiradas, o pool de SQL do Synapse escolherá a primeira solicitação que se ajusta dentro dos recursos disponíveis. Se a importância da carga de trabalho for aplicada, a solicitação de maior importância será agendada a seguir.
   
 Considere o seguinte exemplo em DW500c:
 
-- Q1, Q2, Q3 e Q4 estão executando consultas smallrc.
-- O Q5 é submetido com a classe de recursos do MediumRC às 9h.
-- O Q6 é submetido com aula de recursos smallrc às 9:01 am.
+- Q1, T2, Q3 e Q4 estão executando consultas smallrc.
+- P5 é enviado com a classe de recurso mediumrc às 9h.
+- P6 é enviado com a classe de recurso smallrc em 9:01am.
 
-Como o Q5 é mediumrc, requer dois slots de seleção. O Q5 precisa esperar que duas das consultas em execução se concluam.  No entanto, quando uma das consultas em execução (Q1-Q4) é concluída, o Q6 é agendado imediatamente porque os recursos existem para executar a consulta.  Se o Q5 tiver maior importância que o Q6, o Q6 espera até que o Q5 esteja em execução antes de começar a ser executado.
+Como P5 é mediumrc, ele requer dois slots de simultaneidade. O P5 precisa aguardar a conclusão de duas consultas em execução.  No entanto, quando uma das consultas em execução (Q1-T4) for concluída, o P6 será agendado imediatamente porque os recursos existem para executar a consulta.  Se P5 tiver maior importância do que P6, P6 aguardará até que P5 esteja em execução antes que possa começar a execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre a criação de um classificador, consulte o [CLASSIFIER DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
-- Para obter mais informações sobre a classificação da carga de trabalho, consulte [Classificação da Carga de Trabalho](sql-data-warehouse-workload-classification.md).  
-- Consulte o [classificador quickstart Criar carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) para saber como criar um classificador de carga de trabalho.
+- Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Para obter mais informações sobre a classificação de carga de trabalho, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).  
+- Consulte o [classificador início rápido criar carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) para saber como criar um classificador de carga de trabalho.
 - Confira os artigos de instruções [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [Gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exibir consultas e a importância atribuída.

@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059963"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado raiz autoassinado
@@ -28,7 +28,7 @@ Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoas
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Deixe o console PowerShell aberto se quiser criar um certificado de cliente logo após a criação deste certificado raiz.
+ 3. Deixe o console do PowerShell aberto se desejar criar um certificado de cliente logo após a criação desse certificado raiz.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado de cliente
 
@@ -38,9 +38,9 @@ As etapas abaixo lhe guiarão pela geração de um certificado do cliente por me
 
 Os exemplos utilizam o cmdlet New-SelfSignedCertificate para gerar um certificado do cliente que expira em um ano. Para informações de parâmetros adicionais, como definir um valor de expiração diferente para o certificado do cliente, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1---powershell-console-session-still-open"></a>Exemplo 1 - Sessão do console PowerShell ainda aberta
+### <a name="example-1---powershell-console-session-still-open"></a>Exemplo 1-a sessão do console do PowerShell ainda está aberta
 
-Use este exemplo se você não tiver fechado o console do PowerShell depois de criar o certificado raiz autoassinado. Este exemplo continua da seção anterior e usa a variável declarada '$cert'. Se você fechou o console PowerShell depois de criar o certificado raiz auto-assinado ou estiver criando certificados de cliente adicionais em uma nova sessão de console PowerShell, use as etapas em [Exemplo 2](#ex2).
+Use este exemplo se você não tiver fechado o console do PowerShell depois de criar o certificado raiz autoassinado. Este exemplo continua da seção anterior e usa a variável declarada '$cert'. Se você fechou o console do PowerShell depois de criar o certificado raiz autoassinado ou estiver criando certificados de cliente adicionais em uma nova sessão de console do PowerShell, use as etapas no [exemplo 2](#ex2).
 
 Modifique e execute o exemplo para gerar um certificado do cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado do cliente chamado 'P2SChildCert'.  Se você deseja nomear o certificado filho diferentemente, modifique o valor de CN. Não altere a TextExtension ao executar esse exemplo. O certificado do cliente que você gera é instalado automaticamente em 'Certificates - Current User\Personal\Certificates' em seu computador.
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Exemplo 2 - Nova sessão de console PowerShell
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Exemplo 2 – nova sessão de console do PowerShell
 
 Se você estiver criando certificados do cliente adicionais ou não estiver usando a mesma sessão do PowerShell usada para criar o certificado raiz autoassinado, use as seguintes etapas:
 

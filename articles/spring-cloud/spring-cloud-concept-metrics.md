@@ -1,140 +1,140 @@
 ---
 title: Noções básicas sobre métricas do Azure Spring Cloud
-description: Saiba como revisar métricas no Azure Spring Cloud
+description: Saiba como examinar as métricas no Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.openlocfilehash: bb23afff2b4b449897d8e420934d038938d20205
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256751"
 ---
-# <a name="understand-metrics-for-azure-spring-cloud"></a>Entenda as métricas para Azure Spring Cloud
+# <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
-O Azure Metrics explorer é um componente do portal Microsoft Azure que permite traçar gráficos, correlacionar visualmente tendências e investigar picos e mergulhos em métricas. Use o Metrics Explorer para investigar a integridade e o uso dos recursos. 
+O Azure Metrics Explorer é um componente do portal do Microsoft Azure que permite plotar gráficos, correlacionar visualmente tendências e investigar picos e quedas em métricas. Use o Metrics Explorer para investigar a integridade e o uso dos recursos. 
 
-No Azure Spring Cloud, existem dois pontos de vista para métricas.
+No Azure Spring Cloud, há dois pontos de exibição para métricas.
 * Gráficos em cada página de visão geral do aplicativo
-* Página de métricas comuns
+* Página métricas comuns
 
  ![Gráficos de métricas](media/metrics/metrics-1.png)
 
-Gráficos na **visão geral** do aplicativo fornecem verificações rápidas de status para cada aplicativo. A página **Métricas comuns** contém todas as métricas disponíveis para referência. Você pode construir seus próprios gráficos na página de métricas comuns e fixá-los no Dashboard.
+Os gráficos na **visão geral** do aplicativo fornecem verificações rápidas de status para cada aplicativo. A página **métricas** comuns contém todas as métricas disponíveis para referência. Você pode criar seus próprios gráficos na página métricas comuns e fixá-los no painel.
 
-## <a name="application-overview-page"></a>Página de visão geral do aplicativo
-Selecione um aplicativo no **Gerenciamento de Aplicativos** para encontrar gráficos na página de visão geral.  
+## <a name="application-overview-page"></a>Página Visão geral do aplicativo
+Selecione um aplicativo no **Gerenciamento de aplicativos** para localizar gráficos na página Visão geral.  
 
- ![Gerenciamento de métricas de aplicativos](media/metrics/metrics-2.png)
+ ![Gerenciamento de métricas do aplicativo](media/metrics/metrics-2.png)
 
 A página **Visão Geral do Aplicativo** de cada aplicativo apresenta um gráfico de métricas que permite que você realize uma rápida verificação de status do seu aplicativo.  
 
  ![Visão geral das métricas do aplicativo](media/metrics/metrics-3.png)
 
-O Azure Spring Cloud fornece esses cinco gráficos com métricas atualizadas a cada minuto:
+O Azure Spring Cloud fornece esses cinco gráficos com métricas que são atualizadas a cada minuto:
 
-* **Erros de servidor http**: contagem de erros para solicitações HTTP para o seu aplicativo
-* **Dados Em**: Bytes recebidos pelo seu aplicativo
-* **Data Out**: Bytes enviados pelo seu aplicativo
-* **Solicitações**: Solicitações recebidas pelo seu aplicativo
-* **Tempo médio de resposta**: Tempo médio de resposta do seu aplicativo
+* **Erros do servidor http**: contagem de erros para solicitações HTTP para seu aplicativo
+* **Dados em**: bytes recebidos por seu aplicativo
+* **Saída de dados**: bytes enviados pelo seu aplicativo
+* **Solicitações**: solicitações recebidas por seu aplicativo
+* **Tempo médio de resposta**: tempo médio de resposta do seu aplicativo
 
-Para o gráfico, você pode selecionar um intervalo de tempo de uma hora a sete dias.
+Para o gráfico, você pode selecionar um intervalo de tempo de uma hora para sete dias.
 
-## <a name="common-metrics-page"></a>Página de métricas comuns
+## <a name="common-metrics-page"></a>Página métricas comuns
 
-As métricas no painel de navegação à esquerda são **ligadas** à página métricas comuns.
+As **métricas** no painel de navegação à esquerda são vinculadas à página métricas comuns.
 
-Primeiro, selecione métricas para visualizar:
+Primeiro, selecione as métricas a serem exibidas:
 
-![Selecione exibição métrica](media/metrics/metrics-4.png)
+![Selecionar exibição de métrica](media/metrics/metrics-4.png)
 
-Detalhes de todas as métricas podem ser encontrados na [seção](#user-metrics-options) abaixo.
+A opção detalhes de todas as métricas pode ser encontrada na [seção](#user-metrics-options) abaixo.
 
-Em seguida, selecione o tipo de agregação para cada métrica:
+Em seguida, selecione tipo de agregação para cada métrica:
 
-![Agregação Métrica](media/metrics/metrics-5.png)
+![Agregação de métrica](media/metrics/metrics-5.png)
 
-O tipo de agregação indica como agregar pontos métricos no gráfico por tempo. Há um ponto métrico bruto a cada minuto, e o tipo de pré-agregação dentro de um minuto é pré-definido pelo tipo de métricas.
-* Soma: Soma todos os valores como saída de destino.
-* Média: Use o valor médio no período como saída alvo.
-* Max/Min: Use o valor Max/Min no período como saída de destino.
+O tipo de agregação indica como agregar pontos de métricas no gráfico por tempo. Há um ponto de métrica bruto a cada minuto, e o tipo de pré-autenticação em minutos é predefinido pelo tipo de métricas.
+* Sum: soma todos os valores como saída de destino.
+* Média: Use o valor médio no período como saída de destino.
+* Max/min: Use o valor max/min no período como saída de destino.
 
-O intervalo de tempo para mostrar também pode ser modificado. O intervalo de tempo pode ser escolhido de 30 minutos para durar 30 dias, ou um intervalo de tempo personalizado.
+O intervalo de tempo a ser mostrado também pode ser modificado. O intervalo de tempo pode ser escolhido nos últimos 30 minutos até os últimos 30 dias ou um intervalo de tempo personalizado.
 
-![Modificação métrica](media/metrics/metrics-6.png)
+![Modificação de métrica](media/metrics/metrics-6.png)
 
-A exibição padrão inclui todas as métricas do aplicativo do azure Spring Cloud em conjunto. As métricas de um aplicativo ou instância podem ser filtradas no visor.  Clique **em Adicionar filtro,** defina a propriedade como **App**e selecione o aplicativo de destino que deseja monitorar na caixa de texto **Valores.** 
+A exibição padrão inclui todas as métricas de application's do serviço de nuvem do Spring do Azure juntas. As métricas de um aplicativo ou instância podem ser filtradas na exibição.  Clique em **Adicionar filtro**, defina a propriedade como **aplicativo**e selecione o aplicativo de destino que você deseja monitorar na caixa de texto **valores** . 
 
-Você pode usar dois tipos de filtros (propriedades):
-* Aplicativo: filtro pelo nome do aplicativo
-* Exemplo: filtrar por instância do aplicativo
+Você pode usar dois tipos de filtros (Propriedades):
+* Aplicativo: filtrar por nome do aplicativo
+* Instância: filtrar por instância de aplicativo
 
-![Filtros métricos](media/metrics/metrics-7.png)
+![Filtros de métrica](media/metrics/metrics-7.png)
 
-Você também pode usar a opção **Aplicar divisão,** que desenhará várias linhas para um aplicativo:
+Você também pode usar a opção **aplicar divisão** , que irá desenhar várias linhas para um aplicativo:
 
-![Divisão métrica](media/metrics/metrics-8.png)
+![Divisão de métrica](media/metrics/metrics-8.png)
 
 >[!TIP]
 > Você pode criar seus próprios gráficos na página de métricas e fixá-los em seu **Painel**. Comece nomeando seu gráfico.  Em seguida, selecione **Fixar no painel no canto superior direito**. Agora você pode verificar seu aplicativo no **Painel** do Portal.
 
 ## <a name="user-metrics-options"></a>Opções de métricas do usuário
 
-As tabelas a seguir mostram as métricas e detalhes disponíveis.
+As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do atuador de primavera | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
->| Erro global da Tomcat | tomcat.global.error | Contagem | Número de erros ocorre de solicitações processadas |
+>| Erro global do Tomcat | Tomcat. global. Error | Contagem | Número de erros de solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do atuador de primavera | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
->|Porcentagem de uso da CPU do sistema | system.cpu.use | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todas as UCP estiveram ociosas durante o período recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam funcionando ativamente 100% do tempo durante o período recente sendo observado.|
->| Porcentagem de uso da CPU do aplicativo | Porcentagem de uso da CPU do aplicativo | Porcentagem | Uso recente da CPU para o processo Java Virtual Machine. Esse valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que nenhuma das CPUs estava executando threads do processo JVM durante o período recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente segmentos do JVM 100% do tempo durante o período recente observado. Os threads do JVM incluem os segmentos de aplicação, bem como os segmentos internos JVM.|
->| Memória do aplicativo atribuída | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para uso pelo JVM. O JVM pode liberar a memória para o sistema e comprometido pode ser menor do que init. comprometido será sempre maior ou igual ao usado. |
->| Memória do aplicativo usada | jvm.memory.used | Bytes | Representa a quantidade de memória usada atualmente em bytes. |
->| Memória do aplicativo Max | jvm.memory.max | Bytes | Representa a quantidade máxima de memória que pode ser usada para o gerenciamento de memória. A quantidade de memória usada e comprometida será sempre menor ou igual a max se max for definido. Uma alocação de memória pode falhar se tentar aumentar a memória usada de tal forma que usada > cometida mesmo se usada <= max ainda seria verdade (por exemplo, quando o sistema está com pouca memória virtual). |
->| Tamanho máximo de dados da geração antiga disponível | jvm.gc.max.data.size | Bytes | O pico de uso de memória do pool de memória da antiga geração desde que a máquina virtual Java foi iniciada. |
->| Tamanho de dados da geração antiga | jvm.gc.live.data.size | Bytes | Tamanho do pool de memória da velha geração depois de um GC completo. |
->| Promover ao tamanho de dados da geração antiga | jvm.gc.memory.promoted | Bytes | Contagem de aumentos positivos no tamanho do pool de memória da geração antiga antes de GC para depois de GC. |
->| Promover ao Tamanho de Dados da Geração Jovem | jvm.gc.memory.allocated | Bytes | Incrementado para um aumento no tamanho do pool de memória da geração jovem depois de um GC para antes do próximo. |
->| Contagem de pausa sinuosa gc | jvm.gc.pause (contagem total) | Contagem | Contagem total de GC após este JMV começou, incluindo Young e Old GC. |
->| TEMPO total de pausa do GC | jvm.gc.pause (tempo total) | Milissegundos | Tempo total de GC consumido após este JMV começou, incluindo Young e Old GC. |
+>|Porcentagem de uso da CPU do sistema | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
+>| Porcentagem de uso de CPU do aplicativo | Porcentagem de uso de CPU do aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
+>| Memória de aplicativo atribuída | JVM. Memory. Committed | Bytes | Representa a quantidade de memória que tem a garantia de estar disponível para uso pela JVM. A JVM pode liberar memória para o sistema e confirmada pode ser menor que init. Commit sempre será maior ou igual a usado. |
+>| Memória usada do aplicativo | JVM. Memory. Used | Bytes | Representa a quantidade de memória usada atualmente em bytes. |
+>| Memória máxima do aplicativo | JVM. Memory. Max | Bytes | Representa a quantidade máxima de memória que pode ser usada para gerenciamento de memória. A quantidade de memória usada e confirmada sempre será menor ou igual ao máximo se a opção máximo for definida. Uma alocação de memória pode falhar se tentar aumentar a memória usada, de modo que usada > confirmada mesmo se usado <= Max ainda seria verdadeiro (por exemplo, quando o sistema está com pouca memória virtual). |
+>| Tamanho máximo de dados de geração antiga disponíveis | JVM. GC. Max. Data. Size | Bytes | O pico de uso de memória do pool de memória de geração antiga desde que a máquina virtual Java foi iniciada. |
+>| Tamanho de dados de geração antiga | JVM. GC. Live. Data. Size | Bytes | Tamanho do pool de memória de geração antiga após um GC completo. |
+>| Promover para tamanho de dados de geração antiga | JVM. GC. Memory. promovida | Bytes | Contagem de aumentos positivos no tamanho do pool de memória de geração antiga antes do GC ser após o GC. |
+>| Promover para tamanho de dados de geração jovem | JVM. GC. Memory. allocated | Bytes | Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC antes do próximo. |
+>| Contagem de pausar do GC | JVM. GC. PAUSE (total-contagem) | Contagem | Contagem total de GC após esse JMV iniciado, incluindo GC jovem e antigo. |
+>| Tempo total de pausa do GC | JVM. GC. PAUSE (tempo total) | Milissegundos | Tempo total de GC consumido após esse JMV iniciado, incluindo o GC jovem e antigo. |
 
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do atuador de primavera | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
->| Tomcat Total Sent Bytes | tomcat.global.enviado | Bytes | Quantidade de dados que o servidor web Tomcat enviou |
->| Bytes recebidos no total de tomcat | tomcat.global.received | Bytes | Quantidade de dados que o servidor web Tomcat recebeu |
->| Tomcat Solicitar Tempo Total | tomcat.global.request (tempo total) | Milissegundos | Tempo total do servidor web Tomcat para processar as solicitações |
->| Contagem total de solicitações de tomcat | tomcat.global.request (contagem total) | Contagem | Contagem total de solicitações processadas pelo servidor web Tomcat |
->| Tomcat Solicitar Tempo Máximo | tomcat.global.request.max | Milissegundos | Tempo máximo do servidor web Tomcat para processar uma solicitação |
+>| Total de bytes enviados do Tomcat | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
+>| Total de bytes recebidos do Tomcat | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
+>| Tempo total da solicitação do Tomcat | Tomcat. global. Request (tempo total) | Milissegundos | Tempo total do servidor Web Tomcat para processar as solicitações |
+>| Contagem total de solicitações do Tomcat | Tomcat. global. Request (total-contagem) | Contagem | Contagem total de solicitações processadas do servidor Web Tomcat |
+>| Tempo máximo de solicitação do Tomcat | Tomcat. global. Request. Max | Milissegundos | Tempo máximo do servidor Web Tomcat para processar uma solicitação |
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do atuador de primavera | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
->| Contagem ativa da sessão Tomcat | tomcat.sessions.active.max | Contagem | Número máximo de sessões que estiveram ativas ao mesmo tempo |
->| Tomcat Session Max Tempo Vivo | tomcat.sessions.alive.max | Milissegundos | Maior tempo (em segundos) que uma sessão expirada tinha sido vivo |
->| Contagem criada da sessão tomcat | tomcat.sessions.created | Contagem | Número de sessões que foram criadas |
->| Contagem expirada da sessão tomcat | tomcat.sessions.expirou | Contagem | Número de sessões que expiraram |
->| Contagem rejeitada da sessão de Tomcat | tomcat.sessions.rejeitado | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas chegou. |
+>| Contagem ativa máxima da sessão do Tomcat | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
+>| Tempo de atividade máx de sessão do Tomcat | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
+>| Contagem de sessões criadas do Tomcat | Tomcat. Sessions. Created | Contagem | Número de sessões que foram criadas |
+>| Contagem de sessões expiradas do Tomcat | Tomcat. Sessions. Expired | Contagem | Número de sessões que expiraram |
+>| Contagem rejeitada da sessão Tomcat | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
 
 ## <a name="see-also"></a>Confira também
 * [Introdução ao Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
-* [Analisar registros e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analisar logs e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Tutorial: Monitore os recursos da Nuvem de Primavera usando alertas e grupos de ação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Tutorial: monitorar recursos de nuvem Spring usando alertas e grupos de ações](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
-* [Cotas e Planos de Serviços para Nuvem de Primavera do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Cotas e planos de serviço para o Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
 

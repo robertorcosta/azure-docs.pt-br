@@ -1,6 +1,6 @@
 ---
 title: Arquitetura de rede v1
-description: Visão geral arquitetônica da topologia de rede de ambientes de serviços de aplicativos. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+description: Visão geral da arquitetura da topologia de rede dos ambientes do serviço de aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243842"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo

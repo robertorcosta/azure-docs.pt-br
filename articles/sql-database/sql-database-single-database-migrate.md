@@ -1,5 +1,5 @@
 ---
-title: Migração do banco de dados SQL Server para um banco de dados único/pooled
+title: SQL Server migração de banco de dados para um banco de dados único/em pool
 description: Saiba mais sobre a migração do banco de dados do SQL Server para um banco de dados individual ou de pool elástico no Banco de Dados SQL do Azure.
 keywords: migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql
 services: sql-database
@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268607"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
@@ -84,14 +84,14 @@ Com a replicação transacional, todas as alterações de dados ou esquema apare
 
 1. Configurar a distribuição
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
 
 2. Criar a publicação
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
 3. Criar Assinatura
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 Algumas dicas e diferenças da migração para o Banco de Dados SQL
 
@@ -108,8 +108,8 @@ Há uma grande variedade de problemas de compatibilidade que você pode encontra
 
 - [Recursos de banco de dados do SQL Server sem suporte no Banco de Dados SQL do Azure](sql-database-transact-sql-information.md)
 - [Funcionalidade do Mecanismo de Banco de Dados descontinuada no SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Funcionalidade do mecanismo de banco de dados descontinuado no SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Funcionalidade do mecanismo de banco de dados descontinuado no SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [Funcionalidade do Mecanismo de Banco de Dados descontinuada no SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [Funcionalidade de Mecanismo de Banco de Dados descontinuada no SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 

@@ -1,15 +1,15 @@
 ---
-title: Visão geral do ciclo de vida do ator de Malha de Serviço azure
+title: Visão geral do ciclo de vida do ator do Azure Service Fabric
 description: Explica o ciclo de vida, a coleta de lixo e a exclusão manual de atores e seu estado de Reliable Actor do Service Fabric
 author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258311"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
@@ -50,7 +50,7 @@ O que conta como "está sendo usado" para fins de desativação e coleta de lixo
 Antes de entrar nos detalhes da desativação, é importante definir os seguintes termos:
 
 * *Intervalo de verificação*. É o intervalo no qual o runtime dos Atores verifica a tabela de Atores Ativos para saber se há atores que podem ser desativados e ter o lixo coletado. O valor padrão é 1 minuto.
-* *Tempo inocioso*. Este é o período que um ator deve permanecer sem utilização (ocioso) para que possa ser desativado e ter o lixo coletado. O valor padrão é 60 minuto.
+* *Tempo limite de ociosidade*. Este é o período que um ator deve permanecer sem utilização (ocioso) para que possa ser desativado e ter o lixo coletado. O valor padrão é 60 minuto.
 
 Normalmente não é necessário alterar esses padrões. No entanto, se necessário, esses intervalos podem ser alterados por meio de `ActorServiceSettings` ao registrar seu [Serviço de Ator](service-fabric-reliable-actors-platform.md):
 
@@ -85,7 +85,7 @@ public class Program
     }
 }
 ```
-Para cada ator ativo, o runtime do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O ator verifica cada um `ScanIntervalInSeconds` dos atores para ver se pode ser lixo coletado `IdleTimeoutInSeconds`e marca se ficou ocioso para .
+Para cada ator ativo, o runtime do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução do ator verifica cada um `ScanIntervalInSeconds` dos atores a cada para ver se ele pode ser coletado pelo lixo e o marca `IdleTimeoutInSeconds`se ele esteve ocioso para.
 
 Sempre que um ator é usado, seu tempo ocioso é redefinido como 0. Depois disso, o ator só pode ter seu lixo coletado se permanecer ocioso novamente por `IdleTimeoutInSeconds`. Lembre-se de que um ator é considerado como usado se o método de interface de ator ou um retorno de chamada de lembrete de ator for executado. Um ator **não** é considerado usado se seu retorno de chamada do temporizador for executado.
 
@@ -110,11 +110,11 @@ A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas nã
 ## <a name="next-steps"></a>Próximas etapas
 * [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
+* [Reentrância do ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de amostra java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo em C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

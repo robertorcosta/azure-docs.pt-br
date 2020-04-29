@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79266865"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
@@ -27,7 +27,7 @@ Você pode receber mensagens de erro específicas ao usar a conexão de Área de
 
 Para obter informações sobre mensagens de erro específicas, consulte o seguinte:
 
-* [A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença](#rdplicense).
+* [A sessão remota foi desconectada porque não há servidores de licença área de trabalho remota disponíveis para fornecer uma licença](#rdplicense).
 * [A Área de Trabalho Remota não consegue localizar o "nome" do computador](#rdpname).
 * [Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada](#rdpauth).
 * [Erro de Segurança do Windows: suas credenciais não funcionaram](#wincred).
@@ -35,7 +35,7 @@ Para obter informações sobre mensagens de erro específicas, consulte o seguin
 
 <a id="rdplicense"></a>
 
-## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença.
+## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>A sessão remota foi desconectada porque não há servidores de licença Área de Trabalho Remota disponíveis para fornecer uma licença.
 Causa: o período de cortesia de licenciamento de 120 dias para a função de Servidor de Área de Trabalho Remota expirou e você precisa instalar licenças.
 
 Como alternativa, salve uma cópia local do arquivo RDP do portal e execute este comando no prompt de comando do PowerShell para conectar-se. Essa etapa desabilita o licenciamento apenas para esta conexão:
@@ -69,7 +69,7 @@ A parte do endereço desse arquivo RDP tem:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formulário Nome de*Usuário* *SecurityAuthority*\\(exemplo: CORP\User1), a parte *SecurityAuthority* é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*username* (exemplo: CORP\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio Active Directory.
 
 Soluções possíveis:
 
@@ -84,8 +84,8 @@ Causa: a VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-* Para contas locais, use a sintaxe*UserName* *do ComputadorName*\\(exemplo: SQL1\Admin4798).
-* Para contas de domínio, use a sintaxe *DomainName*\\*UserName* (exemplo: CONTOSO\peterodman).
+* Para contas locais, use a sintaxe *ComputerName*\\*nome de usuário* (exemplo: SQL1\Admin4798).
+* Para contas de domínio, use a sintaxe de*nome de usuário* *DomainName*\\(exemplo: CONTOSO\peterodman).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 

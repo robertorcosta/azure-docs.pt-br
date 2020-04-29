@@ -1,5 +1,5 @@
 ---
-title: Visão geral das zonas e registros do DNS - Azure DNS
+title: Visão geral de Zonas DNS e registros-DNS do Azure
 description: Visão geral do suporte à hospedagem de zonas e registros DNS no DNS do Microsoft Azure.
 author: rohinkoul
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265149"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
@@ -22,9 +22,9 @@ Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos 
 
 ## <a name="domain-names"></a>Nomes de domínio
 
-O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio 'raiz', cujo nome é simplesmente '**..**  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
+O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa no domínio ' raiz ', cujo nome é simplesmente '**.**'.  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nomes de domínio é uma organização `contoso.com`que permite que você compre um nome de domínio, como .  A compra de um nome de domínio lhe dá o direito de controlar a `www.contoso.com` hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
+Um registrador de nome de domínio é uma organização que permite que você compre um nome de `contoso.com`domínio, como.  A compra de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo `www.contoso.com` que você direcione o nome para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidores de nomes de alta disponibilidade e distribuída globalmente que você pode usar para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você poderá gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas, cobrança e suporte que seus outros serviços do Azure.
 
@@ -82,7 +82,7 @@ Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (n
 
 Você pode modificar todas as propriedades do registro SOA, exceto a propriedade 'host', que é pré-configurada para se referir ao nome do servidor de nomes primário fornecido pelo DNS do Azure.
 
-O número de série da região no registro SOA não é atualizado automaticamente quando as alterações são feitas nos registros na região. Ele pode ser atualizado manualmente editando o registro SOA, se necessário.
+O número de série da zona no registro SOA não é atualizado automaticamente quando são feitas alterações nos registros na zona. Ele pode ser atualizado manualmente editando o registro SOA, se necessário.
 
 ### <a name="spf-records"></a>Registros SPF
 
@@ -130,7 +130,7 @@ No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeç
 | Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
-| Se corresponder \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
+| > de eTag \<If-Match |PUT só terá êxito se o recurso existir e a Etag corresponder |
 | If-match * |PUT só terá êxito se houver recursos |
 | If-none-match * |PUT só terá êxito se não houver recursos |
 

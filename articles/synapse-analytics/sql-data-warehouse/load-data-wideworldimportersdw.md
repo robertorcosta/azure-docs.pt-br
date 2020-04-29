@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Carregar dados usando o portal Azure & SSMS'
-description: Tutorial usa portal Azure e SQL Server Management Studio para carregar o data warehouse WideWorldImportersDW de um blob Global Azure para um pool Azure Synapse Analytics SQL.
+title: 'Tutorial: carregar dados usando portal do Azure & SSMS'
+description: O tutorial usa portal do Azure e SQL Server Management Studio para carregar o data warehouse WideWorldImportersDW de um blob global do Azure para um pool SQL do Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744370"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para o pool SqL do Azure Synapse Analytics
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
 
-Este tutorial usa o PolyBase para carregar o data warehouse WideWorldImportersDW do armazenamento Azure Blob para o seu data warehouse no pool Azure Synapse Analytics SQL. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
+Este tutorial usa o polybase para carregar o data warehouse WideWorldImportersDW do armazenamento de BLOBs do Azure para seu data warehouse no pool SQL do Azure Synapse Analytics. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
 
 > [!div class="checklist"]
 >
-> * Crie um data warehouse usando o pool SQL no portal Azure
+> * Criar um data warehouse usando o pool do SQL no portal do Azure
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
-> * Conecte-se ao pool SQL com SSMS
+> * Conectar-se ao pool do SQL com o SSMS
 > * Criar um usuário designado para carregar dados
 > * Criar tabelas externas que usam blobs do Azure como a fonte de dados
 > * Usar a instrução CTAS T-SQL para carregar dados para seu data warehouse
@@ -44,80 +44,80 @@ Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS]
 
 Entre no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Crie um data warehouse em branco no pool SQL
+## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Criar um data warehouse em branco no pool do SQL
 
-Um pool de SQL é criado com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). O pool SQL é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um servidor lógico [SQL do Azure](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Um pool de SQL é criado com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). O pool do SQL é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e em um [servidor lógico do SQL do Azure](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Siga essas etapas para criar um pool SQL em branco.
+Siga estas etapas para criar um pool SQL em branco.
 
-1. Selecione **Criar um recurso** no portal Azure.
+1. Selecione **criar um recurso** no portal do Azure.
 
-1. Selecione **Bancos** de Dados na página **Nova** e selecione **Azure Synapse Analytics** em **Destaque** na página **Nova.**
+1. Selecione **bancos de dados** na página **novo** e selecione análise de **Synapse do Azure** em **destaque** na página **novo** .
 
-    ![criar pool SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![criar pool de SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. Preencha a seção **Detalhes** do projeto com as seguintes informações:
+1. Preencha a seção **detalhes do projeto** com as seguintes informações:
 
-   | Configuração | Exemplo | Descrição |
+   | Setting | Exemplo | Descrição |
    | ------- | --------------- | ----------- |
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
-1. Em **detalhes do pool SQL,** forneça um nome para o seu pool SQL. Em seguida, selecione um servidor existente a partir do saque ou selecione **Criar novo** nas configurações **do Servidor** para criar um novo servidor. Preencha o formulário com as seguintes informações:
+1. Em **detalhes do pool do SQL**, forneça um nome para o pool do SQL. Em seguida, selecione um servidor existente na lista suspensa ou selecione **criar novo** nas configurações do **servidor** para criar um novo servidor. Preencha o formulário com as seguintes informações:
 
     | Configuração | Valor sugerido | Descrição |
     | ------- | --------------- | ----------- |
     |**Nome do pool de SQL**|SampleDW| Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Logon de administrador do servidor** | Qualquer nome válido | Para nomes de login [válidos, consulte Identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+    | **Logon de administrador do servidor** | Qualquer nome válido | Para obter nomes de logon válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
     | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
     | **Local** | Qualquer local válido | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
 
     ![criar servidor de banco de dados](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **Selecione o nível de desempenho**. O controle deslizante por padrão é definido como **DW1000c**. Mova o controle deslizante para cima e para baixo para escolher a escala de desempenho desejada.
+1. **Selecione nível de desempenho**. O controle deslizante por padrão é definido como **DW1000c**. Mova o controle deslizante para cima e para baixo para escolher a escala de desempenho desejada.
 
     ![criar servidor de banco de dados](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. Na **página Configurações adicionais,** defina os **dados existentes como** Nenhum e deixe a **Collação** à revelia de *SQL_Latin1_General_CP1_CI_AS*.
+1. Na página **configurações adicionais** , defina **usar dados existentes** como nenhum e deixe o **agrupamento** no padrão de *SQL_Latin1_General_CP1_CI_AS*.
 
-1. Selecione **'Revisar + criar para** revisar suas configurações' e, em seguida, selecione **Criar** para criar seu data warehouse. Você pode monitorar seu progresso abrindo a **página de implantação em progresso** a partir do menu **Notificações.**
+1. Selecione **revisão + criar** para revisar suas configurações e, em seguida, selecione **criar** para criar seu data warehouse. Você pode monitorar seu progresso abrindo a página **implantação em andamento** no menu **notificações** .
 
      ![notificação](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
-O serviço Azure Synapse Analytics cria um firewall no nível do servidor que impede que aplicativos e ferramentas externas se conectem ao servidor ou a quaisquer bancos de dados no servidor. Para habilitar a conectividade, é possível adicionar regras de firewall que habilitem a conectividade para endereços IP específicos.  Siga estas etapas para criar uma [regra de firewall de nível de servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do seu cliente.
+O serviço de análise de Synapse do Azure cria um firewall no nível de servidor que impede que aplicativos e ferramentas externos se conectem ao servidor ou a qualquer banco de dados no servidor. Para habilitar a conectividade, é possível adicionar regras de firewall que habilitem a conectividade para endereços IP específicos.  Siga estas etapas para criar uma [regra de firewall de nível de servidor](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para o endereço IP do seu cliente.
 
 > [!NOTE]
-> O pool Azure Synapse Analytics SQL se comunica pela porta 1433. Se você estiver tentando conectar-se de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> O pool do SQL do Azure Synapse Analytics se comunica pela porta 1433. Se você estiver tentando conectar-se de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-1. Após a implantação concluída, procure o nome do pool na caixa de pesquisa no menu de navegação e selecione o recurso de pool SQL. Selecione o nome do servidor.
+1. Após a conclusão da implantação, pesquise o nome do pool na caixa de pesquisa no menu de navegação e selecione o recurso do pool do SQL. Selecione o nome do servidor.
 
-    ![ir para o seu recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
+    ![Vá para o recurso](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
 1. Selecione o nome do servidor.
     ![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selecione **Mostrar configurações de firewall**. A página **de configurações do Firewall** para o servidor de pool SQL é aberta.
+1. Selecione **Mostrar configurações de firewall**. A página **configurações de firewall** para o servidor do pool SQL é aberta.
 
     ![configurações do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
 
-1. Na página **Firewalls e redes virtuais,** selecione **Adicionar IP do cliente** para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+1. Na página **firewalls e redes virtuais** , selecione **Adicionar IP do cliente** para adicionar o endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
     ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+1. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
-Agora você pode se conectar ao servidor SQL usando o endereço IP do cliente. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta serveradmin criada anteriormente.  
+Agora você pode se conectar ao SQL Server usando o endereço IP do cliente. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta serveradmin criada anteriormente.  
 
 > [!IMPORTANT]
 > Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESLIGAR** nesta página e, em seguida, clique em **Salvar** para desabilitar o firewall para todos os serviços do Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obter o nome do servidor totalmente qualificado
 
-O nome do servidor totalmente qualificado é o que é usado para se conectar ao servidor. Vá para o recurso de pool SQL no portal Azure e visualize o nome totalmente qualificado em **nome do Servidor**.
+O nome do servidor totalmente qualificado é o que é usado para se conectar ao servidor. Vá para o recurso de pool do SQL no portal do Azure e exiba o nome totalmente qualificado em **nome do servidor**.
 
 ![nome do servidor](././media/load-data-wideworldimportersdw/find-server-name.png)
 
@@ -132,7 +132,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?t
     | Configuração      | Valor sugerido | Descrição |
     | ------------ | --------------- | ----------- |
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
-    | Nome do servidor | O nome do servidor totalmente qualificado | Por exemplo, **sqlpoolservername.database.windows.net** é um nome de servidor totalmente qualificado. |
+    | Nome do servidor | O nome do servidor totalmente qualificado | Por exemplo, **sqlpoolservername.Database.Windows.net** é um nome de servidor totalmente qualificado. |
     | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
     | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
     | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
@@ -141,13 +141,13 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?t
 
 3. Clique em **Conectar**. A janela Pesquisador de Objetos será aberta no SSMS.
 
-4. No Pesquisador de Objetos, expanda **Bancos de Dados**. Em seguida, expanda **Bancos de dados do sistema** e **mestre** para exibir os objetos no banco de dados mestre.  Expanda **o SampleDW** para visualizar os objetos em seu novo banco de dados.
+4. No Pesquisador de Objetos, expanda **Bancos de Dados**. Em seguida, expanda **Bancos de dados do sistema** e **mestre** para exibir os objetos no banco de dados mestre.  Expanda **SampleDW** para exibir os objetos no novo banco de dados.
 
     ![objetos de banco de dados](./media/load-data-wideworldimportersdw/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um usuário para carregar dados
 
-A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os máximos de memória são definidos de acordo com a geração do pool SQL que você está usando, [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md)e classe de [recursos](resource-classes-for-workload-management.md).
+A conta do administrador do servidor é destinada a executar operações de gerenciamento, e não é adequada para executar consultas nos dados do usuário. O carregamento de dados é uma operação com uso intensivo de memória. Os máximos de memória são definidos de acordo com a geração do pool SQL que você está usando, [data warehouse unidades](what-is-a-data-warehouse-unit-dwu-cdwu.md)e [classe de recurso](resource-classes-for-workload-management.md).
 
 É melhor criar um logon e um usuário dedicados para carregar dados. Em seguida, adicione o usuário carregado a uma [classe de recurso](resource-classes-for-workload-management.md) que permita uma alocação máxima de memória adequada.
 
@@ -170,7 +170,7 @@ Como você está, no momento, conectado como o administrador do servidor, é pos
 
     ![Nova consulta no data warehouse de exemplo](./media/load-data-wideworldimportersdw/create-loading-user.png)
 
-5. Insira os comandos T-SQL a seguir para criar um usuário de banco de dados chamado LoaderRC60 para o logon LoaderRC60. A segunda linha concede ao novo usuário permissões de CONTROLE sobre o novo data warehouse.  Essas permissões são semelhantes para tornar o usuário o proprietário do banco de dados. A terceira linha adiciona o novo `staticrc60` usuário como membro da classe de [recursos](resource-classes-for-workload-management.md).
+5. Insira os comandos T-SQL a seguir para criar um usuário de banco de dados chamado LoaderRC60 para o logon LoaderRC60. A segunda linha concede ao novo usuário permissões de CONTROLE sobre o novo data warehouse.  Essas permissões são semelhantes para tornar o usuário o proprietário do banco de dados. A terceira linha adiciona o novo usuário como um membro da `staticrc60` [classe de recurso](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -198,9 +198,9 @@ A primeira etapa para carregar os dados é fazer logon como LoaderRC60.
 
 ## <a name="create-external-tables-and-objects"></a>Criar tabelas e objetos externos
 
-Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Para obter referência futura, para saber como obter seus dados para o armazenamento Do Azure Blob ou para carregá-los diretamente da sua fonte no pool SQL, consulte a [visão geral de carregamento](design-elt-data-loading.md).
+Você está pronto para iniciar o processo de carregamento de dados em seu novo data warehouse. Para referência futura, para saber como obter seus dados para o armazenamento de BLOBs do Azure ou carregá-los diretamente da origem no pool SQL, consulte a [visão geral de carregamento](design-elt-data-loading.md).
 
-Execute os seguintes scripts SQL para especificar informações sobre os dados que deseja carregar. Essas informações incluem o local em que os dados estão localizados, o formato do conteúdo dos dados e a definição da tabela para os dados. Os dados estão localizados em um Azure Blob global.
+Execute os seguintes scripts SQL para especificar informações sobre os dados que deseja carregar. Essas informações incluem o local em que os dados estão localizados, o formato do conteúdo dos dados e a definição da tabela para os dados. Os dados estão localizados em um blob global do Azure.
 
 1. Na seção anterior, você fez logon em seu data warehouse como LoaderRC60. No SSMS, clique com o botão direito do mouse em **SampleDW** na sua conexão LoaderRC60 e selecione **Nova consulta**.  Uma nova janela de consulta é exibida.
 
@@ -214,7 +214,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir o local do blob do Azure. Esta é a localização dos dados externos dos importadores mundiais.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir o local do blob do Azure. Este é o local dos dados externos de importadores mundiais.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -248,7 +248,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE SCHEMA wwi;
     ```
 
-7. Crie as tabelas externas. As definições da tabela são armazenadas no banco de dados, mas as tabelas de referência de dados armazenados no armazenamento blob do Azure. Execute os seguintes comandos T-SQL para criar várias tabelas externas que apontam para o blob do Azure definido anteriormente na fonte de dados externa.
+7. Crie as tabelas externas. As definições de tabela são armazenadas no banco de dados do, mas as tabelas de referência são armazenadas no armazenamento de BLOBs do Azure. Execute os seguintes comandos T-SQL para criar várias tabelas externas que apontam para o blob do Azure definido anteriormente na fonte de dados externa.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -523,20 +523,20 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-8. No Object Explorer, expanda o SampleDW para ver a lista de tabelas externas criadas.
+8. No Pesquisador de objetos, expanda SampleDW para ver a lista de tabelas externas que você criou.
 
     ![Exibir tabelas externas](./media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## <a name="load-the-data-into-sql-pool"></a>Carregue os dados no pool SQL
+## <a name="load-the-data-into-sql-pool"></a>Carregar os dados no pool SQL
 
-Esta seção usa as tabelas externas definidas para carregar os dados de amostra do Azure Blob para o pool SQL.  
+Esta seção usa as tabelas externas que você definiu para carregar os dados de exemplo do blob do Azure para o pool do SQL.  
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente na tabela final. Em um ambiente de produção, você normalmente usará CREATE TABLE AS SELECT para carregar em uma tabela de preparo. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. Para acrescentar os dados na tabela de preparo a uma tabela de produção, você pode usar a instrução INSERT...SELECT. Para saber mais, confira [Inserindo dados em uma tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a declaração selecionada é selecionada a partir de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
+O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução SELECT seleciona de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
 
-Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. Essas tabelas são geradas em uma etapa posterior para que elas tenham um número considerável de linhas.
+Esse script não carrega dados nas tabelas WWI. dimension_Date e WWI. fact_Sale. Essas tabelas são geradas em uma etapa posterior para que elas tenham um número considerável de linhas.
 
 1. Execute o seguinte script para carregar os dados para novas tabelas no data warehouse.
 
@@ -685,7 +685,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
     ;
     ```
 
-2. Exiba os dados enquanto eles são carregados. Você está carregando vários GBs de dados e comprimindo-os em índices de columnstore agrupados de alto desempenho. Abra uma nova janela de consulta em SampleDW e execute a seguinte consulta para mostrar o status da carga. Depois de iniciar a consulta, pegue um café e um lanche enquanto a piscina SQL faz alguns levantamentos pesados.
+2. Exiba os dados enquanto eles são carregados. Você está carregando vários GBs de dados e compactando-os em índices columnstore clusterizados de alto desempenho. Abra uma nova janela de consulta em SampleDW e execute a seguinte consulta para mostrar o status da carga. Depois de iniciar a consulta, pegue um café e um lanche enquanto o pool do SQL faz um trabalho pesado.
 
     ```sql
     SELECT
@@ -732,7 +732,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Criar tabelas e procedimentos para gerar as tabelas de data e vendas
 
-Esta seção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
+Esta seção cria as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas WWI. dimension_Date e WWI. fact_Sale.
 
 1. Crie as tabelas dimension_Date e fact_Sale.  
 
@@ -876,7 +876,7 @@ Esta seção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele também cri
     END;
     ```
 
-4. Crie este procedimento que preencha as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele chama [wwi].[PopulateDateDimensionForYear] para preencher wwi.dimension_Date.
+4. Crie este procedimento que popula as tabelas WWI. dimension_Date e WWI. fact_Sale. Ele chama [wwi].[PopulateDateDimensionForYear] para preencher wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ Esta seção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Ele também cri
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
 
-Use os procedimentos armazenados criados para gerar milhões de linhas na tabela wwi.fact_Sale e dados correspondentes na tabela wwi.dimension_Date.
+Use os procedimentos armazenados criados para gerar milhões de linhas na tabela WWI. fact_Sale e os dados correspondentes na tabela WWI. dimension_Date.
 
 1. Execute este procedimento para propagar o [wwi].[seed_Sale] com mais linhas.
 
@@ -941,7 +941,7 @@ Use os procedimentos armazenados criados para gerar milhões de linhas na tabela
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Execute este procedimento para preencher wwi.fact_Sale com 100.000 filas por dia para cada dia no ano 2000.
+2. Execute este procedimento para preencher WWI. fact_Sale com 100.000 linhas por dia para cada dia do ano 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -961,7 +961,7 @@ Use os procedimentos armazenados criados para gerar milhões de linhas na tabela
 
 ## <a name="populate-the-replicated-table-cache"></a>Preencher o cache da tabela replicada
 
-O pool SQL replica uma tabela, cacheando os dados em cada nó de Computação. O cache é preenchido quando uma consulta é executada em relação à tabela. Portanto, a primeira consulta em uma tabela replicada pode exigir mais tempo para preencher o cache. Depois que o cache é preenchido, consultas em tabelas replicadas são executadas mais rapidamente.
+O pool do SQL replica uma tabela armazenando os dados em cache para cada nó de computação. O cache é preenchido quando uma consulta é executada em relação à tabela. Portanto, a primeira consulta em uma tabela replicada pode exigir mais tempo para preencher o cache. Depois que o cache é preenchido, consultas em tabelas replicadas são executadas mais rapidamente.
 
 Execute essas consultas do SQL para preencher o cache da tabela replicada nos Nós de computação.
 
@@ -1083,7 +1083,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
     ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você só será cobrado pelo armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
+2. Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
 
 3. Se desejar remover encargos futuros, será possível excluir o data warehouse. Para remover o data warehouse para você não ser cobrado pela computação ou pelo armazenamento, clique em **Excluir**.
 
@@ -1098,7 +1098,7 @@ Neste tutorial, você aprendeu como criar um data warehouse e um usuário para c
 Você fez essas coisas:
 > [!div class="checklist"]
 >
-> * Criei um data warehouse usando o pool SQL no portal Azure
+> * Criou um data warehouse usando o pool SQL no portal do Azure
 > * Configurar uma regra de firewall de nível de servidor no Portal do Azure
 > * Conectado ao pool SQL com SSMS
 > * Criou um usuário designado para carregar dados
@@ -1107,7 +1107,7 @@ Você fez essas coisas:
 > * Exibiu o andamento dos dados enquanto eles estão sendo carregados
 > * Criou estatísticas sobre os dados recém-carregados
 
-Avançar para a visão geral do desenvolvimento para aprender como migrar um banco de dados existente para o pool Synapse Synapse Azure.
+Avance para a visão geral de desenvolvimento para saber como migrar um banco de dados existente para o pool SQL do Azure Synapse.
 
 > [!div class="nextstepaction"]
->[Designa decisões para migrar um banco de dados existente para o pool SQL](sql-data-warehouse-overview-develop.md)
+>[Decisões de design para migrar um banco de dados existente para o pool do SQL](sql-data-warehouse-overview-develop.md)

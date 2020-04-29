@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253228"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
@@ -34,18 +34,18 @@ A arquitetura de relatórios consiste nos seguintes componentes:
     - **Entradas** – O [relatório de entradas](concept-sign-ins.md) fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs de auditoria** – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. Exemplos de logs de auditoria incluem alterações feitas em quaisquer recursos no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
 - **Segurança** 
-    - **Logins arriscados** - Um [login arriscado](concept-risky-sign-ins.md) é um indicador para uma tentativa de login que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de usuário. 
-    - **Usuários sinalizados para risco** - Um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário. 
+    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este artigo fornece uma visão geral do relatório de auditoria.
  
 ## <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 
-* Usuários nas funções **administrador de segurança,** **leitor de segurança,** **leitor de relatórios,** **leitor global** ou **administrador global**
+* Usuários nas funções **administrador de segurança**, **leitor de segurança**, leitor de **relatório** , **leitor global** ou **administrador global**
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **registros de auditoria** na seção De **monitoramento** do **Azure Active Directory**. Observe que os registros de auditoria podem ter uma latência de até uma hora, por isso pode levar tanto tempo para que os dados de atividade de auditoria apareçam no portal depois de concluir a tarefa.
+Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **logs de auditoria** na seção **monitoramento** de **Azure Active Directory**. Observe que os logs de auditoria podem ter uma latência de até uma hora, portanto, pode levar tanto tempo para que os dados da atividade de auditoria apareçam no portal depois que você concluir a tarefa.
 
 
 
@@ -54,13 +54,13 @@ Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 - a data e a hora da ocorrência
 - o serviço que registrou a ocorrência
 - a categoria e o nome da atividade (*o que*) 
-- o status da atividade (sucesso ou fracasso)
+- o status da atividade (êxito ou falha)
 - o destino
 - o iniciador/ator (quem) de uma atividade
 
 ![Logs de auditoria](./media/concept-audit-logs/listview.png "Logs de auditoria")
 
-Você pode personalizar a exibição da lista clicando em **Colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
 
 ![Logs de auditoria](./media/concept-audit-logs/columns.png "Logs de auditoria")
 
@@ -87,19 +87,19 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 ![Logs de auditoria](./media/concept-audit-logs/filter.png "Logs de auditoria")
 
-O filtro **Serviço** permite selecionar a partir de uma lista de sestá-la dos seguintes serviços:
+O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
 - Todos
-- AAD Management UX
+- UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
-- Proxy do Aplicativo
+- Proxy de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso Condicional
+- Acesso condicional
 - Diretório principal
-- Gestão de Direitos
-- Autenticação Híbrida
+- Gerenciamento de direitos
+- Autenticação híbrida
 - Identity Protection
 - Usuários Convidados
 - Serviço MIM
@@ -109,7 +109,7 @@ O filtro **Serviço** permite selecionar a partir de uma lista de sestá-la dos 
 - Gerenciamento de senhas de auto-atendimento
 - Termos de Uso
 
-O filtro **Categoria** permite selecionar um dos seguintes filtros:
+O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
 - Todos
 - AdministrativeUnit
@@ -119,34 +119,34 @@ O filtro **Categoria** permite selecionar um dos seguintes filtros:
 - Contato
 - Dispositivo
 - DeviceConfiguration
-- Gerenciamento de diretórios
-- Gestão de Direitos
-- Gestão de Grupos
-- KerberosDomínio
-- Gerenciamento de chaves
-- Rótulo
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- KerberosDomain
+- KeyManagement
+- Rotular
 - Outros
 - PermissionGrantPolicy
 - Política
-- Gerenciamento de recursos
-- Gerenciamento de papéis
-- Gerenciamento de usuários
+- ResourceManagement
+- RoleManagement
+- UserManagement
 
-O filtro **Atividade** é baseado na seleção de tipo de recurso de categoria e atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
+O filtro de **atividade** é baseado na categoria e na seleção do tipo de recurso de atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
 
-Você pode obter a lista de todas as atividades de auditoria usando a API do gráfico:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Você pode obter a lista de todas as atividades de auditoria usando o API do Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
-O filtro **Status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
+O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
 - Todos
-- Sucesso
+- Êxito
 - Falha
 
-O filtro **Destino** permite que você pesquise por um alvo específico pelo início do nome ou nome principal do usuário (UPN). O nome do alvo e upn são sensíveis a maiúsculas e minúsculas. 
+O filtro de **destino** permite que você procure um destino específico pelo início do nome ou UPN (nome principal do usuário). O nome de destino e o UPN diferenciam maiúsculas de minúsculas. 
 
-O **Filtro Iniciado por** Você permite definir com qual nome de ator ou nome principal universal (UPN). O nome e a UPN são sensíveis a maiúsculas e minúsculas.
+O filtro **iniciado por** permite que você defina o que o nome de um ator ou um nome de entidade universal (UPN) começa com. O nome e o UPN diferenciam maiúsculas de minúsculas.
 
-O filtro **'Data's 'Data '''** Permite definir um prazo para os dados retornados.  
+O filtro de **intervalo de datas** permite que você defina um período de tempo para os dados retornados.  
 Os valores possíveis são:
 
 - 7 dias
@@ -155,7 +155,7 @@ Os valores possíveis são:
 
 Quando você seleciona um período de tempo personalizado, pode configurar uma hora de início e uma hora de término.
 
-Você também pode optar por baixar os dados filtrados, até 250.000 registros, selecionando o botão **Download.** Você pode baixar os logs no formato CSV ou JSON. O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).
+Você também pode optar por baixar os dados filtrados, até 250.000 registros, selecionando o botão **baixar** . Você pode baixar os logs no formato CSV ou JSON. O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).
 
 ![Logs de auditoria](./media/concept-audit-logs/download.png "Logs de auditoria")
 
@@ -186,11 +186,11 @@ Com relatórios de auditoria baseados em grupos e usuários, você pode obter re
 
 - Quais licenças foram atribuídas a um grupo ou a um usuário?
 
-Se você quiser rever apenas os dados de auditoria relacionados aos usuários, você pode encontrar uma exibição filtrada em **registros de auditoria** na seção **Monitoramento** da guia **Usuários.** Este ponto de entrada tem **o UserManagement** como categoria pré-selecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
 
 ![Logs de auditoria](./media/concept-audit-logs/users.png "Logs de auditoria")
 
-Se você quiser revisar apenas os dados de auditoria relacionados a grupos, você poderá encontrar uma exibição filtrada em **registros de auditoria** na seção **Monitoramento** da guia **Grupos.** Este ponto de entrada tem **o GroupManagement** como categoria pré-selecionada.
+Se você quiser revisar apenas os dados de auditoria relacionados a grupos, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **grupos** . Este ponto de entrada tem **GroupManagement** como categoria preselecionada.
 
 ![Logs de auditoria](./media/concept-audit-logs/groups.png "Logs de auditoria")
 
@@ -204,15 +204,15 @@ Com relatórios de auditoria baseados em aplicativos, você pode obter respostas
 * Os nomes de aplicativos foram alterados?
 * Quem deu permissão a um aplicativo?
 
-Se você quiser revisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditorias** na seção **Atividade** da folha **Aplicativos empresariais**. Este ponto de entrada tem **os aplicativos Enterprise** pré-selecionados como o **Tipo de aplicativo**.
+Se você quiser revisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditorias** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **aplicativos empresariais** selecionados como o **tipo de aplicativo**.
 
 ![Logs de auditoria](./media/concept-audit-logs/enterpriseapplications.png "Logs de auditoria")
 
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Você pode visualizar os registros de atividades do Office 365 a partir do [centro de admin microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora as atividades do Office 365 e os logs de atividades do Azure AD compartilhem muitos dos recursos do diretório, apenas o centro de administradores do Microsoft 365 fornece uma visão completa dos registros de atividades do Office 365. 
+Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
 
-Você também pode acessar os registros de atividades do Office 365 de forma programática usando as APIs de gerenciamento do [Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

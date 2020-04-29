@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096808"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
@@ -25,7 +25,7 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
 ## <a name="access-azure-cosmos-db-explorer"></a>Acessar o gerenciador do Azure Cosmos DB
 
-1. Faça login no [Portal Azure](https://portal.azure.com/). 
+1. Entre no [portal do Azure](https://portal.azure.com/). 
 
 2. Em **Todos os recursos**, localize e navegue até a conta do Azure Cosmos DB, selecione Chaves e copie a **Cadeia de Conexão Primária**.  
 
@@ -47,7 +47,7 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
 Atualmente, a experiência de **Abrir Modo de Exibição de Tela Inteira** que permite compartilhar acesso de leitura ou leitura/gravação temporário ainda não tem suporte para contas de API de Tabela e Gremlin do Azure Cosmos DB. Ainda é possível exibir as contas de API de Tabela e Gremlin, passando a cadeia de conexão para o Gerenciador do Azure Cosmos DB. 
 
-Atualmente, a visualização de documentos que contenham um UUID não é suportada no Data Explorer. Isso não afeta o carregamento de cobranças, apenas a visualização de documentos individuais ou consultas que incluem esses documentos. Para visualizar e gerenciar esses documentos, os usuários devem continuar a usar a ferramenta que foi originalmente usada para criar esses documentos.
+No momento, não há suporte para a exibição de documentos que contenham um UUID no Data Explorer. Isso não afeta o carregamento de coleções, apenas a exibição de documentos individuais ou consultas que incluam esses documentos. Para exibir e gerenciar esses documentos, os usuários devem continuar a usar a ferramenta que foi usada originalmente para criar esses documentos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como começar a usar o gerenciador do Azure Cosmos DB para gerenciar os dados, em seguida, poderá:

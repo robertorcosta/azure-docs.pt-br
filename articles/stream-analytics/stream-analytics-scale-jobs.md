@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: d828103bef8e57f5d0cdfe6c243c52e2d0526663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257539"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
@@ -23,7 +23,7 @@ Como pré-requisito, você precisa ler os seguintes artigos:
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: a consulta é inerentemente totalmente paralelizável entre partições de entrada
 Se sua consulta é inerentemente totalmente paralelizável entre partições de entrada, você pode executar as seguintes etapas:
 1.  Criar sua consulta para ser embaraçosamente paralela usando a palavra-chave **PARTITION BY**. Veja mais detalhes na seção Trabalhos embaraçosamente paralelos [nesta página](stream-analytics-parallelization.md).
-2.  Dependendo de tipos de saída usados na consulta, alguns resultados podem não ser paralelizáveis ou precisar de mais configuração para serem embaraçosamente paralelos. Por exemplo, a saída powerbi não é paralelamente. Os resultados sempre são mesclados antes de enviar para o coletor de saída. Os blobs, as tabelas, o ADLS, o Barramento de Serviço e o Azure Functions são paralelizados automaticamente. As saídas SQL e SQL DW têm uma opção para paraparalização. O Event Hub precisa ter a configuração PartitionKey definida para combinar com o campo **PARTITION BY** (geralmente PartitionId). Para o Hub de eventos, cuidado ao corresponder o número de partições a todas as entradas e saídas para evitar o cruzamento entre partições. 
+2.  Dependendo de tipos de saída usados na consulta, alguns resultados podem não ser paralelizáveis ou precisar de mais configuração para serem embaraçosamente paralelos. Por exemplo, a saída do PowerBI não é paralelizáveis. Os resultados sempre são mesclados antes de enviar para o coletor de saída. Os blobs, as tabelas, o ADLS, o Barramento de Serviço e o Azure Functions são paralelizados automaticamente. As saídas do SQL e do SQL DW têm uma opção para paralelização. O Hub de eventos precisa ter a configuração PartitionKey definida para corresponder ao campo **Partition by** (normalmente PartitionID). Para o Hub de eventos, cuidado ao corresponder o número de partições a todas as entradas e saídas para evitar o cruzamento entre partições. 
 3.  Execute a consulta com **6 UA** (que é a capacidade total de um único nó de computação) para medir a taxa de transferência máxima possível, e se você estiver usando **GROUP BY**, meça quantos grupos (cardinalidade) o trabalho pode atender. Os sintomas gerais do trabalho atingindo os limites de recursos do sistema são as seguintes.
     - A métrica de utilização da % de SU etá acima de 80%. Isso indica que o uso da memória está alto. Os fatores que contribuem para o aumento dessa métrica estão descritos [aqui](stream-analytics-streaming-unit-consumption.md). 
     -   O carimbo de data/hora de saída está atrasado em relação à hora real. Dependendo de sua lógica de consulta, o carimbo de data/hora de saída pode ter uma defasagem em relação à hora real. No entanto, eles devem progredir mais ou menos no mesmo ritmo. Se o carimbo de data/hora de saída está se atrasando mais, isso é um indicador de que o sistema está trabalhando em excesso. Ele pode ser resultado da limitação do coletor de saída downstream ou da alta utilização da CPU. Não fornecemos métrica de utilização da CPU no momento e, portanto, pode ser difícil diferenciar as duas.
@@ -78,13 +78,13 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente [nosso fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente nosso [Fórum de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introdução ao uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
 

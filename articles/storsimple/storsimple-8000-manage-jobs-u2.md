@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254866"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Use o serviço do Gerenciador de Dispositivos do StorSimple para exibir e gerenciar trabalhos (Atualização 3 e posterior)
@@ -41,7 +41,7 @@ Os trabalhos filtrados são então tabulados com base nos seguintes atributos:
 * **Status** – em execução, concluídos, cancelados, com falha, em cancelamento ou concluídos com erros.
 * **Entidade** – os trabalhos podem ser associados a um volume, uma política de backup ou um dispositivo. Por exemplo, um trabalho de clone é associado a um volume, enquanto um trabalho de backup agendado é associado a uma política de backup. Um trabalho de dispositivo é criado como resultado de uma recuperação de desastres (DR) ou uma operação de restauração.
 * **Dispositivo** – o nome do dispositivo no qual o trabalho foi iniciado.
-* **Começou** – A época em que o trabalho foi iniciado.
+* **Iniciado em** – a hora em que o trabalho foi iniciado.
 * **Duração** – O tempo necessário para concluir o trabalho.
 
 A lista de trabalhos é atualizada a cada 30 segundos.

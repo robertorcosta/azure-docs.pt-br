@@ -1,5 +1,5 @@
 ---
-title: Ligue ou desapareça o dispositivo da série StorSimple 8000
+title: Ativar ou desativar seu dispositivo StorSimple série 8000
 description: Explica como ativar um novo dispositivo StorSimple, ativar um dispositivo que foi desligado ou teve a energia interrompida e desativar um dispositivo em execução.
 author: alkohli
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254619"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
@@ -146,7 +146,7 @@ Você pode desligar o dispositivo de forma ordenada e controlada por meio do Por
 > [!IMPORTANT]
 > Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 > 
-> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal Azure, navegue até **dispositivos** > **Monitore** > a**saúde do hardware**e verifique se o status de todos os componentes é verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
+> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **dispositivos** > **monitorar** > **integridade do hardware**e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com problemas de funcionamento, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status do Hardware**.
 > 
 > 
 
@@ -154,7 +154,7 @@ Depois de acessar o Windows PowerShell para o StorSimple ou o Portal do Azure, s
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com o compartimento EBOD <a name="8600a">
 > [!IMPORTANT]
-> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal Azure, navegue até **dispositivos** > **monitore** > a**saúde do hardware**e verifique se todos os componentes estão saudáveis.
+> Antes de desligar o compartimento primário e o compartimento EBOD, verifique se todos os componentes do dispositivo estão íntegros. No portal do Azure, navegue até **dispositivos** > **monitorar** > **integridade do hardware**e verifique se todos os componentes estão íntegros.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Para desligar um dispositivo em execução com o compartimento EBOD
