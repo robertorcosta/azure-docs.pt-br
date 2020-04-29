@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267450"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
@@ -70,7 +70,7 @@ Execute as etapas a seguir para excluir um serviço.
 
 #### <a name="to-delete-a-service"></a>Para excluir um serviço
 
-1. Vá para **Todos os recursos.** Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço que você deseja excluir.
+1. Vá para **todos os recursos**. Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço que você deseja excluir.
    
     ![Selecione o serviço para exclusão](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Acesse o painel do serviço para garantir que nenhum dispositivo esteja conectado a ele. Se não houver algum dispositivo registrado nesse serviço, você também verá uma mensagem de cabeçalho sobre isso. Clique em **Excluir**.
@@ -123,6 +123,6 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
    Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Aprenda a [começar](storsimple-virtual-array-deploy1-portal-prep.md) com um StorSimple Virtual Array.
+* Saiba [como começar com uma](storsimple-virtual-array-deploy1-portal-prep.md) matriz virtual StorSimple.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

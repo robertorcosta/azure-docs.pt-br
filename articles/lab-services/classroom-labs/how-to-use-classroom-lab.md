@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
 ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79501921"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
@@ -26,7 +26,7 @@ Este artigo descreve como se registrar em um laboratório de sala de aula, exibi
 
 ## <a name="register-to-the-lab"></a>Registrar-se no laboratório
 
-1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, [https://labs.azure.com](https://labs.azure.com)use a URL: . Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. Ainda não há suporte para o Internet Explorer 11. 
 1. Entre no serviço usando sua conta da escola para concluir o registro. 
 
     > [!NOTE]
@@ -80,7 +80,7 @@ A barra de progresso no bloco mostra o número de horas usadas em relação ao n
 ## <a name="view-all-the-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
 Depois de se registrar nos laboratórios, você pode exibir todos os laboratórios de sala de aula por meio das seguintes etapas: 
 
-1. Navegue [https://labs.azure.com](https://labs.azure.com)até . Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até [https://labs.azure.com](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
 2. Entre no serviço usando a conta de usuário usada para se registrar no laboratório. 
 3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
 

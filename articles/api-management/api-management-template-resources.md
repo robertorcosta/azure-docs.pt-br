@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249497"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso em modelos de portal do desenvolvedor.  
   
--   [Recursos de string](#strings)  
+-   [Recursos de cadeia de caracteres](#strings)  
   
--   [Recursos do glifo](#glyphs)  
+-   [Recursos de glifo](#glyphs)  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -46,28 +46,28 @@ O Gerenciamento de API do Azure fornece os tipos de recursos a seguir para uso e
   
 ```  
   
-As seguintes opções de localização são suportadas:
+Há suporte para as seguintes opções de localização:
 
-| Local    | Idioma               |
+| Local    | Linguagem               |
 |-----------|------------------------|
-| “pt-br”      | "Inglês"              |
-| "cs"      | "Čeština"              |
-| "De"      | "Deutsch"              |
-| "es"      | "Español"              |
-| "fr"      | "Français"             |
-| "Hu"      | "Magyar"               |
-| "ele"      | "Italiano"             |
-| "ja-JP"   | "ののの"                |
-| "ko"      | "Afim",                |
-| "nl"      | "Nederlands"           |
-| "pl"      | "Polski"               |
+| “pt-br”      | Portuguesa              |
+| CS      | "Čeština"              |
+| deprecia      | Deutsch              |
+| espanhol      | Espanhol              |
+| fr      | Français             |
+| Hu      | Magyar               |
+| fosse      | Italiano             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| NL      | Baixos           |
+| p      | Polski               |
 | “pt-br”   | "Português (Brasil)"   |
-| "PT-PT"   | "Português (Portugal)" |
-| "ru"      | "Русский"              |
-| "sv"      | "Svenska"              |
-| "tr"      | "Türkçe"               |
-| "Zh-hans" | "のの(のの)"           |
-| "zh-hant" | "のの(のの)"           |
+| "pt-pt"   | "Português (Portugal)" |
+| executa      | "Русский"              |
+| SV      | Svenska              |
+| TR      | Türkçe               |
+| "zh-Hans" | "中文(简体)"           |
+| "zh-Hant" | "中文(繁體)"           |
 
  Consulte as tabelas a seguir para ver os recursos de cadeia de caracteres disponíveis para uso em seus modelos de portal do desenvolvedor. Use o nome da tabela como o prefixo para os recursos de cadeia de caracteres nessa tabela.  
   
@@ -79,47 +79,47 @@ As seguintes opções de localização são suportadas:
   
 -   [AppStrings](#AppStrings)  
   
--   [Recursos Comuns](#CommonResources)  
+-   [CommonResources](#CommonResources)  
   
--   [Cordas Comuns](#CommonStrings)  
+-   [CommonStrings](#CommonStrings)  
   
 -   [Documentação](#Documentation)  
   
 -   [ErrorPageStrings](#ErrorPageStrings)  
   
--   [ProblemasStrings](#IssuesStrings)  
+-   [IssuesStrings](#IssuesStrings)  
   
--   [NãoFoundStrings](#NotFoundStrings)  
+-   [NotFoundStrings](#NotFoundStrings)  
   
--   [Detalhes do produtoStrings](#ProductDetailsStrings)  
+-   [ProductDetailsStrings](#ProductDetailsStrings)  
   
 -   [ProductsStrings](#ProductsStrings)  
   
--   [ProvedorInfoStrings](#ProviderInfoStrings)  
+-   [ProviderInfoStrings](#ProviderInfoStrings)  
   
 -   [SigninResources](#SigninResources)  
   
 -   [SigninStrings](#SigninStrings)  
   
--   [InscriçãoStrings](#SignupStrings)  
+-   [SignupStrings](#SignupStrings)  
   
 -   [SubscriptionListStrings](#SubscriptionListStrings)  
   
--   [Strings de assinatura](#SubscriptionStrings)  
+-   [SubscriptionStrings](#SubscriptionStrings)  
   
 -   [UpdateProfileStrings](#UpdateProfileStrings)  
   
--   [Userprofile](#UserProfile)  
+-   [Perfil](#UserProfile)  
   
 ###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
 ###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Visualização de aplicativo|  
 |WebApplicationsRequirementsHeader|Requisitos|  
@@ -128,13 +128,13 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Tem certeza de que deseja remover o aplicativo?|  
 |WebDevelopersAppNotPublished|Não publicado|  
 |WebDevelopersAppNotSubmitted|Não enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|Nome|  
+|WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registrar aplicativo|  
@@ -144,13 +144,13 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicativos|  
   
 ###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|Nenhum resultado encontrado.|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
@@ -161,7 +161,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Salvar|  
@@ -183,9 +183,9 @@ As seguintes opções de localização são suportadas:
 |TablePlaceholderNothingToDisplay|Não há dados para o período e escopo selecionados|  
 |ButtonLabelClose|Feche|  
   
-###  <a name="documentation"></a><a name="Documentation"></a>Documentação  
+###  <a name="documentation"></a><a name="Documentation"></a>Sobre  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Cabeçalho inválido '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|URL da Solicitação Inválida|  
@@ -303,7 +303,7 @@ As seguintes opções de localização são suportadas:
 |OAuth2InvalidState|Resposta inválida do servidor de autorização|  
 |OAuth2GrantType_AuthorizationCode|Código de autorização|  
 |OAuth2GrantType_Implicit|Implícito|  
-|OAuth2GrantType_ClientCredentials|Credenciais do cliente|  
+|OAuth2GrantType_ClientCredentials|Credenciais de cliente|  
 |OAuth2GrantType_ResourceOwnerPassword|Senha de proprietário do recurso|  
 |WebDocumentation302Code|302 Encontrado|  
 |WebDocumentation400Code|400 (Solicitação incorreta)|  
@@ -326,14 +326,14 @@ As seguintes opções de localização são suportadas:
 |SectionHeadingRequestParameters|Parâmetros da solicitação|  
 |SectionHeadingRequestUrl|URL de Solicitação|  
 |SectionHeadingResponse|Resposta|  
-|SectionHeadingRequestHeaders|Cabeçalhos da solicitação|  
-|FormLabelSubtextOptional|opcional|  
+|SectionHeadingRequestHeaders|Cabeçalhos de solicitação|  
+|FormLabelSubtextOptional|opcionais|  
 |SectionHeadingCodeSamples|Exemplos de código|  
-|TextblockOpenidConnectHeaderDescription|Token OpenID Connect ID obtido\> {0} de\><i</i . Tipos de concessão com suporte: < i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|Token de ID do OpenID Connect obtido do\> {0} <eu\></i. Tipos de concessão com suporte: < i\>{1}</i\>.|  
   
 ###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |LinkLabelBack|voltar|  
 |LinkLabelHomePage|home page|  
@@ -351,7 +351,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|Você não tem nenhuma assinatura ativa. Você precisa assinar um produto para relatar um problema.|  
@@ -362,7 +362,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|envie-nos um email|  
@@ -377,7 +377,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Ao assinar o {0} Produto, concordo com o `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Termos de Uso|  
@@ -399,13 +399,13 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleProducts|Produtos|  
   
 ###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|A entrada está desabilitada pelos administradores no momento.|  
 |TextboxExternalIdentitiesSigninInvitation|Como alternativa, entre com|  
@@ -413,7 +413,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PrincipalNotFound|A entidade de segurança não foi encontrada ou a assinatura é inválida|  
 |ErrorSsoAuthenticationFailed|Falha na autenticação de SSO|  
@@ -434,7 +434,7 @@ As seguintes opções de localização são suportadas:
 |ValidationErrorEmailInvalid|Endereço de email inválido|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|O email é obrigatório.|  
-|WebAuthenticationErrorNoticeHeader|Erro|  
+|WebAuthenticationErrorNoticeHeader|Erro do|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve ser um comprimento máximo de {1}|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|O nome é obrigatório.|  
@@ -451,7 +451,7 @@ As seguintes opções de localização são suportadas:
 |WebAuthenticationNewPasswordLabel|Nova senha|  
 |ValidationMessageNewPasswordRequired|A nova senha é obrigatória.|  
 |TextboxLabelNotificationsSenderEmail|Email do remetente das notificações|  
-|TextboxLabelOrganizationName|Nome da Organização|  
+|TextboxLabelOrganizationName|Nome da organização|  
 |WebAuthenticationOrganizationRequiredErrorMessage|O nome da organização está vazio|  
 |WebAuthenticationPasswordChangedNotice|Sua senha foi atualizada com êxito|  
 |WebAuthenticationPasswordChangedNoticeTitle|Senha atualizada|  
@@ -483,7 +483,7 @@ As seguintes opções de localização são suportadas:
 |WebAuthenticationUserIsNotConfirm|Confirme o seu registro antes de tentar entrar.|  
 |WebAuthenticationInvalidEmailFormated|O e-mail é inválido: {0}|  
 |WebAuthenticationUserNotFound|Usuário não encontrado|  
-|WebAuthenticationTenantNotRegistered|Sua conta pertence a um inquilino do Azure Active Directory que não está autorizado a acessar este portal.|  
+|WebAuthenticationTenantNotRegistered|Sua conta pertence a um locatário Azure Active Directory que não está autorizado a acessar este portal.|  
 |WebAuthenticationAuthenticationFailed|Falha na autenticação.|  
 |WebAuthenticationGooglePlusNotEnabled|Falha na autenticação. Se você autorizou o aplicativo, entre em contato com o administrador para certificar-se de que a autenticação do Google está configurada corretamente.|  
 |ValidationErrorAllowedTenantIsRequired|Locatário Permitido é obrigatório|  
@@ -509,7 +509,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Esqueceu sua senha?|  
 |WebAuthenticationIfAdministrator|Se você é um administrador, você deve entrar em `<a href="{0}"\>here</a\>`.|  
@@ -521,7 +521,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleSignup|Inscrição|  
 |WebAuthenticationAlreadyAMember|Já é membro?|  
@@ -531,7 +531,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Tem certeza de que deseja cancelar esta assinatura?|  
 |SubscriptionRenewConfirmation|Tem certeza de que deseja renovar esta assinatura?|  
@@ -543,7 +543,7 @@ As seguintes opções de localização são suportadas:
 |ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionRequested|Solicitado em {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitado|  
-|WebDevelopersSubscriptionTableNameHeader|Nome|  
+|WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
 |WebDevelopersUsageStatisticsLink|Relatórios de análise|  
 |WebDevelopersYourSubscriptions|Suas assinaturas|  
@@ -554,7 +554,7 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Deseja para fechar sua conta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -565,14 +565,14 @@ As seguintes opções de localização são suportadas:
   
 ###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
 ###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Alterar informações da conta|  
 |ButtonLabelChangePassword|Alterar senha|  
@@ -581,7 +581,7 @@ As seguintes opções de localização são suportadas:
 |TextboxLabelEmailFirstName|Nome|  
 |TextboxLabelEmailLastName|Sobrenome|  
 |TextboxLabelNotificationsSenderEmail|Email do remetente das notificações|  
-|TextboxLabelOrganizationName|Nome da Organização|  
+|TextboxLabelOrganizationName|Nome da organização|  
 |SubscriptionStateActive|Ativo|  
 |SubscriptionStateCancelled|Cancelado|  
 |SubscriptionStateExpired|Expirado|  

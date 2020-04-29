@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254879"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substituir um controlador EBOD em seu dispositivo StorSimple
@@ -42,7 +42,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
 
 #### <a name="to-remove-an-ebod-module"></a>Para remover um módulo EBOD
 1. Abra o portal do Azure.
-2. Vá para o seu dispositivo e navegue até **Configurações** > **De saúde de hardware,** e verifique se o status do LED para o módulo de controlador EBOD ativo é verde e o LED para o módulo controlador EBOD com falha é vermelho.
+2. Vá para o dispositivo e navegue até **configurações** > **integridade do hardware**e verifique se o status do LED do módulo do controlador Ebod ativo está verde e se o LED do módulo do controlador Ebod com falha está vermelho.
 3. Localize o módulo do controlador EBOD na parte posterior do dispositivo.
 4. Remova os cabos que conectam o módulo do controlador EBOD ao controlador antes de remover o módulo EBOD do sistema.
 5. Anote a porta SAS exata do módulo do controlador EBOD que foi conectado ao controlador. Você precisará restaurar o sistema de acordo com essa configuração depois de substituir o módulo EBOD.
@@ -54,7 +54,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
    
      **Figura 1** Parte posterior do módulo EBOD
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    |:--- |:--- |
    | 1 |LED de falha |
    | 2 |LED de energia |
@@ -74,7 +74,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    
     ![Instalando o controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
-    **Figura 2**  Instalando o módulo controlador EBOD
+    **Figura 2**  Instalando o módulo do controlador EBOD
 3. Feche a trava. Você deve ouvir um clique ao travar a trava.
    
     ![Liberando a trava do EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
@@ -86,7 +86,7 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
    
     **Figura 4**. Reconectando os cabos
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |PCM 0 |

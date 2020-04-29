@@ -1,7 +1,7 @@
 ---
-title: 'Converter para conjunto de dados: referência do módulo'
+title: 'Converter em DataSet: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Converter para Dataset no Azure Machine Learning para converter a entrada de dados no formato interno do conjunto de dados usado pelo Microsoft Azure Machine Learning.
+description: Saiba como usar o módulo converter para conjunto de dados em Azure Machine Learning para converter a entrada de dados para o formato de DataSet interno usado pelo Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,64 +10,64 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456583"
 ---
 # <a name="convert-to-dataset"></a>Converter em conjunto de dados
 
-Este artigo descreve como usar o módulo Convert to Dataset no Azure Machine Learning designer (preview) para converter quaisquer dados de um pipeline para o formato interno do designer.
+Este artigo descreve como usar o módulo converter para conjunto de dados no designer de Azure Machine Learning (versão prévia) para converter todos os dados de um pipeline para o formato interno do designer.
   
-A conversão não é necessária na maioria dos casos. O Azure Machine Learning converte implicitamente dados em seu formato de conjunto de dados nativo quando qualquer operação é realizada nos dados. 
+A conversão não é necessária na maioria dos casos. Azure Machine Learning converte dados implicitamente em seu formato de conjunto de dado nativo quando qualquer operação é executada nos dados. 
 
-Recomendamos a economia de dados no formato do conjunto de dados se você tiver realizado algum tipo de normalização ou limpeza em um conjunto de dados, e você deseja garantir que as alterações sejam usadas em outros pipelines.  
+É recomendável salvar dados no formato do conjunto de dados se você tiver realizado algum tipo de normalização ou limpeza em um conjunto e desejar garantir que as alterações sejam usadas em outros pipelines.  
   
 > [!NOTE]
-> Converter para Dataset altera apenas o formato dos dados. Ele não salva uma nova cópia dos dados no espaço de trabalho. Para salvar o conjunto de dados, clique duas vezes na porta de saída, **selecione Salvar como conjunto de dados**e digite um novo nome.  
+> Converter em DataSet altera apenas o formato dos dados. Ele não salva uma nova cópia dos dados no espaço de trabalho. Para salvar o conjunto de resultados, clique duas vezes na porta de saída, selecione **salvar como conjunto de conjuntos**e insira um novo nome.  
   
-## <a name="how-to-use-convert-to-dataset"></a>Como usar converter para conjunto de dados  
+## <a name="how-to-use-convert-to-dataset"></a>Como usar Convert para DataSet  
 
-Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para preparar o conjunto de dados antes de usar Convert to Dataset. Você pode adicionar ou alterar nomes de colunas, ajustar tipos de dados e fazer outras alterações conforme necessário.
+Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para preparar o conjunto de um antes de usar converter em conjunto de um. Você pode adicionar ou alterar nomes de colunas, ajustar tipos de dados e fazer outras alterações conforme necessário.
 
-1.  Adicione o módulo Converter para Dataset ao seu pipeline. Você pode encontrar este módulo na categoria **transformação de dados** no designer. 
+1.  Adicione o módulo converter no conjunto de módulos ao seu pipeline. Você pode encontrar esse módulo na categoria **Data Transformation** no designer. 
 
-2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
+2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
 
-    Enquanto os dados [forem tabulares,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)você pode convertê-los em um conjunto de dados. Isso inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através do [Enter Data Manualmente](enter-data-manually.md)ou conjuntos de dados transformados através [da Apply Transformation](apply-transformation.md).
+    Contanto que os dados sejam [tabulares](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), você pode convertê-los em um DataSet. Isso inclui os dados carregados por meio de [dados de importação](import-data.md), dados criados por meio de [dados de inserção manual](enter-data-manually.md)ou os DataSets transformados por meio da [transformação aplicar](apply-transformation.md).
 
-3.  Na lista de parada **ação,** indique se deseja fazer qualquer limpeza nos dados antes de salvar o conjunto de dados:  
+3.  Na lista suspensa **ação** , indique se você deseja fazer qualquer limpeza nos dados antes de salvar o conjunto:  
   
-    - **Nenhum**: Use os dados como está.  
+    - **Nenhum**: Use os dados como estão.  
   
-    - **SetMissingValue**: Defina um valor específico para um valor ausente no conjunto de dados. O espaço reservado padrão é o caractere ponto de interrogação (?), mas você pode usar a opção **Valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir taxi para valor ausente de **Taxi** **for Custom,** então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor perdido.
+    - **Setmissingvalue**: define um valor específico para um valor ausente no conjunto de informações. O espaço reservado padrão é o caractere de ponto de interrogação (?), mas você pode usar a opção **valor ausente personalizado** para inserir um valor diferente. Por exemplo, se você inserir **táxi** para **valor ausente personalizado**, todas as instâncias de **táxi** no conjunto de valores serão alteradas para o valor ausente.
   
-    - **Substituivalores**: Use esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou valores personalizados definindo o método **Substituir:**
+    - **ReplaceValues**: Use essa opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Você pode substituir valores ausentes ou personalizados definindo o método **replace** :
 
-      - **Falta :** Escolha esta opção para substituir os valores faltantes no conjunto de dados de entrada. Para **Novo Valor,** digite o valor para substituir os valores perdidos.
-      - **Personalizado**: Escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **o valor personalizado,** digite o valor que deseja encontrar. Por exemplo, se seus `obs` dados contêm a seqüência `obs`usada como espaço reservado para valores ausentes, você insere . Para **novo valor,** digite o novo valor para substituir a seqüência original com.
+      - **Ausente**: escolha esta opção para substituir os valores ausentes no conjunto de dados de entrada. Para **novo valor**, insira o valor com o qual substituir os valores ausentes.
+      - **Personalizado**: escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado**, insira o valor que você deseja localizar. Por exemplo, se seus dados contiverem `obs` a cadeia de caracteres usada como um espaço reservado para `obs`valores ausentes, insira. Para **novo valor**, insira o novo valor com o qual substituir a cadeia de caracteres original.
   
-    Observe que a **operação SubstituirValores** se aplica apenas às correspondências exatas. Por exemplo, essas cordas não `obs.`seriam `obsolete`afetadas: .  
+    Observe que a operação **ReplaceValues** se aplica somente a correspondências exatas. Por exemplo, essas cadeias de caracteres não seriam `obs.`afetadas:, `obsolete`.  
  
   
-5.  Envie o oleoduto.  
+5.  Envie o pipeline.  
 
 ## <a name="results"></a>Resultados
 
-+  Para salvar o conjunto de dados resultante com um novo nome, selecione no conjunto **de dados registro** de ícones na guia **Saídas** no painel direito do módulo.  
++  Para salvar o conjunto de resultados resultante com um novo nome, selecione no ícone **registrar conjunto de registros** na guia **saídas** no painel direito do módulo.  
   
 ## <a name="technical-notes"></a>Observações técnicas  
 
--   Qualquer módulo que leve um conjunto de dados como entrada também pode levar dados no arquivo CSV ou no arquivo TSV. Antes de qualquer código do módulo ser executado, as entradas são pré-processadas. O pré-processamento é equivalente à execução do módulo Converter para Dataset na entrada.  
+-   Qualquer módulo que usa um conjunto de dados como entrada também pode pegar os arquivos no arquivo CSV ou no arquivo TSV. Antes de qualquer código de módulo ser executado, as entradas são pré-processados. O pré-processamento é equivalente a executar o módulo converter para conjunto de dados na entrada.  
   
--   Você não pode converter do formato SVMLight para um conjunto de dados.  
+-   Não é possível converter do formato SVMLight em um DataSet.  
   
--   Quando você está especificando uma operação de substituição personalizada, a operação de busca e substituição se aplica a valores completos. Partidas parciais não são permitidas. Por exemplo, você pode substituir um 3 por um -1 ou com 33, mas não pode substituir um 3 em um número de dois dígitos, como 35.  
+-   Quando você está especificando uma operação de substituição personalizada, a operação de pesquisa e substituição aplica-se a valores completos. Correspondências parciais não são permitidas. Por exemplo, você pode substituir um 3 por um-1 ou por 33, mas não pode substituir um 3 em um número de dois dígitos, como 35.  
   
 -   Para operações de substituição personalizadas, a substituição falhará de modo silencioso se você usar como substituição de qualquer caractere que não esteja em conformidade com o tipo de dados atual da coluna.  
 
   
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

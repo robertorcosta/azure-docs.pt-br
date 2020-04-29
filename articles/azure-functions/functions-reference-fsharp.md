@@ -1,5 +1,5 @@
 ---
-title: Referência de desenvolvedor do Azure Functions F#
+title: 'Referência do desenvolvedor de F # Azure Functions'
 description: Entenda como desenvolver Azure Functions usando script F#.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276758"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do desenvolvedor em F# do Azure Functions
@@ -18,7 +18,7 @@ ms.locfileid: "79276758"
 F# para Azure Functions é uma solução para executar facilmente pequenos trechos de código, ou "funções", na nuvem. Fluxos de dados em sua função F# por meio de argumentos de função. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento. 
 
 >[!IMPORTANT]
->O script F# (.fsx) só tem suporte da [versão 1.x](functions-versions.md#creating-1x-apps) do Azure Functions runtime. Se você quiser usar F# com a versão 2.x e versões posteriores do tempo de execução, você deve usar um projeto de biblioteca de classe F# pré-compilado (.fs). Crie, gerencie e publique um projeto de biblioteca de classe F# usando o Visual Studio como faria com um projeto de biblioteca de classe [C#](functions-dotnet-class-library.md). Para saber mais sobre as versões do Functions, confira [Visão geral de versões do Azure Functions runtime](functions-versions.md).
+>O script F# (.fsx) só tem suporte da [versão 1.x](functions-versions.md#creating-1x-apps) do Azure Functions runtime. Se você quiser usar F # com a versão 2. x e versões posteriores do tempo de execução, será necessário usar um projeto de biblioteca de classes F # pré-compilado (. FS). Crie, gerencie e publique um projeto de biblioteca de classe F# usando o Visual Studio como faria com um projeto de biblioteca de classe [C#](functions-dotnet-class-library.md). Para saber mais sobre as versões do Functions, confira [Visão geral de versões do Azure Functions runtime](functions-versions.md).
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -48,10 +48,10 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.fsx) e arquivo de configuração de associação (function.json).
 
-As extensões de vinculação exigidas na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução Functions são definidas no `extensions.csproj` arquivo, com os arquivos de biblioteca reais na `bin` pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no `extensions.csproj` arquivo, com os arquivos `bin` de biblioteca reais na pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
-Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo: 
+Cada associação oferece suporte a um conjunto de argumentos, conforme detalhado na [Referências de gatilhos e de associações do Azure Functions para desenvolvedores](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento com suporte de um gatilho de blob é um POCO, que pode ser expresso usando um registro em F#. Por exemplo:
 
 ```fsharp
 type Item = { Id: string }
@@ -65,7 +65,7 @@ O Azure Function em F# usará um ou mais argumentos. Quando falamos sobre os arg
 
 No exemplo acima, `blob` é um argumento de entrada e `output` é um argumento de saída. Observe que utilizamos `byref<>` para `output` (não é necessário adicionar a anotação `[<Out>]`). O uso de um tipo `byref<>` permite que sua função altere o registro ou o objeto ao qual o argumento se refere.
 
-Quando um registro em F# é usado como um tipo de entrada, a definição de registro deve ser marcada com `[<CLIMutable>]` para permitir que a estrutura do Azure Functions defina os campos adequadamente antes de passar o registro para a função. Nos bastidores, `[<CLIMutable>]` gera setters para as propriedades de registro. Por exemplo: 
+Quando um registro em F# é usado como um tipo de entrada, a definição de registro deve ser marcada com `[<CLIMutable>]` para permitir que a estrutura do Azure Functions defina os campos adequadamente antes de passar o registro para a função. Nos bastidores, `[<CLIMutable>]` gera setters para as propriedades de registro. Por exemplo:
 
 ```fsharp
 [<CLIMutable>]
@@ -77,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-Uma classe de F# também pode ser usada para ambos os argumentos. Para uma classe, as propriedades geralmente exigirão getters e setters. Por exemplo: 
+Uma classe de F# também pode ser usada para ambos os argumentos. Para uma classe, as propriedades geralmente exigirão getters e setters. Por exemplo:
 
 ```fsharp
 type Item() =
@@ -90,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registrando em log
-Para registrar a saída em seus [logs de streaming](../app-service/troubleshoot-diagnostic-logs.md) em F#, sua função deve usar um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo: 
+Para registrar a saída em seus [logs de streaming](../app-service/troubleshoot-diagnostic-logs.md) em F#, sua função deve usar um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Para manter a consistência, recomendamos que esse argumento seja denominado `log`. Por exemplo:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -98,7 +98,7 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
     output <- input
 ```
 
-## <a name="async"></a>Assíncrono
+## <a name="async"></a>Async
 O fluxo de trabalho de `async` pode ser usado, mas o resultado precisa retornar um `Task`. Isso pode ser feito com `Async.StartAsTask`, por exemplo:
 
 ```fsharp
@@ -109,7 +109,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token de cancelamento
-Se sua função precisa lidar com o desligamento [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) graciosamente, você pode dar-lhe um argumento. Isso pode ser combinado com `async`, por exemplo:
+Se sua função precisar controlar o desligamento normalmente, você poderá dar [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) a ele um argumento. Isso pode ser combinado com `async`, por exemplo:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -182,7 +182,7 @@ Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas es
 Se precisar fazer referência a um assembly particular, carregue o arquivo do assembly em uma pasta `bin` relativa à sua função e faça referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta da função, consulte a seção a seguir sobre gerenciamento de pacotes.
 
 ## <a name="editor-prelude"></a>Prelúdio do editor
-Um editor que oferece suporte aos Serviços de compilador em F# não estará ciente dos namespaces e assemblies que o Azure Functions inclui automaticamente. Dessa forma, pode ser útil incluir um prelúdio que ajuda o editor a encontrar os assemblies que você está usando e a abrir explicitamente os namespaces. Por exemplo: 
+Um editor que oferece suporte aos Serviços de compilador em F# não estará ciente dos namespaces e assemblies que o Azure Functions inclui automaticamente. Dessa forma, pode ser útil incluir um prelúdio que ajuda o editor a encontrar os assemblies que você está usando e a abrir explicitamente os namespaces. Por exemplo:
 
 ```fsharp
 #if !COMPILED
@@ -258,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>Reutilizar o código .fsx
-Você pode usar código de outros arquivos `.fsx` usando uma diretiva `#load`. Por exemplo: 
+Você pode usar código de outros arquivos `.fsx` usando uma diretiva `#load`. Por exemplo:
 
 `run.fsx`
 
@@ -287,10 +287,10 @@ A diretiva `#load` só funciona com arquivos `.fsx` (script em F#) e não com ar
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
-* [Guia F#](/dotnet/articles/fsharp/index)
-* [Práticas recomendadas para funções azure](functions-best-practices.md)
+* [Guia de F #](/dotnet/articles/fsharp/index)
+* [Práticas recomendadas para Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Azure Funções gatilhos e vinculações](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 * [Teste do Azure Functions](functions-test-a-function.md)
 * [Dimensionamento do Azure Functions](functions-scale.md)
 

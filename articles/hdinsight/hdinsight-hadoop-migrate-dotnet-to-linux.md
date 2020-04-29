@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272364"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET do HDInsight baseado em Windows para o HDInsight baseado em Linux
@@ -34,15 +34,15 @@ O [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemNam
 
 1. Instalar o [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante a instalação, selecione a versão do Visual Studio a ser usada.
 
-2. No Visual Studio 2015, selecione __'Analisar__ > __configurações do analisador' e__certifique-se de que o __4.5__ seja verificado na seção __Mono.__
+2. No Visual Studio 2015, selecione __analisar__ > __configurações do analisador de portabilidade__e verifique se __4,5__ está marcado na seção __mono__ .
 
     ![4.5 marcado na seção Mono para as configurações do analisador](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Clique em __OK__ para salvar a configuração.
 
-3. Selecione __Analisar__ > __a portabilidade do conjunto__. Selecione o assembly que contém sua solução e selecione __Abrir__ para iniciar a análise.
+3. Selecione __analisar__ > __analisar portabilidade do assembly__. Selecione o assembly que contém sua solução e selecione __Abrir__ para iniciar a análise.
 
-4. Uma vez concluída a análise, selecione __Analisar__ > __relatórios de análise__. Em __Resultados da análise de portabilidade__, selecione __Abrir relatório__ para abrir um relatório.
+4. Quando a análise estiver concluída, selecione __analisar__ > __exibir relatórios de análise__. Em __Resultados da análise de portabilidade__, selecione __Abrir relatório__ para abrir um relatório.
 
     ![Caixa de diálogo de resultados do analisador de portabilidade](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

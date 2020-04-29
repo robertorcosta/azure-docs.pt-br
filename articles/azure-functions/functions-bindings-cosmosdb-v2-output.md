@@ -1,26 +1,26 @@
 ---
-title: Vinculação de saída do Azure Cosmos DB para Funções 2.x
-description: Aprenda a usar a vinculação de saída azure Cosmos DB em Funções Azure.
+title: Azure Cosmos DB Associação de saída para as funções 2. x
+description: Aprenda a usar a associação de saída Azure Cosmos DB no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277759"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Vinculação de saída do Azure Cosmos DB para funções azure 2.x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB Associação de saída para Azure Functions 2. x
 
 Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL.
 
-Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
+Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-cosmosdb-v2.md).
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Esta seção contém os seguintes exemplos:
 
@@ -247,7 +247,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída do Azure Cosmos DB em um arquivo *function.json* e uma [função de script C#](functions-reference-node.md) que usa a associação. A função usa uma associação de entrada de fila para uma fila que recebe o JSON no seguinte formato:
 
@@ -304,9 +304,9 @@ Aqui está o código JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir demonstra como escrever um documento em um banco de dados do Azure CosmosDB como a saída de uma função.
+O exemplo a seguir demonstra como gravar um documento em um banco de dados CosmosDB do Azure como a saída de uma função.
 
-A definição de vinculação é definida em *function.json* onde *o tipo* é definido como `cosmosDB`.
+A definição de associação é definida em *Function. JSON* , em que *Type* é definido como `cosmosDB`.
 
 ```json
 {
@@ -340,7 +340,7 @@ A definição de vinculação é definida em *function.json* onde *o tipo* é de
 }
 ```
 
-Para escrever no banco de dados, `set` passe um objeto de documento para o método do parâmetro do banco de dados.
+Para gravar no banco de dados, passe um objeto Document para `set` o método do parâmetro Database.
 
 ```python
 import azure.functions as func
@@ -426,7 +426,7 @@ O exemplo a seguir mostra uma função de Java cuja assinatura é anotada com ``
 
 ### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>Gatilho HTTP, salva um documento ao banco de dados por meio do valor de OutputBinding
 
-O exemplo a seguir mostra uma função de Java que grava um documento do CosmosDB por meio de um parâmetro de saída ```OutputBinding<T>```. Neste exemplo, ```outputItem``` o parâmetro precisa ser anotado ```@CosmosDBOutput```com , não a assinatura da função. Usando ```OutputBinding<T>``` permite que sua função tire proveito da associação para gravar o documento para CosmosDB, permitindo também retornar um valor diferente para o chamador da função, como um documento XML ou JSON.
+O exemplo a seguir mostra uma função de Java que grava um documento do CosmosDB por meio de um parâmetro de saída ```OutputBinding<T>```. Neste exemplo, o ```outputItem``` parâmetro precisa ser anotado com ```@CosmosDBOutput```, não a assinatura de função. Usando ```OutputBinding<T>``` permite que sua função tire proveito da associação para gravar o documento para CosmosDB, permitindo também retornar um valor diferente para o chamador da função, como um documento XML ou JSON.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -472,7 +472,7 @@ O exemplo a seguir mostra uma função de Java que grava um documento do CosmosD
 
 ### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>Gatilho HTTP, salva vários documentos ao banco de dados por meio do valor de OutputBinding
 
-O exemplo a seguir mostra uma função de Java que grava vários documentos do CosmosDB por meio de um parâmetro de saída ```OutputBinding<T>```. Neste exemplo, ```outputItem``` o parâmetro é anotado ```@CosmosDBOutput```com , não a assinatura da função. O parâmetro de saída ```outputItem``` tem uma lista de objetos ```ToDoItem``` como seu tipo de parâmetro de modelo. Usando ```OutputBinding<T>``` permite que sua função tire proveito da associação para gravar os documentos para CosmosDB, permitindo também retornar um valor diferente para o chamador da função, como um documento XML ou JSON.
+O exemplo a seguir mostra uma função de Java que grava vários documentos do CosmosDB por meio de um parâmetro de saída ```OutputBinding<T>```. Neste exemplo, o ```outputItem``` parâmetro é anotado com ```@CosmosDBOutput```, não a assinatura de função. O parâmetro de saída ```outputItem``` tem uma lista de objetos ```ToDoItem``` como seu tipo de parâmetro de modelo. Usando ```OutputBinding<T>``` permite que sua função tire proveito da associação para gravar os documentos para CosmosDB, permitindo também retornar um valor diferente para o chamador da função, como um documento XML ou JSON.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -525,7 +525,7 @@ Na biblioteca de runtime das funções [Java](/java/api/overview/azure/functions
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Em [Bibliotecas de classes C#](functions-dotnet-class-library.md), utilize o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
 
@@ -543,39 +543,39 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Os atributos não são suportados pelo script C#.
+Não há suporte para atributos pelo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Os atributos não são suportados pelo JavaScript.
+Não há suporte para atributos pelo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os atributos não são suportados pelo Python.
+Não há suporte para atributos no Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A `CosmosDBOutput` anotação está disponível para gravar dados no Cosmos DB. Você pode aplicar a anotação na função ou em um parâmetro de função individual. Quando usado no método de função, o valor de retorno da função é o que é escrito para Cosmos DB. Se você usar a anotação com um parâmetro, o tipo do `OutputBinding<T>` `T` parâmetro deve ser declarado como um tipo java nativo ou um POJO.
+A `CosmosDBOutput` anotação está disponível para gravar dados no cosmos DB. Você pode aplicar a anotação à função ou a um parâmetro de função individual. Quando usado no método Function, o valor de retorno da função é o que é gravado em Cosmos DB. Se você usar a anotação com um parâmetro, o tipo do parâmetro deverá ser declarado como um `OutputBinding<T>` ponto `T` em que um tipo Java nativo ou um POJO.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de `CosmosDB` vinculação que você definiu no arquivo *function.json* e no atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `CosmosDB` atributo.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**     | n/d | Deve ser definido como `cosmosDB`.        |
-|**direction**     | n/d | Deve ser definido como `out`.         |
-|**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
-|**databaseName** | **Databasename**|O banco de dados que contém a coleção na qual o documento será criado.     |
-|**Nomedacoleta** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
-|**criarIfNotExiste**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**Partitionkey**|**PartitionKey** |Quando `CreateIfNotExists` é verdade, ele define o caminho-chave de partição para a coleção criada.|
-|**coleçãoThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` é verdade, define o [throughput](../cosmos-db/set-throughput.md) da coleção criada.|
-|**conexãoConfiguração de string**    |**ConnectionStringSetting** |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
-|**preferredLocalizaçãos**| **PreferredLocalizaçãos**| (Opcional) Define locais preferenciais (regiões) para contas de banco de dados replicadas geo-replicadas no serviço Azure Cosmos DB. Os valores devem ser separados por comma. Por exemplo, "Leste dos EUA, Centro-Sul dos EUA, Norte da Europa". |
-|**usarMultipleWriteLocalização**| **UseLocalizaçãodegravação deváriosanos**| (Opcional) Quando definido `true` para, juntamente com, `PreferredLocations`ele pode aproveitar [gravações de várias regiões](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) no serviço Azure Cosmos DB. |
+|**tipo**     | N/D | Deve ser definido como `cosmosDB`.        |
+|**direção**     | N/D | Deve ser definido como `out`.         |
+|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
+|**NomeDoBancoDeDados** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
+|**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
+|**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
+|**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` é verdadeiro, ele define o caminho de chave de partição para a coleção criada.|
+|**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` é verdadeiro, ele define a [taxa de transferência](../cosmos-db/set-throughput.md) da coleção criada.|
+|**connectionStringSetting**    |**ConnectionStringSetting** |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
+|**preferredLocations**| **PreferredLocations**| Adicional Define os locais preferenciais (regiões) para contas de banco de dados replicadas geograficamente no serviço de Azure Cosmos DB. Os valores devem ser separados por vírgulas. Por exemplo, "leste dos EUA, EUA Central do Sul Europa Setentrional". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| Adicional Quando definido como `true` junto com `PreferredLocations`, ele pode aproveitar [gravações de várias regiões](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) no serviço de Azure Cosmos DB. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -617,9 +617,9 @@ Esta seção descreve as definições de configuração globais disponíveis par
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Execute uma função quando um documento Azure Cosmos DB for criado ou modificado (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Leia um documento Azure Cosmos DB (vinculação de entrada)](./functions-bindings-cosmosdb-v2-input.md)
+- [Executar uma função quando um documento de Azure Cosmos DB é criado ou modificado (gatilho)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Ler um documento de Azure Cosmos DB (Associação de entrada)](./functions-bindings-cosmosdb-v2-input.md)

@@ -1,13 +1,13 @@
 ---
-title: Prepare o servidor DPM para fazer backup de cargas de trabalho
-description: Neste artigo, saiba como se preparar para backups do DPM (System Center Data Protection Manager, gerente de proteção de dados do system center) para o Azure, usando o serviço de backup do Azure.
+title: Preparar o servidor DPM para fazer backup de cargas de trabalho
+description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273456"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
@@ -24,7 +24,7 @@ O artigo fornece:
 
 ## <a name="why-back-up-dpm-to-azure"></a>Por que fazer backup do DPM no Azure?
 
-[O DPM do Centro do Sistema](https://docs.microsoft.com/system-center/dpm/dpm-overview) faça backup dos dados de arquivos e aplicativos. O DPM interage com o Backup do Azure da seguinte maneira:
+[O System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) faz backup de dados de arquivos e aplicativos. O DPM interage com o Backup do Azure da seguinte maneira:
 
 - **DPM em execução em um servidor físico ou VM local**: você pode fazer backup de dados em um cofre de backup no Azure, além de backup em disco e em fita.
 - **DPM em execução em uma VM do Azure**: a partir do System Center 2012 R2 com a Atualização 3 ou posterior, você pode implantar o DPM em uma VM do Azure. Você pode fazer backup de dados em discos do Azure conectados à VM ou usar o Backup do Azure para fazer backup dos dados em um cofre de backup.
@@ -36,19 +36,19 @@ Os benefícios comerciais do backup de servidores DPM para o Azure incluem:
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 
-**Configuração** | **Exigência**
+**Configuração** | **Requisito**
 --- | ---
 DPM em uma VM do Azure | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 3 ou posterior do DPM 2012 R2.
 DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do VMware | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 5 ou posterior.
-Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4.5 instalados.
+Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4,5 instalados.
 Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode incluir no backup.
 Tipos de arquivo com suporte | É possível fazer o backup desses tipos de arquivo com o Backup do Azure: criptografado (somente backups completos); compactado (backups incrementais suportados); esparso (backups incrementais suportados); Compactado e esparso (tratado como esparso).
 Tipos de arquivo sem suporte | Servidores em sistemas de arquivos com diferenciação de maiúsculas e minúsculas; links rígidos (ignorados); pontos de nova análise (ignorados); criptografados e compactados (ignorados); criptografados e esparsos (ignorados); fluxo comprimido; fluxo de análise.
-Armazenamento local | Cada máquina que você deseja fazer backup deve ter armazenamento livre local que é pelo menos 5% do tamanho dos dados que estão sendo backup. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
-Armazenamento de cofre | Não há limite para a quantidade de dados que você pode fazer backup em um cofre de backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou banco de dados) não deve exceder 54.400 GB.
-Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com peering privado ou microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o Public Peering, ele poderá ser usado para fazer backup dos dados no Azure.<br/><br/> **Nota:** O Public Peering é preterido por novos circuitos.
+Armazenamento local | Cada computador que você deseja fazer backup deve ter armazenamento local livre que tenha pelo menos 5% do tamanho dos dados que estão sendo submetidos a backup. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
+Armazenamento de cofre | Não há limite para a quantidade de dados que você pode fazer backup em um cofre de backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou banco de dado) não deve exceder 54.400 GB.
+Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o emparelhamento privado ou da Microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele poderá ser usado para fazer backup dos dados no Azure.<br/><br/> **Observação:** O emparelhamento público foi preterido para novos circuitos.
 Agente de Backup do Azure | Se o DPM estiver sendo executado no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente do Backup do Azure, também conhecido como agente do Serviço de Recuperação do Microsoft Azure (MARS). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado.
 
 Antes de começar, você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
@@ -85,25 +85,25 @@ Você usa credenciais do cofre quando registra o servidor DPM no cofre.
 
 ### <a name="best-practices-for-vault-credentials"></a>Melhores práticas para credenciais do cofre
 
-Para obter as credenciais, baixe o arquivo de credencial do cofre através de um canal seguro do portal Azure:
+Para obter as credenciais, baixe o arquivo de credencial do cofre por meio de um canal seguro do portal do Azure:
 
 - As credenciais do cofre são usadas somente durante o fluxo de trabalho de registro.
 - É sua responsabilidade garantir que o arquivo de credenciais do cofre esteja seguro e não seja comprometido.
   - Se o controle das credenciais for perdido, as credenciais do cofre poderão ser usadas para registrar outros computadores no cofre.
   - No entanto, os dados de backup são criptografados usando uma frase secreta que pertence ao cliente, por isso os dados de backup existentes não poderão ser comprometidos.
-- Certifique-se de que o arquivo é salvo em um local que pode ser acessado a partir do servidor DPM. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
+- Certifique-se de que o arquivo seja salvo em um local que possa ser acessado pelo servidor DPM. Se forem armazenadas em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 horas. Você pode fazer o download das novas credenciais do cofre tantas vezes quantas forem necessárias. No entanto, apenas o último arquivo de credencial de cofre pode ser usado durante o fluxo de trabalho de registro.
 - O serviço de Backup do Azure não tem ciência da chave privada do certificado e a chave privada não está disponível no portal ou no serviço.
 
 Faça o download do arquivo de credenciais do cofre para um computador local da seguinte maneira:
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Abra o cofre no qual você deseja registrar o servidor DPM.
 3. Em **Configurações**, clique em **Propriedades**.
 
     ![Menu Abrir Cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-4. Em **Propriedades** > **Credenciais de backup,** clique em **Baixar**. O portal gera o arquivo de credencial do cofre usando uma combinação do nome do cofre e da data atual e o disponibiliza para download.
+4. Em **Propriedades** > **credenciais de backup**, clique em **baixar**. O portal gera o arquivo de credencial do cofre usando uma combinação do nome do cofre e da data atual e o disponibiliza para download.
 
     ![Baixar](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
@@ -151,7 +151,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 
     ![Configuração de Pasta de Recuperação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
-6. Na **configuração Criptografia,** gere ou forneça uma senha.
+6. Em **configuração de criptografia**, gere ou forneça uma frase secreta.
 
     - A frase secreta é usada para criptografar os backups na nuvem.
     - Especifique um mínimo de 16 caracteres.
@@ -165,7 +165,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 
 7. Clique em **Registrar** para registrar o servidor DPM no cofre.
 
-Depois, o servidor é registrado com êxito no cofre e você está pronto para iniciar o backup no Microsoft Azure. Você precisará configurar o grupo de proteção no console DPM para fazer backup de cargas de trabalho no Azure. [Aprenda a](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
+Depois, o servidor é registrado com êxito no cofre e você está pronto para iniciar o backup no Microsoft Azure. Você precisará configurar o grupo de proteção no console do DPM para fazer backup de cargas de trabalho no Azure. [Saiba como](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
 
 ## <a name="troubleshoot-vault-credentials"></a>Solucionar problemas de credenciais do cofre
 
@@ -175,7 +175,7 @@ O arquivo de credenciais do cofre é válido somente por 48 horas (após o downl
 
 ### <a name="access-error"></a>Erro de acesso
 
-Certifique-se de que o arquivo de credenciais do cofre está disponível em um local que pode ser acessado pelo aplicativo de configuração. Se você encontrar erros relacionados a acesso, copie o arquivo de credenciais do cofre para um local temporário nesse computador e repita a operação.
+Verifique se o arquivo de credenciais do cofre está disponível em um local que pode ser acessado pelo aplicativo de instalação. Se você encontrar erros relacionados a acesso, copie o arquivo de credenciais do cofre para um local temporário nesse computador e repita a operação.
 
 ### <a name="invalid-credentials-error"></a>Erro de credenciais inválidas
 

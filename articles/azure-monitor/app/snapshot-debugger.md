@@ -1,40 +1,40 @@
 ---
-title: Azure Application Insights Snapshot Debugger para aplicativos .NET
+title: Depurador de Instantâneos de informações do Aplicativo Azure para aplicativos .NET
 description: Depure instantâneos são coletados automaticamente quando exceções forem geradas na produção de aplicativos .NET
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
 ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275757"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
-Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Snapshot Debugger no [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure parâmetros de coleta no [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal Application Insights.
+Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal de Application insights.
 
-Você pode exibir instantâneos de depuração no portal para ver a pilha de chamadas e inspecionar variáveis em cada quadro da pilha de chamadas. Para obter uma experiência de depuração mais poderosa com código-fonte, abra instantâneos com o Visual Studio 2019 Enterprise. No Visual Studio, você também pode [definir Snappoints para tirar fotos interativamente](https://aka.ms/snappoint) sem esperar por uma exceção.
+Você pode exibir instantâneos de depuração no portal para ver a pilha de chamadas e inspecionar variáveis em cada quadro da pilha de chamadas. Para obter uma experiência de depuração mais potente com o código-fonte, abra instantâneos com o Visual Studio 2019 Enterprise. No Visual Studio, você também pode [definir Snappoints para fazer instantâneos de forma interativa](https://aka.ms/snappoint) sem esperar por uma exceção.
 
 Os instantâneos de depuração são armazenados por 15 dias. Essa política de retenção é definida por aplicativo. Se for necessário aumentar esse valor, você poderá solicitar o aumento abrindo um caso de suporte no portal do Azure.
 
-## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Habilite o Depurador de instantâneos do Application Insights para o seu aplicativo
+## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Habilitar Application Insights Depurador de Instantâneos para seu aplicativo
 Coleta de instantâneo está disponível para:
 * Aplicativos ASP.NET e do .NET framework com o .NET Framework 4.5 ou posterior.
 * Aplicativos do .NET Core 2.0 e Núcleo do ASP.NET Core 2.0 em execução no Windows.
 
 Os ambientes a seguir são suportados:
 
-* [Serviço de aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) executando a família OS 4 ou mais
-* [Serviços de malha do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) em execução no Windows Server 2012 R2 ou posterior
-* [Azure Virtual Machines e conjuntos de escala de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) executando o Windows Server 2012 R2 ou posterior
-* [Máquinas virtuais ou físicas](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) no local executando o Windows Server 2012 R2 ou posterior ou windows 8.1 ou posterior
+* [Serviço de Aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) executando a família de sistemas operacionais 4 ou posterior
+* [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) em execução no Windows Server 2012 R2 ou posterior
+* [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) que executam o Windows Server 2012 R2 ou posterior
+* [Máquinas virtuais ou físicas locais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) que executam o Windows Server 2012 R2 ou posterior ou o Windows 8.1 ou posterior
 
 > [!NOTE]
 > Não há suporte para aplicativos cliente (por exemplo, WPF, Windows Forms ou UWP).
 
-Se você habilitou o Depurador de Instantâneos, mas não está vendo instantâneos, verifique nosso [guia de solução de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+Se você tiver habilitado Depurador de Instantâneos, mas não estiver vendo instantâneos, consulte nosso [Guia de solução de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
@@ -46,23 +46,23 @@ O acesso a instantâneos é protegido por RBAC (controle de acesso baseado em fu
 Os proprietários de assinaturas deverão atribuir a função `Application Insights Snapshot Debugger` aos usuários que inspecionarão os instantâneos. Essa função pode ser atribuída a usuários individuais ou a grupos por proprietários de assinatura para o recurso Application Insights de destino ou seu grupo de recursos ou a assinatura.
 
 1. Navegue até o recurso Application Insights no portal do Azure.
-1. Clique **em Acessar controle (IAM)**.
-1. Clique no botão **+Adicionar atribuição de função.**
-1. Selecione **Depurador de instantâneos de insights de aplicativos** **na** lista de itens de parada.
+1. Clique em **controle de acesso (iam)**.
+1. Clique no botão **+ Adicionar atribuição de função** .
+1. Selecione **Application Insights depurador de instantâneos** na lista suspensa **funções** .
 1. Procure e insira um nome para o usuário a ser adicionado.
-1. Clique no botão **Salvar** para adicionar o usuário à função.
+1. Clique no botão **salvar** para adicionar o usuário à função.
 
 
 > [!IMPORTANT]
 > Os instantâneos potencialmente podem conter informações pessoais e outras informações confidenciais em valores de parâmetro e variável.
 
-## <a name="view-snapshots-in-the-portal"></a>Ver instantâneos no Portal
+## <a name="view-snapshots-in-the-portal"></a>Exibir instantâneos no portal
 
-Depois que uma exceção ocorreu em seu aplicativo e um snapshot foi criado, você deve ter instantâneos para visualizar. Ele pode levar de 5 a 10 minutos de uma exceção ocorrendo a um instantâneo pronto e visível a partir do portal. Para exibir instantâneos, no painel **Falha,** selecione o botão **Operações** ao visualizar a guia **Operações** ou selecione o botão **Exceções** ao visualizar a guia **Exceções:**
+Depois que uma exceção tiver ocorrido em seu aplicativo e um instantâneo tiver sido criado, você deverá ter instantâneos para exibir. Pode levar de 5 a 10 minutos a partir de uma exceção que ocorre em um instantâneo pronto e visível no Portal. Para exibir instantâneos, no painel **falha** , selecione o botão **operações** ao exibir a guia **operações** ou selecione o botão **exceções** ao exibir a guia **exceções** :
 
-![Página de falhas](./media/snapshot-debugger/failures-page.png)
+![Página falhas](./media/snapshot-debugger/failures-page.png)
 
-Selecione uma operação ou exceção no painel direito para abrir o painel **Detalhes de transação de ponta a ponta** e selecione o evento de exceção. Se um instantâneo estiver disponível para a exceção dada, um botão **Open Debug Snapshot** aparecerá no painel direito com detalhes para a [exceção](../../azure-monitor/app/asp-net-exceptions.md).
+Selecione uma operação ou exceção no painel direito para abrir o painel de **detalhes de transação de ponta a ponta** e, em seguida, selecione o evento de exceção. Se um instantâneo estiver disponível para a exceção determinada, um botão **abrir instantâneo de depuração** aparecerá no painel direito com detalhes para a [exceção](../../azure-monitor/app/asp-net-exceptions.md).
 
 ![Botão Abrir Instantâneo de Depuração na exceção](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -72,10 +72,10 @@ Na exibição do Instantâneo de Depuração, você verá uma pilha de chamadas 
 
 Os instantâneos podem conter informações confidenciais e, por padrão, não estão visíveis. Para exibir instantâneos, você deve ter a função `Application Insights Snapshot Debugger` atribuída a você.
 
-## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Ver instantâneos no Visual Studio 2017 Enterprise ou acima
-1. Clique no botão **Baixar** `.diagsession` instantâneo para baixar um arquivo, que pode ser aberto pelo Visual Studio Enterprise.
+## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Exibir instantâneos no Visual Studio 2017 Enterprise ou superior
+1. Clique no botão **baixar instantâneo** para baixar um `.diagsession` arquivo, que pode ser aberto por Visual Studio Enterprise.
 
-2. Para abrir `.diagsession` o arquivo, você precisa ter o componente Snapshot Debugger Visual Studio instalado. O componente Snapshot Debugger é um componente necessário da carga de trabalho ASP.net no Visual Studio e pode ser selecionado na lista componente individual no instalador do Visual Studio. Se você estiver usando uma versão do Visual Studio antes do Visual Studio 2017 versão 15.5, você precisará instalar a extensão do [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+2. Para abrir o `.diagsession` arquivo, você precisa ter o componente depurador de instantâneos Visual Studio instalado. O componente Depurador de Instantâneos é um componente necessário da carga de trabalho ASP.net no Visual Studio e pode ser selecionado na lista de componentes individuais no instalador do Visual Studio. Se você estiver usando uma versão do Visual Studio anterior ao Visual Studio 2017 versão 15,5, será necessário instalar a extensão do [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Depois de abrir o arquivo de instantâneo, será exibida a página Depuração de Minidespejo no Visual Studio. Clique em **Depurar Código Gerenciado** para iniciar a depuração de instantâneo. O instantâneo abre a linha de código em que a exceção foi lançada e você pode depurar o estado atual do processo.
 
@@ -104,7 +104,7 @@ O processo principal continuará a executar e atender o tráfego para os usuári
 
 ## <a name="limitations"></a>Limitações
 
-O período de retenção de dados padrão é de 15 dias. Para cada instância do Application Insights, é permitido um número máximo de 50 instantâneos por dia.
+O período de retenção de dados padrão é de 15 dias. Para cada instância de Application Insights, um número máximo de 50 instantâneos é permitido por dia.
 
 ### <a name="publish-symbols"></a>Publicar símbolos
 O Depurador de Instantâneo requer que os arquivos de símbolo no servidor de produção decodifiquem variáveis e ofereçam uma experiência de depuração no Visual Studio.
@@ -117,8 +117,8 @@ A versão 15.2 (ou superior) do Visual Studio 2017 publica símbolos para builds
 Para a Computação do Azure e outros tipos, certifique-se de que os arquivos de símbolo estejam na mesma pasta que o arquivo .dll do aplicativo principal (geralmente, `wwwroot/bin`) ou que estejam disponíveis no caminho atual.
 
 > [!NOTE]
-> Para obter mais informações sobre as diferentes opções de símbolos disponíveis, consulte a documentação do [Visual Studio.](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-) Para obter melhores resultados, recomendamos o uso de "Full", "Portable" ou "Embedded".
+> Para obter mais informações sobre as diferentes opções de símbolo que estão disponíveis, consulte a [documentação do Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+). Para obter melhores resultados, recomendamos o uso de "completo", "portátil" ou "incorporado".
 
 ### <a name="optimized-builds"></a>Builds otimizados
 Em alguns casos, variáveis locais não podem ser exibidas em builds de versão devido a otimizações aplicadas pelo compilador JIT.
@@ -128,15 +128,15 @@ No entanto, nos Serviços de Aplicativos do Azure, o Coletor de Instantâneo pod
 > Instale a extensão de site do Application Insights no seu Serviço de Aplicativo para obter suporte de desotimização.
 
 ## <a name="next-steps"></a>Próximas etapas
-Habilitar o Depurador de instantâneos do Application Insights para o seu aplicativo:
+Habilite Depurador de Instantâneos Application Insights para seu aplicativo:
 
-* [Serviço de aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de malha do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuais ou físicas no local](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Máquinas virtuais ou físicas locais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Além do depurador de instantâneos do Application Insights:
+Além Application Insights Depurador de Instantâneos:
  
 * [Definir snappoints em seu código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) para obter instantâneos sem esperar por uma exceção.
 * [Diagnosticar exceções em seus aplicativos Web](../../azure-monitor/app/asp-net-exceptions.md) explica como deixar as exceções mais visíveis para o Application Insights.

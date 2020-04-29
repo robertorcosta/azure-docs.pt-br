@@ -1,6 +1,6 @@
 ---
 title: Registrar-se no Azure NetApp Files | Microsoft Docs
-description: Descreve como se registrar para usar arquivos do Azure NetApp.
+description: Descreve como registrar-se para usar o Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,33 +15,33 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274054"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files
 
 > [!IMPORTANT] 
-> Antes de registrar o provedor de recursos Azure NetApp Files, você deve ter recebido um e-mail da equipe de Arquivos do Azure NetApp confirmando que foi concedido acesso ao serviço. 
+> Antes de registrar o provedor de recursos de Azure NetApp Files, você deve ter recebido um email da equipe de Azure NetApp Files confirmando que recebeu acesso ao serviço. 
 
-Neste artigo, saiba como se cadastrar no Azure NetApp Files para que você possa começar a usar o serviço.
+Neste artigo, saiba como registrar-se para Azure NetApp Files para que você possa começar a usar o serviço.
 
-## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Envie uma solicitação de lista de espera para acessar o serviço
+## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Enviar uma solicitação Waitlist para acessar o serviço
 
-1. Envie uma solicitação de lista de espera para acessar o serviço Azure NetApp Files através da página de envio de [lista de espera do Azure NetApp Files](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Envie uma solicitação Waitlist para acessar o serviço de Azure NetApp Files por meio da [página de envio Azure NetApp files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
 
-    A inscrição na lista de espera não garante acesso imediato ao serviço. 
+    A inscrição de Waitlist não garante o acesso imediato ao serviço. 
 
-2. Aguarde um e-mail oficial de confirmação da equipe de Arquivos do Azure NetApp antes de continuar com outras tarefas. 
+2. Aguarde um email de confirmação oficial da equipe de Azure NetApp Files antes de continuar com outras tarefas. 
 
 ## <a name="register-the-netapp-resource-provider"></a><a name="resource-provider"></a>Registrar o Provedor de recursos do NetApp
 
 Para usar o serviço, é necessário registrar o Provedor de recursos do Azure no Azure NetApp Files.
 
 > [!NOTE] 
-> Você poderá registrar com sucesso o Provedor de Recursos netapp mesmo sem ter acesso ao serviço. No entanto, sem autorização de acesso, qualquer portal ou aPI do Azure para criar uma conta netapp ou qualquer outro recurso do Azure NetApp Files será rejeitado com o seguinte erro:  
+> Você poderá registrar o provedor de recursos da NetApp com êxito, mesmo sem ter acesso ao serviço. No entanto, sem autorização de acesso, qualquer portal do Azure ou solicitação de API para criar uma conta do NetApp ou qualquer outro recurso de Azure NetApp Files será rejeitada com o seguinte erro:  
 >
 > `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
@@ -65,7 +65,7 @@ Para usar o serviço, é necessário registrar o Provedor de recursos do Azure n
        
    `<SubID>` é a ID da assinatura.
 
-    Se você não ver `Microsoft.NetApp/ANFGA`o nome do recurso, você não terá acesso ao serviço. Pare nesse passo. Siga as instruções em [Enviar uma solicitação de lista de espera para acessar o serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
+    Se você não vir o nome `Microsoft.NetApp/ANFGA`do recurso, não terá acesso ao serviço. Pare nesta etapa. Siga as instruções em [Enviar uma solicitação Waitlist para acessar o serviço](#waitlist) para solicitar acesso ao serviço antes de continuar. 
 
 4. No console do Azure Cloud Shell, insira o seguinte comando para registrar o Provedor de recursos do Azure: 
     

@@ -1,5 +1,5 @@
 ---
-title: Implante seu dispositivo da série StorSimple 8000 no portal Azure
+title: Implantar seu dispositivo StorSimple 8000 Series no portal do Azure
 description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple série 8000 executando a Atualização 3 e posteriores, e o serviço do Gerenciador de Dispositivos StorSimple.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267944"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
@@ -28,15 +28,15 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)série 7000, acesse: . Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
-## <a name="deployment-steps"></a>Etapas de implantação.
+## <a name="deployment-steps"></a>Etapas de implantação
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez sejam necessários durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
 | Etapa | Descrição |
 | --- | --- |
-| **Pré-requisitos** |Eles precisam ser concluídos na preparação para a próxima implantação. |
+| **PRÉ-requisitos** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |
 | [Pré-requisitos de implantação](#deployment-prerequisites) |Eles validam se o ambiente está pronto para implantação. |
 |  | |
@@ -51,10 +51,10 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | [Etapa 8: Fazer um backup](#step-8-take-a-backup) |Configure a política de backup para proteger seus dados |
 |  | |
 | **OUTROS PROCEDIMENTOS** |Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
-| [Configure uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
-| [Use PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
-| [Obtenha o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host) | |
-| [Crie um backup manual](#create-a-manual-backup) | |
+| [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
+| [Usar a reutilização para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
+| [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host) | |
+| [Criar um backup manual](#create-a-manual-backup) | |
 
 
 ## <a name="deployment-configuration-checklist"></a>Lista de verificação da configuração da implantação

@@ -9,15 +9,15 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132286"
 ---
-Se um usuário não tiver o acesso necessário para aplicar tags, você pode atribuir a função **de Contribuinte de Marca** ao usuário. Para obter mais informações, consulte [Tutorial: Conceda a um usuário acesso aos recursos do Azure usando o RBAC e o portal Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).
+Se um usuário não tiver o acesso necessário para aplicar marcas, você poderá atribuir a função de **colaborador de marca** ao usuário. Para obter mais informações, consulte [tutorial: conceder a um usuário acesso aos recursos do Azure usando o RBAC e o portal do Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).
 
-1. Para visualizar as tags de um recurso ou um grupo de recursos, procure tags existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
+1. Para exibir as marcas de um recurso ou grupo de recursos, procure as marcas existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
 
    ![Visualizar marcas para recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
 
@@ -37,13 +37,13 @@ Se um usuário não tiver o acesso necessário para aplicar tags, você pode atr
 
 1. Para adicionar ou excluir uma marca, selecione **alterar**.
 
-1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, **selecione Salvar**.
+1. Para excluir uma marca, selecione o ícone de lixeira. Em seguida, selecione **salvar**.
 
    ![Excluir marca](./media/resource-manager-tag-resources/delete-tag.png)
 
 Para atribuir marcas em massa para vários recursos:
 
-1. A partir de qualquer lista de recursos, selecione a caixa de seleção para os recursos aos quais você deseja atribuir a marca. Em seguida, **selecione Atribuir tags**.
+1. A partir de qualquer lista de recursos, selecione a caixa de seleção para os recursos aos quais você deseja atribuir a marca. Em seguida, selecione **atribuir marcas**.
 
    ![Selecionar vários recursos](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
@@ -53,7 +53,7 @@ Para atribuir marcas em massa para vários recursos:
 
 Para exibir todos os recursos com uma marca:
 
-1. No menu do portal Azure, procure **por tags**. Selecione-o entre as opções disponíveis.
+1. No menu portal do Azure, procure **marcas**. Selecione-o nas opções disponíveis.
 
    ![Localizar por marca](./media/resource-manager-tag-resources/find-tags-general.png)
 

@@ -8,10 +8,10 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267749"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anexar um disco de dados a uma VM do Windows com o PowerShell
@@ -20,10 +20,10 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 Primeiro, leia estas dicas:
 
-* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter mais informações, consulte [Tamanhos para máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter mais informações, consulte [tamanhos das máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para usar os SSDs premium, você precisará de um [tipo de VM ativado para armazenamento premium](sizes-memory.md), como a máquina virtual da série DS ou da série GS.
 
-Este artigo usa o PowerShell dentro do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
+Este artigo usa o PowerShell dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimentar** na parte superior de um bloco de código qualquer.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Adicionar um disco de dados vazio a uma máquina virtual
 
@@ -69,7 +69,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Inicializar o disco
 
-Depois de adicionar um disco vazio, você precisará inicializá-lo. Para inicializar o disco, você pode entrar em uma VM e usar o gerenciamento de disco. Se você habilitou [o WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado na VM quando o criou, poderá usar o PowerShell remoto para inicializar o disco. Você também pode usar uma extensão de script personalizado:
+Depois de adicionar um disco vazio, você precisará inicializá-lo. Para inicializar o disco, você pode entrar em uma VM e usar o gerenciamento de disco. Se você habilitou o [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) e um certificado na VM quando o criou, poderá usar o PowerShell remoto para inicializar o disco. Você também pode usar uma extensão de script personalizado:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode implantar discos gerenciados usando modelos. Para obter mais informações, consulte [Usando discos gerenciados no Azure Resource Manager Templates](using-managed-disks-template-deployments.md) ou no [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implantar vários discos de dados.
+Você também pode implantar discos gerenciados usando modelos. Para obter mais informações, consulte [usando Managed disks em modelos de Azure Resource Manager](using-managed-disks-template-deployments.md) ou o [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) para implantar vários discos de dados.
