@@ -1,19 +1,19 @@
 ---
-title: Fazer backup das VMs do Azure usando a API REST
-description: Neste artigo, saiba como configurar, iniciar e gerenciar operações de backup do Azure VM Backup usando a API REST.
+title: Fazer backup de VMs do Azure usando a API REST
+description: Neste artigo, saiba como configurar, iniciar e gerenciar operações de backup do backup de VM do Azure usando a API REST.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248158"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
-Este artigo descreve como gerenciar backups para uma VM do Azure usando o Backup do Azure por meio da API REST. Configure a proteção pela primeira vez para uma VM Azure anteriormente desprotegida, acione um backup demanda para uma VM Azure protegida e modifique as propriedades de backup de uma VM de backup via API REST, conforme explicado aqui.
+Este artigo descreve como gerenciar backups para uma VM do Azure usando o Backup do Azure por meio da API REST. Configure a proteção pela primeira vez para uma VM do Azure desprotegida anteriormente, dispare um backup sob demanda para uma VM do Azure protegida e modifique as propriedades de backup de uma VM com backup por meio da API REST, conforme explicado aqui.
 
 Veja os tutoriais [criar cofre](backup-azure-arm-userestapi-createorupdatevault.md) e [criar política](backup-azure-arm-userestapi-createorupdatepolicy.md) da API REST para criar novos cofres e políticas.
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selecionar a VM do Azure relevante
 
- Você pode confirmar que o "armazenamento em cache" foi concluído [listando todos os itens que podem ser protegidos](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) na assinatura e localizando a VM desejada na resposta. [A resposta desta operação](#example-responses-1) também fornece informações sobre como os Serviços de Recuperação identificam uma VM.  Quando estiver familiarizado com o padrão, você poderá ignorar esta etapa e ir diretamente para a etapa de [habilitar a proteção](#enabling-protection-for-the-azure-vm).
+ Você pode confirmar que o "armazenamento em cache" foi concluído [listando todos os itens que podem ser protegidos](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) na assinatura e localizando a VM desejada na resposta. [A resposta dessa operação](#example-responses-1) também fornece informações sobre como os serviços de recuperação identificam uma VM.  Quando estiver familiarizado com o padrão, você poderá ignorar esta etapa e ir diretamente para a etapa de [habilitar a proteção](#enabling-protection-for-the-azure-vm).
 
 Esta operação é uma operação *GET*.
 
@@ -387,7 +387,7 @@ Como a tarefa de backup é uma operação longa, ela precisa ser rastreada confo
 
 ### <a name="changing-the-policy-of-protection"></a>Alterar a política de proteção
 
-Para alterar a política com que a VM é protegida, você pode usar o mesmo formato que para [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a ID da nova política no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: Para alterar a política de testVM de 'DefaultPolicy' para 'ProdPolicy', forneça o ID 'ProdPolicy' no órgão de solicitação.
+Para alterar a política com que a VM é protegida, você pode usar o mesmo formato que para [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a ID da nova política no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: para alterar a política de testVM de ' DefaultPolicy ' para ' ProdPolicy ', forneça a ID ' ProdPolicy ' no corpo da solicitação.
 
 ```http
 {
@@ -445,13 +445,13 @@ Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em
 |202 Aceito     |         |     Aceita    |
 
 > [!IMPORTANT]
-> Para proteger contra cenários de exclusão acidental, há um [recurso de exclusão suave disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre de serviços de recuperação. Se o estado de exclusão suave do cofre estiver definido como ativado, a operação de exclusão NÃO excluirá imediatamente os dados. Será mantido por 14 dias e depois permanentemente expurgado. O cliente não é cobrado pelo armazenamento por este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-stop-protection-and-delete-data).
+> Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. O cliente não é cobrado pelo armazenamento durante este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-stop-protection-and-delete-data).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Desfaça a proteção de stop e exclua dados
+### <a name="undo-the-stop-protection-and-delete-data"></a>Desfazer a proteção e excluir dados
 
-Desfazer a exclusão acidental é semelhante à criação do item de backup. Após desfazer a exclusão, o item é retido, mas nenhum backup futuro é acionado.
+Desfazer a exclusão acidental é semelhante à criação do item de backup. Depois de desfazer a exclusão, o item é retido, mas nenhum backup futuro é disparado.
 
-Desfazer a exclusão é uma operação *PUT* que é muito semelhante à [alteração da política](#changing-the-policy-of-protection) e/ou [habilitação da proteção](#enabling-protection-for-the-azure-vm). Basta providenciar a intenção de desfazer a exclusão com a variável *éReidano* no [órgão de solicitação](#example-request-body) e submeter a solicitação. Por exemplo: Para desfazer a exclusão do testeVM, deve ser utilizado o seguinte corpo de solicitação.
+Desfazer a exclusão é uma operação *Put* que é muito semelhante a [alterar a política](#changing-the-policy-of-protection) e/ou [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a intenção de desfazer a exclusão com a variável *isRehydrate* no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: para desfazer a exclusão de testVM, o corpo da solicitação a seguir deve ser usado.
 
 ```http
 {

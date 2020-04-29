@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: rohink
 ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250901"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
@@ -23,9 +23,9 @@ O Gerenciador de Tráfego do Azure dá suporte a seis métodos de roteamento de 
 
 Os seguintes métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
 
-* **[Prioridade](#priority-traffic-routing-method):** Selecione **Prioridade** quando quiser usar um ponto final de serviço principal para todo o tráfego e forneça backups caso os pontos finais primários ou de backup estejam indisponíveis.
-* **[Ponderado](#weighted):** **Selecione Ponderado** quando quiser distribuir o tráfego em um conjunto de pontos finais, uniformemente ou de acordo com os pesos, que você define.
-* **[Desempenho](#performance):** Selecione **desempenho** quando você tiver pontos finais em diferentes locais geográficos e deseja que os usuários finais usem o ponto final "mais próximo" em termos da menor latência da rede.
+* **[Prioridade](#priority-traffic-routing-method):** selecione **prioridade** quando desejar usar um ponto de extremidade de serviço primário para todo o tráfego e forneça backups caso os pontos de extremidades primário ou de backup não estejam disponíveis.
+* **[Ponderado](#weighted):** selecione **ponderado** quando desejar distribuir o tráfego entre um conjunto de pontos de extremidade, seja uniformemente ou de acordo com os pesos que você definir.
+* **[Desempenho](#performance):** selecione **desempenho** quando você tiver pontos de extremidade em diferentes localizações geográficas e desejar que os usuários finais usem o ponto "mais próximo" em termos da menor latência de rede.
 * **[Geográfico](#geographic):** selecione **Geográfico** para que os usuários sejam direcionados para pontos de extremidade específicos (Azure, Externo ou Aninhado) com base no local geográfico dos quais as respectivas consultas DNS são originadas. Isso permite que os clientes do Gerenciador de Tráfego habilitem cenários em que saber a região geográfica de um usuário e roteá-lo com base nela é importante. Os exemplos incluem conformidade com normas de soberania de dados, localização de conteúdo e experiência do usuário, bem como medição do tráfego de diferentes regiões.
 * **[Vários valores](#multivalue):** selecione **MultiValue** para os perfis do Gerenciador de Tráfego que podem ter apenas endereços IPv4/IPv6 como pontos de extremidade. Quando uma consulta for recebida para este perfil, todos os pontos de extremidade íntegros serão retornados.
 * **[Sub-rede](#subnet):** selecione o método de roteamento de tráfego da **sub-rede** para mapear conjuntos de intervalos de endereços IP do usuário final para um ponto de extremidade específico dentro de um perfil do Gerenciador de Tráfego. Quando uma solicitação for recebida, o ponto de extremidade retornado será o mapeado para o endereço IP de origem da solicitação. 
@@ -109,7 +109,7 @@ Quando uma região ou um conjunto de regiões é atribuído a um ponto de extrem
 
 ![Método de roteamento de tráfego "Geográfico" do Gerenciador de Tráfego do Azure](./media/traffic-manager-routing-methods/geographic.png)
 
-O Gerenciador de Tráfego lê o endereço IP de origem da consulta DNS e decide de qual região geográfica ela se origina. Ele então verifica se há um ponto de extremidade com essa região geográfica mapeada para ele. Esta olhada começa no nível mais baixo de granularidade (Estado/Província onde é suportado, em outro nível país/região) e vai até o nível mais alto, que é **o Mundo**. A primeira correspondência encontrada que usa essa passagem será designada como o ponto de extremidade para retorno na resposta da consulta. Quando houver correspondência com um ponto de extremidade do tipo Aninhado, um ponto de extremidade nesse perfil filho será retornado, com base em seu método de roteamento. Os seguintes pontos se aplicam a esse comportamento:
+O Gerenciador de Tráfego lê o endereço IP de origem da consulta DNS e decide de qual região geográfica ela se origina. Ele então verifica se há um ponto de extremidade com essa região geográfica mapeada para ele. Essa pesquisa começa no nível de granularidade mais baixo (estado/província onde há suporte, mais no nível de país/região) e passa até o nível mais alto, que é o **mundo**. A primeira correspondência encontrada que usa essa passagem será designada como o ponto de extremidade para retorno na resposta da consulta. Quando houver correspondência com um ponto de extremidade do tipo Aninhado, um ponto de extremidade nesse perfil filho será retornado, com base em seu método de roteamento. Os seguintes pontos se aplicam a esse comportamento:
 
 - Uma região geográfica poderá ser mapeada apenas para um ponto de extremidade em um perfil do Gerenciador de Tráfego quando o tipo de roteamento for Roteamento Geográfico. Isso garante que o roteamento dos usuários seja determinístico e que os clientes possam habilitar cenários que exijam limites geográficos inequívocos.
 - Se a região de um usuário estiver sob mapeamento geográficos de dois pontos de extremidade diferentes, o Gerenciador de Tráfego selecionará o ponto de extremidade com a granularidade mais baixa e não considerará as solicitações de roteamento dessa região para o outro ponto de extremidade. Por exemplo, considere um perfil de tipo de Roteamento Geográfico com dois pontos de extremidade: Ponto de Extremidade 1 e Ponto de Extremidade 2. O Ponto de Extremidade 1 está configurado para receber tráfego da Irlanda e o Ponto de Extremidade 2 está configurado para receber tráfego da Europa. Se uma solicitação for originada da Irlanda, ela sempre será roteada para o Ponto de Extremidade 1.
@@ -146,7 +146,7 @@ Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-how
 * [Existem restrições quanto à versão de API que oferece suporte a esse tipo de roteamento?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name="multivalue-traffic-routing-method"></a><a name = "multivalue"></a>Método de roteamento de tráfego de vários valores
-O método de roteamento de tráfego de **vários valores** permite que você obtenha vários pontos de extremidade íntegros em uma única resposta de consulta DNS. Isso permite que o chamador faça repetições do lado do cliente com outros pontos finais no caso de um ponto final retornado não responder. Esse padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto de extremidade íntegro. O método de roteamento MultiValue funcionará apenas se todos os pontos de extremidade forem do tipo 'Externo' e especificados como endereços IPv4 ou IPv6. Quando uma consulta for recebida para este perfil, todos os pontos de extremidade íntegros serão retornados e estarão sujeitos a uma contagem de retorno máxima configurável.
+O método de roteamento de tráfego de **vários valores** permite que você obtenha vários pontos de extremidade íntegros em uma única resposta de consulta DNS. Isso permite que o chamador faça repetições do lado do cliente com outros pontos de extremidade no caso de um ponto de extremidades retornado sem resposta. Esse padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto de extremidade íntegro. O método de roteamento MultiValue funcionará apenas se todos os pontos de extremidade forem do tipo 'Externo' e especificados como endereços IPv4 ou IPv6. Quando uma consulta for recebida para este perfil, todos os pontos de extremidade íntegros serão retornados e estarão sujeitos a uma contagem de retorno máxima configurável.
 
 ### <a name="faqs"></a>Perguntas frequentes
 
@@ -179,7 +179,7 @@ O roteamento de sub-rede pode ser usado para fornecer uma experiência diferente
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como desenvolver aplicativos de alta disponibilidade usando [o monitoramento de ponto final do Traffic Manager](traffic-manager-monitoring.md)
+Saiba como desenvolver aplicativos de alta disponibilidade usando o [monitoramento de ponto de extremidade do Gerenciador de tráfego](traffic-manager-monitoring.md)
 
 
 

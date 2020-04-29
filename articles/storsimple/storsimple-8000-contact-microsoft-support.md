@@ -1,5 +1,5 @@
 ---
-title: Criar bilhete de suporte ou case para a série StorSimple 8000
+title: Criar tíquete de suporte ou caso para a série StorSimple 8000
 description: Saiba como registrar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254983"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
@@ -56,7 +56,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
 4. Na folha **Nova solicitação de suporte**, clique em **Etapa 3 Informações de contato**. Na folha **Informações de contato**, execute as seguintes etapas:
 
    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-   2. Nas informações de contato, forneça seu nome, e-mail, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
+   2. Nas informações de contato, forneça seu nome, email, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
    3. Clique em **Criar**.
    
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

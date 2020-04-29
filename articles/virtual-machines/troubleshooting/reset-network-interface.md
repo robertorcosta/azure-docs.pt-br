@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250069"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
@@ -32,7 +32,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Para as VMs implantadas no modelo de Grupo de recursos
 
-1.  Vá para o [portal Azure.](https://ms.portal.azure.com)
+1.  Vá para o [Portal do Azure](https://ms.portal.azure.com).
 2.  Selecione a Máquina Virtual afetada.
 3.  Selecione **Rede** e, em seguida, selecione o Adaptador de rede da VM.
 
@@ -40,7 +40,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
     
 4.  Selecione **Configurações de IP**.
 5.  Selecione o IP. 
-6.  Se a **atribuição de IP privado** não estiver **estática,** mude-a para **Estática**.
+6.  Se a **atribuição de IP privado** não for **estática**, altere-a para **estático**.
 7.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
 8. A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
@@ -48,7 +48,7 @@ Este artigo mostra como redefinir o adaptador de rede para uma VM do Windows no 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 1. Verifique se você tem [o mais recente Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalado
-2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
+2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os comandos a seguir:
 
     ```powershell
     #Set the variables 
@@ -78,11 +78,11 @@ Para redefinir o adaptador de rede, siga estas etapas:
 
 #### <a name="use-azure-portal"></a>Usar o portal do Azure
 
-1.  Vá para o [portal Azure.]( https://ms.portal.azure.com)
+1.  Vá para o [Portal do Azure]( https://ms.portal.azure.com).
 2.  Selecione **Máquinas Virtuais (Clássicas)**.
 3.  Selecione a Máquina Virtual afetada.
 4.  Selecione **Endereços IP**.
-5.  Se a **atribuição de IP privado** não estiver **estática,** mude-a para **Estática**.
+5.  Se a **atribuição de IP privado** não for **estática**, altere-a para **estático**.
 6.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
 7.  Selecione **Salvar**.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
@@ -90,8 +90,8 @@ Para redefinir o adaptador de rede, siga estas etapas:
 
 #### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-1. Certifique-se de que você tem [o Azure PowerShell mais recente](https://docs.microsoft.com/powershell/azure/overview) instalado.
-2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
+1. Verifique se você tem [as Azure PowerShell mais recentes](https://docs.microsoft.com/powershell/azure/overview) instaladas.
+2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os comandos a seguir:
 
     ```powershell
     #Set the variables 
@@ -117,10 +117,10 @@ Para redefinir o adaptador de rede, siga estas etapas:
 Depois que você conseguir conectar a área de trabalho remota ao computador, deverá excluir as NICs antigas para evitar o problema potencial:
 
 1.  Abra o Gerenciador de Dispositivos.
-2.  Selecione **Exibir** > **exibir dispositivos ocultos**.
+2.  Selecione **Exibir** > **Mostrar dispositivos ocultos**.
 3.  Selecione **adaptadores de rede**. 
 4.  Verifique os adaptadores nomeados como “Adaptador de Rede do Microsoft Hyper-V”.
-5.  Você pode ver um adaptador indisponível que está acinzentado. Clique com o botão direito do mouse no adaptador e, em seguida, selecione Desinstalar.
+5.  Você pode ver um adaptador indisponível que está esmaecido. Clique com o botão direito do mouse no adaptador e selecione Desinstalar.
 
     ![a imagem da NIC](media/reset-network-interface/nicpage.png)
 

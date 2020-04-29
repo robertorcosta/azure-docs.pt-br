@@ -1,5 +1,5 @@
 ---
-title: Gerenciar acesso de leitura pública para contêineres e blobs
+title: Gerenciar o acesso de leitura público para contêineres e blobs
 titleSuffix: Azure Storage
 description: Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente.
 services: storage
@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255477"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
@@ -30,37 +30,37 @@ Você pode configurar um contêiner com as seguintes permissões:
 
 - **Sem acesso de leitura público:** o contêiner e seus blobs podem ser acessados somente pelo proprietário da conta de armazenamento. Esse é o padrão para todos os novos contêineres.
 - **Acesso de leitura público somente para blobs:** os blobs nesse contêiner podem ser lidos por solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner.
-- **Acesso de leitura pública para contêiner e suas bolhas:** Todos os dados de contêiner e blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio solicitação anônima, mas não podem enumerar os contêineres na conta de armazenamento.
+- **Acesso de leitura público para contêiner e seus BLOBs:** Todos os dados de contêiner e BLOB podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio solicitação anônima, mas não podem enumerar os contêineres na conta de armazenamento.
 
-### <a name="set-container-public-access-level-in-the-azure-portal"></a>Definir o nível de acesso público do contêiner no portal Azure
+### <a name="set-container-public-access-level-in-the-azure-portal"></a>Definir o nível de acesso público do contêiner no portal do Azure
 
-A partir do [portal Azure,](https://portal.azure.com)você pode atualizar o nível de acesso público para um ou mais contêineres:
+No [portal do Azure](https://portal.azure.com), você pode atualizar o nível de acesso público para um ou mais contêineres:
 
-1. Navegue até a visão geral da sua conta de armazenamento no portal Azure.
-1. Em **serviço Blob** na lâmina do menu, selecione **Blobs**.
-1. Selecione os contêineres para os quais deseja definir o nível de acesso público.
-1. Use o botão **Alterar nível de acesso** para exibir as configurações de acesso público.
-1. Selecione o nível de acesso público desejado na parada do **nível de acesso público** e clique no botão OK para aplicar a alteração nos recipientes selecionados.
+1. Navegue até a visão geral da sua conta de armazenamento na portal do Azure.
+1. Em **serviço blob** na folha do menu, selecione **BLOBs**.
+1. Selecione os contêineres para os quais você deseja definir o nível de acesso público.
+1. Use o botão **alterar nível de acesso** para exibir as configurações de acesso público.
+1. Selecione o nível de acesso público desejado na lista suspensa **nível de acesso público** e clique no botão OK para aplicar a alteração aos contêineres selecionados.
 
 A captura de tela a seguir mostra como alterar o nível de acesso público para os contêineres selecionados.
 
 ![Captura de tela mostrando como definir o nível de acesso público no portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
-> Você não pode alterar o nível de acesso público para uma bolha individual. O nível de acesso público é definido apenas no nível do contêiner.
+> Você não pode alterar o nível de acesso público para um blob individual. O nível de acesso público é definido somente no nível de contêiner.
 
 ### <a name="set-container-public-access-level-with-net"></a>Definir o nível de acesso público do contêiner com .NET
 
-Para definir permissões para um contêiner usando a biblioteca cliente do Azure Storage para .NET, primeiro recupere as permissões existentes do contêiner, ligando para um dos seguintes métodos:
+Para definir permissões para um contêiner usando a biblioteca de cliente de armazenamento do Azure para .NET, primeiro recupere as permissões existentes do contêiner chamando um dos seguintes métodos:
 
-- [Obter permissões](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
-- [ObterpermissõesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
+- [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
+- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
 
-Em seguida, defina a propriedade **PublicAccess** no objeto [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) que é devolvido pelo método **GetPermissions.**
+Em seguida, defina a propriedade **PublicAccess** no objeto [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) que é retornado pelo método **getPermissions** .
 
-Por fim, ligue para um dos seguintes métodos para atualizar as permissões do contêiner:
+Por fim, chame um dos seguintes métodos para atualizar as permissões do contêiner:
 
-- [Setpermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
 - [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
 
 O exemplo a seguir define as permissões do contêiner para acesso de leitura público completo. Para definir as permissões como acesso de leitura público somente para os blobs, defina a propriedade **PublicAccess** como **BlobContainerPublicAccessType.Blob**. Para remover todas as permissões para usuários anônimos, defina a propriedade como **BlobContainerPublicAccessType.Off**.
@@ -82,7 +82,7 @@ Um cliente que acessa contêineres e blobs anonimamente pode usar construtores q
 
 ### <a name="create-an-anonymous-client-object"></a>Criar um objeto de cliente anônimo
 
-Você pode criar um novo objeto cliente de serviço para acesso anônimo, fornecendo o ponto final de armazenamento Blob para a conta. No entanto, você também precisa saber o nome de um contêiner dessa conta que esteja disponível para acesso anônimo.
+Você pode criar um novo objeto de cliente de serviço para acesso anônimo fornecendo o ponto de extremidade de armazenamento de BLOBs para a conta. No entanto, você também precisa saber o nome de um contêiner dessa conta que esteja disponível para acesso anônimo.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -138,5 +138,5 @@ public static void DownloadBlobAnonymously()
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Autorizar acesso ao Armazenamento do Microsoft Azure](../common/storage-auth.md)
-- [Conceda acesso limitado aos recursos do Azure Storage usando assinaturas de acesso compartilhado (SAS)](../common/storage-sas-overview.md)
+- [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md)
 - [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api)

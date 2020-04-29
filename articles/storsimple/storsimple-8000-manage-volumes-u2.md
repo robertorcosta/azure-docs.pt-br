@@ -1,5 +1,5 @@
 ---
-title: Gerenciar volumes StorSimple (Atualização 3)
+title: Gerenciar volumes do StorSimple (atualização 3)
 description: Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254762"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
@@ -163,10 +163,10 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
    
-   1. Vá para **gerenciamento de** ->disco de gerenciamento**de computador .**
+   1. Vá para **Gerenciamento** ->do computador gerenciamento de**disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
    3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
-   4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
+   4. Conclua o assistente, aceitando os valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
       > Se você expandir um volume afixado localmente e depois expandir outro volume afixado localmente imediatamente, os trabalhos de expansão de volumes serão executados sequencialmente. O primeiro trabalho de expansão de volume deve terminar antes de começar o próximo trabalho de expansão de volume.

@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254606"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 3 para seu dispositivo StorSimple série 8000
@@ -47,7 +47,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atuali
 | 2 |Volumes fixados localmente |Na versão anterior, havia problemas relacionados a falhas de E/S, falhas de conversão de volume e falhas de caminho de dados para volumes fixos localmente. Esses problemas foram causados por raiz e corrigidos nesta versão. |Sim |Não |
 | 3 |Monitoramento |Havia vários problemas relacionados a unidades de emissão de relatórios e monitoramento, bem como gráficos de painel de dispositivos em que informações incorretas foram exibidas para volumes fixos localmente. Esses problemas foram corrigidos nesta versão. |Sim |Não |
 | 4 |Gravações pesadas E/S |Ao usar o StorSimple para cargas de trabalho que envolvem gravações pesadas, o usuário encontraria um bug não muito frequente em que o conjunto de trabalho estava sendo colocado em camadas na nuvem. Esse bug foi corrigido nesta versão. |Sim |Sim |
-| 5 |Backup |Em certos casos raros, nas versões anteriores do software, quando o usuário fazia um backup de um clone remoto, eles esbarravam em erros na nuvem e a operação se confundia. Nesta versão, o problema é corrigido e a operação é concluída com sucesso. |Sim |Sim |
+| 5 |Backup |Em determinadas instâncias raras, nas versões anteriores do software, quando o usuário realizou um backup de um clone remoto, ele teria erros de nuvem e a operação geraria um erro. Nesta versão, o problema é corrigido e a operação é concluída com êxito. |Sim |Sim |
 | 6 |Política do backup |Em certos casos raros, nas versões anteriores do software, havia um bug relacionado à exclusão da política de backup. Esse problema foi corrigido nesta versão. |Sim |Sim |
 
 ## <a name="known-issues-in-update-3"></a>Problemas conhecidos na Atualização 3

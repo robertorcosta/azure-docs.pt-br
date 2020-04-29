@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
 ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248743"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
@@ -51,7 +51,7 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
 * *Dados personalizados*: o Log Analytics permite a coleção em uma variedade de métodos: logs personalizados e campos personalizados, a [API do coletor de dados HTTP](../../azure-monitor/platform/data-collector-api.md) e dados personalizados coletados como parte dos logs de eventos do sistema. Todos são suscetíveis a conter dados privados e devem ser examinados para verificar se esses dados existem.
 * *Dados capturados pela solução*: como o mecanismo da solução é aberto, é recomendável revisar todas as tabelas geradas pelas soluções para garantir a conformidade.
 
-### <a name="application-data"></a>Dados do aplicativo
+### <a name="application-data"></a>Dados de aplicativos
 
 * *Endereços IP*: enquanto o Application Insights ofuscará, por padrão, todos os campos de endereço IP para "0.0.0.0", é um padrão bastante comum substituir esse valor pelo IP do usuário atual para manter as informações de sessão. A consulta de análise abaixo pode ser usada para encontrar qualquer tabela que contém os valores na coluna de endereço IP diferentes de "0.0.0.0" nas últimas 24 horas:
     ```
@@ -59,7 +59,7 @@ O Log Analytics é um armazenamento flexível que, enquanto prescreve um esquema
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *IDs de usuário*: por padrão, o Application Insights usará IDs geradas aleatoriamente para acompanhamento de usuário e de sessão. No entanto, é comum substituir esses campos para armazenar uma ID mais relevante para o aplicativo. Por exemplo: nomes de usuário, GUIDs AAD, etc. Esses IDs são muitas vezes considerados no escopo como dados pessoais e, portanto, devem ser tratados adequadamente. Nossa recomendação é sempre tentar ofuscar essas IDs ou torná-las anônimas. Os campos em que esses valores são geralmente encontrados incluem session_Id, user_Id, user_AuthenticatedId, user_AccountId, bem como customDimensions.
+* *IDs de usuário*: por padrão, o Application Insights usará IDs geradas aleatoriamente para acompanhamento de usuário e de sessão. No entanto, é comum substituir esses campos para armazenar uma ID mais relevante para o aplicativo. Por exemplo: nomes de acessações, GUIDs do AAD, etc. Essas IDs costumam ser consideradas no escopo como dados pessoais e, portanto, devem ser manipuladas adequadamente. Nossa recomendação é sempre tentar ofuscar essas IDs ou torná-las anônimas. Os campos em que esses valores são geralmente encontrados incluem session_Id, user_Id, user_AuthenticatedId, user_AccountId, bem como customDimensions.
 * *Dados personalizados*: o Application Insights permite acrescentar um conjunto de dimensões personalizadas para qualquer tipo de dados. Essas dimensões podem ser *quaisquer* dados. Use a consulta a seguir para identificar quaisquer dimensões personalizadas coletadas nas últimas 24 horas:
     ```
     search * 
@@ -81,7 +81,7 @@ Conforme mencionado na seção [Estratégia para tratamento de dados pessoais](#
 Para exibir e exportar solicitações de dados, a [API de consulta do Log Analytics](https://dev.loganalytics.io/) ou a [API de consulta do Application Insights](https://dev.applicationinsights.io/quickstart) devem ser usadas. A lógica para converter a forma dos dados em uma forma apropriada para entregar aos usuários será de sua responsabilidade. [Azure Functions](https://azure.microsoft.com/services/functions/) é um ótimo local para hospedar essa lógica.
 
 > [!IMPORTANT]
->  Embora a grande maioria das operações de expurgo possa ser concluída muito mais rapidamente do que o SLA, **o SLA formal para a conclusão das operações de purga é definido em 30 dias** devido ao seu forte impacto na plataforma de dados utilizada. Este é um processo automatizado; não há como solicitar que uma operação seja tratada mais rapidamente.
+>  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, **o SLA formal para a conclusão de operações de limpeza é definido como 30 dias** devido ao seu impacto pesado na plataforma de dados usada. Este é um processo automatizado; Não é possível solicitar que uma operação seja manipulada mais rapidamente.
 
 ### <a name="delete"></a>Excluir
 
@@ -93,7 +93,7 @@ Disponibilizamos como parte de uma privacidade que trata um caminho de API de *l
 A limpeza é uma operação altamente privilegiada que nenhum aplicativo ou usuário no Azure (incluindo até mesmo o proprietário do recurso) terá permissões para executar sem que seja concedida explicitamente uma função no Azure Resource Manager. Essa função é _Limpador de Dados_ e deve ser cuidadosamente delegada devido ao potencial de perda de dados. 
 
 > [!IMPORTANT]
-> Para gerenciar os recursos do sistema, as solicitações de purga são estranguladas a 50 solicitações por hora. Você deve emuar a execução de solicitações de expurgo enviando um único comando cujo predicado inclui todas as identidades de usuário que requerem purgação. Use o [operador in](/azure/kusto/query/inoperator) para especificar várias identidades. Você deve executar a consulta antes de executar a solicitação de expurgo para verificar se os resultados são esperados. 
+> Para gerenciar recursos do sistema, as solicitações de limpeza são limitadas a 50 solicitações por hora. Você deve enviar em lote a execução de solicitações de limpeza enviando um único comando cujo predicado inclui todas as identidades de usuário que exigem limpeza. Use o [operador in](/azure/kusto/query/inoperator) para especificar várias identidades. Você deve executar a consulta antes de executar a solicitação de limpeza para verificar se os resultados são esperados. 
 
 
 
@@ -102,26 +102,26 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 #### <a name="log-data"></a>Dados de log
 
 * [Limpeza POST](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência 
-* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
+* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo:
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
->  Enquanto esperamos que a grande maioria das operações de expurgo completem muito mais rápido do que o nosso SLA, devido ao seu forte impacto na plataforma de dados usada pela Log Analytics, **o SLA formal para a conclusão das operações de purga é definido em 30 dias**. 
+>  Embora esperamos que a grande maioria das operações de limpeza seja concluída muito mais rapidamente do que o nosso SLA, devido ao impacto pesado na plataforma de dados usada pelo Log Analytics, **o SLA formal para a conclusão de operações de limpeza é definido como 30 dias**. 
 
-#### <a name="application-data"></a>Dados do aplicativo
+#### <a name="application-data"></a>Dados de aplicativos
 
 * [Limpeza POST](https://docs.microsoft.com/rest/api/application-insights/components/purge) – obtém um objeto especificando parâmetros de dados para excluir e retorna um GUID de referência
-* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo: 
+* Status de limpeza GET – a chamada de limpeza POST retornará um cabeçalho 'x-ms-status-location' que incluirá uma URL que você poderá chamar para determinar o status da API de limpeza. Por exemplo:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
 > [!IMPORTANT]
->  Embora a grande maioria das operações de expurgo possa ser concluída muito mais rapidamente do que o SLA, devido ao seu forte impacto na plataforma de dados usada pelo Application Insights, **o SLA formal para a conclusão das operações de expurgo é definido em 30 dias**.
+>  Embora a grande maioria das operações de limpeza possa ser concluída muito mais rapidamente do que o SLA, devido ao impacto pesado sobre a plataforma de dados usada pelo Application Insights, **o SLA formal para a conclusão de operações de limpeza é definido como 30 dias**.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](../../azure-monitor/platform/data-security.md).
