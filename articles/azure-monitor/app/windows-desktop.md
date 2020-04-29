@@ -4,10 +4,10 @@ description: Analise o uso e o desempenho de seu aplicativo da área de trabalho
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537382"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorando uso e desempenho de aplicativos de área de trabalho clássica do Windows
@@ -28,9 +28,9 @@ Aplicativos hospedados localmente, no Azure e em outras nuvens podem tirar prove
    
     Se você usar ApplicationInsights.config, verifique se suas propriedades no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
 5. [Use a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
-6. Execute seu aplicativo e veja a telemetria no recurso que você criou no portal Azure.
+6. Execute seu aplicativo e veja a telemetria no recurso que você criou na portal do Azure.
 
-## <a name="example-code"></a><a name="telemetry"></a>Exemplo de código
+## <a name="example-code"></a><a name="telemetry"></a>Código de exemplo
 ```csharp
 using Microsoft.ApplicationInsights;
 
@@ -70,9 +70,9 @@ using Microsoft.ApplicationInsights;
 
 ## <a name="override-storage-of-computer-name"></a>Substituir o armazenamento do nome do computador
 
-Por padrão, este SDK coletará e armazenará o nome do computador do sistema emissor de telemetria. Para substituir a coleção, você precisa usar um inicializador de telemetria:
+Por padrão, esse SDK coletará e armazenará o nome do computador do sistema que emite telemetria. Para substituir a coleção, você precisa usar um inicializador de telemetria:
 
-**Escreva telemetria inicial personalizada abaixo.**
+**Escreva personalizada telemetryinitializer personalizado como abaixo.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Instanciar o `Program.cs` `Main()` inicializador no método abaixo definindo a tecla de instrumentação:
+Crie uma instância do inicializador no `Program.cs` `Main()` método abaixo definindo a chave de instrumentação:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

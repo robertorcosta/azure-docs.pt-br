@@ -1,6 +1,6 @@
 ---
-title: O que é segurança em nível de coluna para o Azure Synapse?
-description: O Column-Level Security permite que os clientes controlem o acesso às colunas de tabela do banco de dados com base no contexto de execução do usuário ou membros do grupo, simplificando o design e a codificação da segurança em seu aplicativo e permitindo que você implemente restrições no acesso à coluna.
+title: O que é a segurança em nível de coluna para o Azure Synapse?
+description: A segurança em nível de coluna permite que os clientes controlem o acesso a colunas de tabela de banco de dados com base no contexto de execução do usuário ou na associação de grupo, simplificando o design e codificação de segurança em seu aplicativo e permitindo que você implemente restrições de acesso a colunas.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,22 +13,22 @@ ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687933"
 ---
 # <a name="column-level-security"></a>Segurança de Nível da Coluna
 
-O Column-Level Security permite que os clientes controlem o acesso às colunas de tabela com base no contexto de execução do usuário ou na associação de grupo.
+A segurança em nível de coluna permite que os clientes controlem o acesso a colunas de tabela com base no contexto de execução do usuário ou na associação de grupo.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Desde que este vídeo foi [postado, a Segurança de Nível de Linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ficou disponível para o Azure Synapse.
+Como esse vídeo foi lançado, a [segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) ficou disponível para o Azure Synapse.
 
-A segurança em nível de coluna simplifica o design e a codificação da segurança em seu aplicativo, permitindo restringir o acesso à coluna para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso toda vez que o acesso aos dados é tentado de qualquer nível. Essa restrição torna sua segurança mais confiável e robusta, reduzindo a área de superfície do seu sistema de segurança geral. Além disso, a segurança em nível de coluna também elimina a necessidade de introduzir visualizações para filtrar colunas para impor restrições de acesso aos usuários.
+A segurança em nível de coluna simplifica o design e a codificação de segurança em seu aplicativo, permitindo que você restrinja o acesso a colunas para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso toda vez que o acesso a dados é tentado em qualquer camada. Essa restrição torna sua segurança mais confiável e robusta, reduzindo a área de superfície do seu sistema de segurança geral. Além disso, a segurança em nível de coluna também elimina a necessidade de introduzir exibições para filtrar colunas para impor restrições de acesso aos usuários.
 
-Você pode implementar a segurança em nível de coluna com a declaração [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Com este mecanismo, há suporte para autenticação SQL e o Azure Active Directory (AAD).
+Você pode implementar a segurança em nível de coluna com a instrução [Grant](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Com este mecanismo, há suporte para autenticação SQL e o Azure Active Directory (AAD).
 
 ![cls](./media/column-level-security/cls.png)
 
@@ -52,9 +52,9 @@ GRANT <permission> [ ,...n ] ON
 
 ## <a name="example"></a>Exemplo
 
-O exemplo a seguir `TestUser` mostra como `SSN` restringir `Membership` o acesso à coluna da tabela:
+O exemplo a seguir mostra como restringir `TestUser` o acesso à `SSN` coluna da `Membership` tabela:
 
-Criar `Membership` tabela com a coluna SSN usada para armazenar números de segurança social:
+Crie `Membership` uma tabela com a coluna SSN usada para armazenar números de seguro social:
 
 ```sql
 CREATE TABLE Membership
@@ -66,13 +66,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Permitir `TestUser` acessar todas as colunas, exceto a coluna SSN, que possui os dados confidenciais:
+Permita `TestUser` acessar todas as colunas, exceto a coluna SSN, que tem os dados confidenciais:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-As consultas executadas como `TestUser` falharão se incluirem a coluna SSN:
+As consultas executadas `TestUser` como falharão se incluírem a coluna SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -86,4 +86,4 @@ SELECT * FROM Membership;
 Alguns exemplos de como a segurança em nível de coluna está sendo usada hoje:
 
 - Uma empresa de serviços financeiros permite que apenas gerentes de contas tenham acesso aos SSN (números do seguro social), números de telefone e outras PII (informações de identificação pessoal).
-- Um provedor de saúde permite que apenas médicos e enfermeiros tenham acesso a prontuários sensíveis, impedindo que os membros do departamento de cobrança obtemsiem esses dados.
+- Um provedor de assistência médica permite que apenas médicos e horas tenham acesso a registros médicos confidenciais, impedindo que os membros do departamento de cobrança exibam esses dados.

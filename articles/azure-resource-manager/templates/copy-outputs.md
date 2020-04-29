@@ -1,24 +1,24 @@
 ---
-title: Defina várias instâncias de um valor de saída
-description: Use a operação de cópia em um modelo do Azure Resource Manager para iterar várias vezes ao retornar um valor de uma implantação.
+title: Definir várias instâncias de um valor de saída
+description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao retornar um valor de uma implantação.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617826"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
-Este artigo mostra como criar mais de um valor para uma saída no modelo ARM (Azure Resource Manager). Ao adicionar o elemento **de cópia** à seção de saídas do seu modelo, você pode retornar dinamicamente uma série de itens durante a implantação.
+Este artigo mostra como criar mais de um valor para uma saída em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção de saídas do modelo, você pode retornar dinamicamente vários itens durante a implantação.
 
-Você também pode usar cópia com [recursos,](copy-resources.md) [propriedades em um recurso](copy-properties.md)e [variáveis.](copy-variables.md)
+Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [variáveis](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iteração de saídas
+## <a name="outputs-iteration"></a>Iteração de saída
 
-O elemento de cópia tem o seguinte formato geral:
+O elemento Copy tem o seguinte formato geral:
 
 ```json
 "copy": {
@@ -27,11 +27,11 @@ O elemento de cópia tem o seguinte formato geral:
 }
 ```
 
-A propriedade **count** especifica o número de iterações desejadas para o valor de saída.
+A propriedade **Count** especifica o número de iterações que você deseja para o valor de saída.
 
-A propriedade **de entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos a partir do valor na propriedade **de entrada.** Pode ser uma única propriedade (como uma string), ou um objeto com várias propriedades.
+A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
 
-O exemplo a seguir cria um número variável de contas de armazenamento e retorna um ponto final para cada conta de armazenamento:
+O exemplo a seguir cria um número variável de contas de armazenamento e retorna um ponto de extremidade para cada conta de armazenamento:
 
 ```json
 {
@@ -151,11 +151,11 @@ O exemplo anterior retorna uma matriz com os seguintes valores:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
-* Para outros usos do elemento de cópia, consulte:
-  * [Iteração de recursos em modelos ARM](copy-resources.md)
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para outros usos do elemento copiar, consulte:
+  * [Iteração de recurso em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
-* Se você quiser aprender sobre as seções de um modelo, consulte [Modelos DE AUTORIA DO ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [Implantar um aplicativo com o modelo ARM](deploy-powershell.md).
+* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
 

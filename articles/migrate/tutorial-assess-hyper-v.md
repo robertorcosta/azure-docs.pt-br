@@ -2,14 +2,14 @@
 title: Avaliar VMs do Hyper-V para migração para o Azure usando as Migrações para Azure | Microsoft Docs
 description: Descreve como avaliar as VMs locais do Hyper-V para migração para o Azure usando a Avaliação de Servidor de Migrações para Azure.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336765"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535444"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -49,7 +49,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 4. Em **Introdução**, clique em **Adicionar ferramentas**.
 5. Na guia **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-6. Em **Detalhes do Projeto**, especifique o nome do projeto e a região em que deseja criar o projeto. [Examine](migrate-support-matrix.md#supported-geographies) as regiões nas quais você pode criar o projeto de Migrações para Azure.
+6. Em **Detalhes do Projeto**, especifique o nome do projeto e a região em que deseja criar o projeto. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
     - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte como destino de migração.
@@ -67,9 +67,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
-O recurso Migrações para Azure: Avaliação do Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.
-- O dispositivo pode ser configurado em uma VM do Hyper-V usando um VHD do Hyper-V baixado. Como alternativa, você pode configurar o dispositivo em uma VM ou computador físico com um script do instalador do PowerShell.
-- Este tutorial usa o VHD. Examine [este artigo](deploy-appliance-script.md) se você quiser configurar o dispositivo usando um script.
+
+O recurso Migrações para Azure: Avaliação do Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure. O dispositivo pode ser configurado de várias maneiras.
+
+- Configure-o em uma VM do Hyper-V usando um VHD do Hyper-V baixado. Esse é o método usado neste tutorial.
+- Configurar em uma VM do Hyper-V ou computador físico com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deverá ser usado se você não puder configurar uma VM usando o VHD ou se você estiver no Azure Government.
 
 Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
@@ -125,9 +127,9 @@ Importe o arquivo baixado e crie a VM.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
+## <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
+Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
 

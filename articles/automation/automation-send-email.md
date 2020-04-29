@@ -5,24 +5,25 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d4b35458c76da82b33dfcb530cfdc71ee3da3bb6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261350"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604778"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutorial: Enviar um email de um runbook de Automação do Azure
 
-Você pode enviar um email de um runbook com o [SendGrid](https://sendgrid.com/solutions) usando o PowerShell. Este tutorial mostrará como criar um runbook reutilizável que envia um email usando uma chave de API armazenada no [Azure Key Vault](/azure/key-vault/).
-
-Neste tutorial, você aprenderá como:
+Você pode enviar um email de um runbook com o [SendGrid](https://sendgrid.com/solutions) usando o PowerShell. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
-> * Criar um Azure Key Vault
-> * Armazenar sua chave de API do SendGrid no Key Vault
-> * Criar um runbook que recupere sua chave de API e envie um email
+> * Crie um Cofre de chaves do Azure.
+> * Armazene sua chave de API do `SendGrid` no cofre de chaves.
+> * Crie um runbook reutilizável que recupera sua chave de API e envia um email usando uma chave de API armazenada no [Azure Key Vault](/azure/key-vault/).
+
+>[!NOTE]
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar os módulos do Azure PowerShell na Automação do Azure](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,9 +33,9 @@ Para concluir este tutorial, os itens a seguir são necessários:
 * [Criar uma Conta do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
 * [Conta de automação](automation-offering-get-started.md) com módulos **Az** e [conexão Executar como](automation-create-runas-account.md) para armazenar e executar o runbook.
 
-## <a name="create-an-azure-keyvault"></a>Criar um Azure Key Vault
+## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
 
-Você pode criar um Key Vault do Azure usando o seguinte script do PowerShell. Substitua os valores de variáveis por valores específicos do seu ambiente. Use o Azure Cloud Shell inserido por meio do botão <kbd>Experimentar</kbd>, localizado no canto superior direito do bloco de código. Você também poderá copiar e executar o código localmente se tiver o [Módulo do Azure PowerShell](/powershell/azure/install-az-ps) instalado no computador local.
+Você pode criar um Azure Key Vault usando o script do PowerShell a seguir. Substitua os valores de variáveis por valores específicos do seu ambiente. Use o Azure Cloud Shell inserido por meio do botão **Experimentar**, localizado no canto superior direito do bloco de código. Você também poderá copiar e executar o código localmente se tiver o [Módulo do Azure PowerShell](/powershell/azure/install-az-ps) instalado no computador local.
 
 > [!NOTE]
 > Para recuperar sua chave de API, use as etapas encontradas em [Localizar sua chave de API do SendGrid](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
@@ -64,7 +65,7 @@ $resourceId = $newKeyVault.ResourceId
 $Secret = ConvertTo-SecureString -String $SendGridAPIKey -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName $VaultName -Name 'SendGridAPIKey' -SecretValue $Secret
 
-# Grant access to the KeyVault to the Automation RunAs account.
+# Grant access to the Key Vault to the Automation Run As account.
 $connection = Get-AzAutomationConnection -ResourceGroupName $KeyVaultResourceGroupName -AutomationAccountName $AutomationAccountName -Name AzureRunAsConnection
 $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
@@ -72,22 +73,22 @@ Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -P
 
 Para outras maneiras de criar um Azure Key Vault e armazenar um segredo, confira os [Guias de início rápido do Key Vault](/azure/key-vault/).
 
-## <a name="import-required-modules-to-your-automation-account"></a>Importar os módulos necessários para sua Conta de Automação
+## <a name="import-required-modules-to-your-automation-account"></a>Importar os módulos necessários para sua conta de Automação
 
-Para usar o Azure Key Vault em um runbook, sua conta de automação precisará dos seguintes módulos:
+Para usar o Azure Key Vault em um runbook, sua conta de Automação precisa dos seguintes módulos:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile).
-* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault).
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
-Clique em <kbd>Implantar para Automação do Azure</kbd> na guia Automação do Azure em Opções de Instalação. Essa ação abre o portal do Azure. Na página Importar, selecione sua Conta de Automação e clique em <kbd>OK</kbd>.
+Clique em **Implantar para Automação do Azure** na guia Automação do Azure em **Opções de Instalação**. Essa ação abre o portal do Azure. Na página Importar, selecione sua conta de Automação e clique em **OK**.
 
 Para conhecer outros métodos para adicionar os módulos necessários, confira [Importar Módulos](/azure/automation/shared-resources/modules#importing-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Criar o runbook para enviar um email
 
-Depois de ter criado um Key Vault e armazenado sua chave de API do SendGrid, é hora de criar o runbook que recuperará a chave de API e enviará um email.
+Depois de ter criado um cofre de chaves e armazenado sua chave de API do `SendGrid`, é hora de criar o runbook que vai recuperar a chave de API e enviar um email.
 
-Esse runbook usa a [conta Executar como](automation-create-runas-account.md) do AzureRunAsConnection para autenticação com o Azure para recuperar o segredo do Azure Key Vault.
+Esse runbook usa `AzureRunAsConnection` como uma [conta Executar como](automation-create-runas-account.md) para autenticação com o Azure a fim de recuperar o segredo do Azure Key Vault.
 
 Use este exemplo para criar um runbook chamado **Send-GridMailMessage**. Você pode modificar o script do PowerShell e reutilizá-lo para diferentes cenários.
 
@@ -98,7 +99,7 @@ Use este exemplo para criar um runbook chamado **Send-GridMailMessage**. Você p
    ![Criar Runbook](./media/automation-send-email/automation-send-email-runbook.png)
 5. O runbook é criado e a página **Editar Runbook do PowerShell** se abre.
    ![Editar o Runbook](./media/automation-send-email/automation-send-email-edit.png)
-6. Copie o exemplo do PowerShell a seguir para a página **Editar**. Verifique se `$VaultName` é o nome que você especificou ao criar o Key Vault.
+6. Copie o exemplo do PowerShell a seguir para a página **Editar**. Verifique se `$VaultName` é o nome que você especificou ao criar o cofre de chaves.
 
     ```powershell-interactive
     Param(
@@ -156,17 +157,17 @@ Se você não vir inicialmente seu email de teste, verifique suas pastas de **Li
 
 Quando não for mais necessário, exclua o runbook. Para isso, selecione o runbook na lista e clique em **Excluir**.
 
-Exclua o cofre de chaves usando o cmdlet [Remove-AzureRMKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault?view=azurermps).
+Exclua o cofre de chaves usando o cmdlet [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0).
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
 $ResourceGroupName = "<your ResourceGroup name>"
-Remove-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
+Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para problemas ao criar ou iniciar o runbook, confira [Solucionar problemas de erros com runbooks](./troubleshoot/runbooks.md).
-* Para atualizar os módulos em sua conta de automação, confira [Como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md)].
+* Para atualizar os módulos em sua conta de Automação, confira [Como atualizar os módulos de Azure PowerShell na Automação do Azure](automation-update-azure-modules.md)].
 * Para monitorar a execução do runbook, confira [Encaminhar o status do trabalho e fluxos de trabalho de Automação para os logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 * Para disparar um runbook usando um alerta, confira [Usar um alerta para disparar um runbook de Automação do Azure](automation-create-alert-triggered-runbook.md).

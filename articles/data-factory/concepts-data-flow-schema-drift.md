@@ -1,5 +1,5 @@
 ---
-title: Deriva de esquema no mapeamento do fluxo de dados
+title: Descompasso de esquema no fluxo de dados de mapeamento
 description: Construa fluxos de dados resistentes no Azure Data Factory com descompasso de esquema
 author: kromerm
 ms.author: makromer
@@ -9,71 +9,71 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606107"
 ---
-# <a name="schema-drift-in-mapping-data-flow"></a>Deriva de esquema no mapeamento do fluxo de dados
+# <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O esquema é o caso em que suas fontes frequentemente mudam metadados. Campos, colunas e tipos podem ser adicionados, removidos ou alterados na hora. Sem o manuseio para a deriva de esquemas, seu fluxo de dados torna-se vulnerável a alterações na fonte de dados upstream. Padrões típicos de ETL falham quando as colunas e campos de entrada mudam porque tendem a ser vinculados a esses nomes de origem.
+A descompasso de esquema é o caso em que suas fontes geralmente alteram metadados. Campos, colunas e tipos podem ser adicionados, removidos ou alterados em tempo real. Sem lidar com descompasso de esquema, seu fluxo de dados se torna vulnerável a alterações de fonte de dados upstream. Padrões de ETL típicos falham quando colunas e campos de entrada são alterados porque tendem a ser vinculados a esses nomes de origem.
 
-Para proteger contra a deriva de esquemas, é importante ter as instalações em uma ferramenta de fluxo de dados para permitir que você, como engenheiro de dados, para:
+Para se proteger contra descompasso de esquema, é importante ter as instalações em uma ferramenta de fluxo de dados para permitir que você, como engenheiro de dados,:
 
-* Defina fontes que tenham nomes de campo mutáveis, tipos de dados, valores e tamanhos
+* Definir fontes com nomes de campo mutáveis, tipos de dados, valores e tamanhos
 * Defina parâmetros de transformação que funcionam com padrões de dados ao invés de campos e valores codificados
 * Defina expressões que compreendam padrões para corresponder aos campos recebidos, ao invés de usar campos nomeados
 
-A Fábrica de Dados do Azure suporta nativamente esquemas flexíveis que mudam de execução para execução para que você possa construir uma lógica genérica de transformação de dados sem a necessidade de recompilar seus fluxos de dados.
+Azure Data Factory nativamente dá suporte a esquemas flexíveis que mudam da execução para a execução para que você possa criar uma lógica de transformação de dados genérica sem a necessidade de recompilar os fluxos de dados.
 
-Você precisa tomar uma decisão sobre a arquitetura de seu fluxo de dados para aceitar o descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a vinculação antecipada de suas colunas e tipos ao longo de seu fluxo de dados. A Azure Data Factory trata os fluxos de deriva do esquema como fluxos de ligação tardia, de modo que quando você constrói suas transformações, os nomes das colunas à deriva não estarão disponíveis para você nas visualizações do esquema em todo o fluxo.
+Você precisa tomar uma decisão sobre a arquitetura de seu fluxo de dados para aceitar o descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna desfeitos não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
 
-Este vídeo fornece uma introdução a algumas das soluções complexas que você pode construir facilmente no ADF com o recurso de deriva de esquema do fluxo de dados. Neste exemplo, construímos padrões reutilizáveis com base em esquemas flexíveis de banco de dados:
+Este vídeo fornece uma introdução a algumas das soluções complexas que você pode criar facilmente no ADF com o recurso de descompasso de esquema do fluxo de dados. Neste exemplo, criamos padrões reutilizáveis com base em esquemas de banco de dados flexíveis:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
-## <a name="schema-drift-in-source"></a>Deriva de esquema na fonte
+## <a name="schema-drift-in-source"></a>Descompasso de esquema na origem
 
-As colunas que entram no fluxo de dados da sua definição de origem são definidas como "drifted" quando não estão presentes na projeção de origem. Você pode visualizar sua projeção de origem a partir do guia de projeção na transformação da fonte. Quando você selecionar um conjunto de dados para sua fonte, o ADF pegará automaticamente o esquema do conjunto de dados e criará um projeto a partir dessa definição de esquema do conjunto de dados.
+As colunas que entram em seu fluxo de dados da definição de origem são definidas como "descompassos" quando não estão presentes na projeção de origem. Você pode exibir a projeção de origem na guia projeção na transformação origem. Quando você seleciona um conjunto de um DataSet para sua origem, o ADF pegará automaticamente o esquema do conjunto de e criará um projeto a partir dessa definição de esquema de conjunto de banco de forma.
 
-Em uma transformação de origem, o deriva do esquema é definido como colunas de leitura que não são definidas como esquema do conjunto de dados. Para habilitar a deriva do esquema, verifique **Permitir a deriva do esquema** na sua transformação de origem.
+Em uma transformação de origem, a descompasso de esquema é definida como uma leitura de colunas que não definem seu esquema de conjunto de linhas. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** em sua transformação de origem.
 
-![Fonte de deriva de esquema](media/data-flow/schemadrift001.png "Fonte de deriva de esquema")
+![Origem de descompasso de esquema](media/data-flow/schemadrift001.png "Origem de descompasso de esquema")
 
-Quando a deriva do esquema é ativada, todos os campos de entrada são lidos da sua fonte durante a execução e passam por todo o fluxo para a Pia. Por padrão, todas as colunas recém-detectadas, conhecidas como *colunas derivadas,* chegam como um tipo de dados de seqüência. Se desejar que seu fluxo de dados infera automaticamente os tipos de dados das colunas derivadas, verifique os tipos de **colunas derivadas infer** em suas configurações de origem.
+Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos*, chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
 
-## <a name="schema-drift-in-sink"></a>Deriva de esquema na pia
+## <a name="schema-drift-in-sink"></a>Descompasso de esquema no coletor
 
-Em uma transformação de pia, a deriva do esquema é quando você escreve colunas adicionais em cima do que é definido no esquema de dados da pia. Para habilitar a deriva do esquema, verifique **Permitir a deriva do esquema** na transformação da pia.
+Em uma transformação de coletor, o descompasso de esquema é quando você grava colunas adicionais sobre o que é definido no esquema de dados do coletor. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** na transformação do coletor.
 
-![Pia de deriva de esquema](media/data-flow/schemadrift002.png "Pia de deriva de esquema")
+![Coletor de descompasso de esquema](media/data-flow/schemadrift002.png "Coletor de descompasso de esquema")
 
-Se a deriva do esquema estiver ativada, **certifique-se de** que o controle deslizante de mapeamento automático na guia Mapeamento esteja ativado. Com este controle deslizante ligado, todas as colunas recebidas são escritas para o seu destino. Caso contrário, você deve usar mapeamento baseado em regras para escrever colunas à deriva.
+Se a descompasso de esquema estiver habilitada, verifique se o controle deslizante de **mapeamento automático** na guia mapeamento está ativado. Com esse controle deslizante ativado, todas as colunas de entrada são gravadas no destino. Caso contrário, você deve usar o mapeamento baseado em regras para gravar colunas descompassos.
 
-![Mapeamento automático do sink](media/data-flow/automap.png "Mapeamento automático do sink")
+![Mapeamento automático do coletor](media/data-flow/automap.png "Mapeamento automático do coletor")
 
-## <a name="transforming-drifted-columns"></a>Transformando colunas à deriva
+## <a name="transforming-drifted-columns"></a>Transformando colunas descompassos
 
-Quando o fluxo de dados tiver derivado colunas, você pode acessá-las em suas transformações com os seguintes métodos:
+Quando o fluxo de dados tiver colunas descompassos, você poderá acessá-las em suas transformações com os seguintes métodos:
 
-* Use `byPosition` as `byName` expressões e expressões para referenciar explicitamente uma coluna por nome ou número de posição.
-* Adicione um padrão de coluna em uma transformação Derivada ou Agregada para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
-* Adicione mapeamento baseado em regras em uma transformação Select ou Sink para combinar colunas derivadas a alias de colunas através de um padrão
+* Use as `byPosition` expressões `byName` e para referenciar explicitamente uma coluna por nome ou número de posição.
+* Adicionar um padrão de coluna em uma coluna derivada ou transformação de agregação para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
+* Adicionar mapeamento baseado em regra em uma transformação SELECT ou Sink para corresponder colunas perrespondidas a aliases de colunas por meio de um padrão
 
-Para obter mais informações sobre como implementar padrões de coluna, consulte [Padrões de coluna no mapeamento do fluxo de dados](concepts-data-flow-column-pattern.md).
+Para obter mais informações sobre como implementar padrões de coluna, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md).
 
-### <a name="map-drifted-columns-quick-action"></a>Mapa de colunas de deriva ação rápida
+### <a name="map-drifted-columns-quick-action"></a>Ação rápida mapear colunas descompassos
 
-Para referenciar explicitamente colunas à deriva, você pode gerar rapidamente mapeamentos para essas colunas através de uma ação rápida de visualização de dados. Uma vez que o [modo de depuração](concepts-data-flow-debug-mode.md) esteja ligado, vá para a guia Visualização de dados e clique **em Atualizar** para obter uma visualização de dados. Se a fábrica de dados detectar que existem colunas derivadas, você pode clicar em **Map Drifted** e gerar uma coluna derivada que permite que você faça referência a todas as colunas derivadas em exibições de esquema a jusante.
+Para referenciar explicitamente colunas descompassos, você pode gerar rapidamente mapeamentos para essas colunas por meio de uma ação rápida de visualização de dados. Depois que o [modo de depuração](concepts-data-flow-debug-mode.md) estiver ativado, vá para a guia Visualização de dados e clique em **Atualizar** para buscar uma visualização de dados. Se data factory detectar que as colunas descompassos existem, você poderá clicar em **mapear descompasso** e gerar uma coluna derivada que permite que você referencie todas as colunas descompassos em exibições de esquema downstream.
 
-![Mapa à deriva](media/data-flow/mapdrifted1.png "Mapa à deriva")
+![Mapa descompasso](media/data-flow/mapdrifted1.png "Mapa descompasso")
 
-Na transformação gerada da Coluna Derivada, cada coluna derivada é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna 'movieId' é detectada como um inteiro. Depois **que Map Drifted** é clicado, movieId `toInteger(byName('movieId'))` é definido na Coluna Derivada como e incluído em exibições de esquema em transformações a jusante.
+Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada `toInteger(byName('movieId'))` como e incluído em exibições de esquema em transformações de downstream.
 
-![Mapa à deriva](media/data-flow/mapdrifted2.png "Mapa à deriva")
+![Mapa descompasso](media/data-flow/mapdrifted2.png "Mapa descompasso")
 
 ## <a name="next-steps"></a>Próximas etapas
-Na [Linguagem de Expressão de Fluxo de Dados,](data-flow-expression-functions.md)você encontrará instalações adicionais para padrões de coluna e deriva de esquema, incluindo "byName" e "byPosition".
+Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md), você encontrará recursos adicionais para padrões de coluna e descompasso de esquema, incluindo "byName" e "byPosition".

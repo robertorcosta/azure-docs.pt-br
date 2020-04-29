@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: dsindona
 ms.openlocfilehash: fde249f22342ed2a0c50f5fdda3bde9dc2cde183
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81685735"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover seu negócio com a Microsoft
@@ -26,7 +26,7 @@ ms.locfileid: "81685735"
 
 Para promover sua oferta ou aplicativo e acessar mais benefícios e recursos, use a seguinte tabela:
 
-| Benefícios | Recursos |
+| Vantagens | Recursos |
 |:--- |:--- |
 | Use os benefícios principais | Como parte do Microsoft Partner Network, você recebe um conjunto de benefícios essenciais que podem ajudar a economizar tempo e dinheiro. Os benefícios podem ajudá-lo a <ul> <li> fortalecer suas capacidades, </li> <li> atender melhor aos clientes e </li> <li> criar conexões para alcançar seu potencial empresarial máximo. </li> </ul> Para obter mais informações sobre os principais benefícios, visite [Principais benefícios e requisitos](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Obtenha sua Competência da Plataforma de Nuvem | Obter uma competência ajuda você a: <ul> <li> diferenciar-se dos outros parceiros da Microsoft; </li> <li> demonstrar a competência técnica e o sucesso dos clientes no mercado. </li> </ul> A competência é um pré-requisito para muitos programas de parceiros importantes, como o Co-Sell. Veja [Competência de plataforma de nuvem](https://partner.microsoft.com/reach-customers/selling-with-microsoft) para obter mais informações. |
@@ -36,6 +36,6 @@ Para promover sua oferta ou aplicativo e acessar mais benefícios e recursos, us
 
 Para saber mais sobre os serviços GTM do marketplace, acesse [serviços Go-to-market](https://partner.microsoft.com/reach-customers/gtm).
 
-[Faça login no Partner Center para](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) criar ou concluir sua oferta.
+[Faça logon no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
 
 ---

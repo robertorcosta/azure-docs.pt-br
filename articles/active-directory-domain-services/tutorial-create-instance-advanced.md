@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519289"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639943"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Criar e configurar uma instância do Azure Active Directory Domain Services com opções de configuração avançadas
 
@@ -207,7 +207,7 @@ As etapas para gerar e armazenar esses hashes de senha são diferentes para as c
 > [!TIP]
 > Se o locatário do Azure AD tiver uma combinação de usuários somente de nuvem e usuários do AD local, será necessário concluir ambos os conjuntos de etapas.
 
-Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. Você também pode expirar as senhas de todos os usuários do locatário que precisam usar o Azure AD DS – o que forçaria a troca de senha na próxima entrada – ou instruí-los a alterar as senhas manualmente. Para este tutorial, vamos alterar manualmente a senha do usuário.
+Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. A conta não é sincronizada do Azure AD para o Azure AD DS até que a senha seja alterada. Expire as senhas de todos os usuários do locatário que precisam usar o Azure AD DS (o que forçaria a troca de senha na próxima entrada) ou então instrua-os a alterar as respectivas senhas manualmente. Para este tutorial, vamos alterar manualmente a senha do usuário.
 
 Antes que o usuário possa redefinir a senha, o locatário do Azure AD deve ser [configurado para redefinição de senha self-service][configure-sspr].
 

@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Active Directory logs para logs do Monitor do Azure | Microsoft Docs
-description: Saiba como integrar os logs do Azure Active Directory com os logs do Azure Monitor
+title: Transmitir logs de Azure Active Directory para Azure Monitor logs | Microsoft Docs
+description: Saiba como integrar logs de Azure Active Directory com logs de Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d0ef55f6f5117ffa77052118155afea716125a4
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639736"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integre os logs do Azure AD com os logs do Monitor do Azure
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar logs do Azure AD com logs de Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -44,8 +44,8 @@ Neste artigo, você aprenderá a integrar os logs do Azure Active Directory (Azu
 
 Você pode rotear os logs de atividade de auditoria e logs de atividade de entrada para logs do Azure Monitor para análise posterior. 
 
-* **Logs de auditoria**: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de cada tarefa realizada em seu inquilino.
-* **Loglogs de login**: Com o [relatório de atividade de login,](concept-sign-ins.md)você pode determinar quem executou as tarefas que são relatadas nos registros de auditoria.
+* **Logs de auditoria**: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
+* **Logs de entrada**: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
 
 > [!NOTE]
 > Não há suporte para logs de atividades de auditoria e entradas relacionados ao B2C no momento.
@@ -62,13 +62,13 @@ Para usar esse recurso, você precisa de:
 
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 
-O uso deste recurso requer uma licença Azure AD Premium P1 ou P2. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+O uso desse recurso requer uma licença Azure AD Premium P1 ou P2. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="send-logs-to-azure-monitor"></a>Enviar logs para o Azure Monitor
+## <a name="send-logs-to-azure-monitor"></a>Enviar logs para Azure Monitor
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione as > **configurações** -> de diagnóstico do **diretório ativo do Azure****Adicionar configuração de diagnóstico**. Você também pode selecionar a página**Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
+2. Selecione **Azure Active Directory** > **configurações** -> de diagnóstico**Adicionar configuração de diagnóstico**. Você também pode selecionar a página**Exportar Configurações** dos **Logs de Auditoria** ou **Assinaturas** para obter a página de configuração de configurações de diagnóstico.  
     
 3. No menu **Configurações de Diagnóstico**, marque a caixa de seleção **Enviar para o espaço de trabalho do Log Analytics** e, em seguida, selecione **Configurar**.
 

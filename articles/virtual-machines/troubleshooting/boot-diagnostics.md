@@ -11,17 +11,17 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
 ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476579"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas das máquinas virtuais no Azure
 
-Pode haver vários motivos pelos quais uma máquina virtual entra em um estado não inicializável. Para resolver problemas com suas máquinas virtuais criadas usando o modelo de implantação do Resource Manager, você pode usar os seguintes recursos de depuração: saída de console e suporte a captura de tela para máquinas virtuais Azure. 
+Pode haver vários motivos pelos quais uma máquina virtual entra em um estado não inicializável. Para resolver problemas com suas máquinas virtuais criadas usando o modelo de implantação do Gerenciador de recursos, você pode usar os seguintes recursos de depuração: saída do console e suporte a captura de tela para máquinas virtuais do Azure. 
 
-Para Máquinas Virtuais do Linux, exiba a saída do log de console no portal. Para Máquinas Virtuais do Windows e do Linux, o Azure permite que você veja uma captura de tela da VM no hipervisor. Há suporte para os dois recursos nas máquinas virtuais do Azure em todas as regiões. Nota, capturas de tela e saída podem levar até 10 minutos para aparecer em sua conta de armazenamento.
+Para Máquinas Virtuais do Linux, exiba a saída do log de console no portal. Para Máquinas Virtuais do Windows e do Linux, o Azure permite que você veja uma captura de tela da VM no hipervisor. Há suporte para os dois recursos nas máquinas virtuais do Azure em todas as regiões. Observe que as capturas de tela e a saída podem levar até 10 minutos para aparecer em sua conta de armazenamento.
 
 Você pode selecionar a opção **Diagnósticos de inicialização** para exibir o log e a captura de tela.
 
@@ -79,7 +79,7 @@ O perfil de diagnóstico permite que você selecione a conta de armazenamento em
 }
 ```
 
-Para obter mais informações sobre a implantação de recursos usando modelos, consulte [Quickstart: Crie e implante modelos do Azure Resource Manager usando o portal Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Para obter mais informações sobre como implantar recursos usando modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitar o diagnóstico de inicialização em uma máquina virtual existente 
 

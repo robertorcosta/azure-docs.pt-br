@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399445"
+ms.locfileid: "81529885"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -92,7 +92,7 @@ Explore a [documentação de referência da API REST](https://westus2.dev.cognit
 
 Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
 
-* O formato deve ser JPEG, PNG, BMP, PDF (texto ou digitalizado) ou TIFF.
+* O formato deve ser JPEG, PNG, PDF (texto ou digitalizado) ou TIFF.
 * O tamanho do arquivo deve ser inferior a 20 MB.
 * As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels.
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou A3 e menores.

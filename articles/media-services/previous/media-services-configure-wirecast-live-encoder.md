@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641656"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única 
@@ -32,7 +32,7 @@ Este artigo mostra como configurar o codificador ativo [Telestream Wirecast](htt
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Os codificadores devem suportar o TLS 1.2 ao usar protocolos RTMPS. Use a versão Wirecast 13.0.2 ou superior devido ao requisito TLS 1.2.
+> Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos RTMPS. Use o Wirecast versão 13.0.2 ou superior devido ao requisito de TLS 1,2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta de Serviços de Mídia do Azure](media-services-portal-create-account.md)
@@ -63,7 +63,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 >
 >
 
-Enquanto o canal estiver iniciando, você pode [configurar o codificador](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+Enquanto o canal está sendo iniciado, você pode [Configurar o codificador](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
 > A cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
@@ -81,7 +81,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
-**Áudio:**
+**Áudio**:
 
 * Codec: AAC (LC)
 * Taxa de bits: 192 kbps
@@ -154,7 +154,7 @@ Se a transmissão for exibida no player, isso significa que o codificador foi co
 Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Viver** na ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **Criar novo programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Live** da ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **criar novo programa**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de quatro horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.  
@@ -175,5 +175,5 @@ Confira o artigo de [solução de problemas](media-services-troubleshooting-live
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

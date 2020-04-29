@@ -1,6 +1,6 @@
 ---
 title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
-description: Este artigo explica como os assinantes podem definir quais mensagens querem receber de um tópico especificando filtros.
+description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
 services: service-bus-messaging
 documentationcenter: ''
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
 ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482059"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
@@ -29,28 +29,28 @@ O Barramento de Serviço dá suporte a três condições de filtro:
 
 -   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura.
 
--   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto sql para](service-bus-messaging-sql-filter.md) testes de condições de`EXISTS`filtro para`IS NULL`a existência de propriedades ( ), valores nulos (), lógicoNÃO/AND/OR, `LIKE`operadores relacionais, aritmética numérica simples e simples correspondência de padrão de texto com .
+-   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades (`EXISTS`), valores nulos (`IS NULL`), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples `LIKE`com.
 
--   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é corresponder à propriedade **CorrelationId,** mas o aplicativo também pode optar por corresponder às seguintes propriedades:
+-   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
-    - **Contenttype**
-     - **Rótulo**
+    - **ContentType**
+     - **Rotular**
      - **MessageId**
-     - **Replyto**
+     - **ReplyTo**
      - **ReplyToSessionId**
      - **SessionId** 
      - **Para**
-     - quaisquer propriedades definidas pelo usuário. 
+     - qualquer propriedade definida pelo usuário. 
      
      Uma correspondência existe quando o valor de uma propriedade de uma mensagem recebida é igual ao valor especificado no filtro de correlação. Para expressões de cadeia de caracteres, a comparação diferencia maiúsculas de minúsculas. Ao especificar várias propriedades de correspondência, o filtro as combina como uma condição AND lógica, o que significa que para haver a correspondência do filtro, todas as condições devem corresponder.
 
 Todos os filtros avaliam as propriedades da mensagem. Os filtros não podem avaliar o corpo da mensagem.
 
-Regras de filtro complexas requerem capacidade de processamento. Em particular, o uso de regras de filtro SQL causa menor throughput geral de mensagens no nível de assinatura, tópico e namespace. Sempre que possível, os aplicativos devem escolher filtros de correlação em vez de filtros semelhantes a SQL, porque eles são muito mais eficientes no processamento e têm menos impacto sobre o throughput.
+Regras de filtro complexas requerem capacidade de processamento. Em particular, o uso de regras de filtro SQL causa uma menor taxa de transferência geral da mensagem na assinatura, no tópico e no nível do namespace. Sempre que possível, os aplicativos devem escolher filtros de correlação em filtros semelhantes ao SQL porque eles são muito mais eficientes no processamento e têm menos impacto na taxa de transferência.
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro SQL, você pode definir uma ação que pode anotar a mensagem adicionando, removendo ou substituindo propriedades e seus valores. A ação [usa uma expressão do tipo SQL](service-bus-messaging-sql-filter.md) que depende vagamente da sintaxe da instrução SQL UPDATE. A ação é feita na mensagem depois de ser combinada e antes que a mensagem seja selecionada na assinatura. As alterações nas propriedades de mensagem são particulares para a mensagem copiada para a assinatura.
+Com condições de filtro SQL, você pode definir uma ação que pode anotar a mensagem adicionando, removendo ou substituindo propriedades e seus valores. A ação [usa uma expressão do tipo SQL](service-bus-messaging-sql-filter.md) que depende vagamente da sintaxe da instrução SQL UPDATE. A ação é feita na mensagem depois que ela é correspondida e antes de a mensagem ser selecionada na assinatura. As alterações nas propriedades de mensagem são particulares para a mensagem copiada para a assinatura.
 
 ## <a name="usage-patterns"></a>Padrões de uso
 
@@ -64,13 +64,13 @@ O roteamento usa filtros para distribuir mensagens através de assinaturas de t�
 
 
 > [!NOTE]
-> Atualmente, o portal Azure não permite especificar regras de filtro para assinaturas. Você pode usar qualquer um dos Modelos SDKs ou Azure Resource Manager suportados para definir regras de assinatura. 
+> Atualmente, a portal do Azure não permite que você especifique regras de filtro para assinaturas. Você pode usar qualquer um dos SDKs com suporte ou modelos de Azure Resource Manager para definir regras de assinatura. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja as seguintes amostras: 
+Consulte os seguintes exemplos: 
 
-- [.NET - Tutorial básico de envio e recebimento com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET - Filtros tópicos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [.NET-tutorial de envio e recebimento básico com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET-filtros de tópico](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
 - [Script de tipo](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)

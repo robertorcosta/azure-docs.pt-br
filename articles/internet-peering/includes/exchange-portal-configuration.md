@@ -9,28 +9,28 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 268703081a2a40e8bcc665889eaeaf8edd673bfd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680933"
 ---
-1. Na **página Criar um peering,** na guia **Configuração,** preencha as caixas como mostrado.
+1. Na página **criar um emparelhamento** , na guia **configuração** , preencha as caixas conforme mostrado.
 
     > [!div class="mx-imgBorder"]
-    > ![Criar um peering page Exchange peering type](../media/setup-exchange-conf-tab.png)
+    > ![Criar um tipo de emparelhamento de troca de página de emparelhamento](../media/setup-exchange-conf-tab.png)
 
-    * Para **o tipo Peering, selecione** **Exchange**.
-    * Selecione **SKU** como **Basic Free**.
-    * Selecione o local do **metrô** onde deseja configurar o peering.
+    * Para **tipo de emparelhamento**, selecione **Exchange**.
+    * Selecione **SKU** como **básico gratuito**.
+    * Selecione o local do **Metro** onde você deseja configurar o emparelhamento.
 
         > [!NOTE]
-        > Se você já tiver conexões de peering com a Microsoft no local de **Metrô** selecionado e estiver usando o portal pela primeira vez para configurar o peering nesse local, suas conexões de peering existentes serão listadas na seção **Conexões peering,** conforme mostrado. A Microsoft converterá automaticamente essas conexões de peering para um recurso do Azure para que você possa gerenciá-las todas, juntamente com as novas conexões em um só lugar. Para obter mais informações, consulte [Converter um correspondente legado de peering para um recurso do Azure usando o portal](../howto-legacy-exchange-portal.md).
+        > Se você já tiver conexões de emparelhamento com a Microsoft no local **Metro** selecionado e estiver usando o portal pela primeira vez para configurar o emparelhamento nesse local, as conexões de emparelhamento existentes serão listadas na seção **conexões de emparelhamento** , conforme mostrado. A Microsoft converterá automaticamente essas conexões de emparelhamento em um recurso do Azure para que você possa gerenciá-las junto com as novas conexões em um único lugar. Para obter mais informações, consulte [converter um emparelhamento do Exchange herdado em um recurso do Azure usando o portal](../howto-legacy-exchange-portal.md).
         >
 
-1. Em **Conexões peering,** selecione **Criar uma nova** linha para cada nova conexão que você deseja configurar.
+1. Em **conexões de emparelhamento**, selecione **criar novo** para adicionar uma linha para cada nova conexão que você deseja configurar.
 
-    * Para configurar ou modificar as configurações de conexão, selecione o botão editar para uma linha.
+    * Para configurar ou modificar as configurações de conexão, selecione o botão Editar para uma linha.
 
         > [!div class="mx-imgBorder"]
         > ![Botão Editar](../media/setup-exchange-conf-tab-edit.png)
@@ -40,34 +40,34 @@ ms.locfileid: "81680933"
         > [!div class="mx-imgBorder"]
         > ![Botão Excluir](../media/setup-exchange-conf-tab-delete.png)
 
-    * Você é obrigado a fornecer todas as configurações para uma conexão, como mostrado aqui.
+    * Você precisa fornecer todas as configurações para uma conexão, como mostrado aqui.
 
          > [!div class="mx-imgBorder"]
-         > ![Página de conexão de peering do exchange](../media/setup-exchange-conf-tab-connection.png)
+         > ![Página de conexão de emparelhamento do Exchange](../media/setup-exchange-conf-tab-connection.png)
 
-        1. Selecione a **instalação peering** onde a conexão precisa ser configurada.
-        1. Nos **endereços IPv4** e **IPv6,** digite os endereços IPv4 e IPv6, respectivamente, que seriam configurados em roteadores da Microsoft usando o comando neighbor.
-        1. Digite o número de prefixos IPv4 e IPv6 que você anunciará nos **endereços IPv4 anunciados máximos** e **caixas de endereços IPv6 anunciadas máximas,** respectivamente.
-        1. Selecione **OK** para salvar suas configurações de conexão.
+        1. Selecione o **recurso de emparelhamento** em que a conexão precisa ser configurada.
+        1. Nas caixas **endereço IPv4** e **endereço IPv6** , insira os endereços IPv4 e IPv6, respectivamente, que seriam configurados nos roteadores da Microsoft usando o comando neighbor.
+        1. Insira o número de prefixos IPv4 e IPv6 que você anunciará nas caixas **máximo de endereços IPv4 anunciados** e **máximo de endereços IPv6 anunciados** , respectivamente.
+        1. Selecione **OK** para salvar as configurações de conexão.
 
-1. Repita a etapa para adicionar mais conexões em qualquer instalação onde a Microsoft esteja situada com sua rede, dentro do **Metro** selecionado anteriormente.
+1. Repita a etapa para adicionar mais conexões em qualquer instalação em que a Microsoft esteja colocalizada com sua rede, no **Metro** selecionado anteriormente.
 
-1. Depois de adicionar todas as conexões necessárias, selecione **'Revisar + criar '''**
-
-    > [!div class="mx-imgBorder"]
-    > ![Guia de configuração de peering](../media/setup-exchange-conf-tab-final.png)
-
-1. Observe que o portal executa a validação básica das informações inseridas. Uma fita na parte superior exibe a mensagem *Executando a validação final...*.
+1. Depois de adicionar todas as conexões necessárias, selecione **revisar + criar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Guia validação de peering](../media/setup-direct-review-tab-validation.png)
+    > ![Guia de configuração de emparelhamento](../media/setup-exchange-conf-tab-final.png)
 
-1. Depois que a mensagem passar para *Validação,* verifique suas informações. Envie a solicitação selecionando **Criar**. Para modificar sua solicitação, selecione **Previous** e repita as etapas.
-
-    > [!div class="mx-imgBorder"]
-    > ![Submissão peering](../media/setup-exchange-review-tab-submit.png)
-
-1. Depois de enviar a solicitação, aguarde o término da implantação. Se a implantação falhar, entre em contato com [a Microsoft .](mailto:peering@microsoft.com) Uma implantação bem sucedida aparece como mostrado aqui.
+1. Observe que o portal executa a validação básica das informações inseridas. Uma faixa na parte superior exibe a mensagem *executando a validação final...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Sucesso peering](../media/setup-direct-success.png)
+    > ![Guia validação de emparelhamento](../media/setup-direct-review-tab-validation.png)
+
+1. Depois que a mensagem for alterada para *validação aprovada*, verifique suas informações. Envie a solicitação selecionando **criar**. Para modificar sua solicitação, selecione **anterior** e repita as etapas.
+
+    > [!div class="mx-imgBorder"]
+    > ![Envio de emparelhamento](../media/setup-exchange-review-tab-submit.png)
+
+1. Depois de enviar a solicitação, aguarde a conclusão da implantação. Se a implantação falhar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida aparece como mostrado aqui.
+
+    > [!div class="mx-imgBorder"]
+    > ![Êxito no emparelhamento](../media/setup-direct-success.png)

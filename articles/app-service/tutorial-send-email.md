@@ -4,12 +4,12 @@ description: Saiba como invocar processos empresariais em seu aplicativo do Serv
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892565"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604845"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: enviar emails e invocar outros processos empresariais no Serviço de Aplicativo
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Esse código é escrito para simplificar a demonstração. Na prática, não crie uma instância de um objeto `HttpClient` para cada solicitação. Siga as orientações em [Usar IHttpClientFactory para implementar solicitações HTTP resilientes] (https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient -http-requests).
+> Esse código é escrito para simplificar a demonstração. Na prática, não crie uma instância de um objeto `HttpClient` para cada solicitação. Siga as orientações em [Usar IHttpClientFactory para implementar solicitações HTTP resilientes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Se estiver testando esse código no aplicativo de exemplo do [Tutorial: Criar um aplicativo ASP.NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure](app-service-web-tutorial-dotnetcore-sqldb.md), você poderá usá-lo para enviar um email de confirmação em [Criar ação](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), depois que o item `Todo` for adicionado.
 

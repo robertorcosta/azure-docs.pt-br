@@ -1,5 +1,5 @@
 ---
-title: Usando o serviço conectado active directory (Visual Studio)
+title: Usando o serviço conectado do Active Directory (Visual Studio)
 description: Adicionar um Active Directory do Azure usando a caixa de diálogo Adicionar Serviços Conectados do Visual Studio
 author: ghogen
 manager: jillfra
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535818"
 ---
-# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicione um Diretório Ativo do Azure usando serviços conectados no Visual Studio
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory usando os serviços conectados no Visual Studio
 
-Usando o Azure Active Directory (Azure AD), você pode suportar o SSO (Single Sign-On, entrada em ação única) para ASP.NET aplicativos da Web MVC ou autenticação de diretório ativo em serviços de API web. Com a Autenticação do Microsoft Azure Active Directory, os usuários podem usar suas contas no Azure Active Directory para se conectar aos aplicativos Web. As vantagens da Autenticação Azure AD com a API web incluem segurança de dados aprimorada ao expor uma API de um aplicativo web. Com o AD do Azure, você não precisa gerenciar um sistema de autenticação separado com a própria conta e gerenciamento de usuários.
+Usando o Azure Active Directory (AD do Azure), você pode dar suporte ao SSO (logon único) para aplicativos Web ASP.NET MVC ou Active Directory autenticação nos serviços de API da Web. Com a Autenticação do Microsoft Azure Active Directory, os usuários podem usar suas contas no Azure Active Directory para se conectar aos aplicativos Web. As vantagens da autenticação do Azure AD com a API da Web incluem segurança de dados aprimorada ao expor uma API de um aplicativo Web. Com o AD do Azure, você não precisa gerenciar um sistema de autenticação separado com a própria conta e gerenciamento de usuários.
 
-Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para o Active Directory. O recurso está disponível no Visual Studio 2015 e posteriormente.
+Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para o Active Directory. O recurso está disponível no Visual Studio 2015 e posterior.
 
 No momento, o serviço conectado do Active Directory não dá suporte a aplicativos ASP.NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conta do Azure: se não tiver uma conta do Azure, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** ou posterior. [Baixe Visual Studio agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** ou posterior. [Baixe o Visual Studio agora mesmo](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Conectar-se ao Azure Active Directory usando a caixa de diálogo Serviços Conectados
 
@@ -44,7 +44,7 @@ No momento, o serviço conectado do Active Directory não dá suporte a aplicati
 
     ![Página Introdução](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Na página **Logon único**, selecione um domínio na lista suspensa **Domínio**. A lista contém todos os domínios acessíveis pelas contas listadas na caixa de diálogo Configurações da conta do Visual Studio (**Configurações de > de arquivo da conta...**). Como alternativa, você pode inserir um nome de domínio se você não encontrar `mydomain.onmicrosoft.com`o que você está procurando, como . Você pode escolher a opção para criar um novo aplicativo do Azure Active Directory ou usar as configurações de um aplicativo do Azure Active Directory existente. Quando terminar, escolha **Avançar**.
+1. Na página **Logon único**, selecione um domínio na lista suspensa **Domínio**. A lista contém todos os domínios acessíveis pelas contas listadas na caixa de diálogo Configurações de conta do Visual Studio (**arquivo > configurações de conta...**). Como alternativa, você pode inserir um nome de domínio se não encontrar aquele que está procurando, como `mydomain.onmicrosoft.com`. Você pode escolher a opção para criar um novo aplicativo do Azure Active Directory ou usar as configurações de um aplicativo do Azure Active Directory existente. Quando terminar, escolha **Avançar**.
 
     ![Página Logon único](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
@@ -72,5 +72,5 @@ Quando você adiciona o serviço conectado ao assistente, o Visual Studio adicio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação para Diretório Ativo do Azure](authentication-scenarios.md)
+- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
 - [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

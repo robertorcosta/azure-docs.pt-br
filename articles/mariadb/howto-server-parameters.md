@@ -1,5 +1,5 @@
 ---
-title: Configurar parâmetros de servidor - Portal Azure - Banco de Dados Azure para MariaDB
+title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como configurar os parâmetros do servidor MariaDB no Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/16/2020
 ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81602399"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar os parâmetros do servidor no banco de dados do Azure para MariaDB usando o portal do Azure
@@ -24,7 +24,7 @@ O Banco de Dados do Azure para o MariaDB suporta a configuração de alguns par�
 ![Página de parâmetros do servidor do Portal do Azure](./media/howto-server-parameters/azure-portal-server-parameters.png)
 3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
 ![Enumerar a lista suspensa](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Clique **em Salvar** para salvar suas alterações.
+4. Clique em **salvar** para salvar as alterações.
 ![Clique em salvar ou descartar mudanças](./media/howto-server-parameters/4-save_parameters.png)
 5. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
 ![Redefinir tudo para padrão](./media/howto-server-parameters/5-reset_parameters.png)
@@ -37,7 +37,7 @@ A lista de parâmetros de servidor com suporte está em constante crescimento. U
 
 Pool de buffers InnoDB e Máximo de Conexões não são configuráveis e são associados ao seu [tipo de preço](concepts-pricing-tiers.md).
 
-|**Nível de preços**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**|
+|**Tipo de preço**| **vCore(s)**|**Pool de Buffers InnoDB (MB)**|
 |---|---|---|
 |Basic| 1| 1024|
 |Basic| 2| 2560|
@@ -60,7 +60,7 @@ Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 |innodb_file_per_table na camada Básica|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
-|innodb_log_file_size|256MB|
+|innodb_log_file_size|GRÁFICA|
 |innodb_log_files_in_group|2|
 
 Outros parâmetros de servidor que não estão listados aqui são definidos como seus valores padrão prontos para MariaDB para [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
@@ -79,7 +79,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário estejam preenchidas corretamente. Para reiniciar o servidor, use o [portal Azure](howto-restart-server-portal.md) ou [CLI](howto-restart-server-cli.md).
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 
 ```sql

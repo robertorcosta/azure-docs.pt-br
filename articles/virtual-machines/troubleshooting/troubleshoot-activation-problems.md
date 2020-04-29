@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
 ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605998"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
@@ -26,7 +26,7 @@ Se você tiver problemas durante a ativação da máquina virtual do Windows Azu
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Noções básicas sobre pontos de extremidade do Azure KMS para ativação do Windows de Máquinas Virtuais do Azure
 
-O Azure usa diferentes pontos finais para ativação do KMS (Key Management Services), dependendo da região de nuvem onde a VM reside. Ao usar este guia de solução de problemas, use o ponto de extremidade apropriado do KMS que se aplica à região.
+O Azure usa pontos de extremidade diferentes para a ativação do KMS (serviços de gerenciamento de chaves), dependendo da região da nuvem onde reside a VM. Ao usar este guia de solução de problemas, use o ponto de extremidade apropriado do KMS que se aplica à região.
 
 * Regiões de nuvem pública do Azure: kms.core.windows.net:1688
 * Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
@@ -37,7 +37,7 @@ O Azure usa diferentes pontos finais para ativação do KMS (Key Management Serv
 
 Quando você tentar ativar uma VM do Windows Azure, você recebe um erro mensagem se parece com o exemplo a seguir:
 
-**Erro: 0xC004F074 O Software LicensingService informou que o computador não poderia ser ativado. Nenhum Key ManagementService (KMS) poderia ser contatado. Consulte o Registro de Eventos do Aplicativo para obter informações adicionais.**
+**Erro: 0xC004F074 o serviço de software relatou que o computador não pôde ser ativado. Nenhum ManagementService de chave (KMS) pôde ser contatado. Consulte o log de eventos do aplicativo para obter informações adicionais.**
 
 ## <a name="cause"></a>Causa
 
@@ -46,13 +46,13 @@ Em geral, problemas de ativação da VM do Azure ocorrem se a VM do Windows não
 ## <a name="solution"></a>Solução
 
 >[!NOTE]
->Se você estiver usando uma VPN local-para-site e um túnel forçado, consulte [Use rotas personalizadas do Azure para permitir a ativação do KMS com tunelamento forçado](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
+>Se você estiver usando uma VPN site a site e um túnel forçado, consulte [usar rotas personalizadas do Azure para habilitar a ativação do KMS com túnel forçado](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
 >
->Se você estiver usando o ExpressRoute e tiver uma rota padrão publicada, [veja Posso bloquear a conectividade da Internet com redes virtuais conectadas aos circuitos ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+>Se você estiver usando o ExpressRoute e tiver uma rota padrão publicada, consulte posso [bloquear a conectividade com a Internet para redes virtuais conectadas a circuitos do ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passo 1 Configure a chave de configuração do cliente KMS apropriada
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Etapa 1 configurar a chave de instalação do cliente KMS apropriada
 
-Para a VM criada a partir de uma imagem personalizada, você deve configurar a chave de configuração do cliente KMS apropriada para a VM.
+Para a VM que é criada com base em uma imagem personalizada, você deve configurar a chave de instalação do cliente KMS apropriada para a VM.
 
 1. Execute **slmgr.vbs /dlv** em um prompt de comando elevado. Verifique o valor de descrição na saída e, em seguida, determine se ele foi criado a partir da mídia de licença de varejo (canal RETAIL) ou de volume (VOLUME_KMSCLIENT):
   
@@ -98,11 +98,11 @@ Para a VM criada a partir de uma imagem personalizada, você deve configurar a c
 
    Se Lost for maior que 0 (zero), a VM não tem conectividade com o servidor KMS. Nessa situação, se a VM estiver em uma rede virtual e tiver um servidor DNS especificado, certifique-se de que o servidor DNS é capaz de resolver kms.core.windows.net. Ou então, altere o servidor DNS para um que resolva kms.core.windows.net.
 
-   Observe que se você remover todos os servidores DNS de uma rede virtual, as VMs usarão o serviço interno de DNS do Azure. Esse serviço pode resolver kms.core.windows.net.
+   Observe que, se você remover todos os servidores DNS de uma rede virtual, as VMs usarão o serviço DNS interno do Azure. Esse serviço pode resolver kms.core.windows.net.
   
-    Certifique-se também de que o tráfego de rede de saída para o ponto final kms com a porta 1688 não seja bloqueado pelo firewall na VM.
+    Além disso, verifique se o tráfego de rede de saída para o ponto de extremidade KMS com a porta 1688 não está bloqueado pelo firewall na VM.
 
-5. Verifique usando [o Network Watcher Next Hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) que o próximo tipo de salto da VM em questão para o IP de destino 23.102.135.246 (para kms.core.windows.net) ou o IP do ponto final kms apropriado que se aplica à sua região é a **Internet**.  Se o resultado for VirtualAppliance ou VirtualNetworkGateway, é provável que exista uma rota padrão.  Entre em contato com o seu adminstrator de rede e trabalhe com eles para determinar o curso correto de ação.  Essa pode ser uma [rota personalizada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se essa solução for consistente com as políticas da sua organização.
+5. Verifique usando o [próximo salto do observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) que o tipo do próximo salto da VM em questão para o IP de destino 23.102.135.246 (para kms.Core.Windows.net) ou o IP do ponto de extremidade kms apropriado que se aplica à sua região é **Internet**.  Se o resultado for VirtualAppliance ou VirtualNetworkGateway, é provável que exista uma rota padrão.  Entre em contato com seu administrador de rede e trabalhe com eles para determinar o curso de ação correto.  Essa pode ser uma [rota personalizada](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se essa solução for consistente com as políticas da sua organização.
 
 6. Depois de verificar a conectividade com sucesso para kms.core.windows.net, execute o seguinte comando no prompt do Windows PowerShell com privilégios elevados. Esse comando tenta a ativação várias vezes.
 
@@ -112,7 +112,7 @@ Para a VM criada a partir de uma imagem personalizada, você deve configurar a c
 
     Uma ativação bem-sucedida retorna informações semelhantes à seguinte:
     
-    **Ativando windows(R), edição ServerDatacenter (12345678-1234-1234-1234-1234-12345678) ...  Produto ativado com sucesso.**
+    **Ativando o Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Produto ativado com êxito.**
 
 ## <a name="faq"></a>Perguntas frequentes 
 

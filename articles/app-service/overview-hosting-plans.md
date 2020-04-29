@@ -1,16 +1,16 @@
 ---
 title: Planos do Serviço de Aplicativo
-description: Saiba como funcionam os planos do App Service no Azure App Service, como eles são cobrados ao cliente e como dimensioná-los para suas necessidades.
+description: Saiba como os planos do serviço de aplicativo funcionam no serviço Azure App, como eles são cobrados para o cliente e como dimensioná-los para suas necessidades.
 keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, escalabilidade, plano de serviço de aplicativo, custo de serviço de aplicativo
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
 ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537637"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
@@ -22,13 +22,13 @@ Quando você cria um plano de serviço de aplicativo em uma determinada região 
 - Região (Oeste dos EUA, Leste dos EUA, etc.)
 - Número de instâncias de máquina virtual
 - Tamanho de instâncias de máquina virtual (pequeno, médio, grande)
-- Nível de preços (Livre, Compartilhado, Básico, Padrão, Premium, PremiumV2, Isolado)
+- Tipo de preço (gratuito, compartilhado, básico, Standard, Premium, PremiumV2, isolado)
 
 O _tipo de preço_ de um plano de serviço de aplicativo determina quais recursos do serviço de aplicativo que você obtém e quanto você paga pelo plano. Há algumas categorias de tipos de preços:
 
 - **Computação compartilhada**: **grátis** e **compartilhada**, os dois tipos base, executam um aplicativo na mesma máquina virtual do Azure como outros aplicativos do serviço de aplicativo, incluindo aplicativos de outros clientes. Esses tipos alocam cotas de CPU para cada aplicativo que é executado em recursos compartilhados, e não é possível expandir os recursos.
 - **Computação dedicada**: Os tipos **Básico**, **Standard**, **Premium**, e **PremiumV2** executam aplicativos em máquinas virtuais dedicadas do Azure. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior o nível, mais instâncias de máquina virtual estão disponíveis para a sua expansão.
-- **Isolado**: Este nível executa VMs Azure dedicados em redes virtuais dedicadas do Azure. Ele fornece isolamento de rede em cima do isolamento computacional para seus aplicativos. Ele fornece a capacidade máxima de expansão.
+- **Isolado**: essa camada executa VMs do Azure dedicadas em redes virtuais do Azure dedicadas. Ele fornece isolamento de rede na parte superior do isolamento de computação para seus aplicativos. Ele fornece a capacidade máxima de expansão.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -51,7 +51,7 @@ Cada tipo também fornece um subconjunto específico de recursos do serviço de 
 
 ## <a name="how-does-my-app-run-and-scale"></a>Como o meu aplicativo é executado e dimensionado?
 
-Nos **níveis Livre** e **Compartilhado,** um aplicativo recebe minutos de CPU em uma instância de VM compartilhada e não pode dimensionar. Em outros níveis, um aplicativo é executado e dimensiona do seguinte forma.
+Nas camadas **gratuita** e **compartilhada** , um aplicativo recebe minutos de CPU em uma instância de VM compartilhada e não pode escalar horizontalmente. Em outras camadas, um aplicativo é executado e dimensionado da seguinte maneira.
 
 Ao criar um aplicativo no serviço de aplicativo, ele é colocado em um plano do Serviço de Aplicativo. Quando o aplicativo é executado, ele é executado em todas as instâncias da máquina virtual configuradas no plano do serviço de aplicativo. Se vários aplicativos estiverem no mesmo plano do serviço de aplicativo, todos eles compartilham as mesmas instâncias de máquina virtual. Se você tiver vários slots de implantação para um aplicativo, todos os slots de implantação também serão executados nas mesmas instâncias da máquina virtual. Se você habilitar os logs de diagnósticos, executar backups ou executar trabalhos da Web, eles também usarão ciclos de CPU e memória nessas instâncias da máquina virtual.
 
@@ -68,14 +68,14 @@ Esta seção descreve como os aplicativos do serviço de aplicativo são cobrado
 Exceto para o tipo **Grátis**, um plano de Serviço de Aplicativo carrega uma carga horária sobre os recursos de computação que usa.
 
 - No tipo **Compartilhado**, cada aplicativo recebe uma cota de minutos de CPU, portanto _cada aplicativo_ é cobrado por hora para a cota de CPU.
-- Nos níveis de computação dedicados **(Básico**, **Padrão**, **Premium**, **PremiumV2**), o plano App Service define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano app service tem uma taxa horária. Essas instâncias de máquina virtual são cobradas da mesma forma, independentemente de quantos aplicativos forem executados nelas. Para evitar cobranças inesperadas, consulte [Limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
+- Nas camadas de computação dedicadas (**Basic**, **Standard**, **Premium**, **PremiumV2**), o plano do serviço de aplicativo define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano do serviço de aplicativo tem um custo por hora. Essas instâncias de máquina virtual são cobradas da mesma forma, independentemente de quantos aplicativos forem executados nelas. Para evitar cobranças inesperadas, consulte [Limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
 - No tipo **Isolado**, o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos, e _cada trabalhador_ é cobrado por hora. Além disso, há um valor base por hora para a execução do ambiente do serviço de aplicativo em si.
 
-Você não é cobrado pelo uso dos recursos do App Service que estão disponíveis para você (configurando domínios personalizados, certificados TLS/SSL, slots de implantação, backups, etc.). As exceções são:
+Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão disponíveis para você (Configurando domínios personalizados, certificados TLS/SSL, slots de implantação, backups, etc.). As exceções são:
 
 - Domínios do serviço de aplicativo - você paga quando compra um no Azure e quando você o renova todo ano.
 - Certificados do serviço de aplicativo - você paga quando compra um no Azure e quando você o renova todo ano.
-- Conexões TLS baseadas em IP - Há uma taxa horária para cada conexão TLS baseada em IP, mas algum nível **Padrão** ou superior lhe dá uma conexão TLS baseada em IP gratuitamente. As conexões TLS baseadas em SNI são gratuitas.
+- Conexões TLS baseadas em IP – há uma cobrança por hora para cada conexão TLS baseada em IP, mas alguma camada **Standard** ou superior fornece uma conexão TLS baseada em IP gratuitamente. As conexões TLS baseadas em SNI são gratuitas.
 
 > [!NOTE]
 > Se você integrar o serviço de aplicativo com outro serviço do Azure, você precisará considerar encargos desses outros serviços. Por exemplo, se você usar o Azure Traffic Manager para dimensionar o seu aplicativo geograficamente, o Azure Traffic Manager também cobrará você com base em seu uso. Para estimar o custo de serviços no Azure, consulte [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Você não é cobrado pelo uso dos recursos do App Service que estão disponíve
 
 O seu plano do serviço de aplicativo pode ser dimensionado para mais ou para menos a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo a um primeiro momento, e aumentá-lo mais tarde quando você precisar de mais recursos do serviço de aplicativo.
 
-Por exemplo, você pode começar a testar seu aplicativo web em um plano do serviço de aplicativo **Grátis** sem pagar nada. Quando você desejar adicionar o [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para o aplicativo web, apenas dimensione o seu plano até o tipo **Compartilhado**. Mais tarde, quando você quiser [criar uma vinculação TLS,](configure-ssl-bindings.md)dimensione seu plano até **o nível Básico.** Quando você desejar ter [ambientes de preparo](deploy-staging-slots.md), dimensione até o tipo **Standard**. Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de máquina virtual no mesmo tipo.
+Por exemplo, você pode começar a testar seu aplicativo web em um plano do serviço de aplicativo **Grátis** sem pagar nada. Quando você desejar adicionar o [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para o aplicativo web, apenas dimensione o seu plano até o tipo **Compartilhado**. Posteriormente, quando você quiser [criar uma associação TLS](configure-ssl-bindings.md), dimensione seu plano até a camada **básica** . Quando você desejar ter [ambientes de preparo](deploy-staging-slots.md), dimensione até o tipo **Standard**. Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de máquina virtual no mesmo tipo.
 
 O mesmo funciona na ordem inversa. Quando você achar que não precisa mais dos recursos de um tipo superior, você pode reduzir a escala a um nível mais baixo, o que economiza dinheiro.
 
@@ -101,7 +101,7 @@ Como você paga pelos recursos de computação que o seu plano do serviço de ap
 Isole o seu aplicativo em um novo Plano do Serviço de Aplicativo quando:
 
 - O aplicativo faz uso intensivo de recursos.
-- Você deseja dimensionar o aplicativo independentemente dos outros aplicativos do plano existente.
+- Você deseja dimensionar o aplicativo independentemente dos outros aplicativos no plano existente.
 - O aplicativo precisa de recursos em uma região geográfica diferente.
 
 Dessa forma, você pode alocar um novo conjunto de recursos para seu aplicativo e ter mais controle sobre seus aplicativos.

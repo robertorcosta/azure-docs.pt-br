@@ -2,18 +2,18 @@
 title: Preparar VMs do Hyper-V para avaliação/migração com as Migrações para Azure
 description: Saiba como se preparar para a avaliação/migração de VMs do Hyper-V com as Migrações para Azure.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436222"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641626"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para a avaliação e a migração de VMs do Hyper-V para o Azure
 
-Este artigo descreve como preparar-se para a avaliação de VMs do Hyper-V locais com Migrações para Azure: Avaliação do Servidor (migrate-services-overview.md#azure-migrate-server-assessment-tool) e migração de VMs do Hyper-V com [Migrações para Azure: Migração do Servidor](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Este artigo descreve como preparar-se para a avaliação de VMs do Hyper-V locais com [Migrações para Azure: Avaliação do Servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool) e migração de VMs do Hyper-V com a [Migração de Servidor das Migrações para Azure](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Este tutorial é o primeiro de uma série que mostra como avaliar e migrar VMs do Hyper-V para o Azure. Neste tutorial, você aprenderá como:
@@ -214,9 +214,11 @@ Ao configurar o dispositivo, você conclui a configuração do CredSSP [habilita
 Antes de configurar o dispositivo das Migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
 1. [Verifique](migrate-appliance.md#appliance---hyper-v) os requisitos do dispositivo.
-2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar.
+2. Examine as URLs do Azure que o dispositivo precisa acessar nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls). Se estiver usando um firewall ou proxy baseado em URL, certifique-se de que ele permite o acesso às URLs necessárias.
 3. Examine os dados que o dispositivo coletará durante a descoberta e a avaliação.
-4. [Observe](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso da porta para o dispositivo.
+4. [Examine](migrate-appliance.md#collected-data---hyper-v) os requisitos de acesso da porta para o dispositivo.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Preparar para a migração do Hyper-V

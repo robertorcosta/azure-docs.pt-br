@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para implantações seguras do PaaS - Microsoft Azure
-description: Aprenda as melhores práticas para projetar, construir e gerenciar aplicativos seguros em nuvem no Azure e entenda as vantagens de segurança do PaaS em relação a outros modelos de serviços em nuvem.
+title: Práticas recomendadas para implantações de PaaS seguras-Microsoft Azure
+description: Conheça as práticas recomendadas para projetar, criar e gerenciar aplicativos de nuvem seguros no Azure e entender as vantagens de segurança do PaaS em comparação com outros modelos de serviço de nuvem.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461694"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
@@ -31,17 +31,17 @@ Este artigo fornece informações que ajudam você a:
 - Alterar o foco de segurança de uma abordagem de segurança de perímetro centrada na rede para uma centrada em identidade
 - Implementar as recomendações de práticas recomendadas de segurança de PaaS gerais
 
-[O desenvolvimento de aplicativos seguros no Azure](abstract-develop-secure-apps.md) é um guia geral para as questões e controles de segurança que você deve considerar em cada fase do ciclo de vida do desenvolvimento de software ao desenvolver aplicativos para a nuvem.
+O [desenvolvimento de aplicativos seguros no Azure](abstract-develop-secure-apps.md) é um guia Geral das perguntas e controles de segurança que você deve considerar em cada fase do ciclo de vida do desenvolvimento de software ao desenvolver aplicativos para a nuvem.
 
 ## <a name="cloud-security-advantages"></a>Vantagens da segurança na nuvem
 É importante entender a [divisão de responsabilidade](shared-responsibility.md) entre você e a Microsoft. No local, você possui a pilha inteira, mas conforme muda para a nuvem, algumas responsabilidades são transferidas para a Microsoft.
 
-Há [vantagens de segurança em estar na nuvem.](shared-responsibility.md#cloud-security-advantages) Em um ambiente local, as organizações provavelmente têm responsabilidades não atendidas e recursos limitados disponíveis para investir em segurança, o que cria um ambiente em que os invasores podem explorar vulnerabilidades em todas as camadas.
+Há [vantagens de segurança para estar na nuvem](shared-responsibility.md#cloud-security-advantages). Em um ambiente local, as organizações provavelmente têm responsabilidades não atendidas e recursos limitados disponíveis para investir em segurança, o que cria um ambiente em que os invasores podem explorar vulnerabilidades em todas as camadas.
 
 As empresas são capazes de aprimorar sua detecção de ameaças e tempos de resposta usando inteligência de nuvem e recursos de segurança baseados em nuvem do provedor.  Ao deslocar responsabilidades para o provedor de nuvem, as organizações podem obter mais cobertura de segurança, que permite que elas realocar recursos de segurança e orçamento para outras prioridades de negócios.
 
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Vantagens de segurança de um modelo de serviço de nuvem PaaS
-Vamos ver as vantagens de segurança de uma implantação do Azure PaaS versus no local.
+Vejamos as vantagens de segurança de uma implantação de PaaS do Azure em relação ao local.
 
 ![Vantagens de segurança do PaaS](./media/paas-deployments/advantages-of-paas.png)
 
@@ -49,7 +49,7 @@ Iniciando na parte inferior da pilha, a infraestrutura física, a Microsoft redu
 
 No meio da pilha, não há nenhuma diferença entre uma implantação de PaaS e local. Na camada de aplicativo e na camada de gerenciamento de acesso e de conta, você tem os riscos semelhantes. Na seção de próximas etapas desse artigo, guiaremos você para as práticas recomendadas para eliminar ou minimizar esses riscos.
 
-Na parte superior da pilha, governança de dados e gerenciamento de direitos, você assume um risco que pode ser reduzido pelo gerenciamento de chaves. (A gestão de chaves é coberta pelas melhores práticas.) Embora o gerenciamento de chaves seja uma responsabilidade adicional, você tem áreas em uma implantação de PaaS que você não precisa mais gerenciar para que você possa transferir recursos para gerenciamento de chaves.
+Na parte superior da pilha, governança de dados e gerenciamento de direitos, você assume um risco que pode ser reduzido pelo gerenciamento de chaves. (O gerenciamento de chaves é abordado nas práticas recomendadas.) Embora o gerenciamento de chaves seja uma responsabilidade adicional, você tem áreas em uma implantação de PaaS que não precisa mais gerenciar para poder mudar os recursos para o gerenciamento de chaves.
 
 A plataforma Azure também fornece uma forte proteção DDoS usando várias tecnologias baseadas em rede. No entanto, todos os tipos de métodos de proteção DDoS baseados em rede tem seus limites em uma base por link e por datacenter. Para ajudar a evitar o impacto de grandes ataques DDoS, você pode aproveitar a funcionalidade de nuvem central do Azure que lhe permite escalar horizontalmente de maneira rápida e automática para proteger contra os ataques DDoS. Entraremos em mais detalhes sobre como você pode fazer isso nos artigos de práticas recomendadas.
 
@@ -74,7 +74,7 @@ Os princípios e padrões do perímetro de rede estiveram disponíveis por déca
 A seguir estão as práticas recomendadas para gerenciar o perímetro de identidade.
 
 **Prática recomendada**: proteger suas chaves e credenciais para proteger a implantação de PaaS.   
-**Detalhe**: perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada onde chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/general/overview.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .pfx e senhas usando chaves protegidas por HSMs.
+**Detalhe**: perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada na qual as chaves e os segredos podem ser armazenados em HSMs (módulos de segurança de hardware). O [Azure Key Vault](../../key-vault/general/overview.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos. pfx e senhas usando chaves que são protegidas por hsms.
 
 **Prática recomendada**: não colocar as credenciais e outros segredos no código-fonte nem no GitHub.   
 **Detalhe**: a única coisa pior do que perder as chaves e credenciais é quando uma parte não autorizada obtém acesso a elas. Os invasores podem aproveitar as tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque a chave e os segredos nesses repositórios de código público.
@@ -101,7 +101,7 @@ A tabela a seguir lista as ameaças STRIDE e fornece algumas mitigações de exe
 | Ameaça | Propriedade de segurança | Possível migrações para a plataforma Azure |
 | --- | --- | --- |
 | Falsificação | Autenticação | Exigir conexões HTTPS. |
-| Violação | Integridade | Valide os certificados TLS/SSL. |
+| Violação | Integridade | Validar certificados TLS/SSL. |
 | Repúdio | Não repúdio | Habilitar o [monitoramento e diagnóstico](/azure/architecture/best-practices/monitoring) do Azure. |
 | Divulgação de informações confidenciais | Confidencialidade | Criptografar dados confidenciais em repouso usando [certificados de serviço](/rest/api/appservice/certificates). |
 | Negação de serviço | Disponibilidade | Monitorar as métricas de desempenho quanto a possíveis condições de negação de serviço. Implementar filtros de conexão. |
@@ -116,7 +116,7 @@ A seguir estão as práticas recomendadas para usar o Serviço de Aplicativo.
 **Detalhe**: o Serviço de Aplicativo fornece um serviço OAuth 2.0 para seu provedor de identidade. O OAuth 2.0 concentra-se na simplicidade do desenvolvedor cliente, fornecendo fluxos de autorização específicos para aplicativos Web, aplicativos da área de trabalho e celulares. O Azure AD usa o OAuth 2.0 para que você possa autorizar o acesso a aplicativos móveis e da Web.
 
 **Prática recomendada**: restringir o acesso com base na necessidade de saber e nos princípios de segurança de privilégios mínimos.   
-**Detalhe**: restringir o acesso é fundamental para as organizações que desejam impor políticas de segurança de acesso a dados. Você pode usar o RBAC para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre a concessão de acesso aos aplicativos aos usuários, consulte [Comece com o gerenciamento de acesso.](/azure/role-based-access-control/overview)
+**Detalhe**: restringir o acesso é fundamental para as organizações que desejam impor políticas de segurança de acesso a dados. Você pode usar o RBAC para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [introdução ao gerenciamento de acesso](/azure/role-based-access-control/overview).
 
 **Prática recomendada**: proteger seus dados.   
 **Detalhe**: o Azure Key Vault ajuda a proteger chaves de criptografia e os segredos que os aplicativos e serviços de nuvem usam. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Confira [Azure Key Vault](/azure/key-vault/key-vault-overview) para saber mais. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática.
@@ -128,7 +128,7 @@ A seguir estão as práticas recomendadas para usar o Serviço de Aplicativo.
 **Detalhe**: use a Central de Segurança do Azure para monitorar seus ambientes do Serviço de Aplicativo. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria [recomendações](../../security-center/security-center-virtual-machine-protection.md) que guiam você pelo processo de configuração dos controles necessários.
 
 > [!NOTE]
-> O Serviço de Aplicativo de Monitoramento está em pré-visualização e está disponível apenas no [nível Padrão](/azure/security-center/security-center-pricing) do Security Center.
+> O monitoramento do serviço de aplicativo está em visualização e está disponível apenas na [camada Standard](/azure/security-center/security-center-pricing) da central de segurança.
 >
 >
 
@@ -142,12 +142,12 @@ O monitoramento é o ato de coletar e analisar dados para determinar o desempenh
 
 Use o [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorar a disponibilidade, o desempenho e o uso do aplicativo, esteja ele hospedado na nuvem ou localmente. Usando o Application Insights, você pode identificar e diagnosticar erros no aplicativo sem esperar que um usuário os relate. Com as informações coletadas, será possível fazer as escolhas informadas sobre a manutenção e as melhorias do seu aplicativo.
 
-O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode aproveitar a funcionalidade compartilhada, como alertas, dashboards e análises profundas com a linguagem de consulta kusto.
+O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode aproveitar a funcionalidade compartilhada, como alertas, painéis e análise profunda com a linguagem de consulta Kusto.
 
-## <a name="perform-security-penetration-testing"></a>Realizar testes de penetração de segurança
-Validar defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça [dos testes de penetração](pen-testing.md) uma parte padrão do seu processo de construção e implantação. Agende testes regulares de segurança e a varredura de vulnerabilidades em aplicativos implantados e monitore portas abertas, pontos finais e ataques.
+## <a name="perform-security-penetration-testing"></a>Executar teste de penetração de segurança
+A validação de defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Faça um [teste de penetração](pen-testing.md) de uma parte padrão do processo de compilação e implantação. Agende testes de segurança regulares e a verificação de vulnerabilidade em aplicativos implantados e monitore para portas abertas, pontos de extremidade e ataques.
 
-O teste fuzz é um método para encontrar falhas de programa (erros de código) fornecendo dados de entrada malformados para interfaces de programa (pontos de entrada) que analisam e consomem esses dados. [A Detecção de Risco de Segurança do Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada na nuvem que você pode usar para procurar bugs e outras vulnerabilidades de segurança em seu software antes de implantá-lo no Azure. A ferramenta foi projetada para capturar vulnerabilidades antes de implantar o software para que você não tenha que corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
+O teste de difusão é um método para localizar falhas de programa (erros de código) fornecendo dados de entrada malformados para interfaces de programa (pontos de entrada) que analisam e consomem esses dados. A [detecção de riscos de segurança da Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada em nuvem que você pode usar para procurar bugs e outras vulnerabilidades de segurança em seu software antes de implantá-lo no Azure. A ferramenta foi projetada para detectar vulnerabilidades antes de implantar o software para que você não precise corrigir um bug, lidar com panes ou responder a um ataque após o lançamento do software.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -155,15 +155,15 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 
 - [Serviço de Aplicativo do Azure](paas-applications-using-app-services.md)
 - [Banco de Dados SQL do Azure e SQL Data Warehouse do Azure](paas-applications-using-sql.md)
-- [Armazenamento Azure](paas-applications-using-storage.md)
+- [Armazenamento do Azure](paas-applications-using-storage.md)
 - Cache Redis do Azure
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web
 
-Consulte [O desenvolvimento de aplicativos seguros no Azure](abstract-develop-secure-apps.md) para perguntas e controles de segurança que você deve considerar em cada fase do ciclo de vida do desenvolvimento de software ao desenvolver aplicativos para a nuvem.
+Consulte [desenvolvendo aplicativos seguros no Azure](abstract-develop-secure-apps.md) para questões de segurança e controles que você deve considerar em cada fase do ciclo de vida do desenvolvimento de software ao desenvolver aplicativos para a nuvem.
 
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por e-mail parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email parasecure@microsoft.com

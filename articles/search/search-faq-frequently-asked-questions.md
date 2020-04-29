@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes (FAQ)
 titleSuffix: Azure Cognitive Search
-description: Obtenha respostas para perguntas comuns sobre o serviço de pesquisa cognitiva Microsoft Azure, um serviço de pesquisa hospedado em nuvem no Microsoft Azure.
+description: Obtenha respostas para perguntas comuns sobre o Microsoft Azure Pesquisa Cognitiva Service, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81618027"
 ---
-# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search - perguntas frequentes (FAQ)
+# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Pesquisa Cognitiva do Azure-perguntas frequentes (FAQ)
 
- Encontre respostas para perguntas comumente feitas sobre conceitos, códigos e cenários relacionados à Pesquisa Cognitiva do Azure.
+ Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao Pesquisa Cognitiva do Azure.
 
 ## <a name="platform"></a>Plataforma
 
-### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Como a Pesquisa Cognitiva do Azure é diferente da pesquisa completa de texto no meu DBMS?
+### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Como o Azure Pesquisa Cognitiva diferente da pesquisa de texto completo em meu DBMS?
 
-O Azure Cognitive Search suporta múltiplas fontes de dados, [análise linguística para muitos idiomas,](https://docs.microsoft.com/rest/api/searchservice/language-support)análise personalizada para [entradas de dados interessantes e incomuns,](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controles de classificação de pesquisa através de perfis de [pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e recursos de experiência do usuário, como digitação, destaque de hits e navegação facetada. Ele também inclui outros recursos, como sinônimos e sintaxe de consulta avançada, mas esses geralmente não são recursos diferenciados.
+O Azure Pesquisa Cognitiva dá suporte a várias fontes de dados, [análise linguística para muitas linguagens](https://docs.microsoft.com/rest/api/searchservice/language-support), [análise personalizada para entradas de dados interessantes e incomuns](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), pesquisa de controles de classificação por meio de [perfis de Pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e recursos de experiência do usuário, como typeahead, realce de visita e navegação facetada. Ele também inclui outros recursos, como sinônimos e sintaxe de consulta avançada, mas esses geralmente não são recursos diferenciados.
 
-### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Posso pausar o serviço de busca cognitiva do Azure e parar de faturar?
+### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Posso pausar o serviço de Pesquisa Cognitiva do Azure e parar a cobrança?
 
 Não é possível pausar o serviço. Recursos de computação e armazenamento são alocados para seu uso exclusivo quando o serviço é criado. Não é possível liberar e recuperar os recursos sob demanda.
 
@@ -33,25 +33,25 @@ Não é possível pausar o serviço. Recursos de computação e armazenamento s�
 
 ### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Mover, fazer backup e restaurar índices ou instantâneos de índice?
 
-Durante a fase de desenvolvimento, você pode querer mover seu índice entre os serviços de pesquisa. Por exemplo, você pode usar um nível de preços básico ou livre para desenvolver seu índice e, em seguida, deseja movê-lo para o nível Padrão ou superior para uso de produção. 
+Durante a fase de desenvolvimento, talvez você queira mover o índice entre os serviços de pesquisa. Por exemplo, você pode usar um tipo de preço básico ou gratuito para desenvolver seu índice e, em seguida, desejar movê-lo para a camada Standard ou superior para uso em produção. 
 
-Ou, você pode querer fazer backup de um instantâneo de índice para arquivos que podem ser usados para restaurá-lo mais tarde. 
+Ou, talvez você queira fazer backup de um instantâneo de índice em arquivos que podem ser usados para restaurá-lo mais tarde. 
 
-Você pode fazer todas essas coisas com o código de amostra **de restauração de backup de índice** neste [repo de amostra Azure Cognitive Search .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+Você pode fazer todas essas coisas com o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
-Você também pode [obter uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) a qualquer momento usando a API Azure Cognitive Search REST.
+Você também pode [obter uma definição de índice](https://docs.microsoft.com/rest/api/searchservice/get-index) a qualquer momento usando a API REST do Azure pesquisa cognitiva.
 
-No momento, não há nenhum recurso de extração de índice incorporado, instantâneo ou restauração de backup no portal Azure. No entanto, estamos considerando adicionar a funcionalidade de backup e restauração em uma versão futura. Se você quiser mostrar seu apoio a este recurso, vote no [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+No momento, não há nenhum recurso interno de extração de índice, instantâneo ou restauração de backup no portal do Azure. No entanto, estamos pensando em Adicionar a funcionalidade de backup e restauração em uma versão futura. Se você quiser mostrar o suporte para esse recurso, converta um voto na [voz do usuário](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Posso restaurar meu índice ou serviço depois que ele for excluído?
 
-Não, se você excluir um índice ou serviço de pesquisa cognitiva do Azure, ele não poderá ser recuperado. Quando você exclui um serviço de pesquisa cognitiva do Azure, todos os índices do serviço são excluídos permanentemente. Se você excluir um grupo de recursos do Azure que contenha um ou mais serviços de Pesquisa Cognitiva do Azure, todos os serviços serão excluídos permanentemente.  
+Não, se você excluir um serviço ou índice de Pesquisa Cognitiva do Azure, ele não poderá ser recuperado. Quando você exclui um serviço de Pesquisa Cognitiva do Azure, todos os índices no serviço são excluídos permanentemente. Se você excluir um grupo de recursos do Azure que contém um ou mais serviços de Pesquisa Cognitiva do Azure, todos os serviços serão excluídos permanentemente.  
 
-Recriar recursos como índices, indexadores, fontes de dados e habilidades requer que você os recrie a partir de códigos. 
+Recriar recursos como índices, indexadores, fontes de dados e habilidades exige que você os recrie a partir do código. 
 
-Para recriar um índice, você deve reindexar dados de fontes externas. Por essa razão, recomenda-se que você retenha uma cópia mestre ou backup dos dados originais em outro armazenamento de dados, como o Azure SQL Database ou o Cosmos DB.
+Para recriar um índice, você deve reindexar dados de fontes externas. Por esse motivo, é recomendável que você retenha uma cópia mestra ou um backup dos dados originais em outro armazenamento de dados, como o Azure SQL Database ou o Cosmos DB.
 
-Como alternativa, você pode usar o código de amostra **de restauração de backup de índice** neste [repo de amostra Azure Cognitive Search .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup de uma definição de índice e um instantâneo de índice para uma série de arquivos JSON. Mais tarde, você pode usar a ferramenta e os arquivos para restaurar o índice, se necessário.  
+Como alternativa, você pode usar o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup de uma definição de índice e de um instantâneo de índice para uma série de arquivos JSON. Posteriormente, você pode usar a ferramenta e os arquivos para restaurar o índice, se necessário.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Posso indexar a partir das réplicas de banco de dados SQL? (Aplica-se a [indexadores de Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers).)
 
@@ -63,15 +63,15 @@ Não há nenhuma restrição quanto ao uso de réplicas primárias ou secundári
 
 Não, essa operação não tem suporte. A pesquisa sempre está no escopo para um único índice.
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Posso restringir o acesso ao índice de pesquisa por identidade de usuário?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Posso restringir o acesso ao índice de pesquisa por identidade do usuário?
 
 Você pode implementar [filtros de segurança](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) com filtro `search.in()`. O filtro integra-se bem com [serviços de gerenciamento de identidade como o Microsoft Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) para selecionar resultados de pesquisa com base em associação de grupos de usuários definidas.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Por que não aparece correspondência em termos que sei que são válidos?
 
-O mais comum é não saber que cada tipo de consulta dá suporte a níveis de análise linguística e a comportamentos de pesquisa diferentes. A pesquisa completa de texto, que é a carga de trabalho predominante, inclui uma fase de análise de idiomas que divide termos para formas raiz. Esse aspecto da análise de consulta amplia as possíveis correspondências, pois o termo indexado corresponde a um número maior de variantes.
+O mais comum é não saber que cada tipo de consulta dá suporte a níveis de análise linguística e a comportamentos de pesquisa diferentes. A pesquisa de texto completo, que é a carga de trabalho predominante, inclui uma fase de análise de linguagem que divide os termos para formulários raiz. Esse aspecto da análise de consulta amplia as possíveis correspondências, pois o termo indexado corresponde a um número maior de variantes.
 
-Consultas difusas, de regex e com caractere curinga, no entanto, não são analisadas como consultas de termos ou frases comuns e podem levar a uma recuperação ruim se a consulta não coincidir com o formulário analisado da palavra no índice de pesquisa. Para obter mais informações sobre análise e análise de consultas, consulte [a arquitetura de consulta](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Consultas difusas, de regex e com caractere curinga, no entanto, não são analisadas como consultas de termos ou frases comuns e podem levar a uma recuperação ruim se a consulta não coincidir com o formulário analisado da palavra no índice de pesquisa. Para obter mais informações sobre análises e análise de consultas, consulte [arquitetura de consulta](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
 ### <a name="my-wildcard-searches-are-slow"></a>Minhas pesquisas com caractere curinga estão lentas.
 
@@ -79,23 +79,23 @@ A maioria das consultas de pesquisa com caractere curinga, como prefixo, difusa 
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Por que a classificação é uma pontuação igual ou constante de 1,0 para cada ocorrência?
 
-Por padrão, os resultados da pesquisa são pontuados com base nas [propriedades estatísticas dos termos de correspondência](search-lucene-query-architecture.md#stage-4-scoring) e classificados do mais alto para o mais baixo do conjunto de resultados. No entanto, alguns tipos de consulta (caractere curinga, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação total do documento. Este comportamento ocorre por design. O Azure Cognitive Search impõe uma pontuação constante para permitir que as partidas encontradas através da expansão da consulta sejam incluídas nos resultados, sem afetar o ranking.
+Por padrão, os resultados da pesquisa são pontuados com base nas [propriedades estatísticas dos termos de correspondência](search-lucene-query-architecture.md#stage-4-scoring) e classificados do mais alto para o mais baixo do conjunto de resultados. No entanto, alguns tipos de consulta (caractere curinga, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação total do documento. Este comportamento ocorre por design. O Azure Pesquisa Cognitiva impõe uma pontuação constante para permitir que as correspondências encontradas por meio da expansão de consulta sejam incluídas nos resultados, sem afetar a classificação.
 
-Por exemplo, suponha que uma entrada de "tour*" em uma busca curinga produz partidas em "tours", "tourettes" e "tourmaline". Dada a natureza desses resultados, não é possível inferir de forma razoável quais termos são mais valiosos do que outros. Por esse motivo, podemos ignorar as frequências dos termos ao pontuar resultados em consultas dos tipos caractere curinga, prefixo e regex. Os resultados da pesquisa com base em uma entrada parcial recebem uma pontuação constante para evitar a tendência de correspondências possivelmente inesperadas.
+Por exemplo, suponha que uma entrada de "Tour *" em uma pesquisa curinga produza correspondências em "Tours", "turrão" e "passarela". Dada a natureza desses resultados, não é possível inferir de forma razoável quais termos são mais valiosos do que outros. Por esse motivo, podemos ignorar as frequências dos termos ao pontuar resultados em consultas dos tipos caractere curinga, prefixo e regex. Os resultados da pesquisa com base em uma entrada parcial recebem uma pontuação constante para evitar a tendência de correspondências possivelmente inesperadas.
 
-## <a name="skillset-operations"></a>Operações skillset
+## <a name="skillset-operations"></a>Operações de habilidades
 
-### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Existem dicas ou truques para reduzir os custos de serviços cognitivos na ingestão?
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Há dicas ou truques para reduzir os encargos de serviços cognitivas sobre a ingestão?
 
-É compreensível que você não queira executar habilidades incorporadas ou habilidades personalizadas mais do que é absolutamente necessário, especialmente se você está lidando com milhões de documentos para processar. Com isso em mente, adicionamos recursos de "enriquecimento incremental" à execução de skillset. Em essência, você pode fornecer um local de cache (uma seqüência de conexão de armazenamento blob) que será usado para armazenar a saída de etapas de enriquecimento "intermediárias".  Isso permite que o pipeline de enriquecimento seja inteligente e aplique apenas enriquecimentos necessários quando você modifica suas habilidades. Isso naturalmente também economizará tempo de indexação, pois o pipeline será mais eficiente.
+É compreensível que você não queira executar habilidades internas ou personalizadas mais do que é absolutamente necessário, especialmente se estiver lidando com milhões de documentos para processar. Com isso em mente, adicionamos recursos de "enriquecimento incremental" à execução do Configurador de habilidades. Em essência, você pode fornecer um local de cache (uma cadeia de conexão de armazenamento de BLOBs) que será usado para armazenar a saída das etapas de enriquecimento "intermediárias".  Isso permite que o pipeline de enriquecimento seja inteligente e aplique apenas aprimoramentos que são necessários quando você modifica o seu configurador de habilidades. Naturalmente, isso também economizará o tempo de indexação, pois o pipeline será mais eficiente.
 
-Saiba mais sobre [o enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)
+Saiba mais sobre o [enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Padrões de design
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Qual é a melhor abordagem para implementar pesquisa localizada?
 
-A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando se trata de dar suporte a idiomas diferentes no mesmo índice. Os campos específicos de idioma possibilitam a atribuição de um analisador adequado. Por exemplo, a atribuição do Analisador de Francês da Microsoft a um campo que contém cadeias de caracteres em francês. Isso também simplifica a filtragem. Se você souber que uma consulta é iniciada em uma página com fr-fr na URL, poderá limitar os resultados da pesquisa para esse campo. Ou criar um [perfil de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar ao campo mais peso relativo. O Azure Cognitive Search suporta mais de [50 analisadores](https://docs.microsoft.com/azure/search/search-language-support) de idiomas para escolher.
+A maioria dos clientes escolhe campos dedicados em vez de uma coleção quando se trata de dar suporte a idiomas diferentes no mesmo índice. Os campos específicos de idioma possibilitam a atribuição de um analisador adequado. Por exemplo, a atribuição do Analisador de Francês da Microsoft a um campo que contém cadeias de caracteres em francês. Isso também simplifica a filtragem. Se você souber que uma consulta é iniciada em uma página com fr-fr na URL, poderá limitar os resultados da pesquisa para esse campo. Ou criar um [perfil de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) para dar ao campo mais peso relativo. O Azure Pesquisa Cognitiva dá suporte a mais de [50 analisadores de idioma](https://docs.microsoft.com/azure/search/search-language-support) para sua escolha.
 
 ## <a name="next-steps"></a>Próximas etapas
 

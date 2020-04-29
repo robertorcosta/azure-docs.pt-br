@@ -4,10 +4,10 @@ description: Exportar dados continuamente do Application Insights para o SQL usa
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536906"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
@@ -153,7 +153,7 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 
 #### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 
-**Certifique-se de definir o formato de data para YYYY-MM-DD (com traços).**
+**Certifique-se de definir o formato de data como aaaa-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 

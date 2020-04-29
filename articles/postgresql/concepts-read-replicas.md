@@ -1,19 +1,19 @@
 ---
-title: Ler réplicas - Banco de Dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve o recurso de réplica de leitura no Banco de Dados Azure para PostgreSQL - Single Server.
+title: Ler réplicas-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve o recurso de réplica de leitura no banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 545d04bdede76a6ce25c9e4665f39c01ff6caa73
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531976"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas no Banco de Dados Do Azure para PostgreSQL - Servidor Único
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
 O recurso de réplica de leitura permite replicar dados de um servidor de Banco de Dados do Azure para PostgreSQL para um servidor somente leitura. Você pode replicar do servidor mestre para até cinco réplicas. Réplicas são atualizadas de forma assíncrona com a tecnologia de replicação nativa do mecanismo PostgreSQL.
 
@@ -31,37 +31,37 @@ Como réplicas são somente leitura, elas não reduzem diretamente os encargos d
 O recurso de réplica de leitura usa replicação assíncrona do PostgreSQL. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre o mestre e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
-Você pode criar uma réplica de leitura em uma região diferente do seu servidor mestre. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou a aproximação de dados com seus usuários.
+Você pode criar uma réplica de leitura em uma região diferente do servidor mestre. A replicação entre regiões pode ser útil para cenários como planejamento de recuperação de desastres ou trazer dados mais próximos aos seus usuários.
 
-Você pode ter um servidor mestre em qualquer [banco de dados Do Azure para região PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A imagem abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região mestre.
+Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo de sua região mestra.
 
-[![Leia as regiões das réplicas](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
-### <a name="universal-replica-regions"></a>Regiões de réplicas universais
-Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde seu servidor mestre está localizado. Estas são as regiões de réplicauniversal:
+### <a name="universal-replica-regions"></a>Regiões de réplica universal
+Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. Estas são as regiões de réplica universal:
 
-Austrália Leste, Austrália Sudeste, Central dos EUA, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coréia Central, Coréia do Sul, Norte dos EUA, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Oeste dos EUA.
+Leste da Austrália, sudeste da Austrália, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA.
 
-*West US 2 está temporariamente indisponível como um local de réplica de região transversal.
+* Oeste dos EUA 2 está temporariamente indisponível como um local de réplica entre regiões.
 
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
-Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre. Se você não conhece o par da sua região, você pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
+Além das regiões de réplica universal, você pode criar uma réplica de leitura na região emparelhada do Azure do seu servidor mestre. Se você não souber o par de sua região, poderá aprender mais no [artigo regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md).
 
-Se você estiver usando réplicas transfronteiriças para o planejamento de recuperação de desastres, recomendamos que você crie a réplica na região emparelhada em vez de uma das outras regiões. As regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
+Se você estiver usando réplicas entre regiões para planejamento de recuperação de desastres, recomendamos que você crie a réplica na região emparelhada em vez de uma das outras regiões. Regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
 
-Há limitações a considerar: 
+Há limitações a serem consideradas: 
 
-* Disponibilidade regional: O Banco de Dados Azure para PostgreSQL está disponível no West US 2, France Central, Eau North e Germany Central. No entanto, suas regiões pareadas não estão disponíveis.
+* Disponibilidade regional: o banco de dados do Azure para PostgreSQL está disponível no oeste dos EUA 2, na França central, Norte dos EAU e na Alemanha central. No entanto, suas regiões emparelhadas não estão disponíveis.
     
-* Pares unidirecionais: Algumas regiões azure são emparelhadas em uma única direção. Essas regiões incluem a Índia Ocidental, O Sul do Brasil. 
-   Isso significa que um servidor mestre na Índia Ocidental pode criar uma réplica no sul da Índia. No entanto, um servidor mestre no sul da Índia não pode criar uma réplica na Índia Ocidental. Isso porque a região secundária da Índia Ocidental é o sul da Índia, mas a região secundária do sul da Índia não é a Índia Ocidental.
+* Pares unidirecionais: algumas regiões do Azure são emparelhadas apenas em uma direção. Essas regiões incluem Índia ocidental, sul do Brasil. 
+   Isso significa que um servidor mestre na Índia ocidental pode criar uma réplica na Índia Sul. No entanto, um servidor mestre na Índia Sul não pode criar uma réplica na Índia ocidental. Isso ocorre porque a região secundária da Índia ocidental é sul da Índia, mas a região secundária do Sul da Índia não é oeste da Índia.
 
 
 ## <a name="create-a-replica"></a>Criar uma réplica
 Quando você inicia o fluxo de trabalho de criação de réplica, um servidor do Banco de Dados do Azure para PostgreSQL é criado. O novo servidor é preenchido com os dados que estavam no servidor mestre. A hora de criação depende da quantidade de dados no mestre e do tempo decorrido desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas.
 
-Cada réplica é habilitada para [o armazenamento de crescimento automático](concepts-pricing-tiers.md#storage-auto-grow). O recurso de crescimento automático permite que a réplica acompanhe os dados replicados e evite uma quebra na replicação causada por erros de armazenamento.
+Cada réplica é habilitada para [crescimento automático](concepts-pricing-tiers.md#storage-auto-grow)do armazenamento. O recurso de aumento automático permite que a réplica acompanhe os dados replicados para ele e evite uma interrupção na replicação causada por erros de armazenamento insuficiente.
 
 O recurso de réplica de leitura usa a replicação física do PostgreSQL, e não a replicação lógica. A replicação de streaming usando slots de replicação é o modo de operação padrão. Quando necessário, o envio de logs é usado para recuperar o atraso.
 
@@ -72,7 +72,7 @@ Quando você cria uma réplica, ela não herda as regras de firewall nem o ponto
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor mestre.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **my replica** with the **admin useradmin**, você pode se conectar à réplica usando psql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **minha réplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -81,11 +81,11 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 No prompt, insira a senha da conta de usuário.
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
-O Banco de Dados Azure para PostgreSQL fornece duas métricas para monitorar a replicação. As duas métricas são **Max Lag através de réplicas** e replica **lag**. Para saber como visualizar essas métricas, consulte o **Monitor de uma réplica** do artigo como ler [réplica](howto-read-replicas-portal.md).
+O banco de dados do Azure para PostgreSQL fornece duas métricas para monitorar a replicação. As duas métricas são o **retardo máximo entre réplicas** e **atraso de réplica**. Para saber como exibir essas métricas, consulte a seção **monitorar uma réplica** do artigo de [instruções de leitura de réplica](howto-read-replicas-portal.md).
 
-A métrica **Max Lag Across Replicas** mostra o lag em bytes entre o mestre e a réplica mais atrasada. Essa métrica está disponível apenas no servidor mestre.
+A métrica de **atraso máximo entre réplicas** mostra o atraso em bytes entre o mestre e a réplica mais deatrasante. Essa métrica está disponível apenas no servidor mestre.
 
-A métrica **Replica Lag** mostra o tempo desde a última transação reproduzida. Se não houver nenhuma transação ocorrendo no servidor mestre, a métrica refletirá esse retardo. Esta métrica está disponível apenas para servidores de réplica. O Defasagem `pg_stat_wal_receiver` de réplica é calculado a partir da exibição:
+A métrica de **atraso de réplica** mostra o tempo desde a última transação reproduzida. Se não houver nenhuma transação ocorrendo no servidor mestre, a métrica refletirá esse retardo. Essa métrica está disponível somente para servidores de réplica. A latência de réplica é calculada a `pg_stat_wal_receiver` partir da exibição:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -119,27 +119,27 @@ Você pode interromper a replicação entre um mestre e uma réplica. A ação d
 > O servidor autônomo não pode se tornar uma réplica novamente.
 > Antes de interromper a replicação em uma réplica de leitura, verifique se a réplica tem todos os dados de que você precisa.
 
-Quando você para a replicação, a réplica perde todos os links para o seu mestre anterior e outras réplicas.
+Quando você interrompe a replicação, a réplica perde todos os links para o mestre anterior e outras réplicas.
 
 Saiba como [interromper a replicação para uma réplica](howto-read-replicas-portal.md).
 
 ## <a name="failover"></a>Failover
-Não há failover automatizado entre servidores mestre e réplica. 
+Não há nenhum failover automatizado entre servidores mestre e de réplica. 
 
-Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores, como o quão pesada é a carga de trabalho em execução no servidor mestre e a latência entre data centers. Na maioria dos casos, o lag de réplicavaria entre alguns segundos e alguns minutos. Você pode acompanhar seu atraso de replicação real usando a métrica *Replica Lag*, que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que você identifique qual é o seu atraso médio observando sua réplica de lag durante um período de tempo. Você pode definir um alerta sobre o set lag de réplica, de modo que se ele for fora do seu alcance esperado, você pode tomar medidas.
+Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, a latência de réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
-> Se você falhar na réplica, o lag no momento em que você desvincular a réplica do mestre indicará quantos dados são perdidos.
+> Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica do mestre indicará a quantidade de dados perdidos.
 
-Uma vez que você decidiu que quer failover para uma réplica, 
+Depois que você decidir que deseja fazer failover para uma réplica, 
 
-1. Parar a replicação para a réplica<br/>
-   Esta etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será reiniciado e desvinculado do mestre. Uma vez iniciada a replicação stop, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção de [replicação](#stop-replication) stop deste artigo para entender as implicações desta ação.
+1. Parar a replicação na réplica<br/>
+   Essa etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será reiniciado e será desvinculado do mestre. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção [parar replicação](#stop-replication) deste artigo para entender as implicações dessa ação.
     
-2. Aponte sua aplicação para a (antiga) réplica<br/>
-   Cada servidor tem uma seqüência de conexão única. Atualize seu aplicativo para apontar para a réplica (anterior) em vez do mestre.
+2. Aponte seu aplicativo para a réplica (antiga)<br/>
+   Cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez do mestre.
     
-Uma vez que seu aplicativo esteja processando com sucesso leituras e gravações, você completou o failover. A quantidade de tempo de inatividade que suas experiências de aplicação dependerá quando você detectar um problema e completar as etapas 1 e 2 acima.
+Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
 
 ## <a name="considerations"></a>Considerações
@@ -156,16 +156,16 @@ Uma réplica de leitura é criada como um novo servidor de Banco de Dados do Azu
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: período de retenção de backup, armazenamento, vCores e geração da computação. O tipo de preço também pode ser alterado de forma independente, exceto de ou para a camada básica.
 
 > [!IMPORTANT]
-> Antes que uma configuração mestre seja atualizada para um novo valor, atualize a configuração da réplica para um valor igual ou maior. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
+> Antes que uma configuração mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
 
 PostgreSQL requer que o valor do parâmetro `max_connections` na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. No Banco de Dados do Azure para PostgreSQL, o valor do parâmetro `max_connections` se baseia na SKU. Para obter mais informações, confira [Limites no Banco de Dados do Azure para PostgreSQL](concepts-limits.md). 
 
-Se você tentar atualizar os valores do servidor descritos acima, mas não aderir aos limites, você receberá um erro.
+Se você tentar atualizar os valores de servidor descritos acima, mas não atender aos limites, você receberá um erro.
 
-Regras de firewall, regras de rede virtual e configurações de parâmetros não são herdadas do servidor mestre para a réplica quando a réplica é criada ou posteriormente.
+As regras de firewall, as regras de rede virtual e as configurações de parâmetros não são herdadas do servidor mestre para a réplica quando a réplica é criada ou posteriormente.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL exige que](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) `max_prepared_transactions` o valor do parâmetro na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não vai começar. Se você quiser `max_prepared_transactions` mudar no mestre, primeiro altere-o nas réplicas.
+[PostgreSQL requer](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. Se você quiser alterar `max_prepared_transactions` o mestre, primeiro altere-o nas réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 Se você interromper a replicação entre um servidor mestre e uma réplica de leitura, a réplica será reiniciada para aplicar a alteração. A réplica interrompida se tornará um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.
@@ -175,4 +175,4 @@ Quando um servidor mestre é excluído, todas as suas réplicas de leitura se to
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [criar e gerenciar réplicas de leitura no portal do Azure](howto-read-replicas-portal.md).
-* Aprenda a [criar e gerenciar réplicas de leitura na Azure CLI e na API REST](howto-read-replicas-cli.md).
+* Saiba como [criar e gerenciar réplicas de leitura no CLI do Azure e na API REST](howto-read-replicas-cli.md).

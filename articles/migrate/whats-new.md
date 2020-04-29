@@ -2,18 +2,30 @@
 title: Novidades nas Migrações para Azure
 description: Conheça as novidades e as atualizações recentes no serviço Migrações para Azure.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127584"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677239"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
+
+
+## <a name="update-april-2020"></a>Atualização (abril de 2020)
+
+As Migrações para Azure dão suporte a implantações no Azure Government. 
+
+- Você pode descobrir e avaliar VMs do VMware, VMs do Hyper-V e servidores físicos.
+- Você pode migrar VMs do VMware, VMs do Hyper-V e servidores físicos para o Azure.
+- A migração de VMware pode ser sem agente ou baseada em agente. [Saiba mais](server-migrate-overview.md).
+- [Examine](migrate-support-matrix.md#supported-geographies-azure-government) as geografias e as regiões compatíveis com o Azure Government.
+- A [análise de dependência baseada em agente](concepts-dependency-visualization.md#agent-based-analysis) não é compatível com o Azure Government.
+- Os recursos da versão prévia, especificamente a [análise de dependência sem agente](concepts-dependency-visualization.md#agentless-analysis) e a [descoberta de aplicativos](how-to-discover-applications.md), são compatíveis com o Azure Government.
 
 ## <a name="update-march-2020"></a>Atualização (março de 2020)
 
@@ -58,7 +70,7 @@ A versão atual das Migrações para Azure (lançada em julho de 2019) oferece d
 
 ## <a name="azure-migrate-previous-version"></a>Versão anterior das Migrações para Azure
 
-se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora você deve usar a versão atual. Na versão anterior, você não pode mais criar projetos das Migrações para Azure ou executar novas descobertas. Você ainda pode acessar os projetos existentes. Para fazer isso no portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**. Nas notificações das Migrações para Azure, há um link para acessar projetos antigos das Migrações para Azure.
+se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Na versão anterior, você não pode mais criar projetos das Migrações para Azure ou executar novas descobertas. Você ainda pode acessar os projetos existentes. Para fazer isso no portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**. Nas notificações das Migrações para Azure, há um link para acessar projetos antigos das Migrações para Azure.
 
 
 

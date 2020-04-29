@@ -1,6 +1,6 @@
 ---
-title: Designa aplicativos seguros no Microsoft Azure
-description: Este artigo discute as melhores práticas a serem consideradas durante as fases de exigência e design do seu projeto de aplicação web.
+title: Criar aplicativos seguros no Microsoft Azure
+description: Este artigo aborda as práticas recomendadas a serem consideradas durante o requisito e as fases de design do seu projeto de aplicativo Web.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -14,310 +14,310 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461711"
 ---
-# <a name="design-secure-applications-on-azure"></a>Designa aplicativos seguros no Azure
-Neste artigo apresentamos atividades de segurança e controles a considerar quando você projeta aplicativos para a nuvem. Os recursos de treinamento, juntamente com questões de segurança e conceitos a serem considerados durante os requisitos e fases de design do [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para projetar um aplicativo mais seguro.
+# <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
+Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
 
-As seguintes fases de SDL são abordadas neste artigo:
+As seguintes fases do SDL são abordadas neste artigo:
 
 - Treinamento
 - Requisitos
 - Design
 
 ## <a name="training"></a>Treinamento
-Antes de começar a desenvolver seu aplicativo na nuvem, tire um tempo para entender a segurança e a privacidade no Azure. Ao dar esse passo, você pode reduzir o número e a gravidade das vulnerabilidades exploráveis em seu aplicativo. Você estará mais preparado para reagir adequadamente ao cenário de ameaças em constante mudança.
+Antes de começar a desenvolver seu aplicativo de nuvem, Reserve um tempo para entender a segurança e a privacidade no Azure. Ao fazer essa etapa, você pode reduzir o número e a gravidade de vulnerabilidades exploráveis em seu aplicativo. Você estará mais preparado para reagir adequadamente ao panorama de ameaças em constante mudança.
 
-Use os seguintes recursos durante a fase de treinamento para se familiarizar com os serviços do Azure disponíveis para desenvolvedores e com as práticas recomendadas de segurança no Azure:
+Use os seguintes recursos durante o estágio de treinamento para se familiarizar com os serviços do Azure que estão disponíveis para desenvolvedores e as práticas recomendadas de segurança no Azure:
 
-  - [O guia do desenvolvedor para o Azure](https://azure.microsoft.com/campaigns/developer-guide/) mostra como começar com o Azure. O guia mostra quais serviços você pode usar para executar seus aplicativos, armazenar seus dados, incorporar inteligência, criar aplicativos de IoT e implantar suas soluções de forma mais eficiente e segura.
+  - [Guia do desenvolvedor para o Azure](https://azure.microsoft.com/campaigns/developer-guide/) mostra como começar a usar o Azure. O guia mostra quais serviços você pode usar para executar seus aplicativos, armazenar seus dados, incorporar inteligência, criar aplicativos de IoT e implantar suas soluções de maneira mais eficiente e segura.
 
-  - [Obtenha o guia para desenvolvedores do Azure](../../guides/developer/azure-developer-guide.md) fornece informações essenciais para desenvolvedores que estão procurando começar a usar a plataforma Azure para suas necessidades de desenvolvimento.
+  - O [Guia de introdução para os desenvolvedores do Azure](../../guides/developer/azure-developer-guide.md) fornece informações essenciais para os desenvolvedores que procuram começar a usar a plataforma Azure para suas necessidades de desenvolvimento.
 
-  - [SDKs e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools) descrevem as ferramentas disponíveis no Azure.
+  - [SDKs e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools) descreve as ferramentas que estão disponíveis no Azure.
 
-  - [O Azure DevOps Services](https://docs.microsoft.com/azure/devops/) fornece ferramentas de colaboração de desenvolvimento. As ferramentas incluem pipelines de alto desempenho, repositórios git gratuitos, placas Kanban configuráveis e extensos testes automatizados e baseados em nuvem.
-    O [DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/) combina nossos recursos para aprender práticas de DevOps, controle de versão do Git, métodos ágeis, como trabalhamos com DevOps na Microsoft e como você pode avaliar sua própria progressão de DevOps.
+  - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) fornece ferramentas de colaboração de desenvolvimento. As ferramentas incluem pipelines de alto desempenho, repositórios git gratuitos, quadros Kanban configuráveis e testes de carga abrangentes e baseados em nuvem.
+    A [central de recursos DevOps](https://docs.microsoft.com/azure/devops/learn/) combina nossos recursos para aprendizagem de práticas de DevOps, controle de versão do git, métodos Agile, como trabalhamos com DevOps na Microsoft e como você pode avaliar sua própria progressão de DevOps.
 
-  - [Os 5 principais itens de segurança a considerar antes de empurrar para a produção](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) mostram como ajudar a proteger seus aplicativos web no Azure e proteger seus aplicativos contra os ataques mais comuns e perigosos de aplicativos da Web.
+  - [Os 5 principais itens de segurança a serem considerados antes de enviar para produção](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) mostram como ajudar a proteger seus aplicativos Web no Azure e proteger seus aplicativos contra os ataques de aplicativos Web mais comuns e perigosos.
 
-  - [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) é uma coleção de scripts, ferramentas, extensões e automações que atende às necessidades abrangentes de assinatura e segurança de recursos do Azure de equipes de DevOps que usam automação extensiva. O Kit DevOps Seguro para Azure pode mostrar como integrar a segurança suavemente aos seus fluxos de trabalho DevOps nativos. O kit aborda ferramentas como testes de verificação de segurança (SVTs), que podem ajudar os desenvolvedores a escrever código seguro e testar a configuração segura de seus aplicativos em nuvem nos estágios de codificação e desenvolvimento inicial.
+  - O [Secure DevOps Kit para Azure](https://azsk.azurewebsites.net/index.html) é uma coleção de scripts, ferramentas, extensões e automaçãos que atendem às necessidades abrangentes de segurança de recursos e de assinatura do Azure das equipes do DevOps que usam ampla automação. O Secure DevOps Kit para Azure pode mostrar como integrar perfeitamente a segurança aos seus fluxos de trabalho nativos do DevOps. O kit aborda ferramentas como SVTs (testes de verificação de segurança), que podem ajudar os desenvolvedores a escrever código seguro e testar a configuração segura de seus aplicativos na nuvem nos estágios de codificação e desenvolvimento antecipado.
 
-  - [As práticas recomendadas de segurança para soluções Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) fornecem uma coleção de práticas recomendadas de segurança para usar à medida que você projeta, implanta e gerencia suas soluções em nuvem usando o Azure.
+  - [As práticas recomendadas de segurança para soluções do Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) fornecem uma coleção de práticas recomendadas de segurança para usar à medida que você projeta, implanta e gerencia suas soluções de nuvem usando o Azure.
 
 ## <a name="requirements"></a>Requisitos
-A fase de definição de requisitos é um passo crucial na definição do que seu aplicativo é e o que ele fará quando for lançado. A fase de requisitos também é um momento para pensar sobre os controles de segurança que você irá construir em sua aplicação. Durante esta fase, você também inicia as etapas que você tomará em todo o SDL para garantir que você libere e implante um aplicativo seguro.
+A fase de definição de requisitos é uma etapa crucial para definir o que é seu aplicativo e o que ele fará quando for lançado. A fase de requisitos também é um momento para pensar sobre os controles de segurança que você criará em seu aplicativo. Durante essa fase, você também inicia as etapas que serão executadas em todo o SDL para garantir que você libere e implante um aplicativo seguro.
 
-### <a name="consider-security-and-privacy-issues"></a>Considere questões de segurança e privacidade
-Esta fase é o melhor momento para considerar questões fundamentais de segurança e privacidade. Definir níveis aceitáveis de segurança e privacidade no início de um projeto ajuda uma equipe:
+### <a name="consider-security-and-privacy-issues"></a>Considerar problemas de segurança e privacidade
+Essa fase é o melhor momento para considerar problemas de segurança e privacidade fundamentais. Definir níveis aceitáveis de segurança e privacidade no início de um projeto ajuda uma equipe:
 
 - Entenda os riscos associados a problemas de segurança.
-- Identifique e corrija bugs de segurança durante o desenvolvimento.
-- Aplique níveis estabelecidos de segurança e privacidade durante todo o projeto.
+- Identificar e corrigir bugs de segurança durante o desenvolvimento.
+- Aplique níveis estabelecidos de segurança e privacidade em todo o projeto.
 
-Ao escrever os requisitos para o seu aplicativo, considere os controles de segurança que podem ajudar a manter seu aplicativo e dados seguros.
+Ao escrever os requisitos para seu aplicativo, considere os controles de segurança que podem ajudar a manter seu aplicativo e dados seguros.
 
-### <a name="ask-security-questions"></a>Faça perguntas de segurança
+### <a name="ask-security-questions"></a>Fazer perguntas de segurança
 Faça perguntas de segurança como:
 
   - Meu aplicativo contém dados confidenciais?
 
-  - Meu aplicativo coleta ou armazena dados que exigem que eu siga os padrões do setor e programas de conformidade, como o [Federal Financial Institution Examination Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) ou o Payment Card Industry Data Security Standards [(PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
+  - Meu aplicativo coleta ou armazena dados que exigem a adesão a padrões do setor e programas de conformidade como o [FFIEC (Instituto financeiro federal de exames)](../blueprints/ffiec-analytics-overview.md) ou os [padrões de segurança de dados do setor de cartão de pagamento (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
 
-  - Meu aplicativo coleta ou contém dados pessoais ou de clientes sensíveis que podem ser usados, por conta própria ou com outras informações, para identificar, contatar ou localizar uma única pessoa?
+  - O meu aplicativo coleta ou contém dados confidenciais pessoais ou de clientes que podem ser usados, por conta própria ou por outras informações, para identificar, contatar ou localizar uma única pessoa?
 
-  - Meu aplicativo coleta ou contém dados que podem ser usados para acessar as informações médicas, educacionais, financeiras ou de emprego de um indivíduo? Identificar a sensibilidade de seus dados durante a fase de requisitos ajuda você a classificar seus dados e identificar o método de proteção de dados que você usará para sua aplicação.
+  - Meu aplicativo coleta ou contém dados que podem ser usados para acessar informações médicas, educacionais, financeiras ou de empregos de um indivíduo? Identificar a sensibilidade dos seus dados durante a fase de requisitos ajuda a classificar seus dados e identificar o método de proteção de dados que você usará para seu aplicativo.
 
-  - Onde e como meus dados são armazenados? Considere como você monitorará os serviços de armazenamento que seu aplicativo usa para quaisquer alterações inesperadas (como tempos de resposta mais lentos). Você será capaz de influenciar o registro para coletar dados mais detalhados e analisar um problema em profundidade?
+  - Onde e como os meus dados são armazenados? Considere como você monitorará os serviços de armazenamento que seu aplicativo usa para quaisquer alterações inesperadas (como tempos de resposta mais lentos). Será possível influenciar o registro em log para coletar dados mais detalhados e analisar um problema em profundidade?
 
-  - Será que minha inscrição estará disponível para o público (na internet) ou apenas internamente? Se sua aplicação estiver disponível ao público, como você protege os dados que podem ser coletados de serem usados de forma errada? Se sua aplicação estiver disponível apenas internamente, considere quem em sua organização deve ter acesso ao aplicativo e quanto tempo eles devem ter acesso.
+  - Meu aplicativo estará disponível para o público (na Internet) ou apenas internamente? Se seu aplicativo estiver disponível para o público, como você protege os dados que podem ser coletados de forma incorreta? Se seu aplicativo estiver disponível apenas internamente, considere quem em sua organização deve ter acesso ao aplicativo e por quanto tempo eles devem ter acesso.
 
-  - Você entende seu modelo de identidade antes de começar a projetar sua aplicação? Como você determinará que os usuários são quem dizem ser e o que um usuário está autorizado a fazer?
+  - Você entende seu modelo de identidade antes de começar a projetar seu aplicativo? Como você determinará que os usuários são quem dizem que são e o que um usuário está autorizado a fazer?
 
-  - Minha aplicação executa tarefas sensíveis ou importantes (como transferir dinheiro, abrir portas ou entregar medicamentos)?
-    Considere como você validará que o usuário que executa uma tarefa sensível está autorizado a executar a tarefa e como você autenticará que a pessoa é quem ela diz ser. Autorização (AuthZ) é o ato de conceder uma permissão de segurança autenticada para fazer algo. Autenticação (AuthN) é o ato de desafiar uma parte por credenciais legítimas.
+  - Meu aplicativo executa tarefas confidenciais ou importantes (como a transferência de dinheiro, o desbloqueio de portas ou o fornecimento de medicina)?
+    Considere como você irá validar que o usuário que está executando uma tarefa confidencial está autorizado a executar a tarefa e como você autenticará que a pessoa é quem eles dizem. Autorização (AuthZ) é o ato de conceder uma permissão de entidade de segurança autenticada para fazer algo. Autenticação (Authn) é o ato de desafiador para credenciais legítimas.
 
-  - Meu aplicativo executa atividades de software arriscadas, como permitir que os usuários carreguem ou baixem arquivos ou outros dados? Se o seu aplicativo realizar atividades arriscadas, considere como seu aplicativo protegerá os usuários de lidar com arquivos ou dados maliciosos.
+  - Meu aplicativo executa qualquer atividade de software arriscada, como permitir que os usuários carreguem ou baixem arquivos ou outros dados? Se seu aplicativo executar atividades arriscadas, considere como seu aplicativo protegerá os usuários de lidar com arquivos ou dados mal-intencionados.
 
-### <a name="review-owasp-top-10"></a>Review OWASP top 10
-Considere revisar os [<span class="underline">10 principais riscos de segurança de aplicativos da OWASP.</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-O OWASP Top 10 aborda riscos críticos de segurança para aplicativos web.
-A conscientização sobre esses riscos de segurança pode ajudá-lo a tomar decisões de exigência e design que minimizem esses riscos em sua aplicação.
+### <a name="review-owasp-top-10"></a>Examinar os 10 primeiros OWASP
+Considere analisar os [<span class="underline">10 principais riscos de segurança de aplicativo do OWASP</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+Os 10 principais OWASP abordam os riscos de segurança críticos aos aplicativos Web.
+A conscientização desses riscos de segurança pode ajudá-lo a tomar decisões de design e requisito que minimizem esses riscos em seu aplicativo.
 
-Pensar em controles de segurança para evitar violações é importante.
-No entanto, você também quer [assumir que uma brecha](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) ocorrerá. Assumindo que uma violação ajuda a responder algumas perguntas importantes sobre segurança com antecedência, para que eles não tenham que ser respondidos em uma emergência:
+Pensar nos controles de segurança para evitar violações é importante.
+No entanto, você também desejará supor que ocorrerá [uma violação](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops) . Pressupor que uma violação ajude a responder algumas perguntas importantes sobre segurança com antecedência, para que elas não precisem ser respondidas em uma emergência:
 
-  - Como vou detectar um ataque?
+  - Como detectar um ataque?
 
-  - O que farei se houver um ataque ou violação?
+  - O que fará se houver um ataque ou uma violação?
 
-  - Como vou me recuperar do ataque como vazamento de dados ou adulteração?
+  - Como vou me recuperar do ataque, como vazamento de dados ou adulteração?
 
 ## <a name="design"></a>Design
 
-A fase de design é fundamental para estabelecer as melhores práticas de design e especificações funcionais. Também é fundamental para a realização de análises de risco que ajudam a mitigar problemas de segurança e privacidade ao longo de um projeto.
+A fase de design é essencial para estabelecer práticas recomendadas para design e especificações funcionais. Também é essencial para a realização da análise de riscos que ajuda a reduzir problemas de segurança e privacidade em um projeto.
 
-Quando você tem requisitos de segurança no local e usa conceitos de design seguro, você pode evitar ou minimizar as oportunidades para uma falha de segurança. Uma falha de segurança é um descuido no design do aplicativo que pode permitir que um usuário realize ações maliciosas ou inesperadas após o lançamento do seu aplicativo.
+Quando você tem requisitos de segurança em vigor e usa conceitos de design seguro, você pode evitar ou minimizar oportunidades para uma falha de segurança. Uma falha de segurança é uma supervisão no design do aplicativo que pode permitir que um usuário execute ações mal-intencionadas ou inesperadas após o lançamento do aplicativo.
 
-Durante a fase de design, pense também em como você pode aplicar segurança em camadas; um nível de defesa não é necessariamente suficiente. O que acontece se um invasor passar pelo firewall de aplicativos web (WAF)? Você quer outro controle de segurança para se defender desse ataque.
+Durante a fase de design, pense também em como você pode aplicar segurança em camadas; um nível de defesa não é necessariamente suficiente. O que acontece se um invasor ultrapassar o WAF (firewall do aplicativo Web)? Você quer outro controle de segurança em vigor para se defender contra esse ataque.
 
-Com isso em mente, discutimos os seguintes conceitos de design seguro e os controles de segurança que você deve abordar ao projetar aplicativos seguros:
+Com isso em mente, discutiremos os seguintes conceitos de design seguro e os controles de segurança que você deve abordar ao projetar aplicativos seguros:
 
 - Use uma biblioteca de codificação segura e uma estrutura de software.
-- Procure componentes vulneráveis.
-- Use modelagem de ameaças durante o projeto do aplicativo.
+- Verificar se há componentes vulneráveis.
+- Use a modelagem de ameaças durante o design do aplicativo.
 - Reduza sua superfície de ataque.
 - Adote uma política de identidade como o perímetro de segurança primário.
-- Exija reautenticação para transações importantes.
+- Exigir nova autenticação para transações importantes.
 - Use uma solução de gerenciamento de chaves para proteger chaves, credenciais e outros segredos.
 - Proteger dados confidenciais.
-- Implementar medidas de segurança contra falhas.
-- Aproveite o erro e o manuseio de exceções.
-- Use registro e alerta.
+- Implemente medidas à prova de falhas.
+- Aproveite o tratamento de erros e exceções.
+- Use o registro em log e alertas.
 
-### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Use uma biblioteca de codificação segura e uma estrutura de software
+### <a name="use-a-secure-coding-library-and-a-software-framework"></a>Usar uma biblioteca de codificação segura e uma estrutura de software
 
-Para o desenvolvimento, use uma biblioteca de codificação segura e uma estrutura de software que tenha segurança incorporada. Os desenvolvedores podem usar recursos existentes e comprovados (criptografia, saneamento de entrada, codificação de saída, chaves ou strings de conexão, e qualquer outra coisa que seja considerada um controle de segurança) em vez de desenvolver controles de segurança do zero. Isso ajuda a proteger contra falhas de projeto e implementação relacionadas à segurança.
+Para o desenvolvimento, use uma biblioteca de codificação segura e uma estrutura de software que tenha segurança incorporada. Os desenvolvedores podem usar recursos existentes e comprovados (criptografia, entrada saneamento, codificação de saída, chaves ou cadeias de conexão e qualquer outra coisa que seja considerada um controle de segurança) em vez de desenvolver controles de segurança do zero. Isso ajuda a proteger contra falhas de implementação e design relacionadas à segurança.
 
-Certifique-se de que você está usando a versão mais recente do seu framework e todos os recursos de segurança disponíveis no framework. A Microsoft oferece um conjunto abrangente [de ferramentas de desenvolvimento](https://azure.microsoft.com/product-categories/developer-tools/) para todos os desenvolvedores, trabalhando em qualquer plataforma ou idioma, para fornecer aplicativos em nuvem. Você pode codificar com o idioma de sua escolha escolhendo entre vários [SDKs](https://azure.microsoft.com/downloads/).
-Você pode aproveitar ambientes de desenvolvimento integrado completos (IDEs) e editores que têm recursos avançados de depuração e suporte integrado ao Azure.
+Verifique se você está usando a versão mais recente da estrutura e todos os recursos de segurança disponíveis na estrutura. A Microsoft oferece um [conjunto abrangente de ferramentas de desenvolvimento](https://azure.microsoft.com/product-categories/developer-tools/) para todos os desenvolvedores, trabalhando em qualquer plataforma ou linguagem, para fornecer aplicativos de nuvem. Você pode codificar com a linguagem de sua escolha escolhendo entre vários [SDKs](https://azure.microsoft.com/downloads/).
+Você pode aproveitar os IDEs (ambientes de desenvolvimento integrado) completos e editores que têm recursos de depuração avançados e suporte interno do Azure.
 
-A Microsoft oferece uma variedade de [idiomas, frameworks e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que você pode usar para desenvolver aplicativos no Azure. Um exemplo é [o Azure para desenvolvedores .NET e .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma e estrutura que oferecemos, você encontrará partidas rápidas, tutoriais e referências de API para ajudá-lo a começar rápido.
+A Microsoft oferece uma variedade de [linguagens, estruturas e ferramentas](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que você pode usar para desenvolver aplicativos no Azure. Um exemplo é o [Azure para desenvolvedores .net e .NET Core](https://docs.microsoft.com/dotnet/azure/). Para cada idioma e estrutura que oferecemos, você encontrará guias de início rápido, tutoriais e referências de API para ajudá-lo a começar rapidamente.
 
-O Azure oferece uma variedade de serviços que você pode usar para hospedar sites e aplicativos web. Esses serviços permitem que você se desenvolva em seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
-[O Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) é um desses serviços.
+O Azure oferece uma variedade de serviços que você pode usar para hospedar sites e aplicativos Web. Esses serviços permitem desenvolver em sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node. js, PHP ou Python.
+Os [aplicativos Web do serviço Azure app](../../app-service/overview.md) (aplicativos Web) são um desses serviços.
 
-O Web Apps adiciona o poder do Microsoft Azure ao seu aplicativo. Inclui segurança, balanceamento de carga, autodimensionamento e gerenciamento automatizado. Você também pode aproveitar os recursos do DevOps em Aplicativos Web, como gerenciamento de pacotes, ambientes de preparação, domínios personalizados, certificados SSL/TLS e implantação contínua do Azure DevOps, GitHub, Docker Hub e outras fontes.
+Os aplicativos Web adicionam o poder do Microsoft Azure ao seu aplicativo. Ele inclui segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você também pode aproveitar os recursos do DevOps em aplicativos Web, como gerenciamento de pacotes, ambientes de preparo, domínios personalizados, certificados SSL/TLS e implantação contínua do Azure DevOps, GitHub, Hub do Docker e outras fontes.
 
-O Azure oferece outros serviços que você pode usar para hospedar sites e aplicativos web. Os Aplicativos Web são a melhor opção para a maioria dos cenários. Para uma arquitetura de micro serviços, considere [o Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
+O Azure oferece outros serviços que você pode usar para hospedar sites e aplicativos Web. Os Aplicativos Web são a melhor opção para a maioria dos cenários. Para uma arquitetura de micro Service, considere o [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
 Se você precisar de mais controle sobre as VMs nas quais seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
-Para obter mais informações sobre como escolher entre esses serviços do Azure, consulte uma [comparação do Azure App Service, Virtual Machines, Service Fabric e Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Para obter mais informações sobre como escolher entre esses serviços do Azure, consulte uma [comparação de Azure app serviço, máquinas virtuais, Service Fabric e serviços de nuvem](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### <a name="apply-updates-to-components"></a>Aplicar atualizações aos componentes
 
-Para evitar vulnerabilidades, você deve fazer um inventário contínuo tanto dos componentes do lado do cliente quanto do lado do servidor (por exemplo, frameworks e bibliotecas) e suas dependências para atualizações. Novas vulnerabilidades e versões atualizadas de software são lançadas continuamente. Certifique-se de que você tem um plano contínuo para monitorar, triagem e aplicar atualizações ou alterações de configuração nas bibliotecas e componentes que você usa.
+Para evitar vulnerabilidades, você deve inventariar continuamente os componentes do lado do cliente e do servidor (por exemplo, estruturas e bibliotecas) e suas dependências para atualizações. Novas vulnerabilidades e versões de software atualizadas são lançadas continuamente. Verifique se você tem um plano contínuo para monitorar, fazer triagem e aplicar atualizações ou alterações de configuração às bibliotecas e aos componentes que você usa.
 
-Consulte a página [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page) sobre [o uso de componentes com vulnerabilidades conhecidas](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) para sugestões de ferramentas. Você também pode assinar alertas de e-mail para vulnerabilidades de segurança relacionadas aos componentes que você usa.
+Consulte a página [Abrir projeto de segurança de aplicativo Web (OWASP)](https://www.owasp.org/index.php/Main_Page) em [usando componentes com vulnerabilidades conhecidas](https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities) para sugestões de ferramenta. Você também pode assinar alertas por email para vulnerabilidades de segurança relacionadas aos componentes que você usa.
 
 ### <a name="use-threat-modeling-during-application-design"></a>Usar a modelagem de ameaças durante o design do aplicativo
 
-Modelagem de ameaças é o processo de identificar potenciais ameaças à segurança de sua empresa e aplicativo e, em seguida, garantir que as mitigações adequadas estejam em vigor. O SDL especifica que as equipes devem se envolver na modelagem de ameaças durante a fase de projeto, quando a resolução de problemas potenciais é relativamente fácil e econômica. O uso de modelagem de ameaças na fase de design pode reduzir consideravelmente o seu custo total de desenvolvimento.
+A modelagem de ameaças é o processo de identificar possíveis ameaças à segurança para seus negócios e aplicativos e, em seguida, garantir que as atenuações adequadas estejam em vigor. O SDL especifica que as equipes devem se envolver na modelagem de ameaças durante a fase de design, ao resolver possíveis problemas é relativamente fácil e econômico. Usar a modelagem de ameaças na fase de design pode reduzir muito o custo total de desenvolvimento.
 
-Para ajudar a facilitar o processo de modelagem de ameaças, projetamos a [Ferramenta de Modelagem de Ameaças SDL](threat-modeling-tool.md) com especialistas não-segurança em mente. Esta ferramenta facilita a modelagem de ameaças para todos os desenvolvedores, fornecendo orientação clara sobre como criar e analisar modelos de ameaças.
+Para ajudar a facilitar o processo de modelagem de ameaças, projetamos o [Threat Modeling Tool do SDL](threat-modeling-tool.md) com especialistas não relacionados à segurança em mente. Essa ferramenta facilita a modelagem de ameaças para todos os desenvolvedores, fornecendo uma orientação clara sobre como criar e analisar modelos de ameaça.
 
-Modelando o design do aplicativo e enumerando ameaças [do STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) — Spoofing, Tampering, Repúdio, Divulgação de Informações, Negação de Serviço e Elevação de Privilégios — em todos os limites de confiança provou ser uma maneira eficaz de capturar erros de design no início. A tabela a seguir lista as ameaças do STRIDE e dá alguns exemplos de mitigações que usam recursos fornecidos pelo Azure. Essas mitigações não funcionarão em todas as situações.
+Modelando o design do aplicativo e enumerando as ameaças [Stride](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) — falsificação, violação, repúdio, divulgação de informações, negação de serviço e elevação de privilégio — em todos os limites de confiança, comprovou uma maneira eficaz de detectar erros de design no início. A tabela a seguir lista as ameaças STRIDE e fornece algumas atenuações de exemplo que usam os recursos fornecidos pelo Azure. Essas mitigações não funcionarão em todas as situações.
 
-| Ameaça | Propriedade de segurança | Potencial mitigação da plataforma Azure |
+| Ameaça | Propriedade de segurança | Mitigação potencial da plataforma Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Falsificação               | Autenticação        | [Requerem conexões HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Violação              | Integridade             | Valide os certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar totalmente os certificados X.509 das entidades a que se conectam. Use os certificados do Azure Key Vault para [gerenciar seus certificados x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
+| Falsificação               | Autenticação        | [Exigir conexões HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Violação              | Integridade             | Validar certificados SSL/TLS. Os aplicativos que usam SSL/TLS devem verificar completamente os certificados X. 509 das entidades a que se conectam. Use Azure Key Vault certificados para [gerenciar seus certificados X509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Repúdio            | Não repúdio       | Habilitar o [monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) do Azure.|
 | Revelação de informações | Confidencialidade       | Criptografe dados confidenciais [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Negação de Serviço      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. [A proteção Azure DDoS](../../virtual-network/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativos, fornece defesa contra ataques DDoS.|
-| Elevação de privilégio | Autorização         | Use o Azure <span class="underline"> </span> Active Directory [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Negação de Serviço      | Disponibilidade          | Monitore as métricas de desempenho para possíveis condições de negação de serviço. Implementar filtros de conexão. A [proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md#next-steps), combinada com as práticas recomendadas de design de aplicativo, fornece defesa contra ataques de DDoS.|
+| Elevação de privilégio | Autorização         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
-### <a name="reduce-your-attack-surface"></a>Reduza sua superfície de ataque
+### <a name="reduce-your-attack-surface"></a>Reduzir a superfície de ataque
 
-Uma superfície de ataque é a soma total de onde possíveis vulnerabilidades podem ocorrer. Neste artigo, focamos na superfície de ataque de uma aplicação.
-O foco é proteger uma aplicação contra ataques. Uma maneira simples e rápida de minimizar sua superfície de ataque é remover recursos e códigos não utilizados do seu aplicativo. Quanto menor sua aplicação, menor sua superfície de ataque. Por exemplo, remova:
+Uma superfície de ataque é a soma total de onde podem ocorrer possíveis vulnerabilidades. Neste artigo, nos concentramos na superfície de ataque de um aplicativo.
+O foco é proteger um aplicativo contra ataques. Uma maneira simples e rápida de minimizar a superfície de ataque é remover recursos e códigos não utilizados do seu aplicativo. Quanto menor o seu aplicativo, menor a superfície de ataque. Por exemplo, remova:
 
-- Código para recursos que você ainda não liberou.
-- Depuração do código de suporte.
-- Interfaces de rede e protocolos que não foram usados ou que foram preteridos.
+- Código para recursos que você ainda não lançou.
+- Código de suporte à depuração.
+- Adaptadores de rede e protocolos que não são usados ou que foram preteridos.
 - Máquinas virtuais e outros recursos que você não está usando.
 
-Fazer a limpeza regular de seus recursos e garantir que você remova códigos não utilizados são ótimas maneiras de garantir que haja menos oportunidades para atores mal-intencionados atacarem.
+Fazer uma limpeza regular de seus recursos e garantir que você remova o código não utilizado é uma ótima maneira de garantir que haja menos oportunidades para ataques maliciosos.
 
-Uma maneira mais detalhada e profunda de reduzir sua superfície de ataque é completar uma análise da superfície de ataque. Uma análise da superfície de ataque ajuda a mapear as partes de um sistema que precisam ser revisadas e testadas para vulnerabilidades de segurança.
+Uma maneira mais detalhada e aprofundada de reduzir sua superfície de ataque é concluir uma análise da superfície de ataque. Uma análise da superfície de ataque ajuda a mapear as partes de um sistema que precisam ser examinadas e testadas quanto a vulnerabilidades de segurança.
 
-O objetivo de uma análise de superfície de ataque é entender as áreas de risco em um aplicativo para que desenvolvedores e especialistas em segurança estejam cientes de quais partes do aplicativo estão abertas a ataques. Então, você pode encontrar maneiras de minimizar esse potencial, rastrear quando e como a superfície de ataque muda, e o que isso significa de uma perspectiva de risco.
+A finalidade de uma análise da superfície de ataque é entender as áreas de risco em um aplicativo para que os desenvolvedores e especialistas em segurança saibam quais partes do aplicativo estão abertas para atacar. Em seguida, você pode encontrar maneiras de minimizar esse potencial, controlar quando e como a superfície de ataque muda e o que isso significa de uma perspectiva de risco.
 
 Uma análise da superfície de ataque ajuda a identificar:
 
-- Funções e partes do sistema você precisa rever e testar vulnerabilidades de segurança.
-- Áreas de código de alto risco que requerem proteção de defesa em profundidade (partes do sistema que você precisa defender).
+- Funções e partes do sistema você precisa examinar e testar vulnerabilidades de segurança.
+- Áreas de código de alto risco que exigem proteção de defesa intensa (partes do sistema que você precisa defender).
 - Quando você altera a superfície de ataque e precisa atualizar uma avaliação de ameaça.
 
-Reduzir as oportunidades para os invasores explorarem um ponto fraco ou vulnerabilidade em potencial exige que você analise minuciosamente a superfície de ataque geral do seu aplicativo. Também inclui desativar ou restringir o acesso aos serviços do sistema, aplicar o princípio do menor privilégio e empregar defesas em camadas sempre que possível.
+Reduzir as oportunidades de invasores de explorar um possível ponto fraco ou uma vulnerabilidade exige que você analise minuciosamente a superfície de ataque geral do aplicativo. Ele também inclui desabilitar ou restringir o acesso aos serviços do sistema, aplicar o princípio de privilégios mínimos e empregar defesas em camadas sempre que possível.
 
-Discutimos [a realização de uma revisão da superfície](secure-develop.md#conduct-attack-surface-review) de ataque durante a fase de verificação do SDL.
+Abordamos a [condução de uma análise da superfície de ataque](secure-develop.md#conduct-attack-surface-review) durante a fase de verificação do SDL.
 
 > [!NOTE]
-> **Qual é a diferença entre modelagem de ameaças e análise de superfície de ataque?**
-Modelagem de ameaças é o processo de identificar potenciais ameaças à segurança ao seu aplicativo e garantir que as mitigações adequadas contra as ameaças estejam em vigor. A análise da superfície de ataque identifica áreas de alto risco de código que estão abertas a ataques. Envolve encontrar maneiras de defender áreas de alto risco do seu aplicativo e revisar e testar essas áreas de código antes de implantar o aplicativo.
+> **Qual é a diferença entre a modelagem de ameaças e a análise da superfície de ataque?**
+A modelagem de ameaças é o processo de identificar possíveis ameaças à segurança para seu aplicativo e garantir que as atenuações adequadas contra as ameaças estejam em vigor. A análise da superfície de ataque identifica áreas de alto risco de código que estão abertas para atacar. Ele envolve encontrar maneiras de defender áreas de alto risco de seu aplicativo e revisar e testar essas áreas de código antes de implantar o aplicativo.
 
 ### <a name="adopt-a-policy-of-identity-as-the-primary-security-perimeter"></a>Adotar uma política de identidade como o perímetro de segurança primário
 
-Quando você projeta aplicativos em nuvem, é importante expandir o foco do perímetro de segurança a partir de uma abordagem centrada na rede para uma abordagem centrada na identidade. Historicamente, o principal perímetro de segurança no local era a rede de uma organização. A maioria dos projetos de segurança no local usa a rede como pivô de segurança primária. Para aplicações em nuvem, você é melhor servido considerando a identidade como o perímetro de segurança principal.
+Quando você projeta aplicativos de nuvem, é importante expandir seu foco de perímetro de segurança de uma abordagem centrada na rede para uma abordagem centrada em identidade. Historicamente, o perímetro de segurança local primário era a rede de uma organização. A maioria dos designs de segurança locais usa a rede como a tabela dinâmica de segurança primária. Para aplicativos de nuvem, você é mais bem atendido ao considerar a identidade como o perímetro de segurança primário.
 
-Coisas que você pode fazer para desenvolver uma abordagem centrada na identidade para o desenvolvimento de aplicativos web:
+Coisas que você pode fazer para desenvolver uma abordagem centrada em identidades para o desenvolvimento de aplicativos Web:
 
-- Imponha a autenticação multifatorial para os usuários.
+- Impor a autenticação multifator para usuários.
 - Use plataformas de autorização e autenticação fortes.
-- Aplique o princípio do menor privilégio.
-- Implementar acesso just-in-time.
+- Aplique o princípio de privilégios mínimos.
+- Implemente o acesso just-in-time.
 
-#### <a name="enforce-multi-factor-authentication-for-users"></a>Impor autenticação multifatorial para usuários
+#### <a name="enforce-multi-factor-authentication-for-users"></a>Impor a autenticação multifator para usuários
 
-Use a autenticação de dois fatores. A autenticação de dois fatores é o padrão atual de autenticação e autorização, pois evita as fraquezas de segurança inerentes aos tipos de autenticação de nome de usuário e senha. O acesso às interfaces de gerenciamento do Azure (portal Azure/PowerShell remoto) e aos serviços voltados para o cliente deve ser projetado e configurado para usar a [Autenticação Multifatorial do Azure.](../../active-directory/authentication/concept-mfa-howitworks.md)
+Use a autenticação de dois fatores. A autenticação de dois fatores é o padrão atual para autenticação e autorização porque evita as fraquezas de segurança inerentes aos tipos de senha e de nome de usuário de autenticação. O acesso às interfaces de gerenciamento do Azure (portal do Azure/PowerShell remoto) e aos serviços voltados para o cliente devem ser projetados e configurados para usar a [autenticação multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-#### <a name="use-strong-authentication-and-authorization-platforms"></a>Use plataformas de autenticação e autorização fortes
+#### <a name="use-strong-authentication-and-authorization-platforms"></a>Usar plataformas de autenticação e autorização fortes
 
-Use os mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. Isso porque o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. O código comercial (por exemplo, da Microsoft) muitas vezes é amplamente revisado para segurança. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) é a solução do Azure para gerenciamento de identidades e acesso. Essas ferramentas e serviços azure AD ajudam no desenvolvimento seguro:
+Use os mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. Isso ocorre porque o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. O código comercial (por exemplo, da Microsoft) geralmente é revisado extensivamente pela segurança. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) é a solução do Azure para gerenciamento de identidades e acesso. Essas ferramentas e serviços do Azure AD ajudam com o desenvolvimento seguro:
 
-- [A plataforma de identidade Azure AD (Azure AD para desenvolvedores)](../../active-directory/develop/about-microsoft-identity-platform.md) é um serviço de identidade na nuvem que os desenvolvedores usam para criar aplicativos que assinam com segurança os usuários. O Azure AD auxilia desenvolvedores que estão construindo aplicativos de linha de negócios (LOB) e desenvolvedores que estão procurando desenvolver aplicativos multi-inquilinos. Além do login básico, os aplicativos que são construídos usando o Azure AD podem chamar APIs da Microsoft e APIs personalizadas que são construídas na plataforma Azure AD. A plataforma de identidade Azure AD suporta protocolos padrão do setor, como o OAuth 2.0 e o OpenID Connect.
+- A [plataforma de identidade do Azure AD (Azure ad para desenvolvedores)](../../active-directory/develop/about-microsoft-identity-platform.md) é um serviço de identidade de nuvem que os desenvolvedores usam para criar aplicativos que conectam os usuários com segurança. O Azure AD auxilia os desenvolvedores que criam aplicativos de locatário único, linha de negócios (LOB) e desenvolvedores que procuram desenvolver aplicativos multilocatários. Além de entrada básica, os aplicativos criados usando o Azure AD podem chamar APIs da Microsoft e APIs personalizadas criadas na plataforma do Azure AD. A plataforma de identidade do Azure AD dá suporte a protocolos padrão do setor, como OAuth 2,0 e OpenID Connect.
 
-- [O Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) é um serviço de gerenciamento de identidade que você pode usar para personalizar e controlar como os clientes se inscrevem, fazem login e gerenciam seus perfis quando usam seus aplicativos. Isso inclui aplicativos desenvolvidos para iOS, Android e .NET, entre outros. O Azure AD B2C permite essas ações enquanto protege as identidades dos clientes.
+- [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml) é um serviço de gerenciamento de identidade que você pode usar para personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos. Isso inclui aplicativos desenvolvidos para iOS, Android e .NET, entre outros. Azure AD B2C habilita essas ações enquanto protege as identidades do cliente.
 
-#### <a name="apply-the-principle-of-least-privilege"></a>Aplique o princípio do menor privilégio
+#### <a name="apply-the-principle-of-least-privilege"></a>Aplicar o princípio de privilégios mínimos
 
-O conceito de [menos privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa dar aos usuários o nível preciso de acesso e controle de que precisam para fazer seus trabalhos e nada mais.
+O conceito de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornecer aos usuários o nível preciso de acesso e controle de que eles precisam para realizar seus trabalhos e nada mais.
 
-Um desenvolvedor de software precisaria de direitos de admin de domínio? Um assistente administrativo precisaria de acesso a controles administrativos em seu computador pessoal? Avaliar o acesso ao software não é diferente. Se você usar [o RBAC (Role-based Access Control, controle de acesso baseado em função)](../../role-based-access-control/overview.md) para dar aos usuários diferentes habilidades e autoridade em seu aplicativo, você não daria a todos acesso a tudo. Ao limitar o acesso ao que é necessário para cada função, você limita o risco de um problema de segurança ocorrer.
+Um desenvolvedor de software precisa de direitos de administrador de domínio? Um assistente administrativo precisaria de acesso a controles administrativos em seu computador pessoal? A avaliação do acesso ao software não é diferente. Se você usar o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para fornecer aos usuários diferentes habilidades e autoridade em seu aplicativo, não dará a todos acesso a tudo. Limitando o acesso ao que é necessário para cada função, você limita o risco de ocorrer um problema de segurança.
 
-Certifique-se de que seu aplicativo impõe [menos privilégios](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) em todos os seus padrões de acesso.
+Certifique-se de que seu aplicativo impõe [privilégios mínimos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) em seus padrões de acesso.
 
 > [!NOTE]
->  As regras de menor privilégio precisam ser aplicadas ao software e às pessoas que criam o software. Os desenvolvedores de software podem ser um grande risco para a segurança de TI se tiverem muito acesso. As consequências podem ser severas se um desenvolvedor tiver intenção maliciosa ou tiver muito acesso. Recomendamos que as regras de menor privilégio sejam aplicadas aos desenvolvedores durante todo o ciclo de vida do desenvolvimento.
+>  As regras de privilégios mínimos precisam ser aplicadas ao software e às pessoas que criam o software. Os desenvolvedores de software podem ser um grande risco para a segurança de ti se receberem muito acesso. As consequências podem ser severas se um desenvolvedor tiver uma intenção mal-intencionada ou receber muito acesso. Recomendamos que as regras de privilégios mínimos sejam aplicadas aos desenvolvedores em todo o ciclo de vida do desenvolvimento.
 
-#### <a name="implement-just-in-time-access"></a>Implementar acesso just-in-time
+#### <a name="implement-just-in-time-access"></a>Implementar o acesso just-in-time
 
-Implementar o acesso *just-in-time* (JIT) para reduzir ainda mais o tempo de exposição dos privilégios. Use [o Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) para:
+Implemente o acesso JIT ( *just-in-time* ) para reduzir ainda mais o tempo de exposição dos privilégios. Use [Azure ad Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) para:
 
 - Dê aos usuários as permissões de que eles precisam apenas de JIT.
 - Atribua funções por uma duração reduzida com confiança de que os privilégios são revogados automaticamente.
 
-### <a name="require-re-authentication-for-important-transactions"></a>Exigir reautenticação para transações importantes
+### <a name="require-re-authentication-for-important-transactions"></a>Exigir nova autenticação para transações importantes
 
-[A falsificação de solicitações entre sites](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF)* é um ataque contra aplicativos hospedados na Web, no qual um aplicativo web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo web que confia nesse navegador. Ataques de falsificação de solicitação entre sites são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente a cada solicitação a um site.
-Essa forma de exploração também é conhecida como *um ataque de um clique* ou uma sessão de *cavalgada* porque o ataque se aproveita da sessão autenticada anteriormente do usuário.
+A [solicitação entre sites forjada](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (também conhecida como *XSRF* ou *CSRF*) é um ataque contra aplicativos hospedados na Web em que um aplicativo Web mal-intencionado influencia a interação entre um navegador cliente e um aplicativo Web que confia nesse navegador. Os ataques de solicitação entre sites forjado são possíveis porque os navegadores da Web enviam alguns tipos de tokens de autenticação automaticamente com cada solicitação para um site.
+Essa forma de exploração também é conhecida como um ataque ou *sessão* de *um clique* , pois o ataque aproveita a sessão autenticada anteriormente do usuário.
 
-A melhor maneira de se defender contra esse tipo de ataque é pedir ao usuário algo que só o usuário pode fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma mudança de senha. Você pode pedir ao usuário para reinserir sua senha, completar um captcha ou enviar um token secreto que só o usuário teria. A abordagem mais comum é o símbolo secreto.
+A melhor maneira de se defender contra esse tipo de ataque é pedir ao usuário algo que apenas o usuário possa fornecer antes de cada transação importante, como uma compra, desativação de conta ou uma alteração de senha. Você pode pedir ao usuário para digitar novamente sua senha, concluir um captcha ou enviar um token secreto que apenas o usuário teria. A abordagem mais comum é o token secreto.
 
 ### <a name="use-a-key-management-solution-to-secure-keys-credentials-and-other-secrets"></a>Use uma solução de gerenciamento de chaves para proteger chaves, credenciais e outros segredos
 
-Perder chaves e credenciais é um problema comum. A única coisa pior do que perder as chaves e as credenciais é quando um terceiro não autorizado tem acesso a elas. Os atacantes podem aproveitar técnicas automatizadas e manuais para encontrar chaves e segredos armazenados em repositórios de código como o GitHub. Não coloque chaves e segredos nesses repositórios de código público ou em qualquer outro servidor.
+Perder chaves e credenciais é um problema comum. A única coisa pior do que perder as chaves e as credenciais é quando um terceiro não autorizado tem acesso a elas. Os invasores podem aproveitar as técnicas automatizadas e manuais para encontrar chaves e segredos armazenados em repositórios de código como o GitHub. Não coloque chaves e segredos nesses repositórios de código públicos ou em qualquer outro servidor.
 
-Coloque sempre suas chaves, certificados, segredos e strings de conexão em uma solução de gerenciamento de chaves. Você pode usar uma solução centralizada na qual chaves e segredos são armazenados em módulos de segurança de hardware (HSMs). O Azure fornece um HSM na nuvem com [o Azure Key Vault](../../key-vault/general/overview.md).
+Sempre coloque suas chaves, certificados, segredos e cadeias de conexão em uma solução de gerenciamento de chaves. Você pode usar uma solução centralizada na qual chaves e segredos são armazenados em HSMs (módulos de segurança de hardware). O Azure fornece um HSM na nuvem com [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault é uma *loja secreta:* é um serviço de nuvem centralizado para armazenar segredos de aplicativos. O Key Vault mantém seus dados confidenciais seguros mantendo segredos de aplicativos em um único local central e fornecendo acesso seguro, controle de permissões e registro de acesso.
+Key Vault é um *repositório secreto*: é um serviço de nuvem centralizado para armazenar os segredos do aplicativo. Key Vault mantém seus dados confidenciais protegidos, mantendo os segredos do aplicativo em um único local central e fornecendo acesso seguro, controle de permissões e registro em log de acesso.
 
-Segredos são *armazenados*em cofres individuais. Cada cofre tem sua própria configuração e políticas de segurança para controlar o acesso. Você chega aos seus dados através de uma API REST ou através de um SDK cliente que está disponível para a maioria das linguagens de programação.
+Os segredos são armazenados em *cofres*individuais. Cada cofre tem suas próprias políticas de configuração e segurança para controlar o acesso. Você obtém seus dados por meio de uma API REST ou por meio de um SDK de cliente que está disponível para a maioria das linguagens de programação.
 
 > [!IMPORTANT]
-> O Azure Key Vault foi projetado para armazenar segredos de configuração para aplicativos de servidor. Não se destina a armazenar dados que pertencem aos usuários do aplicativo. Isso é refletido em suas características de desempenho, na API e no modelo de custo.
+> O Azure Key Vault foi projetado para armazenar segredos de configuração para aplicativos de servidor. Ele não se destina ao armazenamento de dados que pertencem aos usuários do aplicativo. Isso é refletido em suas características de desempenho, na API e no modelo de custo.
 >
-> Os dados do usuário devem ser armazenados em outros lugares, como em uma instância do Banco de Dados SQL do Azure que tenha Criptografia de Dados Transparente (TDE) ou em uma conta de armazenamento que use a Criptografia do Serviço de Armazenamento Do Azure. Segredos que são usados pelo seu aplicativo para acessar esses armazenamentos de dados podem ser mantidos no Azure Key Vault.
+> Os dados do usuário devem ser armazenados em outro lugar, como em uma instância do banco do dados SQL do Azure com Transparent Data Encryption (TDE) ou em uma conta de armazenamento que usa o Criptografia do Serviço de Armazenamento do Azure. Os segredos que são usados pelo seu aplicativo para acessar esses armazenamentos de dados podem ser mantidos em Azure Key Vault.
 
 ### <a name="protect-sensitive-data"></a>Proteger dados confidenciais
 
-Proteger dados é uma parte essencial da sua estratégia de segurança.
-Classificar seus dados e identificar suas necessidades de proteção de dados ajuda você a projetar seu aplicativo com a segurança dos dados em mente. Classificar (categorizar) dados armazenados por sensibilidade e impacto nos negócios ajuda os desenvolvedores a determinar os riscos associados aos dados.
+Proteger os dados é uma parte essencial da sua estratégia de segurança.
+Classificar seus dados e identificar suas necessidades de proteção de dados ajuda a projetar seu aplicativo com a segurança de dados em mente. Classificar (categorizar) dados armazenados por sensibilidade e impacto nos negócios ajuda os desenvolvedores a determinar os riscos associados aos dados.
 
-Marque todos os dados aplicáveis como sensíveis ao projetar seus formatos de dados. Certifique-se de que o aplicativo trata os dados aplicáveis como sensíveis. Essas práticas podem ajudá-lo a proteger seus dados confidenciais:
+Rotule todos os dados aplicáveis como confidenciais ao projetar seus formatos de dados. Certifique-se de que o aplicativo trate os dados aplicáveis como confidenciais. Essas práticas podem ajudá-lo a proteger seus dados confidenciais:
 
-- Use criptografia.
-- Evite segredos de codificação difícil, como chaves e senhas.
-- Certifique-se de que os controles de acesso e auditoria estão no lugar.
+- Usar criptografia.
+- Evite segredos de codificação rígida como chaves e senhas.
+- Verifique se os controles de acesso e a auditoria estão em vigor.
 
-#### <a name="use-encryption"></a>Use criptografia
+#### <a name="use-encryption"></a>Usar criptografia
 
-Proteger dados deve ser uma parte essencial da sua estratégia de segurança.
-Se seus dados forem armazenados em um banco de dados ou se ele se mover para frente e para trás entre locais, use criptografia de [dados em repouso](../fundamentals/encryption-atrest.md) (enquanto estiver no banco de dados) e criptografia de dados em [trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) (a caminho de e para o usuário, o banco de dados, uma API ou ponto final de serviço). Recomendamos que você sempre use protocolos SSL/TLS para trocar dados. Certifique-se de usar a versão mais recente do TLS para criptografia (atualmente, esta é a versão 1.2).
+Proteger os dados deve ser uma parte essencial da sua estratégia de segurança.
+Se os dados estiverem armazenados em um banco de dado ou se forem movidos entre locais, use a criptografia de [dados em repouso](../fundamentals/encryption-atrest.md) (enquanto no banco de dados) e a criptografia de [dado em trânsito](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) (de seu caminho para e para o usuário, o Database, uma API ou um ponto de extremidade de serviço). Recomendamos que você sempre use protocolos SSL/TLS para trocar dados. Certifique-se de usar a versão mais recente do TLS para criptografia (atualmente, esta é a versão 1,2).
 
-#### <a name="avoid-hard-coding"></a>Evite codificação dura
+#### <a name="avoid-hard-coding"></a>Evitar codificação de hardware
 
-Algumas coisas nunca devem ser codificadas em seu software. Alguns exemplos são nomes de host ou endereços IP, URLs, endereços de e-mail, nomes de usuário, senhas, chaves de conta de armazenamento e outras chaves criptográficas. Considere implementar requisitos em torno do que pode ou não ser codificado em seu código, inclusive nas seções de comentários do seu código.
+Algumas coisas nunca devem ser embutidas em código em seu software. Alguns exemplos são nomes de host ou endereços IP, URLs, endereços de email, nomes de acessações, senhas, chaves de conta de armazenamento e outras chaves de criptografia. Considere a implementação de requisitos em relação ao que pode ou não ser embutido em código em seu código, incluindo nas seções de comentário do seu código.
 
-Quando você colocar comentários em seu código, certifique-se de que você não salve nenhuma informação sensível. Isso inclui seu endereço de e-mail, senhas, strings de conexão, informações sobre seu aplicativo que só seriam conhecidas por alguém em sua organização e qualquer outra coisa que possa dar a um invasor uma vantagem em atacar seu aplicativo ou organização.
+Quando você coloca comentários em seu código, certifique-se de não salvar nenhuma informação confidencial. Isso inclui seu endereço de email, senhas, cadeias de conexão, informações sobre seu aplicativo que só seriam conhecidas por alguém em sua organização e qualquer outra coisa que possa dar a um invasor uma vantagem em atacar seu aplicativo ou organização.
 
-Basicamente, suponha que tudo em seu projeto de desenvolvimento será de conhecimento público quando for implantado. Evite incluir dados confidenciais de qualquer tipo no projeto.
+Basicamente, suponha que tudo em seu projeto de desenvolvimento será um conhecimento público quando for implantado. Evite incluir dados confidenciais de qualquer tipo no projeto.
 
-Mais cedo, discutimos [o Azure Key Vault](../../key-vault/general/overview.md). Você pode usar o Key Vault para armazenar segredos como chaves e senhas em vez de codifica-los. Quando você usa o Key Vault em combinação com identidades gerenciadas para recursos do Azure, seu aplicativo web Azure pode acessar valores de configuração secretos de forma fácil e segura sem armazenar nenhum segredo em seu controle de origem ou configuração. Para saber mais, consulte [Gerenciar segredos em seus aplicativos de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Discutimos anteriormente [Azure Key Vault](../../key-vault/general/overview.md). Você pode usar Key Vault para armazenar segredos como chaves e senhas em vez de codificá-los embutidamente. Quando você usa Key Vault em combinação com identidades gerenciadas para recursos do Azure, seu aplicativo Web do Azure pode acessar valores de configuração secretas com facilidade e segurança sem armazenar segredos no controle do código-fonte ou na configuração. Para saber mais, confira [gerenciar segredos em seus aplicativos de servidor com o Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
-### <a name="implement-fail-safe-measures"></a>Implementar medidas de segurança contra falhas
+### <a name="implement-fail-safe-measures"></a>Implementar medidas de falha segura
 
-Sua aplicação deve ser capaz de lidar com [erros](https://docs.microsoft.com/dotnet/standard/exceptions/) que ocorrem durante a execução de forma consistente. O aplicativo deve pegar todos os erros e falhar seguro ou fechado.
+Seu aplicativo deve ser capaz de lidar com [erros](https://docs.microsoft.com/dotnet/standard/exceptions/) que ocorrem durante a execução de maneira consistente. O aplicativo deve capturar todos os erros e falhar ou ser fechado.
 
-Você também deve garantir que os erros sejam registrados com contexto de usuário suficiente para identificar atividades suspeitas ou maliciosas. Os registros devem ser retidos por tempo suficiente para permitir a análise forense atrasada. Os logs devem estar em um formato que pode ser facilmente consumido por uma solução de gerenciamento de log. Certifique-se de que os alertas de erros relacionados à segurança sejam acionados. O registro e o monitoramento insuficientes permitem que os atacantes ataquem mais sistemas e mantenham a persistência.
+Você também deve garantir que os erros sejam registrados com contexto de usuário suficiente para identificar atividades suspeitas ou mal-intencionadas. Os logs devem ser retidos por um tempo suficiente para permitir uma análise forense atrasada. Os logs devem estar em um formato que possa ser facilmente consumido por uma solução de gerenciamento de log. Certifique-se de que os alertas de erros relacionados à segurança sejam disparados. O registro em log e o monitoramento insuficiente permitem que os invasores ataquem mais sistemas e mantenham a persistência.
 
-### <a name="take-advantage-of-error-and-exception-handling"></a>Aproveite o manuseio de erros e exceções
+### <a name="take-advantage-of-error-and-exception-handling"></a>Aproveite o tratamento de erros e exceções
 
-Implementar o erro correto e [o manuseio de exceções](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) é uma parte importante da codificação defensiva. O manuseio de erros e exceções é fundamental para tornar um sistema confiável e seguro. Erros no manuseio de erros podem levar a diferentes tipos de vulnerabilidades de segurança, como vazar informações para os atacantes e ajudar os atacantes a entender mais sobre sua plataforma e design.
+Implementar o tratamento de erros e [exceções](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions) corretos é uma parte importante da codificação defensiva. A manipulação de erros e exceções é essencial para tornar um sistema confiável e seguro. Erros na manipulação de erros podem levar a tipos diferentes de vulnerabilidades de segurança, como vazamento de informações para invasores e ajuda de invasores a entender mais sobre sua plataforma e design.
 
 Verifique se:
 
-- Você lida com exceções de forma centralizada para evitar [blocos de tentativa/captura](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) duplicados no código.
+- Você manipula exceções de maneira centralizada para evitar [blocos try/catch](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions) duplicados no código.
 
 - Todos os comportamentos inesperados são tratados dentro do aplicativo.
 
 - As mensagens exibidas aos usuários não vazam dados críticos, mas fornecem informações suficientes para explicar o problema.
 
-- Exceções são registradas e que fornecem informações suficientes para as equipes forenses ou de resposta a incidentes investigarem.
+- As exceções são registradas e fornecem informações suficientes para que as equipes forenses ou de resposta a incidentes investiguem.
 
-[O Azure Logic Apps](../../logic-apps/logic-apps-overview.md) oferece uma experiência de primeira classe para [lidar com erros e exceções](../../logic-apps/logic-apps-exception-handling.md) que são causados por sistemas dependentes. Você pode usar o Logic Apps para criar fluxos de trabalho para automatizar tarefas e processos que integram aplicativos, dados, sistemas e serviços entre empresas e organizações.
+O [aplicativo lógico do Azure](../../logic-apps/logic-apps-overview.md) fornece uma experiência de primeira classe para [lidar com erros e exceções](../../logic-apps/logic-apps-exception-handling.md) causadas por sistemas dependentes. Você pode usar aplicativos lógicos para criar fluxos de trabalho para automatizar tarefas e processos que integram aplicativos, dados, sistemas e serviços entre empresas e organizações.
 
-### <a name="use-logging-and-alerting"></a>Use registro e alerta
+### <a name="use-logging-and-alerting"></a>Usar registro em log e alertas
 
-[Registre](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) seus problemas de segurança para investigações de segurança e acione alertas sobre problemas para garantir que as pessoas saibam sobre os problemas em tempo hábil. Habilite a auditoria e log em todos os componentes. Os registros de auditoria devem capturar o contexto do usuário e identificar todos os eventos importantes.
+[Registre](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) seus problemas de segurança para investigações de segurança e acione alertas sobre problemas para garantir que as pessoas saibam sobre problemas em tempo hábil. Habilite a auditoria e log em todos os componentes. Os logs de auditoria devem capturar o contexto do usuário e identificar todos os eventos importantes.
 
-Verifique se você não registra nenhum dado sensível que um usuário envia ao seu site. Exemplos de dados confidenciais:
+Verifique se você não registra dados confidenciais que um usuário envia para seu site. Exemplos de dados confidenciais:
 
 - Credenciais de usuário
-- Números da Previdência Social ou outras informações de identificação
+- Números de seguro social ou outras informações de identificação
 - Números de cartão de crédito ou outras informações financeiras
 - Informações de integridade
 - Chaves privadas ou outros dados que podem ser usados para descriptografar informações criptografadas
 - Informações do sistema ou aplicativo que podem ser usadas para atacar com mais eficiência o aplicativo
 
-Certifique-se de que o aplicativo monitore eventos de gerenciamento de usuários, como logins de usuário bem-sucedidos e com falha, redefinições de senha, alterações de senha, bloqueio de conta e registro de usuário. O registro desses eventos ajuda a detectar e reagir a comportamentos potencialmente suspeitos. Ele também permite coletar dados de operações, como quem está acessando o aplicativo.
+Certifique-se de que o aplicativo monitore eventos de gerenciamento de usuários, como logons de usuário bem-sucedidos e com falha, redefinições de senha, alterações de senha, bloqueio de conta e registro de usuário. O registro desses eventos ajuda você a detectar e reagir a comportamentos potencialmente suspeitos. Ele também permite que você Reúna dados de operações, como quem está acessando o aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Nos artigos a seguir, recomendamos controles de segurança e atividades que possam ajudá-lo a desenvolver e implantar aplicativos seguros.
+Nos artigos a seguir, recomendamos os controles de segurança e as atividades que podem ajudá-lo a desenvolver e implantar aplicativos seguros.
 
 - [Desenvolver aplicativos e segurança](secure-develop.md)
 - [Implantar aplicativos seguros](secure-deploy.md)

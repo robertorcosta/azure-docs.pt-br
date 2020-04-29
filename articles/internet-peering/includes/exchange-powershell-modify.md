@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 12d169697a35af446392843eb57e6ec3a5508e45
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678627"
 ---
-As seguintes operações de modificação são suportadas para peering exchange:
-* Adicionar conexões de peering exchange.
-* Remova as conexões de peering do Exchange.
+As seguintes operações de modificação têm suporte para o emparelhamento do Exchange:
+* Adicione conexões de emparelhamento do Exchange.
+* Remova as conexões de emparelhamento do Exchange.
 * Adicione uma sessão IPv4 ou IPv6 em conexões ativas.
 * Remova uma sessão IPv4 ou IPv6 em conexões ativas.
 
 
-### <a name="add-exchange-peering-connections"></a>Adicionar conexões de peering do Exchange
+### <a name="add-exchange-peering-connections"></a>Adicionar conexões de emparelhamento do Exchange
 
-Este exemplo descreve como adicionar conexões a um peering exchange existente.
+Este exemplo descreve como adicionar conexões a um emparelhamento do Exchange existente.
 
 ```powershell
 
@@ -43,9 +43,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-exchange-peering-connections"></a>Remover conexões de peering do Exchange
+### <a name="remove-exchange-peering-connections"></a>Remover conexões de emparelhamento do Exchange
 
-Este exemplo descreve como remover conexões a um peering exchange existente.
+Este exemplo descreve como remover conexões para um emparelhamento do Exchange existente.
 
 ```powershell
 
@@ -53,7 +53,7 @@ $exchangePeering = Get-AzPeering -Name "SeattleExchangePeering" -ResourceGroupNa
 
 ```
 
-Veja todas as conexões e selecione a conexão que deseja remover. 
+Exiba todas as conexões e selecione a conexão que você deseja remover. 
 
 ```powershell
 
@@ -73,7 +73,7 @@ Tags              : {}
 
 ```
 
-No comando seguinte, em vez de 0, digite o número de índice da conexão que deseja remover.
+No comando a seguir, em vez de 0, insira o número de índice para a conexão que você deseja remover.
 
 ```powershell
 
@@ -85,9 +85,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicione uma sessão IPv4 ou IPv6 em conexões ativas
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicionar uma sessão IPv4 ou IPv6 em conexões ativas
 
-Este exemplo descreve como adicionar uma sessão IPv6 a uma conexão Exchange existente.
+Este exemplo descreve como adicionar uma sessão IPv6 a uma conexão do Exchange existente.
 
 ```powershell
 
@@ -99,6 +99,6 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remova uma sessão IPv4 ou IPv6 em conexões ativas
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remover uma sessão IPv4 ou IPv6 em conexões ativas
 
-A remoção de uma sessão IPv4 ou IPv6 de uma conexão existente não é suportada no momento no PowerShell. Para obter mais informações, entre em contato com [a Microsoft .](mailto:peeringexperience@microsoft.com)
+Atualmente, não há suporte para a remoção de uma sessão IPv4 ou IPv6 de uma conexão existente no PowerShell. Para obter mais informações, entre em contato com [o emparelhamento da Microsoft](mailto:peeringexperience@microsoft.com).

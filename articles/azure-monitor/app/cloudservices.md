@@ -4,10 +4,10 @@ description: Monitorar suas funções da Web e de trabalho com eficiência com o
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537586"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
@@ -18,7 +18,7 @@ O [Application Insights][start] pode monitorar os [aplicativos de serviço de nu
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa de:
 
-* Uma assinatura [do Azure.](https://azure.com) Entrar com sua conta da Microsoft para Windows, Xbox Live ou outros serviços de nuvem da Microsoft. 
+* Uma assinatura [do Azure](https://azure.com) . Entrar com sua conta da Microsoft para Windows, Xbox Live ou outros serviços de nuvem da Microsoft. 
 * Ferramentas do Microsoft Azure 2.9 ou posteriores.
 * Developer Analytics Tools 7.10 ou posterior.
 
@@ -31,7 +31,7 @@ Esta opção prepara o aplicativo em runtime, oferecendo a você toda a telemetr
 
 Se esta opção for tudo o que você precisa, então você terminou. 
 
-Os próximos [passos são visualizar métricas do seu aplicativo,](../../azure-monitor/platform/metrics-charts.md) [consultando seus dados com o Analytics](../../azure-monitor/app/analytics.md). 
+Suas próximas etapas estão [exibindo métricas do seu aplicativo](../../azure-monitor/platform/metrics-charts.md), [consultando seus dados com a análise](../../azure-monitor/app/analytics.md). 
 
 Para monitorar o desempenho no navegador, talvez você queira configurar os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](../../azure-monitor/app/javascript.md).
 
@@ -48,7 +48,7 @@ Na seção seguinte, você aprenderá a adaptar seu próprio projeto de serviço
 ## <a name="plan-resources-and-resource-groups"></a>Planejar recursos e grupos de recursos
 A telemetria de seu aplicativo é armazenada, analisada e exibida em um recurso do Azure do tipo Application Insights. 
 
-Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../../azure-resource-manager/templates/deploy-powershell.md) um serviço de nuvem do Azure e seus recursos de monitoramento do Application Insights, tudo em uma única operação.
+Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, conceder acesso a membros da equipe e implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../../azure-resource-manager/templates/deploy-powershell.md) um serviço de nuvem do Azure e seu Application insights monitorar recursos em uma única operação.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
 É recomendável criar um recurso separado para cada componente do seu aplicativo. Ou seja, criar um recurso para cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas cria um [dashboard](../../azure-monitor/app/overview-dashboard.md) que reúne os principais gráficos de todos os componentes para poder compará-los e monitorá-los juntos em uma única exibição. 
@@ -82,7 +82,7 @@ Cada recurso é identificado por uma chave de instrumentação. Você pode preci
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar o diagnóstico do Azure para cada função
 Defina esta opção para monitorar seu aplicativo com o Application Insights. Para funções Web, esta opção fornece monitoramento de desempenho, alertas, diagnóstico e análise de uso. Para as demais funções, você pode pesquisar e monitorar o Diagnóstico do Azure, como reinicialização, contadores de desempenho e chamadas para System.Diagnostics.Trace. 
 
-1. No Visual Studio Solution Explorer, em  >  ** \<YourCloudService>** **Roles,** abra as propriedades de cada função.
+1. No Visual Studio Gerenciador de soluções, em ** \< **  >  **funções**de>de seuserviçodenuvem, abra as propriedades de cada função.
 
 1. Em **Configuração**, marque a caixa de seleção **Enviar dados de diagnóstico para o Application Insights** e, então, selecione o recurso do Application Insights criado anteriormente.
 
@@ -121,18 +121,18 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
     b. Repita a "etapa a" para cada função em seu aplicativo. Veja os exemplos:
    
     * [Função Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-    * [Função do trabalhador](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+    * [Função de trabalho](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Para páginas da Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
 1. Defina o arquivo *ApplicationInsights.config* para sempre ser copiado no diretório de saída.
 
    Uma mensagem no arquivo *. config* solicitará que você coloque a chave de instrumentação lá. No entanto, para aplicativos de nuvem, é melhor defini-la no arquivo *.cscfg*. Essa abordagem garante que a função seja identificada corretamente no portal.
 
-## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurar o Monitor de Status para coletar consultas SQL completas (opcional)
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurar Status Monitor para coletar consultas SQL completas (opcional)
 
-Esta etapa só é necessária se você quiser capturar consultas SQL completas no .NET Framework. 
+Esta etapa só será necessária se você quiser capturar consultas SQL completas em .NET Framework. 
 
-1. No `\*.csdef` arquivo Adicionar [tarefa de inicialização](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) para cada função semelhante à 
+1. Em `\*.csdef` arquivo adicionar [tarefa de inicialização](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) para cada função semelhante a 
 
     ```xml
     <Startup>
@@ -147,9 +147,9 @@ Esta etapa só é necessária se você quiser capturar consultas SQL completas n
     </Startup>
     ```
     
-2. Baixe [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), `AppInsightsAgent` coloque-os na pasta em cada projeto de função. Certifique-se de copiá-los para o diretório de saída através de propriedades de arquivo do Visual Studio ou criar scripts.
+2. Baixe [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), coloque-os na `AppInsightsAgent` pasta em cada projeto de função. Certifique-se de copiá-los para o diretório de saída por meio de propriedades de arquivo do Visual Studio ou scripts de compilação.
 
-3. Em todas as Funções do Trabalhador, adicione variáveis de ambiente: 
+3. Em todas as funções de trabalho, adicione variáveis de ambiente: 
 
     ```xml
       <Environment>
@@ -220,7 +220,7 @@ Para as funções de trabalho, você pode acompanhar as exceções de duas forma
 ## <a name="performance-counters"></a>Contadores de desempenho
 Os seguintes contadores são coletados por padrão:
 
-* \Processo(?? APP_WIN32_PROC??) \% Tempo do processador
+* \Process (?? APP_WIN32_PROC??) \% Tempo do processador
 * \Memória\Bytes Disponíveis
 * \.Exceções NET CLR (?. APP_CLR_PROC?)\# de exceções lançadas / s
 * \Processo(??APP_WIN32_PROC??)\Bytes Privados

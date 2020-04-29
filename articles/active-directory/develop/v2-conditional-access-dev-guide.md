@@ -1,6 +1,6 @@
 ---
-title: Orientação do desenvolvedor para acesso condicionado ao diretório ativo do Azure
-description: Orientação de desenvolvedores e cenários para a plataforma de identidade Azure AD Conditional Access e Microsoft.
+title: Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
+description: Diretrizes para desenvolvedores e cenários para o acesso condicional do Azure AD e plataforma de identidade da Microsoft.
 services: active-directory
 keywords: ''
 author: rwike77
@@ -14,23 +14,23 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535886"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação do desenvolvedor para acesso condicionado ao diretório ativo do Azure
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes para desenvolvedores para Azure Active Directory acesso condicional
 
-O recurso Conditional Access no Azure Active Directory (Azure AD) oferece uma das várias maneiras que você pode usar para proteger seu aplicativo e proteger um serviço. O Conditional Access permite que desenvolvedores e clientes corporativos protejam os serviços de várias maneiras, incluindo:
+O recurso de acesso condicional no Azure Active Directory (AD do Azure) oferece uma das várias maneiras que você pode usar para proteger seu aplicativo e proteger um serviço. O acesso condicional permite que os desenvolvedores e clientes corporativos protejam os serviços de várias maneiras, incluindo:
 
-* Autenticação multifator
+* Autenticação Multifator
 * Permissão para que somente dispositivos inscritos no Intune acessem serviços específicos
 * Restrição de locais de usuário e intervalos de IP
 
-Para obter mais informações sobre os recursos completos do Acesso Condicional, consulte [Conditional Access no Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Para obter mais informações sobre os recursos completos de acesso condicional, consulte [acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-Para desenvolvedores que constroem aplicativos para o Azure AD, este artigo mostra como você pode usar o Conditional Access e também aprenderá sobre o impacto do acesso a recursos que você não tem controle sobre os quais podem ter políticas de acesso condicional aplicadas. O artigo também explora as implicações do Acesso Condicional no nome do fluxo, aplicativos web, acessando o Microsoft Graph e chamando APIs.
+Para desenvolvedores que criam aplicativos para o Azure AD, este artigo mostra como você pode usar o acesso condicional e também aprenderá sobre o impacto de acessar os recursos que você não tem controle sobre isso pode ter políticas de acesso condicional aplicadas. O artigo também explora as implicações de acesso condicional no fluxo em nome de, aplicativos Web, acessando Microsoft Graph e chamando APIs.
 
 Conhecimento de aplicativos de [único locatário](quickstart-register-app.md) e [multilocatário](howto-convert-app-to-be-multi-tenant.md), além de [padrões comuns de autenticação](authentication-scenarios.md) é assumido.
 
@@ -38,75 +38,75 @@ Conhecimento de aplicativos de [único locatário](quickstart-register-app.md) e
 > O uso desse recurso requer uma licença do Azure AD Premium P1. Para localizar a licença correta para os requisitos, consulte [Comparar recursos geralmente disponíveis nas edições Gratuita, Básica e Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 > Os clientes com [licenças do Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso a recursos de Acesso Condicional.
 
-## <a name="how-does-conditional-access-impact-an-app"></a>Como o Conditional Access impacta um aplicativo?
+## <a name="how-does-conditional-access-impact-an-app"></a>Como o acesso condicional afeta um aplicativo?
 
 ### <a name="app-types-impacted"></a>Tipos de aplicativo afetados
 
-Na maioria dos casos, o Conditional Access não altera o comportamento de um aplicativo ou requer qualquer alteração do desenvolvedor.Somente em certos casos em que um aplicativo solicita indiretamente ou silenciosamente um token para um serviço, um aplicativo requer alterações de código para lidar com os "desafios" do Acesso Condicional.O que pode ser tão simples quanto executar uma solicitação de entrada interativa.
+Na maioria dos casos comuns, o acesso condicional não altera o comportamento de um aplicativo ou requer qualquer alteração do desenvolvedor.Somente em determinados casos em que um aplicativo solicita indiretamente ou silenciosamente um token para um serviço, um aplicativo requer alterações de código para lidar com "desafios" de acesso condicional.O que pode ser tão simples quanto executar uma solicitação de entrada interativa.
 
-Especificamente, os seguintes cenários exigem código para lidar com "desafios" de acesso condicional:
+Especificamente, os cenários a seguir exigem código para lidar com "desafios" de acesso condicional:
 
 * Aplicativos executando o fluxo em nome de
 * Aplicativos acessando vários serviços/recursos
-* Aplicativos de página única usando MSAL.js
+* Aplicativos de página única usando MSAL. js
 * Aplicativos Web chamando um recurso
 
-As políticas de acesso condicional podem ser aplicadas ao aplicativo, mas também podem ser aplicadas a uma API web que seu aplicativo acessa. Para saber mais sobre como configurar uma política de acesso condicional, consulte [Quickstart: Exija MFA para aplicativos específicos com acesso condicionado ao diretório ativo do Azure](../conditional-access/app-based-mfa.md).
+As políticas de acesso condicional podem ser aplicadas ao aplicativo, mas também podem ser aplicadas a uma API da Web acessada por seu aplicativo. Para saber mais sobre como configurar uma política de acesso condicional, consulte [início rápido: exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](../conditional-access/app-based-mfa.md).
 
-Dependendo do cenário, um cliente corporativo pode aplicar e remover políticas de Acesso Condicional a qualquer momento. Para que o aplicativo continue funcionando quando uma nova política é aplicada, você precisa implementar o tratamento de "desafio". Os exemplos a seguir ilustram o tratamento de desafio.
+Dependendo do cenário, um cliente corporativo pode aplicar e remover políticas de acesso condicional a qualquer momento. Para que o aplicativo continue funcionando quando uma nova política é aplicada, você precisa implementar o tratamento de "desafio". Os exemplos a seguir ilustram o tratamento de desafio.
 
-### <a name="conditional-access-examples"></a>Exemplos de Acesso Condicional
+### <a name="conditional-access-examples"></a>Exemplos de acesso condicional
 
-Alguns cenários exigem alterações de código para lidar com o Acesso Condicional, enquanto outros funcionam como estão. Aqui estão alguns cenários usando o Acesso Condicional para fazer autenticação multifatorial que dá alguma visão sobre a diferença.
+Alguns cenários exigem alterações de código para lidar com o acesso condicional, enquanto outros funcionam como estão. Aqui estão alguns cenários que usam o acesso condicional para fazer a autenticação multifator que oferece uma visão da diferença.
 
-* Você está construindo um aplicativo para iOS de um único inquilino e aplicar uma política de Acesso Condicional. O aplicativo conecta um usuário e não solicita acesso a uma API. Quando o usuário entra, a política é invocada automaticamente e o usuário precisa realizar a MFA (autenticação multifator).
-* Você está criando um aplicativo nativo que usa um serviço de camada intermediária para acessar a API downstream. Um cliente empresarial na empresa usando esse aplicativo aplica uma política à API downstream. Quando um usuário final se conecta, o aplicativo nativo solicita acesso à camada intermediária e envia o token. A camada intermediária executa o fluxo “em nome de” para solicitar acesso à API downstream. Nesse momento, um "desafio" claims é apresentado à camada intermediária. O nível intermediário envia o desafio de volta para o aplicativo nativo, que precisa cumprir a política de Acesso Condicional.
+* Você está criando um aplicativo iOS de locatário único e aplica uma política de acesso condicional. O aplicativo conecta um usuário e não solicita acesso a uma API. Quando o usuário entra, a política é invocada automaticamente e o usuário precisa realizar a MFA (autenticação multifator).
+* Você está criando um aplicativo nativo que usa um serviço de camada intermediária para acessar a API downstream. Um cliente empresarial na empresa usando esse aplicativo aplica uma política à API downstream. Quando um usuário final se conecta, o aplicativo nativo solicita acesso à camada intermediária e envia o token. A camada intermediária executa o fluxo “em nome de” para solicitar acesso à API downstream. Nesse momento, um "desafio" claims é apresentado à camada intermediária. A camada intermediária envia o desafio de volta para o aplicativo nativo, que precisa estar em conformidade com a política de acesso condicional.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-O Microsoft Graph tem considerações especiais ao criar aplicativos em ambientes de Acesso Condicional. Geralmente, a mecânica do Acesso Condicional se comporta da mesma forma, mas as políticas que seus usuários vêem serão baseadas nos dados subjacentes que seu aplicativo está solicitando no gráfico.
+Microsoft Graph tem considerações especiais ao criar aplicativos em ambientes de acesso condicional. Em geral, a mecânica do acesso condicional se comporta da mesma forma, mas as políticas que os usuários veem serão baseadas nos dados subjacentes que seu aplicativo está solicitando do grafo.
 
-Especificamente, todos os escopos do Microsoft Graph representam algum conjunto de dados que pode ter políticas aplicadas individualmente. Uma vez que as políticas de acesso condicional são atribuídas aos conjuntos de dados específicos, o Azure AD aplicará políticas de acesso condicional com base nos dados por trás do Graph - em vez do próprio Graph.
+Especificamente, todos os escopos de Microsoft Graph representam alguns conjuntos de conjunto que podem ter políticas aplicadas individualmente. Como as políticas de acesso condicional são atribuídas aos conjuntos de dados específicos, o AD do Azure impedirá políticas de acesso condicional com base em gráficos por trás do grafo, em vez do próprio grafo.
 
-Por exemplo, se um aplicativo solicitar os seguintes escopos do Microsoft Graph,
+Por exemplo, se um aplicativo solicitar os seguintes escopos de Microsoft Graph,
 
 ```
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Um aplicativo pode esperar que seus usuários cumpram todas as políticas definidas em Reservas e Intercâmbio. Alguns escopos podem mapear para vários conjuntos de dados se ele conceder acesso.
+Um aplicativo pode esperar que seus usuários atendam a todas as políticas definidas em livros e no Exchange. Alguns escopos podem ser mapeados para vários conjuntos de valores se ele conceder acesso.
 
-### <a name="complying-with-a-conditional-access-policy"></a>Cumprindo uma política de acesso condicional
+### <a name="complying-with-a-conditional-access-policy"></a>Conformidade com uma política de acesso condicional
 
-Para várias topologias diferentes, uma política de Acesso Condicional é avaliada quando a sessão é estabelecida. Como uma política de Acesso Condicional opera na granularidade de aplicativos e serviços, o ponto em que é invocado depende muito do cenário que você está tentando realizar.
+Para várias topologias de aplicativo diferentes, uma política de acesso condicional é avaliada quando a sessão é estabelecida. Como uma política de acesso condicional opera na granularidade de aplicativos e serviços, o ponto em que ele é invocado depende muito do cenário que você está tentando realizar.
 
-Quando seu aplicativo tenta acessar um serviço com uma política de Acesso Condicional, ele pode encontrar um desafio de Acesso Condicional. Este desafio está codificado `claims` no parâmetro que vem em uma resposta do Azure AD. Veja um exemplo desse parâmetro de desafio:
+Quando seu aplicativo tenta acessar um serviço com uma política de acesso condicional, ele pode encontrar um desafio de acesso condicional. Esse desafio é codificado no `claims` parâmetro que vem em uma resposta do Azure AD. Veja um exemplo desse parâmetro de desafio:
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Os desenvolvedores podem aceitar esse desafio e acrescentá-lo em uma nova solicitação no Azure AD. A aprovação deste estado solicita ao usuário final que execute qualquer ação necessária para cumprir a política de Acesso Condicional. Nos cenários a seguir, são explicadas as especificações do erro e como extrair o parâmetro.
+Os desenvolvedores podem aceitar esse desafio e acrescentá-lo em uma nova solicitação no Azure AD. Passar esse estado solicita que o usuário final execute qualquer ação necessária para obedecer à política de acesso condicional. Nos cenários a seguir, são explicadas as especificações do erro e como extrair o parâmetro.
 
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Azure AD Conditional Access é um recurso incluído no [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Os clientes com [licenças do Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso a recursos de Acesso Condicional.
+O acesso condicional do Azure AD é um recurso incluído no [Azure ad Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Os clientes com [licenças do Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) também têm acesso a recursos de Acesso Condicional.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerações para cenários específicos
 
-As seguintes informações só se aplicam nestes cenários de Acesso Condicional:
+As informações a seguir se aplicam somente a esses cenários de acesso condicional:
 
 * Aplicativos executando o fluxo em nome de
 * Aplicativos acessando vários serviços/recursos
-* Aplicativos de página única usando MSAL.js
+* Aplicativos de página única usando MSAL. js
 
-As seções a seguir discutem cenários comuns que são mais complexos. O princípio principal de funcionamento é que as políticas de Acesso Condicional são avaliadas no momento em que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada.
+As seções a seguir discutem cenários comuns que são mais complexos. O princípio de operação principal é que as políticas de acesso condicional são avaliadas no momento em que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: aplicativo executando o fluxo em nome de
 
-Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz o fluxo "em nome de" chamar um serviço downstream. No nosso caso, aplicamos nossa política de acesso condicional ao serviço de downstream (Web API 2) e estamos usando um aplicativo nativo em vez de um aplicativo de servidor/daemon.
+Nesse cenário, vamos acompanhar o caso em que um aplicativo nativo chama um serviço/API Web. Por sua vez, esse serviço faz o fluxo "em nome de" chamar um serviço downstream. Em nosso caso, aplicamos nossa política de acesso condicional ao serviço downstream (API Web 2) e estamos usando um aplicativo nativo em vez de um aplicativo de servidor/daemon.
 
 ![Diagrama de aplicativo executando o fluxo em nome de](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -115,7 +115,7 @@ A solicitação de token inicial para a API Web 1 não solicita ao usuário fina
 O Azure AD retorna uma resposta HTTP com alguns dados interessantes:
 
 > [!NOTE]
-> Neste caso, é uma descrição de erro de autenticação de vários `interaction_required` fatores, mas há uma ampla gama de possíveis referentes ao Acesso Condicional.
+> Nessa instância, é uma descrição de erro de autenticação multifator, mas há uma ampla variedade de `interaction_required` possíveis pertencentes ao acesso condicional.
 
 ```
 HTTP 400; Bad Request
@@ -130,13 +130,13 @@ Para testar esse cenário, veja nosso [exemplo de código .NET](https://github.c
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Cenário: aplicativo acessando vários serviços
 
-Neste cenário, caminhamos através do caso em que um aplicativo web acessa dois serviços, um dos quais tem uma política de Acesso Condicional atribuída. Dependendo da lógica do seu aplicativo, pode existir um caminho no qual seu aplicativo não exige acesso a ambos os serviços Web. Nesse cenário, a ordem na qual você solicita um token tem um papel importante na experiência do usuário final.
+Nesse cenário, percorremos o caso em que um aplicativo Web acessa dois serviços, um dos quais tem uma política de acesso condicional atribuída. Dependendo da lógica do seu aplicativo, pode existir um caminho no qual seu aplicativo não exige acesso a ambos os serviços Web. Nesse cenário, a ordem na qual você solicita um token tem um papel importante na experiência do usuário final.
 
-Vamos supor que temos o serviço web A e B e o serviço web B tem nossa política de Acesso Condicional aplicada. Embora a solicitação auth interativa inicial exija consentimento para ambos os serviços, a política de Acesso Condicional não é necessária em todos os casos. Se o aplicativo solicitar um token para o serviço Web B, a política será invocada e as solicitações subsequentes para o serviço Web A também serão bem-sucedidas, como se segue.
+Vamos supor que o serviço Web A e B e o serviço Web B tenham nossa política de acesso condicional aplicada. Embora a solicitação de autenticação interativa inicial exija consentimento para ambos os serviços, a política de acesso condicional não é necessária em todos os casos. Se o aplicativo solicitar um token para o serviço Web B, a política será invocada e as solicitações subsequentes para o serviço Web A também serão bem-sucedidas, como se segue.
 
 ![Diagrama do fluxo de aplicativo acessando vários serviços](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-Alternativamente, se o aplicativo solicitar inicialmente um token para o serviço web A, o usuário final não invocará a política de Acesso Condicional. Isso permite que o desenvolvedor do aplicativo controle a experiência do usuário final e não force a política de Acesso Condicional a ser invocada em todos os casos. O caso complicado é se o aplicativo solicitar posteriormente um token para o serviço web B. Neste ponto, o usuário final precisa cumprir a política de Acesso Condicional. Quando o aplicativo tenta `acquireToken`, ele pode gerar o seguinte erro (ilustrado no diagrama a seguir):
+Como alternativa, se o aplicativo solicitar inicialmente um token para o serviço Web a, o usuário final não invocará a política de acesso condicional. Isso permite que o desenvolvedor do aplicativo controle a experiência do usuário final e não force a política de acesso condicional a ser invocada em todos os casos. O caso complicado é que, em seguida, o aplicativo solicita um token para o serviço Web B. Neste ponto, o usuário final precisa estar em conformidade com a política de acesso condicional. Quando o aplicativo tenta `acquireToken`, ele pode gerar o seguinte erro (ilustrado no diagrama a seguir):
 
 ```
 HTTP 400; Bad Request
@@ -147,23 +147,23 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Aplicativo acessando vários serviços que solicitam um novo token](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Se o aplicativo estiver usando a biblioteca MSAL, uma falha na aquisição do token é sempre repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o Acesso Condicional. Isso é verdade, a `AcquireTokenSilentAsync` `PromptBehavior.Never` menos que a solicitação seja ```AcquireToken``` um ou nesse caso o aplicativo precisa realizar uma solicitação interativa para dar ao usuário final a oportunidade de cumprir a política.
+Se o aplicativo estiver usando a biblioteca MSAL, uma falha ao adquirir o token sempre será repetida interativamente. Quando essa solicitação interativa ocorre, o usuário final tem a oportunidade de cumprir o acesso condicional. Isso é verdadeiro, a menos que a `AcquireTokenSilentAsync` solicitação `PromptBehavior.Never` seja um ou, nesse caso, o aplicativo precisa ```AcquireToken``` executar uma solicitação interativa para dar ao usuário final a oportunidade de cumprir a política.
 
-## <a name="scenario-single-page-app-spa-using-msaljs"></a>Cenário: Aplicativo de página única (SPA) usando MSAL.js
+## <a name="scenario-single-page-app-spa-using-msaljs"></a>Cenário: aplicativo de página única (SPA) usando MSAL. js
 
-Neste cenário, nós caminhamos sobre o caso quando temos um aplicativo de uma única página (SPA), usando O MSAL.js para chamar uma API web protegida de Acesso Condicional. Esta é uma arquitetura simples, mas tem algumas nuances que precisam ser levadas em conta ao se desenvolver em torno do Acesso Condicional.
+Nesse cenário, percorremos o caso em que temos um aplicativo de página única (SPA), usando MSAL. js para chamar uma API Web protegida por acesso condicional. Essa é uma arquitetura simples, mas tem algumas nuances que precisam ser levadas em conta ao desenvolver em volta do acesso condicional.
 
-No MSAL.js, existem algumas funções que `loginPopup()`obtêm tokens: , `acquireTokenSilent(...)`, `acquireTokenPopup(…)`e `acquireTokenRedirect(…)`.
+No MSAL. js, há algumas funções que obtêm tokens: `loginPopup()`, `acquireTokenSilent(...)` `acquireTokenPopup(…)`, e `acquireTokenRedirect(…)`.
 
-* `loginPopup()`obtém um token de ID através de uma solicitação de login interativa, mas não obtém tokens de acesso para qualquer serviço (incluindo uma API web protegida de Acesso Condicional).
+* `loginPopup()`Obtém um token de ID por meio de uma solicitação de entrada interativa, mas não obtém tokens de acesso para nenhum serviço (incluindo uma API Web protegida por acesso condicional).
 * `acquireTokenSilent(…)` pode ser usada para obter silenciosamente um token de acesso, o que significa que ela não mostra a interface do usuário em nenhuma circunstância.
 * `acquireTokenPopup(…)`e `acquireTokenRedirect(…)` são usadas para solicitar interativamente um token para um recurso, o que significa que elas sempre mostram a interface do usuário de entrada.
 
-Quando um aplicativo precisa de um token de acesso `acquireTokenSilent(…)`para chamar uma API web, ele tenta um . Se a sessão de token estiver expirada ou precisarmos cumprir uma política de Acesso Condicional, a função *AcquireToken* falhará e o aplicativo usará `acquireTokenPopup()` ou `acquireTokenRedirect()`.
+Quando um aplicativo precisa de um token de acesso para chamar uma API da Web, `acquireTokenSilent(…)`ele tenta um. Se a sessão de token estiver expirada ou precisar estar em conformidade com uma política de acesso condicional, a função *acquireToken* falhará e o `acquireTokenPopup()` aplicativo `acquireTokenRedirect()`usará ou.
 
-![Aplicativo de página única usando diagrama de fluxo MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
+![Aplicativo de página única usando o diagrama de fluxo MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
-Vamos dar um exemplo com nosso cenário de Acesso Condicional. O usuário final apenas aterrissou no site e não tem uma sessão. Executamos uma chamada `loginPopup()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário pressiona um botão que requer que o aplicativo solicite dados de uma API Web. O aplicativo tenta `acquireTokenSilent()` fazer uma chamada, mas falha, já que o usuário ainda não realizou a autenticação multifatorial e precisa cumprir a política de Acesso Condicional.
+Vamos examinar um exemplo com nosso cenário de acesso condicional. O usuário final apenas aterrissou no site e não tem uma sessão. Executamos uma chamada `loginPopup()`, obtemos um token de ID sem autenticação multifator. Em seguida, o usuário pressiona um botão que requer que o aplicativo solicite dados de uma API Web. O aplicativo tenta fazer uma `acquireTokenSilent()` chamada, mas falha porque o usuário ainda não executou a autenticação multifator e precisa estar em conformidade com a política de acesso condicional.
 
 O Azure AD envia a seguinte resposta HTTP:
 
@@ -175,12 +175,12 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Nosso aplicativo precisa capturar `error=interaction_required`. O aplicativo pode usar `acquireTokenPopup()` ou `acquireTokenRedirect()` no mesmo recurso. O usuário é forçado a fazer uma autenticação multifator. Depois que o usuário conclui a autenticação multifator, o aplicativo recebe um novo token de acesso para o recurso solicitado.
 
-Para testar esse cenário, veja nosso [exemplo de código Em nome de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Esta amostra de código usa a política de acesso condicional e a API web que você registrou anteriormente com um JS SPA para demonstrar esse cenário. Ele mostra como lidar adequadamente com o desafio de sinistros e obter um token de acesso que pode ser usado para sua API web. Como alternativa, verifique o [exemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) geral para obter orientação sobre um SPA Angular
+Para testar esse cenário, veja nosso [exemplo de código Em nome de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Este exemplo de código usa a política de acesso condicional e a API da Web que você registrou anteriormente com um SPA do JS para demonstrar esse cenário. Ele mostra como lidar corretamente com o desafio de declarações e obter um token de acesso que pode ser usado para sua API Web. Como alternativa, verifique o [exemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) geral para obter orientação sobre um SPA Angular
 
 ## <a name="see-also"></a>Confira também
 
 * Para saber mais sobre os recursos, confira [Acesso condicional no Azure Active Directory](/azure/active-directory/conditional-access/overview).
-* Para obter mais amostras de código Azure AD, consulte [amostras](sample-v2-code.md).
-* Para obter mais informações sobre os SDKs MSAL e acessar a documentação de referência, consulte a [visão geral da Biblioteca de Autenticação da Microsoft](msal-overview.md).
+* Para obter mais exemplos de código do Azure AD, consulte [exemplos](sample-v2-code.md).
+* Para obter mais informações sobre o SDK do MSAL e acessar a documentação de referência, consulte [visão geral da biblioteca de autenticação da Microsoft](msal-overview.md).
 * Para saber mais sobre cenários de multilocatários, confira [Como conectar usuários usando o padrão de multilocatário](howto-convert-app-to-be-multi-tenant.md).
-* Saiba mais sobre [o acesso condicional e a garantia de acesso a aplicativos IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).
+* Saiba mais sobre o [acesso condicional e proteção de acesso a aplicativos de IOT](/azure/architecture/example-scenario/iot-aad/iot-aad).

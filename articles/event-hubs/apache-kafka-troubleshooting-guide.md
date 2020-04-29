@@ -1,6 +1,6 @@
 ---
-title: Problemas de solução de problemas com hubs de eventos do Azure para Apache Kafka
-description: Este artigo mostra como solucionar problemas com o Azure Event Hubs para Apache Kafka
+title: Solucionar problemas com os hubs de eventos do Azure para Apache Kafka
+description: Este artigo mostra como solucionar problemas com os hubs de eventos do Azure para Apache Kafka
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,68 +13,68 @@ ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
 ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606724"
 ---
-# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de solução de problemas apache Kafka para Hubs de Eventos
-Este artigo fornece dicas de solução de problemas para problemas que você pode encontrar ao usar Hubs de Eventos para Apache Kafka. 
+# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de solução de problemas Apache Kafka para hubs de eventos
+Este artigo fornece dicas de solução de problemas que você pode encontrar ao usar os hubs de eventos para Apache Kafka. 
 
-## <a name="server-busy-exception"></a>Exceção ocupada do servidor
-Você pode receber exceção do Server Busy devido ao estrangulamento kafka. Com clientes AMQP, o Event Hubs retorna imediatamente uma exceção **do Server Busy** após o estrangulamento do serviço. É equivalente a uma mensagem de "tente de novo depois". Em Kafka, as mensagens são atrasadas antes de serem concluídas. O comprimento de atraso é `throttle_time_ms` devolvido em milissegundos como na resposta de produção/busca. Na maioria dos casos, essas solicitações atrasadas não são registradas como exceções do ServerBusy nos painéis do Event Hubs. Em vez disso, `throttle_time_ms` o valor da resposta deve ser usado como um indicador de que o throughput excedeu a cota provisionada.
+## <a name="server-busy-exception"></a>Exceção do servidor ocupado
+Você pode receber uma exceção de servidor ocupado devido à limitação de Kafka. Com os clientes AMQP, os hubs de eventos retornam imediatamente uma exceção de **servidor ocupado** na limitação de serviço. É equivalente a uma mensagem "tentar novamente mais tarde". No Kafka, as mensagens são atrasadas antes de serem concluídas. O comprimento do atraso é retornado em milissegundos `throttle_time_ms` como na resposta de produzir/buscar. Na maioria dos casos, essas solicitações atrasadas não são registradas como exceções ServerBusy em painéis de hubs de eventos. Em vez disso, o `throttle_time_ms` valor da resposta deve ser usado como um indicador de que a taxa de transferência excedeu a cota provisionada.
 
-Se o tráfego for excessivo, o serviço tem o seguinte comportamento:
+Se o tráfego for excessivo, o serviço terá o seguinte comportamento:
 
-- Se o atraso da solicitação exceder o tempo de solicitação, o Event Hubs retorna o código de erro **de violação de** diretiva.
-- Se o atraso da solicitação de busca exceder o tempo de solicitação, o Event Hubs registra a solicitação como estrangulada e responde com um conjunto vazio de registros e sem código de erro.
+- Se o atraso da solicitação de produção exceder o tempo limite da solicitação, os hubs de eventos retornarão o código de erro de **violação**
+- Se o atraso da solicitação de busca exceder o tempo limite da solicitação, os hubs de eventos registrarão a solicitação como limitada e responderão com um conjunto vazio de registros e nenhum código de erro.
 
-[Clusters dedicados](event-hubs-dedicated-overview.md) não têm mecanismos de estrangulamento. Você é livre para consumir todos os seus recursos de cluster.
+Os [clusters dedicados](event-hubs-dedicated-overview.md) não têm mecanismos de limitação. Você está livre para consumir todos os seus recursos de cluster.
 
 ## <a name="no-records-received"></a>Nenhum registro recebido
-Você pode ver os consumidores não recebendo nenhum registro e constantemente reequilibrando. Nesse cenário, os consumidores não recebem registros e se reequilibram constantemente. Não há exceção ou erro quando isso acontece, mas os registros de Kafka mostrarão que os consumidores estão presos tentando se juntar ao grupo e atribuir partições. Existem algumas causas possíveis:
+Você pode ver que os consumidores não estão recebendo registros e rebalanceando constantemente. Nesse cenário, os consumidores não obtêm nenhum registro e reequilibram constantemente. Não há exceção ou erro quando isso acontece, mas os logs de Kafka mostrarão que os consumidores estão presos tentando reingressar no grupo e atribuir partições. Há algumas causas possíveis:
 
-- Certifique-se `request.timeout.ms` de que o seu é pelo menos o `session.timeout.ms` valor recomendado de 60000 e o seu é pelo menos o valor recomendado de 30000. Ter essas configurações muito baixas pode causar tempo sumido dos consumidores, que então causam reequilíbrios (que, em seguida, causam mais tempo outs, que causam mais reequilíbrio, e assim por diante) 
-- Se sua configuração corresponder aos valores recomendados, e você ainda estiver vendo um reequilíbrio constante, sinta-se livre para abrir um problema (certifique-se de incluir toda a sua configuração no problema para que possamos ajudar a depurar)!
+- Verifique se seu `request.timeout.ms` é pelo menos o valor recomendado de 60000 e `session.timeout.ms` se é pelo menos o valor recomendado de 30000. Ter essas configurações muito baixas pode causar tempos limite do consumidor, o que causa recargas (que, em seguida, causa mais tempos limite, o que causa mais rebalanceamento e assim por diante) 
+- Se sua configuração corresponder a esses valores recomendados e você ainda estiver vendo o rebalanceamento constante, sinta-se à vontade para abrir um problema (certifique-se de incluir toda a configuração no problema para que possamos ajudar a depurar)!
 
-## <a name="compressionmessage-format-version-issue"></a>Problema da versão do formato compressão/mensagem
-Kafka suporta compressão, e event Hubs para Kafka atualmente não. Erros que mencionam uma versão em `The message format version on the broker does not support the request.`formato de mensagem (por exemplo, ) são causados quando um cliente tenta enviar mensagens Kafka compactadas para nossos corretores.
+## <a name="compressionmessage-format-version-issue"></a>Problema de versão de formato de mensagem/compactação
+O Kafka dá suporte à compactação e os hubs de eventos para o Kafka atualmente não. Os erros que mencionam uma versão de formato de mensagem ( `The message format version on the broker does not support the request.`por exemplo,) são causados quando um cliente tenta enviar mensagens Kafka compactadas para nossos agentes.
 
-Se os dados compactados forem necessários, comprimir seus dados antes de enviá-los para os corretores e descomprimir após o recebimento é uma solução válida. O corpo de mensagem é apenas uma matriz de bytes para o serviço, de modo que a compactação/descompactação do lado do cliente não causará problemas.
+Se forem necessários dados compactados, compactar os dados antes de enviá-los aos agentes e descompactar após o recebimento é uma solução alternativa válida. O corpo da mensagem é apenas uma matriz de bytes para o serviço, portanto, a compactação/descompactação do lado do cliente não causará problemas.
 
-## <a name="unknownserverexception"></a>DesconhecidoServerException
-Você pode receber uma UnknownServerException de bibliotecas de clientes Kafka semelhante ao exemplo a seguir: 
+## <a name="unknownserverexception"></a>UnknownServerException
+Você pode receber um UnknownServerException de bibliotecas de cliente do Kafka semelhante ao exemplo a seguir: 
 
 ```
 org.apache.kafka.common.errors.UnknownServerException: The server experienced an unexpected error when processing the request
 ```
 
-Abra um ticket com suporte à Microsoft.  O registro em nível de depuração e os carimbos de tempo de exceção no UTC são úteis para depurar o problema. 
+Abra um tíquete com o suporte da Microsoft.  O log de nível de depuração e os carimbos de data/hora de exceção em UTC são úteis para depurar o problema. 
 
 ## <a name="other-issues"></a>Outros problemas
-Verifique os itens a seguir se você ver problemas ao usar Kafka em Event Hubs.
+Verifique os itens a seguir se você vir problemas ao usar o Kafka nos hubs de eventos.
 
-- **Firewall bloqueando o tráfego** - Certifique-se de que a porta **9093** não esteja bloqueada pelo firewall.
-- **Agência de autorização** de tópicos - As causas mais comuns dessa exceção são:
-    - Um erro de digitação na seqüência de conexão em seu arquivo de configuração, ou
-    - Tentando usar hubs de eventos para Kafka em um namespace de nível básico. Event Hubs for Kafka [é suportado apenas para namespaces de nível padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/).
-- **Kafka versão incompatibilidade** - Event Hubs for Kafka Ecosystems suporta versões Kafka 1.0 e posteriores. Alguns aplicativos que usam a versão 0.10 de Kafka e posteriores podem ocasionalmente funcionar devido à retrocompatibilidade do protocolo Kafka, mas recomendamos fortemente o uso de versões antigas da API. As versões Kafka 0.9 e anteriores não suportam os protocolos SASL necessários e não podem se conectar aos Hubs de eventos.
-- **Codificações estranhas em cabeçalhos AMQP ao consumir com Kafka** - ao enviar eventos para um hub de eventos sobre AMQP, quaisquer cabeçalhos de carga AMQP são serializados na codificação AMQP. Os consumidores kafka não desserializam os cabeçalhos da AMQP. Para ler os valores do cabeçalho, decodifique manualmente os cabeçalhos AMQP. Alternativamente, você pode evitar o uso de cabeçalhos AMQP se você sabe que você estará consumindo via protocolo Kafka. Para obter mais informações, consulte [este problema do GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
-- **Autenticação SASL** - Fazer com que sua estrutura coopere com o protocolo de autenticação SASL exigido pelos Event Hubs pode ser mais difícil do que parece. Veja se você pode solucionar problemas da configuração usando os recursos da sua estrutura na autenticação SASL. 
+- **Firewall bloqueando o tráfego** -Verifique se a porta **9093** não está bloqueada pelo firewall.
+- **TopicAuthorizationException** -as causas mais comuns dessa exceção são:
+    - Uma grafia na cadeia de conexão no arquivo de configuração ou
+    - Tentando usar os hubs de eventos para Kafka em um namespace de camada básica. Os hubs de eventos para Kafka [só têm suporte para namespaces de camada padrão e dedicados](https://azure.microsoft.com/pricing/details/event-hubs/).
+- **Incompatibilidade de versão do Kafka** -hubs de eventos para ecossistemas Kafka dão suporte às versões 1,0 e posteriores do Kafka. Alguns aplicativos que usam o Kafka versão 0,10 e posterior podem ocasionalmente funcionar devido à compatibilidade com versões anteriores do protocolo Kafka, mas é altamente recomendável em relação ao uso da versão antiga da API. As versões 0,9 e anteriores do Kafka não dão suporte aos protocolos SASL necessários e não podem se conectar aos hubs de eventos.
+- **Codificações estranhas em cabeçalhos AMQP ao consumir com Kafka** -ao enviar eventos para um hub de eventos em AMQP, quaisquer cabeçalhos de carga AMQP são serializados na codificação AMQP. Os consumidores de Kafka não desserializam os cabeçalhos de AMQP. Para ler valores de cabeçalho, decodifique manualmente os cabeçalhos AMQP. Como alternativa, você pode evitar o uso de cabeçalhos AMQP se souber que estará consumindo por meio do protocolo Kafka. Para obter mais informações, consulte [este problema do GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
+- **Autenticação SASL** -obter sua estrutura para cooperar com o protocolo de autenticação SASL exigido pelos hubs de eventos pode ser mais difícil do que atender aos olhos. Veja se você pode solucionar problemas de configuração usando os recursos de sua estrutura na autenticação SASL. 
 
 ## <a name="limits"></a>limites
-Apache Kafka vs. Event Hubs Kafka. Na maioria das vezes, os Hubs de Eventos para Ecossistemas Kafka têm os mesmos padrões, propriedades, códigos de erro e comportamento geral que o Apache Kafka faz. Os casos em que esses dois diferem explicitamente (ou onde o Event Hubs impõe um limite que Kafka não faz) estão listados abaixo:
+Apache Kafka vs. Kafka de hubs de eventos. Para a maior parte, os hubs de eventos para ecossistemas Kafka têm os mesmos padrões, propriedades, códigos de erro e comportamento geral que Apache Kafka faz. As instâncias em que esses dois explicitamente diferem (ou onde os hubs de eventos impõe um limite de que Kafka não) estão listadas abaixo:
 
-- O comprimento máximo `group.id` da propriedade é de 256 caracteres
-- O tamanho `offset.metadata.max.bytes` máximo de é de 1024 bytes
-- Os confirmadores de deslocamento são estrangulados a 4 chamadas/segundo por partição com um tamanho máximo de log interno de 1 MB
+- O comprimento máximo da `group.id` propriedade é de 256 caracteres
+- O tamanho máximo de `offset.metadata.max.bytes` é de 1024 bytes
+- As confirmações de deslocamento são limitadas a 4 chamadas/segundo por partição com um tamanho de log interno máximo de 1 MB
 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira os artigos a seguir:  
 
-- [Guia de desenvolvedores Apache Kafka para Hubs de Eventos](apache-kafka-developer-guide.md)
-- [Guia de migração Apache Kafka para Hubs de Eventos](apache-kafka-migration-guide.md)
-- [Perguntas frequentes - Hubs de eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Guia do desenvolvedor de Apache Kafka para hubs de eventos](apache-kafka-developer-guide.md)
+- [Guia de migração de Apache Kafka para hubs de eventos](apache-kafka-migration-guide.md)
+- [Perguntas frequentes-hubs de eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Configurações recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)

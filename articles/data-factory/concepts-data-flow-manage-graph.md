@@ -1,6 +1,6 @@
 ---
 title: Gráficos de fluxo de dados
-description: Como trabalhar com gráficos de fluxo de dados de fábrica de dados
+description: Como trabalhar com data factory gráficos de fluxo de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/04/2019
 ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605365"
 ---
-# <a name="mapping-data-flow-graphs"></a>Mapeando gráficos de fluxo de dados
+# <a name="mapping-data-flow-graphs"></a>Mapeando grafos de fluxo de dados
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A superfície de projeto de fluxos de dados de mapeamento é uma superfície de "construção" onde você constrói fluxos de dados de cima para baixo, da esquerda para a direita. Há uma caixa de ferramentas anexada a cada transformação com um símbolo de adição (+). Concentre-se na lógica de negócios em vez de conectar nós por meio de bordas em um ambiente de DAG de forma livre.
+A superfície de design de fluxos de dados de mapeamento é uma superfície de "construção" onde você cria fluxos de dados de cima para baixo, da esquerda para a direita. Há uma caixa de ferramentas anexada a cada transformação com um símbolo de adição (+). Concentre-se na lógica de negócios em vez de conectar nós por meio de bordas em um ambiente de DAG de forma livre.
 
-Abaixo estão mecanismos incorporados para gerenciar o gráfico de fluxo de dados.
+Abaixo estão os mecanismos internos para gerenciar o grafo de fluxo de dados.
 
 ## <a name="move-nodes"></a>Mover nós
 
-![Opções de Transformação Agregada](media/data-flow/agghead.png "cabeçalho agregador")
+![Opções de transformação Agregação](media/data-flow/agghead.png "cabeçalho do agregador")
 
-Sem um paradigma de arrastar e soltar, a maneira de "mover" um nó de transformação é mudar o fluxo de entrada. Em vez disso, você moverá as transformações alterando o "fluxo de entrada".
+Sem um paradigma de arrastar e soltar, a maneira de "mover" um nó de transformação é alterar o fluxo de entrada. Em vez disso, você moverá as transformações alterando o "fluxo de entrada".
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Fluxos de dados dentro do fluxo de dados
 
-No Fluxo de Dados do Azure Data Factory, os fluxos declaram o fluxo de dados. No painel de configurações de transformação, você verá um campo "Fluxo de Entrada". Isso informa qual fluxo de dados de entrada está alimentando a transformação. Você pode alterar a localização física do seu nó de transformação no gráfico clicando no nome do fluxo de entrada e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes no fluxo, será movida para a nova localização.
+No Fluxo de Dados do Azure Data Factory, os fluxos declaram o fluxo de dados. No painel configurações de transformação, você verá um campo "fluxo de entrada". Isso informa qual fluxo de dados de entrada está alimentando a transformação. Você pode alterar a localização física do seu nó de transformação no gráfico clicando no nome do fluxo de entrada e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes no fluxo, será movida para a nova localização.
 
 Se você estiver movendo uma transformação com uma ou mais transformações depois dela, a nova localização no fluxo de dados será adicionado por meio de um novo branch.
 
 Se não tiver transformações subsequentes após o nó que você selecionou, somente essa transformação será movida para a nova localização.
 
-## <a name="hide-graph-and-show-graph"></a>Ocultar gráfico e mostrar gráfico
+## <a name="hide-graph-and-show-graph"></a>Ocultar grafo e mostrar grafo
 
-Há um botão na extrema direita do painel de configuração inferior onde você pode expandir o painel inferior para a tela cheia ao trabalhar em configurações de transformação. Isso permitirá que você use botões "anteriores" e "próximos" para navegar pelas configurações do gráfico. Para voltar à exibição do gráfico, clique no botão para baixo e retorne à tela dividida.
+Há um botão na extrema direita do painel de configuração inferior, no qual você pode expandir o painel inferior para tela inteira ao trabalhar em configurações de transformação. Isso permitirá que você use os botões "anterior" e "Avançar" para navegar pelas configurações do grafo. Para voltar para a exibição de gráfico, clique no botão para baixo e retorne à tela de divisão.
 
-## <a name="search-graph"></a>Gráfico de pesquisa
+## <a name="search-graph"></a>Grafo de pesquisa
 
-Você pode pesquisar o gráfico com o botão de pesquisa na superfície do projeto.
+Você pode pesquisar o grafo com o botão Pesquisar na superfície de design.
 
-![Pesquisar](media/data-flow/search001.png "Gráfico de pesquisa")
+![Pesquisa](media/data-flow/search001.png "Grafo de pesquisa")
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de concluir o design do Fluxo de Dados, ligue o botão de depuração e teste-o no modo de depuração diretamente no [designer de fluxo](concepts-data-flow-debug-mode.md) de dados ou na [depuração do pipeline](control-flow-execute-data-flow-activity.md).
+Depois de concluir o design do fluxo de dados, ative o botão de depuração e teste-o no modo de depuração diretamente no [Designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou na depuração de [pipeline](control-flow-execute-data-flow-activity.md).

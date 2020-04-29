@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt
 ms.openlocfilehash: d31e520dac1c7e2a13fbd9e24a0cd3167f69e904
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682000"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -33,7 +33,7 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Color                    | White, Red, Blue            |
+| Cor                    | White, Red, Blue            |
 | Brilho               | 0 a 100                    |
 | Vida útil restante estimada | Contagem regressiva de 10.000 horas |
 
@@ -54,7 +54,7 @@ A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um flu
 
 A tabela a seguir mostra as ações com suporte no novo dispositivo:
 
-| Nome        |
+| Name        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -81,10 +81,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para seguir este guia de instruções, é necessário ter:
 
-* Visual Studio Code. Você pode [baixar visual studio code para Mac, Linux e Windows](https://code.visualstudio.com/download).
+* Visual Studio Code. Você pode [baixar Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
 * .NET Core. Você pode fazer o download do [NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
 * [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* Postman. Você pode baixar [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
+* Postman. Você pode baixar o [postmaster para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Um [hub IoT implantado na assinatura do Azure](../../articles/iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de conexão do hub IoT para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 * Um banco de dados do Cosmos DB que usa a API SQL e que está configurado para [consistência forte](../../articles/cosmos-db/how-to-manage-database-account.md). Você precisa da cadeia de conexão do banco de dados do Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 
@@ -100,7 +100,7 @@ As instruções neste artigo pressupõem que você está usando o Windows. Se vo
 
 ### <a name="download-the-microservices"></a>Baixar os microsserviços
 
-Baixe e desfaça os [microserviços](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) de monitoramento remoto do GitHub para um local adequado em sua máquina local. O artigo considera que o nome dessa pasta é **remote-monitoring-services-dotnet-master**.
+Baixe e descompacte os [microserviços de monitoramento remoto](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) do GitHub para um local adequado no computador local. O artigo considera que o nome dessa pasta é **remote-monitoring-services-dotnet-master**.
 
 Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) do GitHub para um local adequado em seu computador local. O artigo considera que o nome dessa pasta é **device-simulation-dotnet-master**.
 
@@ -108,11 +108,11 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 Abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter** no Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o **arquivo storage-adapter/WebService/appsettings.ini** e atribua sua seqüência de conexão Cosmos DB à variável **documentDBConnectionString.**
+Abra o arquivo **Storage-Adapter/WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString** .
 
 Para executar o microsserviço localmente, clique em **Depurar > Iniciar Depuração**.
 
-A janela **Terminal** no Visual Studio Code mostra a saída do microserviço [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)em execução, incluindo uma URL para a verificação de saúde do serviço web: . Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
+A janela do **terminal** no Visual Studio Code mostra a saída do microserviço em execução, incluindo uma URL para a verificação de [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)integridade do serviço Web:. Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
 
 Deixe o microsserviço de adaptador de armazenamento em execução nesta instância do Visual Studio Code enquanto você conclui as próximas etapas.
 
@@ -425,7 +425,7 @@ Nesta seção, você testa os tipos de dispositivo que criou nas seções anteri
 
 Abra a pasta **device-simulation-dotnet-master** que você baixou do GitHub em uma nova instância do Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **WebService/appsettings.ini** e atribua sua seqüência de conexão Cosmos DB à variável **documentdb_connstring** e também modifique as configurações da seguinte forma:
+Abra o arquivo **WebService/appSettings. ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentdb_connstring** e modifique também as configurações da seguinte maneira:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -465,11 +465,11 @@ Para configurar o Postman:
 
 1. Clique em **Arquivo > Importar**. Em seguida, clique em **Escolher Arquivos**.
 
-1. Navegue até a pasta **device-simulation-dotnet-master/docs/postman**. Selecione o acelerador de **soluções de simulação de dispositivos Azure IoT.postman_collection** e **o acelerador de solução de dispositivos IoT Do Azure.postman_environment** e clique em **Abrir**.
+1. Navegue até a pasta **device-simulation-dotnet-master/docs/postman**. Selecione **acelerador de solução de simulação de dispositivo IOT do Azure. postman_collection** e **acelerador de solução de simulação de dispositivo IOT do Azure. postman_environment** e clique em **abrir**.
 
 1. Expanda o **acelerador da solução Simulação de Dispositivo IoT do Azure** para as solicitações que você pode enviar.
 
-1. Clique **em No Environment** e selecione o acelerador de solução de **simulação de dispositivo Azure IoT**.
+1. Clique em **nenhum ambiente** e selecione **acelerador de solução de simulação de dispositivo IOT do Azure**.
 
 Agora, você tem uma coleção e o ambiente carregado em seu workspace de Postman que você pode usar para interagir com o microsserviço de simulação de dispositivo.
 

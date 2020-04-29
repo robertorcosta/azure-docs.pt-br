@@ -1,5 +1,5 @@
 ---
-title: Módulos de borda IoT do Mercado Azure
+title: Módulos de IoT Edge do Azure Marketplace
 description: A oferta Módulo do IoT Edge no Azure Marketplace para editores de aplicativos e serviços.
 author: qianw211
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684330"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
@@ -42,7 +42,7 @@ O tipo de oferta de módulo do IoT Edge é um tipo específico de contêiner em 
 
 Os módulos do IoT Edge só são publicados no Azure Marketplace. O AppSource não se aplica.  Para obter mais informações sobre as diferenças e a audiência das vitrines, confira [Determinando a opção de publicação para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
  
-**Opções de faturamento**
+**Opções de cobrança**
 
 No momento, o Marketplace dá suporte às opções de cobrança **Gratuito** e **BYOL (traga sua própria licença)** para os módulos do IoT Edge.
  
@@ -58,7 +58,7 @@ Todos os termos dos contratos e das políticas do Microsoft Azure Marketplace ap
 
 Para publicar um módulo do IoT Edge no Azure Marketplace, você precisa atender aos seguintes pré-requisitos:
 
-- Acesso ao Centro de Parceiros. Para obter mais informações, confira [Guia de publicação do Azure Marketplace e do AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Acesso ao Partner Center. Para obter mais informações, confira [Guia de publicação do Azure Marketplace e do AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Hospedar seu módulo do IoT Edge em um Registro de Contêiner do Azure. 
 - Preparar os metadados do módulo do IoT Edge como (lista parcial): 
     - Um título
@@ -69,21 +69,21 @@ Para publicar um módulo do IoT Edge no Azure Marketplace, você precisa atender
     - Documentação
     - Contatos de suporte
 
-**Requisitos Técnicos**
+**Requisitos técnicos**
 
 Os principais requisitos técnicos de um IoT Edge Module, para que ele seja certificado e publicado no Azure Marketplace, estão detalhados no [Prepare os recursos técnicos do módulo IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="documentation-and-resources"></a>Documentação e recursos
 
-[Crie uma oferta de módulo IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) -- As etapas para publicar uma nova oferta de módulo IoT Edge no Partner Center.
+[Criar uma oferta de módulo IOT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) --as etapas para publicar uma nova oferta de módulo IOT Edge no Partner Center.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Caso ainda não tenha feito isso,
 
-- [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.
+- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o Marketplace.
 
-Para se registrar no Partner Center e começar a criar uma nova oferta ou trabalhar em uma já existente,
+Para registrar-se no Partner Center e começar a criar uma nova oferta ou trabalhar em uma existente,
 
-- Faça login no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
-- Consulte [criar uma oferta de módulo IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) para obter informações sobre como publicar uma oferta de módulo IoT Edge.
+- Entre no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
+- Consulte [criar um módulo de IOT Edge oferta](./partner-center-portal/azure-iot-edge-module-creation.md) para obter informações sobre como publicar uma oferta de módulo de IOT Edge.

@@ -1,20 +1,20 @@
 ---
-title: Como consultar logs da solução Start/Stop VMs
-description: Este artigo descreve como consultar dados de log gerados pela solução Start/Stop VMs do Azure Monitor.
+title: Como consultar logs da solução iniciar/parar VMs
+description: Este artigo descreve como consultar dados de log gerados pela solução iniciar/parar VMs de Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604738"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Como consultar logs da solução Start/Stop VMs
+# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Como consultar logs da solução iniciar/parar VMs
 
-A Azure Automation encaminha dois tipos de registros para o espaço de trabalho log analytics vinculado: registros de trabalho e fluxos de trabalho. Esses dados estão disponíveis [para consulta no](../azure-monitor/log-query/log-query-overview.md) Azure Monitor.
+A automação do Azure encaminha dois tipos de registros para o espaço de trabalho Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Esses dados estão disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure monitor.
 
 ## <a name="job-logs"></a>Logs de trabalho
 
@@ -65,10 +65,10 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 |Consulta | Descrição|
 |----------|----------|
 |Localizar trabalhos para o runbook ScheduledStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Encontre empregos para ScheduledStartStop_Parent de runbook que não tenham sido concluídas com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos para ScheduledStartStop_Parent de runbook que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Localizar trabalhos para o runbook SequencedStartStop_Parent que foram finalizados com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Encontre empregos para SequencedStartStop_Parent de runbook que não tenham sido concluídas com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Localizar trabalhos para SequencedStartStop_Parent de runbook que não foram concluídos com êxito | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-As **VMs Start/Stop durante a solução off-hours** não incluem um conjunto predefinido de alertas. Revise os [alertas de log do](../azure-monitor/platform/alerts-log.md) Create com o Azure Monitor para saber como criar alertas com falha de emprego para suportar seus DevOps ou processos e procedimentos operacionais.
+A solução **iniciar/parar VMs fora do horário comercial** não inclui um conjunto predefinido de alertas. Examine os [alertas de criar log](../azure-monitor/platform/alerts-log.md) com Azure monitor para saber como criar alertas de falha de trabalho para dar suporte aos processos e procedimentos operacionais ou DevOps.

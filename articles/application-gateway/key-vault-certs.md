@@ -1,6 +1,6 @@
 ---
-title: Término do TLS com certificados do Azure Key Vault
-description: Saiba como integrar o Gateway de aplicativos Do Azure com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
+title: Terminação de TLS com certificados de Azure Key Vault
+description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,56 +8,56 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617513"
 ---
-# <a name="tls-termination-with-key-vault-certificates"></a>Término do TLS com certificados key vault
+# <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
 
-[O Azure Key Vault](../key-vault/general/overview.md) é uma loja secreta gerenciada por plataformas que você pode usar para proteger segredos, chaves e certificados TLS/SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Este suporte é limitado ao v2 SKU do Application Gateway.
+[Azure Key Vault](../key-vault/general/overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados TLS/SSL. Aplicativo Azure gateway dá suporte à integração com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado à SKU v2 do gateway de aplicativo.
 
-A integração do Key Vault oferece dois modelos para término do TLS:
+A integração do Key Vault oferece dois modelos para terminação de TLS:
 
-- Você pode fornecer explicitamente certificados TLS/SSL anexados ao ouvinte. Este modelo é a maneira tradicional de passar certificados TLS/SSL para o Application Gateway para término TLS.
-- Você pode fornecer opcionalmente uma referência a um certificado ou segredo do Key Vault existente quando criar um ouvinte habilitado para HTTPS.
+- Você pode fornecer explicitamente certificados TLS/SSL anexados ao ouvinte. Esse modelo é a maneira tradicional de passar certificados TLS/SSL para o gateway de aplicativo para terminação TLS.
+- Opcionalmente, você pode fornecer uma referência a um certificado ou segredo de Key Vault existente ao criar um ouvinte habilitado para HTTPS.
 
-A integração do Application Gateway com o Key Vault oferece muitos benefícios, incluindo:
+A integração do gateway de aplicativo com o Key Vault oferece muitos benefícios, incluindo:
 
-- Segurança mais forte, porque os certificados TLS/SSL não são diretamente tratados pela equipe de desenvolvimento de aplicativos. A integração permite que uma equipe de segurança separada:
-  * Configure gateways de aplicativos.
-  * Controle ciclos de vida do gateway do aplicativo.
-  * Conceda permissões a gateways de aplicativos selecionados para acessar certificados armazenados no cofre principal.
-- Suporte para importar certificados existentes em seu cofre principal. Ou use APIs do Key Vault para criar e gerenciar novos certificados com qualquer um dos parceiros confiáveis do Key Vault.
-- Suporte para renovação automática de certificados armazenados no cofre principal.
+- Segurança mais forte, pois os certificados TLS/SSL não são tratados diretamente pela equipe de desenvolvimento de aplicativos. A integração permite que uma equipe de segurança separada:
+  * Configurar gateways de aplicativo.
+  * Controlar ciclos de vida do gateway de aplicativo.
+  * Conceda permissões a gateways de aplicativo selecionados para acessar certificados armazenados em seu cofre de chaves.
+- Suporte para importar certificados existentes para o cofre de chaves. Ou use Key Vault APIs para criar e gerenciar novos certificados com qualquer um dos parceiros de Key Vault confiáveis.
+- Suporte para renovação automática de certificados armazenados em seu cofre de chaves.
 
-O Application Gateway atualmente suporta apenas certificados validados por software. Os certificados validados pelo Módulo de Segurança de Hardware (HSM) não são suportados. Depois que o Gateway de aplicativo é configurado para usar certificados do Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para término do TLS. As instâncias também pesquisam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se ele existir. Se um certificado atualizado for encontrado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS será automaticamente rotacionado.
+O gateway de aplicativo atualmente dá suporte apenas a certificados validados por software. Não há suporte para certificados validados do HSM (módulo de segurança de hardware). Depois que o gateway de aplicativo é configurado para usar certificados de Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para terminação de TLS. As instâncias também sondam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se existir. Se um certificado atualizado for encontrado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS será girado automaticamente.
 
 > [!NOTE]
-> O portal Azure só suporta certificados KeyVault, não segredos. O Application Gateway ainda suporta segredos de referência do KeyVault, mas apenas através de recursos não-Portal como PowerShell, CLI, API, modelos ARM, etc. 
+> O portal do Azure dá suporte apenas a certificados do keyvault, não a segredos. O gateway de aplicativo ainda dá suporte à referência de segredos do keyvault, mas somente por meio de recursos que não são do portal, como PowerShell, CLI, API, modelos ARM, etc. 
 
 ## <a name="how-integration-works"></a>Como funciona a integração
 
-A integração do Application Gateway com o Key Vault requer um processo de configuração em três etapas:
+A integração do gateway de aplicativo com o Key Vault requer um processo de configuração de três etapas:
 
 1. **Criar uma identidade gerenciada atribuída pelo usuário**
 
-   Você cria ou reutiliza uma identidade gerenciada atribuída pelo usuário existente, que o Application Gateway usa para recuperar certificados do Key Vault em seu nome. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md). Esta etapa cria uma nova identidade no inquilino do Azure Active Directory. A identidade é confiável pela assinatura usada para criar a identidade.
+   Você cria ou reutiliza uma identidade gerenciada atribuída pelo usuário existente, que o gateway de aplicativo usa para recuperar certificados de Key Vault em seu nome. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md). Esta etapa cria uma nova identidade no locatário Azure Active Directory. A identidade é confiável para a assinatura que é usada para criar a identidade.
 
-1. **Configure seu cofre de chaves**
+1. **Configurar o cofre de chaves**
 
-   Em seguida, você importa um certificado existente ou cria um novo no seu cofre principal. O certificado será usado por aplicativos que passam pelo gateway do aplicativo. Nesta etapa, você também pode usar um segredo do cofre de chaves que é armazenado como um arquivo PFX codificado sem senha, sem senha. Recomendamos o uso de um tipo de certificado devido ao recurso de renovação automática que está disponível com objetos do tipo certificado no cofre principal. Depois de criar um certificado ou um segredo, você define políticas de acesso no cofre principal para permitir que a identidade seja concedida *tenha* acesso ao segredo.
+   Em seguida, importe um certificado existente ou crie um novo no cofre de chaves. O certificado será usado por aplicativos que são executados por meio do gateway de aplicativo. Nesta etapa, você também pode usar um segredo do Key Vault que é armazenado como um arquivo PFX codificado por senha, em base 64. É recomendável usar um tipo de certificado devido ao recurso de renovação automática disponível com objetos de tipo de certificado no cofre de chaves. Depois de criar um certificado ou um segredo, defina as políticas de acesso no cofre de chaves para permitir que a identidade *receba acesso ao* segredo.
    
    > [!NOTE]
-   > Se você implantar o gateway de aplicativo através de um modelo ARM, usando o Azure CLI ou PowerShell, ou através de um aplicativo Azure implantado no portal Azure, o certificado SSL armazenado no cofre de chaves como um arquivo PFX codificado com base 64 **deve ser sem senha**. Além disso, você deve completar as etapas em [Use Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). É particularmente importante definir `enabledForTemplateDeployment` `true`para .
+   > Se você implantar o gateway de aplicativo por meio de um modelo ARM, usando o CLI do Azure ou o PowerShell, ou por meio de um Aplicativo Azure implantado a partir do portal do Azure, o certificado SSL armazenado no cofre de chaves como um arquivo PFX codificado em base 64 **deve ser sem senha**. Além disso, você deve concluir as etapas em [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). É particularmente importante definir `enabledForTemplateDeployment` como. `true`
 
-1. **Configure o gateway do aplicativo**
+1. **Configurar o gateway de aplicativo**
 
-   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Você também pode configurar o certificado TLS/SSL do ouvinte HTTP para apontar para o URI completo do certificado Key Vault ou iD secreto.
+   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Você também pode configurar o certificado TLS/SSL do ouvinte HTTP para apontar para o URI completo do certificado de Key Vault ou da ID secreta.
 
-   ![Certificados de cofre chave](media/key-vault-certs/ag-kv.png)
+   ![Certificados do Key Vault](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configure o término do TLS com os certificados key vault usando o Azure PowerShell](configure-keyvault-ps.md)
+[Configurar a terminação de TLS com certificados de Key Vault usando Azure PowerShell](configure-keyvault-ps.md)

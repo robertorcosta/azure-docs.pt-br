@@ -1,5 +1,5 @@
 ---
-title: Localização - Diretório Ativo Azure B2C
+title: Azure Active Directory B2C de localização
 description: Especifica o elemento Localization de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681408"
 ---
 # <a name="localization"></a>Localização
@@ -146,29 +146,29 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Valores possíveis: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate,](#predicate) [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
-| ElementId | Sim | Se **ElementType** estiver `ClaimType` `Predicate`definido `InputValidation`para , ou , este elemento contém uma referência a um tipo de reivindicação já definido na seção ClaimsSchema. |
+| ElementType | Sim | Valores possíveis: [claimproperties](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicado](#predicate), [InputValidation](#inputvalidation)ou [UxElement](#uxelement).   | 
+| ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate`ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
 | StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
 
 ## <a name="elementtype"></a>ElementType
 
-A referência ElementType a um tipo de reclamação, uma transformação de sinistro ou um elemento de interface de usuário na diretiva a ser localizado.
+A referência ElementType para um tipo de declaração, uma transformação de declaração ou um elemento de interface do usuário na política a ser localizado.
 
-| Elemento para localizar | ElementType | ElementId |StringId |
+| Elemento a ser localizado | ElementType | ElementId |StringId |
 | --------- | -------- | ----------- |----------- |
-| Nome do provedor de identidade |`ClaimsProvider`| | O ID do elemento ClaimsExchange|
-| Atributos do tipo de reivindicação|`ClaimType`|Nome do tipo de reclamação| O atributo da reivindicação de ser localizado. Valores `AdminHelpText`possíveis: `PatternHelpText`, `UserHelpText` `DisplayName`, e .|
-|Mensagem de erro|`ErrorMessage`||O ID da mensagem de erro |
-|Copia strings localizadas em sinistros|`GetLocalizedStringsTra nsformationClaimType`||O nome da reivindicação de saída|
-|Mensagem de usuário predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores `HelpText`possíveis: .|
-|Mensagem de usuário do grupo predicado|`InputValidation`|O ID do elemento PredicateValidation.|O ID do elemento PredicateGroup. O grupo predicado deve ser uma criança do elemento de validação predicada conforme definido no ElementId.|
-|Elementos da interface do usuário |`UxElement` | | O ID do elemento interface de usuário a ser localizado.|
+| Nome do provedor de identidade |`ClaimsProvider`| | A ID do elemento ClaimsExchange|
+| Atributos de tipo de declaração|`ClaimType`|Nome do tipo de declaração| O atributo da declaração a ser localizada. Valores possíveis: `AdminHelpText`, `DisplayName`, `PatternHelpText`e `UserHelpText`.|
+|Mensagem de erro|`ErrorMessage`||A ID da mensagem de erro |
+|Copia cadeias de caracteres localizadas em declarações|`GetLocalizedStringsTra nsformationClaimType`||O nome da declaração de saída|
+|Mensagem de usuário de predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText`.|
+|Mensagem de usuário do grupo de predicado|`InputValidation`|A ID do elemento PredicateValidation.|A ID do elemento de predicado. O grupo de predicado deve ser um filho do elemento de validação de predicado, conforme definido no ElementID.|
+|Elementos da interface do usuário |`UxElement` | | A ID do elemento de interface do usuário a ser localizado.|
 
 ## <a name="examples"></a>Exemplos
 
 ### <a name="claimsprovider"></a>ClaimsProvider
 
-O valor do Provedor de Sinistros é usado para localizar um dos nomes de exibição dos provedores de sinistros. 
+O valor de Claims é usado para localizar um dos provedores de declaração nome de exibição. 
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -182,7 +182,7 @@ O valor do Provedor de Sinistros é usado para localizar um dos nomes de exibiç
 
 ```
 
-O exemplo a seguir mostra como localizar o nome de exibição dos provedores de sinistros.
+O exemplo a seguir mostra como localizar o nome de exibição dos provedores de declarações.
 
 ```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
@@ -192,7 +192,7 @@ O exemplo a seguir mostra como localizar o nome de exibição dos provedores de 
 
 ### <a name="claimtype"></a>ClaimType
 
-O valor ClaimType é usado para localizar um dos atributos de sinistro. 
+O valor ClaimType é usado para localizar um dos atributos de declaração. 
 
 ```xml
 <ClaimType Id="email">
@@ -203,7 +203,7 @@ O valor ClaimType é usado para localizar um dos atributos de sinistro.
 </ClaimType>
 ```
 
-O exemplo a seguir mostra como localizar os atributos DisplayName, UserHelpText e PatternHelpText do tipo de solicitação de e-mail.
+O exemplo a seguir mostra como localizar os atributos DisplayName, userhelptext e PatternHelpText do tipo de declaração de email.
 
 ```XML
 <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
@@ -225,7 +225,7 @@ O valor ErrorMessage é usado para localizar uma das mensagens de erro do sistem
 </TechnicalProfile>
 ```
 
-O exemplo a seguir mostra como localizar a mensagem de erro UserMessageIfClaimsPrincipalJáExiste.
+O exemplo a seguir mostra como localizar a mensagem de erro UserMessageIfClaimsPrincipalAlreadyExists.
 
 
 ```XML
@@ -234,7 +234,7 @@ O exemplo a seguir mostra como localizar a mensagem de erro UserMessageIfClaimsP
 
 ### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
 
-O valor GetLocalizedStringsTransformationClaimType é usado para copiar strings localizadas em sinistros. Para obter mais informações, consulte [A transformação de reivindicações getLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation)
+O valor de GetLocalizedStringsTransformationClaimType é usado para copiar cadeias de caracteres localizadas em declarações. Para obter mais informações, consulte [GetLocalizedStringsTransformation Claims Transformation](string-transformations.md#getlocalizedstringstransformation)
 
 
 ```xml
@@ -248,7 +248,7 @@ O valor GetLocalizedStringsTransformationClaimType é usado para copiar strings 
 </ClaimsTransformation>
 ```
 
-O exemplo a seguir mostra como localizar as reivindicações de saída da transformação de reivindicações GetLocalizedStringsTransformation.
+O exemplo a seguir mostra como localizar as declarações de saída da transformação declarações GetLocalizedStringsTransformation.
 
 ```xml
 <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
@@ -259,7 +259,7 @@ O exemplo a seguir mostra como localizar as reivindicações de saída da transf
 
 ### <a name="predicate"></a>Predicado
 
-O valor predicado é usado para localizar uma das mensagens de erro [Predicado.](predicates.md) 
+O valor do predicado é usado para localizar uma das mensagens de erro de [predicado](predicates.md) . 
 
 ```xml
 <Predicates>
@@ -282,7 +282,7 @@ O valor predicado é usado para localizar uma das mensagens de erro [Predicado.]
 </Predicates>
 ```
 
-O exemplo a seguir mostra como localizar predicados de ajuda ao texto.
+O exemplo a seguir mostra como localizar o texto de ajuda de predicados.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -290,9 +290,9 @@ O exemplo a seguir mostra como localizar predicados de ajuda ao texto.
 <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
 ```
 
-### <a name="inputvalidation"></a>Validação de entrada
+### <a name="inputvalidation"></a>InputValidation
 
-O valor InputValidation é usado para localizar uma das mensagens de erro do grupo [PredicateValidation.](predicates.md) 
+O valor InputValidation é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md) . 
 
 ```xml
 <PredicateValidations>
@@ -317,7 +317,7 @@ O valor InputValidation é usado para localizar uma das mensagens de erro do gru
 </PredicateValidations>
 ```
 
-O exemplo a seguir mostra como localizar um texto de ajuda de grupo de validação predicado.
+O exemplo a seguir mostra como localizar um texto de ajuda do grupo de validação de predicado.
 
 ```XML
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
@@ -325,7 +325,7 @@ O exemplo a seguir mostra como localizar um texto de ajuda de grupo de validaç�
 
 ### <a name="uxelement"></a>UxElement
 
-O valor UxElement é usado para localizar um dos elementos da interface do usuário. O exemplo a seguir mostra como localizar os botões continuar e cancelar.
+O valor UxElement é usado para localizar um dos elementos da interface do usuário. O exemplo a seguir mostra como localizar os botões continue e Cancel.
 
 ```XML
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
@@ -334,7 +334,7 @@ O valor UxElement é usado para localizar um dos elementos da interface do usuá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja os seguintes artigos para exemplos de localização:
+Consulte os seguintes artigos para obter exemplos de localização:
 
-- [Personalização de idiomas com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalização de idiomas com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalização de idioma com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
+- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)

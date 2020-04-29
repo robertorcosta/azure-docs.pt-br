@@ -1,6 +1,6 @@
 ---
-title: Comece com o registro combinado - Azure Active Directory
-description: Habilite o registro combinado de autenticação multifatorial AD AD e o registro de redefinição de senha de autoatendimento
+title: Introdução ao registro combinado-Azure Active Directory
+description: Habilitar a autenticação multifator do Azure AD combinada e o registro de redefinição de senha de autoatendimento
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,76 +12,76 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639687"
 ---
-# <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilite o registro combinado de informações de segurança no Azure Active Directory
+# <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilitar o registro de informações de segurança combinadas no Azure Active Directory
 
-Antes do registro combinado, os usuários registraram métodos de autenticação para autenticação multifatorial do Azure e redefinição de senha de autoatendimento (SSPR) separadamente. As pessoas estavam confusas de que métodos semelhantes foram usados para autenticação multifatorial e SSPR, mas tiveram que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem se cadastrar uma vez e obter os benefícios tanto da Autenticação Multifatorial quanto do SSPR.
+Antes do registro combinado, os usuários registraram os métodos de autenticação para a autenticação multifator do Azure e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
 
-Antes de habilitar a nova experiência, revise o artigo [Registro combinado de informações](concept-registration-mfa-sspr-combined.md) de segurança para garantir que você entenda a funcionalidade e os efeitos desse recurso.
+Antes de habilitar a nova experiência, leia o artigo [registro de informações de segurança combinado](concept-registration-mfa-sspr-combined.md) para garantir que você compreenda a funcionalidade e os efeitos desse recurso.
 
-![Experiência aprimorada de registro de informações de segurança combinada](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Experiência avançada de registro de informações de segurança combinada](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 ## <a name="enable-combined-registration"></a>Habilitar o registro combinado
 
-Complete estas etapas para habilitar o registro combinado:
+Conclua estas etapas para habilitar o registro combinado:
 
-1. Faça login no portal Azure como administrador de usuários ou administrador global.
-2. Ir para > **configurações** > do usuário do **diretório ativo do Azure****Gerenciar configurações de visualização de recursos do usuário**.
-3. Em **Usuários, os usuários podem usar recursos de visualização para registrar e gerenciar informações de segurança,** optar por habilitar para um grupo **selecionado** de usuários ou para **todos os** usuários.
+1. Entre no portal do Azure como um administrador de usuário ou administrador global.
+2. Vá para **Azure Active Directory** > configurações de**usuário** > **gerenciar configurações de visualização de recurso do usuário**.
+3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, escolha habilitar para um grupo de usuários **selecionado** ou para **todos** os usuários.
 
-   ![Habilite a experiência combinada de visualização de informações de segurança para todos os usuários](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
+   ![Habilitar a experiência de visualização de informações de segurança combinadas para todos os usuários](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!NOTE]
-> Depois de habilitar o registro combinado, os usuários que se registrarem ou confirmarem seu número de telefone ou aplicativo móvel através da nova experiência podem usá-los para autenticação multifatorial e SSPR, se esses métodos estiverem habilitados nas políticas de Autenticação Multifatorial e SSPR. Se você desativar essa experiência, os usuários que acessarem `https://aka.ms/ssprsetup` a página de registro sspr anterior serão obrigados a realizar a autenticação multifatorial antes que eles possam acessar a página.
+> Depois que você habilitar o registro combinado, os usuários que registrarem ou confirmarem seu número de telefone ou aplicativo móvel por meio da nova experiência poderão usá-los para autenticação multifator e SSPR, se esses métodos estiverem habilitados na autenticação multifator e nas políticas de SSPR. Se você desabilitar essa experiência, os usuários que vão para a página de registro SSPR anterior `https://aka.ms/ssprsetup` em serão necessários para executar a autenticação multifator antes de poderem acessar a página.
 
-Se você configurou a Lista de atribuição de site para região no Internet Explorer, os seguintes sites devem estar na mesma região:
+Se você tiver configurado a lista de atribuição de site a zona no Internet Explorer, os seguintes sites devem estar na mesma zona:
 
 * [https://login.microsoftonline.com](https://login.microsoftonline.com)
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
-## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de Acesso Condicional para registro combinado
+## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para registro combinado
 
-Garantir quando e como os usuários se registram para autenticação multifatorial do Azure e redefinição de senha de autoatendimento agora é possível com ações do usuário na política de Acesso Condicional. Esse recurso está disponível para organizações que habilitaram o [recurso de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações onde eles desejam que os usuários se registrem para autenticação multifatorial e SSPR do Azure de um local central, como um local de rede confiável durante o onboarding de RH.
+A proteção de quando e como os usuários se registram para a autenticação multifator do Azure e a redefinição de senha de autoatendimento agora são possíveis com as ações do usuário na política de acesso condicional. Esse recurso está disponível para organizações que habilitaram o [recurso de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que eles desejam que os usuários se registrem para a autenticação multifator do Azure e SSPR de um local central, como um local de rede confiável durante a integração de RH.
 
-Para obter mais informações sobre a criação de locais confiáveis no Acesso Condicional, consulte o artigo [Qual é a condição de localização no Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+Para obter mais informações sobre como criar locais confiáveis no acesso condicional, consulte o artigo [qual é a condição de local em Azure Active Directory acesso condicional?](../conditional-access/location-condition.md#named-locations)
 
-### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crie uma diretiva para exigir o registro de um local confiável
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registro de um local confiável
 
-A política a seguir se aplica a todos os usuários selecionados que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que estejam se conectando a partir de um local marcado como rede confiável.
+A política a seguir se aplica a todos os usuários selecionados que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que eles estejam se conectando de um local marcado como rede confiável.
 
-1. No **portal Azure,** navegue até o**Acesso Condicional de** **Segurança** > do Diretório >  **Ativo do Azure**
-1. Selecione **+ Nova política**
-1. Digite um nome para esta diretiva, como *Registro combinado de informações de segurança em redes confiáveis*.
-1. Em **Atribuições**, selecione **Usuários e grupos**. Escolha os usuários e grupos a que deseja que esta política se aplique e selecione **'Feito ''Feito ''Feito'.**
+1. Na **portal do Azure**, navegue até **Azure Active Directory** > **Security** > **acesso condicional** de segurança
+1. Selecionar **+ nova política**
+1. Insira um nome para essa política, como *registro de informações de segurança combinadas em redes confiáveis*.
+1. Em **Atribuições**, selecione **Usuários e Grupos**. Escolha os usuários e grupos aos quais você deseja que essa política seja aplicada e, em seguida, selecione **concluído**.
 
    > [!WARNING]
-   > Os usuários devem ser habilitados para o registro combinado.
+   > Os usuários devem estar habilitados para registro combinado.
 
-1. Em **aplicativos ou ações na Nuvem,** selecione ações do **Usuário**. Verifique **as informações de segurança do Registro**e selecione **"Feito".**
+1. Em **aplicativos de nuvem ou ações**, selecione **ações do usuário**. Marque **registrar informações de segurança**e, em seguida, selecione **concluído**.
 
-    ![Crie uma política de acesso condicional para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+    ![Criar uma política de acesso condicional para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. Em Condições**Localizações,** configure as **seguintes** > opções:
+1. Em **Conditions** > **locais**de condições, configure as seguintes opções:
    1. Configurar **Sim**
    1. Incluir **qualquer local**
    1. Excluir **todos os locais confiáveis**
-1. Selecione **'Feito** na janela *Locais',* em seguida, **selecione Feito** na janela *Condições.*
-1. Em **Acesso controla** > **conceder,** escolha **bloquear acesso**e, em seguida, **selecionar**
-1. Definir **ativar a política** para **on**
-1. Para finalizar a diretiva, selecione **Criar**
+1. Selecione **concluído** na janela *locais* e, em seguida, selecione **concluído** na janela *condições* .
+1. Em **Access controls** > **concessão**de controles de acesso, escolha **bloquear acesso**e, em seguida, **selecione**
+1. Definir **habilitar política** como **ativado**
+1. Para finalizar a política, selecione **criar**
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você precisar de ajuda, veja como [solucionar o registro combinado de informações de segurança](howto-registration-mfa-sspr-combined-troubleshoot.md) ou aprender Qual é a condição de localização no [Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)
+Se precisar de ajuda, consulte como [solucionar problemas de registro de informações de segurança combinadas](howto-registration-mfa-sspr-combined-troubleshoot.md) ou saiba [qual é a condição de localização em Azure Active Directory acesso condicional?](../conditional-access/location-condition.md)
 
-Para habilitar os recursos no seu inquilino Azure AD, consulte os tutoriais para ativar a [redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [ativar a autenticação multifatorial do Azure](tutorial-enable-azure-mfa.md).
+Para habilitar os recursos em seu locatário do Azure AD, consulte os tutoriais para [habilitar a redefinição de senha de autoatendimento](tutorial-enable-sspr.md) e [habilitar a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
 
-Saiba como [ativar o registro combinado em seu inquilino](howto-registration-mfa-sspr-combined.md) ou forçar os usuários a [recadastrar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
+Saiba como [habilitar o registro combinado em seu locatário](howto-registration-mfa-sspr-combined.md) ou [forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-Você também pode rever os [métodos disponíveis para autenticação multifatorial do Azure e SSPR](concept-authentication-methods.md).
+Você também pode examinar os [métodos disponíveis para a autenticação multifator do Azure e o SSPR](concept-authentication-methods.md).

@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536415"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
@@ -29,29 +29,29 @@ O recurso pai de um compartilhamento de arquivo do Azure é uma conta de armazen
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> A utilização da conta de armazenamento de propósito geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se você atingir a capacidade máxima da conta de armazenamento com o armazenamento de Blobs do Azure, você não poderá criar novos arquivos em seu compartilhamento de arquivo do Azure, mesmo se o compartilhamento de arquivo do Azure estiver abaixo do tamanho máximo do compartilhamento.
+> A utilização da conta de armazenamento de uso geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se você atingir a capacidade máxima da conta de armazenamento com o armazenamento de Blobs do Azure, você não poderá criar novos arquivos em seu compartilhamento de arquivo do Azure, mesmo se o compartilhamento de arquivo do Azure estiver abaixo do tamanho máximo do compartilhamento.
 
 ## <a name="azure-files-scale-targets"></a>Destinos de escala de Arquivos do Azure
 
-Existem três categorias de limitações a considerar para arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
+Há três categorias de limitações a serem consideradas para os arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
 
-Por exemplo: Com ações de arquivo premium, uma única ação pode alcançar 100.000 IOPS e um único arquivo pode escalar até 5.000 IOPS. Então, se você tem três arquivos em uma parte, o IOPS máximo que você pode obter a partir desse compartilhamento é de 15.000.
+Por exemplo: com compartilhamentos de arquivos premium, um único compartilhamento pode atingir 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, se você tiver três arquivos em um único compartilhamento, o máximo de IOPS que você pode obter desse compartilhamento é 15.000.
 
-### <a name="standard-storage-account-limits"></a>Limites padrão da conta de armazenamento
+### <a name="standard-storage-account-limits"></a>Limites de conta de armazenamento Standard
 
-Consulte a seção de metas de metas da conta de [armazenamento do Azure](#azure-storage-account-scale-targets) para esses limites.
+Consulte a seção [destinos de escala da conta de armazenamento do Azure](#azure-storage-account-scale-targets) para esses limites.
 
-### <a name="premium-filestorage-account-limits"></a>Limites da conta de armazenamento de arquivos premium
+### <a name="premium-filestorage-account-limits"></a>Limites da conta de armazenamento Premium
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Os limites da conta de armazenamento se aplicam a todas as ações. O dimensionamento até o máximo para contas de armazenamento de arquivos só é alcançável se houver apenas um compartilhamento por conta de Armazenamento de Arquivos.
+> Os limites da conta de armazenamento são aplicados a todos os compartilhamentos. O dimensionamento até o máximo para contas de armazenamento de filebackup só será atingível se houver apenas um compartilhamento por conta de armazenamento de File.
 
-### <a name="file-share-and-file-scale-targets"></a>Metas de compartilhamento de arquivos e escala de arquivos
+### <a name="file-share-and-file-scale-targets"></a>Destinos de escala de arquivo e compartilhamento de arquivos
 
 > [!NOTE]
-> As ações de arquivo padrão maiores que 5 TiB têm certas limitações. Para obter uma lista de limitações e instruções para habilitar tamanhos maiores de compartilhamento de arquivos, consulte o [habilitar compartilhamentos de arquivos maiores na](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) seção de compartilhamentos de arquivos padrão do guia de planejamento.
+> Compartilhamentos de arquivos padrão maiores que 5 TiB têm determinadas limitações. Para obter uma lista de limitações e instruções para habilitar tamanhos maiores de compartilhamento de arquivos, consulte a seção [habilitar compartilhamentos de arquivos maiores em compartilhamentos](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de arquivos padrão do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -85,8 +85,8 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Provisionamento inicial de uso único  |  |
 |-|-|
 | Número de objetos | 25 milhões de objetos |
-| Tamanho do conjunto de dados| ~4.7 TiB |
-| Tamanho médio de arquivo | ~200 Kib (Maior arquivo: 100 GiB) |
+| Tamanho do conjunto de dados| ~ 4,7 TiB |
+| Tamanho médio de arquivo | ~ 200 KiB (maior arquivo: 100 GiB) |
 | Carregue a taxa de transferência | 20 objetos por segundo por grupo de sincronização |
 | Fazer o download do Namespace * | 400 objetos por segundo |
 

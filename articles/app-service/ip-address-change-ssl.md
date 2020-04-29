@@ -1,14 +1,14 @@
 ---
-title: Prepare-se para a alteração de endereço IP SSL
+title: Preparar para alterar o endereço IP SSL
 description: Se seu endereço IP SSL vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535716"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP SSL
@@ -17,7 +17,7 @@ Se você recebeu uma notificação de que o endereço IP SSL de seu aplicativo d
 
 ## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Liberar endereços IP SSL e atribuir novos
 
-1.  Abra o [Portal do Azure](https://portal.azure.com).
+1.  Abra o [portal do Azure](https://portal.azure.com).
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicativos**.
 
@@ -25,7 +25,7 @@ Se você recebeu uma notificação de que o endereço IP SSL de seu aplicativo d
 
 4.  No cabeçalho **Configurações**, clique em **Configurações de SSL** no painel de navegação à esquerda.
 
-1. Na seção de vinculações TLS/SSL, selecione o registro de nome do host. No editor que é aberto, escolha **SSL SNI** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, o endereço IP existente foi liberado.
+1. Na seção associações TLS/SSL, selecione o registro de nome de host. No editor que é aberto, escolha **SSL SNI** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, o endereço IP existente foi liberado.
 
 6.  Na seção **Associações SSL**, selecione novamente o mesmo registro de nome do host com o certificado. No editor que é aberto, escolha dessa vez **SSL baseado em IP** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando vir a mensagem de êxito da operação, você já adquiriu um novo endereço IP.
 

@@ -1,32 +1,32 @@
 ---
 title: Gerenciar atualizações para várias máquinas virtuais do Azure
-description: Este artigo descreve como gerenciar atualizações para máquinas virtuais Azure e não-Azure.
+description: Este artigo descreve como gerenciar atualizações para máquinas virtuais do Azure e não Azure.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676439"
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerenciar atualizações para várias máquinas virtuais do Azure
 
-Você pode usar o Azure Automation Update Management para gerenciar atualizações e patches para suas máquinas virtuais Windows e Linux. A partir da sua conta da [Automação do Azure](automation-offering-get-started.md), é possível:
+Você pode usar a Gerenciamento de Atualizações de automação do Azure para gerenciar atualizações e patches para suas máquinas virtuais Windows e Linux. A partir da sua conta da [Automação do Azure](automation-offering-get-started.md), é possível:
 
 - Carregar máquinas virtuais.
 - Avaliar o status das atualizações disponíveis.
 - Agendar a instalação de atualizações necessárias.
-- Revisar os resultados de implantação para verificar se as atualizações foram aplicadas com sucesso a todas as máquinas virtuais para as quais o Gerenciamento de Atualizações está ativado.
+- Examine os resultados da implantação para verificar se as atualizações foram aplicadas com êxito a todas as máquinas virtuais para as quais o Gerenciamento de Atualizações está habilitado.
 
-Para saber mais sobre os requisitos do sistema para o Gerenciamento de Atualizações, consulte [os requisitos do cliente Update Management](automation-update-management.md#clients).
+Para saber mais sobre os requisitos de sistema para Gerenciamento de Atualizações, consulte [Gerenciamento de atualizações requisitos do cliente](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma máquina virtual ou um computador com um dos sistemas operacionais com suporte instalado.
-* Acesso a um repositório de atualização para VMs Linux a bordo do Update Management.
+* Acesso a um repositório de atualizações para VMs do Linux integradas a Gerenciamento de Atualizações.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitar o Gerenciamento de Atualizações para máquinas virtuais do Azure
 
@@ -46,7 +46,7 @@ Quando a integração é concluída, o Gerenciamento de Atualizações é habili
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitar o Gerenciamento de Atualizações para computadores e máquinas virtuais que não são Azure
 
-O agente log analytics para Windows e Linux precisa ser instalado nas VMs que estão sendo executados em sua rede corporativa ou outro ambiente de nuvem, a fim de habilitá-los com o Gerenciamento de Atualizações. Para aprender os requisitos do sistema e os métodos suportados para implantar o agente em máquinas hospedadas fora do Azure, consulte [Visão geral do agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+O agente de Log Analytics para Windows e Linux precisa ser instalado nas VMs que estão em execução na sua rede corporativa ou em outro ambiente de nuvem para habilitá-las com Gerenciamento de Atualizações. Para saber os requisitos do sistema e os métodos com suporte para implantar o agente em computadores hospedados fora do Azure, consulte [visão geral do agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Exibir computadores conectados à sua conta de Automação
 
@@ -54,19 +54,19 @@ Após habilitar o Gerenciamento de Atualizações para as máquinas, você poder
 
   ![Guia Exibir computadores](./media/manage-update-multi/update-computers-tab.png)
 
-Computadores que foram habilitados recentemente para o Gerenciamento de Atualizações podem ainda não terem sido avaliados. O estado de conformidade `Not assessed`para esses computadores é. Aqui, é apresentada uma lista de possíveis valores para o estado de conformidade:
+Computadores que foram habilitados recentemente para o Gerenciamento de Atualizações podem ainda não terem sido avaliados. O estado de conformidade para esses computadores `Not assessed`é. Aqui, é apresentada uma lista de possíveis valores para o estado de conformidade:
 
-- `Compliant`: Computadores que não estão faltando atualizações críticas ou de segurança.
-- `Non-compliant`: Computadores que estão faltando pelo menos uma atualização crítica ou de segurança.
-- `Not assessed`: Os dados de avaliação de atualização não foram recebidos do computador dentro do prazo esperado. Para computadores Linux, o prazo esperado é a última hora. Para computadores Windows, o prazo esperado é das últimas 12 horas.
+- `Compliant`: Computadores que não estão com atualizações críticas ou de segurança ausentes.
+- `Non-compliant`: Computadores que não têm pelo menos uma atualização crítica ou de segurança.
+- `Not assessed`: Os dados de avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado. Para computadores Linux, o período de tempo esperado é a última hora. Para computadores com Windows, o período de tempo esperado é das últimas 12 horas.
 
-Para visualizar o status do agente, selecione o link na coluna **De prontidão do agente Atualizar.** Selecionar essa opção abre o painel Hybrid Worker e exibe o status do Hybrid Worker. A imagem a seguir mostra um exemplo de um agente que não foi conectado ao Gerenciamento de Atualizações por um longo período de tempo:
+Para exibir o status do agente, selecione o link na coluna **prontidão do agente de atualização** . Selecionar essa opção abre o painel Hybrid Worker e exibe o status do Hybrid Worker. A imagem a seguir mostra um exemplo de um agente que não foi conectado ao Gerenciamento de Atualizações por um longo período de tempo:
 
 ![Guia Exibir computadores](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Exibir uma avaliação de atualização
 
-Depois que o gerenciamento de atualizações estiver ativado, o painel Gerenciamento de atualizações é aberto. Você pode ver uma lista de atualizações ausentes na guia **Atualizações ausentes**.
+Depois que Gerenciamento de Atualizações estiver habilitado, o painel Gerenciamento de Atualizações será aberto. Você pode ver uma lista de atualizações ausentes na guia **Atualizações ausentes**.
 
 ## <a name="collect-data"></a>Coletar dados
 
@@ -85,11 +85,11 @@ A tabela a seguir descreve as fontes conectadas às quais essa solução dá sup
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
-Depois que um computador conclui uma varredura para conformidade de atualização, o agente encaminha as informações em massa para os logs do Azure Monitor. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
+Depois que um computador conclui uma verificação de conformidade de atualização, o agente encaminha as informações em massa para Azure Monitor logs. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
 
 Além do agendamento da verificação, a verificação de conformidade de atualizações será iniciada em 15 minutos se o MMA estiver sendo reiniciado antes da instalação da atualização e após a instalação da atualização.
 
-Para um computador Linux, a varredura de conformidade é realizada a cada hora por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade é iniciada dentro de 15 minutos.
+Para um computador Linux, a verificação de conformidade é executada a cada hora por padrão. Se o agente MMA for reiniciado, uma verificação de conformidade é iniciada dentro de 15 minutos.
 
 Pode demorar entre 30 minutos e 6 horas para o painel exibir os dados atualizados dos computadores gerenciados.
 
@@ -107,17 +107,17 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Nome**: insira um nome exclusivo para identificar a implantação de atualizações.
 - **Sistema operacional**: selecione **Windows** ou **Linux**.
-- **Grupos para atualizar**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para VMs não-Azure, as pesquisas salvas são usadas para criar um grupo dinâmico para incluir em sua implantação. Para saber mais, [Grupos Dinâmicos](automation-update-management-groups.md).
+- **Grupos a serem atualizados**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para VMs não Azure, as pesquisas salvas são usadas para criar um grupo dinâmico para incluir em sua implantação. Para saber mais, consulte [grupos dinâmicos](automation-update-management-groups.md).
 - **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar.
 
    >[!NOTE]
-   >Selecionar a opção Pesquisa salva não retorna identidades de máquina, apenas seus nomes. Se você tiver várias VMs com o mesmo nome em vários grupos de recursos, elas serão devolvidas nos resultados. O uso da opção **Grupos para atualizar** é recomendado para garantir que você inclua VMs exclusivas que correspondam aos seus critérios.
+   >A seleção da opção de pesquisa salva não retorna identidades de computador, apenas seus nomes. Se você tiver várias VMs com o mesmo nome em vários grupos de recursos, elas serão retornadas nos resultados. O uso da opção **grupos a serem atualizados** é recomendado para garantir que você inclua VMs exclusivas que correspondam aos seus critérios.
 
-   Se você escolher **Máquinas,** a prontidão da máquina é mostrada na coluna **De prontidão do agente Atualização.** É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computador nos registros do Azure Monitor, consulte [grupos de computador nos registros do Monitor do Azure](../azure-monitor/platform/computer-groups.md)
+   Se você escolher **computadores**, a prontidão do computador será mostrada na coluna **prontidão do agente de atualização** . É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificação da atualização**: selecione os tipos de software para incluir na implantação de atualização. Para obter uma descrição dos tipos de classificação, consulte [Classificações de atualização](automation-view-update-assessments.md#update-classifications). Os tipos de classificação são:
+- **Classificação da atualização**: selecione os tipos de software para incluir na implantação de atualização. Para obter uma descrição dos tipos de classificação, consulte [Atualizar classificações](automation-view-update-assessments.md#update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Pacotes cumulativos de atualização
@@ -127,7 +127,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
   - Ferramentas
   - Atualizações
 
-- **Atualizações a serem incluídas/excluídas** – Isso abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter informações adicionais sobre como a inclusão é tratada, consulte [Agendar uma implantação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Atualizações a serem incluídas/excluídas** – Isso abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter informações adicionais sobre como a inclusão é tratada, consulte [agendar uma implantação de atualização](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhuma correção ou pacote será instalado, pois todos serão excluídos. Correções excluídas ainda são mostradas como ausentes do computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente excluído, o pacote não será instalado.
@@ -174,8 +174,8 @@ Para ver o painel de uma implantação de atualização, selecione a implantaç�
 O painel Resultados da atualização mostra o número total de atualizações e os resultados da implantação para a máquina virtual. A tabela à direita fornece uma análise detalhada de cada atualização e os resultados da instalação. Os resultados de instalação podem ser um dos seguintes valores:
 
 - `Not attempted`: A atualização não foi instalada porque o tempo insuficiente estava disponível com base na janela de manutenção definida.
-- `Succeeded`: A atualização foi bem sucedida.
-- `Failed`: A atualização falhou.
+- `Succeeded`: A atualização foi bem-sucedida.
+- `Failed`: Falha na atualização.
 
 Para ver todas as entradas de log que a implantação criou, selecione **Todos os logs**.
 
@@ -185,4 +185,4 @@ Para ver informações detalhadas sobre quaisquer erros da implantação, seleci
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre registros, saídas e erros do Update Management, consulte [Registros de atualização de consulta para gerenciamento de atualizações](automation-update-management-query-logs.md).
+Para saber mais sobre Gerenciamento de Atualizações logs, saída e erros, confira [consultar registros de atualização para gerenciamento de atualizações](automation-update-management-query-logs.md).

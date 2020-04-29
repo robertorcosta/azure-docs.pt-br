@@ -8,10 +8,10 @@ ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128923"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
@@ -42,7 +42,7 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/ana
 |Consultas     |   Término de consulta      |
 |Comandos     |  Início de comando       |
 |Comandos     |  Término de comando       |
-|Erros e avisos     |   Erro      |
+|Erros e avisos     |   Erro do      |
 |Descobrir     |   Término de descoberta      |
 |Notification     |    Notification     |
 |Session     |  Inicialização de sessão       |

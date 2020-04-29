@@ -12,17 +12,17 @@ ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141677"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
 
 As práticas recomendadas e recomendações a seguir abrangem alguns dos principais aspectos da integração do Azure Active Directory (Azure AD) B2C em ambientes de aplicativos novos ou existentes.
 
-## <a name="fundamentals"></a>Princípios básicos
+## <a name="fundamentals"></a>Conceitos básicos
 
 |  |  |
 |--|--|
@@ -56,7 +56,7 @@ Durante a fase de implementação, considere as recomendações a seguir.
 | Aproveite nossa biblioteca de padrões de política personalizada comprovada | Encontre [exemplos](https://github.com/azure-ad-b2c/samples) de vários percursos de usuário do CIAM (gerenciamento de identidade e acesso) de clientes Azure ad B2C aprimorados. |
 
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Testando
 
 Teste e automatize sua implementação de Azure AD B2C.
 

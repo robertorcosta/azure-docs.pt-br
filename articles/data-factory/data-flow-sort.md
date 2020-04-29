@@ -1,6 +1,6 @@
 ---
-title: Classificar a transformação no mapeamento do fluxo de dados
-description: Transformação do sort de classificação de dados da fábrica de dados do Azure
+title: Transformação classificação no fluxo de dados de mapeamento
+description: Transformação de classificação de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606332"
 ---
-# <a name="sort-transformation-in-mapping-data-flow"></a>Classificar a transformação no mapeamento do fluxo de dados
+# <a name="sort-transformation-in-mapping-data-flow"></a>Transformação classificação no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A transformação de classificação permite classificar as linhas recebidas no fluxo de dados atual. Você pode escolher colunas individuais e classificá-las em ordem ascendente ou descendente.
+A transformação classificação permite que você classifique as linhas de entrada no fluxo de dados atual. Você pode escolher colunas individuais e classificá-las em ordem crescente ou decrescente.
 
 > [!NOTE]
-> Os fluxos de dados de mapeamento são executados em clusters de faíscas que distribuem dados em vários nós e partições. Se você optar por reparticionar seus dados em uma transformação subseqüente, você pode perder sua classificação devido à reformulação de dados.
+> O mapeamento de fluxos de dados é executado em clusters do Spark que distribuem dados entre vários nós e partições. Se você optar por reparticionar seus dados em uma transformação subsequente, poderá perder sua classificação devido a embaralhando de dados.
 
 ## <a name="configuration"></a>Configuração
 
-![Classificar configurações](media/data-flow/sort.png "Classificar")
+![Configurações de classificação](media/data-flow/sort.png "Classificar")
 
-**Caso insensível:** Quer você queira ou não ignorar o caso ao classificar os campos de string ou texto
+Não **diferencia maiúsculas de minúsculas:** Se você deseja ou não ignorar maiúsculas e minúsculas ao classificar campos de cadeia de caracteres ou texto
 
-**Classificar somente dentro de partições:** À medida que os fluxos de dados são executados na faísca, cada fluxo de dados é dividido em partições. Essa configuração classifica os dados apenas dentro das partições recebidas em vez de classificar todo o fluxo de dados. 
+**Classificar somente dentro das partições:** À medida que os fluxos de dados são executados no Spark, cada fluxo de dados é dividido em partições. Essa configuração classifica os dados somente dentro das partições de entrada em vez de classificar todo o fluxo de dados. 
 
-**Classificar condições:** Escolha quais colunas você está classificando e em que ordem o tipo acontece. A ordem determina a prioridade de classificação. Escolha se as nulas aparecerão ou não no início ou no final do fluxo de dados.
+**Condições de classificação:** Escolha quais colunas você está classificando e em qual ordem a classificação ocorre. A ordem determina a prioridade de classificação. Escolha se os nulos aparecerão ou não no início ou no final do fluxo de dados.
 
 ### <a name="computed-columns"></a>Colunas computadas
 
-Para modificar ou extrair um valor de coluna antes de aplicar o tipo, fique por cima da coluna e selecione "coluna computada". Isso abrirá o construtor de expressão para criar uma expressão para a operação de classificação em vez de usar um valor de coluna.
+Para modificar ou extrair um valor de coluna antes de aplicar a classificação, passe o mouse sobre a coluna e selecione "coluna computada". Isso abrirá o construtor de expressões para criar uma expressão para a operação de classificação em vez de usar um valor de coluna.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -53,7 +53,7 @@ Para modificar ou extrair um valor de coluna antes de aplicar o tipo, fique por 
 
 ### <a name="example"></a>Exemplo
 
-![Classificar configurações](media/data-flow/sort.png "Classificar")
+![Configurações de classificação](media/data-flow/sort.png "Classificar")
 
 O script de fluxo de dados para a configuração de classificação acima está no trecho de código abaixo.
 
@@ -64,4 +64,4 @@ BasketballStats sort(desc(PTS, true),
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois da classificação, você pode querer usar a [Transformação Agregada](data-flow-aggregate.md)
+Após a classificação, talvez você queira usar a [transformação Agregação](data-flow-aggregate.md)

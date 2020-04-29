@@ -1,25 +1,25 @@
 ---
 title: Esquema de extensão de diagnóstico do Windows
-description: Referência de esquema de configuração para extensão de diagnóstico do Windows (WAD) no Monitor Do Azure.
+description: Referência de esquema de configuração para a extensão de diagnóstico do Windows (WAD) no Azure Monitor.
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676426"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
-A extensão azure Diagnostics é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho dos recursos computacionais do Azure. Este artigo detalha o esquema usado para a configuração da extensão de diagnóstico em máquinas virtuais windows e outros recursos de computação.
+Diagnóstico do Azure extensão é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e das cargas de trabalho dos recursos de computação do Azure. Este artigo detalha o esquema usado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos de computação.
 
 > [!NOTE]
-> O esquema neste artigo é válido para as versões 1.3 e mais recentes (Azure SDK 2.4 e mais recentes). As seções de configuração mais recentes são comentadas para mostrar em qual versão eles foram adicionados. As versões 1.0 e 1.2 do esquema foram arquivadas e não estão mais disponíveis. 
+> O esquema neste artigo é válido para as versões 1,3 e mais recentes (SDK do Azure 2,4 e mais recente). As seções de configuração mais recentes são comentadas para mostrar em qual versão eles foram adicionados. A versão 1,0 e 1,2 do esquema foram arquivadas e não estão mais disponíveis. 
 
-## <a name="public-configuration-file-schema"></a>Esquema de arquivo de configuração pública
+## <a name="public-configuration-file-schema"></a>Esquema do arquivo de configuração pública
 
 Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:  
 
@@ -57,7 +57,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**WadCfg**|Obrigatórios. Veja a descrição em outro lugar nesta página.|  
-|**Conta de armazenamento**|O nome da conta do Armazenamento do Azure para armazenar os dados. Pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
+|**StorageAccount**|O nome da conta do Armazenamento do Azure para armazenar os dados. Pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Pode ser *Table*, *Blob* ou *TableAndBlob*. Tabela é o padrão. Quando TableAndBlob for escolhido, os dados de diagnóstico serão gravados duas vezes, uma vez para cada tipo.|  
 |**LocalResourceDirectory**|O diretório na máquina virtual em que o Agente de Monitoramento armazena dados de evento. Caso contrário, o diretório padrão definido será usado:<br /><br /> Para uma função de Trabalho/da Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> - **path** - o diretório no sistema a ser usado pelo Diagnóstico do Azure.<br /><br /> - **expandEnvironment** - controla se as variáveis de ambiente estão expandidas ou não no nome do caminho.|  
 
@@ -84,7 +84,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**CrashDumps**|Veja a descrição em outro lugar nesta página.|  
-|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** - O intervalo entre as transferências programadas para o armazenamento arredondado até o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Diretórios**|Veja a descrição em outro lugar nesta página.|  
 |**EtwProviders**|Veja a descrição em outro lugar nesta página.|  
 |**Métricas**|Veja a descrição em outro lugar nesta página.|  
@@ -120,7 +120,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |--------------------|-----------------|  
 |**IISLogs**|A inclusão deste elemento na configuração habilita a coleta de logs do IIS:<br /><br /> **containerName** - o nome do contêiner de blobs na sua conta do Armazenamento do Azure a ser usado para armazenar os logs do IIS.|   
 |**FailedRequestLogs**|A inclusão desse elemento na configuração habilita a coleta de logs sobre solicitações com falha para um site ou aplicativo do IIS. Você também deve habilitar as opções de rastreamento em **system.WebServer** em **Web.config**.|  
-|**Datasources**|Uma lista de diretórios para monitorar.|
+|**Fontes**|Uma lista de diretórios para monitorar.|
 
 
 
@@ -145,7 +145,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**Absoluto**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> - **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> - **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
+|**Altos**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> - **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> - **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
 |**LocalResource**|O caminho relativo a um recurso local a ser monitorado. Os atributos obrigatórios são:<br /><br /> - **Name** - o recurso local que contém o diretório a ser monitorado<br /><br /> - **relativePath** - o caminho relativo a Name que contém o diretório a ser monitorado|  
 
 
@@ -157,8 +157,8 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - O intervalo entre as transferências programadas para o armazenamento arredondado até o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - O intervalo entre as transferências programadas para o armazenamento arredondado até o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para o armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -170,7 +170,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**Circunstância**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
 
 
 
@@ -180,7 +180,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**Circunstância**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
 
 
 
@@ -189,7 +189,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
  Permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além de na tabela Contador de Desempenho.  
 
- O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **grupos**  ->  de recursos **<nome\>**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
+ O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos**  ->  de recursos **<\>nome**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
@@ -208,7 +208,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador. Os valores estão disponíveis na [Classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador. Os valores estão disponíveis na [classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**coletores** | Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Azure Monitor ou o os Hubs de Eventos.|    
 
 
@@ -238,7 +238,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|**cadeia de caracteres**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
-|**scheduledTransferPeriod**|**Duração**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 |**coletores** |**cadeia de caracteres**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos.|  
 
 ## <a name="dockersources"></a>DockerSources
@@ -248,7 +248,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Stats**|Informa ao sistema para coletar estatísticas para contêineres do Docker|  
+|**Estatísticas**|Informa ao sistema para coletar estatísticas para contêineres do Docker|  
 
 ## <a name="sinksconfig-element"></a>Elemento SinksConfig  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
@@ -272,8 +272,8 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
-|**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
+|**Application Insights**|cadeia de caracteres|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
+|**Channels**|cadeia de caracteres|Uma para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -284,7 +284,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
-|**Canal**|string|Veja a descrição em outro lugar nesta página.|  
+|**Canal**|cadeia de caracteres|Veja a descrição em outro lugar nesta página.|  
 
 ## <a name="channel-element"></a>Elemento Channel
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -310,7 +310,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**Conta de armazenamento**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)- Você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada. Se fornecido, a chave da conta de armazenamento é ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
+|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)-você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração particular. Se fornecido, a chave da conta de armazenamento será ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
@@ -319,15 +319,15 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
  Booliano. Use `true` para habilitar o diagnóstico ou `false` para desabilitar o diagnóstico.
 
 ## <a name="example-configuration"></a>Configuração de exemplo
- A seguir está uma configuração de amostra completa para a extensão de diagnósticos do Windows mostrada tanto no JSON quanto no XML.
+ Veja a seguir uma configuração de exemplo completa para a extensão de diagnóstico do Windows mostrada em JSON e XML.
 
  
 ### <a name="json"></a>JSON
 
-O *PublicConfig* e *o PrivateConfig* são separados porque, na maioria dos casos de uso do JSON, são passados como variáveis diferentes. Esses casos incluem modelos de Gerenciador de Recursos, PowerShell e Visual Studio.
+Os *PublicConfig* e *PrivateConfig* são separados porque, na maioria dos casos de uso de JSON, eles são passados como variáveis diferentes. Esses casos incluem modelos do Resource Manager, o PowerShell e o Visual Studio.
 
 > [!NOTE]
-> A definição pública de dissipação do Monitor Azure tem duas propriedades, *resourceId* e *região*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. Essas propriedades não devem ser usadas para outros recursos.
+> A definição pública de Azure Monitor de configuração do coletor tem duas propriedades, *ResourceId* e *região*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. Essas propriedades não devem ser usadas para outros recursos.
 
 ```json
 "PublicConfig" {
@@ -505,7 +505,7 @@ O *PublicConfig* e *o PrivateConfig* são separados porque, na maioria dos casos
 ```
 
 > [!NOTE]
-> A definição de pia do Monitor Azure tem duas propriedades, *PrincipalId* e *Secret*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. Essas propriedades não devem ser usadas para outros recursos.
+> A definição de coletor de Azure Monitor de configuração particular tem duas propriedades, *PrincipalId* e *segredo*. Só são necessárias para os serviços de nuvem clássico e VMs clássicas. Essas propriedades não devem ser usadas para outros recursos.
 
 
 ```json

@@ -1,25 +1,25 @@
 ---
-title: 'CLI: Fazer upload de um certificado SSL em um aplicativo e associá-lo a ele'
-description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como associar um certificado SSL personalizado a um aplicativo.
+title: 'CLI: fazer upload de um certificado TLS/SSL em um aplicativo e associá-lo a ele'
+description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como associar um certificado TLS/SSL personalizado a um aplicativo.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d519ae31359890430c3e0f690e51d95acfacf1ef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1775f3af390bb71b6895dc6d43c5ae574371aef
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80058761"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537654"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>Associar um certificado SSL personalizado a um aplicativo do Serviço de Aplicativo usando a CLI
+# <a name="bind-a-custom-tlsssl-certificate-to-an-app-service-app-using-cli"></a>Associar um certificado TLS/SSL personalizado a um aplicativo do Serviço de Aplicativo usando a CLI
 
-Este script de exemplo cria um aplicativo no Serviço de Aplicativo com seus recursos relacionados e, em seguida, associa o certificado SSL de um nome de domínio personalizado a ele. Neste exemplo, você precisa de:
+Este script de exemplo cria um aplicativo no Serviço de Aplicativo com seus recursos relacionados e, em seguida, associa o certificado TLS/SSL de um nome de domínio personalizado a ele. Neste exemplo, você precisa de:
 
 * Acesso à página de configuração do DNS do registrador de seu domínio.
-* Um arquivo .PFX válido e sua senha para o certificado SSL que você deseja carregar e associar.
+* Um arquivo .PFX válido e sua senha para o certificado TLS/SSL que você deseja carregar e associar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Se optar por instalar e usar a CLI localmente, você precisará da CLI do Azure 
 
 ## <a name="sample-script"></a>Exemplo de script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to an app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -43,8 +43,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicativo. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do Serviço de Aplicativo. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Mapeia um domínio personalizado para um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Carrega um certificado SSL a um aplicativo do Serviço de Aplicativo. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Associa um certificado SSL carregado a um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Carrega um certificado TLS/SSL a um aplicativo do Serviço de Aplicativo. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Associa um certificado TLS/SSL carregado a um aplicativo do Serviço de Aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

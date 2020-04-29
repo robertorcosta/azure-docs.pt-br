@@ -1,6 +1,6 @@
 ---
-title: Substitua a transformação chave no mapeamento do fluxo de dados
-description: Como usar o fluxo de dados de mapeamento do Azure Data Factory Para gerar valores-chave seqüenciais
+title: Transformação de chave substituta no fluxo de dados de mapeamento
+description: Como usar a transformação de chave substituta do fluxo de dados de mapeamento de Azure Data Factory para gerar valores de chave sequencial
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
 ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606288"
 ---
-# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Substitua a transformação chave no mapeamento do fluxo de dados 
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformação de chave substituta no fluxo de dados de mapeamento 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use a transformação da chave de substituto para adicionar um valor-chave incrementado a cada linha de dados. Isso é útil ao projetar tabelas de dimensões em um modelo de dados analíticos de esquema estelar. Em um esquema estelar, cada membro em suas tabelas de dimensões requer uma chave única que é uma chave não-empresarial.
+Use a transformação chave substituta para adicionar um valor de chave de incremento a cada linha de dados. Isso é útil ao criar tabelas de dimensões em um modelo de dados analíticos de esquema em estrela. Em um esquema em estrela, cada membro em suas tabelas de dimensões requer uma chave exclusiva que é uma chave não comercial.
 
 ## <a name="configuration"></a>Configuração
 
-![Transformação da chave substituta](media/data-flow/surrogate.png "Transformação da chave substituta")
+![Transformação de chave substituta](media/data-flow/surrogate.png "Transformação de chave substituta")
 
-**Coluna-chave:** O nome da coluna de tecla de substituto gerada.
+**Coluna de chave:** O nome da coluna de chave substituta gerada.
 
-**Valor inicial:** O menor valor-chave que será gerado.
+**Valor inicial:** O valor de chave mais baixo que será gerado.
 
-## <a name="increment-keys-from-existing-sources"></a>Teclas de incremento de fontes existentes
+## <a name="increment-keys-from-existing-sources"></a>Incrementar chaves de fontes existentes
 
-Para iniciar sua seqüência a partir de um valor que existe em uma fonte, use uma transformação de coluna derivada após sua transformação de chave de substituto para adicionar os dois valores juntos:
+Para iniciar sua sequência a partir de um valor que existe em uma origem, use uma transformação coluna derivada seguindo a transformação de chave substituta para adicionar os dois valores juntos:
 
-![SK adicionar Max](media/data-flow/sk006.png "Transformação de chave de substituto adicionar max")
+![SK Add Max](media/data-flow/sk006.png "Adição máxima da transformação de chave substituta")
 
-### <a name="increment-from-existing-maximum-value"></a>Incremento do valor máximo existente
+### <a name="increment-from-existing-maximum-value"></a>Incrementar a partir do valor máximo existente
 
-Para semear o valor-chave com o max anterior, existem duas técnicas que você pode usar com base em onde seus dados de origem estão.
+Para propagar o valor de chave com o máximo anterior, há duas técnicas que você pode usar com base em onde estão os dados de origem.
 
 #### <a name="database-sources"></a>Fontes de banco de dados
 
-Use uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo,`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Use uma opção de consulta SQL para selecionar MAX () de sua origem. Por exemplo,`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
-![Consulta de chave de substituto](media/data-flow/sk002.png "Consulta de transformação de chave de substituto")
+![Consulta de chave substituta](media/data-flow/sk002.png "Consulta de transformação chave substituta")
 
-#### <a name="file-sources"></a>Fontes de arquivos
+#### <a name="file-sources"></a>Fontes de arquivo
 
-Se o valor máximo anterior estiver `max()` em um arquivo, use a função na transformação agregada para obter o valor máximo anterior:
+Se o valor máximo anterior estiver em um arquivo, use a `max()` função na transformação agregação para obter o valor máximo anterior:
 
-![Arquivo-chave substituto](media/data-flow/sk008.png "Arquivo-chave substituto")
+![Arquivo de chave substituta](media/data-flow/sk008.png "Arquivo de chave substituta")
 
-Em ambos os casos, você deve juntar seus novos dados de entrada juntamente com sua fonte que contém o valor máximo anterior.
+Em ambos os casos, você deve unir seus novos dados de entrada junto com sua fonte que contém o valor máximo anterior.
 
-![Adesão da chave substituta](media/data-flow/sk004.png "Adesão da chave substituta")
+![Junção de chave substituta](media/data-flow/sk004.png "Junção de chave substituta")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -69,9 +69,9 @@ Em ambos os casos, você deve juntar seus novos dados de entrada juntamente com 
 
 ### <a name="example"></a>Exemplo
 
-![Transformação da chave substituta](media/data-flow/surrogate.png "Transformação da chave substituta")
+![Transformação de chave substituta](media/data-flow/surrogate.png "Transformação de chave substituta")
 
-O script de fluxo de dados para a configuração de chave de substituto acima está no trecho de código abaixo.
+O script de fluxo de dados para a configuração de chave substituta acima está no trecho de código abaixo.
 
 ```
 AggregateDayStats
@@ -83,4 +83,4 @@ AggregateDayStats
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Esses exemplos usam as transformações [de Coluna Sinuosa](data-flow-join.md) e [Derivada.](data-flow-derived-column.md)
+Esses exemplos usam as transformações de [junção](data-flow-join.md) e [coluna derivada](data-flow-derived-column.md) .

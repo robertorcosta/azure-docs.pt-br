@@ -1,5 +1,5 @@
 ---
-title: Crie gatilhos de cronograma na Fábrica de Dados do Azure
+title: Criar gatilhos de agendamento no Azure Data Factory
 description: Saiba como criar um gatilho no Azure Data Factory que execute um pipeline em um agendamento.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641446"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
@@ -31,42 +31,42 @@ As seções a seguir fornecem etapas para criar um gatilho de agendamento de dif
 Crie um **gatilho de agendamento** para agendar a execução periódica de um pipeline (por hora, diariamente, etc.). 
 
 > [!NOTE]
-> Para um passo a passo completo da criação de um pipeline e um gatilho de cronograma, que associa o gatilho ao gasoduto, e executa e monitora o pipeline, consulte [Quickstart: crie uma fábrica](quickstart-create-data-factory-portal.md)de dados usando a UI Data Factory .
+> Para obter uma explicação completa de como criar um pipeline e um gatilho de agendamento, que associa o gatilho ao pipeline e executa e monitora o pipeline, consulte [início rápido: criar um data Factory usando a interface do usuário do data Factory](quickstart-create-data-factory-portal.md).
 
-1. Mude para a guia **Editar,** mostrada com um símbolo de lápis. 
+1. Alterne para a guia **Editar** , mostrada com um símbolo de lápis. 
 
     ![Mude para a guia Editar](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Selecione **'Ativar'** no menu e, em seguida, selecione **Nova/Edição**. 
+1. Selecione **gatilho** no menu e, em seguida, selecione **novo/editar**. 
 
     ![Novo menu de gatilho](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. Na página **Adicionar gatilhos,** selecione **'Escolher gatilho...'** e selecione **+Novo**. 
+1. Na página **Adicionar gatilhos** , selecione **escolher gatilho...** e, em seguida, selecione **+ novo**. 
 
     ![Adicionar gatilhos – novo gatilho](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
-1. Na página **Novo Gatilho,** faça as seguintes etapas: 
+1. Na página **novo gatilho** , execute as seguintes etapas: 
 
     1. Confirme se **Agendamento** está selecionado para **Tipo**. 
     1. Especifique o datetime de início do gatilho em **Data de Início (UTC)**. Ele está definido como o datetime atual por padrão. 
     1. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
-    1. Para o campo **Término**, caso não deseje especificar um datetime de término para o gatilho, selecione **Sem Término**. Para especificar uma data de término, selecione **Na data**e especifique a data final e, em seguida, selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
+    1. Para o campo **Término**, caso não deseje especificar um datetime de término para o gatilho, selecione **Sem Término**. Para especificar uma data e hora de término, selecione **na data**e especifique end DateTime e, em seguida, selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
 
         ![Configurações do gatilho](./media/how-to-create-schedule-trigger/trigger-settings.png)
 
-1. Na janela **Novo gatilho,** **selecione Sim** na opção Ativado e **selecione** **OK**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
+1. Na janela **novo gatilho** , selecione **Sim** na opção **ativado** e, em seguida, selecione **OK**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
 
     ![Configurações de gatilho – botão Avançar](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 
-1. Na janela **Novo gatilho,** revise a mensagem de aviso e selecione **OK**.
+1. Na janela **novo gatilho** , examine a mensagem de aviso e selecione **OK**.
 
     ![Configurações de gatilho – botão Concluir](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Selecione **Publicar tudo** para publicar as alterações na Fábrica de Dados. Até que você publique as alterações na Fábrica de Dados, o gatilho não começa a acionar as operações do pipeline. 
+1. Selecione **publicar tudo** para publicar as alterações para data Factory. Até que você publique as alterações no Data Factory, o gatilho não começará a disparar as execuções de pipeline. 
 
     ![Botão Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. Mude para a guia **Pipeline executa** a guia à esquerda e, em seguida, **selecione Atualizar** para atualizar a lista. Você verá as corridas do oleoduto acionadas pelo gatilho programado. Observe os valores na coluna **Disparado Por**. Se você usar a opção **Gatilho Agora,** você verá o gatilho manual executado na lista. 
+1. Alterne para a guia **execuções de pipeline** à esquerda e, em seguida, selecione **Atualizar** para atualizar a lista. Você verá as execuções de pipeline disparadas pelo gatilho agendado. Observe os valores na coluna **Disparado Por**. Se você usar a opção **disparar agora** , verá o gatilho manual executado na lista. 
 
     ![Monitorar execuções disparadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
@@ -80,7 +80,7 @@ Crie um **gatilho de agendamento** para agendar a execução periódica de um pi
 
 Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar um gatilho de agendamento. Para ver essa amostra funcionando, primeiro acompanhe o [Início Rápido: Criar um data factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md). Em seguida, adicione o seguinte código ao método principal, que cria e inicia um gatilho de agenda que é executado a cada 15 minutos. O gatilho é associado a um pipeline chamado **Adfv2QuickStartPipeline** que você cria como parte do Início Rápido.
 
-1. Crie um arquivo JSON chamado **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
+1. Crie um arquivo JSON chamado **mytrigger. JSON** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
     > [!IMPORTANT]
     > Antes de salvar o arquivo JSON, defina o valor do elemento **startTime** com a hora UTC atual. Defina o valor do elemento **endTime** como uma hora após a hora UTC atual.
@@ -120,31 +120,31 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline**. Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference**.
     - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. Portanto, você passa os valores para esses parâmetros por meio do gatilho.
 
-1. Criar um gatilho usando o **cmdlet Set-AzDataFactoryV2Trigger:**
+1. Crie um gatilho usando o cmdlet **set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. Confirme se o status do gatilho está **parado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
+1. Confirme se o status do gatilho é **interrompido** usando o cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Inicie o gatilho usando o **cmdlet Start-AzDataFactoryV2Trigger:**
+1. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. Confirme se o status do gatilho é **iniciado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
+1. Confirme se o status do gatilho é **iniciado** usando o cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1.  Obtenha o gatilho executado no Azure PowerShell usando o **cmdlet Get-AzDataFactoryV2TriggerRun.** Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
+1.  Obtenha as execuções do gatilho em Azure PowerShell usando o cmdlet **Get-AzDataFactoryV2TriggerRun** . Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -321,34 +321,34 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | Descrição |
 |:--- |:--- |
-| **Starttime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
-| **Endtime** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
-| **Timezone** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
-| **Recorrência** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência suporta os elementos **de freqüência,** **intervalo,** **endTime,** **contagem**e **agendamento.** Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
-| **Freqüência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
-| **Intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
-| **schedule** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
+| **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
+| **Final** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
+| **Fuso horário** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
+| **Recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequência**, **intervalo**, **EndTime**, **contagem**e **agendamento** . Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
+| **frequência** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
+| **intervalo** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
+| **agendamento** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
 
 
 ### <a name="schema-defaults-limits-and-examples"></a>Padrões, limites e exemplos de esquema
 
-| Propriedade JSON | Type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
+| Propriedade JSON | Tipo | Necessária | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Starttime** | String | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **Recorrência** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **Intervalo** | Número | Não | 1 | 1 a 1.000 | `"interval":10` |
-| **Endtime** | String | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Objeto | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | String | Sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **Recurrence** | Objeto | Sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervalo** | Número | Não | 1 | 1 a 1.000 | `"interval":10` |
+| **Final** | String | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **agendamento** | Objeto | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
 A seguinte tabela mostra como a propriedade **startTime** controla uma execução de gatilho:
 
 | Valor startTime | Recorrência sem agendamento | Recorrência com agendamento |
 |:--- |:--- |:--- |
-| Hora de início no passado | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução.<br/><br/>Consulte o exemplo após esta tabela. | O gatilho _começa não mais cedo do que_ o horário de início especificado. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
+| Hora de início no passado | Calcula a primeira hora de execução futura após a hora de início e executa nessa hora.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução.<br/><br/>Consulte o exemplo após esta tabela. | O gatilho _não inicia antes_ da hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
 | Hora de início no futuro ou no momento | É executado uma vez na hora de início especificada.<br/><br/>Executa as execuções seguintes com base no cálculo do tempo da última execução. | O gatilho é iniciado _não antes da_ hora de início especificada. A primeira ocorrência baseia-se no agendamento calculado com base na hora de início.<br/><br/>Executa as execuções seguintes com base no agendamento de recorrência. |
 
-Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor **de recorrência** é definido definindo a propriedade **de freqüência** como "dia" e a propriedade **de intervalo** para 2.) Observe que o valor **startTime** está no passado e ocorre antes do tempo atual.
+Vejamos um exemplo do que acontece quando a hora de início está no passado, com uma recorrência, mas sem agendamento. Suponha que a hora atual seja `2017-04-08 13:00`, a hora de início seja `2017-04-07 14:00` e a recorrência seja a cada dois dias. (O valor de **recorrência** é definido definindo a propriedade **Frequency** como "Day" e a propriedade **Interval** como 2.) Observe que o valor **StartTime** está no passado e ocorre antes da hora atual.
 
 Sob essas condições, a primeira execução será em `2017-04-09 at 14:00`. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início. As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro. Neste cenário, a hora de início é `2017-04-07 at 2:00pm` e, portanto, a próxima instância ocorrerá dois dias depois dessa hora, que será em `2017-04-09 at 2:00pm`.
 
@@ -368,9 +368,9 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 
 | Elemento JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **Minutos** | Minutos da hora em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul>
-| **Horas** | As horas do dia em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul> |
-| **Semana** | Dias da semana em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência semanal. | <ul><li>Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado e Domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não diferenciam maiúsculas de minúsculas</li></ul> |
+| **alguns** | Minutos da hora em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul>
+| **duração** | As horas do dia em que o gatilho será executado. | <ul><li>Integer</li><li>Matriz de inteiros</li></ul> |
+| **Dias da semana** | Dias da semana em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência semanal. | <ul><li>Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado e Domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não diferenciam maiúsculas de minúsculas</li></ul> |
 | **monthlyOccurrences** | Dias do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. | <ul><li>Matriz de objetos **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>O atributo **day** é o dia da semana no qual o gatilho é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor de **day** igual a `{Sunday}` significa todo domingo do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência de **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores de **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
 | **monthDays** | Dia do mês em que o gatilho é executado. O valor pode ser especificado apenas com uma frequência mensal. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |
 
@@ -387,7 +387,7 @@ Os exemplos pressupõem que o valor de **interval** seja 1 e que o valor de **fr
 | `{"minutes":[15], "hours":[5,17]}` | Executar às 5h15 e 17h15 todos os dias. |
 | `{"minutes":[15,45], "hours":[5,17]}` | Executar às 5h15, 5h45, 17h15 e 17h45 todos os dias. |
 | `{"minutes":[0,15,30,45]}` | Executar a cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br/><br/>Este horário equivale a ter um gatilho com um valor de **frequência** de "hora", um valor de **intervalo** de 1 e nenhum **horário**.  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor da **frequência** é "mês", o cronograma é executado apenas uma vez por mês, em vez de todos os dias, quando o valor da **frequência** é "dia". |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Executar a cada hora. Este gatilho é executado a cada hora. Os minutos são controlados pelo valor de **startTime**, quando um valor é especificado. Se um valor não for especificado, os minutos serão controlados pela hora de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 12h25, o gatilho será executado às 24h25, 1h25, 2h25, … e 23h25.<br/><br/>Esse agendamento é equivalente a ter um gatilho com um valor de **Frequency** de "hora", um valor de **intervalo** de 1 e nenhum **agendamento**.  Esse agendamento pode ser usado com valores diferentes de **frequency** e **interval** para criar outros gatilhos. Por exemplo, quando o valor de **Frequency** é "month", o agendamento é executado somente uma vez por mês, em vez de todos os dias, quando o valor de **Frequency** é "Day". |
 | `{"minutes":[0]}` | Executar a cada hora na hora. Esse gatilho é executado a cada hora na hora, começando às 24h, 1h, 2h e assim por diante.<br/><br/>Esse agendamento é equivalente a um gatilho com um valor de **frequency** igual a “hour” e um valor de **startTime** igual a zero minutos ou nenhum **schedule**, mas um valor de **frequency** igual a “day”. Se o valor de **frequency** é "week" ou "month", o agendamento é executado somente um dia da semana ou um dia do mês, respectivamente. |
 | `{"minutes":[15]}` | Executa 15 minutos após cada hora. Esse gatilho é executado a cada hora em 15 minutos após a hora, começando às 24h15, 1h15, 2h15 e assim por diante, terminando em 23h15. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Executar às 17h aos sábados toda semana. |

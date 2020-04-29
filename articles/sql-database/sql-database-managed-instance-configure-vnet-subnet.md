@@ -1,5 +1,5 @@
 ---
-title: Configure uma rede virtual existente para instância gerenciada
+title: Configurar uma rede virtual existente para a instância gerenciada
 description: Este artigo descreve como configurar uma rede virtual e a sub-rede existentes em que você pode implantar a Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476942"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para uma Instância Gerenciada do Banco de Dados SQL do Azure
@@ -31,7 +31,7 @@ Se um dos seguintes casos se aplica a você, você pode validar e modificar sua 
 > [!Note]
 > Você pode criar uma instância gerenciada somente em redes virtuais criadas por meio do modelo de implantação do Azure Resource Manager. Redes virtuais do Azure criadas por meio do modelo de implantação clássico não são compatíveis para esse fim. Calcule o tamanho da sub-rede, seguindo as diretrizes no artigo [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você não poderá redimensionar a sub-rede depois de implantar os recursos dentro dela.
 >
-> Depois que uma instância gerenciada é criada, a movimentação da instância gerenciada ou do VNet para outro grupo de recursos ou assinatura não é suportada.
+> Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Validar e modificar uma rede virtual existente
 
@@ -52,9 +52,9 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delega
 
 O script prepara a sub-rede em três etapas:
 
-1. Validar: Valida a rede virtual e a sub-rede selecionadas para os requisitos de rede de instância gerenciada.
-2. Confirme: Ele mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para implantação de Instância Gerenciada. Ele também solicita seu consentimento.
-3. Prepare-se: Configura corretamente a rede virtual e a sub-rede.
+1. Validar: valida a rede virtual e a sub-rede selecionadas para Instância Gerenciada requisitos de rede.
+2. Confirmar: mostra ao usuário um conjunto de alterações que precisam ser feitas para preparar a sub-rede para Instância Gerenciada implantação. Ele também solicita seu consentimento.
+3. Preparar: configura corretamente a rede virtual e a sub-rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 

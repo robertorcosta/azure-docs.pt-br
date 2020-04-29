@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482286"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531093"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python
 
@@ -40,7 +40,7 @@ Verifique se todos os documentos de treinamento têm o mesmo formato. Se você t
 
 Para treinar um modelo usando dados rotulados, você precisará dos arquivos a seguir como entradas na subpasta. Você aprenderá a criar esses arquivos abaixo.
 
-* **Formulários de origem** – os formulários dos quais extrair dados. Os tipos compatíveis são JPEG, PNG, BMP, PDF e TIFF.
+* **Formulários de origem** – os formulários dos quais extrair dados. Os tipos compatíveis são JPEG, PNG, PDF e TIFF.
 * **Arquivos de layout de OCR** – arquivos JSON que descrevem os tamanhos e as posições de todo o texto legível em cada formulário de origem. Você usará a API de layout do Reconhecimento de Formulários para gerar esses dados. 
 * **Arquivos de rótulo** – arquivos JSON que descrevem os rótulos de dados que um usuário inseriu manualmente.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ Quando o processo for concluído, você receberá uma resposta `202 (Success)` c
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

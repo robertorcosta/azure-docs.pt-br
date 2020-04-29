@@ -1,66 +1,66 @@
 ---
-title: Mova dados para um contêiner de nuvem do Azure HPC Cache
-description: Como preencher o armazenamento Azure Blob para uso com cache Azure HPC
+title: Mover dados para um contêiner de nuvem do cache HPC do Azure
+description: Como popular o armazenamento de BLOBs do Azure para uso com o cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537926"
 ---
-# <a name="move-data-to-azure-blob-storage"></a>Mova dados para o armazenamento Do Azure Blob
+# <a name="move-data-to-azure-blob-storage"></a>Mover dados para o armazenamento de BLOBs do Azure
 
-Se o seu fluxo de trabalho incluir a movimentação de dados para o armazenamento do Azure Blob, certifique-se de que você está usando uma estratégia eficiente. Você pode pré-carregar dados em um novo contêiner Blob antes de defini-los como um alvo de armazenamento ou adicionar o contêiner e, em seguida, copiar seus dados usando o Cache Azure HPC.
+Se o fluxo de trabalho incluir a movimentação de dados para o armazenamento de BLOBs do Azure, verifique se você está usando uma estratégia eficiente. Você pode pré-carregar dados em um novo contêiner de blob antes de defini-lo como um destino de armazenamento ou adicionar o contêiner e, em seguida, copiar seus dados usando o cache do HPC do Azure.
 
-Este artigo explica as melhores maneiras de mover dados para o armazenamento Blob para uso com o Cache Azure HPC.
+Este artigo explica as melhores maneiras de mover dados para o armazenamento de BLOBs para uso com o cache do HPC do Azure.
 
 Tenha esses fatos em mente:
 
-* O Azure HPC Cache usa um formato de armazenamento especializado para organizar dados no armazenamento Blob. É por isso que um alvo de armazenamento Blob deve ser um recipiente novo e vazio ou um contêiner Blob que foi usado anteriormente para dados do Cache Azure HPC.
+* O cache HPC do Azure usa um formato de armazenamento especializado para organizar dados no armazenamento de BLOBs. É por isso que um destino de armazenamento de BLOBs deve ser um contêiner novo, vazio ou um contêiner de BLOBs que foi usado anteriormente para dados de cache do Azure HPC.
 
-* Copiar dados através do Cache Azure HPC para um destino de armazenamento back-end é mais eficiente quando você usa vários clientes e operações paralelas. Um simples comando de cópia de um cliente moverá dados lentamente.
+* A cópia de dados por meio do cache do Azure HPC para um destino de armazenamento de back-end é mais eficiente quando você usa vários clientes e operações paralelas. Um comando de cópia simples de um cliente moverá os dados de forma lenta.
 
-Um utilitário baseado em Python está disponível para carregar conteúdo em um recipiente de armazenamento Blob. Leia [os dados de pré-carga no armazenamento Blob](#pre-load-data-in-blob-storage-with-clfsload) para saber mais.
+Um utilitário baseado em Python está disponível para carregar conteúdo em um contêiner de armazenamento de BLOBs. Leia [pré-carregar dados no armazenamento de BLOBs](#pre-load-data-in-blob-storage-with-clfsload) para saber mais.
 
-Se você não quiser usar o utilitário de carregamento ou se quiser adicionar conteúdo a um alvo de armazenamento existente, siga as dicas paralelas de ingestão de dados em [Copiar dados através do Cache Azure HPC](#copy-data-through-the-azure-hpc-cache).
+Se você não quiser usar o utilitário de carregamento ou se quiser adicionar conteúdo a um destino de armazenamento existente, siga as dicas de ingestão de dados paralelos em [copiar dados por meio do cache do HPC do Azure](#copy-data-through-the-azure-hpc-cache).
 
-## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Dados de pré-carga no armazenamento Blob com CLFSLoad
+## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Pré-carregar dados no armazenamento de BLOBs com CLFSLoad
 
-Você pode usar o utilitário Avere CLFSLoad para copiar dados em um novo contêiner de armazenamento Blob antes de adicioná-los como um alvo de armazenamento. Este utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o Cache Azure HPC. CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento Blob para uso com o cache.
+Você pode usar o utilitário avere CLFSLoad para copiar dados para um novo contêiner de armazenamento de BLOBs antes de adicioná-lo como um destino de armazenamento. Esse utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o cache do HPC do Azure. O CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento de BLOBs para uso com o cache.
 
-O utilitário Avere CLFSLoad está disponível por solicitação da sua equipe de cache Azure HPC. Peça o contato da sua equipe ou abra um [bilhete de suporte](hpc-cache-support-ticket.md) para solicitar ajuda.
+O utilitário avere CLFSLoad está disponível por solicitação de sua equipe de cache do Azure HPC. Peça para o contato da sua equipe ou abra um [tíquete de suporte](hpc-cache-support-ticket.md) para solicitar assistência.
 
-Esta opção funciona apenas com recipientes novos e vazios. Crie o recipiente antes de usar Avere CLFSLoad.
+Essa opção funciona apenas com contêineres novos e vazios. Crie o contêiner antes de usar avere CLFSLoad.
 
-Informações detalhadas estão incluídas na distribuição Avere CLFSLoad, que está disponível a pedido da equipe de cache do Azure HPC.
+Informações detalhadas estão incluídas na distribuição do avere CLFSLoad, que está disponível na solicitação da equipe de cache do HPC do Azure.
 
 Uma visão geral do processo:
 
-1. Prepare um sistema Linux (VM ou físico) com versão Python 3.6 ou posterior. Python 3.7 é recomendado para melhor desempenho.
-1. Instale o software Avere-CLFSLoad no sistema Linux.
-1. Execute a transferência da linha de comando Linux.
+1. Prepare um sistema Linux (VM ou físico) com o Python versão 3,6 ou posterior. O Python 3,7 é recomendado para melhorar o desempenho.
+1. Instale o software avere-CLFSLoad no sistema Linux.
+1. Execute a transferência na linha de comando do Linux.
 
-O utilitário Avere CLFSLoad precisa das seguintes informações:
+O utilitário avere CLFSLoad precisa das seguintes informações:
 
-* O ID da conta de armazenamento que contém o recipiente de armazenamento Blob
-* O nome do recipiente de armazenamento Blob vazio
-* Um token de assinatura de acesso compartilhado (SAS) que permite que o utilitário escreva para o contêiner
-* Um caminho local para a fonte de dados - ou um diretório local que contém os dados a serem copiados, ou um caminho local para um sistema remoto montado com os dados
+* A ID da conta de armazenamento que contém o contêiner de armazenamento de BLOBs
+* O nome do contêiner de armazenamento de BLOBs vazio
+* Um token SAS (assinatura de acesso compartilhado) que permite que o utilitário grave no contêiner
+* Um caminho local para a fonte de dados – um diretório local que contém os dados a serem copiados ou um caminho local para um sistema remoto montado com os dados
 
-## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiar dados através do cache Azure HPC
+## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiar dados por meio do cache HPC do Azure
 
-Se você não quiser usar o utilitário Avere CLFSLoad ou se quiser adicionar uma grande quantidade de dados a um alvo de armazenamento Blob existente, você pode copiá-los através do cache. O Cache Azure HPC foi projetado para atender vários clientes simultaneamente, então, para copiar dados através do cache, você deve usar gravações paralelas de vários clientes.
+Se você não quiser usar o utilitário avere CLFSLoad ou se quiser adicionar uma grande quantidade de dados a um destino de armazenamento de BLOBs existente, poderá copiá-lo por meio do cache. O cache HPC do Azure foi projetado para atender a vários clientes simultaneamente, por isso, para copiar dados por meio do cache, você deve usar gravações paralelas de vários clientes.
 
-![Diagrama mostrando a movimentação de dados de vários clientes com vários threads: na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas vindo dele. As setas apontam para quatro computadores cliente. De cada máquina cliente, três setas apontam para o cache Azure HPC. A partir do Cache Azure HPC, várias setas apontam para o armazenamento Blob.](media/hpc-cache-parallel-ingest.png)
+![Diagrama mostrando a movimentação de dados de vários clientes com vários threads: na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas vindo dele. As setas apontam para quatro computadores cliente. De cada computador cliente, três setas apontam para o cache do HPC do Azure. No cache do HPC do Azure, várias setas apontam para o armazenamento de BLOBs.](media/hpc-cache-parallel-ingest.png)
 
-Os ``cp`` ``copy`` ou comandos que você normalmente usa para transferir dados de um sistema de armazenamento para outro são processos de um único segmento que copiam apenas um arquivo por vez. Isso significa que o servidor de arquivos está ingerindo apenas um arquivo por vez - o que é um desperdício dos recursos do cache.
+Os ``cp`` comandos ``copy`` ou que você normalmente usa para transferir dados de um sistema de armazenamento para outro são processos de thread único que copiam apenas um arquivo por vez. Isso significa que o servidor de arquivos está ingerindo apenas um arquivo por vez, o que é um desperdício dos recursos do cache.
 
-Esta seção explica estratégias para criar um sistema de cópia de arquivos multi-cliente e multi-threaded para mover dados para o armazenamento Blob com o Cache Azure HPC. Ele explica os conceitos de transferência de arquivo e os pontos de decisão que podem ser usados para cópia de dados eficiente usando vários clientes e comandos de cópia simples.
+Esta seção explica estratégias para criar um sistema de cópia de arquivos multifuncional multifuncional para mover dados para o armazenamento de BLOBs com o cache do Azure HPC. Ele explica os conceitos de transferência de arquivo e os pontos de decisão que podem ser usados para cópia de dados eficiente usando vários clientes e comandos de cópia simples.
 
 Também explica alguns utilitários que podem ajudar. O utilitário ``msrsync`` pode ser usado para automatizar parcialmente o processo de dividir um conjunto de dados em buckets e usando comandos rsync. O script ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente.
 
@@ -73,16 +73,16 @@ Ao criar uma estratégia para copiar dados em paralelo, você deve compreender a
 
 Cada processo de cópia tem uma taxa de transferência e uma taxa de arquivos transferidos, que podem ser medidas pelo tempo o comprimento do comando de cópia e fatorando o tamanho do arquivo e a contagem de arquivos. Explicar como medir as taxas está fora do escopo deste documento, mas é fundamental entender isso, esteja você lidando com arquivos grandes ou pequenos.
 
-As estratégias para a ingestão de dados paralelos com o Cache Azure HPC incluem:
+As estratégias para ingestão de dados paralelos com o cache HPC do Azure incluem:
 
-* Cópia manual - Você pode criar manualmente uma cópia multi-threaded em um cliente executando mais de um comando de cópia de uma vez no plano de fundo contra conjuntos predefinidos de arquivos ou caminhos. Leia [a ingestão de dados do Cache Azure HPC - método de cópia manual](hpc-cache-ingest-manual.md) para detalhes.
+* Cópia manual – você pode criar manualmente uma cópia multi-threaded em um cliente executando mais de um comando de cópia de uma vez em segundo plano em relação a conjuntos predefinidos de arquivos ou caminhos. Leia o [método ingestão de dados do cache HPC do Azure – cópia manual](hpc-cache-ingest-manual.md) para obter detalhes.
 
-* Cópia parcialmente automatizada ``msrsync``  -  ``msrsync`` com é um utilitário ``rsync`` de invólucro que executa vários processos paralelos. Para obter detalhes, leia [a ingestão de dados do Cache Azure HPC - método msrsync](hpc-cache-ingest-msrsync.md).
+* A cópia parcialmente automatizada com ``msrsync``  -  ``msrsync`` o é um utilitário de wrapper ``rsync`` que executa vários processos paralelos. Para obter detalhes, leia o [método ingestão de dados do cache HPC do Azure-msrsync](hpc-cache-ingest-msrsync.md).
 
-* Cópia roteirizada com ``parallelcp`` - Aprenda a criar e executar um script de cópia paralela no [Azure HPC Cache data ingest - método de script de cópia paralela](hpc-cache-ingest-parallelcp.md).
+* Cópia com script com ``parallelcp`` -saiba como criar e executar um script de cópia paralela no [método de script de cópia paralela de ingestão de dados do cache HPC do Azure](hpc-cache-ingest-parallelcp.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar seu armazenamento, saiba como os clientes podem montar o cache.
+Depois de configurar o armazenamento, saiba como os clientes podem montar o cache.
 
-* [Acesse o sistema de cache Azure HPC](hpc-cache-mount.md)
+* [Acessar o sistema de cache HPC do Azure](hpc-cache-mount.md)

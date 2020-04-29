@@ -9,41 +9,41 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e06b5261ca6923e158c818d236a30cf6ebff189b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680919"
 ---
-Esta seção descreve como executar as seguintes operações de modificação para peering direto.
+Esta seção descreve como executar as seguintes operações de modificação para emparelhamento direto.
 
-### <a name="add-exchange-peering-connections"></a>Adicionar conexões de peering do Exchange
+### <a name="add-exchange-peering-connections"></a>Adicionar conexões de emparelhamento do Exchange
 
-1. Selecione o botão **+ Adicionar conexões** e configure uma nova conexão de peering.
+1. Selecione o botão **+ Adicionar conexões** e configure uma nova conexão de emparelhamento.
     > [!div class="mx-imgBorder"]
-    > ![Exibição de recursos de peering](../media/setup-exchange-modify-addconnection.png)
-1. Preencha o formulário **'Conexão de peering' do Exchange** e selecione **Salvar**. Para obter ajuda na configuração de uma conexão de peering, revise as etapas na seção "Criar e provisionar um peering direto".
+    > ![Exibição de recursos de emparelhamento](../media/setup-exchange-modify-addconnection.png)
+1. Preencha o formulário de **conexão de emparelhamento do Exchange** e selecione **salvar**. Para obter ajuda com a configuração de uma conexão de emparelhamento, examine as etapas na seção "criar e provisionar um emparelhamento direto".
     > [!div class="mx-imgBorder"]
-    > ![Formulário de conexão de peering de intercâmbio](../media/setup-exchange-modify-savenewconnection.png)
+    > ![Formulário de conexão de emparelhamento do Exchange](../media/setup-exchange-modify-savenewconnection.png)
 
-### <a name="remove-exchange-peering-connections"></a>Remover conexões de peering do Exchange
+### <a name="remove-exchange-peering-connections"></a>Remover conexões de emparelhamento do Exchange
 
-1. Selecione uma conexão de peering que você deseja excluir e, em seguida, selecione **...**  >  **Excluir conexão**.
+1. Selecione uma conexão de emparelhamento que você deseja excluir e, em seguida, selecione **...**  >  **Excluir conexão**.
     > [!div class="mx-imgBorder"]
-    > ![Excluir botão de conexão](../media/setup-exchange-modify-deleteconnection.png)
-1. Digite o ID de recurso na caixa **Confirmar exclusão** e **selecione Excluir**.
+    > ![Botão excluir conexão](../media/setup-exchange-modify-deleteconnection.png)
+1. Insira a ID do recurso na caixa **Confirmar exclusão** e selecione **excluir**.
     > [!div class="mx-imgBorder"]
-    > ![Exclua a confirmação](../media/setup-exchange-modify-deleteconnectionconfirm.png)
+    > ![Confirmação de exclusão](../media/setup-exchange-modify-deleteconnectionconfirm.png)
 
-### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicione uma sessão IPv4 ou IPv6 em conexões ativas
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Adicionar uma sessão IPv4 ou IPv6 em conexões ativas
 
-1. Selecione uma conexão de peering que você deseja modificar e, em seguida, selecione **...**  >  **Editar conexão**.
+1. Selecione uma conexão de emparelhamento que você deseja modificar e, em seguida, selecione **...**  >  **Editar conexão**.
     > [!div class="mx-imgBorder"]
-    > ![Editar botão de conexão](../media/setup-exchange-modify-editconnection.png)
-1. Adicione informações **de endereço IPv4** ou **IPv6** e selecione **Salvar**.
+    > ![Botão Editar conexão](../media/setup-exchange-modify-editconnection.png)
+1. Adicione o **endereço IPv4** ou as informações de **endereço IPv6** e selecione **salvar**.
     > [!div class="mx-imgBorder"]
-    > ![Modificações de conexão peering](../media/setup-exchange-modify-editconnectionsettings.png)
+    > ![Modificações de conexão de emparelhamento](../media/setup-exchange-modify-editconnectionsettings.png)
 
-### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remova uma sessão IPv4 ou IPv6 em conexões ativas
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Remover uma sessão IPv4 ou IPv6 em conexões ativas
 
-A remoção de uma sessão IPv4 ou IPv6 de uma conexão existente não é suportada no momento no portal. Para obter mais informações, entre em contato com [a Microsoft .](mailto:peeringexperience@microsoft.com)
+Atualmente, não há suporte para a remoção de uma sessão IPv4 ou IPv6 de uma conexão existente no Portal. Para obter mais informações, entre em contato com [o emparelhamento da Microsoft](mailto:peeringexperience@microsoft.com).

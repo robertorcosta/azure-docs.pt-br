@@ -1,7 +1,7 @@
 ---
-title: Converta um peering direct legado para um recurso do Azure usando o PowerShell
+title: Converter um emparelhamento direto herdado para um recurso do Azure usando o PowerShell
 titleSuffix: Azure
-description: Converta um peering direct legado para um recurso do Azure usando o PowerShell
+description: Converter um emparelhamento direto herdado para um recurso do Azure usando o PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678471"
 ---
-# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Converta um peering direct legado para um recurso do Azure usando o PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Converter um emparelhamento direto herdado para um recurso do Azure usando o PowerShell
 
-Este artigo descreve como converter um legado existente de peering direto a um recurso do Azure usando cmdlets PowerShell.
+Este artigo descreve como converter um emparelhamento direto herdado existente para um recurso do Azure usando cmdlets do PowerShell.
 
-Se preferir, você pode completar este guia usando o [portal](howto-legacy-direct-portal.md)Azure .
+Se preferir, você pode concluir este guia usando o [portal](howto-legacy-direct-portal.md)do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Revise os [pré-requisitos](prerequisites.md) e o [passo a passo do peering direto](walkthrough-direct-all.md) antes de iniciar a configuração.
+* Examine os [pré-requisitos](prerequisites.md) e o [passo a passos de emparelhamento direto](walkthrough-direct-all.md) antes de começar a configuração.
 
-### <a name="work-with-azure-powershell"></a>Trabalhe com o Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Trabalhar com Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Converta um legado de peering direto para um recurso do Azure
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Converter um emparelhamento direto herdado para um recurso do Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtenha um legado de peering direto para conversão
-Este exemplo mostra como obter um legado de peering direct no local de peering de Seattle.
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Obter um emparelhamento direto herdado para conversão
+Este exemplo mostra como obter um emparelhamento direto herdado no local de emparelhamento de Seattle.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-a-legacy-direct-peering"></a>Converta um legado de peering direto
+### <a name="convert-a-legacy-direct-peering"></a>Converter um emparelhamento direto herdado
 
 &nbsp;
 > [!IMPORTANT]
-> Quando você converte um ponto de vista legado em um recurso do Azure, as modificações não são suportadas. &nbsp;
+> Quando você converte um emparelhamento herdado em um recurso do Azure, não há suporte para modificações. &nbsp;
 
-Use este comando para converter um peering direct legado em um recurso do Azure:
+Use este comando para converter um emparelhamento direto herdado para um recurso do Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -118,8 +118,8 @@ Você pode obter descrições detalhadas de todos os parâmetros executando este
 Get-Help Get-AzPeering -detailed
 ```
 
-Para obter mais informações, consulte [perguntas frequentes sobre a Internet](faqs.md).
+Para obter mais informações, consulte [perguntas frequentes sobre emparelhamento da Internet](faqs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Crie ou modifique um peering direto usando o PowerShell](howto-direct-powershell.md)
+* [Criar ou modificar um emparelhamento direto usando o PowerShell](howto-direct-powershell.md)
