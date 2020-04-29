@@ -1,6 +1,6 @@
 ---
-title: Pausa, currículo, escala com APIs REST
-description: Gerencie o poder de computação no data warehouse do Azure Synapse Analytics através de APIs REST.
+title: Pausar, retomar, dimensionar com APIs REST
+description: Gerenciar poder de computação no Azure Synapse Analytics data warehouse por meio de APIs REST.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 4efd5c63af9f09d41733e8e172270410245977ec
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633214"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para SQL Data Warehouse do Azure
 
-APIs REST para gerenciamento de computação no data warehouse Do Azure Synapse Analytics.
+APIs REST para gerenciar a computação no Azure Synapse Analytics data warehouse.
 
 ## <a name="scale-compute"></a>Computação de escala
 
@@ -56,24 +56,24 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="check-database-state"></a>Verificar estado do banco de dados
 
 > [!NOTE]
-> Atualmente, verificar o estado do banco de dados pode retornar ON-LINE enquanto o banco de dados estiver concluindo o fluxo de trabalho on-line, resultando em erros de conexão. Você pode precisar adicionar um atraso de 2 a 3 minutos no código do aplicativo se estiver usando esta chamada de API para desencadear tentativas de conexão.
+> Atualmente, verificar o estado do banco de dados pode retornar ONLINE enquanto o banco de dados estiver concluindo o fluxo de trabalho online, resultando em erros de conexão Talvez seja necessário adicionar um atraso de 2 a 3 minutos no código do aplicativo se você estiver usando essa chamada à API para disparar tentativas de conexão.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Obter cronograma de manutenção
+## <a name="get-maintenance-schedule"></a>Obter agendamento de manutenção
 
-Verifique o cronograma de manutenção que foi definido para um data warehouse.
+Verifique o agendamento de manutenção que foi definido para um data warehouse.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Definir cronograma de manutenção
+## <a name="set-maintenance-schedule"></a>Definir agendamento de manutenção
 
-Para definir e atualizar um cronograma de manutenção em um data warehouse existente.
+Para definir e atualizar um agendamento de manutenção em um data warehouse existente.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

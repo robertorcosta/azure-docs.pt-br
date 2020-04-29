@@ -1,6 +1,6 @@
 ---
-title: Recursos de armazenamento Blob disponíveis no Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Saiba quais recursos de armazenamento Blob você pode usar com o Azure Data Lake Storage Gen2
+title: Recursos de armazenamento de BLOBs disponíveis no Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Saiba quais recursos de armazenamento de BLOBs você pode usar com Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,50 +9,50 @@ ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637209"
 ---
-# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento Blob disponíveis no Azure Data Lake Storage Gen2
+# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de BLOBs disponíveis no Azure Data Lake Storage Gen2
 
-Os recursos de armazenamento blob, como [registro de diagnóstico,](../common/storage-analytics-logging.md) [níveis de acesso](storage-blob-storage-tiers.md)e políticas de gerenciamento do ciclo de vida do [Blob Storage,](storage-lifecycle-management-concepts.md) agora funcionam com contas que têm um namespace hierárquico. Portanto, você pode habilitar namespaces hierárquicos em suas contas de armazenamento Blob sem perder o acesso a esses recursos.
+Os recursos de armazenamento de BLOBs, como [log de diagnóstico](../common/storage-analytics-logging.md), [camadas de acesso](storage-blob-storage-tiers.md)e [políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs](storage-lifecycle-management-concepts.md) , agora funcionam com contas que têm um namespace hierárquico. Portanto, você pode habilitar namespaces hierárquicos em suas contas de armazenamento de BLOBs sem perder o acesso a esses recursos.
 
-Esta tabela lista os recursos de armazenamento Blob que você pode usar com o Azure Data Lake Storage Gen2. Os itens que aparecem nessas tabelas mudarão ao longo do tempo à medida que o suporte continua a se expandir.
+Esta tabela lista os recursos de armazenamento de BLOBs que você pode usar com Azure Data Lake Storage Gen2. Os itens que aparecem nessas tabelas serão alterados ao longo do tempo, pois o suporte continuará a ser expandido.
 
-## <a name="supported-blob-storage-features"></a>Recursos de armazenamento Blob suportados
+## <a name="supported-blob-storage-features"></a>Recursos do Armazenamento de Blobs compatíveis
 
 > [!NOTE]
-> O nível de suporte refere-se apenas à forma como o recurso é suportado com data lake storage Gen2.
+> O nível de suporte refere-se apenas a como o recurso tem suporte com Data Lake Storage Gen2.
 
-|Recurso de armazenamento blob |Nível de suporte |Artigos relacionados |
+|Recurso de armazenamento de BLOBs |Nível de suporte |Artigos relacionados |
 |---------------|-------------------|---|
 |Camada de acesso quente|Disponível para o público geral|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
 |Camada de acesso frio|Disponível para o público geral|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
 |Eventos|Disponível para o público geral|[Reagir aos eventos de armazenamento de Blobs](storage-blob-event-overview.md)|
-|Métricas (Clássico)|Disponível para o público geral|[Métricas de análise de armazenamento do Azure (Classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Métricas (clássicas)|Disponível para o público geral|[Métricas da análise de armazenamento do Azure (clássico)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Métricas no Azure Monitor|Disponível para o público geral|[Métricas do Armazenamento do Microsoft Azure no Azure Monitor](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Comandos PowerShell de armazenamento Blob|Disponível para o público geral|[Quickstart: Carregar, baixar e listar bolhas com o PowerShell](storage-quickstart-blobs-powershell.md)|
-|Comandos CLI do Blob Storage Azure|Disponível para o público geral|[Quickstart: Crie, baixe e liste blobs com a Cli do Azure](storage-quickstart-blobs-cli.md)|
-|APIs de armazenamento de Blob|Disponível para o público geral|[Quickstart: Biblioteca cliente de armazenamento Azure Blob v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Gerenciar bolhas com Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Gerenciar bolhas com Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Gerenciar blobs com JavaScript v12 SDK em Node.js](storage-quickstart-blobs-nodejs.md)|
-|Nível de acesso ao arquivamento|Visualização|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
+|Comandos do PowerShell de armazenamento de BLOBs|Disponível para o público geral|[Início rápido: carregar, baixar e listar BLOBs com o PowerShell](storage-quickstart-blobs-powershell.md)|
+|Comandos de CLI do Azure de armazenamento de BLOBs|Disponível para o público geral|[Início rápido: criar, baixar e listar BLOBs com CLI do Azure](storage-quickstart-blobs-cli.md)|
+|APIs de armazenamento de Blob|Disponível para o público geral|[Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Início rápido: gerenciar BLOBs com o SDK do Java V12](storage-quickstart-blobs-java.md)<br>[Início rápido: gerenciar BLOBs com o SDK do Python V12](storage-quickstart-blobs-python.md)<br>[Início rápido: gerenciar BLOBs com o SDK do JavaScript V12 no node. js](storage-quickstart-blobs-nodejs.md)|
+|Camada de acesso de arquivamento|Visualização|[Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo](storage-blob-storage-tiers.md)|
 |Políticas de gerenciamento do ciclo de vida|Visualização|[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)|
 |Logs de diagnóstico|Disponível para o público geral|[Registro em log da Análise de Armazenamento do Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Feed de alteração|Ainda não suportado|[Alterar o suporte ao feed no armazenamento Azure Blob](storage-blob-change-feed.md)|
-|Failover da conta|Ainda não suportado|[Recuperação de desastres e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL do recipiente Blob|Ainda não suportado|[Definir ACL do contêiner](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
-|Domínios personalizados|Ainda não suportado|[Mapeie um domínio personalizado para um ponto final de armazenamento DoZure Blob](storage-custom-domain-name.md)|
-|Armazenamento imutável|Ainda não suportado|[Armazene dados de bolha críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md)|
-|Instantâneos|Ainda não suportado|[Criar e gerenciar um instantâneo blob no .NET](storage-blob-snapshots.md)|
-|Exclusão reversível|Ainda não suportado|[Exclusão reversível para blobs do Armazenamento do Azure ](storage-blob-soft-delete.md)|
-|Sites estáticos|Ainda não suportado|[Hospedagem de site estático no Armazenamento do Microsoft Azure](storage-blob-static-website.md)|
-|Login no Monitor Azure|Ainda não suportado|Ainda não está disponível|
-|Bolhas de bloco premium|Ainda não suportado|[Criar uma conta BlockBlobStorage](storage-blob-create-account-block-blob.md)|
+|Feed de alteração|Ainda não tem suporte|[Suporte ao feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md)|
+|Failover de conta|Ainda não tem suporte|[Recuperação de desastre e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|ACL de contêiner de BLOB|Ainda não tem suporte|[Definir ACL do contêiner](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Domínios personalizados|Ainda não tem suporte|[Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure](storage-custom-domain-name.md)|
+|Armazenamento imutável|Ainda não tem suporte|[Armazene dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md)|
+|Instantâneos|Ainda não tem suporte|[Criar e gerenciar um instantâneo de blob no .NET](storage-blob-snapshots.md)|
+|Exclusão reversível|Ainda não tem suporte|[Exclusão reversível para blobs do Armazenamento do Azure ](storage-blob-soft-delete.md)|
+|Sites estáticos|Ainda não tem suporte|[Hospedagem de site estático no Armazenamento do Microsoft Azure](storage-blob-static-website.md)|
+|Fazendo logon Azure Monitor|Ainda não tem suporte|Ainda não está disponível|
+|Blobs de blocos Premium|Ainda não tem suporte|[Criar uma conta do BlockBlobStorage](storage-blob-create-account-block-blob.md)|
 
 ## <a name="see-also"></a>Confira também
 
 - [Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs](data-lake-storage-known-issues.md)
-- [Serviços do Azure que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
-- [Plataformas de código aberto que suportam o Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+- [Serviços do Azure que dão suporte ao Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Plataformas de software livre que dão suporte a Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Acesso de vários protocolos no Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

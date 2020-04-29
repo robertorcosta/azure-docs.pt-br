@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: a6030cbb756525137497834ac911835033858401
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80652087"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
@@ -23,7 +23,7 @@ A classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.10
 
 Ao estender **RoleEntryPoint**, você deve estar atento aos seguintes comportamentos dos métodos:
 
-* O método [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) retorna um valor booleano, por isso é possível retornar **falso** deste método.
+* O método [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) retorna um valor booliano, portanto, é possível retornar **false** a partir desse método.
   
    Se seu código retornar **false**, o processo da função será encerrado abruptamente, sem executar nenhuma sequência de desligamento que possa existir. Em geral, você deve evitar o retorno de **false** do método **OnStart**.
 * Qualquer exceção não percebida dentro de uma sobrecarga de um método **RoleEntryPoint** é considerada uma exceção não tratada.

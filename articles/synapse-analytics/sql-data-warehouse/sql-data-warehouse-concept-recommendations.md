@@ -1,6 +1,6 @@
 ---
-title: Recomendações sinapse SQL
-description: Saiba mais sobre as recomendações do Synapse SQL e como elas são geradas
+title: Recomendações de SQL do Synapse
+description: Saiba mais sobre as recomendações de SQL do Synapse e como elas são geradas
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 17877a1ef5d949fbbee080b6157844ac5b516fe7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633680"
 ---
-# <a name="synapse-sql-recommendations"></a>Recomendações sinapse SQL
+# <a name="synapse-sql-recommendations"></a>Recomendações de SQL do Synapse
 
-Este artigo descreve as recomendações sinapse sql atendidas através do Azure Advisor.  
+Este artigo descreve as recomendações de SQL do Synapse servidas por meio do Azure Advisor.  
 
-O SQL Analytics fornece recomendações para garantir que a carga de trabalho do data warehouse seja otimizada consistentemente para o desempenho. As recomendações são fortemente integradas com [o Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para fornecer as melhores práticas diretamente dentro do [portal Azure](https://aka.ms/Azureadvisor). O SQL Analytics coleta telemetria e apresenta recomendações para sua carga de trabalho ativa em uma cadência diária. Os cenários de recomendação suportados são descritos abaixo, juntamente com como aplicar as ações recomendadas.
+A análise de SQL fornece recomendações para garantir que sua carga de trabalho data warehouse seja consistentemente otimizada para o desempenho. As recomendações são totalmente integradas ao [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para fornecer as práticas recomendadas diretamente dentro do [portal do Azure](https://aka.ms/Azureadvisor). A análise de SQL coleta recomendações de telemetria e de superfícies para sua carga de trabalho ativa em uma cadência diária. Os cenários de recomendação com suporte são descritos abaixo, juntamente com como aplicar as ações recomendadas.
 
-Você pode [conferir suas recomendações](https://aka.ms/Azureadvisor) hoje! Atualmente, esse recurso é aplicável apenas aos armazéns de dados Gen2.
+Você pode [verificar suas recomendações](https://aka.ms/Azureadvisor) hoje mesmo! Atualmente, esse recurso é aplicável apenas aos armazéns de dados Gen2.
 
 ## <a name="data-skew"></a>Distorção de dados
 
@@ -32,9 +32,9 @@ A distorção de dados pode causar movimentação adicional de dados ou afunilam
 
 - [Identificar e Remover distorção](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)
 
-## <a name="no-or-outdated-statistics"></a>Estatísticas sem ou desatualizados
+## <a name="no-or-outdated-statistics"></a>Estatísticas não ou desatualizadas
 
-Ter estatísticas subótimas pode afetar severamente o desempenho da consulta, pois pode fazer com que o otimizador de consulta SQL gere planos de consulta subótimos. A documentação a seguir descreve as melhores práticas de criação e atualização de estatísticas:
+Ter estatísticas de qualidade inferior pode afetar seriamente o desempenho da consulta, pois isso pode fazer com que o otimizador de consulta do SQL gere planos de consulta de qualidade inferior. A documentação a seguir descreve as melhores práticas de criação e atualização de estatísticas:
 
 - [Criando e atualizando estatísticas da tabela](sql-data-warehouse-tables-statistics.md)
 

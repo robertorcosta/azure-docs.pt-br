@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79264720"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
@@ -34,10 +34,10 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 
 ![foto de um compartimento de disco rígido no gabinete do FXT mostrando os números das unidades e os rótulos de capacidade](media/fxt-drives-photo.png)
 
-| Números de unidade    |  Use   |  Especificações |
+| Números de unidade    |  Uso   |  Especificações |
 |------------------|--------|-----------------|
-| 0, 1             | Sistema operacional     | SSD SATA de 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600: 3,2 TB NVMe SSD <br> FXT 6400: 1,6 TB NVMe SSD |
+| 0, 1             | SO     | SSD SATA de 480 GB |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensões e peso
@@ -144,7 +144,7 @@ Esta seção fornece especificações para o ambiente do hardware.
 | Altitude                  | até 3.048 metros (10.000 pés), sujeito à revogação da classificação de temperatura indicada abaixo | até 12.000 metros (39.370 pés) |
 
 > [!NOTE] 
-> **Desclassificação da temperatura de altitude:** A temperatura máxima é reduzida em 1°C/300 m (1°F/547 pés) acima de 950 m (3.117 pés).
+> **Desclassificação de temperatura de altitude:** A temperatura máxima é reduzida em 1 ° c/300 m (1 ° f/547 pés) acima de 950 m (3.117 pés).
 
 ### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração 
 

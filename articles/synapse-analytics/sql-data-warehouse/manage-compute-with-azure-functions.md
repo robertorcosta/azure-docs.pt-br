@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Gerencie a computação com funções do Azure'
-description: Como usar as funções do Azure para gerenciar a computação do seu pool SQL no Azure Synapse Analytics.
+title: 'Tutorial: gerenciar a computação com o Azure Functions'
+description: Como usar o Azure Functions para gerenciar a computação do pool SQL no Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631959"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Use funções do Azure para gerenciar recursos de computação no pool SqL do Azure Synapse Analytics
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usar Azure Functions para gerenciar recursos de computação no pool do SQL do Azure Synapse Analytics
 
-Este tutorial usa funções do Azure para gerenciar recursos de computação para um pool SQL no Azure Synapse Analytics.
+Este tutorial usa Azure Functions para gerenciar recursos de computação para um pool do SQL no Azure Synapse Analytics.
 
-Para usar o Azure Function App com o pool SQL, você deve criar uma [conta principal de serviço](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) com acesso ao contribuinte sob a mesma assinatura da sua instância de pool SQL.
+Para usar o Azure Aplicativo de funções com o pool do SQL, você deve criar uma [conta de entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) com acesso de colaborador na mesma assinatura que sua instância do pool do SQL.
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Implantar o escalonador baseado em temporizador com um modelo do Azure Resource Manager
 
 Para implantar o modelo, você precisa das informações a seguir:
 
-- Nome do grupo de recursos em que a instância do pool SQL está
-- Nome do servidor lógico sua instância de pool SQL está em
-- Nome da sua instância de pool SQL
+- Nome do grupo de recursos em que sua instância do pool SQL está
+- Nome do servidor lógico em que sua instância do pool SQL está
+- Nome da sua instância do pool SQL
 - A ID de locatário (ID do diretório) do Azure Active Directory
 - ID da assinatura
 - ID do aplicativo da entidade de serviço
@@ -97,7 +97,7 @@ Atualmente, as funções habilitadas por padrão são *DWScaleDownTrigger* e *DW
 
 Atualmente, há apenas duas funções de dimensionamento incluídas no modelo. Com essas funções, no decorrer de um dia, você só pode escalar e reduzir verticalmente somente uma vez. Para um controle mais granular, como reduzir verticalmente várias vezes por dia ou ter um comportamento de dimensionamento diferente nos finais de semana, você precisa adicionar outro gatilho.
 
-1. Criar uma nova função em branco. Selecione *+* o botão perto do local de Funções para mostrar o painel do modelo de função.
+1. Criar uma nova função em branco. Selecione o *+* botão próximo ao local de funções para mostrar o painel de modelo de função.
 
    ![Criar nova função](./media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -141,7 +141,7 @@ Esta seção demonstra brevemente o que é necessário para aproveitar mais os r
 
 Escalar verticalmente diariamente às 8:00 para DW600 e reduzir verticalmente às 20:00 para DW200.
 
-| Função  | Agenda     | Operação                                |
+| Função  | Agendamento     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -150,7 +150,7 @@ Escalar verticalmente diariamente às 8:00 para DW600 e reduzir verticalmente à
 
 Escalar verticalmente diariamente às 8:00 para DW1000, reduzir verticalmente uma vez para DW600 às 16:00 e reduzir verticalmente às 22:00 para DW200.
 
-| Função  | Agenda     | Operação                                |
+| Função  | Agendamento     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -160,7 +160,7 @@ Escalar verticalmente diariamente às 8:00 para DW1000, reduzir verticalmente um
 
 Escalar verticalmente às 8:00 para DW1000, reduzir verticalmente uma vez para DW600 às 16:00 em dias úteis. Pausar sexta-feira às 23:00, retomar segunda-feira de manhã às 7:00.
 
-| Função  | Agenda       | Operação                                |
+| Função  | Agendamento       | Operação                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -171,4 +171,4 @@ Escalar verticalmente às 8:00 para DW1000, reduzir verticalmente uma vez para D
 
 Saiba mais sobre as funções de [gatilho de temporizador](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) do Azure.
 
-Confira o [repositório](https://github.com/Microsoft/sql-data-warehouse-samples)de amostras de pool SQL .
+Faça checkout do [repositório de exemplos](https://github.com/Microsoft/sql-data-warehouse-samples)do pool SQL.

@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251135"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
-> * [Resto](media-services-rest-manage-entities.md)
+> * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com .NET.
 
@@ -37,10 +37,10 @@ A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obter uma referência de ativo
-Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como você pode obter uma referência de ativos da coleção de ativos no objeto de contexto do servidor, com base em um ID de ativo. O exemplo de código a seguir usa uma consulta Linq para obter uma referência a um objeto IAsset existente.
+Uma tarefa frequente é obter uma referência a um ativo existente nos serviços de mídia. O exemplo de código a seguir mostra como você pode obter uma referência de ativo da coleção de ativos no objeto de contexto de servidor, com base em uma ID de ativo. O exemplo de código a seguir usa uma consulta LINQ para obter uma referência a um objeto IAsset existente.
 
 ```csharp
     static IAsset GetAsset(string assetId)
@@ -100,7 +100,7 @@ Uma tarefa frequente é obter uma referência a um ativo existente nos serviços
 
 ## <a name="get-a-job-reference"></a>Obter uma referência de trabalho
 
-Quando você trabalha com tarefas de processamento no código de Serviços de Mídia, muitas vezes você precisa obter uma referência a um trabalho existente com base em um Id. O exemplo de código a seguir mostra como obter uma referência a um objeto IJob da coleção Jobs.
+Quando você trabalha com tarefas de processamento no código dos serviços de mídia, geralmente precisa obter uma referência a um trabalho existente com base em uma ID. O exemplo de código a seguir mostra como obter uma referência a um objeto IJob da coleção Jobs.
 
 Talvez você precise obter uma referência de trabalho ao iniciar um trabalho de codificação de longa duração e precise verificar o status do trabalho em um thread. Em casos como esse, quando o método retorna de um thread, você precisa recuperar uma referência atualizada para um trabalho.
 
@@ -203,7 +203,7 @@ Para obter mais informações sobre as opções para a entrega de ativos, consul
 ```
 
 ## <a name="list-all-access-policies"></a>Listar todas as políticas de acesso
-Nos serviços de mídia, você pode definir uma política de acesso em um ativo ou seus arquivos. Uma política de acesso define as permissões para um arquivo ou um ativo (o tipo de acesso e a duração). Em seu código de serviços de mídia, você normalmente define uma política de acesso criando um objeto IAccessPolicy e associá-la a um ativo existente. Em seguida, você cria um objeto ILocator, que permite que você forneça acesso direto a ativos em Serviços de Mídia. O projeto do Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores a ativos.
+Nos serviços de mídia, você pode definir uma política de acesso em um ativo ou seus arquivos. Uma política de acesso define as permissões para um arquivo ou um ativo (o tipo de acesso e a duração). Em seu código de serviços de mídia, você normalmente define uma política de acesso criando um objeto IAccessPolicy e associá-la a um ativo existente. Em seguida, você cria um objeto ILocator, que permite que você forneça acesso direto aos ativos nos serviços de mídia. O projeto do Visual Studio que acompanha esta série de documentação contém vários exemplos de código que mostram como criar e atribuir políticas de acesso e localizadores a ativos.
 
 O exemplo de código a seguir mostra como listar todas as políticas de acesso no servidor e mostra o tipo de permissões associadas a cada um. Outra maneira útil para exibir as políticas de acesso é listar todos os objetos de ILocator no servidor e, em seguida, para cada localizador, você pode listar sua política de acesso associada usando sua propriedade AccessPolicy.
 
@@ -427,6 +427,6 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

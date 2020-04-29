@@ -10,30 +10,30 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899040"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
 > [!IMPORTANT]
-> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, migre para o Azure Logic Apps o mais rápido possível, seguindo este artigo. 
+> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, migre para o aplicativo lógico do Azure assim que possível, seguindo este artigo. 
 >
-> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
+> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
 
 Este artigo mostra como é possível agendar trabalhos únicos e recorrentes criando fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure, em vez de com o Agendador do Azure. Quando você cria trabalhos agendados com Aplicativos Lógicos, você tem estes benefícios:
 
-* Construa seu trabalho usando um designer visual e [conectores prontos para uso](../connectors/apis-list.md) de centenas de serviços, como Azure Blob Storage, Azure Service Bus, Office 365 Outlook e SAP.
+* Crie seu trabalho usando um designer visual e [conectores prontos para uso](../connectors/apis-list.md) de centenas de serviços, como o armazenamento de BLOBs do Azure, o barramento de serviço do Azure, o Office 365 Outlook e o SAP.
 
-* Gerencie cada fluxo de trabalho programado como um recurso azure de primeira classe. Você não precisa se preocupar com o conceito de *uma coleção* de empregos porque cada aplicativo lógico é um recurso individual do Azure.
+* Gerencie cada fluxo de trabalho agendado como um recurso do Azure de primeira classe. Você não precisa se preocupar com o conceito de uma *coleção de trabalhos* porque cada aplicativo lógico é um recurso individual do Azure.
 
 * Execute vários trabalhos únicos usando um único aplicativo lógico.
 
-* Defina horários que suportem fusos horários e se ajustem automaticamente ao horário de verão (DST).
+* Defina agendas que dão suporte a fusos horários e se ajustem automaticamente para o horário de Verão (DST).
 
-Para saber mais, veja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md) ou tente criar seu primeiro aplicativo de lógica neste quickstart: Crie seu primeiro aplicativo [lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para saber mais, confira [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md) ou tente criar seu primeiro aplicativo lógico neste guia de início rápido: [crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,9 +41,9 @@ Para saber mais, veja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-ov
 
 * Para disparar seu aplicativo lógico enviando solicitações HTTP, use uma ferramenta como o [aplicativo da área de trabalho Postman](https://www.getpostman.com/apps).
 
-## <a name="migrate-by-using-a-script"></a>Migre usando um script
+## <a name="migrate-by-using-a-script"></a>Migrar usando um script
 
-Cada trabalho do Agendador é único, então não existe uma ferramenta de tamanho único para migrar trabalhos do Agendador para aplicativos azure logic. No entanto, você pode [editar este script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) para atender às suas necessidades.
+Cada trabalho do Agendador é exclusivo, portanto, não existe uma ferramenta de tamanho único para migrar trabalhos do Agendador para os aplicativos lógicos do Azure. No entanto, você pode [Editar esse script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) para atender às suas necessidades.
 
 ## <a name="schedule-one-time-jobs"></a>Agendar trabalhos únicos
 
@@ -53,13 +53,13 @@ Cada trabalho do Agendador é único, então não existe uma ferramenta de taman
 
    Para obter as etapas básicas, siga [Início Rápido: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de `when a http request` pesquisa, digite para encontrar o gatilho Solicitar. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP for recebida**
+1. Na caixa de pesquisa, insira `when a http request` para localizar o gatilho de solicitação. Na lista de gatilhos, selecione este gatilho: **Quando uma solicitação HTTP for recebida**
 
    ![Adicionar gatilho de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
-1. Para o gatilho Solicitação, você pode fornecer opcionalmente um esquema JSON, que ajuda o Logic App Designer a entender a estrutura para as entradas incluídas na chamada de entrada para o gatilho Solicitação e torna as saídas mais fáceis para você selecionar mais tarde em seu fluxo de trabalho.
+1. Para o gatilho de solicitação, você pode opcionalmente fornecer um esquema JSON, que ajuda o designer de aplicativo lógico a entender a estrutura das entradas incluídas na chamada de entrada para o gatilho de solicitação e torna as saídas mais fáceis de selecionar posteriormente no fluxo de trabalho.
 
-   Na caixa **Esquema JSON Do Corpo de Solicitação, digite** o esquema, por exemplo:
+   Na caixa **esquema JSON do corpo da solicitação** , insira o esquema, por exemplo:
 
    ![Esquema de solicitação](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
@@ -67,7 +67,7 @@ Cada trabalho do Agendador é único, então não existe uma ferramenta de taman
 
    1. No gatilho de Solicitação, selecione **Usar o conteúdo de amostra para gerar o esquema**.
 
-   1. Em **Enter ou cole uma amostra de carga JSON,** forneça a carga útil da amostra e selecione **Feito,** por exemplo:
+   1. Em **Inserir ou colar um exemplo de carga JSON**, forneça seu conteúdo de exemplo e selecione **concluído**, por exemplo:
 
       ![Carga de exemplo](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
@@ -78,7 +78,7 @@ Cada trabalho do Agendador é único, então não existe uma ferramenta de taman
       }
       ```
 
-1. o gatilho, selecione **Próximo passo**.
+1. No gatilho, selecione **próxima etapa**.
 
 1. Na caixa de pesquisa, insira `delay until` como o filtro. Na lista de ações, selecione esta ação: **Atrasar até**
 
@@ -88,11 +88,11 @@ Cada trabalho do Agendador é único, então não existe uma ferramenta de taman
 
 1. Insira o carimbo de data/hora para quando você desejar iniciar o fluxo de trabalho d aplicativo lógico.
 
-   Quando você clica dentro da caixa **Carimbo de tempo,** a lista de conteúdo dinâmico é exibida para que você possa selecionar opcionalmente uma saída do gatilho.
+   Quando você clica dentro da caixa **timestamp** , a lista de conteúdo dinâmico é exibida para que você possa, opcionalmente, selecionar uma saída do gatilho.
 
    ![Forneça detalhes de "Atrasar até"](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Adicione quaisquer outras ações que você deseja executar selecionando [entre centenas de conectores prontos para uso](../connectors/apis-list.md).
+1. Adicione outras ações que você deseja executar selecionando entre [centenas de conectores prontos para uso](../connectors/apis-list.md).
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
@@ -112,11 +112,11 @@ Cada trabalho do Agendador é único, então não existe uma ferramenta de taman
 
 Para executar manualmente ou disparar um trabalho único, envie uma chamada para a URL de ponto de extremidade para o Gatilho de solicitação do seu aplicativo lógico. Nessa chamada, especifique a entrada ou o conteúdo a ser enviado, que talvez você tenha descrito anteriormente especificando um esquema.
 
-Por exemplo, usando o aplicativo Carteiro, você pode criar uma solicitação POST com as configurações semelhantes a esta amostra e, em seguida, selecionar **Enviar** para fazer a solicitação.
+Por exemplo, usando o aplicativo de postmaster, você pode criar uma solicitação POST com as configurações semelhantes a este exemplo e, em seguida, selecione **Enviar** para fazer a solicitação.
 
 | Método de solicitação | URL | Corpo | headers |
 |----------------|-----|------|---------|
-| **POST** | <*URL de ponto final*> | **Raw** <p>**JSON(aplicativo/json)** <p>Na caixa **bruta,** digite a carga que deseja enviar na solicitação. <p>**Observação**: essa configuração define automaticamente os valores **Cabeçalhos**. | **Chave:** Tipo de conteúdo <br>**Valor**: aplicação/json |
+| **POST** | <*ponto de extremidade-URL*> | **recebem** <p>**JSON(aplicativo/json)** <p>Na caixa **bruto** , insira a carga que você deseja enviar na solicitação. <p>**Observação**: essa configuração define automaticamente os valores **Cabeçalhos**. | **Chave**: tipo de conteúdo <br>**Valor**: aplicativo/JSON |
 |||||
 
 ![Enviar solicitação para disparar manualmente seu aplicativo lógico](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -127,7 +127,7 @@ Após enviar a chamada, a resposta do seu aplicativo lógico será exibida na ca
 
 > [!IMPORTANT]
 >
-> Se você quiser cancelar o trabalho mais tarde, selecione a guia **Cabeçalhos.** Encontre e copie o valor de cabeçalho **x-ms-workflow-run-id** na resposta. 
+> Se você quiser cancelar o trabalho mais tarde, selecione a guia **cabeçalhos** . Localize e copie o valor do cabeçalho **x-MS-Workflow-Run-ID** na resposta. 
 >
 > ![Resposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
@@ -149,9 +149,9 @@ Nos Aplicativos Lógicos, cada trabalho único é executado como uma instância 
 
    ![Agendamento avançado](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   Para obter mais informações sobre opções avançadas de agendamento, consulte [Criar e executar tarefas e fluxos de trabalho recorrentes com aplicativos de lógica do Azure](../connectors/connectors-native-recurrence.md).
+   Para obter mais informações sobre opções de agendamento avançadas, consulte [criar e executar tarefas recorrentes e fluxos de trabalho com aplicativos lógicos do Azure](../connectors/connectors-native-recurrence.md).
 
-1. Adicione outras ações desejadas selecionando [entre centenas de prontos para uso](../connectors/apis-list.md). o gatilho, selecione **Próximo passo**. Localize e selecione as ações desejadas.
+1. Adicione outras ações desejadas, selecionando entre [centenas de pronto para uso](../connectors/apis-list.md). No gatilho, selecione **próxima etapa**. Localize e selecione as ações desejadas.
 
    Por exemplo, é possível incluir uma ação HTTP que envia uma solicitação para uma URL ou ações que funcionam com Filas de Armazenamento, filas ou tópicos de Barramento de Serviço:
 
@@ -169,11 +169,11 @@ Veja outras maneiras como você pode personalizar seus trabalhos.
 
 Para controlar a maneira como uma ação tenta ser executada novamente em seu aplicativo lógico quando ocorrem falhas intermitentes, é possível definir a [política de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies) nas configurações de cada ação, por exemplo:
 
-1. Abra o menu de elipses da ação (**...**) e selecione **Configurações**.
+1. Abra o menu de reticências da ação (**...**) e selecione **configurações**.
 
    ![Abrir configurações da ação](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
-1. Selecione a política de repetição desejada. Para obter informações sobre cada política, confira [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies).
+1. Selecione a política de repetição que você deseja. Para obter informações sobre cada política, confira [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies).
 
    ![Selecionar política de repetição](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
 
@@ -181,7 +181,7 @@ Para controlar a maneira como uma ação tenta ser executada novamente em seu ap
 
 No Agendador do Azure, se a ação padrão não for executada, será possível executar uma ação alternativa que resolva a condição de erro. Nos Aplicativos Lógicos do Azure, também é possível realizar a mesma tarefa.
 
-1. No Logic App Designer, acima da ação que você deseja lidar, mova o ponteiro sobre a seta entre as etapas e selecione **Adicionar um ramo paralelo**.
+1. No designer de aplicativo lógico, acima da ação que você deseja manipular, mova o ponteiro sobre a seta entre as etapas e selecione **Adicionar uma ramificação paralela**.
 
    ![Adicionar branch paralelo](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -189,7 +189,7 @@ No Agendador do Azure, se a ação padrão não for executada, será possível e
 
    ![Adicionar ação paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Na ação alternativa, abra o menu ellipses **(...**) e **selecione Configurar executar depois**.
+1. Na ação alternativa, abra o menu de reticências (**...**) e selecione **configurar execução após**.
 
    ![Configurar execução depois](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -206,36 +206,36 @@ Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e e
 <a name="retire-date"></a>
 
 **P**: quando o Agendador do Azure será desativado? <br>
-**A**: A agendador azure está programado para se aposentar totalmente em 31 de dezembro de 2019. Para obter medidas importantes antes desta data e um cronograma detalhado, consulte [Estender a data de aposentadoria para o Agendador até 31 de dezembro de 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Para atualizações gerais, consulte [atualizações do Azure - Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
+**R: o**Agendador do Azure está agendado para ser totalmente desativado em 31 de dezembro de 2019. Para ver as etapas importantes a serem seguidas antes dessa data e uma linha do tempo detalhada, consulte [estendendo a data de aposentadoria do Agendador para 31 de dezembro de 2019](https://azure.microsoft.com/updates/extending-retirement-date-of-scheduler/). Para atualizações gerais, consulte [atualizações do Azure – Agendador](https://azure.microsoft.com/updates/?product=scheduler).
 
-**P**: O que acontece com minhas cobranças de emprego e empregos depois que o serviço se aposenta? <br>
-**R:** Todas as coletas de trabalho e empregos do Agendador param de funcionar e são excluídas do sistema.
+**P**: o que acontece com minhas coleções de trabalho e trabalhos depois que o serviço se aposenta? <br>
+**R**: todas as coleções de trabalhos e trabalhos do Agendador param de executar e são excluídos do sistema.
 
 **P**: é necessário fazer backup ou executar outras tarefas antes de migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
 **R**: como melhor prática, sempre faça backup do seu trabalho. Verifique se os aplicativos lógicos criados estão sendo executados conforme o esperado antes de excluir ou desabilitar seus trabalhos do Agendador.
 
 **P**: há uma ferramenta que possa me ajudar a migrar meus trabalhos do Agendador para o Aplicativos Lógicos? <br>
-**R**: cada trabalho do Agendador é único, portanto não há uma ferramenta uniformizada. No entanto, com base em suas necessidades, você pode [editar este script para migrar os trabalhos do Azure Scheduler para o Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
+**R**: cada trabalho do Agendador é único, portanto não há uma ferramenta uniformizada. No entanto, com base em suas necessidades, você pode [Editar esse script para migrar trabalhos do Agendador do Azure para aplicativos lógicos do Azure](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **P**: onde posso obter suporte para a migração dos meus trabalhos do Agendador? <br>
 **R**: veja algumas maneiras de obter suporte:
 
-**Portal Azure**
+**Azure portal**
 
 Se a assinatura do Azure tiver um plano de suporte pago, será possível criar uma solicitação de suporte técnico no portal do Azure. Caso contrário, será possível selecionar uma opção de suporte diferente.
 
 1. No menu principal do [Portal do Azure](https://portal.azure.com), selecione **Ajuda + suporte**.
 
-1. No **menu Suporte,** selecione **Nova solicitação de suporte**. Forneça essas informações sobre a sua solicitação:
+1. No menu de **suporte** , selecione **nova solicitação de suporte**. Forneça essas informações sobre para sua solicitação:
 
    | Propriedade | Valor |
    |---------|-------|
    | **Tipo de problema** | **Técnicos** |
    | **Assinatura** | <*sua assinatura do Azure*> |
-   | **Serviço** | Em **Monitoramento e gerenciamento**, selecione **Agendador**. Se você não conseguir encontrar **o Agendador,** selecione **Todos os serviços** primeiro. |
+   | **Serviço** | Em **Monitoramento e gerenciamento**, selecione **Agendador**. Se você não conseguir localizar o **Agendador**, selecione **todos os serviços** primeiro. |
    ||| 
 
-1. Selecione a opção de suporte desejada. Se você tiver um plano de suporte pago, selecione **Next**.
+1. Selecione a opção de suporte desejada. Se você tiver um plano de suporte pago, selecione **Avançar**.
 
 **Comunidade**
 

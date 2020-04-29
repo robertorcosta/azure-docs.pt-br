@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar a política de grupo nos Serviços de Domínio Ad do Azure | Microsoft Docs
-description: Aprenda a editar os GPOs (Group Policy Objects, objetos de diretiva de grupo incorporados) e criar suas próprias políticas personalizadas em um domínio gerenciado pelo Azure Active Directory Domain Services.
+title: Criar e gerenciar a política de grupo no Azure AD Domain Services | Microsoft Docs
+description: Saiba como editar os GPOs (objetos de diretiva de grupo) internos e criar suas próprias políticas personalizadas em um Azure Active Directory Domain Services domínio gerenciado.
 author: iainfoulds
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 742d716ecdfff6ab67dedc281aa6134020f57add
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655044"
 ---
-# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar a política do grupo em um domínio azure AD Domain Services
+# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
 
-As configurações para objetos de usuário e computador no Azure Active Directory Domain Services (Azure AD DS) são frequentemente gerenciadas usando GPOs (Group Policy Objects, objetos de política de grupo). O Azure AD DS inclui GPOs incorporados para os *contêineres AADDC Users* e *AADDC Computers.* Você pode personalizar esses GPOs incorporados para configurar a Diretiva de Grupo conforme necessário para o seu ambiente. Os membros do grupo de *administradores azure AD DC* têm privilégios de administração de diretiva de grupo no domínio Azure AD DS, e também podem criar GPOs personalizados e unidades organizacionais (OUs). Mais informações sobre o que é política de grupo e como ela funciona, consulte [visão geral da Política de Grupo][group-policy-overview].
+As configurações para objetos de usuário e computador no Azure Active Directory Domain Services (AD DS do Azure) geralmente são gerenciadas usando objetos Política de Grupo (GPOs). O Azure AD DS inclui GPOs internos para os contêineres *usuários AADDC* e *computadores AADDC* . Você pode personalizar esses GPOs internos para configurar Política de Grupo conforme necessário para o seu ambiente. Os membros do grupo de *Administradores de DC do Azure ad* têm política de grupo privilégios de administração no domínio de AD DS do Azure e também podem criar GPOs personalizados e UOs (unidades organizacionais). Para obter mais informações sobre o que Política de Grupo é e como funciona, consulte [política de grupo visão geral][group-policy-overview].
 
-Em um ambiente híbrido, as políticas de grupo configuradas em um ambiente AD DS no local não são sincronizadas com o Azure AD DS. Para definir as configurações de configuração para usuários ou computadores no Azure AD DS, edite um dos GPOs padrão ou crie um GPO personalizado.
+Em um ambiente híbrido, as políticas de grupo configuradas em um ambiente de AD DS local não são sincronizadas com o AD DS do Azure. Para definir as definições de configuração para usuários ou computadores no Azure AD DS, edite um dos GPOs padrão ou crie um GPO personalizado.
 
-Este artigo mostra como instalar as ferramentas de gerenciamento de políticas de grupo, em seguida, editar os GPOs incorporados e criar GPOs personalizados.
+Este artigo mostra como instalar as ferramentas de gerenciamento de Política de Grupo e, em seguida, editar os GPOs internos e criar GPOs personalizados.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -32,95 +32,95 @@ Este artigo mostra como instalar as ferramentas de gerenciamento de políticas d
 Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, complete o tutorial para [criar e configurar uma instância de Serviços de Domínio do Diretório Ativo do Azure][create-azure-ad-ds-instance].
-* Uma VM de gerenciamento do Windows Server que é acompanhada pelo domínio gerenciado pelo Azure AD DS.
-    * Se necessário, complete o tutorial para [criar uma VM do Windows Server e junte-a a um domínio gerenciado][create-join-windows-vm].
+    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
+    * Se necessário, conclua o tutorial para [criar uma VM do Windows Server e associá-la a um domínio gerenciado][create-join-windows-vm].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
 
 > [!NOTE]
-> Você pode usar modelos administrativos de políticas de grupo copiando os novos modelos para a estação de trabalho de gerenciamento. Copie os arquivos *.admx* `%SYSTEMROOT%\PolicyDefinitions` e copie os arquivos *.adml* específicos do local para `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, onde `Language-CountryRegion` corresponda ao idioma e região dos arquivos *.adml.*
+> Você pode usar Política de Grupo Modelos Administrativos copiando os novos modelos para a estação de trabalho de gerenciamento. Copie os arquivos *. admx* no `%SYSTEMROOT%\PolicyDefinitions` e copie os arquivos *. adml* específicos da localidade para `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, onde `Language-CountryRegion` o corresponde ao idioma e à região dos arquivos *. adml* .
 >
-> Por exemplo, copie a versão em inglês, dos Estados `\en-us` Unidos dos arquivos *.adml* na pasta.
+> Por exemplo, copie a versão em inglês Estados Unidos dos arquivos *. adml* para a `\en-us` pasta.
 >
-> Alternativamente, você pode armazenar centralmente seu Modelo Administrativo de Política de Grupo nos controladores de domínio que fazem parte do domínio gerenciado pelo Azure AD DS. Para obter mais informações, consulte [Como criar e gerenciar a Loja Central para Modelos Administrativos de Políticas de Grupo no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+> Como alternativa, você pode armazenar centralmente seu modelo administrativo de Política de Grupo nos controladores de domínio que fazem parte do domínio gerenciado do Azure AD DS. Para obter mais informações, consulte [como criar e gerenciar o armazenamento central para Política de Grupo modelos administrativos no Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
-## <a name="install-group-policy-management-tools"></a>Instale ferramentas de gerenciamento de políticas de grupo
+## <a name="install-group-policy-management-tools"></a>Instalar ferramentas de gerenciamento de Política de Grupo
 
-Para criar e configurar GPOs (Group Policy Object, objeto de política de grupo), você precisa instalar as ferramentas de Gerenciamento de Políticas de Grupo. Essas ferramentas podem ser instaladas como um recurso no Windows Server. Para obter mais informações sobre como instalar as ferramentas administrativas em um cliente Windows, consulte instalar [o RSAT (Remote Server Administration Tools, ferramentas de administração de servidores remotos).][install-rsat]
+Para criar e configurar o objeto de Política de Grupo (GPOs), você precisa instalar as ferramentas de gerenciamento de Política de Grupo. Essas ferramentas podem ser instaladas como um recurso no Windows Server. Para obter mais informações sobre como instalar as ferramentas administrativas em um cliente Windows, consulte instalar o [ferramentas de administração de servidor remoto (RSAT)][install-rsat].
 
-1. Faça login na sua VM de gestão. Para obter etapas sobre como se conectar usando o portal Azure, consulte [Conecte-se a uma VM do Servidor Windows][connect-windows-server-vm].
+1. Entre na sua VM de gerenciamento. Para obter as etapas sobre como se conectar usando o portal do Azure, consulte [conectar-se a uma VM do Windows Server][connect-windows-server-vm].
 1. O **Gerenciador do Servidor** deve abrir por padrão ao entrar na VM. Caso contrário, no menu **Iniciar**, selecione **Gerenciador do Servidor**.
 1. No painel *Dashboard* da janela **Gerenciador do Servidor**, selecione **Adicionar Funções e Recursos**.
 1. Na página **Antes de Você Começar** do *Assistente de Adição de Funções e Recursos*, selecione **Avançar**.
 1. Para o *Tipo de Instalação*, deixe a opção **Instalação baseada em função ou recurso** marcada e selecione **Avançar**.
-1. Na página **Seleção do servidor,** escolha a VM atual no pool de servidores, como *myvm.aaddscontoso.com,* e selecione **Next**.
+1. Na página **Seleção de Servidor**, escolha a VM atual no pool de servidores, como *myvm.aaddscontoso.com* e, em seguida, selecione **Avançar**.
 1. Na página **Funções do Servidor**, clique em **Avançar**.
 1. Na página **Recursos**, selecione o recurso **Gerenciamento de Política de Grupo**.
 
-    ![Instale a 'Gerenciamento de políticas de grupo' na página Recursos](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
+    ![Instalar o ' Gerenciamento de Política de Grupo ' na página de recursos](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. Na página **Confirmação**, selecione **Instalar**. Pode levar um minuto ou dois para instalar as ferramentas de Gerenciamento de Políticas de Grupo.
+1. Na página **Confirmação**, selecione **Instalar**. Pode levar um minuto ou dois para instalar as ferramentas de gerenciamento de Política de Grupo.
 1. Quando a instalação do recurso for concluída, selecione **Fechar** para sair do **Assistente de Adição de Funções e Recursos**.
 
-## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Abra o Console de Gerenciamento de Políticas de Grupo e edite um objeto
+## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Abrir o Console de Gerenciamento de Política de Grupo e editar um objeto
 
-Os GPOs (Default Group Policy Objects, na diretiva de grupo padrão) existem para usuários e computadores em um domínio gerenciado pelo Azure AD DS. Com o recurso De gerenciamento de políticas de grupo instalado na seção anterior, vamos visualizar e editar um GPO existente. Na próxima seção, você cria um GPO personalizado.
+Existem objetos de diretiva de grupo (GPOs) padrão para usuários e computadores em um domínio gerenciado do Azure AD DS. Com o recurso de gerenciamento de Política de Grupo instalado na seção anterior, vamos exibir e editar um GPO existente. Na próxima seção, você criará um GPO personalizado.
 
 > [!NOTE]
-> Para administrar a política de grupo em um domínio gerenciado pelo Azure AD DS, você deve estar conectado a uma conta de usuário que seja membro do grupo *Administradores AAD DC.*
+> Para administrar a política de grupo em um domínio gerenciado AD DS do Azure, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
 
-1. Na tela Iniciar, selecione **Ferramentas Administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada, incluindo o **Gerenciamento de Políticas de Grupo** instalado na seção anterior.
-1. Para abrir o GPMC (Group Policy Management Console, console de gerenciamento de políticas de grupo), escolha **gerenciamento de políticas de grupo**.
+1. Na tela iniciar, selecione **Ferramentas administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada, incluindo o **Gerenciamento de política de grupo** instalado na seção anterior.
+1. Para abrir o Console de Gerenciamento de Política de Grupo (GPMC), escolha **Gerenciamento de política de grupo**.
 
-    ![O Console de Gerenciamento de Políticas de Grupo abre pronto para editar objetos de diretiva de grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
+    ![O Console de Gerenciamento de Política de Grupo abre pronto para editar objetos de política de grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-Existem dois GPOs (Group Policy Objects, objetos de diretiva de grupo) incorporados em um domínio gerenciado pelo Azure AD DS - um para o contêiner *AADDC Computers* e outro para o contêiner *AADDC Users.* Você pode personalizar esses GPOs para configurar a política de grupo conforme necessário no domínio gerenciado pelo Azure AD DS.
+Há dois objetos de Política de Grupo internos (GPOs) em um domínio gerenciado do Azure AD DS-um para o contêiner de *computadores AADDC* e outro para o contêiner de *usuários do AADDC* . Você pode personalizar esses GPOs para configurar a política de grupo conforme necessário em seu domínio gerenciado AD DS do Azure.
 
-1. No console **De Gestão de Políticas de Grupo,** expanda o nó **Floresta: aaddscontoso.com.** Em seguida, expanda os **nós Domínios.**
+1. No console de **Gerenciamento do política de grupo** , expanda o nó **floresta: aaddscontoso.com** . Em seguida, expanda os nós **domínios** .
 
-    Existem dois contêineres incorporados para *computadores AADDC* e *usuários AADDC*. Cada um desses recipientes tem um GPO padrão aplicado a eles.
+    Existem dois contêineres internos para *computadores AADDC* e *usuários do AADDC*. Cada um desses contêineres tem um GPO padrão aplicado a eles.
 
-    ![GPOs incorporados aplicados aos contêineres 'Computadores AADDC' e 'Usuários AADDC' padrão](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
+    ![GPOs internos aplicados aos contêineres padrão ' AADDC Computers ' e ' AADDC users '](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Esses GPOs incorporados podem ser personalizados para configurar políticas de grupo específicas no domínio gerenciado pelo Azure AD DS. Selecione um dos GPOs, como *o AADDC Computers GPO,* e escolha **Editar...**.
+1. Esses GPOs internos podem ser personalizados para configurar políticas de grupo específicas em seu domínio gerenciado AD DS do Azure. Selecione um dos GPOs, como o *GPO computadores AADDC*, e escolha **Editar...**.
 
-    ![Escolha a opção de 'Editar' um dos GPOs incorporados](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
+    ![Escolha a opção para ' Editar ' um dos GPOs internos](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
-1. A ferramenta Group Policy Management Editor é aberta para permitir que você personalize o GPO, como *Políticas de conta*:
+1. A ferramenta Editor de Gerenciamento de Política de Grupo é aberta para permitir que você personalize o GPO, como *políticas de conta*:
 
-    ![Personalize GPO para configurar as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Personalizar o GPO para definir as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-    Quando estiver pronto, escolha **'> salvar para** salvar a diretiva.' Os computadores atualizam a Diretiva de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
+    Quando terminar, escolha **arquivo > salvar** para salvar a política. Os computadores atualizam Política de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
 
-## <a name="create-a-custom-group-policy-object"></a>Crie um objeto de política de grupo personalizado
+## <a name="create-a-custom-group-policy-object"></a>Criar um objeto de Política de Grupo personalizado
 
-Para agrupar configurações de diretiva semelhantes, muitas vezes você cria GPOs adicionais em vez de aplicar todas as configurações necessárias no GPO único e padrão. Com o Azure AD DS, você pode criar ou importar seus próprios objetos de política de grupo personalizados e vinculá-los a um OU personalizado. Se você precisar primeiro criar um OU personalizado, consulte [criar um OU personalizado em um domínio gerenciado pelo Azure AD DS](create-ou.md).
+Para agrupar configurações de política semelhantes, você geralmente cria GPOs adicionais em vez de aplicar todas as configurações necessárias no GPO único, padrão. Com o Azure AD DS, você pode criar ou importar seus próprios objetos de política de grupo personalizados e vinculá-los a uma UO personalizada. Se você precisar primeiro criar uma UO personalizada, consulte [criar uma UO personalizada em um domínio gerenciado AD DS do Azure](create-ou.md).
 
-1. No console **De gestão de políticas de grupo,** selecione sua unidade organizacional personalizada (OU), como *MyCustomOU*. Selecione o OU e escolha **Criar um GPO neste domínio e vinculá-lo aqui...**:
+1. No console de **Gerenciamento do política de grupo** , selecione sua UO (unidade organizacional) personalizada, como *MyCustomOU*. Selecione a UO com o botão direito do mouse e escolha **criar um GPO neste domínio e vincule-o aqui...**:
 
-    ![Crie um GPO personalizado no console de gerenciamento de políticas de grupo](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+    ![Criar um GPO personalizado no console de gerenciamento de Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. Especifique um nome para o novo GPO, como *My custom GPO*, em seguida, selecione **OK**. Você pode, opcionalmente, basear este GPO personalizado em um GPO existente e no conjunto de opções de política.
+1. Especifique um nome para o novo GPO, como *meu GPO personalizado*e, em seguida, selecione **OK**. Opcionalmente, você pode basear esse GPO personalizado em um GPO existente e no conjunto de opções de política.
 
     ![Especifique um nome para o novo GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 
-1. O GPO personalizado é criado e vinculado ao seu OU personalizado. Para agora configurar as configurações de diretiva, selecione à direita o GPO personalizado e escolha **Editar...**:
+1. O GPO personalizado é criado e vinculado à sua UO personalizada. Para configurar agora as configurações de política, selecione o GPO personalizado e escolha **Editar...**:
 
-    ![Escolha a opção para 'Editar' seu GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+    ![Escolha a opção para ' Editar ' seu GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
 
-1. O **Editor de Gerenciamento de Políticas de Grupo** é aberto para permitir que você personalize o GPO:
+1. O **Editor de gerenciamento de política de grupo** é aberto para permitir que você personalize o GPO:
 
-    ![Personalize GPO para configurar as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
+    ![Personalizar o GPO para definir as configurações conforme necessário](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
-    Quando estiver pronto, escolha **'> salvar para** salvar a diretiva.' Os computadores atualizam a Diretiva de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
+    Quando terminar, escolha **arquivo > salvar** para salvar a política. Os computadores atualizam Política de Grupo por padrão a cada 90 minutos e aplicam as alterações feitas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre as configurações de diretiva de grupo disponíveis que você pode configurar usando o Console de Gerenciamento de Políticas de Grupo, consulte [Trabalhar com itens de preferência de diretiva de grupo][group-policy-console].
+Para obter mais informações sobre as configurações de Política de Grupo disponíveis que você pode configurar usando o Console de Gerenciamento de Política de Grupo, consulte [trabalhar com política de grupo itens de preferência][group-policy-console].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -1,6 +1,6 @@
 ---
-title: Usando rótulos para consultas de instrumentos
-description: Dicas para usar etiquetas para fazer consultas de instrumentos no pool Synapse SQL para o desenvolvimento de soluções.
+title: Usando rótulos para consultas de instrumento
+description: Dicas para usar rótulos para instrumentar consultas no pool de SQL do Synapse para desenvolver soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5e2cd03ae878e80139a7f7a8ba67cef15b24d571
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633503"
 ---
-# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Usando rótulos para fazer consultas de instrumentos no pool Synapse SQL
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Usando rótulos para consultas de instrumento no pool de SQL do Synapse
 
-Incluem-se neste artigo dicas para desenvolver soluções usando etiquetas para consultas de instrumentos no pool SQL.
+Estão incluídas neste artigo Dicas para o desenvolvimento de soluções usando rótulos para consultas de instrumento no pool do SQL.
 
 Dicas para usar rótulos para consultas de instrumento no SQL Data Warehouse do Azure para desenvolvimento de soluções.
 
 ## <a name="what-are-labels"></a>O que são rótulos?
 
-O pool SQL suporta um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
+O pool SQL dá suporte a um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
 
 ```sql
 SELECT *
@@ -35,11 +35,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-A última linha marca a cadeia de caracteres ‘Meu Rótulo de Consulta’ à consulta. Essa tag é útil porque o rótulo pode ser consultar através dos DMVs.
+A última linha marca a cadeia de caracteres ‘Meu Rótulo de Consulta’ à consulta. Essa marca é útil porque o rótulo é habilitado para consulta por meio de DMVs.
 
 Consultar rótulos fornece um mecanismo para localizar as consultas de problema e ajudar a identificar o andamento por meio de uma execução de ELT.
 
-Uma boa convenção de nomenclatura ajuda muito. Por exemplo, iniciar o rótulo com PROJECT, PROCEDURE, STATEMENT ou COMMENT identifica exclusivamente a consulta entre todos os códigos no controle de origem.
+Uma boa convenção de nomenclatura ajuda muito. Por exemplo, iniciar o rótulo com projeto, procedimento, instrução ou comentário identifica exclusivamente a consulta entre todo o código no controle do código-fonte.
 
 A consulta a seguir usa uma exibição de gerenciamento dinâmico para pesquisar por rótulo:
 

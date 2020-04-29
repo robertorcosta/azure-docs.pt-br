@@ -1,6 +1,6 @@
 ---
-title: 'Trabalhando remotamente usando Bastião: Azure Bastion'
-description: Esta página descreve como você pode aproveitar o Azure Bastion para permitir o funcionamento remoto devido à pandemia COVID-19.
+title: 'Trabalhando remotamente usando bastiões: bastiões do Azure'
+description: Esta página descreve como você pode aproveitar a bastiões do Azure para habilitar o trabalho remotamente devido ao COVID-19 pandemia.
 services: bastion
 author: mialdrid
 ms.service: bastion
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
 ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619393"
 ---
-# <a name="working-remotely-using-azure-bastion"></a>Trabalhando remotamente usando o Azure Bastion
+# <a name="working-remotely-using-azure-bastion"></a>Trabalhando remotamente usando a bastiões do Azure
 
-O Azure Bastion desempenha um papel fundamental no suporte a cenários de trabalho remoto, permitindo que os usuários com conectividade com a internet acessem máquinas virtuais do Azure. Em particular, ele permite que os administradores de TI gerenciem seus aplicativos em execução no Azure a qualquer hora e de qualquer lugar do mundo.
+A bastiões do Azure exerce uma função dinâmica no suporte a cenários de trabalho remoto, permitindo que os usuários com conectividade com a Internet acessem as máquinas virtuais do Azure. Em particular, ele permite que os administradores de ti gerenciem seus aplicativos em execução no Azure a qualquer momento e de qualquer lugar em todo o mundo.
 
 >[!NOTE]
->Este artigo descreve como você pode aproveitar a rede Azure Bastion, Azure, Microsoft e o ecossistema de parceiros Do Zure para trabalhar remotamente e mitigar problemas de rede que você está enfrentando por causa da crise do COVID-19.
+>Este artigo descreve como você pode aproveitar a bastiões do Azure, o Azure, a rede da Microsoft e o ecossistema de parceiros do Azure para trabalhar remotamente e atenuar os problemas de rede que você está enfrentando devido à crise COVID-19.
 >
 
-## <a name="securely-access-virtual-machines"></a>Acesse com segurança máquinas virtuais
+## <a name="securely-access-virtual-machines"></a>Acessar máquinas virtuais com segurança
 
-Especificamente, o Azure Bastion fornece conectividade RDP/SSH segura e perfeita para máquinas virtuais dentro da rede virtual Azure, diretamente no portal Azure, sem o uso de um endereço IP público. Para obter mais informações sobre a arquitetura do Bastião do Azure e as principais características, confira [o que é o Azure Bastion](bastion-overview.md).
+Especificamente, a bastiões do Azure fornece conectividade RDP/SSH segura e direta para máquinas virtuais na rede virtual do Azure, diretamente no portal do Azure, sem o uso de um endereço IP público. Para obter mais informações sobre a arquitetura de bastiões do Azure e os principais recursos, confira [o que é a bastiões do Azure](bastion-overview.md).
 
-O Azure Bastion é implantado por rede virtual, o que significa que as empresas podem configurar e gerenciar um Azure Bastion para suportar rapidamente o acesso remoto do usuário a máquinas virtuais dentro de uma rede virtual Azure. Para obter orientações sobre como criar e gerenciar o Azure Bastion, consulte [Criar um host bastião](bastion-create-host-portal.md).
+A bastiões do Azure é implantada por rede virtual, o que significa que as empresas podem configurar e gerenciar uma bastiões do Azure para dar suporte rápido ao acesso de usuário remoto a máquinas virtuais em uma rede virtual do Azure. Para obter orientação sobre como criar e gerenciar a bastiões do Azure, consulte [criar um host de bastiões](bastion-create-host-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Configure o Azure Bastion usando o [portal Azure,](bastion-create-host-portal.md) [PowerShell](bastion-create-host-powershell.md)ou Azure CLI.
+* Configure a bastiões do Azure usando o [portal do Azure](bastion-create-host-portal.md), o [PowerShell](bastion-create-host-powershell.md)ou o CLI do Azure.
 
-* Leia o [Bastion FAQ](bastion-faq.md) para obter informações adicionais.
+* Leia as [perguntas frequentes sobre bastiões](bastion-faq.md) para obter informações adicionais.

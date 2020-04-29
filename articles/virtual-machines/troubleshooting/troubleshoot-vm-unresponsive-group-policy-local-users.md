@@ -1,6 +1,6 @@
 ---
-title: A Máquina Virtual não responde ao aplicar a política 'Política de grupo Usuários locais & Grupos'
-description: Este artigo fornece etapas para resolver problemas onde a tela de carga está presa aplicando uma diretiva durante a inicialização em uma Máquina Virtual Azure (VM).
+title: A máquina virtual não está respondendo ao aplicar a política ' Política de Grupo usuários locais & grupos '
+description: Este artigo fornece etapas para resolver problemas em que a tela de carga está presa aplicando uma política durante a inicialização em uma VM (máquina virtual) do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -15,131 +15,131 @@ ms.topic: troubleshooting
 ms.date: 04/02/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 085880122e9a80e976cfe59686748b58aeba1922
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80620851"
 ---
-# <a name="virtual-machine-is-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>A Máquina Virtual não responde ao aplicar a política 'Política de grupo Usuários locais & Grupos'
+# <a name="virtual-machine-is-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>A máquina virtual não está respondendo ao aplicar a política ' Política de Grupo usuários locais & grupos '
 
-Este artigo fornece etapas para resolver problemas onde a tela de carga está presa aplicando uma diretiva, durante o boot, em uma Máquina Virtual Azure (VM).
+Este artigo fornece etapas para resolver problemas em que a tela de carga está presa aplicando uma política, durante a inicialização, em uma VM (máquina virtual) do Azure.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usa [diagnósticode inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a tela está presa carregando com a mensagem: *Aplicação da política de grupo Usuários locais e grupos .*
+Quando você usa o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que ela está presa no carregamento com a mensagem: *aplicando política de grupo política de grupos e usuários locais*.
 
-![Texto Alt: Tela mostrando a aplicação da política de grupo Locais usuários e grupos de política de carregamento de políticas (Windows Server 2012).](media/troubleshoot-vm-unresponsive-group-policy-local-users/1.png)
+![Texto alt: tela mostrando a aplicação Política de Grupo carregamento da política de grupos e usuários locais (Windows Server 2012).](media/troubleshoot-vm-unresponsive-group-policy-local-users/1.png)
 
 Windows Server 2012
 
-![Texto Alt: Tela mostrando a aplicação da política de grupo Locais usuários e grupos de política de carregamento (Windows Server 2012 R2).](media/troubleshoot-vm-unresponsive-group-policy-local-users/2.png)
+![Texto alt: tela mostrando a aplicação Política de Grupo carregamento da política de grupos e usuários locais (Windows Server 2012 R2).](media/troubleshoot-vm-unresponsive-group-policy-local-users/2.png)
 
 Windows Server 2012 R2
 
 ## <a name="cause"></a>Causa
 
-Os sintomas deste congelamento são causados por um defeito de código na Biblioteca de Link Dinâmico do Serviço de Perfil do Windows (*profsvc.dll*).
+Os sintomas desse congelamento são causados por um defeito de código na biblioteca de vínculo dinâmico do serviço de perfil do Windows (*profsvc. dll*).
 
 > [!NOTE]
-> Esse defeito se aplica apenas no Windows Server 2012 e no Windows Server 2012 R2.
+> Esse defeito se aplica somente ao Windows Server 2012 e ao Windows Server 2012 R2.
 
 ### <a name="the-policy-in-question"></a>A política em questão
 
-A política que está sendo aplicada que não terminará seus processos é:
+A política que está sendo aplicada que não concluirá seus processos é:
 
-* *Configuração do computador\Políticas\Modelos administrativos\Perfis do sistema/perfis de usuário\Exclua perfis de usuário mais antigos do que um número especificado de dias na reinicialização do sistema*
+* *Os modelos de configuração do computador \ sistema/usuário Profiles\Delete perfis de usuário com mais de um número especificado de dias durante a reinicialização do sistema*
 
-Esta política só será travada se as seguintes seis condições forem verdadeiras:
+Esta política só será travada se as seis condições a seguir forem verdadeiras:
 
-* O *excluir perfis de usuário mais antigos do que um número especificado de dias na diretiva de reinicialização do sistema* está ativado.
-* Você tem perfis que atenderam aos requisitos de idade para exigir limpeza.
-* Você tem componentes que se registraram para excluir notificação para perfis.
-* Os componentes fazem chamadas (diretas ou indiretas) que precisam adquirir dados dos componentes do Service Control Manager (SCM) do Windows, como Iniciar, Parar ou Consultar informações sobre um serviço.
+* A *exclusão de perfis de usuário mais antigos que um número especificado de dias na política de reinicialização do sistema* está habilitada.
+* Você tem perfis que atenderam aos requisitos de idade para exigir a limpeza.
+* Você tem componentes que registraram para notificação de exclusão para perfis.
+* Os componentes fazem chamadas (diretas ou indiretas) que precisam adquirir dados dos componentes do Gerenciador de controle de serviço (SCM) do Windows, como informações de início, parada ou consulta sobre um serviço.
 * Você tem um serviço configurado para iniciar como *automático*.
-* Este serviço é definido para ser executado sob o contexto de uma conta de domínio (em vez de usar uma conta incorporada, como um sistema local).
+* Esse serviço é definido para ser executado sob o contexto de uma conta de domínio (em vez de usar uma conta interna, como um sistema local).
 
-### <a name="the-code-defect"></a>O defeito de código
+### <a name="the-code-defect"></a>O defeito do código
 
-O defeito de código deve-se ao Service Control Manager (SCM) e aos serviços profile que tentam aplicar bloqueios um no outro simultaneamente. Existem bloqueios para impedir que vários serviços sejam alterados nos mesmos dados ao mesmo tempo, o que causaria corrupção. Normalmente, vários pedidos de bloqueio não causariam problemas. No entanto, uma vez que isso está acontecendo durante o boot, nenhum serviço pode completar seus processos, pois eles estão presos esperando um pelo outro.
+O defeito do código é devido ao SCM (Gerenciador de controle de serviço) e aos serviços de perfil que tentam aplicar bloqueios uns aos outros simultaneamente. Há bloqueios para impedir que vários serviços façam alterações nos mesmos dados ao mesmo tempo, o que causaria corrupção. Normalmente, várias solicitações de bloqueio não causarão um problema. No entanto, como isso está ocorrendo durante a inicialização, nenhum serviço pode concluir seus processos, pois eles ficam presos entre si.
 
-### <a name="os-bug-5880648---service-control-manager-deadlocks-with-the-delete-user-profiles-on-restart-policy"></a>Bug do SISTEMA OPERACIONAL 5880648 - Impasses do Service Control Manager com a política "Excluir perfis de usuário na reinicialização"
+### <a name="os-bug-5880648---service-control-manager-deadlocks-with-the-delete-user-profiles-on-restart-policy"></a>Bug do so 5880648-deadlocks do Gerenciador de controle de serviço com a política "excluir perfis de usuário ao reiniciar"
 
-Existem duas ações que se sobrepõem de modo que:
+Há duas ações que se sobrepõem para que:
 
-* A Ação 1 adquire o bloqueio de perfil, mas ainda não adquiriu o bloqueio SCM.
+* A ação 1 adquire o bloqueio de perfil, mas ainda não adquiriu o bloqueio de SCM.
 
-  **AND**
+  **E**
 
-* A Ação 2 adquire o bloqueio SCM, mas ainda não adquiriu o bloqueio do perfil.
+* A ação 2 adquire o bloqueio do SCM, mas ainda não adquiriu o bloqueio do perfil.
 
-Uma vez que esse impasse ocorra, a tentativa de adquirir o segundo bloqueio necessário trava a ação.
+Quando esse deadlock ocorrer, a tentativa de adquirir o segundo bloqueio necessário suspende a ação.
 
-### <a name="action-1---old-profile-deletion-notification-has-profile-lock-needs-scm-lock"></a>Ação 1 - Notificação de exclusão de perfil antigo (tem **bloqueio de perfil,** precisa **de bloqueio de SCM**)
+### <a name="action-1---old-profile-deletion-notification-has-profile-lock-needs-scm-lock"></a>Ação 1-notificação de exclusão de perfil antigo (tem **bloqueio de perfil**, precisa de **bloqueio de SCM**)
 
-1. Primeiro, a diretiva definida para excluir perfis antigos adquire um bloqueio de serviço de perfil interno.
+1. Primeiro, a política definida para excluir perfis antigos adquire um bloqueio de serviço de perfil interno.
 
-   * Este bloqueio está lá para evitar que dois segmentos interajam com os perfis enquanto a *operação de exclusão* é progresso.
+   * Esse bloqueio está lá para impedir que dois threads interajam com os perfis enquanto a *operação de exclusão* está em andamento.
 
-2. A política encontra perfis que têm idade suficiente para serem excluídos.
-3. Como parte da exclusão do perfil, um componente que se cadastrou para notificações das exclusões de um perfil tenta **iniciar um serviço**.
-4. Antes de iniciar o serviço, o Service Control Manager (SCM) precisa adquirir um **bloqueio scm interno** mantido por threads na **Ação 2**.
+2. A política localiza perfis que são antigos o suficiente para serem excluídos.
+3. Como parte da exclusão do perfil, um componente que foi registrado para notificações das exclusões de um perfil tenta **Iniciar um serviço**.
+4. Antes de iniciar o serviço, o SCM (Gerenciador de controle de serviço) precisa adquirir um **bloqueio de SCM interno** mantido por threads na **ação 2**.
 
-### <a name="action-2---profile-loadcreation-for-user-specific-data-has-scm-lock-needs-profile-lock"></a>Ação 2 - Carga/criação de perfil para dados específicos do usuário (tem **bloqueio scm**, precisa **bloqueio de perfil)**
+### <a name="action-2---profile-loadcreation-for-user-specific-data-has-scm-lock-needs-profile-lock"></a>Ação 2-carregamento/criação de perfil para dados específicos do usuário (tem **bloqueio de SCM**, precisa de **bloqueio de perfil**)
 
-1. No boot, o SCM precisa encomendar todos os serviços *de início automático* por seu grupo, bem como todos os serviços dos quais esses serviços dependem.
+1. Na inicialização, o SCM precisa solicitar todos os serviços de *início automático* por seu grupo, bem como quaisquer serviços dos quais esses serviços dependem.
 
-2. **O SCM adquire um bloqueio scm interno** usado para controlar o acesso à partida, parada ou configuração de serviços à medida que ordena os serviços.
+2. O **SCM adquire um bloqueio de SCM interno** usado para controlar o acesso para iniciar, interromper ou configurar serviços à medida que ele ordena os serviços.
 
-3. Uma vez que os serviços estejam em ordem, o SCM faz loops em cada serviço e o inicia.
+3. Depois que os serviços estão em ordem, o SCM percorre cada serviço e o inicia.
 
-4. Se o serviço estiver sendo executado sob o contexto de uma conta de domínio, um perfil precisa ser carregado ou criado para a conta de domínio, para que ele possa armazenar dados específicos do usuário.
+4. Se o serviço estiver sendo executado sob o contexto de uma conta de domínio, um perfil precisará ser carregado ou criado para a conta de domínio, para que possa armazenar dados específicos do usuário.
 
-5. Esta solicitação é enviada para o **Serviço de Perfil**.
+5. Essa solicitação é enviada para o **serviço de perfil**.
 
-6. O serviço de perfil precisa ter acesso ao **bloqueio interno** adquirido na **Ação 1**.
+6. O serviço de perfil precisa acessar o **bloqueio interno** adquirido na **ação 1**.
 
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
 
 1. Criar e acessar uma VM de reparo
-2. Habilitar a coleção de despejo de memória e console serial
-3. Reconstruir o VM
+2. Habilitar o console serial e a coleção de despejo de memória
+3. Recriar a VM
 4. Coletar o arquivo de despejo de memória
 
    > [!NOTE]
-   > Ao encontrar esse erro de inicialização, o Sistema Operacional convidado não está operacional. Você estará solucionando problemas no modo Offline para resolver esse problema.
+   > Ao encontrar esse erro de inicialização, o SO convidado não está operacional. Você estará Solucionando problemas no modo offline para resolver esse problema.
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
 1. Use [as etapas 1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar uma VM de reparo.
-2. Usando a conexão remota da área de trabalho conecte-se à VM de reparo.
+2. Usando Conexão de Área de Trabalho Remota Conecte-se à VM de reparo.
 
-### <a name="enable-serial-console-and-memory-dump-collection"></a>Habilitar a coleção de despejo de memória e console serial
+### <a name="enable-serial-console-and-memory-dump-collection"></a>Habilitar o console serial e a coleção de despejo de memória
 
-Para habilitar a coleção de dump de memória e o Serial Console, execute o script abaixo:
+Para habilitar a coleta de despejo de memória e o console serial, execute o script abaixo:
 
-1. Abra uma sessão de prompt de comando elevada (Execute como administrador).
-2. Execute os seguintes comandos:
+1. Abra uma sessão de prompt de comando com privilégios elevados (executar como administrador).
+2. Execute os comandos a seguir:
 
-   * Ativar console serial:
+   * Habilitar console serial:
 
      `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
      `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-3. Verifique se o espaço livre no disco do SO é tanto quanto o tamanho da memória (RAM) na VM.
+3. Verifique se o espaço livre no disco do sistema operacional é tão grande quanto o tamanho da memória (RAM) na VM.
 
-   * Se não houver espaço suficiente no disco do SISTEMA OPERACIONAL, você deve alterar o local onde o arquivo de despejo de memória será criado e encaminhá-lo para qualquer disco de dados anexado à VM que tenha espaço livre suficiente. Para alterar a `%SystemRoot%` localização, substitua-a pela letra de unidade (como "F:") do disco de dados nos comandos abaixo.
+   * Se não houver espaço suficiente no disco do sistema operacional, você deverá alterar o local em que o arquivo de despejo de memória será criado e referir-se a qualquer disco de dados anexado à VM que tenha espaço livre suficiente. Para alterar o local, substitua `%SystemRoot%` pela letra da unidade (como "F:") do disco de dados nos comandos abaixo.
 
-#### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para ativar o dump do SISTEMA OPERACIONAL
+#### <a name="suggested-configuration-to-enable-os-dump"></a>Configuração sugerida para habilitar o despejo do sistema operacional
 
-**Carregar disco do sistema operacional quebrado:**
+**Carregar disco do so quebrado:**
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
-**Habilitar no ControlSet001:**
+**Habilitar em ControlSet001:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -147,7 +147,7 @@ Para habilitar a coleção de dump de memória e o Serial Console, execute o scr
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Habilitar no ControlSet002:**
+**Habilitar em ControlSet002:**
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f`
 
@@ -155,24 +155,24 @@ Para habilitar a coleção de dump de memória e o Serial Console, execute o scr
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-### <a name="rebuild-the-vm"></a>Reconstruir o VM
+### <a name="rebuild-the-vm"></a>Recriar a VM
 
 Use [a etapa 5 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar a VM.
 
 ### <a name="collect-the-memory-dump-file"></a>Coletar o arquivo de despejo de memória
 
-Para resolver esse problema, você precisaria primeiro reunir o arquivo de despejo de memória para o crash e o suporte de contato com o arquivo de despejo de memória. Para coletar o arquivo de despejo, siga estas etapas:
+Para resolver esse problema, você precisaria primeiro coletar o arquivo de despejo de memória para a falha e contatar o suporte com o arquivo de despejo de memória. Para coletar o arquivo de despejo, siga estas etapas:
 
-#### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Conecte o disco do SISTEMA OPERACIONAL a uma nova VM de reparo
+#### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Anexar o disco do sistema operacional a uma nova VM de reparo
 
 1. Use as etapas [1-3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar uma nova VM de reparo.
 
-2. Usando a conexão remota da área de trabalho conecte-se à VM de reparo.
+2. Usando Conexão de Área de Trabalho Remota Conecte-se à VM de reparo.
 
-#### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o arquivo de despejo e envie um bilhete de suporte
+#### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localizar o arquivo de despejo e enviar um tíquete de suporte
 
-1. Na VM de reparo, vá para a pasta do Windows no disco do sistema operacional conectado. Se a letra da unidade atribuída ao disco do SO anexado for F, você precisará ir até F:\Windows.
+1. Na VM de reparo, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra da unidade atribuída ao disco do SO anexado for F, você precisará ir até F:\Windows.
 
-2. Localize o arquivo memory.dmp e envie [um bilhete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória.
+2. Localize o arquivo Memory. dmp e [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo de memória.
 
-3. Se você estiver tendo problemas para localizar o arquivo memory.dmp, você pode querer usar [chamadas nmi (interrupção não mascaradas) no console serial.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) Você pode seguir o guia para [gerar um kernel ou concluir o](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump) arquivo de falha usando chamadas NMI.
+3. Se você estiver tendo problemas para localizar o arquivo Memory. dmp, talvez queira usar [chamadas de NMI (interrupção não mascaráveis) no console serial](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Você pode seguir o guia para [gerar um kernel ou um](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump) arquivo de despejo de memória completo usando chamadas NMI.

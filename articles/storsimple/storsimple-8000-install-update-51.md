@@ -1,6 +1,6 @@
 ---
-title: Instalar a atualização 5.1 no dispositivo da série StorSimple 8000 | Microsoft Docs
-description: Explica como instalar a série StorSimple 8000 Update 5.1 no seu dispositivo da série StorSimple 8000.
+title: Instalar a atualização 5,1 no dispositivo StorSimple da série 8000 | Microsoft Docs
+description: Explica como instalar a atualização 5,1 do StorSimple 8000 Series em seu dispositivo StorSimple da série 8000.
 services: storsimple
 documentationcenter: NA
 author: priestlg
@@ -13,25 +13,25 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
 ms.openlocfilehash: b90f0f35f908d16b0746075e638fe66769939a64
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80658034"
 ---
-# <a name="install-update-51-on-your-storsimple-device"></a>Instale a Atualização 5.1 no seu dispositivo StorSimple
+# <a name="install-update-51-on-your-storsimple-device"></a>Instalar a atualização 5,1 em seu dispositivo StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial explica como instalar o Update 5.1 em um dispositivo StorSimple executando uma versão de software anterior através do portal Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+Este tutorial explica como instalar a atualização 5,1 em um dispositivo StorSimple que executa uma versão de software anterior por meio do portal do Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
-A atualização 5.1 inclui atualizações de segurança sem interrupções. As atualizações sem interrupções ou regulares podem ser aplicadas através do portal Azure <!--or by the hotfix method-->.
+A atualização 5,1 inclui atualizações de segurança sem interrupções. As atualizações sem interrupção ou regulares podem ser aplicadas por meio do portal do Azure <!--or by the hotfix method-->.
 
 > [!IMPORTANT]
 >
-> * A atualização 5.1 é uma atualização obrigatória e deve ser instalada imediatamente. Para obter mais informações, consulte [As notas de versão da Atualização 5.1](storsimple-update51-release-notes.md).
-> * Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são realizadas somente se você aplicar as atualizações do portal Azure.
-> * Se você quiser instalar usando o método hotfix, entre em contato com o [Microsoft Support](mailto:support@microsoft.com).
+> * A atualização 5,1 é uma atualização obrigatória e deve ser instalada imediatamente. Para obter mais informações, consulte [Atualizar notas de versão 5,1](storsimple-update51-release-notes.md).
+> * Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas verificações prévias serão executadas somente se você aplicar as atualizações do portal do Azure.
+> * Se você quiser instalar o usando o método de hotfix, entre em contato com [suporte da Microsoft](mailto:support@microsoft.com).
 
 <!--
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
@@ -45,9 +45,9 @@ A atualização 5.1 inclui atualizações de segurança sem interrupções. As a
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-51-through-the-azure-portal"></a>Instale a Atualização 5.1 através do portal Azure
+## <a name="install-update-51-through-the-azure-portal"></a>Instalar a atualização 5,1 por meio do portal do Azure
 
-Execute as seguintes etapas para atualizar seu dispositivo para [atualização 5.1](storsimple-update51-release-notes.md).
+Execute as etapas a seguir para atualizar seu dispositivo para a [atualização 5,1](storsimple-update51-release-notes.md).
 
 > [!NOTE]
 > Microsoft efetua pull de informações adicionais de diagnóstico do dispositivo. Como resultado, quando nossa equipe de operações identifica dispositivos com problemas, estamos mais bem equipados para coletar informações do dispositivo e diagnosticar problemas.
@@ -58,7 +58,7 @@ Execute as seguintes etapas para atualizar seu dispositivo para [atualização 5
 
     ![Selecionar dispositivo](./media/storsimple-8000-install-update-51/update1.png)
 
-2. Navegue até **as configurações** > do**dispositivo Atualizações do dispositivo**.
+2. Navegue até **configurações** > do dispositivo**atualizações do dispositivo**.
 
     ![Clique em Atualizações de dispositivo](./media/storsimple-8000-install-update-51/update2.png)
 
@@ -95,7 +95,7 @@ Execute as seguintes etapas para atualizar seu dispositivo para [atualização 5
 10. Após a conclusão do trabalho, navegue até **Configurações do dispositivo > Atualizações do dispositivo**. A versão do software deve ser atualizada.
 
 
-Verifique se seu dispositivo está executando **a atualização 5.1 da série StorSimple 8000 (6.3.9600.17885)**. A **Data da última atualização** deve ser modificada.
+Verifique se o dispositivo está executando a **atualização 5,1 da série 8000 do StorSimple (6.3.9600.17885)**. A **Data da última atualização** deve ser modificada.
 <!-- 5.1 - KB 4542887-->
 
 <!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
@@ -168,4 +168,4 @@ Perform the following steps to download and install the hotfixes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [versão Update 5.1](storsimple-update51-release-notes.md).
+Saiba mais sobre a [versão da atualização 5,1](storsimple-update51-release-notes.md).

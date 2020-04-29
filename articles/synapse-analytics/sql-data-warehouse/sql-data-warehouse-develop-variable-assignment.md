@@ -1,6 +1,6 @@
 ---
 title: Atribuir variáveis
-description: Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool SQL.
+description: Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool do SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633416"
 ---
-# <a name="assign-variables-in-synapse-sql-pool"></a>Atribuir variáveis no pool Synapse SQL
+# <a name="assign-variables-in-synapse-sql-pool"></a>Atribuir variáveis no pool do SQL Synapse
 
-Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool SQL.
+Neste artigo, você encontrará dicas essenciais para atribuir variáveis T-SQL no pool do SQL.
 
 ## <a name="set-variables-with-declare"></a>Definir variáveis com DECLARE
 
-As variáveis no pool SQL `DECLARE` são `SET` definidas usando a declaração ou a declaração. Inicializar variáveis com DECLARE é uma das formas mais flexíveis de definir um valor variável no pool SQL.
+As variáveis no pool SQL são definidas usando `DECLARE` a instrução ou `SET` a instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no pool do SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Você não pode inicializar e usar uma variável na mesma declaração DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido, já que @p1 foi inicializado e usado na mesma instrução DECLARE. Como tal, o seguinte exemplo dá um erro:
+Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido, já que @p1 foi inicializado e usado na mesma instrução DECLARE. Como tal, o exemplo a seguir fornece um erro:
 
 ```sql
 DECLARE @p1 int = 0
@@ -64,7 +64,7 @@ Você só pode definir uma variável por vez com SET. No entanto, os operadores 
 
 ## <a name="limitations"></a>Limitações
 
-Você não pode usar UPDATE para atribuição variável.
+Você não pode usar UPDATE para atribuição de variável.
 
 ## <a name="next-steps"></a>Próximas etapas
 

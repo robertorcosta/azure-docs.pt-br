@@ -1,6 +1,6 @@
 ---
-title: Tipos de colagem de data warehouse
-description: Tipos de collation suportados no pool Azure Synapse Analytics SQL.
+title: Tipos de agrupamento do data warehouse
+description: Tipos de agrupamento com suporte no pool do SQL do Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,25 +11,25 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 202bbaf4ea53dd6ba285e79dfa9e6ce782c0903e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633079"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte de colagem de banco de dados para o pool SQL do Azure Synapse Analytics
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte a agrupamento de banco de dados para o pool SQL do Azure Synapse Analytics
 
-Você pode alterar a colagem de banco de dados padrão do portal Azure quando criar um novo banco de dados synapse Synapse. Esse recurso torna ainda mais fácil criar um novo banco de dados usando uma das 3800 colagens de banco de dados suportadas.
+Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao criar um novo banco de dados do pool SQL do Azure Synapse. Esse recurso facilita ainda mais a criação de um novo banco de dados usando um dos agrupamentos de banco de dados com suporte 3800.
 
-As collações fornecem regras de localização, página de código, ordem de classificação e sensibilidade de caracteres para tipos de dados baseados em caracteres. Uma vez escolhidos, todas as colunas e expressões que requerem informações de colagem herdam a colagem escolhida a partir da configuração do banco de dados. A herança padrão pode ser substituída indicando explicitamente uma coletânea diferente para um tipo de dados baseado em caracteres.
+Os agrupamentos fornecem a localidade, a página de código, a ordem de classificação e as regras de sensibilidade de caracteres para tipos de dados baseados em caracteres. Depois de escolhido, todas as colunas e expressões que exigem informações de agrupamento herdam o agrupamento escolhido da configuração do banco de dados. A herança padrão pode ser substituída informando explicitamente um agrupamento diferente para um tipo de dados baseado em caractere.
 
-## <a name="changing-collation"></a>Mudança de colagem
+## <a name="changing-collation"></a>Alterando agrupamento
 
-Para alterar a colagem padrão, atualize-o para o campo Collation na experiência de provisionamento.
+Para alterar o agrupamento padrão, atualize para o campo agrupamento na experiência de provisionamento.
 
-Por exemplo, se você quisesse alterar a colagem padrão para sensível ao caso, você simplesmente renomearia o Collation de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS.
+Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS.
 
-## <a name="list-of-unsupported-collation-types"></a>Lista de tipos de colagem sem suporte
+## <a name="list-of-unsupported-collation-types"></a>Lista de tipos de agrupamentos sem suporte
 
 * Japanese_Bushu_Kakusu_140_BIN
 * Japanese_Bushu_Kakusu_140_BIN2
@@ -102,12 +102,12 @@ Por exemplo, se você quisesse alterar a colagem padrão para sensível ao caso,
 * SQL_EBCDIC1141_CP1_CS_AS
 * SQL_EBCDIC277_2_CP1_CS_AS
 
-## <a name="checking-the-current-collation"></a>Verificando a colagem atual
+## <a name="checking-the-current-collation"></a>Verificando o agrupamento atual
 
-Para verificar a colagem atual para o banco de dados, você pode executar o seguinte trecho T-SQL:
+Para verificar o agrupamento atual do banco de dados, você pode executar o seguinte trecho T-SQL:
 
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-Quando passou 'Collation' como parâmetro de propriedade, a função DatabasePropertyEx retorna a colagem atual para o banco de dados especificado. Para obter mais informações, consulte [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Quando passou ' collation ' como o parâmetro Property, a função DatabasePropertyEx retorna o agrupamento atual para o banco de dados especificado. Para obter mais informações, consulte [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

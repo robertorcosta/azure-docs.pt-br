@@ -1,7 +1,7 @@
 ---
 title: Consumir um serviço Web
 titleSuffix: ML Studio (classic) - Azure
-description: Uma vez que um serviço de aprendizado de máquina é implantado no Azure Machine Learning Studio (clássico), o serviço DA WEB RESTFul pode ser consumido tanto como serviço de solicitação-resposta em tempo real ou como um serviço de execução em lote.
+description: Depois que um serviço de Machine Learning é implantado do Azure Machine Learning Studio (clássico), o serviço Web RESTFul pode ser consumido como serviço de solicitação-resposta em tempo real ou como um serviço de execução em lote.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,22 +11,22 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
 ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631654"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web do Azure Machine Learning Studio (clássico)
+# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço Web Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Depois de implantar um modelo preditivo (clássico) do Azure Machine Learning Studio (clássico) como um serviço web, você pode usar uma API REST para enviá-los dados e obter previsões. Você pode enviar os dados em tempo real ou em modo de lote.
+Depois de implantar um modelo de previsão de Azure Machine Learning Studio (clássico) como um serviço Web, você pode usar uma API REST para enviar dados de ti e obter previsões. Você pode enviar os dados em tempo real ou em modo de lote.
 
-Você pode encontrar mais informações sobre como criar e implantar um serviço web de aprendizado de máquina usando o Machine Learning Studio (clássico) aqui:
+Você pode encontrar mais informações sobre como criar e implantar um serviço Web Machine Learning usando Machine Learning Studio (clássico) aqui:
 
-* Para um tutorial sobre como criar um experimento no Machine Learning Studio (clássico), consulte [Criar sua primeira experiência](create-experiment.md).
-* Para obter detalhes sobre como implantar um serviço web, consulte [Implantar um serviço web de aprendizado de máquina](deploy-a-machine-learning-web-service.md).
+* Para obter um tutorial sobre como criar um experimento no Machine Learning Studio (clássico), consulte [criar seu primeiro experimento](create-experiment.md).
+* Para obter detalhes sobre como implantar um serviço Web, consulte [implantar um serviço web Machine Learning](deploy-a-machine-learning-web-service.md).
 * Para obter mais informações sobre o Machine Learning em geral, visite o [Centro de Documentação do Machine Learning do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
@@ -34,12 +34,12 @@ Você pode encontrar mais informações sobre como criar e implantar um serviço
 ## <a name="overview"></a>Visão geral
 Com o serviço Web do Azure Machine Learning, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho do Machine Learning em tempo real. Uma chamada do serviço Web do Machine Learning retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do Machine Learning, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web do Machine Learning baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
-O Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
+Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
 
-* Serviço de Solicitação-Resposta (RRS) – Um serviço de baixa latência, altamente escalável que fornece uma interface para os modelos apátridas criados e implantados a partir do Machine Learning Studio (clássico).
+* RRS (serviço de solicitação-resposta) – um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem estado criados e implantados a partir do Machine Learning Studio (clássico).
 * Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
 
-Para obter mais informações sobre os serviços web de aprendizado de máquina, consulte [Implantar um serviço web de aprendizado de máquina](deploy-a-machine-learning-web-service.md).
+Para obter mais informações sobre Machine Learning serviços Web, consulte [implantar um serviço web Machine Learning](deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-an-authorization-key"></a>Obter uma chave de autorização
 Quando você implanta seu experimento, as chaves de API são geradas para o serviço Web. Você pode recuperar as chaves de vários locais.
@@ -63,16 +63,16 @@ Para recuperar a chave de API para um serviço Web clássico do Machine Learning
 5. Copie e salve a **Chave Primária**.
 
 ### <a name="classic-web-service"></a>Serviço Web Clássico
- Você também pode recuperar uma chave para um serviço web clássico do Machine Learning Studio (clássico).
+ Você também pode recuperar uma chave para um serviço Web clássico do Machine Learning Studio (clássico).
 
 #### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (clássico)
-1. Em Machine Learning Studio (clássico), clique em **WEB SERVICES** à esquerda.
+1. Em Machine Learning Studio (clássico), clique em **Serviços Web** à esquerda.
 2. Clique em um serviço Web. A **Chave de API** está na guia **PAINEL**.
 
-## <a name="connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Conecte-se a um serviço web de aprendizado de máquina
+## <a name="connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Conectar-se a um serviço Web Machine Learning
 Você pode se conectar a um serviço Web do Machine Learning usando qualquer linguagem de programação que dá suporte à resposta e à solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de ajuda do serviço Web do Machine Learning.
 
-**Ajuda da API de aprendizado de máquina** A ajuda de API de aprendizado de máquina é criada quando você implanta um serviço web. Ver [Tutorial 3: Implantar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
+**Ajuda da API Machine Learning** Machine Learning a ajuda da API é criada quando você implanta um serviço Web. Consulte [tutorial 3: implantar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 A ajuda da API do Machine Learning contém detalhes sobre um serviço Web de previsão.
 
 1. Clique no serviço Web com o qual está trabalhando.
@@ -82,7 +82,7 @@ A ajuda da API do Machine Learning contém detalhes sobre um serviço Web de pre
 
 **Como exibir a ajuda da API do Machine Learning para um novo serviço Web**
 
-No [portal de serviços web de aprendizagem de máquina do Azure](https://services.azureml.net/):
+No [portal de serviços Web do Azure Machine Learning](https://services.azureml.net/):
 
 1. Clique em **SERVIÇOS WEB** no menu superior.
 2. Clique no serviço Web para o qual deseja recuperar a chave.
@@ -92,20 +92,20 @@ Clique em **Usar Serviço Web** para obter os URIs dos Serviços de Solicitaçã
 Clique em **API do Swagger** para obter a documentação baseada no Swagger para as APIs chamadas dos URIs fornecidos.
 
 ### <a name="c-sample"></a>Exemplo de C#
-Para se conectar a um serviço web de aprendizado de máquina, use um ScoreData de passagem **httpClient.** ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Machine Learning com uma chave de API.
+Para se conectar a um serviço Web Machine Learning, use um **HttpClient** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Machine Learning com uma chave de API.
 
-Para se conectar a um serviço web de aprendizado de máquina, o pacote **Microsoft.AspNet.WebApi.Client** NuGet deve ser instalado.
+Para se conectar a um serviço Web Machine Learning, o pacote NuGet **Microsoft. AspNet. WebApi. Client** deve ser instalado.
 
-**Instale microsoft.AspNet.WebApi.Client NuGet no Visual Studio**
+**Instalar o NuGet Microsoft. AspNet. WebApi. Client no Visual Studio**
 
 1. Publique “Baixe o conjunto de dados de Download de UCI: Serviço Web do conjunto de dados da classe Adulto 2”.
-2. Clique **em Ferramentas** > **NuGet Package Manager** > **Package Manager Console**.
+2. Clique em **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador de pacotes**.
 3. Escolha **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Para executar o exemplo de código**
 
 1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Veja **Obter uma chave de autorização** acima.
+2. Atribua apiKey com a chave de um serviço Web. Consulte **obter uma chave de autorização** acima.
 3. Atribua serviceUri com o URI de solicitação.
 
 **Esta é a aparência de uma solicitação concluída.**
@@ -201,7 +201,7 @@ Para conectar-se a um serviço Web de Machine Learning, use a biblioteca **urlli
 **Para executar o exemplo de código**
 
 1. Implante o experimento "Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2", parte da coleção de exemplos de Machine Learning.
-2. Atribua apiKey com a chave de um serviço Web. Consulte a seção Obter uma chave **de autorização** perto do início deste artigo.
+2. Atribua apiKey com a chave de um serviço Web. Consulte a seção **obter uma chave de autorização** próximo ao início deste artigo.
 3. Atribua serviceUri com o URI de solicitação.
 
 **Esta é a aparência de uma solicitação concluída.**

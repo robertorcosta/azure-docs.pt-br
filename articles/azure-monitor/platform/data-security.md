@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
 ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333351"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
@@ -50,7 +50,7 @@ Não é recomendável definir explicitamente seu agente para usar somente o TLS 
 Depois que seus dados são ingeridos pelo serviço Log Analytics, os dados são mantidos separados logicamente em cada componente no serviço. Todos os dados são marcados por workspace. Essa marcação persiste em todo o ciclo de vida dos dados e é imposta em cada camada do serviço. Os dados ficam armazenados em um banco de dados dedicado no cluster de armazenamento na região selecionada.
 
 ## <a name="data-retention"></a>Retenção de dados
-Dados indexados de pesquisa de log são armazenados e retidos de acordo com o plano de preço. Para obter mais informações, consulte [Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+Dados indexados de pesquisa de log são armazenados e retidos de acordo com o plano de preço. Para obter mais informações, consulte [preços de log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Como parte do seu [contrato de assinatura](https://azure.microsoft.com/support/legal/subscription-agreement/), a Microsoft manterá seus dados de acordo com os termos do contrato.  Quando os dados do cliente são removidos, não ocorre a destruição de nenhuma unidade física.  
 
@@ -66,7 +66,7 @@ A tabela a seguir lista algumas das soluções disponíveis e fornece exemplos d
 
 A tabela a seguir mostra exemplos de tipos de dados:
 
-| **Tipo de dados** | **Campos** |
+| **Tipo de dados** | **Fields** |
 | --- | --- |
 | Alerta |Nome do Alerta, Descrição do Alerta, BaseManagedEntityId, ID do Problema, IsMonitorAlert, RuleId, ResolutionState, Prioridade, Gravidade, Categoria, Proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
@@ -136,7 +136,7 @@ O diagrama a seguir mostra uma arquitetura de segurança de nuvem como o fluxo d
 
 ![Imagem de coleta de dados de Log Analytics e segurança](./media/data-security/log-analytics-data-security-diagram.png)
 
-## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Inscreva-se no Log Analytics e colete dados
+## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Inscreva-se para Log Analytics e colete dados
 Para sua organização enviar dados ao Log Analytics, você deve configurar um agente do Windows ou Linux em execução em máquinas virtuais do Azure, ou em computadores físicos ou virtuais em seu ambiente ou outro provedor de nuvem.  Se você usar o Operations Manager, você configura o agente do Operations Manager no grupo de gerenciamento. Os usuários (que podem ser você, outros usuários individuais ou um grupo de pessoas) criam um ou mais workspaces do Log Analytics e registram agentes usando uma das seguintes contas:
 
 * [ID Organizacional](../../active-directory/fundamentals/sign-up-organization.md)
@@ -151,7 +151,7 @@ Toda a comunicação entre os sistemas conectados e o serviço do Log Analytics 
 Cada tipo de agente coleta dados para o Log Analytics. Os tipos de dados coletados dependem dos tipos de soluções usadas. Você pode ver um resumo da coleta de dados em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md). Além disso, há informações mais detalhadas de coleção disponíveis para a maioria das soluções. Uma solução é um conjunto de exibições predefinidas, de consultas de pesquisa de log, de regras de coleta de dados e de lógica de processamento. Somente os administradores podem usar o Log Analytics para importar uma solução. Após a importação da solução, ela será movida para os servidores de gerenciamento do Operations Manager (se usado) e então para quaisquer agentes escolhidos por você. Depois disso, os agentes coletam os dados.
 
 ## <a name="2-send-data-from-agents"></a>2. Enviar dados de agentes
-Você registra todos os tipos de agente com uma chave de inscrição e uma conexão segura é estabelecida entre o agente e o serviço Log Analytics usando autenticação baseada em certificados e TLS com a porta 443. O Log Analytics usa um repositório secreto para gerar e manter as chaves. As chaves privadas são rotacionadas a cada 90 dias e armazenadas no Azure e são gerenciadas pelas operações do Azure que seguem práticas de conformidade e regulatórias estritas.
+Você registra todos os tipos de agente com uma chave de registro e uma conexão segura é estabelecida entre o agente e o serviço de Log Analytics usando a autenticação baseada em certificado e o TLS com a porta 443. O Log Analytics usa um repositório secreto para gerar e manter as chaves. As chaves privadas são rotacionadas a cada 90 dias e armazenadas no Azure e são gerenciadas pelas operações do Azure que seguem práticas de conformidade e regulatórias estritas.
 
 Com o Operations Manager, o grupo de gerenciamento registrado com um espaço de trabalho do Log Analytics estabelece uma conexão HTTPS segura com um servidor de gerenciamento do Operations Manager.
 
@@ -161,14 +161,14 @@ Com agentes subordinados a um grupo de gerenciamento do Operations Manager que e
 
 O Windows ou os dados de agente do servidor de gerenciamento em cache são protegidos pelo armazenamento de credenciais do sistema operacional. Se o serviço não puder processar os dados depois de duas horas, os agentes colocarão os dados em fila. Se a fila encher, o agente começará a remover tipos de dados, começando com os dados de desempenho. O limite de fila do agente é uma chave do registro para que você possa modificá-lo, se necessário. Os dados coletados são compactados e enviados para o serviço, ignorando os bancos de dados de grupos de gerenciamento do Operations Manager, para que ele não adicione carga a eles. Depois que os dados coletados forem enviados, eles serão removidos do cache.
 
-Como descrito acima, os dados do servidor de gerenciamento ou agentes conectados diretos são enviados por TLS para os data centers do Microsoft Azure. Opcionalmente, você pode usar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma maneira de se conectar diretamente ao Azure pela rede WAN existente, como um VPN MPLS (multi-protocol label switching), fornecida por um provedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Conforme descrito acima, os dados do servidor de gerenciamento ou dos agentes conectados diretamente são enviados por TLS para Microsoft Azure data centers. Opcionalmente, você pode usar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma maneira de se conectar diretamente ao Azure pela rede WAN existente, como um VPN MPLS (multi-protocol label switching), fornecida por um provedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço Log Analytics recebe e processa dados
+## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. o serviço de Log Analytics recebe e processa dados
 O serviço Log Analytics garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados com a autenticação do Azure. Os dados brutos não processados são armazenados em um Hub de Eventos do Azure na região em que eventualmente serão armazenados os dados em repouso. Os tipos de dados armazenados dependem dos tipos de soluções importados e usados para coletar dados. Em seguida, o serviço Log Analytics processa os dados brutos e os consome no banco de dados.
 
-O período de retenção dos dados coletados armazenados no banco de dados depende do plano de preços selecionado. Para a camada *Livre*, os dados coletados estão disponíveis por sete dias. Para a camada *Paga*, os dados coletados ficam disponíveis durante 31 dias por padrão, mas podem ser estendidos para 730 dias. Os dados são armazenados criptografados em repouso no armazenamento do Azure, para garantir a confidencialidade, e os dados são replicados na região local usando o LRS (armazenamento com redundância local). As últimas duas semanas de dados também são armazenadas em cache baseado em SSD e esse cache é criptografado.
+O período de retenção dos dados coletados armazenados no banco de dados depende do plano de preços selecionado. Para a camada *Livre*, os dados coletados estão disponíveis por sete dias. Para a camada *Paga*, os dados coletados ficam disponíveis durante 31 dias por padrão, mas podem ser estendidos para 730 dias. Os dados são armazenados criptografados em repouso no armazenamento do Azure, para garantir a confidencialidade, e os dados são replicados na região local usando o LRS (armazenamento com redundância local). As duas últimas semanas de dados também são armazenadas em cache baseado em SSD e esse cache é criptografado.
 
-## <a name="4-use-log-analytics-to-access-the-data"></a>4. Use o Log Analytics para acessar os dados
+## <a name="4-use-log-analytics-to-access-the-data"></a>4. usar Log Analytics para acessar os dados
 Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure usando a conta organizacional ou uma conta da Microsoft configurada anteriormente. Todo o tráfego entre o portal e o Log Analytics no serviço é enviado por um canal HTTPS seguro. Ao usar o portal, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do Azure é encerrada.
 
 ## <a name="next-steps"></a>Próximas etapas

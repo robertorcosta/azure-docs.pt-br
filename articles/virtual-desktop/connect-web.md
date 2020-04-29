@@ -1,6 +1,6 @@
 ---
-title: Conecte o cliente web do Windows Virtual Desktop - Azure
-description: Como se conectar ao Windows Virtual Desktop usando o cliente web.
+title: Conectar o cliente Web da área de trabalho virtual do Windows-Azure
+description: Como se conectar à área de trabalho virtual do Windows usando o cliente Web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,40 +9,40 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656367"
 ---
 # <a name="connect-with-the-web-client"></a>Conectar-se ao cliente Web
 
-O cliente web permite que você acesse seus recursos de Área de Trabalho Virtual do Windows a partir de um navegador da Web sem o longo processo de instalação.
+O cliente Web permite que você acesse seus recursos de área de trabalho virtual do Windows em um navegador da Web sem o processo de instalação demorado.
 
 >[!NOTE]
->O cliente web não tem suporte ao sistema operacional móvel no momento.
+>No momento, o cliente Web não tem suporte para so móvel.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Navegadores e sistemas operacionais compatíveis
 
-Enquanto qualquer navegador capaz de HTML5 deve funcionar, nós suportamos oficialmente os seguintes sistemas operacionais e navegadores.
+Embora qualquer navegador compatível com HTML5 funcione, oficialmente damos suporte aos seguintes sistemas operacionais e navegadores.
 
-| Navegador           | SO com suporte                     | Observações               |
+| Navegador           | SO com suporte                     | Anotações               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Versão 55 ou posterior |
-| Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
+| Google Chrome     | Windows, macOS, Linux, sistema operacional Chrome |                     |
 
-## <a name="access-remote-resources-feed"></a>Acesse o feed de recursos remotos
+## <a name="access-remote-resources-feed"></a>Acessar feed de recursos remotos
 
-Em um navegador, navegue até o [cliente web do Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) e faça login com sua conta de usuário.
+Em um navegador, navegue até o [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient) e entre com sua conta de usuário.
 
 >[!NOTE]
->Se você já fez login com uma conta diferente do Azure Active Directory do que a que deseja usar para o Windows Virtual Desktop, você deve sair ou usar uma janela privada do navegador.
+>Se você já tiver entrado com uma conta de Azure Active Directory diferente daquela que deseja usar para a área de trabalho virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
-Depois de fazer login, você deve agora ver uma lista de recursos. Você pode iniciar os recursos selecionando-os como se fosse um aplicativo normal na guia **Todos os Recursos.**
+Depois de entrar, você verá agora uma lista de recursos. Você pode iniciar recursos selecionando-os como faria com um aplicativo normal na guia **todos os recursos** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como usar o cliente web, confira [Comece com o cliente Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+Para saber mais sobre como usar o cliente Web, confira introdução [ao cliente Web](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

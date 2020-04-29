@@ -1,6 +1,6 @@
 ---
-title: Conecte-se e gerencie o dispositivo Microsoft Azure Data Box Edge através da interface Windows PowerShell | Microsoft Docs
-description: Descreve como se conectar e, em seguida, gerenciar data box edge através da interface Windows PowerShell.
+title: Conectar e gerenciar Microsoft Azure dispositivo de Data Box Edge por meio da interface do Windows PowerShell | Microsoft Docs
+description: Descreve como se conectar ao e gerenciar o Data Box Edge por meio da interface do Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265474"
 ---
-# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo Azure Data Box Edge via Windows PowerShell
+# <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerenciar um dispositivo Azure Data Box Edge por meio do Windows PowerShell
 
-A solução Azure Data Box Edge permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento do dispositivo Data Box Edge. Você pode usar o portal Azure, a interface web local ou a interface Windows PowerShell para gerenciar seu dispositivo.
+Azure Data Box Edge solução permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo Data Box Edge. Você pode usar o portal do Azure, a interface do usuário da Web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
 
-Este artigo se concentra nas tarefas que você faz usando a interface PowerShell.
+Este artigo se concentra nas tarefas que você faz usando a interface do PowerShell.
 
 Este artigo inclui os seguintes procedimentos:
 
-- Conecte-se à interface PowerShell
+- Conectar-se à interface do PowerShell
 - Criar um pacote de suporte
 - Carregar um certificado
 - Redefinir o dispositivo
 - Exibir informações do dispositivo
-- Obtenha registros de cálculo
-- Monitorar e solucionar problemas módulos de computação
+- Obter logs de computação
+- Monitorar e solucionar problemas de módulos de computação
 
-## <a name="connect-to-the-powershell-interface"></a>Conecte-se à interface PowerShell
+## <a name="connect-to-the-powershell-interface"></a>Conectar-se à interface do PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -43,20 +43,20 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Você também pode carregar certificados IoT Edge para permitir uma conexão segura entre seu dispositivo IoT Edge e os dispositivos downstream que podem se conectar a ele. Existem três certificados IoT Edge (formato *.pem)* que você precisa instalar:
+Você também pode carregar IoT Edge certificados para habilitar uma conexão segura entre o dispositivo IoT Edge e os dispositivos downstream que podem se conectar a ele. Há três certificados de IoT Edge (formato *. pem* ) que você precisa instalar:
 
-- Certificado de CA raiz ou ca proprietário
+- Certificado de autoridade de certificação raiz ou autoridade de certificação do proprietário
 - Certificado de autoridade de certificação de dispositivo
 - Certificado de chave do dispositivo
 
-O exemplo a seguir mostra o uso deste cmdlet para instalar certificados IoT Edge:
+O exemplo a seguir mostra o uso desse cmdlet para instalar IoT Edge certificados:
 
 ```
 Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
-Ao executar este cmdlet, você será solicitado a fornecer a senha para o compartilhamento de rede.
+Ao executar esse cmdlet, você será solicitado a fornecer a senha para o compartilhamento de rede.
 
-Para obter mais informações sobre certificados, vá para [certificados Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [Instale certificados em um gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+Para obter mais informações sobre certificados, acesse [Azure IOT Edge certificados](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instalar certificados em um gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
 
 ## <a name="view-device-information"></a>Exibir informações do dispositivo
  
@@ -66,31 +66,31 @@ Para obter mais informações sobre certificados, vá para [certificados Azure I
 
 [!INCLUDE [Reset your device](../../includes/data-box-edge-gateway-deactivate-device.md)]
 
-## <a name="get-compute-logs"></a>Obtenha registros de cálculo
+## <a name="get-compute-logs"></a>Obter logs de computação
 
-Se a função de computação estiver configurada no seu dispositivo, você também poderá obter os logs de computação através da interface PowerShell.
+Se a função de computação estiver configurada em seu dispositivo, você também poderá obter os logs de computação por meio da interface do PowerShell.
 
-1. [Conecte-se à interface PowerShell](#connect-to-the-powershell-interface).
-2. Use `Get-AzureDataBoxEdgeComputeRoleLogs` o para obter os registros de computação do seu dispositivo.
+1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
+2. Use o `Get-AzureDataBoxEdgeComputeRoleLogs` para obter os logs de computação para seu dispositivo.
 
-    O exemplo a seguir mostra o uso deste cmdlet:
+    O exemplo a seguir mostra o uso desse cmdlet:
 
     ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
-    Aqui está uma descrição dos parâmetros utilizados para o cmdlet:
-    - `Path`: Forneça um caminho de rede para o compartilhamento onde você deseja criar o pacote de log de computação.
-    - `Credential`: Forneça o nome de usuário para o compartilhamento da rede. Ao executar este cmdlet, você precisará fornecer a senha de compartilhamento.
-    - `FullLogCollection`: Este parâmetro garante que o pacote de log contenha todos os registros de cálculo. Por padrão, o pacote de log contém apenas um subconjunto de logs.
+    Aqui está uma descrição dos parâmetros usados para o cmdlet:
+    - `Path`: Forneça um caminho de rede para o compartilhamento no qual você deseja criar o pacote de log de computação.
+    - `Credential`: Forneça o nome de usuário para o compartilhamento de rede. Quando você executar esse cmdlet, será necessário fornecer a senha de compartilhamento.
+    - `FullLogCollection`: Esse parâmetro garante que o pacote de log conterá todos os logs de computação. Por padrão, o pacote de log contém apenas um subconjunto de logs.
 
-## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitorar e solucionar problemas módulos de computação
+## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitorar e solucionar problemas de módulos de computação
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
-## <a name="exit-the-remote-session"></a>Saia da sessão remota
+## <a name="exit-the-remote-session"></a>Sair da sessão remota
 
-Para sair da sessão remota do PowerShell, feche a janela PowerShell.
+Para sair da sessão remota do PowerShell, feche a janela do PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 

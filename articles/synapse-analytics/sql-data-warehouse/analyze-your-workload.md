@@ -1,6 +1,6 @@
 ---
 title: Analisar sua carga de trabalho
-description: Técnicas para analisar a priorização de consultas para sua carga de trabalho no Azure Synapse Analytics.
+description: Técnicas para analisar a priorização de consulta para sua carga de trabalho no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631230"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analise sua carga de trabalho no Azure Synapse Analytics
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analisar sua carga de trabalho no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho Synapse SQL no Azure Synapse Analytics.
+Técnicas para analisar sua carga de trabalho do SQL Synapse no Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de recursos
 
-O Synapse SQL fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas serão aguardadas se a classe de recursos atribuída a uma consulta precisar de mais recursos do que estão disponíveis atualmente.
+Synapse SQL fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas aguardarão se a classe de recurso atribuída a uma consulta precisar de mais recursos do que o disponível no momento.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
 
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-O Synapse SQL tem os seguintes tipos de espera:
+Synapse SQL tem os seguintes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
 * **DmsConcurrencyResourceType**: esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila. Em geral, recomendamos um tempo mínimo entre instantâneos consecutivos de 10 minutos.
+* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups forem solicitados ao mesmo tempo, os outros serão colocados em fila. Em geral, recomendamos um tempo mínimo entre os instantâneos consecutivos de 10 minutos.
 
 O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
 
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-O `sys.dm_pdw_resource_waits` Detran mostra as informações de espera para uma determinada consulta. O tempo de espera dos recursos mede o tempo de espera para que os recursos sejam fornecidos. Tempo de espera de sinal é o tempo necessário para que os servidores SQL subjacentes programem a consulta para a CPU.
+A `sys.dm_pdw_resource_waits` DMV mostra as informações de espera de uma determinada consulta. O tempo de espera do recurso mede o tempo aguardando que os recursos sejam fornecidos. O tempo de espera do sinal é o tempo que leva para os SQL Servers subjacentes agendarem a consulta na CPU.
 
 ```sql
 SELECT  [session_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o gerenciamento de usuários de banco de dados e segurança, consulte [Proteger um banco de dados no Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre como gerenciar usuários e segurança de banco de dados, consulte [proteger um banco de dados no Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

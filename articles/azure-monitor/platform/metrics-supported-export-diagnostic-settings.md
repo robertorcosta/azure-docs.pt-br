@@ -1,73 +1,73 @@
 ---
-title: Métricas da plataforma do Azure Monitor exportáveis através de Configurações de Diagnóstico
+title: Métricas de plataforma Azure Monitor exportáveis por meio de configurações de diagnóstico
 description: Lista de métricas disponíveis para cada tipo de recurso com o Azure Monitor.
 services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
 ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422120"
 ---
-# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas da plataforma do Azure Monitor exportáveis através de Configurações de Diagnóstico
+# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma Azure Monitor exportáveis por meio de configurações de diagnóstico
 
-O Azure Monitor fornece [métricas da plataforma](data-platform-metrics.md) por padrão sem configuração. Ele fornece várias maneiras de interagir com métricas da plataforma, incluindo mapeá-las no portal, acessá-las através da API REST ou quescá-las usando PowerShell ou CLI. Consulte [métricas suportadas](metrics-supported.md) para obter uma lista completa de métricas de plataforma disponíveis atualmente com o pipeline métrico consolidado do Azure Monitor. Para consultar e acessar essas métricas, use a [versão api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Outras métricas podem estar disponíveis no portal ou usando as APIs herdadas.
+O Azure Monitor fornece [métricas de plataforma](data-platform-metrics.md) por padrão sem configuração. Ele fornece várias maneiras de interagir com as métricas de plataforma, incluindo o gráfico delas no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Consulte [métricas – com suporte](metrics-supported.md) para obter uma lista completa de métricas de plataforma disponíveis atualmente com o pipeline de métrica consolidado do Azure monitor. Para consultar e acessar essas métricas, use a [versão de api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Outras métricas podem estar disponíveis no portal ou usando as APIs herdadas.
 
-Você pode exportar as métricas da plataforma do pipeline de monitor do Azure para outros locais de duas maneiras.
-1. Usando [configurações de diagnóstico](diagnostic-settings.md) para enviar ao Log Analytics, Event Hubs ou Azure Storage.
-2. Use as [métricas REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+Você pode exportar as métricas de plataforma do pipeline do Azure monitor para outros locais de uma das duas maneiras.
+1. Usando [configurações de diagnóstico](diagnostic-settings.md) para enviar para log Analytics, hubs de eventos ou armazenamento do Azure.
+2. Usar a [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
-Devido aos meandros no backend do Monitor Azure, nem todas as métricas são exportáveis usando configurações de diagnóstico. A tabela abaixo lista quais podem e não podem ser exportadas usando configurações de diagnóstico.
+Devido a complexidades no back-end de Azure Monitor, nem todas as métricas são exportáveis usando configurações de diagnóstico. A tabela a seguir lista os que podem e não podem ser exportados usando as configurações de diagnóstico.
 
-## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Mudança de comportamento para NULLs e valores zero 
+## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Alterar para comportamento de nulos e valores zero 
  
-Para as métricas da plataforma que podem ser exportadas através de configurações de diagnóstico, existem algumas métricas para as quais o Azure Monitor interpreta '0s' como 'Nulos'. Isso causou alguma confusão entre os '0s' reais (emitidos por recurso) e os '0s' (Nulos). Em breve ocorrerá uma alteração e as métricas da plataforma exportadas através de configurações de diagnóstico não exportarão mais '0s' a menos que tenham sido realmente emitidas pelo recurso subjacente. A mudança estava prevista para 1º de abril de 2020, mas foi adiada devido a mudanças prioritárias devido ao COVID-19. 
+Para as métricas de plataforma que podem ser exportadas por meio de configurações de diagnóstico, há algumas métricas para as quais Azure Monitor interpreta ' 0s ' como ' nulos '. Isso causou alguma confusão entre ' 0s ' reais (emitidos pelo recurso) e ' 0s ' interpretados (nulos). Em breve, uma alteração ocorrerá e as métricas de plataforma exportadas por meio das configurações de diagnóstico não exportarão mais ' 0s ', a menos que tenham sido realmente emitidas pelo recurso subjacente. A alteração foi agendada para 1º de abril de 2020, mas foi atrasada devido a turnos de prioridade devido a COVID-19. 
 
 Observação:
 
-1.  Se você excluir um grupo de recursos ou um recurso específico, os dados métricos dos recursos efetivados não serão mais enviados para os destinos de exportação de configuração de diagnóstico. Ou seja, ele não aparecerá mais em Hubs de Eventos, Contas de Armazenamento e Espaços de Trabalho do Log Analytics.
+1.  Se você excluir um grupo de recursos ou um recurso específico, os dados de métrica dos recursos afetados não serão mais enviados para os destinos de exportação da configuração de diagnóstico. Ou seja, ele não aparecerá mais em hubs de eventos, contas de armazenamento e espaços de trabalho do Log Analytics.
 2.  Essa melhoria estará disponível em todas as nuvens públicas e privadas.
-3.  Essa mudança não afetará o comportamento de nenhuma das seguintes experiências: 
-   - Logs de recursos da plataforma exportados via Configurações de Diagnóstico
-   - Gráfico de métricas no Metrics Explorer
-   - Alertando sobre métricas da plataforma
+3.  Essa alteração não afetará o comportamento de qualquer uma das seguintes experiências: 
+   - Logs de recursos de plataforma exportados por meio de configurações de diagnóstico
+   - Gráficos de métricas no Metrics Explorer
+   - Alertas sobre métricas de plataforma
  
-## <a name="metrics-exportable-table"></a>Tabela de métricas exportáveis 
+## <a name="metrics-exportable-table"></a>Tabela exportável de métricas 
 
 A tabela contém as seguintes colunas. 
-- Exportável através de configurações de diagnóstico? 
-- Efetuado por NULL /0 
+- Exportável por meio de configurações de diagnóstico? 
+- Afetada por NULL/0 
 - ResourceType 
 - Métrica 
-- Nome de exibição métrica
+- MetricDisplayName
 - Unidade 
 - AggregationType
 
 
 > [!NOTE]
-> A tabela abaixo pode ter uma barra de rolagem horizontal na parte inferior. Se você acredita que está perdendo informações, verifique se a barra de rolagem está todo à esquerda.  
+> A tabela a seguir pode ter uma barra de rolagem horizontal na parte inferior. Se você acreditar que está sem informações, verifique se a barra de rolagem está até a esquerda.  
 
 
-| Exportável através de configurações de diagnóstico?  | Já emitem NULLs |  ResourceType  |  Métrica  |  Nome de exibição métrica  |  Unidade  |  AggregationType | 
+| Exportável por meio de configurações de diagnóstico?  | Já emitir nulos |  ResourceType  |  Métrica  |  MetricDisplayName  |  Unidade  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memória: preço atual do limpador  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memória: memória do limpador não reduzível  |  Bytes  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CleanerMemoryShrinkable  |  Memória: memória do limpador reduzível  |  Bytes  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolBusyThreads  |  Threads: threads ocupados do pool comando  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolIdleThreads  |  Threads: threads ociosos do pool de comandos  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolJobQueueLength  |  Comprimento da fila de trabalho do pool de comando  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CurrentConnections  |  Conexão: conexões atuais  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  CurrentUserSessions  |  Sessões de usuário atuais  |  Contagem  |  Média | 
-| Sim****  | Não |  Microsoft.AnalysisServices/servers  |  LongParsingBusyThreads  |  Threads: threads ocupados de análise longa  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memória: preço atual do limpador  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memória: memória do limpador não reduzível  |  Bytes  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CleanerMemoryShrinkable  |  Memória: memória do limpador reduzível  |  Bytes  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolBusyThreads  |  Threads: threads ocupados do pool comando  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolIdleThreads  |  Threads: threads ociosos do pool de comandos  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CommandPoolJobQueueLength  |  Comprimento da fila de trabalho do pool de comando  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CurrentConnections  |  Conexão: conexões atuais  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  CurrentUserSessions  |  Sessões de usuário atuais  |  Contagem  |  Média | 
+| Sim * * * *  | Não |  Microsoft.AnalysisServices/servers  |  LongParsingBusyThreads  |  Threads: threads ocupados de análise longa  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  LongParsingIdleThreads  |  Threads: threads ociosos de análise longa  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  LongParsingJobQueueLength  |  Threads: tamanho da fila de trabalhos de análise longa  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_memory_metric  |  Memória do mecanismo M  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_private_bytes_metric  |  M Engine Private Bytes  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_private_bytes_metric  |  Bytes privados do mecanismo M  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_qpu_metric  |  QPU do mecanismo M  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_virtual_bytes_metric  |  M Engine Virtual Bytes  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  mashup_engine_virtual_bytes_metric  |  Bytes virtuais do mecanismo M  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  memory_metric  |  Memória  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  memory_thrashing_metric  |  Sobrecarga de memória  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  MemoryLimitHard  |  Memória: limite de memória física  |  Bytes  |  Média | 
@@ -100,50 +100,50 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  VertiPaqNonpaged  |  Memória: VertiPaq não paginado  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  VertiPaqPaged  |  Memória: VertiPaq paginado  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.AnalysisServices/servers  |  virtual_bytes_metric  |  Bytes Virtuais  |  Bytes  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  Duração do backend  |  Duração das solicitações de backend  |  Milissegundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  BackendDuration  |  Duração de solicitações de back-end  |  Milissegundos  |  Média | 
 | **Sim**  | Não |  Microsoft.ApiManagement/service  |  Capacity  |  Capacity  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  Duration  |  Duração total de solicitações de gateway  |  Milissegundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubDroppedEvents  |  Eventos EventHub descartados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubRejectedEvents  |  Eventos eventhub rejeitados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubEventos bem-sucedidos  |  Eventos de sucesso do EventHub  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  Eventos EventHubThrottledEvents  |  Eventos de EventHub estrangulados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTimedoutEvents  |  Eventos EventHub com data esgotado  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalBytesSent  |  Tamanho dos eventos eventhub  |  Bytes  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalEvents  |  Total de Eventos EventHub  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalFailedEvents  |  Eventos eventhub com falha  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  FailedRequests  |  Solicitações de gateway com falha (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  OtherRequests  |  Outras solicitações de gateway (depreciadas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubDroppedEvents  |  Eventos do EventHub ignorados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubRejectedEvents  |  Eventos de EventHub rejeitados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubSuccessfulEvents  |  Eventos de EventHub bem-sucedidos  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubThrottledEvents  |  Eventos de EventHub limitados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTimedoutEvents  |  Eventos do EventHub com tempo limite excedido  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalBytesSent  |  Tamanho dos eventos do EventHub  |  Bytes  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalEvents  |  Total de eventos do EventHub  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  EventHubTotalFailedEvents  |  Eventos de EventHub com falha  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  FailedRequests  |  Solicitações de gateway com falha (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  OtherRequests  |  Outras solicitações de gateway (preteridas)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  Requests  |  Requests  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  SuccessfulRequests  |  Solicitações de gateway bem-sucedidas (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  TotalRequests  |  Total de solicitações de gateway (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  UnauthorizedRequests  |  Solicitações de gateway não autorizadas (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  AppCpuUsagePercentage  |  Porcentagem de uso da CPU do aplicativo  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  Memória de aplicativocomprometida  |  Memória do aplicativo atribuída  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  AppMemoryMax  |  Memória do aplicativo Max  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  AppMemoryUsed  |  Memória do aplicativo usada  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  Contagem total de GCPause  |  Contagem de pausa sinuosa gc  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  GCPauseTotalTimeTime  |  TEMPO total de pausa do GC  |  Milissegundos  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  MaxOldGenMemoryPoolBytes  |  Tamanho máximo de dados da geração antiga disponível  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  OldGenMemoryPoolBytes  |  Tamanho de dados da geração antiga  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  OldGenPromotedBytes  |  Promover ao tamanho de dados da geração antiga  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  SistemaCpuUsagePercentage  |  Porcentagem de uso da CPU do sistema  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatErrorCount  |  Erro global da Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatReceivedBytes  |  Bytes recebidos no total de tomcat  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatRequestMaxTime  |  Tomcat Solicitar Tempo Máximo  |  Milissegundos  |  Máximo | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatRequestTotalCount  |  Contagem total de solicitações de tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatRequestTotalTime  |  Tomcat Request Total Times  |  Milissegundos  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatResponseAvgTime  |  Tempo médio de solicitação de tomcat  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatSentBytes  |  Tomcat Total Sent Bytes  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatSessionActiveCurrentCount  |  Tomcat Session Alive Count  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatSessionActiveMaxCount  |  Contagem ativa da sessão Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatSessionAliveMaxTime  |  Tomcat Session Max Tempo Vivo  |  Milissegundos  |  Máximo | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  TomcatSessionCrioucontagem  |  Contagem criada da sessão tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  Contagem expirada do TomcatSession  |  Contagem expirada da sessão tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  Contagem rejeitada de TomcatSession  |  Contagem rejeitada da sessão de Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.AppPlatform/Spring  |  YoungGenPromotedBytes  |  Promover ao Tamanho de Dados da Geração Jovem  |  Bytes  |  Máximo | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  SuccessfulRequests  |  Solicitações de gateway com êxito (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  TotalRequests  |  Total de solicitações do gateway (preterido)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.ApiManagement/service  |  UnauthorizedRequests  |  Solicitações de gateway não autorizadas (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  AppCpuUsagePercentage  |  Porcentagem de uso de CPU do aplicativo  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  AppMemoryCommitted  |  Memória de aplicativo atribuída  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  AppMemoryMax  |  Memória máxima do aplicativo  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  AppMemoryUsed  |  Memória usada do aplicativo  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  GCPauseTotalCount  |  Contagem de pausar do GC  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  GCPauseTotalTime  |  Tempo total de pausa do GC  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  MaxOldGenMemoryPoolBytes  |  Tamanho máximo de dados de geração antiga disponíveis  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  OldGenMemoryPoolBytes  |  Tamanho de dados de geração antiga  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  OldGenPromotedBytes  |  Promover para tamanho de dados de geração antiga  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  SystemCpuUsagePercentage  |  Porcentagem de uso da CPU do sistema  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatErrorCount  |  Erro global do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatReceivedBytes  |  Total de bytes recebidos do Tomcat  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatRequestMaxTime  |  Tempo máximo de solicitação do Tomcat  |  Milissegundos  |  Máximo | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatRequestTotalCount  |  Contagem total de solicitações do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatRequestTotalTime  |  Tempos totais da solicitação do Tomcat  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatResponseAvgTime  |  Tempo médio da solicitação do Tomcat  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSentBytes  |  Total de bytes enviados do Tomcat  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionActiveCurrentCount  |  Contagem de sessões ativas de Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionActiveMaxCount  |  Contagem ativa máxima da sessão do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionAliveMaxTime  |  Tempo de atividade máx de sessão do Tomcat  |  Milissegundos  |  Máximo | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionCreatedCount  |  Contagem de sessões criadas do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionExpiredCount  |  Contagem de sessões expiradas do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  TomcatSessionRejectedCount  |  Contagem rejeitada da sessão Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. AppPlatform/Spring  |  YoungGenPromotedBytes  |  Promover para tamanho de dados de geração jovem  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Automation/automationAccounts  |  TotalJob  |  Total de trabalhos  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Automation/automationAccounts  |  TotalUpdateDeploymentMachineExecut  |  Total de execuções de computador da implantação de atualização  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Automation/automationAccounts  |  TotalUpdateDeploymentExecutado  |  Total de execuções da implantação de atualização  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Automation/automationAccounts  |  TotalUpdateDeploymentMachineRuns  |  Total de execuções de computador da implantação de atualização  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Automation/automationAccounts  |  TotalUpdateDeploymentRuns  |  Total de execuções da implantação de atualização  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  CoreCount  |  Contagem de núcleos dedicados  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  CreatingNodeCount  |  Criação de contagem de nós  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  IdleNodeCount  |  Contagem de nós ociosos  |  Contagem  |  Total | 
@@ -175,36 +175,36 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  TotalNodeCount  |  Contagem de nós dedicados  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  UnusableNodeCount  |  Contagem de nós inutilizáveis  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Batch/batchAccounts  |  WaitingForStartTaskNodeCount  |  Contagem de nós para tarefa de inicialização em espera  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Núcleos ativos  |  Núcleos ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Nódulos ativos  |  Nódulos ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Núcleos ociosos  |  Núcleos ociosos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Nódulos ociosos  |  Nódulos ociosos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Trabalho concluído  |  Trabalho concluído  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Trabalho submetido  |  Trabalho submetido  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Deixando núcleos  |  Deixando núcleos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Deixando nódulos  |  Deixando nódulos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Núcleos pré-empáveis  |  Núcleos pré-empáveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Lemos pré-empáticos  |  Lemos pré-empáticos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Percentual de Utilização de Cotas  |  Percentual de Utilização de Cotas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Núcleos Totais  |  Núcleos Totais  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Nodes Totais  |  Nodes Totais  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Núcleos inutilizáveis  |  Núcleos inutilizáveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.BatchAI/espaços de trabalho  |  Nós inutilizáveis  |  Nós inutilizáveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  ConexãoAceita  |  Conexões aceitas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  ConexãoAtiva  |  Conexões ativas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  ConexãoManipulada  |  Conexões manuseadas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  CpuUsagePercentageInDouble  |  Porcentagem de uso da CPU  |  Porcentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  IOReadBytes  |  IO Ler Bytes  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  IOWriteBytes  |  IO Write Bytes  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  MemoryLimit  |  Limite de memória  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  MemoryUsage  |  Uso de Memória  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Memóriautilizaçãoporcentagememdobrar  |  Porcentagem de uso da memória  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Transações pendentes  |  Transações pendentes  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Blocos processados  |  Blocos processados  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Transações processadas  |  Transações processadas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  Transações enfileiradas  |  Transações enfileiradas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  RequestHandle  |  Solicitações manipuladas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Blockchain/blockchainMembers  |  ArmazenamentoUso  |  Uso de armazenamento  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Núcleos ativos  |  Núcleos ativos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Nós ativos  |  Nós ativos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Núcleos ociosos  |  Núcleos ociosos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Nós ociosos  |  Nós ociosos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Trabalho concluído  |  Trabalho concluído  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Trabalho enviado  |  Trabalho enviado  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Deixando núcleos  |  Deixando núcleos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Saindo de nós  |  Saindo de nós  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Núcleos preempçãos  |  Núcleos preempçãos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Nós admitidos  |  Nós admitidos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Porcentagem de utilização de cota  |  Porcentagem de utilização de cota  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Total de núcleos  |  Total de núcleos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Total de nós  |  Total de nós  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Núcleos inutilizáveis  |  Núcleos inutilizáveis  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. BatchAI/Workspaces  |  Nós inutilizáveis  |  Nós inutilizáveis  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  ConnectionAccepted  |  Conexões aceitas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  ConnectionActive  |  Conexões ativas  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  ConnectionHandled  |  Conexões manipuladas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  CpuUsagePercentageInDouble  |  Porcentagem de uso da CPU  |  Porcentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  IOReadBytes  |  Bytes de leitura de e/s  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  IOWriteBytes  |  Bytes de gravação de e/s  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  MemoryLimit  |  Limite de memória  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  MemoryUsage  |  Uso de Memória  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  MemoryUsagePercentageInDouble  |  Porcentagem de uso da memória  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  PendingTransactions  |  Transações pendentes  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  ProcessedBlocks  |  Blocos processados  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  ProcessedTransactions  |  Transações processadas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  QueuedTransactions  |  Transações em fila  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  RequestHandled  |  Solicitações manipuladas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Blockchain/blockchainMembers  |  StorageUsage  |  Uso do armazenamento  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits  |  Acertos do Cache  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits0  |  Ocorrências no cache (Fragmento 0)  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Cache/redis  |  cachehits1  |  Ocorrências no cache (Fragmento 1)  |  Contagem  |  Total | 
@@ -405,48 +405,48 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.ClassicStorage/storageAccounts  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
 | **Sim**  | Não |  Microsoft.ClassicStorage/storageAccounts  |  Transactions  |  Transactions  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.ClassicStorage/storageAccounts  |  UsedCapacity  |  Capacidade utilizada  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  BlobCapacity  |  Capacidade do Blob  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  BlobCount  |  Contagem de Blobs  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  ContainerCount  |  Contagem de Contêineres de Blobs  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  Saída  |  Saída  |  Bytes  |  Total | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  IndexCapacity  |  Capacidade de índice  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/blobServices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  Saída  |  Saída  |  Bytes  |  Total | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileCapacity  |  Capacidade do Arquivo  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileCount  |  Contagem de Arquivos  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileShareCount  |  Contagem de Compartilhamentos de Arquivos  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileShareQuota  |  Tamanho da cota de compartilhamento de arquivos  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileShareSnapshotContag  |  Contagem de instantâneos de compartilhamento de arquivos  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  FileShareSnapshotSize  |  Tamanho do instantâneo do compartilhamento de arquivos  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  Entrada  |  Entrada  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/arquivosServiços  |  Transactions  |  Transactions  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  Saída  |  Saída  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  QueueCapacity  |  Capacidade da Fila  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  QueueCount  |  Contagem de Filas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  QueueMessageCount  |  Contagem de Mensagens da Fila  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/queueServices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  Saída  |  Saída  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  Entrada  |  Entrada  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  TableCapacity  |  Capacidade da Tabela  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  TableCount  |  Contagem de Tabelas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  TableEntityCount  |  Contagem de Entidades de Tabela  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ClassicArmazenamento/armazenamentoContas/tabelaServiços  |  Transactions  |  Transactions  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  BlobCapacity  |  Capacidade do Blob  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  BlobCount  |  Contagem de Blobs  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  ContainerCount  |  Contagem de Contêineres de Blobs  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  Saída  |  Saída  |  Bytes  |  Total | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  IndexCapacity  |  Capacidade do índice  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/blobservices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  Saída  |  Saída  |  Bytes  |  Total | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileCapacity  |  Capacidade do Arquivo  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileCount  |  Contagem de Arquivos  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileShareCount  |  Contagem de Compartilhamentos de Arquivos  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileShareQuota  |  Tamanho da cota de compartilhamento de arquivos  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileShareSnapshotCount  |  Contagem de instantâneos de compartilhamento de arquivos  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  FileShareSnapshotSize  |  Tamanho do instantâneo de compartilhamento de arquivos  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/fileservices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  Saída  |  Saída  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  QueueCapacity  |  Capacidade da Fila  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  QueueCount  |  Contagem de Filas  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  QueueMessageCount  |  Contagem de Mensagens da Fila  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/queueservices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  Saída  |  Saída  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  TableCapacity  |  Capacidade da Tabela  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  TableCount  |  Contagem de Tabelas  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  TableEntityCount  |  Contagem de Entidades de Tabela  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. ClassicStorage/storageAccounts/tabelaservices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  BlockedCalls  |  Chamadas Bloqueadas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  Personagenstreinados  |  Personagens treinados  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  CharactersTrained  |  Caracteres treinados  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  CharactersTranslated  |  Caracteres traduzidos  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  ClientErrors  |  Erros do Cliente  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  DataIn  |  Entrada de Dados  |  Bytes  |  Total | 
@@ -461,164 +461,164 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.CognitiveServices/accounts  |  TotalTransactions  |  Total de Transações  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Créditos de CPU Consumidos  |  Créditos de CPU Consumidos  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Créditos de CPU Restantes  |  Créditos de CPU Restantes  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila de discos de dados (visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Leitura de disco de dados Bytes/seg  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de leitura de disco de dados/seg  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de gravação de disco de dados/seg  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de gravação de disco de dados/seg  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila do disco de dados (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de leitura do disco de dados/s  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de leitura de disco de dados/s  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de gravação do disco de dados/s  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de gravação do disco de dados/s  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de leitura de disco  |  Bytes de leitura de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de leitura de disco/Seg  |  Operações de leitura de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de gravação de disco  |  Bytes de gravação de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de gravação de disco/Seg  |  Operações de gravação de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Fluxos de Entrada  |  Fluxos de Entrada  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Taxa de criação máxima dos fluxos de entrada  |  Taxa de criação máxima de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Entrada na rede  |  Rede Em Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Rede no total  |  Rede no total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Saída da rede  |  Rede Out Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Rede Out Total  |  Rede Out Total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila do disco do SISTEMA OPERACIONAL (Visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/seg  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/seg  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Os Por QD de Disco  |  Disco do SISTEMA OPERACIONAL QD (Preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Bytes de Leitura do Disco/s  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/Seg (preterida)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Taxa máxima de criação de fluxos de entrada  |  Taxa máxima de criação de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Entrada na rede  |  Rede em faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Total de rede  |  Total de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Saída da rede  |  Saída de rede faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Total de saída de rede  |  Total de saída de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila de disco do so (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de leitura do disco do so/s  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de leitura de disco do so/s  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Bytes de gravação de disco do sistema operacional/s  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Operações de gravação de disco do so/s  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Os Por QD de Disco  |  Disco do so QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Fluxos de saída  |  Fluxos de saída  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Taxa de criação máxima dos fluxos de saída  |  Taxa de criação máxima de fluxos de saída (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por QD de Disco  |  QD do disco de dados (preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Bytes de Leitura do Disco/s  |  Leitura de disco de dados Bytes/Seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação de disco de dados/seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Operações de Gravação de Disco/s  |  Operações de gravação de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Taxa máxima de criação de fluxos de saída  |  Taxa máxima de criação de fluxos de saída (versão prévia)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por QD de Disco  |  Disco de dados QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Por Operações de Gravação de Disco/s  |  Operações de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Porcentagem de CPU  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Impacto de leitura de leitura de armazenamento de disco de dados premium  |  Impacto de leitura de leitura de armazenamento de dados premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Cache de disco de dados premium Leia Miss  |  Cache de disco de dados premium Ler falta (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Impacto de leitura de leitura de cache do sistema operacional premium  |  A cessação de leitura de leitura do cache do sistema operacional premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Cache de disco premium do SISTEMA OPERACIONAL Ler Miss  |  Cache de disco premium do Sistema Operacional Read Miss (Visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Cache do disco de dados Premium-acesso de leitura  |  Leitura do cache do disco de dados Premium (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Erro de leitura do cache do disco de dados Premium  |  Cache do disco de dados Premium-erro de leitura (visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Cache de disco do sistema operacional Premium-acesso de leitura  |  Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachines  |  Erro de leitura do cache de disco do so premium  |  Erro de leitura do cache de disco do so premium (visualização)  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Créditos de CPU Consumidos  |  Créditos de CPU Consumidos  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Créditos de CPU Restantes  |  Créditos de CPU Restantes  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila de discos de dados (visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Leitura de disco de dados Bytes/seg  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de leitura de disco de dados/seg  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de gravação de disco de dados/seg  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de gravação de disco de dados/seg  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila do disco de dados (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de leitura do disco de dados/s  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de leitura de disco de dados/s  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de gravação do disco de dados/s  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de gravação do disco de dados/s  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de leitura de disco  |  Bytes de leitura de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de leitura de disco/Seg  |  Operações de leitura de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de gravação de disco  |  Bytes de gravação de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de gravação de disco/Seg  |  Operações de gravação de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Fluxos de Entrada  |  Fluxos de Entrada  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Taxa de criação máxima dos fluxos de entrada  |  Taxa de criação máxima de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Entrada na rede  |  Rede Em Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Rede no total  |  Rede no total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Saída da rede  |  Rede Out Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Rede Out Total  |  Rede Out Total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila do disco do SISTEMA OPERACIONAL (Visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/seg  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/seg  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Os Por QD de Disco  |  Disco do SISTEMA OPERACIONAL QD (Preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Bytes de Leitura do Disco/s  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/Seg (preterida)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Taxa máxima de criação de fluxos de entrada  |  Taxa máxima de criação de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Entrada na rede  |  Rede em faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Total de rede  |  Total de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Saída da rede  |  Saída de rede faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Total de saída de rede  |  Total de saída de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila de disco do so (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de leitura do disco do so/s  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de leitura de disco do so/s  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Bytes de gravação de disco do sistema operacional/s  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Operações de gravação de disco do so/s  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Os Por QD de Disco  |  Disco do so QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Fluxos de saída  |  Fluxos de saída  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Taxa de criação máxima dos fluxos de saída  |  Taxa de criação máxima de fluxos de saída (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por QD de Disco  |  QD do disco de dados (preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Bytes de Leitura do Disco/s  |  Leitura de disco de dados Bytes/Seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação de disco de dados/seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Operações de Gravação de Disco/s  |  Operações de gravação de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Taxa máxima de criação de fluxos de saída  |  Taxa máxima de criação de fluxos de saída (versão prévia)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por QD de Disco  |  Disco de dados QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Por Operações de Gravação de Disco/s  |  Operações de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Porcentagem de CPU  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Impacto de leitura de leitura de armazenamento de disco de dados premium  |  Impacto de leitura de leitura de armazenamento de dados premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Cache de disco de dados premium Leia Miss  |  Cache de disco de dados premium Ler falta (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Impacto de leitura de leitura de cache do sistema operacional premium  |  A cessação de leitura de leitura do cache do sistema operacional premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Cache de disco premium do SISTEMA OPERACIONAL Ler Miss  |  Cache de disco premium do Sistema Operacional Read Miss (Visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Cache do disco de dados Premium-acesso de leitura  |  Leitura do cache do disco de dados Premium (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Erro de leitura do cache do disco de dados Premium  |  Cache do disco de dados Premium-erro de leitura (visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Cache de disco do sistema operacional Premium-acesso de leitura  |  Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets  |  Erro de leitura do cache de disco do so premium  |  Erro de leitura do cache de disco do so premium (visualização)  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Créditos de CPU Consumidos  |  Créditos de CPU Consumidos  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Créditos de CPU Restantes  |  Créditos de CPU Restantes  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila de discos de dados (visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Leitura de disco de dados Bytes/seg  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de leitura de disco de dados/seg  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de gravação de disco de dados/seg  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de gravação de disco de dados/seg  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Profundidade da Fila de Disco de Dados  |  Profundidade da fila do disco de dados (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de leitura do disco de dados/s  |  Bytes de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de leitura de disco de dados/s  |  Operações de Leitura do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de gravação do disco de dados/s  |  Bytes de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de gravação do disco de dados/s  |  Operações de Gravação do Disco de Dados/s (Visualização)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de leitura de disco  |  Bytes de leitura de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de leitura de disco/Seg  |  Operações de leitura de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de gravação de disco  |  Bytes de gravação de disco  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de gravação de disco/Seg  |  Operações de gravação de disco/Seg  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Fluxos de Entrada  |  Fluxos de Entrada  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Taxa de criação máxima dos fluxos de entrada  |  Taxa de criação máxima de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Entrada na rede  |  Rede Em Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Rede no total  |  Rede no total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Saída da rede  |  Rede Out Billable (Depreciada)  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Rede Out Total  |  Rede Out Total  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila do disco do SISTEMA OPERACIONAL (Visualização)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/seg  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/seg  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Os Por QD de Disco  |  Disco do SISTEMA OPERACIONAL QD (Preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Bytes de Leitura do Disco/s  |  Leitura de disco do SISTEMA OPERACIONAL Bytes/Seg (preterida)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do SISTEMA OPERACIONAL/Seg (preteridas)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Taxa máxima de criação de fluxos de entrada  |  Taxa máxima de criação de fluxos de entrada (visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Entrada na rede  |  Rede em faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Total de rede  |  Total de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Saída da rede  |  Saída de rede faturável (preterida)  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Total de saída de rede  |  Total de saída de rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Profundidade da Fila de Disco do SO  |  Profundidade da fila de disco do so (visualização)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de leitura do disco do so/s  |  Bytes de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de leitura de disco do so/s  |  Operações de Leitura do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Bytes de gravação de disco do sistema operacional/s  |  Bytes de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Operações de gravação de disco do so/s  |  Operações de Gravação do Disco do SO/s (Visualização)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Os Por QD de Disco  |  Disco do so QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Operações de Leitura do Disco/s  |  Operações de leitura de disco do so/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Bytes de Gravação do Disco/s  |  Bytes de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  SO Por Operações de Gravação do Disco/s  |  Operações de gravação de disco do sistema operacional/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Fluxos de saída  |  Fluxos de saída  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Taxa de criação máxima dos fluxos de saída  |  Taxa de criação máxima de fluxos de saída (Visualização)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por QD de Disco  |  QD do disco de dados (preterido)  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Bytes de Leitura do Disco/s  |  Leitura de disco de dados Bytes/Seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação de disco de dados/seg (preteridos)  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Operações de Gravação de Disco/s  |  Operações de gravação de disco de dados/seg (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Taxa máxima de criação de fluxos de saída  |  Taxa máxima de criação de fluxos de saída (versão prévia)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por QD de Disco  |  Disco de dados QD (preterido)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Bytes de Leitura do Disco/s  |  Bytes de leitura do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por operações de Leitura de Disco/s  |  Operações de leitura de disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Bytes de Gravação de Disco/s  |  Bytes de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Por Operações de Gravação de Disco/s  |  Operações de gravação do disco de dados/s (preterido)  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Porcentagem de CPU  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Impacto de leitura de leitura de armazenamento de disco de dados premium  |  Impacto de leitura de leitura de armazenamento de dados premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Cache de disco de dados premium Leia Miss  |  Cache de disco de dados premium Ler falta (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Impacto de leitura de leitura de cache do sistema operacional premium  |  A cessação de leitura de leitura do cache do sistema operacional premium (visualização)  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Cache de disco premium do SISTEMA OPERACIONAL Ler Miss  |  Cache de disco premium do Sistema Operacional Read Miss (Visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Cache do disco de dados Premium-acesso de leitura  |  Leitura do cache do disco de dados Premium (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Erro de leitura do cache do disco de dados Premium  |  Cache do disco de dados Premium-erro de leitura (visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Cache de disco do sistema operacional Premium-acesso de leitura  |  Cache de disco do sistema operacional Premium-acesso de leitura (versão prévia)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Compute/virtualMachineScaleSets/virtualMachines  |  Erro de leitura do cache de disco do so premium  |  Erro de leitura do cache de disco do so premium (visualização)  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.ContainerInstance/containerGroups  |  CpuUsage  |  Uso da CPU  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.ContainerInstance/containerGroups  |  MemoryUsage  |  Uso de Memória  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.ContainerInstance/containerGroups  |  NetworkBytesReceivedPerSecond  |  Bytes de Rede Recebidos por Segundo  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.ContainerInstance/containerGroups  |  NetworkBytesTransmittedPerSecond  |  Bytes de Rede Transmitidos por Segundo  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  Duração do execução  |  Duração da execução  |  Milissegundos  |  Total | 
-| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  SucessoPullCount  |  Contagem de tração bem sucedida  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  SucessopushCount  |  Contagem de push bem sucedida  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  TotalPullCount  |  Contagem total de puxadas  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  RunDuration  |  Duração da execução  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  SuccessfulPullCount  |  Contagem de pull bem-sucedida  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  SuccessfulPushCount  |  Contagem de push bem-sucedida  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  TotalPullCount  |  Contagem total de pull  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.ContainerRegistry/registries  |  TotalPushCount  |  Contagem total de push  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ContainerService/managedClusters  |  kube_node_status_allocatable_cpu_cores  |  Número total de núcleos de cpu disponíveis em um cluster gerenciado  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ContainerService/managedClusters  |  kube_node_status_allocatable_memory_bytes  |  Número total de memória disponível em um cluster gerenciado  |  Bytes  |  Média | 
 | Não  | Não |  Microsoft.ContainerService/managedClusters  |  kube_node_status_condition  |  Status para as várias condições de nó  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ContainerService/managedClusters  |  kube_pod_status_phase  |  Número de pods por fase  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ContainerService/managedClusters  |  kube_pod_status_ready  |  Número de compartimentos no estado Pronto  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  Capacidade disponível  |  Capacidade Disponível  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  BytesUploadedToCloud  |  Cloud Bytes Carregado (Dispositivo)  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  BytesUploadedToCloudPerShare  |  Cloud Bytes Carregado (Compartilhar)  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  CloudReadThroughput  |  Throughput de download na nuvem  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  CloudReadthroughputPerShare  |  Throughput de download na nuvem (Compartilhar)  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  CloudUploadThroughput  |  Throughput de upload de nuvem  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  CloudUploadthroughputperShare  |  Throughput de upload de nuvem (Compartilhar)  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  HyperVMemoryUtilização  |  Edge Compute - Uso da memória  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  HyperVVirtualProcessorUtilização  |  Edge Compute - CPU percentual  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  NICReadThroughput  |  Ler throughput (rede)  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  NICWriteThroughput  |  Gravar throughput (rede)  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.DataBoxEdge/dataBoxEdgeDispositivos  |  Capacidade Total  |  Capacidade total  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  AvailableCapacity  |  Capacidade Disponível  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  BytesUploadedToCloud  |  Bytes de nuvem carregados (dispositivo)  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  BytesUploadedToCloudPerShare  |  Bytes de nuvem carregados (compartilhamento)  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudReadThroughput  |  Taxa de transferência de download da nuvem  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudReadThroughputPerShare  |  Taxa de transferência de download de nuvem (compartilhamento)  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudUploadThroughput  |  Taxa de transferência de upload de nuvem  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  CloudUploadThroughputPerShare  |  Taxa de transferência de upload de nuvem (compartilhamento)  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVMemoryUtilization  |  Computação de borda-uso de memória  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  HyperVVirtualProcessorUtilization  |  Computação de borda – percentual de CPU  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  NICReadThroughput  |  Taxa de transferência de leitura (rede)  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  NICWriteThroughput  |  Taxa de transferência de gravação (rede)  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. DataBoxEdge/dataBoxEdgeDevices  |  TotalCapacity  |  Capacidade total  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.DataFactory/datafactories  |  FailedRuns  |  Execuções com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/datafactories  |  SuccessfulRuns  |  Execuções com êxito  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  ActivityCancelledRuns  |  Atividade cancelada executa métricas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  ActivityCancelledRuns  |  Métricas de execuções de atividade canceladas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  ActivityFailedRuns  |  Métricas de execução de atividades com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  ActivitySucceededRuns  |  Métricas de execução de atividades bem-sucedidas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  FactorySizeInGbUnits  |  Tamanho total da fábrica (unidade GB)  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  FactorySizeInGbUnits  |  Tamanho total de fábrica (unidade GB)  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegrationRuntimeAvailableMemory  |  Memória disponível de runtime de integração  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegraçãoExecutartempoAverageTaskPickupAtraso  |  Duração da fila de tempo de execução de integração  |  Segundos  |  Média | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegrationRuntimeAverageTaskPickupDelay  |  Duração da fila do Integration Runtime  |  Segundos  |  Média | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegrationRuntimeCpuPercentage  |  Utilização de CPU de runtime de integração  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegraçãoRuntimeQueueLength  |  Comprimento da fila de tempo de execução de integração  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  MaxallowedfactorySizeingbunits  |  Tamanho máximo permitido de fábrica (unidade GB)  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  Contagem de recursos máximas permitidas  |  Contagem máxima de entidades permitidas  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  PipelineCanceledRuns  |  Pipeline cancelado executa métricas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  IntegrationRuntimeQueueLength  |  Comprimento da fila do Integration Runtime  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  MaxAllowedFactorySizeInGbUnits  |  Tamanho máximo de fábrica permitido (unidade GB)  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  MaxAllowedResourceCount  |  Contagem máxima de entidades permitidas  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  PipelineCancelledRuns  |  Métricas de execuções de pipeline canceladas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  PipelineFailedRuns  |  Métricas de execução do pipeline com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  PipelineSucceededRuns  |  Métricas de execução do pipeline bem-sucedido  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  Contagem de recursos  |  Contagem total de entidades  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.DataFactory/factories  |  TriggerCanceledRuns  |  Gatilho cancelado executa métricas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  ResourceCount  |  Contagem total de entidades  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.DataFactory/factories  |  TriggerCancelledRuns  |  O gatilho cancelado executa métricas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  TriggerFailedRuns  |  Métricas de execuções do gatilho com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataFactory/factories  |  TriggerSucceededRuns  |  Métricas de execuções do gatilho bem-sucedidas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.DataLakeAnalytics/accounts  |  JobAUEndedCancelled  |  Tempo de AU cancelada  |  Segundos  |  Total | 
@@ -678,17 +678,17 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.DBforPostgreSQL/servers  |  storage_limit  |  Limite de armazenamento  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.DBforPostgreSQL/servers  |  storage_percent  |  Porcentagem de armazenamento  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.DBforPostgreSQL/servers  |  storage_used  |  Armazenamento usado  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  active_connections  |  Conexões ativas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  cpu_percent  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  Iops  |  IOPS  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  memory_percent  |  Porcentagem de memória  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  network_bytes_egress  |  Saída da rede  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  network_bytes_ingress  |  Entrada na rede  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  storage_percent  |  Porcentagem de armazenamento  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.DBforPostgreSQL/serversv2  |  storage_used  |  Armazenamento usado  |  Bytes  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Devices/Conta  |  digitaltwins.telemetria.nodes  |  Espaço reservado para telemetria de nó de gêmeos digitais  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.commands.egress.abandon.success  |  Mensagens C2D abandonadas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.commands.egress.complete.success  |  Entregas de mensagens C2D concluídas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  active_connections  |  Conexões ativas  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  cpu_percent  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  IOPS  |  IOPS  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  memory_percent  |  Porcentagem de memória  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  network_bytes_egress  |  Saída da rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  network_bytes_ingress  |  Entrada na rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  storage_percent  |  Porcentagem de armazenamento  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. DBforPostgreSQL/serversv2  |  storage_used  |  Armazenamento usado  |  Bytes  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Devices/conta  |  digitaltwins. telemetria. nós  |  Espaço reservado para telemetria do nó digital gêmeos  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.commands.egress.abandon.success  |  C2D mensagens abandonadas  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.commands.egress.complete.success  |  Entregas de mensagem C2D concluídas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.commands.egress.reject.success  |  Mensagens C2D rejeitadas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.methods.failure  |  Invocações de método diretas com falhas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.methods.requestSize  |  Tamanho da solicitação das invocações de método diretas  |  Bytes  |  Média | 
@@ -700,7 +700,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.twin.update.failure  |  Atualizações de gêmeos de back-end com falhas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.twin.update.size  |  Tamanho das atualizações de gêmeos de back-end  |  Bytes  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  c2d.twin.update.success  |  Atualizações de gêmeos de back-end bem-sucedidas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  C2DMessagesExpirado  |  Mensagens C2D expiradas (visualização)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  C2DMessagesExpired  |  C2D mensagens expiradas (visualização)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  configurações  |  Métricas de configuração  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Devices/IotHubs  |  connectedDeviceCount  |  Dispositivos conectados (versão prévia)  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  d2c.endpoints.egress.builtIn.events  |  Roteamento: mensagens entregues a mensagens/eventos  |  Contagem  |  Total | 
@@ -734,8 +734,8 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  deviceDataUsageV2  |  Uso total de dados de dispositivos (versão prévia)  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  devices.connectedDevices.allProtocol  |  Dispositivos conectados (preteridos)   |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  devices.totalDevices  |  Total de dispositivos (preterido)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  EventGridEntregas  |  Entregas da Event Grid (pré-visualização)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  EventGridLatency  |  Latência do Grid de Eventos (visualização)  |  Milissegundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  EventGridDeliveries  |  Entregas da grade de eventos (visualização)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  EventGridLatency  |  Latência da grade de eventos (versão prévia)  |  Milissegundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  jobs.cancelJob.failure  |  Cancelamentos de trabalho com falhas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  jobs.cancelJob.success  |  Cancelamentos de trabalho bem-sucedidos  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Devices/IotHubs  |  jobs.completed  |  Trabalhos concluídos  |  Contagem  |  Total | 
@@ -760,36 +760,36 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequestCharges  |  Encargos de Solicitação do Cassandra  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  CassandraRequests  |  Solicitações do Cassandra  |  Contagem  |  Contagem | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DataUsage  |  Uso de dados  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.DocumentDB/databaseAccounts  |  ExcluirVirtualNetwork  |  ExcluirVirtualNetwork  |  Contagem  |  Contagem | 
+| **Sim**  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DeleteVirtualNetwork  |  DeleteVirtualNetwork  |  Contagem  |  Contagem | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DocumentCount  |  Contagem de documentos  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  DocumentQuota  |  Cota de documento  |  Bytes  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  IndexUsage  |  Uso do índice  |  Bytes  |  Total | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MetadataRequests  |  MetadataRequests  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestCharge  |  MongoRequestCharge  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequests  |  Solicitações do Mongo  |  Contagem  |  Contagem | 
-| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsCount  |  Taxa de Solicitação de Mongo  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsCount  |  Taxa de solicitação de Mongo  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsDelete  |  Taxa de solicitação de exclusão de Mongo  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsInsert  |  Taxa de solicitação de inserção de Mongo  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsQuery  |  Taxa de solicitação de consulta de Mongo  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsQuery  |  Taxa de solicitação de consulta do Mongo  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  MongoRequestsUpdate  |  Taxa de solicitação de atualização do Mongo  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  ProvisionedThroughput  |  Taxa de transferência provisionada  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.DocumentDB/databaseAccounts  |  ReplicationLatency  |  Latência de replicação P99  |  MilliSeconds  |  Média | 
 | Não  | Não |  Microsoft.DocumentDB/databaseAccounts  |  ServiceAvailability  |  Disponibilidade do serviço  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequests  |  Total de Solicitações  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.DocumentDB/databaseAccounts  |  TotalRequestUnits  |  Total de Unidades Solicitadas  |  Contagem  |  Total | 
-| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  Contagem de falhas  |  Contagem de Falha  |  Contagem  |  Contagem | 
-| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  Contagem de sucessos  |  Contagem de Êxito  |  Contagem  |  Contagem | 
-| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  SuccessLatency  |  Latência de sucesso  |  MilliSeconds  |  Média | 
-| Não  | Não |  Microsoft.EnterpriseKnowledgeGraph/services  |  Contagem de transações  |  Contagem de transações  |  Contagem  |  Contagem | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  DeadLetteredCount  |  Eventos de mensagens mortas  |  Contagem  |  Total | 
-| Não  | Não |  Microsoft.EventGrid/domínios  |  DeliveryAttemptFailCount  |  Eventos com falha de entrega  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  DeliverySuccessCount  |  Eventos entregues  |  Contagem  |  Total | 
-| Não  | Não |  Microsoft.EventGrid/domínios  |  DestinationProcessingDurationInMs  |  Duração do processamento de destino  |  Milissegundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  DroppedEventCount  |  Eventos removidos  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  MatchedEventCount  |  Eventos correspondentes  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  PublishFailCount  |  Publicar eventos com falha  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  PublishSuccessCount  |  Eventos publicados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/domínios  |  PublicarSucessoLatencyInms  |  Publicar latência de sucesso  |  Contagem  |  Total | 
+| Não  | Não |  Microsoft. EnterpriseKnowledgeGraph/serviços  |  FailureCount  |  Contagem de Falha  |  Contagem  |  Contagem | 
+| Não  | Não |  Microsoft. EnterpriseKnowledgeGraph/serviços  |  SuccessCount  |  Contagem de Êxito  |  Contagem  |  Contagem | 
+| Não  | Não |  Microsoft. EnterpriseKnowledgeGraph/serviços  |  SuccessLatency  |  Latência de êxito  |  MilliSeconds  |  Média | 
+| Não  | Não |  Microsoft. EnterpriseKnowledgeGraph/serviços  |  TransactionCount  |  Contagem de transações  |  Contagem  |  Contagem | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  DeadLetteredCount  |  Eventos de mensagens mortas  |  Contagem  |  Total | 
+| Não  | Não |  Microsoft. EventGrid/domínios  |  DeliveryAttemptFailCount  |  Eventos com falha de entrega  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  DeliverySuccessCount  |  Eventos entregues  |  Contagem  |  Total | 
+| Não  | Não |  Microsoft. EventGrid/domínios  |  DestinationProcessingDurationInMs  |  Duração do processamento de destino  |  Milissegundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  DroppedEventCount  |  Eventos removidos  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  MatchedEventCount  |  Eventos correspondentes  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  PublishFailCount  |  Publicar eventos com falha  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  PublishSuccessCount  |  Eventos publicados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. EventGrid/domínios  |  PublishSuccessLatencyInMs  |  Latência de êxito na publicação  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/eventSubscriptions  |  DeadLetteredCount  |  Eventos de mensagens mortas  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventGrid/eventSubscriptions  |  DeliveryAttemptFailCount  |  Eventos com falha de entrega  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/eventSubscriptions  |  DeliverySuccessCount  |  Eventos entregues  |  Contagem  |  Total | 
@@ -798,11 +798,11 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.EventGrid/eventSubscriptions  |  MatchedEventCount  |  Eventos correspondentes  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/extensionTopics  |  PublishFailCount  |  Publicar eventos com falha  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/extensionTopics  |  PublishSuccessCount  |  Eventos publicados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/extensionTopics  |  PublicarSucessoLatencyInms  |  Publicar latência de sucesso  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventGrid/extensionTopics  |  PublishSuccessLatencyInMs  |  Latência de êxito na publicação  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/extensionTopics  |  UnmatchedEventCount  |  Eventos sem correspondência  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/topics  |  PublishFailCount  |  Publicar eventos com falha  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/topics  |  PublishSuccessCount  |  Eventos publicados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventGrid/topics  |  PublicarSucessoLatencyInms  |  Publicar latência de sucesso  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventGrid/topics  |  PublishSuccessLatencyInMs  |  Latência de êxito na publicação  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventGrid/topics  |  UnmatchedEventCount  |  Eventos sem correspondência  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/clusters  |  ActiveConnections  |  ActiveConnections  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.EventHub/clusters  |  AvailableMemory  |  Memória disponível  |  Porcentagem  |  Máximo | 
@@ -828,44 +828,44 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.EventHub/namespaces  |  CapturedMessages  |  Mensagens Capturadas.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  ConnectionsClosed  |  Conexões Fechadas.  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  ConnectionsOpened  |  Conexões Abertas.  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHABL  |  Arquivar mensagens de atraso (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHAMBS  |  Throughput de mensagem de arquivamento (Preterido)  |  Bytes  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHAMSGS  |  Arquivar mensagens (Depreciadas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHABL  |  Arquivar mensagens de pendências (preterido)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHAMBS  |  Taxa de transferência de mensagem de arquivamento (preterido)  |  Bytes  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHAMSGS  |  Arquivar mensagens (preterido)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHINBYTES  |  Bytes de entrada (Preterida)  |  Bytes  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHINMBS  |  Bytes de entrada (obsoletos) (Depreciados)  |  Bytes  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHINMBS  |  Bytes de entrada (obsoletos) (preterido)  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHINMSGS  |  Mensagens de Entrada (Preterida)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHOUTBYTES  |  Bytes de saída (Preterida)  |  Bytes  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHOUTMBS  |  Bytes de saída (obsoletos) (Depreciados)  |  Bytes  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHOUTMBS  |  Bytes de saída (obsoletos) (preterido)  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  EHOUTMSGS  |  Mensagens de Saída (Preterida)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  FAILREQ  |  Solicitações com falha (depreciadas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  FAILREQ  |  Solicitações com falha (preteridas)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  IncomingBytes  |  Bytes de Entrada.  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  IncomingMessages  |  Mensagens de entrada  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  IncomingRequests  |  Solicitações de entrada  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INMSGS  |  Mensagens recebidas (obsoletas) (Depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INREQS  |  Pedidos de entrada (preteridos)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INTERR  |  Erros internos do servidor (preteridos)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  MISCERR  |  Outros erros (preteridos)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INMSGS  |  Mensagens de entrada (obsoletas) (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INREQS  |  Solicitações de entrada (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  INTERR  |  Erros de servidor interno (preterido)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  MISCERR  |  Outros erros (preterido)  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  OutgoingBytes  |  Bytes de Saída.  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  OutgoingMessages  |  Mensagens de saída  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  OUTMSGS  |  Mensagens de saída (obsoletas) (Depreciadas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  OUTMSGS  |  Mensagens de saída (obsoletas) (preteridas)  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  QuotaExceededErrors  |  Cota de Erros Excedida.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  ServerErrors  |  Erros do Servidor.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  Tamanho  |  Tamanho  |  Bytes  |  Média | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  SuccessfulRequests  |  Solicitações bem sucedidas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  SUCCREQ  |  Solicitações bem sucedidas (depreciadas)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  SVRBSY  |  Erros ocupados do servidor (preteridos)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  SUCCREQ  |  Solicitações com êxito (preteridas)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.EventHub/namespaces  |  SVRBSY  |  Erros do servidor ocupado (preterido)  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  ThrottledRequests  |  Solicitações Limitadas.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.EventHub/namespaces  |  UserErrors  |  Erros de Usuário.  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.HDInsight/clusters  |  CategorizedGatewayRequests  |  Solicitações de gateway categorizadas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.HDInsight/clusters  |  GatewayRequests  |  Solicitações de gateway  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.HDInsight/clusters  |  NumActiveWorkers  |  Número de trabalhadores ativos  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.HDInsight/clusters  |  Solicitações de dimensionamento  |  Solicitações de dimensionamento  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.HDInsight/clusters  |  ScalingRequests  |  Solicitações de dimensionamento  |  Contagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Insights/AutoscaleSettings  |  MetricThreshold  |  Limite da Métrica  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Insights/AutoscaleSettings  |  ObservedCapacity  |  Capacidade Observada  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Insights/AutoscaleSettings  |  ObservedMetricValue  |  Valor de Métrica Observado  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Insights/AutoscaleSettings  |  ScaleActionsInitiated  |  Ações de Escala Iniciadas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Insights/Components  |  disponibilidadeResultados/disponibilidadePorcentagem  |  Disponibilidade  |  Porcentagem  |  Média | 
-| Não  | Não |  Microsoft.Insights/Components  |  disponibilidadeResultados/contagem  |  Testes de disponibilidade  |  Contagem  |  Contagem | 
+| **Sim**  | Não |  Microsoft.Insights/Components  |  availabilityResults/availabilityPercentage  |  Disponibilidade  |  Porcentagem  |  Média | 
+| Não  | Não |  Microsoft.Insights/Components  |  availabilityResults/contagem  |  Testes de disponibilidade  |  Contagem  |  Contagem | 
 | **Sim**  | Não |  Microsoft.Insights/Components  |  availabilityResults/duration  |  Duração do teste de disponibilidade  |  MilliSeconds  |  Média | 
 | **Sim**  | Não |  Microsoft.Insights/Components  |  browserTimings/networkDuration  |  Tempo de conexão de rede de carregamento de página  |  MilliSeconds  |  Média | 
 | **Sim**  | Não |  Microsoft.Insights/Components  |  browserTimings/processingDuration  |  Tempo de processamento do cliente  |  MilliSeconds  |  Média | 
@@ -892,61 +892,61 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.Insights/Components  |  requests/count  |  Solicitações do servidor  |  Contagem  |  Contagem | 
 | **Sim**  | Não |  Microsoft.Insights/Components  |  requests/duration  |  Tempo de resposta do servidor  |  MilliSeconds  |  Média | 
 | Não  | Não |  Microsoft.Insights/Components  |  requests/failed  |  Solicitações falhas  |  Contagem  |  Contagem | 
-| Não  | Não |  Microsoft.Insights/Components  |  solicitações/taxa  |  Taxa de solicitação de servidor  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.Insights/Components  |  solicitações/taxa  |  Taxa de solicitações do servidor  |  CountPerSecond  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Insights/Components  |  traces/count  |  Rastreamentos  |  Contagem  |  Contagem | 
 | **Sim**  | Não |  Microsoft.KeyVault/vaults  |  ServiceApiHit  |  Total de ocorrências da API de Serviço  |  Contagem  |  Contagem | 
 | **Sim**  | Não |  Microsoft.KeyVault/vaults  |  ServiceApiLatency  |  Latência geral da API de Serviço  |  Milissegundos  |  Média | 
 | **Sim**  | Não |  Microsoft.KeyVault/vaults  |  ServiceApiResult  |  Total de resultados da API de Serviço  |  Contagem  |  Contagem | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  CacheUtilização  |  Utilização do cache  |  Porcentagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportMaxLatenessMinutes  |  Atas de atraso máximas de exportação contínua  |  Contagem  |  Máximo | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportNumOfRecordsExported  |  Exportação contínua - num de registros exportados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  Contagem contínuadeexportações  |  Contagem contínua pendente de exportação  |  Contagem  |  Máximo | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  Resultado de exportação contínua  |  Resultado contínuo da exportação  |  Contagem  |  Contagem | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  CacheUtilization  |  Utilização de cache  |  Porcentagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportMaxLatenessMinutes  |  Minutos de atraso máximo de exportação contínua  |  Contagem  |  Máximo | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportNumOfRecordsExported  |  Exportação contínua-num de registros exportados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportPendingCount  |  Contagem de exportação contínua pendente  |  Contagem  |  Máximo | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ContinuousExportResult  |  Resultado da exportação contínua  |  Contagem  |  Contagem | 
 | **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  CPU  |  CPU  |  Porcentagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  EventosProcessadosParaEventosHubs  |  Eventos processados (para Hubs de Eventos/IoT)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ExportAçãoUtilização  |  Utilização da exportação  |  Porcentagem  |  Máximo | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  InstionLatencyInSeconds  |  Latência de ingestão (em segundos)  |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  EventsProcessedForEventHubs  |  Eventos processados (para hubs de evento/IoT)  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  ExportUtilization  |  Utilização da exportação  |  Porcentagem  |  Máximo | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  IngestionLatencyInSeconds  |  Latência de ingestão (em segundos)  |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  IngestionResult  |  Resultado da ingestão  |  Contagem  |  Contagem | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  IngestãoUtilização  |  Utilização da ingestão  |  Porcentagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  IngestionUtilization  |  Utilização de ingestão  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  IngestionVolumeInMB  |  Volume de ingestão (em MB)  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  Keepalive  |  Mantenha-se vivo  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  KeepAlive  |  Keep Alive  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  QueryDuration  |  Duração da consulta  |  Milissegundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  Taxa de solicitação mais vaporosa  |  Taxa de solicitação de ingestão de streaming  |  Contagem  |  RateRequestsPerSegundo | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  SteamingIngestRequestRate  |  Taxa de solicitação de ingestão de streaming  |  Contagem  |  RateRequestsPerSecond | 
 | **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  StreamingIngestDataRate  |  Taxa de dados de ingestão de streaming  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  StreamingIngestDuration  |  Streaming de duração ingerida  |  Milissegundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  StreamingingestResultados  |  Resultado de Streaming Ingest  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  ActionLatency  |  Latência da ação   |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionsCompleted  |  Ações concluídas   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionsFailed  |  Ações com falha   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionsSkipped  |  Ações ignoradas   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionsStarted  |  Ações iniciadas   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionsSucceeded  |  Ações bem sucedidas   |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  ActionSuccessLatency  |  Latência das ações bem sucedidas   |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  ActionThrottledEvents  |  Eventos de restrição de ações  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  IntegraçãoServiceEnvironmentConectorMemoryUseUso  |  Uso da memória do conector para o ambiente de serviço de integração  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  IntegraçãoServiceEnvironmentConectorProcessorUseusouso  |  Uso do processador conector para ambiente de serviço de integração  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  IntegraçãoServiçoAmbientede trabalhoTrabalhotrabalhoTrabalhosmaisbem-ministroUsode trabalho  |  Uso da memória do fluxo de trabalho para o ambiente de serviço de integração  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  IntegraçãoServiçoAmbienteambienteTrabalhotrabalhoControlede utilizaçãodotrabalho  |  Uso do processador de fluxo de trabalho para o ambiente de serviço de integração  |  Porcentagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunFailurePercentage  |  Porcentagem de falha de execução  |  Porcentagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  RunLatency  |  Latência da execução  |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunsCancelled  |  Executa cancelado  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunsCompleted  |  Execuções concluídas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunsFailed  |  Execuções com falha  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunsStarted  |  Execuções iniciadas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunsSucceeded  |  Execuções bem sucedidas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunStartThrottledEvents  |  Executar eventos estrangulados  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  RunSuccessLatency  |  Latência de execução bem sucedida  |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  RunThrottledEvents  |  Eventos de restrição de execução  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  TriggerFireLatency  |  Latência do gatilho acionado   |  Segundos  |  Média | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  TriggerLatency  |  Latência do gatilho   |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersCompleted  |  Gatilhos concluídos   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersFailed  |  Gatilhos com falha   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersFired  |  Gatilhos acionados   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersSkipped  |  Gatilhos ignorados  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersStarted  |  Gatilhos iniciados   |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggersSucceeded  |  Gatilhos bem sucedidos   |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Logic/integrationServiceEnvironments  |  TriggerSuccessLatency  |  Latência do gatilho bem sucedido   |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/integrationServiceEnvironments  |  TriggerThrottledEvents  |  Eventos de restrição do gatilho  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  StreamingIngestDuration  |  Duração da ingestão de streaming  |  Milissegundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Kusto/Clusters  |  StreamingIngestResults  |  Resultado de ingestão de streaming  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  ActionLatency  |  Latência da ação   |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsCompleted  |  Ações concluídas   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsFailed  |  Ações com falha   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsSkipped  |  Ações ignoradas   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsStarted  |  Ações iniciadas   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionsSucceeded  |  Ações bem sucedidas   |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  ActionSuccessLatency  |  Latência das ações bem sucedidas   |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  ActionThrottledEvents  |  Eventos de restrição de ações  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorMemoryUsage  |  Uso de memória do conector para Ambiente de Serviço de Integração  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentConnectorProcessorUsage  |  Uso do processador do conector para Ambiente de Serviço de Integração  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowMemoryUsage  |  Uso de memória do fluxo de trabalho para Ambiente de Serviço de Integração  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  IntegrationServiceEnvironmentWorkflowProcessorUsage  |  Uso do processador de fluxo de trabalho para Ambiente de Serviço de Integração  |  Porcentagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunFailurePercentage  |  Porcentagem de falha de execução  |  Porcentagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  RunLatency  |  Latência da execução  |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsCancelled  |  Execuções canceladas  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsCompleted  |  Execuções concluídas  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsFailed  |  Execuções com falha  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsStarted  |  Execuções iniciadas  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunsSucceeded  |  Execuções bem sucedidas  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunStartThrottledEvents  |  Executar eventos restritos de início  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  RunSuccessLatency  |  Latência de execução bem sucedida  |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  RunThrottledEvents  |  Eventos de restrição de execução  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  TriggerFireLatency  |  Latência do gatilho acionado   |  Segundos  |  Média | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  TriggerLatency  |  Latência do gatilho   |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersCompleted  |  Gatilhos concluídos   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersFailed  |  Gatilhos com falha   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersFired  |  Gatilhos acionados   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersSkipped  |  Gatilhos ignorados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersStarted  |  Gatilhos iniciados   |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggersSucceeded  |  Gatilhos bem sucedidos   |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Logic/integrationServiceEnvironments  |  TriggerSuccessLatency  |  Latência do gatilho bem sucedido   |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft. Logic/integrationServiceEnvironments  |  TriggerThrottledEvents  |  Eventos de restrição do gatilho  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Logic/workflows  |  ActionLatency  |  Latência da ação   |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  ActionsCompleted  |  Ações concluídas   |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  ActionsFailed  |  Ações com falha   |  Contagem  |  Total | 
@@ -965,12 +965,12 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  BillingUsageStorageConsumption  |  Uso de Cobrança para Execuções de Consumo de Armazenamento  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunFailurePercentage  |  Porcentagem de falha de execução  |  Porcentagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Logic/workflows  |  RunLatency  |  Latência da execução  |  Segundos  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsCancelled  |  Executa cancelado  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsCancelled  |  Execuções canceladas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsCompleted  |  Execuções concluídas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsFailed  |  Execuções com falha  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsStarted  |  Execuções iniciadas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunsSucceeded  |  Execuções bem sucedidas  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunStartThrottledEvents  |  Executar eventos estrangulados  |  Contagem  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunStartThrottledEvents  |  Executar eventos restritos de início  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Logic/workflows  |  RunSuccessLatency  |  Latência de execução bem sucedida  |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  RunThrottledEvents  |  Eventos de restrição de execução  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  TotalBillableExecutions  |  Total de execuções faturáveis  |  Contagem  |  Total | 
@@ -985,126 +985,126 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Logic/workflows  |  TriggerSuccessLatency  |  Latência do gatilho bem sucedido   |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Logic/workflows  |  TriggerThrottledEvents  |  Eventos de restrição do gatilho  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos ativos  |  Núcleos ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nódulos ativos  |  Nódulos ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Executa concluído  |  Executa concluído  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nós ativos  |  Nós ativos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Execuções concluídas  |  Execuções concluídas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Execuções com falha  |  Execuções com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos ociosos  |  Núcleos ociosos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nódulos ociosos  |  Nódulos ociosos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nós ociosos  |  Nós ociosos  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Deixando núcleos  |  Deixando núcleos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Deixando nódulos  |  Deixando nódulos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Falha na implantação do modelo  |  Falha na implantação do modelo  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Implantação do modelo iniciado  |  Implantação do modelo iniciado  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Modelo Implantar Bem Sucedido  |  Modelo Implantar Bem Sucedido  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Saindo de nós  |  Saindo de nós  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Falha na Implantação de Modelo  |  Falha na Implantação de Modelo  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Implantação de Modelo iniciado  |  Implantação de Modelo iniciado  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Implantação de Modelo com êxito  |  Implantação de Modelo com êxito  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Falha no registro do modelo  |  Falha no registro do modelo  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Registro de modelo sucedendo  |  Registro de modelo sucedendo  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos pré-empáveis  |  Núcleos pré-empáveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Lemos pré-empáticos  |  Lemos pré-empáticos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Percentual de Utilização de Cotas  |  Percentual de Utilização de Cotas  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Started Runs  |  Started Runs  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos Totais  |  Núcleos Totais  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nodes Totais  |  Nodes Totais  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Registro de modelo bem-sucedido  |  Registro de modelo bem-sucedido  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos preempçãos  |  Núcleos preempçãos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nós admitidos  |  Nós admitidos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Porcentagem de utilização de cota  |  Porcentagem de utilização de cota  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Execuções iniciadas  |  Execuções iniciadas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Total de núcleos  |  Total de núcleos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Total de nós  |  Total de nós  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Núcleos inutilizáveis  |  Núcleos inutilizáveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.MachineLearningServices/workspaces  |  Nós inutilizáveis  |  Nós inutilizáveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Maps/accounts  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
 | Não  | Não |  Microsoft.Maps/accounts  |  Uso  |  Uso  |  Contagem  |  Contagem | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  Contagem de ativos  |  Contagem de ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  Cotação patrimonial  |  Cota de ativos  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  AssetQuotaUsedPercentage  |  Cota de ativos utilizada  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  Contagem de políticas de conteúdo  |  Contagem de políticas de chave de conteúdo  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  Cota de política de conteúdo  |  Cota de política de chave de conteúdo  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  ConteúdochavePolicyQuotaUsedPercentage  |  Cota de política de chave de conteúdo usada  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  StreamingPolicyCount  |  Contagem de políticas de streaming  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  StreamingPolicyQuota  |  Cota de Política de Streaming  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices  |  StreamingPolicyQuotaUsedPercentage  |  Cota de Política de Streaming usada  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices/streamingEndpoints  |  Saída  |  Saída  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices/streamingEndpoints  |  Requests  |  Requests  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Media/mediaservices/streamingEndpoints  |  SuccessE2ELatency  |  Sucesso de ponta a ponta Latência  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  Contagem total de GCPause  |  Contagem de pausa sinuosa gc  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  GCPauseTotalTimeTime  |  TEMPO total de pausa do GC  |  Milissegundos  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  MaxOldGenMemoryPoolBytes  |  Tamanho máximo de dados da geração antiga disponível  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  OldGenMemoryPoolBytes  |  Tamanho de dados da geração antiga  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  OldGenPromotedBytes  |  Promover ao tamanho de dados da geração antiga  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  ServiceCpuUsagePercentage  |  Porcentagem de uso da CPU do serviço  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  Memória de serviçocomprometida  |  Memória de serviço atribuída  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  ServiceMemoryMax  |  Memória de Serviço Max  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  ServiceMemoryUsed  |  Memória de serviço usada  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  SistemaCpuUsagePercentage  |  Porcentagem de uso da CPU do sistema  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatErrorCount  |  Erro global da Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatReceivedBytes  |  Bytes recebidos no total de tomcat  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatRequestMaxTime  |  Tomcat Solicitar Tempo Máximo  |  Milissegundos  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatRequestTotalCount  |  Contagem total de solicitações de tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatRequestTotalTime  |  Tomcat Request Total Times  |  Milissegundos  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatResponseAvgTime  |  Tempo médio de solicitação de tomcat  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatSentBytes  |  Tomcat Total Sent Bytes  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatSessionActiveCurrentCount  |  Tomcat Session Alive Count  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatSessionActiveMaxCount  |  Contagem ativa da sessão Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatSessionAliveMaxTime  |  Tomcat Session Max Tempo Vivo  |  Milissegundos  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  TomcatSessionCrioucontagem  |  Contagem criada da sessão tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  Contagem expirada do TomcatSession  |  Contagem expirada da sessão tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  Contagem rejeitada de TomcatSession  |  Contagem rejeitada da sessão de Tomcat  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Microservices4Spring/appClusters  |  YoungGenPromotedBytes  |  Promover ao Tamanho de Dados da Geração Jovem  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  AssetCount  |  Contagem de ativos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  AssetQuota  |  Cota de ativos  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  AssetQuotaUsedPercentage  |  Porcentagem de cota de ativos usada  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  ContentKeyPolicyCount  |  Contagem de política de chave de conteúdo  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  ContentKeyPolicyQuota  |  Cota de política de chave de conteúdo  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  ContentKeyPolicyQuotaUsedPercentage  |  Porcentagem de cota usada da política de chave de conteúdo  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  StreamingPolicyCount  |  Contagem de políticas de streaming  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  StreamingPolicyQuota  |  Cota de política de streaming  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices  |  StreamingPolicyQuotaUsedPercentage  |  Porcentagem de cota usada da política de streaming  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices/streamingEndpoints  |  Saída  |  Saída  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices/streamingEndpoints  |  Requests  |  Requests  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Media/mediaservices/streamingEndpoints  |  SuccessE2ELatency  |  Latência de ponta a ponta com êxito  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  GCPauseTotalCount  |  Contagem de pausar do GC  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  GCPauseTotalTime  |  Tempo total de pausa do GC  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  MaxOldGenMemoryPoolBytes  |  Tamanho máximo de dados de geração antiga disponíveis  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  OldGenMemoryPoolBytes  |  Tamanho de dados de geração antiga  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  OldGenPromotedBytes  |  Promover para tamanho de dados de geração antiga  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  ServiceCpuUsagePercentage  |  Porcentagem de uso da CPU do serviço  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryCommitted  |  Memória de serviço atribuída  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryMax  |  Memória máxima do serviço  |  Bytes  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  ServiceMemoryUsed  |  Memória usada pelo serviço  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  SystemCpuUsagePercentage  |  Porcentagem de uso da CPU do sistema  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatErrorCount  |  Erro global do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatReceivedBytes  |  Total de bytes recebidos do Tomcat  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatRequestMaxTime  |  Tempo máximo de solicitação do Tomcat  |  Milissegundos  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatRequestTotalCount  |  Contagem total de solicitações do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatRequestTotalTime  |  Tempos totais da solicitação do Tomcat  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatResponseAvgTime  |  Tempo médio da solicitação do Tomcat  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSentBytes  |  Total de bytes enviados do Tomcat  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionActiveCurrentCount  |  Contagem de sessões ativas de Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionActiveMaxCount  |  Contagem ativa máxima da sessão do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionAliveMaxTime  |  Tempo de atividade máx de sessão do Tomcat  |  Milissegundos  |  Máximo | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionCreatedCount  |  Contagem de sessões criadas do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionExpiredCount  |  Contagem de sessões expiradas do Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  TomcatSessionRejectedCount  |  Contagem rejeitada da sessão Tomcat  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. Microservices4Spring/appClusters  |  YoungGenPromotedBytes  |  Promover para tamanho de dados de geração jovem  |  Bytes  |  Máximo | 
 | **Sim**  | Não |  Microsoft.NetApp/netAppAccounts/capacityPools  |  VolumePoolAllocatedUsed  |  Pool de volume alocado usado  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.NetApp/netAppAccounts/capacityPools  |  VolumePoolTotalLogicalSize  |  Tamanho lógico total do pool de volume  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  AverageReadLatency  |  Latência média de leitura  |  MilliSeconds  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  AverageWriteLatency  |  Latência média de gravação  |  MilliSeconds  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  ReadIops  |  IOPS de leitura  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  VolumeLogicalSize  |  Tamanho do volume lógico  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  VolumeSnapshotSize  |  Tamanho do instantâneo de volume  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.NetApp/netAppContas/capacityPools/volumes  |  WriteIops  |  IOPS de gravação  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  AverageReadLatency  |  Latência média de leitura  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  AverageWriteLatency  |  Latência média de gravação  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  ReadIops  |  IOPS de leitura  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  VolumeLogicalSize  |  Tamanho do volume lógico  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  VolumeSnapshotSize  |  Tamanho do instantâneo de volume  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. NetApp/netAppAccounts/capacityPools/volumes  |  WriteIops  |  IOPS de gravação  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.Network/applicationGateways  |  ApplicationGatewayTotalTime  |  Tempo total do gateway de aplicativo  |  MilliSeconds  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  AvgRequestCountPerHealthyHost  |  Solicitações por minuto por Host Saudável  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendConnectTime  |  Tempo de conexão backend  |  MilliSeconds  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendFirstByteResponseTime  |  Backend First Byte Response Time  |  MilliSeconds  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendLastByteResponseTime  |  Backend Last Byte Response Time  |  MilliSeconds  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BackendResponseStatus  |  Status de resposta backend  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  Contagem bloqueada  |  Firewall de aplicativos da Web bloqueou a distribuição de regras de solicitações  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BloqueadoReqCount  |  Contagem de solicitações bloqueadas do Firewall de Aplicativos da Web  |  Contagem  |  Total | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  AvgRequestCountPerHealthyHost  |  Solicitações por minuto por host íntegro  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendConnectTime  |  Tempo de conexão de back-end  |  MilliSeconds  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendFirstByteResponseTime  |  Tempo de resposta do primeiro byte do back-end  |  MilliSeconds  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  BackendLastByteResponseTime  |  Tempo de resposta do último byte do back-end  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BackendResponseStatus  |  Status da resposta de back-end  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BlockedCount  |  Distribuição de regra de solicitações bloqueadas do firewall do aplicativo Web  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BlockedReqCount  |  Contagem de solicitações bloqueadas do firewall do aplicativo Web  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BytesReceived  |  Bytes Recebidos  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  BytesSent  |  Bytes Enviados  |  Bytes  |  Total | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  Unidades de capacitação  |  Unidades de capacidade atuais  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  ClienteRtt  |  Cliente RTT  |  MilliSeconds  |  Média | 
-| Não  | Não |  Microsoft.Network/applicationGateways  |  ComputaçãoUnidades  |  Unidades atuais de computação  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  CapacityUnits  |  Unidades de capacidade atuais  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  ClientRtt  |  RTT do cliente  |  MilliSeconds  |  Média | 
+| Não  | Não |  Microsoft.Network/applicationGateways  |  ComputeUnits  |  Unidades de computação atuais  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  CurrentConnections  |  Conexões atuais  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  FailedRequests  |  Solicitações com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  HealthyHostCount  |  Contagem de hosts íntegros  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  Contagem combinada  |  Distribuição total de regras do Firewall de Aplicativos da Web  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/applicationGateways  |  MatchedCount  |  Distribuição da regra total do firewall do aplicativo Web  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  ResponseStatus  |  Status da Resposta  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Network/applicationGateways  |  Produtividade  |  Produtividade  |  BytesPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  TlsProtocol  |  Protocolo TLS do cliente  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  TotalRequests  |  Total de Solicitações  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/applicationGateways  |  UnhealthyHostCount  |  Contagem de hosts não íntegros  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  ApplicationRuleHit  |  Contagem de acerto de regras de aplicação  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  DataProcessado  |  Dados processados  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  FirewallHealth  |  Estado de saúde do firewall  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  NetworkRuleHit  |  Contagem de acerto de regras de rede  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  ApplicationRuleHit  |  Contagem de impacto de regras de aplicativo  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  Dataprocessod  |  Dados processados  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  FirewallHealth  |  Estado de integridade do firewall  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  NetworkRuleHit  |  Contagem de impacto das regras de rede  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/azurefirewalls  |  SNATPortUtilization  |  Utilização da porta SNAT  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/connections  |  BitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/connections  |  BitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/dnszones  |  QueryVolume  |  Volume de consulta  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Network/dnszones  |  RecordSetCapacityUtilization  |  Utilização de capacidade de Conjuntos de Registros  |  Porcentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Network/dnszones  |  RecordSetCount  |  Contagem de Conjuntos de Registros  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Network/expressRouteCircuits  |  ArpAvailability  |  Disponibilidade de Arp  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRouteCircuits  |  BgpAvailability  |  Disponibilidade do BGP  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/expressRouteCircuits  |  ArpAvailability  |  Disponibilidade do ARP  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/expressRouteCircuits  |  BgpAvailability  |  Disponibilidade de BGP  |  Porcentagem  |  Média | 
 | Não  | Não |  Microsoft.Network/expressRouteCircuits  |  BitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
 | Não  | Não |  Microsoft.Network/expressRouteCircuits  |  BitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  GlobalReachBitsPerSegundo  |  GlobalReachBitsPerSegundo  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  GlobalReachBitsOutSegundo  |  GlobalReachBitsOutSegundo  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  QosDropBitsInPerSegundo  |  DroppedInBitsPerSecond  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  QosDropBitsOutPerSegundo  |  DroppedOutBitsPerSecond  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  GlobalReachBitsInPerSecond  |  GlobalReachBitsInPerSecond  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  GlobalReachBitsOutPerSecond  |  GlobalReachBitsOutPerSecond  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  QosDropBitsInPerSecond  |  DroppedInBitsPerSecond  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft.Network/expressRouteCircuits  |  QosDropBitsOutPerSecond  |  DroppedOutBitsPerSecond  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/expressRouteCircuits/peerings  |  BitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/expressRouteCircuits/peerings  |  BitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteGateways  |  ErGatewayConnectionBitsPerSegundo  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
-| Não  | Não |  Microsoft.Network/expressRouteGateways  |  ErGatewayConnectionBitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  AdminState  |  AdminState  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  Protocolo de linha  |  Protocolo de linha  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  PortBitsInPerSegundo  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  PortBitsOutPerSegundo  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  RxLightLevel  |  RxLightLevel  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/expressRoutePorts  |  TxLightLevel  |  TxLightLevel  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. Network/expressRouteGateways  |  ErGatewayConnectionBitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
+| Não  | Não |  Microsoft. Network/expressRouteGateways  |  ErGatewayConnectionBitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  Adminstate  |  Adminstate  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  LineProtocol  |  LineProtocol  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  PortBitsInPerSecond  |  BitsInPerSecond  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  PortBitsOutPerSecond  |  BitsOutPerSecond  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  RxLightLevel  |  RxLightLevel  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. Network/expressRoutePorts  |  TxLightLevel  |  TxLightLevel  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  BackendHealthPercentage  |  Percentual de integridade do back-end  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  BackendRequestCount  |  Contagem de solicitações de back-end  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  BackendRequestLatency  |  Latência de solicitação de back-end  |  MilliSeconds  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  Tamanho da resposta de Billable  |  Tamanho da resposta billable  |  Bytes  |  Total | 
+| **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  BillableResponseSize  |  Tamanho de resposta Faturável  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  RequestCount  |  Contagem de solicitações  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  RequestSize  |  Tamanho da solicitação  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Network/frontdoors  |  ResponseSize  |  Tamanho da resposta  |  Bytes  |  Total | 
@@ -1122,10 +1122,10 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Network/networkInterfaces  |  BytesSentRate  |  Bytes Enviados  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/networkInterfaces  |  PacketsReceivedRate  |  Pacotes Recebidos  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/networkInterfaces  |  PacketsSentRate  |  Pacotes Enviados  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  AverageRoundtripMs  |  Avg. Tempo de ida e volta (ms)  |  MilliSeconds  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  ChecksFailedPercent  |  Verifica a porcentagem de falha (visualização)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  AverageRoundtripMs  |  Média de tempo de ida e volta (MS)  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  ChecksFailedPercent  |  Verificações por cento com falha (versão prévia)  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  ProbesFailedPercent  |  Porcentagem de investigações com falha  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  RoundTripTimeMs  |  Tempo de ida e volta (ms) (Visualização)  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/networkWatchers/connectionMonitors  |  RoundTripTimeMs  |  Tempo de ida e volta (MS) (visualização)  |  MilliSeconds  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/publicIPAddresses  |  ByteCount  |  Contagem de Bytes  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/publicIPAddresses  |  BytesDroppedDDoS  |  DDoS de bytes de entrada removidos  |  BytesPerSecond  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Network/publicIPAddresses  |  BytesForwardedDDoS  |  DDoS de bytes de entrada encaminhados  |  BytesPerSecond  |  Máximo | 
@@ -1164,7 +1164,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Network/virtualNetworkGateways  |  TunnelIngressBytes  |  Bytes de Entrada de Túnel  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/virtualNetworkGateways  |  TunnelIngressPacketDropTSMismatch  |  Remoção de Pacotes Incompatíveis de TS de Entrada de Túnel  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.Network/virtualNetworkGateways  |  TunnelIngressPackets  |  Pacotes de Entrada de Túnel  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Network/virtualNetworks  |  PingMeshAverageRoundtripMs  |  Tempo de ida e volta para Pings para uma VM  |  MilliSeconds  |  Média | 
+| **Sim**  | Não |  Microsoft.Network/virtualNetworks  |  PingMeshAverageRoundtripMs  |  Tempo de ida e volta para pings em uma VM  |  MilliSeconds  |  Média | 
 | **Sim**  | Não |  Microsoft.Network/virtualNetworks  |  PingMeshProbesFailedPercent  |  Pings com falha em uma VM  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.NotificationHubs/Namespaces/NotificationHubs  |  incoming  |  Mensagens de entrada  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.NotificationHubs/Namespaces/NotificationHubs  |  incoming.all.failedrequests  |  Todas as solicitações com falha recebidas  |  Contagem  |  Total | 
@@ -1250,11 +1250,11 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes  |  MBytes Disponíveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes Memory  |  MBytes de Memória Disponíveis  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Available MBytes Swap  |  MBytes de Espaço de Permuta Disponíveis  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Leitura do Disco  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Leitura do Disco  |  Avg. Disk sec/Read  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Transferência do Disco  |  Avg. Disk sec/Transfer  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Gravação do Disco  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Gravação do Disco  |  Avg. Disk sec/Write  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Leitura do Disco  |  Média de disco s/leitura  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Leitura do Disco  |  Média de disco s/leitura  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Transferência do Disco  |  Média de disco s/transferência  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Gravação do Disco  |  Média de disco s/gravação  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Avg. de segundos/Gravação do Disco  |  Média de disco s/gravação  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Received/sec  |  Bytes Recebidos/s  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Sent/sec  |  Bytes Enviados/s  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Average_Bytes Total/sec  |  Bytes Totais/s  |  Contagem  |  Média | 
@@ -1300,10 +1300,10 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.OperationalInsights/workspaces  |  Pulsação  |  Pulsação  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.OperationalInsights/workspaces  |  Atualizar  |  Atualizar  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  memory_metric  |  Memória  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  memory_thrashing_metric  |  Bater na memória (conjuntos de dados)  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  memory_thrashing_metric  |  Ultrapaginação de memória (conjuntos de valores)  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  qpu_high_utilization_metric  |  Alta utilização de QPU  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  QueryDuration  |  Duração da consulta (Conjuntos de dados)  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  QueryPoolJobQueueLength  |  Comprimento da fila de trabalho do pool de consulta (Conjuntos de dados)  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  QueryDuration  |  Duração da consulta (conjuntos de valores)  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft.PowerBIDedicated/capacities  |  QueryPoolJobQueueLength  |  Comprimento da fila de trabalhos do pool de consultas (conjuntos de os)  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Relay/namespaces  |  ActiveConnections  |  ActiveConnections  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.Relay/namespaces  |  ActiveListeners  |  ActiveListeners  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Relay/namespaces  |  BytesTransferred  |  BytesTransferred  |  Contagem  |  Total | 
@@ -1324,32 +1324,32 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  ActiveMessages  |  Contagem de mensagens em uma fila/tópico.  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  ConnectionsClosed  |  Conexões Fechadas.  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  ConnectionsOpened  |  Conexões Abertas.  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  CPUXNS  |  CPU (Preterida)  |  Porcentagem  |  Máximo | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  DeadletteredMessages  |  Contagem de mensagens com letras mortas em uma fila/tópico.  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  CPUXNS  |  CPU (preterido)  |  Porcentagem  |  Máximo | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  DeadletteredMessages  |  Contagem de mensagens mortas em uma fila/tópico.  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.ServiceBus/namespaces  |  IncomingMessages  |  Mensagens de entrada  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.ServiceBus/namespaces  |  IncomingRequests  |  Solicitações de entrada  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  Mensagens  |  Contagem de mensagens em uma fila/tópico.  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  NamespaceCpuUso  |  CPU  |  Porcentagem  |  Máximo | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  NamespaceMemoryUso  |  Uso de Memória  |  Porcentagem  |  Máximo | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  NamespaceCpuUsage  |  CPU  |  Porcentagem  |  Máximo | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  NamespaceMemoryUsage  |  Uso de Memória  |  Porcentagem  |  Máximo | 
 | **Sim**  | **Sim** |  Microsoft.ServiceBus/namespaces  |  OutgoingMessages  |  Mensagens de saída  |  Contagem  |  Total | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  Mensagens agendadas  |  Contagem de mensagens agendadas em uma fila/tópico.  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  ScheduledMessages  |  Contagem de mensagens agendadas em uma fila/tópico.  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  ServerErrors  |  Erros do Servidor.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  Tamanho  |  Tamanho  |  Bytes  |  Média | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  SuccessfulRequests  |  Solicitações bem sucedidas  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  ThrottledRequests  |  Solicitações Limitadas.  |  Contagem  |  Total | 
 | Não  | Não |  Microsoft.ServiceBus/namespaces  |  UserErrors  |  Erros de Usuário.  |  Contagem  |  Total | 
-| Não  | Não |  Microsoft.ServiceBus/namespaces  |  WSXNS  |  Uso da memória (preterido)  |  Porcentagem  |  Máximo | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Cpu real  |  Cpu real  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Memória real  |  Memória real  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Cpu alocada  |  Cpu alocada  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Memória alocada  |  Memória alocada  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Status do aplicativo  |  Status do aplicativo  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Status do contêiner  |  Status do contêiner  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  CpuUtilização  |  CpuUtilização  |  Porcentagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  MemóriaUtilização  |  MemóriaUtilização  |  Porcentagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Contagem de reinicialização  |  Contagem de reinicialização  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  ServiceReplicaStatus  |  ServiceReplicaStatus  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.ServiceFabricMesh/aplicativos  |  Status de serviço  |  Status de serviço  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.ServiceBus/namespaces  |  WSXNS  |  Uso de memória (preterido)  |  Porcentagem  |  Máximo | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  ActualCpu  |  ActualCpu  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  ActualMemory  |  ActualMemory  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  AllocatedCpu  |  AllocatedCpu  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  AllocatedMemory  |  AllocatedMemory  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  ApplicationStatus  |  ApplicationStatus  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  ContainerStatus  |  ContainerStatus  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  CpuUtilization  |  CpuUtilization  |  Porcentagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  MemoryUtilization  |  MemoryUtilization  |  Porcentagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  RestartCount  |  RestartCount  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  ServiceReplicaStatus  |  ServiceReplicaStatus  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft. ServiceFabricMesh/aplicativos  |  Perstatus  |  Perstatus  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.SignalRService/SignalR  |  ConnectionCount  |  Contagem de conexão  |  Contagem  |  Máximo | 
 | **Sim**  | **Sim** |  Microsoft.SignalRService/SignalR  |  InboundTraffic  |  Tráfego de entrada  |  Bytes  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.SignalRService/SignalR  |  MessageCount  |  Contagem de mensagens  |  Contagem  |  Total | 
@@ -1369,15 +1369,15 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Sql/servers  |  dtu_used  |  DTU usado  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers  |  storage_used  |  Espaço de dados usado  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/databases  |  allocated_data_storage  |  Espaço alocado de dados  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  app_cpu_billed  |  CPU do aplicativo cobrado  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  app_cpu_percent  |  Porcentagem da CPU do aplicativo  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  app_cpu_billed  |  CPU do aplicativo cobrada  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  app_cpu_percent  |  Porcentagem de CPU do aplicativo  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/databases  |  app_memory_percent  |  Porcentagem de memória do aplicativo  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  blocked_by_firewall  |  Bloqueado pelo firewall  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  cache_hit_percent  |  Percentual de ocorrência no cache  |  Porcentagem  |  Máximo | 
 | **Sim**  | Não |  Microsoft.Sql/servers/databases  |  cache_used_percent  |  Percentual de cache usado  |  Porcentagem  |  Máximo | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  connection_failed  |  Conexões com falha  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  connection_successful  |  Conexões bem sucedidas  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  cpu_limit  |  Limite da CPU  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  cpu_limit  |  Limite de CPU  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  cpu_percent  |  Percentual de CPU  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  cpu_used  |  CPU usada  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  deadlock  |  Deadlocks  |  Contagem  |  Total | 
@@ -1393,19 +1393,19 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  physical_data_read_percent  |  Porcentagem de E/S de dados  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  sessions_percent  |  Porcentagem de sessões  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/databases  |  armazenamento  |  Espaço de dados usado  |  Bytes  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  storage_percent  |  Espaço de dados usado por cento  |  Porcentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_data_size  |  Tamanho do arquivo de dados tempdb Kilobytes  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_log_size  |  Tamanho do arquivo de log tempdb Kilobytes  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_log_used_percent  |  Registro percentual de tempdb usado  |  Porcentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  storage_percent  |  Porcentagem de espaço de dados usada  |  Porcentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_data_size  |  Tamanho do arquivo de dados tempdb em kilobytes  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_log_size  |  Tamanho do arquivo de log de tempdb em kilobytes  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/databases  |  tempdb_log_used_percent  |  Log de porcentagem de tempdb usado  |  Porcentagem  |  Máximo | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  workers_percent  |  Porcentagem de funcionários  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/databases  |  xtp_storage_percent  |  Percentual de armazenamento do OLTP na memória  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  allocated_data_storage  |  Espaço alocado de dados  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  allocated_data_storage_percent  |  Espaço de dados alocado por cento  |  Porcentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  cpu_limit  |  Limite da CPU  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  allocated_data_storage_percent  |  Porcentagem alocada de espaço de dados  |  Porcentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  cpu_limit  |  Limite de CPU  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/elasticPools  |  cpu_percent  |  Percentual de CPU  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  cpu_used  |  CPU usada  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_allocated_data_storage  |  Espaço alocado de dados  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_cpu_limit  |  Limite da CPU  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_cpu_limit  |  Limite de CPU  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_cpu_percent  |  Percentual de CPU  |  Porcentagem  |  Média | 
 | Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_cpu_used  |  CPU usada  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Sql/servers/elasticPools  |  database_dtu_consumption_percent  |  Porcentagem de DTU  |  Porcentagem  |  Média | 
@@ -1422,11 +1422,11 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/elasticPools  |  physical_data_read_percent  |  Porcentagem de E/S de dados  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/elasticPools  |  sessions_percent  |  Porcentagem de sessões  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  storage_limit  |  Tamanho máximo dos dados  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  storage_percent  |  Espaço de dados usado por cento  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  storage_percent  |  Porcentagem de espaço de dados usada  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  storage_used  |  Espaço de dados usado  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_data_size  |  Tamanho do arquivo de dados tempdb Kilobytes  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_log_size  |  Tamanho do arquivo de log tempdb Kilobytes  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_log_used_percent  |  Registro percentual de tempdb usado  |  Porcentagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_data_size  |  Tamanho do arquivo de dados tempdb em kilobytes  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_log_size  |  Tamanho do arquivo de log de tempdb em kilobytes  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft.Sql/servers/elasticPools  |  tempdb_log_used_percent  |  Log de porcentagem de tempdb usado  |  Porcentagem  |  Máximo | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/elasticPools  |  workers_percent  |  Porcentagem de funcionários  |  Porcentagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Sql/servers/elasticPools  |  xtp_storage_percent  |  Percentual de armazenamento do OLTP na memória  |  Porcentagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts  |  Disponibilidade  |  Disponibilidade  |  Porcentagem  |  Média | 
@@ -1441,7 +1441,7 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  BlobCount  |  Contagem de Blobs  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  ContainerCount  |  Contagem de Contêineres de Blobs  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  Saída  |  Saída  |  Bytes  |  Total | 
-| Não  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  IndexCapacity  |  Capacidade de índice  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  IndexCapacity  |  Capacidade do índice  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/blobServices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
@@ -1452,8 +1452,8 @@ A tabela contém as seguintes colunas.
 | Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileCount  |  Contagem de Arquivos  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareCount  |  Contagem de Compartilhamentos de Arquivos  |  Contagem  |  Média | 
 | Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareQuota  |  Tamanho da cota de compartilhamento de arquivos  |  Bytes  |  Média | 
-| Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareSnapshotContag  |  Contagem de instantâneos de compartilhamento de arquivos  |  Contagem  |  Média | 
-| Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareSnapshotSize  |  Tamanho do instantâneo do compartilhamento de arquivos  |  Bytes  |  Média | 
+| Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareSnapshotCount  |  Contagem de instantâneos de compartilhamento de arquivos  |  Contagem  |  Média | 
+| Não  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  FileShareSnapshotSize  |  Tamanho do instantâneo de compartilhamento de arquivos  |  Bytes  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  Entrada  |  Entrada  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  SuccessE2ELatency  |  Latência de E2E com Sucesso  |  Milissegundos  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/fileServices  |  SuccessServerLatency  |  Latência de Servidor Com Sucesso  |  Milissegundos  |  Média | 
@@ -1476,46 +1476,46 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/tableServices  |  TableCount  |  Contagem de Tabelas  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/tableServices  |  TableEntityCount  |  Contagem de Entidades de Tabela  |  Contagem  |  Média | 
 | **Sim**  | Não |  Microsoft.Storage/storageAccounts/tableServices  |  Transactions  |  Transactions  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientIOPS  |  IOPS de cliente total  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Perfilabilidade do cliente  |  Latência média do cliente  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientLockIOPS  |  IOPS de bloqueio de cliente  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClienteMetadataReadIOPS  |  Metadados do cliente ler IOPS  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClienteMetadataWriteIOPS  |  IOPS de gravação de metadados do cliente  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientReadIOPS  |  Cliente ler IOPS  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientReadThroughput  |  Throughput de leitura média de cache  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientWriteIOPS  |  IOPS de gravação de cliente  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ClientWriteThroughput  |  Throughput médio de gravação de cache  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetAsyncWriteThroughputput  |  Throughput de gravação assíncrona de alvo de armazenamento  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetPreenchimentodepreenchimentoput  |  Throughput de preenchimento de destino de armazenamento  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetHealth  |  Saúde alvo de armazenamento  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  TargetIOPS de armazenamento  |  IOPS de alvo de armazenamento total  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Gerenciamento de segmentação de armazenamento  |  Latência de destino de armazenamento  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetMetadataReadIOPS  |  ArmazenamentoMetadados target ler IOPS  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetMetadataWriteIOPS  |  ArmazenamentoTarget Metadata Write IOPS  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetReadAheadThroughput  |  ArmazenamentoTarget Ler throughput à frente  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Alvo de armazenamentoReadIOPS  |  Alvo de armazenamento Ler IOPS  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetSyncWriteThroughputput  |  Throughput de gravação síncrona de alvo de armazenamento  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetTotalReadThroughput  |  Throughput total de leitura do alvo de armazenamento  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetTotalWriteWriteput  |  Throughput total de gravação de armazenamentotarget  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  ArmazenamentoTargetWriteIOPS  |  IOPS de gravação de alvo de armazenamento  |  Contagem  |  Média | 
-| **Sim**  | Não |  Microsoft.StorageCache/caches  |  Tempo de atividade  |  Tempo de atividade  |  Contagem  |  Média | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ServerSyncSessionResult  |  Resultado da sessão de sincronização  |  Contagem  |  Média | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncRecalledNetworkBytesByApplication  |  Tamanho de recall de hierarquiagem em nuvem por aplicativo  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncRecalledTotalNetworkBytes  |  Tamanho de recall de hierarquiagem de nuvem  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncRecallIOTotalSizeBytes  |  Recall da camada de nuvem  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncRecallThroughputBytesPerSecond  |  Throughput de recall de hierarquidade na nuvem  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSyncServerHeartbeat  |  Status on-line do servidor  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSincronizaSCSOSistemaDecandidatar-SEAContagemdesCtivaSContagem regressiva  |  Arquivos Sincronizados  |  Contagem  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices  |  ArmazenamentoSincronizasOSincronizaÇãoDeitensdoper-erroContagemdectosContagem regressiva  |  Arquivos não sincronizando  |  Contagem  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices/registeredServers  |  Heartbeat do servidor  |  Status on-line do servidor  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices/registeredServers  |  ServerRecallIOTotalSizeBytes  |  Recall da camada de nuvem  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices/syncGroups  |  SyncGroupBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices/syncGroups  |  SincronizaçãoGrupoSincronizaçãoSessãoAplicadacontaminaçãoArquivosContagemde  |  Arquivos Sincronizados  |  Contagem  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncServices/syncGroups  |  SincronizaçãoGrupoSincronizaçãoConsultaPer-errocontagemContagemdecência  |  Arquivos não sincronizando  |  Contagem  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncS/syncGroups/serverEndpoints  |  ServerEndpointBatchTransferBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncS/syncGroups/serverEndpoints  |  ServidorEndpointSyncSessãoderecursosaplicadoSContagemregressiva  |  Arquivos Sincronizados  |  Contagem  |  Total | 
-| **Sim**  | Não |  microsoft.storageSync/storageSyncS/syncGroups/serverEndpoints  |  ServidorEndpointSyncConsultaPer-erroproblemaContagemdectosContagem regressiva  |  Arquivos não sincronizando  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientIOPS  |  IOPS de cliente total  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientLatency  |  Latência média do cliente  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientLockIOPS  |  IOPS de bloqueio de cliente  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientMetadataReadIOPS  |  IOPS de leitura de metadados do cliente  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientMetadataWriteIOPS  |  IOPS de gravação de metadados do cliente  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientReadIOPS  |  IOPS de leitura do cliente  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientReadThroughput  |  Média de taxa de transferência de leitura do cache  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientWriteIOPS  |  IOPS de gravação de cliente  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  ClientWriteThroughput  |  Taxa de transferência média de gravação no cache  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetAsyncWriteThroughput  |  Taxa de transferência de gravação assíncrona StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetFillThroughput  |  Taxa de transferência de preenchimento do StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetHealth  |  Integridade do destino de armazenamento  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetIOPS  |  Total de IOPS de StorageTarget  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetLatency  |  Latência de StorageTarget  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetMetadataReadIOPS  |  IOPS de leitura de metadados StorageTarget  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetMetadataWriteIOPS  |  IOPS de gravação de metadados StorageTarget  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetReadAheadThroughput  |  Taxa de transferência de leitura antecipada de StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetReadIOPS  |  IOPS de leitura StorageTarget  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetSyncWriteThroughput  |  Taxa de transferência de gravação síncrona StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetTotalReadThroughput  |  Taxa de transferência de leitura total de StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetTotalWriteThroughput  |  Taxa de transferência total de gravação de StorageTarget  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  StorageTargetWriteIOPS  |  IOPS de gravação StorageTarget  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. StorageCache/caches  |  Tempo de atividade  |  Tempo de atividade  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  ServerSyncSessionResult  |  Resultado da sessão de sincronização  |  Contagem  |  Média | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncRecalledNetworkBytesByApplication  |  Tamanho de recall de camadas de nuvem por aplicativo  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncRecalledTotalNetworkBytes  |  Tamanho de recall em camadas de nuvem  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncRecallIOTotalSizeBytes  |  Recall da camada de nuvem  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncRecallThroughputBytesPerSecond  |  Taxa de transferência de recall em camadas de nuvem  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncServerHeartbeat  |  Status online do servidor  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncSyncSessionAppliedFilesCount  |  Arquivos sincronizados  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices  |  StorageSyncSyncSessionPerItemErrorsCount  |  Arquivos não sincronizando  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/registeredServers  |  ServerHeartbeat  |  Status online do servidor  |  Contagem  |  Máximo | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/registeredServers  |  ServerRecallIOTotalSizeBytes  |  Recall da camada de nuvem  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups  |  SyncGroupBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups  |  SyncGroupSyncSessionAppliedFilesCount  |  Arquivos sincronizados  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups  |  SyncGroupSyncSessionPerItemErrorsCount  |  Arquivos não sincronizando  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups/serverEndpoints  |  ServerEndpointBatchTransferredFileBytes  |  Bytes sincronizados  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups/serverEndpoints  |  ServerEndpointSyncSessionAppliedFilesCount  |  Arquivos sincronizados  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. storagesync/storageSyncServices/syncGroups/serverEndpoints  |  ServerEndpointSyncSessionPerItemErrorsCount  |  Arquivos não sincronizando  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  AMLCalloutFailedRequests  |  Solicitações de função com falha  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  AMLCalloutInputEvents  |  Eventos de função  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  AMLCalloutRequests  |  Solicitações de função  |  Contagem  |  Total | 
@@ -1527,30 +1527,30 @@ A tabela contém as seguintes colunas.
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventBytes  |  Bytes de evento de entrada  |  Bytes  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  InputEvents  |  Eventos de entrada  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventsSourcesBacklogged  |  Eventos de Entrada Acumulados  |  Contagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventsSourcesPerSegundo  |  Fontes de Entrada Recebidas  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  InputEventsSourcesPerSecond  |  Fontes de Entrada Recebidas  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  LateInputEvents  |  Eventos de entrada atrasados  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  OutputEvents  |  Eventos de saída  |  Contagem  |  Total | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  OutputWatermarkDelaySeconds  |  Atraso de Marca-d'água  |  Segundos  |  Máximo | 
 | **Sim**  | Não |  Microsoft.StreamAnalytics/streamingjobs  |  ResourceUtilization  |  % de utilização do SU  |  Porcentagem  |  Máximo | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Bytes de leitura de disco  |  Bytes de leitura de disco  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Operações de leitura de disco/Seg  |  Operações de leitura de disco/Seg  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Bytes de gravação de disco  |  Bytes de gravação de disco  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Operações de gravação de disco/Seg  |  Operações de gravação de disco/Seg  |  CountPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  DiskReadBytesPerSecond  |  Disk Read Bytes/Sec  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  DiskReadLatency  |  Latência de leitura de disco  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Operações de leitura de disco  |  Operações de leitura de disco  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  DiskWriteBytesPerSecond  |  Disk Write Bytes/Sec  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Gerenciamento de disco  |  Latência de Gravação de disco  |  Milissegundos  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Operações de gravação de disco  |  Operações de gravação de disco  |  Contagem  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  MemóriaAtiva  |  Memória Ativa  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Memóriaconcedida  |  Memória concedida  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Memóriausada  |  Memória usada  |  Bytes  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Entrada na rede  |  Entrada na rede  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Saída da rede  |  Saída da rede  |  Bytes  |  Total | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  NetworkInBytesPerSecond  |  Rede em Bytes/Sec  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  NetworkOutBytesPerSecond  |  Rede Out Bytes/Sec  |  BytesPerSecond  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  Porcentagem de CPU  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
-| **Sim**  | Não |  Microsoft.VMwareCloudMáquinas simples/virtuais  |  PorcentagemCpuReady  |  Porcentagem de CPU pronta  |  Milissegundos  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Bytes de leitura de disco  |  Bytes de leitura de disco  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Operações de leitura de disco/Seg  |  Operações de leitura de disco/Seg  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Bytes de gravação de disco  |  Bytes de gravação de disco  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Operações de gravação de disco/Seg  |  Operações de gravação de disco/Seg  |  CountPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskReadBytesPerSecond  |  Disk Read Bytes/Sec  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskReadLatency  |  Latência de leitura de disco  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskReadOperations  |  Operações de leitura de disco  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskWriteBytesPerSecond  |  Disk Write Bytes/Sec  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskWriteLatency  |  Latência de Gravação de disco  |  Milissegundos  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  DiskWriteOperations  |  Operações de gravação de disco  |  Contagem  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  MemoryActive  |  Memória ativa  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  MemoryGranted  |  Memória concedida  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  MemoryUsed  |  Memória usada  |  Bytes  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Entrada na rede  |  Entrada na rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Saída da rede  |  Saída da rede  |  Bytes  |  Total | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  NetworkInBytesPerSecond  |  Rede em bytes/s  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  NetworkOutBytesPerSecond  |  Bytes de saída de rede/s  |  BytesPerSecond  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  Porcentagem de CPU  |  Porcentagem de CPU  |  Porcentagem  |  Média | 
+| **Sim**  | Não |  Microsoft. VMwareCloudSimple/virtualMachines  |  PercentageCpuReady  |  Percentual de CPU pronta  |  Milissegundos  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  ActiveRequests  |  Solicitações ativas  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  AverageResponseTime  |  Tempo Médio de Resposta  |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/hostingEnvironments/multiRolePools  |  BytesReceived  |  Entrada de Dados  |  Bytes  |  Total | 
@@ -1584,15 +1584,15 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  DiskQueueLength  |  Tamanho da fila do disco  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  HttpQueueLength  |  Tamanho da Fila de Http  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  MemoryPercentage  |  Porcentagem de Memória  |  Porcentagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpCloseWait  |  TCP Fechar Espera  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpClosing  |  Fechamento do TCP  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpEstabelecido  |  TCP Estabelecido  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpFinWait1  |  TCP Fin Wait 1  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpFinWait2  |  TCP Fin Wait 2  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpLastAck  |  TCP Último Ack  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpSynReceived  |  TCP Syn Recebido  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpSynSent  |  TCP Syn Enviado  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpTimeWait  |  Espera por tempo tcp  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpCloseWait  |  Espera TCP de fechamento  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpClosing  |  Fechamento de TCP  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpEstablished  |  TCP estabelecido  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpFinWait1  |  Espera de TCP fin 1  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpFinWait2  |  Espera de TCP Fin 2  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpLastAck  |  Última confirmação TCP  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpSynReceived  |  SYN TCP recebido  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpSynSent  |  SYN TCP enviado  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/serverfarms  |  TcpTimeWait  |  Espera de tempo TCP  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  AppConnections  |  conexões  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  AverageMemoryWorkingSet  |  Conjunto de trabalho de memória média  |  Bytes  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  AverageResponseTime  |  Tempo Médio de Resposta  |  Segundos  |  Média | 
@@ -1606,7 +1606,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Gen1Collections  |  Coletas de lixo da Ger 1  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Gen2Collections  |  Coletas de lixo da Ger 2  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Alças  |  Núm. de Identificadores  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/sites  |  HealthCheckStatus  |  Situação de verificação de saúde  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/sites  |  HealthCheckStatus  |  Status da verificação de integridade  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http101  |  Http 101  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http2xx  |  Http 2xx  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http3xx  |  Http 3xx  |  Contagem  |  Total | 
@@ -1616,7 +1616,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http406  |  Http 406  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http4xx  |  Http 4xx  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  Http5xx  |  Erros do Servidor Http  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Web/sites  |  HttpResponseTime  |  Tempo de resposta  |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/sites  |  HttpResponsetime  |  Tempo de resposta  |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  IoOtherBytesPerSecond  |  E/S de outros bytes por segundo  |  BytesPerSecond  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  IoOtherOperationsPerSecond  |  E/S de outras operações por segundo  |  BytesPerSecond  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites  |  IoReadBytesPerSecond  |  E/S de bytes de leitura por segundo  |  BytesPerSecond  |  Total | 
@@ -1643,7 +1643,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Gen1Collections  |  Coletas de lixo da Ger 1  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Gen2Collections  |  Coletas de lixo da Ger 2  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Alças  |  Núm. de Identificadores  |  Contagem  |  Média | 
-| **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  HealthCheckStatus  |  Situação de verificação de saúde  |  Contagem  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  HealthCheckStatus  |  Status da verificação de integridade  |  Contagem  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http101  |  Http 101  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http2xx  |  Http 2xx  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http3xx  |  Http 3xx  |  Contagem  |  Total | 
@@ -1653,7 +1653,7 @@ A tabela contém as seguintes colunas.
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http406  |  Http 406  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http4xx  |  Http 4xx  |  Contagem  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  Http5xx  |  Erros do Servidor Http  |  Contagem  |  Total | 
-| **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  HttpResponseTime  |  Tempo de resposta  |  Segundos  |  Média | 
+| **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  HttpResponsetime  |  Tempo de resposta  |  Segundos  |  Média | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  IoOtherBytesPerSecond  |  E/S de outros bytes por segundo  |  BytesPerSecond  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  IoOtherOperationsPerSecond  |  E/S de outras operações por segundo  |  BytesPerSecond  |  Total | 
 | **Sim**  | **Sim** |  Microsoft.Web/sites/slots  |  IoReadBytesPerSecond  |  E/S de bytes de leitura por segundo  |  BytesPerSecond  |  Total | 

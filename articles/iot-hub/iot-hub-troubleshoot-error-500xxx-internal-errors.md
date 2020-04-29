@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas Azure IoT Hub 500xxx Erros internos
+title: Solucionando problemas de erros internos do 500xxx do Hub IoT do Azure
 description: Entenda como corrigir erros internos do 500xxx
 author: jlian
 manager: briz
@@ -9,32 +9,32 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271038"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Internal errors
 
-Este artigo descreve as causas e soluções para **erros internos 500xxx**.
+Este artigo descreve as causas e soluções para **erros internos do 500xxx**.
 
 ## <a name="symptoms"></a>Sintomas
 
-Sua solicitação ao IoT Hub falha com um erro que começa com 500 e/ou algum tipo de "erro do servidor". Algumas possibilidades são:
+A solicitação ao Hub IoT falha com um erro que começa com 500 e/ou algum tipo de "erro de servidor". Algumas possibilidades são:
 
-* **500001 ServerError**: IoT Hub teve um problema no lado do servidor.
+* **500001 ServerError**: o Hub IOT teve um problema do lado do servidor.
 
-* **500008 GenericTimeout**: IoT Hub não pôde concluir a solicitação de conexão antes de cronometrar.
+* **500008 GenericTimeout**: o Hub IOT não pôde concluir a solicitação de conexão antes de atingir o tempo limite.
 
-* **ServiceUnavailable (sem código de erro)**: O IoT Hub encontrou um erro interno.
+* **ServiceUnavailable (nenhum código de erro)**: o Hub IOT encontrou um erro interno.
 
-* **InternalServerError (sem código de erro)**: O IoT Hub encontrou um erro interno.
+* **InternalServerError (nenhum código de erro)**: o Hub IOT encontrou um erro interno.
 
 ## <a name="cause"></a>Causa
 
-Pode haver uma série de causas para uma resposta de erro 500xxx. Em todos os casos, a questão é provavelmente passageira. Enquanto a equipe do Hub IoT trabalha muito para manter [o SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), pequenos subconjuntos de nós do IoT Hub podem ocasionalmente sofrer falhas transitórias. Quando o dispositivo tenta se conectar a um nó com problemas, você recebe esse erro.
+Pode haver várias causas para uma resposta de erro 500xxx. Em todos os casos, o problema é provavelmente transitório. Enquanto a equipe do Hub IoT trabalha muito para manter [o SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), pequenos subconjuntos de nós do IoT Hub podem ocasionalmente sofrer falhas transitórias. Quando o dispositivo tenta se conectar a um nó com problemas, você recebe esse erro.
 
 ## <a name="solution"></a>Solução
 
-Para mitigar os erros de 500xxx, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](./iot-hub-devguide-sdks.md). Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique [a Saúde de Recursos](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e o Status do [Azure](https://status.azure.com/) para ver se o IoT Hub tem um problema conhecido. Você também pode usar o [recurso de failover manual](./tutorial-manual-failover.md). Se não houver problemas conhecidos e o problema continuar, entre [em contato com o suporte](https://azure.microsoft.com/support/options/) para novas investigações.
+Para atenuar erros de 500xxx, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](./iot-hub-devguide-sdks.md). Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e o [status do Azure](https://status.azure.com/) para ver se o Hub IOT tem um problema conhecido. Você também pode usar o [recurso de failover manual](./tutorial-manual-failover.md). Se não houver nenhum problema conhecido e o problema persistir, [entre em contato com o suporte](https://azure.microsoft.com/support/options/) para obter mais investigações.

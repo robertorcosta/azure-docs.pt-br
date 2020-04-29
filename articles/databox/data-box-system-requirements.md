@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259949"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
@@ -55,7 +55,7 @@ Seu datacenter deve ter uma rede de alta velocidade. É altamente recomendável 
 
 ### <a name="port-requirements"></a>Requisitos de porta
 
-A tabela a seguir lista as portas que precisam ser abertas em seu firewall para permitir o tráfego de SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *A* *saída* ou saída refere-se à direção em que o dispositivo Data Box envia dados externamente, além da implantação: por exemplo, saída para a Internet.
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Saída* ou *saída* refere-se à direção na qual o dispositivo de data Box envia dados externamente, além da implantação: por exemplo, de saída para a Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
