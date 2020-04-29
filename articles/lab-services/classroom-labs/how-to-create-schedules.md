@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667776"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendamentos para laboratórios de sala de aula do Azure Lab Services 
@@ -30,10 +30,10 @@ Agendamentos permitem que você configure um laboratório de sala de aula, de mo
 Crie um evento agendado para o laboratório, de modo que as VMs no laboratório sejam iniciadas/paradas automaticamente em horários específicos. A cota de usuário especificada anteriormente é o tempo adicional atribuído a cada usuário fora desse horário agendado. 
 
 > [!NOTE]
-> Antes de começarmos, veja como os horários afetam as máquinas virtuais de laboratório: 
->- O modelo de máquina virtual não está incluído nos horários. 
->- Apenas máquinas virtuais designadas são iniciadas. Isso significa que, se uma máquina não for reclamada por um usuário final (aluno), a máquina não iniciará no horário programado. 
->- Todas as máquinas virtuais (reclamadas por um usuário ou não) são interrompidas com base no cronograma do laboratório. 
+> Antes de começar, veja como as agendas afetam as máquinas virtuais do laboratório: 
+>- A máquina virtual de modelo não está incluída em agendas. 
+>- Somente as máquinas virtuais atribuídas são iniciadas. Isso significa que, se um computador não for reivindicado por um usuário final (aluno), o computador não será iniciado nas horas agendadas. 
+>- Todas as máquinas virtuais (se declaradas por um usuário ou não) são interrompidas com base na agenda do laboratório. 
 
 1. Alterne para a página **Agendamentos** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 
@@ -49,7 +49,7 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
     5. Especifique a **hora de término** em que as VMs devem ser desligadas. 
     6. Especifique o **fuso horário** para as horas de início e de término especificadas. 
     2. Selecione os dias nos quais deseja que a agenda entre em vigor. No exemplo a seguir, Segunda-Quinta foi selecionado. 
-    8. Clique em **Salvar**. 
+    8. Selecione **Salvar**. 
 
         ![Definir agenda de repetição](../media/how-to-create-schedules/set-repeat-schedule.png)
 
@@ -66,18 +66,18 @@ Você pode ver as datas e horas agendadas realçadas na exibição de calendári
 Selecione o botão **Hoje** no canto superior direito para alternar para a data atual no calendário. Selecione **seta para a esquerda** para alternar para a semana anterior e **seta para a direita** para alternar para a próxima semana no calendário. 
 
 ## <a name="edit-a-schedule"></a>Editar um agendamento
-Ao selecionar um cronograma destacado no calendário, você verá botões para **editar** ou **excluir** o cronograma. 
+Ao selecionar uma agenda realçada no calendário, você verá botões para **Editar** ou **excluir** a agenda. 
 
 ![Página editar agendamento](../media/how-to-create-schedules/schedule-edit-button.png)
 
-Na página de **eventos agendado editar,** você pode atualizar o cronograma e selecionar **Salvar**. 
+Na página **Editar evento agendado** , você pode atualizar a agenda e selecionar **salvar**. 
 
 ## <a name="delete-a-schedule"></a>excluir uma agenda
 
-1. Para excluir um horário, selecione um cronograma destacado no calendário e selecione o botão ícone de lixo (excluir):
+1. Para excluir uma agenda, selecione uma agenda realçada no calendário e selecione o botão de Lixeira (excluir):
 
     ![Botão excluir na barra de ferramentas](../media/how-to-create-schedules/schedule-delete-button.png)
-2. Na caixa de diálogo **evento agendado Excluir,** selecione **Sim** para confirmar a exclusão. 
+2. Na caixa de diálogo **excluir evento agendado** , selecione **Sim** para confirmar a exclusão. 
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Verifique as implantações para as melhores práticas
+title: Verificar implantações para obter as práticas recomendadas
 titleSuffix: Azure Kubernetes Service
 description: Verifique suas implantações do Kubernetes no Azure para implementar as melhores práticas
 services: container-service
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 17e21c142dc354de7b72bc17396b19366027c5cd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668394"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as práticas recomendadas do Kubernetes no seu cluster
@@ -22,7 +22,7 @@ Existem várias práticas recomendadas que você deve seguir nas implantações 
 
 A ferramenta [kube-advisor][kube-advisor-github] é um único contêiner projetado para ser executado em seu cluster. Ele consulta o servidor da API do Kubernetes para obter informações sobre suas implementações e retorna um conjunto de melhorias sugeridas.
 
-A ferramenta kube-advisor pode reportar sobre solicitação de recursos e limites ausentes no PodSpecs para aplicativos Windows, bem como aplicativos Linux, mas a própria ferramenta kube-advisor deve ser agendada em um pod Linux. Você pode agendar um pod para executar em um pool de nó com um sistema operacional específico usando um [seletor][k8s-node-selector] de nó na configuração do pod.
+A ferramenta Kube-Advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta Kube-Advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
 > [!NOTE]
 > A ferramenta kube-advisor é suportada pela Microsoft com base no melhor esforço. Questões e sugestões devem ser arquivadas no GitHub.

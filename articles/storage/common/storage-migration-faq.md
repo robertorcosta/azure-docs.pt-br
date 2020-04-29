@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668544"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
@@ -82,9 +82,9 @@ Use o AzCopy para mover os dados de um compartilhamento de arquivo do Azure para
 
 Use o AzCopy para carregar arquivos .csv grandes no armazenamento do Azure. Para saber mais, confira [Transferir dados com o AzCopy no Windows](storage-use-azcopy.md) e [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md).
 
-**Eu tenho que mover os registros da unidade D para a minha conta de armazenamento Azure todos os dias. Como faço para automatizar isso?**
+**Preciso mover os logs da unidade D para a minha conta de armazenamento do Azure todos os dias. Como fazer automatizar isso?**
 
-Você pode usar o AzCopy e criar uma tarefa no Agendador de Tarefas. Carregue arquivos em uma conta de armazenamento do Azure usando um script em lotes do AzCopy. Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço em nuvem.](../../cloud-services/cloud-services-startup-tasks.md)
+Você pode usar o AzCopy e criar uma tarefa no Agendador de Tarefas. Carregue arquivos em uma conta de armazenamento do Azure usando um script em lotes do AzCopy. Para obter mais informações, consulte [como configurar e executar tarefas de inicialização para um serviço de nuvem](../../cloud-services/cloud-services-startup-tasks.md).
 
 **Como faço para mover minha conta de armazenamento entre as assinaturas?**
 
@@ -225,9 +225,9 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 
 Veja os artigos a seguir:
 
--  [Guia de segurança do Azure Storage](../blobs/security-recommendations.md)
+-  [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md)
 
--  [Criptografia do serviço de armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+-  [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
 
 **Como posso criptografar dados em uma conta de armazenamento?**
 
@@ -243,7 +243,7 @@ Não.
 
 O Armazenamento Premium não é permitido em um Compartilhamento de arquivos do Azure.
 
-**Como faço o upgrade de uma conta de armazenamento padrão para uma conta de armazenamento premium? Como faço o downgrade de uma conta de armazenamento premium para uma conta de armazenamento padrão?**
+**Como fazer atualizar de uma conta de armazenamento Standard para uma conta de armazenamento Premium? Como fazer fazer downgrade de uma conta de armazenamento Premium para uma conta de armazenamento Standard?**
 
 Você deve criar a conta de armazenamento de destino, copiar os dados da conta de origem para a conta de destino e excluir a conta de origem. Você pode usar uma ferramenta como o AzCopy para executar a cópia dos dados.
 
@@ -267,10 +267,10 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Se você tiver instalado a versão de 64 bits, ela estará aqui: **%ProgramFiles%\\SDKs do Microsoft\\Azure\\AzCopy**.
 
-**Como uso um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como faço "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecer\/como "https: /www.contoso.com/images/image.gif"?**
+**Como fazer usar um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como fazer com que "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" apareça como "https:\//www.contoso.com/images/Image.gif"?**
 
-O TLS/SSL não é suportado atualmente em contas de armazenamento com domínios personalizados.
-Mas você pode usar domínios personalizados não HTTPS. Para obter mais informações, consulte [Configurar um nome de domínio personalizado para o ponto final de armazenamento Blob](../blobs/storage-custom-domain-name.md).
+Atualmente, não há suporte para TLS/SSL em contas de armazenamento com domínios personalizados.
+Mas você pode usar domínios personalizados não HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto de extremidade do armazenamento de BLOBs](../blobs/storage-custom-domain-name.md).
 
 ## <a name="access-to-storage"></a>Acesso ao armazenamento
 

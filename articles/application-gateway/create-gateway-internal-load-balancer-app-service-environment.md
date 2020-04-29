@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668568"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>O certificado de servidor back-end não está na lista de permissões para um gateway de aplicativo usando um Balanceador de Carga Interno com um ambiente de serviço de aplicativo
 
-Este artigo soluciona o seguinte problema: Um certificado não é listado em branco quando você cria um gateway de aplicativo usando um ILB (Internal Load Balancer, balanceador de carga interna) juntamente com um App Service Environment (ASE) na parte traseira ao usar TLS de ponta a ponta no Azure.
+Este artigo soluciona o problema a seguir: um certificado não está na lista de permissões quando você cria um gateway de aplicativo usando um Load Balancer interno (ILB) junto com um Ambiente do Serviço de Aplicativo (ASE) no back-end ao usar o TLS de ponta a ponta no Azure.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -32,7 +32,7 @@ Quando você cria um gateway de aplicativo usando um ILB com um ASE no back-end,
 **Configuração do Gateway de Aplicativo:**
 
 - **Ouvinte:** Multissite
-- **Porto:** 443
+- **Porta:** 443
 - **Nome do host:** test.appgwtestase.com
 - **Certificado SSL:** CN=test.appgwtestase.com
 - **Pool de back-end:** endereço IP ou FQDN
@@ -52,7 +52,7 @@ Quando você cria um gateway de aplicativo usando um ILB com um ASE no back-end,
 
 Ao acessar o gateway de aplicativo, você receberá a seguinte mensagem de erro porque o servidor back-end está não íntegro:
 
-**502 – O servidor web recebeu uma resposta inválida enquanto atuava como um gateway ou servidor proxy.**
+**502 – o servidor Web recebeu uma resposta inválida ao atuar como um gateway ou servidor proxy.**
 
 ## <a name="solution"></a>Solução
 
@@ -68,7 +68,7 @@ Quando você usar um FQDN (nome de domínio totalmente qualificado) para acessar
 
 - Desmarque a opção **Uso para serviço de aplicativo** para o gateway de aplicativo, caso você esteja usando o endereço IP do ILB.
 
-Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para lista de permissões. Não será usado para comunicação TLS.) Você pode recuperar o certificado ILB acessando o ILB com seu endereço IP do seu navegador em HTTPS e exportando o certificado TLS/SSL em um formato CER codificado base-64 e carregando o certificado nas respectivas configurações HTTP.
+Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para lista de permissões. Ele não será usado para comunicação TLS.) Você pode recuperar o certificado ILB acessando o ILB com seu endereço IP do seu navegador em HTTPS e exportando o certificado TLS/SSL em um formato CER codificado em base-64 e carregando o certificado nas respectivas configurações de HTTP.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

@@ -1,14 +1,14 @@
 ---
-title: Criar cofres de serviços de recuperação
-description: Neste artigo, saiba como criar cofres de Serviços de Recuperação que armazenam os backups e pontos de recuperação.
+title: Criar cofres dos serviços de recuperação
+description: Neste artigo, saiba como criar cofres dos serviços de recuperação que armazenam os backups e os pontos de recuperação.
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672859"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
@@ -57,73 +57,73 @@ Para criar um cofre de Serviços de Recuperação:
 
 ## <a name="set-storage-redundancy"></a>Definir redundância de armazenamento
 
-O Azure Backup lida automaticamente com o armazenamento do cofre. Você precisa especificar como esse armazenamento é replicado.
+O backup do Azure manipula automaticamente o armazenamento para o cofre. Você precisa especificar como esse armazenamento é replicado.
 
-1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Na seção **Configurações,** clique **em Propriedades**.
-2. Em **Propriedades,** em **Configuração de backup,** clique em **Atualizar**.
+1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Na seção **configurações** , clique em **Propriedades**.
+2. Em **Propriedades**, em **configuração de backup**, clique em **Atualizar**.
 
-3. Selecione o tipo de replicação de armazenamento e clique **em Salvar**.
+3. Selecione o tipo de replicação de armazenamento e clique em **salvar**.
 
      ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - Recomendamos que, se você estiver usando o Azure como um ponto final de armazenamento de backup principal, continue a usar a configuração **geo-redundante** padrão.
+   - Recomendamos que, se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup primário, continue a usar a configuração padrão **com redundância geográfica** .
    - Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure.
-   - Saiba mais sobre [a redundância geográfica](../storage/common/storage-redundancy-grs.md) e [local.](../storage/common/storage-redundancy-lrs.md)
+   - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
-> A alteração **do tipo de replicação de armazenamento** (localmente redundante/geo-redundante) para um cofre de serviços de recuperação deve ser feita antes de configurar backups no cofre. Uma vez configurado o backup, a opção de modificar está desativada e você não pode alterar o **tipo de replicação de armazenamento**.
+> A alteração do **tipo de replicação de armazenamento** (com redundância local/geograficamente) para um cofre dos serviços de recuperação deve ser feita antes de configurar backups no cofre. Depois de configurar o backup, a opção para modificar é desabilitada e você não pode alterar o **tipo de replicação de armazenamento**.
 
-## <a name="set-cross-region-restore"></a>Definir restauração da região cruzada
+## <a name="set-cross-region-restore"></a>Definir restauração entre regiões
 
-Como uma das opções de restauração, o CRR (Cross Region Restore, restauração de regiões cruzadas) permite restaurar as VMs do Azure em uma região secundária, que é uma [região emparelhada azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Esta opção permite que você:
+Como uma das opções de restauração, a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma [região emparelhada do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Essa opção permite que você:
 
-- realizar exercícios quando há um requisito de auditoria ou conformidade
-- restaurar o VM ou seu disco se houver um desastre na região primária.
+- realizar análises quando houver um requisito de auditoria ou de conformidade
+- Restaure a VM ou seu disco se houver um desastre na região primária.
 
-Para escolher esse recurso, **selecione Ativar restauração de região cruzada** na lâmina **Configuração de** backup.
+Para escolher esse recurso, selecione **habilitar restauração entre regiões** na folha **configuração de backup** .
 
-Para este processo, há implicações de preços como está no nível de armazenamento.
+Para esse processo, há implicações de preço como ele está no nível de armazenamento.
 
 >[!NOTE]
 >Antes de começar:
 >
->- Revise a matriz de [suporte](backup-support-matrix.md#cross-region-restore) para uma lista de tipos e regiões gerenciados suportados.
->- O recurso Cross Region Restore (CRR) agora é visualizado em todas as regiões públicas do Azure.
->- CRR é um recurso de opt-in nível de cofre para qualquer cofre GRS (desligado por padrão).
->- Por favor, use o seguinte comando para embarcar na sua assinatura para este recurso:<br>
+>- Examine a [matriz de suporte](backup-support-matrix.md#cross-region-restore) para obter uma lista de tipos e regiões gerenciados com suporte.
+>- O recurso de CRR (restauração entre regiões) agora é visualizado em todas as regiões públicas do Azure.
+>- A CRR é um recurso de consentimento de nível de cofre para qualquer cofre GRS (desativado por padrão).
+>- Use o seguinte comando para carregar sua assinatura para este recurso:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- Se você estiver a bordo desse recurso durante a pré-visualização pública limitada, o e-mail de aprovação de revisão incluirá detalhes da política de preços.
->- Após o opt-in, pode levar até 48 horas para que os itens de backup estejam disponíveis em regiões secundárias.
->- Atualmente, o CRR é suportado apenas para o Tipo de Gerenciamento de Backup - ARM Azure VM (o clássico Azure VM não será suportado).  Quando os tipos de gerenciamento adicionais suportam crr, então eles **serão** automaticamente inscritos.
+>- Se você estiver integrado a esse recurso durante a visualização limitada pública, o email de aprovação de revisão incluirá detalhes da política de preços.
+>- Depois de aceitar, pode levar até 48 horas para que os itens de backup estejam disponíveis em regiões secundárias.
+>- Atualmente, o CRR tem suporte apenas para o tipo de gerenciamento de backup VM do Azure do ARM (a VM clássica do Azure não terá suporte).  Quando tipos de gerenciamento adicionais dão suporte à CRR, eles serão registrados **automaticamente** .
 
-### <a name="configure-cross-region-restore"></a>Configurar restauração de região cruzada
+### <a name="configure-cross-region-restore"></a>Configurar a restauração entre regiões
 
-Um cofre criado com redundância GRS inclui a opção de configurar o recurso De restauração de região cruzada. Cada cofre GRS terá um banner, que se vinculará à documentação. Para configurar crr para o cofre, vá para a lâmina Configuração de backup, que contém a opção de habilitar esse recurso.
+Um cofre criado com redundância GRS inclui a opção de configurar o recurso de restauração entre regiões. Cada cofre do GRS terá um banner, que será vinculado à documentação. Para configurar a CRR para o cofre, vá para a folha configuração de backup, que contém a opção para habilitar esse recurso.
 
- ![Banner de configuração de backup](./media/backup-azure-arm-restore-vms/banner.png)
+ ![Faixa de configuração de backup](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. A partir do portal, vá para o cofre de Serviços de Recuperação > Configurações > Propriedades.
-2. Clique **em Ativar a restauração de região cruzada neste cofre** para ativar a funcionalidade.
+1. No portal, acesse cofre dos serviços de recuperação > configurações > Propriedades.
+2. Clique em **habilitar a restauração entre regiões neste cofre** para habilitar a funcionalidade.
 
-   ![Antes de clicar em Ativar a restauração da região cruzada neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Antes de clicar em habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Depois de clicar em Ativar a restauração da região cruzada neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Depois de clicar em habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
-Saiba como [visualizar itens de backup na região secundária](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
+Saiba como [Exibir itens de backup na região secundária](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
-Saiba como [restaurar na região secundária.](backup-azure-arm-restore-vms.md#restore-in-secondary-region)
+Saiba como [restaurar na região secundária](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
-Saiba como [monitorar os empregos de restauração de regiões secundárias.](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs)
+Saiba como [monitorar trabalhos de restauração de região secundária](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
 
 ## <a name="modifying-default-settings"></a>Modificando configurações padrão
 
-Recomendamos que você revise as configurações padrão para **o tipo de replicação de armazenamento** e as **configurações de segurança** antes de configurar backups no cofre.
+É altamente recomendável revisar as configurações padrão de **tipo de replicação de armazenamento** e configurações de **segurança** antes de configurar backups no cofre.
 
-- **O tipo de replicação** de armazenamento por padrão é definido **como Geo-redundante**. Depois de configurar o backup, a opção de modificação será desativada. Siga [estas etapas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar e modificar as configurações.
+- O **tipo de replicação de armazenamento** por padrão é definido como com **redundância geográfica**. Depois de configurar o backup, a opção para modificar é desabilitada. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para examinar e modificar as configurações.
 
-- **A exclusão suave** por padrão é **habilitada** em cofres recém-criados para proteger os dados de backup de exclusões acidentais ou maliciosas. Siga [estas etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para revisar e modificar as configurações.
+- A **exclusão reversível** por padrão é **habilitada** em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para examinar e modificar as configurações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre](backup-azure-recovery-services-vault-overview.md) Cofres dos Serviços de Recuperação.
-[Saiba mais sobre](backup-azure-delete-vault.md) Exclua os cofres dos Serviços de Recuperação.
+[Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.
+[Saiba mais](backup-azure-delete-vault.md) Excluir cofres dos serviços de recuperação.

@@ -1,5 +1,5 @@
 ---
-title: Configure os ouvintes do grupo de disponibilidade & balanceador de carga (PowerShell)
+title: Configurar ouvintes de grupo de disponibilidade & balanceador de carga (PowerShell)
 description: Configure os Ouvintes de Grupos de Disponibilidade no modelo do Azure Resource Manager, usando um balanceador de carga interno com um ou mais endereços IP.
 services: virtual-machines
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668896"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade AlwaysOn – Resource Manager
@@ -58,12 +58,12 @@ Se você estiver restringindo o acesso a um Grupo de Segurança de Rede do Azure
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Determinar o SKU do balanceador de carga necessário
 
-[O balanceador de carga Azure](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Basic & Standard. O Standard Load Balancer é recomendado. Se as máquinas virtuais estiverem em um conjunto de disponibilidade, o balanceador de carga básico será permitido. Se as máquinas virtuais estiverem em uma zona de disponibilidade, é necessário um balanceador de carga padrão. O Standard Load Balancer exige que todos os endereços IP da VM usem endereços IP padrão.
+O [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Basic & Standard. O Standard Load Balancer é recomendado. Se as máquinas virtuais estiverem em um conjunto de disponibilidade, o balanceador de carga básico será permitido. Se as máquinas virtuais estiverem em uma zona de disponibilidade, um balanceador de carga padrão será necessário. O Standard Load Balancer exige que todos os endereços IP da VM usem endereços IP padrão.
 
 O atual [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para um grupo de disponibilidade usa um balanceador de carga básico com endereços IP básicos.
 
    > [!NOTE]
-   > Você precisará configurar um [ponto final de serviço](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se você usar um balanceador de carga padrão e o Azure Storage para a testemunha na nuvem. 
+   > Você precisará configurar um [ponto de extremidade de serviço](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) se usar um balanceador de carga padrão e o armazenamento do Azure para a testemunha de nuvem. 
 
 
 Os exemplos neste artigo especificam um Standard Load Balancer. Nos exemplos, o script inclui `-sku Standard`.
@@ -133,7 +133,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>Exemplo de script: Adicione um endereço IP a um balanceador de carga existente com o PowerShell
+## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a>Script de exemplo: adicionar um endereço IP a um balanceador de carga existente com o PowerShell
 Para usar mais de um grupo de disponibilidade, inclua um endereço IP adicional ao balanceador de carga. Cada endereço IP requer sua própria regra de balanceamento de carga, porta de investigação e porta de front-end.
 
 A porta de front-end é a que os aplicativos usam para se conectar à instância do SQL Server. Endereços IP para grupos de disponibilidade diferentes podem usar a mesma porta de front-end.
@@ -141,7 +141,7 @@ A porta de front-end é a que os aplicativos usam para se conectar à instância
 > [!NOTE]
 > Para grupos de disponibilidade do SQL Server, cada endereço IP exige uma porta de investigação específica. Por exemplo, se um endereço IP em um balanceador de carga usa a porta de investigação 59999, nenhum outro endereço IP nesse balanceador de carga pode usar essa porta de investigação.
 
-* Para obter informações sobre os limites do balanceador de carga, consulte **IP front-end privado por balanceador** de carga em [Networking Limits - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Para obter informações sobre limites de balanceador de carga, consulte **IP de front-end privado por balanceador de carga** em [limites de rede-Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Para saber mais sobre os limites de grupo de disponibilidade, confira [Restrições (Grupos de Disponibilidade)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB usa a porta do ouvinte para a porta de front-end do balanceamento de carga. Essa porta pode ser aquela que o SQL Server está escutando. Para instâncias padrão do SQL Server, a porta é a 1433. A regra de balanceamento de carga para um grupo de disponibilidade requer um IP flutuante (retorno de servidor direto), de modo que a porta de back-end é igual à porta de front-end. Atualize as variáveis para o seu ambiente. 
@@ -193,11 +193,11 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-1. Navegue até **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
+1. Navegue até **alta disponibilidade** | AlwaysOn**grupos** | de disponibilidade**ouvintes do grupo de disponibilidade**. 
 
 1. Agora você deve ver o nome do ouvinte que você criou no Gerenciador de Cluster de Failover. Clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
-1. Na caixa **Porta,** especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort que você usou anteriormente (1433 era o padrão) e clique em **OK**.
+1. Na caixa **porta** , especifique o número da porta para o ouvinte do grupo de disponibilidade usando o $EndpointPort usado anteriormente (1433 era o padrão) e clique em **OK**.
 
 ## <a name="test-the-connection-to-the-listener"></a>Testar a conexão com o ouvinte
 
@@ -205,7 +205,7 @@ Para testar a conexão:
 
 1. RDP para um SQL Server que está na mesma rede virtual, mas não tem a réplica. Isso pode ser outro SQL Server no cluster.
 
-1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica principal através do ouvinte com autenticação do Windows:
+1. Use o utilitário **sqlcmd** para testar a conexão. Por exemplo, o script a seguir estabelece uma conexão **sqlcmd** com a réplica primária por meio do ouvinte com autenticação do Windows:
    
     ```
     sqlcmd -S <listenerName> -E
@@ -231,7 +231,7 @@ Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure u
 
 * Se você estiver restringindo o acesso a um Grupo de Segurança de Rede do Azure, verifique se as regras de permissão incluem os endereços IP da VM do SQL Server de back-end e os endereços IP flutuantes do balanceador de carga para o ouvinte da AG e o endereço IP do núcleo do cluster, se aplicável.
 
-* Crie um ponto final de serviço ao usar um balanceador de carga padrão com o Azure Storage para a testemunha na nuvem. Para obter mais informações, consulte [o acesso de Grant a partir de uma rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+* Crie um ponto de extremidade de serviço ao usar um balanceador de carga padrão com o armazenamento do Azure para a testemunha de nuvem. Para obter mais informações, consulte [conceder acesso de uma rede virtual](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Para obter mais informações
 Para saber mais, confira [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md) (Configurar grupo de disponibilidade Always On na VM do Azure manualmente).

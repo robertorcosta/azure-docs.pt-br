@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para continuidade de negócios da AKS e recuperação de desastres
-description: Aprenda as melhores práticas de um operador de cluster para obter o máximo de tempo de atividade para seus aplicativos, fornecendo alta disponibilidade e preparando-se para a recuperação de desastres no Azure Kubernetes Service (AKS).
+title: Práticas recomendadas para continuidade de negócios e recuperação de desastre do AKS
+description: Conheça as práticas recomendadas de um operador de cluster para atingir o tempo de atividade máximo para seus aplicativos, fornecendo alta disponibilidade e preparando a recuperação de desastres no AKS (serviço kubernetes do Azure).
 services: container-service
 author: lastcoolnameleft
 ms.topic: conceptual
@@ -8,92 +8,92 @@ ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668301"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
-À medida que você vai gerenciando clusters no Serviço de Kubernetes do Azure (AKS), o tempo de atividade do aplicativo vai ficando mais importante. Por padrão, o AKS fornece alta disponibilidade usando vários nós em um [VMSS (Virtual Machine Scale Set, conjunto de escala de máquina virtual).](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) Mas esses nós múltiplos não protegem seu sistema de uma falha na região. Para maximizar seu tempo de atividade, planeje com antecedência para manter a continuidade dos negócios e prepare-se para a recuperação de desastres.
+À medida que você vai gerenciando clusters no Serviço de Kubernetes do Azure (AKS), o tempo de atividade do aplicativo vai ficando mais importante. Por padrão, o AKS fornece alta disponibilidade usando vários nós em um [conjunto de dimensionamento de máquinas virtuais (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Mas esses vários nós não protegem o seu sistema contra uma falha de região. Para maximizar seu tempo de atividade, planeje com antecedência para manter a continuidade dos negócios e se preparar para a recuperação de desastres.
 
-Este artigo foca em como planejar a continuidade de negócios e a recuperação de desastres em AKS. Você aprenderá como:
+Este artigo se concentra em como planejar a continuidade dos negócios e a recuperação de desastres no AKS. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Planeje clusters AKS em várias regiões.
-> * Direcionar o tráfego em vários clusters usando o Azure Traffic Manager.
-> * Use geo-replicação para registros de imagem do contêiner.
-> * Planeje o estado de aplicação em vários clusters.
+> * Planeje os clusters AKS em várias regiões.
+> * Rotear o tráfego entre vários clusters usando o Gerenciador de tráfego do Azure.
+> * Use a replicação geográfica para seus registros de imagem de contêiner.
+> * Planeje o estado do aplicativo em vários clusters.
 > * Replique o armazenamento em várias regiões.
 
-## <a name="plan-for-multiregion-deployment"></a>Plano de implantação multirregião
+## <a name="plan-for-multiregion-deployment"></a>Planejar a implantação em multiregião
 
-**Práticas recomendadas**: Quando você implantar vários clusters AKS, escolha regiões onde o AKS está disponível e use regiões emparelhadas.
+**Prática recomendada**: ao implantar vários clusters AKs, escolha regiões onde AKs está disponível e use regiões emparelhadas.
 
-Um cluster do AKS é implantado em uma única região. Para proteger seu sistema contra falhas na região, implante seu aplicativo em vários clusters AKS em diferentes regiões. Quando você planeja onde implantar seu cluster AKS, considere:
+Um cluster do AKS é implantado em uma única região. Para proteger seu sistema contra falhas de região, implante seu aplicativo em vários clusters AKS em regiões diferentes. Ao planejar onde implantar o cluster AKS, considere:
 
-* [**Disponibilidade da região AKS**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): Escolha regiões próximas aos seus usuários. A AKS continuamente se expande para novas regiões.
-* [**Regiões emparelhadas do Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): Para sua área geográfica, escolha duas regiões que estejam emparelhadas entre si. As regiões emparelhadas coordenam as atualizações da plataforma e priorizam os esforços de recuperação quando necessário.
-* **Disponibilidade do serviço**: Decida se suas regiões emparelhadas devem ser quentes/quentes, quentes/quentes ou quentes/frias. Você deseja rodar ambas as regiões ao mesmo tempo, com uma região *pronta* para começar a servir o tráfego? Ou você quer que uma região tenha tempo para se preparar para servir o tráfego?
+* [**Disponibilidade da região AKs**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): escolha regiões perto de seus usuários. AKS se expande continuamente em novas regiões.
+* [**Regiões emparelhadas do Azure**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): para sua área geográfica, escolha duas regiões emparelhadas entre si. Regiões emparelhadas coordenam atualizações de plataforma e priorizam os esforços de recuperação quando necessário.
+* **Disponibilidade do serviço**: decida se suas regiões emparelhadas devem ser quentes/quentes, quentes ou quentes ou quentes/frias. Deseja executar ambas as regiões ao mesmo tempo, com uma região *pronta* para começar a fornecer tráfego? Ou você deseja que uma região tenha tempo para se preparar para atender ao tráfego?
 
-A disponibilidade da região aks e regiões emparelhadas são uma consideração conjunta. Implante seus clusters do AKS em regiões emparelhadas que são projetadas para gerenciar a recuperação de desastre de região juntas. Por exemplo, o AKS está disponível no Leste dos EUA e no Oeste dos EUA. Essas regiões estão emparelhadas. Escolha essas duas regiões quando estiver criando uma estratégia AKS BC/DR.
+A disponibilidade da região AKS e as regiões emparelhadas são uma consideração conjunta. Implante seus clusters do AKS em regiões emparelhadas que são projetadas para gerenciar a recuperação de desastre de região juntas. Por exemplo, o AKS está disponível no Leste dos EUA e no Oeste dos EUA. Essas regiões são emparelhadas. Escolha essas duas regiões quando estiver criando uma estratégia de BC/DR AKS.
 
-Quando você implantar seu aplicativo, adicione mais um passo ao seu pipeline de CI/CD para implantar nesses vários clusters AKS. Se você não atualizar seus pipelines de implantação, os aplicativos podem ser implantados em apenas uma de suas regiões e clusters AKS. O tráfego do cliente direcionado para uma região secundária não receberá as últimas atualizações de código.
+Ao implantar seu aplicativo, adicione outra etapa ao pipeline de CI/CD para implantar nesses vários clusters AKS. Se você não atualizar seus pipelines de implantação, os aplicativos poderão ser implantados em apenas uma de suas regiões e clusters AKS. O tráfego de cliente direcionado para uma região secundária não receberá as atualizações de código mais recentes.
 
 ## <a name="use-azure-traffic-manager-to-route-traffic"></a>Usar o Gerenciador de Tráfego do Azure para rotear o tráfego
 
-**Práticas recomendadas**: O Azure Traffic Manager pode direcionar os clientes para o cluster e instância de aplicativo aks mais próximos. Para obter o melhor desempenho e redundância, direcione todo o tráfego de aplicativos através do Traffic Manager antes que ele vá para o cluster AKS.
+**Prática recomendada**: o Gerenciador de tráfego do Azure pode direcionar os clientes para o cluster de AKs e a instância de aplicativo mais próximos. Para obter o melhor desempenho e redundância, direcione todo o tráfego do aplicativo pelo Gerenciador de tráfego antes que ele vá para o cluster AKS.
 
-Se você tiver vários clusters AKS em diferentes regiões, use o Traffic Manager para controlar como o tráfego flui para os aplicativos executados em cada cluster. O [Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/) é um balanceador de carga de tráfego com base em DNS que pode distribuir o tráfego de rede entre regiões. Use o Gerenciador de tráfego para rotear usuários com base no tempo de resposta do cluster ou com base na geografia.
+Se você tiver vários clusters AKS em regiões diferentes, use o Gerenciador de tráfego para controlar como o tráfego flui para os aplicativos que são executados em cada cluster. O [Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/) é um balanceador de carga de tráfego com base em DNS que pode distribuir o tráfego de rede entre regiões. Use o Gerenciador de tráfego para encaminhar usuários com base no tempo de resposta do cluster ou com base na geografia.
 
-![AKS com gerenciador de tráfego](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
+![AKS com o Gerenciador de tráfego](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-Os clientes que possuem um único cluster AKS normalmente se conectam ao ip de serviço ou nome DNS de um determinado aplicativo. Em uma implantação multicluster, os clientes devem se conectar a um nome DNS do Gerenciador de Tráfego que aponta para os serviços em cada cluster AKS. Defina esses serviços usando os pontos finais do Traffic Manager. Cada ponto final é o *IP do balanceador de carga de serviço*. Use essa configuração para direcionar o tráfego de rede do ponto final do Gerenciador de Tráfego em uma região até o ponto final em uma região diferente.
+Os clientes que têm um único cluster AKS normalmente se conectam ao nome DNS ou IP do serviço de um determinado aplicativo. Em uma implantação de multicluster, os clientes devem se conectar a um nome DNS do Gerenciador de tráfego que aponta para os serviços em cada cluster do AKS. Defina esses serviços usando os pontos de extremidade do Gerenciador de tráfego. Cada ponto de extremidade é o *IP de balanceador de carga de serviço*. Use essa configuração para direcionar o tráfego de rede do ponto de extremidade do Gerenciador de tráfego em uma região para o ponto de extremidade em uma região diferente.
 
-![Roteamento geográfico através do Gerenciador de Tráfego](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
+![Roteamento geográfico por meio do Gerenciador de tráfego](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
 
-O Traffic Manager realiza as procurar dns e retorna o ponto final mais apropriado do usuário. Perfis aninhados podem priorizar um local principal. Por exemplo, os usuários geralmente devem se conectar à sua região geográfica mais próxima. Se essa região tiver um problema, o Traffic Manager direciona os usuários para uma região secundária. Essa abordagem garante que os clientes possam se conectar a uma instância de aplicativo, mesmo que sua região geográfica mais próxima não esteja disponível.
+O Gerenciador de tráfego executa pesquisas DNS e retorna o ponto de extremidade mais apropriado de um usuário. Os perfis aninhados podem priorizar um local primário. Por exemplo, os usuários devem geralmente se conectar à região geográfica mais próxima. Se essa região tiver um problema, o Gerenciador de tráfego direcionará os usuários para uma região secundária. Essa abordagem garante que os clientes possam se conectar a uma instância do aplicativo, mesmo que sua região geográfica mais próxima esteja indisponível.
 
-Para obter informações sobre como configurar pontos finais e roteamento, consulte [Configure o método de roteamento geográfico de tráfego usando o Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Para obter informações sobre como configurar pontos de extremidade e roteamento, consulte [Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Roteamento do aplicativo de camada 7 com o serviço da porta frontal do Azure
+### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Roteamento de aplicativos da camada 7 com o serviço de porta frontal do Azure
 
-O Gerenciador de Tráfego usa DNS (camada 3) para moldar o tráfego. [O Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de roteamento HTTP/HTTPS (camada 7). Os recursos adicionais do Azure Front Door Service incluem terminação TLS, domínio personalizado, firewall de aplicativos web, regravação de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
+O Gerenciador de tráfego usa o DNS (camada 3) para formatar o tráfego. O [serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de roteamento http/https (camada 7). Recursos adicionais do serviço de porta frontal do Azure incluem término de TLS, domínio personalizado, firewall do aplicativo Web, reescrita de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
 
-### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconectar regiões com peering de rede virtual global
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Regiões de interconexão com emparelhamento de rede virtual global
 
-Se os clusters precisarem conversar entre si, conectar ambas as redes virtuais entre si pode ser alcançado por meio [de peering de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Essa tecnologia interconecta redes virtuais entre si, fornecendo alta largura de banda em toda a rede backbone da Microsoft, mesmo em diferentes regiões geográficas.
+Se os clusters precisarem se comunicar entre si, conectar ambas as redes virtuais entre si pode ser obtido por meio do [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Essa tecnologia interconecta redes virtuais entre si, fornecendo alta largura de banda na rede de backbone da Microsoft, mesmo em regiões geográficas diferentes.
 
-Um pré-requisito para observar as redes virtuais onde os clusters AKS estão sendo executados é usar o Balanceador de Carga padrão em seu cluster AKS, para que os serviços Kubernetes sejam acessíveis em toda a rede virtual.
+Um pré-requisito para emparelhar as redes virtuais em que os clusters AKS estão em execução é usar o Load Balancer padrão no cluster AKS, para que os serviços do kubernetes possam ser acessados pelo emparelhamento de rede virtual.
 
 ## <a name="enable-geo-replication-for-container-images"></a>Habilitar a replicação geográfica para imagens de contêiner
 
-**Melhores práticas**: Armazene suas imagens de contêiner no Registro de Contêineres do Azure e reproduza geo-replicar o registro em cada região aks.
+**Prática recomendada**: armazenar suas imagens de contêiner no registro de contêiner do Azure e replicar geograficamente o registro para cada região do AKS.
 
-Para implantar e executar seus aplicativos no AKS, você precisará ter uma maneira de armazenar e efetuar pull das imagens de contêiner. O Registro de Contêineres integra-se ao AKS, para que possa armazenar com segurança suas imagens de contêiner ou gráficos Helm. O Container Registry suporta a replicação geomaster multimaster para replicar automaticamente suas imagens em regiões do Azure em todo o mundo. 
+Para implantar e executar seus aplicativos no AKS, você precisará ter uma maneira de armazenar e efetuar pull das imagens de contêiner. O registro de contêiner se integra com o AKS, portanto, ele pode armazenar com segurança suas imagens de contêiner ou gráficos de Helm. O registro de contêiner dá suporte à replicação geográfica multimestre para replicar automaticamente suas imagens para regiões do Azure em todo o mundo. 
 
-Para melhorar o desempenho e a disponibilidade, use a geo-replicação do Registro de Contêineres para criar um registro em cada região onde você tenha um cluster AKS. Cada cluster AKS então retira imagens de contêiner do registro local de contêineres na mesma região:
+Para melhorar o desempenho e a disponibilidade, use a replicação geográfica do registro de contêiner para criar um registro em cada região em que você tenha um cluster AKS. Cada cluster AKS, em seguida, efetua pull das imagens de contêiner do registro de contêiner local na mesma região:
 
-![Geo-replicação do Registro de Contêineres para imagens de contêineres](media/operator-best-practices-bc-dr/acr-geo-replication.png)
+![Replicação geográfica do registro de contêiner para imagens de contêiner](media/operator-best-practices-bc-dr/acr-geo-replication.png)
 
-Quando você usa a geo-replicação do Registro de Contêineres para retirar imagens da mesma região, os resultados são:
+Quando você usa a replicação geográfica do registro de contêiner para efetuar pull de imagens da mesma região, os resultados são:
 
-* **Mais rápido**: Você puxa imagens de conexões de rede de alta velocidade e baixa latência dentro da mesma região do Azure.
-* **Mais confiável**: Se uma região não estiver disponível, o cluster AKS retira as imagens de um registro de contêiner disponível.
-* **Mais barato**: Não há cobrança de saída de rede entre data centers.
+* **Mais rápido**: você efetua pull de imagens de conexões de rede de alta velocidade e baixa latência na mesma região do Azure.
+* **Mais confiável**: se uma região não estiver disponível, o cluster AKs extrairá as imagens de um registro de contêiner disponível.
+* Mais **barato**: não há nenhum encargo de saída de rede entre data centers.
 
-A replicação geográfica é uma característica dos registros de contêineres *Premium* SKU. Para obter informações sobre como configurar a replicação geográfica, consulte [geo-replicação do Registro de Contêineres](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+A replicação geográfica é um recurso de registros de contêiner de SKU *Premium* . Para obter informações sobre como configurar a replicação geográfica, consulte [replicação geográfica do registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 
 ## <a name="remove-service-state-from-inside-containers"></a>Remover o estado do serviço de dentro dos contêineres
 
-**Melhores práticas**: Sempre que possível, não armazene o estado de serviço dentro do contêiner. Em vez disso, use uma plataforma Azure como um serviço (PaaS) que suporta a replicação multirregião.
+**Prática recomendada**: sempre que possível, não armazene o estado do serviço dentro do contêiner. Em vez disso, use uma PaaS (plataforma como serviço) do Azure que dá suporte à replicação em várias regiões.
 
-*O estado de* serviço refere-se aos dados na memória ou no disco que um serviço requer para funcionar. O estado inclui as estruturas de dados e variáveis de membro que o serviço lê e grava. Dependendo de como o serviço é arquitetado, o estado também pode incluir arquivos ou outros recursos armazenados no disco. Por exemplo, o estado pode incluir os arquivos que um banco de dados usa para armazenar dados e registros de transações.
+*Estado do serviço* refere-se aos dados na memória ou em disco que um serviço requer para funcionar. O estado inclui as estruturas de dados e variáveis de membro que o serviço lê e grava. Dependendo de como o serviço é arquitetado, o estado também pode incluir arquivos ou outros recursos armazenados no disco. Por exemplo, o estado pode incluir os arquivos que um banco de dados usa para armazenar os logs de transações e de registros.
 
-O estado pode ser externado ou localizado com o código que manipula o estado. Normalmente, você externaliza o estado usando um banco de dados ou outro armazenamento de dados que é executado em diferentes máquinas pela rede ou que fica sem processo na mesma máquina.
+O estado pode ser externo ou colocado em um código que manipule o estado. Normalmente, você externamente o estado usando um banco de dados ou outro armazenamento que é executado em máquinas diferentes na rede ou que é executado fora do processo no mesmo computador.
 
-Contêineres e microserviços são mais resistentes quando os processos que correm dentro deles não retêm estado. Como os aplicativos quase sempre contêm algum estado, use uma solução PaaS como o Azure Database for MySQL, Azure Database for PostgreSQL ou Azure SQL Database.
+Os contêineres e os microserviços são mais resilientes quando os processos executados dentro deles não mantêm o estado. Como os aplicativos quase sempre contêm algum estado, use uma solução PaaS, como o banco de dados do Azure para MySQL, o banco de dados do Azure para PostgreSQL ou o banco de dados SQL do Azure.
 
 Para criar aplicativos portáteis, consulte as seguintes diretrizes:
 
@@ -102,39 +102,39 @@ Para criar aplicativos portáteis, consulte as seguintes diretrizes:
 
 ## <a name="create-a-storage-migration-plan"></a>Criar um plano de migração de armazenamento
 
-**Práticas recomendadas**: Se você usar o Azure Storage, prepare e teste como migrar seu armazenamento da região primária para a região de backup.
+**Prática recomendada**: se você usar o armazenamento do Azure, prepare e teste como migrar seu armazenamento da região primária para a região de backup.
 
-Seus aplicativos podem usar o Azure Storage para seus dados. Como seus aplicativos estão espalhados por vários clusters AKS em diferentes regiões, você precisa manter o armazenamento sincronizado. Aqui estão duas maneiras comuns de replicar o armazenamento:
+Seus aplicativos podem usar o armazenamento do Azure para seus dados. Como seus aplicativos estão espalhados por vários clusters AKS em regiões diferentes, você precisa manter o armazenamento sincronizado. Aqui estão duas maneiras comuns de replicar o armazenamento:
 
 * Replicação assíncrona baseada em infraestrutura
 * Replicação assíncrona baseada em aplicativo
 
 ### <a name="infrastructure-based-asynchronous-replication"></a>Replicação assíncrona baseada em infraestrutura
 
-Seus aplicativos podem exigir armazenamento persistente mesmo depois que um pod é excluído. Em Kubernetes, você pode usar volumes persistentes para persistir o armazenamento de dados. Os volumes persistentes são montados em um vm de nó e, em seguida, expostos às cápsulas. Os volumes persistentes seguem as cápsulas mesmo que as cápsulas sejam movidas para um nó diferente dentro do mesmo cluster.
+Seus aplicativos podem exigir armazenamento persistente mesmo depois que um pod é excluído. No kubernetes, você pode usar volumes persistentes para manter o armazenamento de dados. Os volumes persistentes são montados em uma VM de nó e, em seguida, expostos ao pods. Os volumes persistentes seguem pods, mesmo se os pods forem movidos para um nó diferente dentro do mesmo cluster.
 
-A estratégia de replicação que você usa depende da sua solução de armazenamento. Soluções comuns de armazenamento como [Gluster,](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/) [Ceph,](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/) [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) fornecem suas próprias orientações sobre recuperação e replicação de desastres.
+A estratégia de replicação que você usa depende da sua solução de armazenamento. Soluções de armazenamento comuns, como [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [torre](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html)e [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) , fornecem suas próprias diretrizes sobre recuperação de desastres e replicação.
 
-A estratégia típica é fornecer um ponto de armazenamento comum onde os aplicativos podem gravar seus dados. Esses dados são replicados entre regiões e acessados localmente.
+A estratégia típica é fornecer um ponto de armazenamento comum em que os aplicativos possam gravar seus dados. Esses dados são replicados entre regiões e acessados localmente.
 
 ![Replicação assíncrona baseada em infraestrutura](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Se você usar discos gerenciados do Azure, poderá escolher soluções de replicação e DR como estas:
+Se você usar o Azure Managed Disks, poderá escolher soluções de recuperação de desastres e replicação, como estas:
 
 * [Velero no Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncrona baseada em aplicativo
 
-Atualmente, o Kubernetes não oferece nenhuma implementação nativa para replicação assíncrona baseada em aplicativos. Como os contêineres e kubernetes estão vagamente acoplados, qualquer abordagem tradicional de aplicação ou idioma deve funcionar. Normalmente, os próprios aplicativos replicam as solicitações de armazenamento, que são então escritas para o armazenamento de dados subjacente de cada cluster.
+Atualmente, o kubernetes não fornece implementação nativa para replicação assíncrona baseada em aplicativo. Como contêineres e kubernetes são livremente acoplados, qualquer abordagem tradicional de aplicativo ou linguagem deve funcionar. Normalmente, os próprios aplicativos replicam as solicitações de armazenamento, que são então gravadas no armazenamento de dados subjacente de cada cluster.
 
 ![Replicação assíncrona baseada em aplicativo](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo foca em considerações de continuidade de negócios e recuperação de desastres para clusters AKS. Para obter mais informações sobre operações de cluster no AKS, consulte estes artigos sobre as melhores práticas:
+Este artigo se concentra na continuidade dos negócios e nas considerações de recuperação de desastres para clusters AKS. Para obter mais informações sobre as operações de cluster no AKS, consulte estes artigos sobre as práticas recomendadas:
 
-* [Multitnancy e isolamento de clusters][aks-best-practices-cluster-isolation]
+* [Multilocação e isolamento de cluster][aks-best-practices-cluster-isolation]
 * [Recursos básicos de Agendador Kubernetes][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->

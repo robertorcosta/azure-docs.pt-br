@@ -1,22 +1,22 @@
 ---
 title: Trabalhar com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial para usar o Azure Monitor Log Analytics no portal Azure para consultar e analisar dados de log no Azure Monitor.
+description: Este artigo fornece um tutorial para usar Azure Monitor Log Analytics no portal do Azure para consultar e analisar dados de log no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672970"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Comece com o Azure Monitor Log Analytics](get-started-portal.md) e [comece com as consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -25,7 +25,7 @@ Objetos aninhados são objetos que contêm outros objetos em uma matriz ou um ma
 ## <a name="working-with-json-strings"></a>Trabalhando com cadeias de caracteres JSON
 Use `extractjson` para acessar um elemento específico de JSON em um caminho conhecido. Essa função requer uma expressão de caminho que usa as convenções a seguir.
 
-- _$_ para se referir à pasta raiz
+- _$_ para fazer referência à pasta raiz
 - Use o colchete ou a notação de ponto para se referir a índices e elementos, conforme ilustrado nos exemplos a seguir.
 
 

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668348"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
@@ -24,7 +24,7 @@ Este artigo de práticas recomendadas se concentra no isolamento para operadores
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Design de clusters para multi locação
 
-O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [espaço para nome][k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Características adicionais do Kubernetes e considerações para isolamento e multi-locação incluem as seguintes áreas:
+O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [espaço para nome][k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Os recursos e considerações adicionais do kubernetes para isolamento e multilocação incluem as seguintes áreas:
 
 * **O agendamento** inclui o uso de recursos básicos, como cotas de recursos e orçamentos de interrupção de conjuntos. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos básicos do agendador no AKS][aks-best-practices-scheduler].
   * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos avançados do agendador no AKS][aks-best-practices-advanced-scheduler].
@@ -42,7 +42,7 @@ Com o isolamento lógico, um único cluster AKS pode ser usado para várias carg
 
 A separação lógica de aglomerados geralmente fornece uma densidade de vagem mais alta do que aglomerados isolados fisicamente. Há menos capacidade de computação em excesso que fica inativa no cluster. Quando combinado com o auto escalador de cluster do Kubernetes, você pode dimensionar o número de nós para cima ou para baixo para atender às demandas. Essa abordagem de melhor prática para o escalonamento automático permite que você execute apenas o número de nós necessários e minimize os custos.
 
-Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatários hostis. Em um ambiente de vários inquilinos, vários inquilinos estão trabalhando em uma infra-estrutura comum e compartilhada. Como resultado, se todos os inquilinos não são confiáveis, você precisa fazer um planejamento adicional para evitar que um inquilino impacte na segurança e no serviço de outro. Recursos de segurança adicionais, como *Política de Segurança Pod* e controles de acesso baseado em função (RBAC) mais refinados para nós dificultam as explorações. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
+Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatários hostis. Em um ambiente multilocatário, vários locatários estão trabalhando em uma infraestrutura comum compartilhada. Como resultado, se todos os locatários não puderem ser confiáveis, você precisará fazer um planejamento adicional para evitar que um locatário afete a segurança e o serviço de outro. Recursos de segurança adicionais, como *Política de Segurança Pod* e controles de acesso baseado em função (RBAC) mais refinados para nós dificultam as explorações. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
 
 ## <a name="physically-isolate-clusters"></a>Isolar fisicamente clusters
 
@@ -52,7 +52,7 @@ Uma abordagem comum para o isolamento de cluster é usar clusters AKS fisicament
 
 ![Isolamento físico de clusters de Kubernetes individuais em AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Clusters fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipe ou carga de trabalho possui seu próprio cluster AKS, o cluster geralmente é provisionado em excesso com recursos de computação. Muitas vezes, um pequeno número de pods são agendados nesses nós. A capacidade não utilizada nos nós não pode ser usada para aplicativos ou serviços em desenvolvimento por outras equipes. Esses recursos em excesso contribuem para os custos adicionais em clusters fisicamente separados.
+Clusters fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipe ou carga de trabalho possui seu próprio cluster AKS, o cluster geralmente é provisionado em excesso com recursos de computação. Muitas vezes, um pequeno número de pods é agendado nesses nós. A capacidade não utilizada nos nós não pode ser usada para aplicativos ou serviços em desenvolvimento por outras equipes. Esses recursos em excesso contribuem para os custos adicionais em clusters fisicamente separados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
