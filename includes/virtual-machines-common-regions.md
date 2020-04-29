@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021169"
 ---
 É importante entender como e onde as VMs (máquinas virtuais) operam no Azure, juntamente com suas opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece uma visão geral dos recursos de redundância e disponibilidade do Azure.
@@ -29,7 +29,7 @@ O Azure tem algumas regiões especiais que podem ser úteis durante a criação 
 * **US Gov Virginia** e **US Gov Iowa**
   * Uma instância lógica e física do Azure isolada da rede, destinada a parceiros e órgãos do governo dos EUA, operada por cidadãos americanos selecionados. Inclui certificações de conformidade adicionais, como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Leia mais sobre o [Azure Governamental](https://azure.microsoft.com/features/gov/).
 * **Norte da China** e **Leste da China**
-  * Essas regiões estão disponíveis por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, segundo a qual a Microsoft não mantém diretamente os data centers. Veja mais sobre [o Azure China 21Vianet](https://www.windowsazure.cn/).
+  * Essas regiões estão disponíveis por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, segundo a qual a Microsoft não mantém diretamente os data centers. Veja mais sobre o [Azure China 21vianet](https://www.windowsazure.cn/).
 * **Centro da Alemanha** e **Nordeste Alemanha**
   * Essas regiões estão disponíveis por meio de um modelo de objeto de confiança de dados, por meio do qual os dados do cliente continuam na Alemanha sob o controle da T-Systems, uma empresa da Deutsche Telekom, que atua como o objeto de confiança dos dados da Alemanha.
 
@@ -48,7 +48,7 @@ Exemplos de pares de regiões incluem:
 | Norte da Europa |Europa Ocidental |
 | Sudeste Asiático |Leste da Ásia |
 
-Você pode ver a lista completa [de pares regionais aqui.](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions)
+Você pode ver a [lista completa de pares regionais aqui](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="feature-availability"></a>Disponibilidade de recursos
 Alguns serviços ou recursos de VM estão disponíveis somente em determinadas regiões, como tamanhos específicos de VMs ou tipos de armazenamento. Também há alguns serviços globais do Azure que não exigem que você selecione uma região específica, como [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-overview.md) ou [DNS do Azure](../articles/dns/dns-overview.md). Para ajudá-lo na criação de seu ambiente de aplicativos, você pode verificar a [disponibilidade de serviços do Azure em cada região](https://azure.microsoft.com/regions/#services). Você também pode [consultar programaticamente os tamanhos de VM com suporte e restrições em cada região](../articles/azure-resource-manager/templates/error-sku-not-available.md).
@@ -56,7 +56,7 @@ Alguns serviços ou recursos de VM estão disponíveis somente em determinadas r
 ## <a name="storage-availability"></a>Disponibilidade de armazenamento
 Compreender as áreas e regiões do Azure torna-se importante quando você considera as opções de replicação de armazenamento disponíveis. Dependendo do tipo de armazenamento, você tem opções de replicação diferentes.
 
-**Discos gerenciados do Azure**
+**Managed Disks do Azure**
 * Armazenamento com redundância local (LRS)
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 
@@ -78,12 +78,12 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 | Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para obter mais informações sobre discos gerenciados, consulte [a visão geral dos discos gerenciados do Azure](../articles/virtual-machines/windows/managed-disks-overview.md).
+Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para obter mais informações sobre discos gerenciados, consulte [visão geral do Azure Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
 Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar.
 
-**Discos gerenciados do Azure**
+**Managed Disks do Azure**
 * Os Managed Disks Premium são compostos por unidades de estado sólido (SSDs) e os Managed Disks Standard são compostos por discos de rotação regular. Premium e padrão de discos gerenciados são cobrados com base na capacidade provisionada para o disco.
 
 **Discos não gerenciados**
