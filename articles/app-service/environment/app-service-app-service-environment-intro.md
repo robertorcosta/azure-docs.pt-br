@@ -1,6 +1,6 @@
 ---
 title: Introdução ao ASE v1
-description: Conheça os recursos do App Service Environment v1. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+description: Saiba mais sobre os recursos do Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
@@ -8,20 +8,20 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478735"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução ao Ambiente do Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [Introdução ao Ambiente de Serviço do Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [introdução ao ambiente do serviço de aplicativo](intro.md).
 
 ## <a name="overview"></a>Visão geral
 
-Um Ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do [Azure App Service](../overview.md) que fornece um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do Azure App Service em alta escala, incluindo Aplicativos Web, Aplicativos Móveis e Aplicativos de API.  
+Um Ambiente do Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do [serviço de Azure app](../overview.md) que fornece um ambiente totalmente isolado e dedicado para execução segura de aplicativos de serviço do Azure app em alta escala, incluindo aplicativos Web, aplicativos móveis e aplicativos de API.  
 
 Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de aplicativos que exigem:
 
@@ -32,7 +32,7 @@ Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de um
 
 Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual.  Os clientes têm um controle refinado sobre o tráfego de entrada e saída da rede de aplicativos, e os aplicativos podem estabelecer conexões seguras de alta velocidade por meio de redes virtuais com recursos corporativos locais.
 
-Para obter uma visão geral de como os ambientes de serviço de aplicativos permitem acesso à rede em alta escala e seguro, consulte o [AzureCon Deep Dive][AzureConDeepDive] em Ambientes de Serviço de Aplicativos!
+Para obter uma visão geral de como os ambientes do serviço de aplicativo permitem o acesso de alta escala e segurança à rede, consulte o aprofundamento [AzureCon][AzureConDeepDive] nos ambientes do serviço de aplicativo!
 
 Para uma análise aprofundada sobre o dimensionamento horizontal usando vários Ambientes de Serviço de Aplicativo, veja o artigo sobre como configurar uma [área de aplicativo distribuído geograficamente][GeodistributedAppFootprint].
 
@@ -48,7 +48,7 @@ Todos os recursos de computação em um Ambiente de Serviço de Aplicativo são 
 
 Um Ambiente de Serviço de Aplicativo é composto de um pool de recursos de computação de front-end, bem como um a três pools de recursos de computação de trabalho.
 
-O pool front-end contém recursos de computação responsáveis pelo término do TLS, bem como o balanceamento automático de carga das solicitações de aplicativos dentro de um Ambiente de Serviço de Aplicativo.
+O pool de front-end contém recursos de computação responsáveis pela terminação de TLS, bem como balanceamento de carga automático de solicitações de aplicativo dentro de um Ambiente do Serviço de Aplicativo.
 
 Cada pool de trabalho contém recursos de computação alocados para [Planos do Serviço de Aplicativo][AppServicePlan] que, por sua vez, contêm um ou mais aplicativos de Serviço de Aplicativo do Azure.  Como pode haver até três pools de trabalho diferentes em um ambiente de serviço de aplicativo, você tem a flexibilidade de escolher os recursos de computação diferentes para cada pool de trabalho.  
 

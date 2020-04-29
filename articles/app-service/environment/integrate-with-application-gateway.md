@@ -1,6 +1,6 @@
 ---
 title: Integrar no Gateway de Aplicativo
-description: Aprenda a integrar um aplicativo em seu ambiente de serviço de aplicativo ILB com um Gateway de aplicativo neste passo a passo de ponta a ponta.
+description: Saiba como integrar um aplicativo em seu ILB Ambiente do Serviço de Aplicativo com um gateway de aplicativo neste passo a passo de ponta a ponta.
 author: ccompy
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476900"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicativo do ILB com o Gateway de Aplicativo do Azure #
@@ -20,7 +20,7 @@ O [Ambiente do Serviço de Aplicativo](./intro.md) é uma implantação do Servi
 
 Firewalls do aplicativo Web ajudam na segurança do aplicativos Web ao inspecionar o tráfego de entrada da Web para bloquear injeções de SQL, script entre sites, uploads de malware, DDoS de aplicativo e outros ataques. Ele também inspeciona as respostas dos servidores Web back-end para DLP (Prevenção contra Perda de Dados). Você pode obter um dispositivo WAF no Microsoft Azure Marketplace ou usar o [Gateway de Aplicativo do Azure][appgw].
 
-O Azure Application Gateway é um dispositivo virtual que fornece balanceamento de carga de camada 7, descarregamento TLS/SSL e proteção waf (Web application firewall). Ele pode escutar em um endereço IP público e rotear tráfego para o ponto de extremidade do aplicativo. As informações a seguir descrevem como integrar um Gateway de Aplicativo com WAF configurado a um aplicativo em um ILB ASE.  
+O gateway de Aplicativo Azure é uma solução de virtualização que fornece balanceamento de carga de camada 7, descarregamento de TLS/SSL e proteção WAF (firewall de aplicativo Web). Ele pode escutar em um endereço IP público e rotear tráfego para o ponto de extremidade do aplicativo. As informações a seguir descrevem como integrar um Gateway de Aplicativo com WAF configurado a um aplicativo em um ILB ASE.  
 
 A integração do gateway de aplicativo com o Ambiente do Serviço de Aplicativo do ILB é em um nível de aplicativo. Quando você configura o gateway de aplicativo com seu Ambiente do Serviço de Aplicativo do ILB, você faz isso para aplicativos específicos no Ambiente do Serviço de Aplicativo do ILB. Essa técnica permite hospedar aplicativos multilocatários seguros em um único Ambiente do Serviço de Aplicativo do ILB.  
 
@@ -40,7 +40,7 @@ Para integrar o Gateway de Aplicativo ao Ambiente do Ambiente do Serviço de Apl
 * Um Ambiente do Serviço de Aplicativo do ILB.
 * Um aplicativo em execução no Ambiente do Serviço de Aplicativo do ILB.
 * Um nome de domínio roteável da Internet a ser usado com seu aplicativo no Ambiente do Serviço de Aplicativo do ILB.
-* O endereço ILB que seu Ambiente do Serviço de Aplicativo do ILB usa. Essas informações estão no portal app service environment em **Configurações endereços** > **IP**:
+* O endereço ILB que seu Ambiente do Serviço de Aplicativo do ILB usa. Essas informações estão no portal do ambiente do serviço de aplicativo em **configurações** > **endereços IP**:
 
     ![Lista de exemplos de endereços IP usados pelo Ambiente do Serviço de Aplicativo do ILB][9]
     
@@ -56,7 +56,7 @@ Você também consegue colocar o gateway na sub-rede que usa o Ambiente do Servi
 
 ## <a name="configuration-steps"></a>Etapas de configuração ##
 
-1. No portal Azure, vá para **o Gateway** > **de aplicativo de**nova**rede** > .
+1. Na portal do Azure, vá para **novo** > **rede** > **Gateway de aplicativo**.
 
 2. Na área **Básico**:
 
@@ -106,7 +106,7 @@ Você também consegue colocar o gateway na sub-rede que usa o Ambiente do Servi
 
    ![Portal do Gateway de Aplicativo][7]
 
-9. Defina o nome de domínio personalizado para o aplicativo no Ambiente do Serviço de Aplicativo do ILB. Vá para o seu aplicativo no portal e, em **Configurações,** selecione **Domínios personalizados**.
+9. Defina o nome de domínio personalizado para o aplicativo no Ambiente do Serviço de Aplicativo do ILB. Vá para seu aplicativo no portal e, em **configurações**, selecione **domínios personalizados**.
 
    ![Definir o nome de domínio personalizado no aplicativo][8]
 

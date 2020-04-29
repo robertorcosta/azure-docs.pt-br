@@ -1,5 +1,5 @@
 ---
-title: Configurar a replicação de dados - Banco de dados Azure para MySQL
+title: Configurar o data-in Replication-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,19 +7,19 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474031"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
-Este artigo descreve como configurar a replicação de dados no Banco de Dados do Azure para MySQL, configurando os servidores mestre e réplica. Este artigo pressupõe que você tenha alguma experiência prévia com servidores e bancos de dados MySQL.
+Este artigo descreve como configurar o Replicação de Dados no banco de dados do Azure para MySQL Configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MySQL.
 
-Para criar uma réplica no banco de dados Do Azure para o serviço MySQL, a Replicação de Dados sincroniza dados de um servidor MySQL mestre no local, em máquinas virtuais (VMs) ou em serviços de banco de dados em nuvem.
+Para criar uma réplica no serviço de banco de dados do Azure para MySQL, Replicação de Dados sincroniza dados de um servidor mestre MySQL local, em VMs (máquinas virtuais) ou em serviços de banco de dados de nuvem.
 
-Revise as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de Data-in antes de executar as etapas deste artigo.
+Examine as [limitações e os requisitos](concepts-data-in-replication.md#limitations-and-considerations) de replicação de dados antes de executar as etapas neste artigo.
 
 ## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Criar um servidor MySQL para ser usado como réplica
 
@@ -43,11 +43,11 @@ Revise as [limitações e requisitos](concepts-data-in-replication.md#limitation
 As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em uma máquina virtual ou serviço de banco de dados hospedado por outros provedores de nuvem para replicação de entrada nos dados. Esse servidor é o "mestre" em replicação de dados.
 
 
-1. Revise os [requisitos](concepts-data-in-replication.md#requirements) do servidor mestre antes de prosseguir. 
+1. Examine os [requisitos do servidor mestre](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-   Por exemplo, certifique-se de que o servidor mestre permite tráfego de entrada e saída na porta 3306 e que o servidor mestre tenha um **endereço IP público,** o DNS é acessível publicamente ou tem um nome de domínio totalmente qualificado (FQDN). 
+   Por exemplo, verifique se o servidor mestre permite o tráfego de entrada e de saída na porta 3306 e se o servidor mestre tem um **endereço IP público**, se o DNS está publicamente acessível ou tem um FQDN (nome de domínio totalmente qualificado). 
    
-   Teste a conectividade ao servidor mestre ao tentar conectar-se a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
+   Teste a conectividade com o servidor mestre tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal do Azure.
 
 2. Ligar o registro em log binário
 
@@ -57,9 +57,9 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Se a [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) variável for devolvida com o valor "ON", o registro binário será ativado no servidor. 
+   Se a variável [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) for retornada com o valor "on", o log binário será habilitado em seu servidor. 
 
-   Se `log_bin` for devolvido com o valor "OFF", ative o registro binário editando seu arquivo my.cnf para que `log_bin=ON` e reinicie seu servidor para que a alteração entre em vigor.
+   Se `log_bin` for retornado com o valor "off", ative o log binário editando o arquivo My. cnf para que `log_bin=ON` o e reinicie o servidor para que a alteração entre em vigor.
 
 3. Configurações do servidor mestre
 
@@ -121,7 +121,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 6. Obter o nome e o deslocamento do arquivo de log binário
 
-   Execute [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) o comando para determinar o nome e deslocamento do arquivo de log binário atual.
+   Execute o [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o deslocamento e o nome do arquivo de log binário atual.
     
    ```sql
    show master status;
@@ -166,7 +166,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    - master_password: a senha para o servidor mestre
    - master_log_file: nome de arquivo de log binário de `show master status` em execução
    - master_log_pos: posição de log binário de `show master status` em execução
-   - master_ssl_ca: Contexto do certificado de AC. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
+   - master_ssl_ca: contexto do certificado de autoridade de certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
 > [!NOTE]
@@ -184,14 +184,14 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    -----END CERTIFICATE-----'
    ```
 
-   A replicação com SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no Banco de Dados Azure para MySQL. Esse procedimento armazenado é executado na réplica. 
+   A replicação com SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica. 
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replicação sem SSL*
 
-   A replicação sem SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no Banco de Dados Do Azure para MySQL. Esse procedimento armazenado é executado na réplica.
+   A replicação sem SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -207,13 +207,13 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Verificar status de replicação
 
-   Ligue [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) para o comando no servidor de réplicas para visualizar o status de replicação.
+   Chame o [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) comando no servidor de réplica para exibir o status de replicação.
     
    ```sql
    show slave status;
    ```
 
-   Se o `Slave_IO_Running` estado `Slave_SQL_Running` de e são "sim" e o valor de `Seconds_Behind_Master` é "0", a replicação está funcionando bem. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não é "0", isso significa que a réplica está processando as atualizações. 
+   Se o estado de `Slave_IO_Running` e `Slave_SQL_Running` for "Sim" e o valor de `Seconds_Behind_Master` for "0", a replicação estará funcionando bem. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não é "0", isso significa que a réplica está processando as atualizações. 
 
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 

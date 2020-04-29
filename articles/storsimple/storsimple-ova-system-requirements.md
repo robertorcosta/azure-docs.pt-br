@@ -1,5 +1,5 @@
 ---
-title: Requisitos do sistema Microsoft Azure StorSimple Virtual Array
+title: Microsoft Azure StorSimple os requisitos de sistema da matriz virtual
 description: Aprender sobre os requisitos de software e de rede para sua StorSimple Virtual Array
 author: alkohli
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298815"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da matriz virtual StorSimple
@@ -38,14 +38,14 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 ### <a name="supported-virtualization-platforms"></a>Plataformas de virtualização com suporte
 | **Hipervisor** | **Versão** |
 | --- | --- |
-| Hyper-v |Windows Server 2008 R2 SP1 e posterior |
+| Hyper-V |Windows Server 2008 R2 SP1 e posterior |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
 
 > [!IMPORTANT]
 > Não instale as ferramentas do VMware no StorSimple Virtual Array. Isso resulta em uma configuração sem suporte.
 
 ### <a name="virtual-device-requirements"></a>Requisitos de dispositivo virtual
-| **Componente** | **Exigência** |
+| **Componente** | **Requisito** |
 | --- | --- |
 | Número mínimo de processadores virtuais (núcleos) |4 |
 | Mínimo de memória (RAM) |8 GB <br> Para um servidor de arquivos, 8 GB para menos de 2 milhões de arquivos e 16 GB para 2 a 4 milhões de arquivos|
@@ -67,7 +67,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 ### <a name="supported-storage-clients"></a>Clientes de armazenamento com suporte
 Os requisitos de software a seguir referem-se aos iniciadores iSCSI que acessam o StorSimple Array Virtual (configurado como um servidor iSCSI).
 
-| **Sistemas operacionais suportados** | **Versão necessária** | **Requisitos/observações adicionais** |
+| **Sistemas operacionais com suporte** | **Versão necessária** | **Requisitos/observações adicionais** |
 | --- | --- | --- |
 | Windows Server |2008R2 SP1, 2012, 2012R2 |O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados. Os volumes iSCSI do StorSimple têm suporte apenas em:  <ul><li>Volumes simples em discos básicos do Windows.</li><li>Windows NTFS para formatar um volume.</li> |
 
@@ -89,7 +89,7 @@ Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página n�
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
+| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessária** | **Observações** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
@@ -102,7 +102,7 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
 > [!IMPORTANT]
-> Certifique-se de que o firewall não modifique ou descriptografe qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que o firewall não modifique nem descriptografe nenhum tráfego TLS entre o dispositivo StorSimple e o Azure.
 > 
 > 
 

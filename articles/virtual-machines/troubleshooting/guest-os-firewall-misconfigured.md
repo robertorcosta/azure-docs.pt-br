@@ -1,6 +1,6 @@
 ---
 title: Firewall do SO Guest do Azure VM está desconfigurado|Microsoft Docs
-description: Aprenda a usar o Console Serial ou o método off-line para diagnosticar e corrigir um firewall do sistema operacional de hóspedes mal configurado em uma VM Azure remota.
+description: Saiba como usar o console serial ou o método offline para diagnosticar e corrigir um firewall de sistema operacional convidado configurado incorretamente em uma VM do Azure remota.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e6f42bdf462ac5261f77bc05c62e50500345fe37
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422543"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Firewall do sistema operacional de convidado VM do Azure está configurado incorretamente
@@ -98,7 +98,7 @@ Na instância do Serial Console Access, você pode consultar o status atual da r
 
 ### <a name="offline-mitigations"></a>Redução Offline
 
-1.  Para ativar ou desativar as regras de firewall, consulte [Ativar ou desativar uma regra de firewall em um Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
+1.  Para habilitar ou desabilitar regras de firewall, consulte [habilitar ou desabilitar uma regra de firewall em um SO convidado de VM do Azure](enable-disable-firewall-rule-guest-os.md).
 
 2.  Verifique se você está no cenário de tráfego de entrada do [Firewall do OS convidado bloqueando](guest-os-firewall-blocking-inbound-traffic.md).
 

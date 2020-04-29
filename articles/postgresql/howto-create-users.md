@@ -1,23 +1,23 @@
 ---
-title: Criar usuários - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um banco de dados Azure para PostgreSQL - Single Server.
+title: Criar usuários-banco de dados do Azure para PostgreSQL-servidor único
+description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um banco de dados do Azure para PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.openlocfilehash: 127d484d6cfc35368803069f9c3d602e787baa56
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384340"
 ---
-# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar usuários no Banco de Dados Azure para PostgreSQL - Servidor Único
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar usuários no banco de dados do Azure para PostgreSQL-servidor único
 
-Este artigo descreve como você pode criar usuários dentro de um banco de dados Azure para servidor PostgreSQL.
+Este artigo descreve como você pode criar usuários em um servidor de banco de dados do Azure para PostgreSQL.
 
-Se você quiser aprender sobre como criar e gerenciar usuários de assinatura do Azure e seus privilégios, você pode visitar o [artigo rbac (controle de acesso baseado em função do Azure)](../role-based-access-control/built-in-roles.md) ou rever [como personalizar funções](../role-based-access-control/custom-roles.md).
+Se você quiser saber mais sobre como criar e gerenciar usuários de assinatura do Azure e seus privilégios, você pode visitar o [artigo RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/built-in-roles.md) ou examinar [como personalizar funções](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>A conta do administrador do servidor
 
@@ -70,7 +70,7 @@ A conta de usuário administrador do servidor pode ser usada para criar usuário
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. Usando uma conta de administrador, você precisará conceder privilégios adicionais para proteger os objetos no banco de dados. Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) para obter mais detalhes sobre as funções de banco de dados e os privilégios. Por exemplo: 
+4. Usando uma conta de administrador, você precisará conceder privilégios adicionais para proteger os objetos no banco de dados. Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) para obter mais detalhes sobre as funções de banco de dados e os privilégios. Por exemplo:
 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;

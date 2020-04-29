@@ -1,5 +1,5 @@
 ---
-title: Executar a detecção de intrusões de rede com ferramentas de código aberto
+title: Executar a detecção de intrusão de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474916"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar o Elastic Stack
 
-Embora os registros que a Suricata produz contenham informações valiosas sobre o que está acontecendo em nossa rede, esses arquivos de log não são os mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, grafo, analisar e derivar informações de nossos logs.
+Embora os logs que o Suricata produz contenham informações valiosas sobre o que está acontecendo em nossa rede, esses arquivos de log não são os mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, grafo, analisar e derivar informações de nossos logs.
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
@@ -254,7 +254,7 @@ Você também pode criar suas próprias visualizações e painéis personalizado
 
 O painel de exemplo fornece várias visualizações dos logs de alerta Suricata:
 
-1. Alertas da GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base na localização geográfica (determinada por IP)
+1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base no local geográfico (determinado pelo IP)
 
     ![ip geográfico][3]
 
@@ -274,7 +274,7 @@ O painel de exemplo fornece várias visualizações dos logs de alerta Suricata:
 
     ![imagem 7][7]
 
-Para obter mais documentação sobre a criação de visualizações e painéis personalizados, consulte [a documentação oficial da Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Para obter mais documentação sobre a criação de painéis e visualizações personalizadas, consulte a [documentação oficial do Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Conclusão
 

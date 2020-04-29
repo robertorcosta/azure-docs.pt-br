@@ -1,21 +1,21 @@
 ---
-title: Utilize sys_schema - Banco de Dados Azure para MySQL
-description: Aprenda a usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no Banco de Dados Azure para MySQL.
+title: Utilizar o sys_schema-banco de dados do Azure para MySQL
+description: Saiba como usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
 ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411084"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
 
-O MySQL performance_schema, disponível pela primeira vez no MySQL 5.5, fornece instrumentação para muitos recursos vitais do servidor, como alocação de memória, programas armazenados, bloqueio de metadados, etc. No entanto, o performance_schema contém mais de 80 tabelas, e obter as informações necessárias muitas vezes requer a junção de tabelas dentro do performance_schema, bem como tabelas do information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
+O MySQL performance_schema, primeiro disponível no MySQL 5,5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados, etc. No entanto, o performance_schema contém mais de 80 tabelas, e obter as informações necessárias geralmente requer a União de tabelas dentro do performance_schema, bem como tabelas da information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
 
 ![Exibições do sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -29,7 +29,7 @@ Há 52 exibições no sys_schema e cada uma tem um dos prefixos a seguir:
 - User: recursos consumidos e agrupados pelos usuários. Exemplos são E/S de arquivos, conexões e memória.
 - Wait: aguarda eventos agrupados por host ou usuário.
 
-Agora vamos olhar para alguns padrões de uso comuns do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **ajuste de desempenho** e manutenção do banco de **dados.**
+Agora, vejamos alguns padrões comuns de uso do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **ajuste de desempenho** e **manutenção de banco de dados**.
 
 ## <a name="performance-tuning"></a>Ajuste de desempenho
 
@@ -55,14 +55,14 @@ Para solucionar problemas de desempenho do banco de dados, pode ser útil identi
 
 ![Resumo por instrução](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando o log de consultas do slog 44579 vezes. Isso é muito tempo e muitos IOs. É possível reduzir essa atividade, desabilitando o log de consultas lentas ou diminuindo a frequência do logon de consultas lentas do portal do Azure.
+Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando o log de consultas do slog 44579 vezes. Isso é um longo tempo e muitos IOs. É possível reduzir essa atividade, desabilitando o log de consultas lentas ou diminuindo a frequência do logon de consultas lentas do portal do Azure.
 
 ## <a name="database-maintenance"></a>Manutenção de banco de dados
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 [!IMPORTANT]
-> Consultar essa visualização pode afetar o desempenho. Recomenda-se realizar essa solução de problemas durante o horário comercial fora do pico.
+> Consultar essa exibição pode afetar o desempenho. É recomendável executar essa solução de problemas fora do horário comercial de pico.
 
 O pool de buffers InnoDB reside na memória e é o mecanismo de cache principal entre o SGBD e o armazenamento. O tamanho do pool de buffers InnoDB está vinculado ao nível de desempenho e não pode ser alterado, exceto se uma SKU do produto diferente for escolhida. Assim como acontece com a memória no sistema operacional, as páginas antigas são trocadas para criar espaço para dados mais atuais. Para localizar quais tabelas consomem a maior parte da memória do pool de buffers InnoDB, você pode consultar a exibição *sys.innodb_buffer_stats_by_table*.
 

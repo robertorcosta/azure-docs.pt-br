@@ -1,6 +1,6 @@
 ---
-title: Endurecimento de rede adaptativa no Azure Security Center | Microsoft Docs
-description: Aprenda a usar padrões de tráfego reais para endurecer as regras dos grupos de segurança da rede (NSG) e melhorar ainda mais sua postura de segurança.
+title: Proteção de rede adaptável na central de segurança do Azure | Microsoft Docs
+description: Saiba como usar os padrões de tráfego reais para proteger suas regras de NSG (grupos de segurança de rede) e melhorar ainda mais sua postura de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,129 +14,129 @@ ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80385071"
 ---
-# <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
-Saiba como configurar o Endurecimento de rede adaptativa no Azure Security Center.
+# <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
+Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
 
-## <a name="what-is-adaptive-network-hardening"></a>O que é o Hardening de Rede Adaptativa?
-Aplicar grupos de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidas. Nesses casos, melhorar ainda mais a postura de segurança pode ser alcançado através do endurecimento das regras do NSG, com base nos padrões reais de tráfego.
+## <a name="what-is-adaptive-network-hardening"></a>O que é a proteção de rede adaptável?
+A aplicação de [NSG (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG é um subconjunto das regras de NSG definidas. Nesses casos, é possível melhorar ainda mais a postura de segurança ao proteger as regras de NSG, com base nos padrões reais de tráfego.
 
-O Endurecimento de Rede Adaptativa fornece recomendações para endurecer ainda mais as regras do NSG. Ele usa um algoritmo de aprendizado de máquina que fatores no tráfego real, configuração confiável conhecida, inteligência de ameaças e outros indicadores de compromisso e, em seguida, fornece recomendações para permitir o tráfego apenas a partir de tuplas ip/portas específicas.
+A proteção de rede adaptável fornece recomendações para proteger ainda mais as regras de NSG. Ele usa um algoritmo de aprendizado de máquina que fatores em tráfego real, configuração confiável conhecida, inteligência contra ameaças e outros indicadores de comprometimento e, em seguida, fornece recomendações para permitir o tráfego somente de tuplas de IP/porta específicas.
 
-Por exemplo, digamos que a regra existente do NSG é permitir o tráfego a partir de 140.20.30.30.10/24 na porta 22. A recomendação do Adaptive Network Hardening, com base na análise, seria estreitar o alcance e permitir o tráfego a partir de 140.23.30.10/29 – que é uma faixa IP mais estreita, e negar todo o tráfego para aquela porta.
+Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.20.30.10/24 na porta 22. A recomendação do fortalecimento da rede adaptável, com base na análise, seria restringir o intervalo e permitir o tráfego de 140.23.30.10/29 – que é um intervalo de IP mais estreito e negar todos os outros tráfegos para essa porta.
 
 >[!TIP]
-> As recomendações de endurecimento de rede adaptativa são suportadas apenas nas seguintes portas específicas (tanto para UDP quanto para TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301 , 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
+> As recomendações de proteção de rede adaptável só têm suporte nas seguintes portas específicas (para UDP e TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301 e 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379 , 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
-![Visão de endurecimento de rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+![Exibição de proteção de rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Exibir alertas e regras de endurecimento de rede adaptativa
+## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Exibir alertas e regras de proteção de rede adaptável
 
-1. No Security Center, selecione **O endurecimento de** -> **rede adaptativa de rede**. As VMs da rede estão listadas em três guias separadas:
-   * **Recursos insalubres**: VMs que atualmente possuem recomendações e alertas que foram acionados pela execução do algoritmo de Endurecimento de Rede Adaptativa. 
-   * **Recursos saudáveis**: VMs sem alertas e recomendações.
-   * **Recursos não digitalizados**: VMs que o algoritmo de endurecimento de rede adaptativa não pode ser executado por uma das seguintes razões:
-      * **VMs são VMs clássicas**: Apenas vMs do Azure Resource Manager são suportados.
-      * **Não há dados suficientes**: Para gerar recomendações precisas de endurecimento de tráfego, o Security Center requer pelo menos 30 dias de dados de tráfego.
-      * **A VM não é protegida pelo padrão ASC**: Apenas as VMs definidas para o nível de preços padrão do Security Center são elegíveis para este recurso.
+1. Na central de segurança, selecione rede **sistema** -> de**rede adaptável**. As VMs de rede são listadas em três guias separadas:
+   * **Recursos não íntegros**: VMs que atualmente têm recomendações e alertas que foram disparados executando o algoritmo de proteção de rede adaptável. 
+   * **Recursos íntegros**: VMs sem alertas e recomendações.
+   * **Recursos não verificados**: VMs para as quais o algoritmo de proteção de rede adaptável não pode ser executado devido a um dos seguintes motivos:
+      * As VMs **são VMs clássicas**: há suporte apenas para VMs Azure Resource Manager.
+      * **Não há dados suficientes disponíveis**: para gerar recomendações precisas de proteção de tráfego, a central de segurança requer pelo menos 30 dias de dados de tráfego.
+      * A **VM não está protegida pelo ASC Standard**: somente as VMs definidas como o tipo de preço Standard da central de segurança são elegíveis para esse recurso.
 
-     ![recursos insalubres](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+     ![recursos não íntegros](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Na guia **Recursos insalubres,** selecione uma VM para visualizar seus alertas e as regras de endurecimento recomendadas a serem aplicadas.
+2. Na guia **recursos não íntegros** , selecione uma VM para exibir seus alertas e as regras de proteção recomendadas a serem aplicadas.
 
-    ![alertas de endurecimento](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    ![protegendo alertas](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Revise e aplique regras recomendadas de Endurecimento de Rede Adaptativa
+## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Examinar e aplicar regras recomendadas de proteção de rede adaptável
 
-1. Na guia **Recursos insalubres,** selecione uma VM. Os alertas e as regras recomendadas de endurecimento estão listados.
+1. Na guia **recursos não íntegros** , selecione uma VM. Os alertas e as regras de proteção recomendadas são listados.
 
-     ![regras de endurecimento](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![regras de proteção](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
-   > A guia **Regras** lista as regras que o Adaptive Network Hardening recomenda adicionar. A guia **Alertas** lista os alertas gerados devido ao tráfego, fluindo para o recurso, que não está dentro da faixa de IP permitida nas regras recomendadas.
+   > A guia **regras** lista as regras que o fortalecimento de rede adaptável recomenda que você adicione. A guia **alertas** lista os alertas que foram gerados devido ao tráfego, fluindo para o recurso, que não está dentro do intervalo de IP permitido nas regras recomendadas.
 
-2. Se você quiser alterar alguns dos parâmetros de uma regra, você pode modificá-la, conforme explicado em [Modificar uma regra](#modify-rule).
+2. Se você quiser alterar alguns dos parâmetros de uma regra, poderá modificá-los, conforme explicado em [modificar uma regra](#modify-rule).
    > [!NOTE]
-   > Você também pode [excluir](#delete-rule) ou [adicionar](#add-rule) uma regra.
+   > Você também pode [excluir](#delete-rule) ou [Adicionar](#add-rule) uma regra.
 
-3. Selecione as regras que deseja aplicar no NSG e clique **em Impor**.
+3. Selecione as regras que você deseja aplicar no NSG e clique em **impor**.
 
       > [!NOTE]
-      > As regras impostas são adicionadas aos NSGs que protegem a VM. (Uma VM pode ser protegida por um NSG associado à sua NIC, ou à sub-rede em que a VM reside, ou ambos)
+      > As regras impostas são adicionadas às NSG que protegem a VM. (Uma VM pode ser protegida por um NSG associado à sua NIC, ou a sub-rede na qual a VM reside, ou ambos)
 
     ![impor regras](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### <a name="modify-a-rule"></a>Modificar uma <a name ="modify-rule"> </a> regra
+### <a name="modify-a-rule"></a>Modificar uma regra <a name ="modify-rule"> </a>
 
-Você pode querer modificar os parâmetros de uma regra que foi recomendada. Por exemplo, você pode querer alterar as faixas de IP recomendadas.
+Talvez você queira modificar os parâmetros de uma regra que tenha sido recomendada. Por exemplo, talvez você queira alterar os intervalos de IP recomendados.
 
-Algumas diretrizes importantes para modificar uma regra de endurecimento de rede adaptativa:
+Algumas diretrizes importantes para modificar uma regra de proteção de rede adaptável:
 
-* Você pode modificar os parâmetros das regras de "permitir". 
-* Você não pode mudar as regras de "permitir" que se tornem regras de "negar". 
+* Você pode modificar os parâmetros de "permitir" somente regras. 
+* Você não pode alterar as regras "permitir" para se tornarem regras "Deny". 
 
   > [!NOTE]
-  > A criação e modificação das regras de "negar" é feita diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Criar e modificar regras "Deny" é feito diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* A **Negar todas as** regras de tráfego é o único tipo de regra de "negar" que seria listada aqui, e não pode ser modificada. Você pode, no entanto, excluí-lo (ver [Excluir uma regra](#delete-rule)).
+* Uma regra **negar todo o tráfego** é o único tipo de regra "negar" que seria listado aqui e não pode ser modificado. Você pode, no entanto, excluí-lo (consulte [excluir uma regra](#delete-rule)).
   > [!NOTE]
-  > A **Negar todas as** regras de tráfego é recomendada quando, como resultado da execução do algoritmo, o Security Center não identifica o tráfego que deve ser permitido, com base na configuração existente do NSG. Portanto, a regra recomendada é negar todo o tráfego para a porta especificada. O nome deste tipo de regra é exibido como "*Sistema Gerado*". Após a aplicação desta regra, seu nome real no NSG será uma seqüência composta pelo protocolo, direção de tráfego, "DENY" e um número aleatório.
+  > Uma regra **negar todo o tráfego** é recomendada quando, como resultado da execução do algoritmo, a central de segurança não identifica o tráfego que deve ser permitido, com base na configuração existente do NSG. Portanto, a regra recomendada é negar todo o tráfego para a porta especificada. O nome desse tipo de regra é exibido como "*gerado pelo sistema*". Depois de impor essa regra, seu nome real no NSG será uma cadeia de caracteres composta pelo protocolo, direção do tráfego, "negar" e um número aleatório.
 
-*Para modificar uma regra de endurecimento de rede adaptativa:*
+*Para modificar uma regra de proteção de rede adaptável:*
 
-1. Para modificar alguns dos parâmetros de uma regra, na guia **Regras,** clique nos três terros (...) no final da linha da regra e clique em **Editar**.
+1. Para modificar alguns dos parâmetros de uma regra, na guia **regras** , clique nos três pontos (...) no final da linha da regra e clique em **Editar**.
 
    ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
-1. Na janela **Editar regra,** atualize os detalhes que deseja alterar e clique **em Salvar**.
+1. Na janela **Editar regra** , atualize os detalhes que você deseja alterar e clique em **salvar**.
 
    > [!NOTE]
-   > Depois de clicar **em Salvar,** você alterou com sucesso a regra. *No entanto, você não o aplicou ao NSG.* Para aplicá-la, você deve selecionar a regra na lista e clicar em **Impor** (conforme explicado na próxima etapa).
+   > Depois de clicar em **salvar**, você alterou a regra com êxito. *No entanto, você não o aplicou ao NSG.* Para aplicá-lo, você deve selecionar a regra na lista e clicar em **impor** (conforme explicado na próxima etapa).
 
    ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
-3. Para aplicar a regra atualizada, na lista, selecione a regra atualizada e clique **em Impor**.
+3. Para aplicar a regra atualizada, na lista, selecione a regra atualizada e clique em **impor**.
 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Adicione uma <a name ="add-rule"> </a> nova regra
+### <a name="add-a-new-rule"></a>Adicionar uma nova regra <a name ="add-rule"> </a>
 
-Você pode adicionar uma regra de "permitir" que não foi recomendada pelo Security Center.
+Você pode adicionar uma regra "permitir" que não foi recomendada pela central de segurança.
 
 > [!NOTE]
-> Apenas regras de "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras de "negar", você pode fazê-lo diretamente no NSG. Para obter mais informações, consulte [Criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Somente as regras "permitir" podem ser adicionadas aqui. Se você quiser adicionar regras "Deny", poderá fazer isso diretamente no NSG. Para obter mais informações, consulte [criar, alterar ou excluir um grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-*Para adicionar uma regra de endurecimento de rede adaptativa:*
+*Para adicionar uma regra de proteção de rede adaptável:*
 
-1. Clique em **Adicionar regra** (localizada no canto superior esquerdo).
+1. Clique em **Adicionar regra** (localizado no canto superior esquerdo).
 
-   ![adicionar regra](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
+   ![Adicionar regra](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
-1. Na **janela Nova regra,** digite os detalhes e clique **em Adicionar**.
+1. Na janela **nova regra** , insira os detalhes e clique em **Adicionar**.
 
    > [!NOTE]
-   > Depois de clicar **em Adicionar,** você adicionou com sucesso a regra e ela está listada com as outras regras recomendadas. No entanto, você não aplicou no NSG. Para ativá-la, você deve selecionar a regra na lista e clicar em **Impor** (conforme explicado na próxima etapa).
+   > Depois de clicar em **Adicionar**, você adicionou a regra com êxito e ela está listada com as outras regras recomendadas. No entanto, você não o aplicou no NSG. Para ativá-lo, você deve selecionar a regra na lista e clicar em **impor** (conforme explicado na próxima etapa).
 
-3. Para aplicar a nova regra, na lista, selecione a nova regra e clique **em Impor**.
+3. Para aplicar a nova regra, na lista, selecione a nova regra e clique em **impor**.
 
     ![impor regra](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Exclua <a name ="delete-rule"> </a> uma regra
+### <a name="delete-a-rule"></a>Excluir uma regra <a name ="delete-rule"> </a>
 
-Quando necessário, você pode excluir uma regra recomendada para a sessão atual. Por exemplo, você pode determinar que a aplicação de uma regra sugerida pode bloquear o tráfego legítimo.
+Quando necessário, você pode excluir uma regra recomendada para a sessão atual. Por exemplo, você pode determinar que a aplicação de uma regra sugerida poderia bloquear o tráfego legítimo.
 
-*Para excluir uma regra de endurecimento de rede adaptativa para a sessão atual:*
+*Para excluir uma regra de proteção de rede adaptável para sua sessão atual:*
 
-1. Na guia **Regras,** clique nos três terros (...) no final da linha da regra e clique em **Excluir**.  
+1. Na guia **regras** , clique nos três pontos (...) no final da linha da regra e clique em **excluir**.  
 
-    ![regras de endurecimento](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![regras de proteção](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

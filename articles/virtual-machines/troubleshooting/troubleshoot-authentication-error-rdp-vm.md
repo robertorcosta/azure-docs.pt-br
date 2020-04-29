@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure | Microsoft Docs
-description: Aprenda a solucionar erros de autenticação que ocorrem quando você usa rdp (Remote Desktop Protocol, protocolo de desktop remoto) para se conectar a uma máquina virtual do Azure (VM).
+description: Saiba como solucionar problemas de erros de autenticação que ocorrem quando você usa o protocolo RDP (RDP) para se conectar a uma VM (máquina virtual) do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420809"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
@@ -31,15 +31,15 @@ Você obtém uma captura de tela de uma VM do Azure que mostra a tela de boas-vi
 
 ### <a name="error-message-1"></a>Mensagem de erro 1
 
-**Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.**
+**Ocorreu um erro de autenticação. Não é possível contatar a autoridade de segurança local.**
 
 ### <a name="error-message-2"></a>Mensagem de erro 2
 
-**O computador remoto ao que você está tentando se conectar requer NLA (Network Level Authentication, autenticação de nível de rede), mas seu controlador de domínio do Windows não pode ser contatado para executar o NLA. Se você é um administrador no computador remoto, você pode desativar o NLA usando as opções na guia Remota da caixa de diálogo Propriedades do sistema.**
+**O computador remoto ao qual você está tentando se conectar requer Autenticação no Nível da Rede (NLA), mas o controlador de domínio do Windows não pode ser contatado para executar o NLA. Se você for um administrador no computador remoto, poderá desabilitar o NLA usando as opções na guia remoto da caixa de diálogo Propriedades do sistema.**
 
 ### <a name="error-message-3-generic-connection-error"></a>Mensagem de erro 3 (erro de conexão genérico)
 
-**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema continuar, entre em contato com o proprietário do computador remoto ou com o administrador da rede.**
+**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema persistir, contate o proprietário do computador remoto ou o administrador da rede.**
 
 ## <a name="cause"></a>Causa
 
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se a comunicação entre o DC e a VM for boa, mas o DC não estiver íntegro o suficiente para abrir uma sessão do RDP, você poderá tentar reiniciar o controlador de domínio.
 
-Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, siga estas etapas:
+Se os comandos anteriores não consertar o problema de comunicação com o domínio, você poderá reingressar essa VM no domínio. Para fazer isso, execute estas etapas:
 
 1. Crie um script chamado Unjoin.ps1 usando o seguinte conteúdo e, em seguida, implante o script como uma Extensão de Script Personalizado no portal do Azure:
 

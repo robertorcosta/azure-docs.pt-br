@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento | Microsoft Docs
-description: Use IDs de evento para solucionar problemas que impedem uma conexão RDP (Remote Desktop Protocol, protocolo de desktop remoto) a uma Máquina Virtual Azure (VM).
+description: Use IDs de evento para solucionar vários problemas que impedem Área de Trabalho Remota uma conexão de protocolo RDP com uma VM (máquina virtual) do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437055"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento 
@@ -29,7 +29,7 @@ Este artigo explica como usar IDs de eventos para solucionar problemas que imped
 
 Você tenta usar uma sessão de protocolo RDP da Área de Trabalho Remota para se conectar a uma VM do Azure. Depois de você inserir suas credenciais, a conexão falhará e você receberá a seguinte mensagem de erro:
 
-**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema continuar, entre em contato com o proprietário do computador remoto ou com o administrador da rede.**
+**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema persistir, contate o proprietário do computador remoto ou o administrador da rede.**
 
 Para solucionar esse problema, examine os logs de eventos na VM e, em seguida, veja os cenários a seguir.
 
@@ -58,34 +58,34 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:**          *hora* <br />
 **ID do Evento:**      1058 <br />
-**Categoria de tarefa:** Nenhum <br />
-**Nível:**         Erro <br />
+**Categoria da tarefa:** None <br />
+**Nível:**         Ao <br />
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O RD Session Host Server falhou em substituir o certificado auto-assinado expirado usado para autenticação do RD Session Host Server em conexões TLS. O código de status relevante era O acesso foi negado.
+**Descrição:** O servidor de Host da Sessão RD falhou ao substituir o certificado autoassinado expirado usado para autenticação de servidor Host da Sessão RD em conexões TLS. O código de status relevante era O acesso foi negado.
 
 **Nome do log:**      Sistema <br />
 **Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:**          *hora* <br />
 **ID do Evento:**      1058 <br />
-**Categoria de tarefa:** Nenhum <br />
-**Nível:**         Erro <br />
+**Categoria da tarefa:** None <br />
+**Nível:**         Ao <br />
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O servidor de host rd session falhou em criar um novo certificado auto-assinado para ser usado para autenticação do servidor host RD Session em conexões TLS, o código de status relevante já existia.
+**Descrição:** O servidor de host da sessão da área de trabalho remota falhou ao criar um novo certificado autoassinado para ser usado para autenticação do servidor host da Sessão RD em conexões TLS. o código de status relevante do objeto já existe.
 
 **Nome do log:**      Sistema <br />
 **Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Data:**          *hora* <br />
 **ID do Evento:**      1057 <br />
-**Categoria de tarefa:** Nenhum <br />
-**Nível:**         Erro <br />
+**Categoria da tarefa:** None <br />
+**Nível:**         Ao <br />
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** O RD Session Host Server falhou em criar um novo certificado auto-assinado para ser usado para autenticação do RD Session Host Server em conexões TLS. O código de status relevantes era O conjunto de chaves não existe
+**Descrição:** O servidor de Host da Sessão RD falhou ao criar um novo certificado autoassinado para ser usado para autenticação de servidor Host da Sessão RD em conexões TLS. O código de status relevantes era O conjunto de chaves não existe
 
 Você também pode verificar eventos de erro do SCHANNEL 36872 e 36870 executando os comandos a seguir:
 
@@ -98,12 +98,12 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Fonte:**        Schannel <br />
 **Data:**          — <br />
 **ID do Evento:**      36870 <br />
-**Categoria de tarefa:** Nenhum <br />
-**Nível:**         Erro <br />
-**Keywords:**       <br />
+**Categoria da tarefa:** None <br />
+**Nível:**         Ao <br />
+**Palavras-chave**       <br />
 **Usuário:**          SYSTEM <br />
 **Computador:**      *computador* <br />
-**Descrição:** Ocorreu um erro fatal ao tentar acessar a chave privada de credenciamento do servidor TLS. O código de erro retornado pelo módulo de criptografia é 0x8009030D.  <br />
+**Descrição:** Ocorreu um erro fatal ao tentar acessar a chave privada de credencial do servidor TLS. O código de erro retornado pelo módulo de criptografia é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
 ### <a name="cause"></a>Causa
@@ -186,9 +186,9 @@ Se você não conseguir renovar o certificado, siga estas etapas para tentar exc
 
 Tente acessar a VM usando RDP novamente.
 
-#### <a name="update-tlsssl-certificate"></a>Atualizar o certificado TLS/SSL
+#### <a name="update-tlsssl-certificate"></a>Atualizar certificado TLS/SSL
 
-Se você configurar a VM para usar um certificado TLS/SSL, execute o seguinte comando para obter a impressão digital. Em seguida, verifique se é a mesma impressão digital do certificado:
+Se você configurar a VM para usar um certificado TLS/SSL, execute o comando a seguir para obter a impressão digital. Em seguida, verifique se é a mesma impressão digital do certificado:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
@@ -220,9 +220,9 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Fonte:**        Schannel <br />
 **Data:**          — <br />
 **ID do Evento:**      36871 <br />
-**Categoria de tarefa:** Nenhum <br />
-**Nível:**         Erro <br />
-**Keywords:**       <br />
+**Categoria da tarefa:** None <br />
+**Nível:**         Ao <br />
+**Palavras-chave**       <br />
 **Usuário:**          SYSTEM <br />
 **Computador:**      *computador* <br />
 **Descrição:** ocorreu um erro fatal ao criar uma credencial de servidor TLS. O estado de erro interno é 10013.
@@ -251,8 +251,8 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **Data:**          *hora* <br />
 **ID do Evento:**      2056 <br />
 **Categoria da Tarefa:** (109) <br />
-**Nível:**         Erro <br />
-**Keywords:**       <br />
+**Nível:**         Ao <br />
+**Palavras-chave**       <br />
 **Usuário:**          NETWORK SERVICE <br />
 **Computador:**      *fqdn do computador* <br />
 **Descrição:** não é possível localizar a descrição para o Evento de ID 2056 do Microsoft-Windows-TerminalServices-SessionBroker de origem. O componente que gera esse evento não está instalado no computador local ou a instalação está corrompida. Você pode instalar ou reparar o componente no computador local. <br />
@@ -267,8 +267,8 @@ Falha no logon no banco de dados.
 **Data:**          *hora* <br />
 **ID do Evento:**      1296 <br />
 **Categoria da Tarefa:** (104) <br />
-**Nível:**         Erro <br />
-**Keywords:**       <br />
+**Nível:**         Ao <br />
+**Palavras-chave**       <br />
 **Usuário:**          NETWORK SERVICE <br />
 **Computador:**      *fqdn do computador* <br />
 **Descrição:** não é possível localizar a descrição para o Evento de ID 1296 do Microsoft-Windows-TerminalServices-SessionBroker-Client de origem. O componente que gera esse evento não está instalado no computador local ou a instalação está corrompida. Você pode instalar ou reparar o componente no computador local.

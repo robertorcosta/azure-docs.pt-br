@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Azure Analysis Services com Excel | Microsoft Docs
-description: Saiba como se conectar a um servidor Azure Analysis Services usando Excel. Uma vez conectados, os usuários podem criar Tabelas Dinâmicas para explorar dados.
+description: Saiba como se conectar a um servidor Azure Analysis Services usando Excel. Uma vez conectado, os usuários podem criar tabelas dinâmicas para explorar dados.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b5c46c8b85af59efaf611300e2ab7129b3ef3cde
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411380"
 ---
 # <a name="connect-with-excel"></a>Conectar com o Excel
@@ -20,7 +20,7 @@ Após criar um servidor e implantar um modelo tabular, os clientes poderão cone
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A conta de logon precisa pertencer a uma função de modelo de banco de dados com, pelo menos, permissões de leitura. Para saber mais, consulte [Autenticação e permissões de usuário](analysis-services-manage-users.md). 
+A conta de logon precisa pertencer a uma função de modelo de banco de dados com, pelo menos, permissões de leitura. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Conectar-se no Excel
 
@@ -42,7 +42,7 @@ A conexão com um servidor no Excel usando Obter Dados no Excel 2016 e posterior
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas de clientes](analysis-services-data-providers.md)   
+[Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)     
 
 

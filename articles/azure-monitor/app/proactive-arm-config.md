@@ -1,5 +1,5 @@
 ---
-title: Configurações de regra de detecção inteligente - Azure Application Insights
+title: Configurações de regra de detecção inteligente-insights Aplicativo Azure
 description: Automatizar o gerenciamento e a configuração das regras de detecção inteligente do Application Insights do Azure com Modelos do Azure Resource Manager
 ms.topic: conceptual
 author: harelbr
@@ -7,10 +7,10 @@ ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294914"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar regras de detecção inteligente do Application Insights usando modelos do Azure Resource Manager
@@ -22,9 +22,9 @@ Esse método pode ser usado na implantação de novos recursos do Application In
 
 É possível definir as seguintes configurações para uma regra de detecção inteligente:
 - Se a regra está habilitada (o padrão é **true**.)
-- Se os e-mails devem ser enviados aos usuários associados às funções de [Leitor de Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da assinatura quando uma detecção for encontrada (o padrão é **verdadeiro**.)
+- Se os emails devem ser enviados aos usuários associados ao [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) da assinatura e às funções de [colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) quando uma detecção é encontrada (o padrão é **true**).
 - Quaisquer destinatários de email adicionais que devem receber uma notificação quando uma detecção for encontrada.
-    -  A configuração de e-mail não está disponível para regras de detecção inteligente marcadas como _visualização_.
+    -  A configuração de email não está disponível para as regras de detecção inteligente marcadas como _Visualização_.
 
 Para permitir a definição das configurações da regra por meio do Azure Resource Manager, a configuração da regra de detecção inteligente agora está disponível como um recurso interno dentro do recurso do Application Insights nomeado **ProactiveDetectionConfigs**.
 Para máxima flexibilidade, cada regra de detecção inteligente pode ser definida com configurações de notificação exclusivas.
@@ -135,7 +135,7 @@ Certifique-se de substituir o nome de recurso do Application Insights e especifi
 Abaixo está uma tabela de nomes de regra de detecção inteligente assim como aparecem no portal, juntamente com seus nomes internos, os quais devem ser usados no modelo do Azure Resource Manager.
 
 > [!NOTE]
-> As regras de detecção inteligentemarcadas como _visualização_ não suportam notificações de e-mail. Portanto, você só pode definir a propriedade _habilitada_ para essas regras. 
+> As regras de detecção inteligente marcadas como _Visualização_ não dão suporte a notificações por email. Portanto, você só pode definir a propriedade _Enabled_ para essas regras. 
 
 | Nome da regra do portal do Azure | Nome interno
 |:---|:---|
@@ -148,14 +148,14 @@ Abaixo está uma tabela de nomes de regra de detecção inteligente assim como a
 | Aumento anormal no volume de exceção (visualização) | extension_exceptionchangeextension |
 | Potencial perda de memória detectada (visualização) | extension_memoryleakextension |
 | Potencial problema de segurança detectado (visualização) | extension_securityextensionspackage |
-| Aumento anormal no volume de dados diários (visualização) | extension_billingdatavolumedailyspikeextension |
+| Aumento anormal no volume de dados diário (versão prévia) | extension_billingdatavolumedailyspikeextension |
 
 ### <a name="failure-anomalies-alert-rule"></a>Regra de alerta de anomalias de falha
 
-Este modelo do Azure Resource Manager demonstra a configuração de uma regra de alerta de anomalias de falha com uma gravidade de 2. Esta nova versão da regra de alerta de anomalias de falha faz parte da nova plataforma de alerta do Azure, e substitui a versão clássica que está sendo aposentada como parte do processo clássico de [aposentadoria de alertas](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Este modelo de Azure Resource Manager demonstra a configuração de uma regra de alerta de anomalias com uma severidade de 2. Essa nova versão da regra de alerta de anomalias de falha faz parte da nova plataforma de alerta do Azure e substitui a versão clássica que está sendo desativada como parte do [processo de aposentadoria de alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 > [!NOTE]
-> Failure Anomalies é um serviço global, portanto, a localização de regras é criada na localização global.
+> As anomalias de falha são um serviço global, portanto, o local da regra é criado no local global.
 
 ```json
 {
@@ -186,7 +186,7 @@ Este modelo do Azure Resource Manager demonstra a configuração de uma regra de
 ```
 
 > [!NOTE]
-> Este modelo do Azure Resource Manager é exclusivo da regra de alerta de anomalias de falha e é diferente das outras regras clássicas de Detecção Inteligente descritas neste artigo. Se você quiser gerenciar anomalias de falha manualmente, isso é feito em Alertas do Monitor do Azure, enquanto todas as outras regras de Detecção Inteligente são gerenciadas no painel Detecção Inteligente da UI.
+> Esse Azure Resource Manager modelo é exclusivo para a regra de alerta de anomalias de falha e é diferente das outras regras de detecção inteligente clássicas descritas neste artigo. Se você quiser gerenciar anomalias de falha manualmente, isso é feito em alertas de Azure Monitor, enquanto todas as outras regras de detecção inteligente são gerenciadas no painel detecção inteligente da interface do usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

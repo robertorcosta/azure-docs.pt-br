@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297716"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
@@ -39,7 +39,7 @@ Os requisitos do sistema incluem:
 
 Os requisitos de software a seguir são para os clientes de armazenamento que acessam seu dispositivo StorSimple.
 
-| Sistemas operacionais compatíveis | Versão necessária | Requisitos/observações adicionais |
+| Sistemas operacionais com suporte | Versão necessária | Requisitos/observações adicionais |
 | --- | --- | --- |
 | Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes iSCSI do StorSimple  são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>Há suporte apenas para software iniciadores iSCSI presentes nativamente no sistema operacional. Não há suporte para iniciadores iSCSI de hardware.<br></br>O provisionamento dinâmico do Windows Server 2012 e 2016, bem como de recursos ODX terá suporte se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar para evitar atrasos de recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Depois que a formatação for concluída, use o seguinte comando para reabilitar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270), em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 e 6.0 |Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. |
@@ -63,7 +63,7 @@ Os seguintes requisitos de software são para os componentes opcionais do StorSi
 
 Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem e iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
+| Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Anotações |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>A porta de saída é usada para acesso à Internet para recuperar atualizações.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>A porta de saída é usada para acessar dados na nuvem.</li><li>O proxy Web de saída é configurável pelo usuário.</li><li>Para permitir atualizações do sistema, esta porta também deve estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
@@ -81,7 +81,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 <sup>3</sup> Os IPs fixos do controlador no dispositivo StorSimple devem ser roteáveis e conseguir se conectarem à Internet diretamente ou pelo proxy Web configurado. Os endereços IP fixos são usados para atender às atualizações do dispositivo e para a coleta de lixo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple e a coleta de lixo não funcionará adequadamente.
 
 > [!IMPORTANT]
-> Certifique-se de que o firewall não modifique ou descriptografe qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que o firewall não modifique nem descriptografe nenhum tráfego TLS entre o dispositivo StorSimple e o Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
@@ -233,7 +233,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 * Verifique se ambos os módulos do controlador de compartimento EBOD, os cabos SAS e todos os discos rígidos estão sempre instalados.
 * Se um módulo do controlador de compartimento EBOD falhar, solicite uma substituição imediatamente.
 * Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante a substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço StorSimple Device Manager acessando **a** > saúde**do Monitor Hardware**.
+* Durante uma substituição do módulo do controlador Ebod, Monitore continuamente o status do componente no serviço StorSimple Device Manager acessando **monitorar** > **integridade do hardware**.
 * Se um cabo SAS falha ou exigir substituição (o Suporte da Microsoft deve participar dessa decisão), remova apenas o cabo SAS que exige a substituição.
 * Não remova simultaneamente os dois cabos SAS do sistema em nenhum momento.
 

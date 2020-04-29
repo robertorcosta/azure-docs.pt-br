@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476697"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicar o conteúdo dos Serviços de Mídia usando o .NET  
@@ -108,7 +108,7 @@ As saídas:
 
 
 > [!NOTE]
-> Você também pode transmitir seu conteúdo por uma conexão TLS. Para seguir essa abordagem, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.
+> Você também pode transmitir seu conteúdo por uma conexão TLS. Para seguir essa abordagem, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte a TLS com domínios personalizados.
 > 
 > 
 
@@ -175,10 +175,10 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Baixar ativos](media-services-deliver-asset-download.md)
-* [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
+* [Configurar política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 

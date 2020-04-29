@@ -1,6 +1,6 @@
 ---
-title: Crie um ASE com ARM
-description: Aprenda a criar um ambiente externo ou iLB app service usando um modelo do Azure Resource Manager.
+title: Criar um ASE com ARM
+description: Saiba como criar um ambiente de serviço de aplicativo ILB ou externo usando um modelo de Azure Resource Manager.
 author: ccompy
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e06fcdbac097e85c039e34274c61cb51ee06bcd6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478331"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE usando um modelo do Azure Resource Manager
@@ -36,9 +36,9 @@ Para automatizar a criação do ASE:
 
 1. Crie o ASE com base em um modelo. Se você criar um ASE externo, terá concluído após essa etapa. Se estiver criando um ASE ILB, haverá algumas coisas extras a serem feitas.
 
-2. Depois que seu ILB ASE é criado, um certificado TLS/SSL que corresponde ao seu domínio ILB ASE é carregado.
+2. Depois que o ASE ILB for criado, um certificado TLS/SSL que corresponda ao domínio do ASE ILB será carregado.
 
-3. O certificado TLS/SSL carregado é atribuído ao ILB ASE como seu certificado TLS/SSL "padrão".  Este certificado é usado para tráfego TLS/SSL para aplicativos no ILB ASE quando eles usam o domínio `https://someapp.mycustomrootdomain.com`raiz comum atribuído ao ASE (por exemplo, ).
+3. O certificado TLS/SSL carregado é atribuído ao ASE ILB como seu certificado TLS/SSL "padrão".  Esse certificado é usado para tráfego TLS/SSL para aplicativos no ASE ILB quando eles usam o domínio raiz comum que é atribuído ao ASE (por exemplo, `https://someapp.mycustomrootdomain.com`).
 
 
 ## <a name="create-the-ase"></a>Criar o ASE
@@ -62,16 +62,16 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Leva aproximadamente uma hora para o ASE ser criado. Em seguida, o ASE aparece no portal na lista de ASEs para a assinatura que disparou a implantação.
 
 ## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>Carregar e configurar o certificado TLS/SSL "padrão"
-Um certificado TLS/SSL deve ser associado ao ASE como o certificado TLS/SSL "padrão" usado para estabelecer conexões TLS com aplicativos. Se o sufixo DNS padrão da ASE `https://some-random-app.internal-contoso.com` for *internal-contoso.com,* uma conexão requer um certificado TLS/SSL válido para **.internal-contoso.com*. 
+Um certificado TLS/SSL deve ser associado ao ASE como o certificado TLS/SSL "padrão" que é usado para estabelecer conexões TLS com aplicativos. Se o sufixo DNS padrão do ASE for *Internal-contoso.com*, uma conexão com `https://some-random-app.internal-contoso.com` o exigirá um certificado TLS/SSL válido para **. Internal-contoso.com*. 
 
-Obtenha um certificado TLS/SSL válido usando autoridades de certificados internos, comprando um certificado de um emissor externo ou usando um certificado auto-assinado. Independentemente da origem do certificado TLS/SSL, os seguintes atributos de certificado devem ser configurados corretamente:
+Obtenha um certificado TLS/SSL válido usando autoridades de certificação internas, comprando um certificado de um emissor externo ou usando um certificado autoassinado. Independentemente da origem do certificado TLS/SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
-* **Assunto**: Este atributo deve ser definido como **.your-root-domain-here.com*.
-* **Nome alternativo do assunto**: Este atributo deve incluir **.your-root-domain-here.com* e **.scm.your-root-domain-here.com*. As conexões TLS ao site SCM/Kudu associadas a cada aplicativo usam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
+* **Assunto**: esse atributo deve ser definido como **. your-root-Domain-here.com*.
+* **Nome alternativo da entidade**: esse atributo deve incluir **. your-root-Domain-here.com* e **. SCM.your-root-Domain-here.com*. As conexões TLS com o site SCM/kudu associado a cada aplicativo usam um endereço no formato *Your-app-Name.SCM.your-root-Domain-here.com*.
 
-Com um certificado TLS/SSL válido em mãos, são necessárias duas etapas preparatórias adicionais. Converta/salve o certificado TLS/SSL como um arquivo .pfx. Lembre-se que o arquivo .pfx deve incluir todos os certificados intermediários e raiz. Proteja-o com uma senha.
+Com um certificado TLS/SSL válido em mãos, são necessárias duas etapas preparatória adicionais. Converta/salve o certificado TLS/SSL como um arquivo. pfx. Lembre-se que o arquivo .pfx deve incluir todos os certificados intermediários e raiz. Proteja-o com uma senha.
 
-O arquivo .pfx precisa ser convertido em uma seqüência base64 porque o certificado TLS/SSL é carregado usando um modelo do Gerenciador de recursos. Como os modelos do Resource Manager são arquivos de texto, o arquivo. pfx deve ser convertido em uma cadeia de caracteres base64. Dessa forma pode ser incluído como um parâmetro do modelo.
+O arquivo. pfx precisa ser convertido em uma cadeia de caracteres Base64 porque o certificado TLS/SSL é carregado usando um modelo do Resource Manager. Como os modelos do Resource Manager são arquivos de texto, o arquivo. pfx deve ser convertido em uma cadeia de caracteres base64. Dessa forma pode ser incluído como um parâmetro do modelo.
 
 Use o seguinte snippet de código do PowerShell para:
 
@@ -96,16 +96,16 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-Depois que o certificado TLS/SSL for gerado e convertido com sucesso em uma seqüência de string codificada pela base64, use o exemplo modelo do Gerenciador de recursos [Configure o certificado SSL padrão][quickstartconfiguressl] no GitHub. 
+Depois que o certificado TLS/SSL for gerado e convertido com êxito em uma cadeia de caracteres codificada em base64, use o modelo do Resource Manager de exemplo [Configurar o certificado SSL padrão][quickstartconfiguressl] no github. 
 
 Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 
 * *appServiceEnvironmentName*: o nome do ASE ILB que está sendo configurado.
 * *existingAseLocation*: cadeia de caracteres de texto que contém a região do Azure onde o ASE ILB foi implantado.  Por exemplo, "Centro-Sul dos EUA".
 * *pfxBlobString*: A representação de cadeia de caracteres codificada em base 64 do arquivo .pfx. Use o snippet de código mostrado anteriormente e copie a cadeia de caracteres contida em "exportedcert.pfx.b64". Cole-o como o valor de atributo *pfxBlobString*.
-* *senha*: A senha usada para proteger o arquivo .pfx.
-* *certificateThumbprint*: impressão digital do certificado. Se você recuperar esse valor do PowerShell (por exemplo, *$certificate.Thumbprint* do snippet de código anterior), poderá usar o valor como estiver. Se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos. O *certificadoThumbprint* deve parecer algo como AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: um identificador de cadeia de caracteres amigável de sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Gerenciador de Recursos para a entidade *Microsoft.Web/certificates* que representa o certificado TLS/SSL. O nome *deve* terminar com o seguinte sufixo: \_seuNomeASEAqui_InternalLoadBalancingASE. O portal do Azure usa esse sufixo como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
+* *senha*: a senha usada para proteger o arquivo. pfx.
+* *certificateThumbprint*: impressão digital do certificado. Se você recuperar esse valor do PowerShell (por exemplo, *$certificate.Thumbprint* do snippet de código anterior), poderá usar o valor como estiver. Se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos. A *certificateThumbprint* deve ser semelhante a AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateName*: um identificador de cadeia de caracteres amigável de sua escolha usado para identificar o certificado. O nome é usado como parte do identificador exclusivo do Gerenciador de recursos para a entidade *Microsoft. Web/Certificates* que representa o certificado TLS/SSL. O nome *deve* terminar com o seguinte sufixo: \_seuNomeASEAqui_InternalLoadBalancingASE. O portal do Azure usa esse sufixo como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
 
 Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado aqui:
 
@@ -136,7 +136,7 @@ Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado aqui:
 }
 ```
 
-Depois que o arquivo *azuredeploy.parameters.json* for preenchido, configure o certificado TLS/SSL padrão usando o trecho de código PowerShell. Altere os caminhos do arquivo para corresponder ao local em que os arquivos do modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
+Depois que o arquivo *azuredeploy. Parameters. JSON* for preenchido, configure o certificado TLS/SSL padrão usando o trecho de código do PowerShell. Altere os caminhos do arquivo para corresponder ao local em que os arquivos do modelo do Resource Manager estão localizados no seu computador. Lembre-se de fornecer seus próprios valores para o nome de implantação do Resource Manager e para o nome do grupo de recursos:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -147,9 +147,9 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Leva cerca de 40 minutos por front-end ASE para aplicar a alteração. Por exemplo, para um ASE padrão dimensionado que usa dois front-ends, o modelo leva aproximadamente uma hora e 20 minutos para concluir. Enquanto o modelo estiver em execução, o ASE não pode ser dimensionado.  
 
-Depois que o modelo for concluído, aplicativos em ASE ILB podem ser acessados via HTTPS. As conexões são protegidas usando o certificado TLS/SSL padrão. O certificado TLS/SSL padrão é usado quando os aplicativos no ILB ASE são endereçados usando uma combinação do nome do aplicativo mais o nome do host padrão. Por exemplo, `https://mycustomapp.internal-contoso.com` usa o certificado TLS/SSL padrão para **.internal-contoso.com*.
+Depois que o modelo for concluído, aplicativos em ASE ILB podem ser acessados via HTTPS. As conexões são protegidas usando o certificado TLS/SSL padrão. O certificado TLS/SSL padrão é usado quando os aplicativos no ASE ILB são resolvidos usando uma combinação do nome do aplicativo mais o nome de host padrão. Por exemplo, `https://mycustomapp.internal-contoso.com` usa o certificado TLS/SSL padrão para **. Internal-contoso.com*.
 
-No entanto, assim como os aplicativos que são executados no serviço público multilocatário, os desenvolvedores podem configurar nomes de host personalizados para aplicativos individuais. Eles também podem configurar vinculações exclusivas de certificadoS SNI TLS/SSL para aplicativos individuais.
+No entanto, assim como os aplicativos que são executados no serviço público multilocatário, os desenvolvedores podem configurar nomes de host personalizados para aplicativos individuais. Eles também podem configurar associações de certificado TLS/SSL SNI exclusivas para aplicativos individuais.
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1 ##
 O Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As informações anteriores foram baseadas no ASEv2. Esta seção mostra as diferenças entre o ASEv1 e o ASEv2.

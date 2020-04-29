@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
 ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476986"
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
 O Azure Load Balancer Standard ajuda você a balancear cargas de fluxos TCP e UDP em todas as portas simultaneamente quando estiver usando um balanceador de carga interno. 
 
-Uma regra de balanceamento de carga de portas de alta disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada em um Balanceador de carga padrão interno. Você pode simplificar o uso de um balanceador de carga fornecendo uma única regra para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um Load Balancer Standard interno. A decisão de balanceamento de carga é feita por fluxo. A ação é baseada na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
+Uma regra de balanceamento de carga de portas de alta disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada em um Standard Load Balancer interno. Você pode simplificar o uso de um balanceador de carga fornecendo uma única regra para balancear a carga de todos os fluxos TCP e UDP que chegam em todas as portas de um Load Balancer Standard interno. A decisão de balanceamento de carga é feita por fluxo. A ação é baseada na seguinte conexão de cinco tuplas: endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e protocolo
 
-As regras de balanceamento de carga das portas HA ajudam você com cenários críticos, como alta disponibilidade e escala para dispositivos virtuais de rede (NVAs) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga. 
+As regras de balanceamento de carga das portas de HA ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso também pode ajudar quando um grande número de portas precisar de balanceamento de carga. 
 
-As regras de balanceamento de carga das portas HA são configuradas quando você define as portas front-end e back-end como **0** e o protocolo para **Todos**. O recurso de balanceador de carga interno agora balanceia todos os fluxos TCP e UDP, independentemente do número da porta
+As regras de balanceamento de carga das portas de alta disponibilidade são configuradas quando você define as portas de front-end e back-end como **0** e o protocolo como **todos**. O recurso de balanceador de carga interno agora balanceia todos os fluxos TCP e UDP, independentemente do número da porta
 
 ## <a name="why-use-ha-ports"></a>Por que usar portas de alta disponibilidade?
 
@@ -44,10 +44,10 @@ Para cenários de alta disponibilidade de NVA, portas de alta disponibilidade of
 - Fornecer cenários *n*-ativos e ativos-passivos
 - Eliminar a necessidade de soluções complexas, como nós de Apache ZooKeeper para monitorar dispositivos
 
-O diagrama a seguir apresenta uma implantação de rede virtual de hub e spoke. Os spokes forçam o tráfego por túnel para a rede virtual do hub e por meio de NVA, antes de deixar o espaço confiável. As NVAs estão por atrás de um Load Balancer Standard interno com a configuração de portas de alta disponibilidade. Todo o tráfego pode ser devidamente processado e encaminhado. Quando configurado como show no diagrama a seguir, uma regra de balanceamento de carga das portas HA fornece adicionalmente simetria de fluxo para tráfego de entrada e saída.
+O diagrama a seguir apresenta uma implantação de rede virtual de hub e spoke. Os spokes forçam o tráfego por túnel para a rede virtual do hub e por meio de NVA, antes de deixar o espaço confiável. As NVAs estão por atrás de um Load Balancer Standard interno com a configuração de portas de alta disponibilidade. Todo o tráfego pode ser devidamente processado e encaminhado. Quando configurado como mostrado no diagrama a seguir, uma regra de balanceamento de carga de portas de alta disponibilidade também fornecerá simetria de fluxo para tráfego de entrada e saída.
 
 <a node="diagram"></a>
-![Diagrama da rede virtual hub-and-spoke, com NVAs implantados no modo HA](./media/load-balancer-ha-ports-overview/nvaha.png)
+![Diagrama de rede virtual de Hub e spoke, com NVAs implantado no modo de alta disponibilidade](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
 > Se você usar NVAs, confirme com o provedor a melhor maneira de usar portas de alta disponibilidade e quais cenários são compatíveis.
@@ -87,20 +87,20 @@ Se seu cenário exigir que você configure mais de um front-end de porta de alta
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Um balanceador de carga interno com portas de alta disponibilidade e um balanceador de carga público na mesma instância de back-end
 
-Você pode configurar *um* recurso público do Balancer de Carga Padrão para os recursos back-end, juntamente com um único Balanceador de carga padrão interno com portas HA.
+Você pode configurar *um* recurso de Standard Load Balancer público para os recursos de back-end, juntamente com uma única Standard Load Balancer interna com portas de alta disponibilidade.
 
 >[!NOTE]
 >Esse recurso atualmente está disponível por meio de modelos do Azure Resource Manager, mas não está disponível por meio do portal do Azure.
 
 ## <a name="limitations"></a>Limitações
 
-- As regras de balanceamento de carga das portas HA estão disponíveis apenas para o Balanceador de Carga Padrão interno.
-- A combinação de uma regra de balanceamento de carga de portas HA e uma regra de balanceamento de carga de portas não HA que aponte para as mesmas configurações de ipconfigurations back-end não é suportada.
-- Os fragmentos de IP existentes serão encaminhados pelas regras de balanceamento de carga da HA Ports para o mesmo destino do primeiro pacote.  Não é suportado o armazenamento de IP de um pacote UDP ou TCP.
-- A simetria de fluxo (principalmente para cenários NVA) é suportada com instância de backend e uma única NIC (e configuração de IP único) somente quando usada como mostrado no diagrama acima e usando regras de balanceamento de carga de portas HA. Ela não é fornecida em nenhum outro cenário. Isso significa que dois ou mais recursos do Load Balancer e as respectivas regras tomam decisões independentes e nunca são coordenadas. Veja a descrição e o diagrama para [Soluções de virtualização de rede](#nva). Quando você estiver usando várias NICs ou sanduíches o NVA entre um Balanceador de Carga público e interno, a simetria de fluxo não está disponível.  Talvez seja possível solucionar isso fazendo a conversão de endereços de rede de origem do fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem ao mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
+- As regras de balanceamento de carga das portas de alta disponibilidade estão disponíveis somente para Standard Load Balancer internas.
+- Não há suporte para a combinação de uma regra de balanceamento de carga de portas de alta disponibilidade e uma regra de balanceamento de carga de portas não HA apontando para as mesmas ipconfigurations de back-end.
+- Os fragmentos IP existentes serão encaminhados pelas regras de balanceamento de carga das portas de alta disponibilidade para o mesmo destino que o primeiro pacote.  Não há suporte para a fragmentação de IP de um pacote UDP ou TCP.
+- A simetria do Flow (principalmente para cenários NVA) tem suporte com a instância de back-end e uma única NIC (e configuração de IP único) somente quando usada, conforme mostrado no diagrama acima, e usando regras de balanceamento de carga de portas de alta disponibilidade. Ela não é fornecida em nenhum outro cenário. Isso significa que dois ou mais recursos do Load Balancer e as respectivas regras tomam decisões independentes e nunca são coordenadas. Veja a descrição e o diagrama para [Soluções de virtualização de rede](#nva). Quando você estiver usando várias NICs ou sanduíches do NVA entre um Load Balancer público e interno, a simetria do fluxo não estará disponível.  Talvez seja possível solucionar isso fazendo a conversão de endereços de rede de origem do fluxo de entrada para o IP do dispositivo para permitir que as respostas cheguem ao mesmo NVA.  No entanto, é altamente recomendável usar uma única NIC e usar a arquitetura de referência mostrada no diagrama acima.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configure portas HA em um balanceador de carga padrão interno](load-balancer-configure-ha-ports.md)
-- [Saiba mais sobre o Balanceador de Carga Padrão](load-balancer-standard-overview.md)
+- [Configurar portas de alta disponibilidade em um Standard Load Balancer interno](load-balancer-configure-ha-ports.md)
+- [Saiba mais sobre o Standard Load Balancer](load-balancer-standard-overview.md)

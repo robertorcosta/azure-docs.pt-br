@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80435855"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
@@ -49,9 +49,9 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
 |-------------------------------------|---------------|
 | Estados Unidos, Brasil, África do Sul | Estados Unidos |
 | Canada                              | Canada        |
-| Europa (Excluindo Reino Unido)   | Europa        |
+| Europa (excluindo o Reino Unido)   | Europa        |
 | United Kingdom                      | United Kingdom |
-| Ásia (excluindo Índia, Japão, Coréia, China)   | Pacífico Asiático  |
+| Ásia (exceto Índia, Japão, Coreia, China)   | Pacífico Asiático  |
 | Coreia do Sul                              | Pacífico Asiático  |
 | Índia                               | Índia         |
 | Japão                               | Japão         |
@@ -71,8 +71,8 @@ Os artefatos da máquina são armazenados de modo central na mesma região da VM
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gerenciar a coleta de dados das máquinas virtuais
 
-Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a coleta de dados é ligada, o Azure Security Center fornece o agente Log Analytics em todas as máquinas virtuais Azure suportadas existentes e quaisquer novas que forem criadas.
-O agente Log Analytics verifica várias configurações e eventos relacionados à segurança em rastreamentos de ETW [(Event Tracing for Windows).](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente do Log Analytics lê entradas de registro de eventos e o ETW rastreia e copia-os para análise em seus espaços de trabalho. O agente do Log Analytics também copia arquivos de falha para seus espaços de trabalho, habilita eventos de criação de processos e habilita a auditoria da linha de comando.
+Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a coleta de dados é ativada, a central de segurança do Azure provisiona o agente de Log Analytics em todas as máquinas virtuais do Azure com suporte existentes e quaisquer novas criadas.
+O agente de Log Analytics examina várias configurações e eventos relacionados à segurança em rastreamentos de ETW ( [rastreamento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) ). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente de Log Analytics lê entradas de log de eventos e rastreamentos ETW e os copia para seus espaços de trabalho para análise. O agente de Log Analytics também copia arquivos de despejo de memória para seus espaços de trabalho, habilitar eventos de criação de processos e habilitar a auditoria de linha de comando.
 
 Se você estiver usando a Central de Segurança do Azure Gratuita, também poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 
@@ -80,8 +80,8 @@ Se você estiver usando a Central de Segurança do Azure Gratuita, também poder
 
 Os clientes podem consumir dados relacionados à Central de Segurança de diferentes fluxos de dados, conforme mostrado abaixo:
 
-* **Atividade do Azure**: todos os alertas de segurança, solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas do Security Center e todos os alertas gerados por [controles adaptativos de aplicativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Logs do Monitor do Azure:** todos os alertas de segurança.
+* **Atividade do Azure**: todos os alertas de segurança, solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da central de segurança e todos os alertas gerados por [controles de aplicativo adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Logs de Azure monitor**: todos os alertas de segurança.
 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Os clientes podem consumir dados relacionados à Central de Segurança de difere
 Neste documento, você aprendeu como os dados são gerenciados e protegidos na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, consulte:
 
 * [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
-* [Monitoramento de segurança no Azure Security Center](security-center-monitoring.md) — Saiba como monitorar a saúde dos seus recursos do Azure
-* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) — Saiba como gerenciar e responder a alertas de segurança
-* [Monitoramento de soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorar o estado de saúde das soluções de seus parceiros.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts no blog sobre segurança e conformidade do Azure
+* [Monitoramento de integridade de segurança na central de segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
+* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) – saiba como gerenciar e responder a alertas de segurança
+* [Monitorando soluções de parceiros com a central de segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) — encontre postagens no blog sobre a segurança e a conformidade do Azure

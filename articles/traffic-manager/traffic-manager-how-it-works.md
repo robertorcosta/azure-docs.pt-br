@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
 ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294864"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
@@ -60,7 +60,7 @@ Continuando do exemplo anterior, quando um cliente solicita a página `https://p
 
     - No estado configurado de cada ponto de extremidade (pontos de extremidade desabilitados não são retornados)
     - A integridade atual de cada ponto de extremidade, conforme determinado pela integridade Gerenciador de Tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md).
-    - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [Métodos de roteamento do gerenciador de tráfego](traffic-manager-routing-methods.md).
+    - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [métodos de roteamento do Traffic Manager](traffic-manager-routing-methods.md).
 
 5. O ponto de extremidade escolhido é retornado como outro registro DNS CNAME. Nesse caso, vamos supor que contoso-us.cloudapp.net seja retornado.
 6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio “cloudapp.net”. Ele entra em contato com os servidores de nomes para solicitar o registro DNS de “contoso-us.cloudapp.net”. Um registro DNS “A” que contém o endereço IP do ponto de extremidade de serviço dos EUA é retornado.
@@ -75,7 +75,7 @@ O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolve
 
 * [Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [O Gerenciador de Tráfego suporta sessões "pegajosas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
 * [Por que vejo um erro de HTTP ao usar o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
@@ -83,7 +83,7 @@ O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolve
 
 * [Quais protocolos de aplicativo posso usar com o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Posso usar o Traffic Manager com um nome de domínio "nu"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
 * [O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 

@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade do Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve como o Azure Analysis Services fornece alta disponibilidade durante a interrupção do serviço.
+description: Este artigo descreve como Azure Analysis Services fornece alta disponibilidade durante a interrupção do serviço.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 78a6d41b638d79111a58830f0cb0d5190ea0796c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80408676"
 ---
 # <a name="analysis-services-high-availability"></a>Alta disponibilidade do Analysis Services
@@ -24,7 +24,7 @@ Embora seja raro, um data center do Azure pode sofrer uma interrupção. Quando 
 
 * Implantar modelos em servidores redundantes em outras regiões. Esse método requer processamento de dados no servidor primário e servidores redundantes em paralelo, garantindo que todos os servidores estejam em sincronia.
 
-* [Faça backup](analysis-services-backup.md) de bancos de dados do servidor principal e restaure em servidores redundantes. Por exemplo, você pode automatizar backups noturnos no Armazenamento do Azure e restaurar para outros servidores redundantes em outras regiões. 
+* [Faça backup](analysis-services-backup.md) de bancos de dados do seu servidor primário e restaure em servidores redundantes. Por exemplo, você pode automatizar backups noturnos no Armazenamento do Azure e restaurar para outros servidores redundantes em outras regiões. 
 
 Em ambos os casos, se o servidor primário sofre uma interrupção, você deve alterar as cadeias de conexão em clientes de relatório para se conectar ao servidor em um datacenter regional diferente. Essa alteração deve ser considerada um último recurso e apenas caso ocorra uma interrupção catastrófica de data center regional. É mais provável que, após uma interrupção, o data center que hospeda o servidor primário fique online novamente antes de você poder atualizar conexões em todos os clientes. 
 
@@ -33,6 +33,6 @@ Para evitar a necessidade de alterar as cadeias de conexão nos clientes com rel
 ## <a name="related-information"></a>Informações relacionadas
 
 [Backup e restauração](analysis-services-backup.md)   
-[Gerenciar serviços de análise do Azure](analysis-services-manage.md)   
+[Gerenciar Azure Analysis Services](analysis-services-manage.md)   
 [Nome de servidor de alias](analysis-services-server-alias.md) 
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Update 0.2 & 0.1 notas de lançamento
+title: Notas de versão da atualização 0,2 & 0,1 do StorSimple virtual array
 description: Descreve os problemas em aberto críticos e resoluções para o StorSimple Virtual Array que executa as Atualizações 0.1 e 0.2.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397874"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array
@@ -63,7 +63,7 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 | 5 |Gráficos de monitoramento |Na versão anterior, após um failover de dispositivo, os gráficos de utilização de capacidade da nuvem exibiam valores incorretos no portal clássico do Azure. Isso foi corrigido na versão atual. |
 
 ## <a name="known-issues-in-the-update-01"></a>Problemas conhecidos na Atualização 0.1
-A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. **Os problemas de liberação observados nesta versão são marcados com um asterisco. Quase todos os problemas desta lista foram realizados a partir da versão GA do StorSimple Virtual Array.**
+A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple Virtual Array e inclui os problemas observados das versões anteriores. **A versão de problemas anotada nesta versão está marcada com um asterisco. Quase todos os problemas desta lista foram transferidos da versão GA do StorSimple virtual array.**
 
 | Não. | Recurso | Problema | Solução alternativa/comentários |
 | --- | --- | --- | --- |
@@ -76,12 +76,12 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **7.** |Compartilhamentos em camadas |Trabalhar com arquivos grandes pode resultar em uma divisão em camadas lenta. |Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento. |
 | **8.** |Capacidade utilizada para compartilhamentos |Você pode ver o consumo de compartilhamento na ausência de quaisquer dados no compartilhamento. Isso ocorre porque a capacidade utilizada para compartilhamentos inclui metadados. | |
 | **9.** |Recuperação de desastre |Você só pode executar a recuperação de desastres de um servidor de arquivos no mesmo domínio que o dispositivo de origem. Não há suporte nesta versão para a recuperação de desastres para um dispositivo de destino em outro domínio. |Isso será implementado em uma versão posterior. |
-| **10.** |Azure PowerShell |Os dispositivos virtuais StorSimple não podem ser gerenciados por meio do Azure PowerShell nesta versão. |Todo o gerenciamento dos dispositivos virtuais deve ser feito por meio do portal clássico do Azure e da interface do usuário da Web local. |
+| **254.** |Azure PowerShell |Os dispositivos virtuais StorSimple não podem ser gerenciados por meio do Azure PowerShell nesta versão. |Todo o gerenciamento dos dispositivos virtuais deve ser feito por meio do portal clássico do Azure e da interface do usuário da Web local. |
 | **11.** |Alteração de senha |O console do dispositivo de matriz virtual só aceita a entrada no formato de teclado en-US. | |
 | **12.** |CHAP |Não é possível remover as credenciais CHAP depois de criadas. Além disso, se você modificar as credenciais CHAP, precisará colocar os volumes offline e colocá-los novamente online para que a alteração tenha efeito. |Isso será corrigido em uma versão futura. |
 | **13.** |Servidor iSCSI |O 'Armazenamento usado' exibido para um volume iSCSI pode ser diferente no serviço StorSimple Manager e no host iSCSI. |O host iSCSI tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume está no tamanho máximo. |
-| **14.** |Servidor de arquivos\* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
+| **140.** |Servidor de arquivos\* |Se um arquivo em uma pasta tiver um Fluxo de Dados Alternativo (ADS) associado a ele, o ADS não será copiado ou restaurado por meio da recuperação de desastres, clonagem e Recuperação no Nível do Item. | |
 
 ## <a name="next-step"></a>Próxima etapa
-[Instale atualizações](storsimple-ova-install-update-01.md) em seu StorSimple Virtual Array.
+[Instale atualizações](storsimple-ova-install-update-01.md) em sua matriz virtual StorSimple.
 

@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar um instantâneo blob no .NET - Azure Storage
-description: Aprenda a criar um instantâneo somente leitura de uma bolha para fazer backup de dados blob em um dado momento.
+title: Criar e gerenciar um instantâneo de blob no .NET-armazenamento do Azure
+description: Saiba como criar um instantâneo somente leitura de um blob para fazer backup de dados de BLOB em um determinado momento.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9bf5eea55002814f461d375b3db43a37fe4f7aa9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80474087"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo blob no .NET
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo de blob no .NET
 
-Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Os instantâneos são úteis para fazer backup de blobs. Este artigo mostra como criar e gerenciar instantâneos blob usando a [biblioteca de clientes do Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Os instantâneos são úteis para fazer backup de blobs. Este artigo mostra como criar e gerenciar instantâneos de BLOB usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="about-blob-snapshots"></a>Sobre instantâneos blob
+## <a name="about-blob-snapshots"></a>Sobre instantâneos de BLOB
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -29,7 +29,7 @@ O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo f
 > Todos os instantâneos compartilham o URI do blob de base. A única diferença entre o blob de base e o instantâneo é o acréscimo do valor **DateTime** .
 >
 
-Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até que sejam explicitamente excluídos, o que significa que um instantâneo não pode sobreviver à sua bolha base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
+Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, o que significa que um instantâneo não pode sobreviver além seu blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
 
 Quando você cria um instantâneo de um blob, as propriedades do sistema são copiadas para o instantâneo com os mesmos valores. Os metadados do blob de base também são copiados no instantâneo, a menos que você especifique metadados separados para o instantâneo ao criá-lo. Depois de criar um instantâneo, você pode lê-lo, copiá-lo ou excluí-lo, mas não é possível modificá-lo.
 
@@ -39,10 +39,10 @@ Um arquivo VHD é usado para armazenar as informações atuais e o status de um 
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
-Para criar um instantâneo de uma bolha de bloco, use um dos seguintes métodos:
+Para criar um instantâneo de um blob de blocos, use um dos seguintes métodos:
 
-- [CriarSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
-- [CriarsnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
+- [CreateSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
+- [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
 O exemplo de código a seguir mostra como criar um instantâneo. Este exemplo especifica metadados adicionais para o instantâneo quando ele é criado.
 
@@ -81,13 +81,13 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>Excluir instantâneos
 
-Para excluir uma bolha, você deve primeiro excluir quaisquer instantâneos dessa bolha. Você pode excluir um instantâneo individualmente ou especificar que todos os instantâneos sejam excluídos quando o blob de origem for excluído. Se você tentar excluir um blob que ainda possua instantâneos, um erro será gerado.
+Para excluir um blob, você deve primeiro excluir todos os instantâneos desse blob. Você pode excluir um instantâneo individualmente ou especificar que todos os instantâneos sejam excluídos quando o blob de origem for excluído. Se você tentar excluir um blob que ainda possua instantâneos, um erro será gerado.
 
-Para excluir instantâneos blob, use um dos seguintes métodos de exclusão de bolhas e inclua o [enum DeleteSnapshotsOption.](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption)
+Para excluir instantâneos de BLOB, use um dos seguintes métodos de exclusão de BLOB e inclua a enumeração [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) .
 
-- [Excluir](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Delete (excluir)](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
-- [ExcluirSeexiste](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
+- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
 O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, em que `blockBlob` é um objeto do tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
@@ -98,7 +98,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retornar o URI absoluto para um instantâneo
 
-O exemplo de código a seguir cria um instantâneo e escreve o URI absoluto para o local principal.
+O exemplo de código a seguir cria um instantâneo e grava o URI absoluto para o local primário.
 
 ```csharp
 //Create the blob service client object.

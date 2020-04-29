@@ -1,6 +1,6 @@
 ---
-title: Migrando servidores e VMs para o Azure com recuperação do site do Azure
-description: Descreve como migrar no local e VMs Do Azure IaaS para o Azure usando o serviço azure Site Recovery.
+title: Migrando servidores e VMs para o Azure com Azure Site Recovery
+description: Descreve como migrar VMs de IaaS locais e do Azure para o Azure usando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80388892"
 ---
 # <a name="about-migration"></a>Sobre a migração
@@ -20,7 +20,7 @@ ms.locfileid: "80388892"
 Leia este artigo para obter uma visão geral de como o serviço [Azure Site Recovery](site-recovery-overview.md) ajuda você a migrar as máquinas. 
 
 > [!TIP]
-> Agora você deve usar o serviço Azure Migrate para migrar VMs e servidores para o Azure, em vez do serviço de recuperação do site Do Azure. [Saiba mais](../migrate/migrate-services-overview.md).
+> Agora você deve usar o serviço migrações para Azure para migrar VMs e servidores para o Azure, em vez do serviço de Azure Site Recovery. [Saiba mais](../migrate/migrate-services-overview.md).
 
 
 Veja o que você pode migrar com a Site Recovery:

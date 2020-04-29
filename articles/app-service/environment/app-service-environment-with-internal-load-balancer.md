@@ -1,6 +1,6 @@
 ---
-title: Criar um ILB ASE v1
-description: Criando e usando um ASE com um ILB. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+title: Criar um ASE v1 ILB
+description: Criando e usando um ASE com um ILB. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: ccompy
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80294727"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Como usar um Balanceador de Carga Interno com um Ambiente do Serviço do Aplicativo
@@ -50,9 +50,9 @@ A criação de um ILB do ASE não é muito diferente da criação normal de um A
 3. Selecione ou crie um grupo de recursos.
 4. Selecione ou crie uma VNet.
 5. Crie uma sub-rede, se você selecionar uma VNet.
-6. Selecione **Rede Virtual/Localização -> Configuração de VNet** e defina o Tipo VIP como Interno.
+6. Selecione **rede virtual/local-configuração de > VNet** e defina o tipo de VIP como interno.
 7. Forneça um nome de subdomínio (esse será o subdomínio usado para aplicativos criados nesse ASE).
-8. Selecione **OK** e, em seguida, **Crie**.
+8. Selecione **OK** e **criar**.
 
 ![][1]
 
@@ -87,9 +87,9 @@ Se você está simplesmente experimentando coisas e não souber como criar um ce
 
 Se você quiser experimentar o fluxo com seus próprios certificados e testar o acesso HTTP e HTTPS para o seu ASE:
 
-1. Vá para ASE UI depois que a ASE for criada **ASE -> Settings -> ILB Certificates**.
+1. Vá para a interface do usuário do ASE depois que o ASE for criado **ase-> configurações-> certificados ILB**.
 2. Defina o certificado ILB selecionando o arquivo pfx do certificado e forneça a senha. Essa etapa demora um pouco para processar e a mensagem de que uma operação de escala está em andamento é exibida.
-3. Obtenha o endereço ILB para o seu ASE **(ASE -> Properties -> Endereço IP Virtual ).**
+3. Obtenha o endereço ILB para seu ASE (**ase-> Propriedades-> endereço IP virtual**).
 4. Crie um aplicativo Web no ASE após a criação. 
 5. Crie uma VM, se você não tiver uma naquela VNET (não crie na mesma sub-rede do ASE ou poderão falhar).
 6. Configure o DNS para seu subdomínio. Você pode usar caracteres curinga com o subdomínio em seu DNS ou, se quer realizar alguns testes simples, editar o arquivo host na VM para definir o nome do aplicativo Web como o endereço IP VIP. Se o ASE tiver o nome de subdomínio .ilbase.com e você criou o aplicativo Web mytestapp para que ele fosse endereçado em mytestapp.ilbase.com, configure isso no arquivo de hosts. (No Windows, o arquivo dos hosts está em C:\Windows\System32\drivers\etc\)

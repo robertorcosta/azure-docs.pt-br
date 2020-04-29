@@ -1,21 +1,21 @@
 ---
-title: Como consultar logs do Monitor Azure para VMs
-description: A solução Azure Monitor for VMs coleta métricas e dados de registro para e este artigo descreve os registros e inclui consultas de amostra.
+title: Como consultar logs do Azure Monitor para VMs
+description: Azure Monitor para VMs solução coleta dados de log e métricas para o e este artigo descreve os registros e inclui exemplos de consultas.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80396917"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
 
-O Azure Monitor for VMs coleta métricas de desempenho e conexão, dados de inventário de computadores e processos e informações sobre o estado de saúde e os encaminha para o espaço de trabalho log analytics no Azure Monitor.  Esses dados estão disponíveis [para consulta no](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Azure Monitor para VMs coleta métricas de desempenho e conexão, dados de inventário de computador e processo e informações de estado de integridade e as encaminha para o espaço de trabalho Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 ## <a name="map-records"></a>Registros do mapa
 
@@ -26,24 +26,24 @@ Há propriedades geradas internamente que você pode usar para identificar compu
 - Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho do Log Analytics.
 - Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho do Log Analytics. O *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
-Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir apenas o registro `| summarize arg_max(TimeGenerated, *) by ResourceId` mais recente, adicione à consulta.
+Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir apenas o registro mais recente, adicione `| summarize arg_max(TimeGenerated, *) by ResourceId` à consulta.
 
 ### <a name="connections-and-ports"></a>Conexões e portas
 
-O recurso Connection Metrics introduz duas novas tabelas nos logs do Monitor Azure - VMConnection e VMBoundPort. Essas tabelas fornecem informações sobre as conexões de uma máquina (entrada e saída), bem como as portas do servidor que estão abertas/ativas nelas. Conexões As métricas também são expostas via APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo. As conexões TCP resultantes da *aceitação* em um soquete de escuta estão a entrar, enquanto as criadas *pela conexão* a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
+O recurso de métricas de conexão introduz duas novas tabelas em logs de Azure Monitor-VMConnection e VMBoundPort. Essas tabelas fornecem informações sobre as conexões de um computador (entrada e saída), bem como as portas de servidor abertas ou ativas neles. Os ConnectionMetrics também são expostos por meio de APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo. As conexões TCP resultantes da *aceitação* em um soquete de escuta são de entrada, enquanto aquelas criadas pela *conexão* a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
 
-Os registros nessas tabelas são gerados a partir de dados relatados pelo Agente de Dependência. Cada registro representa uma observação em um intervalo de tempo de 1 minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como as métricas associadas àquela entidade. Atualmente, apenas as atividades de rede que usam TCP via IPv4 são relatadas. 
+Os registros nessas tabelas são gerados a partir de dados relatados pelo Dependency Agent. Cada registro representa uma observação sobre um intervalo de tempo de 1 minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como as métricas associadas àquela entidade. Atualmente, apenas as atividades de rede que usam TCP via IPv4 são relatadas. 
 
 #### <a name="common-fields-and-conventions"></a>Campos e convenções comuns 
 
-Os seguintes campos e convenções se aplicam tanto ao VMConnection quanto ao VMBoundPort: 
+Os seguintes campos e convenções se aplicam a VMConnection e VMBoundPort: 
 
-- Computador: Nome de domínio totalmente qualificado da máquina de relatórios 
-- AgentId: O identificador exclusivo para uma máquina com o agente Log Analytics  
-- Máquina: Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É do formulário *m-{GUID}*, onde *guid* é o mesmo GUID que AgentId  
-- Processo: Nome do recurso Do Azure Resource Manager para o processo exposto pelo ServiceMap. É da forma *p-{hex string}*. O processo é único dentro de um escopo de máquina e para gerar um ID de processo único entre máquinas, combinar campos de Máquina e Processo. 
-- Nome do processo: nome executável do processo de emissão de relatórios.
-- Todos os endereços IP são strings no formato canônico IPv4, por exemplo *13.107.3.160* 
+- Computador: nome de domínio totalmente qualificado do computador de relatório 
+- AgentId: o identificador exclusivo de um computador com o agente de Log Analytics  
+- Machine: o nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}*, em que *GUID* é o mesmo GUID que AgentId  
+- Processo: o nome do recurso de Azure Resource Manager para o processo exposto pelo ServiceMap. Ele está no formato *p-{cadeia de caracteres hexadecimal}*. O processo é exclusivo em um escopo de computador e gerar uma ID de processo exclusiva entre computadores, combinar campos de máquina e processo. 
+- ProcessName: nome do executável do processo de relatório.
+- Todos os endereços IP são cadeias de caracteres no formato canônico IPv4, por exemplo *13.107.3.160* 
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
@@ -88,7 +88,7 @@ Aqui estão alguns pontos importantes a considerar:
 1. Se um processo aceita conexões no mesmo endereço IP, mas em várias interfaces de rede, é relatado um registro separado para cada interface. 
 2. Os registros com IP curinga não conterão nenhuma atividade. Eles são incluídos para representar o fato de que uma porta no computador está aberta para o tráfego de entrada.
 3. Para reduzir o nível de detalhes e o volume de dados, os registros com IP curinga serão omitidos quando houver um registro correspondente (para o mesmo processo, porta e protocolo) com um endereço IP específico. Quando um registro IP curinga for omitido, a propriedade de registro IsWildcardBind com o endereço IP específico será definida para "True" para indicar que a porta está exposta em cada interface do computador que gera os relatórios.
-4. As portas vinculadas apenas em uma interface específica têm IsWildcardBind definido como *False*.
+4. As portas que são associadas somente em uma interface específica têm IsWildcardBind definido como *false*.
 
 #### <a name="naming-and-classification"></a>Nomenclatura e Classificação
 
@@ -100,7 +100,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 | Propriedade | Descrição |
 |:--|:--|
-|RemoteCountry |O nome do país/região que hospeda O Controle Remoto.  Por exemplo: *Estados Unidos* |
+|RemoteCountry |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
 |RemoteLatitude |A latitude da localização geográfica. Por exemplo: *47,68* |
 |RemoteLongitude |A longitude da localização geográfica. Por exemplo: *-122,12* |
 
@@ -124,113 +124,113 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 
 ### <a name="ports"></a>Portas 
 
-As portas em uma máquina que aceita ativamente tráfego de entrada ou podem potencialmente aceitar tráfego, mas estão ociosas durante a janela de tempo de relatório, são escritas na tabela VMBoundPort.  
+As portas em um computador que aceitam ativamente o tráfego de entrada ou podem potencialmente aceitar tráfego, mas ficam ociosas durante a janela de tempo de relatório, são gravadas na tabela VMBoundPort.  
 
-Todos os registros no VMBoundPort são identificados pelos seguintes campos: 
+Cada registro em VMBoundPort é identificado pelos seguintes campos: 
 
 | Propriedade | Descrição |
 |:--|:--|
-|Processo | Identidade de processo (ou grupos de processos) com os quais a porta está associada.|
-|Ip | Endereço IP da porta (pode ser WILDCARD IP, *0.0.0.0*) |
+|Processo | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
+|IP | Endereço IP da porta (pode ser IP de curinga, *0.0.0.0*) |
 |Porta |O número da porta |
-|Protocolo | O protocolo.  Exemplo, *tcp* ou *udp* (apenas *tcp* é suportado atualmente).|
+|Protocolo | O protocolo.  Exemplo, *TCP* ou *UDP* (somente *TCP* tem suporte no momento).|
  
-A identidade de uma porta é derivada dos cinco campos acima e está armazenada na propriedade PortId. Esta propriedade pode ser usada para encontrar rapidamente registros de uma porta específica ao longo do tempo. 
+A identidade que uma porta é derivada dos cinco campos acima e é armazenada na propriedade portid. Essa propriedade pode ser usada para localizar rapidamente registros para uma porta específica ao longo do tempo. 
 
 #### <a name="metrics"></a>Métricas 
 
-Os registros de portas incluem métricas que representam as conexões associadas a eles. Atualmente, as seguintes métricas são relatadas (os detalhes de cada métrica são descritos na seção anterior): 
+Os registros de porta incluem métricas que representam as conexões associadas a eles. No momento, as seguintes métricas são relatadas (os detalhes de cada métrica são descritos na seção anterior): 
 
 - BytesSent e BytesReceived 
-- Linksestabelecidos, LinksTerminados, LinksLive 
+- LinksEstablished, LinksTerminated, LinksLive 
 - ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
 
 Aqui estão alguns pontos importantes a considerar:
 
 - Se um processo aceita conexões no mesmo endereço IP, mas em várias interfaces de rede, é relatado um registro separado para cada interface.  
 - Os registros com IP curinga não conterão nenhuma atividade. Eles são incluídos para representar o fato de que uma porta no computador está aberta para o tráfego de entrada. 
-- Para reduzir o nível de detalhes e o volume de dados, os registros com IP curinga serão omitidos quando houver um registro correspondente (para o mesmo processo, porta e protocolo) com um endereço IP específico. Quando um registro IP curinga for omitido, a propriedade *IsWildcardBind* para registro com o endereço IP específico será definida como *True*.  Isso indica que a porta está exposta em todas as interfaces da máquina de relatórios. 
-- As portas vinculadas apenas em uma interface específica têm IsWildcardBind definido como *False*. 
+- Para reduzir o nível de detalhes e o volume de dados, os registros com IP curinga serão omitidos quando houver um registro correspondente (para o mesmo processo, porta e protocolo) com um endereço IP específico. Quando um registro de IP curinga for omitido, a propriedade *IsWildcardBind* para o registro com o endereço IP específico será definida como *true*.  Isso indica que a porta é exposta em todas as interfaces da máquina de relatórios. 
+- As portas que são associadas somente em uma interface específica têm IsWildcardBind definido como *false*. 
 
-### <a name="vmcomputer-records"></a>VMRegistros de computador
+### <a name="vmcomputer-records"></a>Registros de VMComputer
 
-Registros com um tipo de *VMComputer* têm dados de inventário para servidores com o agente Dependency. Esses registros têm as propriedades descritas na tabela a seguir:
+Os registros com um tipo de *VMComputer* têm dados de inventário para servidores com o Dependency Agent. Esses registros têm as propriedades descritas na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
-|TenantId | O identificador exclusivo para o espaço de trabalho |
+|TenantId | O identificador exclusivo do espaço de trabalho |
 |SourceSystem | *Insights* | 
-|TimeGenerated | Carimbo de data do registro (UTC) |
+|TimeGenerated | Carimbo de data/hora do registro (UTC) |
 |Computador | O FQDN do computador | 
-|AgentId | O ID exclusivo do agente Log Analytics |
-|Computador | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É do formulário *m-{GUID}*, onde *guid* é o mesmo GUID que AgentId. | 
+|AgentId | A ID exclusiva do agente de Log Analytics |
+|Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}*, em que *GUID* é o mesmo GUID que agentID. | 
 |DisplayName | Nome de exibição | 
 |FullDisplayName | Nome de exibição completo | 
-|HostName | O nome da máquina sem nome de domínio |
-|Tempo de inicialização | O tempo de inicialização da máquina (UTC) |
+|HostName | O nome do computador sem o nome de domínio |
+|Boottime | A hora de inicialização do computador (UTC) |
 |timeZone | O fuso horário normalizado |
-|VirtualizaçãoEstado | *virtual,* *hipervisor,* *físico* |
-|Ipv4Endereços | Matriz de endereços IPv4 | 
+|Virtualizationstate | *virtual*, *hipervisor*, *físico* |
+|Ipv4Addresses | Matriz de endereços IPv4 | 
 |Ipv4SubnetMasks | Matriz de máscaras de sub-rede IPv4 (na mesma ordem que Ipv4Addresses). |
 |Ipv4DefaultGateways | Matriz de gateways IPv4 | 
-|Ipv6Endereços | Matriz de endereços IPv6 | 
+|Ipv6Addresses | Matriz de endereços IPv6 | 
 |MacAddresses | Matriz de endereços MAC | 
-|DnsNames | Matriz de nomes DNS associados à máquina. |
-|DependencyAgentVersion | A versão do agente dependency em execução na máquina. | 
+|DnsNames | Matriz de nomes DNS associados ao computador. |
+|DependencyAgentVersion | A versão do agente de dependência em execução no computador. | 
 |OperatingSystemFamily | *Linux*, *Windows* |
 |OperatingSystemFullName | O nome completo do sistema operacional | 
 |PhysicalMemoryMB | A memória física em megabytes | 
-|Cpus | O número de processadores | 
-|Velocidade da cpu | A velocidade da CPU em MHz | 
-|VirtualMachineType | *hyperv,* *vmware,* *xen* |
+|CPUs | O número de processadores | 
+|CpuSpeed | A velocidade da CPU em MHz | 
+|VirtualMachineType | *HyperV*, *VMware*, *Xen* |
 |VirtualMachineNativeId | A ID da VM conforme atribuída pelo seu hipervisor | 
-|Nome nativo da virtualmáquina | O nome da VM |
-|VirtualMachineHypervisorId | O identificador exclusivo do hipervisor hospedando o VM |
-|HipervisorType | *Hyperv* |
-|Hipervisoride | A identificação única do hipervisor | 
-|Provedor de hospedagem | *Azure* |
-|_ResourceId | O identificador exclusivo para um recurso Do Zure |
-|AzureSubscriptionId | Um identificador globalmente único que identifica sua assinatura | 
-|AzureResourceGroup | O nome do grupo de recursos Azure do que a máquina é membro. |
-|Nome do AzureResource | O nome do recurso Azure |
-|AzureLocalização | A localização do recurso Azure |
+|VirtualMachineNativeName | O nome da VM |
+|VirtualMachineHypervisorId | O identificador exclusivo do hipervisor que hospeda a VM |
+|Hipervisortype | *v* |
+|Hipervisorid | A ID exclusiva do hipervisor | 
+|Hostingprovider | *Azure* |
+|_ResourceId | O identificador exclusivo de um recurso do Azure |
+|AzureSubscriptionId | Um identificador global exclusivo que identifica sua assinatura | 
+|AzureResourceGroup | O nome do grupo de recursos do Azure do qual o computador é membro. |
+|AzureResourceName | O nome do recurso do Azure |
+|AzureLocation | O local do recurso do Azure |
 |AzureUpdateDomain | O nome do domínio de atualização do Azure |
-|Domínio de falha do Azure | O nome do domínio de falha do Azure |
-|AzureVmId | O identificador exclusivo da máquina virtual Do Zure |
+|AzureFaultDomain | O nome do domínio de falha do Azure |
+|AzureVmId | O identificador exclusivo da máquina virtual do Azure |
 |AzureSize | O tamanho da máquina virtual do Azure |
-|AzureImagePublisher | O nome do editor do Azure VM |
-|AzureImageOffering | O nome do tipo de oferta azure VM | 
-|AzureImageSku | O SKU da imagem Azure VM | 
-|AzureImageVersion | A versão da imagem Do Azure VM | 
-|AzureCloudServiceName | O nome do serviço de nuvem DoZure |
-|Implantação do AzureCloudService | ID de implantação para o Serviço de Nuvem |
-|AzureCloudServiceRoleName | Nome da função serviço em nuvem |
-|AzureCloudServiceRoleType | Tipo de função serviço na nuvem: *trabalhador* ou *web* |
-|AzureCloudServiceInstanceId | ID de instância de função de serviço em nuvem |
-|AzureVmScaleSetNome | O nome do conjunto de escala de máquina virtual |
-|Implantação do AzureVmScaleSet | ID de implantação de conjunto de escala de máquina virtual |
-|AzureVmScaleSetResourceId | O identificador exclusivo do recurso de conjunto de escala de máquina virtual.|
-|AzureVmScaleSetInstanceId | O identificador exclusivo do conjunto de escalas de máquinavirtual |
-|AzureServiceFabricClusterId | A identificação única do cluster Azure Service Fabric | 
-|AzureServiceFabricClusterNome | O nome do cluster Azure Service Fabric |
+|AzureImagePublisher | O nome do Publicador da VM do Azure |
+|AzureImageOffering | O nome do tipo de oferta de VM do Azure | 
+|AzureImageSku | A SKU da imagem de VM do Azure | 
+|AzureImageVersion | A versão da imagem de VM do Azure | 
+|AzureCloudServiceName | O nome do serviço de nuvem do Azure |
+|AzureCloudServiceDeployment | ID de implantação para o serviço de nuvem |
+|AzureCloudServiceRoleName | Nome da função de serviço de nuvem |
+|AzureCloudServiceRoleType | Tipo de função de serviço de nuvem: *trabalho* ou *Web* |
+|AzureCloudServiceInstanceId | ID da instância de função do serviço de nuvem |
+|AzureVmScaleSetName | O nome do conjunto de dimensionamento de máquinas virtuais |
+|AzureVmScaleSetDeployment | ID de implantação do conjunto de dimensionamento de máquinas virtuais |
+|AzureVmScaleSetResourceId | O identificador exclusivo do recurso do conjunto de dimensionamento de máquinas virtuais.|
+|AzureVmScaleSetInstanceId | O identificador exclusivo do conjunto de dimensionamento de máquinas virtuais |
+|AzureServiceFabricClusterId | O identificador exclusivo do cluster de Service Fabric do Azure | 
+|AzureServiceFabricClusterName | O nome do cluster de Service Fabric do Azure |
 
-### <a name="vmprocess-records"></a>Registros do VMProcess
+### <a name="vmprocess-records"></a>Registros de VMProcess
 
-Registros com um tipo de *VMProcess* têm dados de inventário para processos conectados ao TCP em servidores com o agente Dependency. Esses registros têm as propriedades descritas na tabela a seguir:
+Os registros com um tipo de *VMProcess* têm dados de inventário para processos conectados por TCP em servidores com o Dependency Agent. Esses registros têm as propriedades descritas na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
-|TenantId | O identificador exclusivo para o espaço de trabalho |
+|TenantId | O identificador exclusivo do espaço de trabalho |
 |SourceSystem | *Insights* | 
-|TimeGenerated | Carimbo de data do registro (UTC) |
+|TimeGenerated | Carimbo de data/hora do registro (UTC) |
 |Computador | O FQDN do computador | 
-|AgentId | O ID exclusivo do agente Log Analytics |
-|Computador | Nome do recurso Azure Resource Manager para a máquina exposta pelo ServiceMap. É do formulário *m-{GUID}*, onde *guid* é o mesmo GUID que AgentId. | 
-|Processo | O identificador exclusivo do processo Mapa de Serviço. É na forma de *p-{GUID}*. 
-|Nome executável | O nome do processo executável | 
+|AgentId | A ID exclusiva do agente de Log Analytics |
+|Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}*, em que *GUID* é o mesmo GUID que agentID. | 
+|Processo | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}*. 
+|Executávelname | O nome do processo executável | 
 |DisplayName | Nome de exibição do processo |
-|Função | Função de processo: *servidor web,* *appServer,* *banco de dadosServer,* *ldapServer,* *smbServer* |
-|Agrupar | Nome do grupo de processo. Processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
+|Função | Função de processo: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Agrupar | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | O tempo de início do pool de processos |
 |FirstPid | O primeiro PID no pool de processos |
 |Descrição | A descrição do processo |
@@ -239,16 +239,16 @@ Registros com um tipo de *VMProcess* têm dados de inventário para processos co
 |ProductName | O nome do produto |
 |ProductVersion | A versão do produto |
 |FileVersion | A versão do arquivo |
-|Executablepath |O caminho do executável |
+|ExecutablePath |O caminho do executável |
 |CommandLine | A linha de comando |
 |WorkingDirectory | O diretório de trabalho |
-|Serviços | Uma série de serviços sob os quais o processo está sendo executado |
+|Serviços | Uma matriz de serviços sob a qual o processo está sendo executado |
 |UserName | A conta sob a qual o processo está sendo executado |
 |UserDomain | O domínio sob o qual o processo está sendo executado |
 |_ResourceId | O identificador exclusivo para um processo dentro do workspace |
 
 
-## <a name="sample-map-queries"></a>Consultas de mapa de amostra
+## <a name="sample-map-queries"></a>Exemplos de consultas de mapa
 
 ### <a name="list-all-known-machines"></a>Lista todas as máquinas conhecidas
 
@@ -268,13 +268,13 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Liste a capacidade de memória física de todos os computadores gerenciados
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Listar a capacidade de memória física de todos os computadores gerenciados
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project PhysicalMemoryMB, Computer
 ```
 
-### <a name="list-computer-name-dns-ip-and-os"></a>Liste o nome do computador, DNS, IP e OS
+### <a name="list-computer-name-dns-ip-and-os"></a>Listar nome do computador, DNS, IP e sistema operacional
 
 ```kusto
 VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Computer, OperatingSystemFullName, DnsNames, Ipv4Addresses
@@ -346,7 +346,7 @@ VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" 
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
-### <a name="bound-ports"></a>Portos Vinculados
+### <a name="bound-ports"></a>Portas associadas
 
 ```kusto
 VMBoundPort
@@ -355,7 +355,7 @@ VMBoundPort
 | distinct Port, ProcessName
 ```
 
-### <a name="number-of-open-ports-across-machines"></a>Número de portas abertas entre máquinas
+### <a name="number-of-open-ports-across-machines"></a>Número de portas abertas entre computadores
 
 ```kusto
 VMBoundPort
@@ -365,7 +365,7 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Score processos em seu espaço de trabalho pelo número de portas que eles têm aberto
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Pontuar processos em seu espaço de trabalho pelo número de portas que eles abriram
 
 ```kusto
 VMBoundPort
@@ -377,7 +377,7 @@ VMBoundPort
 
 ### <a name="aggregate-behavior-for-each-port"></a>Comportamento agregado para cada porta
 
-Essa consulta pode então ser usada para marcar portas por atividade, por exemplo, portas com a maioria do tráfego de entrada/saída, portas com a maioria das conexões
+Essa consulta pode ser usada para pontuar portas por atividade, por exemplo, portas com maior tráfego de entrada/saída, portas com a maioria das conexões
 ```kusto
 // 
 VMBoundPort
@@ -431,48 +431,48 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="performance-records"></a>Registros de desempenho
-Registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistema operacional convidado da máquina virtual. Esses registros têm as propriedades descritas na tabela a seguir:
+Os registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistema operacional convidado da máquina virtual. Esses registros têm as propriedades descritas na tabela a seguir:
 
 
 | Propriedade | Descrição |
 |:--|:--|
-|TenantId | Identificador exclusivo para o espaço de trabalho |
+|TenantId | Identificador exclusivo do espaço de trabalho |
 |SourceSystem | *Insights* | 
-|TimeGenerated | Tempo que o valor foi coletado (UTC) |
+|TimeGenerated | Hora em que o valor foi coletado (UTC) |
 |Computador | O FQDN do computador | 
 |Origem | *vm.azm.ms* |
 |Namespace | Categoria do contador de desempenho | 
-|Nome | Nome do contador de desempenho |
+|Name | Nome do contador de desempenho |
 |Val | Valor coletado | 
-|Marcas | Detalhes relacionados sobre o registro. Veja a tabela abaixo para tags usadas com diferentes tipos de registro.  |
+|Marcas | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
 |AgentId | Identificador exclusivo para o agente de cada computador |
 |Type | *InsightsMetrics* |
-|_Resourceid_ | ID de recursos da máquina virtual |
+|_Identificação_ | ID de recurso da máquina virtual |
 
-Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* estão listados na tabela a seguir:
+Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* são listados na tabela a seguir:
 
-| Namespace | Nome | Descrição | Unidade | Marcas |
+| Namespace | Name | Descrição | Unidade | Marcas |
 |:---|:---|:---|:---|:---|
-| Computador    | Pulsação             | Batimentocardíaco do computador                        | | |
-| Memória      | DisponívelMB           | Bytes disponíveis de memória                    | Bytes          | memóriaTamanhoMB - Tamanho total da memória|
-| Rede     | WriteBytesPerSecond   | Bytes de gravação de rede por segundo            | BytesPerSecond | NetworkDeviceId - Id do dispositivo<br>bytes - Total enviado bytes |
-| Rede     | ReadBytesPerSecond    | Rede ler bytes por segundo             | BytesPerSecond | networkDeviceId - Id do dispositivo<br>bytes - Total de bytes recebidos |
-| Processador   | Percentual de utilização | Porcentagem de utilização do processador          | Porcentagem        | totalCpus - CPUs totais |
-| LogicalDisk | WritesPerSecond       | Disco lógico grava por segundo            | CountPerSecond | mountId - ID de montagem do dispositivo |
-| LogicalDisk | WriteLatencyMs        | Citência de gravação de disco lógico milissegundo    | MilliSeconds   | mountId - ID de montagem do dispositivo |
-| LogicalDisk | WriteBytesPerSecond   | Bytes de gravação de disco lógico por segundo       | BytesPerSecond | mountId - ID de montagem do dispositivo |
-| LogicalDisk | TransfersPerSecond    | Transferências de disco lógico por segundo         | CountPerSecond | mountId - ID de montagem do dispositivo |
-| LogicalDisk | TransferLatencyMs     | Latência de transferência de disco lógico milissegundo | MilliSeconds   | mountId - ID de montagem do dispositivo |
-| LogicalDisk | ReadsPerSecond        | Leituras de disco lógico por segundo             | CountPerSecond | mountId - ID de montagem do dispositivo |
-| LogicalDisk | ReadLatencyMs         | Latência de latência do disco lógico     | MilliSeconds   | mountId - ID de montagem do dispositivo |
-| LogicalDisk | ReadBytesPerSecond    | Disco lógico ler bytes por segundo        | BytesPerSecond | mountId - ID de montagem do dispositivo |
-| LogicalDisk | FreeSpacePercentage   | Porcentagem de espaço livre de disco lógico        | Porcentagem        | mountId - ID de montagem do dispositivo |
-| LogicalDisk | Espaço LivreMB           | Bytes de espaço livre de disco lógico             | Bytes          | mountId - ID de montagem do dispositivo<br>diskSizeMB - Tamanho total do disco |
-| LogicalDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountId - ID de montagem do dispositivo |
+| Computador    | Pulsação             | Pulsação do computador                        | | |
+| Memória      | AvailableMB           | Memória-bytes disponíveis                    | Bytes          | memorySizeMB-tamanho total da memória|
+| Rede     | WriteBytesPerSecond   | Bytes de gravação de rede por segundo            | BytesPerSecond | NetworkDeviceId-ID do dispositivo<br>bytes-total de bytes enviados |
+| Rede     | ReadBytesPerSecond    | Bytes de leitura de rede por segundo             | BytesPerSecond | networkDeviceId-ID do dispositivo<br>bytes-total de bytes recebidos |
+| Processador   | UtilizationPercentage | Porcentagem de utilização do processador          | Porcentagem        | totalCpus-total de CPUs |
+| LogicalDisk | WritesPerSecond       | Gravações de disco lógico por segundo            | CountPerSecond | mountid-ID de montagem do dispositivo |
+| LogicalDisk | WriteLatencyMs        | Latência de gravação de disco lógico em milissegundo    | MilliSeconds   | mountid-ID de montagem do dispositivo |
+| LogicalDisk | WriteBytesPerSecond   | Bytes de gravação de disco lógico por segundo       | BytesPerSecond | mountid-ID de montagem do dispositivo |
+| LogicalDisk | TransfersPerSecond    | Transferências de disco lógico por segundo         | CountPerSecond | mountid-ID de montagem do dispositivo |
+| LogicalDisk | TransferLatencyMs     | Latência de transferência de disco lógico em milissegundo | MilliSeconds   | mountid-ID de montagem do dispositivo |
+| LogicalDisk | ReadsPerSecond        | Leituras de disco lógico por segundo             | CountPerSecond | mountid-ID de montagem do dispositivo |
+| LogicalDisk | ReadLatencyMs         | Milissegundo de latência de leitura de disco lógico     | MilliSeconds   | mountid-ID de montagem do dispositivo |
+| LogicalDisk | ReadBytesPerSecond    | Bytes de leitura de disco lógico por segundo        | BytesPerSecond | mountid-ID de montagem do dispositivo |
+| LogicalDisk | FreeSpacePercentage   | Porcentagem de espaço livre no disco lógico        | Porcentagem        | mountid-ID de montagem do dispositivo |
+| LogicalDisk | FreeSpaceMB           | Bytes de espaço livre no disco lógico             | Bytes          | mountid-ID de montagem do dispositivo<br>diskSizeMB-tamanho total do disco |
+| LogicalDisk | BytesPerSecond        | Bytes de disco lógico por segundo             | BytesPerSecond | mountid-ID de montagem do dispositivo |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você for novo para escrever consultas de log no Azure Monitor, [analise como usar](../../azure-monitor/log-query/get-started-portal.md) o Log Analytics no portal Azure para escrever consultas de log.
+* Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para gravar consultas de log.
 
-* Saiba mais sobre [a redação de consultas de pesquisa](../../azure-monitor/log-query/search-queries.md).
+* Saiba mais sobre como [escrever consultas de pesquisa](../../azure-monitor/log-query/search-queries.md).

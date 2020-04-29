@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298753"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
@@ -33,7 +33,7 @@ A ferramenta de diagnóstico destina-se principalmente a dispositivos locais da 
 
 Essa ferramenta pode ser executada através da interface do Windows PowerShell do seu dispositivo StorSimple. Há duas maneiras de acessar a interface local do dispositivo:
 
-* [Use PuTTY para se conectar ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Use a saída para se conectar ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 * [Acesse remotamente a ferramenta por meio do Windows PowerShell para StorSimple](storsimple-8000-remote-connect.md).
 
 Neste artigo, estamos supondo que você se conectou ao console serial do dispositivo via PuTTY.
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>Teste de rede
 
-Este teste valida o status das interfaces de rede, portas, conectividade de servidor DNS e NTP, certificado TLS/SSL, credenciais de conta de armazenamento, conectividade aos servidores Update e conectividade por proxy web em seu dispositivo StorSimple.
+Esse teste valida o status das interfaces de rede, portas, DNS e conectividade do servidor NTP, certificado TLS/SSL, credenciais da conta de armazenamento, conectividade com os servidores de atualização e conectividade de proxy da Web em seu dispositivo StorSimple.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Exemplo de saída do teste de rede quando somente DATA0 está habilitado
 
@@ -417,7 +417,7 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 | Parâmetro do PowerShell    | Descrição  |
 |-------------------------|------------------|
 | ID da instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
-| Nome                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
+| Name                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
 | Modelo                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo vem configurado de fábrica e possui 15 caracteres. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 – É o modelo do dispositivo.<br>SHX – É o local de produção.<br> 0991003 - É um produto específico. <br> G44HT- os últimos cinco dígitos são incrementados para criar números de série exclusivos. Pode ser um conjunto não sequencial de números.|
 | timeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|

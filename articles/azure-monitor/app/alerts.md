@@ -1,15 +1,15 @@
 ---
-title: Definir alertas no Azure Application Insights
+title: Definir alertas no Aplicativo Azure insights
 description: Seja notificado sobre os tempos de resposta lentos, as exceções e outras alterações de desempenho ou de uso em seu aplicativo Web.
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
 ms.subservice: alerts
 ms.openlocfilehash: 28fd59556a586b85a6d3caf188d9e02c11d31e3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295091"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
@@ -18,35 +18,35 @@ O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas 
 
 O Application Insights monitora o aplicativo ativo em um [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e compreender os padrões de uso.
 
-Existem vários tipos de alertas:
+Há vários tipos de alertas:
 
-* [**Os alertas métricos**](../../azure-monitor/platform/alerts-metric-overview.md) dizem quando uma métrica cruza um valor de limite por algum período - como tempos de resposta, contagem de exceções, uso da CPU ou visualizações de página.
-* [**O Log Alerts**](../../azure-monitor/platform/alerts-unified-log.md) é usado para descrever alertas onde o sinal de alerta é baseado em uma consulta Kusto personalizada.
-* [**Testes na**][availability] Web dizem quando seu site não está disponível na internet ou respondendo lentamente. [Saiba mais][availability].
+* Os [**alertas de métrica**](../../azure-monitor/platform/alerts-metric-overview.md) informam quando uma métrica cruza um valor de limite para algum período, como tempos de resposta, contagens de exceção, uso da CPU ou exibições de página.
+* Os [**alertas de log**](../../azure-monitor/platform/alerts-unified-log.md) são usados para descrever alertas em que o sinal de alerta se baseia em uma consulta Kusto personalizada.
+* Os [**testes da Web**][availability] informam quando seu site está indisponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
 * Os [**diagnósticos proativos**](../../azure-monitor/app/proactive-diagnostics.md) são configurados automaticamente para notificar você sobre padrões de desempenho incomuns.
 
-## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Como definir um alerta de exceção usando pesquisa de log personalizado
+## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Como definir um alerta de exceção usando a pesquisa de logs personalizada
 
-Nesta seção, vamos passar por como definir um alerta de exceção baseado em consulta. Para este exemplo, digamos que queremos um alerta quando a taxa de falha for superior a 10% nas últimas 24 horas.
+Nesta seção, vamos examinar como definir um alerta de exceção baseada em consulta. Para este exemplo, digamos que desejamos um alerta quando a taxa de falha for maior que 10% nas últimas 24 horas.
 
-1. Vá para o recurso Application Insight no portal Azure.
-2. À esquerda, em configure clique em **Alerta**.
+1. Vá para o recurso do Application Insight no portal do Azure.
+2. À esquerda, em configurar, clique em **alerta**.
 
-    ![À esquerda, em configurar alerta de clique](./media/alerts/1appinsightalert.png)
+    ![À esquerda, em configurar clique em alerta](./media/alerts/1appinsightalert.png)
 
-3. Na parte superior da guia de alerta selecione **Nova regra de alerta**.
+3. Na parte superior da guia alerta, selecione **nova regra de alerta**.
 
-     ![Na parte superior da guia de alerta clique em nova regra de alerta](./media/alerts/2createalert.png)
+     ![Na parte superior da guia alerta, clique em nova regra de alerta](./media/alerts/2createalert.png)
 
-4. Seu recurso deve ser selecionado automaticamente. Para definir uma condição, clique **em Adicionar condição**.
+4. O recurso deve ser selecionado automaticamente. Para definir uma condição, clique em **Adicionar condição**.
 
-    ![Clique em adicionar condição](./media/alerts/3addcondition.png)
+    ![Clique em Adicionar condição](./media/alerts/3addcondition.png)
 
-5. Na guia configurar lógica de sinal selecione **Pesquisa de log personalizado**
+5. Na guia Configurar lógica de sinal, selecione **pesquisa de logs personalizada**
 
-    ![Clique em pesquisa de log personalizado](./media/alerts/4customlogsearch.png)
+    ![Clique em pesquisa de logs personalizada](./media/alerts/4customlogsearch.png)
 
-6. Na guia de pesquisa de log personalizado, digite sua consulta na caixa "Pesquisa consulta". Para este exemplo, usaremos a consulta kusto abaixo.
+6. Na guia pesquisa de logs personalizada, insira sua consulta na caixa "consulta de pesquisa". Para este exemplo, usaremos a consulta Kusto abaixo.
     ```kusto
     let percentthreshold = 10;
     let period = 24h;
@@ -59,48 +59,48 @@ Nesta seção, vamos passar por como definir um alerta de exceção baseado em c
 
     ```
 
-    ![Tipo consulta na caixa de consulta de pesquisa](./media/alerts/5searchquery.png)
+    ![Consulta de tipo na caixa de consulta de pesquisa](./media/alerts/5searchquery.png)
     
     > [!NOTE]
-    > Você também pode aplicar essas etapas a outros tipos de alertas baseados em consultas. Você pode aprender mais sobre a linguagem de consulta kusto a partir deste [Kusto começando doc](https://docs.microsoft.com/azure/kusto/concepts/) ou este [SQL para Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+    > Você também pode aplicar essas etapas a outros tipos de alertas baseados em consulta. Você pode saber mais sobre a linguagem de consulta do Kusto deste [documento de introdução do Kusto](https://docs.microsoft.com/azure/kusto/concepts/) ou desta página de dicas de [SQL para Kusto](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Em "Lógica de alerta", escolha se é baseado no número de resultados ou medição métrica. Em seguida, escolha a condição (maior do que, igual a, menos de) e um limiar. Enquanto você estiver alterando esses valores, você pode notar a condição de visualizar alterações de sentença. Neste exemplo estamos usando "igual a".
+7. Em "lógica de alerta", escolha se ele é baseado no número de resultados ou medição de métrica. Em seguida, escolha a condição (maior que, igual a, menor que) e um limite. Enquanto você estiver alterando esses valores, você poderá observar as alterações da sentença de visualização da condição. Neste exemplo, estamos usando "igual a".
 
-    ![Em alerta, escolha entre as opções fornecidas com base e condição, em seguida, digite um limite](./media/alerts/6alertlogic.png)
+    ![Em lógica de alerta, escolha entre as opções fornecidas para com base na condição e, em seguida, digite um limite](./media/alerts/6alertlogic.png)
 
-8. Em "Avaliado com base", defina o período e a frequência. O período aqui deve corresponder ao valor que colocamos por período na consulta acima. Em seguida, clique **feito**.
+8. Em "avaliado com base em", defina o período e a frequência. O ponto aqui deve corresponder ao valor que colocamos para o período na consulta acima. Em seguida, clique em **concluído**.
 
-    ![Definir período e freqüência na parte inferior e, em seguida, clique feito](./media/alerts/7evaluate.png)
+    ![Defina período e frequência na parte inferior e clique em concluído](./media/alerts/7evaluate.png)
 
-9. Agora vemos a condição que criamos com o custo mensal estimado. Abaixo, em ["Grupos de ação",](../platform/action-groups.md) você pode criar um novo grupo ou selecionar um já existente. Se você quiser, você pode personalizar as ações.
+9. Agora vemos a condição que criamos com o custo mensal estimado. Abaixo de ["grupos de ação"](../platform/action-groups.md) , você pode criar um novo grupo ou selecionar um existente. Se desejar, você poderá personalizar as ações.
 
-    ![clique na seleção ou criar botões em grupo de ação](./media/alerts/8actiongroup.png)
+    ![Clique nos botões selecionar ou criar em grupo de ações](./media/alerts/8actiongroup.png)
 
-10. Por fim, adicione seus detalhes de alerta (nome da regra de alerta, descrição, gravidade). Quando terminar, clique em **Criar regra de alerta** na parte inferior.
+10. Finalmente, adicione os detalhes do alerta (nome da regra de alerta, descrição, severidade). Quando terminar, clique em **criar regra de alerta** na parte inferior.
 
-    ![Em detalhes de alerta digite seu nome de regra de alerta, escreva uma descrição e escolha uma gravidade](./media/alerts/9alertdetails.png)
+    ![Em detalhe do alerta, digite o nome da regra de alerta, escreva uma descrição e escolha uma severidade](./media/alerts/9alertdetails.png)
 
-## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como cancelar a inscrição a partir de notificações clássicas de alerta
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como cancelar a assinatura de notificações de email de alerta clássico
 
-Esta seção se aplica a **alertas clássicos**de disponibilidade, **alertas métricos clássicos do Application Insights**e a **alertas clássicos de anomalias de falha.**
+Esta seção se aplica a **alertas de disponibilidade clássicos**, **alertas de métrica de Application insights clássica**e a **alertas de anomalias de falha clássica**.
 
-Você está recebendo notificações de e-mail para esses alertas clássicos se algum dos seguintes se aplica:
+Você receberá notificações por email para esses alertas clássicos se uma das seguintes opções for aplicável:
 
-* Seu endereço de e-mail está listado no campo 'Destinatários de e-mails' nas configurações de regra de alerta.
+* Seu endereço de email está listado no campo destinatários do email de notificação nas configurações da regra de alerta.
 
-* A opção de enviar notificações de e-mail aos usuários que ocupam determinadas funções para a assinatura é ativada, e você mantém uma respectiva função para essa assinatura específica do Azure.
+* A opção de enviar notificações por email a usuários que mantêm determinadas funções para a assinatura é ativada e você mantém uma função respectiva para essa assinatura específica do Azure.
 
 ![Captura de tela de notificação de alerta](./media/alerts/alert-notification.png)
 
-Para controlar melhor sua segurança e privacidade, geralmente recomendamos que você especifique explicitamente os destinatários de notificação para seus alertas clássicos no campo **Destinatários de e-mail de Notificação.** A opção de notificar todos os usuários que detêm determinadas funções é fornecida para compatibilidade retrógrada.
+Para controlar melhor sua segurança e privacidade, geralmente é recomendável especificar explicitamente os destinatários da notificação para seus alertas clássicos no campo **destinatários do email de notificação** . A opção de notificar todos os usuários que contêm determinadas funções é fornecida para compatibilidade com versões anteriores.
 
-Para cancelar a inscrição das notificações de e-mail geradas por uma determinada regra de alerta, remova seu endereço de e-mail do campo **Destinatários de e-mail de Notificação.**
+Para cancelar a assinatura de notificações por email geradas por uma determinada regra de alerta, remova seu endereço de email do campo **destinatários do email de notificação** .
 
-Se o seu endereço de e-mail não estiver listado explicitamente, recomendamos que você desative a opção de notificar todos os membros de determinadas funções automaticamente e, em vez disso, liste todos os e-mails do usuário que precisam receber notificações para essa regra de alerta no e-mail de notificação campo destinatários.
+Se seu endereço de email não estiver listado explicitamente, recomendamos desabilitar a opção para notificar todos os membros de determinadas funções automaticamente e, em vez disso, listar todos os emails do usuário que precisam receber notificações para essa regra de alerta no campo destinatários do email de notificação.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para entender mais sobre a diferença entre [os alertas clássicos](../platform/alerts-classic.overview.md) e a experiência dos novos alertas, consulte o artigo de visão geral dos [alertas.](../platform/alerts-overview.md) Para controlar a notificação de alerta na experiência dos novos alertas, use [grupos de ação](../platform/action-groups.md).
+Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para entender mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, consulte o [artigo Visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
 
 * Recomendamos o uso de destinatários específicos para notificações de alertas clássicos.
 

@@ -1,6 +1,6 @@
 ---
-title: Faq do Azure Security Center - perguntas sobre máquinas virtuais
-description: Perguntas frequentes sobre máquinas virtuais no Azure Security Center, um produto que ajuda você a prevenir, detectar e responder a ameaças
+title: Perguntas frequentes sobre a central de segurança do Azure-perguntas sobre máquinas virtuais
+description: Perguntas frequentes sobre máquinas virtuais na central de segurança do Azure, um produto que ajuda você a prevenir, detectar e responder a ameaças
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80436002"
 ---
-# <a name="faq---questions-about-virtual-machines"></a>PERGUNTAS FREQUENTES - Perguntas sobre máquinas virtuais
+# <a name="faq---questions-about-virtual-machines"></a>Perguntas frequentes-perguntas sobre máquinas virtuais
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Quais tipos de máquinas virtuais têm suporte?
@@ -42,7 +42,7 @@ Esta mensagem aparece quando não há nenhum dado de verificação para uma VM. 
 
 ## <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Com que frequência a Central de Segurança examina vulnerabilidades do sistema operacional, atualizações do sistema e problemas de endpoint protection?
 
-Abaixo estão os tempos de latência para varreduras do Security Center de vulnerabilidades, atualizações e problemas:
+Abaixo estão os tempos de latência para verificações de vulnerabilidades, atualizações e problemas da central de segurança:
 
 - Configurações de segurança do sistema operacional – os dados são atualizados dentro de 48 horas
 - Atualizações do sistema – os dados são atualizados dentro de 24 horas
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para varreduras do Security Center de vulne
 A Central de segurança normalmente procura novos dados a cada hora e atualiza as recomendações de forma adequada. 
 
 > [!NOTE]
-> O Security Center usa o agente Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
+> A central de segurança usa o agente de Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"

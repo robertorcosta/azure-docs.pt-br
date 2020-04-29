@@ -1,6 +1,6 @@
 ---
 title: Firewall do SO Guest do Azure VM está bloqueando o tráfego de entrada | Microsoft Docs
-description: Saiba como corrigir o problema de conexão RDP (Remote Desktop Portal, portal de desktop remoto) que o firewall do sistema operacional convidado está bloqueando o tráfego de entrada.
+description: Saiba como corrigir o problema de conexão do portal de Área de Trabalho Remota (RDP) que o Firewall do sistema operacional convidado está bloqueando o tráfego de entrada.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 1b80fc997a4b3d2b472717b1ec2f379a4e958d8c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422551"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>O firewall do sistema operacional convidado do Azure VM está bloqueando o tráfego de entrada
@@ -53,7 +53,7 @@ Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-cons
 
 #### <a name="mitigation-1"></a>Mitigação 1
 
-1.  Se o Azure Agent estiver instalado e funcionando corretamente na VM, você poderá usar a opção "Somente redefinir configuração" em **Support + Troublessolução** > **Redefinir senha** no menu VM.
+1.  Se o agente do Azure estiver instalado e funcionando corretamente na VM, você poderá usar a opção "redefinir somente configuração" em **suporte + solução de problemas** > de**redefinição de senha** no menu da VM.
 
 2.  Executando a opção de recuperação faz o seguinte:
 
@@ -102,7 +102,7 @@ Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-cons
 
 #### <a name="mitigation-2"></a>Mitigação 2
 
-1.  Consulte os perfis de firewall para determinar se a diretiva de firewall de entrada está definida como *BlockInboundAlways*:
+1.  Consulte os perfis de firewall para determinar se a política de firewall de entrada está definida como *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-cons
     >    * *BlockInbound*: todo o tráfego de entrada será bloqueado, a menos que você tenha uma regra em vigor para permitir que o tráfego.
     >    * *BlockInboundAlways*: todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
 
-2.  Editar o *DefaultInboundAction* para definir esses perfis para **Permitir** o tráfego. Para fazer isso, execute o seguinte comando:
+2.  Edite o *DefaultInboundAction* para definir esses perfis para **permitir** o tráfego. Para fazer isso, execute o seguinte comando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -150,7 +150,7 @@ Veja [Como habilitar/desabilitar uma regra de Firewall em um SO convidado](enab
 
 2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
-3.  Depois que o disco do sistema estiver conectado à VM de recuperação, certifique-se de que o disco esteja sinalizado como **on-line** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
+3.  Depois que o disco do sistema for anexado à VM de recuperação, verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 
 4.  Abra uma instância CMD elevada e, em seguida, execute o seguinte script:
 

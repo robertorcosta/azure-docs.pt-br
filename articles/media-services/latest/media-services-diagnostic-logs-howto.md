@@ -1,6 +1,6 @@
 ---
-title: Monitore registros de diagnóstico do Media Services via Azure Monitor | Microsoft Docs
-description: Este artigo demonstra como roteirizar e visualizar registros de diagnóstico através do Azure Monitor.
+title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor | Microsoft Docs
+description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382912"
 ---
-# <a name="monitor-media-services-diagnostic-logs"></a>Monitore os registros de diagnóstico do Media Services
+# <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
-[O Azure Monitor](../../azure-monitor/overview.md) permite monitorar métricas e registros de diagnóstico que ajudam a entender como seus aplicativos estão se saindo. Para obter uma descrição detalhada deste recurso e para ver por que você gostaria de usar os registros de diagnóstico e métricas do Azure Media Services, consulte [métricas do Monitor Media Services e registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
+[Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Para obter uma descrição detalhada desse recurso e ver por que você desejaria usar os logs de diagnóstico e as métricas dos serviços de mídia do Azure, consulte [monitorar as métricas dos serviços de mídia e os logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-Este artigo mostra como direcionar dados para a conta de armazenamento e, em seguida, visualizar os dados.
+Este artigo mostra como rotear dados para a conta de armazenamento e exibir os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
-- Revise [as métricas do Monitor Media Services e os registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
+- Revise [monitorar métricas de serviços de mídia e logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-## <a name="route-data-to-the-storage-account-using-the-portal"></a>Direcionar dados para a conta de armazenamento usando o portal
+## <a name="route-data-to-the-storage-account-using-the-portal"></a>Rotear dados para a conta de armazenamento usando o portal
 
 1. Faça logon no Portal do Azure em https://portal.azure.com.
-1. Navegue até sua conta de Serviços de Mídia e clique em **Configurações de diagnóstico** em **Monitor**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor.
+1. Navegue até sua conta dos serviços de mídia no e clique em **configurações de diagnóstico** em **Monitor**. Veja aqui uma lista de todos os recursos em sua assinatura que produzem dados de monitoramento por meio do Azure Monitor.
 
     ![Seção Configurações de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
 
@@ -44,7 +44,7 @@ Este artigo mostra como direcionar dados para a conta de armazenamento e, em seg
 
 1. Na seção exibida, dê à configuração um **nome** e marque a caixa de **Arquivar em uma conta de armazenamento**.
 
-    Selecione a conta de armazenamento para a qual deseja enviar logs e pressione **OK**.
+    Selecione a conta de armazenamento para a qual você deseja enviar os logs e pressione **OK**.
 1. Marque todas as caixas em **Log** e **Métrica**. Dependendo do tipo de recurso, você poderá ter somente uma dessas opções. Essas caixas de seleção controlam quais categorias de dados de log e métrica disponíveis para o tipo de recurso são enviadas para o destino selecionado, nesse caso, uma conta de armazenamento.
 
    ![Seção Configurações de diagnóstico](media/media-services-diagnostic-logs/logs02.png)
@@ -53,9 +53,9 @@ Este artigo mostra como direcionar dados para a conta de armazenamento e, em seg
 
 Os dados de monitoramento de seu recurso agora estão fluindo para a conta de armazenamento.
 
-## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Direcionar dados para a conta de armazenamento usando o Azure CLI
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Rotear dados para a conta de armazenamento usando o CLI do Azure
 
-Para habilitar o armazenamento de logs de diagnóstico `az monitor diagnostic-settings` em uma conta de armazenamento, você executaria o seguinte comando Azure CLI:
+Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, execute o `az monitor diagnostic-settings` seguinte comando de CLI do Azure:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -83,7 +83,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="view-data-in-the-storage-account-using-the-portal"></a>Ver dados na conta de armazenamento usando o portal
+## <a name="view-data-in-the-storage-account-using-the-portal"></a>Exibir dados na conta de armazenamento usando o portal
 
 Se você seguiu as etapas anteriores, os dados começaram a fluir para sua conta de armazenamento.
 
@@ -91,14 +91,14 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 1. No portal, navegue para a seção **Contas de Armazenamento** localizando-a na barra de navegação à esquerda.
 1. Identifique a conta de armazenamento criada na seção anterior e clique nela.
-1. Clique em **Blobs**e, em seguida, no contêiner rotulado **insights-logs-keydeliveryrequests**. Este é o recipiente que tem seus registros nele. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
+1. Clique em **BLOBs**e, em seguida, no contêiner rotulado como **insights-logs-keydeliveryrequests**. Esse é o contêiner que tem seus logs. Os dados de monitoramento são divididos em contêineres por ID de recurso e, em seguida, por data e hora.
 1. Navegue para o arquivo PT1H.json clicando nos contêineres, em ID de recurso, data e hora. Clique no arquivo PT1H.json e clique em **Baixar**.
 
  Agora você pode exibir o evento do JSON armazenado na conta de armazenamento.
 
-### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H.json
+### <a name="examples-of-pt1hjson"></a>Exemplos de PT1H. JSON
 
-#### <a name="clear-key-delivery-log"></a>Limpar o registro de entrega da chave
+#### <a name="clear-key-delivery-log"></a>Limpar o log de distribuição de chaves
 
 ```json
 {
@@ -136,7 +136,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 }
 ```
 
-#### <a name="widevine-encrypted-key-delivery-log"></a>Registro de entrega de chaves criptografadas widevine
+#### <a name="widevine-encrypted-key-delivery-log"></a>Log de distribuição de chaves criptografadas Widevine
 
 ```json
 {
@@ -180,8 +180,8 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 ## <a name="see-also"></a>Confira também
 
-* [Métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md)
-* [Registros de diagnóstico do Monitor do Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
+* [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)
 * [Como coletar e consumir dados de log de seus recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas

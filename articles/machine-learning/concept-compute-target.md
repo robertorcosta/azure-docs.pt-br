@@ -1,7 +1,7 @@
 ---
-title: Quais são os alvos da computação
+title: O que são destinos de computação
 titleSuffix: Azure Machine Learning
-description: Defina onde você deseja treinar ou implantar seu modelo com o Azure Machine Learning.
+description: Defina onde você deseja treinar ou implantar seu modelo com Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,72 +10,72 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
 ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398174"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação no Azure Machine Learning? 
+#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
-Um **destino de computação** é um recurso/ambiente de computação designado onde você executa seu script de treinamento ou hospeda sua implantação de serviço. Este local pode ser sua máquina local ou um recurso de computação baseado em nuvem. O uso de metas computacionais facilita que você altere seu ambiente de computação sem ter que alterar seu código.  
+Um **destino de computação** é um ambiente/recurso de computação designado em que você executa o script de treinamento ou hospeda sua implantação de serviço. Esse local pode ser seu computador local ou um recurso de computação baseado em nuvem. O uso de destinos de computação facilita a alteração do ambiente de computação, sem a necessidade de alterar o código.  
 
-Em um ciclo de vida típico de desenvolvimento de modelo, você pode:
-1. Comece desenvolvendo e experimentando uma pequena quantidade de dados. Nesta fase, recomendamos seu ambiente local (computador local ou VM baseado em nuvem) como seu alvo de computação. 
-2. Dimensione até dados maiores ou faça treinamento distribuído usando um desses alvos de [computação](#train)de treinamento .  
-3. Uma vez que seu modelo esteja pronto, implante-o em um ambiente de hospedagem web ou dispositivo IoT com um desses alvos de [computação](#deploy)de implantação .
+Em um ciclo de vida típico de desenvolvimento de modelos, você pode:
+1. Comece desenvolvendo e experimentando uma pequena quantidade de dados. Neste estágio, recomendamos seu ambiente local (computador local ou VM baseada em nuvem) como seu destino de computação. 
+2. Escale verticalmente para dados maiores ou faça treinamentos distribuídos usando um desses [destinos de computação de treinamento](#train).  
+3. Quando o modelo estiver pronto, implante-o em um ambiente de hospedagem da Web ou dispositivo IoT com um desses [destinos de computação de implantação](#deploy).
 
-Os recursos de computação que você usa para seus alvos de computação são anexados a um [espaço de trabalho](concept-workspace.md). Os recursos de cálculo que não sejam a máquina local são compartilhados pelos usuários do espaço de trabalho.
+Os recursos de computação que você usa para seus destinos de computação são anexados a um [espaço de trabalho](concept-workspace.md). Recursos de computação diferentes do computador local são compartilhados por usuários do espaço de trabalho.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Metas de computação de treinamento
+## <a name="training-compute-targets"></a><a name="train"></a>Treinamento de destinos de computação
 
-O Azure Machine Learning tem suporte variável em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
+Azure Machine Learning tem suporte variado em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Saiba mais sobre [como configurar e usar um alvo de computação para treinamento de modelos.](how-to-set-up-training-targets.md)
+Saiba mais sobre como [configurar e usar um destino de computação para treinamento de modelo](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Destino de implantação
 
-Os seguintes recursos de computação podem ser usados para hospedar a implantação do seu modelo.
+Os recursos de computação a seguir podem ser usados para hospedar sua implantação de modelo.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
-Saiba [onde e como implantar seu modelo em um alvo de computação](how-to-deploy-and-where.md).
+Saiba [onde e como implantar seu modelo em um destino de computação](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
-## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning compute (gerenciado)
+## <a name="azure-machine-learning-compute-managed"></a>Computação Azure Machine Learning (gerenciada)
 
-Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Este cálculo é otimizado para cargas de trabalho de aprendizado de máquina. Os clusters de computação do Azure Machine Learning e as [instâncias computacionais](concept-compute-instance.md) são os únicos cálculos gerenciados. Recursos adicionais de computação gerenciada podem ser adicionados no futuro.
+Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação e [instâncias de computação](concept-compute-instance.md) são as únicas computações gerenciadas. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
 
-Você pode criar instâncias de cálculo do Azure Machine Learning (visualização) ou clusters de computação a partir de:
+Você pode criar Azure Machine Learning instâncias de computação (versão prévia) ou clusters de computação de:
 * Azure Machine Learning Studio
 * Portal do Azure
-* Aulas de Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) do SDK do Python
 * [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
 * Modelo do Resource Manager
 
-Você também pode criar clusters de computação usando a [extensão de aprendizado de máquina para o Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+Você também pode criar clusters de computação usando a [extensão do Machine Learning para o CLI do Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de metas de computação.
+Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 ### <a name="compute-clusters"></a>Clusters de cálculo
 
-Você pode usar clusters de computação de aprendizado de máquina do Azure para treinamento e para inferência em lote (visualização).  Com este recurso de computação, você tem:
+Você pode usar Azure Machine Learning clusters de computação para treinamento e inferência do lote (versão prévia).  Com esse recurso de computação, você tem:
 
-* Cluster de um ou vários nós
-* Escalas automáticas cada vez que você envia uma execução 
-* Gerenciamento automático de clusters e agendamento de empregos 
+* Cluster único ou com vários nós
+* Dimensionamento a cada vez que você envia uma execução 
+* Gerenciamento automático de clusters e agendamento de trabalhos 
 * Suporte para recursos de CPU e GPU
 
 
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 
-Um alvo de computação não gerenciado *não* é gerenciado pelo Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Os recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou melhorar o desempenho para cargas de trabalho de aprendizado de máquina.
+Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machine Learning. Você cria esse tipo de destino de computação fora do Azure Machine Learning e, em seguida, anexa-o ao seu espaço de trabalho. Recursos de computação não gerenciados podem exigir etapas adicionais para você manter ou para melhorar o desempenho de cargas de trabalho de aprendizado de máquina.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como:
-* [Configure um alvo de computação para treinar seu modelo](how-to-set-up-training-targets.md)
-* [Implante seu modelo para um alvo de computação](how-to-deploy-and-where.md)
+* [Configurar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)
+* [Implantar seu modelo em um destino de computação](how-to-deploy-and-where.md)

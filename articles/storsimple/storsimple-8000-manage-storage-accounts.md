@@ -1,5 +1,5 @@
 ---
-title: Gerenciar credenciais de conta de armazenamento, dispositivo da série StorSimple 8000
+title: Gerenciar credenciais de conta de armazenamento, dispositivo StorSimple da série 8000
 description: Explica como você pode usar a página Configurar o Gerenciador de Dispositivos do StorSimple para adicionar, editar, excluir ou girar as chaves de segurança para uma conta de armazenamento.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80297737"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
@@ -40,7 +40,7 @@ As contas de armazenamento contém as credenciais que o dispositivo StorSimple u
 Na folha **Credenciais da conta de armazenamento**, todas as contas de armazenamento criadas para a assinatura de cobrança são exibidas em formato tabular contendo as seguintes informações:
 
 * **Nome** – O nome exclusivo atribuído à conta quando ela foi criada.
-* **SSL ativado** – Se o TLS está ativado e a comunicação dispositivo-nuvem está sobre o canal seguro.
+* **SSL habilitado** – se o TLS está habilitado e se a comunicação do dispositivo para a nuvem está sobre o canal seguro.
 * **Usado por** – O número de volumes usando a conta de armazenamento.
 
 As tarefas mais comuns relacionadas a contas de armazenamento que podem ser executadas são:
@@ -60,7 +60,7 @@ Há três tipos de contas de armazenamento que podem ser usadas com o dispositiv
 
 ## <a name="add-a-storage-account"></a>Adicionar uma conta de armazenamento
 
-Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo TLS (Transport Layer Security, segurança de camada de transporte), anteriormente conhecido como modo Secure Sockets Layer (SSL), para criar um canal seguro para comunicação de rede entre seu dispositivo e a nuvem.
+Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo TLS, anteriormente conhecido como modo protocolo SSL (SSL), para criar um canal seguro para comunicação de rede entre o dispositivo e a nuvem.
 
 Você pode criar várias contas para um provedor de serviços de nuvem específico. Lembre-se, no entanto, que após a criação de uma conta de armazenamento, você não pode alterar o provedor de serviços de nuvem.
 
@@ -86,7 +86,7 @@ Use os procedimentos a seguir para adicionar as credenciais de conta de armazena
    
     3. Na caixa de texto **Chave de acesso da conta de armazenamento**, forneça a chave de acesso primária para suas credenciais de conta de armazenamento do Azure. Para obter essa chave, vá para o serviço de Armazenamento do Azure, escolha sua credencial de conta de armazenamento e clique em **Gerenciar chaves de conta**. Agora você pode copiar a chave de acesso primária.
    
-    4. Para habilitar o TLS, clique no botão **Habilitar** para criar um canal seguro para comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
+    4. Para habilitar o TLS, clique no botão **habilitar** para criar um canal seguro para comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
    
     5. Clique em **Adicionar**. Você será notificado depois que a credencial de conta de armazenamento tiver sido criada com êxito.
 

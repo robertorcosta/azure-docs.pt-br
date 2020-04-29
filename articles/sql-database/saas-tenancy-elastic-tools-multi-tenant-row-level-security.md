@@ -1,5 +1,5 @@
 ---
-title: Aplicativos multi-inquilinos com RLS e ferramentas de banco de dados elásticos
+title: Aplicativos multilocatários com RLS e ferramentas de banco de dados elástico
 description: Use ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398337"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
@@ -56,7 +56,7 @@ Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmen
 1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira.
 2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de aplicação: Definir\_TenantId no CONTEXTO da SESSÃO
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. camada de aplicativo: definir Tenantid no contexto\_da sessão
 
 Primeiro, você se conecta a um banco de dados do fragmento usando as APIs de roteamentos dependentes de dados da biblioteca de cliente do banco de dados elástico. O aplicativo ainda deve informar ao banco de dados qual TenantId está usando a conexão. O TenantId informa à política de segurança de RLS quais linhas devem ser filtradas como pertencentes a outros locatários. Armazene o TenantId atual no [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da conexão.
 
@@ -212,7 +212,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Nível de dados: Crie uma política de segurança em nível de linha
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. camada de dados: criar política de segurança em nível de linha
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que cada locatário pode acessar
 
@@ -338,7 +338,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Manutenção 
+### <a name="maintenance"></a>Manutenção
 
 - **Adicionando novos fragmentos**: execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
 - **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
@@ -351,7 +351,7 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 
 - [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
-- [Padrões de design para aplicativos SaaS de vários locatários com banco de dados SQL do Azure](saas-tenancy-app-design-patterns.md)
+- [Padrões de design para aplicativos SaaS multilocatário com o banco de dados SQL do Azure](saas-tenancy-app-design-patterns.md)
 - [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 

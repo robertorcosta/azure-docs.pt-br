@@ -1,5 +1,5 @@
 ---
-title: Crie uma regra de autorização de ônibus de serviço usando um modelo Azure
+title: Criar uma regra de autorização do barramento de serviço usando um modelo do Azure
 description: Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,29 +15,29 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384918"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria uma [regra de autorização](service-bus-authentication-and-authorization.md#shared-access-signature) para um namespace e uma fila do Barramento de Serviço. O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [os modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para obter mais informações sobre como criar modelos, consulte [criação de modelos de Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barramento de Serviço][Service Bus auth rule template] no GitHub.
 
 > [!NOTE]
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 > 
-> * [Criar um espaço de nome de ônibus de serviço](service-bus-resource-manager-namespace.md)
+> * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Azure Quickstart Templates][Azure Quickstart Templates] e procure **por Service Bus**.
+> Para verificar os modelos mais recentes, visite a Galeria de [modelos de início rápido do Azure][Azure Quickstart Templates] e pesquise por **barramento de serviço**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barr
 
 Com esse modelo, você implantará uma regra de autorização do Barramento de Serviço para um namespace e uma entidade de sistema de mensagens (nesse caso, uma fila).
 
-Este modelo usa [sas (SAS) de assinatura de acesso compartilhado](service-bus-sas.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma chave de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
+Este modelo usa [SAS (assinatura de acesso compartilhado)](service-bus-sas.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma chave de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 

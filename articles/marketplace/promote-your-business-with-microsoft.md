@@ -1,5 +1,5 @@
 ---
-title: Promova seu negócio com a Microsoft | Mercado Azure
+title: Promova seus negócios com a Microsoft | Azure Marketplace
 description: Promova seus negócios com o Azure Marketplace e o AppSource para editores de aplicativo e serviço
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 63708f426ced01fc7b837cc7c82ef178e4e78f95
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387743"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover seus negócios com a Microsoft 
@@ -19,7 +19,7 @@ ms.locfileid: "80387743"
 A meta da Microsoft é apoiar parceiros (você) e simplificar a venda do seu aplicativo ou oferta nas vitrines do marketplace. Ao ingressar no marketplace, você tem acesso a programas e recursos. 
 
 Se você ainda não se inscreveu no MPN (Microsoft Partner Network), faça isso antes de continuar.  
-*   Para obter mais informações sobre o MPN, visite a página da Microsoft Partner Network localizada em [partner.microsoft.com](https://partner.microsoft.com).  
+*   Para obter mais informações sobre MPN, visite a página Microsoft Partner Network localizada em [Partner.Microsoft.com](https://partner.microsoft.com).  
 
 O MPN conta com diretrizes sobre os seguintes tópicos.  
 *   Novas oportunidades de negócios  

@@ -1,6 +1,6 @@
 ---
-title: Transição para OpenVPN ou IKEv2 da SSTP | Azure VPN Gateway
-description: Este artigo ajuda você a entender as maneiras de superar o limite de conexão simultânea de 128 simultâneos do SSTP.
+title: Transição para OpenVPN ou IKEv2 do SSTP | Gateway de VPN do Azure
+description: Este artigo ajuda você a entender as maneiras de superar o limite de conexões simultâneas de 128 do SSTP.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,59 +8,59 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: alzam
 ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80398376"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para o protocolo OpenVPN ou IKEv2 do SSTP
 
-Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Este artigo se aplica ao modelo de implantação do Resource Manager e fala sobre maneiras de superar o limite de conexão simultânea de 128 simultâneos do SSTP, passando para o protocolo OpenVPN ou IKEv2.
+Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. Uma conexão P2S é estabelecida iniciando-a do computador cliente. Este artigo se aplica ao modelo de implantação do Gerenciador de recursos e fala sobre maneiras de superar o limite de conexões simultâneas de 128 do SSTP fazendo a transição para o protocolo OpenVPN ou IKEv2.
 
 ## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>Qual protocolo o P2S usa?
 
 VPN Ponto a Site pode usar um dos seguintes protocolos:
 
-* **Protocolo&reg; OpenVPN**, um protocolo VPN baseado em SSL/TLS. Uma solução SSL VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o SSL usa. O OpenVPN pode ser usado para se conectar a partir de dispositivos Android, iOS (versões 11.0 ou superior), Windows, Linux e Mac (versões OSX 10.13 ou superior).
+* **Protocolo&reg; OpenVPN**, um protocolo VPN baseado em SSL/TLS. Uma solução de VPN SSL pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP 443 de saída, que o SSL usa. O OpenVPN pode ser usado para se conectar do Android, iOS (versões 11,0 e superiores), Windows, Linux e dispositivos Mac (OSX versões 10,13 e posteriores).
 
-* **Secure Socket Tunneling Protocol (SSTP)**, um protocolo VPN proprietário baseado em SSL. Uma solução SSL VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o SSL usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior). **O SSTP suporta até 128 conexões simultâneas apenas independentemente do Gateway SKU**.
+* **SSTP**, um protocolo de VPN com base em SSL proprietário. Uma solução de VPN SSL pode penetrar em firewalls, pois a maioria dos firewalls abre a porta TCP 443 de saída, que o SSL usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior). **O SSTP dá suporte a até 128 conexões simultâneas apenas independentemente da SKU do gateway**.
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima).
 
 
 >[!NOTE]
->O IKEv2 e o OpenVPN para P2S estão disponíveis somente para o modelo de implantação do Resource Manager. Eles não estão disponíveis para o modelo de implantação clássico. O Gateway Básico SKU não suporta protocolos IKEv2 ou OpenVPN. Se você estiver usando o SKU básico, você terá que excluir e recriar um Gateway de Rede Virtual SKU de produção.
+>O IKEv2 e o OpenVPN para P2S estão disponíveis somente para o modelo de implantação do Resource Manager. Eles não estão disponíveis para o modelo de implantação clássico. O SKU do gateway básico não dá suporte a protocolos IKEv2 ou OpenVPN. Se você estiver usando o SKU básico, precisará excluir e recriar um gateway de rede virtual SKU de produção.
 >
 
-## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>Migração de SSTP para IKEv2 ou OpenVPN
+## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>Migrando do SSTP para IKEv2 ou OpenVPN
 
-Pode haver casos em que você deseja suportar mais de 128 conexões P2S simultâneas a um gateway VPN, mas estão usando SSTP. Nesse caso, você precisa mudar para o protocolo IKEv2 ou OpenVPN.
+Pode haver casos em que você deseja dar suporte a mais de 128 conexão P2S simultânea com um gateway de VPN, mas que estão usando SSTP. Nesse caso, você precisa mover para o protocolo IKEv2 ou OpenVPN.
 
-### <a name="option-1---add-ikev2-in-addition-to-sstp-on-the-gateway"></a>Opção 1 - Adicionar IKEv2 além do SSTP no Gateway
+### <a name="option-1---add-ikev2-in-addition-to-sstp-on-the-gateway"></a>Opção 1-adicionar IKEv2 além do SSTP no gateway
 
-Esta é a opção mais simples. SSTP e IKEv2 podem coexistir no mesmo gateway e dar-lhe um maior número de conexões simultâneas. Você pode simplesmente ativar o IKEv2 no gateway existente e rebaixar o cliente.
+Essa é a opção mais simples. SSTP e IKEv2 podem coexistir no mesmo gateway e fornecer um número maior de conexões simultâneas. Você pode simplesmente habilitar o IKEv2 no gateway existente e baixar o cliente novamente.
 
-Adicionar ikev2 a um gateway SSTP VPN existente não afetará os clientes existentes e você pode configurá-los para usar ikev2 em pequenos lotes ou apenas configurar os novos clientes para usar o IKEv2. Se um cliente Windows estiver configurado para SSTP e IKEv2, ele tentará se conectar usando iKEV2 primeiro e se isso falhar, ele voltará ao SSTP.
+Adicionar IKEv2 a um gateway de VPN SSTP existente não afetará os clientes existentes e você poderá configurá-los para usar IKEv2 em pequenos lotes ou apenas configurar os novos clientes para usar IKEv2. Se um cliente do Windows estiver configurado para SSTP e IKEv2, ele tentará se conectar usando IKEV2 primeiro e, se isso falhar, ele retornará ao SSTP.
 
-**O IKEv2 usa portas UDP não padrão, então você precisa garantir que essas portas não estejam bloqueadas no firewall do usuário. As portas em uso são UDP 500 e 4500.**
+**O IKEv2 usa portas UDP não padrão para que você precise garantir que essas portas não sejam bloqueadas no firewall do usuário. As portas em uso são UDP 500 e 4500.**
 
-Para adicionar ikev2 a um gateway existente, basta ir para a guia "configuração ponto a local" no portal Virtual Network Gateway e selecionar **IKEv2 e SSTP (SSL)** na caixa de baixa.
+Para adicionar o IKEv2 a um gateway existente, basta ir para a guia "configuração de ponto a site" no gateway de rede virtual no portal e selecionar **IKEv2 e SSTP (SSL)** na caixa suspensa.
 
-![ponto a ponto](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![ponto a site](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
-### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Opção 2 - Remover SSTP e ativar OpenVPN no Gateway
+### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Opção 2-remover SSTP e habilitar OpenVPN no gateway
 
-Como o SSTP e o OpenVPN são protocolos baseados em TLS, eles não podem coexistir no mesmo gateway. Se você decidir se afastar do SSTP para o OpenVPN, você terá que desativar o SSTP e ativar o OpenVPN no gateway. Essa operação fará com que os clientes existentes percam a conectividade com o gateway VPN até que o novo perfil seja configurado no cliente.
+Como o SSTP e o OpenVPN são do protocolo baseado em TLS, eles não podem coexistir no mesmo gateway. Se você decidir sair do SSTP para o OpenVPN, terá que desabilitar o SSTP e habilitar o OpenVPN no gateway. Esta operação fará com que os clientes existentes percam a conectividade com o gateway de VPN até que o novo perfil tenha sido configurado no cliente.
 
-Você pode ativar o OpenVPN junto com o IKEv2, se desejar. O OpenVPN é baseado em TLS e usa a porta TCP 443 padrão. Para mudar para OpenVPN, vá para a guia "configuração ponto a local" no portal Virtual Network Gateway e selecione **OpenVPN (SSL)** ou **IKEv2 e OpenVPN (SSL)** a partir da caixa de baixa.
+Você pode habilitar OpenVPN junto com IKEv2, se desejar. O OpenVPN é baseado em TLS e usa a porta TCP 443 padrão. Para alternar para OpenVPN, vá para a guia "configuração de ponto a site" no gateway de rede virtual no portal e selecione **OpenVPN (SSL)** ou **IKEv2 e OpenVPN (SSL)** na caixa suspensa.
 
-![ponto a ponto](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
+![ponto a site](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Uma vez configurado o gateway, os clientes existentes não poderão se conectar até que você [implante e configure os Clientes OpenVPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Depois que o gateway tiver sido configurado, os clientes existentes não poderão se conectar até que você [implante e configure os clientes do OpenVPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
 
-Se você estiver usando o Windows 10, você também pode usar o [Cliente Azure VPN para Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Se você estiver usando o Windows 10, também poderá usar o [cliente VPN do Azure para Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -81,7 +81,7 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>Qual gateway as SKUs suportam o P2S VPN?
+### <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>Quais SKUs de gateway dão suporte à VPN P2S?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -91,12 +91,12 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 >A SKU Básica não dá suporte à autenticação IKEv2 ou RADIUS.
 >
 
-### <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>Quais políticas IKE/IPsec estão configuradas em gateways VPN para P2S?
+### <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>Quais políticas de IKE/IPsec são configuradas em gateways de VPN para P2S?
 
 
-**IKEv2**
+**Conexões**
 
-|**Codificação** | **Integridade** | **Prf** | **Grupo DH** |
+|**Codificação** | **Integridade** | **PRF** | **Grupo DH** |
 |---        | ---            | ---        | ---     |
 |GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_24 |
 |GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_14 |
@@ -116,7 +116,7 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 |AES256     |   SHA256        | SHA256    | GROUP_ECP256 |
 |AES256     |   SHA256        | SHA256    | GROUP_2 |
 
-**Ipsec**
+**IPsec**
 
 |**Codificação** | **Integridade** | **Grupo PFS** |
 |---        | ---            | ---        |
@@ -132,7 +132,7 @@ O arquivo zip também fornece os valores de algumas das configurações importan
 | AES256    | SHA256 | GROUP_ECP256 |
 | AES256    | SHA1 | GROUP_NONE |
 
-### <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Quais políticas TLS estão configuradas em gateways VPN para P2S?
+### <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>Quais políticas de TLS são configuradas em gateways de VPN para P2S?
 **TLS**
 
 |**Políticas** |

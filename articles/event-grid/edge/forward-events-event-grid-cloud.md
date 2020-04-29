@@ -1,6 +1,6 @@
 ---
-title: Eventos de borda dianteira para a nuvem event grid - Azure Event Grid IoT Edge | Microsoft Docs
-description: Eventos de borda avançada para a nuvem event grid
+title: Encaminhar eventos de borda para a grade de eventos Cloud-grade de eventos do Azure IoT Edge | Microsoft Docs
+description: Encaminhar eventos de borda para a nuvem da grade de eventos
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,41 +10,41 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844710"
 ---
-# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: Encaminhe eventos para a nuvem da Event Grid
+# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
 
-Este artigo percorre todos os passos necessários para encaminhar eventos de borda para event grid na nuvem DoZure. Você pode querer fazê-lo pelas seguintes razões:
+Este artigo percorre todas as etapas necessárias para encaminhar eventos de borda para a grade de eventos na nuvem do Azure. Você pode desejar fazer isso pelos seguintes motivos:
 
-* Reaja aos eventos de borda na nuvem.
-* Encaminhe eventos para event grid na nuvem e use hubs de eventos do Azure ou filas de armazenamento Do Zure para buffer de eventos antes de processá-los na nuvem.
+* Reagir a eventos de borda na nuvem.
+* Encaminhar eventos para a grade de eventos na nuvem e use os hubs de eventos do Azure ou filas de armazenamento do Azure para eventos de buffer antes de processá-los na nuvem.
 
- Para completar este tutorial, você precisa ter uma compreensão dos conceitos da Event Grid no [edge](concepts.md) e [do Azure](../concepts.md). Para tipos adicionais de destino, consulte [manipuladores de eventos](event-handlers.md). 
+ Para concluir este tutorial, você precisa compreender os conceitos da grade de eventos no [Edge](concepts.md) e no [Azure](../concepts.md). Para obter tipos de destino adicionais, consulte [manipuladores de eventos](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Para completar este tutorial, você precisará:
+Para concluir este tutorial, você precisará de:
 
-* **Assinatura do Azure** - Crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
-* **Dispositivo Azure IoT Hub e IoT Edge** - Siga os passos no início rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) se você ainda não tiver um.
+* **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
+* **Hub IOT do Azure e IOT Edge dispositivo** -siga as etapas no início rápido para dispositivos [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) se você ainda não tiver um.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
-## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Crie tópico e assinatura da grade de eventos em nuvem
+## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Criar tópico e assinatura da grade de eventos na nuvem
 
-Crie um tópico de grade de eventos e assinatura na nuvem seguindo [este tutorial](../custom-event-quickstart-portal.md). Anote `topicURL` `sasKey`para `topicName` baixo , e do tópico recém-criado que você usará mais tarde no tutorial.
+Crie um tópico e uma assinatura da grade de eventos na nuvem seguindo [este tutorial](../custom-event-quickstart-portal.md). Anote `topicURL`, `sasKey`e `topicName` do tópico recém-criado que você usará posteriormente no tutorial.
 
-Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos EUA, os valores se pareceriam com:
+Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos EUA, os valores teriam uma aparência semelhante a:
 
 * **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **TópicoNome**:`testegcloudtopic`
-* **SasKey**: Disponível em **AccessKey** do seu tópico. Use **a chave1**.
+* **Topicname**:`testegcloudtopic`
+* **SasKey**: disponível em **accessKey** do seu tópico. Use **key1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Criar tópico de grade de eventos na borda
 
-1. Crie topic3.json com o seguinte conteúdo. Consulte nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
+1. Crie topic3. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
     ```json
         {
@@ -54,12 +54,12 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
           }
         }
     ```
-1. Execute o seguinte comando para criar o tópico. HTTP Status Code of 200 OK deve ser devolvido.
+1. Execute o comando a seguir para criar o tópico. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
-1. Execute o seguinte comando para verificar se o tópico foi criado com sucesso. HTTP Status Code of 200 OK deve ser devolvido.
+1. Execute o comando a seguir para verificar se o tópico foi criado com êxito. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
@@ -81,11 +81,11 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
         ]
    ```
   
-## <a name="create-event-grid-subscription-at-the-edge"></a>Criar assinatura do Event Grid no limite
+## <a name="create-event-grid-subscription-at-the-edge"></a>Criar assinatura de grade de eventos na borda
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Crie a subscription3.json com o seguinte conteúdo. Consulte nossa [documentação da API](api.md) para obter detalhes sobre a carga útil.
+1. Crie subscription3. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
    ```json
         {
@@ -103,7 +103,7 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
    ```
 
    >[!NOTE]
-   > O **endpointUrl** especifica que a URL do tópico Event Grid na nuvem. O **sasKey** refere-se à chave do tópico de nuvem event grid. O valor no **topicName** será usado para carimbar todos os eventos de saída para Event Grid. Isso pode ser útil ao postar em um tópico de domínio da Event Grid. Para obter mais informações sobre o tópico de domínio event grid, consulte [domínios de eventos](../event-domains.md)
+   > O **endpointUrl** especifica que a URL do tópico da grade de eventos na nuvem. O **sasKey** refere-se à chave do tópico da nuvem de grade de eventos. O valor em **topicname** será usado para carimbar todos os eventos de saída para a grade de eventos. Isso pode ser útil ao postar em um tópico de domínio da grade de eventos. Para obter mais informações sobre o tópico de domínio da grade de eventos, consulte [domínios de evento](../event-domains.md)
 
     Por exemplo,
   
@@ -122,13 +122,13 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
         }
     ```
 
-2. Execute o seguinte comando para criar a assinatura. HTTP Status Code of 200 OK deve ser devolvido.
+2. Execute o comando a seguir para criar a assinatura. O código de status HTTP de 200 OK deve ser retornado.
 
      ```sh
      curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
      ```
 
-3. Execute o seguinte comando para verificar se a assinatura foi criada com sucesso. HTTP Status Code of 200 OK deve ser devolvido.
+3. Execute o comando a seguir para verificar se a assinatura foi criada com êxito. O código de status HTTP de 200 OK deve ser retornado.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
@@ -155,9 +155,9 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
         }
     ```
 
-## <a name="publish-an-event-at-the-edge"></a>Publique um evento na borda
+## <a name="publish-an-event-at-the-edge"></a>Publicar um evento na borda
 
-1. Crie event3.json com o seguinte conteúdo. Consulte [a documentação da API](api.md) para obter detalhes sobre a carga útil.
+1. Crie event3. JSON com o conteúdo a seguir. Consulte a [documentação da API](api.md) para obter detalhes sobre a carga.
 
     ```json
         [
@@ -175,7 +175,7 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
         ]
     ```
 
-1. Execute o comando a seguir:
+1. Execute o seguinte comando:
 
     ```sh
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview
@@ -183,7 +183,7 @@ Por exemplo, se você criou `testegcloudtopic` um tópico chamado no Oeste dos E
 
 ## <a name="verify-edge-event-in-cloud"></a>Verificar evento de borda na nuvem
 
-Para obter informações sobre como visualizar eventos entregues pelo tópico da nuvem, consulte o [tutorial](../custom-event-quickstart-portal.md).
+Para obter informações sobre como exibir eventos entregues pelo tópico de nuvem, consulte o [tutorial](../custom-event-quickstart-portal.md).
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
 
@@ -193,13 +193,13 @@ Para obter informações sobre como visualizar eventos entregues pelo tópico da
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-* Exclua tópicos e assinaturas criados na nuvem (Azure Event Grid) também.
+* Exclua o tópico e as assinaturas criadas na nuvem (a grade de eventos do Azure) também.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você publicou um evento na borda e encaminhou para event grid na nuvem Do Zure. Agora que você sabe os passos básicos para avançar para event grid na nuvem:
+Neste tutorial, você publicou um evento na borda e encaminhado para a grade de eventos na nuvem do Azure. Agora que você conhece as etapas básicas para encaminhar para a grade de eventos na nuvem:
 
-* Para solucionar problemas com o uso do Azure Event Grid no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
-* Encaminhe eventos para o IoTHub seguindo este [tutorial](forward-events-iothub.md)
-* Encaminhe eventos para webhook na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
-* [Monitore tópicos e assinaturas no limite](monitor-topics-subscriptions.md)
+* Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
+* Encaminhar eventos para IoTHub seguindo este [tutorial](forward-events-iothub.md)
+* Encaminhar eventos para webhook na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
+* [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)

@@ -1,20 +1,20 @@
 ---
-title: Ofertas de conformidade do Azure Backup
-description: Resumo das ofertas de conformidade para o Azure Backup
+title: Ofertas de conformidade do backup do Azure
+description: Resumo das ofertas de conformidade para o backup do Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: da25c6b9b8206ebd2e7ca1a3d90ec88a6efe04b8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80423113"
 ---
-# <a name="azure-backup-compliance-offerings"></a>Ofertas de conformidade do Azure Backup
+# <a name="azure-backup-compliance-offerings"></a>Ofertas de conformidade do backup do Azure
 
-Para ajudar as organizações a cumprir os requisitos nacionais, regionais e específicos do setor que regem a coleta e o uso de dados individuais, o Microsoft Azure & o Azure Backup oferecem um conjunto abrangente de certificações e atestados.
+Para ajudar as organizações a cumprirem os requisitos nacionais, regionais e específicos do setor que regem a coleta e o uso de dados de indivíduos, Microsoft Azure & o backup do Azure oferece um conjunto abrangente de certificações e atestado.
 
-Você pode encontrar abaixo ofertas de conformidade para o Azure Backup para garantir que seu serviço seja regulamentado ao usar o serviço de backup do Azure.
+Você pode encontrar as ofertas de conformidade abaixo para o backup do Azure para garantir que seu serviço seja regulamentado ao usar o serviço de backup do Azure.
 
 ## <a name="global"></a>Global
 
@@ -27,7 +27,7 @@ Você pode encontrar abaixo ofertas de conformidade para o Azure Backup para gar
 * [ISO 27017](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018)
 * [ISO 9001](https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001)
-* [SOC 1,2,3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
+* [SOC 1, 2, 3](https://docs.microsoft.com/microsoft-365/compliance/offering-soc)
 
 ## <a name="us-government"></a>Governo dos EUA
 
@@ -48,4 +48,4 @@ Você pode encontrar abaixo ofertas de conformidade para o Azure Backup para gar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Encontre as últimas coberturas e detalhes sobre conformidade no [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+Encontre a cobertura mais recente e detalhes sobre a conformidade no [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).

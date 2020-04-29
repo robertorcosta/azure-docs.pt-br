@@ -1,5 +1,5 @@
 ---
-title: Nuvens e regiões nas quais o Azure Media Services v3 está disponível
+title: Nuvens e regiões nas quais os serviços de mídia do Azure v3 estão disponíveis
 description: Este artigo discute as nuvens e regiões do Azure em que os Serviços de Mídia do Azure v3 estão disponíveis.
 services: media-services
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382963"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
@@ -35,7 +35,7 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
-[Regiões em que o serviço de mídia do Azure é implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Regiões nas quais o serviço dos serviços de mídia do Azure está implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nome do código da região
 
@@ -98,7 +98,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ## <a name="see-also"></a>Confira também
 
-* [Regiões azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

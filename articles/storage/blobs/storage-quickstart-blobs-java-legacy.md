@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Biblioteca cliente de armazenamento Azure Blob v8 para Java'
-description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca de clientes do Azure Storage v8 para Java para carregar uma bolha no Azure Storage, baixar uma bolha e listar as bolhas em um contêiner.
+title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V8 para Java'
+description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca de cliente de armazenamento do Azure V8 para Java para carregar um blob no armazenamento do Azure, baixar um blob e listar os BLOBs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/24/2020
@@ -8,35 +8,35 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80473994"
 ---
-# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Quickstart: Gerenciar bolhas com Java v8 SDK
+# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início rápido: gerenciar BLOBs com o SDK do Java V8
 
-Neste início rápido, você aprenderá a gerenciar blobs usando o Java. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você vai carregar, baixar e listar bolhas. Você também criará, definirá permissões e excluirá contêineres.
+Neste início rápido, você aprenderá a gerenciar blobs usando o Java. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará e listará os BLOBs. Você também criará, definirá permissões em e excluirá contêineres.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Uma conta de armazenamento do Azure. [Crie uma conta de armazenamento](../common/storage-account-create.md).
-- Um IDE que tem integração Maven. Este tutorial usa [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
+- Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
+- Um IDE com integração Maven. Este tutorial usa [Eclipse](https://www.eclipse.org/downloads/) com a configuração "Eclipse IDE para desenvolvedores de Java".
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-java-quickstart) é um aplicativo de console básico.
 
-Use [o git](https://git-scm.com/) para baixar uma cópia do aplicativo para o seu ambiente de desenvolvimento.
+Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-Este comando clona o repositório para sua pasta do git local. Para abrir o projeto, inicialize o Eclipse e feche a tela de boas-vindas. Selecione **Arquivo** **e, em**seguida, abra projetos do sistema de arquivos . Certifique-se de que **Detectar e configurar natureza do projeto** esteja marcado. Selecione **Directory** e navegue até onde você armazenou o repositório clonado. Dentro do repositório clonado, selecione a pasta **blobAzureApp**. Verifique se o projeto **javaBlobsQuickstarts** aparece como um projeto do Eclipse e selecione **Concluir**.
+Este comando clona o repositório para sua pasta do git local. Para abrir o projeto, inicialize o Eclipse e feche a tela de boas-vindas. Selecione **arquivo** e **Abra projetos do sistema de arquivos**. Certifique-se de que **Detectar e configurar natureza do projeto** esteja marcado. Selecione **Directory** e navegue até onde você armazenou o repositório clonado. Dentro do repositório clonado, selecione a pasta **blobAzureApp**. Verifique se o projeto **javaBlobsQuickstarts** aparece como um projeto do Eclipse e selecione **Concluir**.
 
-Assim que o projeto concluir a importação, abra **o AzureApp.java** (localizado em **blobQuickstart.blobAzureApp** `accountkey` dentro do `storageConnectionString` **src/main/java),** e substitua o `accountname` e dentro da string. Em seguida, execute o aplicativo. As instruções específicas para concluir essas tarefas estão descritas nas seções a seguir.
+Quando o projeto concluir a importação, abra **AzureApp. java** (localizado em **blobQuickstart. blobAzureApp** dentro de **src/main/java**) e substitua `accountname` e `accountkey` por dentro da `storageConnectionString` cadeia de caracteres. Em seguida, execute o aplicativo. As instruções específicas para concluir essas tarefas estão descritas nas seções a seguir.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -87,17 +87,17 @@ Em seguida, vamos percorrer o código de exemplo para que você possa entender c
 
 A primeira coisa a fazer é criar as referências aos objetos usados para acessar e gerenciar o Armazenamento de Blobs. Esses objetos dependem uns dos outros, cada um é usado pelo próximo na lista.
 
-* Crie uma instância do objeto [CloudStorageAccountAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) apontando para a conta de armazenamento.
+* Crie uma instância do objeto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) apontando para a conta de armazenamento.
 
     O objeto **CloudStorageAccount** é uma representação de sua conta de armazenamento e permite definir e acessar propriedades da conta de armazenamento de forma programática. Usando o objeto **CloudStorageAccount**, você pode criar uma instância do **CloudBlobClient**, que é necessário para acessar o serviço blob.
 
 * Crie uma instância do objeto **CloudBlobClient**, que aponta para o [serviço Blob](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) na sua conta de armazenamento.
 
-    O **CloudBlobClient** fornece um ponto de acesso ao serviço blob, permitindo que você defina e acesse as propriedades de armazenamento Blob de forma programática. Usando o **CloudBlobClient** você pode criar uma instância do objeto **CloudBlobContainer**, que é necessário para criar contêineres.
+    O **CloudBlobClient** fornece um ponto de acesso ao serviço BLOB, permitindo que você defina e acesse as propriedades de armazenamento de BLOBs programaticamente. Usando o **CloudBlobClient** você pode criar uma instância do objeto **CloudBlobContainer**, que é necessário para criar contêineres.
 
 * Crie uma instância do objeto [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) que representa o contêiner que você está acessando. Use contêineres para organizar seus blobs da mesma forma que você usa pastas no computador para organizar arquivos.
 
-    Depois de ter o **CloudBlobContainer,** você pode criar uma instância do objeto [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) que aponta para a bolha específica em que você está interessado e executar uma operação de upload, download, cópia ou outra operação.
+    Depois de ter o **CloudBlobContainer**, você pode criar uma instância do objeto [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) que aponta para o blob específico no qual você está interessado e executar um upload, download, cópia ou outra operação.
 
 > [!IMPORTANT]
 > Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre contêineres, veja [Nomenclatura e referência de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -106,7 +106,7 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
 Nesta seção, você cria uma instância de objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartcontainer**.
 
-Este exemplo usa [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists) porque queremos criar um novo contêiner cada vez que a amostra é executada. Em um ambiente de produção, onde você usa o mesmo contêiner em um aplicativo, é melhor praticar apenas chamar **CreateIfNotExists** uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
+Este exemplo usa [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists) porque queremos criar um novo contêiner cada vez que a amostra é executada. Em um ambiente de produção, no qual você usa o mesmo contêiner em um aplicativo, é uma prática melhor chamar **CreateIfNotExists** apenas uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -198,4 +198,4 @@ Neste artigo, você aprendeu a transferir arquivos entre um disco local e o Arma
 
 > [!div class="nextstepaction"]
 > [Java API Reference](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [Code Samples for Java](../common/storage-samples-java.md)
+> [Exemplos de código de referência da API Java para Java](../common/storage-samples-java.md)

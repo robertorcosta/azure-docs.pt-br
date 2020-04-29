@@ -1,6 +1,6 @@
 ---
 title: Desativar o firewall do sistema operacional convidado na VM do Azure | Microsoft Docs
-description: Aprenda um método de solução de problemas para resolver situações em que um firewall do sistema operacional convidado está filtrando tráfego parcial ou completo para uma VM.
+description: Aprenda um método de solução alternativa para a solução de problemas de situações em que um firewall do sistema operacional convidado está filtrando o tráfego parcial ou completo para uma VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422374"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
@@ -27,7 +27,7 @@ Este artigo fornece uma referência para situações em que você suspeita de qu
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Windows Firewall ativado. A forma como você configura as regras de firewall depende do nível de acesso à VM que é necessário.
+O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
 
 ### <a name="online-solutions"></a>Soluções on-line 
 
@@ -60,7 +60,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 
 2.  Abra uma janela do console do PowerShell.
 
-3.  Execute os seguintes comandos:
+3.  Execute os comandos a seguir:
 
     ```powershell
     Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
@@ -78,7 +78,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 
 2.  Abra uma instância do CMD e acesse a VM por meio de seu DIP.
 
-3.  Execute os seguintes comandos:
+3.  Execute os comandos a seguir:
 
     ```cmd
     psexec \\<DIP> -u <username> cmd
@@ -90,9 +90,9 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 
 Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na VM de solução de problemas, inicie o editor de registro e, em seguida, vá para **File** > **Connect Network Registry**.
+1.  Na VM de solução de problemas, inicie o editor do registro e vá para **arquivo** > **conectar registro de rede**.
 
-2.  Abra a agência *TARGET MACHINE*\SYSTEM e especifique os seguintes valores:
+2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/he
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie o serviço. Como você não pode fazer isso usando o registro remoto, você deve usar o Console de Serviço Remoto.
+3.  Reinicie o serviço. Como não é possível fazer isso usando o registro remoto, você deve usar o console de serviço remoto.
 
-4.  Abra uma instância de **Services.msc**.
+4.  Abra uma instância de **Services. msc**.
 
 5.  Clique em **Serviços (Local)**.
 
 6.  Selecione **Conectar-se a outro computador**.
 
-7.  Digite o **Endereço IP Privado (DIP)** da VM do problema.
+7.  Insira o **endereço IP privado (DIP)** da VM com problema.
 
 8.  Reinicie a política de firewall local.
 
@@ -116,7 +116,7 @@ Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/he
 
 ### <a name="offline-solutions"></a>Soluções Offline 
 
-Se você tiver uma situação em que você não pode alcançar a VM por meio de qualquer método, Extensão do Script Personalizado falhará e você terá o trabalho no modo OFFLINE trabalhando diretamente através do disco do sistema. Para fazer isso, siga estas etapas:
+Se você tiver uma situação em que você não pode alcançar a VM por meio de qualquer método, Extensão do Script Personalizado falhará e você terá o trabalho no modo OFFLINE trabalhando diretamente através do disco do sistema. Para fazer isso, execute estas etapas:
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 

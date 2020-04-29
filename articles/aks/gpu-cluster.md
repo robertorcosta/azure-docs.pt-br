@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/27/2020
 ms.openlocfilehash: 242fefb3b153d11e23d66f26049d0b68c0a4bf4a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80383983"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no AKS (Serviço de Kubernetes do Azure)
@@ -18,13 +18,13 @@ As GPUs (unidades de processamento gráfico) geralmente são usadas para cargas 
 > [!NOTE]
 > As VMs habilitadas para GPU contêm hardware especializado sujeito a maiores preços e disponibilidade da região. Para obter mais informações, confira a ferramenta [preço][azure-pricing] e a [disponibilidade de região][azure-availability].
 
-Atualmente, o uso de pools de nós habilitados para GPU só está disponível para pools de nós Linux.
+Atualmente, o uso de pools de nós habilitados para GPU só está disponível para pools de nós do Linux.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo considera que já existe um cluster do AKS com nós compatíveis com GPUs. O cluster do AKS deve executar o Kubernetes 1.10 ou posterior. Se você precisar um cluster do AKS que atenda a esses requisitos, confira a primeira seção deste artigo para [criar um cluster do AKS](#create-an-aks-cluster).
 
-Você também precisa da versão 2.0.64 do Azure CLI ou posteriormente instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.64 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
@@ -36,7 +36,7 @@ Primeiro, crie um grupo de recursos para o cluster usando o comando [az group cr
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]. O exemplo a seguir cria um cluster `Standard_NC6`com um único nó de tamanho:
+Agora, crie um cluster do AKS usando o comando [az aks create][az-aks-create]. O exemplo a seguir cria um cluster com um único nó de `Standard_NC6`tamanho:
 
 ```azurecli-interactive
 az aks create \
@@ -52,9 +52,9 @@ Obtenha as credenciais do seu cluster do AKS usando o comando [az aks get-creden
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instale drivers NVIDIA
+## <a name="install-nvidia-drivers"></a>Instalar drivers NVIDIA
 
-Antes que as GPUs nos nós possam ser usadas, você deve implantar um DaemonSet para o plugin do dispositivo NVIDIA. Este DaemonSet executa um pod em cada nó para fornecer os drivers necessários para as GPUs.
+Antes que as GPUs nos nós possam ser usadas, você deve implantar um Daemonset para o plug-in do dispositivo NVIDIA. Este DaemonSet executa um pod em cada nó para fornecer os drivers necessários para as GPUs.
 
 Primeiro, crie um namespace usando o comando [kubectl create namespace][kubectl-create], como *gpu-resources*:
 
@@ -62,7 +62,7 @@ Primeiro, crie um namespace usando o comando [kubectl create namespace][kubectl-
 kubectl create namespace gpu-resources
 ```
 
-Crie um arquivo chamado *nvidia-device-plugin-ds.yaml* e cole o manifesto YAML a seguir. Este manifesto é fornecido como parte do plugin de [dispositivos NVIDIA para o projeto Kubernetes][nvidia-github].
+Crie um arquivo chamado *nvidia-device-plugin-ds.yaml* e cole o manifesto YAML a seguir. Esse manifesto é fornecido como parte do [plug-in do dispositivo NVIDIA para o projeto kubernetes][nvidia-github].
 
 ```yaml
 apiVersion: apps/v1
@@ -110,7 +110,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Agora use o comando [kubectl apply][kubectl-apply] para criar o DaemonSet e confirme se o plugin do dispositivo NVIDIA foi criado com sucesso, como mostrado na saída de exemplo a seguir:
+Agora, use o comando [kubectl Apply][kubectl-apply] para criar o daemonset e confirme se o plug-in do dispositivo NVIDIA foi criado com êxito, conforme mostrado na seguinte saída de exemplo:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -188,7 +188,7 @@ Para ver a GPU em ação, agende uma carga de trabalho habilitada para GPU com a
 Crie um arquivo chamado *samples-tf-mnist-demo.yaml* e cole o manifesto YAML a seguir. O manifesto de trabalho a seguir inclui um limite de recurso de `nvidia.com/gpu: 1`:
 
 > [!NOTE]
-> Se você receber um erro de incompatibilidade de versão ao ligar para os drivers, como, a versão do driver CUDA é insuficiente para a versão em tempo de execução CUDA, revise o gráfico de compatibilidade da matriz de drivers NVIDIA -[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Se você receber um erro de incompatibilidade de versão ao chamar drivers, como a versão do driver CUDA é insuficiente para a versão de tempo de execução do CUDA, examine o gráfico de compatibilidade de matriz de driver NVIDIA-[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1
@@ -222,7 +222,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Exibir o status e a saída da carga de trabalho habilitada para GPU
 
-Monitore o andamento do trabalho usando o comando [kubectl get jobs][kubectl-get] com o argumento `--watch`. Poderá levar alguns minutos para efetuar pull da imagem e processar o conjunto de dados pela primeira vez. Quando a coluna *CONCLUSÃO* mostra *1/1,* o trabalho foi concluído com sucesso. Saia `kubetctl --watch` do comando com *Ctrl-C*:
+Monitore o andamento do trabalho usando o comando [kubectl get jobs][kubectl-get] com o argumento `--watch`. Poderá levar alguns minutos para efetuar pull da imagem e processar o conjunto de dados pela primeira vez. Quando a coluna *conclusões* mostra *1/1*, o trabalho foi concluído com êxito. Saia do `kubetctl --watch` comando com *Ctrl-C*:
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch
@@ -233,7 +233,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-Para olhar para a saída da carga de trabalho habilitada para GPU, primeiro obtenha o nome do pod com o comando [kubectl get pods:][kubectl-get]
+Para examinar a saída da carga de trabalho habilitada para GPU, primeiro obtenha o nome do pod com o comando [kubectl Get pods][kubectl-get] :
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo
@@ -319,7 +319,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover os objetos de Kubernetes associados criados neste artigo, use o comando [kubectl delete job][kubectl delete] da seguinte maneira:
 

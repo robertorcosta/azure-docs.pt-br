@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80384221"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
@@ -36,21 +36,21 @@ O DPDK pode ser executado em máquinas virtuais do Azure, com suporte a várias 
 **Pacotes superiores por segundo (PPS)**: Ignorando o kernel e controlando os pacotes no espaço do usuário reduz a contagem de ciclos eliminando a alternância de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
-As seguintes distribuições do Azure Marketplace são suportadas:
+Há suporte para as seguintes distribuições do Azure Marketplace:
 
 | Sistema operacional Linux     | Versão do kernel               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
-| Ubuntu 18.04 | 4.15.0-1014-azure+           |
-| LesS 15 SP1  | 4.12.14-8.27-azure+          | 
-| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
-| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+| Ubuntu 16.04 | 4.15.0-1014-Azure +           | 
+| Ubuntu 18.04 | 4.15.0-1014-Azure +           |
+| SLES 15 SP1  | 4.12.14-8,27-Azure +          | 
+| RHEL 7.5     | 3.10.0-862.11.6. EL7. x86_64 +  | 
+| CentOS 7.5   | 3.10.0-862.11.6. EL7. x86_64 +  | 
 
 **Suporte a kernel personalizado**
 
-Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para mais informações, você [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)também pode entrar em contato . 
+Para qualquer versão do kernel Linux que não esteja listada, confira [Patches para a criação de um kernel do Linux ajustado para o Azure](https://github.com/microsoft/azure-linux-kernel). Para obter mais informações, você também pode [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)contatar. 
 
 ## <a name="region-support"></a>Suporte de regiões
 
@@ -86,7 +86,7 @@ sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
-### <a name="sles-15-sp1"></a>LesS 15 SP1
+### <a name="sles-15-sp1"></a>SLES 15 SP1
 
 **Kernel do Azure**
 
@@ -108,7 +108,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Configurar o ambiente de máquina virtual (uma vez)
 
-1. [Baixar a mais recente DPDK](https://core.dpdk.org/download). Versão 18.11 LTS ou 19.11 LTS é necessária para o Azure.
+1. [Baixar a mais recente DPDK](https://core.dpdk.org/download). A versão 18,11 LTS ou 19,11 LTS é necessária para o Azure.
 2. Crie a configuração padrão com `make config T=x86_64-native-linuxapp-gcc`.
 3. Habilitar Mellanox PMDs a configuração gerada com `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Compilar com `make`.
@@ -120,7 +120,7 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
 
 1. Hugepages
 
-   * Configure a página enorme executando o seguinte comando, uma vez para cada nó numa:
+   * Configure o hugepage executando o seguinte comando, uma vez para cada nó numa:
 
      ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
@@ -130,20 +130,20 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
    * Monte as hugepages com `mount -t hugetlbfs nodev /mnt/huge`.
    * Verifique se hugepages estão reservados com `grep Huge /proc/meminfo`.
 
-     > [NOTA] Há uma maneira de modificar o arquivo grub para que páginas enormes sejam reservadas na inicialização, seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
+     > ANOTAÇÕES Há uma maneira de modificar o arquivo grub para que hugepages sejam reservados na inicialização seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
 
-2. Endereços MAC e IP: use `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. As interfaces *VF* estão sendo executados como interfaces subordinadas das interfaces *NETVSC.*
+2. Endereços MAC e IP: use `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. As interfaces *VF* são executadas como interfaces subordinadas das interfaces *NETVSC* .
 
 3. Endereços PCI
 
    * Use `ethtool -i <vf interface name>` para descobrir qual endereço PCI usar para *VF*.
-   * Se *o eth0* tiver ativado a rede ativada, certifique-se de que o testpmd não tome acidentalmente o dispositivo *PcI VF* para *eth0*. Se o aplicativo DPDK acidentalmente assumir a interface de rede de gerenciamento e fizer com que você perca a conexão SSH, use o console serial para interromper o aplicativo DPDK. Você também pode usar o console serial para interromper ou iniciar a máquina virtual.
+   * Se o *eth0* tiver a rede acelerada habilitada, certifique-se de que o testpmd não assuma acidentalmente o dispositivo PCI *VF* para *eth0*. Se o aplicativo DPDK acidentalmente assumir a interface de rede de gerenciamento e fizer com que você perca a conexão SSH, use o console serial para interromper o aplicativo DPDK. Você também pode usar o console serial para interromper ou iniciar a máquina virtual.
 
 4. Carga *ibuverbs* em cada reinicialização com `modprobe -a ib_uverbs`. Para apenas 15 SLES, também carrega *mlx4_ib* com `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>PMD à prova de falhas
 
-Os aplicativos DPDK devem ser executados sobre o PMD à prova de falhas exposto no Azure. Se o aplicativo for executado diretamente sobre o *VF* PMD, ele não receberá **todos os** pacotes destinados à VM, uma vez que alguns pacotes aparecem sobre a interface sintética. 
+Os aplicativos DPDK devem ser executados sobre o PMD à prova de falhas exposto no Azure. Se o aplicativo for executado diretamente por meio do PMD *VF* , ele não receberá **todos os** pacotes destinados à VM, já que alguns pacotes aparecem na interface sintética. 
 
 Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garantirá que o aplicativo receba todos os pacotes destinados a ele. Ele também garante que o aplicativo continue em execução no modo DPDK, mesmo que o FV seja revogado quando o host estiver em manutenção. Confira mais informações sobre PMD à prova de falhas em [Biblioteca de drivers do modo de sondagem à prova de falhas](https://doc.dpdk.org/guides/nics/fail_safe.html).
 

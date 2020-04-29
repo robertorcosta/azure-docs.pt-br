@@ -1,6 +1,6 @@
 ---
-title: Como os trusts funcionam para os serviços de domínio do Azure AD | Microsoft Docs
-description: Saiba mais sobre como a confiança na floresta funciona com os serviços de domínio azure AD
+title: Como as relações de confiança funcionam para Azure AD Domain Services | Microsoft Docs
+description: Saiba mais sobre como a relação de confiança de floresta funciona com Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,272 +11,272 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476445"
 ---
-# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como funcionam as relações de confiança para florestas de recursos nos serviços de domínio do Diretório Ativo do Azure
+# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para florestas de recursos no Azure Active Directory Domain Services
 
-O Active Directory Domain Services (AD DS) fornece segurança em vários domínios ou florestas através de relacionamentos de domínio e confiança florestal. Antes que a autenticação possa ocorrer entre os trusts, o Windows deve primeiro verificar se o domínio que está sendo solicitado por um usuário, computador ou serviço tem uma relação de confiança com o domínio da conta solicitante.
+O Active Directory Domain Services (AD DS) fornece segurança em vários domínios ou florestas por meio de relações de confiança de domínio e floresta. Antes que a autenticação possa ocorrer em relações de confiança, o Windows deve primeiro verificar se o domínio que está sendo solicitado por um usuário, computador ou serviço tem uma relação de confiança com o domínio da conta solicitante.
 
 Para verificar essa relação de confiança, o sistema de segurança do Windows computa um caminho de confiança entre o controlador de domínio (DC) para o servidor que recebe a solicitação e um DC no domínio da conta solicitante.
 
-Os mecanismos de controle de acesso fornecidos pelo AD DS e pelo modelo de segurança distribuída do Windows fornecem um ambiente para a operação de fundos de domínio e floresta. Para que essas confianças funcionem corretamente, cada recurso ou computador deve ter um caminho de confiança direto para uma DC no domínio em que está localizado.
+Os mecanismos de controle de acesso fornecidos pelo AD DS e o modelo de segurança distribuída do Windows fornecem um ambiente para a operação de relações de confiança de domínio e floresta. Para que essas relações de confiança funcionem corretamente, cada recurso ou computador deve ter um caminho de confiança direto para um DC no domínio no qual ele está localizado.
 
-O caminho de confiança é implementado pelo serviço Net Logon usando uma conexão de chamada de procedimento remoto autenticada (RPC) à autoridade de domínio confiável. Um canal seguro também se estende a outros domínios AD DS através de relações de confiança entre domínios. Este canal protegido é usado para obter e verificar informações de segurança, incluindo identificadores de segurança (SIDs) para usuários e grupos.
+O caminho de confiança é implementado pelo serviço de logon de rede usando uma conexão de RPC (chamada de procedimento remoto) autenticada para a autoridade de domínio confiável. Um canal protegido também se estende a outros domínios de AD DS por meio de relações de confiança entre domínios. Esse canal protegido é usado para obter e verificar informações de segurança, incluindo identificadores de segurança (SIDs) para usuários e grupos.
 
-## <a name="trust-relationship-flows"></a>Fluxos de relacionamento de confiança
+## <a name="trust-relationship-flows"></a>Fluxos de relações de confiança
 
-O fluxo de comunicações seguras sobre trusts determina a elasticidade de uma confiança. Como você cria ou configura uma confiança determina até onde a comunicação se estende dentro ou através das florestas.
+O fluxo de comunicações protegidas por relações de confiança determina a elasticidade de uma relação de confiança. A maneira como você cria ou configura uma relação de confiança determina até que distância a comunicação se estende dentro ou entre florestas.
 
-O fluxo de comunicação sobre os trusts é determinado pela direção da confiança. As confianças podem ser unidirecionais ou bidirecionais, e podem ser transitivas ou não transitivas.
+O fluxo de comunicação sobre relações de confiança é determinado pela direção da relação de confiança. As relações de confiança podem ser unidirecionais ou bidirecionais e podem ser transitivas ou não transitivas.
 
-O diagrama a seguir mostra que todos os domínios da *Árvore 1* e da *Árvore 2* têm relações de confiança transitivas por padrão. Como resultado, os usuários da *Árvore 1* podem acessar recursos em domínios na *Árvore 2* e os usuários da Árvore *1* podem acessar recursos na *Árvore 2,* quando as permissões adequadas são atribuídas ao recurso.
+O diagrama a seguir mostra que todos os domínios na *árvore 1* e *árvore 2* têm relações de confiança transitivas por padrão. Como resultado, os usuários na *árvore 1* podem acessar recursos em domínios na *árvore 2* e os usuários na *árvore 1* podem acessar recursos na *árvore 2*, quando as permissões apropriadas são atribuídas no recurso.
 
-![Diagrama das relações de confiança entre duas florestas](./media/concepts-forest-trust/trust-relationships.png)
+![Diagrama de relações de confiança entre duas florestas](./media/concepts-forest-trust/trust-relationships.png)
 
-### <a name="one-way-and-two-way-trusts"></a>Confianças unidirecionais e bidirecionais
+### <a name="one-way-and-two-way-trusts"></a>Relações de confiança unidirecional e bidirecional
 
-Relacionamentos de confiança permitem que o acesso aos recursos possa ser unidirecional ou bidirecional.
+As relações de confiança permitem que o acesso aos recursos possa ser unidirecional ou bidirecional.
 
-Uma confiança unidirecional é um caminho de autenticação unidirecional criado entre dois domínios. Em uma confiança unidirecional entre *o domínio A* e o domínio *B,* os usuários do *Domínio A* podem acessar recursos no *Domínio B*. No entanto, os usuários do *Domínio B* não podem acessar recursos no *Domínio A*.
+Uma relação de confiança unidirecional é um caminho de autenticação unidirecional criado entre dois domínios. Em uma relação de confiança unidirecional entre *o domínio a e o* *domínio B*, os usuários no *domínio a* podem acessar recursos no *domínio B*. No entanto, os usuários no *domínio B* não podem acessar recursos no *domínio A*.
 
-Algumas confianças unidirecionais podem ser não transitivas ou transitivas, dependendo do tipo de confiança que está sendo criada.
+Algumas relações de confiança unidirecionais podem ser não transitivas ou transitivas, dependendo do tipo de relação de confiança que está sendo criado.
 
-Em uma confiança bidirecional, *o Domínio A* confia no domínio *B* e o *Domínio B* confia no *domínio A*. Essa configuração significa que as solicitações de autenticação podem ser passadas entre os dois domínios em ambas as direções. Algumas relações bidirecionais podem ser não transitivas ou transitivas, dependendo do tipo de confiança que está sendo criada.
+Em uma relação de confiança bidirecional, *o domínio a* confia no *domínio b* e o *domínio b* confia no *domínio a*. Essa configuração significa que as solicitações de autenticação podem ser passadas entre os dois domínios em ambas as direções. Algumas relações bidirecionais podem ser não transitivas ou transitivas, dependendo do tipo de relação de confiança que está sendo criado.
 
-Todas as confianças de domínio em uma floresta AD DS são confianças transitivas de duas vias. Quando um novo domínio filho é criado, uma relação de confiança transitiva bidirecional é automaticamente criada entre o novo domínio filho e o domínio pai.
+Todas as relações de confiança de domínio em uma floresta AD DS são relações de confiança transitivas bidirecionais. Quando um novo domínio filho é criado, uma relação de confiança transitiva bidirecional é automaticamente criada entre o novo domínio filho e o domínio pai.
 
-### <a name="transitive-and-non-transitive-trusts"></a>Confianças transitivas e não transitivas
+### <a name="transitive-and-non-transitive-trusts"></a>Relações de confiança transitivas e não transitivas
 
-A transitoriedade determina se uma confiança pode ser estendida fora dos dois domínios com os quais foi formada.
+A transitividade determina se uma confiança pode ser estendida fora dos dois domínios com os quais foi formada.
 
-* Uma confiança transitiva pode ser usada para estender relações de confiança com outros domínios.
-* Uma confiança não transitiva pode ser usada para negar relações de confiança com outros domínios.
+* Uma relação de confiança transitiva pode ser usada para estender relações de confiança com outros domínios.
+* Uma relação de confiança não transitiva pode ser usada para negar relações de confiança com outros domínios.
 
-Cada vez que você cria um novo domínio em uma floresta, uma relação de confiança transitiva de duas vias é criada automaticamente entre o novo domínio e seu domínio pai. Se os domínios filho forem adicionados ao novo domínio, o caminho de confiança flue para cima através da hierarquia de domínio, estendendo o caminho de confiança inicial criado entre o novo domínio e seu domínio-mãe. As relações de confiança transitivas seguem em direção ao topo de uma árvore de domínio formada, criando esse tipo de relação entre todos os domínios da árvore.
+Sempre que você cria um novo domínio em uma floresta, uma relação de confiança transitiva bidirecional é criada automaticamente entre o novo domínio e seu domínio pai. Se os domínios filho forem adicionados ao novo domínio, o caminho de confiança fluirá para cima na hierarquia de domínio, estendendo o caminho de confiança inicial criado entre o novo domínio e seu domínio pai. As relações de confiança transitivas seguem em direção ao topo de uma árvore de domínio formada, criando esse tipo de relação entre todos os domínios da árvore.
 
-As solicitações de autenticação seguem esses caminhos de confiança, para que contas de qualquer domínio na floresta possam ser autenticadas por qualquer outro domínio na floresta. Com um processo de logon simples, as contas com as permissões apropriadas podem acessar os recursos em qualquer domínio da floresta.
+As solicitações de autenticação seguem esses caminhos de confiança, portanto, as contas de qualquer domínio na floresta podem ser autenticadas por qualquer outro domínio na floresta. Com um processo de logon simples, as contas com as permissões apropriadas podem acessar os recursos em qualquer domínio da floresta.
 
 ## <a name="forest-trusts"></a>Relações de confiança de floresta
 
-Os fundos florestais ajudam você a gerenciar infra-estruturas AD DS segmentadas e a apoiar o acesso a recursos e outros objetos em várias florestas. Os fundos florestais são úteis para prestadores de serviços, empresas que sofrem fusões ou aquisições, extranets de negócios colaborativos e empresas que buscam uma solução para autonomia administrativa.
+As relações de confiança de floresta ajudam a gerenciar uma infraestrutura de AD DS segmentada e dar suporte ao acesso a recursos e a outros objetos em várias florestas. As relações de confiança de floresta são úteis para provedores de serviços, empresas que passam por fusões ou aquisições, extranets de negócios colaborativas e empresas que buscam uma solução para autonomia administrativa.
 
-Usando fundos florestais, você pode ligar duas florestas diferentes para formar uma relação de confiança transitiva unidirecional ou unidirecional. Um fundo florestal permite que os administradores conectem duas florestas AD DS com uma única relação de confiança para fornecer uma experiência perfeita de autenticação e autorização através das florestas.
+Usando relações de confiança de floresta, você pode vincular duas florestas diferentes para formar uma relação de confiança transitiva unidirecional ou bidirecional. Uma relação de confiança de floresta permite que os Administradores conectem duas florestas de AD DS com um único relacionamento de confiança para fornecer uma experiência de autenticação e autorização direta em todas as florestas.
 
-Uma confiança florestal só pode ser criada entre um domínio de raiz florestal em uma floresta e um domínio de raiz florestal em outra floresta. Os fundos florestais só podem ser criados entre duas florestas e não podem ser implicitamente estendidos a uma terceira floresta. Esse comportamento significa que se uma confiança florestal é criada entre *a Floresta 1* e a Floresta *2*, e outra confiança florestal é criada entre a *Floresta 2* e a Floresta *3*, a *Floresta 1* não tem uma confiança implícita com a *Floresta 3*.
+Uma relação de confiança de floresta só pode ser criada entre um domínio raiz de floresta em uma floresta e um domínio raiz de floresta em outra floresta. As relações de confiança de floresta só podem ser criadas entre duas florestas e não podem ser estendidas implicitamente para uma terceira floresta. Esse comportamento significa que, se uma relação de confiança de floresta for criada entre a *floresta 1* e a *floresta 2*, e outra relação de confiança de floresta for criada entre a floresta *2* e a *floresta 3*, a *floresta 1* não terá uma confiança implícita com a *floresta 3*.
 
-O diagrama a seguir mostra duas relações de confiança florestal separadas entre três florestas AD DS em uma única organização.
+O diagrama a seguir mostra duas relações de confiança de floresta separadas entre três AD DS florestas em uma única organização.
 
-![Diagrama da floresta confia nas relações dentro de uma única organização](./media/concepts-forest-trust/forest-trusts.png)
+![Diagrama de relações de confiança de floresta em uma única organização](./media/concepts-forest-trust/forest-trusts.png)
 
 Esta configuração de exemplo fornece o seguinte acesso:
 
-* Os usuários *da Floresta 2* podem acessar recursos em qualquer domínio na Floresta *1* ou *floresta 3*
-* Usuários na *Floresta 3* podem acessar recursos em qualquer domínio na *Floresta 2*
-* Usuários na *Floresta 1* podem acessar recursos em qualquer domínio na *Floresta 2*
+* Os usuários na *floresta 2* podem acessar recursos em qualquer domínio na *floresta 1* ou *floresta 3*
+* Os usuários na *floresta 3* podem acessar recursos em qualquer domínio na *floresta 2*
+* Os usuários na *floresta 1* podem acessar recursos em qualquer domínio na *floresta 2*
 
-Essa configuração não permite que os usuários da *Floresta 1* acessem recursos na *Floresta 3* ou vice-versa. Para permitir que os usuários da *Floresta 1* e da *Floresta 3* compartilhem recursos, deve ser criada uma confiança transitiva bidirecional entre as duas florestas.
+Essa configuração não permite que os usuários na *floresta 1* acessem recursos na *floresta 3* ou vice-versa. Para permitir que os usuários na *floresta 1* e na *floresta 3* compartilhem recursos, uma relação de confiança transitiva bidirecional deve ser criada entre as duas florestas.
 
-Se um fundo florestal unidirecional for criado entre duas florestas, os membros da floresta confiável podem utilizar recursos localizados na floresta confiável. Entretanto, a relação de confiança opera em apenas uma direção.
+Se uma relação de confiança de floresta unidirecional for criada entre duas florestas, os membros da floresta confiável poderão utilizar os recursos localizados na floresta confiante. Entretanto, a relação de confiança opera em apenas uma direção.
 
-Por exemplo, quando uma confiança florestal unidirecional é criada entre a *Floresta 1* (a floresta confiável) e a *Floresta 2* (a floresta confiável):
+Por exemplo, quando uma relação de confiança de floresta unidirecional é criada entre a *floresta 1* (a floresta confiável) e a *floresta 2* (a floresta confiante):
 
-* Os membros da *Floresta 1* podem acessar recursos localizados na *Floresta 2*.
-* Os membros da *Forest 2* não podem acessar recursos localizados na *Floresta 1* usando a mesma confiança.
+* Os membros da *floresta 1* podem acessar os recursos localizados na *floresta 2*.
+* Os membros da *floresta 2* não podem acessar recursos localizados na *floresta 1* usando a mesma relação de confiança.
 
 > [!IMPORTANT]
-> A floresta de recursos do Azure AD Domain Services só suporta uma confiança florestal unidirecional para o Active Directory no local.
+> Azure AD Domain Services floresta de recursos só dá suporte a uma relação de confiança de floresta unidirecional para Active Directory local.
 
-### <a name="forest-trust-requirements"></a>Requisitos de confiança florestal
+### <a name="forest-trust-requirements"></a>Requisitos de confiança de floresta
 
-Antes de criar um fundo florestal, você precisa verificar se você tem a infra-estrutura correta do Sistema de Nome de Domínio (DNS) em vigor. Os fundos florestais só podem ser criados quando uma das seguintes configurações de DNS estiver disponível:
+Antes de criar uma relação de confiança de floresta, você precisa verificar se tem a infraestrutura de DNS (sistema de nomes de domínio) correta em vigor. As relações de confiança de floresta só podem ser criadas quando uma das seguintes configurações de DNS está disponível:
 
-* Um único servidor DNS raiz é o servidor DNS raiz para ambos os namespaces de DNS da floresta - a zona raiz contém delegações para cada um dos namespaces do DNS e as dicas raiz de todos os servidores DNS incluem o servidor DNS raiz.
-* Onde não há servidor DNS raiz compartilhado e os servidores DNS raiz para cada espaço de nome DNS da floresta usam encaminhadores condicionais DNS para cada namespace DNS para encaminhar consultas para nomes no outro namespace.
+* Um único servidor DNS raiz é o servidor DNS raiz para ambos os namespaces DNS da floresta-a zona raiz contém delegações para cada um dos namespaces DNS e as dicas de raiz de todos os servidores DNS incluem o servidor DNS raiz.
+* Onde não há nenhum servidor DNS raiz compartilhado, e os servidores DNS raiz para cada namespace DNS da floresta usam encaminhadores condicionais DNS para cada namespace DNS para rotear consultas para nomes no outro namespace.
 
     > [!IMPORTANT]
-    > A floresta de recursos do Azure AD Domain Services deve usar essa configuração de DNS. Hospedar um namespace DNS diferente do namespace dns da floresta de recursos não é uma característica dos Serviços de Domínio AD do Azure. Os encaminhadores condicionais são a configuração adequada.
+    > Azure AD Domain Services floresta de recursos deve usar essa configuração de DNS. A hospedagem de um namespace DNS diferente do namespace DNS da floresta de recursos não é um recurso do Azure AD Domain Services. Os encaminhadores condicionais são a configuração correta.
 
-* Quando não há servidor DNS raiz compartilhado e os servidores DNS raiz para cada namespace dNS florestal são usados zonas secundárias dNS são configuradas em cada namespace DNS para encaminhar consultas para nomes no outro namespace.
+* Onde não há nenhum servidor DNS raiz compartilhado, e os servidores DNS raiz para cada namespace DNS da floresta são usados zonas secundárias do DNS são configurados em cada namespace DNS para rotear consultas para nomes no outro namespace.
 
-Para criar um fundo florestal, você deve ser um membro do grupo Administradores de Domínio (no domínio raiz da floresta) ou do grupo Enterprise Admins no Active Directory. Cada confiança é atribuída a uma senha que os administradores de ambas as florestas devem saber. Os membros dos Administradores Corporativos em ambas as florestas podem criar os trusts em ambas as florestas ao mesmo tempo e, neste cenário, uma senha que é criptograficamente aleatória é gerada automaticamente e escrita para ambas as florestas.
+Para criar uma relação de confiança de floresta, você deve ser membro do grupo Admins. do domínio (no domínio raiz da floresta) ou do grupo Administradores de empresa em Active Directory. Cada relação de confiança é atribuída a uma senha que os administradores em ambas as florestas devem conhecer. Os membros de administradores corporativos em ambas as florestas podem criar as relações de confiança em ambas as florestas de uma só vez e, nesse cenário, uma senha criptograficamente aleatória é automaticamente gerada e gravada para ambas as florestas.
 
-O fundo florestal de saída para os Serviços de Domínio Azure AD é criado no portal Azure. Você não cria manualmente a confiança com o domínio gerenciado em si. A confiança florestal de entrada deve ser configurada por um usuário com os privilégios previamente observados no Active Directory no local.
+A relação de confiança de floresta de saída para Azure AD Domain Services é criada no portal do Azure. Você não cria manualmente a relação de confiança com o próprio domínio gerenciado. A relação de confiança de floresta de entrada deve ser configurada por um usuário com os privilégios indicados anteriormente no Active Directory local.
 
-## <a name="trust-processes-and-interactions"></a>Processos de confiança e interações
+## <a name="trust-processes-and-interactions"></a>Processos e interações de confiança
 
-Muitas transações inter-domínio e interflorestal dependem de confiança de domínio ou floresta para concluir várias tarefas. Esta seção descreve os processos e interações que ocorrem à medida que os recursos são acessados em trusts e referências de autenticação são avaliadas.
+Muitas transações entre domínios e entre florestas dependem de relações de confiança de domínio ou floresta para concluir várias tarefas. Esta seção descreve os processos e as interações que ocorrem à medida que os recursos são acessados entre relações de confiança e referências de autenticação são avaliadas.
 
 ### <a name="overview-of-authentication-referral-processing"></a>Visão geral do processamento de referência de autenticação
 
-Quando uma solicitação de autenticação é referida a um domínio, o controlador de domínio nesse domínio deve determinar se existe uma relação de confiança com o domínio do qual a solicitação vem. A direção da confiança e se a confiança é transitiva ou não transitiva também deve ser determinada antes de autenticar o usuário para acessar recursos no domínio. O processo de autenticação que ocorre entre domínios confiáveis varia de acordo com o protocolo de autenticação em uso. Os protocolos Kerberos V5 e NTLM processam referências para autenticação em um domínio de forma diferente
+Quando uma solicitação de autenticação é referenciada em um domínio, o controlador de domínio nesse domínio deve determinar se existe uma relação de confiança com o domínio do qual a solicitação vem. A direção da relação de confiança e se a confiança é transitiva ou não-transitiva também deve ser determinada antes de autenticar o usuário para acessar recursos no domínio. O processo de autenticação que ocorre entre domínios confiáveis varia de acordo com o protocolo de autenticação em uso. Os protocolos Kerberos V5 e NTLM processam referências de autenticação para um domínio de forma diferente
 
 ### <a name="kerberos-v5-referral-processing"></a>Processamento de referência Kerberos V5
 
-O protocolo de autenticação Kerberos V5 depende do serviço Net Logon em controladores de domínio para informações de autenticação e autorização do cliente. O protocolo Kerberos se conecta a um Centro de Distribuição de Chaves online (KDC) e à loja de conta do Active Directory para ingressos de sessão.
+O protocolo de autenticação Kerberos V5 depende do serviço de logon de rede em controladores de domínio para informações de autenticação e autorização de cliente. O protocolo Kerberos se conecta a um centro de distribuição de chaves online (KDC) e ao armazenamento de conta do Active Directory para tíquetes de sessão.
 
-O protocolo Kerberos também usa trusts para serviços de concessão de bilhetes (TGS) e para validar Os Certificados de Atributos Privilege (PACs) através de um canal seguro. O protocolo Kerberos realiza autenticação cross-realm apenas com reinos Kerberos de sistema operacional não-Windows, como um reino MIT Kerberos e não precisa interagir com o serviço Net Logon.
+O protocolo Kerberos também usa relações de confiança para os serviços de concessão de tíquete entre Realms (TGS) e para validar o PACs (certificados de atributo de privilégio) em um canal protegido. O protocolo Kerberos executa a autenticação entre territórios somente com territórios Kerberos do sistema operacional da marca não Windows, como um realm do MIT Kerberos e não precisa interagir com o serviço de logon de rede.
 
-Se o cliente usar o Kerberos V5 para autenticação, ele solicitará um ticket para o servidor no domínio de destino de um controlador de domínio em seu domínio de conta. O Kerberos KDC atua como um intermediário confiável entre o cliente e o servidor e fornece uma chave de sessão que permite que as duas partes se autentiquem. Se o domínio de destino for diferente do domínio atual, o KDC seguirá um processo lógico para determinar se uma solicitação de autenticação pode ser encaminhada:
+Se o cliente usar o Kerberos V5 para autenticação, ele solicitará um tíquete para o servidor no domínio de destino de um controlador de domínio em seu domínio de conta. O KDC Kerberos atua como um intermediário confiável entre o cliente e o servidor e fornece uma chave de sessão que permite que as duas partes se autentiquem. Se o domínio de destino for diferente do domínio atual, o KDC seguirá um processo lógico para determinar se uma solicitação de autenticação pode ser referida:
 
 1. O domínio atual é confiável diretamente pelo domínio do servidor que está sendo solicitado?
-    * Se sim, envie ao cliente um encaminhamento para o domínio solicitado.
-    * Se não, vá para o próximo passo.
+    * Em caso afirmativo, envie ao cliente uma referência para o domínio solicitado.
+    * Se não, vá para a próxima etapa.
 
-2. Existe uma relação de confiança transitiva entre o domínio atual e o próximo domínio no caminho da confiança?
-    * Se sim, envie ao cliente uma referência para o próximo domínio no caminho da confiança.
-    * Se não, envie ao cliente uma mensagem negada pelo logon.
+2. Existe uma relação de confiança transitiva entre o domínio atual e o próximo domínio no caminho de confiança?
+    * Em caso afirmativo, envie ao cliente uma referência para o próximo domínio no caminho de confiança.
+    * Se não, envie ao cliente uma mensagem de logon negado.
 
 ### <a name="ntlm-referral-processing"></a>Processamento de referência NTLM
 
-O protocolo de autenticação NTLM depende do serviço Net Logon em controladores de domínio para informações de autenticação e autorização do cliente. Este protocolo autentica clientes que não usam autenticação Kerberos. O NTLM usa trusts para passar solicitações de autenticação entre domínios.
+O protocolo de autenticação NTLM depende do serviço de logon de rede em controladores de domínio para informações de autenticação e autorização do cliente. Esse protocolo autentica clientes que não usam a autenticação Kerberos. O NTLM usa relações de confiança para passar solicitações de autenticação entre domínios.
 
-Se o cliente usar NTLM para autenticação, a solicitação inicial de autenticação vai diretamente do cliente para o servidor de recursos no domínio de destino. Esse servidor cria um desafio ao qual o cliente responde. Em seguida, o servidor envia a resposta do usuário a um controlador de domínio em seu domínio de conta de computador. Este controlador de domínio verifica a conta de usuário em relação ao banco de dados de suas contas de segurança.
+Se o cliente usar NTLM para autenticação, a solicitação inicial de autenticação vai diretamente do cliente para o servidor de recursos no domínio de destino. Esse servidor cria um desafio para o qual o cliente responde. Em seguida, o servidor envia a resposta do usuário a um controlador de domínio em seu domínio de conta de computador. Esse controlador de domínio verifica a conta de usuário em relação ao banco de dados de contas de segurança.
 
-Se a conta não existir no banco de dados, o controlador de domínio determina se deve executar a autenticação de passagem, encaminhar a solicitação ou negar a solicitação usando a seguinte lógica:
+Se a conta não existir no banco de dados, o controlador de domínio determinará se a autenticação de passagem deve ser executada, encaminhar a solicitação ou negar a solicitação usando a seguinte lógica:
 
-1. O domínio atual tem uma relação direta de confiança com o domínio do usuário?
-    * Se sim, o controlador de domínio envia as credenciais do cliente para um controlador de domínio no domínio do usuário para autenticação de passagem.
-    * Se não, vá para o próximo passo.
+1. O domínio atual tem uma relação de confiança direta com o domínio do usuário?
+    * Em caso afirmativo, o controlador de domínio envia as credenciais do cliente para um controlador de domínio no domínio do usuário para autenticação de passagem.
+    * Se não, vá para a próxima etapa.
 
 2. O domínio atual tem uma relação de confiança transitiva com o domínio do usuário?
-    * Se sim, passe a solicitação de autenticação para o próximo domínio no caminho de confiança. Este controlador de domínio repete o processo verificando as credenciais do usuário em relação ao seu próprio banco de dados de contas de segurança.
-    * Se não, envie ao cliente uma mensagem negada pelo logon.
+    * Em caso afirmativo, passe a solicitação de autenticação para o próximo domínio no caminho de confiança. Esse controlador de domínio repete o processo verificando as credenciais do usuário em seu próprio banco de dados de contas de segurança.
+    * Se não, envie ao cliente uma mensagem de logon negado.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Processamento baseado em Kerberos de pedidos de autenticação sobre fundos florestais
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Processamento baseado em Kerberos de solicitações de autenticação sobre relações de confiança de floresta
 
-Quando duas florestas são conectadas por um fundo florestal, pedidos de autenticação feitos usando os protocolos Kerberos V5 ou NTLM podem ser roteados entre florestas para fornecer acesso a recursos em ambas as florestas.
+Quando duas florestas são conectadas por uma relação de confiança de floresta, as solicitações de autenticação feitas usando os protocolos Kerberos V5 ou NTLM podem ser roteadas entre as florestas para fornecer acesso aos recursos em ambas as florestas.
 
-Quando um fundo florestal é estabelecido pela primeira vez, cada floresta coleta todos os namespaces confiáveis em sua floresta parceira e armazena as informações em um [objeto de domínio confiável](#trusted-domain-object). Os namespaces confiáveis incluem nomes de árvore de domínio, sufixos de nome principal de usuário (UPN), sufixos de nome principal de serviço (SPN) e espaços de nomes de ID de segurança (SID) usados na outra floresta. Os objetos TDO são replicados para o catálogo global.
+Quando uma relação de confiança de floresta é estabelecida pela primeira vez, cada floresta coleta todos os namespaces confiáveis em sua floresta de parceiros e armazena as informações em um [objeto de domínio confiável](#trusted-domain-object). Os namespaces confiáveis incluem nomes de árvore de domínio, sufixos de nome principal de usuário (UPN), sufixos de SPN (nome da entidade de serviço) e namespaces de SID (ID de segurança) usados na outra floresta. Os objetos TDO são replicados para o catálogo global.
 
-Antes que os protocolos de autenticação possam seguir o caminho da confiança florestal, o nome principal do serviço (SPN) do computador de recursos deve ser resolvido em um local na outra floresta. Um SPN pode ser um dos seguintes:
+Antes que os protocolos de autenticação possam seguir o caminho de confiança da floresta, o nome da entidade de serviço (SPN) do computador de recursos deve ser resolvido para um local na outra floresta. Um SPN pode ser um dos seguintes:
 
-* O nome DNS de um hospedeiro.
+* O nome DNS de um host.
 * O nome DNS de um domínio.
 * O nome distinto de um objeto de ponto de conexão de serviço.
 
-Quando uma estação de trabalho em uma floresta tenta acessar dados em um computador de recursos em outra floresta, o processo de autenticação kerberos entra em contato com o controlador de domínio para um ticket de serviço para o SPN do computador de recursos. Uma vez que o controlador de domínio consulta o catálogo global e determina que o SPN não está na mesma floresta que o controlador de domínio, o controlador de domínio envia uma referência para seu domínio-mãe de volta à estação de trabalho. Nesse ponto, a estação de trabalho consulta o domínio pai para o ticket de serviço e continua a seguir a cadeia de referência até chegar ao domínio onde o recurso está localizado.
+Quando uma estação de trabalho em uma floresta tenta acessar dados em um computador de recurso em outra floresta, o processo de autenticação Kerberos entra em contato com o controlador de domínio para obter um tíquete de serviço para o SPN do computador de recursos. Depois que o controlador de domínio consulta o catálogo global e determina que o SPN não está na mesma floresta que o controlador de domínio, o controlador de domínio envia uma referência para seu domínio pai de volta para a estação de trabalho. Nesse ponto, a estação de trabalho consulta o domínio pai do tíquete de serviço e continua a seguir a cadeia de referência até atingir o domínio em que o recurso está localizado.
 
-O diagrama e as etapas a seguir fornecem uma descrição detalhada do processo de autenticação do Kerberos que é usado quando os computadores que executam o Windows tentam acessar recursos de um computador localizado em outra floresta.
+O diagrama e as etapas a seguir fornecem uma descrição detalhada do processo de autenticação Kerberos usado quando os computadores que executam o Windows tentam acessar recursos de um computador localizado em outra floresta.
 
-![Diagrama do processo kerberos sobre um fundo florestal](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagrama do processo Kerberos em uma relação de confiança de floresta](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
 
-1. *O Usuário1* faz logon no *Workstation1* usando credenciais do domínio *europe.tailspintoys.com.* Em seguida, o usuário tenta acessar um recurso compartilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com.*
+1. O *Usuário1* faz logon na *EstaçãoDeTrabalho1* usando credenciais do domínio *Europe.tailspintoys.com* . Em seguida, o usuário tenta acessar um recurso compartilhado no *FileServer1* localizado na floresta *usa.wingtiptoys.com* .
 
-2. *Workstation1* entra em contato com o Kerberos KDC em um controlador de domínio em seu domínio, *ChildDC1,* e solicita um ticket de serviço para o *FileServer1* SPN.
+2. A *EstaçãoDeTrabalho1* entra em contato com o KDC do Kerberos em um controlador de domínio em seu domínio, *ChildDC1*e solicita um tíquete de serviço para o SPN do *FileServer1* .
 
-3. *O ChildDC1* não encontra o SPN em seu banco de dados de domínios e consulta o catálogo global para ver se algum domínio na floresta *tailspintoys.com* contém este SPN. Como um catálogo global é limitado à sua própria floresta, o SPN não é encontrado.
+3. O *ChildDC1* não encontra o SPN em seu banco de dados de domínio e consulta o catálogo global para ver se algum domínio na floresta *TAILSPINTOYS.com* contém esse SPN. Como um catálogo global é limitado a sua própria floresta, o SPN não é encontrado.
 
-    O catálogo global então verifica seu banco de dados para obter informações sobre quaisquer fundos florestais que sejam estabelecidos com sua floresta. Se encontrado, ele compara os sufixos de nome listados no objeto de domínio confiável (TDO) da confiança da floresta com o sufixo do SPN de destino para encontrar uma correspondência. Uma vez que uma correspondência é encontrada, o catálogo global fornece uma dica de roteamento de volta ao *ChildDC1*.
+    Em seguida, o catálogo global verifica seu banco de dados para obter informações sobre as relações de confiança de floresta estabelecidas com sua floresta. Se encontrado, ele compara os sufixos de nome listados no objeto de domínio confiável de confiança de floresta (TDO) para o sufixo do SPN de destino para encontrar uma correspondência. Quando uma correspondência é encontrada, o catálogo global fornece uma dica de roteamento de volta ao *ChildDC1*.
 
-    As dicas de roteamento ajudam a direcionar solicitações de autenticação para a floresta de destino. As dicas só são usadas quando todos os canais tradicionais de autenticação, como controlador de domínio local e, em seguida, catálogo global, não conseguem localizar um SPN.
+    Dicas de roteamento ajudam a direcionar solicitações de autenticação para a floresta de destino. As dicas são usadas apenas quando todos os canais de autenticação tradicionais, como o controlador de domínio local e o catálogo global, falham ao localizar um SPN.
 
-4. *ChildDC1* envia um encaminhamento para seu domínio pai de volta para *Workstation1*.
+4. *ChildDC1* envia uma referência para seu domínio pai de volta para a *EstaçãoDeTrabalho1*.
 
-5. *Workstation1* entra em contato com um controlador de domínio no *ForestRootDC1* (seu domínio-mãe) para uma referência a um controlador de domínio *(ForestRootDC2)* no domínio raiz florestal da *floresta wingtiptoys.com.*
+5. A *EstaçãoDeTrabalho1* entra em contato com um controlador de domínio em *ForestRootDC1* (seu domínio pai) para obter uma referência a um controlador de domínio (*ForestRootDC2*) no domínio raiz da floresta *wingtiptoys.com* .
 
-6. *Workstation1* entra em contato com *forestrootDC2* na *floresta wingtiptoys.com* para um ticket de serviço para o serviço solicitado.
+6. A *EstaçãoDeTrabalho1* contata *ForestRootDC2* na floresta *wingtiptoys.com* para um tíquete de serviço para o serviço solicitado.
 
-7. *ForestRootDC2* entra em contato com seu catálogo global para encontrar o SPN, e o catálogo global encontra uma correspondência para o SPN e o envia de volta para *ForestRootDC2*.
+7. O *ForestRootDC2* contata seu catálogo global para localizar o SPN e o catálogo global encontra uma correspondência para o SPN e o envia de volta para o *ForestRootDC2*.
 
-8. *ForestRootDC2* então envia o encaminhamento para *usa.wingtiptoys.com* de volta para *Workstation1*.
+8. Em seguida, *ForestRootDC2* envia a referência para *usa.wingtiptoys.com* de volta para a *EstaçãoDeTrabalho1*.
 
-9. *Workstation1* entra em contato com o KDC no *ChildDC2* e negocia o ticket para que o *Usuário1* tenha acesso ao *FileServer1*.
+9. A *EstaçãoDeTrabalho1* entra em contato com o KDC no *ChildDC2* e negocia o tíquete do *Usuário1* para obter acesso ao *FileServer1*.
 
-10. Uma vez *que o Workstation1* tenha um ticket de serviço, ele envia o ticket de serviço para *fileServer1*, que lê as credenciais de segurança do *Usuário1*e constrói um token de acesso de acordo.
+10. Depois que a *EstaçãoDeTrabalho1* tiver um tíquete de serviço, ele enviará o tíquete de serviço para *FileServer1*, que lerá as credenciais de segurança de *Usuário1*e construirá um token de acesso de acordo.
 
 ## <a name="trusted-domain-object"></a>Objeto de domínio confiável
 
-Cada domínio ou confiança florestal dentro de uma organização é representado por um TDO (Trusted Domain Object, objeto de domínio confiável) armazenado no contêiner *do Sistema* dentro de seu domínio.
+Cada relação de confiança de domínio ou floresta em uma organização é representada por um TDO (objeto de domínio confiável) armazenado no contêiner do *sistema* dentro de seu domínio.
 
-### <a name="tdo-contents"></a>Conteúdo TDO
+### <a name="tdo-contents"></a>Conteúdo do TDO
 
-As informações contidas em um TDO variam dependendo se um TDO foi criado por um fundo de domínio ou por um fundo florestal.
+As informações contidas em um TDO variam dependendo se um TDO foi criado por uma confiança de domínio ou por uma relação de confiança de floresta.
 
-Quando uma confiança de domínio é criada, atributos como o nome de domínio DNS, o SID de domínio, o tipo de confiança, a transitividade de confiança e o nome de domínio recíproco são representados no TDO. Os TDOs da Forest Trust armazenam atributos adicionais para identificar todos os namespaces confiáveis da floresta parceira. Esses atributos incluem nomes de árvore de domínio, sufixos de nome principal de usuário (UPN), sufixos de nome principal de serviço (SPN) e espaços de nomes de ID de segurança (SID).
+Quando uma relação de confiança de domínio é criada, atributos como o nome de domínio DNS, o SID de domínio, o tipo de confiança, a transitividade de confiança e o nome de domínio recíproco são representados no TDO. Confiança de floresta TDOs armazenar atributos adicionais para identificar todos os namespaces confiáveis da floresta do parceiro. Esses atributos incluem nomes de árvore de domínio, sufixos de nome principal de usuário (UPN), sufixos SPN (nome da entidade de serviço) e namespaces de SID (ID de segurança).
 
-Como os trusts são armazenados no Active Directory como TDOs, todos os domínios em uma floresta têm conhecimento das relações de confiança que estão em vigor em toda a floresta. Da mesma forma, quando duas ou mais florestas são unidas através de fundos florestais, os domínios da raiz florestal em cada floresta têm conhecimento das relações de confiança que estão em vigor em todos os domínios em florestas confiáveis.
+Como as relações de confiança são armazenadas em Active Directory como TDOs, todos os domínios em uma floresta têm conhecimento das relações de confiança que estão em vigor em toda a floresta. Da mesma forma, quando duas ou mais florestas são unidas por meio de relações de confiança de floresta, os domínios raiz da floresta em cada floresta têm conhecimento das relações de confiança que estão em vigor em todos os domínios em florestas confiáveis.
 
 ### <a name="tdo-password-changes"></a>Alterações de senha do TDO
 
-Ambos os domínios em um relacionamento de confiança compartilham uma senha, que é armazenada no objeto TDO no Active Directory. Como parte do processo de manutenção da conta, a cada 30 dias o controlador de domínio confiável altera a senha armazenada no TDO. Como todas as confianças bidirecionais são na verdade duas confianças unidirecionais indo em direções opostas, o processo ocorre duas vezes para confianças bidirecionais.
+Ambos os domínios em uma relação de confiança compartilham uma senha, que é armazenada no objeto TDO no Active Directory. Como parte do processo de manutenção da conta, a cada 30 dias, o controlador de domínio confiante altera a senha armazenada no TDO. Como todas as relações de confiança bidirecionais são, na verdade, confianças de 2 1 em direções opostas, o processo ocorre duas vezes para relações de confiança bidirecionais.
 
-Um fundo tem um lado confiável e confiável. No lado confiável, qualquer controlador de domínio gravável pode ser usado para o processo. No lado de confiança, o emulador PDC executa a alteração de senha.
+Uma relação de confiança tem confiança e um lado confiável. No lado confiável, qualquer controlador de domínio gravável pode ser usado para o processo. No lado da confiança, o emulador de PDC executa a alteração de senha.
 
-Para alterar uma senha, os controladores de domínio completam o seguinte processo:
+Para alterar uma senha, os controladores de domínio concluem o seguinte processo:
 
-1. O emulador pdc (controlador de domínio primário) no domínio de confiança cria uma nova senha. Um controlador de domínio no domínio confiável nunca inicia a alteração de senha. É sempre iniciado pelo emulador PDC do domínio de confiança.
+1. O emulador do controlador de domínio primário (PDC) no domínio confiante cria uma nova senha. Um controlador de domínio no domínio confiável nunca inicia a alteração de senha. Ele é sempre iniciado pelo emulador de PDC do domínio confiante.
 
-2. O emulador DePDC no domínio de confiança define o campo *OldPassword* do objeto TDO para o campo *NewPassword* atual.
+2. O emulador de PDC no domínio confiante define o campo *oldPassword* do objeto tdo para o campo *newPassword* atual.
 
-3. O emulador PDC no domínio de confiança define o campo *NewPassword* do objeto TDO para a nova senha. Manter uma cópia da senha anterior torna possível reverter para a senha antiga se o controlador de domínio no domínio confiável não receber a alteração, ou se a alteração não for replicada antes de uma solicitação ser feita que usa a nova senha de confiança.
+3. O emulador de PDC no domínio confiante define o campo *newPassword* do objeto tdo como a nova senha. Manter uma cópia da senha anterior torna possível reverter para a senha antiga se o controlador de domínio no domínio confiável falhar ao receber a alteração ou se a alteração não for replicada antes que seja feita uma solicitação que use a nova senha de confiança.
 
-4. O emulador de PDC no domínio de confiança faz uma chamada remota para um controlador de domínio no domínio confiável pedindo que ele defina a senha na conta fiduciário para a nova senha.
+4. O emulador de PDC no domínio confiante faz uma chamada remota para um controlador de domínio no domínio confiável solicitando que ele defina a senha na conta de confiança como a nova senha.
 
 5. O controlador de domínio no domínio confiável altera a senha de confiança para a nova senha.
 
-6. Em cada lado da confiança, as atualizações são replicadas para os outros controladores de domínio no domínio. No domínio de confiança, a alteração desencadeia uma replicação urgente do objeto de domínio confiável.
+6. Em cada lado da relação de confiança, as atualizações são replicadas para os outros controladores de domínio no domínio. No domínio confiante, a alteração dispara uma replicação urgente do objeto de domínio confiável.
 
-A senha agora é alterada em ambos os controladores de domínio. A replicação normal distribui os objetos TDO para os outros controladores de domínio no domínio. No entanto, é possível que o controlador de domínio no domínio de confiança altere a senha sem atualizar com sucesso um controlador de domínio no domínio confiável. Esse cenário pode ocorrer porque um canal seguro, que é necessário para processar a mudança de senha, não pôde ser estabelecido. Também é possível que o controlador de domínio no domínio confiável possa estar indisponível em algum momento durante o processo e pode não receber a senha atualizada.
+A senha agora é alterada em ambos os controladores de domínio. A replicação normal distribui os objetos TDO para os outros controladores de domínio no domínio. No entanto, é possível que o controlador de domínio no domínio confiante altere a senha sem Atualizar com êxito um controlador de domínio no domínio confiável. Esse cenário pode ocorrer porque um canal protegido, que é necessário para processar a alteração de senha, não pôde ser estabelecido. Também é possível que o controlador de domínio no domínio confiável possa estar indisponível em algum momento durante o processo e pode não receber a senha atualizada.
 
-Para lidar com situações em que a alteração de senha não é comunicada com sucesso, o controlador de domínio no domínio de confiança nunca altera a nova senha a menos que tenha autenticado com sucesso (configurar um canal protegido) usando a nova senha. Esse comportamento é o motivo pelo qual as senhas antigas e novas são mantidas no objeto TDO do domínio de confiança.
+Para lidar com situações em que a alteração de senha não é comunicada com êxito, o controlador de domínio no domínio confiante nunca altera a nova senha, a menos que tenha sido autenticado com êxito (configure um canal protegido) usando a nova senha. Esse comportamento é o motivo pelo qual as senhas antigas e novas são mantidas no objeto TDO do domínio confiante.
 
-Uma alteração de senha não é finalizada até que a autenticação usando a senha seja bem sucedida. A senha antiga e armazenada pode ser usada no canal protegido até que o controlador de domínio no domínio confiável receba a nova senha, permitindo assim o serviço ininterrupto.
+Uma alteração de senha não é finalizada até que a autenticação usando a senha seja realizada com sucesso. A senha armazenada antiga pode ser usada no canal protegido até que o controlador de domínio no domínio confiável receba a nova senha, habilitando assim o serviço ininterrupto.
 
-Se a autenticação usando a nova senha falhar porque a senha é inválida, o controlador de domínio confiável tentará autenticar usando a senha antiga. Se autenticar com sucesso com a senha antiga, ele retomará o processo de alteração de senha em 15 minutos.
+Se a autenticação que usa a nova senha falhar porque a senha é inválida, o controlador de domínio confiante tentará autenticar usando a senha antiga. Se ele for autenticado com êxito com a senha antiga, ele retoma o processo de alteração de senha dentro de 15 minutos.
 
-As atualizações de senha de confiança precisam ser replicadas aos controladores de domínio de ambos os lados da confiança dentro de 30 dias. Se a senha de confiança for alterada após 30 dias e um controlador de domínio tiver apenas a senha N-2, ela não poderá usar a confiança do lado de confiança e não poderá criar um canal seguro no lado confiável.
+As atualizações de senha de confiança precisam ser replicadas para os controladores de domínio de ambos os lados da relação de confiança dentro de 30 dias. Se a senha de confiança for alterada após 30 dias e um controlador de domínio tiver apenas a senha N-2, ele não poderá usar a relação de confiança do lado confiante e não poderá criar um canal seguro no lado confiável.
 
-## <a name="network-ports-used-by-trusts"></a>Portas de rede usadas por trusts
+## <a name="network-ports-used-by-trusts"></a>Portas de rede usadas por relações de confiança
 
-Como os trusts devem ser implantados em vários limites de rede, eles podem ter que passar por um ou mais firewalls. Quando este for o caso, você pode fazer um túnel de confiança no tráfego através de um firewall ou abrir portas específicas no firewall para permitir que o tráfego passe.
+Como as relações de confiança devem ser implantadas em vários limites de rede, elas podem ter que abranger um ou mais firewalls. Quando esse for o caso, você pode encapsular o tráfego de confiança em um firewall ou abrir portas específicas no firewall para permitir que o tráfego passe.
 
 > [!IMPORTANT]
-> Os Active Directory Domain Services não suportam restringir o tráfego de RPC do Active Directory a portas específicas.
+> Active Directory Domain Services não dá suporte à restrição Active Directory tráfego RPC para portas específicas.
 
-Leia a seção **Windows Server 2008 e versões posteriores** do Artigo de Suporte da Microsoft [Como configurar um firewall para domínios e trusts do Active Directory](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) para aprender sobre as portas necessárias para um fundo florestal.
+Leia a seção **Windows Server 2008 e versões posteriores** do artigo suporte da Microsoft [como configurar um firewall para Active Directory domínios e relações de confiança](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) para saber mais sobre as portas necessárias para uma relação de confiança de floresta.
 
-## <a name="supporting-services-and-tools"></a>Suporte a serviços e ferramentas
+## <a name="supporting-services-and-tools"></a>Serviços e ferramentas de suporte
 
-Para suportar trusts e autenticação, alguns recursos adicionais e ferramentas de gerenciamento são usados.
+Para dar suporte a relações de confiança e autenticação, são usados alguns recursos adicionais e ferramentas de gerenciamento.
 
 ### <a name="net-logon"></a>Logon de Rede
 
-O serviço Net Logon mantém um canal protegido de um computador baseado no Windows para um DC. Também é usado nos seguintes processos relacionados à confiança:
+O serviço de logon de rede mantém um canal protegido de um computador baseado no Windows para um DC. Ele também é usado nos seguintes processos relacionados à confiança:
 
-* Configuração e gerenciamento de confiança - O Net Logon ajuda a manter senhas de confiança, coleta informações de confiança e verifica confianças interagindo com o processo LSA e o TDO.
+* Configuração e gerenciamento de confiança-o logon de rede ajuda a manter senhas de confiança, coleta informações de confiança e verifica relações de confiança interagindo com o processo LSA e o TDO.
 
-    Para os trusts da Forest, as informações de confiança incluem o registro Forest Trust Information *(FTInfo),* que inclui o conjunto de namespaces que uma floresta confiável afirma gerenciar, anotado com um campo que indica se cada reivindicação é confiável pela floresta confiável.
+    Para relações de confiança de floresta, as informações de confiança incluem o registro*FTInfo*(informações de confiança de floresta), que inclui o conjunto de namespaces que uma floresta confiável alega gerenciar, anotada com um campo que indica se cada declaração é confiável pela floresta confiante.
 
-* Autenticação – Fornece credenciais de usuário sobre um canal seguro para um controlador de domínio e retorna os SIDs de domínio e os direitos do usuário para o usuário.
+* Autenticação – fornece as credenciais do usuário em um canal protegido para um controlador de domínio e retorna os SIDs de domínio e os direitos de usuário para o usuário.
 
-* Localização do controlador de domínio – Ajuda a encontrar ou localizar controladores de domínio em um domínio ou em domínios.
+* Local do controlador de domínio – ajuda na localização ou localização de controladores de domínio em um domínio ou entre domínios.
 
-* Validação de passagem – As credenciais dos usuários em outros domínios são processadas pelo Net Logon. Quando um domínio confiável precisa verificar a identidade de um usuário, ele passa as credenciais do usuário através do Net Logon para o domínio confiável para verificação.
+* Validação de passagem – as credenciais de usuários em outros domínios são processadas pelo logon de rede. Quando um domínio confiante precisa verificar a identidade de um usuário, ele passa as credenciais do usuário por meio do logon de rede para o domínio confiável para verificação.
 
-* Verificação do Privilege Attribute Certificate (PAC) – Quando um servidor que usa o protocolo Kerberos para autenticação precisa verificar o PAC em um ticket de serviço, ele envia o PAC através do canal seguro para seu controlador de domínio para verificação.
+* Verificação de PAC (certificado de atributo de privilégio) – quando um servidor que usa o protocolo Kerberos para autenticação precisa verificar a PAC em um tíquete de serviço, ele envia a PAC pelo canal seguro para seu controlador de domínio para verificação.
 
 ### <a name="local-security-authority"></a>Autoridade de Segurança Local
 
-A Autoridade De Segurança Local (LSA) é um subsistema protegido que mantém informações sobre todos os aspectos da segurança local em um sistema. Conhecida coletivamente como política de segurança local, a LSA fornece vários serviços para tradução entre nomes e identificadores.
+A autoridade de segurança local (LSA) é um subsistema protegido que mantém informações sobre todos os aspectos da segurança local em um sistema. Coletivamente conhecido como diretiva de segurança local, a LSA fornece vários serviços para conversão entre nomes e identificadores.
 
-O subsistema de segurança LSA fornece serviços tanto no modo kernel quanto no modo de usuário para validar o acesso a objetos, verificar privilégios de usuário e gerar mensagens de auditoria. A LSA é responsável por verificar a validade de todos os tickets de sessão apresentados por serviços em domínios confiáveis ou não confiáveis.
+O subsistema de segurança LSA fornece serviços no modo kernel e no modo de usuário para validar o acesso a objetos, verificar os privilégios do usuário e gerar mensagens de auditoria. O LSA é responsável por verificar a validade de todos os tíquetes de sessão apresentados pelos serviços em domínios confiáveis ou não confiáveis.
 
 ### <a name="management-tools"></a>Ferramentas de gerenciamento
 
-Os administradores podem usar *domínios e trustções do Active Directory,* *Netdom* e *Nltest* para expor, criar, remover ou modificar trusts.
+Os administradores podem usar *Active Directory domínios e relações de confiança*, *netdom* e *nltest* para expor, criar, remover ou modificar relações de confiança.
 
-* *Active Directory Domains and Trusts* é o Microsoft Management Console (MMC) que é usado para administrar trusts de domínio, níveis funcionais de domínio e floresta, e sufixos de nome principal do usuário.
-* As ferramentas de linha de comando *Netdom* e *Nltest* podem ser usadas para encontrar, exibir, criar e gerenciar trusts. Essas ferramentas se comunicam diretamente com a autoridade LSA em um controlador de domínio.
+* *Active Directory domínios e relações de confiança* é o MMC (console de gerenciamento Microsoft) que é usado para administrar relações de confiança de domínio, níveis funcionais de domínio e floresta e sufixos de nome principal de usuário.
+* As ferramentas de linha de comando *netdom* e *nltest* podem ser usadas para localizar, exibir, criar e gerenciar relações de confiança. Essas ferramentas se comunicam diretamente com a autoridade LSA em um controlador de domínio.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre florestas de recursos, [veja como os fundos florestais funcionam no Azure AD DS?][concepts-trust]
+Para saber mais sobre as florestas de recursos, consulte [como as relações de confiança de floresta funcionam no Azure AD DS?][concepts-trust]
 
-Para começar com a criação de um domínio gerenciado pelo Azure AD DS com uma floresta de recursos, consulte [Criar e configurar um domínio gerenciado pelo Azure AD DS][tutorial-create-advanced]. Em seguida, você pode [criar uma confiança florestal de saída para um domínio local (visualização)][create-forest-trust].
+Para começar a criar um domínio gerenciado do Azure AD DS com uma floresta de recursos, consulte [criar e configurar um domínio gerenciado do azure AD DS][tutorial-create-advanced]. Em seguida, você pode [criar uma relação de confiança de floresta de saída para um domínio local (versão prévia)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

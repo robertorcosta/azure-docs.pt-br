@@ -1,5 +1,5 @@
 ---
-title: Use a preferência de leitura com a API do Azure Cosmos DB para MongoDB
+title: Usar a preferência de leitura com a API do Azure Cosmos DB para MongoDB
 description: Saiba como usar a Preferência de Leitura do MongoDB com a API Azure Cosmos DB para MongoDB
 author: sivethe
 ms.author: sivethe
@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80409995"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
@@ -86,7 +86,7 @@ Consulte a documentação detalhada [Comportamento da Preferência de Leitura do
 Com base em cenários comuns, é usar as seguintes configurações a seguir:
 
 1. Se **leituras de baixa latência** forem necessárias, utilize o modo de preferência de leitura **NEAREST**. Essa configuração direciona as operações de leitura para a região disponível mais próxima. Observe que, se a região mais próxima for a região de GRAVAÇÃO, essas operações serão direcionadas a essa região.
-2. Se for em vez de necessária **alta disponibilidade e distribuição geográfica das leituras** (a latência não é uma restrição), use o modo de preferência de leitura **PREFERENCIAl** **PRIMÁRIO** ou SECUNDÁRIO. Esta configuração direciona as operações de leitura para uma região DE WRITE ou READ disponível, respectivamente. Se a região não estiver disponível, as solicitações serão direcionadas para a próxima região disponível, de acordo com o comportamento de preferência de leitura.
+2. Se a **alta disponibilidade e a distribuição geográfica de leituras** forem necessárias (a latência não é uma restrição), use o modo de preferência de leitura preferencial **primário** ou **secundário** . Essa configuração direciona as operações de leitura para uma região de gravação ou leitura disponível, respectivamente. Se a região não estiver disponível, as solicitações serão direcionadas para a próxima região disponível de acordo com o comportamento de preferência de leitura.
 
 O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura NEAREST no NodeJS:
 
@@ -172,4 +172,4 @@ Se você não continuar a usar esse aplicativo, exclua todos os recursos criados
 
 * [Importar dados do MongoDB no Azure Cosmos DB](mongodb-migrate.md)
 * [Configurar o banco de dados distribuído globalmente com a API do Azure Cosmos DB para MongoDB](tutorial-global-distribution-mongodb.md)
-* [Desenvolver localmente com o emulador Azure Cosmos DB](local-emulator.md)
+* [Desenvolver localmente com o emulador de Azure Cosmos DB](local-emulator.md)

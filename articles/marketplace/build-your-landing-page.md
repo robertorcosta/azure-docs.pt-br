@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: dsindona
 ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387794"
 ---
 # <a name="build-your-landing-page"></a>Criar a página de aterrissagem
@@ -45,7 +45,7 @@ Quando você tiver um plano de campanha pronto, crie a página de aterrissagem n
 | **Coloque seu plano de ação em um cabeçalho ou seção claramente delineado ** | Inserir os links para sua listagem do Marketplace em um parágrafo do texto. |
 | **Pesquisar as melhores palavras-chave e otimizar a página para pesquisa** | Supondo que o nome do seu produto gerará classificações de pesquisa superiores. |
 | **Usar as palavras-chave das suas campanhas publicitárias** | Usar muitas palavras-chave diferentes em suas propriedades da Web dilui seus investimentos de publicidade. |
-| **Coloque nomes de produtos e palavras-chave relevantes "acima da dobra"** | Fazer com que os usuários rolem a página para ver qual produto ou solução está sendo apresentada. |
+| **Colocar nomes de produtos e palavras-chave relevantes "acima da dobra"** | Fazer com que os usuários rolem a página para ver qual produto ou solução está sendo apresentada. |
 | **Use imagens da marca para validar sua solução em conformidade com as diretrizes de identidade visual da Microsoft, como o Azure Certified** | O uso de imagens de marca da Microsoft não está aprovado. |
 
 ## <a name="next-steps"></a>Próximas etapas

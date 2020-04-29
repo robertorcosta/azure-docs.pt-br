@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476744"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
@@ -30,10 +30,10 @@ Para atingir esse objetivo, você pode:
 * Usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia do Microsoft Azure para reempacotar dinamicamente a transmissão em diferentes protocolos. Isso se encarregará da transmissão em diferentes dispositivos. Os Serviços de Mídia permitem a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: <br/>
     * **HLS** (HTTP Live Streaming): adicione o caminho "(format = m3u8-aapl)" à parte "/Manifest" da URL para informar o servidor de origem de streaming para retornar o conteúdo HLS para consumo nos dispositivos nativos **Apple iOS** (para saber mais detalhes, consulte [localizadores](#locators) e [URLs](#URLs)),
     * **MPEG-DASH**: adicione o caminho "(format=mpd-time-csf)" à parte "/Manifest" da URL para informar o servidor de origem de streaming para retornar MPEG-DASH (para saber mais detalhes, consulte [localizadores](#locators) e [URLs](#URLs)),
-    * **Smooth Streaming**.
+    * **Smooth streaming**.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.** 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
 Este artigo apresenta uma visão geral de conceitos importantes de distribuição de conteúdo.
 
@@ -48,7 +48,7 @@ Com o empacotamento dinâmico, você armazena e paga por arquivos em um único f
 
 O empacotamento dinâmico está disponível para pontos de extremidade de streaming Standard e Premium. 
 
-Para obter mais informações, consulte [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md).
+Para obter mais informações, consulte [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 ## <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 Você pode definir filtros para seus ativos com os Serviços de Mídia. Esses filtros são regras do servidor que ajudam os clientes a realizar tarefas como reproduzir uma seção específica de um vídeo ou especificar um subconjunto de representações de áudio e vídeo com as quais o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). Essa filtragem é obtida por meio de *manifestos dinâmicos* que são criados quando o cliente solicita transmitir um vídeo com base em um ou mais filtros especificados.
@@ -82,32 +82,32 @@ Tecnologias de taxa de bits adaptável permitem que os aplicativos de player de 
 Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. A criação do localizador proporciona o caminho base para o ativo que inclui o conteúdo que você deseja transmitir. No entanto, para poder transmitir esse conteúdo, você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, é preciso concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (filename.ism). Em seguida, acrescente **/Manifest** e um formato apropriado (se necessário) ao caminho do localizador.
 
 > [!NOTE]
-> Você também pode transmitir seu conteúdo por uma conexão TLS. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Observe que, atualmente, a AMS não suporta TLS com domínios personalizados.  
+> Você também pode transmitir seu conteúdo por uma conexão TLS. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Observe que, atualmente, o AMS não dá suporte a TLS com domínios personalizados.  
 > 
 
-Você só pode transmitir através do TLS se o ponto final de streaming a partir do qual você entrega seu conteúdo foi criado após 10 de setembro de 2014. Se as URLs de streaming se basearem nos pontos de extremidade de streaming criados após 10 de setembro de 2014, a URL conterá "streaming.mediaservices.windows.net". UrLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se sua URL estiver no formato antigo e você quiser ser capaz de transmitir através de TLS, crie um novo ponto final de streaming. Use URLs com base no novo ponto final de streaming para transmitir seu conteúdo através de TLS.
+Você só poderá transmitir por TLS se o ponto de extremidade de streaming do qual você entregar seu conteúdo tiver sido criado após 10 de setembro de 2014. Se as URLs de streaming se basearem nos pontos de extremidade de streaming criados após 10 de setembro de 2014, a URL conterá "streaming.mediaservices.windows.net". As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não dão suporte a TLS. Se a URL estiver no formato antigo e você quiser ser capaz de transmitir por TLS, crie um novo ponto de extremidade de streaming. Use URLs com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por TLS.
 
 ## <a name="streaming-url-formats"></a><a id="URLs"/>Formatos de URL de streaming
 
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = MPD-time-CSF)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Formato Apple HTTP Live Streaming (HLS) V4
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Formato Apple HTTP Live Streaming (HLS) V3
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl-v3)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio
 Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é necessário na certificação da Apple Store para redes de celular. Nesse caso, se um cliente não tiver largura de banda suficiente ou estiver conectado por uma conexão 2G, a reprodução será alternada para somente áudio. Isso ajuda a manter o streaming do conteúdo sem buffer, mas sem vídeo. Em alguns cenários, o buffer do player pode ser preferível a somente áudio. Se desejar remover a faixa somente áudio, adicione **audio-only=false** à URL.
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest (Format = M3U8-AAPL-v3, áudio-only = false)
 
 Para saber mais, confira [Dynamic Manifest Composition support and HLS output additional features (Suporte à Composição de Manifesto Dinâmico e recursos adicionais da saída de HLS)](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,7 +116,7 @@ Para saber mais, confira [Dynamic Manifest Composition support and HLS output ad
 
 Exemplo:
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.Windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ISM/manifest
 
 ### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifesto do Smooth Streaming 2.0 (manifesto herdado)
 Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repetição (r-tag). No entanto, alguns jogadores não dão suporte à r-tag. Os clientes com esses players podem usar um formato que desabilita a r-tag:
@@ -151,11 +151,11 @@ As seguintes considerações se aplicam:
 Um ponto de extremidade de streaming representa um serviço de streaming que pode distribuir conteúdo diretamente a um aplicativo player do cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. O fluxo de saída de um serviço de ponto de extremidade de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Há dois tipos de ponto de extremidade de streaming, **Standard** e **Premium**. Para saber mais, confira [Streaming endpoints overview](media-services-streaming-endpoints-overview.md) (Visão geral dos pontos de extremidade de streaming).
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.** 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Alterações na versão do manifesto do Smooth Streaming
-Antes da liberação do serviço em julho de 2016 — quando ativos produzidos pelo Codificador de Mídia Padrão, Fluxo de Trabalho Premium de Codificação de Mídia ou o antigo Codificador de Mídia do Azure eram transmitidos usando o empacotamento dinâmico — o manifesto Smooth Streaming retornado seria conforme à versão 2.0. Na versão 2.0, as durações de fragmento não usam as chamadas marcações de repetição ('r'). Por exemplo: 
+Antes da liberação do serviço em julho de 2016 — quando ativos produzidos pelo Codificador de Mídia Padrão, Fluxo de Trabalho Premium de Codificação de Mídia ou o antigo Codificador de Mídia do Azure eram transmitidos usando o empacotamento dinâmico — o manifesto Smooth Streaming retornado seria conforme à versão 2.0. Na versão 2.0, as durações de fragmento não usam as chamadas marcações de repetição ('r'). Por exemplo:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Antes da liberação do serviço em julho de 2016 — quando ativos produzidos p
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Na liberação do serviço de julho de 2016, o manifesto do Smooth Streaming gerado está em conformidade com a versão 2.2, com durações de fragmentos que usam marcações de repetição. Por exemplo: 
+Na liberação do serviço de julho de 2016, o manifesto do Smooth Streaming gerado está em conformidade com a versão 2.2, com durações de fragmentos que usam marcações de repetição. Por exemplo:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
@@ -184,7 +184,7 @@ Alguns dos clientes herdados do Smooth Streaming podem não dar suporte às marc
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados

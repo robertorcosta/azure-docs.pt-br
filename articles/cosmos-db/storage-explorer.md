@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411665"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
@@ -29,7 +29,7 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
-1. Depois de instalar o **Azure Storage Explorer,** clique no ícone **de plug-in** à esquerda, conforme mostrado na imagem a seguir:
+1. Depois de instalar o **Gerenciador de armazenamento do Azure**, clique no ícone de **plug-in** à esquerda, conforme mostrado na imagem a seguir:
        
    ![Ícone do plug-in](./media/storage-explorer/plug-in-icon.png)
  
@@ -37,7 +37,7 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
    ![Conectar-se a uma assinatura do Azure](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. Na caixa de diálogo **Azure Sign in,** selecione **Entrar**e digite suas credenciais do Azure.
+2. Na caixa de diálogo **entrar no Azure** , selecione **entrar**e insira suas credenciais do Azure.
 
     ![Entrar](./media/storage-explorer/sign-in.png)
 
@@ -59,7 +59,7 @@ Um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de co
 
     ![Conectar-se ao Cosmos DB por uma cadeia de conexão](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a seqüência de conexão principal, consulte [Obter a seqüência de conexões](manage-with-powershell.md#list-keys).
+2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
     ![Cadeia de conexão](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atu
 
     ![Conecte-se ao Cosmos DB pelo emulador](./media/storage-explorer/emulator-entry.png)
 
-3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a seqüência de conexão principal, consulte [Obter a seqüência de conexões](manage-with-powershell.md#list-keys).
+3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
     ![Conecte-se ao Cosmos DB pelo diálogo do emulador](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
     ![Excluir database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Criar uma coleção
-1. Clique com o botão direito do mouse no banco de dados, escolha **Criar coleção**e forneça as seguintes informações como **ID de coleta,** **capacidade de armazenamento,** etc. Clique em **OK** para terminar. 
+1. Clique com o botão direito do mouse no banco de dados, escolha **criar coleção**e forneça as informações a seguir, como **ID da coleção**, **capacidade de armazenamento**, etc. Clique em **OK** para concluir. 
 
     ![Criar collection1](./media/storage-explorer/create-collection.png)
 
@@ -213,9 +213,9 @@ Antes de continuar, tente reiniciar o aplicativo e ver se os problemas podem ser
 
 Há alguns motivos que podem exibir esse erro. Os dois mais comuns são:
 
-+ Você está por trás de um *proxy transparente, o*que significa que alguém (como seu departamento de TI) está interceptando tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado auto-assinado.
++ Você está atrás de um *proxy transparente*, o que significa que alguém (como seu departamento de ti) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
 
-+ Você está executando software, como software antivírus, que está injetando um certificado TLS/SSL auto-assinado nas mensagens HTTPS que você recebe.
++ Você está executando software, como um software antivírus, que está injetando certificados autoassinados TLS/SSL nas mensagens HTTPS recebidas.
 
 Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassinados", ele pode não saber se a mensagem HTTPS recebida foi adulterada. No entanto, se você tiver uma cópia do certificado autoassinado, poderá ordenar o Gerenciador de Armazenamento para confiar nele. Se você não tiver certeza de quem está injetando o certificado, tente localizá-lo por conta própria seguindo as etapas abaixo:
 
@@ -228,7 +228,7 @@ Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassi
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
 5.  Depois de encontrar os certificados autoassinados, copie e cole tudo desde, e incluindo, **---BEGIN CERTIFICATE---** até **---END CERTIFICATE---** em um novo arquivo .cer para cada um.
-6.  Abra o Storage Explorer e vá para **Editar** > **certificados SSL Certificados** > **de importação .** Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
+6.  Abra Gerenciador de armazenamento e vá para **Editar** > certificados**SSL** > **importar certificados**. Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
 
 Se você não conseguir localizar todos os certificados autoassinados usando as etapas acima, envie comentários para obter mais ajuda.
 
@@ -268,7 +268,7 @@ Se você não conseguir remover uma conta, ou se o link de nova autenticação n
   - Pasta %AppData%/StorageExplorer para Windows
   - /Usuários/<seu_nome>/Library/Application SUpport/StorageExplorer para Mac
   - ~/.config/StorageExplorer para Linux
-  - **Você terá que reinserir todas as suas credenciais** se você excluir esses arquivos
+  - **Você precisará inserir novamente todas as suas credenciais** se excluir esses arquivos
 
 
 ### <a name="httphttps-proxy-issue"></a>Problema de proxy HTTP/HTTPS
@@ -300,7 +300,7 @@ Tente as seguintes sugestões:
 
 ## <a name="contact-us"></a>Fale conosco
 
-Se nenhuma das soluções funcionar para você, envie um e-mail[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)para a Equipe de Ferramentas do Azure Cosmos DB Dev ( ) com detalhes sobre o problema, para corrigir os problemas.
+Se nenhuma das soluções funcionar para você, envie um email para a equipe de ferramentas de desenvolvimento[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)Azure Cosmos dB () com detalhes sobre o problema, para corrigir os problemas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

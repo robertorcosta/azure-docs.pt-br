@@ -1,6 +1,6 @@
 ---
-title: Solicitações de dados de clientes para dispositivos Azure IoT Hub
-description: A maioria dos dispositivos gerenciados no Azure IoT Hub não são pessoais, mas alguns são. Este artigo fala sobre os admins serem capazes de exportar ou excluir dados pessoais de um dispositivo.
+title: Solicitações de dados do cliente para dispositivos do Hub IoT do Azure
+description: A maioria dos dispositivos gerenciados no Hub IoT do Azure não é pessoal, mas alguns são. Este artigo fala sobre os administradores que podem exportar ou excluir dados pessoais de um dispositivo.
 author: robinsh
 ms.author: robinsh
 ms.date: 05/16/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79499324"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
@@ -40,7 +40,7 @@ Também é possível executar operações de exclusão para dispositivos usando 
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
-Os administradores de inquilinos podem utilizar cópia e colar no painel de dispositivos IoT da extensão Azure IoT Hub no portal Azure para exportar dados associados a um dispositivo.
+Os administradores de locatários podem utilizar copiar e colar no painel dispositivos IoT da extensão do Hub IoT do Azure no portal do Azure para exportar dados associados a um dispositivo.
 
 Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](/rest/api/iothub/service/registrymanager/getdevice).
 

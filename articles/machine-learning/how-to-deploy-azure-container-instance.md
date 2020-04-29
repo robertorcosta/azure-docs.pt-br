@@ -1,7 +1,7 @@
 ---
-title: Como implantar modelos em Instâncias de Contêineres do Azure
+title: Como implantar modelos em instâncias de contêiner do Azure
 titleSuffix: Azure Machine Learning
-description: Saiba como implantar seus modelos de Machine Learning do Azure como um serviço web usando instâncias de contêiner do Azure.
+description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando instâncias de contêiner do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,43 +11,43 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475466"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo nas Instâncias de Contêiner do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprenda a usar o Azure Machine Learning para implantar um modelo como serviço web no Azure Container Instances (ACI). Use as instâncias do contêiner Azure se uma das seguintes condições for verdadeira:
+Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em ACI (instâncias de contêiner do Azure). Use as instâncias de contêiner do Azure se uma das seguintes condições for verdadeira:
 
 - Você precisa implantar rapidamente e validar o modelo. Você não precisa criar contêineres ACI antes do tempo. Eles são criados como parte do processo de implantação.
 - Você está testando um modelo ainda em desenvolvimento. 
 
-Para obter informações sobre a disponibilidade de cotas e região para ACI, consulte Cotas e disponibilidade de região para o artigo [Azure Container Instances.](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)
+Para obter informações sobre a disponibilidade de cota e região para ACI, consulte o artigo [cotas e disponibilidade de região para instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho de aprendizado de máquina do Azure](how-to-manage-workspace.md).
+- Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-- Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tem um modelo registrado, veja [Como e onde implantar modelos](how-to-deploy-and-where.md).
+- Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- A [extensão Azure CLI para serviço de aprendizado de máquina,](reference-azure-machine-learning-cli.md) [O Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
-- Os trechos de código __Python__ neste artigo assumem que as seguintes variáveis estão definidas:
+- Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
-    * `ws`- Coloque-se no seu espaço de trabalho.
-    * `model`- Ajuste para o seu modelo registrado.
-    * `inference_config`- Definir a configuração de inferência para o modelo.
+    * `ws`-Defina para seu espaço de trabalho.
+    * `model`-Defina para o modelo registrado.
+    * `inference_config`– Defina para a configuração de inferência para o modelo.
 
-    Para obter mais informações sobre a definição dessas variáveis, consulte [Como e onde implantar modelos](how-to-deploy-and-where.md).
+    Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- Os trechos da __CLI__ neste artigo supõem `inferenceconfig.json` que você criou um documento. Para obter mais informações sobre a criação deste documento, consulte [Como e onde implantar modelos](how-to-deploy-and-where.md).
+- Os trechos de código da __CLI__ neste artigo pressupõem que você `inferenceconfig.json` criou um documento. Para obter mais informações sobre como criar este documento, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
-Para implantar um modelo no Azure Container Instances, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência,__ que descreva o ambiente necessário para hospedar o modelo e o serviço web. Para obter mais informações sobre como criar a configuração de inferência, consulte [Como e onde implantar modelos](how-to-deploy-and-where.md).
+Para implantar um modelo em instâncias de contêiner do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>Usar o SDK
 
@@ -61,15 +61,15 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Para obter mais informações sobre as classes, métodos e parâmetros utilizados neste exemplo, consulte os seguintes documentos de referência:
+Para obter mais informações sobre as classes, os métodos e os parâmetros usados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
-* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+* [AciWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* [Modelo. implantar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>Usando a CLI
 
-Para implantar usando o CLI, use o seguinte comando. Substitua pelo `mymodel:1` nome e versão do modelo registrado. Substitua pelo `myservice` nome para fornecer este serviço:
+Para implantar usando a CLI, use o comando a seguir. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -77,11 +77,11 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-Para obter mais informações, consulte [o modelo az ml implantar](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) referência. 
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
 ## <a name="using-vs-code"></a>Usar o VS Code
 
-Veja [implantar seus modelos com código VS](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+Consulte [implantar seus modelos com vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > Você não precisa criar um contêiner ACI para testar com antecedência. Os contêineres ACI são criados conforme necessário.
@@ -92,9 +92,9 @@ Veja [implantar seus modelos com código VS](tutorial-train-deploy-image-classif
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como implantar um modelo usando uma imagem Docker personalizada](how-to-deploy-custom-docker-image.md)
+* [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Use o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Usar o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
-* [Monitore seus modelos de Aprendizado de Máquina do Azure com insights de aplicativos](how-to-enable-app-insights.md)
+* [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

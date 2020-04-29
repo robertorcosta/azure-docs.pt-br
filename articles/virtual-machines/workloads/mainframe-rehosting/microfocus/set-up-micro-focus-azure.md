@@ -1,6 +1,6 @@
 ---
-title: Instale o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure | Microsoft Docs
-description: Rehospede suas cargas de trabalho de mainframe ibm z/OS usando o ambiente de desenvolvimento e teste micro focus em máquinas virtuais Azure (VMs).
+title: Instalar o micro Focus Enterprise Server 4,0 e o desenvolvedor Enterprise 4,0 no Azure | Microsoft Docs
+description: Rehospede suas cargas de trabalho de mainframe do IBM z/OS usando o ambiente de desenvolvimento e teste micro Focus em VMs (máquinas virtuais) do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -13,24 +13,24 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411189"
 ---
-# <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instale o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure
+# <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instalar o micro Focus Enterprise Server 4,0 e o desenvolvedor Enterprise 4,0 no Azure
 
-Este artigo mostra como configurar o [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) e o Micro Focus Enterprise Developer [4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) no Azure.
+Este artigo mostra como configurar o [micro Focus Enterprise Server 4,0](https://www.microfocus.com/documentation/enterprise-developer/es30/) e o [micro Focus enterprise Developer 4,0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) no Azure.
 
-Uma carga de trabalho comum no Azure é um ambiente de desenvolvimento e teste. Este cenário é comum porque é tão econômico e fácil de implantar e derrubar. Com o Enterprise Server, a Micro Focus criou uma das maiores plataformas de rehospedagem de mainframe disponíveis. Você pode executar cargas de trabalho z/OS em uma plataforma x86 mais barata no Azure usando máquinas virtuais Windows ou Linux (VMs).
+Uma carga de trabalho comum no Azure é um ambiente de desenvolvimento e teste. Esse cenário é comum porque é tão econômico e fácil de implantar e desmontar. Com o Enterprise Server, o micro Focus criou uma das maiores plataformas de Hospedagem de mainframe disponíveis. Você pode executar cargas de trabalho z/OS em uma plataforma x86 menos dispendiosa no Azure usando VMs (máquinas virtuais) do Windows ou Linux.
 
 > [!NOTE]
-> Em breve: Instruções para configurar [o Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs Azure.
+> Em breve: instruções para configurar o [micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs do Azure.
 
-Essa configuração usa VMs do Azure executando a imagem do Windows Server 2016 do Azure Marketplace com o Microsoft SQL Server 2017 já instalado. Essa configuração também se aplica ao Azure Stack.
+Essa configuração usa VMs do Azure que executam a imagem do Windows Server 2016 do Azure Marketplace com o Microsoft SQL Server 2017 já instalado. Essa configuração também se aplica a Azure Stack.
 
-O ambiente de desenvolvimento correspondente para o Enterprise Server é o Enterprise Developer, que é executado no Microsoft Visual Studio 2017 ou posterior, Visual Studio Community (gratuito para download) ou Eclipse. Este artigo mostra como implantá-lo usando uma máquina virtual do Windows Server 2016 que vem com o Visual Studio 2017 ou posteriormente instalado.
+O ambiente de desenvolvimento correspondente para o Enterprise Server é o desenvolvedor corporativo, que é executado no Microsoft Visual Studio 2017 ou posterior, na Comunidade do Visual Studio (gratuito para download) ou eclipse. Este artigo mostra como implantá-lo usando uma máquina virtual do Windows Server 2016 que vem com o Visual Studio 2017 ou posterior instalado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,93 +38,93 @@ Antes de começar, confira estes pré-requisitos:
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- O software Micro Focus e uma licença válida (ou licença de teste). Se você é um cliente micro focus existente, entre em contato com o representante da Micro Focus. Caso contrário, [solicite um julgamento.](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/)
+- O software micro Focus e uma licença válida (ou licença de avaliação). Se você for um cliente do micro Focus existente, entre em contato com seu representante do micro Focus. Caso contrário, [solicite uma avaliação](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
-- Obtenha a documentação para [Enterprise Server e Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#").
+- Obtenha a documentação do [Enterprise Server e do Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#").
 
 > [!NOTE]
-> Uma prática recomendada é configurar um túnel de rede virtual privada (VPN) ou uma caixa de salto para controlar o acesso às VMs do Azure.
+> Uma prática recomendada é configurar um túnel de VPN (rede privada virtual) site a site ou um Jumpbox para que você possa controlar o acesso às VMs do Azure.
 
 ## <a name="install-enterprise-server"></a>Instalar o Enterprise Server
 
-1. Para obter melhor segurança e capacidade de gerenciamento, considere criar um novo grupo de recursos apenas para este projeto — por exemplo, **RGMicroFocusEntServer**. Use a primeira parte do nome no Azure para escolher o tipo de recurso para facilitar a locamento em uma lista.
+1. Para maior segurança e capacidade de gerenciamento, considere criar um novo grupo de recursos apenas para este projeto — por exemplo, **RGMicroFocusEntServer**. Use a primeira parte do nome no Azure para escolher o tipo de recurso para facilitar a localização de uma lista.
 
 2. Crie uma máquina virtual. No Azure Marketplace, selecione a máquina virtual e o sistema operacional que você deseja. Aqui está uma configuração recomendada:
 
-    - **Servidor Corporativo**: Selecione ES2 v3 VM (com 2 vCPUs e memória de 16 GB) com o Windows Server 2016 e o SQL Server 2017 instalados. Esta imagem está disponível no Azure Marketplace. O Enterprise Server também pode usar o Banco de Dados SQL do Azure.
+    - **Servidor corporativo**: selecione VM ES2 v3 (com 2 vCPUs e 16 GB de memória) com o Windows Server 2016 e o SQL Server 2017 instalados. Essa imagem está disponível no Azure Marketplace. O servidor corporativo também pode usar o banco de dados SQL do Azure.
 
-    - **Desenvolvedor Corporativo**: Selecione B2ms VM (com 2 vCPUs e 8 GB de memória) com Windows 10 e Visual Studio instalados. Esta imagem está disponível no Azure Marketplace.
+    - **Desenvolvedor empresarial**: selecione VM B2ms (com 2 vCPUs e 8 GB de memória) com o Windows 10 e o Visual Studio instalados. Essa imagem está disponível no Azure Marketplace.
 
-3. Na seção **Básico,** digite seu nome de usuário e senha. Selecione a **Assinatura** e **Localização/Região** que você gostaria de usar para as VMs. Selecione **RGMicroFocusEntServer** para o Grupo de Recursos.
+3. Na seção **noções básicas** , insira seu nome de usuário e senha. Selecione a **assinatura** e o **local/região** que você deseja usar para as VMs. Selecione **RGMicroFocusEntServer** para o grupo de recursos.
 
-4. Coloque ambas as VMs na mesma rede virtual para que possam se comunicar entre si.
+4. Coloque ambas as VMs na mesma rede virtual para que elas possam se comunicar entre si.
 
-5. Aceite os padrões para o resto das configurações. Lembre-se do nome de usuário e senha que você cria para o administrador dessas VMs.
+5. Aceite os padrões para o restante das configurações. Lembre-se do nome de usuário e da senha que você cria para o administrador dessas VMs.
 
-6. Quando as máquinas virtuais forem criadas, abra as portas de entrada 9003, 86 e 80 para HTTP e 3389 para RDP na máquina Enterprise Server e 3389 na máquina Desenvolvedor.
+6. Quando as máquinas virtuais tiverem sido criadas, abra as portas de entrada 9003, 86 e 80 para HTTP e 3389 para RDP no computador do servidor corporativo e 3389 no computador do desenvolvedor.
 
-7. Para entrar na máquina virtual do Enterprise Server, no portal Azure, selecione o VM ES2 v3. Vá para a seção **Visão Geral** e selecione **Conectar** para iniciar uma sessão RDP. Faça login usando as credenciais criadas para a VM.
+7. Para entrar na máquina virtual do servidor corporativo, em portal do Azure, selecione a VM ES2 v3. Vá para a seção **visão geral** e selecione **conectar** para iniciar uma sessão RDP. Entre usando as credenciais que você criou para a VM.
 
-8. A partir da sessão RDP, carregue os dois arquivos a seguir. Como você está usando o Windows, você pode arrastar e soltar os arquivos na sessão RDP:
+8. Na sessão RDP, carregue os dois arquivos a seguir. Como você está usando o Windows, é possível arrastar e soltar os arquivos na sessão RDP:
 
-    - **es\_40.exe**, o arquivo de instalação do Enterprise Server.
+    - **es\_40. exe**, o arquivo de instalação do servidor corporativo.
 
-    - **mflic**, o arquivo de licença correspondente — o Enterprise Server não será carregado sem ele.
+    - **mflic**, o arquivo de licença correspondente — o servidor corporativo não será carregado sem ele.
 
-9. Clique duas vezes no arquivo para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença do usuário final.
+9. Clique duas vezes no arquivo para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença de usuário final.
 
-     ![Tela de configuração do micro focus enterprise server](media/01-enterprise-server.png)
+     ![Tela de instalação do micro Focus Enterprise Server](media/01-enterprise-server.png)
 
-     Quando a configuração estiver concluída, a seguinte mensagem será exibida:
+     Quando a instalação for concluída, a seguinte mensagem será exibida:
 
-     ![Tela de configuração do micro focus enterprise server](media/02-enterprise-server.png)
+     ![Tela de instalação do micro Focus Enterprise Server](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Verificar atualizações
 
-Após a instalação, certifique-se de verificar se há atualizações adicionais, uma vez que uma série de pré-requisitos como o Microsoft C++ Redistributable e .NET Framework são instalados juntamente com o Enterprise Server.
+Após a instalação, certifique-se de verificar se há atualizações adicionais, já que vários pré-requisitos, como o Microsoft C++ Redistributable e o .NET Framework, estão instalados juntamente com o Enterprise Server.
 
-### <a name="upload-the-license"></a>Faça upload da licença
+### <a name="upload-the-license"></a>Carregar a licença
 
-1. Inicie a Administração de Licença supérdia do Micro Focus.
+1. Inicie a administração da licença do micro Focus.
 
-2. Clique **em Iniciar a** \> administração de **licença**do Micro Focus **License Manager** \> e clique na guia **Instalar.** Escolha o tipo de formato de licença para carregar: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença,** navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **Licenças de instalação**.
+2. Clique em **Iniciar** \> **Gerenciador de licenças do micro Focus gerenciamento** \> de licenças **e, em**seguida, clique na guia **instalar** . escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **instalar licenças**.
 
-     ![Caixa de diálogo Micro Focus License Administration](media/03-enterprise-server.png)
+     ![Caixa de diálogo administração da licença micro Focus](media/03-enterprise-server.png)
 
-3. Verifique se o Servidor Corporativo é carregado. Tente iniciar o site da Enterprise Server <http://localhost:86/> Administration a partir de um navegador usando essa URL . A página Administração do Servidor Corporativo é exibida como mostrado.
+3. Verifique se o servidor corporativo é carregado. Tente iniciar o site de administração do servidor corporativo em um navegador usando <http://localhost:86/> esta URL. A página de administração do servidor corporativo é exibida conforme mostrado.
 
-     ![Página de Administração de Servidores Corporativos](media/04-enterprise-admin.png)
+     ![Página de administração do servidor corporativo](media/04-enterprise-admin.png)
 
-## <a name="install-enterprise-developer-on-the-developer-machine"></a>Instale o Enterprise Developer na máquina de desenvolvedores
+## <a name="install-enterprise-developer-on-the-developer-machine"></a>Instalar o Enterprise Developer no computador do desenvolvedor
 
-1. Selecione o grupo de recursos criado anteriormente (por exemplo, **RGMicroFocusEntServer),** e selecione a imagem do desenvolvedor.
+1. Selecione o grupo de recursos criado anteriormente (por exemplo, **RGMicroFocusEntServer**) e, em seguida, selecione a imagem do desenvolvedor.
 
-2. Para entrar na máquina virtual, vá até a seção **Visão Geral** e selecione **Conectar**. Este sinal inicia uma sessão de RDP. Faça login usando as credenciais criadas para a VM.
+2. Para entrar na máquina virtual, vá para a seção **visão geral** e selecione **conectar**. Essa entrada inicia uma sessão RDP. Entre usando as credenciais que você criou para a VM.
 
-3. A partir da sessão RDP, carregue os dois arquivos a seguir (arraste e solte se quiser):
+3. Na sessão RDP, carregue os dois arquivos a seguir (arraste e solte, se desejar):
 
-    - **edvs2017.exe**, o arquivo de instalação do Enterprise Server.
+    - **edvs2017. exe**, o arquivo de instalação do servidor corporativo.
 
-    - **mflic**, o arquivo de licença correspondente (O Enterprise Developer não será carregado sem ele).
+    - **mflic**, o arquivo de licença correspondente (o desenvolvedor corporativo não será carregado sem ele).
 
-4. Clique duas vezes no arquivo **edvs2017.exe** para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença do usuário final. Se você quiser, escolha **Instalar Rumba 9.5** para instalar este emulador de terminal, que você provavelmente precisará.
+4. Clique duas vezes no arquivo **edvs2017. exe** para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença de usuário final. Se desejar, escolha **instalar Rumba 9,5** para instalar este emulador de terminal, que provavelmente será necessário.
 
-     ![Micro Focus Enterprise Developer para visual studio 2017 setup caixa de diálogo](media/04-enterprise-server.png)
+     ![Caixa de diálogo configuração do micro Focus Enterprise Developer para Visual Studio 2017](media/04-enterprise-server.png)
 
-5. Depois que a configuração estiver concluída, a seguinte mensagem será exibida:
+5. Após a conclusão da instalação, a seguinte mensagem será exibida:
 
-     ![Configurar mensagem de sucesso](media/05-enterprise-server.png)
+     ![Mensagem de instalação bem-sucedida](media/05-enterprise-server.png)
 
-6. Inicie o Micro Focus License Manager assim como você fez para o Enterprise Server. Escolha **Iniciar a** \> **administração de licença supérza** **do Micro Focus License** \> Manager e clique na guia **Instalar.**
+6. Inicie o Gerenciador de licenças do micro Focus da mesma forma que fazia para o Enterprise Server. Escolha **Iniciar** \> a **Administração de licenças**do **Gerenciador** \> de licenças do micro Focus e clique na guia **instalar** .
 
-7. Escolha o tipo de formato de licença para carregar: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença,** navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **Licenças de instalação**.
+7. Escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **instalar licenças**.
 
-     ![Caixa de diálogo Micro Focus License Administration](media/07-enterprise-server.png)
+     ![Caixa de diálogo administração da licença micro Focus](media/07-enterprise-server.png)
 
-Quando o Enterprise Developer carrega, sua implantação de um ambiente de desenvolvimento e teste do Micro Focus no Azure está completa!
+Quando o Enterprise Developer é carregado, sua implantação de um ambiente de desenvolvimento e teste micro Focus no Azure é concluída!
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configure o aplicativo Demo do Banco](./demo.md)
-- [Executar o Enterprise Server em contêineres Docker](./run-enterprise-server-container.md)
+- [Configurar o aplicativo de demonstração bancária](./demo.md)
+- [Executar o servidor corporativo em contêineres do Docker](./run-enterprise-server-container.md)
 - [Migração de aplicativos de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

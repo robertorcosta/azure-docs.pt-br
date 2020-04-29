@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476561"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo multibitrate de codificadores locais
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
@@ -45,7 +45,7 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, po
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->Para obter informações sobre os codificadores recomendados no local, consulte [Os codificadores recomendados no local](media-services-recommended-encoders.md).
+>Para obter informações sobre codificadores locais recomendados, consulte [codificadores locais recomendados](media-services-recommended-encoders.md).
 
 O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ativo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
 
@@ -112,7 +112,7 @@ Um canal fornece um ponto de extremidade de entrada (URL de ingestão) que você
 
 Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o canal não precisa estar no estado **Executando**. Quando você estiver pronto para começar a enviar dados por push para o canal, ele deve estar no estado **Executando** . Após o canal iniciar a ingestão de dados, você poderá visualizar o fluxo por meio da URL de visualização.
 
-Você tem a opção de ingerar uma transmissão ao vivo mp4 (Smooth Streaming) fragmentada através de uma conexão TLS. Para ingerir sobre TLS, certifique-se de atualizar a URL ingerida para HTTPS. Atualmente, você não pode ingerr RTMP sobre TLS.
+Você tem a opção de ingerir uma transmissão ao vivo com MP4 fragmentado (Smooth Streaming) em uma conexão TLS. Para se ingerir por TLS, atualize a URL de ingestão para HTTPS. No momento, não é possível ingerir RTMP sobre TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de quadro-chave
 Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
@@ -186,15 +186,15 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
-| **Começando** |**Começando** |Nenhum (estado transitório) |
+| **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
 | **Em execução** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
-| **Parar** |**Parar** |Nenhum (estado transitório) |
-| **Parou** |**Parou** |Não |
+| **Parando** |**Parando** |Nenhum (estado transitório) |
+| **Parado** |**Parado** |Não |
 
-## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendas fechadas e inserção de anúncios
+## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncio
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
-| Standard | Observações |
+| Standard | Anotações |
 | --- | --- |
 | CEA-708 e EIA-608 (708/608) |CEA-708 e EIA-608 são padrões de legendagem oculta para os Estados Unidos e o Canadá.<p><p>Atualmente, as legendas têm suporte somente se incluídas no fluxo de entrada codificado. Você precisa usar um codificador de mídia ativo que possa inserir legendas 608 ou 708 no fluxo codificado que é enviado aos Serviços de Mídia. Os Serviços de Mídia entregam o conteúdo com legendas inseridas a seus usuários. |
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |
@@ -229,7 +229,7 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
-[Recomendado em codificadores de instalações](media-services-recommended-encoders.md)
+[Codificadores locais recomendados](media-services-recommended-encoders.md)
 
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](../media-services-fmp4-live-ingest-overview.md)
 

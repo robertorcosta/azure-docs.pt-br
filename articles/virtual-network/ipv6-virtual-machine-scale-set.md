@@ -1,7 +1,7 @@
 ---
-title: Implantar conjuntos de escala de máquinas virtuais com IPv6 no Azure
+title: Implantar conjuntos de dimensionamento de máquinas virtuais com IPv6 no Azure
 titlesuffix: Azure Virtual Network
-description: Este artigo mostra como implantar conjuntos de escala de máquinas virtuais com IPv6 em uma rede virtual Azure.
+description: Este artigo mostra como implantar conjuntos de dimensionamento de máquinas virtuais com IPv6 em uma rede virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,20 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420453"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implantar conjuntos de escala de máquinas virtuais com IPv6 no Azure
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implantar conjuntos de dimensionamento de máquinas virtuais com IPv6 no Azure
 
-Este artigo mostra como implantar um conjunto de escala de máquina virtual (IPv4 + IPv6) com um balanceador de carga externa de pilha dupla em uma rede virtual Azure. O processo para criar um conjunto de escala de máquina virtual capaz de IPv6 é quase idêntico ao processo de criação de VMs individuais descritos [aqui](ipv6-configure-standard-load-balancer-template-json.md). Você começará com as etapas que são semelhantes às descritas para VMs individuais:
-1.    Crie IPv4 e IPv6 Public IPs.
+Este artigo mostra como implantar um conjunto de dimensionamento de máquinas virtuais de pilha dupla (IPv4 + IPv6) com um balanceador de carga externo de pilha dupla em uma rede virtual do Azure. O processo para criar um conjunto de dimensionamento de máquinas virtuais compatível com IPv6 é praticamente idêntico ao processo de criação de VMs individuais descritas [aqui](ipv6-configure-standard-load-balancer-template-json.md). Você começará com as etapas que são semelhantes àquelas descritas para VMs individuais:
+1.    Crie IPs públicos IPv4 e IPv6.
 2.    Crie um balanceador de carga de pilha dupla.  
-3.    Crie regras do grupo de segurança de rede (NSG).  
+3.    Criar regras de NSG (grupo de segurança de rede).  
 
-O único passo que é diferente das VMs individuais é criar a configuração de interface de rede (NIC) que usa o recurso de conjunto de escala de máquina virtual: networkProfile/networkInterfaceConfigurations. A estrutura JSON é semelhante à do objeto Microsoft.Network/networkInterfaces usado para VMs individuais com a adição de definir a CONFIGURAÇÃO NIC e a IpConfiguration iPv4 como a interface principal usando o **"principal":** atributo verdadeiro como visto no exemplo a seguir:
+A única etapa que é diferente das VMs individuais é criar a configuração da NIC (interface de rede) que usa o recurso do conjunto de dimensionamento de máquinas virtuais: networkProfile/networkInterfaceConfigurations. A estrutura JSON é semelhante à do objeto Microsoft. Network/networkInterfaces usado para VMs individuais com a adição de configuração da NIC e da IpConfiguration IPv4 como a interface primária usando o atributo **"Primary": true** , como mostrado no exemplo a seguir:
 
 ```json
           "networkProfile": {
@@ -89,9 +89,9 @@ O único passo que é diferente das VMs individuais é criar a configuração de
 ```
 
 
-## <a name="sample-virtual-machine-scale-set-template-json"></a>Modelo de conjunto de escala de máquina virtual de amostra JSON
+## <a name="sample-virtual-machine-scale-set-template-json"></a>Exemplo de JSON de modelo de conjunto de dimensionamento de máquinas virtuais
 
-Para implantar um conjunto de escala de máquina virtual (IPv4 + IPv6) com balanceador de carga externo de pilha dupla e modelo de exemplo de exibição de rede virtual [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
+Para implantar um conjunto de dimensionamento de máquinas virtuais de pilha dupla (IPv4 + IPv6) com o Load Balancer externo de pilha dupla e o modelo de exibição de rede virtual [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o suporte ao IPv6 nas redes virtuais do Azure, veja [o que é IPv6 para Azure Virtual Network?](ipv6-overview.md).
+Para saber mais sobre o suporte a IPv6 em redes virtuais do Azure, consulte [o que é IPv6 para a rede virtual do Azure?](ipv6-overview.md).

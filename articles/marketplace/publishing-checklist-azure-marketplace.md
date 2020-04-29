@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
 ms.openlocfilehash: 0409933a3cd4bb535427cf61bd06207d53d5a96e
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387709"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Lista de Verificação da Publicação para Azure Marketplace    
@@ -23,7 +23,7 @@ Os artefatos a seguir são necessários para concluir o fluxo de trabalho de pub
 
 | Tipo de listagem | Tipo de oferta | Artefato de publicação |   
 |:--- |:--- |:--- |  
-| Todos | Todos | <table> <tr><th>Detalhes da vitrine</th></tr> <tr><td>Nome da oferta (200 caracteres)</td></tr> <tr><td>Descrição (2.000 caracteres)</td></tr> <tr><td>ID MPN</td></tr> <tr><td>Disponibilidade por país/região</td></tr> <tr><td>Setores aplicáveis, categorias e palavras-chave de pesquisa</td></tr> <tr><td>Capturas de tela (1.280 x 720, máximo 5)</td></tr> <tr><td>Documentos de marketing (máximo 3)</td></tr> <tr><td>Destino do cliente potencial</td></tr> <tr><td>Vídeo de visão geral do produto (opcional)</td></tr> </table> <table> <tr><th>Contatos</th></tr> <tr><td>Informações de contato (suporte, engenharia, comercial)</td></tr> </table> <table> <tr><th>Informações técnicas</th></tr> <tr><td>URL dos termos de uso e da política de privacidade</td></tr> </table> <table> <tr><th>Test drive</th></tr> <tr><td>Nome do grupo de recursos do Azure</td></tr> </table> |  
+| Todos | Todos | <table> <tr><th>Detalhes da vitrine</th></tr> <tr><td>Nome da oferta (200 caracteres)</td></tr> <tr><td>Descrição (2.000 caracteres)</td></tr> <tr><td>ID MPN</td></tr> <tr><td>Disponibilidade do país/da região</td></tr> <tr><td>Setores aplicáveis, categorias e palavras-chave de pesquisa</td></tr> <tr><td>Capturas de tela (1.280 x 720, máximo 5)</td></tr> <tr><td>Documentos de marketing (máximo 3)</td></tr> <tr><td>Destino do cliente potencial</td></tr> <tr><td>Vídeo de visão geral do produto (opcional)</td></tr> </table> <table> <tr><th>Contacts</th></tr> <tr><td>Informações de contato (suporte, engenharia, comercial)</td></tr> </table> <table> <tr><th>Informações técnicas</th></tr> <tr><td>URL dos termos de uso e da política de privacidade</td></tr> </table> <table> <tr><th>Test drive</th></tr> <tr><td>Nome do grupo de recursos do Azure</td></tr> </table> |  
 | Todos | Máquina Virtual | <table> <tr><th>Informações técnicas</th></tr> <tr><td>URL do suporte</td></tr> </table> |
 | Lista | Serviço de consultoria | <table> <tr><th>Detalhes da vitrine</th></tr> <tr><td>Duração do compromisso</td></tr> <tr><td>Logotipos da empresa (48x48, 216x216)</td></tr> </table> |  
 | Avaliação | Todos | <table> <tr><th>Informações técnicas</th></tr> <tr><td>URL da Avaliação</td></tr> <tr><td>Idiomas com suporte</td></tr> <tr><td>Número de versão do aplicativo</td></tr> <tr><td>Data de lançamento do aplicativo</td></tr> <tr><td>URL do suporte</td></tr> </table> |  
