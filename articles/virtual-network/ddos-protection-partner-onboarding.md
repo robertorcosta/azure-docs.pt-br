@@ -1,6 +1,6 @@
 ---
-title: Parceria com o Azure DDoS Protection Standard
-description: Entenda as oportunidades de parceria habilitadas pelo Azure DDoS Protection Standard.
+title: Parceria com a proteção contra DDoS do Azure Standard
+description: Entenda as oportunidades de parceria habilitadas pelo padrão de proteção contra DDoS do Azure.
 ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
@@ -9,89 +9,89 @@ ms.topic: article
 ms.date: 01/28/2020
 ms.author: kumud
 ms.openlocfilehash: 39cb2f90b49725c78746df69505fad7160e1db92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849676"
 ---
-# <a name="partnering-with-azure-ddos-protection-standard"></a>Parceria com o Azure DDoS Protection Standard
-Este artigo descreve oportunidades de parceria habilitadas pelo Azure DDoS Protection Standard. Este artigo foi projetado para ajudar os gerentes de produto e as funções de desenvolvimento de negócios a entender os caminhos de investimento e fornecer insights sobre as propostas de valor de parceria.
+# <a name="partnering-with-azure-ddos-protection-standard"></a>Parceria com a proteção contra DDoS do Azure Standard
+Este artigo descreve as oportunidades de parceria habilitadas pelo padrão de proteção contra DDoS do Azure. Este artigo foi projetado para ajudar gerentes de produto e funções de desenvolvimento de negócios a entender os caminhos de investimento e fornecer informações sobre as propostas de valor de parceria.
 
-## <a name="background"></a>Segundo plano
-Os ataques de negação distribuída de serviço (DDoS) são uma das principais preocupações de disponibilidade e segurança expressas pelos clientes que movem seus aplicativos para a nuvem. Com extorsão e hacktivismo sendo as motivações comuns por trás dos ataques DDoS, eles têm aumentado consistentemente em tipo, escala e frequência de ocorrência, pois são relativamente fáceis e baratos de lançar.
+## <a name="background"></a>Tela de fundo
+Ataques de DDoS (negação de serviço distribuído) são uma das principais preocupações de disponibilidade e segurança em voz por clientes que movem seus aplicativos para a nuvem. Com o extortion e o Hacktivism sendo as motivações comuns por trás dos ataques de DDoS, eles foram consistentemente aumentando em tipo, escala e frequência de ocorrência, pois são relativamente fáceis e baratos de iniciar.
 
-O Azure DDoS Protection fornece contramedidas contra as ameaças DDoS mais sofisticadas, aproveitando a escala global da rede Azure. O serviço fornece recursos aprimorados de mitigação de DDoS para aplicativos e recursos implantados em redes virtuais.
+A proteção contra DDoS do Azure fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas, aproveitando a escala global da rede do Azure. O serviço fornece recursos aprimorados de mitigação de DDoS para aplicativos e recursos implantados em redes virtuais.
 
-Os parceiros de tecnologia podem proteger os recursos de seus clientes nativamente com o Azure DDoS Protection Standard para resolver as preocupações de disponibilidade e confiabilidade devido aos ataques DDoS.
+Os parceiros de tecnologia podem proteger os recursos dos clientes nativamente com a proteção contra DDoS do Azure Standard para resolver as preocupações de disponibilidade e confiabilidade devido a ataques de DDoS.
 
-## <a name="introduction-to-azure-ddos-protection-standard"></a>Introdução ao Padrão de Proteção Azure DDoS
-O Azure DDoS Protection Standard fornece recursos avançados de mitigação DDoS contra ataques DDoS de camada 3 e de camada 4. A seguir estão as principais características do serviço DDoS Protection Standard.
+## <a name="introduction-to-azure-ddos-protection-standard"></a>Introdução ao padrão de proteção contra DDoS do Azure
+A proteção contra DDoS do Azure Standard fornece recursos aprimorados de mitigação de DDoS contra ataques de DDoS de camada 3 e camada 4. A seguir estão os principais recursos do serviço Standard de proteção contra DDoS.
 
 ### <a name="adaptive-real-time-tuning"></a>Ajuste adaptável em tempo real
-Para cada aplicativo protegido, o Azure DDoS Protection Standard ajusta automaticamente os limites da política de mitigação DDoS com base nos padrões de perfil de tráfego do aplicativo. O serviço realiza essa personalização usando dois insights:
+Para cada aplicativo protegido, a proteção contra DDoS do Azure Standard ajusta automaticamente os limites da política de mitigação de DDoS com base nos padrões de perfil de tráfego do aplicativo. O serviço realiza essa personalização usando dois insights:
 
 - Aprendizado automático de padrões de tráfego por cliente (por IP) das camadas 3 e 4.
 - Minimizando falsos positivos, considerando que a escala do Azure permite que absorva uma quantidade significativa de tráfego.
 
-![Sintonia adaptativa em tempo real](./media/ddos-protection-partner-onboarding/real-time-tuning.png)
+![Ajuste de tempo real adaptável](./media/ddos-protection-partner-onboarding/real-time-tuning.png)
 
-### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>Análise de ataques, telemetria, monitoramento e alerta
-O Azure DDoS Protection identifica e mitiga ataques DDoS sem qualquer intervenção do usuário.
+### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>Análise de ataques, telemetria, monitoramento e alertas
+A proteção contra DDoS do Azure identifica e atenua ataques de DDoS sem nenhuma intervenção do usuário.
 
-- Se o recurso protegido estiver na assinatura coberta pelo Azure Security Center, o DDoS Protection Standard envia automaticamente um alerta ao Security Center sempre que um ataque DDoS for detectado e mitigado contra o aplicativo protegido.
-- Alternativamente, para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) na métrica ataque DDoS ou não.
-- Além disso, você pode optar por criar alertas para as outras métricas DDoS e [configurar análises](manage-ddos-protection.md#configure-ddos-attack-analytics) de ataque para entender a escala do ataque, tráfego sendo descartado, vetores de ataque, principais colaboradores e outros detalhes.
+- Se o recurso protegido estiver na assinatura coberta pela central de segurança do Azure, a proteção contra DDoS Standard enviará automaticamente um alerta para a central de segurança sempre que um ataque de DDoS for detectado e atenuado em relação ao aplicativo protegido.
+- Como alternativa, para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) na métrica sob ataque de DDoS ou não.
+- Além disso, você pode optar por criar alertas para as outras métricas de DDoS e [Configurar a análise de ataques](manage-ddos-protection.md#configure-ddos-attack-analytics) para entender a escala do ataque, o tráfego que está sendo descartado, os vetores de ataque, os principais colaboradores e outros detalhes.
 
-![Métricas DDoS](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
+![Métricas de DDoS](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
-### <a name="ddos-rapid-response-drr"></a>Resposta rápida DDoS (DRR)
-Os clientes do DDoS Protection Standard têm acesso à [equipe de resposta rápida](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) durante um ataque ativo. O DRR pode ajudar na investigação de ataque, mitigações personalizadas durante um ataque e análise pós-ataque.
+### <a name="ddos-rapid-response-drr"></a>Resposta rápida a DDoS (DRR)
+Os clientes padrão de proteção contra DDoS têm acesso à [equipe de resposta rápida](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) durante um ataque ativo. O DRR pode ajudar na investigação de ataques, mitigações personalizadas durante um ataque e análise posterior ao ataque.
 
-### <a name="sla-guarantee-and-cost-protection"></a>Garantia de SLA e proteção de custos
-O serviço DDoS Protection Standard é coberto por um SLA de 99,99% e a proteção de custos fornece créditos de recursos para a escala durante um ataque documentado. Para obter mais informações, consulte [SLA para Proteção DDoS do Azure](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
+### <a name="sla-guarantee-and-cost-protection"></a>Garantia de SLA e proteção de custo
+O serviço padrão de proteção contra DDoS é coberto por um SLA de 99,99% e a proteção de custo fornece créditos de recursos para escalar horizontalmente durante um ataque documentado. Para obter mais informações, consulte [SLA para proteção contra DDoS do Azure](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
 
 ## <a name="featured-partner-scenarios"></a>Cenários de parceiros em destaque
-A seguir, os principais benefícios que você pode obter ao integrar-se com o Azure DDoS Protection Standard:
+Veja a seguir os principais benefícios que você pode derivar integrando-se com o padrão de proteção contra DDoS do Azure:
 
-- Os serviços oferecidos pelos parceiros (balanceador de carga, firewall de aplicativos web, firewall, etc.) aos seus clientes são automaticamente protegidos (rotulados em branco) pelo Azure DDoS Protection Standard no back-end.
-- Os parceiros têm acesso às análises de ataque e telemetria padrão de proteção Do Azure DDoS que podem integrar com seus próprios produtos, oferecendo uma experiência unificada ao cliente.  
-- Os parceiros têm acesso ao suporte de resposta rápida DDoS mesmo na ausência de resposta rápida do Azure, para problemas relacionados ao DDoS.
-- Os aplicativos protegidos dos parceiros são apoiados por uma garantia De SLA DDoS e proteção de custos em caso de ataques DDoS.
+- Os serviços oferecidos pelos parceiros (balanceador de carga, firewall do aplicativo Web, firewall, etc.) para seus clientes são automaticamente protegidos (com rótulos de branco) pela proteção contra DDoS do Azure Standard no back-end.
+- Os parceiros têm acesso à análise de ataque padrão da proteção contra DDoS do Azure e à telemetria que eles podem integrar com seus próprios produtos, oferecendo uma experiência de cliente unificada.  
+- Os parceiros têm acesso ao suporte de resposta rápida de DDoS mesmo na ausência da resposta rápida do Azure, para problemas relacionados a DDoS.
+- Os aplicativos protegidos pelos parceiros são apoiados por uma garantia de SLA de DDoS e proteção de custos no caso de ataques de DDoS.
 
 ## <a name="technical-integration-overview"></a>Visão geral da integração técnica
-As oportunidades de parceria do Azure DDoS Protection Standard são disponibilizadas através do portal Azure, APIs e CLI/PS.
+As oportunidades de parceiro padrão da proteção contra DDoS do Azure são disponibilizadas por meio de portal do Azure, APIs e CLI/PS.
 
-### <a name="integrate-with-ddos-protection-standard"></a>Integre-se ao padrão de proteção DDoS
-As seguintes etapas são necessárias para que os parceiros configurem a integração com o Azure DDoS Protection Standard:
-1. Crie um Plano de Proteção DDoS na assinatura desejada (parceiro). Para obter instruções passo a passo, consulte [Criar um plano de proteção padrão DDoS](manage-ddos-protection.md#create-a-ddos-protection-plan).
+### <a name="integrate-with-ddos-protection-standard"></a>Integrar com a proteção contra DDoS Standard
+As etapas a seguir são necessárias para que os parceiros configurem a integração com a proteção contra DDoS do Azure Standard:
+1. Crie um plano de proteção contra DDoS em sua assinatura desejada (de parceiro). Para obter as instruções passo a passo, consulte [criar um plano de proteção padrão de DDoS](manage-ddos-protection.md#create-a-ddos-protection-plan).
    > [!NOTE]
-   > Apenas 1 Plano de Proteção DDoS precisa ser criado para um determinado inquilino. 
-2. Implante um serviço com ponto final público em suas assinaturas (parceiras), como balanceador de carga, firewalls e firewall de aplicativos web. 
-3. Habilite o Azure DDoS Protection Standard na rede virtual do serviço que possui pontos finais públicos usando o Plano de Proteção DDoS criado na primeira etapa. Para obter instruções stpe-by-step, consulte [Ativar o plano de proteção padrão DDoS](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
+   > Somente 1 plano de proteção contra DDoS precisa ser criado para um determinado locatário. 
+2. Implante um serviço com um ponto de extremidade público em suas assinaturas do (parceiro), como balanceador de carga, firewalls e firewall do aplicativo Web. 
+3. Habilite a proteção contra DDoS do Azure Standard na rede virtual do serviço que tem pontos de extremidade públicos usando o plano de proteção contra DDoS criado na primeira etapa. Para obter instruções STPE, consulte [habilitar o plano de proteção padrão DDoS](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
    > [!IMPORTANT] 
-   > Depois que o Azure DDoS Protection Standard é ativado em uma rede virtual, todos os IPs públicos dentro dessa rede virtual são automaticamente protegidos. A origem desses IPs públicos pode ser dentro do Azure (assinatura do cliente) ou fora do Azure. 
-4. Opcionalmente, integre a telemetria padrão de proteção Do Azure DDoS e análise de ataque no painel de controle específico do aplicativo. Para obter mais informações sobre o uso da telemetria, consulte [Use telemetria de proteção DDoS](manage-ddos-protection.md#use-ddos-protection-telemetry). Para obter mais informações sobre a configuração de análises de ataque, consulte [Configurar análises de ataque DDoS](manage-ddos-protection.md#configure-ddos-attack-analytics)
+   > Depois que a proteção contra DDoS do Azure Standard estiver habilitada em uma rede virtual, todos os IPs públicos dentro dessa rede virtual serão protegidos automaticamente. A origem desses IPs públicos pode estar no Azure (assinatura do cliente) ou fora do Azure. 
+4. Opcionalmente, integre a telemetria padrão da proteção contra DDoS do Azure e a análise de ataques no painel voltado para o cliente específico do aplicativo. Para obter mais informações sobre como usar a telemetria, consulte [usar telemetria de proteção contra DDoS](manage-ddos-protection.md#use-ddos-protection-telemetry). Para obter mais informações sobre como configurar a análise de ataque, consulte [Configurar a análise de ataque de DDoS](manage-ddos-protection.md#configure-ddos-attack-analytics)
 
-### <a name="onboarding-guides-and-technical-documentation"></a>Guias de onboarding e documentação técnica
+### <a name="onboarding-guides-and-technical-documentation"></a>Guias de integração e documentação técnica
 
-- [Página do produto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-- [Documentação de proteção Do Zure DDoS](ddos-protection-overview.md)
-- [Referência da API de proteção DDoS do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Referência em API de rede virtual do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Página do produto proteção contra DDoS do Azure](https://azure.microsoft.com/services/ddos-protection/)
+- [Documentação da proteção contra DDoS do Azure](ddos-protection-overview.md)
+- [Referência da API de proteção contra DDoS do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
+- [Referência da API de rede virtual do Azure](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
 
 ### <a name="get-help"></a>Obter ajuda
 
-- Se você tiver dúvidas sobre integrações de aplicativos, serviços ou produtos com o Azure DDoS Protection Standard, entre em contato com a [comunidade de segurança do Azure](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
-- Acompanhe as discussões sobre [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
+- Se você tiver dúvidas sobre integrações de aplicativos, serviços ou produtos com a proteção contra DDoS do Azure Standard, entre em contato com a [comunidade de segurança do Azure](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
+- Siga as discussões em [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
 
-### <a name="get-to-market"></a>Chegar ao mercado
+### <a name="get-to-market"></a>Acesse o mercado
 
-- O principal programa de parceria com a Microsoft é o [Microsoft Partner Network](https://partner.microsoft.com/). – As integrações do Microsoft Graph Security caem na faixa [ISV (Independent Software Vendor, fornecedor independente de software do MPN).](https://partner.microsoft.com/saas-solution-guide)
-- [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association?rtc=1) é o programa especificamente para os Parceiros de Segurança da Microsoft para ajudar a enriquecer seus produtos de segurança e melhorar a capacidade de descoberta do cliente de suas integrações aos produtos Microsoft Security.
+- O principal programa para a parceria com a Microsoft é a [Microsoft Partner Network](https://partner.microsoft.com/). – Microsoft Graph integrações de segurança se enquadram na faixa [ISV (fornecedor independente de software) MPN](https://partner.microsoft.com/saas-solution-guide) .
+- A [Associação de segurança inteligente da Microsoft](https://www.microsoft.com/security/business/intelligent-security-association?rtc=1) é o programa especificamente para parceiros de segurança da Microsoft para ajudar a enriquecer seus produtos de segurança e a melhorar a descoberta do cliente de suas integrações para produtos de segurança da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 Exibir integrações de parceiros existentes:
 
-- [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)
-- [WaF da Nuvem Azul da Radware](https://www.radware.com/resources/microsoft-azure/)
+- [Barracuda WAF como serviço](https://www.barracuda.com/waf-as-a-service)
+- [Azure cloud WAF da RADWARE](https://www.radware.com/resources/microsoft-azure/)

@@ -11,23 +11,23 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733125"
 ---
-# <a name="get-started-with-device-twins-net"></a>Comece com gêmeos de dispositivo (.NET)
+# <a name="get-started-with-device-twins-net"></a>Introdução ao dispositivo gêmeos (.NET)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-Neste tutorial, você cria esses aplicativos de console .NET:
+Neste tutorial, você criará esses aplicativos de console .NET:
 
-* **Criaridentidade de dispositivo**. Este aplicativo cria uma identidade de dispositivo e uma chave de segurança associada para conectar seu aplicativo de dispositivo simulado.
+* **CreateDeviceIdentity**. Este aplicativo cria uma identidade de dispositivo e uma chave de segurança associada para conectar o aplicativo de dispositivo simulado.
 
-* **AddTagsAndQuery**. Este aplicativo back-end adiciona tags e consultas de gêmeos do dispositivo.
+* **AddTagsAndQuery**. Este aplicativo de back-end adiciona marcas e consultas dispositivo gêmeos.
 
-* **ReportConectividade**. Este aplicativo de dispositivo simula um dispositivo que se conecta ao seu hub de IoT com a identidade do dispositivo criada anteriormente e relata sua condição de conectividade.
+* **ReportConnectivity**. Este aplicativo de dispositivo simula um dispositivo que se conecta ao Hub IoT com a identidade do dispositivo criada anteriormente e relata sua condição de conectividade.
 
 > [!NOTE]
 > O artigo [SDKs de IoT do Azure](iot-hub-devguide-sdks.md) apresenta informações sobre os SDKs de IoT do Azure que você pode usar para criar dispositivos e aplicativos de back-end.
@@ -37,9 +37,9 @@ Neste tutorial, você cria esses aplicativos de console .NET:
 
 * Visual Studio.
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, você pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* Verifique se a porta 8883 está aberta no firewall. A amostra do dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
@@ -49,7 +49,7 @@ Neste tutorial, você cria esses aplicativos de console .NET:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a seqüência de conexão do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
 [!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
 
@@ -57,29 +57,29 @@ Neste tutorial, você cria esses aplicativos de console .NET:
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
 
-Nesta seção, você cria um aplicativo de console .NET, usando C#, que adiciona metadados de localização ao dispositivo gêmeo associado ao **myDeviceId**. Ele então consulta os dispositivos gêmeos armazenados no Hub IoT selecionando os dispositivos localizados nos EUA e depois aqueles que relataram a existência de uma conexão celular.
+Nesta seção, você cria um aplicativo de console do .NET, usando C#, que adiciona metadados de local ao dispositivo "c **".** Ele então consulta os dispositivos gêmeos armazenados no Hub IoT selecionando os dispositivos localizados nos EUA e depois aqueles que relataram a existência de uma conexão celular.
 
-1. No Visual Studio, selecione **Criar um projeto**. Em **Criar novo projeto,** selecione **Console App (.NET Framework)** e selecione **Next**.
+1. No Visual Studio, selecione **Criar um projeto**. Em **criar novo projeto**, selecione **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
-1. Em **Configure seu novo projeto,** nomeie o projeto **AddTagsAndQuery**.
+1. Em **configurar seu novo projeto**, nomeie o projeto **AddTagsAndQuery**.
 
-    ![Configure seu projeto AddTagsAndQuery](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
+    ![Configurar seu projeto do AddTagsAndQuery](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
 
-1. No Solution Explorer, clique com o botão direito do mouse no projeto **AddTagsAndQuery** e, em seguida, **selecione Gerenciar pacotes NuGet**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AddTagsAndQuery** e selecione **gerenciar pacotes NuGet**.
 
-1. Selecione **Procurar** e procurar e selecionar **Microsoft.Azure.Devices**. Selecione **Instalar**.
+1. Selecione **procurar** e pesquise e selecione **Microsoft. Azure. Devices**. Selecione **Instalar**.
 
     ![Janela do Gerenciador de Pacotes NuGet](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e suas dependências.
 
-1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
+1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
 
     ```csharp  
     using Microsoft.Azure.Devices;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua pela `{iot hub connection string}` seqüência de conexões IoT Hub que você copiou na [seqüência de conexões do hub IoT](#get-the-iot-hub-connection-string).
+1. Adicione os seguintes campos à classe **Program** . Substitua `{iot hub connection string}` pela cadeia de conexão do Hub IOT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
@@ -120,9 +120,9 @@ Nesta seção, você cria um aplicativo de console .NET, usando C#, que adiciona
 
     Após a atualização, ele executa duas consultas: a primeira seleciona somente os dispositivos gêmeos de dispositivos localizados na fábrica de **Redmond43**, enquanto o segundo aperfeiçoa a consulta para selecionar somente os dispositivos que também estão conectados por meio de rede celular.
 
-    O código anterior, quando ele cria o objeto **query**, especifica um número máximo de documentos retornados. O objeto **query** contém uma propriedade booliana **HasMoreResults** que você pode usar para invocar os métodos **GetNextAsTwinAsync** várias vezes para recuperar todos os resultados. Um método chamado **GetNextAsJson** está disponível para resultados que não são gêmeos de dispositivos, por exemplo, resultados de consultas de agregação.
+    O código anterior, quando ele cria o objeto **query**, especifica um número máximo de documentos retornados. O objeto **query** contém uma propriedade booliana **HasMoreResults** que você pode usar para invocar os métodos **GetNextAsTwinAsync** várias vezes para recuperar todos os resultados. Um método chamado **GetNextAsJson** está disponível para resultados que não são dispositivos gêmeos, por exemplo, resultados de consultas de agregação.
 
-1. Por fim, adicione as seguintes linhas ao método **Principal:**
+1. Por fim, adicione as seguintes linhas ao método **Main** :
 
     ```csharp  
     registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -141,17 +141,17 @@ Na seção seguinte, você cria um aplicativo de dispositivo que reporta as info
 
 Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu hub como **myDeviceId** e depois atualiza suas propriedades reportadas para conter as informações indicando que ele está conectado usando uma rede celular.
 
-1. No Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**. Em **Criar novo projeto,** escolha **Console App (.NET Framework)** e, em seguida, selecione **Next**.
+1. No Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**. Em **criar novo projeto**, escolha **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
-1. Em **Configurar seu novo projeto,** nomeie o projeto **ReportConnectivity**. Para **Solução,** escolha **Adicionar à solução**e, em seguida, selecione **Criar**.
+1. Em **configurar seu novo projeto**, nomeie o projeto **ReportConnectivity**. Para **solução**, escolha **Adicionar à solução**e, em seguida, selecione **criar**.
 
-1. No Solution Explorer, clique com o botão direito do mouse no projeto **ReportConnectivity** e, em seguida, **selecione Gerenciar pacotes NuGet**.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ReportConnectivity** e selecione **gerenciar pacotes NuGet**.
 
-1. Selecione **Procurar** e procurar e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
+1. Selecione **procurar** e pesquise e escolha **Microsoft. Azure. Devices. Client**. Selecione **Instalar**.
 
-   Esta etapa baixa, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e suas dependências.
+   Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do dispositivo IOT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e suas dependências.
 
-1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
+1. Adicione as seguintes `using` instruções na parte superior do arquivo **Program.cs** :
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;
@@ -159,7 +159,7 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
     using Newtonsoft.Json;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua pela `{device connection string}` seqüência de conexões do dispositivo que você observou em [Registrar um novo dispositivo no hub IoT](#register-a-new-device-in-the-iot-hub).
+1. Adicione os seguintes campos à classe **Program** . Substitua `{device connection string}` pela cadeia de conexão do dispositivo que você anotou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
@@ -187,7 +187,7 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
     }
     ```
 
-    O objeto **Client** expõe todos os métodos necessários para você interagir com dispositivos gêmeos a partir do dispositivo. O código mostrado acima inicializa o objeto **Cliente** e, em seguida, recupera o dispositivo gêmeo para **myDeviceId**.
+    O objeto **Client** expõe todos os métodos necessários para você interagir com dispositivos gêmeos a partir do dispositivo. O código mostrado acima Inicializa o objeto de **cliente** e, em seguida, recupera o **dispositivo.**
 
 1. Adicione o seguinte método à classe **Programa**:
 
@@ -213,9 +213,9 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
     }
     ```
 
-   O código acima atualiza a propriedade relatada do **myDeviceId** com as informações de conectividade.
+   O código acima atualiza a propriedade relatada de **DeviceID** com as informações de conectividade.
 
-1. Por fim, adicione as seguintes linhas ao método **Principal:**
+1. Por fim, adicione as seguintes linhas ao método **Main** :
 
     ```csharp
     try
@@ -232,17 +232,17 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
     Console.ReadLine();
     ```
 
-1. No Solution Explorer, clique com o botão direito do mouse na solução e selecione **Set StartUp Projects**.
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**.
 
-1. Em **Common Properties** > **Startup Project,** selecione **Vários projetos de inicialização**. Para **'ReportConectividade' selecione** **Iniciar** como **a Ação**. Selecione **OK** para salvar suas alterações.  
+1. No > **projeto de inicialização**de **Propriedades comuns**, selecione **vários projetos de inicialização**. Para **ReportConnectivity**, selecione **Iniciar** como a **ação**. Selecione **OK** para salvar suas alterações.  
 
-1. Execute este aplicativo clicando com o botão direito do mouse no projeto **ReportConnectivity** e selecionando **Debug,** em seguida, **Inicie nova instância**. Você deve ver o aplicativo recebendo as informações gêmeas e, em seguida, enviando conectividade como uma ***propriedade relatada***.
+1. Execute este aplicativo clicando com o botão direito do mouse no projeto **ReportConnectivity** e selecionando **depurar**e, em seguida, **Iniciar nova instância**. Você deve ver o aplicativo obtendo as informações de conexão e, em seguida, enviando a conectividade como uma ***Propriedade relatada***.
 
     ![Execute o aplicativo de dispositivo para conectividade de relatório](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 
-   Depois que o dispositivo informou suas informações de conectividade, ele deve aparecer em ambas as consultas.
+   Depois que o dispositivo reportou suas informações de conectividade, ele deve aparecer em ambas as consultas.
 
-1. Clique com o botão direito do mouse no projeto **AddTagsAndQuery** e selecione **Depurar** > **Iniciar nova instância** para executar as consultas novamente. Desta vez, **o myDeviceId** deve aparecer em ambos os resultados da consulta.
+1. Clique com o botão direito do mouse no projeto **AddTagsAndQuery** e selecione **depurar** > **Iniciar nova instância** para executar as consultas novamente. Desta vez, **Mydeviceid** deve aparecer nos dois resultados da consulta.
 
     ![Conectividade do dispositivo relatada com êxito](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
@@ -252,8 +252,8 @@ Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois cri
 
 Você pode aprender mais com os seguintes recursos:
 
-* Para saber como enviar telemetria a partir de dispositivos, consulte a [telemetria Enviar de um dispositivo para um tutorial de hub de IoT.](quickstart-send-telemetry-dotnet.md)
+* Para saber como enviar telemetria de dispositivos, consulte o tutorial [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-dotnet.md) .
 
-* Para saber como configurar dispositivos usando as propriedades desejadas do dispositivo twin, consulte as [propriedades desejadas de Usar para configurar o](tutorial-device-twins.md) tutorial de dispositivos.
+* Para saber como configurar dispositivos usando as propriedades desejadas do dispositivo., consulte o tutorial [usar as propriedades desejadas para configurar dispositivos](tutorial-device-twins.md) .
 
-* Para aprender a controlar dispositivos de forma interativa, como ligar um ventilador a partir de um aplicativo controlado pelo usuário, consulte o tutorial [Use direct methods.](quickstart-control-device-dotnet.md)
+* Para saber como controlar dispositivos interativamente, como ativar um ventilador de um aplicativo controlado pelo usuário, consulte o tutorial [usar métodos diretos](quickstart-control-device-dotnet.md) .

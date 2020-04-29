@@ -4,10 +4,10 @@ description: Automatize a configuração do Application Insights para receber em
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669838"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
@@ -29,7 +29,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 * Instale o [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Use-o para instalar o Microsoft Azure PowerShell
 
-## <a name="connect-to-azure"></a>Conectar-se ao Azure
+## <a name="connect-to-azure"></a>Conecte-se ao Azure
 Inicie o Azure PowerShell e [conecte-se à sua assinatura](/powershell/azure/overview):
 
 ```powershell

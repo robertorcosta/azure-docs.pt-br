@@ -14,17 +14,17 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f2d1eaec80c8925eb7b38af848e29e944f1ebf69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154535"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço de chamadas de serviço usando as credenciais do cliente (segredo compartilhado ou certificados)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-O Fluxo de Concessão de Credenciais do Cliente OAuth 2.0 permite que um serviço web *(cliente confidencial)* use suas próprias credenciais em vez de se passar por um usuário, para autenticar ao chamar outro serviço web. Nesse cenário, o cliente é geralmente um serviço Web de camada intermediária, um serviço daemon ou um Site. Para um nível mais alto de segurança, o AD do Azure também permite que o serviço de chamada usar um certificado (em vez de um segredo compartilhado) como uma credencial.
+O fluxo de concessão de credenciais de cliente do OAuth 2,0 permite que um serviço Web (*cliente confidencial*) Use suas próprias credenciais em vez de representar um usuário, para autenticar ao chamar outro serviço Web. Nesse cenário, o cliente é geralmente um serviço Web de camada intermediária, um serviço daemon ou um Site. Para um nível mais alto de segurança, o AD do Azure também permite que o serviço de chamada usar um certificado (em vez de um segredo compartilhado) como uma credencial.
 
 ## <a name="client-credentials-grant-flow-diagram"></a>Fluxo de concessão de credenciais do cliente
 O diagrama a seguir explica o funcionamento do fluxo de concessão de credenciais do cliente no Azure AD (Azure Active Directory).
@@ -46,18 +46,18 @@ Para solicitar um token de acesso, use um HTTP POST para o ponto de extremidade 
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
-## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço para serviço
+## <a name="service-to-service-access-token-request"></a>Solicitação de token de acesso de serviço a serviço
 Há dois casos, dependendo se o aplicativo cliente escolhe a ser protegida por um segredo compartilhado ou um certificado.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Na primeira ocorrência: solicitação de token de acesso com um segredo compartilhado
-Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Solicitação de token de acesso com um segredo compartilhado
+Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço a serviço contém os seguintes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório |Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
-| client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
-| client_secret |obrigatório |Insira uma chave registrada para a chamada daemon ou o serviço de aplicativo web no AD do Azure. Para criar uma chave no portal do Azure, clique em **Azure Active Directory**, clique em **Registros de aplicativo**, clique no aplicativo, depois em **Configurações**, em **Chaves** e adicione uma chave.  Codifique a URL desse segredo ao fornecê-lo. |
-| recurso |obrigatório |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
+| grant_type |necessárias |Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
+| client_id |necessárias |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
+| client_secret |necessárias |Insira uma chave registrada para a chamada daemon ou o serviço de aplicativo web no AD do Azure. Para criar uma chave no portal do Azure, clique em **Azure Active Directory**, clique em **Registros de aplicativo**, clique no aplicativo, depois em **Configurações**, em **Chaves** e adicione uma chave.  Codifique a URL desse segredo ao fornecê-lo. |
+| recurso |necessárias |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
 O HTTP POST a seguir solicita um [token de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para o serviço Web `https://service.contoso.com/`. O `client_id` identifica o serviço Web que solicita o token de acesso.
@@ -70,16 +70,16 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
-Uma solicitação de token de acesso de serviço para serviço com certificado contém estes parâmetros:
+### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Solicitação de token de acesso com um certificado
+Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
-| client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
-| client_assertion_type |obrigatório |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obrigatório | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Leia mais sobre [credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber como registrar seu certificado e saber sobre o formato da asserção.|
-| recurso | obrigatório |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
+| grant_type |necessárias |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
+| client_id |necessárias |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID do cliente do aplicativo de chamada, no [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, depois em **Registros de aplicativo** e, em seguida, clique no aplicativo. A client_id é a *ID do Aplicativo* |
+| client_assertion_type |necessárias |O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |necessárias | Uma asserção (um Token Web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Leia mais sobre [credenciais de certificado](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para saber como registrar seu certificado e saber sobre o formato da asserção.|
+| recurso | necessárias |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do aplicativo, no portal do Azure, clique em **Azure Active Directory**, depois em **Registros de aplicativo**, clique no aplicativo de serviço e, em seguida, em **Configurações** e **Propriedades**. |
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro client_secret ser substituído por dois parâmetros: um client_assertion_type e uma client_assertion.
 
@@ -101,7 +101,7 @@ Uma resposta bem-sucedida contém uma resposta JSON do OAuth 2.0 com os seguinte
 | Parâmetro | Descrição |
 | --- | --- |
 | access_token |O token de acesso solicitado. O serviço Web de chamada pode usar esse token para se autenticar no serviço Web de recebimento. |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens do portador, consulte o [Quadro de Autorização OAuth 2.0: Uso do Token do Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre tokens de portador, consulte a [estrutura de autorização do OAuth 2,0: uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
 | not_before |A hora na qual o token de acesso se torna útil. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de validade do token.|

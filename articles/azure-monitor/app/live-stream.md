@@ -1,19 +1,19 @@
 ---
-title: Diagnosticar com fluxo de métricas ao vivo - Insights do aplicativo Azure
+title: Diagnosticar com informações de Aplicativo Azure de Live Metrics Stream
 description: Monitore seu aplicativo Web em tempo real usando métrica personalizada e diagnostique problemas com um feed em tempo real de falhas, rastreamentos e eventos.
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670093"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo
 
-Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Juntamente com [Profiler](../../azure-monitor/app/profiler.md), [Snapshot depurador](../../azure-monitor/app/snapshot-debugger.md). O Live Metrics Stream fornece uma poderosa e não invasiva ferramenta de diagnóstico para o seu site ao vivo.
+Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Junto com o [criador de perfil](../../azure-monitor/app/profiler.md), depurador de [instantâneos](../../azure-monitor/app/snapshot-debugger.md). O Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site da Web em tempo real.
 
 Com o Live Metrics Stream, você pode:
 
@@ -25,9 +25,9 @@ Com o Live Metrics Stream, você pode:
 * Monitore qualquer contador de desempenho do Windows em tempo real.
 * Identifique com facilidade um servidor que está apresentando problemas e filtre todo o KPI/feed em tempo real para apenas aquele servidor.
 
-[![Vídeo de transmissão de métricas ao vivo](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Vídeo de Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Atualmente, as Métricas ao Vivo são suportadas para aplicativos ASP.NET, ASP.NET Core, Azure Functions, Java e Node.js.
+Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, ASP.NET Core, Azure Functions, Java e node. js.
 
 ## <a name="get-started"></a>Introdução
 
@@ -54,7 +54,7 @@ Verifique se as [portas de saída para o Live Metrics Stream](../../azure-monito
 |Sob demanda|Os dados são transmitidos enquanto você abre o Live Metrics|Os dados são enviados sempre que o SDK está instalado e habilitado|
 |Grátis|Não há nenhum custo para dados do Live Stream|Sujeito a [preços](../../azure-monitor/app/pricing.md)
 |amostragem|Todas as métricas e os contadores selecionados são transmitidos. Há amostras de falhas e rastreamentos de pilha. TelemetryProcessors não são aplicados.|Os eventos podem ter [amostras](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canal de controle|Os sinais de controle de filtro são enviados ao SDK. Recomendamos que você proteja este canal.|Comunicação é uma maneira, para o portal|
+|Canal de controle|Os sinais de controle de filtro são enviados ao SDK. Recomendamos que você proteja este canal.|A comunicação é de uma maneira para o portal|
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar suas métricas
 
@@ -149,11 +149,11 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Aplicativos de Funções do Azure
 
-Para aplicativos de função azure (v2), a fixação do canal com uma chave aPI pode ser realizada com uma variável de ambiente.
+Para os aplicativos de funções do Azure (v2), a proteção do canal com uma chave de API pode ser realizada com uma variável de ambiente.
 
 Crie uma chave de API de dentro de seu recurso do Application Insights e vá para **Configurações do aplicativo** de seu Aplicativo de funções. Selecione **adicionar nova configuração** e insira um nome de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` e um valor que corresponda à sua chave de API.
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (requer insights de aplicativos ASP.NET O SDK Principal 2.3.0 ou superior)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (requer Application Insights SDK do ASP.NET Core 2.3.0 ou superior)
 
 Modifique o arquivo startup.cs da seguinte forma:
 
@@ -177,33 +177,33 @@ No entanto, caso reconheça e confie em todos os servidores conectados, você po
 >É altamente recomendável que você configure o canal autenticado antes de inserir informações potencialmente confidenciais, como CustomerIDs, nos critérios de filtro.
 >
 
-## <a name="supported-features-table"></a>Tabela de recursos suportados
+## <a name="supported-features-table"></a>Tabela de recursos com suporte
 
-| Idioma                         | Métricas Básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de amostra    | CPU dividida por processo |
+| Linguagem                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET                             | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+) | Suportado (V2.7.2+)  |
-| .NET Core (target=.NET Framework)| Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+) | Suportado (V2.4.1+)  |
-| Núcleo .NET (target=.NET Core)     | Suportado (V2.4.1+) | Com suporte*          | Suportado (V2.4.1+) | Suportado (V2.4.1+) | **Não suportado**    |
-| Azure Functions v2               | Com suporte           | Com suporte           | Com suporte           | Com suporte           | **Não suportado**    |
-| Java                             | Suportado (V2.0.0+) | Suportado (V2.0.0+) | **Não suportado**   | **Não suportado**   | **Não suportado**    |
-| Node.js                          | Suportado (V1.3.0+) | Suportado (V1.3.0+) | **Não suportado**   | Suportado (V1.3.0+) | **Não suportado**    |
+| .NET                             | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +)  |
+| .NET Core (Target =. NET Framework)| Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +)  |
+| .NET Core (Target =. NET Core)     | Com suporte (V 2.4.1 +) | Com suporte*          | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | **Sem suporte**    |
+| Azure Functions v2               | Com suporte           | Com suporte           | Com suporte           | Com suporte           | **Sem suporte**    |
+| Java                             | Com suporte (V 2.0.0 +) | Com suporte (V 2.0.0 +) | **Sem suporte**   | **Sem suporte**   | **Sem suporte**    |
+| Node.js                          | Com suporte (V 1.3.0 +) | Com suporte (V 1.3.0 +) | **Sem suporte**   | Com suporte (V 1.3.0 +) | **Sem suporte**    |
 
-As métricas básicas incluem solicitação, dependência e taxa de exceção. As métricas de desempenho (contadores de desempenho) incluem memória e CPU. A telemetria de amostra mostra um fluxo de informações detalhadas para solicitações e dependências falhadas, exceções, eventos e vestígios.
+As métricas básicas incluem solicitação, dependência e taxa de exceção. As métricas de desempenho (contadores de desempenho) incluem memória e CPU. A telemetria de exemplo mostra um fluxo de informações detalhadas para solicitações e dependências com falha, exceções, eventos e rastreamentos.
 
- \*O suporte ao PerfCounters varia ligeiramente entre as versões do .NET Core que não têm como alvo o Quadro .NET:
+ \*O suporte a PerfCounters varia ligeiramente entre as versões do .NET Core que não têm como alvo o .NET Framework:
 
-- As métricas do PerfCounters são suportadas ao serem executados no Azure App Service for Windows. (AspNetCore SDK Versão 2.4.1 ou superior)
-- Os PerfCounters são suportados quando o aplicativo está sendo executado em qualquer máquina windows (VM ou Cloud Service ou On-prem etc.) (AspNetCore SDK Versão 2.7.1 ou superior), mas para aplicativos direcionados ao .NET Core 2.0 ou superior.
-- Os PerfCounters são suportados quando o aplicativo está em execução em QUALQUER LUGAR (Linux, Windows, serviço de aplicativo para Linux, contêineres, etc.) na versão beta mais recente (ou seja, AspNetCore SDK Versão 2.8.0-beta1 ou superior), mas para aplicativos direcionados ao .NET Core 2.0 ou superior.
+- Há suporte para métricas PerfCounters ao executar no serviço Azure App para Windows. (AspNetCore SDK versão 2.4.1 ou superior)
+- PerfCounters têm suporte quando o aplicativo está em execução em qualquer computador Windows (VM ou serviço de nuvem ou local, etc.) (AspNetCore SDK versão 2.7.1 ou superior), mas para aplicativos destinados ao .NET Core 2,0 ou superior.
+- Há suporte para PerfCounters quando o aplicativo está em execução em qualquer lugar (Linux, Windows, serviço de aplicativo para Linux, contêineres, etc.) na versão beta mais recente (ou seja, AspNetCore SDK versão 2.8.0-beta1 ou superior), mas para aplicativos destinados ao .NET Core 2,0 ou superior.
 
-Por padrão, o Live Metrics é desativado no Node.js SDK. Para habilitar métricas `setSendLiveMetrics(true)` ao vivo, adicione aos seus [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que você inicializa o SDK.
+Por padrão, as métricas ao vivo são desabilitadas no SDK do node. js. Para habilitar as métricas em tempo `setSendLiveMetrics(true)` real, adicione aos seus [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) à medida que você inicializar o SDK.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Não há dados? Se o aplicativo estiver em uma rede protegida: o Live Metrics Stream usa diferentes endereços IP do que outros dispositivos de telemetria do Application Insights. Certifique-se de que [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estejam abertos em seu firewall.
+Não há dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Certifique-se de que [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estejam abertos em seu firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Profiler](../../azure-monitor/app/profiler.md)
+* [Criador de perfil](../../azure-monitor/app/profiler.md)
 * [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)

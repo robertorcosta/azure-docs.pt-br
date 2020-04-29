@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: spelluru
 ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78198746"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
@@ -35,7 +35,7 @@ Antes de anexar um disco de dados a uma VM, leia estas dicas:
 ### <a name="attach-a-new-disk"></a>Anexar um novo disco
 Siga estas etapas para criar e anexar um novo disco de dados gerenciado a uma VM no Azure DevTest Labs.
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório desejado. 
 1. Na lista de **Minhas máquinas virtuais**, selecione uma VM em execução.
@@ -48,7 +48,7 @@ Siga estas etapas para criar e anexar um novo disco de dados gerenciado a uma VM
     ![Preencher o formulário "anexar novo disco"](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. Selecione **OK**.
 
-Após alguns momentos, o novo disco de dados é criado e anexado à VM e aparece na lista de discos de **dados** para essa VM.
+Após alguns instantes, o novo disco de dados é criado e anexado à VM e aparece na lista de **discos de dados** para essa VM.
 
 ### <a name="attach-an-existing-disk"></a>Anexar um disco existente
 Siga estas etapas para reanexar um disco de dados existente disponível a uma VM em execução. 
@@ -63,7 +63,7 @@ Siga estas etapas para reanexar um disco de dados existente disponível a uma VM
 
     ![Anexar disco de dados existente a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
-Após alguns momentos, o disco de dados é anexado à VM e aparece na lista de discos de **dados** para essa VM.
+Após alguns instantes, o disco de dados é anexado à VM e aparece na lista de **discos de dados** para essa VM.
 
 ## <a name="detach-a-data-disk"></a>Desanexar um disco de dados
 Quando não precisar mais de um disco de dados que está conectado a uma VM, você poderá desanexá-lo facilmente. A desanexação remove o disco da VM, mas o mantém no armazenamento para uso posterior.
@@ -73,7 +73,7 @@ Se desejar usar os dados existentes no disco novamente, você poderá reanexá-l
 ### <a name="detach-from-the-vms-management-pane"></a>Desanexar usando o painel de gerenciamento da VM
 1. Na lista de máquinas virtuais, selecione uma VM que tenha um disco de dados anexado.
 1. No menu à esquerda, selecione **Discos**.
-1. Na lista de discos de **dados,** selecione o disco de dados que deseja separar.
+1. Na lista de **discos de dados**, selecione o disco de dados que você deseja desanexar.
 
     ![Selecionar discos de dados para uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Selecione **Desanexar** na parte superior do painel de detalhes do disco.
@@ -84,7 +84,7 @@ Se desejar usar os dados existentes no disco novamente, você poderá reanexá-l
 O disco é desanexado e está disponível para ser anexado a outra VM. 
 ### <a name="detach-from-the-labs-main-pane"></a>Desanexar usando o painel principal do laboratório
 1. No painel de principal do laboratório, selecione **Meus discos de dados**.
-1. Clique com o botão direito do mouse no disco de dados que deseja separar – ou selecione suas elipses (**...**) – e escolha **Desapego**.
+1. Clique com o botão direito do mouse no disco de dados que você deseja desanexar – ou selecione suas reticências (**...**) – e escolha **desanexar**.
 
     ![Desanexar um disco de dados](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. Selecione **Sim** para confirmar que deseja desanexá-lo.

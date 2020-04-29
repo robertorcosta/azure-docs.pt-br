@@ -1,5 +1,5 @@
 ---
-title: Depuração no Visual Studio com Insights de Aplicativos Azure
+title: Depurar no Visual Studio com o Aplicativo Azure insights
 description: Análise de desempenho do aplicativo Web e diagnóstico durante a depuração e na produção.
 ms.topic: conceptual
 author: NumberByColors
@@ -8,10 +8,10 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670875"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure seus aplicativos com o Azure Application Insights no Visual Studio
@@ -90,7 +90,7 @@ Também será particularmente útil se você tiver [telemetria personalizada](..
 * *Primeiro, configurei totalmente o Application Insights para enviar a telemetria ao portal. Mas agora eu quero ver a telemetria apenas no Visual Studio.*
   
   * Nas Configurações da janela Pesquisar, há uma opção para pesquisar o diagnóstico local, mesmo se o seu aplicativo enviar telemetria para o portal.
-  * Para impedir que a telemetria seja enviada `<instrumentationkey>...` ao portal, comente a linha do ApplicationInsights.config. Quando estiver pronto para enviar telemetria ao portal novamente, desfaça o comentário.
+  * Para parar a telemetria sendo enviada ao portal, comente a linha `<instrumentationkey>...` de ApplicationInsights. config. Quando você estiver pronto para enviar telemetria para o portal novamente, remova a marca de comentário.
 
 
 ## <a name="next-steps"></a>Próximas etapas

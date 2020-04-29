@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731948"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
@@ -59,9 +59,9 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 
 * tipo de operador: o tipo de comparação.
 * chave – o campo nos dados do evento que você está usando para filtragem. Ele pode ser um número, booliano ou cadeia de caracteres.
-* valores - O valor ou valores para comparar com a chave.
+* Values-o valor ou valores para comparar com a chave.
 
-Se você especificar um único filtro com valores múltiplos, uma operação **OR** será realizada, então o valor do campo-chave deve ser um desses valores. Veja um exemplo:
+Se você especificar um único filtro com vários valores, uma operação **ou** será executada, portanto, o valor do campo de chave deverá ser um desses valores. Veja um exemplo:
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ Se você especificar um único filtro com valores múltiplos, uma operação **O
 ]
 ```
 
-Se você especificar vários filtros diferentes, uma **operação E** será realizada, de modo que cada condição do filtro deve ser atendida. Veja um exemplo: 
+Se você especificar vários filtros diferentes, uma operação and será executada, portanto, cada condição **de** filtro deverá ser atendida. Veja um exemplo: 
 
 ```json
 "advancedFilters": [
@@ -146,7 +146,7 @@ Para o esquema de entrada personalizada, use os campos de dados de evento (como 
 Os valores podem ser:
 
 * número
-* string
+* cadeia de caracteres
 * booleano
 * matriz
 

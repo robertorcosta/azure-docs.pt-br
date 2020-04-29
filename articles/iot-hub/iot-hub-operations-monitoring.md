@@ -1,5 +1,5 @@
 ---
-title: Monitoramento de operações do Azure IoT Hub (preterido) | Microsoft Docs
+title: Monitoramento de operações do Hub IoT do Azure (preterido) | Microsoft Docs
 description: Como usar o monitoramento das operações do Hub IoT do Azure para monitorar o status das operações no seu Hub IoT em tempo real.
 author: nberdy
 manager: briz
@@ -10,18 +10,18 @@ ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp
 ms.openlocfilehash: edbc3431c860794c7cd1dd8e5011c0d7d11d692d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732231"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoramento de operações do IoT Hub (preterido)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoramento de operações do Hub IoT (preterido)
 
 O monitoramento das operações do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade do seu Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
 
 >[!NOTE]
->O monitoramento de operações do IoT Hub **é preterido e foi removido do IoT Hub em 10 de março de 2019**. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md). Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>O **monitoramento de operações do Hub IOT foi preterido e foi removido do Hub IOT em 10 de março de 2019**. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md). Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 O Hub IoT monitora seis categorias de eventos:
 
@@ -269,6 +269,6 @@ class Program
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 
 * [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

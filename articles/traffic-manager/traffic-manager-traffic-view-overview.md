@@ -1,6 +1,6 @@
 ---
 title: Exibição de Tráfego no Gerenciador de Tráfego do Microsoft Azure
-description: Nesta introdução, saiba como funciona a visualização de tráfego do gerenciador de tráfego.
+description: Nesta introdução, saiba como funciona a exibição de tráfego do Gerenciador de tráfego.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938352"
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
@@ -36,7 +36,7 @@ Por exemplo, você pode usar a Exibição do Tráfego para entender quais regiõ
 A Exibição do Tráfego funciona com o Gerenciador de Tráfego examinando as consultas de entrada recebidas nos últimos sete dias em relação a um perfil com esse recurso habilitado. Com base nas informações das consultas de entrada, a Exibição de Tráfego extrai o IP de origem do resolvedor de DNS, que é usado como uma representação da localização dos usuários. Em seguida, eles são agrupados em uma granularidade no nível do resolvedor de DNS para criar regiões de base de usuários usando as informações geográficas dos endereços IP mantidos pelo Gerenciador de Tráfego. Em seguida, o Gerenciador de Tráfego analisa as regiões do Azure para as quais a consulta foi roteada e constrói um mapa de fluxo de tráfego para os usuários dessas regiões.  
 Na próxima etapa, o Gerenciador de Tráfego correlaciona o mapeamento da região da base de usuários à região do Azure com as tabelas de latência de inteligência de rede que ele mantém para diferentes redes de usuários finais, a fim de entender a latência média experimentada pelos usuários nessas regiões durante a conexão com as regiões do Azure. Em seguida, todos esses cálculos são combinados no nível do IP do resolvedor de DNS local antes de serem apresentados. Você pode consumir as informações de várias maneiras.
 
-A freqüência da atualização de dados de exibição de tráfego depende de várias variáveis de serviço interno. No entanto, os dados geralmente são atualizados uma vez a cada 24 horas.
+A frequência da atualização de dados da exibição de tráfego depende de várias variáveis de serviço internas. No entanto, os dados geralmente são atualizados uma vez a cada 24 horas.
 
 >[!NOTE]
 >A latência descrita na Exibição de Tráfego é uma latência representativa entre o usuário final e as regiões do Azure às quais ele se conectou e não é a latência de pesquisa de DNS. A Exibição de Tráfego faz a melhor estimativa possível da latência entre o resolvedor de DNS local e a região do Azure para a qual a consulta foi roteada. Se houver dados insuficientes disponíveis, a latência retornada será nula. 
@@ -45,7 +45,7 @@ A freqüência da atualização de dados de exibição de tráfego depende de v�
 
 Ao navegar para a seção **Exibição de Tráfego** da página do Gerenciador de Tráfego, você verá um mapa geográfico com uma sobreposição dos insights da Exibição de Tráfego. O mapa fornece informações sobre a base de usuários e os pontos de extremidade para seu perfil do Gerenciador de Tráfego.
 
-![Exibição geográfica da exibição geográfica do traffic manager][1]
+![Exibição geográfica de Exibição de Tráfego do Traffic Manager][1]
 
 ### <a name="user-base-information"></a>Informações da base de usuários
 
@@ -94,7 +94,7 @@ Ao usar a Exibição do Tráfego, você é cobrado com base no número de pontos
 
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Saiba como [criar um perfil de Gerenciador de Tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-create-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

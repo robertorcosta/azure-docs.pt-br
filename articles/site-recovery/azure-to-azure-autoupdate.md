@@ -1,6 +1,6 @@
 ---
-title: Atualização automática do serviço de mobilidade na recuperação do site do Azure
-description: Visão geral da atualização automática do serviço de mobilidade ao replicar VMs do Azure usando o Azure Site Recovery.
+title: Atualização automática do serviço de mobilidade no Azure Site Recovery
+description: Visão geral da atualização automática do serviço de mobilidade ao replicar VMs do Azure usando Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,67 +9,67 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: rajanaki
 ms.openlocfilehash: 67298ecf0c17feee2d36bb8774cae37b1ca81381
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618970"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação Azure-to-Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
-O Azure Site Recovery usa uma cadência de versão mensal para corrigir quaisquer problemas e melhorar os recursos existentes ou adicionar novos. Para permanecer atualizado com o serviço, você deve planejar a implantação de patches a cada mês. Para evitar a sobrecarga associada a cada atualização, você pode permitir que a Recuperação do Site gerencie atualizações de componentes.
+Azure Site Recovery usa uma cadência de versão mensal para corrigir quaisquer problemas e aprimorar os recursos existentes ou adicionar novos. Para permanecer atualizado com o serviço, você deve planejar a implantação de patch a cada mês. Para evitar a sobrecarga associada a cada atualização, você pode permitir que Site Recovery gerencie atualizações de componentes.
 
-Como mencionado na [arquitetura de recuperação de desastres Azure-to-Azure,](azure-to-azure-architecture.md)o serviço de mobilidade está instalado em todas as máquinas virtuais (VMs) do Azure que têm a replicação ativada de uma região do Azure para outra. Quando você usa atualizações automáticas, cada nova versão atualiza a extensão do serviço Mobility.
+Conforme mencionado na [arquitetura de recuperação de desastre do Azure para o Azure](azure-to-azure-architecture.md), o serviço de mobilidade é instalado em todas as VMs (máquinas virtuais) do Azure que têm a replicação habilitada de uma região do Azure para outra. Quando você usa atualizações automáticas, cada nova versão atualiza a extensão do serviço de mobilidade.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="how-automatic-updates-work"></a>Como funcionam as atualizações automáticas
 
-Quando você usa o Site Recovery para gerenciar atualizações, ele implanta um runbook global (usado pelos serviços do Azure) através de uma conta de automação, criada na mesma assinatura do cofre. Cada cofre usa uma conta de automação. Para cada VM em um cofre, o manual verifica as atualizações automáticas ativas. Se uma versão mais recente da extensão do serviço Mobility estiver disponível, a atualização será instalada.
+Quando você usa Site Recovery para gerenciar atualizações, ele implanta um runbook global (usado pelos serviços do Azure) por meio de uma conta de automação, criada na mesma assinatura que o cofre. Cada cofre usa uma conta de automação. Para cada VM em um cofre, o runbook verifica atualizações automáticas ativas. Se uma versão mais recente da extensão do serviço de mobilidade estiver disponível, a atualização será instalada.
 
-O cronograma padrão do runbook ocorre diariamente às 12:00 am no fuso horário da geografia da VM replicada. Você também pode alterar o cronograma do runbook através da conta de automação.
+A agenda padrão do runbook ocorre diariamente às 12:00 no fuso horário da geografia da VM replicada. Você também pode alterar o agendamento do runbook por meio da conta de automação.
 
 > [!NOTE]
-> Começando com [update rollup 35](site-recovery-whats-new.md#updates-march-2019), você pode escolher uma conta de automação existente para usar para atualizações. Antes da atualização do Rollup 35, o Site Recovery criou a conta de automação por padrão. Você só pode selecionar essa opção quando habilitar a replicação de uma VM. Ele não está disponível para uma VM que já tem a replicação ativada. A configuração selecionada se aplica a todas as VMs do Azure protegidas no mesmo cofre.
+> A partir do [pacote cumulativo](site-recovery-whats-new.md#updates-march-2019)de atualizações 35, você pode escolher uma conta de automação existente a ser usada para atualizações. Antes do pacote cumulativo de atualizações 35, Site Recovery criou a conta de automação por padrão. Você só pode selecionar essa opção quando habilitar a replicação para uma VM. Ele não está disponível para uma VM que já tenha a replicação habilitada. A configuração que você seleciona aplica-se a todas as VMs do Azure protegidas no mesmo cofre.
 
-Ligar atualizações automáticas não requer uma reinicialização das Suas VMs do Azure ou afeta a replicação contínua.
+Ativar as atualizações automáticas não exige uma reinicialização de suas VMs do Azure ou afeta a replicação em andamento.
 
-O faturamento do trabalho na conta de automação é baseado no número de minutos de tempo de execução de trabalho usados em um mês. A execução do trabalho leva alguns segundos para cerca de um minuto por dia e é coberta como unidades livres. Por padrão, 500 minutos são incluídos como unidades gratuitas para uma conta de automação, conforme mostrado na tabela a seguir:
+A cobrança de trabalhos na conta de automação baseia-se no número de minutos de tempo de execução de trabalho usados em um mês. A execução do trabalho leva alguns segundos a cerca de um minuto por dia e é coberta como unidades livres. Por padrão, 500 minutos são incluídos como unidades livres para uma conta de automação, conforme mostrado na tabela a seguir:
 
-| Unidades gratuitas incluídas (a cada mês) | Price |
+| Unidades livres incluídas (cada mês) | Price |
 |---|---|
-| Tempo de execução do trabalho 500 minutos | 0,14/minuto
+| Tempo de execução de trabalho 500 minutos | ₹ 0.14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar as atualizações automáticas
 
-Existem várias maneiras pelas quais o Site Recovery pode gerenciar as atualizações de extensão:
+Há várias maneiras pelas quais Site Recovery pode gerenciar as atualizações de extensão:
 
-- [Gerenciar como parte da etapa de replicação de habilitação](#manage-as-part-of-the-enable-replication-step)
+- [Gerenciar como parte da etapa habilitar replicação](#manage-as-part-of-the-enable-replication-step)
 - [Ativar/desativar as configurações de atualização de dentro do cofre](#toggle-the-extension-update-settings-inside-the-vault)
 - [Gerenciar atualizações manualmente](#manage-updates-manually)
 
-### <a name="manage-as-part-of-the-enable-replication-step"></a>Gerenciar como parte da etapa de replicação de habilitação
+### <a name="manage-as-part-of-the-enable-replication-step"></a>Gerenciar como parte da etapa habilitar replicação
 
-Quando você habilita a replicação de uma VM a [partir da exibição da VM](azure-to-azure-quickstart.md) ou [do cofre de serviços de recuperação,](azure-to-azure-how-to-enable-replication.md)você pode permitir que o Site Recovery gerencie atualizações para a extensão de Recuperação do Site ou gerencie-a manualmente.
+Ao habilitar a replicação para uma VM iniciada [na exibição da VM](azure-to-azure-quickstart.md) ou [no cofre dos serviços de recuperação](azure-to-azure-how-to-enable-replication.md), você pode permitir que site Recovery gerencie atualizações para a extensão site Recovery ou gerencie-as manualmente.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Configurações de extensão":::
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar as configurações de atualização de dentro do cofre
 
-1. No cofre dos Serviços de Recuperação, vá para **Gerenciar** > a**infra-estrutura de recuperação do site**.
-1. Em 'Configurações de**atualização de extensão de** > máquinas >  **virtuais' do Azure,****permita que a recuperação do site seja gerenciada,** selecione **Em**.
+1. No cofre dos serviços de recuperação, vá para **gerenciar** > **site Recovery infraestrutura**.
+1. Em para**configurações** > de atualização de extensão >  **de máquinas virtuais do Azure**,**permita que site Recovery gerencie**, selecione **ativado**.
 
-   Para gerenciar a extensão manualmente, **selecione Off**.
+   Para gerenciar a extensão manualmente, selecione **desativado**.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 :::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Configurações de atualização de extensão":::
 
 > [!IMPORTANT]
-> Quando você escolhe **Permitir que a recuperação do site seja gerenciada,** a configuração é aplicada a todas as VMs no cofre.
+> Quando você escolhe **permitir site Recovery gerenciar**, a configuração é aplicada a todas as VMs no cofre.
 
 > [!NOTE]
-> Qualquer opção notifica você da conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Alternativamente, você pode personalizar a configuração e escolher uma conta de automação existente. Todos os taks subseqüentes para habilitar a replicação no mesmo cofre usarão a conta de automação criada anteriormente. Atualmente, o menu suspenso listará apenas contas de automação que estão no mesmo Grupo de Recursos do cofre.
+> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação será criada por padrão. Como alternativa, você pode personalizar a configuração e escolher uma conta de automação existente. Todos os demora subsequentes para habilitar a replicação no mesmo cofre usarão a conta de automação criada anteriormente. Atualmente, o menu suspenso listará apenas as contas de automação que estão no mesmo grupo de recursos que o cofre.
 
 > [!IMPORTANT]
 > O script a seguir precisa ser executado no contexto de uma conta de automação.
@@ -512,44 +512,44 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Gerenciar atualizações manualmente
 
-1. Se houver novas atualizações para o serviço de mobilidade instalados em suas VMs, você verá a seguinte notificação: A nova atualização do **agente de replicação de recuperação do site está disponível. Clique para instalar.**
+1. Se houver novas atualizações para o serviço de mobilidade instaladas em suas VMs, você verá a seguinte notificação: **novo site Recovery atualização do agente de replicação está disponível. Clique para instalar.**
 
    :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Janela Itens replicados":::
 
-1. Selecione a notificação para abrir a página de seleção de VM.
-1. Escolha as VMs que deseja atualizar e selecione **OK**. O serviço Update Mobility será inicial para cada VM selecionada.
+1. Selecione a notificação para abrir a página seleção de VM.
+1. Escolha as VMs que você deseja atualizar e, em seguida, selecione **OK**. O serviço de mobilidade de atualização será iniciado para cada VM selecionada.
 
    :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="Lista de VMs de itens replicados":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Problemas comuns e solução de problemas
 
-Se houver um problema com as atualizações automáticas, você verá uma notificação de erro em **Problemas de configuração** no painel do cofre.
+Se houver um problema com as atualizações automáticas, você verá uma notificação de erro em **problemas de configuração** no painel do cofre.
 
-Se você não puder habilitar atualizações automáticas, veja os seguintes erros comuns e ações recomendadas:
+Se você não puder habilitar as atualizações automáticas, consulte os seguintes erros comuns e as ações recomendadas:
 
 - **Erro**: você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço.
 
-  **Ação recomendada**: Certifique-se de que a conta de entrada assinada seja atribuída como Contribuinte e tente novamente. Para obter mais informações sobre como atribuir permissões, consulte a seção de permissões necessárias de [Como: Usar o portal para criar um aplicativo azure AD e um principal de serviço que possa acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
+  **Ação recomendada**: Verifique se a conta conectada está atribuída como colaborador e tente novamente. Para obter mais informações sobre como atribuir permissões, consulte a seção permissões necessárias de [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
 
-  Para corrigir a maioria dos problemas depois de habilitar atualizações automáticas, **selecione Reparar**. Se o botão de reparo não estiver disponível, consulte a mensagem de erro exibida no painel de configurações de atualização de extensão.
+  Para corrigir a maioria dos problemas depois de habilitar as atualizações automáticas, selecione **reparar**. Se o botão reparar não estiver disponível, consulte a mensagem de erro exibida no painel configurações de atualização de extensão.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Botão de reparo do serviço de recuperação do site em configurações de atualização de extensão":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Botão de reparo do serviço Site Recovery nas configurações de atualização de extensão":::
 
 - **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
-  **Ação recomendada :** Excluir e, em seguida, [recriar a conta Executar como .](/azure/automation/automation-create-runas-account) Ou, certifique-se de que o aplicativo Automation Run As Azure Active Directory pode acessar o recurso de serviços de recuperação.
+  **Ação recomendada**: exclua e [recrie a conta Executar como](/azure/automation/automation-create-runas-account). Ou então, certifique-se de que o aplicativo de Azure Active Directory da conta Executar como da automação possa acessar o recurso dos serviços de recuperação.
 
 - **Erro**: a conta Executar como não foi encontrada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão.
 
-  **Ação recomendada :** Excluir e, em seguida, [recriar a conta Executar como .](/azure/automation/automation-create-runas-account)
+  **Ação recomendada**: exclua e [recrie a conta Executar como](/azure/automation/automation-create-runas-account).
 
-- **Erro**: O Azure Run as Certificate usado pela conta de automação está prestes a expirar.
+- **Erro**: o certificado executar como do Azure usado pela conta de automação está prestes a expirar.
 
-  O certificado auto-assinado criado para a conta Run As expira um ano a partir da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Se você se inscreveu para notificações de e-mail, você também receberá e-mails quando uma ação for necessária do seu lado. Este erro será mostrado dois meses antes da data de validade e mudará para um erro crítico se o certificado tiver expirado. Uma vez que o certificado tenha expirado, a atualização automática não estará funcional até que você renove o mesmo.
+  O certificado autoassinado criado para a conta Executar como expirará um ano a partir da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Se você se inscreveu para notificações por email, também receberá emails quando uma ação for necessária do seu lado. Esse erro será mostrado dois meses antes da data de expiração e será alterado para um erro crítico se o certificado tiver expirado. Depois que o certificado expirar, a atualização automática não será funcional até que você renove o mesmo.
 
-  **Ação recomendada**: Para resolver esse problema, **selecione Reparar** e, em seguida, **Renovar certificado**.
+  **Ação recomendada**: para resolver esse problema, selecione **reparar** e **renovar certificado**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renovar-cert":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renovar-CERT":::
 
   > [!NOTE]
   > Depois de renovar o certificado, atualize a página para exibir o status atual.

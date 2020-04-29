@@ -1,13 +1,13 @@
 ---
-title: Pacote de detecção de segurança com insights de aplicativos do Azure
-description: Monitore o aplicativo com insights de aplicativos do Azure e detecção inteligente para possíveis problemas de segurança.
+title: Pacote de detecção de segurança com informações do Aplicativo Azure
+description: Monitore o aplicativo com informações de Aplicativo Azure e detecção inteligente para possíveis problemas de segurança.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669719"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de detecção de segurança do aplicativo (visualização)
@@ -20,22 +20,22 @@ Este recurso não exige nenhuma configuração especial, diferente de [configura
 Há três tipos de problemas de segurança que são detectados:
 1. Acesso de URL não segura: uma URL no aplicativo que está sendo acessada via HTTP e HTTPS. Normalmente, uma URL que aceita solicitações HTTPS não deve aceitar as solicitações HTTP. Isso pode indicar um problema de segurança ou um erro em seu aplicativo.
 2. Forma não segura: um formulário (ou outra solicitação de "POST") no aplicativo usa HTTP em vez de HTTPS. Usar HTTP pode comprometer os dados do usuário que são enviados pelo formulário.
-3. Atividade suspeita do usuário: o aplicativo está sendo acessado de vários países/regiões pelo mesmo usuário aproximadamente ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
+3. Atividade de usuário suspeita: o aplicativo está sendo acessado de vários países/regiões pelo mesmo usuário praticamente ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Meu aplicativo realmente tem um problema?
 Não, uma notificação não significa que seu aplicativo realmente tem um problema. A detecção de qualquer um dos cenários acima pode, em muitos casos, indicar um problema de segurança. No entanto, a detecção pode ter uma justificativa comercial natural e pode ser ignorada.
 
 ## <a name="how-do-i-fix-the-insecure-url-access-detection"></a>Como corrigir a detecção de "Acesso à URL inseguro"?
 1. **Triagem.** A notificação fornece o número de usuários que acessaram URLs inseguras e a URL que foi mais afetada por acesso inseguro. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** Que porcentagem de usuários acessaram URLs inseguros? Quantos URLs foram afetados? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção fornece a lista de solicitações inseguras e as listas de URLs e os usuários que foram afetados, para ajudá-lo a diagnosticar o problema.
+2. **Com.** Que porcentagem de usuários acessaram URLs inseguros? Quantos URLs foram afetados? Essas informações podem ser obtidas na notificação.
+3. **Tect.** A detecção fornece a lista de solicitações inseguras e as listas de URLs e os usuários que foram afetados, para ajudá-lo a diagnosticar o problema.
 
 ## <a name="how-do-i-fix-the-insecure-form-detection"></a>Como corrigir a detecção de "Formulário inseguro"?
 1. **Triagem.** A notificação fornece o número de formulários inseguros e o número de usuários cujos dados foram possivelmente comprometidos. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** Qual forma estava envolvida no maior número de transmissões inseguros e qual é a distribuição de transmissões inseguras, ao longo do tempo? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção fornece a lista de formulários inseguros e uma análise do número de transmissões inseguros para cada formulário, para ajudá-lo a diagnosticar o problema.
+2. **Com.** Qual forma estava envolvida no maior número de transmissões inseguros e qual é a distribuição de transmissões inseguras, ao longo do tempo? Essas informações podem ser obtidas na notificação.
+3. **Tect.** A detecção fornece a lista de formulários inseguros e uma análise do número de transmissões inseguros para cada formulário, para ajudá-lo a diagnosticar o problema.
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Como corrigir a detecção de "atividade de usuário suspeita"?
 1. **Triagem.** A notificação fornece o número de usuários diferentes que exibiu o comportamento suspeito. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** De quais países/regiões os pedidos suspeitos se originaram? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção fornece a lista de usuários suspeitos e a lista de países/regiões para cada usuário, para ajudá-lo a diagnosticar o problema.
+2. **Com.** De quais países/regiões as solicitações suspeitas se originam? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
+3. **Tect.** A detecção fornece a lista de usuários suspeitos e a lista de países/regiões para cada usuário, para ajudá-lo a diagnosticar o problema.

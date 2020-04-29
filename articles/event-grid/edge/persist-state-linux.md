@@ -1,6 +1,6 @@
 ---
-title: Persist state in Linux - Azure Event Grid IoT Edge | Microsoft Docs
-description: Persistir metadados no Linux
+title: Persistir o estado no Linux-grade de eventos do Azure IoT Edge | Microsoft Docs
+description: Manter metadados no Linux
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,26 +10,26 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086662"
 ---
-# <a name="persist-state-in-linux"></a>Persiste estado no Linux
+# <a name="persist-state-in-linux"></a>Persistir o estado no Linux
 
-Tópicos e assinaturas criados no módulo Event Grid são armazenados no sistema de arquivos de contêiner por padrão. Sem persistência, se o módulo for reimplantado, todos os metadados criados seriam perdidos. Para preservar os dados através de implantações e reinicializações, você precisa persistir os dados fora do sistema de arquivos de contêineres.
+Os tópicos e as assinaturas criados no módulo grade de eventos são armazenados no sistema de arquivos de contêiner por padrão. Sem persistência, se o módulo for reimplantado, todos os metadados criados serão perdidos. Para preservar os dados entre implantações e reinicializações, você precisa manter os dados fora do sistema de arquivos do contêiner.
 
-Por padrão, apenas os metadados são persistidos e os eventos ainda são armazenados na memória para um melhor desempenho. Siga a seção de eventos persiste para permitir a persistência do evento também.
+Por padrão, somente os metadados são persistidos e os eventos ainda são armazenados na memória para melhorar o desempenho. Siga a seção persistir eventos para habilitar a persistência de eventos também.
 
-Este artigo fornece as etapas para implantar o módulo Event Grid com persistência em implantações Linux.
+Este artigo fornece as etapas para implantar o módulo de grade de eventos com persistência em implantações do Linux.
 
 > [!NOTE]
->O módulo Event Grid é executado como um `2000` usuário `eventgriduser`de baixo privilégio com UID e nome .
+>O módulo de grade de eventos é executado como um usuário com poucos `2000` privilégios com `eventgriduser`UID e Name.
 
-## <a name="persistence-via-volume-mount"></a>Persistência via montagem de volume
+## <a name="persistence-via-volume-mount"></a>Persistência por meio de montagem de volume
 
- [Os volumes docker](https://docs.docker.com/storage/volumes/) são usados para preservar os dados através de implantações. Você pode permitir que o docker crie automaticamente um volume nomeado como parte da implantação do módulo Event Grid. Esta opção é a opção mais simples. Você pode especificar o nome de volume a ser criado na seção **'Vincular':**
+ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados para preservar os dados entre implantações. Você pode permitir que o Docker crie automaticamente um volume nomeado como parte da implantação do módulo de grade de eventos. Essa opção é a opção mais simples. Você pode especificar o nome do volume a ser criado na seção de **associações** da seguinte maneira:
 
 ```json
   {
@@ -42,9 +42,9 @@ Este artigo fornece as etapas para implantar o módulo Event Grid com persistên
 ```
 
 >[!IMPORTANT]
->Não altere a segunda parte do valor de vinculação. Ele aponta para um local específico dentro do módulo. Para o módulo Event Grid no Linux, ele tem que ser **/app/metadataDb**.
+>Não altere a segunda parte do valor de ligação. Ele aponta para um local específico dentro do módulo. Para o módulo de grade de eventos no Linux, ele deve ser **/app/metadataDb**.
 
-Por exemplo, a seguinte configuração resultará na criação do volume **egmetadataDbVol** onde os metadados serão persistidos.
+Por exemplo, a configuração a seguir resultará na criação do volume **egmetadataDbVol** em que os metadados serão persistidos.
 
 ```json
  {
@@ -79,27 +79,27 @@ Por exemplo, a seguinte configuração resultará na criação do volume **egmet
 
 Em vez de montar um volume, você pode criar um diretório no sistema host e montar esse diretório.
 
-## <a name="persistence-via-host-directory-mount"></a>Persistência através da montagem do diretório host
+## <a name="persistence-via-host-directory-mount"></a>Persistência via montagem de diretório de host
 
-Em vez de um volume de docker, você também tem a opção de montar uma pasta host.
+Em vez de um volume do Docker, você também tem a opção de montar uma pasta de host.
 
-1. Primeiro crie um usuário com nome **eventgriduser** e ID **2000** na máquina host executando o seguinte comando:
+1. Primeiro, crie um usuário com o nome **eventgriduser** e a ID **2000** no computador host executando o seguinte comando:
 
     ```sh
     sudo useradd -u 2000 eventgriduser
     ```
-1. Crie um diretório no sistema de arquivos host executando o seguinte comando.
+1. Crie um diretório no sistema de arquivos do host executando o comando a seguir.
 
    ```sh
    md <your-directory-name-here>
    ```
 
-    Por exemplo, executar o seguinte comando criará um diretório chamado **myhostdir**.
+    Por exemplo, a execução do comando a seguir criará um diretório chamado **myhostdir**.
 
     ```sh
     md /myhostdir
     ```
-1. Em seguida, torne o proprietário do **eventgriduser** desta pasta executando o seguinte comando.
+1. Em seguida, torne o proprietário do **eventgriduser** desta pasta executando o comando a seguir.
 
    ```sh
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
@@ -110,7 +110,7 @@ Em vez de um volume de docker, você também tem a opção de montar uma pasta h
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
     ```
-1. Use **Binds** para montar o diretório e reimplantar o módulo Event Grid do portal Azure.
+1. Use **bindings** para montar o diretório e reimplantar o módulo de grade de eventos do portal do Azure.
 
     ```json
     {
@@ -157,20 +157,20 @@ Em vez de um volume de docker, você também tem a opção de montar uma pasta h
     ```
 
     >[!IMPORTANT]
-    >Não altere a segunda parte do valor de vinculação. Ele aponta para um local específico dentro do módulo. Para o módulo Event Grid no linux, ele tem que ser **/app/metadataDb** e **/app/eventsDb**
+    >Não altere a segunda parte do valor de ligação. Ele aponta para um local específico dentro do módulo. Para o módulo de grade de eventos no Linux, ele deve ser **/app/metadataDb** e **/app/eventsDb**
 
 
 ## <a name="persist-events"></a>Persistir eventos
 
-Para ativar a persistência do evento, você deve primeiro ativar a persistência de metadados através do suporte de volume ou do diretório do host usando as seções acima.
+Para habilitar a persistência de evento, primeiro você deve habilitar a persistência de metadados por meio da montagem de volume ou da montagem de diretório de host usando as seções acima.
 
-Coisas importantes a serem anotadas sobre eventos persistentes:
+Coisas importantes a serem observadas sobre eventos persistentes:
 
-* Os eventos persistentes são ativados por assinatura de evento e são opt-in uma vez que um volume ou diretório tenha sido montado.
-* A persistência do evento é configurada em uma Assinatura de Evento no momento da criação e não pode ser modificada uma vez que a Assinatura de Evento é criada. Para alternar a persistência do evento, você deve excluir e recriar a Assinatura de Evento.
-* Eventos persistentes são quase sempre mais lentos do que nas operações de memória, no entanto, a diferença de velocidade é altamente dependente das características da unidade. A troca entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna perceptível em grande escala.
+* A persistência de eventos é habilitada por assinatura de evento e é opcional quando um volume ou diretório é montado.
+* A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
+* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas geralmente só se torna perceptível em grande escala.
 
-Para habilitar a persistência do `persistencePolicy` evento `true`em uma assinatura de evento, definido como:
+Para habilitar a persistência de evento em uma assinatura de `persistencePolicy` evento `true`, defina como:
 
  ```json
         {

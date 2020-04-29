@@ -1,5 +1,5 @@
 ---
-title: Recursos de segurança usados com VMs azure
+title: Recursos de segurança usados com VMs do Azure
 titleSuffix: Azure security
 description: Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure.
 services: security
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657156"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
@@ -46,12 +46,12 @@ O Microsoft Antimalware para Serviços de Nuvem e Máquinas Virtuais do Azure é
 
 O Microsoft Antimalware para Azure é uma solução de agente único para aplicativos e ambientes de locatário. Foi projetado para execução em segundo plano sem intervenção humana. Você pode implantar a proteção baseada nas necessidades de suas cargas de trabalho do aplicativo, com configuração básica padronizada ou personalizada avançada, incluindo monitoramento de antimalware.
 
-Saiba mais sobre [o Microsoft Antimalware for Azure](antimalware.md) e os principais recursos disponíveis.
+Saiba mais sobre o [Microsoft antimalware para Azure](antimalware.md) e os principais recursos disponíveis.
 
 Saiba mais sobre o software antimalware para ajudar a proteger suas máquinas virtuais:
 
 * [Implantando soluções antimalware em máquinas virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar o Trend Micro Deep Security como um serviço em uma VM windows](/azure/virtual-machines/windows/classic/install-trend)
+* [Como instalar e configurar o Trend Micro Deep Security as a Service em uma VM do Windows](/azure/virtual-machines/windows/classic/install-trend)
 * [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](/azure/virtual-machines/windows/classic/install-symantec)
 * [Soluções de segurança no Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -61,7 +61,7 @@ Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançad
 * [Proteção de próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Resposta e a proteção de ponto de extremidade](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Correção e investigação automatizada](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Pontuação segura](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Classificação de segurança](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
 * [Procura avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gerenciamento e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção contra ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -79,12 +79,12 @@ O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de 
 
 Saiba mais:
 
-* [O que é o Cofre da Chave do Azure?](/azure/key-vault/key-vault-overview)
+* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Blog do Cofre de Chaves do Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Criptografia de disco da máquina virtual
 
-O Azure Disk Encryption é uma nova funcionalidade para criptografia de discos de máquinas virtuais do Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados.
+O Azure Disk Encryption é uma nova funcionalidade para criptografia de discos de máquinas virtuais do Windows e Linux. O Azure Disk Encryption usa o recurso [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados.
 
 A solução é integrada ao Azure Key Vault para ajudá-lo a controlar e gerenciar os segredos e as chaves de criptografia de disco em sua assinatura do cofre de chaves. Ela também garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Azure.
 
@@ -99,8 +99,8 @@ O Backup do Azure é uma solução escalonável que ajuda a proteger os dados de
 
 Saiba mais:
 
-* [O que é o Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
-* [FAQ do serviço de backup do Azure](/azure/backup/backup-azure-backup-faq)
+* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
+* [Perguntas frequentes do serviço de backup do Azure](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -117,8 +117,8 @@ Recuperação de Site:
 Saiba mais:
 
 * [O que é o Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [Como funciona a recuperação do site do Azure?](/azure/site-recovery/site-recovery-components)
-* [Quais cargas de trabalho são protegidas pelo Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [Como funciona Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
+* [Quais cargas de trabalho são protegidas por Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
 ## <a name="virtual-networking"></a>Rede Virtual
 
@@ -129,8 +129,8 @@ Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede físi
 Saiba mais:
 
 * [Visão geral da segurança de rede do Azure](network-overview.md)
-* [Visão geral da Rede Virtual](/azure/virtual-network/virtual-networks-overview)
-* [Recursos de networking e parcerias para cenários corporativos](https://azure.microsoft.com/blog/networking-enterprise/)
+* [Visão geral da rede virtual](/azure/virtual-network/virtual-networks-overview)
+* [Recursos de rede e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
 
@@ -171,4 +171,4 @@ Saiba mais:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça as [melhores práticas de segurança](iaas.md) para VMs e sistemas operacionais.
+Saiba mais sobre [as práticas recomendadas de segurança](iaas.md) para VMs e sistemas operacionais.

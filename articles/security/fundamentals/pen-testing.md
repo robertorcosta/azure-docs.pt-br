@@ -16,22 +16,22 @@ ms.workload: na
 ms.date: 08/13/2018
 ms.author: terrylan
 ms.openlocfilehash: 413ec8b121838a4ffac4119421ec3266e141618b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549263"
 ---
 # <a name="penetration-testing"></a>Teste de penetração
 Um dos benefícios do uso do Azure para implantação e testes de aplicativos é que você pode criar rapidamente ambientes. Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.
 
-Isso é ótimo, mas você ainda precisará certificar-se de executar a inspeção de segurança normal. Uma das coisas que você provavelmente quer fazer é testar a penetração dos aplicativos que você implanta no Azure.
+Isso é ótimo, mas você ainda precisará certificar-se de executar a inspeção de segurança normal. Uma das coisas que você provavelmente quer fazer é o teste de penetração dos aplicativos implantados no Azure.
 
 Talvez você já saiba que a Microsoft realiza [teste de penetração do nosso ambiente do Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Isso ajuda a gerar melhorias no Azure.
 
-Nós não penetramos testamos sua aplicação para você, mas entendemos que você vai querer e precisar realizar testes em seus próprios aplicativos. Isso é uma coisa boa, porque quando você aumenta a segurança de seus aplicativos, você ajuda a tornar todo o ecossistema Azure mais seguro.
+Não fazemos o teste de penetração de seu aplicativo para você, mas entendemos que você desejará e precisará executar testes em seus próprios aplicativos. Isso é bom, porque ao aprimorar a segurança de seus aplicativos, você ajuda a tornar todo o ecossistema do Azure mais seguro.
 
-Em 15 de junho de 2017, a Microsoft não precisa mais de pré-aprovação para realizar um teste de penetração contra os recursos do Azure. Os clientes que desejam documentar formalmente futuros testes de penetração no Microsoft Azure são incentivados a preencher o [formulário Notificação de teste de penetração do Azure Service](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud.
+A partir de 15 de junho de 2017, a Microsoft não exige mais aprovação prévia para conduzir um teste de penetração nos recursos do Azure. Os clientes que desejam documentar formalmente futuros testes de penetração no Microsoft Azure são incentivados a preencher o [formulário Notificação de teste de penetração do Azure Service](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud.
 
 >[!IMPORTANT]
 >Embora a notificação da Microsoft da caneta as atividades de teste não é mais necessário clientes ainda devem estar de acordo com o [Microsoft nuvem unificado penetração teste regras](https://technet.microsoft.com/mt784683).
@@ -46,4 +46,4 @@ Um tipo de teste que você não pode executar é qualquer tipo de ataque [DoS (n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você quiser documentar formalmente um próximo teste de penetração contra seus aplicativos hospedados no Microsoft Azure, vá até as [regras de teste de penetração de engajamento](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e preencha o formulário de notificação de teste.
+- Se você quiser documentar formalmente um teste de penetração futuro em seus aplicativos hospedados na Microsoft Azure, vá até as [regras de teste de penetração do Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e preencha o formulário de notificação de teste.

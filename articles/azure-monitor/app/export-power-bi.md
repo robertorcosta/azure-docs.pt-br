@@ -4,10 +4,10 @@ description: As consultas do Analytics podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663990"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
@@ -15,7 +15,7 @@ O [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio
 
 Há três métodos de exportação de dados do Application Insights para Power BI:
 
-* [**Consultas de Análise de Exportação**](#export-analytics-queries). Este é o método preferencial. Grave qualquer consulta que você deseja e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
+* [**Exportar consultas do Analytics**](#export-analytics-queries). Este é o método preferencial. Grave qualquer consulta que você deseja e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
 * [**A exportação contínua e o Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Este método será útil, se você quiser armazenar os dados por longos períodos de tempo. Se você não tiver um requisito de retenção de dados estendido, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecarga adicional de armazenamento.
 * **Adaptador do Power BI**. O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
 
@@ -28,7 +28,7 @@ Essa rota permite que você grave qualquer consulta do Analytics desejada ou que
 ### <a name="one-time-install-power-bi-desktop"></a>Uma vez: instalar o Power BI Desktop
 Para importar sua consulta do Application Insights, você deve usar a versão da área de trabalho do Power BI. Em seguida, você poderá publicá-la na Web ou em seu workspace de nuvem do Power BI. 
 
-Instalar [o desktop Power BI](https://powerbi.microsoft.com/en-us/desktop/).
+Instale o [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta do Analytics
 1. [Abra o Analytics e escreva sua consulta](../../azure-monitor/log-query/get-started-portal.md).
@@ -36,17 +36,17 @@ Instalar [o desktop Power BI](https://powerbi.microsoft.com/en-us/desktop/).
 3. No menu **Exportar**, escolha **Power BI (M)**. Salve o arquivo de texto.
    
     ![Captura de tela do Analytics, com o menu Exportar realçado](./media/export-power-bi/analytics-export-power-bi.png)
-4. Na área de trabalho do Power BI, **selecione Obter** > **consulta em branco de dados**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor Avançado**.
+4. Em Power bi desktop, selecione **obter dados** > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor Avançado**.
 
     Cole o script M Language exportado no Editor Avançado.
 
     ![Captura de tela do Power BI Desktop, com o Editor Avançado realçado](./media/export-power-bi/power-bi-import-analytics-query.png)
 
-5. Para permitir que o Power BI acesse o Azure, talvez seja necessário fornecer credenciais. Use **a conta Organizacional** para fazer login com sua conta Microsoft.
+5. Para permitir que o Power BI acesse o Azure, talvez seja necessário fornecer credenciais. Use a **conta institucional** para entrar com seu conta Microsoft.
    
     ![Captura de tela da caixa de diálogo Configurações de Consulta do Power BI](./media/export-power-bi/power-bi-import-sign-in.png)
 
-    Se você precisar verificar as credenciais, use o comando **'Configurações de origem de dados'** no editor de consulta. Especifique as credenciais usadas para o Azure, que podem ser diferentes das suas credenciais para o Power BI.
+    Se você precisar verificar as credenciais, use o comando de menu **configurações de fonte de dados** no editor de consultas. Especifique as credenciais usadas para o Azure, que podem ser diferentes das suas credenciais para o Power BI.
 6. Escolha uma visualização para a sua consulta e selecione os campos dos eixos x, y e a dimensão de segmentação.
    
     ![Captura de tela das opções de visualização do Power BI Desktop](./media/export-power-bi/power-bi-analytics-visualize.png)
@@ -56,12 +56,12 @@ Instalar [o desktop Power BI](https://powerbi.microsoft.com/en-us/desktop/).
 8. Atualize o relatório manualmente em intervalos ou configure uma atualização agendada na página de opções.
 
 ### <a name="export-a-funnel"></a>Exportar um Funil
-1. [Faça seu funil.](../../azure-monitor/app/usage-funnels.md)
+1. [Faça seu funil](../../azure-monitor/app/usage-funnels.md).
 2. Selecione **Power BI**.
 
    ![Captura de tela do botão do Power BI](./media/export-power-bi/button.png)
 
-3. Na área de trabalho do Power BI, **selecione Obter** > **consulta em branco de dados**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor Avançado**.
+3. Em Power bi desktop, selecione **obter dados** > **consulta em branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor Avançado**.
 
    ![Captura de tela do Power BI Desktop, com o botão Consulta em Branco realçado](./media/export-power-bi/blankquery.png)
 
@@ -84,9 +84,9 @@ Você pode encontrar erros relacionados às credenciais ou ao tamanho do conjunt
 ### <a name="unauthorized-401-or-403"></a>Não Autorizado (401 ou 403)
 Isso pode acontecer se o token de atualização não tiver sido atualizado. Repita estas etapas para garantir que você ainda terá acesso:
 
-1. Faça login no portal Azure e certifique-se de acessar o recurso.
+1. Entre no portal do Azure e verifique se você pode acessar o recurso.
 2. Tente atualizar as credenciais para o painel.
-3. Tente limpar o cache da sua área de trabalho PowerBI.
+3. Tente limpar o cache de sua área de trabalho do PowerBI.
 
 
    Se você tiver acesso e a atualização das credenciais não funcionar, abra um tíquete de suporte.
@@ -98,8 +98,8 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
 
 1. Crie uma [chave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Atualize o script M do Power BI que você exportou do Analytics, substituindo a URL do Azure Resource Manager com a API do Application Insights.
-   * Substitua **https:\//management.azure.com/subscriptions/...**
-   * com, **https:\//api.applicationinsights.io/beta/apps/...**
+   * Substituir **https:\//Management.Azure.com/subscriptions/...**
+   * com, **https:\//API.applicationinsights.Io/beta/apps/...**
 3. Por fim, atualize as credenciais para as básicas e use sua chave de API.
 
 **Script existente**
@@ -112,13 +112,13 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
  ```
 
 ## <a name="about-sampling"></a>Sobre amostragem
-Dependendo da quantidade de dados enviados pelo aplicativo, talvez você queira usar o recurso de amostragem adaptativa que envia apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](../../azure-monitor/app/sampling.md).
+Dependendo da quantidade de dados enviados pelo aplicativo, talvez você queira usar o recurso de amostragem adaptativa que envia apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre amostragem](../../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adaptador Power BI (preterido)
 Esse método cria um painel completo de telemetria para você. O conjunto de dados inicial é predefinido, mas você pode adicionar mais dados a ele.
 
 ### <a name="get-the-adapter"></a>Obter o adaptador
-1. Faça login no [Power BI](https://app.powerbi.com/).
+1. Entre no [Power bi](https://app.powerbi.com/).
 2. Abra **Obter Dados** ![Captura de tela do ícone GetData no canto inferior esquerdo](./media/export-power-bi/001.png), **Serviços**.
 
     ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/export-power-bi/002.png)

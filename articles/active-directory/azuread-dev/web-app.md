@@ -15,17 +15,17 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: e4a7fb72d40f5db65e8e30264e9d68b2727749e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154399"
 ---
 # <a name="web-apps"></a>Aplicativos Web
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Os aplicativos Web são aplicativos que autenticam um usuário em um navegador da Web para um aplicativo Web. Neste cenário, o aplicativo web direciona o navegador do usuário para inscrevê-los no Azure AD. O Azure AD retorna uma resposta de login através do navegador do usuário, que contém reclamações sobre o usuário em um token de segurança. Este cenário oferece suporte ao logon usando os protocolos WS-Federation, SAML 2.0 e OpenID Connect.
+Os aplicativos Web são aplicativos que autenticam um usuário em um navegador da Web para um aplicativo Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure AD. O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. Este cenário oferece suporte ao logon usando os protocolos WS-Federation, SAML 2.0 e OpenID Connect.
 
 ## <a name="diagram"></a>Diagrama
 
@@ -35,7 +35,7 @@ Os aplicativos Web são aplicativos que autenticam um usuário em um navegador d
 
 1. Quando um usuário visita o aplicativo e precisa fazer logon, eles são redirecionados por meio de uma solicitação de logon para o ponto de extremidade de autenticação no Azure AD.
 1. O usuário faz logon na página de logon.
-1. Se a autenticação for bem-sucedida, o Azure AD criará um token de autenticação e retornou uma resposta de login à URL de resposta do aplicativo que foi configurada no portal Azure. Para um aplicativo de produção, essa URL de resposta deve ser HTTPS. O token retornado inclui declarações sobre o usuário e o Azure AD que são exigidas pelo aplicativo para validar o token.
+1. Se a autenticação for bem-sucedida, o Azure AD criará um token de autenticação e retornará uma resposta de entrada para a URL de resposta do aplicativo que foi configurada no portal do Azure. Para um aplicativo de produção, essa URL de resposta deve ser HTTPS. O token retornado inclui declarações sobre o usuário e o Azure AD que são exigidas pelo aplicativo para validar o token.
 1. O aplicativo valida o token usando uma chave de assinatura pública e informações do emissor disponíveis no documento de metadados de federação para o Azure AD. Depois que o aplicativo valida o token, ele inicia uma nova sessão com o usuário. Esta sessão permite que o usuário acesse o aplicativo até expirar.
 
 ## <a name="code-samples"></a>Exemplos de código
@@ -44,16 +44,16 @@ Veja os exemplos de código do navegador da Web para cenários de aplicativo Web
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo web, consulte [Registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Para registrar um aplicativo Web, consulte [registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-* Único inquilino - Se você está construindo um aplicativo apenas para sua organização, ele deve ser registrado no diretório da sua empresa usando o portal Azure.
-* Multi-inquilino - Se você está construindo um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que estará usando o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
+* Locatário único – se você estiver criando um aplicativo apenas para sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
+* Multilocatário – se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
 
-A sessão do usuário expira quando a vida útil do token emitido pelo Azure AD expirar. Seu aplicativo pode encurtar esse período de tempo, se desejado, por exemplo, desconectando usuários com base em um período de inatividade. Quando a sessão expirar, o usuário deverá fazer logon novamente.
+A sessão do usuário expira quando o tempo de vida do token emitido pelo AD do Azure expira. Seu aplicativo pode encurtar esse período de tempo, se desejado, por exemplo, desconectando usuários com base em um período de inatividade. Quando a sessão expirar, o usuário deverá fazer logon novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
-* Conheça o básico de [autenticação](v1-authentication-scenarios.md) azure AD
+* Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

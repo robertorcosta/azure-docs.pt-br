@@ -1,19 +1,19 @@
 ---
-title: Otimize seu ambiente sql server com o Monitor Azure | Microsoft Docs
-description: Com o Monitor Azure, você pode usar a solução SQL Health Check para avaliar o risco e a saúde de seus ambientes em um intervalo regular.
+title: Otimize seu ambiente de SQL Server com Azure Monitor | Microsoft Docs
+description: Com o Azure Monitor, você pode usar a solução de verificação de integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
 ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662477"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução SQL Server Health Check no Monitor Azure
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
 ![Símbolo de Verificação da Integridade do SQL](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -33,7 +33,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução SQL Health Check requer uma versão suportada do .NET Framework 4.6.2 instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.  
+* A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4.6.2 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
 * Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação da Integridade do SQL no Azure marketplace, no portal do Azure.  Para instalar a solução, o usuário deve ser um administrador ou colaborador na assinatura do Azure.
 
@@ -42,15 +42,15 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
   >
   >
 
-Para realizar a verificação de saúde contra seus servidores SQL Server, eles requerem um agente e conectividade com o Azure Monitor usando um dos seguintes métodos suportados:
+Para executar a verificação de integridade em seus servidores de SQL Server, eles exigem um agente e conectividade para Azure Monitor usando um dos seguintes métodos com suporte:
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
-2. Se ele for monitorado com o System Center 2016 - Gerente de Operações ou Gerente de Operações 2012 R2 e o grupo de gerenciamento não estiver integrado ao Azure Monitor, o servidor pode ser multi-homeed com o Log Analytics para coletar dados e encaminhar para o serviço e ainda ser monitorado pelo Gerente de Operações.  
+2. Se ele for monitorado com o System Center 2016-Operations Manager ou Operations Manager 2012 R2 e o grupo de gerenciamento não estiver integrado com o Azure Monitor, o servidor poderá ser multihomed com Log Analytics para coletar dados e encaminhar para o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu workspace.  
 
-O agente em seu SQL Server que se reporta a um grupo de gerenciamento do Gerente de Operações, coleta dados, encaminha para seu servidor de gerenciamento atribuído e, em seguida, é enviado diretamente de um servidor de gerenciamento para o Azure Monitor.  Os dados não são gravados nos bancos de dados do Operations Manager.  
+O agente no SQL Server que relata para um grupo de gerenciamento de Operations Manager, coleta dados, encaminha para seu servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para Azure Monitor.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
-Se o SQL Server for monitorado pelo Operations Manager, você precisará configurar uma conta Executar Como do Operations Manager. Consulte [as contas do Gerenciador de Operações do Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
+Se o SQL Server for monitorado pelo Operations Manager, você precisará configurar uma conta Executar Como do Operations Manager. Consulte [Operations Manager contas Executar como para Azure monitor](#operations-manager-run-as-accounts-for-log-analytics) abaixo para obter mais informações.
 
 ## <a name="sql-health-check-data-collection-details"></a>Detalhes da coleção de dados da Verificação da Integridade do SQL
 A Verificação da Integridade do SQL coleta dados das seguintes fontes usando o agente habilitado:
@@ -150,14 +150,14 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
-Antes de usar uma solução de avaliação no Azure Monitor, você deve ter a solução instalada.  Depois de instalado, você pode visualizar o resumo das recomendações usando o bloco SQL Health Check na página **Visão Geral** do Monitor Azure no portal Azure.
+Para poder usar uma solução de avaliação no Azure Monitor, você deve ter a solução instalada.  Após a instalação, você pode exibir o resumo das recomendações usando o bloco verificação de integridade do SQL na página **visão geral** para Azure Monitor no portal do Azure.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Monitor**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Monitor**.
-3. Na seção **Insights** do menu, selecione **Mais**.  
+3. Na seção **insights** do menu, selecione **mais**.  
 4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**.
 5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
 6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -167,7 +167,7 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo Azure Monitor para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
-1. No menu Monitor do Azure, clique **em Logs**.
+1. No menu Azure Monitor, clique em **logs**.
 2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```
@@ -182,7 +182,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Azure Monitor ignore em uma linha separada e, em seguida, salve e feche o arquivo.
 3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o Azure Monitor ignore as recomendações.
    * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou por meio do Operations Manager) - *SystemDrive*:\Arquivos de Programas\Microsoft Monitoring Agent\Agent
-   * No servidor de gerenciamento do Gerente de Operações - *SystemDrive*:\Arquivos do programa\Microsoft System Center 2012 R2\Operations Manager\Server
+   * Na Operations Manager servidor de gerenciamento- *systemdrive*: \Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * No servidor de gerenciamento do Operations Manager 2016 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
@@ -196,7 +196,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 ## <a name="sql-health-check-solution-faq"></a>Perguntas frequentes da solução de Verificação da Integridade do SQL
 
-*Quais verificações são realizadas pela solução SQL Assessment?*
+*Quais verificações são executadas pela solução de Avaliação do SQL?*
 
 * A consulta a seguir mostra uma descrição de todas as verificações executadas no momento:
 
@@ -228,11 +228,11 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 * AdvisorAssessment.exe
 
-*Quanto tempo leva para que os dados sejam coletados?*
+*Quanto tempo leva para os dados serem coletados?*
 
 * A coleta de dados real no servidor leva aproximadamente 1 hora. Pode levar mais tempo em servidores que têm um grande número de instâncias ou bancos de dados SQL.
 
-*Que tipo de dados são coletados?*
+*Que tipo de dados é coletado?*
 
 * Os seguintes tipos de dados são coletados:
   * WMI
@@ -240,7 +240,7 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
   * Contadores de desempenho
   * Exibições de gerenciamento dinâmico SQL (DMV).
 
-*Existe uma maneira de configurar quando os dados são coletados?*
+*Há uma maneira de configurar quando os dados são coletados?*
 
 * Não no momento.
 
@@ -257,4 +257,4 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Faça consultas](../log-query/log-query-overview.md) de log para saber como analisar dados e recomendações detalhadas do SQL Health Check.
+* [Registre consultas](../log-query/log-query-overview.md) para saber como analisar dados e recomendações de verificação de integridade do SQL detalhados.

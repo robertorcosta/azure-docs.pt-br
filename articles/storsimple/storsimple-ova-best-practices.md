@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460640"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
@@ -41,7 +41,7 @@ O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervis
 
 Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 
-|  | Hyper-v | VMware |
+|  | Hyper-V | VMware |
 | --- | --- | --- |
 | **Tipo de máquina virtual** |**geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx* . <br></br> **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd* . |Utilize a máquina virtual versão 8 ao usar a imagem *.vmdk*. |
 | **Tipo de memória** |Configurar como **memória estática**. <br></br> Não use a opção **memória dinâmica** . | |
@@ -159,10 +159,10 @@ Em sua matriz virtual, você pode provisionar compartilhamentos quando ele estiv
 
 Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamentos ou volumes em seu dispositivo virtual.
 
-* Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em um nível lento. Ao trabalhar com arquivos grandes, recomendamos que o arquivo maior seja menor que 3% do tamanho do compartilhamento.
+* Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em uma camada lenta. Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja menor que 3% do tamanho do compartilhamento.
 * Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Para obter os limites de tamanho dos volumes/compartilhamentos localmente fixados e em camadas, sempre consulte [Limites da Matriz Virtual StorSimple](storsimple-ova-limits.md).
-* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume ou compartilhamento não pode ser expandido posteriormente.
-* Uma vez criado o volume/compartilhamento, você não pode reduzir o tamanho do volume/compartilhamento no StorSimple.
+* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume ou o compartilhamento não pode ser expandido posteriormente.
+* Depois que o volume/compartilhamento tiver sido criado, você não poderá reduzir o tamanho do volume/compartilhamento no StorSimple.
 * Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando receber o alerta, é fundamental que você tome medidas corretivas, como excluir dados do volume (atualmente, não há suporte para a expansão do volume).
 * Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs.
 
@@ -200,7 +200,7 @@ Use as seguintes práticas recomendadas ao configurar ACRs para volumes do StorS
 O StorSimple Virtual Array tem recursos de segurança e criptografia de dados que garantem a confidencialidade e a integridade dos dados. Ao usar esses recursos, é recomendável que você siga estas práticas recomendadas: 
 
 * Defina uma chave de criptografia de armazenamento de nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados da sua matriz virtual para a nuvem. Essa chave não será necessária se seus dados forem criptografados inicialmente. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves como o [Cofre de Chaves do Azure](../key-vault/general/overview.md).
-* Ao configurar a conta de armazenamento através do serviço StorSimple Manager, certifique-se de que você habilite o modo TLS para criar um canal seguro para comunicação de rede entre seu dispositivo StorSimple e a nuvem.
+* Ao configurar a conta de armazenamento por meio do serviço de StorSimple Manager, certifique-se de habilitar o modo TLS para criar um canal seguro para a comunicação de rede entre o dispositivo StorSimple e a nuvem.
 * Regenere as chaves para suas contas de armazenamento (acessando o serviço de armazenamento do Azure) periodicamente para ser responsável por todas as alterações no acesso com base na lista de administradores alterada.
 * Os dados em sua matriz virtual são compactados e a eliminação de duplicação acontece antes que os dados sejam enviados para o Azure. Não recomendamos usar o serviço de função Eliminação de Duplicação de Dados no host do Windows Server.
 

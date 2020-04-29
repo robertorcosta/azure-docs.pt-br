@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Workbooks e Modelos de Gerenciador de Recursos do Azure
-description: Simplifique relatórios complexos com livros de trabalho do Monitor Azure pré-construídos e personalizados implantados através de modelos de gerenciadores de recursos do Azure
+title: Azure Monitor pastas de trabalho e modelos de Azure Resource Manager
+description: Simplifique relatórios complexos com pastas de trabalho Azure Monitor parametrizadas predefinidas e personalizadas implantadas por meio de modelos de Azure Resource Manager
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658397"
 ---
-# <a name="programmatically-manage-workbooks"></a>Gerenciar programáticamente livros de trabalho
+# <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
-Os proprietários de recursos têm a opção de criar e gerenciar suas planilhas de forma programática através de modelos do Gerenciador de Recursos. 
+Os proprietários de recursos têm a opção de criar e gerenciar suas pastas de trabalho programaticamente por meio de modelos do Resource Manager. 
 
 Isso pode ser útil em cenários como:
-* Implantação de relatórios de análise seletivas ou específicas de domínio, juntamente com implantações de recursos. Por exemplo, você pode implantar livros de trabalho específicos de desempenho e falha de org para seus novos aplicativos ou máquinas virtuais.
-* Implantação de relatórios ou painéis padrão usando livros de trabalho para recursos existentes.
+* Implantando relatórios de análise específicos da organização ou do domínio juntamente com implantações de recursos. Por exemplo, você pode implantar pastas de trabalho de desempenho e falha específicas da organização para seus novos aplicativos ou máquinas virtuais.
+* Implantando relatórios padrão ou dashboards usando pastas de trabalho para recursos existentes.
 
-A carteira de trabalho será criada no sub/grupo de recursos desejado e com o conteúdo especificado nos modelos do Gerenciador de recursos.
+A pasta de trabalho será criada no grupo de recursos/sub desejado e com o conteúdo especificado nos modelos do Resource Manager.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modelo do Azure Resource Manager para implantação de livros de trabalho
-1. Abra uma carteira de trabalho que você deseja implantar programáticamente.
-2. Alterne a carteira de trabalho para editar o modo clicando no item _Editar_ barra de ferramentas.
-3. Abra o _Editor_ _</>_ Avançado usando o botão na barra de ferramentas.
-4. No editor, alterne _o tipo de modelo_ para o modelo do _Gerenciador de recursos_.
-5. O modelo de gerenciador de recursos para criar aparece no editor. Copie o conteúdo e use como está ou mescle-o com um modelo maior que também implante o recurso de destino.
+## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modelo de Azure Resource Manager para implantar pastas de trabalho
+1. Abra uma pasta de trabalho que você deseja implantar programaticamente.
+2. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
+3. Abra o _Editor avançado_ usando o _</>_ botão na barra de ferramentas.
+4. No editor, alterne _tipo de modelo_ para _modelo do Resource Manager_.
+5. O modelo do Resource Manager para a criação é mostrado no editor. Copie o conteúdo e use-o no estado em que se encontra ou mescle-o com um modelo maior que também implanta o recurso de destino.
 
-    ![Imagem mostrando como obter o modelo de Gerenciador de recursos dentro da ui da carteira de trabalho](./media/workbooks-automate/programmatic-template.png)
+    ![Imagem mostrando como obter o modelo do Resource Manager de dentro da interface do usuário da pasta de trabalho](./media/workbooks-automate/programmatic-template.png)
 
-## <a name="sample-azure-resource-manager-template"></a>Modelo de gerenciador de recursos do Azure
-Este modelo mostra como implantar uma carteira de trabalho simples que exibe um 'Hello World!'
+## <a name="sample-azure-resource-manager-template"></a>Modelo de Azure Resource Manager de exemplo
+Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' Olá, Mundo! '
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -101,27 +101,27 @@ Este modelo mostra como implantar uma carteira de trabalho simples que exibe um 
 
 | Parâmetro | Explicação |
 | :------------- |:-------------|
-| `workbookDisplayName` | O nome amigável para a carteira de trabalho que é usada na Galeria ou lista salva. Precisa ser único no escopo do grupo de recursos e fonte |
-| `workbookType` | A galeria em que a cartilha será mostrada. Os valores suportados `tsg`incluem pasta de trabalho, Monitor Azure, etc. |
-| `workbookSourceId` | O ID da instância de recurso à qual a caderneta de trabalho será associada. A nova carteira de trabalho aparecerá relacionada a essa instância de recurso - por exemplo, na tabela de conteúdo do recurso em _Workbook_. Se você quiser que sua pasta de trabalho apareça na galeria da pasta de trabalho no Azure Monitor, use a string _Azure Monitor_ em vez de um ID de recurso. |
-| `workbookId` | A orientação única para esta instância da carteira de trabalho. Use _[newGuid()]_ para criar automaticamente uma nova guia. |
-| `kind` | Usado para especificar se a carteira de trabalho criada é compartilhada ou privada. Use o valor _compartilhado_ para livros de trabalho compartilhados e _usuário_ para os privados. |
-| `location` | A localização do Azure onde a pasta de trabalho será criada. Use _[resourceGroup().location]_ para criá-lo no mesmo local que o grupo de recursos |
-| `serializedData` | Contém o conteúdo ou a carga útil a ser usado na caderneta de trabalho. Use o modelo gerenciador de recursos da ui da papelada para obter o valor |
+| `workbookDisplayName` | O nome amigável da pasta de trabalho usada na galeria ou na lista salva. Precisa ser exclusivo no escopo do grupo de recursos e da origem |
+| `workbookType` | A galeria na qual a pasta de trabalho será mostrada. Os valores com suporte incluem `tsg`Workbook,, Azure monitor, etc. |
+| `workbookSourceId` | A ID da instância de recurso à qual a pasta de trabalho será associada. A nova pasta de trabalho aparecerá relacionada a essa instância de recurso, por exemplo, na tabela de conteúdo do recurso na _pasta de trabalho_. Se você quiser que sua pasta de trabalho apareça na Galeria de pastas de trabalho no Azure Monitor, use a cadeia de caracteres _Azure monitor_ em vez de uma ID de recurso. |
+| `workbookId` | O GUID exclusivo para esta instância de pasta de trabalho. Use _[newGuid ()]_ para criar automaticamente um novo GUID. |
+| `kind` | Usado para especificar se a pasta de trabalho criada é compartilhada ou privada. Use o valor _compartilhado_ para pastas de trabalho compartilhadas e para _usuários_ particulares. |
+| `location` | O local do Azure onde a pasta de trabalho será criada. Use _[resourcegroup (). Location]_ para criá-lo no mesmo local que o grupo de recursos |
+| `serializedData` | Contém o conteúdo ou a carga a ser usada na pasta de trabalho. Use o modelo do Resource Manager da interface do usuário de pastas de trabalho para obter o valor |
 
-### <a name="workbook-types"></a>Tipos de carteiras de trabalho
-Os tipos de livros de trabalho especificam em qual tipo de galeria da carteira de trabalho a nova instância da carteira de trabalho aparecerá. As opções incluem:
+### <a name="workbook-types"></a>Tipos de pasta de trabalho
+Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a nova instância da pasta de trabalho será exibida. As opções incluem:
 
-| Type | Localização da galeria |
+| Type | Localização da Galeria |
 | :------------- |:-------------|
-| `workbook` | O padrão usado na maioria dos relatórios, incluindo a galeria Workbooks of Application Insights, Azure Monitor, etc.  |
-| `tsg` | A galeria Guias de Solução de Problemas em Insights de Aplicativos |
-| `usage` | A _galeria Mais_ em _Uso_ em Insights de Aplicativos |
+| `workbook` | O padrão usado na maioria dos relatórios, incluindo a Galeria de pastas de trabalho do Application Insights, Azure Monitor, etc.  |
+| `tsg` | A Galeria de guias de solução de problemas no Application Insights |
+| `usage` | A _mais_ galeria em _uso_ no Application insights |
 
 ### <a name="limitations"></a>Limitações
-Por uma razão técnica, esse mecanismo não pode ser usado para criar instâncias de carteira de trabalho na galeria _De livros_ de trabalho de Insights de Aplicativos. Estamos trabalhando para resolver essa limitação. Enquanto isso, recomendamos que você use a galeria Guia `tsg`de Solução de Problemas (workbookType:) para implantar livros de trabalho relacionados ao Application Insights.
+Por um motivo técnico, esse mecanismo não pode ser usado para criar instâncias da pasta de trabalho na Galeria de _pastas de trabalho_ do Application insights. Estamos trabalhando para resolver essa limitação. Enquanto isso, recomendamos que você use a Galeria de guias de solução de problemas (WorkbookType: `tsg`) para implantar Application insights pastas de trabalho relacionadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore como as livros de trabalho estão sendo usadas para alimentar a nova [experiência do Azure Monitor for Storage](../insights/storage-insights-overview.md).
+Explore como as pastas de trabalho estão sendo usadas para capacitar a nova [Azure monitor de experiência de armazenamento](../insights/storage-insights-overview.md).
 

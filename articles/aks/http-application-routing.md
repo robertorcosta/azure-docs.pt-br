@@ -1,21 +1,21 @@
 ---
 title: Complemento de roteamento de aplicativos HTTP no AKS (Serviço de Kubernetes do Azure)
-description: Use o complemento de roteamento de aplicativos HTTP para acessar aplicativos implantados no Azure Kubernetes Service (AKS).
+description: Use o complemento de roteamento de aplicativo HTTP para acessar aplicativos implantados no AKS (serviço kubernetes do Azure).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
 ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632397"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
-A solução de roteamento de aplicativos HTTP facilita o acesso a aplicativos implantados no cluster do AKS (Serviço de Kubernetes do Azure). Quando a solução está ativada, ela configura um [controlador Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) no seu cluster AKS. À medida que os aplicativos são implantados, a solução também cria nomes DNS publicamente acessíveis para os terminais de aplicativos.
+A solução de roteamento de aplicativos HTTP facilita o acesso a aplicativos implantados no cluster do AKS (Serviço de Kubernetes do Azure). Quando a solução estiver habilitada, ela configurará um [controlador de entrada](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) em seu cluster AKs. À medida que os aplicativos são implantados, a solução também cria nomes DNS publicamente acessíveis para os terminais de aplicativos.
 
 Quando o complemento é habilitado, ele cria uma zona DNS na assinatura. Para obter mais informações sobre o custo DNS, consulte [preços do DNS][dns-pricing].
 
@@ -24,9 +24,9 @@ Quando o complemento é habilitado, ele cria uma zona DNS na assinatura. Para ob
 
 ## <a name="http-routing-solution-overview"></a>Visão geral da solução roteamento HTTP
 
-O complemento implanta dois componentes: um [controlador Kubernetes Ingress][ingress] e um [controlador DNS externo.][external-dns]
+O complemento implanta dois componentes: um controlador de [entrada kubernetes][ingress] e um controlador [DNS externo][external-dns] .
 
-- **Controlador de entrada**: o controlador de Entrada é exposto à internet usando um serviço de Kubernetes do tipo LoadBalancer. O controlador Ingress observa e implementa [os recursos do Kubernetes Ingress][ingress-resource], que cria rotas para os pontos finais dos aplicativos.
+- **Controlador de entrada**: o controlador de Entrada é exposto à internet usando um serviço de Kubernetes do tipo LoadBalancer. O controlador de entrada observa e implementa [recursos de entrada do kubernetes][ingress-resource], que cria rotas para pontos de extremidade do aplicativo.
 - **Controlador de DNS externo**: inspeciona os recursos de Entrada do Kubernetes e cria registros DNS A na zona DNS específica do cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Implantar o roteamento HTTP: CLI
@@ -221,7 +221,7 @@ Esses registros também podem ser vistos no recurso de zona de DNS no portal do 
 
 ![Obter os registros DNS](media/http-routing/clippy.png)
 
-Use o comando [kubectl logs][kubectl-logs] para visualizar os registros de aplicativos do controlador Nginx Ingress. Os logs devem confirmar o `CREATE` de um recurso de Entrada e o recarregamento do controlador. Toda a atividade de HTTP é registrada.
+Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o controlador de entrada do nginx. Os logs devem confirmar o `CREATE` de um recurso de Entrada e o recarregamento do controlador. Toda a atividade de HTTP é registrada.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

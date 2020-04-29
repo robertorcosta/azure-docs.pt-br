@@ -1,5 +1,5 @@
 ---
-title: Strings de conexão - Banco de dados Azure para MySQL
+title: Cadeias de conexão-banco de dados do Azure para MySQL
 description: Este documento lista as cadeias de conexão com suporte no momento para os aplicativos se conectarem ao Banco de Dados do Azure para MySQL, incluindo ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
 author: ajlam
 ms.author: andrela
@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062387"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como conectar aplicativos ao Banco de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeia de conexão com suporte do Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
 
 - Para obter o certificado, consulte [Como configurar o SSL](./howto-configure-ssl.md).
-- {your_host} \<= nome do servidor>.mysql.database.azure.com
+- {your_host} = \<servername>. mysql.Database.Azure.com
 - Formato {your_user}@{servername} = userID para realizar a autenticação corretamente.  Se você usar somente a ID do usuário, a autenticação falhará.
 
 ## <a name="adonet"></a>ADO.NET

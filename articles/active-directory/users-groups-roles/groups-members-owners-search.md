@@ -1,6 +1,6 @@
 ---
-title: Pesquisar e filtrar membros e proprietários de grupos (pré-visualização) - Azure Active Directory | Microsoft Docs
-description: Pesquise e filtre membros e proprietários de grupos no portal Azure.
+title: Pesquisar e filtrar grupos de membros e proprietários (visualização)-Azure Active Directory | Microsoft Docs
+description: Pesquisar e filtrar grupos de membros e proprietários no portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,72 +15,72 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206105"
 ---
-# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Grupos de pesquisa e membros (visualização) no Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Pesquisar grupos e Membros (versão prévia) no Azure Active Directory
 
-Este artigo diz como pesquisar membros e proprietários de um grupo e como usar filtros de pesquisa como parte da visualização de melhoria de grupos no portal Azure Active Directory (Azure AD). Existem muitas melhorias nas experiências dos grupos para ajudá-lo a gerenciar seus grupos, incluindo membros e proprietários, de forma rápida e fácil. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo mostra como Pesquisar Membros e proprietários de um grupo e como usar filtros de pesquisa como parte da versão prévia de aperfeiçoamento dos grupos no portal do Azure Active Directory (AD do Azure). Há vários aprimoramentos nas experiências de grupos para ajudá-lo a gerenciar seus grupos, incluindo membros e proprietários, com rapidez e facilidade. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As alterações nesta pré-visualização incluem:
+As alterações nesta visualização incluem:
 
-- Novos recursos de pesquisa de grupos, como pesquisa de substring em nomes de grupos
+- Novos grupos de recursos de pesquisa, como a pesquisa de Subcadeia em nomes de grupo
 - Novas opções de filtragem e classificação em listas de membros e proprietários
 - Novos recursos de pesquisa para listas de membros e proprietários
-- Contagens de grupos mais precisas para grandes grupos
+- Contagens de grupos mais precisas para grupos grandes
 
 ## <a name="enabling-and-managing-the-preview"></a>Habilitando e gerenciando a visualização
 
-Facilitamos a adesão à pré-visualização:
+Tornamos fácil ingressar na versão prévia:
 
-  1. Faça login no [portal Azure AD](https://portal.azure.com)e selecione **Grupos**.
-  2. Na página Grupos – Todos os grupos, selecione o banner no topo da página para participar da pré-visualização.
+  1. Entre no [portal do AD do Azure](https://portal.azure.com)e selecione **grupos**.
+  2. Na página grupos – todos os grupos, selecione a faixa na parte superior da página para ingressar na versão prévia.
 
-Você também pode verificar os recursos e melhorias mais recentes selecionando **informações de visualização** na página **Todos os grupos.** Depois de participar da pré-visualização, você pode ver a tag de visualização em todas as páginas de grupos que têm melhorias e fazem parte da pré-visualização. Nem todas as páginas de grupos foram atualizadas como parte desta pré-visualização.
+Você também pode conferir os recursos e melhorias mais recentes selecionando **informações de visualização** na página **todos os grupos** . Depois de ingressar na versão prévia, você poderá ver a marca de visualização em todas as páginas de grupos que têm melhorias e que fazem parte da versão prévia. Nem todas as páginas de grupos foram atualizadas como parte desta visualização.
 
-Se você estiver tendo algum problema, você pode mudar a experiência do legado selecionando o banner na parte superior da página **Todos os grupos.** Agradecemos seu feedback para que possamos melhorar nossa experiência.
+Se você tiver problemas, poderá voltar à experiência herdada selecionando a faixa na parte superior da página **todos os grupos** . Agradecemos seus comentários para que possamos melhorar nossa experiência.
 
-## <a name="group-search-and-sorting"></a>Busca e classificação em grupo
+## <a name="group-search-and-sorting"></a>Pesquisa e classificação de grupo
 
-A pesquisa de lista de grupos foi aprimorada para que, quando você `startswith` possa inserir uma seqüência de pesquisa, a pesquisa execute automaticamente uma pesquisa e substring na lista de nomes de grupos. A pesquisa de substring é realizada apenas em palavras inteiras, e não inclui caracteres especiais. A busca por subcordas é sensível a maiúsculas e minúsculas.
+A pesquisa da lista de grupos foi aprimorada, de modo que, quando você pode inserir uma cadeia de caracteres `startswith` de pesquisa, a pesquisa executa automaticamente uma pesquisa de e subcadeia de caracteres na lista de nomes de grupos. A pesquisa de subcadeia de caracteres é executada somente em palavras inteiras e não inclui caracteres especiais. A pesquisa de subcadeia de caracteres diferencia maiúsculas de minúsculas.
 
-![novas pesquisas de substring na página Todos os Grupos](./media/groups-members-owners-search/groups-search-preview.png)
+![novas pesquisas de subcadeias na página todos os grupos](./media/groups-members-owners-search/groups-search-preview.png)
 
-Por exemplo, uma busca por "política" agora retornará tanto a "política de MDM – Oeste" quanto "Grupo político". Um grupo chamado "New_policy" não seria devolvido.
+Por exemplo, uma pesquisa por "política" agora retornará "política de MDM – oeste" e "grupo de políticas". Um grupo chamado "New_policy" não será retornado.
 
-- Você também pode realizar a mesma pesquisa em listas de membros de grupo.
-- Agora você pode classificar a lista de grupos por nome usando as setas à direita do título da coluna nome para classificar a lista em ordem ascendente ou descendente.
+- Você também pode executar a mesma pesquisa em listas de associação de grupo.
+- Agora você pode classificar a lista de grupos por nome usando as setas à direita do título de coluna de nome para classificar a lista em ordem crescente ou decrescente.
 
 ## <a name="group-member-search-and-filtering"></a>Pesquisa e filtragem de membros do grupo
 
-### <a name="search-group-member-and-owner-lists"></a>Listas de membros e proprietários do grupo de pesquisa
+### <a name="search-group-member-and-owner-lists"></a>Pesquisar membros do grupo e listas de proprietários
 
-Agora você pode pesquisar os membros de um grupo específico por nome e executar a mesma pesquisa na lista de proprietários do grupo também. Na nova experiência, se você inserir uma seqüência na caixa de pesquisa, uma inicialização com pesquisa será realizada automaticamente. Por exemplo, uma busca por "Scott" retornará Scott Wilkinson.
+Agora você pode pesquisar os membros de um grupo específico por nome e executar a mesma pesquisa na lista de proprietários do grupo também. Na nova experiência, se você inserir uma cadeia de caracteres na caixa de pesquisa, uma pesquisa StartsWith será executada automaticamente. Por exemplo, uma pesquisa por "Scott" retornará Scott Wilkinson.
 
-![novas pesquisas de substring nas listas de membros do grupo e proprietários](./media/groups-members-owners-search/members-list.png)
+![Nova subcadeia de pesquisa nas listas membros do grupo e proprietários](./media/groups-members-owners-search/members-list.png)
 
-### <a name="filter-member-and-owners-list"></a>Lista de membros e proprietários do filtro
+### <a name="filter-member-and-owners-list"></a>Filtrar Membros e lista de proprietários
 
-Além da pesquisa, agora você pode filtrar as listas de membros e proprietários por tipo de usuário. Esta é a informação encontrada na coluna Tipo de usuário da lista. Assim, você pode filtrar a lista por membros e convidados para determinar se há algum convidado no grupo.
+Além da pesquisa, agora você pode filtrar as listas membro e proprietário por tipo de usuário. Essas são as informações encontradas na coluna tipo de usuário da lista. Portanto, você pode filtrar a lista por membros e convidados para determinar se há algum convidado no grupo.
 
-### <a name="view-and-manage-membership"></a>Exibir e gerenciar a adesão
+### <a name="view-and-manage-membership"></a>Exibir e gerenciar associação
 
-Além de visualizar os membros diretos de um grupo específico, agora você pode visualizar a lista de todos os membros do grupo na página Membros. A lista de membros inclui todos os membros únicos do grupo, incluindo quaisquer membros transitivos.
+Além de exibir os membros diretos de um grupo específico, agora você pode exibir a lista de todos os membros do grupo dentro da página Membros. A lista de membros inclui todos os membros exclusivos do grupo, incluindo quaisquer membros transitivos.
 
-Você também pode pesquisar e filtrar a lista de membros diretos e a lista de todos os membros individualmente. Filtrar a lista de todos os membros não afeta os filtros aplicados na lista de membros diretos.
+Você também pode pesquisar e filtrar a lista de membros diretos e a lista todos os membros individualmente. A filtragem da lista todos os membros não afeta os filtros que são aplicados na lista de membros diretos.
 
-## <a name="improved-group-member-counts"></a>Contagem melhorada de membros do grupo
+## <a name="improved-group-member-counts"></a>Contagens de membros do grupo aprimoradas
 
-Melhoramos a página **visão geral** do grupo para fornecer contagem de membros do grupo para grupos de todos os tamanhos. Você pode ver a contagem de membros mesmo para grupos com mais de 1.000 membros. Agora você pode ver o número total de membros diretos para um grupo e a contagem total de membros (todos os membros únicos do grupo, incluindo membros transitivos) na página **Visão Geral.**
+Melhoramos a página de **visão geral** do grupo para fornecer contagens de membros do grupo para grupos de todos os tamanhos. Você pode ver as contagens de membros mesmo para grupos com mais de 1.000 membros. Agora você pode ver o número total de membros diretos para um grupo e a contagem total de associações (todos os membros exclusivos do grupo, incluindo membros transitivos) na página **visão geral** .
 
-![Maior precisão na contagem de membros em grupo](./media/groups-members-owners-search/member-numbers.png)
+![Maior precisão nas contagens de associação de grupo](./media/groups-members-owners-search/member-numbers.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Esses artigos fornecem informações adicionais sobre o trabalho com grupos no Azure AD.
+Esses artigos fornecem informações adicionais sobre como trabalhar com grupos no Azure AD.
 
 - [Exibir grupos e membros](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Gerenciar associação ao grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -89,4 +89,4 @@ Esses artigos fornecem informações adicionais sobre o trabalho com grupos no A
 - [Gerenciar acesso a recursos usando grupos](../fundamentals/active-directory-manage-groups.md)
 - [Gerenciar acesso a aplicativos SaaS usando grupos](groups-saasapps.md)
 - [Gerenciar grupos usando comandos do PowerShell](groups-settings-v2-cmdlets.md)
-- [Adicione uma assinatura do Azure ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Adicionar uma assinatura do Azure ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

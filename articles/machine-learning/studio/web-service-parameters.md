@@ -1,5 +1,5 @@
 ---
-title: Parâmetros de serviço web - Azure Machine Learning Studio (clássico) | Microsoft Docs
+title: Parâmetros do serviço Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
 description: Como usar Parâmetros de Serviço Web de Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço Web é acessado.
 services: machine-learning
 author: xiaoharper
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204402"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Use parâmetros de serviço web do Azure Machine Learning Studio (clássico)
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -41,14 +41,14 @@ Você pode optar por fornecer um valor padrão para o Parâmetro de Serviço Web
 A documentação da API para o serviço Web incluirá informações para o usuário do serviço Web sobre como especificar o Parâmetro de Serviço Web programaticamente ao acessar o serviço Web.
 
 > [!NOTE]
-> A documentação da API para um serviço web clássico é fornecida através do link da página de ajuda da **API** no web service **DASHBOARD** in Machine Learning Studio (clássico). A documentação da API para um novo serviço Web é fornecida por meio do portal [Serviços Web do Azure Machine Learning](https://services.azureml.net/Quickstart) nas páginas **Consumo** e **API do Swagger** para o seu serviço Web.
+> A documentação da API para um serviço Web clássico é fornecida por meio do link da **página de ajuda da API** no **painel** do serviço Web no Machine Learning Studio (clássico). A documentação da API para um novo serviço Web é fornecida por meio do portal [Serviços Web do Azure Machine Learning](https://services.azureml.net/Quickstart) nas páginas **Consumo** e **API do Swagger** para o seu serviço Web.
 > 
 > 
 
 ## <a name="example"></a>Exemplo
 Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados][writer] que envia informações para o armazenamento de blobs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
 
-1. No Machine Learning Studio (clássico), clique no módulo [Dados de Exportação][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
+1. Em Machine Learning Studio (clássico), clique no módulo [exportar dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 2. Especifique a conta de armazenamento:
    
    * Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".
@@ -70,7 +70,7 @@ Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados
 7. Clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]** ou **Implantar Serviço Web [novo]** para implantar o serviço Web.
 
 > [!NOTE] 
-> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, [gerencie um serviço web usando o portal Azure Machine Learning Web Services](manage-new-webservice.md). 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [gerenciar um serviço Web usando o Azure Machine Learning Portal de serviços Web](manage-new-webservice.md). 
 
 O usuário do serviço Web agora pode especificar um novo destino para o módulo [Exportar Dados][writer] ao acessar o serviço Web.
 

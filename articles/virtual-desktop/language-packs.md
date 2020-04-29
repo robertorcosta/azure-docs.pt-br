@@ -1,6 +1,6 @@
 ---
-title: Instale pacotes de idiomas em VMs do Windows 10 no Windows Virtual Desktop - Azure
-description: Como instalar pacotes de idiomas para VMs multi-sessão do Windows 10 no Windows Virtual Desktop.
+title: Instalar pacotes de idiomas em VMs do Windows 10 na área de trabalho virtual do Windows – Azure
+description: Como instalar pacotes de idiomas para VMs de várias sessões do Windows 10 na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,86 +9,86 @@ ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80634029"
 ---
-# <a name="install-language-packs"></a>Instalar pacotes de idiomas
+# <a name="install-language-packs"></a>Instalar pacote de idiomas
 
-Quando você configura as implantações do Windows Virtual Desktop internacionalmente, é uma boa ideia garantir que sua implantação suporte vários idiomas. Você pode instalar pacotes de idiomas em uma imagem de VM (Multi-Session M) do Windows 10 Enterprise para suportar quantos idiomas sua organização precisar. Este artigo lhe dirá como instalar pacotes de idiomas e capturar imagens que permitem que seus usuários escolham seus próprios idiomas de exibição.
+Quando você configura implantações de área de trabalho virtual do Windows internacionalmente, é uma boa ideia garantir que a implantação dê suporte a vários idiomas. Você pode instalar pacotes de idiomas em uma imagem de VM (máquina virtual) de várias sessões do Windows 10 Enterprise para dar suporte a tantos idiomas quantos forem necessários à sua organização. Este artigo lhe dirá como instalar pacotes de idiomas e capturar imagens que permitem que os usuários escolham seus próprios idiomas de exibição.
 
-Saiba mais sobre como implantar uma VM no Azure no [Criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal Azure](../virtual-machines/windows/create-portal-availability-zone.md).
+Saiba mais sobre como implantar uma VM no Azure em [criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal do Azure](../virtual-machines/windows/create-portal-availability-zone.md).
 
 >[!NOTE]
->Este artigo se aplica às VMs multi-sessão do Windows 10 Enterprise.
+>Este artigo se aplica a VMs de várias sessões do Windows 10 Enterprise.
 
-## <a name="install-a-language-pack"></a>Instale um pacote de idiomas
+## <a name="install-a-language-pack"></a>Instalar um pacote de idiomas
 
-Para criar uma imagem VM com pacotes de idiomas, primeiro você precisa instalar pacotes de idiomas em uma máquina e capturar uma imagem dela.
+Para criar uma imagem de VM com pacotes de idiomas, primeiro você precisa instalar pacotes de idiomas em um computador e capturar uma imagem dele.
 
-Para instalar pacotes de idiomas:
+Para instalar os pacotes de idiomas:
 
-1. Faça login como um admin.
-2. Certifique-se de que você instalou todas as atualizações mais recentes do Windows e da Windows Store.
-3. Vá para **Configurações** > Tempo &**Região****de Idioma** > .
-4. Em **País ou região,** selecione seu país ou região preferido no menu suspenso.
-    Neste exemplo, vamos selecionar a **França,** como mostrado na captura de tela a seguir:
+1. Entre como administrador.
+2. Verifique se você instalou todas as atualizações mais recentes do Windows e da Windows Store.
+3. Acesse **configurações** > **hora &** > **região**de idioma.
+4. Em **país ou região**, selecione seu país ou região preferencial no menu suspenso.
+    Neste exemplo, vamos selecionar **França**, conforme mostrado na seguinte captura de tela:
 
-    ![Uma captura de tela da página Região. A região atualmente selecionada é a França.](media/region-page-france.png)
+    ![Uma captura de tela da página de região. A região selecionada atualmente é França.](media/region-page-france.png)
 
-5. Depois disso, selecione **Idioma**e **selecione Adicionar um idioma**. Escolha o idioma que deseja instalar na lista e selecione **Next**.
-6. Quando a **janela Instalar o idioma é** aberta, selecione a caixa de seleção rotulada Instalar o pacote de **idiomas e definir como meu idioma de exibição do Windows**.
+5. Depois disso, selecione **idioma**e, em seguida, selecione **Adicionar um idioma**. Escolha o idioma que você deseja instalar na lista e, em seguida, selecione **Avançar**.
+6. Quando a janela **instalar recursos de idioma** for aberta, marque a caixa de seleção **instalar pacote de idiomas e definir como meu idioma de exibição do Windows**.
 7. Selecione **Instalar**.
-8. Para adicionar vários idiomas ao mesmo tempo, **selecione Adicionar um idioma**e repita o processo para adicionar um idioma nas etapas 5 e 6. Repita este processo para cada idioma que deseja instalar. No entanto, você só pode definir um idioma como seu idioma de exibição de cada vez.
+8. Para adicionar vários idiomas ao mesmo tempo, selecione **Adicionar um idioma**e repita o processo para adicionar um idioma nas etapas 5 e 6. Repita esse processo para cada idioma que você deseja instalar. No entanto, você só pode definir um idioma como seu idioma de exibição por vez.
 
-    Vamos fazer uma rápida demonstração visual. As imagens a seguir mostram como instalar os pacotes de idiomas francês e holandês e, em seguida, definir o francês como o idioma de exibição.
+    Vamos executar uma demonstração visual rápida. As imagens a seguir mostram como instalar os pacotes de idioma francês e holandês e, em seguida, definir o francês como o idioma de exibição.
 
-    ![Uma captura de tela da página Language no início do processo. O idioma de exibição do Windows selecionado é inglês.](media/language-page-default.png)
+    ![Uma captura de tela da página de idioma no início do processo. O idioma de exibição do Windows selecionado é o inglês.](media/language-page-default.png)
 
-    ![Uma captura de tela da janela de seleção do idioma. O usuário inseriu "francês" na barra de pesquisa para encontrar os pacotes de idioma francês.](media/select-language-french.png)
+    ![Uma captura de tela da janela de seleção de idioma. O usuário inseriu "francês" na barra de pesquisa para localizar os pacotes de idioma em francês.](media/select-language-french.png)
 
-    ![Uma captura de tela da página Instalar recursos de idioma. O francês é selecionado como a língua preferida. As opções selecionadas são "Definir meu idioma de exibição", "Instalar pacote de idiomas", "Reconhecimento de fala" e "Caligrafia".](media/install-language-features.png)
+    ![Uma captura de tela da página instalar recursos de idioma. O francês é selecionado como o idioma preferencial. As opções selecionadas são "definir meu idioma de exibição", "instalar pacote de idiomas", "reconhecimento de fala" e "manuscrito".](media/install-language-features.png)
 
-    Depois que seus pacotes de idiomas forem instalados, você deve ver os nomes dos seus pacotes de idiomas aparecerem na lista de idiomas.
+    Depois que os pacotes de idiomas tiverem sido instalados, você deverá ver os nomes dos seus pacotes de idiomas aparecerem na lista de idiomas.
 
-    ![Uma captura de tela da página de idioma com os novos pacotes de idiomas instalados. Os pacotes de idiomas francês e holandês estão listados em "línguas preferidas".](media/language-page-complete.png)
+    ![Uma captura de tela da página de idioma com os novos pacotes de idiomas instalados. Os pacotes de idiomas francês e Holanda estão listados em "idiomas preferenciais".](media/language-page-complete.png)
 
-9. Se uma janela aparecer pedindo para você sair da sessão. Assine, depois faça login de novo. Seu idioma de exibição deve agora ser o idioma selecionado.
+9. Se uma janela for exibida solicitando que você saia da sessão. Saia e entre novamente. Seu idioma de exibição agora deve ser o idioma selecionado.
 
-10.  Vá para **Relógio do Painel de** > Controle**e** > **Região**.
+10.  Vá para a**região**de**relógio e região** > do **painel** > de controle.
 
-11.  Quando a janela **Região** for aberta, selecione a guia **Administração** e selecione **'Copiar'.**
+11.  Quando a janela **região** for aberta, selecione a guia **Administração** e, em seguida, selecione **configurações de cópia**.
 
-12.  Selecione as caixas de seleção rotuladas **como tela de boas-vindas e contas do sistema** e novas contas de **usuário**.
+12.  Marque as caixas de seleção denominadas **tela de boas-vindas e contas do sistema** e **novas contas de usuário**.
 
 13.  Selecione **OK**.
 
-14.  Uma janela será aberta e lhe dirá para reiniciar sua sessão. Selecione **Reiniciar agora**.
+14.  Uma janela será aberta e informará que você deve reiniciar a sessão. Selecione **reiniciar agora**.
 
-15.  Depois de ter assinado de volta, volte para o Relógio **do Painel de** > Controle**e** > **Região**.
+15.  Depois de entrar novamente, volte para a**região**de **Control Panel** > **relógio e região** > do painel de controle.
 
-16.  Selecione a guia **Administração.**
+16.  Selecione a guia **Administração** .
 
-17.  Selecione **Alterar local do sistema**.
+17.  Selecione **alterar localidade do sistema**.
 
-18. No menu suspenso em **Current system locale**, selecione o idioma local que deseja usar. Depois disso, selecione **OK**.
+18. No menu suspenso, em **localidade atual do sistema**, selecione o idioma de localidade que você deseja usar. Depois disso, selecione **OK**.
 
-19. Selecione **Reiniciar agora** para reiniciar sua sessão mais uma vez.
+19. Selecione **reiniciar agora** para reiniciar a sessão mais uma vez.
 
-Parabéns, você satisfez seus pacotes de idiomas!
+Parabéns, você instalou seus pacotes de idiomas!
 
-Antes de continuar, certifique-se de que seu sistema tenha as versões mais recentes do Windows e da loja do Windows instaladas.
+Antes de continuar, verifique se o sistema tem as versões mais recentes do Windows e da Windows Store instaladas.
 
 ## <a name="sysprep"></a>Sysprep
 
-Em seguida, você precisa sysprep sua máquina para prepará-la para o processo de captura de imagem.
+Em seguida, você precisará fazer o Sysprep do seu computador para prepará-lo para o processo de captura de imagem.
 
-Para sysprep sua máquina:
+Para Sysprep seu computador:
 
 1. Abra o PowerShell como Administrador.
-2. Execute o cmdlet a seguir para ir ao diretório correto:
+2. Execute o seguinte cmdlet para ir para o diretório correto:
    
     ```powershell
     cd Windows\System32\Sysprep
@@ -100,50 +100,50 @@ Para sysprep sua máquina:
     .\sysprep.exe
     ```
 
-4. Quando a janela da ferramenta de preparação do sistema for aberta, selecione a caixa de seleção rotulada **Generalize**e vá para **'Opções de desligamento'** e **selecione 'Desligar'** no menu suspenso.
+4. Quando a janela da ferramenta de preparação do sistema for aberta, marque a caixa de seleção como **generalizar**, vá para **Opções de desligamento** e selecione **desligar** no menu suspenso.
 
 >[!NOTE]
->O processo de preparação levará alguns minutos para terminar. À medida que a VM é desligada, sua sessão remota se desconectará.
+>O processo de syprep levará alguns minutos para ser concluído. À medida que a VM for desligada, sua sessão remota será desconectada.
 
-### <a name="resolve-sysprep-errors"></a>Resolver erros de sysprep
+### <a name="resolve-sysprep-errors"></a>Resolver erros do Sysprep
 
-Se você vir uma mensagem de erro durante o processo de sysprep, aqui está o que você deve fazer:
+Se você vir uma mensagem de erro durante o processo do Sysprep, veja o que você deve fazer:
 
-1. Abra **a unidade C** e vá para o **Windows** > **System32 Sysprep** > **Panther**e abra o arquivo **setuperr.**
+1. Abra a **unidade C** e vá para **Windows** > **System32 Sysprep** > **Panther**e, em seguida, abra o arquivo **Setuperr** .
 
-   O texto no arquivo de erro dirá que você precisa desinstalar um pacote de idioma específico, como mostrado na imagem a seguir. Copie o nome do pacote de idiomas para o próximo passo.
+   O texto no arquivo de erro informará que você precisa desinstalar um pacote de idioma específico, conforme mostrado na imagem a seguir. Copie o nome do pacote de idioma para a próxima etapa.
 
-   ![Uma captura de tela do arquivo setuperr. O texto com o nome do pacote é destacado em azul escuro.](media/setuperr-package-name.png)
+   ![Uma captura de tela do arquivo Setuperr. O texto com o nome do pacote é realçado em azul escuro.](media/setuperr-package-name.png)
 
-2. Abra uma nova janela PowerShell e execute o cmdlet a seguir com o nome do pacote que você copiou na etapa 2 para remover o pacote de idiomas:
+2. Abra uma nova janela do PowerShell e execute o seguinte cmdlet com o nome do pacote que você copiou na etapa 2 para remover o pacote de idiomas:
 
    ```powershell
    Remove-AppxPackage <package name>
    ```
 
-3. Verifique se você removeu o pacote `Remove-AppxPackage` executando o cmdlet novamente. Se você removeu o pacote com sucesso, você deve ver uma mensagem que diz que o pacote que você está tentando remover não está lá.
+3. Verifique se você removeu o pacote executando o `Remove-AppxPackage` cmdlet novamente. Se você tiver removido o pacote com êxito, verá uma mensagem que diz que o pacote que você está tentando remover não está lá.
 
-4. Corra `sysprep.exe` o cmdlet novamente.
+4. Execute o `sysprep.exe` cmdlet novamente.
 
 ## <a name="capture-the-image"></a>Capturar a imagem
 
-Agora que seu sistema está pronto, você pode capturar uma imagem para que outros usuários possam começar a usar VMs com base no seu sistema sem ter que repetir o processo de configuração.
+Agora que o sistema está pronto, você pode capturar uma imagem para que outros usuários possam começar a usar VMs com base em seu sistema sem precisar repetir o processo de configuração.
 
 Para capturar uma imagem:
 
-1. Vá para o portal Azure e selecione o nome da máquina configurada em [Instalar um pacote de idiomas](#install-a-language-pack) e [sysprep](#sysprep).
+1. Vá para a portal do Azure e selecione o nome do computador que você configurou em [instalar um pacote de idiomas](#install-a-language-pack) e [Sysprep](#sysprep).
 
-2. Selecione **Capturar**.
+2. Selecione **capturar**.
 
-3. Digite um nome para sua imagem no campo **Nome** e atribua-a ao grupo de recursos usando o menu suspenso do **grupo Recurso,** conforme mostrado na imagem a seguir.
+3. Insira um nome para a imagem no campo **nome** e atribua-o ao grupo de recursos usando o menu suspenso **grupo de recursos** , conforme mostrado na imagem a seguir.
 
-   ![Uma captura de tela da janela Criar imagem. O nome que o usuário deu a esta imagem de teste é "vmwvd-image-fr", e eles a atribuíram ao grupo de recursos "testwvdimagerg".](media/create-image.png)
+   ![Uma captura de tela da janela criar imagem. O nome que o usuário forneceu para esta imagem de teste é "vmwvd-Image-fr" e o atribuiu ao grupo de recursos "testwvdimagerg".](media/create-image.png)
 
 4. Selecione **Criar**.
 
-5. Aguarde alguns minutos para que o processo de captura termine. Quando a imagem estiver pronta, você deve ver uma mensagem na Central de Notificações informando que a imagem foi capturada.
+5. Aguarde alguns minutos para que o processo de captura seja concluído. Quando a imagem estiver pronta, você verá uma mensagem no centro de notificações informando que a imagem foi capturada.
 
-Agora você pode implantar uma VM usando sua nova imagem. Ao implantar a VM, certifique-se de seguir as instruções em [Criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal Azure](../virtual-machines/windows/create-portal-availability-zone.md).
+Agora você pode implantar uma VM usando sua nova imagem. Ao implantar a VM, certifique-se de seguir as instruções em [criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal do Azure](../virtual-machines/windows/create-portal-availability-zone.md).
 
 ### <a name="how-to-change-display-language-for-standard-users"></a>Como alterar o idioma de exibição para usuários padrão
 
@@ -151,8 +151,8 @@ Os usuários padrão podem alterar o idioma de exibição em suas VMs.
 
 Para alterar o idioma de exibição:
 
-1. Vá para **Configurações de idioma**. Se você não sabe onde isso está, você pode inserir o **Idioma** na barra de pesquisa no Menu Iniciar.
+1. Vá para **configurações de idioma**. Se você não souber onde está, poderá inserir o **idioma** na barra de pesquisa no menu iniciar.
 
-2. No menu suspenso do idioma do Windows, selecione o idioma que deseja usar como idioma de exibição.
+2. No menu suspenso Idioma de exibição do Windows, selecione o idioma que você deseja usar como seu idioma de exibição.
 
-3. Saia da sessão e volte. O idioma de exibição deve agora ser o selecionado na etapa 2.
+3. Saia da sessão e entre novamente. O idioma de exibição agora deve ser aquele que você selecionou na etapa 2.

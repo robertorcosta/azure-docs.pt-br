@@ -1,7 +1,7 @@
 ---
-title: Redes neurais personalizadas Net#
+title: 'Redes neurais personalizadas net #'
 titleSuffix: ML Studio (classic) - Azure
-description: guia de sintaxe para a linguagem de especificação de redes neurais Net#. Aprenda a criar modelos personalizados de rede neural no Azure Machine Learning Studio (clássico).
+description: guia de sintaxe para a linguagem de especificação de redes neurais Net#. Saiba como criar modelos de rede neural personalizados no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218258"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação da rede neural Net# para O Azure Machine Learning Studio (clássico)
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,8 +25,8 @@ Net# é uma linguagem desenvolvida pela Microsoft usada para definir arquitetura
 
 Você pode usar uma especificação de arquitetura Net# nestes contextos:
 
-+ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [Rede Neural Multiclasse,](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network) [Rede Neural de Duas Classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [Regressão](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression) de Rede Neural
-+ Funções de rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R, e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [rede neural multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede neural de duas classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressão de rede neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ As funções de rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#:
@@ -51,14 +51,14 @@ Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avanç
 
 + **Grupos filtrados**. Você pode definir um predicado utilizando os locais do nó de camada de origem e de destino. Os nós são conectados sempre que o predicado é Verdadeiro.
 
-+ **Pacotes convolucionais**. Você pode definir pequenas zonas próximas de nós na camada de origem. Cada nó na camada de destino está conectado a uma zona próxima de nós na camada de origem.
++ **Grupos de convolução**. Você pode definir pequenas zonas próximas de nós na camada de origem. Cada nó na camada de destino está conectado a uma zona próxima de nós na camada de origem.
 
 + **Grupos de pooling** e **Grupos de normalização de resposta**. Estes são similares a grupos convolucionais, no sentido que o usuário define pequenas zonas próximas de nós na camada de origem. A diferença é que a ponderação das bordas nesses grupos não são treináveis. Em vez disso, uma função predefinida é aplicada aos valores de nó de origem para determinar o valor do nó de destino.
 
 
 ## <a name="supported-customizations"></a>Personalizações com suporte
 
-A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser extensivamente personalizada usando o Net#. Você pode:
+A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você pode:
 
 + Criar camadas ocultas e controlar o número de nós em cada camada.
 + Especifique como as camadas devem conectar-se umas às outras.
@@ -91,17 +91,17 @@ Por exemplo, a instrução a seguir define uma constante `x`:
 
 `Const X = 28;`
 
-Para definir duas ou mais constantes simultaneamente, coloque os nomes de identificador e os valores entre chaves e separe-os usando ponto e vírgula. Por exemplo: 
+Para definir duas ou mais constantes simultaneamente, coloque os nomes de identificador e os valores entre chaves e separe-os usando ponto e vírgula. Por exemplo:
 
 `Const { X = 28; Y = 4; }`
 
-O lado direito de cada expressão de atribuição pode ser um número inteiro, um número real, um valor booliano (verdadeiro ou falso) ou uma expressão matemática. Por exemplo: 
+O lado direito de cada expressão de atribuição pode ser um número inteiro, um número real, um valor booliano (verdadeiro ou falso) ou uma expressão matemática. Por exemplo:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Declaração de camada
 
-A declaração de camada é obrigatória. Ela define o tamanho e a origem da camada, incluindo seus pacotes de conexão e atributos. A instrução de declaração começa pelo nome da camada (entrada, oculta ou saída), seguida pelas dimensões da camada (uma tupla de números inteiros positivos). Por exemplo: 
+A declaração de camada é obrigatória. Ela define o tamanho e a origem da camada, incluindo seus pacotes de conexão e atributos. A instrução de declaração começa pelo nome da camada (entrada, oculta ou saída), seguida pelas dimensões da camada (uma tupla de números inteiros positivos). Por exemplo:
 
 ```Net#
 input Data auto;
@@ -253,7 +253,7 @@ hidden P1 [5, 12, 12]
 
 Para mais informações sobre camadas de pooling, consulte esses artigos:
 
-+ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(Seção 3.4)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(Seção 3,4)
 + [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
 + [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
@@ -452,7 +452,7 @@ output Digit [10] from Hid3 all;
 + A palavra-chave `convolve` indica que as camadas denominadas `Conv1` e `Conv2` são camadas convolucionais. Cada uma dessas declarações de camada é seguida de uma lista dos atributos de convolução.
 + A rede tem uma terceira camada oculta, `Hid3`, que é totalmente conectada à `Conv2`, a segunda camada oculta.
 + A camada de saída, `Digit`, é conectada somente à terceira camada oculta, `Hid3`. A palavra-chave `all` indica que a camada de saída está totalmente conectada a `Hid3`.
-+ A aridade da convolução é três: o `InputShape`comprimento `KernelShape` `Stride`das `Sharing`tuplas, e .
++ A arity da convolução é três: o comprimento das `InputShape`tuplas, `KernelShape`, `Stride`e. `Sharing`
 + O número de pesos por kernel é `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
 

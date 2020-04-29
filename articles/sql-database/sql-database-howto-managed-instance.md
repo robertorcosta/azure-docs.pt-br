@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80638023"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como usar uma Instância Gerenciada do Banco de Dados SQL do Azure
@@ -33,18 +33,18 @@ Neste artigo, é possível encontrar vários guias, scripts e explicações que 
 - [Determinar o tamanho da sub-rede de uma Instância Gerenciada](sql-database-managed-instance-determine-size-vnet-subnet.md) – a Instância Gerenciada é colocada em sub-redes dedicadas que não podem ser redimensionadas após adicionar os recursos. Portanto, você precisa calcular qual intervalo de IP de endereços seria necessário para a sub-rede dependendo do número e dos tipos de instâncias que você deseja implantar na sub-rede.
 - [Criar nova rede virtual e sub-rede para a Instância Gerenciada](sql-database-managed-instance-create-vnet-subnet.md) – a rede virtual e a sub-rede do Azure em que você deseja implantar suas Instâncias Gerenciadas devem ser configuradas acordo com os [requisitos de rede descritos aqui](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Neste guia, você pode encontrar a maneira mais fácil de criar sua nova rede virtual e sub-rede configuradas corretamente para Instâncias Gerenciadas.
 - [Configurar a rede virtual e a sub-rede existentes para a Instância Gerenciada](sql-database-managed-instance-configure-vnet-subnet.md) – se deseja configurar sua rede virtual e sub-rede existentes para implantar as Instâncias Gerenciadas nelas, aqui você pode encontrar o script que verifica os [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) e fazer as configurações na sua sub-rede de acordo com eles.
-- [Configure o DNS personalizado](sql-database-managed-instance-custom-dns.md) – você precisa configurar o DNS personalizado se quiser acessar recursos externos nos domínios personalizados da sua instância gerenciada através do servidor vinculado de perfis de e-mail db.
+- [Configurar DNS personalizado](sql-database-managed-instance-custom-dns.md) – você precisará configurar o DNS personalizado se desejar acessar recursos externos nos domínios personalizados de sua instância gerenciada por meio do servidor vinculado de perfis do db mail.
 - [Sincronizar configurações de rede](sql-database-managed-instance-sync-network-configuration.md) – pode acontecer que, embora tenha [integrado seu aplicativo a uma Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md), não seja possível estabelecer a conexão com uma Instância Gerenciada. Algo que você pode é tentar atualizar a configuração de rede para o plano de serviço.
-- [Encontrar endereço IP de ponto final de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md) – A instância gerenciada usa o ponto final público para fins de gerenciamento. Você pode determinar o endereço IP do ponto de extremidade de gerenciamento usando o script descrito aqui.
-- [Verifique a proteção de firewall incorporada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – A instância gerenciada é protegida com firewall integrado que permite o tráfego apenas nas portas necessárias. Você pode verificar as regras do firewall interno usando o script descrito neste guia.
-- [Conectar aplicativos](sql-database-managed-instance-connect-app.md) – A instância gerenciada é colocada em seu próprio Azure VNet privado com endereço IP privado. Saiba mais sobre padrões diferentes para conectar os aplicativos à sua Instância Gerenciada.
+- [Localizar endereço IP do ponto de extremidade de gerenciamento](sql-database-managed-instance-find-management-endpoint-ip-address.md) – a instância gerenciada usa um ponto de extremidade público para fins de gerenciamento. Você pode determinar o endereço IP do ponto de extremidade de gerenciamento usando o script descrito aqui.
+- [Verificar a proteção de firewall interna](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – a instância gerenciada é protegida com um firewall interno que permite o tráfego somente em portas necessárias. Você pode verificar as regras do firewall interno usando o script descrito neste guia.
+- [Conectar aplicativos](sql-database-managed-instance-connect-app.md) – a instância gerenciada é colocada em sua própria VNet privada do Azure com o endereço IP privado. Saiba mais sobre padrões diferentes para conectar os aplicativos à sua Instância Gerenciada.
 
 ## <a name="feature-configuration"></a>Configuração de recurso
 
 - A [replicação transacional](replication-with-sql-database-managed-instance.md) permite que você replique seus dados entre Instâncias Gerenciadas ou do SQL Server local para a Instância Gerenciada e vice-versa. Encontre mais informações sobre como usar e configurar a replicação de transação neste guia.
 - [Configurar a detecção de ameaças](sql-database-managed-instance-threat-detection.md) – a [detecção de ameaças](sql-database-threat-detection-overview.md) é um recurso interno do Banco de Dados SQL do Azure que detecta vários ataques potenciais, como Injeção de SQL ou o acesso de locais suspeitos. Neste guia, você pode aprender como habilitar e configurar a [detecção de ameaças](sql-database-threat-detection-overview.md) para a Instância Gerenciada.
-- [A criação de alertas](sql-database-managed-instance-alerts.md) permite configurar alertas em métricas monitoradas, tais como a utilização da CPU, o consumo de espaço de armazenamento, o IOPS e outros para instância gerenciada. Neste guia você aprenderá como ativar e configurar alertas para instância gerenciada.
+- A [criação de alertas](sql-database-managed-instance-alerts.md) permite que você configure alertas em métricas monitoradas, como utilização de CPU, consumo de espaço de armazenamento, IOPS e outros para instância gerenciada. Neste guia, você aprenderá a habilitar e a configurar alertas para a instância gerenciada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [guias de como fazer para bancos de dados únicos](sql-database-howto-single-database.md)
+- Saiba mais sobre [os guias de instruções para bancos de dados individuais](sql-database-howto-single-database.md)

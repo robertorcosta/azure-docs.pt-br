@@ -4,10 +4,10 @@ description: Monitore aplicativos com a funcionalidade do Azure Application Insi
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669889"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
@@ -53,7 +53,7 @@ Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se você selecionar **Configurar configurações de ladrilhos** e definir um intervalo de tempo personalizado superior a 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há solução para esse comportamento.
+Se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

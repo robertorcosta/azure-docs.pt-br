@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade no Azure : Análise de data plane'
+title: 'Interoperabilidade no Azure: análise do plano de dados'
 description: Este artigo fornece a análise do plano de dados da configuração do teste que é possível usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e o emparelhamento de rede virtual no Azure.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518259"
 ---
-# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilidade no Azure : Análise de data plane
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilidade no Azure: análise do plano de dados
 
 Este artigo descreve a análise do plano de dados da [configuração do teste][Setup]. Também é possível examinar a [configuração do teste][Configuration] e a [análise do plano de controle][Control-Analysis] da configuração do teste.
 
@@ -115,7 +115,7 @@ Mostramos a saída do rastreamento de rotas de uma VNet do hub para uma VM na VN
 
     Trace complete.
 
-Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túnel de gateway do ExpressRoute para um MSEE. O segundo salto é o IP de gateway do VNet remoto. O intervalo de IP do segundo salto não é anunciado na VNet do hub. O terceiro salto é a VM na VNet remota.
+Neste rastreamento de rotas, o primeiro salto é o ponto de extremidade do túnel de gateway do ExpressRoute para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet do hub. O terceiro salto é a VM na VNet remota.
 
 ## <a name="data-path-from-the-spoke-vnet"></a>Caminho de dados da VNet do spoke
 
@@ -164,7 +164,7 @@ Mostramos a saída do rastreamento de rotas da VNet do spoke para uma VM na Loca
 
     Trace complete.
 
-Nesta rota de rastreamento, o primeiro salto é o ponto final do túnel de gateway ExpressRoute do hub VNet para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 1. Esses endereços IP não são anunciados na VNet do hub/spoke. O quarto salto é a VM na Localização local 1.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 1. Esses endereços IP não são anunciados na VNet do hub/spoke. O quarto salto é a VM na Localização local 1.
 
 ### <a name="path-to-on-premises-location-2"></a>Caminho para a Localização local 2
 
@@ -182,7 +182,7 @@ Mostramos a saída do rastreamento de rotas da VNet do spoke para uma VM na Loca
 
     Trace complete.
 
-Nesta rota de rastreamento, o primeiro salto é o ponto final do túnel de gateway ExpressRoute do hub VNet para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 2. Esses endereços IP não são anunciados na VNets do hub/spoke. O quarto salto é a VM na Localização local 2.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo e o terceiro saltos são o roteador de CE e os IPs de LAN da Localização local 2. Esses endereços IP não são anunciados na VNets do hub/spoke. O quarto salto é a VM na Localização local 2.
 
 ### <a name="path-to-the-remote-vnet"></a>Caminho para a VNet remota
 
@@ -198,7 +198,7 @@ Mostramos a saída do rastreamento de rotas de uma VNet do spoke para uma VM na 
 
     Trace complete.
 
-Nesta rota de rastreamento, o primeiro salto é o ponto final do túnel de gateway ExpressRoute do hub VNet para um MSEE. O segundo salto é o IP de gateway do VNet remoto. O intervalo de IP do segundo salto não é anunciado na VNet do hub/spoke. O terceiro salto é a VM na VNet remota.
+Nessas rotas, o primeiro salto é o ponto de extremidade de túnel de gateway do ExpressRoute da VNet do hub para um MSEE. O segundo salto é o IP do gateway da VNet remota. O intervalo de IP do segundo salto não é anunciado na VNet do hub/spoke. O terceiro salto é a VM na VNet remota.
 
 ## <a name="data-path-from-the-branch-vnet"></a>Caminho de dados da VNet do branch
 
@@ -304,7 +304,7 @@ A figura a seguir mostra a exibição de topologia da conectividade da VM de Loc
 
 ![4][4]
 
-Conforme discutido anteriormente, a configuração do teste usa uma VPN site a site como conectividade de backup para o ExpressRoute entre a Localização local 1 e a VNet do hub. Para testar o caminho de dados de backup, vamos induzir uma falha de link do ExpressRoute entre o roteador CE principal local 1 e o MSEE correspondente. Para induzir uma falha de link do ExpressRoute, desligue a interface de CE voltada para o MSEE:
+Conforme discutido anteriormente, a configuração do teste usa uma VPN site a site como conectividade de backup para o ExpressRoute entre a Localização local 1 e a VNet do hub. Para testar o caminho de dados de backup, vamos induzir uma falha de link do ExpressRoute entre o roteador CE local 1 primário e o MSEE correspondente. Para induzir uma falha de link do ExpressRoute, desligue a interface de CE voltada para o MSEE:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -510,11 +510,11 @@ Consulte as [Perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Visão do Observador de Rede de conectividade de um Hub VNet para um VNet falado"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Visão do Observador de Rede da conectividade de um Hub VNet para uma filial VNet"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Visão da grade do Network Watcher da conectividade de um hub VNet para uma filial VNet"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Exibição do Monitor de Desempenho de Rede da conectividade desde o Local 1 VM até o hub VNet via ExpressRoute 1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Exibição do Monitor de Desempenho de Rede da conectividade desde o VM local 1 até o hub VNet através de uma VPN site-to-site"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Exibição de conectividade do observador de rede de uma VNet do hub para uma VNet do spoke"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Exibição do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Exibição em grade do observador de rede de conectividade de uma VNet de Hub para uma VNet de ramificação"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio do ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Monitor de Desempenho de Rede exibição de conectividade da VM local 1 para a VNet do hub por meio de uma VPN site a site"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

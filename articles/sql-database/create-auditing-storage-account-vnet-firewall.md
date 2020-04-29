@@ -1,6 +1,6 @@
 ---
-title: Auditoria para conta de armazenamento por trás do VNet e firewall
-description: Configure auditoria para gravar eventos de banco de dados em uma conta de armazenamento por trás de rede virtual e firewall
+title: Auditoria para conta de armazenamento por trás da VNet e do firewall
+description: Configurar a auditoria para gravar eventos de banco de dados em uma conta de armazenamento por trás da rede virtual e do firewall
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,78 +11,78 @@ ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
 ms.openlocfilehash: 6345d210e26747f921595039a2a3c8e11be11fda
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80387603"
 ---
-# <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria em uma conta de armazenamento por trás do VNet e firewall
+# <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Gravar auditoria em uma conta de armazenamento por trás da VNet e do firewall
 
-A auditoria para [o Banco de Dados SQL do Azure](sql-database-technical-overview.md) e o [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suporta a gravação de eventos de banco de dados em uma [conta do Azure Storage](../storage/common/storage-account-overview.md) por trás de uma rede virtual e firewall. 
+A auditoria do [banco de dados SQL do Azure](sql-database-technical-overview.md) e [do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) dá suporte à gravação de eventos de banco de dados em uma [conta de armazenamento do Azure](../storage/common/storage-account-overview.md) atrás de uma rede virtual e firewall 
 
-Este artigo explica duas maneiras de configurar a conta de armazenamento Azure SQL server e Azure para essa opção. O primeiro usa o portal Azure, o segundo usa REST.
+Este artigo explica duas maneiras de configurar o Azure SQL Server e a conta de armazenamento do Azure para essa opção. O primeiro usa o portal do Azure, o segundo usa REST.
 
-### <a name="background"></a>Segundo plano
+### <a name="background"></a>Tela de fundo
 
-[A Rede Virtual (VNet)](../virtual-network/virtual-networks-overview.md) é o bloco de construção fundamental para sua rede privada no Azure. Ela permite vários tipos de recursos do Azure, como VMs (Máquinas Virtuais) do Azure, a fim de se comunicar de forma segura com a Internet, com as redes locais e com outras VMs. O VNet é semelhante a uma rede tradicional em seu próprio data center, mas traz consigo benefícios adicionais da infra-estrutura do Azure, como escala, disponibilidade e isolamento.
+A [VNet (rede virtual) do Azure](../virtual-network/virtual-networks-overview.md) é o bloco de construção fundamental para sua rede privada no Azure. Ela permite vários tipos de recursos do Azure, como VMs (Máquinas Virtuais) do Azure, a fim de se comunicar de forma segura com a Internet, com as redes locais e com outras VMs. A VNet é semelhante a uma rede tradicional em sua própria data center, mas traz benefícios adicionais da infraestrutura do Azure, como escala, disponibilidade e isolamento.
 
-Para saber mais sobre os conceitos de VNet, Melhores Práticas e muito mais, consulte [O que é a Rede Virtual Azure](../virtual-network/virtual-networks-overview.md).
+Para saber mais sobre os conceitos de VNet, práticas recomendadas e muito mais, consulte [o que é a rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-Para saber mais sobre como criar uma rede virtual, consulte [Quickstart: Crie uma rede virtual usando o portal Azure](../virtual-network/quick-create-portal.md).
+Para saber mais sobre como criar uma rede virtual, consulte [início rápido: criar uma rede virtual usando o portal do Azure](../virtual-network/quick-create-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para que a auditoria seja feita para gravar em uma conta de armazenamento atrás de um VNet ou firewall, são necessários os seguintes pré-requisitos:
+Para que a auditoria grave em uma conta de armazenamento por trás de uma VNet ou um firewall, os seguintes pré-requisitos são necessários:
 
 > [!div class="checklist"]
-> * Uma conta de armazenamento v2 de uso geral. Se você tiver uma conta de armazenamento v1 ou blob de uso geral, [atualize para uma conta de armazenamento v2 de uso geral.](../storage/common/storage-account-upgrade.md) Para obter mais informações, consulte [Tipos de contas de armazenamento](../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * A conta de armazenamento deve estar na mesma assinatura e no mesmo local que o servidor Azure SQL Database. 
-> * A conta Azure `Allow trusted Microsoft services to access this storage account`Storage requer . Defina isso nos firewalls de contas **de armazenamento e redes virtuais.**
-> * Você deve `Microsoft.Authorization/roleAssignments/write` ter permissão na conta de armazenamento selecionada. Para obter mais informações, consulte [funções incorporadas do Azure](../role-based-access-control/built-in-roles.md).
+> * Uma conta de armazenamento de uso geral v2. Se você tiver uma conta de armazenamento de blob v1 ou de uso geral, [atualize para uma conta de armazenamento v2 de uso geral](../storage/common/storage-account-upgrade.md). Para obter mais informações, consulte [tipos de contas de armazenamento](../storage/common/storage-account-overview.md#types-of-storage-accounts).
+> * A conta de armazenamento deve estar na mesma assinatura e no mesmo local que o servidor do banco de dados SQL do Azure. 
+> * A conta de armazenamento do `Allow trusted Microsoft services to access this storage account`Azure requer. Defina isso na conta de armazenamento **firewalls e redes virtuais**.
+> * Você deve ter `Microsoft.Authorization/roleAssignments/write` permissão na conta de armazenamento selecionada. Para obter mais informações, consulte [funções internas do Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Configurar no portal do Azure
 
-Conecte-se [ao portal Azure](https://portal.azure.com) com sua assinatura. Navegue até o grupo de recursos e o servidor de banco de dados Azure SQL.
+Conecte-se a [portal do Azure](https://portal.azure.com) com sua assinatura. Navegue até o grupo de recursos e o servidor de banco de dados SQL do Azure.
 
-1. Clique em **Auditoria** o título Segurança. Selecione **Em**.
+1. Clique em **auditoria** no título segurança. Selecione **ativado**.
 
-2. Selecione **Armazenamento**. Selecione a conta de armazenamento onde os logs serão salvos. A conta de armazenamento deve estar em conformidade com os requisitos listados nos [Pré-requisitos](#prerequisites).
+2. Selecione **Armazenamento**. Selecione a conta de armazenamento na qual os logs serão salvos. A conta de armazenamento deve estar em conformidade com os requisitos listados em [pré-requisitos](#prerequisites).
 
-3. **Detalhes de armazenamento aberto** 
+3. Abrir **detalhes do armazenamento** 
 
   > [!NOTE]
-  > Se a conta de armazenamento selecionada estiver por trás do VNet, você verá a seguinte mensagem:
+  > Se a conta de armazenamento selecionada estiver atrás da VNet, você verá a seguinte mensagem:
   >
   >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
-  >Se você não ver esta mensagem, então a conta de armazenamento não está atrás de um VNet.
+  >Se você não vir essa mensagem, a conta de armazenamento não está atrás de uma VNet.
 
-4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK**. Os registros mais antigos do que o período de retenção são excluídos.
+4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK**. Os logs anteriores ao período de retenção são excluídos.
 
-5. Selecione **Salvar** em suas configurações de auditoria.
+5. Selecione **salvar** nas configurações de auditoria.
 
-Você configurou com sucesso a auditoria para gravar em uma conta de armazenamento atrás de um VNet ou firewall. 
+Você configurou com êxito a auditoria para gravar em uma conta de armazenamento por trás de uma VNet ou um firewall. 
 
 ## <a name="configure-with-rest-commands"></a>Configurar com comandos REST
 
-Como alternativa ao uso do portal Azure, você pode usar os comandos REST para configurar auditoria para gravar eventos de banco de dados em uma conta de armazenamento atrás de um VNet e firewall. 
+Como alternativa ao uso do portal do Azure, você pode usar comandos REST para configurar a auditoria para gravar eventos de banco de dados em uma conta de armazenamento por trás de uma VNet e um firewall. 
 
 Os scripts de exemplo nesta seção exigem que você atualize o script antes de executá-los. Substitua os seguintes valores nos scripts:
 
-|Valor de exemplo|Descrição da amostra|
+|Valor de exemplo|Descrição de exemplo|
 |:-----|:-----|
 |`<subscriptionId>`| ID de assinatura do Azure|
 |`<resource group>`| Resource group|
 |`<sql database server>`| Nome do servidor do banco de dados SQL do Azure|
-|`<administrator login>`| Conta de administrador de banco de dados SQL |
-|`<complex password>`| Senha complexa para a conta do administrador|
+|`<administrator login>`| Conta de administrador do banco de dados SQL |
+|`<complex password>`| Senha complexa para a conta de administrador|
 
-Para configurar a Auditoria SQL para gravar eventos em uma conta de armazenamento por trás de um VNet ou Firewall:
+Para configurar a auditoria do SQL para gravar eventos em uma conta de armazenamento por trás de uma VNet ou um firewall:
 
-1. Registre seu servidor de banco de dados Azure SQL com o Azure Active Directory (Azure AD). Use powershell ou API REST.
+1. Registre seu servidor de banco de dados SQL do Azure com o Azure Active Directory (Azure AD). Use o PowerShell ou a API REST.
 
-   **Powershell**
+   **PowerShell**
    
    ```powershell
    Connect-AzAccount
@@ -114,12 +114,12 @@ Para configurar a Auditoria SQL para gravar eventos em uma conta de armazenament
    }
    ```
 
-2. Abra o [portal do Azure](https://portal.azure.com). Navegue até sua conta de armazenamento. Localizar **controle de acesso (IAM)** e clicar em Adicionar **atribuição de função**. Atribuir **o RBAC do Contribuinte de Dados Blob** de Armazenamento ao seu Azure SQL Server hospedando seu banco de dados Azure SQL que você registrou no Azure Active Directory (Azure AD) como na etapa anterior.
+2. Abra o [portal do Azure](https://portal.azure.com). Navegue até sua conta de armazenamento. Localize o **controle de acesso (iam)** e clique em **Adicionar atribuição de função**. Atribua a função de RBAC de **colaborador de dados de blob de armazenamento** à sua SQL Server do Azure que hospeda o banco de dado SQL do Azure que você registrou com Azure Active Directory (Azure AD) como na etapa anterior.
 
    > [!NOTE]
-   > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções incorporadas para os recursos do Azure, consulte [as funções incorporadas do Azure](../role-based-access-control/built-in-roles.md).
+   > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas para recursos do Azure, consulte [funções internas do Azure](../role-based-access-control/built-in-roles.md).
 
-3. Configure [a política de auditoria blob do servidor Azure SQL,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey*:
+3. Configure a [política de auditoria de blob do Azure SQL Server](/rest/api/sql/server%20auditing%20settings/createorupdate), sem especificar um *storageAccountAccessKey*:
 
    Solicitação de exemplo
 
@@ -140,6 +140,6 @@ Para configurar a Auditoria SQL para gravar eventos em uma conta de armazenament
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Use o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para o Banco de Dados SQL do Azure.](sql-database-vnet-service-endpoint-rule-powershell.md)
-- [Regras da rede virtual: operações com APIs REST](/rest/api/sql/virtualnetworkrules)
+- [Use o PowerShell para criar um ponto de extremidade de serviço de rede virtual e uma regra de rede virtual para o banco de dados SQL do Azure.](sql-database-vnet-service-endpoint-rule-powershell.md)
+- [Regras de rede virtual: operações com APIs REST](/rest/api/sql/virtualnetworkrules)
 - [Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados](sql-database-vnet-service-endpoint-rule-overview.md)

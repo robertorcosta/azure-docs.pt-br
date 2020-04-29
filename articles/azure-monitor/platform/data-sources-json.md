@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662154"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-As fontes de dados JSON personalizadas podem ser coletadas no [Azure Monitor](data-platform.md) usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizadas podem ser scripts simples que retornam json, como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plugins da FluentD](https://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
+As fontes de dados JSON personalizadas podem ser coletadas no [Azure Monitor](data-platform.md) usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizadas podem ser scripts simples retornando JSON, como [ondulação](https://curl.haxx.se/) ou um dos mais de [300 plug-ins do fluentd](https://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
 
 
 > [!NOTE]

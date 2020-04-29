@@ -1,16 +1,16 @@
 ---
-title: Versões suportadas - Banco de dados Azure para MySQL
-description: Saiba quais versões do servidor MySQL são suportadas no banco de dados Azure para o serviço MySQL.
+title: Versões com suporte – banco de dados do Azure para MySQL
+description: Saiba quais versões do MySQL Server têm suporte no banco de dados do Azure para o serviço MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 197b3100190711a51cfe125fe1214a59c18e1491
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536965"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versões com suporte do servidor de Banco de Dados do Azure para MySQL
@@ -26,19 +26,19 @@ No momento, o Banco de Dados do Azure para MySQL dá suporte às seguintes vers�
 
 ## <a name="mysql-version-56"></a>MySQL Versão 5.6
 
-Versão de correção de bugs: 5.6.45
+Versão de correção de bug: 5.6.45
 
 Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
 ## <a name="mysql-version-57"></a>MySQL Versão 5.7
 
-Versão de correção de erro: 5.7.27
+Versão de correção de bug: 5.7.27
 
 Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
-## <a name="mysql-version-80"></a>Mysql Versão 8.0
+## <a name="mysql-version-80"></a>MySQL versão 8,0
 
-Versão de correção de bugs: 8.0.15
+Versão de correção de bug: 8.0.15
 
 Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
 
@@ -49,4 +49,4 @@ Atualmente, não há suporte para atualizações de versão principal e secundá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações sobre cotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [níveis de serviço](./concepts-pricing-tiers.md)
+Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)

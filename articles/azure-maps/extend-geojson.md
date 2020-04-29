@@ -1,6 +1,6 @@
 ---
-title: Geometrias GeoJSON estendidas | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre como o Microsoft Azure Maps estende a especificação GeoJSON para representar certas geometrias.
+title: Geometrias geojson estendidas | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como o Microsoft Azure Maps estende a especificação geojson para representar determinadas geometrias.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276394"
 ---
-# <a name="extended-geojson-geometries"></a>Geometrias GeoJSON estendidas
+# <a name="extended-geojson-geometries"></a>Geometrias geojson estendidas
 
-O Azure Maps fornece uma lista de APIs poderosas para pesquisar dentro e ao longo de recursos geográficos. Essas APIs aderem à [especificação padrão geojson][1] de representar características geográficas.  
+O mapas do Azure fornece uma lista de APIs poderosas para pesquisar dentro e além dos recursos geográficos. Essas APIs aderem à [especificação geojson][1] padrão de representar recursos geográficos.  
 
-A [especificação GeoJSON][1] suporta apenas as seguintes geometrias:
+A [especificação geojson][1] dá suporte apenas às seguintes geometrias:
 
 * GeometryCollection
 * LineString
@@ -29,19 +29,19 @@ A [especificação GeoJSON][1] suporta apenas as seguintes geometrias:
 * Point
 * Polygon
 
-Algumas APIs do Azure Maps aceitam geometrias que não fazem parte da [especificação GeoJSON][1]. Por exemplo, a API [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) aceita Círculos e Polígonos.
+Algumas APIs do Azure Maps aceitam geometrias que não fazem parte da [especificação geojson][1]. Por exemplo, a [pesquisa dentro](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) da API de geometria aceita círculo e polígonos.
 
 Este artigo fornece uma explicação detalhada sobre como o Azure Mapas estende a [especificação GeoJSON][1] para representar determinadas geometrias.
 
 ## <a name="circle"></a>Circle
 
-A `Circle` geometria não é suportada pela [especificação GeoJSON][1]. Usamos um `GeoJSON Point Feature` objeto para representar um círculo.
+A `Circle` [especificação geojson][1]não dá suporte à geometria. Usamos um `GeoJSON Point Feature` objeto para representar um círculo.
 
-Uma `Circle` geometria `GeoJSON Feature` representada usando o objeto __deve__ conter as seguintes coordenadas e propriedades:
+Uma `Circle` geometria representada usando o `GeoJSON Feature` objeto __deve__ conter as seguintes coordenadas e propriedades:
 
 - Centro
 
-    O centro do círculo é `GeoJSON Point` representado usando um objeto.
+    O centro do círculo é representado usando um `GeoJSON Point` objeto.
 
 - Raio
 
@@ -49,11 +49,11 @@ Uma `Circle` geometria `GeoJSON Feature` representada usando o objeto __deve__ c
 
 - SubType
 
-    A geometria do círculo também deve conter a propriedade `subType`. Esta propriedade deve ser `GeoJSON Feature`uma parte das propriedades e seu valor deve ser _Circle_
+    A geometria do círculo também deve conter a propriedade `subType`. Essa propriedade deve ser uma parte das propriedades `GeoJSON Feature`do e seu valor deve ser _Circle_
 
 #### <a name="example"></a>Exemplo
 
-Aqui está como você vai representar `GeoJSON Feature` um círculo usando um objeto. Vamos centralizar o círculo em latitude: 47.639754 e longitude: -122.126986, e atribuí-lo um raio igual a 100 metros:
+Veja como você representará um círculo usando um `GeoJSON Feature` objeto. Vamos centralizar o círculo em latitude: 47,639754 e Longitude:-122,126986 e atribuir a ele um raio igual a 100 medidores:
 
 ```json            
 {
@@ -71,17 +71,17 @@ Aqui está como você vai representar `GeoJSON Feature` um círculo usando um ob
 
 ## <a name="rectangle"></a>Retângulo
 
-A `Rectangle` geometria não é suportada pela [especificação GeoJSON][1]. Usamos um `GeoJSON Polygon Feature` objeto para representar um retângulo. A extensão retângulo é usada principalmente pelo módulo de ferramentas de desenho do Web SDK.
+A `Rectangle` [especificação geojson][1]não dá suporte à geometria. Usamos um `GeoJSON Polygon Feature` objeto para representar um retângulo. A extensão de retângulo é usada principalmente pelo módulo de ferramentas de desenho do SDK da Web.
 
-Uma `Rectangle` geometria `GeoJSON Polygon Feature` representada usando o objeto __deve__ conter as seguintes coordenadas e propriedades:
+Uma `Rectangle` geometria representada usando o `GeoJSON Polygon Feature` objeto __deve__ conter as seguintes coordenadas e propriedades:
 
-- Cantos
+- Corner
 
-    Os cantos do retângulo são representados `GeoJSON Polygon` usando as coordenadas de um objeto. Deve haver cinco coordenadas, uma para cada canto. E uma quinta coordenada que é a mesma da primeira coordenada para fechar o anel do polígono. Presume-se que essas coordenadas se alinhem, e que o desenvolvedor possa rodá-las conforme desejado.
+    Os cantos do retângulo são representados usando as coordenadas de `GeoJSON Polygon` um objeto. Deve haver cinco coordenadas, uma para cada canto. E, uma quinta coordenada que seja igual à primeira coordenada, para fechar o anel do polígono. Supõe-se que essas coordenadas se alinhem e que o desenvolvedor pode girá-las conforme desejado.
 
 - SubType
 
-    A geometria retângulo `subType` também deve conter a propriedade. Esta propriedade deve ser `GeoJSON Feature`uma parte das propriedades, e seu valor deve ser _Retângulo_
+    A geometria do retângulo também deve conter `subType` a propriedade. Essa propriedade deve ser uma parte das propriedades `GeoJSON Feature`do e seu valor deve ser _Rectangle_
 
 ### <a name="example"></a>Exemplo
 
@@ -100,12 +100,12 @@ Uma `Rectangle` geometria `GeoJSON Polygon Feature` representada usando o objeto
 ```
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os dados do GeoJSON no Azure Maps:
+Saiba mais sobre dados geojson no Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Formato Geofence GeoJSON](geofence-geojson.md)
+> [Formato geojson de limite geográfico](geofence-geojson.md)
 
-Revise o glossário de termos técnicos comuns associados ao Azure Maps e aplicativos de inteligência de localização:
+Examine o Glossário de termos técnicos comuns associados a aplicativos do Azure Maps e do local Intelligence:
 
 > [!div class="nextstepaction"]
 > [Glossário do Azure Maps](glossary.md)

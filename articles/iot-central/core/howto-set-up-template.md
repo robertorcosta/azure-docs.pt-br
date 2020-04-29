@@ -1,6 +1,6 @@
 ---
 title: Definir um novo tipo de dispositivo IoT no Azure IoT Central | Microsoft Docs
-description: Este artigo mostra, como construtor, como criar um novo modelo de dispositivo Azure IoT em seu aplicativo Azure IoT Central. Você define a telemetria, estado, propriedades e comandos para o seu tipo.
+description: Este artigo mostra, como um construtor, como criar um novo modelo de dispositivo IoT do Azure em seu aplicativo de IoT Central do Azure. Você define a telemetria, estado, propriedades e comandos para o seu tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -9,15 +9,15 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81756656"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
-*Este artigo se aplica a construtores de soluções e desenvolvedores de dispositivos.*
+*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
 Um modelo de dispositivo é um blueprint que define as características e os comportamentos de um tipo de dispositivo que conecta a um aplicativo do Azure IoT Central.
 
@@ -36,7 +36,7 @@ Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de v
 > [!NOTE]
 > Somente construtores e administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **Dispositivos** com base nos modelos de dispositivos existentes.
 
-[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) permite que a IoT Central integre dispositivos, sem que você escreva qualquer código de dispositivo incorporado. No núcleo do IoT Plug and Play (versão prévia) está um esquema de modelo de funcionalidade do dispositivo que descreve as funcionalidades do dispositivo. Em um aplicativo do IoT Central, os modelos de dispositivo usam esses modelos de funcionalidade do dispositivo do IoT Plug and Play (versão prévia).
+O [IoT plug and Play (visualização)](../../iot-pnp/overview-iot-plug-and-play.md) permite que IOT central integre dispositivos, sem escrever nenhum código de dispositivo inserido. No núcleo do IoT Plug and Play (versão prévia) está um esquema de modelo de funcionalidade do dispositivo que descreve as funcionalidades do dispositivo. Em um aplicativo do IoT Central, os modelos de dispositivo usam esses modelos de funcionalidade do dispositivo do IoT Plug and Play (versão prévia).
 
 Como um criador, você tem várias opções para criar modelos de dispositivo:
 
@@ -66,7 +66,7 @@ Um modelo de dispositivo contém:
 Para criar um modelo de dispositivo no IoT Central:
 
 1. Acesse a página **Modelos de Dispositivo** no aplicativo do IoT Central.
-1. Selecione **+ Novo** > **Personalizado**.
+1. Selecione **+ novo** > **personalizado**.
 1. Insira um nome para o modelo, como **Sensor Ambiental**.
 1. Pressione **Enter**. O IoT Central criará um modelo de dispositivo vazio.
 
@@ -104,7 +104,7 @@ Para criar uma interface:
 
     - Criar uma interface personalizada do zero.
     - Importar uma interface existente de um arquivo. Um construtor de dispositivo pode ter usado o Visual Studio Code para criar uma interface para seu dispositivo.
-    - Escolha uma das interfaces padrão, como a interface **Informações do Dispositivo.** As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Azure IoT e não podem ter controle de versão nem ser editadas.
+    - Escolha uma das interfaces padrão, como a interface de **informações do dispositivo** . As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Azure IoT e não podem ter controle de versão nem ser editadas.
 
 1. Depois de criar uma interface, escolha **Editar Identidade** para alterar o nome de exibição da interface.
 
@@ -119,13 +119,13 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
-| Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor da telemetria, como **mph**, **%** ou ** &deg;C**. |
+| Unidade | Uma unidade para o valor de telemetria, **mph**como mph **%**, ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
 | Descrição | Uma descrição da funcionalidade de telemetria. |
@@ -139,14 +139,14 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
-| Nome | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Name | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
 | Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor da **%** propriedade, como **mph,** ou ** &deg;C**. |
+| Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
 | Descrição | Uma descrição da funcionalidade de propriedade. |
@@ -160,7 +160,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
-| Nome | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Name | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo de Funcionalidade | Comando. |
 | Comando | `SynchronousExecutionType`. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
@@ -183,7 +183,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
-| Nome | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Name | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |
 
@@ -257,4 +257,4 @@ Depois que você publicar um modelo de dispositivo, um operador poderá acessar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre a [versão do modelo do dispositivo](./howto-version-device-template.md).
+Se você é um desenvolvedor de dispositivos, uma próxima etapa sugerida é ler sobre o [controle de versão de modelo de dispositivo](./howto-version-device-template.md).

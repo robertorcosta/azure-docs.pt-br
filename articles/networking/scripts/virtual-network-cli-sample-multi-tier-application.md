@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure CLI - Crie uma rede para aplicativos de vários níveis
+title: Exemplo de script CLI do Azure-criar uma rede para aplicativos de várias camadas
 description: Exemplo de script da CLI do Azure - Criar uma rede virtual para aplicativos de várias camadas.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 97e26eaed72bc15ebc46a893d269b05484d8a064
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521533"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicativos de várias camadas
@@ -59,6 +59,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre a CLI do Azure, consulte [a documentação da Cli do Azure](/cli/azure).
+Para obter mais informações sobre o CLI do Azure, consulte [CLI do Azure documentação](/cli/azure).
 
-Amostras adicionais de script CLI de rede podem ser encontradas na [documentação de visão geral do Azure Networking](../cli-samples.md)
+Exemplos de script da CLI de rede adicional podem ser encontrados na [documentação de visão geral da rede do Azure](../cli-samples.md)

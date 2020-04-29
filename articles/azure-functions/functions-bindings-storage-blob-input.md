@@ -1,22 +1,22 @@
 ---
-title: Vinculação de entrada de armazenamento Azure Blob para funções do Azure
-description: Saiba como fornecer dados de armazenamento Do Azure Blob para uma função Azure.
+title: Associação de entrada do armazenamento de BLOBs do Azure para Azure Functions
+description: Saiba como fornecer dados do armazenamento de BLOBs do Azure para uma função do Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 33db9a8d86e02db2076cdb85170d466697930b96
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633892"
 ---
-# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Vinculação de entrada de armazenamento Azure Blob para funções do Azure
+# <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Associação de entrada do armazenamento de BLOBs do Azure para Azure Functions
 
-A vinculação de entrada permite que você leia os dados de armazenamento blob como entrada para uma função Azure.
+A associação de entrada permite que você leia dados do armazenamento de BLOBs como entrada para uma função do Azure.
 
-Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](./functions-bindings-storage-blob.md).
+Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-storage-blob.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -39,7 +39,7 @@ public static void Run(
 
 <!--Same example for input and output. -->
 
-O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um código [script C# (.csx)](functions-reference-csharp.md) que usa as associações. A função faz uma cópia de um blob de texto. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. A nova bolha é chamada *{originalblobname}-Copy*.
+O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um código [script C# (.csx)](functions-reference-csharp.md) que usa as associações. A função faz uma cópia de um blob de texto. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
 
 No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
 
@@ -88,7 +88,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 <!--Same example for input and output. -->
 
-O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. A nova bolha é chamada *{originalblobname}-Copy*.
+O exemplo a seguir mostra uma associação de entrada e saída de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
 
 No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
 
@@ -137,7 +137,7 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um [código Python](functions-reference-python.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. A nova bolha é chamada *{originalblobname}-Copy*.
+O exemplo a seguir mostra uma associação de entrada e de saída de blob em um arquivo *function.json* e um [código Python](functions-reference-python.md) que usa as associações. A função faz uma cópia de um blob. A função é disparada por uma mensagem da fila que contém o nome do blob para copiar. O novo BLOB é denominado *{originalblobname}-Copy*.
 
 No arquivo *function.json*, a `queueTrigger` propriedade de metadados é usada para especificar o nome do blob nas propriedades `path`:
 
@@ -277,38 +277,38 @@ public static void Run(
 }
 ```
 
-Você pode usar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Trigger - atributos e anotações](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
+Você pode usar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [gatilho-atributos e anotações](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Os atributos não são suportados pelo script C#.
+Não há suporte para atributos pelo script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Os atributos não são suportados pelo JavaScript.
+Não há suporte para atributos pelo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os atributos não são suportados pelo Python.
+Não há suporte para atributos no Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O `@BlobInput` atributo dá acesso à bolha que acionou a função. Se você usar uma matriz de `dataType` bytes com o atributo, defina- a `binary`. Consulte o [exemplo de entrada](#example) para obter detalhes.
+O `@BlobInput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, `dataType` defina `binary`como. Consulte o [exemplo de entrada](#example) para obter detalhes.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de `Blob` vinculação que você definiu no arquivo *function.json* e no atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `Blob` atributo.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como `blob`. |
-|**direction** | n/d | Deve ser definido como `in`. As exceções são mencionadas na seção [uso](#usage). |
-|**name** | n/d | O nome da variável que representa o blob no código de função.|
+|**tipo** | N/D | Deve ser definido como `blob`. |
+|**direção** | N/D | Deve ser definido como `in`. As exceções são mencionadas na seção [uso](#usage). |
+|**name** | N/D | O nome da variável que representa o blob no código de função.|
 |**path** |**BlobPath** | O caminho para o blob. |
-|**Conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém a [seqüência de conexão Armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para esta vinculação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se `connection` você definir como "MyStorage", o tempo de execução das funções procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|n/d | **Acesso** | Indica se você será leitura ou gravação. |
+|**connection** |**Conexão**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento de finalidade geral e não uma [conta de armazenamento de blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|N/D | **Acesso** | Indica se você será leitura ou gravação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -324,19 +324,19 @@ A tabela a seguir explica as propriedades de configuração de `Blob` vinculaç�
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Acessar dados blob usando `context.bindings.<NAME>` onde `<NAME>` corresponde ao valor definido em *function.json*.
+Acessar dados de blob `context.bindings.<NAME>` usando `<NAME>` onde corresponde ao valor definido em *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acesse os dados blob através do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o [exemplo de entrada](#example) para obter detalhes.
+Acessar dados de blob por meio do parâmetro digitado como [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Consulte o [exemplo de entrada](#example) para obter detalhes.
 
 # <a name="java"></a>[Java](#tab/java)
 
-O `@BlobInput` atributo dá acesso à bolha que acionou a função. Se você usar uma matriz de `dataType` bytes com o atributo, defina- a `binary`. Consulte o [exemplo de entrada](#example) para obter detalhes.
+O `@BlobInput` atributo fornece acesso ao blob que disparou a função. Se você usar uma matriz de bytes com o atributo, `dataType` defina `binary`como. Consulte o [exemplo de entrada](#example) para obter detalhes.
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Execute uma função quando os dados de armazenamento blob mudarem](./functions-bindings-storage-blob-trigger.md)
-- [Escreva dados de armazenamento blob de uma função](./functions-bindings-storage-blob-output.md)
+- [Executar uma função quando os dados do armazenamento de BLOBs forem alterados](./functions-bindings-storage-blob-trigger.md)
+- [Gravar dados de armazenamento de blobs de uma função](./functions-bindings-storage-blob-output.md)

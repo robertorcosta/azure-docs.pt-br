@@ -1,6 +1,6 @@
 ---
-title: Configurar alertas e notificações para Anotações Gerenciadas (portal Azure)
-description: Use o portal Azure para criar alertas de instância gerenciada SQL, que podem desencadear notificações ou automação quando as condições especificadas forem atendidas.
+title: Alertas e notificações de instalação para Instância Gerenciada (portal do Azure)
+description: Use o portal do Azure para criar alertas do SQL Instância Gerenciada, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,22 +12,22 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/02/2020
 ms.openlocfilehash: a332627d149a36ba5d5beb2626023e58a221f0d6
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80639192"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Crie alertas para a instância gerenciada do Azure SQL usando o portal Azure
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para o Azure SQL Instância Gerenciada usando o portal do Azure
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo mostra como configurar alertas para bancos de dados no Banco de Dados de Instânciagerenciada do Azure SQL usando o portal Azure. Os alertas podem enviar-lhe um e-mail ou chamar um gancho de web quando alguma métrica (por exemplo, tamanho de armazenamento ou uso da CPU) atingir o limiar. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
+Este artigo mostra como configurar alertas para bancos de dados no Azure SQL Instância Gerenciada Database usando o portal do Azure. Os alertas podem enviar um email ou chamar um gancho da Web quando alguma métrica (por exemplo, o tamanho do armazenamento da instância ou o uso da CPU) atingir o limite. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
 
 Você pode receber um alerta com base em métricas de monitoramento ou em eventos nos serviços do Azure.
 
-* **Valores métricos** - O alerta é acionado quando o valor de uma métrica especificada cruza um limiar atribuído em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.
-* **Eventos de registro de atividades** - Um alerta pode ser acionado em *todos os* eventos, ou, somente quando um determinado número de eventos ocorrer.
+* **Valores de métrica** -o alerta é disparado quando o valor de uma métrica especificada cruza um limite que você atribui em qualquer direção. Ou seja, ele dispara quando a condição é atendida pela primeira vez e posteriormente, quando essa condição não está sendo mais atendida.
+* **Eventos do log de atividades** – um alerta pode disparar em *cada* evento ou somente quando ocorre um determinado número de eventos.
 
 Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 
@@ -39,32 +39,32 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [interface de linha de comando (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [CLI (interface de linha de comando)](../azure-monitor/platform/alerts-classic-portal.md)
+* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
-2. Selecione **Alertas** na seção Monitoramento. O texto e o ícone podem variar um pouco para recursos diferentes.  
+2. Selecione **alertas** na seção monitoramento. O texto e o ícone podem variar um pouco para recursos diferentes.  
 
    ![Monitoramento](media/sql-database-insights-alerts-portal/Alerts.png)
   
-3. Selecione o botão **Nova regra de alerta** para abrir a página Criar **regra.**
+3. Selecione o botão **nova regra de alerta** para abrir a página **criar regra** .
    ![Criar regra](media/sql-database-insights-alerts-portal/create-rule.png)
 
-4. Na seção **Condição,** clique em **Adicionar**.
+4. Na seção **condição** , clique em **Adicionar**.
    ![Definir condição](media/sql-database-insights-alerts-portal/create-rule.png)
-5. Na página **Configurar lógica de sinal,** selecione um sinal.
+5. Na página **Configurar lógica de sinal** , selecione um sinal.
    ![Selecionar sinal](media/sql-database-insights-alerts-portal/select-signal.png)
-6. Depois de selecionar um sinal, como **porcentagem da CPU,** a página **Configurar lógica de sinal** é exibida.
+6. Depois de selecionar um sinal, como **percentual de CPU**, a página **Configurar lógica de sinal** será exibida.
    ![Configurar sinal lógico](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
-7. Nesta página, configure esse tipo de limiar, operador, tipo de agregação, valor limite, granularidade de agregação e frequência de avaliação. Em seguida, clique **em Feito**.
-8. Na **regra Criar,** selecione um **grupo de ação** existente ou crie um novo grupo. Um grupo de ação permite definir a ação a ser tomada quando ocorre uma condição de alerta.
+7. Nessa página, configure esse tipo de limite, operador, tipo de agregação, valor de limite, granularidade de agregação e frequência de avaliação. Em seguida, clique em **concluído**.
+8. Na **regra criar**, selecione um grupo de **ações** existente ou crie um novo grupo. Um grupo de ações permite que você defina a ação a ser executada quando ocorrer uma condição de alerta.
   ![Definir grupo de ação](media/sql-database-insights-alerts-portal/action-group.png)
 
-9. Defina um nome para a regra, forneça uma descrição opcional, escolha um nível de gravidade para a regra, escolha se deve habilitar a regra na criação da regra e, em seguida, clique em **Criar alerta de regra** para criar o alerta de regra métrica.
+9. Defina um nome para a regra, forneça uma descrição opcional, escolha um nível de severidade para a regra, escolha se deseja habilitar a regra na criação de regra e clique em **criar alerta de regra** para criar o alerta de regra de métrica.
 
-Dentro de 10 minutos, o alerta está ativo e dispara como descrito anteriormente.
+Em 10 minutos, o alerta está ativo e é disparado conforme descrito anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

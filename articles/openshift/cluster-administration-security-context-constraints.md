@@ -1,6 +1,6 @@
 ---
 title: Gerenciar restrições de contexto de segurança no Azure Red Hat OpenShift | Microsoft Docs
-description: Restrições de contexto de segurança para administradores de clusterS Azure Red Hat OpenShift
+description: Restrições de contexto de segurança para administradores de cluster do Azure Red Hat OpenShift
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -8,17 +8,17 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063170"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gerenciar restrições de contexto de segurança no Azure Red Hat OpenShift 
 
-As restrições de contexto de segurança (SCCs) permitem que os administradores de cluster controlem permissões para pods. Para saber mais sobre esse tipo de API, consulte a documentação de [arquitetura para SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar SCCs na sua instância como objetos de API normais usando o CLI.
+As restrições de contexto de segurança (SCCs) permitem que os administradores de cluster controlem as permissões para pods. Para saber mais sobre esse tipo de API, consulte a [documentação da arquitetura do SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar o SCCs em sua instância do como objetos de API normais usando a CLI.
 
-## <a name="list-security-context-constraints"></a>Restrições de contexto de segurança de lista
+## <a name="list-security-context-constraints"></a>Listar restrições de contexto de segurança
 
 Para obter uma lista atual de SCCs, use este comando: 
 
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>Examine um objeto para restrições de contexto de segurança
+## <a name="examine-an-object-for-security-context-constraints"></a>Examinar um objeto em busca de restrições de contexto de segurança
 
-Para examinar um CCS `oc get` `oc describe`específico, `oc edit`use, ou .  Por exemplo, para examinar o CCS **restrito,** use este comando:
+Para examinar um SCC, use `oc get`, `oc describe`ou. `oc edit`  Por exemplo, para examinar o SCC **restrito** , use este comando:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

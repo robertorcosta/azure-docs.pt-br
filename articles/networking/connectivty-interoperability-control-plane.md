@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade em Azure : Análise de plano de controle'
+title: 'Interoperabilidade no Azure: análise do plano de controle'
 description: Este artigo fornece a análise do plano de controle da configuração do teste que é possível utilizar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e o emparelhamento de rede virtual no Azure.
 documentationcenter: na
 services: networking
@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518284"
 ---
-# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidade em Azure : Análise de plano de controle
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidade no Azure: análise do plano de controle
 
 Este artigo descreve a análise do plano de controle da [configuração do teste][Setup]. Também é possível examinar a [configuração do teste][Configuration] e a [análise do plano de dados][Data-Analysis] da configuração do teste.
 
@@ -29,7 +29,7 @@ A figura a seguir ilustra a rede a partir da perspectiva de uma VNet (rede virtu
 
 ![1][1]
 
-O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Quando você configura o peering ExpressRoute, porque o MSEE é o peer, você usa **12076** como asn de pares. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, quando você vê uma tabela de rota expressroute, você vê o gateway ExpressRoute da VNet ASN para os prefixos da VNet. 
+O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Ao configurar o emparelhamento de ExpressRoute, como o MSEE é o par, você usa **12076** como o ASN de mesmo nível. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, ao exibir uma tabela de rota do ExpressRoute, você verá o ASN do gateway de ExpressRoute da VNet para os prefixos da VNet. 
 
 A figura a seguir mostra uma tabela de rotas do ExpressRoute: 
 
@@ -45,7 +45,7 @@ Ambas a Localização 1 local e a VNet remota são conectadas à VNet do hub via
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Localização 1 local e a perspectiva da VNet de branch via uma VPN site a site
 
-Tanto o Local 1 quanto a filial VNet estão conectados ao gateway VPN de um hub VNet através de uma conexão VPN site-to-site. Elas compartilham a mesma perspectiva da topologia, conforme mostrado no diagrama a seguir:
+Tanto a localização local 1 quanto a VNet de ramificação estão conectadas a um gateway de VPN de VNet de Hub por meio de uma conexão VPN site a site. Elas compartilham a mesma perspectiva da topologia, conforme mostrado no diagrama a seguir:
 
 ![3][3]
 
@@ -94,11 +94,11 @@ Consulte as [Perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "Hub e falou vnet perspectiva da topologia"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "Localização 1 e perspectiva vnet remota da topologia via ExpressRoute 1"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "Localização 1 e perspectiva de ramificação vnet da topologia através de uma VPN site-to-site"
-[4]: ./media/backend-interoperability/Loc2View.png "Localização 2 perspectiva da topologia"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabela de rotas ExpressRoute 1"
+[1]: ./media/backend-interoperability/HubView.png "Perspectiva do Hub e da VNet do spoke da topologia"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "Local 1 e perspectiva de VNet remota da topologia via ExpressRoute 1"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "Localização 1 e perspectiva da VNet de ramificação da topologia por meio de uma VPN site a site"
+[4]: ./media/backend-interoperability/Loc2View.png "Ponto de vista local 2 da topologia"
+[5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabela de rotas do ExpressRoute 1"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

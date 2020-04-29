@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: aa65b789d02c60ef6042aa62e1c138c0e1bd7224
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676910"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
@@ -210,7 +210,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
    fdisk /dev/sdc
    ```
    
-   Usando as respostas fornecidas acima, `fdisk` a saída para o comando deve ser pareada com a seguinte:
+   Usando as respostas fornecidas acima, a saída do `fdisk` comando deve ser semelhante ao seguinte:
 
    ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -246,7 +246,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
    Syncing disks.
    ```
 
-4. Repita o `fdisk` comando `/dev/sdd` `/dev/sde`anterior `/dev/sdf`para , e .
+4. Repita o comando `fdisk` anterior para `/dev/sdd`, `/dev/sde`e `/dev/sdf`.
 
 5. Verifique a configuração de disco:
 
@@ -427,7 +427,7 @@ A configuração do Oracle ASM exige uma interface gráfica para concluir a inst
    > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. No sistema cliente, inicie o PuTTY. Na **categoria** painel, vá para **Conexão** > **SSH** > **Auth**. No **arquivo de tecla Private para caixa de autenticação,** navegue até a chave que você gerou anteriormente.
+6. No sistema cliente, inicie o PuTTY. No painel **categoria** , acesse **conexão** > **SSH** > **autenticação**. Na caixa **arquivo de chave privada para autenticação** , navegue até a chave que você gerou anteriormente.
 
    ![Captura de tela das opções de autenticação SSH](./media/oracle-asm/setprivatekey.png)
 

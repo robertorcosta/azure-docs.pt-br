@@ -1,6 +1,6 @@
 ---
-title: Opções de migração de dados de dispositivos da série StorSimple 8000
-description: Fornece uma visão geral das opções para migrar dados da série StorSimple 8000.
+title: Opções de migração de dados de dispositivos StorSimple da série 8000
+description: Fornece uma visão geral das opções para migrar dados do StorSimple 8000 Series.
 services: storsimple
 author: priestlg
 ms.service: storsimple
@@ -8,36 +8,36 @@ ms.topic: article
 ms.date: 03/25/2020
 ms.author: v-grpr
 ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767044"
 ---
-# <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados da série StorSimple 8000
+# <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados do StorSimple série 8000
 
 > [!IMPORTANT]
-> Em 31 de dezembro de 2022, a série StorSimple 8000 chegará ao status de fim de suporte (EOS). Recomendamos que os clientes da série StorSimple 8000 migrem para uma das alternativas descritas no documento.
+> Em 31 de dezembro de 2022, a série StorSimple 8000 atingirá o status de fim de suporte (EOS). Recomendamos que os clientes da série StorSimple 8000 migrem para uma das alternativas descritas no documento.
 
-A série StorSimple 8000 está chegando ao [fim do Suporte](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) em dezembro de 2022. Os clientes que estão executando a série StorSimple 8000 têm a opção de atualizar para outros serviços híbridos de primeira parte do Azure. Este artigo descreve as opções híbridas do Azure disponíveis para migrar dados.
+A série StorSimple 8000 está atingindo o [fim do suporte](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) em 2022 de dezembro. Os clientes que estão executando o StorSimple 8000 Series têm a opção de atualizar para outros serviços híbridos de terceiros do Azure. Este artigo descreve as opções híbridas do Azure disponíveis para migrar dados.
 
 ## <a name="migration-options"></a>Opções de migração
 
-Os clientes que usam a série StorSimple 8000 têm opções de Azure ou de terceiros.
+Os clientes que usam a série StorSimple 8000 têm opções do Azure ou de terceiros.
 
 ### <a name="azure-options"></a>Opções do Azure
 
 #### <a name="migrate-to-azure-file-sync"></a>Migrar para Sincronização de Arquivos do Azure
 
-Essa nova opção de migração permite que os clientes armazenem os compartilhamentos de arquivos de sua organização nos Arquivos Do Azure. Esses compartilhamentos de arquivos são então centralizados para acesso local usando AFS (Sincronização de Arquivos do Azure). A AFS pode ser implantada em um host do Windows Server. A migração de dados real é então executada como uma cópia do host ou usando a ferramenta de migração.
+Essa nova opção de migração permite que os clientes armazenem os compartilhamentos de arquivos de sua organização nos arquivos do Azure. Esses compartilhamentos de arquivos são então centralizados para acesso local usando AFS (Sincronização de Arquivos do Azure). A AFS pode ser implantada em um host do Windows Server. A migração de dados real é então executada como uma cópia do host ou usando a ferramenta de migração.
 
-Para obter mais informações sobre como migrar dados para o Azure File Sync, vá para a [migração do StorSimple 8100 e 8600 para o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Para obter mais informações sobre como migrar dados para Sincronização de Arquivos do Azure, vá para a [migração do StorSimple 8100 e 8600 para sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
 
 ### <a name="third-party-options"></a>Opções de terceiros
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Migrar para o NAS do Panzura Freedom
 
-Os clientes das séries StorSimple 5000-7000 e StorSimple 8000 podem optar por migrar para o Panzura Freedom NAS para manter seus dados no Azure. A solução Panzura Freedom fornece uma solução NAS que abrange data centers, escritórios, nuvens públicas e privadas. A solução habilita fluxos de trabalho de dados na nuvem, híbridos e locais para clientes móveis, SMB e NFS.
+Os clientes do StorSimple 5000-7000 Series e do StorSimple 8000 Series podem optar por migrar para o Panzura Freedom NAS para manter seus dados no Azure. A solução de Panzura Freedom fornece uma solução de NAS que abrange data centers, escritórios, nuvens públicas e privadas. A solução habilita fluxos de trabalho de dados na nuvem, híbridos e locais para clientes móveis, SMB e NFS.
 
 Há suporte para essa migração no Panzura e os clientes podem começar solicitando o suporte à migração do [site do Panzura](https://panzura.com/migrate-storsimple-panzura/).
 
@@ -63,46 +63,46 @@ Learn more about how to evolve to a cloud-consolidated enterprise at https://www
 
 ## <a name="migration---frequently-asked-questions"></a>Migração - Perguntas frequentes
 
-### <a name="q-when-do-the-storsimple-8000-series-devices-reach-end-of-service"></a>Q. Quando os dispositivos da série StorSimple 8000 chegam ao fim do serviço?
+### <a name="q-when-do-the-storsimple-8000-series-devices-reach-end-of-service"></a>Q. Quando os dispositivos da série StorSimple 8000 atingem o fim do serviço?
 
-a. A série StorSimple 8000 chega ao [fim do suporte](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) em dezembro de 2022. O fim do suporte implica que a Microsoft não será mais capaz de fornecer suporte para hardware e software desses dispositivos após dezembro de 2022. É altamente recomendável que você comece a formular um plano para migrar os dados dos dispositivos agora.
+A. A série StorSimple 8000 alcança o [fim do suporte](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) em dezembro de 2022. O fim do suporte implica que a Microsoft não será mais capaz de fornecer suporte para hardware e software desses dispositivos depois de dezembro de 2022. É altamente recomendável que você comece a formular um plano para migrar os dados dos dispositivos agora.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>Q. O que acontecerá com os dados armazenados no Azure?  
 
-a. Será possível continuar usando os dados no Azure após migrá-los para um serviço mais recente.
+A. Será possível continuar usando os dados no Azure após migrá-los para um serviço mais recente.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>Q. O que acontecerá com os dados que tenho armazenados localmente no dispositivo do StorSimple?
 
-a. Os dados que estão no dispositivo local poderão ser copiados para o serviço mais recente, conforme descrito nos documentos de migração.
+A. Os dados que estão no dispositivo local poderão ser copiados para o serviço mais recente, conforme descrito nos documentos de migração.
 
-### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance"></a>Q. O que acontece se eu quiser manter o meu aparelho da série StorSimple 8000?
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance"></a>Q. O que acontece se eu quiser manter meu dispositivo StorSimple série 8000?
 
-a. Embora os serviços poderão continuar funcionando, a Microsoft não poderá mais dar suporte de hardware e software. A migração é altamente recomendável para continuidade de negócios.
+A. Embora os serviços poderão continuar funcionando, a Microsoft não poderá mais dar suporte de hardware e software. A migração é altamente recomendável para continuidade de negócios.
 
-### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-8000-series-devices"></a>Q. Quais opções estão disponíveis para migrar dados de dispositivos da série StorSimple 8000?
+### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-8000-series-devices"></a>Q. Quais opções estão disponíveis para migrar dados de dispositivos StorSimple da série 8000?
 
-a. Dependendo do cenário, os usuários da série StorSimple 8000 têm as seguintes opções de migração:
+A. Dependendo de seu cenário, os usuários da série StorSimple 8000 têm as seguintes opções de migração:
 
 * **Migrar para Sincronização de Arquivos do Azure**: use essa opção quando quiser alternar para o formato nativo do Azure. É possível usar a Sincronização de Arquivos do Azure para gerenciamento centralizado de compartilhamentos de arquivos.
 
-* **Outras opções**: Você pode entrar em contato com o Suporte da Microsoft para discutir opções de migração não listadas aqui.
+* **Outras opções**: você pode entrar em contato com suporte da Microsoft para discutir as opções de migração não listadas aqui.
 
 ### <a name="q-is-migration-to-other-storage-solutions-supported"></a>Q. Há suporte de migração para outras soluções de armazenamento?
 
-a. Sim. Há suporte para migração de outras soluções de armazenamento usando a cópia do host dos dados.
+A. Sim. Há suporte para migração de outras soluções de armazenamento usando a cópia do host dos dados.
 
 ### <a name="q-is-migration-supported-by-microsoft"></a>Q. A Microsoft dá suporte à migração?
 
-a. Migrar da série 8000 é uma operação totalmente apoiada. Na verdade, a Microsoft recomenda contatar o Suporte antes de iniciar a migração. A migração atualmente é uma operação assistida. Se você pretende migrar dados do seu dispositivo da série StorSimple 8000, [entre em contato com o suporte do StorSimple](mailto:storsimp@microsoft.com).
+A. A migração da série 8000 é uma operação totalmente suportada. Na verdade, a Microsoft recomenda contatar o Suporte antes de iniciar a migração. A migração atualmente é uma operação assistida. Se você pretende migrar dados de seu dispositivo StorSimple da série 8000, [entre em contato com o suporte do storsimple](mailto:storsimp@microsoft.com).
 
-### <a name="q-what-is-the-pricing-model-for-migration-to-azure-file-sync"></a>Q. Qual é o modelo de preços para migração para o Azure File Sync?
+### <a name="q-what-is-the-pricing-model-for-migration-to-azure-file-sync"></a>Q. Qual é o modelo de preços para a migração para Sincronização de Arquivos do Azure?
 
-a. Ao usar o Azure File Sync, as taxas de assinatura do serviço podem ser aplicadas. Os clientes também terão que pagar custos contínuos de armazenamento. Consulte os [preços da AFS]( https://azure.microsoft.com/pricing/details/storage/files/) para obter uma estimativa.
+A. Ao usar Sincronização de Arquivos do Azure, as tarifas de assinatura para o serviço podem ser aplicadas. Os clientes também terão de pagar custos contínuos de armazenamento. Consulte [preços AFS]( https://azure.microsoft.com/pricing/details/storage/files/) para obter uma estimativa.
 
 ### <a name="q-how-long-does-it-take-to-complete-a-migration"></a>Q. Quanto tempo demora para concluir uma migração?
 
-a. O tempo para migrar dados depende da quantidade de dados e da opção de atualização selecionada.
+A. O tempo para migrar dados depende da quantidade de dados e da opção de atualização selecionada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Migrar dados de uma série StorSimple 8000 para o Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrar dados de uma série StorSimple 8000 para Sincronização de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)

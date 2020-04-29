@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade - Banco de Dados Azure para MariaDB
+title: Alta disponibilidade-banco de dados do Azure para MariaDB
 description: Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MariaDB
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a87646f6195a06cf0a5382cb248efa5516c953f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79531984"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MariaDB

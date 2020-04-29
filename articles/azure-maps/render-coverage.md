@@ -1,6 +1,6 @@
 ---
 title: Cobertura de renderização | Mapas do Microsoft Azure
-description: Neste artigo, conheça regiões com o Microsoft Azure Maps, tornando a cobertura juntamente com seu nível de detalhes renderizados.
+description: Neste artigo, saiba mais sobre regiões com mapas de Microsoft Azure renderizam a cobertura junto com seus níveis de detalhes renderizados.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536744"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
-O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em uma única telha. Na resolução mais alta, uma única telha representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que você amplia o mapa. Para obter mais informações sobre telhas, consulte [os níveis de Zoom e a grade de ladrilhos](zoom-levels-and-tile-grid.md).
+O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em um único bloco. Na resolução mais alta, um único bloco representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que aplicar zoom no mapa. Para obter mais informações sobre blocos, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
 
-No entanto, o Maps não tem o mesmo nível de informação e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
+No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
 
 ## <a name="legend"></a>Legenda
 
@@ -38,12 +38,12 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Angola                           | ✓ | ✓ |
 | Benin                            | ✓ | ✓ |
 | Botsuana                         | ✓ | ✓ |
-| Burkina Faso                     | ✓ | ✓ |
+| Burquina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camarões                         | ✓ | ✓ |
 | República Centro-Africana         | ✓ | Ø |
-| Chad                             | ✓ | Ø |
+| Chade                             | ✓ | Ø |
 | Ilhas Comores                          | ✓ | Ø |
 | República Democrática do Congo | ✓ | ✓ |
 | Côte d’Ivoire                    | ✓ | Ø |
@@ -63,7 +63,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Líbia                            | ✓ | Ø |
 | Madagascar                       | ✓ | Ø |
 | Malaui                           | ✓ | ✓ |
-| Mali                             | ✓ | ✓ |
+| Máli                             | ✓ | ✓ |
 | Mauritânia                       | ✓ | ✓ |
 | Maurício                        | ✓ | ✓ |
 | Mayotte                          | ✓ | ✓ |
@@ -75,7 +75,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Reunião                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Santa Helena, Ascensão e Tristão da Cunha | ✓ | Ø |
-| São Tomé e Príncipe            | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Serra Leoa                     | ✓ | ✓ |
 | Somália                          | ✓ | ✓ |
@@ -94,7 +94,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 
 | País/Região | Blocos de Rastreamento Unificados | Blocos de Vetores Unificados |
 | ------ | :------------------: | :------------------: |
-| Anguila                  | ✓ | ✓ |
+| Anguilla                  | ✓ | ✓ |
 | Antígua e Barbuda       | ✓ | ✓ |
 | Argentina                 | ✓ | ✓ |
 | Aruba                     | ✓ | ✓ |
@@ -139,8 +139,8 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | São Cristóvão e Névis     | ✓ | ✓ |
 | Santa Lúcia               | ✓ | ✓ |
 | Saint Martin (francesa)     | ✓ | ✓ |
-| São Pierre e Miquelon | ✓ | ✓ |
-| São Vincent e Granadinas | ✓ | ✓ |
+| São Pedro e Miquelon | ✓ | ✓ |
+| São Vicente e Granadinas | ✓ | ✓ |
 | Sint Maarten (holandesa)      | ✓ | ✓ |
 | Geórgia do Sul e Ilhas Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
@@ -225,12 +225,12 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Niue                      |   | Ø |
 | Ilha Norfolk            |   | Ø |
 | Palau                     |   | Ø |
-| Papua-Nova Guiné          |   | Ø |
+| Papua Nova-Guiné          |   | Ø |
 | Pitcairn                  |   | Ø |
 | Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
 | Tokelau                   |   | Ø |
-| Tonganês                     |   | Ø |
+| Tonga                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
 | Wallis e Futuna         |   | Ø |
@@ -261,7 +261,7 @@ No entanto, o Maps não tem o mesmo nível de informação e precisão para toda
 | Alemanha                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grécia                    | ✓ | ✓ |
-| Guernesey                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Hungria                   | ✓ | ✓ |
 | Islândia                   | ✓ | ✓ |
 | Irlanda                   | ✓ | ✓ |

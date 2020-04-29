@@ -13,53 +13,53 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: a1e0e3623692321e5c69e4b9c5a26ff82a1c47a0
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732348"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envie mensagens nuvem-para-dispositivo com o IoT Hub (Node.js)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Enviar mensagens da nuvem para o dispositivo com o Hub IoT (Node. js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. A [telemetria Send de um dispositivo para um hub de IoT](quickstart-send-telemetry-node.md) mostra como criar um hub de IoT, provisionar uma identidade de dispositivo nele e codificar um aplicativo de dispositivo simulado que envia mensagens dispositivo-nuvem.
+O Hub IoT do Azure é um serviço totalmente gerenciado que ajuda a permitir comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. O guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) mostra como criar um hub IOT, provisionar uma identidade do dispositivo nele e codificar um aplicativo de dispositivo simulado que envia mensagens do dispositivo para a nuvem.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial se baseia em [Enviar telemetria de um dispositivo para um hub de IoT](quickstart-send-telemetry-node.md). Ele mostra como:
+Este tutorial se baseia no [envio de telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md). Ele mostra como:
 
 * Da sua solução de back-end, envie mensagens da nuvem para o dispositivo em um único dispositivo por meio do Hub IoT.
 * Receber mensagens da nuvem para o dispositivo em um dispositivo.
-* A partir do back-end da solução, solicite o reconhecimento de entrega *(feedback)* para mensagens enviadas a um dispositivo do IoT Hub.
+* Do seu back-end da solução, solicite a confirmação de entrega (*comentários*) para mensagens enviadas a um dispositivo do Hub IOT.
 
-Você pode encontrar mais informações sobre mensagens de nuvem para dispositivo no guia de desenvolvedores do [IoT Hub](iot-hub-devguide-messaging.md).
+Você pode encontrar mais informações sobre as mensagens da nuvem para o dispositivo no [Guia do desenvolvedor do Hub IOT](iot-hub-devguide-messaging.md).
 
 Ao fim deste tutorial, você executará dois aplicativos de console do Node.js:
 
-* **SimulatedDevice**, uma versão modificada do aplicativo criado em [Send telemetria de um dispositivo para um hub IoT,](quickstart-send-telemetry-node.md)que se conecta ao seu hub IoT e recebe mensagens nuvem-dispositivo.
+* **SimulatedDevice**, uma versão modificada do aplicativo criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md), que se conecta ao seu hub IOT e recebe mensagens da nuvem para o dispositivo.
 
-* **SendCloudToDeviceMessage**, que envia uma mensagem nuvem-para-dispositivo para o aplicativo de dispositivo simulado através do IoT Hub, e depois recebe seu reconhecimento de entrega.
+* **SendCloudToDeviceMessage**, que envia uma mensagem da nuvem para o dispositivo para o aplicativo de dispositivo simulado por meio do Hub IOT e recebe sua confirmação de entrega.
 
 > [!NOTE]
-> O IoT Hub tem suporte a SDK para muitas plataformas de dispositivos e idiomas (incluindo C, Java, Python e Javascript) através de SDKs de dispositivos Azure IoT. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Centro de Desenvolvedores do IoT do Azure](https://azure.microsoft.com/develop/iot).
+> O Hub IoT tem suporte do SDK para várias plataformas de dispositivo e linguagens (incluindo C, Java, Python e JavaScript) por meio de SDKs do dispositivo IoT do Azure. Para obter instruções passo a passo sobre como conectar seu dispositivo ao código deste tutorial e, em geral, ao Hub IoT do Azure, veja o [Centro de Desenvolvedores do IoT do Azure](https://azure.microsoft.com/develop/iot).
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Node.js versão 10.0.x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node. js versão 10.0. x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial) em apenas alguns minutos.)
 
-* Verifique se a porta 8883 está aberta no firewall. A amostra do dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Verifique se a porta 8883 está aberta no firewall. O exemplo de dispositivo neste artigo usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Receber mensagens no aplicativo do dispositivo simulado
 
-Nesta seção, você modifica o aplicativo de dispositivo simulado que você criou na [telemetria Enviar de um dispositivo para um hub de IoT](quickstart-send-telemetry-node.md) para receber mensagens nuvem-dispositivo do hub IoT.
+Nesta seção, você modificará o aplicativo de dispositivo simulado criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) para receber mensagens da nuvem para o dispositivo do Hub IOT.
 
-1. Usando um editor de texto, abra o arquivo **SimuladoDevice.js.** Este arquivo está localizado na pasta **iot-hub\Quickstarts\simulated-device** off da pasta raiz do código de amostra Node.js que você baixou na [telemetria Enviar de um dispositivo para um hub de IoT](quickstart-send-telemetry-node.md) quickstart.
+1. Usando um editor de texto, abra o arquivo **SimulatedDevice. js** . Esse arquivo está localizado na pasta **IOT-hub\Quickstarts\simulated-Device** da pasta raiz do código de exemplo do node. js que você baixou no início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) .
 
-2. Registre um manipulador com o cliente do dispositivo para receber mensagens enviadas do IoT Hub. Adicione a `client.on` chamada logo após a linha que cria o cliente do dispositivo como no seguinte trecho:
+2. Registre um manipulador com o cliente do dispositivo para receber mensagens enviadas do Hub IoT. Adicione a chamada para `client.on` logo após a linha que cria o cliente do dispositivo como no trecho a seguir:
 
     ```javascript
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
@@ -76,21 +76,21 @@ Nesta seção, você modifica o aplicativo de dispositivo simulado que você cri
     });
     ```
 
-    Neste exemplo, o dispositivo invoca a função **completa** para notificar o IoT Hub de que processou a mensagem. A chamada a **ser concluída** não é necessária se você estiver usando o transporte MQTT e pode ser omitido. É necessário para HTTPS e AMQP.
+    Neste exemplo, o dispositivo chama a função **Complete** para notificar o Hub IOT de que ele processou a mensagem. A chamada para **Complete** não será necessária se você estiver usando o transporte MQTT e puder ser omitida. Ele é necessário para HTTPS e AMQP.
   
    > [!NOTE]
    > Se você usar HTTPS em vez de MQTT ou AMQP como transporte, a instância **DeviceClient** verificará se há mensagens do Hub IoT com pouca frequência (menos de cada 25 minutos). Para obter mais informações sobre as diferenças entre o suporte do MQTT, AMQP e HTTPS e a limitação do Hub IoT, consulte o [Guia do Desenvolvedor do Hub IoT](iot-hub-devguide-messaging.md).
    >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtenha a seqüência de conexão do hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
-Neste artigo, você cria um serviço de back-end para enviar mensagens nuvem-dispositivo através do hub ioT que você criou no [Enviar telemetria de um dispositivo para um hub ioT](quickstart-send-telemetry-node.md). Para enviar mensagens em nuvem para dispositivo, seu serviço precisa da permissão de conexão de **serviço.** Por padrão, todo IoT Hub é criado com uma política de acesso compartilhado chamada **service** que concede essa permissão.
+Neste artigo, você cria um serviço de back-end para enviar mensagens da nuvem para o dispositivo por meio do Hub IoT criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md). Para enviar mensagens da nuvem para o dispositivo, seu serviço precisa da permissão de **conexão de serviço** . Por padrão, todo Hub IoT é criado com uma política de acesso compartilhado chamada **serviço** que concede essa permissão.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>Envie uma mensagem da nuvem para o dispositivo
 
-Nesta seção, você criará um aplicativo do console do Node.js que envia mensagens da nuvem ao dispositivo para o aplicativo do dispositivo simulado. Você precisa do ID do dispositivo que você adicionou na [telemetria Enviar de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md) quickstart. Você também precisa da seqüência de conexão de hub IoT que você copiou anteriormente em [Obter a seqüência de conexão de hub IoT](#get-the-iot-hub-connection-string).
+Nesta seção, você criará um aplicativo do console do Node.js que envia mensagens da nuvem ao dispositivo para o aplicativo do dispositivo simulado. Você precisa da ID do dispositivo que adicionou no guia de início rápido [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-node.md) . Você também precisa da cadeia de conexão do Hub IoT que copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
 1. Crie uma pasta vazia denominada **sendcloudtodevicemessage**. Na pasta **sendcloudtodevicemessage**, crie um arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
 
@@ -115,7 +115,7 @@ Nesta seção, você criará um aplicativo do console do Node.js que envia mensa
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Adicione o seguinte código ao arquivo **SendCloudToDeviceMessage.js** . Substitua os valores de espaço reservado "{iot hub connection string}" e "{device id}" por uma seqüência de conexões de hub IoT e iD do dispositivo que você observou anteriormente:
+5. Adicione o seguinte código ao arquivo **SendCloudToDeviceMessage.js** . Substitua os valores de espaço reservado "{cadeia de conexão do Hub IOT}" e "{ID do dispositivo}" pela cadeia de conexão do Hub IoT e ID do dispositivo observado anteriormente:
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -170,7 +170,7 @@ Nesta seção, você criará um aplicativo do console do Node.js que envia mensa
 
 Agora você está pronto para executar os aplicativos.
 
-1. No prompt de comando na pasta **de dispositivo simulado,** execute o seguinte comando para enviar telemetria ao IoT Hub e para ouvir mensagens em nuvem para dispositivo:
+1. No prompt de comando na pasta **Simulated-Device** , execute o seguinte comando para enviar telemetria ao Hub IOT e para escutar mensagens da nuvem para o dispositivo:
 
     ```shell
     node SimulatedDevice.js
@@ -196,4 +196,4 @@ Neste tutorial você aprendeu a enviar e receber mensagens da nuvem para o dispo
 
 Para ver exemplos de soluções completas que usam o Hub IoT, consulte [Acelerador de solução de Monitoramento Remoto do Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
-Para saber mais sobre o desenvolvimento de soluções com o IoT Hub, consulte o guia de desenvolvedores do [IoT Hub](iot-hub-devguide.md).
+Para saber mais sobre como desenvolver soluções com o Hub IoT, confira o [Guia do desenvolvedor do Hub IOT](iot-hub-devguide.md).

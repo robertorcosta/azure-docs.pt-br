@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663038"
 ---
 # <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
@@ -18,7 +18,7 @@ ms.locfileid: "77663038"
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.    
 
 
-[As soluções de](solutions.md) gerenciamento normalmente incluem uma ou mais visualizações para visualizar dados.  Este artigo descreve como exportar uma visão criada pelo [View Designer](../../azure-monitor/platform/view-designer.md) e incluí-la em uma solução de gerenciamento.  
+Normalmente, as [soluções de gerenciamento](solutions.md) incluirão uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar um modo de exibição criado pelo [Designer de exibição](../../azure-monitor/platform/view-designer.md) e incluí-lo em uma solução de gerenciamento.  
 
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](solutions-creating.md)

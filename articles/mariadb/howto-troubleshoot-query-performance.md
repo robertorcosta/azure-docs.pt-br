@@ -1,16 +1,16 @@
 ---
-title: Solucionar problemas no desempenho da consulta - Banco de dados Azure para MariaDB
-description: Aprenda a usar EXPLAIN para solucionar problemas no banco de dados do Azure para MariaDB.
+title: Solucionar problemas de desempenho de consulta-banco de dados do Azure para MariaDB
+description: Saiba como usar explicar para solucionar problemas de desempenho de consulta no banco de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530046"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Como usar o EXPLAIN para perfilar o desempenho da consulta no Banco de Dados do Azure para MariaDB
@@ -163,7 +163,7 @@ O EXPLAIN agora mostra que o MariaDB é capaz de usar o índice combinado para e
  
 ## <a name="conclusion"></a>Conclusão
  
-O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice sobre a mesa não significa necessariamente que o MariaDB seria capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
+O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente o desempenho. Ter um índice na tabela não significa necessariamente que MariaDB seria capaz de usá-lo para suas consultas. Sempre valide suas pressuposições usando a EXPLAIN e otimize as consultas usando índices.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite o [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

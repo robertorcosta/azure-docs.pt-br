@@ -1,7 +1,7 @@
 ---
-title: 'Atribuir dados ao cluster: referência do módulo'
+title: 'Atribuir dados ao cluster: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Atribuir dados ao cluster no Azure Machine Learning para marcar o modelo de clustering.
+description: Saiba como usar o módulo atribuir dados ao cluster em Azure Machine Learning para pontuar o modelo de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,42 +10,42 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477707"
 ---
-# <a name="module-assign-data-to-clusters"></a>Módulo: Atribuir dados a clusters
+# <a name="module-assign-data-to-clusters"></a>Módulo: atribuir dados a clusters
 
-Este artigo descreve como usar o módulo *Atribuir dados a clusters* no azure Machine Learning designer (visualização). O módulo gera previsões através de um modelo de clustering que foi treinado com o algoritmo *de clustering de meios K.*
+Este artigo descreve como usar o módulo *atribuir dados a clusters* no designer de Azure Machine Learning (versão prévia). O módulo gera previsões por meio de um modelo de clustering que foi treinado com o algoritmo de *clustering K-* means.
 
-O módulo Atribuir dados a clusters retorna um conjunto de dados que contém as prováveis atribuições para cada novo ponto de dados. 
+O módulo atribuir dados a clusters retorna um DataSet que contém as atribuições prováveis para cada novo ponto de dados. 
 
-## <a name="how-to-use-assign-data-to-clusters"></a>Como atribuir dados a clusters
+## <a name="how-to-use-assign-data-to-clusters"></a>Como usar atribuir dados a clusters
   
-1. No designer de Machine Learning do Azure, localize um modelo de clustering previamente treinado. Você pode criar e treinar um modelo de clustering usando qualquer um dos seguintes métodos:  
+1. No Azure Machine Learning designer, localize um modelo de clustering treinado anteriormente. Você pode criar e treinar um modelo de clustering usando um dos seguintes métodos:  
   
-    - Configure o algoritmo de clustering de meios K usando o módulo [de clusterde k-means](k-means-clustering.md) e treine o modelo usando um conjunto de dados e o módulo Train Clustering Model (este artigo).  
+    - Configure o algoritmo de clustering K-means usando o módulo de [clustering k-](k-means-clustering.md) means e treine o modelo usando um conjunto de um DataSet e o módulo treinar modelo de clustering (este artigo).  
   
-    - Você também pode adicionar um modelo de cluster treinado existente do grupo **Saved Models** em seu espaço de trabalho.
+    - Você também pode adicionar um modelo de clustering treinado existente do grupo **modelos salvos** em seu espaço de trabalho.
 
-2. Anexar o modelo treinado à porta de entrada esquerda de **Atribuir dados a clusters**.  
+2. Anexe o modelo treinado à porta de entrada à esquerda de **atribuir dados a clusters**.  
 
-3. Anexar um novo conjunto de dados como entrada. 
+3. Anexe um novo conjunto de dados como entrada. 
 
-   Neste conjunto de dados, as etiquetas são opcionais. Geralmente, o clustering é um método de aprendizagem não supervisionado. Não se espera que você conheça as categorias com antecedência. No entanto, as colunas de entrada devem ser as mesmas das colunas que foram usadas no treinamento do modelo de clustering, ou ocorre um erro.
+   Nesse conjunto de DataSet, os rótulos são opcionais. Em geral, o clustering é um método de aprendizado não supervisionado. Você não deve conhecer as categorias com antecedência. No entanto, as colunas de entrada devem ser iguais às colunas usadas no treinamento do modelo de clustering ou ocorre um erro.
 
     > [!TIP]
-    > Para reduzir o número de colunas que são escritas para o designer a partir das previsões do cluster, use [Selecionar colunas no conjunto de dados](select-columns-in-dataset.md)e selecione um subconjunto das colunas. 
+    > Para reduzir o número de colunas que são gravadas no designer de previsões de cluster, use [selecionar colunas no conjunto](select-columns-in-dataset.md)de linhas e selecione um subconjunto das colunas. 
     
-4. Deixe a **Verificação para anexar ou desmarcar para a** caixa de seleção de resultados selecionada se quiser que os resultados contenham o conjunto de dados de entrada completo, incluindo uma coluna que exibe os resultados (atribuições de cluster).
+4. Deixe a caixa de seleção **Marcar para acrescentar ou desmarcar para resultado somente** marcada se desejar que os resultados contenham o conjunto de dados de entrada completo, incluindo uma coluna que exibe os resultados (atribuições de cluster).
   
-    Se você limpar esta caixa de seleção, apenas os resultados serão devolvidos. Essa opção pode ser útil quando você cria previsões como parte de um serviço web.
+    Se você desmarcar essa caixa de seleção, somente os resultados serão retornados. Essa opção pode ser útil quando você cria previsões como parte de um serviço Web.
   
-5.  Envie o oleoduto.  
+5.  Envie o pipeline.  
   
 ### <a name="results"></a>Resultados
 
-+  Para visualizar os valores no conjunto de dados, clique com o botão direito do mouse no módulo e, em seguida, selecione **Visualizar**. Ou Selecione o módulo e alterne para a guia **Saídas** no painel direito, clique no ícone do histograma nas **saídas da Porta** para visualizar o resultado.
++  Para exibir os valores no conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**. Ou selecione o módulo e alterne para a guia **saídas** no painel direito, clique no ícone de histograma nas saídas de **porta** para visualizar o resultado.
 

@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: ae6bfb0ab0208d0f778476c9f0959b0c0f1d6471
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683725"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Esse guia detalha como usar a CLI do Azure para implantar um banco de dados Oracle 12c por meio da imagem na galeria do Marketplace do Azure. 
 
-Este documento mostra passo a passo sobre como criar, instalar e configurar o Oracle Golden Gate em uma VM do Azure. Neste tutorial, duas máquinas virtuais são configuradas em um conjunto de disponibilidade situada em uma única região. O mesmo tutorial pode ser usado para configurar o OracleGolden Gate para VMs em diferentes Zonas de Disponibilidade em uma única região do Azure ou para configuração de VMs em duas regiões diferentes.
+Este documento mostra passo a passo sobre como criar, instalar e configurar o Oracle Golden Gate em uma VM do Azure. Neste tutorial, duas máquinas virtuais são configuradas em um conjunto de disponibilidade em uma única região. O mesmo tutorial pode ser usado para configurar o portão OracleGolden para VMs em diferentes Zonas de Disponibilidade em uma única região do Azure ou para a instalação de VMs em duas regiões diferentes.
 
 Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -39,8 +39,8 @@ Este é um resumo da configuração do ambiente:
 > 
 > |  | **Site primário** | **Replicar site** |
 > | --- | --- | --- |
-> | **Lançamento oracle** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
-> | **Nome da máquina** |myVM1 |myVM2 |
+> | **Versão do Oracle** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
+> | **Nome do computador** |myVM1 |myVM2 |
 > | **Sistema operacional** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **SID do Oracle** |CDB1 |CDB1 |
 > | **Esquema de replicação** |TEST|TEST |
@@ -416,7 +416,7 @@ Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se
    > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. Inicie o PuTTY. No painel **categoria,** selecione **Conexão** > **SSH** > **Auth**. No **arquivo de tecla Private para caixa de autenticação,** navegue até a chave que você gerou anteriormente.
+6. Inicie o PuTTY. No painel **categoria** , selecione **conexão** > **SSH** > **autenticação**. Na caixa **arquivo de chave privada para autenticação** , navegue até a chave que você gerou anteriormente.
 
    ![Captura de tela da página Instalar chave privada](./media/oracle-golden-gate/setprivatekey.png)
 
@@ -432,7 +432,7 @@ Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se
 
 Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
-1. Entre como oracle. (Você deve ser capaz de fazer login sem ser solicitado por uma senha.) Certifique-se de que o Xming está em execução antes de iniciar a instalação.
+1. Entre como oracle. (Você deve ser capaz de entrar sem ser solicitado a fornecer uma senha.) Verifique se o Xming está em execução antes de começar a instalação.
 
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
@@ -710,7 +710,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
    MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
-5. Configure um ponto de verificação de réplica:
+5. Configurar um ponto de verificação replicar:
 
    ```bash
    GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
@@ -732,7 +732,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>Configurar a replicação (myVM1 e myVM2)
 
-#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. Configure a replicação no myVM2 (replicar)
+#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. configurar a replicação no myVM2 (replicar)
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -755,7 +755,7 @@ Em seguida, reinicie o serviço do Gerenciador:
   GGSCI> EXIT
   ```
 
-#### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. Configure a replicação no myVM1 (principal)
+#### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. configurar a replicação em myVM1 (primário)
 
 Inicie o carregamento inicial e verifique se há erros:
 
@@ -766,7 +766,7 @@ GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
 
-#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. Configure a replicação no myVM2 (replicar)
+#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. configurar a replicação no myVM2 (replicar)
 
 Alteração de número SCN com o número obtido antes:
 

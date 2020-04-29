@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
-description: Esta página ajuda você a configurar o ExpressRoute Direct.
+title: 'Azure ExpressRoute: configurar o ExpressRoute direto'
+description: Esta página ajuda a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77031605"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
@@ -28,7 +28,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
    
-2. Registre-se recadastrou sua assinatura no Microsoft.Network para acessar as APIs expressrouteportslocation e expressrouteport.
+2. Registre novamente sua assinatura para Microsoft. Network para acessar as APIs expressrouteportslocation e expressrouteport.
 
    ```powershell
    Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
@@ -39,7 +39,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Get-AzExpressRoutePortsLocation
    ```
 
-   **Saída de exemplo**
+   **Exemplo de saída**
   
    ```powershell
    Name                : Equinix-Ashburn-DC2
@@ -72,7 +72,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
    ```
 
-   **Saída de exemplo**
+   **Exemplo de saída**
 
    ```powershell
    Name                : Equinix-San-Jose-SV1
@@ -106,7 +106,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    > O atributo de encapsulamento também pode ser definido como Dot1Q. 
    >
 
-   **Saída por exemplo:**
+   **Saída de exemplo:**
 
    ```powershell
    Name                       : Contoso-Direct
@@ -174,7 +174,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
-   **Saída por exemplo:**
+   **Saída de exemplo:**
 
    ```powershell
    Name                       : Contoso-Direct
@@ -231,9 +231,9 @@ Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso E
 
 Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. São elas: 40 Gbps e 100 Gbps.
 
-**SkuTier** pode ser Local, Standard ou Premium.
+**SkuTier** pode ser local, Standard ou Premium.
 
-**O SkuFamily** deve ser medidoData apenas porque ilimitado não é suportado no ExpressRoute Direct.
+**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
 
 Crie um circuito no recurso ExpressRoute Direct.
 
@@ -243,7 +243,7 @@ Crie um circuito no recurso ExpressRoute Direct.
 
   Outras larguras de banda incluem: 5.0, 10.0 e 40.0
 
-  **Saída por exemplo:**
+  **Saída de exemplo:**
 
   ```powershell
   Name                             : ExpressRoute-Direct-ckt

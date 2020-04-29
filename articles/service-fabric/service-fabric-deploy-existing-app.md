@@ -1,13 +1,13 @@
 ---
-title: Implantar um executável existente no azure Service Fabric
+title: Implantar um executável existente no Azure Service Fabric
 description: Aprenda a empacotar um aplicativo existente como um executável de convidado, para que ele possa ser implantado em um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80520479"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
@@ -22,9 +22,9 @@ Ao empacotar um executável já existente como [executável convidado](service-f
 
 O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar você a implantar um executável convidado em um cluster do Service Fabric.
 
-1. Escolha **o projeto** > **novo de**arquivo e crie um aplicativo de malha de serviço.
+1. Escolha **arquivo** > **novo projeto**e crie um Service Fabric aplicativo.
 2. Escolha **Executável Convidado** como o modelo de serviço.
-3. Clique **em Procurar** para selecionar a pasta com o executável e preencher o restante dos parâmetros para criar o serviço.
+3. Clique em **procurar** para selecionar a pasta com seu executável e preencha o restante dos parâmetros para criar o serviço.
    * *Comportamento do Pacote de Código*. Pode ser definido para copiar todo o conteúdo da pasta para o Projeto do Visual Studio, o que será útil se o executável não mudar. Se você espera que o executável mude e se quiser a capacidade de obter novas compilações dinamicamente, poderá optar por vincular para a pasta. Você pode usar pastas vinculadas ao criar o projeto de aplicativo no Visual Studio. Isso cria um vínculo com o local de origem de dentro do projeto, tornando possível atualizar o executável convidado em seu destino de origem. Essas atualizações se tornam parte do pacote de aplicativo no build.
    * *Programa* especifica o executável que deve ser executado para iniciar o serviço.
    * *Argumentos* especificam os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
@@ -39,9 +39,9 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar voc�
 
 Para um exemplo de passo a passo, consulte [Criar o primeiro aplicativo executável do convidado utilizando o Visual Studio](quickstart-guest-app.md).
 
-### <a name="packaging-multiple-executables-with-visual-studio"></a>Embalando vários executáveis com o Visual Studio
+### <a name="packaging-multiple-executables-with-visual-studio"></a>Empacotando vários executáveis com o Visual Studio
 
-Você pode usar o Visual Studio para produzir um pacote de aplicativos que contenha vários executáveis convidados. Depois de adicionar o primeiro executável convidado, clique com o botão direito do mouse no projeto do aplicativo e selecione o **serviço Add->New Service Fabric** para adicionar o segundo projeto executável convidado à solução.
+Você pode usar o Visual Studio para produzir um pacote de aplicativos que contenha vários executáveis convidados. Depois de adicionar o primeiro executável convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione o **novo serviço de Service Fabric de >** para adicionar o segundo projeto executável convidado à solução.
 
 > [!NOTE]
 > Se você optar por vincular a origem no projeto do Visual Studio, criando a solução do Visual Studio, garantirá que seu pacote de aplicativo será atualizado com as alterações na fonte.
@@ -56,7 +56,7 @@ O procedimento para criar e implantar um executável convidado no Linux é igual
 
 O Yeoman cria um pacote de aplicativos com os devidos arquivos de aplicativo e manifesto juntamente com a instalação e desinstalação dos scripts.
 
-### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Empacotando vários executáveis usando yeoman no Linux
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Empacotando vários executáveis usando o Yeoman no Linux
 
 Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 
@@ -76,7 +76,7 @@ O processo de empacotar manualmente um executável convidado baseia-se nas segui
 
 ### <a name="create-the-package-directory-structure"></a>Criar a estrutura de diretórios do pacote
 
-Você pode começar criando a estrutura do diretório, conforme descrito no [Package an Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Você pode começar criando a estrutura de diretório, conforme descrito em [empacotar um aplicativo de Service Fabric do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicionar os arquivos de configuração e código do aplicativo
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Workbook derruba parâmetros
-description: Simplifique relatórios complexos com livros de trabalho pré-construídos e personalizados contendo parâmetros de suspensão
+title: Azure Monitor parâmetros de menu suspenso da pasta de trabalho
+description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas contendo parâmetros de lista suspensa
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,30 +10,30 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: f3220a363025d80fd7636dbfc3af3d2d9d7bc040
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658272"
 ---
-# <a name="workbook-drop-down-parameters"></a>Parâmetros de queda da carteira de trabalho
+# <a name="workbook-drop-down-parameters"></a>Parâmetros de menu suspenso da pasta de trabalho
 
-As quedas permitem que o usuário colete um ou mais valores de entrada de um conjunto conhecido (por exemplo, selecione uma das solicitações do seu aplicativo). As quedas fornecem uma maneira fácil de coletar entradas arbitrárias dos usuários. As quedas são especialmente úteis para ativar a filtragem em seus relatórios interativos. 
+Os menus suspensos permitem que o usuário colete um ou mais valores de entrada de um conjunto conhecido (por exemplo, selecione uma das solicitações do aplicativo). Os menus suspensos fornecem uma maneira amigável ao usuário de coletar entradas arbitrárias de usuários. Os menus suspensos são especialmente úteis para habilitar a filtragem em seus relatórios interativos. 
 
-A maneira mais fácil de especificar uma lista de parada é fornecendo uma lista estática na configuração do parâmetro. Uma maneira mais interessante é obter a lista dinamicamente através de uma consulta KQL. As configurações de parâmetrotambém permitem especificar se é single ou multi-select, e se é multi-select, como o conjunto de resultados deve ser formatado (delimitador, citação, etc.).
+A maneira mais fácil de especificar um menu suspenso é fornecendo uma lista estática na configuração de parâmetro. Uma maneira mais interessante é obter a lista dinamicamente por meio de uma consulta KQL. As configurações de parâmetro também permitem que você especifique se ela é única ou múltipla seleção, e se ela é de seleção múltipla, como o conjunto de resultados deve ser formatado (delimitador, cotação, etc.).
 
-## <a name="creating-a-static-drop-down-parameter"></a>Criando um parâmetro estático para baixo
+## <a name="creating-a-static-drop-down-parameter"></a>Criando um parâmetro suspenso estático
 
-1. Comece com uma carteira de trabalho vazia no modo de edição.
-2. Escolha _Adicionar parâmetros_ dos links dentro da caderneta de trabalho.
-3. Clique no botão adicionar _parâmetro_ azul.
-4. No novo painel de parâmetros que aparece digite:
+1. Comece com uma pasta de trabalho vazia no modo de edição.
+2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
+3. Clique no botão azul _Adicionar parâmetro_ .
+4. No novo painel de parâmetros que aparece, digite:
     1. Nome do parâmetro:`Environment`
     2. Tipo de parâmetro:`Drop down`
     3. Necessário:`checked`
-    4. Permitir: `multiple selection``unchecked`
+    4. Permitir `multiple selection`:`unchecked`
     5. Obter dados de:`JSON`
-5. No bloco de texto de entrada JSON, insira este trecho de json:
+5. No bloco de texto de entrada JSON, insira este trecho de JSON:
     ```json
     [
         { "value":"dev", "label":"Development" },
@@ -41,14 +41,14 @@ A maneira mais fácil de especificar uma lista de parada é fornecendo uma lista
         { "value":"prod", "label":"Production", "selected":true }
     ]
     ```
-6. Aperte o `Update` botão azul.
-7. Escolha 'Salvar' na barra de ferramentas para criar o parâmetro.
-8. O parâmetro Ambiente será um drop-down com os três valores.
+6. Pressione o botão `Update` azul.
+7. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
+8. O parâmetro de ambiente será uma lista suspensa com os três valores.
 
-    ![Imagem mostrando a criação de um afogamento estático](./media/workbook-dropdowns/dropdown-create.png)
+    ![Imagem mostrando a criação de um estático afogado](./media/workbook-dropdowns/dropdown-create.png)
 
-## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Criando uma gota estática com grupos de itens
-Se o resultado da consulta/json contiver um campo "grupo", a queda exibirá grupos de valores. Siga a amostra acima, mas use o seguinte json em vez disso:
+## <a name="creating-a-static-dropdown-with-groups-of-items"></a>Criando uma lista suspensa estática com grupos de itens
+Se o resultado da consulta/JSON contiver um campo "grupo", a lista suspensa exibirá grupos de valores. Siga o exemplo acima, mas use o JSON a seguir em vez disso:
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -62,33 +62,33 @@ Se o resultado da consulta/json contiver um campo "grupo", a queda exibirá grup
     ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
-## <a name="creating-a-dynamic-drop-down-parameter"></a>Criando um parâmetro dinâmico de queda
-1. Comece com uma carteira de trabalho vazia no modo de edição.
-2. Escolha _Adicionar parâmetros_ dos links dentro da caderneta de trabalho.
-3. Clique no botão adicionar _parâmetro_ azul.
-4. No novo painel de parâmetros que aparece digite:
+## <a name="creating-a-dynamic-drop-down-parameter"></a>Criando um parâmetro suspenso dinâmico
+1. Comece com uma pasta de trabalho vazia no modo de edição.
+2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
+3. Clique no botão azul _Adicionar parâmetro_ .
+4. No novo painel de parâmetros que aparece, digite:
     1. Nome do parâmetro:`RequestName`
     2. Tipo de parâmetro:`Drop down`
     3. Necessário:`checked`
-    4. Permitir: `multiple selection``unchecked`
+    4. Permitir `multiple selection`:`unchecked`
     5. Obter dados de:`Query`
-5. No bloco de texto de entrada JSON, insira este trecho de json:
+5. No bloco de texto de entrada JSON, insira este trecho de JSON:
 
     ```kusto
         requests
         | summarize by name
         | order by name asc
     ```
-1. Aperte o `Run Query` botão azul.
-2. Escolha 'Salvar' na barra de ferramentas para criar o parâmetro.
-3. O parâmetro RequestName será um drop-down dos nomes de todas as solicitações no aplicativo.
+1. Pressione o botão `Run Query` azul.
+2. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
+3. O parâmetro RequestName será uma lista suspensa dos nomes de todas as solicitações no aplicativo.
 
-    ![Imagem mostrando a criação de uma gota dinâmica](./media/workbook-dropdowns/dropdown-dynamic.png)
+    ![Imagem mostrando a criação de uma lista suspensa dinâmica](./media/workbook-dropdowns/dropdown-dynamic.png)
 
-## <a name="referencing-drop-down-parameter"></a>Referência sem parâmetro
+## <a name="referencing-drop-down-parameter"></a>Parâmetro suspenso de referência
 ### <a name="in-kql"></a>Em KQL
-1. Adicione um controle de consulta à caderneta de trabalho e selecione um recurso Application Insights.
-2. No editor KQL, digite este trecho
+1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
+2. No editor de KQL, insira este trecho de código
 
     ```kusto
         requests
@@ -96,7 +96,7 @@ Se o resultado da consulta/json contiver um campo "grupo", a queda exibirá grup
         | summarize Requests = count() by bin(timestamp, 1h)
 
     ```
-3. Isso se expande no tempo de avaliação de consulta para:
+3. Isso expande o tempo de avaliação da consulta para:
 
     ```kusto
         requests
@@ -104,15 +104,15 @@ Se o resultado da consulta/json contiver um campo "grupo", a queda exibirá grup
         | summarize Requests = count() by bin(timestamp, 1h)
     ```
 
-4. Executar consulta para ver os resultados. Opcionalmente, torne-o como um gráfico.
+4. Execute a consulta para ver os resultados. Opcionalmente, renderizá-lo como um gráfico.
 
-    ![Imagem mostrando um drop-down referenciado no KQL](./media/workbook-dropdowns/dropdown-reference.png)
+    ![Imagem mostrando uma lista suspensa referenciada em KQL](./media/workbook-dropdowns/dropdown-reference.png)
 
 
 ## <a name="parameter-value-label-selection-and-group"></a>Valor do parâmetro, rótulo, seleção e grupo
-A consulta usada no parâmetro suspenso dinâmico acima apenas retorna uma lista de valores que são renderizados fielmente no drop-down. Mas e se você quisesse um nome de exibição diferente, ou um desses para ser selecionado? Os parâmetros de queda permitem isso através das colunas de valor, rótulo, seleção e grupo.
+A consulta usada no parâmetro suspenso dinâmico acima apenas retorna uma lista de valores que são processados de forma fiel na lista suspensa. Mas e se você quisesse um nome de exibição diferente ou um deles a ser selecionado? Os parâmetros suspensos permitem isso por meio das colunas valor, rótulo, seleção e grupo.
 
-A amostra abaixo mostra como obter uma lista de dependências do Application Insights cujos nomes de exibição são estilizados com um emoji, tem o primeiro selecionado e é agrupado por nomes de operação.
+O exemplo a seguir mostra como obter uma lista de dependências Application Insights cujos nomes de exibição são estilizados com um Emoji, tem o primeiro selecionado e é agrupado por nomes de operação.
 
 ```kusto
 dependencies
@@ -125,7 +125,7 @@ dependencies
     ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
-## <a name="drop-down-parameter-options"></a>Opção de parâmetro de queda
+## <a name="drop-down-parameter-options"></a>Opções de parâmetro de lista suspensa
 | Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
 | `{DependencyName}` | O valor selecionado | OBTER fabrikamaccount |
@@ -133,11 +133,11 @@ dependencies
 | `{DependencyName:value}` | O valor selecionado | OBTER fabrikamaccount |
 
 ## <a name="multiple-selection"></a>Seleção múltipla
-Os exemplos até agora definem explicitamente o parâmetro para selecionar apenas um valor na queda. Os parâmetros `multiple selection` de queda também suportam - `Allow multiple selection` habilitar isso é tão simples quanto verificar a opção. 
+Os exemplos até agora definem explicitamente o parâmetro para selecionar apenas um valor na lista suspensa. Os parâmetros suspensos também `multiple selection` oferecem suporte para isso é tão simples quanto marcar `Allow multiple selection` a opção. 
 
-O usuário também tem a opção de especificar `delimiter` o `quote with` formato do conjunto de resultados através das configurações. O padrão apenas retorna os valores como uma coleção nesta forma: 'a', 'b', 'c'. Eles também têm a opção de limitar o número de seleções.
+O usuário também tem a opção de especificar o formato do conjunto de resultados por meio `delimiter` das `quote with` configurações e. O padrão apenas retorna os valores como uma coleção neste formulário: ' a ', ' b ', ' C'. Eles também têm a opção de limitar o número de seleções.
 
-O KQL que faz referência ao parâmetro precisará ser trocado para trabalhar com o formato do resultado. A maneira mais comum de `in` habilitá-lo é através do operador.
+O KQL que faz referência ao parâmetro precisará ser alterado para funcionar com o formato do resultado. A maneira mais comum de habilitá-lo é `in` por meio do operador.
 
 ```kusto
 dependencies
@@ -145,11 +145,11 @@ dependencies
 | summarize Requests = count() by bin(timestamp, 1h), name
 ```
 
-Aqui está um exemplo para a lista de paradas multi-selecionadas no trabalho:
+Aqui está um exemplo para a lista suspensa de seleção múltipla no trabalho:
 
-![Imagem mostrando um parâmetro de baixa multi-selecionado](./media/workbook-dropdowns/dropdown-multiselect.png)
+![Imagem mostrando um parâmetro suspenso de seleção múltipla](./media/workbook-dropdowns/dropdown-multiselect.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções ricas de visualizações.
-* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da sua carteira de trabalho.
+* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

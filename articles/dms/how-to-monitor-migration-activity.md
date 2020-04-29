@@ -1,5 +1,5 @@
 ---
-title: Monitorar a atividade de migração - Serviço de migração de banco de dados do Azure
+title: Monitorar a atividade de migração-serviço de migração de banco de dados do Azure
 description: Aprenda a usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração.
 services: database-migration
 author: pochiraju
@@ -12,13 +12,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77648505"
 ---
-# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitore a atividade de migração usando o Serviço de Migração de Banco de Dados do Azure
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
 Neste artigo, você aprenderá a monitorar o progresso de uma migração em nível de banco de dados e em nível de tabela.
 
 ## <a name="monitor-at-the-database-level"></a>Monitorar em nível de banco de dados
@@ -46,7 +46,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>A atividade de migração está em execução.</td>
     </tr>
     <tr>
-      <td>Teve êxito</td>
+      <td>Êxito</td>
       <td>A atividade de migração foi bem-sucedida sem problemas.</td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>Migração concluída.</td>
     </tr>
     <tr>
-      <td>Falhou</td>
+      <td>Failed (Falha)</td>
       <td>Falha na migração. Clique nos detalhes da migração para ver os erros de migração.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>Clique no link para mostrar detalhes do erro.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duração</strong></td>
+      <td rowspan="1" class="duration"><strong>Permanência</strong></td>
       <td>N/D</td>
       <td>Tempo total desde a inicialização da atividade de migração até a conclusão da migração ou a falha de migração.</td>
     </tr>
@@ -134,9 +134,9 @@ A tabela a seguir descreve os campos mostrados no andamento da migração em ní
 | **Status – sincronizando**      | A sincronização contínua está em execução. |
 | **Inserir**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
 | **Atualização** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
-| **Excluir**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
+| **Delete (excluir)**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões da CDA nas linhas aplicadas ao destino. |
-| **Erros de Dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
+| **Erros de dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
 
 > [!NOTE]
 > Os valores da CDA de Inserção, Atualização, Exclusão e Total Aplicado poderão diminuir quando o banco de dados for substituído ou a migração for reiniciada.

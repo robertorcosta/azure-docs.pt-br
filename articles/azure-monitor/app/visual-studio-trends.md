@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670858"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análise de tendências no Visual Studio
@@ -56,7 +56,7 @@ Use os controles na parte superior da janela para ajustar os tipos de telemetria
 * **Intervalo de tempo** - em qualquer momento dos últimos 30 minutos até os últimos três dias
 * **Agrupar por** - tipo de exceção, ID do problema, país/região e muito mais.
 
-Em seguida, clique em **Analisar telemetria** para executar a consulta.
+Em seguida, clique em **analisar telemetria** para executar a consulta.
 
 Para navegar entre as bolhas na visualização:
 
@@ -70,7 +70,7 @@ Para navegar entre as bolhas na visualização:
 > 
 
 ## <a name="filter"></a>Filtrar
-Descubra tendências mais específicas com os controles de filtro na parte inferior da janela. Para aplicar um filtro, clique em seu nome. Você pode alternar rapidamente entre diferentes filtros para descobrir tendências que podem estar ocultas em uma dimensão específica da telemetria. Se você aplicar um filtro em uma dimensão, como tipo de exceção, os filtros em outras dimensões permanecerão clicáveis mesmo que pareçam acinzentados. Para desaplicar um filtro, clique nele novamente. Ctrl+clique para selecionar vários filtros na mesma dimensão.
+Descubra tendências mais específicas com os controles de filtro na parte inferior da janela. Para aplicar um filtro, clique em seu nome. Você pode alternar rapidamente entre diferentes filtros para descobrir tendências que podem estar ocultas em uma dimensão específica da telemetria. Se você aplicar um filtro em uma dimensão, como tipo de exceção, os filtros em outras dimensões permanecerão clicáveis, embora sejam exibidos esmaecidos. Para cancelar a aplicação de um filtro, clique nele novamente. Ctrl+clique para selecionar vários filtros na mesma dimensão.
 
 ![Filtros de tendência](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -98,7 +98,7 @@ A ferramenta Tendências pode realçar bolhas de eventos anômalos em comparaç�
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 |  |  |
 | --- | --- |
-| **[Trabalhando com insights de aplicativos no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-trends/34.png) |
+| **[Trabalhando com Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-trends/34.png) |
 | **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio-trends/64.png) |
 | **[Trabalhando com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

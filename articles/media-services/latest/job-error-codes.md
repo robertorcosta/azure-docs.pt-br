@@ -1,6 +1,6 @@
 ---
-title: Códigos de erro do Azure Media Services (codificação e análise) | Microsoft Docs
-description: Este artigo vincula-se ao tópico de referência de códigos de erro de trabalho e fornece links úteis para tópicos relacionados.
+title: Códigos de erro do trabalho dos serviços de mídia do Azure (codificação e análise) | Microsoft Docs
+description: Este artigo contém links para o tópico de referência de códigos de erro de trabalho e fornece links úteis para tópicos relacionados.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582211"
 ---
-# <a name="media-services-job-error-codes"></a>Códigos de erro de trabalho do Serviço de Mídia
+# <a name="media-services-job-error-codes"></a>Códigos de erro de trabalho dos serviços de mídia
 
-Este tópico é vinculado a um documento de referência REST para descrição detalhada dos códigos de erro e mensagens de [erro do Trabalho.](transforms-jobs-concept.md)
+Este tópico é vinculado a um documento de referência REST para obter uma descrição detalhada dos códigos de erro e mensagens de [trabalho](transforms-jobs-concept.md) .
 
 ## <a name="job-error-codes"></a>Códigos de erro do trabalho
 
-O documento REST a seguir fornece explicações detalhadas sobre [códigos de erro de Trabalho](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+O documento de REST a seguir fornece explicações detalhadas sobre os [códigos de erro do trabalho](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
@@ -40,4 +40,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Exemplo: acesse ErrorCode e Message do ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)
+[Exemplo: acessar ErrorCode e Message de ApiException com .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

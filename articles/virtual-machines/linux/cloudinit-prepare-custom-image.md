@@ -1,5 +1,5 @@
 ---
-title: Prepare a imagem Do Azure VM para uso com nuvem-init
+title: Preparar a imagem de VM do Azure para uso com Cloud-init
 description: Como preparar uma imagem de VM do Azure já existente para implantação com cloud-init
 author: danis
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
 ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066812"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Azure do Linux para uso com cloud-init
@@ -19,7 +19,7 @@ Este artigo mostra como usar uma máquina virtual do Azure existente e prepará-
 ## <a name="prerequisites"></a>Pré-requisitos
 Este documento assume que você já tem uma máquina virtual do Azure em execução executando uma versão compatível do sistema operacional Linux. Você já configurou o computador para atender às suas necessidades, instalou todos os módulos necessários, processou todas as atualizações necessárias e o testou para garantir que ele atende aos seus requisitos. 
 
-## <a name="preparing-rhel-76--centos-76"></a>Preparando RHEL 7.6 / CentOS 7.6
+## <a name="preparing-rhel-76--centos-76"></a>Preparando o RHEL 7,6/CentOS 7,6
 Você precisa se conectar por SSH à sua VM Linux e executar os seguintes comandos para instalar a cloud-init.
 
 ```bash
@@ -64,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Permita apenas o Azure como fonte de dados para o `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` Azure Linux Agent criando um novo arquivo usando um editor de sua escolha com a seguinte linha:
+Permita apenas o Azure como uma fonte de arquivos para o agente Linux do Azure criando `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` um novo arquivo usando um editor de sua escolha com a seguinte linha:
 
 ```bash
 # Azure Data Source config

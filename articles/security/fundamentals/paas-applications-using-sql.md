@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80125002"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger bancos de dados de PaaS no Azure
@@ -79,7 +79,7 @@ O SQL do Azure gerencia problemas relacionados a chave para a TDE. Assim como co
 
 O SQL do Azure fornece a criptografia para colunas por meio do [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Isso permite o acesso somente de aplicativos autorizados às colunas confidenciais. O uso dessa variante de criptografia limita as consultas SQL às colunas criptografadas à valores com base em igualdade.
 
-A criptografia do nível do aplicativo também deve ser usada para dados seletivos. As preocupações com a soberania dos dados às vezes podem ser atenuadas criptografando dados com uma chave que é mantida no país/região correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
+A criptografia do nível do aplicativo também deve ser usada para dados seletivos. Às vezes, as preocupações com a soberania de dados podem ser atenuadas com a criptografia de dados com uma chave que é mantida no país/região correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
 
 Você pode usar precauções adicionais para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados.
 

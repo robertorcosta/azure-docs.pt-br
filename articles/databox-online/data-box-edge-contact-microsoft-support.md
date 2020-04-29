@@ -1,6 +1,6 @@
 ---
-title: Log de suporte para Azure Data Box Edge, Azure Data Box Gateway | Microsoft Docs
-description: Saiba como registrar a solicitação de suporte para problemas relacionados aos seus pedidos de Gateway da Data Box ou Data Box.
+title: Log de tíquete de suporte para Azure Data Box Edge, Gateway do Azure Data Box | Microsoft Docs
+description: Saiba como registrar em log a solicitação de suporte para problemas relacionados ao seu Data Box Edge ou Gateway do Data Box ordens.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: c93a2e2f3162891e72cf6d57f3df6c3ceaf0c7fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064987"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Abra um bilhete de suporte para o Azure Data Box Edge e o Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-data-box-edge-and-azure-data-box-gateway"></a>Abrir um tíquete de suporte para Azure Data Box Edge e Gateway do Azure Data Box
 
-Este artigo se aplica ao Azure Data Box Edge e ao Azure Data Box Gateway, ambos gerenciados pelo serviço Azure Data Box Edge/Azure Data Box Gateway. Se você encontrar quaisquer problemas com o seu serviço, você pode criar uma solicitação de serviço para suporte técnico. Este artigo orienta você sobre:
+Este artigo se aplica a Azure Data Box Edge e Gateway do Azure Data Box ambos gerenciados pelo serviço Azure Data Box Edge/Gateway do Azure Data Box. Se você encontrar problemas com o serviço, poderá criar uma solicitação de serviço para o suporte técnico. Este artigo orienta você sobre:
 
 * Como criar uma solicitação de suporte.
 * Como gerenciar o ciclo de vida de uma solicitação de suporte de dentro do portal.
@@ -26,59 +26,59 @@ Este artigo se aplica ao Azure Data Box Edge e ao Azure Data Box Gateway, ambos 
 
 Execute as seguintes etapas para criar uma solicitação de suporte:
 
-1. Vá para a sua ordem de gateway da caixa de dados ou da caixa de dados. Navegue até a seção **Suporte + Solução de problemas** e selecione Nova solicitação de **suporte**.
+1. Vá para o Data Box Edge ou Gateway do Data Box ordem. Navegue até a seção **suporte + solução de problemas** e selecione **nova solicitação de suporte**.
    
-2. Na **nova solicitação de suporte,** na guia Noções Básicas, tome as **seguintes** etapas:
+2. Em **nova solicitação de suporte**, na guia **noções básicas** , execute as seguintes etapas:
     
     1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
-    2. Escolha sua **Assinatura**.
-    3. Em **Serviço**, verifique **Meus serviços**. Na lista de isento, selecione **Data Box Edge e Data Box Gateway**.
+    2. Escolha sua **assinatura**.
+    3. Em **Serviço**, verifique **Meus serviços**. Na lista suspensa, selecione **Data Box Edge e gateway do data Box**.
     4. Selecione seu **recurso**. Isso corresponde ao nome do seu pedido.
-    5. Forneça um breve **resumo** do problema que você está enfrentando. 
-    6. Selecione seu **tipo Problema**.
-    7. Com base no tipo de problema selecionado, escolha um **subtipo de problema**correspondente .
-    8. Selecione **A seguir: Soluções >>**.
+    5. Forneça um breve **Resumo** do problema que você está enfrentando. 
+    6. Selecione o **tipo de problema**.
+    7. Com base no tipo de problema selecionado, escolha um **subtipo de problema**correspondente.
+    8. Selecione **Avançar: soluções >>**.
 
         ![Noções básicas](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
-3. Na guia **Detalhes,** tome as seguintes etapas:
+3. Na guia **detalhes** , execute as seguintes etapas:
     
     1. Forneça a data de início e a hora para o problema.
-    2. Forneça uma **descrição** para o seu problema.
-    3. No **upload de arquivo,** selecione o ícone da pasta para navegar em qualquer outro arquivo que você deseja carregar.
+    2. Forneça uma **Descrição** para o problema.
+    3. No **upload do arquivo**, selecione o ícone de pasta para procurar outros arquivos que você deseja carregar.
     4. Marque **Compartilhar informações de diagnóstico**.
-    5. Com base na sua assinatura, um **plano de suporte** é preenchido automaticamente.
-    6. Na lista de isto, selecione a **Gravidade**.
-    7. Especifique um **método de contato preferido**.
-    8. As **horas de resposta** são selecionadas automaticamente com base no seu plano de assinatura.
-    9. Forneça o idioma que preferir para suporte.
-    10. Nas **informações de contato,** forneça seu nome, e-mail, telefone, contato opcional, país/região. O Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução. 
-    11. Selecione **A seguir: Revisão + Criar >>**.
+    5. Com base em sua assinatura, um **plano de suporte** é preenchido automaticamente.
+    6. Na lista suspensa, selecione a **severidade**.
+    7. Especifique um **método de contato preferencial**.
+    8. As **horas de resposta** são selecionadas automaticamente com base em seu plano de assinatura.
+    9. Forneça o idioma de sua preferência para obter suporte.
+    10. Nas **informações de contato**, forneça seu nome, email, telefone, contato opcional, país/região. O Suporte da Microsoft usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução. 
+    11. Selecione **Avançar: revisar + criar >>**.
 
         ![Problema](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Na guia **Revisão + Criar,** revise as informações relacionadas ao bilhete de suporte. Selecione **Criar**. 
+4. Na guia **revisar + criar** , examine as informações relacionadas ao tíquete de suporte. Selecione **Criar**. 
 
     ![Problema](./media/data-box-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 
-    Depois de criar o ticket de suporte, um engenheiro de suporte entrará em contato com você o mais rápido possível para prosseguir com sua solicitação.
+    Depois de criar o tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
 
-## <a name="get-hardware-support"></a>Obtenha suporte de hardware
+## <a name="get-hardware-support"></a>Obter suporte de hardware
 
-Essas informações só se aplicam ao dispositivo Data Box Edge. O processo para relatar problemas de hardware é o seguinte:
+Essas informações se aplicam somente ao dispositivo Data Box Edge. O processo para relatar problemas de hardware é o seguinte:
 
-1. Abra um bilhete de suporte do portal Azure para um problema de hardware. No **tipo Problema,** selecione **Data Box Edge Hardware**. Escolha o **subtipo Problema** como **falha de hardware**. 
+1. Abra um tíquete de suporte no portal do Azure para um problema de hardware. Em **tipo de problema**, selecione **Data Box Edge hardware**. Escolha o **subtipo de problema** como **falha de hardware**. 
 
     ![Problema de hardware](./media/data-box-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    Depois de criar o ticket de suporte, um engenheiro de suporte entrará em contato com você o mais rápido possível para prosseguir com sua solicitação. 
+    Depois de criar o tíquete de suporte, um engenheiro de suporte entrará em contato com você assim que possível para prosseguir com sua solicitação. 
 
-2. Se o suporte do Microsoft determinar que este é um problema de hardware, então uma das seguintes ações ocorrerá: 
+2. Se Suporte da Microsoft determinar que esse é um problema de hardware, uma das seguintes ações ocorrerá: 
 
-    - Uma unidade de substituição de campo (FRU) para a peça de hardware com falha é enviada. Atualmente, a unidade de alimentação é a única FRU suportada. 
+    - Uma FRU (unidade de substituição de campo) para a parte de hardware com falha é enviada. Atualmente, a unidade de fonte de alimentação é a única FRU com suporte. 
     - Para qualquer outra falha de parte, a Microsoft faz uma substituição completa do sistema (FSR) ou uma troca de dispositivo.
 
-3. Se um bilhete de suporte for levantado antes das 16:30 horas locais (segunda a sexta-feira), um técnico no local é enviado no próximo dia útil para o seu local para realizar uma FRU ou uma substituição completa do dispositivo.
+3. Se um tíquete de suporte for gerado antes de 4:30 Hora local (de segunda a sexta), um técnico no local será expedido no próximo dia útil para o local para executar uma FRU ou uma substituição completa do dispositivo.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 
@@ -99,5 +99,5 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
    
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [solucionar problemas relacionados ao Data Box Edge](data-box-edge-troubleshoot.md).
-Saiba como [solucionar problemas relacionados ao Data Box Gateway](data-box-gateway-troubleshoot.md).
+Saiba como [solucionar problemas relacionados a data Box Edge](data-box-edge-troubleshoot.md).
+Saiba como [solucionar problemas relacionados a gateway do data Box](data-box-gateway-troubleshoot.md).

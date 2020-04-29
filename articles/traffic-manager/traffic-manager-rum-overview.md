@@ -1,6 +1,6 @@
 ---
 title: Medidas de Usuário Reais do Gerenciador de Tráfego do Azure
-description: Nesta introdução, saiba como funcionam as medições reais do Azure Traffic Manager.
+description: Nesta introdução, saiba como o Gerenciador de tráfego do Azure Medidas de Usuário Reais funcionar.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938444"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral das Medidas Reais de Usuário do Gerenciador de Tráfego
@@ -80,5 +80,5 @@ Ao usar as Medidas Reais de Usuário, você é cobrado com base no número de me
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Saiba como [criar um perfil de Gerenciador de Tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gerenciador de tráfego](traffic-manager-create-profile.md)
 

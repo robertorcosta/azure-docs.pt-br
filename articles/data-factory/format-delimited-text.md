@@ -1,6 +1,6 @@
 ---
-title: Formato de texto delimitado na fábrica de dados do Azure
-description: Este tópico descreve como lidar com o formato de texto delimitado na Fábrica de Dados Do Azure.
+title: Formato de texto delimitado no Azure Data Factory
+description: Este tópico descreve como lidar com o formato de texto delimitado no Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,38 +10,38 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 696c175f55ecdb09b1b88f9766c4c678afe2c4ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417097"
 ---
-# <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado na fábrica de dados do Azure
+# <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artigo quando quiser **analisar os arquivos de texto delimitados ou escrever os dados em formato de texto delimitado**. 
+Siga este artigo quando desejar **analisar os arquivos de texto delimitados ou gravar os dados em um formato de texto delimitado**. 
 
-O formato de texto delimitado é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1,](connector-azure-data-lake-store.md) [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md) [Azure File Storage](connector-azure-file-storage.md), File [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).
+O formato de texto delimitado tem suporte para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados de texto delimitado.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de acordo de texto delimitado.
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade do tipo do conjunto de dados deve ser definida **como DelimitedText**. | Sim      |
-| local         | Configurações de localização dos arquivos(s). Cada conector baseado em arquivo tem seu próprio `location`tipo de localização e propriedades suportadas em .  | Sim      |
-| columnDelimiter  | Os caracteres(s) usados para separar colunas em um arquivo. <br>O valor padrão é **a comma `,` **. Quando o delimitador da coluna é definido como string vazio, o que significa que não há delimitador, toda a linha é tomada como uma única coluna.<br>Atualmente, o delimitador de coluna como string vazio ou multi-char é suportado apenas para mapear o fluxo de dados, mas não a atividade copiar.  | Não       |
-| rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo. <br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação,** mapeando o fluxo de dados e a atividade copiar, respectivamente. <br>Quando o delimitador da linha estiver definido como nenhum delimitador (string vazio), o delimitador da coluna deve ser definido como nenhum delimitador (string vazio) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimitador de linha como string vazio é suportado apenas para mapear o fluxo de dados, mas não a atividade copiar. | Não       |
-| quoteChar        | O caractere único para citar valores da coluna se contiver delimitador de coluna. <br>O valor padrão é **as paspas duplas** `"`. <br>Para mapear o `quoteChar` fluxo de dados, não pode ser uma seqüência vazia. <br>Para a atividade `quoteChar` Copiar, quando é definida como string vazia, significa que não `escapeChar` há char de citação e valor da coluna não é citado, e é usado para escapar do delimitador da coluna e em si. | Não       |
-| escapeChar       | O único caractere para escapar das citações dentro de um valor citado.<br>O valor padrão é **barra invertida `\` **. <br>Para mapear o `escapeChar` fluxo de dados, não pode ser uma seqüência vazia. <br/>Para a atividade `escapeChar` Copiar, quando for `quoteChar` definida como string vazia, a string deve ser definida como string vazia também, nesse caso, certifique-se de que todos os valores da coluna não contenham delimitadores. | Não       |
-| firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não       |
-| nullValue        | Especifica a representação de string de valor nulo. <br>O valor padrão é **string vazio**. | Não       |
-| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7" ", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM855", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM863", "IBM864", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01144", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR". 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13". , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Note que o fluxo de dados de mapeamento não suporta codificação UTF-7. | Não       |
-| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. O padrão não é compactado. <br>**Nota** atualmente A atividade de cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Nota** ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não       |
-| compactaçãoNível | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos**.<br>- **O mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não esteja compactado de forma ideal.<br>- **Ideal**: A operação de compressão deve ser compactada de forma ideal, mesmo que a operação deva mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **DelimitedText**. | Sim      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com `location`suporte em.  | Sim      |
+| columnDelimiter  | Os caracteres usados para separar colunas em um arquivo. <br>O valor padrão é **vírgula `,` **. Quando o delimitador de coluna é definido como uma cadeia de caracteres vazia, o que significa que não há delimitador, a linha inteira é executada como uma única coluna.<br>Atualmente, o delimitador de coluna como cadeia de caracteres vazia ou multichar tem suporte apenas para mapear fluxo de dados, mas não para a atividade de cópia.  | Não       |
+| rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo. <br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação** mapeando o fluxo de dados e a atividade de cópia, respectivamente. <br>Quando o delimitador de linha é definido como nenhum delimitador (cadeia de caracteres vazia), o delimitador de coluna deve ser definido como nenhum delimitador (cadeia de caracteres vazia) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimitador de linha como uma cadeia de caracteres vazia só tem suporte para mapear o fluxo de dados, mas não para a atividade | Não       |
+| quoteChar        | O caractere único para citar valores de coluna se ele contiver delimitador de coluna. <br>O valor padrão `"`é **aspas duplas** . <br>Para o mapeamento de fluxo `quoteChar` de dados, não pode ser uma cadeia de caracteres vazia. <br>Para a atividade de cópia `quoteChar` , quando é definido como uma cadeia de caracteres vazia, isso significa que não há nenhum caractere de cotação `escapeChar` e o valor da coluna não está entre aspas e é usado para escapar o delimitador de coluna e ele mesmo. | Não       |
+| escapeChar       | O caractere único para escapar as aspas dentro de um valor entre aspas.<br>O valor padrão é **barra invertida `\` **. <br>Para o mapeamento de fluxo `escapeChar` de dados, não pode ser uma cadeia de caracteres vazia. <br/>Para a atividade de cópia `escapeChar` , quando é definido como uma cadeia `quoteChar` de caracteres vazia, o também deve ser definido como uma cadeia de caracteres vazia; nesse caso, verifique se todos os valores de coluna não contêm delimitadores. | Não       |
+| firstRowAsHeader | Especifica se deve tratar/transformar a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **true** e **false** (padrão). | Não       |
+| nullValue        | Especifica a representação de cadeia de caracteres do valor nulo. <br>O valor padrão é uma **cadeia de caracteres vazia**. | Não       |
+| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Observação o fluxo de dados de mapeamento não dá suporte à codificação UTF-7. | Não       |
+| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. O padrão não é compactado. <br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate". <br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) ZipDeflate e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos serão `<path specified in dataset>/<folder named as source zip file>/`extraídos para a pasta:. | Não       |
+| compressionLevel | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
-Abaixo está um exemplo de conjunto de dados de texto delimitado no Azure Blob Storage:
+Abaixo está um exemplo de conjunto de texto delimitado no armazenamento de BLOBs do Azure:
 
 ```json
 {
@@ -71,49 +71,49 @@ Abaixo está um exemplo de conjunto de dados de texto delimitado no Azure Blob S
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista de propriedades suportadas pela fonte de texto delimitada e afundamento.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte de texto delimitada e pelo coletor.
 
 ### <a name="delimited-text-as-source"></a>Texto delimitado como fonte 
 
-As seguintes propriedades são suportadas na seção *** \*de origem de\* *** atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \*origem\* *** da atividade de cópia.
 
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | A propriedade tipo da fonte de atividade de cópia deve ser definida **como DelimitedTextSource**. | Sim      |
-| Formatsettings | Um grupo de propriedades. Consulte a **tabela de configurações de leitura de texto delimitada** abaixo. | Não       |
-| configurações de armazenamento  | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas `storeSettings`próprias configurações de leitura suportadas em . | Não       |
+| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
+| formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de leitura de texto delimitada** abaixo. | Não       |
+| storeSettings  | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com `storeSettings`suporte em. | Não       |
 
-Configurações **de leitura detexto delimitadas** suportadas em: `formatSettings`
+**Configurações de leitura de texto delimitado** com suporte em `formatSettings`:
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | O tipo de formatoConfigurações devem ser definidas **como DelimitedTextReadSettings**. | Sim      |
+| type          | O tipo de formatSettings deve ser definido como **DelimitedTextReadSettings**. | Sim      |
 | skipLineCount | Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. <br>Se skipLineCount e firstRowAsHeader forem especificados, primeiro as linhas serão ignoradas e, em seguida, as informações de cabeçalho serão lidas no arquivo de entrada. | Não       |
 
-### <a name="delimited-text-as-sink"></a>Texto delimitado como pia
+### <a name="delimited-text-as-sink"></a>Texto delimitado como coletor
 
-As seguintes propriedades são suportadas na seção *** \*de dissipação de\* *** atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \*coletor\* *** de atividade de cópia.
 
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | A propriedade tipo da fonte de atividade de cópia deve ser definida **como DelimitedTextSink**. | Sim      |
-| Formatsettings | Um grupo de propriedades. Consulte a **tabela de configurações de gravação de texto delimitada** abaixo. |          |
-| configurações de armazenamento  | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas `storeSettings`próprias configurações de gravação suportadas em .  | Não       |
+| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
+| formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de gravação de texto delimitado** abaixo. |          |
+| storeSettings  | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com `storeSettings`suporte em.  | Não       |
 
-Configurações **de gravação detexto delimitadas** suportadas em: `formatSettings`
+**Configurações de gravação de texto delimitado** com suporte em `formatSettings`:
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | O tipo de formatoConfigurações devem ser definidas **como DelimitedTextWriteSettings**. | Sim                                                   |
-| Fileextension | A extensão de arquivo usada para nomear `.csv` `.txt`os arquivos de saída, por exemplo, . Ele deve ser especificado quando o `fileName` conjunto de dados DelimitedText de saída não estiver especificado. Quando o nome do arquivo estiver configurado no conjunto de dados de saída, ele será usado como o nome do arquivo sink e a configuração de extensão do arquivo será ignorada.  | Sim, quando o nome do arquivo não é especificado no conjunto de dados de saída |
+| type          | O tipo de formatSettings deve ser definido como **DelimitedTextWriteSettings**. | Sim                                                   |
+| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída `.csv`, `.txt`por exemplo,. Ele deve ser especificado quando o `fileName` não for especificado no conjunto de DelimitedText de saída. Quando o nome do arquivo for configurado no conjunto de resultados de saída, ele será usado como o nome do arquivo do coletor e a configuração da extensão do arquivo será ignorada.  | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
 
-## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 
-Aprenda detalhes sobre [a transformação](data-flow-source.md) da fonte e [a transformação do sumidouro](data-flow-sink.md) no mapeamento do fluxo de dados.
+Aprenda detalhes da [transformação de origem](data-flow-source.md) e da [transformação de coletor](data-flow-sink.md) no fluxo de dados de mapeamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
-- [Mapeamento do fluxo de dados](concepts-data-flow-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Mapeando fluxo de dados](concepts-data-flow-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)

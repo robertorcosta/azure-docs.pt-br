@@ -1,5 +1,5 @@
 ---
-title: Consultas avançadas no Monitor Azure | Microsoft Docs
+title: Consultas avançadas no Azure Monitor | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o portal do Analytics para escrever consultas no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670280"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever consultas avançadas no Azure Monitor
 
 > [!NOTE]
-> Você deve concluir [Comece com o Azure Monitor Log Analytics](get-started-portal.md) [e comece com as consultas](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -69,7 +69,7 @@ Event
 ```
 
 ## <a name="print"></a>Imprimir
-`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso é frequentemente usado em casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
+`print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado nos casos em que você precisa de um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:
 
 ```Kusto
 print nowPst = now()-8h

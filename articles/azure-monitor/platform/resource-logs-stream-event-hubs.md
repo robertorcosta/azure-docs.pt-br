@@ -1,6 +1,6 @@
 ---
 title: Transmitir logs de plataforma do Azure para um hub de eventos
-description: Aprenda a transmitir logs de recursos do Azure para um hub de eventos para enviar dados para sistemas externos, como SIEMs de terceiros e outras soluções de análise de log.
+description: Saiba como transmitir logs de recursos do Azure para um hub de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,24 +8,24 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658907"
 ---
-# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>A plataforma Stream Azure faz logs no Azure Event Hubs
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de atividades do Azure e registros de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure da qual dependem.  Este artigo descreve os logs de plataformas de streaming para hubs de eventos para enviar dados para sistemas externos, como SIEMs de terceiros e outras soluções de análise de log.
+# <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmitir logs da plataforma Azure para os hubs de eventos do Azure
+[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve os logs da plataforma de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
 
 
-## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>O que você pode fazer com logs de plataforma enviados para um hub de eventos
-A plataforma de streaming faz login no Azure para hubs de eventos para fornecer as seguintes funcionalidades:
+## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>O que você pode fazer com os logs de plataforma enviados para um hub de eventos
+Transmita logs da plataforma no Azure para os hubs de eventos para fornecer a seguinte funcionalidade:
 
-* **Stream logs para sistemas de registro e telemetria** de terceiros – Transmita todos os logs de sua plataforma para um único hub de eventos para canalizar dados de log para uma ferramenta de análise de log de terceiros.
+* **Transmita logs para sistemas de registro em log e telemetria de terceiros** – transmita todos os seus logs de plataforma para um único Hub de eventos para canalizar dados de log para uma ferramenta Siem ou log Analytics de terceiros.
   
-* **Construa uma plataforma personalizada de telemetria e registro** – A natureza altamente escalável de assinatura de publicações dos hubs de eventos permite que você ingerisse de forma flexível os logs de plataforma em uma plataforma de teletria personalizada. Consulte [Projetando e Dimensionando uma plataforma de telemetria em escala global no Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para obter detalhes.
+* **Crie uma plataforma de registro em log e telemetria personalizada** – a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite que você inscreva com flexibilidade os logs da plataforma em uma plataforma teletry personalizada. Consulte [projetando e dimensionando uma plataforma de telemetria de escala global nos hubs de eventos do Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para obter detalhes.
 
-* **Veja a saúde do serviço transmitindo dados para o Power BI** – Use Hubs de Eventos, Stream Analytics e Power BI para transformar seus dados de diagnóstico em insights quase em tempo real sobre seus serviços do Azure. Consulte [Stream Analytics e Power BI: Um painel de análise em tempo real para transmitir dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre esta solução.
+* **Exibir a integridade do serviço transmitindo dados para Power bi** – use os hubs de eventos, Stream Analytics e Power bi para transformar os dados de diagnóstico em informações quase em tempo real nos serviços do Azure. Consulte [Stream Analytics e Power bi: um painel de análise em tempo real para dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre essa solução.
 
     O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do Power BI:
     
@@ -40,20 +40,20 @@ A plataforma de streaming faz login no Azure para hubs de eventos para fornecer 
     ```
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisa [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se você ainda não tiver um. Se você já tiver uma configuração de diagnóstico usando este namespace do Event Hubs, então esse hub de eventos será reutilizado.
+Você precisará [criar um hub de eventos](../../event-hubs/event-hubs-create.md) se ainda não tiver um. Se você já tiver uma configuração de diagnóstico usando esse namespace de hubs de eventos, esse Hub de eventos será reutilizado.
 
-A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming possui. O streaming para hubs de eventos requer permissões de gerenciamento, envio e escuta. Você pode criar ou modificar políticas de acesso compartilhado no portal Azure na guia Configurar para o namespace do seu Event Hubs.
+A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos.
 
-Para atualizar a configuração de diagnóstico para incluir o streaming, você deve ter a permissão ListKey nessa regra de autorização do Event Hubs. O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas e as duas assinaturas estejam no mesmo locatário do ADD.
+Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos. O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas e as duas assinaturas estejam no mesmo locatário do ADD.
 
 ## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-Envie logs de plataforma para um hub de eventos e outros destinos, criando uma configuração de diagnóstico para um recurso do Azure. Consulte [Criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
+Envie os logs da plataforma para um hub de eventos e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
 
-## <a name="collect-data-from-compute-resources"></a>Coletar dados de recursos computacionais
-As configurações de diagnóstico coletarão registros de recursos para os recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente Log Analytics](log-analytics-agent.md). 
+## <a name="collect-data-from-compute-resources"></a>Coletar dados de recursos de computação
+As configurações de diagnóstico coletarão logs de recursos para recursos de computação do Azure como qualquer outro recurso, mas não seu sistema operacional convidado ou cargas de trabalho. Para coletar esses dados, instale o [agente de log Analytics](log-analytics-agent.md). 
 
 
-## <a name="consuming-log-data-from-event-hubs"></a>Consumindo dados de log de hubs de eventos
+## <a name="consuming-log-data-from-event-hubs"></a>Consumindo dados de log dos hubs de eventos
 Os logs de plataforma dos hubs de eventos são consumidos no formato JSON com os elementos na tabela a seguir.
 
 | Nome do elemento | Descrição |
@@ -67,7 +67,7 @@ Os logs de plataforma dos hubs de eventos são consumidos no formato JSON com os
 | properties |Propriedades do evento. Elas irão variar para cada serviço do Azure, conforme descrito em [](). |
 
 
-A seguir estão os dados de saída de exemplo do Event Hubs para um registro de recursos:
+Veja a seguir exemplos de dados de saída dos hubs de eventos para um log de recursos:
 
 ```json
 {
@@ -134,8 +134,8 @@ A seguir estão os dados de saída de exemplo do Event Hubs para um registro de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Leia mais sobre registros de recursos.](platform-logs-overview.md)
-* [Crie configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
-* [Stream Azure Active Directory logs com o Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Comece com hubs de eventos.](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
+* [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
+* [Transmita logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* [Introdução aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 

@@ -14,10 +14,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154484"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Visão geral do Azure Active Directory para desenvolvedores (v1.0)
@@ -32,7 +32,7 @@ O Azure Active Directory (Azure AD) é um serviço de identidade de nuvem que pe
 | | |
 | --- | --- |
 |[Noções básicas de autenticação](v1-authentication-scenarios.md) | Uma introdução à autenticação com o Azure AD. |
-|[Tipos de aplicações](app-types.md) | Uma visão geral dos cenários de autenticação com suporte no Azure AD. |
+|[Tipos de aplicativos](app-types.md) | Uma visão geral dos cenários de autenticação com suporte no Azure AD. |
 | | |
 
 ## <a name="get-started"></a>Introdução
@@ -56,6 +56,6 @@ Os artigos a seguir fornecem informações detalhadas sobre as APIs, as mensagen
 
 ## <a name="videos"></a>vídeos
 
-Consulte [os vídeos da plataforma de desenvolvedores do Azure Active Directory](videos.md) para ajudar a migrar para a nova plataforma de identidade da Microsoft.
+Consulte [Azure Active Directory vídeos da plataforma de desenvolvedor](videos.md) para obter ajuda para migrar para a nova plataforma de identidade da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

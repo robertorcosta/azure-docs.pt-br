@@ -1,18 +1,18 @@
 ---
-title: Use o portal Azure para implantar o aplicativo de catálogo de serviços
+title: Usar portal do Azure para implantar o aplicativo de catálogo de serviços
 description: Mostra aos consumidores de Aplicativos Gerenciados como implantar um aplicativo de catálogo de serviço por meio do portal do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391704"
 ---
-# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Quickstart: implante o aplicativo de catálogo de serviços através do portal Azure
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Início rápido: implantar o aplicativo de catálogo de serviços por meio do portal do Azure
 
 No [início rápido anterior](publish-service-catalog-app.md), você publicou uma definição de aplicativo gerenciado. Neste início rápido, você pode criar um aplicativo de catálogo de serviço usando essa definição.
 
@@ -36,7 +36,7 @@ No portal do Azure, use as seguintes etapas:
 
    ![Selecione a definição a ser implantada](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Forneça valores para a guia **Noções** Básicas. Selecione a assinatura do Azure para implantar seu aplicativo de catálogo de serviços para. Crie um novo grupo de recursos denominado **applicationGroup**. Selecione um local para o aplicativo. Ao terminar, selecione **OK**.
+1. Forneça valores para a guia **noções básicas** . Selecione a assinatura do Azure para implantar seu aplicativo de catálogo de serviços. Crie um novo grupo de recursos denominado **applicationGroup**. Selecione um local para o aplicativo. Ao terminar, selecione **OK**.
 
    ![Forneça valores para o básico](./media/deploy-service-catalog-quickstart/provide-basics.png)
 

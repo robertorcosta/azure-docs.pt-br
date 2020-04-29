@@ -1,51 +1,51 @@
 ---
-title: Mover recursos do Azure App Service
-description: Use o Azure Resource Manager para transferir os recursos do App Service para um novo grupo de recursos ou assinatura.
+title: Mover Azure App recursos do serviço
+description: Use Azure Resource Manager para mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655781"
 ---
-# <a name="move-guidance-for-app-service-resources"></a>Mova orientação para os recursos do App Service
+# <a name="move-guidance-for-app-service-resources"></a>Mover diretrizes para recursos do serviço de aplicativo
 
-Este artigo descreve as etapas para mover os recursos do App Service. Existem requisitos específicos para transferir recursos do App Service para uma nova assinatura.
+Este artigo descreve as etapas para mover os recursos do serviço de aplicativo. Há requisitos específicos para mover os recursos do serviço de aplicativo para uma nova assinatura.
 
-## <a name="move-across-subscriptions"></a>Mova-se através de assinaturas
+## <a name="move-across-subscriptions"></a>Mover entre assinaturas
 
-Ao mover um Web App através de assinaturas, a seguinte orientação se aplica:
+Ao mover um aplicativo Web entre assinaturas, as seguintes diretrizes se aplicam:
 
 - O grupo de recursos de destino não pode ter nenhum recurso de Serviço de Aplicativo existente. Os recursos de Serviço de Aplicativo incluem:
     - Aplicativos Web
     - Planos do Serviço de Aplicativo
-    - Certificados TLS/SSL carregados ou importados
+    - Certificados TLS/SSL importados ou carregados
     - Ambientes de Serviço de Aplicativo
-- Todos os recursos de Serviço de Aplicativo no grupo de recursos devem ser movidos juntos. Observe que os ambientes de serviço de aplicativos não podem ser movidos para um novo Grupo de Recursos nem para uma nova assinatura.
-- Você pode mover um certificado vinculado a uma web sem excluir as vinculações TLS, desde que o certificado seja movido com todos os outros recursos do grupo de recursos.
-- Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do App Service não estiver mais em seu grupo de recursos original, mova-o de volta para seu grupo de recursos original. Em seguida, mova o recurso através de assinaturas.
+- Todos os recursos de Serviço de Aplicativo no grupo de recursos devem ser movidos juntos. Observe que os ambientes do serviço de aplicativo não podem ser movidos para um novo grupo de recursos nem para uma nova assinatura.
+- Você pode mover um certificado associado a uma Web sem excluir as associações de TLS, desde que o certificado seja movido com todos os outros recursos no grupo de recursos.
+- Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do serviço de aplicativo não estiver mais em seu grupo de recursos original, mova-o de volta para seu grupo de recursos original. Em seguida, mova o recurso entre assinaturas.
 
-Se você não se lembra do grupo de recursos original, você pode encontrá-lo através de diagnósticos. Para o seu aplicativo web, **selecione Diagnosticar e resolver problemas**. Em seguida, **selecione Configuração e Gerenciamento**.
+Se você não se lembrar do grupo de recursos original, poderá encontrá-lo por meio de diagnóstico. Para seu aplicativo Web, selecione **diagnosticar e resolver problemas**. Em seguida, selecione **configuração e gerenciamento**.
 
-![Selecione diagnósticos](./media/app-service-move-limitations/select-diagnostics.png)
+![Selecionar diagnóstico](./media/app-service-move-limitations/select-diagnostics.png)
 
-Selecione **opções de migração**.
+Selecione **Opções de migração**.
 
-![Selecione opções de migração](./media/app-service-move-limitations/select-migration.png)
+![Selecionar opções de migração](./media/app-service-move-limitations/select-migration.png)
 
-Selecione a opção para obter etapas recomendadas para mover o aplicativo web.
+Selecione a opção para obter as etapas recomendadas para mover o aplicativo Web.
 
 ![Selecione as etapas recomendadas](./media/app-service-move-limitations/recommended-steps.png)
 
-Você vê as ações recomendadas a serem tomadas antes de mover os recursos. As informações incluem o grupo de recursos original para o aplicativo web.
+Você vê as ações recomendadas a serem executadas antes de mover os recursos. As informações incluem o grupo de recursos original para o aplicativo Web.
 
 ![Recomendações](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Suporte de movimentação
 
-Para determinar quais recursos do App Service podem ser movidos, consulte o status de suporte ao movimento para:
+Para determinar quais recursos do serviço de aplicativo podem ser movidos, consulte mover status de suporte para:
 
 - [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
 - [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)

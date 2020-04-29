@@ -1,5 +1,5 @@
 ---
-title: Hub IoT do Azure desenvolver-se para dispositivos restritos usando IoT Hub C SDK
+title: O Hub IoT do Azure desenvolve para dispositivos restritos usando o SDK do Hub IoT C
 description: Guia do desenvolvedor - diretrizes sobre como desenvolver usando SDKs do IoT do Azure para dispositivos restritos.
 author: robinsh
 ms.service: iot-hub
@@ -11,17 +11,17 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733197"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos restritos usando SDKs C de IoT do Azure
 
 O SDK C do Hub IoT é gravado em ANSI C (C99), tornando-o adequado para operar uma variedade de plataformas com pequeno volume de memória e disco. A RAM recomendada é de pelo menos 64 KB, mas o tamanho exato do volume de memória depende do protocolo usado, do número de conexões abertas e da plataforma de destino.
 > [!NOTE]
-> * O Azure IoT C SDK publica regularmente informações de consumo de recursos para ajudar no desenvolvimento.  Visite nosso [repositório do GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) e revise o benchmark mais recente.
+> * O SDK do Azure IoT C publica regularmente informações de consumo de recursos para ajudar no desenvolvimento.  Visite nosso [repositório do GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) e examine o parâmetro de comparação mais recente.
 >
 
 O SDK C está disponível em formulário de pacote do apt-get, NuGet e MBED. Para direcionar dispositivos restritos, convém compilar o SDK localmente para a plataforma de destino. Esta documentação demonstra como remover determinados recursos para reduzir o volume do SDK C usando [cmake](https://cmake.org/). Além disso, esta documentação aborda os modelos de programação de melhores práticas para trabalhar com dispositivos restritos.
@@ -74,7 +74,7 @@ Em seguida, examine os modelos de programação para dispositivos restritos.
 
 ### <a name="avoid-using-the-serializer"></a>Evite usar o Serializador
 
-O SDK C tem um [serializador do SDK C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer) opcional que permite usar tabelas de mapeamento declarativas para definir métodos e propriedades de dispositivo gêmeo. O serializador foi projetado para simplificar o desenvolvimento, mas adiciona sobrecarga, o que não é ideal para dispositivos restritos. Neste caso, considere usar APIs de cliente primitivo e analisar JSON usando um analisador leve como [o pároco](https://github.com/kgabis/parson).
+O SDK C tem um [serializador do SDK C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer) opcional que permite usar tabelas de mapeamento declarativas para definir métodos e propriedades de dispositivo gêmeo. O serializador foi projetado para simplificar o desenvolvimento, mas adiciona sobrecarga, o que não é ideal para dispositivos restritos. Nesse caso, considere o uso de APIs de cliente primitivas e a análise do JSON usando um analisador leve, como o [Parson](https://github.com/kgabis/parson).
 
 ### <a name="use-the-lower-layer-_ll_"></a>Use a camada inferior (_LL_)
 

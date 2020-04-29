@@ -1,5 +1,5 @@
 ---
-title: Planejamento para migração do classic para o Azure Resource Manager
+title: Planejando a migração do clássico para o Azure Resource Manager
 description: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-linux
 author: tanmaygore
@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: ff829e9ffbd6d6ae0766998e62634ac873afc748
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066670"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% das VMs IaaS estão usando [o Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente aposentadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa depreciação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Hoje, cerca de 90% das VMs de IaaS estão usando [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partir de 28 de fevereiro de 2020, as VMs clássicas foram preteridas e serão totalmente desativadas em 1º de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre essa reprovação e [como ela afeta você](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
 
@@ -192,7 +192,7 @@ Determine quais serviços você deseja habilitar no Azure Resource Manager agora
 
 - [Controle de acesso baseado em função](../../role-based-access-control/overview.md).
 - [Modelos do Azure Resource Manager para uma implantação mais fácil e mais controlada](../../azure-resource-manager/templates/overview.md).
-- [Tags](../../azure-resource-manager/management/tag-resources.md).
+- [Marcações](../../azure-resource-manager/management/tag-resources.md).
 - [Controle de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
 - [Políticas do Azure](../../governance/policy/overview.md)
 

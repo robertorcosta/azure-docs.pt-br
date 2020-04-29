@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670195"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções nas consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir Comece com as consultas [de log do Azure Monitor](get-started-portal.md) e do [Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir a [introdução às consultas Azure Monitor log Analytics](get-started-portal.md) e [Azure monitor log](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

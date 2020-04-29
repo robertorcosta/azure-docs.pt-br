@@ -7,17 +7,17 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 2fd148dbb85a4fd60fe63d4fb73128bf92dea1d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670552"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 Este artigo fornece detalhes sobre como configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos no Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
-- [Mysql](#mysql)
+- [MySQL](#mysql)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
@@ -45,7 +45,7 @@ As entradas no arquivo de autenticação são descritas na tabela a seguir.
 |:--|:--|
 | Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |
-| Nome de Usuário| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
+| username| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
 | Senha codificada em Base64| Senha do usuário de monitoramento do MySQL codificada em Base64. |
 | Atualização Automática| Especifica se será feita uma nova varredura em busca de alterações no arquivo my.cnf e uma substituição do arquivo de Autenticação de OMI do MySQL quando o Provedor de OMI do MySQL é atualizado. |
 

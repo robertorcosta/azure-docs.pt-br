@@ -1,25 +1,25 @@
 ---
-title: Gerenciar grupos de recursos - Portal Azure
-description: Use o portal Azure para gerenciar seus grupos de recursos através do Azure Resource Manager. Mostra como criar, listar e excluir grupos de recursos.
+title: Gerenciar grupos de recursos-portal do Azure
+description: Use portal do Azure para gerenciar seus grupos de recursos por meio de Azure Resource Manager. Mostra como criar, listar e excluir grupos de recursos.
 author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632983"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerencie grupos de recursos do Azure Resource Manager usando o portal Azure
+# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar Azure Resource Manager grupos de recursos usando o portal do Azure
 
-Saiba como usar o [portal Azure](https://portal.azure.com) com [o Azure Resource Manager](overview.md) para gerenciar seus grupos de recursos do Azure. Para gerenciar os recursos do Azure, consulte [Gerenciar os recursos do Azure usando o portal Azure](manage-resources-portal.md).
+Saiba como usar o [portal do Azure](https://portal.azure.com) com [Azure Resource Manager](overview.md) para gerenciar seus grupos de recursos do Azure. Para gerenciar recursos do Azure, consulte [gerenciar recursos do Azure usando o portal do Azure](manage-resources-portal.md).
 
-Outros artigos sobre o gerenciamento de grupos de recursos:
+Outros artigos sobre como gerenciar grupos de recursos:
 
-- [Gerencie grupos de recursos do Azure usando o Azure CLI](manage-resources-cli.md)
-- [Gerencie grupos de recursos do Azure usando o Azure PowerShell](manage-resources-powershell.md)
+- [Gerenciar grupos de recursos do Azure usando o CLI do Azure](manage-resources-cli.md)
+- [Gerenciar grupos de recursos do Azure usando o Azure PowerShell](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -39,14 +39,14 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 3. Selecione **Adicionar**.
 4. Insira os valores a seguir:
 
-   - **Assinatura**: Selecione sua assinatura do Azure. 
+   - **Assinatura**: selecione sua assinatura do Azure. 
    - **Grupo de recursos**: insira um nome para o novo grupo de recursos. 
-   - **Região**: Selecione uma localização azure, como **o Central US**.
+   - **Região**: selecione um local do Azure, como **EUA Central**.
 
      ![Criar grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. Selecione **Revisão + Criar**
+5. Selecione **revisão + criar**
 6. Selecione **Criar**. Leva alguns segundos para criar um grupo de recursos.
-7. Selecione **Atualizar** no menu superior para atualizar a lista de grupos de recursos e, em seguida, selecione o grupo de recursos recém-criado para abri-la. Ou selecione **Notificação**(o ícone do sino) de cima e selecione Ir para o **grupo de recursos** para abrir o grupo de recursos recém-criado
+7. Selecione **Atualizar** no menu superior para atualizar a lista grupo de recursos e, em seguida, selecione o grupo de recursos recém-criado para abri-lo. Ou selecione **notificação**(o ícone de sino) na parte superior e, em seguida, selecione **ir para o grupo de recursos** para abrir o grupo de recursos recém-criado
 
     ![ir para o grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
@@ -57,59 +57,59 @@ O grupo de recursos armazena metadados sobre os recursos. Portanto, quando você
 
     ![procurar grupos de recursos](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. Para personalizar as informações exibidas para os grupos de recursos, selecione **Editar colunas**. A captura de tela a seguir mostra as colunas de adição que você pode adicionar ao display:
+3. Para personalizar as informações exibidas para os grupos de recursos, selecione **Editar colunas**. A captura de tela a seguir mostra as colunas de adição que você pode adicionar à exibição:
 
-## <a name="open-resource-groups"></a>Grupos de recursos abertos
+## <a name="open-resource-groups"></a>Abrir grupos de recursos
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de recursos**.
-3. Selecione o grupo de recursos que deseja abrir.
+3. Selecione o grupo de recursos que você deseja abrir.
 
 ## <a name="delete-resource-groups"></a>Excluir grupos de recursos
 
-1. Abra o grupo de recursos que deseja excluir.  Consulte [Grupos de recursos abertos](#open-resource-groups).
+1. Abra o grupo de recursos que você deseja excluir.  Consulte [abrir grupos de recursos](#open-resource-groups).
 2. Selecione **Excluir grupo de recursos**.
 
-    ![excluir grupo de recursos azure](./media/manage-resource-groups-portal/delete-group.png)
+    ![excluir grupo de recursos do Azure](./media/manage-resource-groups-portal/delete-group.png)
 
-Para obter mais informações sobre como o Azure Resource Manager ordena a exclusão de recursos, consulte a exclusão do grupo de [recursos do Azure Resource Manager](delete-resource-group.md).
+Para obter mais informações sobre como Azure Resource Manager ordena a exclusão de recursos, consulte [Azure Resource Manager exclusão de grupo de recursos](delete-resource-group.md).
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Implantar recursos em um grupo de recursos
 
-Depois de criar um modelo de Gerenciador de recursos, você pode usar o portal Azure para implantar seus recursos do Azure. Para criar um modelo, consulte [Quickstart: Crie e implante modelos do Azure Resource Manager usando o portal Azure](../templates/quickstart-create-templates-use-the-portal.md). Para implantar um modelo usando o portal, consulte [Implantar recursos com modelos do Gerenciador de Recursos e portal Azure](../templates/deploy-portal.md).
+Depois de criar um modelo do Resource Manager, você pode usar o portal do Azure para implantar os recursos do Azure. Para criar um modelo, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../templates/quickstart-create-templates-use-the-portal.md). Para implantar um modelo usando o portal, consulte [implantar recursos com modelos do Resource Manager e portal do Azure](../templates/deploy-portal.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Mova-se para outro grupo de recursos ou assinatura
+## <a name="move-to-another-resource-group-or-subscription"></a>Mover para outro grupo de recursos ou assinatura
 
-Você pode transferir os recursos do grupo para outro grupo de recursos. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](move-resource-group-and-subscription.md).
+Você pode mover os recursos do grupo para outro grupo de recursos. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](move-resource-group-and-subscription.md).
 
-## <a name="lock-resource-groups"></a>Grupos de recursos de bloqueio
+## <a name="lock-resource-groups"></a>Bloquear grupos de recursos
 
-O bloqueio impede que outros usuários da sua organização excluam acidentalmente ou modifiquem recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
+O bloqueio impede que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
 
-1. Abra o grupo de recursos que deseja excluir.  Consulte [Grupos de recursos abertos](#open-resource-groups).
-2. No painel esquerdo, selecione **Fechaduras**.
-3. Para adicionar um bloqueio ao grupo de recursos, **selecione Adicionar**.
-4. Digite **o nome do bloqueio,** **o tipo de**bloqueio e **as notas**. Os tipos **de**bloqueio incluem somente leitura e **exclusão**.
+1. Abra o grupo de recursos que você deseja excluir.  Consulte [abrir grupos de recursos](#open-resource-groups).
+2. No painel esquerdo, selecione **bloqueios**.
+3. Para adicionar um bloqueio ao grupo de recursos, selecione **Adicionar**.
+4. Insira o **nome do bloqueio**, o tipo de **bloqueio**e as **observações**. Os tipos de bloqueio incluem **somente leitura**e **excluir**.
 
-    ![bloquear grupo de recursos azule](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
+    ![bloquear grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-Para obter mais informações, consulte [bloquear recursos para evitar alterações inesperadas](lock-resources.md).
+Para obter mais informações, consulte [Bloquear recursos para evitar alterações inesperadas](lock-resources.md).
 
-## <a name="tag-resource-groups"></a>Grupos de recursos de tag
+## <a name="tag-resource-groups"></a>Marcar grupos de recursos
 
-Você pode aplicar marcas a recursos e grupos de recursos para organizar seus ativos de modo lógico. Para obter informações, consulte [Usando tags para organizar seus recursos do Azure](tag-resources.md#portal).
+Você pode aplicar marcas a recursos e grupos de recursos para organizar seus ativos de modo lógico. Para obter informações, consulte [usando marcas para organizar os recursos do Azure](tag-resources.md#portal).
 
 ## <a name="export-resource-groups-to-templates"></a>Exportar grupos de recursos para modelos
 
-Para obter informações sobre a exportação de modelos, consulte [Exportação única e multi-recursos para modelo - Portal](../templates/export-template-portal.md).
+Para obter informações sobre como exportar modelos, consulte [exportação única e de vários recursos para o portal de modelos](../templates/export-template-portal.md).
 
-## <a name="manage-access-to-resource-groups"></a>Gerencie o acesso a grupos de recursos
+## <a name="manage-access-to-resource-groups"></a>Gerenciar o acesso a grupos de recursos
 
 O [Controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para aprender o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](overview.md).
-- Para aprender a sintaxe do modelo Resource Manager, consulte [Entenda a estrutura e a sintaxe dos modelos do Azure Resource Manager](../templates/template-syntax.md).
-- Para saber como desenvolver modelos, consulte os [tutoriais passo a passo](/azure/azure-resource-manager/).
-- Para exibir os esquemas de modelo do Azure Resource Manager, consulte [referência de modelo](/azure/templates/).
+- Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](overview.md).
+- Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../templates/template-syntax.md).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

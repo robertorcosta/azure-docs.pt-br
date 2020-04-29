@@ -4,13 +4,13 @@ description: Contadores de desempenho, eventos e exceções do Docker podem ser 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669600"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitore os aplicativos docker em Insights de aplicativos (preteridos)
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorar os aplicativos do Docker no Application Insights (preterido)
 
 > [!NOTE]
 > Esta solução foi reprovada. Para saber mais sobre nossos investimentos atuais no monitoramento de contêineres, recomendamos que você faça o check-out do [Azure Monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
@@ -81,7 +81,7 @@ Para investigar os eventos individuais, clique em [Pesquisar](../../azure-monito
 ### <a name="docker-context-added-to-app-telemetry"></a>Contexto do Docker adicionado à telemetria do aplicativo
 Solicitar telemetria enviada do aplicativo instrumentado com o AI SDK é enriquecida com informações de contexto do Docker.
 
-## <a name="q--a"></a>Perguntas e respostas
+## <a name="q--a"></a>Perguntas e Respostas
 *O que o Application Insights me proporciona que eu não consigo obter com o Docker?*
 
 * Análise detalhada dos contadores de desempenho por contêiner e imagem.

@@ -1,52 +1,52 @@
 ---
-title: Grupo de servidores de escala - Hyperscale (Citus) - Banco de dados Azure para PostgreSQL
-description: Ajuste os recursos de memória, disco e CPU do grupo do servidor para lidar com o aumento da carga
+title: Dimensionar grupo de servidores-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
+description: Ajuste os recursos de memória do grupo de servidores, disco e CPU para lidar com o aumento de carga
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/16/2020
 ms.openlocfilehash: fa48ca287c248155a0271b5134be782d8db1c785
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063111"
 ---
-# <a name="scale-a-hyperscale-citus-server-group"></a>Dimensione um grupo de servidores Hyperscale (Citus)
+# <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
 
-O Banco de Dados Azure para PostgreSQL - Hyperscale (Citus) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. O portal Azure facilita a adição de novos nódulos de trabalhadores e o aumento dos vCores dos nós existentes.
+Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. A portal do Azure facilita a adição de novos nós de trabalho e o aumento da vCores dos nós existentes.
 
-## <a name="add-worker-nodes"></a>Adicionar nódulos de trabalhador
+## <a name="add-worker-nodes"></a>Adicionar nós de trabalho
 
-Para adicionar nós, vá para a guia **Configurar** no grupo de servidor Hyperscale (Citus).  Arrastar o controle deslizante para **contagem de nó trabalhador** altera o valor.
+Para adicionar nós, vá para a guia **Configurar** em seu grupo de servidores de hiperescala (Citus).  Arrastar o controle deslizante para **contagem de nós de trabalho** altera o valor.
 
 ![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
-Clique no botão **Salvar** para fazer com que o valor alterado faça efeito.
+Clique no botão **salvar** para fazer o valor alterado entrar em vigor.
 
 > [!NOTE]
-> Uma vez aumentado e salvo, o número de nós do trabalhador não pode ser diminuído usando o controle deslizante.
+> Depois de aumentado e salvo, o número de nós de trabalho não pode ser reduzido usando o controle deslizante.
 
 ### <a name="rebalance-shards"></a>Reequilibrar fragmentos
 
-Para aproveitar os nós recém-adicionados, você deve reequilibrar [os fragmentos de](concepts-hyperscale-distributed-data.md#shards)mesa distribuídos, o que significa mover alguns fragmentos dos nós existentes para os novos. Primeiro verifique se os novos trabalhadores terminaram o provisionamento com sucesso. Em seguida, inicie o rebalanceador de fragmentos, conectando-se ao nó do coordenador de cluster com psql e executando:
+Para aproveitar os nós recém-adicionados, você deve reequilibrar os [fragmentos](concepts-hyperscale-distributed-data.md#shards)de tabela distribuída, o que significa mover alguns fragmentos de nós existentes para os novos. Primeiro, verifique se os novos trabalhadores concluíram com êxito o provisionamento. Em seguida, inicie o rebalanceador de fragmento, conectando-se ao nó de coordenador de cluster com psql e executando:
 
 ```sql
 SELECT rebalance_table_shards('distributed_table_name');
 ```
 
-A `rebalance_table_shards` função reequilibra todas as tabelas no grupo de [colocation](concepts-hyperscale-colocation.md) da tabela nomeada em seu argumento. Assim, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocation.
+A `rebalance_table_shards` função reequilibra todas as tabelas no grupo de [colocalização](concepts-hyperscale-colocation.md) da tabela chamada em seu argumento. Portanto, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocalização.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir vCores em nomes
+## <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar ou diminuir o vCores em nós
 
 > [!NOTE]
-> Esse recurso está atualmente na visualização. Para solicitar uma alteração nos vCores para nomes de nó sustais no grupo do servidor, entre [em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Esse recurso atualmente está em versão prévia. Para solicitar uma alteração no vCores para nós em seu grupo de servidores, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Além de adicionar novos nódulos, você pode aumentar as capacidades dos nódulos existentes. Ajustar a capacidade computacional para cima e para baixo pode ser útil para experimentos de desempenho, bem como mudanças de curto ou longo prazo nas demandas de tráfego.
+Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para testes de desempenho, bem como alterações de curto ou longo prazo em demandas de tráfego.
 
-Para alterar os vCores para todos os nós do trabalhador, ajuste o controle deslizante **vCores** em **Configuração (por nó do trabalhador)**. Os vCores do nó coordenador podem ser ajustados independentemente. Clique no link **De configuração Alterar** em **nó coordenador**. Uma caixa de diálogo será exibida com controles deslizantes para a capacidade de vCores e Armazenamento do coordenador. Altere os controles deslizantes conforme desejado e selecione **OK**.
+Para alterar o vCores de todos os nós de trabalho, ajuste o controle deslizante **vCores** em **configuração (por nó de trabalho)**. O vCores do nó de coordenador pode ser ajustado de forma independente. Clique no link **Alterar configuração** em **nó de coordenador**. Uma caixa de diálogo será exibida com os controles deslizantes para a capacidade de armazenamento e vCores do coordenador. Altere os controles deslizantes conforme desejado e selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .
+Saiba mais sobre [as opções de desempenho](concepts-hyperscale-configuration-options.md)do grupo de servidores.

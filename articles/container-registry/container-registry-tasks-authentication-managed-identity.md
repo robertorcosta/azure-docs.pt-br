@@ -1,6 +1,6 @@
 ---
 title: Identidade gerenciada na tarefa ACR
-description: Habilite uma identidade gerenciada para recursos do Azure em uma tarefa de Registro de Contêineres do Azure para permitir que a tarefa acesse outros recursos do Azure, incluindo outros registros privados de contêineres.
+description: Habilite uma identidade gerenciada para recursos do Azure em uma tarefa de registro de contêiner do Azure para permitir que a tarefa acesse outros recursos do Azure, incluindo outros registros de contêiner privado.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -9,50 +9,50 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77111773"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Use uma identidade gerenciada pelo Azure em tarefas ACR 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usar uma identidade gerenciada pelo Azure em tarefas ACR 
 
-Habilite uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em uma [tarefa ACR,](container-registry-tasks-overview.md)para que a tarefa possa acessar outros recursos do Azure, sem a necessidade de fornecer ou gerenciar credenciais. Por exemplo, use uma identidade gerenciada para permitir que uma etapa de tarefa puxe ou empurre imagens de contêiner para outro registro.
+Habilite uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em uma [tarefa ACR](container-registry-tasks-overview.md), para que a tarefa possa acessar outros recursos do Azure, sem a necessidade de fornecer ou gerenciar credenciais. Por exemplo, use uma identidade gerenciada para habilitar uma etapa de tarefa para efetuar pull ou enviar por push imagens de contêiner para outro registro.
 
-Neste artigo, você aprende a usar o Azure CLI para habilitar uma identidade gerenciada atribuída pelo usuário ou atribuída ao sistema em uma tarefa ACR. Você pode usar o Azure Cloud Shell ou uma instalação local do Azure CLI. Se você quiser usá-lo localmente, a versão 2.0.68 ou posterior é necessária. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+Neste artigo, você aprenderá a usar o CLI do Azure para habilitar uma identidade gerenciada atribuída pelo usuário ou pelo sistema em uma tarefa ACR. Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure. Se você quiser usá-lo localmente, a versão 2.0.68 ou posterior será necessária. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
-Para fins de ilustração, os comandos de exemplo neste artigo usam a [tarefa az acr criar][az-acr-task-create] para criar uma tarefa básica de compilação de imagem que permite uma identidade gerenciada. Para que os cenários de exemplo acessem recursos protegidos de uma tarefa ACR usando uma identidade gerenciada, consulte:
+Para fins de ilustração, os comandos de exemplo neste artigo usam a [tarefa AZ ACR Create][az-acr-task-create] para criar uma tarefa de compilação de imagem básica que habilita uma identidade gerenciada. Para cenários de exemplo para acessar recursos protegidos de uma tarefa ACR usando uma identidade gerenciada, consulte:
 
 * [Autenticação entre registros](container-registry-tasks-cross-registry-authentication.md)
 * [Acesse recursos externos com segredos armazenados no Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
 
-Uma identidade gerenciada para recursos do Azure fornece serviços Selecionados do Azure com uma identidade gerenciada automaticamente no Azure Active Directory. Você pode configurar uma tarefa ACR com uma identidade gerenciada para que a tarefa possa acessar outros recursos protegidos do Azure, sem passar credenciais nas etapas da tarefa.
+Uma identidade gerenciada para recursos do Azure fornece serviços do Azure selecionados com uma identidade gerenciada automaticamente no Azure Active Directory. Você pode configurar uma tarefa ACR com uma identidade gerenciada para que a tarefa possa acessar outros recursos protegidos do Azure, sem passar credenciais nas etapas da tarefa.
 
 Identidades gerenciadas são de dois tipos:
 
-* *Identidades atribuídas pelo usuário,* que você pode atribuir a vários recursos e persistir pelo tempo que quiser. As identidades atribuídas pelo usuário estão atualmente em pré-visualização.
+* *Identidades atribuídas pelo usuário*, que você pode atribuir a vários recursos e manter o tempo que desejar. As identidades atribuídas pelo usuário estão atualmente em pré-visualização.
 
-* Uma *identidade atribuída ao sistema,* que é exclusiva de um recurso específico, como uma tarefa de ACR, e dura a vida útil desse recurso.
+* Uma *identidade atribuída pelo sistema*, que é exclusiva para um recurso específico, como uma tarefa ACR, e dura o tempo de vida desse recurso.
 
-Você pode habilitar ambos os tipos de identidade em uma tarefa ACR. Conceda o acesso à identidade a outro recurso, como qualquer diretor de segurança. Quando a tarefa é executada, ela usa a identidade para acessar o recurso em quaisquer etapas de tarefa que exijam acesso.
+Você pode habilitar um ou ambos os tipos de identidade em uma tarefa ACR. Conceda acesso de identidade a outro recurso, assim como qualquer entidade de segurança. Quando a tarefa é executada, ela usa a identidade para acessar o recurso em qualquer etapa de tarefa que exija acesso.
 
 ## <a name="steps-to-use-a-managed-identity"></a>Etapas para usar uma identidade gerenciada
 
-Siga essas etapas de alto nível para usar uma identidade gerenciada com uma tarefa ACR.
+Siga estas etapas de alto nível para usar uma identidade gerenciada com uma tarefa ACR.
 
-### <a name="1-optional-create-a-user-assigned-identity"></a>1. (Opcional) Criar uma identidade atribuída pelo usuário
+### <a name="1-optional-create-a-user-assigned-identity"></a>1. (opcional) criar uma identidade atribuída pelo usuário
 
-Se você planeja usar uma identidade atribuída pelo usuário, use uma identidade existente ou crie a identidade usando o Azure CLI ou outras ferramentas do Azure. Por exemplo, use o comando [az identity create.][az-identity-create] 
+Se você planeja usar uma identidade atribuída pelo usuário, use uma identidade existente ou crie a identidade usando o CLI do Azure ou outras ferramentas do Azure. Por exemplo, use o comando [AZ Identity Create][az-identity-create] . 
 
-Se você planeja usar apenas uma identidade atribuída ao sistema, pule esta etapa. Você cria uma identidade atribuída ao sistema quando cria a tarefa ACR.
+Se você planeja usar apenas uma identidade atribuída pelo sistema, ignore esta etapa. Você cria uma identidade atribuída pelo sistema ao criar a tarefa ACR.
 
-### <a name="2-enable-identity-on-an-acr-task"></a>2. Habilite a identidade em uma tarefa ACR
+### <a name="2-enable-identity-on-an-acr-task"></a>2. habilitar a identidade em uma tarefa ACR
 
-Quando você cria uma tarefa ACR, habilite opcionalmente uma identidade atribuída pelo usuário, uma identidade atribuída ao sistema ou ambos. Por exemplo, `--assign-identity` passe o parâmetro quando executar o comando [az acr task create][az-acr-task-create] no Azure CLI.
+Ao criar uma tarefa ACR, opcionalmente, habilite uma identidade atribuída pelo usuário, uma identidade atribuída pelo sistema ou ambas. Por exemplo, passe o `--assign-identity` parâmetro ao executar o comando [AZ ACR task Create][az-acr-task-create] no CLI do Azure.
 
-Para habilitar uma identidade atribuída `--assign-identity` ao sistema, passe sem valor ou `assign-identity [system]`. O comando de exemplo a seguir cria uma tarefa Linux a `hello-world` partir de um repositório público do GitHub que constrói a imagem e permite uma identidade gerenciada atribuída pelo sistema:
+Para habilitar uma identidade atribuída pelo sistema, passe `--assign-identity` sem valor ou `assign-identity [system]`. O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público `hello-world` que cria a imagem e habilita uma identidade gerenciada atribuída pelo sistema:
 
 ```azurecli
 az acr task create \
@@ -64,7 +64,7 @@ az acr task create \
     --assign-identity
 ```
 
-Para habilitar uma identidade atribuída `--assign-identity` pelo usuário, passe com um valor do *ID* de recurso da identidade. O comando de exemplo a seguir cria uma tarefa Linux a `hello-world` partir de um repositório público do GitHub que constrói a imagem e permite uma identidade gerenciada atribuída pelo usuário:
+Para habilitar uma identidade atribuída pelo usuário, passe `--assign-identity` com um valor da *ID de recurso* da identidade. O comando de exemplo a seguir cria uma tarefa do Linux de um repositório GitHub público `hello-world` que cria a imagem e habilita uma identidade gerenciada atribuída pelo usuário:
 
 ```azurecli
 az acr task create \
@@ -76,22 +76,22 @@ az acr task create \
     --assign-identity <resourceID>
 ```
 
-Você pode obter o ID de recurso da identidade executando o comando [az identity show.][az-identity-show] O ID de recurso do ID *myUserAssignedIdentity* no grupo de recursos *myResourceGroup* é do formulário: 
+Você pode obter a ID de recurso da identidade executando o comando [AZ Identity show][az-identity-show] . A ID de recurso para a ID *myUserAssignedIdentity* no grupo de recursos *MyResource* Group está no formato: 
 
 ```
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
 ```
 
-### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Conceda as permissões de identidade para acessar outros recursos do Azure
+### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. conceder as permissões de identidade para acessar outros recursos do Azure
 
-Dependendo dos requisitos de sua tarefa, conceda as permissões de identidade para acessar outros recursos do Azure. Os exemplos incluem:
+Dependendo dos requisitos da sua tarefa, conceda permissões de identidade para acessar outros recursos do Azure. Os exemplos incluem:
 
-* Atribuir à identidade gerenciada uma função com puxar, empurrar e puxar, ou outras permissões para um registro de contêiner de destino no Azure. Para obter uma lista completa de funções de registro, consulte [as funções e permissões do Registro de Contêineres do Azure](container-registry-roles.md). 
-* Atribuir à identidade gerenciada um papel para ler segredos em um cofre de chaves do Azure.
+* Atribua a identidade gerenciada uma função com pull, push e pull ou outras permissões a um registro de contêiner de destino no Azure. Para obter uma lista completa de funções de registro, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md). 
+* Atribua à identidade gerenciada uma função para ler segredos em um cofre de chaves do Azure.
 
-Use a CLI do [Azure](../role-based-access-control/role-assignments-cli.md) ou outras ferramentas do Azure para gerenciar o acesso baseado em função aos recursos. Por exemplo, execute o [comando a az role assignment create][az-role-assignment-create] para atribuir à identidade uma função ao recurso. 
+Use o [CLI do Azure](../role-based-access-control/role-assignments-cli.md) ou outras ferramentas do Azure para gerenciar o acesso baseado em função aos recursos. Por exemplo, execute o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade uma função ao recurso. 
 
-O exemplo a seguir atribui a uma identidade gerenciada as permissões para retirar de um registro de contêiner. O comando especifica o *ID principal* da identidade da tarefa e o *ID* de recurso do registro de destino.
+O exemplo a seguir atribui uma identidade gerenciada às permissões para efetuar pull de um registro de contêiner. O comando especifica a *ID da entidade de segurança* da tarefa e a *ID de recurso* do registro de destino.
 
 
 ```azurecli
@@ -101,11 +101,11 @@ az role assignment create \
   --role acrpull
 ```
 
-### <a name="4-optional-add-credentials-to-the-task"></a>4. (Opcional) Adicionar credenciais à tarefa
+### <a name="4-optional-add-credentials-to-the-task"></a>4. (opcional) adicionar credenciais à tarefa
 
-Se sua tarefa precisar de credenciais para puxar ou empurrar imagens para outro registro personalizado ou para acessar outros recursos, adicione credenciais à tarefa. Execute o comando [az acr task task add][az-acr-task-credential-add] command `--use-identity` para adicionar credenciais e passe o parâmetro para indicar que a identidade pode acessar as credenciais. 
+Se sua tarefa precisar de credenciais para efetuar pull ou enviar imagens por push para outro registro personalizado, ou para acessar outros recursos, adicione as credenciais à tarefa. Execute o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar credenciais e passe o `--use-identity` parâmetro para indicar que a identidade pode acessar as credenciais. 
 
-Por exemplo, para adicionar credenciais para uma identidade atribuída ao sistema para autenticar `use-identity [system]`com o registro de *destino*do contêiner Azure, passe:
+Por exemplo, para adicionar credenciais para uma identidade atribuída pelo sistema para autenticar com o registro de *targetregistry*contêiner do Azure `use-identity [system]`targetregistry, passe:
 
 ```azurecli
 az acr task credential add \
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Para adicionar credenciais para uma identidade atribuída pelo usuário para `use-identity` autenticar com o registro de *destino*do registro, passe com um valor do *ID* do cliente da identidade. Por exemplo: 
+Para adicionar credenciais para uma identidade atribuída pelo usuário para autenticar com o *targetregistry*do registro `use-identity` , passe com um valor da *ID do cliente* da identidade. Por exemplo:
 
 ```azurecli
 az acr task credential add \
@@ -125,15 +125,15 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-Você pode obter a identificação do cliente da identidade executando o comando [az identity show.][az-identity-show] O ID do cliente é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`um GUID do formulário .
+Você pode obter a ID do cliente da identidade executando o comando [AZ Identity show][az-identity-show] . A ID do cliente é um GUID do formulário `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
-### <a name="5-run-the-task"></a>5. Execute a tarefa
+### <a name="5-run-the-task"></a>5. executar a tarefa
 
-Depois de configurar uma tarefa com uma identidade gerenciada, execute a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, acione-a manualmente usando o comando [az acr task run.][az-acr-task-run] Se você configurou gatilhos de tarefas adicionais e automatizados, a tarefa será executada quando acionada automaticamente.
+Depois de configurar uma tarefa com uma identidade gerenciada, execute a tarefa. Por exemplo, para testar uma das tarefas criadas neste artigo, acione-a manualmente usando o comando [AZ ACR Task execute][az-acr-task-run] . Se você tiver configurado gatilhos de tarefa automatizados adicionais, a tarefa será executada quando disparado automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como habilitar e usar uma identidade gerenciada atribuída pelo usuário ou atribuída ao sistema em uma tarefa ACR. Para que os cenários acessem recursos protegidos de uma tarefa ACR usando uma identidade gerenciada, consulte:
+Neste artigo, você aprendeu como habilitar e usar uma identidade gerenciada atribuída pelo usuário ou pelo sistema em uma tarefa ACR. Para cenários para acessar recursos protegidos de uma tarefa ACR usando uma identidade gerenciada, consulte:
 
 * [Autenticação entre registros](container-registry-tasks-cross-registry-authentication.md)
 * [Acesse recursos externos com segredos armazenados no Azure Key Vault](container-registry-tasks-authentication-key-vault.md)

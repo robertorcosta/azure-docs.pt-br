@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77660743"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -24,7 +24,7 @@ Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho 
 ![ExpressRoute Monitor](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>Configuração 
-Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Network Performance Monitor](network-performance-monitor.md) e **selecione Configurar**.
+Para abrir a configuração para Monitor de Desempenho de Rede, abra a [solução monitor de desempenho de rede](network-performance-monitor.md) e selecione **Configurar**.
 
 ### <a name="configure-network-security-group-rules"></a>Configurar regras do grupo de segurança de rede 
 Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Log Analytics instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
@@ -103,7 +103,7 @@ Esta exibição mostra as conexões de rede virtuais. 
 
 ![Conexões de rede virtual do ExpressRoute](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
-## <a name="diagnostics"></a>Diagnósticos 
+## <a name="diagnostics"></a>Diagnóstico 
 
 O Monitor de Desempenho de Rede ajuda a diagnosticar vários problemas de conectividade do circuito. Alguns dos problemas que você pode ver estão listadas abaixo.
 

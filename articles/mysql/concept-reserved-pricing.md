@@ -1,66 +1,66 @@
 ---
-title: Pré-pago para computação com capacidade reservada - Banco de dados Azure para MySQL
-description: Pré-pago pelo Banco de Dados Azure para recursos de computação MySQL com capacidade reservada
+title: Pagar antecipadamente por computação com capacidade reservada-banco de dados do Azure para MySQL
+description: Pagar antecipadamente pelos recursos de computação do banco de dados do Azure para MySQL com capacidade reservada
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 78c8750de7189bad33e9bbc766a3d7543a646f6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159346"
 ---
-# <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pré-pago pelo Banco de Dados Azure para recursos de computação MySQL com capacidade reservada
+# <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelos recursos de computação do banco de dados do Azure para MySQL com capacidade reservada
 
-O Banco de Dados Azure para MySQL agora ajuda você a economizar dinheiro pagando antecipadamente por recursos de computação em comparação com os preços de pagamento à medida que você vai. Com o Banco de Dados Azure para capacidade reservada MySQL, você faz um compromisso inicial no servidor MySQL por um ou três anos para obter um desconto significativo nos custos de computação. Para comprar o Banco de Dados Azure para a capacidade reservada MySQL, você precisa especificar a região do Azure, o tipo de implantação, o nível de desempenho e o prazo. </br>
+O banco de dados do Azure para MySQL agora ajuda você a economizar dinheiro prestando por recursos de computação em comparação com os preços pagos conforme o uso. Com a capacidade reservada do banco de dados do Azure para MySQL, você faz um compromisso antecipado no servidor MySQL por um período de um ou três anos para obter um desconto significativo nos custos de computação. Para comprar a capacidade reservada do banco de dados do Azure para MySQL, você precisa especificar a região do Azure, o tipo de implantação, o nível de desempenho e o termo. </br>
 
-Você não precisa atribuir a reserva a um banco de dados Azure específico para servidores MySQL. Um banco de dados Azure já em execução para MySQL ou aqueles que estão recém-implantados, obterá automaticamente o benefício de preços reservados. Ao comprar uma reserva, você está pagando antecipadamente os custos de computação por um período de um ou três anos. Assim que você compra uma reserva, o banco de dados Do Azure para taxas de cálculo MySQL que correspondem aos atributos de reserva não são mais cobrados nas taxas de pagamento à medida que você vai. Uma reserva não cobre taxas de software, rede ou armazenamento associadas ao servidor MySQL Database. No final do prazo de reserva, o benefício de faturamento expira, e o Banco de Dados Azure para MySQL é cobrado pelo preço de pagamento à medida que você vai. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte o [banco de dados Azure para oferta de capacidade reservada MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
+Você não precisa atribuir a reserva a servidores específicos do banco de dados do Azure para MySQL. Um banco de dados do Azure já em execução para MySQL ou aqueles que foram implantados recentemente obterá automaticamente o benefício do preço reservado. Ao comprar uma reserva, você está pagando antecipadamente os custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, os encargos de computação do banco de dados do Azure para MySQL que correspondam aos atributos de reserva não serão mais cobrados com as tarifas pagas pelo uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados ao servidor de banco de dados MySQL. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados do Azure para MySQL são cobrados pelo preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para MySQL](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
-Você pode comprar o Banco de Dados Azure para a capacidade reservada MySQL no [portal Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
+Você pode comprar a capacidade reservada do banco de dados do Azure para MySQL no [portal do Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
 
-* Você deve estar na função de proprietário por pelo menos uma assinatura enterprise ou individual com taxas de pagamento.
+* Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 * Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
-* Para o programa Cloud Solution Provider (CSP), apenas os agentes de administradorou agentes de vendas podem comprar o Banco de Dados Azure para capacidade reservada MySQL. </br>
+* Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem comprar a capacidade reservada do banco de dados do Azure para MySQL. </br>
 
-Os detalhes sobre como os clientes corporativos e clientes Pay-As-You-Go são cobrados para compras de reservas, veja [entender o uso da reserva do Azure para sua inscrição na Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) e entenda o uso da reserva do [Azure para sua assinatura Pay-As-You-Go.](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
-
-
-## <a name="determine-the-right-database-size-before-purchase"></a>Determine o tamanho certo do banco de dados antes da compra
-
-O tamanho da reserva deve ser baseado na quantidade total de computação usada pelo servidor existente ou em breve em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
-
-Por exemplo, vamos supor que você esteja executando um propósito geral, gen5 – 32 vCore MySQL database e dois bancos de dados Gen5 – 16 vCore MySQL. Além disso, vamos supor que você planeje implantar no próximo mês um propósito geral adicional, o servidor de banco de dados Gen5 – 32 vCore, e uma memória otimizada, gen5 – 16 vCore servidor de banco de dados. Vamos supor que você saiba que você vai precisar desses recursos por pelo menos 1 ano. Neste caso, você deve comprar um vCores 64 (2x32), reserva de 1 ano para um único banco de dados de propósito geral - Gen5 e uma reserva de 48 (2x16 + 16) vCore 1 ano para memória de banco de dados único otimizada - Gen5
+Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte [entender o uso de reserva do Azure para seu registro corporativo](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) e [entender o uso de reserva do Azure para sua assinatura pré-paga](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
 
 
-## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Comprar banco de dados Azure para capacidade reservada MySQL
+## <a name="determine-the-right-database-size-before-purchase"></a>Determinar o tamanho correto do banco de dados antes da compra
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
-2. Selecione Todas as**reservas** **de serviços** > .
-3. Selecione **Adicionar** e, em seguida, no painel De compras reservas, selecione **Azure Database for MySQL** para comprar uma nova reserva para seus bancos de dados MySQL.
-4. Preencha os campos necessários. Bancos de dados existentes ou novos que correspondam aos atributos selecionados se qualificam para obter o desconto de capacidade reservado. O número real do seu banco de dados Azure para servidores MySQL que recebem o desconto depende do escopo e da quantidade selecionados.
+O tamanho da reserva deve ser baseado na quantidade total de computação usada pelo servidor existente ou em breve para ser implantado em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-
-![Visão geral dos preços reservados](media/concepts-reserved-pricing/mysql-reserved-price.png)
+Por exemplo, suponhamos que você esteja executando uma finalidade geral, um banco de dados MySQL de Gen5 – 32 vCore e duas Gen5 de memória otimizada para 16. Além disso, digamos que você planeja implantar no próximo mês uma finalidade geral adicional, Gen5 – servidor de banco de dados vCore de 32 e um servidor de banco de dados com otimização de memória, Gen5 – 16 vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos 1 ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de 1 ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) reserva de 1 ano para a memória de banco de dados individual otimizada-Gen5
 
 
-A tabela a seguir descreve os campos necessários.
+## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Comprar a capacidade reservada do banco de dados do Azure para MySQL
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Selecione **todas as** > **reservas**de serviços.
+3. Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados do Azure para MySQL** para comprar uma nova reserva para seus bancos de dados MySQL.
+4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seu banco de dados do Azure para servidores MySQL que obtém o desconto depende do escopo e da quantidade selecionada.
+
+
+![Visão geral de preços reservados](media/concepts-reserved-pricing/mysql-reserved-price.png)
+
+
+A tabela a seguir descreve os campos obrigatórios.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Subscription   | A assinatura costumava pagar o Banco de Dados Do Azure para reserva de capacidade reservada MySQL. O método de pagamento na assinatura é cobrado dos custos iniciais do Banco de Dados Do Azure para reserva de capacidade reservada MySQL. O tipo de assinatura deve ser um contrato corporativo (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços de pagamento (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com preços de pagamento, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na assinatura.
-| Escopo | O escopo da reserva vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado,** o desconto de reserva vCore é aplicado ao Banco de Dados Azure para servidores MySQL em execução em quaisquer assinaturas dentro do seu contexto de faturamento. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única**, o desconto de reserva vCore é aplicado ao Banco de Dados Azure para servidores MySQL nesta assinatura. </br></br> **Grupo de recursos únicos**, o desconto de reserva é aplicado ao Banco de Dados Azure para servidores MySQL na assinatura selecionada e no grupo de recursos selecionado dentro dessa assinatura.
-| Região | A região do Azure que é coberta pelo Banco de Dados Azure para reserva de capacidade reservada MySQL.
-| Tipo de implantação | O banco de dados Do Zure para o tipo de recurso MySQL para o que você deseja comprar a reserva.
-| Nível de desempenho | O nível de serviço do Banco de Dados Azure para servidores MySQL.
+| Subscription   | A assinatura usada para pagar o banco de dados do Azure para reserva de capacidade reservada do MySQL. O método de pagamento na assinatura é cobrado pelos custos antecipados do banco de dados do Azure para reserva de capacidade reservada do MySQL. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
+| Escopo | O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MySQL em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MySQL nesta assinatura. </br></br> **Um grupo de recursos único**, o desconto de reserva é aplicado ao banco de dados do Azure para servidores MySQL na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.
+| Região | A região do Azure que é coberta pelo banco de dados do Azure para MySQL reserva de capacidade reservada.
+| Tipo de implantação | O tipo de recurso do banco de dados do Azure para MySQL do qual você deseja comprar a reserva.
+| Nível de desempenho | A camada de serviço do banco de dados do Azure para servidores MySQL.
 | Termo | Um ano
-| Quantidade | A quantidade de recursos computacionais que estão sendo adquiridos no Banco de Dados Do Azure para reserva de capacidade reservada MySQL. A quantidade é um número de vCores na região azure selecionada e nível performance que estão sendo reservados e receberão o desconto de faturamento. Por exemplo, se você estiver executando ou planejando executar um banco de dados Azure para servidores MySQL com a capacidade total de computação de gen5 16 vCores na região leste dos EUA, então você especificaria quantidade como 16 para maximizar o benefício para todos os servidores.
+| Quantidade | A quantidade de recursos de computação que está sendo adquirida no banco de dados do Azure para MySQL reserva de capacidade reservada. A quantidade é um número de vCores na região do Azure e no nível de desempenho selecionados que estão sendo reservados e receberão o desconto de cobrança. Por exemplo, se você estiver executando ou planejando executar um banco de dados do Azure para servidores MySQL com a capacidade de computação total de Gen5 16 vCores na região leste dos EUA, você deverá especificar a quantidade como 16 para maximizar o benefício para todos os servidores.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, consulte [trocas e reembolsos de autoatendimento para reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
@@ -72,13 +72,13 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O desconto de reserva vCore é aplicado automaticamente ao número de banco de dados Azure para servidores MySQL que correspondem ao Banco de Dados Azure para escopo e atributos de reserva de capacidade reservada mySQL. Você pode atualizar o escopo do banco de dados Azure para reserva de capacidade reservada MySQL através do portal Azure, PowerShell, CLI ou através da API. </br></br>
-Para saber como gerenciar o banco de dados Azure para capacidade reservada MySQL, consulte gerenciar o Banco de Dados Azure para capacidade reservada MySQL.
+O desconto de reserva vCore é aplicado automaticamente ao número de servidores do banco de dados do Azure para MySQL que correspondem ao banco de dados do Azure para o escopo de reserva de capacidade reservada do MySQL e atributos. Você pode atualizar o escopo do banco de dados do Azure para MySQL reserva de capacidade reservada por meio de portal do Azure, PowerShell, CLI ou por meio da API. </br></br>
+Para saber como gerenciar a capacidade reservada do banco de dados do Azure para MySQL, veja gerenciar a capacidade reservada do banco de dados do Azure para MySQL.
 
 Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-* [O que são reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Gerenciar reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+* [O que são as reservas do Azure](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
+* [Gerenciar Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Compreender o desconto de Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Entender o uso de reserva para a sua assinatura paga conforme o uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
 * [Entender o uso de reserva para seu registro de empresa](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)

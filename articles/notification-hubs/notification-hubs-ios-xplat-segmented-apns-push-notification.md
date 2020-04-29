@@ -1,5 +1,5 @@
 ---
-title: Envie notificações push para dispositivos iOS específicos usando hubs de notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para dispositivos iOS específicos usando os hubs de notificação do Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá a usar os Hubs de Notificação do Azure para enviar notificações por push para dispositivos iOS específicos.
 services: notification-hubs
 documentationcenter: ios
@@ -17,13 +17,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80126985"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envie notificações push para dispositivos iOS específicos usando hubs de notificação do Azure
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para dispositivos iOS específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "80126985"
 
 Este tutorial mostra como usar os Hubs de Notificação do Azure para difundir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas, por exemplo, leitor de RSS, aplicativos para fãs de música, etc.
 
-Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais *marcas* durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para uma marcação, os dispositivos que foram registrados para a marcação recebem a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre tags, consulte [Centros de notificação roteamento e expressões de marcação](notification-hubs-tags-segment-push-message.md).
+Os cenários de transmissão são habilitados por meio da inclusão de uma ou mais *marcas* durante a criação de um registro no hub de notificação. Quando as notificações são enviadas para uma marcação, os dispositivos que foram registrados para a marcação recebem a notificação. Como os rótulos são simplesmente cadeias de caracteres, eles não precisam ser provisionados com antecedência. Para obter mais informações sobre marcas, consulte [Routing hubs de notificação e expressões de marca](notification-hubs-tags-segment-push-message.md).
 
 Neste tutorial, você deve executar as seguintes etapas:
 
@@ -159,7 +159,7 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
 9. No método `didRegisterForRemoteNotificationsWithDeviceToken` em `AppDelegate.m`, substitua o código no método pelo seguinte código ao passar o token do dispositivo para a classe `notifications`. A classe `notifications` executa o registro para notificações nas categorias. Se o usuário altera as seleções de categoria, chame o método `subscribeWithCategories` em resposta ao botão **assinar** para atualizá-los.
 
     > [!NOTE]
-    > Como o token do dispositivo atribuído pelo Apple Push Notification Service (APNS) pode ser altertou a qualquer momento, você deve se registrar para notificações com freqüência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
+    > Como o token de dispositivo atribuído pelo Apple Push Notification Service (APNS) pode ser alterado a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -371,4 +371,4 @@ Neste tutorial, você enviou notificações de notícias a dispositivos iOS espe
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portal Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

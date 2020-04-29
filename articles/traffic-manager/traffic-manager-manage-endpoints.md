@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: rohink
 ms.openlocfilehash: 2aee4282fe6a66151ea39018f0d6c0db51f2c027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76939129"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
@@ -29,8 +29,8 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de Aplicativo a um perfil do Gerenciador de Tráfego
 
-1. A partir de um navegador, faça login no [portal Azure](https://portal.azure.com).
-2. Na barra de pesquisa do portal, procure o nome do **perfil do Gerenciador de Tráfego** que deseja modificar e clique no perfil do Gerenciador de tráfego nos resultados exibidos.
+1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
+2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de tráfego** que você deseja modificar e, em seguida, clique no perfil do Gerenciador de tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**.
 4. Na folha **Pontos de Extremidade** que é exibida, clique em **Adicionar**.
 5. Na folha **Adicionar ponto de extremidade**, preencha os seguintes campos:
@@ -40,7 +40,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
     4. Para **Recurso de destino**, clique no seletor **Escolher...** para listar os recursos sob a mesma assinatura na **Folha de recursos**. Na folha **Recursos** que é exibida, escolha o serviço que você deseja adicionar como o primeiro ponto de extremidade.
     5. Para **Prioridade**, selecione **1**. Isso faz com que todo o tráfego passe para esse ponto de extremidade, se ele estiver íntegro.
     6. Mantenha a opção **Adicionar como desabilitado** desmarcada.
-    7. Clique em **OK**.
+    7. Clique em **OK**
 6.  Repita as etapas 4 e 5 para adicionar o próximo ponto de extremidade do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
 7.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
@@ -49,34 +49,34 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 
 ## <a name="to-disable-an-endpoint"></a>Para desabilitar um ponto de extremidade
 
-1. A partir de um navegador, faça login no [portal Azure](https://portal.azure.com).
+1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
-4. Clique no ponto final que deseja desativar.
+4. Clique no ponto de extremidade que você deseja desabilitar.
 5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Desabilitado**e, em seguida, clique em **Salvar**.
 6. Os clientes continuam a enviar o tráfego para o ponto de extremidade durante o tempo de vida (TTL). Você pode alterar a TTL na página Configuração do perfil do Gerenciador de Tráfego.
 
 ## <a name="to-enable-an-endpoint"></a>Para habilitar um ponto de extremidade
 
-1. A partir de um navegador, faça login no [portal Azure](https://portal.azure.com).
+1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
-4. Clique no ponto final que deseja habilitar.
+4. Clique no ponto de extremidade que você deseja habilitar.
 5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Habilitado**e, em seguida, clique em **Salvar**.
 6. Os clientes continuam a enviar o tráfego para o ponto de extremidade durante o tempo de vida (TTL). Você pode alterar a TTL na página Configuração do perfil do Gerenciador de Tráfego.
 
 ## <a name="to-delete-an-endpoint"></a>Como excluir um ponto de extremidade
 
-1. A partir de um navegador, faça login no [portal Azure](https://portal.azure.com).
+1. Em um navegador, entre no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
 3. Na folha **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade**. 
-4. Clique no ponto final que deseja excluir.
-5. Na lâmina **Endpoint,** clique em **Excluir**
+4. Clique no ponto de extremidade que você deseja excluir.
+5. Na folha **ponto de extremidade** , clique em **excluir**
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
+* [Gerenciar perfis do Gerenciador de tráfego](traffic-manager-manage-profiles.md)
 * [Configurar métodos de roteamento](traffic-manager-configure-routing-method.md)
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)

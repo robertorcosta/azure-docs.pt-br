@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas do Azure Load Balancer
-description: Aprenda a solucionar problemas conhecidos com o Azure Load Balancer.
+description: Saiba como solucionar problemas conhecidos com o Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76935472"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
-Esta página fornece informações de solução de problemas para perguntas básicas e padrão comuns do Balancer de carga do Azure. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+Esta página fornece informações de solução de problemas para perguntas de Azure Load Balancer comuns básicas e padrão. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 Quando a conectividade do Load Balancer não estiver disponível, os sintomas mais comuns são os seguintes: 
 
 - VMs por trás do Load Balancer não estão respondendo às investigações de integridade 
 - VMs por trás do Load Balancer não estão respondendo ao tráfego na porta configurada
 
-Quando os clientes externos para as VMs backend passarem pelo balanceador de carga, o endereço IP dos clientes será usado para a comunicação. Certifique-se de que o endereço IP dos clientes seja adicionado à lista de permitir o NSG. 
+Quando os clientes externos para as VMs de back-end passam pelo balanceador de carga, o endereço IP dos clientes será usado para a comunicação. Verifique se o endereço IP dos clientes foi adicionado à lista de permissões NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: As VMs por trás do Load Balancer não estão respondendo às investigações de integridade
 Para que os servidores back-end participem do conjunto de balanceadores de carga, eles devem passar na verificação de investigação. Para saber mais sobre investigações de integridade, confira [Noções básicas sobre investigações do Load Balancer](load-balancer-custom-probe-overview.md). 
@@ -79,7 +79,7 @@ Se todas as causas anteriores, aparentemente, tiverem sido validadas e resolvida
     - Execute um rastreamento Netsh simultâneo na VM do pool de back-end de destino e na outra VM de teste da mesma VNet. Agora, execute um teste PsPing por algum tempo, colete alguns rastreamentos de rede e interrompa o teste. 
     - Analise a captura de rede e verifique se há pacotes de entrada e saída relacionados à consulta de ping. 
         - Se não forem observados pacotes de entrada na VM do pool de back-end, possivelmente, há uma configuração incorreta de UDR ou grupos de segurança de rede bloqueando o tráfego. 
-        - Se não forem observados pacotes de saída na VM do pool de backend, a VM deve ser verificada para quaisquer problemas não relacionados (por exemplo, aplicativo bloqueando a porta do teste). 
+        - Se nenhum pacote de saída for observado na VM do pool de back-end, a VM precisará ser verificada em busca de problemas não relacionados (por exemplo, aplicativo que bloqueia a porta de investigação). 
     - Verifique se os pacotes de investigação estão sendo forçados para outro destino (possivelmente por meio de configurações UDR) antes de chegarem ao Load Balancer. Isso pode fazer com que o tráfego nunca chegue à VM de back-end. 
 * Altere o tipo de investigação (por exemplo, HTTP para TCP) e configure a porta correspondente nas ACLs dos grupos de segurança de rede e no firewall a fim de verificar se o problema é com a configuração da resposta de investigação. Para saber mais sobre a configuração da investigação de integridade, confira [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/) (Configuração da investigação de integridade no balanceamento de carga do ponto de extremidade).
 
@@ -105,9 +105,9 @@ Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destin
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou na VM estiverem bloqueando o IP de origem ou a porta, a VM não poderá responder.
 
-Para o balanceador de carga pública, o endereço IP dos clientes da Internet será usado para comunicação entre os clientes e as VMs de backend do balanceador de carga. Certifique-se de que o endereço IP dos clientes seja permitido no grupo de segurança de rede da VM backend.
+Para o Load Balancer público, o endereço IP dos clientes da Internet será usado para comunicação entre os clientes e as VMs de back-end do balanceador de carga. Verifique se o endereço IP dos clientes é permitido no grupo de segurança de rede da VM de back-end.
 
-1. Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [Gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
+1. Liste os grupos de segurança de rede configurados na VM de back-end. Para obter mais informações, consulte [gerenciar grupos de segurança de rede](../virtual-network/manage-network-security-group.md)
 1. Na lista de grupos de segurança de rede, verifique se:
     - O tráfego de entrada ou saída na porta de dados tem interferência. 
     - Uma regra do grupo de segurança de rede **Negar Tudo** na NIC da VM ou na sub-rede tem uma prioridade mais alta do que a regra padrão que permite as investigações e o tráfego do Load Balancer (grupos de segurança de rede devem permitir o IP 168.63.129.16 do Load Balancer, que é a porta de investigação)
@@ -128,9 +128,9 @@ Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtua
 
 **Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 
-## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: Não é possível alterar a porta backend para a regra LB existente de um balanceador de carga que tenha o Conjunto de Escala vM implantado no pool de backend. 
-### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa : A porta backend não pode ser modificada para uma regra de balanceamento de carga usada por um teste de saúde para balanceador de carga referenciado pelo VM Scale Set.
-**Resolução** Para alterar a porta, você pode remover o teste de saúde atualizando o Conjunto de Escala vm, atualizar a porta e, em seguida, configurar o teste de saúde novamente.
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintoma: não é possível alterar a porta de back-end para a regra LB existente de um balanceador de carga que tem um conjunto de dimensionamento de VM implantado no pool de 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: a porta de back-end não pode ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade para o balanceador de carga referenciado pelo conjunto de dimensionamento de VM.
+**Resolução** Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de VM, atualizar a porta e, em seguida, configurar a investigação de integridade novamente.
 
 ## <a name="additional-network-captures"></a>Capturas de rede adicionais
 Se você optar por abrir um caso de suporte, colete as informações a seguir para uma resolução mais rápida. Escolha uma única VM de back-end para executar os seguintes testes:

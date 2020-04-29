@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: 96528dc34305e77602634110a0153f7623a15c96
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676760"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este artigo descreve como usar a CLI do Azure para implantar um banco de dados Oracle Database 12c da imagem do Azure Marketplace. Este artigo mostra a você passo a passo como instalar e configurar o Data Guard em uma VM (máquina virtual) do Azure.
 
-Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais informações, consulte o [guia de instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais informações, consulte o [Guia de instalação do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 ### <a name="assumptions"></a>Suposições
@@ -282,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Ligue o Flashback (o que torna a recuperação\_\_muito mais fácil) e defina o gerenciamento de arquivos de standby para auto. Saia sql*plus depois disso.
+Ative o flashback (o que torna a recuperação muito mais fácil) e\_defina\_o gerenciamento de arquivos em espera como automático. Saia do SQL * Plus depois disso.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -512,7 +512,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configurar o Data Guard Broker em myVM1 (primário)
 
-Inicie o Data Guard Manager e faça logon usando SYS e uma senha. (Não use autenticação do SO.) Execute o seguinte:
+Inicie o Data Guard Manager e faça logon usando SYS e uma senha. (Não use a autenticação do sistema operacional.) Execute o seguinte:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1

@@ -1,7 +1,7 @@
 ---
-title: Implantar espaço de trabalho do Studio (clássico) com o Azure Resource Manager
+title: Implantar o espaço de trabalho Studio (clássico) com Azure Resource Manager
 titleSuffix: ML Studio (classic) - Azure
-description: Como implantar um espaço de trabalho para o Azure Machine Learning Studio (clássico) usando o modelo Azure Resource Manager
+description: Como implantar um espaço de trabalho para Azure Machine Learning Studio (clássico) usando o modelo Azure Resource Manager
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,22 +11,22 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
 ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79218110"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar o Azure Machine Learning Studio (clássico) Espaço de trabalho usando o Gerenciador de Recursos do Azure
+# <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar Azure Machine Learning Studio espaço de trabalho (clássico) usando Azure Resource Manager
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento Azure e, em seguida, implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho Studio (clássico) e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento do Azure e, em seguida, implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de workspaces. Uma alternativa mais fácil é usar um modelo de Azure Resource Manager para implantar um espaço de trabalho do Studio (clássico) e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Workspace do Machine Learning
-Criaremos um grupo de recursos do Azure e, em seguida, implantaremos uma nova conta de armazenamento Azure e um novo Espaço de Trabalho (clássico) Azure Machine Learning Studio (clássico) usando um modelo de Gerenciador de recursos. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os workspaces que foram criados (a chave primária, a workspaceID e a URL para o workspace).
+Criaremos um grupo de recursos do Azure e implantaremos uma nova conta de armazenamento do Azure e um novo espaço de trabalho Azure Machine Learning Studio (clássico) usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os workspaces que foram criados (a chave primária, a workspaceID e a URL para o workspace).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
 
@@ -114,7 +114,7 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verifique se o grupo de recursos está provisionado corretamente. **ProvisionamentoO Estado** deve ser "Bem Sucedido".
+Verifique se o grupo de recursos está provisionado corretamente. **ProvisioningState** deve ser "Succeeded".
 O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
 
 ![Grupo de recursos](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
@@ -133,13 +133,13 @@ Depois que a implantação for concluída, é fácil acessar as propriedades do 
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar tokens do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os workspaces.
+Outra maneira de recuperar Tokens do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, você pode listar os tokens primário e secundário de todos os workspaces.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
 Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-Depois que o espaço de trabalho é provisionado, você também pode automatizar muitas tarefas do Azure Machine Learning Studio (clássico) usando o [Módulo PowerShell para o Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
+Depois que o espaço de trabalho for provisionado, você também poderá automatizar muitas tarefas Azure Machine Learning Studio (clássicas) usando o [módulo do PowerShell para Azure Machine Learning Studio (clássico)](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Próximas etapas
 

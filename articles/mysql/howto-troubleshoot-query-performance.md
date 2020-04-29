@@ -1,16 +1,16 @@
 ---
-title: Solucionar problemas no desempenho da consulta - Banco de dados Azure para MySQL
-description: Aprenda a usar EXPLAIN para solucionar problemas no banco de dados Do Zure para MySQL.
+title: Solucionar problemas de desempenho de consulta-banco de dados do Azure para MySQL
+description: Saiba como usar explicar para solucionar problemas de desempenho de consulta no banco de dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 6b27e47339b80cc46290065c4d17150a301f2534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80067833"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL

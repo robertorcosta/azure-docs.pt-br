@@ -1,5 +1,5 @@
 ---
-title: Criar usuários - Banco de dados Azure para MariaDB
+title: Criar usuários-banco de dados do Azure para MariaDB
 description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um servidor de Banco de Dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/2/2020
 ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632281"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar usuários no Banco de Dados do Azure para MariaDB 
@@ -23,7 +23,7 @@ O usuário administrador de servidor obtém determinados privilégios para o ser
 Depois de criar o servidor de Banco de Dados do Azure para MariaDB, você poderá usar a primeira conta de usuário administrador de servidor para criar usuários adicionais e conceder acesso de administrador a eles. Além disso, a conta de administrador do servidor pode ser usada para criar usuários com menos privilégios que têm acesso aos esquemas de banco de dados individuais.
 
 > [!NOTE]
-> O privilégio SUPER e o papel dba não são suportados. Revise os [privilégios](concepts-limits.md#privilege-support) no artigo de limitações para entender o que não é suportado no serviço.
+> Não há suporte para a função SUPER Privilege e DBA. Examine os [privilégios](concepts-limits.md#privilege-support) no artigo limitações para entender o que não tem suporte no serviço.
 
 ## <a name="create-additional-admin-users"></a>Criar usuários administradores adicionais
 1. Obter o nome de usuário do administrador e as informações de conexão.

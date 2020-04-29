@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663055"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionar recursos de Automação do Azure a uma solução de gerenciamento (versão prévia)
@@ -73,7 +73,7 @@ As propriedades dos runbooks são descritas na tabela a seguir.
 | runbookType |Especifica os tipos de runbook. <br><br> Script – Script do PowerShell <br>PowerShell – Fluxo de trabalho do PowerShell <br> GraphPowerShell – Runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow – Runbook de fluxo de trabalho do PowerShell gráfico |
 | logProgress |Especifica se [registros de progresso](../../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
 | logVerbose |Especifica se [registros detalhados](../../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
-| descrição |Descrição opcional para o runbook. |
+| description |Descrição opcional para o runbook. |
 | publishContentLink |Especifica o conteúdo do runbook. <br><br>uri – URI do conteúdo do runbook.  Ele será um arquivo .ps1 para runbooks do PowerShell e Script e um arquivo de runbook grafo exportado para um runbook de Grafo.  <br> versão – a versão do runbook para seu próprio acompanhamento. |
 
 
@@ -192,7 +192,7 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| descrição |Descrição opcional para o agendamento. |
+| description |Descrição opcional para o agendamento. |
 | startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele for convertido em um DateTime válido. |
 | isEnabled |Especifica se o agendamento está habilitado. |
 | intervalo |O tipo de intervalo para o agendamento.<br><br>dia<br>hour |
@@ -262,7 +262,7 @@ As propriedades dos recursos de variáveis são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| descrição | Descrição opcional para a variável. |
+| description | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser criptografada. |
 | type | Essa propriedade atualmente está sem efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
 | value | Valor da variável. |
@@ -274,7 +274,7 @@ Se você definir o valor inicial da variável, ele deverá ser definido como o t
 
 | Tipo de dados | Descrição | Exemplo | É resolvido desta forma |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
+| cadeia de caracteres   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
 | numeric  | Valor numérico com aspas simples.| "64" | 64 |
 | booleano  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | true |
 | DATETIME | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

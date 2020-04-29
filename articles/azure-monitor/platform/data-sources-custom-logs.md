@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
 ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670586"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
@@ -41,7 +41,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 >
 
 >[!IMPORTANT]
->A coleta de log personalizada requer que o aplicativo que escreve o arquivo log lave o conteúdo do log para o disco periodicamente. Isso porque a coleção de log sustais personalizada suscia de notificações de alteração do sistema de arquivos para que o arquivo de registro seja rastreado.
+>A coleta de log Personalizada requer que o aplicativo que está gravando o arquivo de log libere o conteúdo do log para o disco periodicamente. Isso ocorre porque a coleção de logs personalizada se baseia em notificações de alteração do sistema de arquivos para o arquivo de log que está sendo acompanhado.
 
 ## <a name="defining-a-custom-log"></a>Definindo um log personalizado
 Use o procedimento a seguir para definir um arquivo de log personalizado.  Role até o final deste artigo para encontrar um passo a passo de um exemplo de adição de um log personalizado.
@@ -50,7 +50,7 @@ Use o procedimento a seguir para definir um arquivo de log personalizado.  Role 
 O Assistente de Log Personalizado é executado no portal do Azure e permite que você defina um novo log personalizado para ser coletado.
 
 1. No portal do Azure, escolha **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
-2. Clique em **registros personalizados** > **de dados**.
+2. Clique em **dados** > **logs personalizados**.
 3. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique e **Adicionar+** para abrir o Custom Log Wizard (Assistente de Log Personalizado).
 
@@ -82,13 +82,13 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 | Todos os arquivos em */var/log/audit* cujo nome começa com log e uma extensão .txt no agente do Linux |/var/log/audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar qual formato de caminho você está adicionando.
-2. Digite o caminho **+** e clique no botão.
+2. Digite o caminho e clique no **+** botão.
 3. Repita o processo para todos os caminhos adicionais.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
 O nome especificado será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
-1. Digite um nome para o log.  O sufixo ** \_CL** é fornecido automaticamente.
+1. Digite um nome para o log.  O ** \_sufixo CL** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Próximo** para salvar a definição do log personalizado.
 
@@ -140,7 +140,7 @@ Fornecemos um dos arquivos de log e podemos ver os eventos que ele coletará.  N
 ![Carregar e analisar um log de exemplo](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>Adicionar caminhos de coleta de log
-Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Será criado um novo arquivo por dia com um nome que inclui a data no padrão *appAAAAMMDD.log*.  Um padrão suficiente para este log seria *C:\MyApp\Logs\\\*.log*.
+Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Será criado um novo arquivo por dia com um nome que inclui a data no padrão *appAAAAMMDD.log*.  Um padrão suficiente para esse log seria *\\\*C:\MyApp\Logs. log*.
 
 ![Caminho da coleta do log](media/data-sources-custom-logs/collection-path.png)
 
@@ -150,7 +150,7 @@ Usamos um nome de *MyApp_CL* e digitamos uma **Descrição**.
 ![Nome do log](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Validar que os logs personalizados estão sendo coletados
-Usamos uma simples consulta de *MyApp_CL* para retornar todos os registros do registro coletado.
+Usamos uma consulta simples de *MyApp_CL* para retornar todos os registros do log coletado.
 
 ![Consulta de log sem campos personalizados](media/data-sources-custom-logs/query-01.png)
 

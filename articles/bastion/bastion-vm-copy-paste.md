@@ -1,6 +1,6 @@
 ---
-title: 'Copiar e colar de e para uma máquina virtual: Azure Bastion'
-description: Neste artigo, aprenda como copiar e colar de e para um Azure VM usando Bastion.
+title: 'Copiar e colar de e para uma máquina virtual: bastiões do Azure'
+description: Neste artigo, saiba como copiar e colar de e para uma VM do Azure usando a bastiões.
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,52 +8,52 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619313"
 ---
-# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: Azure Bastion
+# <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: bastiões do Azure
 
-Este artigo ajuda você a copiar e colar textos de e para máquinas virtuais ao usar o Azure Bastion. Antes de trabalhar com uma VM, certifique-se de ter seguido os passos para [criar um host Bastião](bastion-create-host-portal.md). Em seguida, conecte-se à VM com a que deseja trabalhar usando [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
+Este artigo ajuda você a copiar e colar texto de e para máquinas virtuais ao usar a bastiões do Azure. Antes de trabalhar com uma VM, certifique-se de ter seguido as etapas para [criar um host de bastiões](bastion-create-host-portal.md). Em seguida, conecte-se à VM com a qual você deseja trabalhar usando o [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
 
-Para navegadores que suportam o acesso avançado à API da área de transferência, você pode copiar e colar texto entre seu dispositivo local e a sessão remota da mesma forma que você copia e cola entre aplicativos em seu dispositivo local. Para outros navegadores, você pode usar a paleta de ferramentas de acesso à área de transferência Bastion.
+Para navegadores que dão suporte ao acesso à API de área de transferência avançada, você pode copiar e colar o texto entre o dispositivo local e a sessão remota da mesma maneira que copia e cola entre aplicativos em seu dispositivo local. Para outros navegadores, você pode usar a paleta de ferramentas de acesso à área de transferência de bastiões.
 
    ![Permitir área de transferência](./media/bastion-vm-manage/allow.png)
 
-Apenas a cópia/pasta de texto é suportada. Para copiar e colar diretamente, seu navegador pode solicitar acesso à área de transferência quando a sessão Bastion estiver sendo inicializada. **Permita que** a página da Web acesse a área de transferência.
+Só há suporte para copiar/colar texto. Para copiar e colar direta, seu navegador pode solicitar acesso à área de transferência quando a sessão de bastiões está sendo inicializada. **Permitir que** a página da Web acesse a área de transferência.
 
 ## <a name="copy-to-a-remote-session"></a><a name="to"></a>Copiar para uma sessão remota
 
-Depois de se conectar à máquina virtual usando o [portal Azure, ](https://portal.azure.com)complete as seguintes etapas:
+Depois de se conectar à máquina virtual usando o [portal do Azure ](https://portal.azure.com), conclua as seguintes etapas:
 
 1. Copie o texto/conteúdo do dispositivo local para a área de transferência local.
-1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência Bastion selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
+1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
 
    ![paleta de ferramentas](./media/bastion-vm-manage/left.png)
 
    ![área de transferência](./media/bastion-vm-manage/clipboard.png)
-1. Normalmente, o texto copiado é automaticamente mostrado na paleta de colares de cópia bastião. Se o texto não estiver lá, cole o texto na área de texto na paleta.
-1. Uma vez que o texto esteja na área de texto, você pode colá-lo na sessão remota.
+1. Normalmente, o texto copiado é mostrado automaticamente na paleta de colagem de cópia de bastiões. Se o texto não estiver lá, Cole o texto na área de texto na paleta.
+1. Quando o texto estiver na área de texto, você poderá colá-lo na sessão remota.
 
    ![colar](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copiar de uma sessão remota
 
-Depois de se conectar à máquina virtual usando o [portal Azure, ](https://portal.azure.com)complete as seguintes etapas:
+Depois de se conectar à máquina virtual usando o [portal do Azure ](https://portal.azure.com), conclua as seguintes etapas:
 
 1. Copie o texto/conteúdo da sessão remota para a área de transferência remota (usando Ctrl-C).
 
    ![paleta de ferramentas](./media/bastion-vm-manage/remote.png)
-1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência Bastion selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
+1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
 
    ![área de transferência](./media/bastion-vm-manage/clipboard2.png)
-1. Normalmente, o texto copiado é automaticamente mostrado na paleta de colares de cópia bastião. Se o texto não estiver lá, cole o texto na área de texto na paleta.
-1. Uma vez que o texto esteja na área de texto, você pode colá-lo no dispositivo local.
+1. Normalmente, o texto copiado é mostrado automaticamente na paleta de colagem de cópia de bastiões. Se o texto não estiver lá, Cole o texto na área de texto na paleta.
+1. Quando o texto estiver na área de texto, você poderá colá-lo no dispositivo local.
 
    ![colar](./media/bastion-vm-manage/local2.png)
  
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia o [Bastião FAQ](bastion-faq.md).
+Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).

@@ -1,5 +1,5 @@
 ---
-title: Monitore hubs de superfície com monitor azure | Microsoft Docs
+title: Monitorar hubs de superfície com Azure Monitor | Microsoft Docs
 description: Use a solução Surface Hubs para controlar a integridade dos seus Hubs de superfície e compreender como eles estão sendo usados.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662494"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorar Surface Hubs com o Azure Monitor para acompanhar sua integridade
@@ -40,7 +40,7 @@ Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho p
 O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do espaço de trabalho do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
 
 1. Entre no Intune.
-2. Navegue até **configurações** > de**fontes conectadas**.
+2. Navegue até **configurações** > **fontes conectadas**.
 3. Criar ou editar uma política com base no modelo de Surface Hub.
 4. Navegue até a seção Azure Operational Insights da política e adicione o *ID do workspace* do Log Analytics e a *Chave do workspace* à política.
 5. Salve a política.

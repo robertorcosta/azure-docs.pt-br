@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 04/19/2020
 ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683011"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Desempenho de monitoramento do Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico
@@ -41,16 +41,16 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico retornam informações de estado do servidor. Em um Banco de Dados SQL, elas retornam informações relacionadas apenas ao seu banco de dados lógico atual.
 
-Este artigo contém uma coleção de consultas do Detran que você pode executar usando o SQL Server Management Studio ou o Azure Data Studio para detectar os seguintes tipos de problemas de desempenho de consulta:
+Este artigo contém uma coleção de consultas DMV que você pode executar usando SQL Server Management Studio ou Azure Data Studio para detectar os seguintes tipos de problemas de desempenho de consulta:
 
-- [Identificação de consultas relacionadas ao consumo excessivo de CPU](#identify-cpu-performance-issues)
-- [PAGELATCH_* e WRITE_LOG espera por gargalos de IO](#identify-io-performance-issues)
-- [PAGELATCH_* espera por disputa bytTempDB](#identify-tempdb-performance-issues)
-- [RESOURCE_SEMAHPORE espera causada por problemas de espera de concessão de memória](#identify-memory-grant-wait-performance-issues)
-- [Identificação de banco de dados e tamanhos de objetos](#calculating-database-and-objects-sizes)
+- [Identificando consultas relacionadas ao consumo excessivo de CPU](#identify-cpu-performance-issues)
+- [PAGELATCH_ * e WRITE_LOG esperas relacionadas aos afunilamentos de e/s](#identify-io-performance-issues)
+- [PAGELATCH_ * esperas causaram contenção de bytTempDB](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE esperas causadas por problemas de espera de concessão de memória](#identify-memory-grant-wait-performance-issues)
+- [Identificando tamanhos de banco de dados e objeto](#calculating-database-and-objects-sizes)
 - [Recuperando informações sobre sessões ativas](#monitoring-connections)
-- [Recuperar informações de uso de recursos em todo o sistema e banco de dados](#monitor-resource-use)
-- [Recuperando informações de desempenho da consulta](#monitoring-query-performance)
+- [Recuperar informações de uso de recursos de todo o sistema e de banco de dados](#monitor-resource-use)
+- [Recuperando informações de desempenho de consulta](#monitoring-query-performance)
 
 ## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho da CPU
 
@@ -248,7 +248,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
-Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para confirmar `tempdb` ainda mais a contenção, use [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) `tempdb` para confirmar que `x` o valor wait_resource começa `y` com `2:x:y` o ID do banco de dados, é o ID do arquivo e é o ID da página.  
+Ao identificar problemas de desempenho de e/s, os principais tipos de espera de associado `tempdb` é de problemas `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas sempre significam que você tem `tempdb` contenção.  Essa espera também pode significar que você tenha a contenção de página de dados de objeto de usuário devido a solicitações simultâneas, visando a mesma página de dados. Para `tempdb` confirmar ainda mais a contenção, use [Sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de `2:x:y` wait_resource começa com `tempdb` onde 2 é a ID `x` do banco de dados, é `y` a ID do arquivo e é a ID da página.  
 
 Contenção de tempdb, de um método comum é reduzir ou reescrever o código do aplicativo que se baseia em `tempdb`.  Áreas de uso comum `tempdb` incluem:
 
@@ -552,7 +552,7 @@ O grafo a seguir mostra o uso de recursos da CPU para um banco de dados Premium 
 
 ![Uso de recursos de banco de dados SQL](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Segundo os dados, atualmente esse banco de dados tem um pico de carga de CPU de pouco mais de 50% de uso da CPU em relação ao tamanho da computação P2 (meio-dia de terça-feira). Se a CPU é o fator dominante no perfil de recurso do aplicativo, então você pode decidir que P2 é o tamanho certo da computação para garantir que a carga de trabalho sempre se encaixe. Se você espera que um aplicativo cresça com o passar do tempo, é uma boa ideia ter um buffer de recursos adicional para que o aplicativo nunca atinja o limite do nível de desempenho. Aumentando o tamanho da computação, você pode ajudar a evitar erros visíveis para os clientes, que podem ocorrer quando um banco de dados não tem capacidade suficiente para processar solicitações de modo eficaz, especialmente em ambientes sensíveis à latência. Um exemplo é um banco de dados que dá suporte a um aplicativo que pinta páginas da Web com base nos resultados de chamadas de banco de dados.
+Segundo os dados, atualmente esse banco de dados tem um pico de carga de CPU de pouco mais de 50% de uso da CPU em relação ao tamanho da computação P2 (meio-dia de terça-feira). Se a CPU for o fator dominante no perfil de recurso do aplicativo, você poderá decidir que P2 é o tamanho de computação certo para garantir que a carga de trabalho sempre caiba. Se você espera que um aplicativo cresça com o passar do tempo, é uma boa ideia ter um buffer de recursos adicional para que o aplicativo nunca atinja o limite do nível de desempenho. Aumentando o tamanho da computação, você pode ajudar a evitar erros visíveis para os clientes, que podem ocorrer quando um banco de dados não tem capacidade suficiente para processar solicitações de modo eficaz, especialmente em ambientes sensíveis à latência. Um exemplo é um banco de dados que dá suporte a um aplicativo que pinta páginas da Web com base nos resultados de chamadas de banco de dados.
 
 Outros tipos de aplicativos podem interpretar o mesmo grafo de forma diferente. Por exemplo, se um aplicativo tentar processar dados de folha de pagamento por dia e incluir o mesmo gráfico, esse tipo de modelo de "trabalho em lotes" poderá funcionar bem em um tamanho da computação P1. O tamanho da computação P1 tem 100 DTUs, comparadas a 200 DTUs do tamanho da computação P2. O tamanho da computação P1 fornece que metade do desempenho do P2. Portanto, 50% de uso da CPU em P2 equivale a 100% de uso da CPU em P1. Se o aplicativo não tiver tempo limite, talvez não faça diferença se um trabalho demora 2 horas ou 2,5 horas para ser concluído, desde que seja concluído hoje. Um aplicativo dessa categoria provavelmente pode usar um tamanho da computação P1. Você pode tirar proveito do fato de que há períodos do dia em que o uso de recursos é menor, o que significa que um "pico grande" pode ser extrapolado para um dos ciclos mais tarde. O tamanho da computação P1 pode ser bom para esse tipo de aplicativo (e economiza dinheiro), desde que os trabalhos possam ser concluídos no horário todos os dias.
 
@@ -574,7 +574,7 @@ ORDER BY start_time DESC
 
 O exemplo seguinte mostra diferentes maneiras de usar o modo de exibição de catálogo **sys.resource_stats** para obter informações sobre como o banco de dados SQL usa recursos:
 
-1. Para ver o uso de recursos da semana passada para o userdb1 do banco de dados, você pode executar esta consulta:
+1. Para examinar o uso de recursos da semana passada para o banco de dados userdb1, você pode executar esta consulta:
 
     ```sql
     SELECT *
@@ -664,7 +664,7 @@ Isso é apenas um instantâneo em um único ponto no tempo. Para entender melhor
 
 ### <a name="maximum-concurrent-logins"></a>Máximo de logons simultâneos
 
-Você pode analisar seus padrões de usuário e de aplicativo para ter uma ideia da frequência de logons. Você também pode executar cargas reais em um ambiente de teste para ter certeza de que não está atingindo esse ou outros limites mencionados neste artigo. Não há uma única consulta ou exibição de gerenciamento dinâmico (Detran) que possa mostrar contagem de login simultânea ou histórico.
+Você pode analisar seus padrões de usuário e de aplicativo para ter uma ideia da frequência de logons. Você também pode executar cargas reais em um ambiente de teste para ter certeza de que não está atingindo esse ou outros limites mencionados neste artigo. Não há uma única consulta ou DMV (exibição de gerenciamento dinâmico) que possa mostrar o histórico ou contagens de logon simultâneas.
 
 Se vários clientes usarem a mesma cadeia de conexão, o serviço autenticará cada logon. Se 10 usuários se conectassem simultaneamente a um banco de dados usando o mesmo nome de usuário e senha, existiriam 10 logons simultâneos. Esse limite é aplicado apenas durante o logon e a autenticação. Se os mesmos 10 usuários se conectassem ao banco de dados sequencialmente, o número de logons simultâneos nunca seria maior do que 1.
 
@@ -690,7 +690,7 @@ INNER JOIN sys.databases D ON (D.database_id = S.database_id)
 WHERE D.name = 'MyDatabase'
 ```
 
-Novamente, essas consultas retornam uma contagem pontual. Se você coletar várias amostras ao longo do tempo, você terá a melhor compreensão do seu uso de sessão.
+Novamente, essas consultas retornam uma contagem pontual. Se você coletar vários exemplos ao longo do tempo, terá a melhor compreensão do uso da sessão.
 
 Para a análise do Banco de Dados SQL, é possível obter estatísticas históricas sobre sessões consultando a visualização [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) e revisando a coluna **active_session_count**.
 
@@ -749,4 +749,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 ## <a name="see-also"></a>Confira também
 
-[Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
+[Introdução ao banco de dados SQL](sql-database-technical-overview.md)

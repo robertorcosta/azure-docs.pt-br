@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas Gráficos métricos do Azure Monitor
-description: Soluciona os problemas com a criação, personalização ou interpretação de gráficos métricos
+title: Solução de problemas Azure Monitor gráficos de métricas
+description: Solucionar problemas com a criação, personalização ou interpretação de gráficos de métricas
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -8,21 +8,21 @@ ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77659655"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas nos gráficos de métrica
 
-Use este artigo se você encontrar problemas com a criação, personalização ou interpretação de gráficos no explorador de métricas do Azure. Se você é novo em métricas, aprenda a [começar com o explorador de métricas](metrics-getting-started.md) e recursos [avançados do explorador de métricas](metrics-charts.md). Você também pode ver exemplos dos [gráficos](metric-chart-samples.md) métricos configurados.
+Use este artigo se você encontrar problemas com a criação, personalização ou interpretação de gráficos no Azure Metrics Explorer. Se você for novo nas métricas, saiba mais sobre como [começar a usar o Metrics Explorer](metrics-getting-started.md) e [recursos avançados do Metrics Explorer](metrics-charts.md). Você também pode ver [exemplos](metric-chart-samples.md) dos gráficos de métricas configurados.
 
-## <a name="cant-find-your-resource-to-select-it"></a>Não consigo encontrar seu recurso para selecioná-lo
+## <a name="cant-find-your-resource-to-select-it"></a>Não é possível localizar seu recurso para selecioná-lo
 
 Você clica no botão **Selecione um recurso**, mas não vê seu recurso na caixa de diálogo do seletor de recursos.
 
-**Solução:** O metrics explorer exige que você selecione assinaturas e grupos de recursos antes de listar os recursos disponíveis. Se você não vir seu recurso:
+**Solução:** O Metrics Explorer exige que você selecione assinaturas e grupos de recursos antes de listar os recursos disponíveis. Se você não vir seu recurso:
 
 1. Certifique-se de ter selecionado a assinatura correta no menu suspenso **Assinatura**. Se sua assinatura não for listada, clique nas **configurações de Diretório + Assinatura** e adicione a assinatura que contém o recurso.
 
@@ -30,83 +30,83 @@ Você clica no botão **Selecione um recurso**, mas não vê seu recurso na caix
     > [!WARNING]
     > Para melhorar o desempenho, na primeira vez que você abre o Metrics Explorer, o menu suspenso **Grupo de Recursos** não mostra nenhum grupo de recursos previamente selecionado. Você precisa escolher pelo menos um grupo para ver os recursos.
 
-## <a name="chart-shows-no-data"></a>Gráfico não mostra dados
+## <a name="chart-shows-no-data"></a>O gráfico não mostra dados
 
-Às vezes, os gráficos podem não mostrar dados depois de selecionar recursos e métricas corretos. Esse comportamento pode ser causado por várias das seguintes razões:
+Às vezes, os gráficos podem não mostrar nenhum dado depois de selecionar os recursos e as métricas corretos. Esse comportamento pode ser causado por vários dos seguintes motivos:
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>O provedor de recursos Microsoft.Insights não foi registrado para a assinatura
 
-A exploração de métricas precisa do provedor de recursos *Microsoft.Insights* registrado em sua assinatura. Em muitos casos, ele é registrado automaticamente (ou seja, depois de configurar uma regra de alerta, personalizar as configurações de diagnóstico de qualquer recurso ou configurar uma regra de dimensionamento automático). Se o provedor de recursos Microsoft.Insights não estiver registrado, você deve registrá-lo manualmente seguindo as etapas descritas nos [provedores e tipos de recursos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
+A exploração de métricas precisa do provedor de recursos *Microsoft.Insights* registrado em sua assinatura. Em muitos casos, ele é registrado automaticamente (ou seja, depois de configurar uma regra de alerta, personalizar as configurações de diagnóstico de qualquer recurso ou configurar uma regra de dimensionamento automático). Se o provedor de recursos Microsoft. insights não estiver registrado, você deverá registrá-lo manualmente seguindo as etapas descritas em [provedores de recursos e tipos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-**Solução:** **Abrir assinaturas**, **guia provedores de recursos** e verificar se o *Microsoft.Insights* está registrado para sua assinatura.
+**Solução:** Abra **assinaturas**, guia **provedores de recursos** e verifique se o *Microsoft. insights* está registrado para sua assinatura.
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Você não tem direitos de acesso suficientes para seu recurso
 
 No Azure, o acesso às métricas é controlado pelo [controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md). Você deve ser um membro de [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader), [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [colaborador](../../role-based-access-control/built-in-roles.md#contributor) para explorar as métricas de qualquer recurso.
 
-**Solução:** Certifique-se de que você tem permissões suficientes para o recurso a partir do qual você está explorando métricas.
+**Solução:** Verifique se você tem permissões suficientes para o recurso do qual você está explorando métricas.
 
 ### <a name="your-resource-didnt-emit-metrics-during-the-selected-time-range"></a>O recurso não emite métricas durante o intervalo de tempo selecionado
 
 Alguns recursos não emitem suas métricas constantemente. Por exemplo, o Azure não coletará as métricas para máquinas virtuais interrompidas. Outros recursos podem emitir métricas somente quando ocorrer alguma condição. Por exemplo, uma métrica que mostra o tempo de processamento de uma transação requer pelo menos uma transação. Se não houver nenhuma transação no intervalo de tempo selecionado, o gráfico naturalmente estará vazio. Além disso, embora a maioria das métricas no Azure seja coletada a cada minuto, há algumas que são coletadas com menos frequência. Consulte a documentação de métrica para obter mais detalhes sobre a métrica que está tentando explorar.
 
-**Solução:** Altere o tempo do gráfico para uma gama mais ampla. Você pode começar a partir de "Últimos 30 dias" usando uma granularidade de tempo maior (ou contando com a opção "Granularidade automática do tempo").
+**Solução:** Altere a hora do gráfico para um intervalo mais amplo. Você pode começar com os "últimos 30 dias" usando uma granularidade de tempo maior (ou contando com a opção "granularidade automática de tempo").
 
 ### <a name="you-picked-a-time-range-greater-than-30-days"></a>Você escolheu um intervalo de tempo maior que 30 dias
 
 [A maioria das métricas no Azure é armazenada por 93 dias](data-platform-metrics.md#retention-of-metrics). No entanto, você não pode consultar mais de 30 dias de dados em um único gráfico. Essa limitação não se aplica a [métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Solução:** Se você vir um gráfico em branco ou seu gráfico exibir apenas parte dos dados métricos, verifique se a diferença entre datas de início e término no seletor de horas não excede o intervalo de 30 dias.
+**Solução:** Se você vir um gráfico em branco ou o gráfico exibir apenas parte dos dados da métrica, verifique se a diferença entre as datas de início e término no seletor de hora não excede o intervalo de 30 dias.
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Todos os valores de métrica estavam fora do intervalo do eixo y bloqueado
 
 Por [bloqueio dos limites do eixo y do gráfico](metrics-charts.md#lock-boundaries-of-chart-y-axis), você acidentalmente pode fazer com que a área de exibição de gráfico não mostre a linha do gráfico. Por exemplo, se o eixo y estiver bloqueado em um intervalo entre 0% e 50% e a métrica tiver um valor constante de 100%, a linha será sempre renderizada fora da área visível, fazendo com que o gráfico apareça em branco.
 
-**Solução:** Verifique se os limites do eixo y do gráfico não estão bloqueados fora do intervalo dos valores métricos. Se os limites do eixo y estiverem bloqueados, você talvez queira redefini-los temporariamente para garantir que os valores da métrica não fiquem fora do intervalo do gráfico. Bloquear o intervalo do eixo y não é recomendado com granularidade automática para que os gráficos com agregação **soma**, **mín** e **máx** porque seus valores serão alterados com granularidade redimensionando a janela do navegador ou indo de uma resolução de tela para outra. Alternar a granularidade pode deixar a área de exibição do gráfico vazia.
+**Solução:** Verifique se os limites do eixo y do gráfico não estão bloqueados fora do intervalo dos valores de métrica. Se os limites do eixo y estiverem bloqueados, você talvez queira redefini-los temporariamente para garantir que os valores da métrica não fiquem fora do intervalo do gráfico. Bloquear o intervalo do eixo y não é recomendado com granularidade automática para que os gráficos com agregação **soma**, **mín** e **máx** porque seus valores serão alterados com granularidade redimensionando a janela do navegador ou indo de uma resolução de tela para outra. Alternar a granularidade pode deixar a área de exibição do gráfico vazia.
 
-### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Você está olhando para uma métrica do Sistema Operacional convidado, mas não habilitou a extensão de diagnóstico do Azure
+### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Você está olhando para uma métrica de SO convidado, mas não habilitou a extensão de diagnóstico do Azure
 
 A coleta de métricas do **Sistema Operacional Convidado** requer a configuração da Extensão de Diagnóstico do Azure ou habilitá-la usando o painel **Configurações de Diagnóstico** para seu recurso.
 
-**Solução:** Se o Azure Diagnostics Extension estiver habilitado, mas você ainda não puder ver suas métricas, siga as [etapas descritas no guia de solução de problemas do Azure Diagnostics Extension](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Veja também as etapas de solução de problemas para [Não É possível escolher o namespace e as métricas do sistema](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics) operacional convidado
+**Solução:** Se Diagnóstico do Azure extensão estiver habilitada, mas você ainda não conseguir ver suas métricas, siga as etapas descritas no [Guia de solução de problemas de extensão diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consulte também as etapas de solução de problemas para [não pode escolher o namespace e as métricas do SO convidado](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
 
-## <a name="error-retrieving-data-message-on-dashboard"></a>Mensagem "Erro de recuperação de dados" no painel
+## <a name="error-retrieving-data-message-on-dashboard"></a>Mensagem "erro ao recuperar dados" no painel
 
 Esse problema pode ocorrer quando o painel foi criado com uma métrica que foi descontinuada e removida do Azure. Para verificar se este é o caso, abra o guia **Métricas** do seu recurso e verifique as métricas disponíveis no seletor de métricas. Se a métrica não for exibida, é porque ela foi removida do Azure. Geralmente, uma métrica é descontinuada em detrimento de outra melhor que fornece uma perspectiva semelhante sobre a integridade do recurso.
 
-**Solução:** Atualize o azulejo com falha escolhendo uma métrica alternativa para o seu gráfico no painel. Você pode [revisar uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md).
+**Solução:** Atualize o bloco com falha selecionando uma métrica alternativa para seu gráfico no painel. Você pode [revisar uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>Gráfico mostra linha tracejada
 
-Os gráficos de métricas do Azure usam o estilo de linha tracejada para indicar que há um valor ausente (também conhecido como "valor nulo") entre dois pontos de dados de grão de tempo conhecidos. Por exemplo, se no seletor de tempo você escolheu granularidade de tempo de "1 minuto", mas a métrica foi relatada às 07:26, 07:27, 07:29 e 07:30 (nota um minuto de diferença entre o segundo e o terceiro pontos de dados), então uma linha tracejada se conectará 07:27 e 07:29 e uma linha sólida se conectará todos os outros pontos de dados. A linha tracejada cai para zero quando a métrica usa **contagem** **e** soma agregação. Para as agregações **avg,** **min** ou **max,** a linha tracejada conecta dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão ausentes no lado mais à direita ou à esquerda do gráfico, a linha tracejada se expande na direção do ponto de dados ausente.
+Os gráficos de métricas do Azure usam o estilo de linha tracejado para indicar que há um valor ausente (também conhecido como "valor nulo") entre dois pontos de dados de intervalo de tempo conhecidos. Por exemplo, se no seletor de tempo você escolheu a granularidade de tempo "1 minuto", mas a métrica foi relatada às 07:26, 07:27, 07:29 e 07:30 (Observe uma lacuna de minuto entre o segundo e o terceiro pontos de dados), uma linha tracejada se conectará a 07:27 e 07:29 e uma linha sólida conectará todos os outros pontos de dados. A linha tracejada cai para zero quando a métrica usa a agregação **Count** e **sum** . Para as agregações **AVG**, **min** ou **Max** , a linha tracejada conecta dois pontos de dados conhecidos mais próximos. Além disso, quando os dados estão ausentes no lado mais à direita ou à esquerda do gráfico, a linha tracejada se expande na direção do ponto de dados ausente.
   ![imagem de métrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Solução:** Esse comportamento é por design. Ele é útil para identificar pontos de dados ausentes. O gráfico de linha é uma escolha superior para visualizar tendências de métricas de alta densidade, mas pode ser difícil de interpretar para as métricas com valores esparsos, especialmente quando a corelação de valores com o grão temporal é importante. A linha tracejada facilita a leitura desses gráficos, mas se seu gráfico ainda não estiver claro, considere a possibilidade de visualizar suas métricas em outro tipo de gráfico. Por exemplo, um gráfico de gráfico disperso para a mesma métrica mostra claramente cada grão de tempo apenas visualizando ![um ponto quando há um valor e pulando o ponto de dados completamente quando o valor está faltando: imagem métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Solução:** Esse comportamento é por design. Ele é útil para identificar pontos de dados ausentes. O gráfico de linhas é uma opção superior para a visualização de tendências de métricas de alta densidade, mas pode ser difícil interpretar para as métricas com valores esparsos, especialmente quando valores corelacionados com o intervalo de tempo são importantes. A linha tracejada facilita a leitura desses gráficos, mas se seu gráfico ainda não estiver claro, considere a possibilidade de visualizar suas métricas em outro tipo de gráfico. Por exemplo, um gráfico de plotagem disperso para a mesma métrica claramente mostra cada intervalo de tempo apenas visualizando um ponto quando há um valor e ignorando o ponto de dados quando o valor está ausente: ![imagem de métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Se você ainda preferir um gráfico de linhas para sua métrica, mover o mouse sobre o gráfico pode ajudar a avaliar a granularidade de tempo ao realçar o ponto de dados no local do ponteiro do mouse.
 
-## <a name="chart-shows-unexpected-drop-in-values"></a>Gráfico mostra queda inesperada nos valores
+## <a name="chart-shows-unexpected-drop-in-values"></a>O gráfico mostra valores de queda inesperados
 
-Em muitos casos, a queda perceptível nos valores de métrica é um mal-entendido dos dados mostrados no gráfico. Você pode ser confundido por uma queda na somas ou contagens de quando o gráfico mostra os minutos mais recentes porque os últimos pontos de dados de métrica ainda não foram recebidos ou processados pelo Azure. Dependendo do serviço, a latência de métricas de processamento pode estar dentro de um intervalo de alguns minutos. Para gráficos que mostram um intervalo de tempo recente com uma granularidade de 1 ou 5 ![minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: imagem métrica](./media/metrics-troubleshoot/drop-in-values.png)
+Em muitos casos, a queda perceptível nos valores de métrica é um mal-entendido dos dados mostrados no gráfico. Você pode ser confundido por uma queda na somas ou contagens de quando o gráfico mostra os minutos mais recentes porque os últimos pontos de dados de métrica ainda não foram recebidos ou processados pelo Azure. Dependendo do serviço, a latência de métricas de processamento pode estar dentro de um intervalo de alguns minutos. Para gráficos mostrando um intervalo de tempo recente com uma granularidade de 1 ou 5 minutos, uma queda do valor nos últimos minutos torna-se mais perceptível: ![imagem de métrica](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Solução:** Esse comportamento é por design. Acreditamos que é benéfico mostrar os dados assim que eles forem recebidos, mesmo quando os dados forem *parciais* ou *incompletos*. Isso permite que você tire conclusões importantes mais cedo e inicie a investigação imediatamente. Por exemplo, em uma métrica que mostra o número de falhas, ver um valor parcial X informa que havia pelo menos X falhas em um determinado minuto. Você pode começar a investigar o problema imediatamente, em vez de esperar para ver a contagem exata de falhas que ocorreram nesse minuto, que podem não ser tão importantes. O gráfico será atualizado depois de recebermos todo o conjunto de dados mas, nesse momento, ele também poderá mostrar novos pontos de dados incompletos de minutos mais recentes.
 
-## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Não é possível escolher o namespace e as métricas do Guest OS
+## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Não é possível escolher o namespace e as métricas do SO convidado
 
-Máquinas virtuais e conjuntos de escala de máquinas virtuais têm duas categorias de métricas: métricas **de Host de máquina virtual** coletadas pelo ambiente de hospedagem do Azure e métricas guest OS **(clássicas)** que são coletadas pelo [agente de monitoramento](agents-overview.md) em execução em suas máquinas virtuais. O agente de monitoramento é instalado habilitando a [Extensão de Diagnóstico do Azure](diagnostics-extension-overview.md).
+As máquinas virtuais e os conjuntos de dimensionamento de máquinas virtuais têm duas categorias de métricas: métricas de **host de máquina virtual** que são coletadas pelo ambiente de hospedagem do Azure e métricas de **SO convidado (clássico)** coletadas pelo [agente de monitoramento](agents-overview.md) em execução em suas máquinas virtuais. O agente de monitoramento é instalado habilitando a [Extensão de Diagnóstico do Azure](diagnostics-extension-overview.md).
 
 Por padrão, as métricas de sistema operacional convidado são armazenadas na conta de Armazenamento do Microsoft Azure, que você seleciona na guia **Configurações de Diagnóstico** do recurso. Se as métricas do sistema operacional convidado não forem coletadas ou se o explorador de métricas não consegue acessá-las, você só verá o namespace da métrica do **Host de Máquina Virtual**:
 
 ![imagem de métrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solução:** Se você não ver o namespace **do Guest OS (clássico)** e as métricas no explorador de métricas:
+**Solução:** Se você não vir o namespace e as métricas do **sistema operacional convidado (clássico)** no Metrics Explorer:
 
 1. Confirme se a [Extensão de Diagnóstico do Azure](diagnostics-extension-overview.md) está habilitada e configurada para coletar métricas.
     > [!WARNING]
     > Não é possível usar o [Agente do Log Analytics](agents-overview.md#log-analytics-agent) (também conhecido como Microsoft Monitoring Agent ou "MMA") para enviar o **Sistema Operacional Convidado** para uma conta de armazenamento.
 
-1. Certifique-se de que o provedor de recursos **Microsoft.Insights** esteja [registrado para sua assinatura](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Verifique se o provedor de recursos **Microsoft. insights** está [registrado para sua assinatura](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verifique se a conta de armazenamento não está protegida pelo firewall. O portal do Azure precisa acessar a conta de armazenamento para recuperar dados de métricas e plotar os gráficos.
 
@@ -114,7 +114,7 @@ Por padrão, as métricas de sistema operacional convidado são armazenadas na c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como começar com o Metric Explorer](metrics-getting-started.md)
-* [Conheça os recursos avançados do Metric Explorer](metrics-charts.md)
+* [Saiba mais sobre como começar a usar o Gerenciador de métricas](metrics-getting-started.md)
+* [Saiba mais sobre os recursos avançados do Gerenciador de métricas](metrics-charts.md)
 * [Veja uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md)
 * [Veja exemplos de gráficos configurados](metric-chart-samples.md)

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632941"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
-O IoT Hub fornece uma linguagem poderosa semelhante ao SQL para recuperar informações sobre [gêmeos de dispositivos,](iot-hub-devguide-device-twins.md) [gêmeos de módulo,](iot-hub-devguide-module-twins.md) [trabalhos](iot-hub-devguide-jobs.md)e [roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O Hub IoT fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [dispositivos gêmeos](iot-hub-devguide-device-twins.md), [módulo gêmeos](iot-hub-devguide-module-twins.md), [trabalhos](iot-hub-devguide-jobs.md)e [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ O IoT Hub fornece uma linguagem poderosa semelhante ao SQL para recuperar inform
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
 
-[Gêmeos de](iot-hub-devguide-device-twins.md) dispositivo e [gêmeos de módulo](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+O [dispositivo gêmeos](iot-hub-devguide-device-twins.md) e o [módulo gêmeos](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como marcas e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
 
 Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
 
-A consulta em gêmeos de módulo é semelhante à consulta em gêmeos de dispositivo, mas usando um espaço de coleta/namespace diferente; em vez de **dispositivos,** você consulta de **dispositivos.módulos:**
+A consulta no módulo gêmeos é semelhante à consulta no dispositivo gêmeos, mas usando uma coleção/namespace diferente; em vez de **dispositivos**, você consulta em **Devices. modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -233,7 +233,7 @@ O objeto de consulta expõe vários valores de **Next** dependendo da opção de
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se consultar gêmeos de dispositivo individuais por ID, use a [API get twin REST](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API sempre retorna os valores mais recentes e tem limites de estrangulamento mais altos. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs do Azure IoT Hub Service](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
@@ -315,7 +315,7 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
 
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleta de documentos a ser iterada em (**dispositivos,** **dispositivos.módulos,** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada (**dispositivos**, **dispositivos. modules**ou **Devices.Jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-A cláusula **de>de <from_specification** pode assumir apenas três valores: de dispositivos para consultar gêmeos de dispositivos, de **dispositivos.módulos** para consultar gêmeos do módulo de consulta ou **de devices.jobs** para consultar **detalhes** do trabalho por dispositivo.
+A cláusula **from <from_specification>** pode assumir apenas três valores: **de dispositivos** para consultar dispositivos gêmeos, **de Devices. modules** para consultar o módulo gêmeos ou **de Devices.Jobs** para consultar os detalhes do trabalho por dispositivo.
 
 ## <a name="where-clause"></a>cláusula WHERE
 
@@ -436,11 +436,11 @@ Para entender o que significa cada símbolo na sintaxe de expressões, consulte 
 
 | Símbolo | Definição |
 | --- | --- |
-| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM.** |
+| attribute_name | Qualquer Propriedade do documento JSON na coleção **from** . |
 | binary_operator | Qualquer operador binário listado na seção [Operadores](#operators). |
 | function_name| Qualquer função listada na seção [Funções](#functions). |
 | decimal_literal |Um float expresso em notação decimal. |
-| hexadecimal_literal |Um número expresso pela seqüência '0x' seguido por uma seqüência de dígitos hexadecimais. |
+| hexadecimal_literal |Um número expresso pela cadeia de caracteres ' 0x ' seguido por uma cadeia de caracteres de dígitos hexadecimais. |
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples ou aspas duplas. Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
@@ -481,7 +481,7 @@ Em condições de rotas, há suporte para as seguintes funções de verificaçã
 | AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
 | IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
 | IS_BOOL | Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano. |
-| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. Isso só é suportado quando o valor é um tipo primitivo. Os tipos primitivos incluem corda, booleano, numérico, ou `null`. DateTime, tipos de objetos e matrizes não são suportados. |
+| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. Isso só tem suporte quando o valor é um tipo primitivo. Tipos primitivos incluem cadeia de caracteres, booliano `null`, numérico ou. Não há suporte para DateTime, tipos de objeto e matrizes. |
 | IS_NULL | Retorna um valor booliano que indica se o tipo da expressão especificada é nulo. |
 | IS_NUMBER | Retorna um valor booliano que indica se o tipo da expressão especificada é um número. |
 | IS_OBJECT | Retorna um valor booliano que indica se o tipo da expressão especificada é um objeto JSON. |

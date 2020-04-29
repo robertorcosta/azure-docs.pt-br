@@ -1,6 +1,6 @@
 ---
-title: Pesquisas salvas em soluções de gestão | Microsoft Docs
-description: As soluções de gerenciamento geralmente incluem consultas de log salvas para analisar dados coletados pela solução. Este artigo descreve como definir pesquisas salvas do Log Analytics em um modelo do Gerenciador de recursos.
+title: Pesquisas salvas em soluções de gerenciamento | Microsoft Docs
+description: As soluções de gerenciamento normalmente incluem consultas de log salvas para analisar os dados coletados pela solução. Este artigo descreve como definir Log Analytics pesquisas salvas em um modelo do Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663021"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
 > [!IMPORTANT]
-> Como [anunciado anteriormente,](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)o log analytics workspace(s) criado após *1 º de junho de 2019* - será capaz de gerenciar regras de alerta usando **apenas** a Api, a [Api,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) [o Azure Resource Manager Template](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o [cmdlet PowerShell.](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) Os clientes podem facilmente [mudar seus meios preferidos de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar o azure Monitor scheduledQueryRules como padrão e ganhar muitos novos [benefícios,](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, aumento do período de tempo de retorno nas regras, criação de regras em grupo de recursos separados ou assinatura e muito mais.
+> Conforme [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), os espaços de trabalho do log Analytics criados após *1º de junho de 2019* – poderão gerenciar regras de alerta usando **apenas** a [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)do Azure scheduledQueryRules, o modelo de [Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o cmdlet do [PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [alternar seus meios preferenciais de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar Azure monitor scheduledQueryRules como padrão e obter muitos [novos benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, um período de tempo de lookback maior em regras, a criação de regras em um grupo de recursos ou assinatura separado e muito mais.
 
 > [!NOTE]
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.
@@ -25,7 +25,7 @@ ms.locfileid: "77663021"
 As [Soluções de gerenciamento](solutions.md) geralmente incluirão [pesquisas salvas](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para analisar os dados coletados pela solução. Elas também podem definir [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir a Log Analytics pesquisas salvas e alertas em um [modelo do Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) para que eles possam ser incluídos em [soluções de gerenciamento de](solutions-creating.md).
 
 > [!NOTE]
-> As amostras deste artigo utilizam parâmetros e variáveis que são necessárias ou comuns às soluções de gestão e descritas no [Design e constroem uma solução de gerenciamento no Azure](solutions-creating.md)
+> Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para soluções de gerenciamento e são descritos em [projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../../azure-resource-manager/templates/template-syntax.md) e de um arquivo de solução.
@@ -34,7 +34,7 @@ Este artigo pressupõe que você já está familiarizado com o modo para [criar 
 ## <a name="log-analytics-workspace"></a>Espaço de Trabalho do Log Analytics
 Todos os recursos de Log Analytics estão contidos em um [workspace](../../azure-monitor/platform/manage-access.md). Como descrito no [espaço de trabalho do Log Analytics e conta de Automação](solutions.md#log-analytics-workspace-and-automation-account), o espaço de trabalho não está incluído na solução de gerenciamento, mas deverá existir antes que a solução seja instalada. Se ela não estiver disponível, a instalação da solução falhará.
 
-O nome do workspace é no nome de cada recurso de Log Analytics. Isso é feito na solução com o parâmetro **de espaço de trabalho** como no exemplo a seguir de um recurso SavedSearch.
+O nome do workspace é no nome de cada recurso de Log Analytics. Isso é feito na solução com o parâmetro **Workspace** como no exemplo a seguir de um recurso SavedSearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -83,10 +83,10 @@ Todas as propriedades de uma pesquisa salva são descritas na tabela a seguir.
 Os [Alertas de Log do Azure](../../azure-monitor/platform/alerts-unified-log.md) são criados por regras de Alerta do Azure que executam consultas de log especificadas em intervalos regulares. Se os resultados da consulta correspondência aos critérios especificados, será criado um registro de alerta e uma ou mais ações são executadas usando [Grupos de Ação](../../azure-monitor/platform/action-groups.md).
 
 As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-As regras de alerta na solução de gerenciamento legado são compostas pelos três recursos diferentes a seguir.
+As regras de alerta na solução de gerenciamento herdado são formadas pelos três recursos diferentes a seguir.
 
 - **Pesquisa salva.** Define a pesquisa de logs executada. Várias regras de alerta podem compartilhar uma única pesquisa salva.
-- **Agenda.** Define a frequência com que a pesquisa de logs é executada. Cada regra de alerta tem apenas um agendamento.
+- **Agendamento.** Define a frequência com que a pesquisa de logs é executada. Cada regra de alerta tem apenas um agendamento.
 - **Ação de alerta.** Cada regra de alerta tem um recurso de ação ou grupo de recurso de ação (herdado) com um tipo de **Alerta** que define os detalhes do alerta, como os critérios para quando um registro de alerta é criado e a gravidade do alerta. O recurso [Grupo de ação](../../azure-monitor/platform/action-groups.md) pode ter uma lista de ações configuradas a serem tomadas quando o alerta é disparado, como chamada de voz, SMS, email, webhook ferramenta ITSM, runbook de automação, aplicativo lógico, etc.
 
 Salvar pesquisa recursos descritos acima. Outros recursos são descritos abaixo.
@@ -125,7 +125,7 @@ O recurso de agendamento deve depender a pesquisa salva para que ele seja criado
 Um agendamento pode ter várias ações. Uma ação pode definir um ou mais processos a serem executados, como enviar um email ou iniciar um runbook, ou então ela pode definir um limite que determina quando os resultados de uma pesquisa correspondem a certos critérios. Algumas ações definirão ambos para que os processos sejam executados quando o limite for atingido.
 As ações podem ser definidas usando o recurso de [grupo de ações] ou recurso de ação.
 
-Há dois tipos de recurso de ação especificado pelo **tipo** propriedade. Um cronograma requer uma ação **de alerta,** que define os detalhes da regra de alerta e quais ações são tomadas quando um alerta é criado. Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
+Há dois tipos de recurso de ação especificado pelo **tipo** propriedade. Uma agenda requer uma ação de **alerta** , que define os detalhes da regra de alerta e quais ações são tomadas quando um alerta é criado. Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Ações de alerta tem a seguinte estrutura. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este snippet de código em seu arquivo de solução e alterar os nomes de parâmetro.
 
@@ -168,7 +168,7 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 | `type` | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
 | `name` | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
-| `severity` | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **Crítico**<br>**warning**<br>**Informativo**
+| `severity` | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **drasticamente**<br>**warning**<br>**informativa**
 
 #### <a name="threshold"></a>Limite
 Esta seção é necessária. Define as propriedades para o limite de alerta.
@@ -211,7 +211,7 @@ O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter
 A seguir está um exemplo de uma solução que inclui os seguintes recursos:
 
 - Pesquisa salva
-- Agenda
+- Agendamento
 - Grupo de ações
 
 O exemplo usa [parâmetros de solução padrão]( solutions-solution-file.md#parameters) variáveis que normalmente seriam usados em uma solução em vez de embutir valores nas definições de recurso.

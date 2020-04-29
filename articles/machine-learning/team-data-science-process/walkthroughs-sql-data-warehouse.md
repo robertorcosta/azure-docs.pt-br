@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128158"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Passo a passos de ciência de dados do SQL Data Warehouse usando T-SQL e Python no Azure
@@ -27,11 +27,11 @@ Outras instruções passo a passo de ciência de dados que executam o Processo d
 
 ## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Prever dicas de táxi usando T-SQL e notebooks IPython com o SQL Data Warehouse
 
-O passo a passo do [SQL Data Warehouse](sqldw-walkthrough.md) mostra como construir e implantar modelos de classificação e regressão de aprendizado de máquina usando o SQL Data Warehouse (SQL DW).  Os dados são um conjunto de dados de viagem de táxi e tarifa sumido publicamente disponíveis em NYC.
+O [Guia de uso SQL data warehouse](sqldw-walkthrough.md) mostra como criar e implantar modelos de regressão e classificação do Machine Learning usando o SQL data warehouse (SQL DW).  Os dados são um conjunto de NYC de corridas e tarifas de táxi disponível publicamente.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para uma discussão sobre os principais componentes do Processo de Ciência de Dados de Equipe, veja [Visão geral do Processo de Ciência de Dados de Equipe](overview.md).
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipe, consulte o ciclo de vida do Processo de [Ciência de Dados da Equipe](lifecycle.md). Este ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
+Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 

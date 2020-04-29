@@ -1,5 +1,5 @@
 ---
-title: Conceitos do servidor - Banco de dados Azure para MySQL
+title: Conceitos de servidor-banco de dados do Azure para MySQL
 description: Este tópico fornece diretrizes e considerações para trabalhar com o Banco de Dados do Azure para servidores MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 300470b2e8fb10fda7cfc59517cef00c07bf0632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536999"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor no Banco de Dados do Azure para MySQL
@@ -53,5 +53,5 @@ Você pode gerenciar o Banco de Dados do Azure para servidores MySQL usando o Po
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados para MySQL](./overview.md)
-- Para obter informações sobre cotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [níveis de serviço](./concepts-service-tiers.md)
+- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-service-tiers.md)
 - Para saber mais sobre como se conectar ao serviço, confira [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](./concepts-connection-libraries.md).

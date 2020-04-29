@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas nas ferramentas de análise de usuários - Azure Application Insights
+title: Solucionar problemas de ferramentas do User Analytics-Aplicativo Azure insights
 description: Guia de solução de problemas - analisando o uso do aplicativo e site com o Application Insights.
 ms.topic: conceptual
 author: NumberByColors
@@ -7,17 +7,17 @@ ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670909"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
 Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](usage-overview.md): [Usuários, Sessões, Eventos](usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](usage-flows.md), [Retenção](usage-retention.md), ou Coortes? Aqui estão algumas respostas.
 
 ## <a name="counting-users"></a>Contagem de usuários
-**As ferramentas de análise de comportamento do usuário mostram que meu aplicativo tem um usuário/sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como posso corrigir essas contagens incorretas?**
+**As ferramentas de análise de comportamento do usuário mostram que meu aplicativo tem um usuário/sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como corrigir essas contagens incorretas?**
 
 Todos os eventos de telemetria do Application Insights possuem um [ID de usuário anônimo](../../azure-monitor/app/data-model-context.md) e uma [ID de sessão](../../azure-monitor/app/data-model-context.md) como duas de suas propriedades padrão. Por padrão, todas as ferramentas de análise de uso fazem a contagem de usuários e sessões com base nessas IDs. Se essas propriedades padrão não estiverem sendo populadas com IDs exclusivas para cada usuário e sessão do seu aplicativo, você verá uma contagem incorreta de usuários e sessões nas ferramentas de análise de uso.
 
@@ -30,15 +30,15 @@ Se o seu aplicativo estiver enviando [IDs de usuário autenticado](../../azure-m
 Atualmente, as ferramentas de análise de comportamento do usuário não são compatíveis com a contagem de usuários ou com sessões baseadas nas propriedades que não sejam o ID de usuário anônimo, ID de usuário autenticado ou ID de sessão.
 
 ## <a name="naming-events"></a>Nomeando Eventos
-**Meu aplicativo tem milhares de visualizações de páginas diferentes e nomes de eventos personalizados. É difícil distinguir entre eles, e as ferramentas de análise de comportamento do usuário muitas vezes se tornam sem resposta. Como posso corrigir esses problemas de nomeação?**
+**Meu aplicativo tem milhares de exibições de página e nomes de evento personalizados diferentes. É difícil distinguir entre eles, e as ferramentas de análise de comportamento do usuário geralmente não respondem. Como corrigir esses problemas de nomenclatura?**
 
-A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. O objetivo é um equilíbrio entre ter poucos nomes, nomes excessivamente genéricos ("Botão clicado") e ter\/nomes muitos e excessivamente específicos ("Editar botão clicado em http: /www.contoso.com/index").
+A exibição de página e os nomes de eventos personalizados são usados nas ferramentas de análise de comportamento do usuário. Nomear bem os eventos é essencial para obter valor dessas ferramentas. A meta é um equilíbrio entre ter um número muito pequeno, excessivamente genérico ("botão clicado") e ter nomes muito específicos ("botão de edição clicado em http:\//www.contoso.com/index").
 
 Para fazer alterações no modo de exibição de página e nos nomes de evento personalizado que seu aplicativo está enviando, você precisa alterar o código-fonte e a reimplantação do seu aplicativo. **Todos os dados de telemetria no Application Insights são armazenados por 90 dias e não podem ser excluídos**; portanto, as alterações feitas aos nomes de evento levarão 90 dias para se manifestarem completamente. A 90 dias depois de fazer as alterações no nome, ambos os nomes de evento antigo e novo serão mostrados em sua telemetria, então ajuste as consultas e se comunique com suas equipes adequadamente.
 
 Se o seu aplicativo estiver enviando muitos nomes de exibição de página, verifique se esses nomes de exibição de página estão especificados manualmente no código ou se estão sendo enviados automaticamente pelo SDK do JavaScript do Application Insights:
 
-* Se os nomes de exibição de página forem especificados manualmente no código usando a [ `trackPageView` API,](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)altere o nome para ser menos específico. Evite erros comuns, como colocar a URL no nome da exibição de página. Em vez disso, use o parâmetro de URL da API `trackPageView`. Mova outros detalhes do nome de exibição de página para as propriedades personalizadas.
+* Se os nomes de exibição de página forem especificados manualmente no código usando a [ `trackPageView` API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md), altere o nome para que ele seja menos específico. Evite erros comuns, como colocar a URL no nome da exibição de página. Em vez disso, use o parâmetro de URL da API `trackPageView`. Mova outros detalhes do nome de exibição de página para as propriedades personalizadas.
 
 * Se o SDK de JavaScript do Application Insights estiver enviando nomes de exibição de página automaticamente, você pode alterar os títulos de suas páginas ou alternar para enviar manualmente os nomes de exibição de página. O SDK envia o [título](https://developer.mozilla.org/docs/Web/HTML/Element/title) de cada página como o nome de exibição de página, por padrão. Você pode alterar os títulos para que sejam mais gerais, mas lembre-se de SEO e outros impactos que esta alteração pode ter. Especificar manualmente os nomes de exibição de página com a API `trackPageView` substitui os nomes automaticamente coletados; portanto, você pode enviar nomes mais gerais na telemetria sem alterar os títulos de página.   
 

@@ -1,86 +1,86 @@
 ---
-title: Conecte-se com o redirecionamento - Banco de dados Azure para MySQL
-description: Este artigo descreve como você pode configurar seu aplicativo para se conectar ao Banco de Dados Azure para MySQL com redirecionamento.
+title: Conectar-se ao redirecionamento-banco de dados do Azure para MySQL
+description: Este artigo descreve como você pode configurar seu aplicativo para se conectar ao banco de dados do Azure para MySQL com redirecionamento.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f987d5d9640c3bfef61320df379a68eae2f4712b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246316"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conecte-se ao banco de dados Do Zure para MySQL com redirecionamento
+# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conectar-se ao banco de dados do Azure para MySQL com redirecionamento
 
-Este tópico explica como conectar um aplicativo seu banco de dados Azure para o servidor MySQL com o modo de redirecionamento. O redirecionamento visa reduzir a latência de rede entre aplicativos clientes e servidores MySQL, permitindo que os aplicativos se conectem diretamente aos nós do servidor backend.
+Este tópico explica como conectar um aplicativo ao servidor do banco de dados do Azure para MySQL com o modo de redirecionamento. O redirecionamento visa reduzir a latência de rede entre os aplicativos cliente e os servidores MySQL, permitindo que os aplicativos se conectem diretamente aos nós do servidor back-end.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Faça login no [portal Azure](https://portal.azure.com). Crie um banco de dados Azure para servidor MySQL com a versão do motor 5.6, 5.7 ou 8.0. Para obter detalhes, confira [Como criar o Banco de Dados do Azure para servidor MySQL por meio do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou [Como criar o Banco de Dados do Azure para servidor MySQL usando a CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Entre no [portal do Azure](https://portal.azure.com). Crie um servidor de banco de dados do Azure para MySQL com o mecanismo versão 5,6, 5,7 ou 8,0. Para obter detalhes, confira [Como criar o Banco de Dados do Azure para servidor MySQL por meio do Portal](quickstart-create-mysql-server-database-using-azure-portal.md) ou [Como criar o Banco de Dados do Azure para servidor MySQL usando a CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Atualmente, o redirecionamento só é suportado quando **o SSL está ativado** no banco de dados Azure para o servidor MySQL. Para obter detalhes sobre como configurar o SSL, confira [Usar SSL com o Banco de Dados do Azure para MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
+No momento, só há suporte para o redirecionamento quando o **SSL está habilitado** no banco de dados do Azure para o servidor MySQL. Para obter detalhes sobre como configurar o SSL, confira [Usar SSL com o Banco de Dados do Azure para MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
 
 ## <a name="php"></a>PHP
 
-O suporte para redirecionamento em aplicativos PHP está disponível através da extensão [mysqlnd_azure,](https://github.com/microsoft/mysqlnd_azure) desenvolvida pela Microsoft. 
+O suporte para redirecionamento em aplicativos PHP está disponível por meio da extensão [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) , desenvolvida pela Microsoft. 
 
-A extensão mysqlnd_azure está disponível para adicionar aos aplicativos PHP através do PECL e é altamente recomendável instalar e configurar a extensão através do [pacote PECL](https://pecl.php.net/package/mysqlnd_azure)publicado oficialmente.
+A extensão mysqlnd_azure está disponível para ser adicionada a aplicativos PHP por meio do PECL e é altamente recomendável instalar e configurar a extensão por meio do [pacote PECL](https://pecl.php.net/package/mysqlnd_azure)publicado oficialmente.
 
 > [!IMPORTANT]
-> O suporte para redirecionamento na extensão [de mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) PHP está atualmente em pré-visualização.
+> O suporte para redirecionamento na extensão de [MYSQLND_AZURE](https://github.com/microsoft/mysqlnd_azure) php está atualmente em versão prévia.
 
 ### <a name="redirection-logic"></a>Lógica de redirecionamento
 
 >[!IMPORTANT]
-> O redirecionamento lógico/comportamento inicial versão 1.1.0 foi atualizado e **recomenda-se o uso da versão 1.1.0+**.
+> A lógica/comportamento de redirecionamento que inicia a versão 1.1.0 foi atualizada e **é recomendável usar a versão 1.1.0 +**.
 
-O comportamento de redirecionamento `mysqlnd_azure.enableRedirect`é determinado pelo valor de . A tabela abaixo descreve o comportamento do redirecionamento com base no valor deste parâmetro a partir da **versão 1.1.0+**.
+O comportamento de redirecionamento é determinado pelo valor de `mysqlnd_azure.enableRedirect`. A tabela a seguir descreve o comportamento do redirecionamento com base no valor desse parâmetro a partir da **versão 1.1.0 +**.
 
-Se você estiver usando uma versão mais antiga da extensão mysqlnd_azure (versão 1.0.0-1.0.3), o comportamento de redirecionamento é determinado pelo valor de `mysqlnd_azure.enabled`. Os valores `off` válidos são (atos semelhantes `on` aos comportamentos `preferred` descritos na tabela abaixo) e (atos como na tabela abaixo).  
+Se você estiver usando uma versão mais antiga da extensão de mysqlnd_azure (versão 1.0.0-1.0.3), o comportamento de redirecionamento será determinado pelo valor `mysqlnd_azure.enabled`de. Os valores válidos são `off` (atua da mesma forma que o comportamento descrito na tabela abaixo) e `on` (atua como `preferred` na tabela abaixo).  
 
-|**mysqlnd_azure.enableRedirect value**| **Comportamento**|
+|**valor mysqlnd_azure. enableRedirect**| **Comportamento**|
 |----------------------------------------|-------------|
-|`off` ou `0`|O redirecionamento não será utilizado. |
-|`on` ou `1`|- Se o SSL não estiver habilitado no banco de dados Azure para o servidor MySQL, nenhuma conexão será feita. O seguinte erro será retornado: *"mysqlnd_azure.enableRedirect está ativado, mas a opção SSL não está definida na seqüência de conexões. O redirecionamento só é possível com o SSL."*<br>- Se o SSL estiver habilitado no servidor MySQL, mas o redirecionamento não for suportado no servidor, a primeira conexão será abortada e o seguinte erro será retornado: *"A conexão abortada porque o redirecionamento não está ativado no servidor MySQL ou o pacote de rede não atende ao protocolo de redirecionamento."*<br>- Se o servidor MySQL suportar o redirecionamento, mas a conexão redirecionada falhar por qualquer motivo, também abortar a primeira conexão proxy. Retorne o erro da conexão redirecionada.|
-|`preferred` ou `2`<br>  (valor padrão)|- mysqlnd_azure usarão o redirecionamento, se possível.<br>- Se a conexão não usar SSL, o servidor não suportar redirecionamento ou a conexão redirecionada falhar de conexão por qualquer motivo não fatal enquanto a conexão proxy ainda for válida, ela voltará para a primeira conexão proxy.|
+|`off` ou `0`|O redirecionamento não será usado. |
+|`on` ou `1`|-Se o SSL não estiver habilitado no banco de dados do Azure para o servidor MySQL, nenhuma conexão será feita. O seguinte erro será retornado: *"mysqlnd_azure. enableRedirect está on, mas a opção SSL não está definida na cadeia de conexão. O redirecionamento só é possível com SSL. "*<br>-Se o SSL estiver habilitado no servidor MySQL, mas não houver suporte para o redirecionamento no servidor, a primeira conexão será anulada e o seguinte erro será retornado: *"a conexão foi anulada porque o redirecionamento não está habilitado no servidor MySQL ou o pacote de rede não atende ao protocolo de redirecionamento".*<br>-Se o servidor MySQL oferecer suporte ao redirecionamento, mas a conexão redirecionada falhar por algum motivo, também anulará a primeira conexão de proxy. Retornar o erro da conexão redirecionada.|
+|`preferred` ou `2`<br>  (valor padrão)|-mysqlnd_azure usará o redirecionamento, se possível.<br>-Se a conexão não usar SSL, o servidor não oferece suporte ao redirecionamento ou a conexão redirecionada falha ao se conectar por qualquer motivo não fatal enquanto a conexão proxy ainda for válida, ela retornará à primeira conexão de proxy.|
 
-As seções subseqüentes do documento `mysqlnd_azure` irão delinear como instalar a extensão usando PECL e definir o valor deste parâmetro.
+As seções subsequentes do documento descreverão como instalar a `mysqlnd_azure` extensão usando PECL e definir o valor desse parâmetro.
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
 #### <a name="prerequisites"></a>Pré-requisitos 
-- Versões PHP 7.2.15+ e 7.3.2+
-- PHP PEAR 
-- php-mysql
-- Banco de dados Azure para servidor MySQL com SSL ativado
+- Versões do PHP 7.2.15 + e 7.3.2 +
+- PÊRA DO PHP 
+- PHP-MySQL
+- Banco de dados do Azure para servidor MySQL com SSL habilitado
 
-1. Instale [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) com [PECL](https://pecl.php.net/package/mysqlnd_azure). Recomenda-se usar a versão 1.1.0+.
+1. Instale o [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) com [PECL](https://pecl.php.net/package/mysqlnd_azure). É recomendável usar a versão 1.1.0 +.
 
     ```bash
     sudo pecl install mysqlnd_azure
     ```
 
-2. Localize o diretório`extension_dir`de extensão ( ) executando o abaixo:
+2. Localize o diretório de extensão`extension_dir`() executando o seguinte:
 
     ```bash
     php -i | grep "extension_dir"
     ```
 
-3. Alterar diretórios para a pasta `mysqlnd_azure.so` retornada e garantir que está localizado nesta pasta. 
+3. Altere os diretórios para a pasta retornada e `mysqlnd_azure.so` Verifique se está localizado nesta pasta. 
 
-4. Localize a pasta para arquivos .ini executando o abaixo: 
+4. Localize a pasta de arquivos. ini executando o seguinte: 
 
     ```bash
     php -i | grep "dir for additional .ini files"
     ```
 
-5. Alterar diretórios para esta pasta retornada. 
+5. Altere os diretórios para essa pasta retornada. 
 
-6. Crie um novo arquivo `mysqlnd_azure`.ini para . Certifique-se de que a ordem do alfabeto do nome esteja atrás da do mysqnld, uma vez que os módulos são carregados de acordo com a ordem de nome dos arquivos ini. Por exemplo, `mysqlnd` se .ini for nomeado, `10-mysqlnd.ini`nomeie `20-mysqlnd-azure.ini`o mysqlnd ini como .
+6. Crie um novo arquivo. ini para `mysqlnd_azure`o. Certifique-se de que a ordem alfabética do nome seja posterior à do mysqnld, já que os módulos são carregados de acordo com a ordem de nome dos arquivos ini. Por exemplo, se `mysqlnd` . ini for nomeado `10-mysqlnd.ini`, nomeie o mysqlnd ini como `20-mysqlnd-azure.ini`.
 
-7. Dentro do novo arquivo .ini, adicione as seguintes linhas para permitir o redirecionamento.
+7. No novo arquivo. ini, adicione as linhas a seguir para habilitar o redirecionamento.
 
     ```bash
     extension=mysqlnd_azure
@@ -90,9 +90,9 @@ As seções subseqüentes do documento `mysqlnd_azure` irão delinear como insta
 ### <a name="windows"></a>Windows
 
 #### <a name="prerequisites"></a>Pré-requisitos 
-- Versões PHP 7.2.15+ e 7.3.2+
-- php-mysql
-- Banco de dados Azure para servidor MySQL com SSL ativado
+- Versões do PHP 7.2.15 + e 7.3.2 +
+- PHP-MySQL
+- Banco de dados do Azure para servidor MySQL com SSL habilitado
 
 1. Determine se você está executando uma versão x64 ou x86 do PHP executando o seguinte comando:
 
@@ -100,27 +100,27 @@ As seções subseqüentes do documento `mysqlnd_azure` irão delinear como insta
     php -i | findstr "Thread"
     ```
 
-2. Baixe a versão correspondente x64 ou x86 do [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL do [PECL](https://pecl.php.net/package/mysqlnd_azure) que corresponde à sua versão de PHP. Recomenda-se usar a versão 1.1.0+.
+2. Baixe a versão x64 ou x86 correspondente do [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) dll de [PECL](https://pecl.php.net/package/mysqlnd_azure) que corresponde à sua versão do php. É recomendável usar a versão 1.1.0 +.
 
-3. Extrair o arquivo zip e `php_mysqlnd_azure.dll`encontrar o DLL chamado .
+3. Extraia o arquivo zip e localize a DLL `php_mysqlnd_azure.dll`denominada.
 
-4. Localize o diretório`extension_dir`de extensão ( ) executando o comando abaixo:
+4. Localize o diretório de extensão`extension_dir`() executando o comando abaixo:
 
     ```cmd
     php -i | find "extension_dir"
     ```
 
-5. Copie `php_mysqlnd_azure.dll` o arquivo no diretório retornado na etapa 4. 
+5. Copie o `php_mysqlnd_azure.dll` arquivo para o diretório retornado na etapa 4. 
 
-6. Localize a pasta PHP contendo o `php.ini` arquivo usando o seguinte comando:
+6. Localize a pasta PHP que contém `php.ini` o arquivo usando o seguinte comando:
 
     ```cmd
     php -i | find "Loaded Configuration File"
     ```
 
-7. Modifique `php.ini` o arquivo e adicione as seguintes linhas extras para permitir o redirecionamento. 
+7. Modifique o `php.ini` arquivo e adicione as seguintes linhas extras para habilitar o redirecionamento. 
 
-    Na seção Extensões Dinâmicas: 
+    Na seção extensões dinâmicas: 
     ```cmd
     extension=mysqlnd_azure
     ```
@@ -131,9 +131,9 @@ As seções subseqüentes do documento `mysqlnd_azure` irão delinear como insta
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
-### <a name="confirm-redirection"></a>Confirmar o redirecionamento
+### <a name="confirm-redirection"></a>Confirmar redirecionamento
 
-Você também pode confirmar que o redirecionamento está configurado com o código PHP da amostra abaixo. Crie um arquivo `mysqlConnect.php` PHP chamado e cole o código abaixo. Atualize o nome do servidor, nome de usuário e senha com o seu próprio. 
+Você também pode confirmar se o redirecionamento está configurado com o código PHP de exemplo abaixo. Crie um arquivo PHP chamado `mysqlConnect.php` e cole o código abaixo. Atualize o nome do servidor, o nome de usuário e a senha com o seu próprio. 
  
  ```php
 <?php
@@ -158,4 +158,4 @@ $db_name = 'testdb';
  ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre strings de conexão, consulte [Strings de conexão](howto-connection-string.md).
+Para obter mais informações sobre cadeias de conexão, consulte [cadeias de conexão](howto-connection-string.md).

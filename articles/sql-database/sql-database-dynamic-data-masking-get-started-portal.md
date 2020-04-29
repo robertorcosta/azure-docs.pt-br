@@ -1,5 +1,5 @@
 ---
-title: 'Portal Azure: Mascaramento dinâmico de dados'
+title: 'Portal do Azure: máscara de dados dinâmicos'
 description: Como começar a usar a máscara de dados dinâmicos do Banco de Dados SQL no portal do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2018
 ms.openlocfilehash: a8098b31c6b389b640fc03e756da44c70d9f3a70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722111"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o portal do Azure
@@ -24,7 +24,7 @@ Este artigo mostra como implementar a [máscara de dados dinâmicos](sql-databas
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurar o mascaramento de dados dinâmicos para o banco de dados usando o portal do Azure
 
-1. Inicie o portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até a página de configurações do banco de dados que contém os dados confidenciais que você deseja mascarar.
 3. Clique no bloco **Máscara de Dados Dinâmicos** que inicia a página de configuração **Máscara de Dados Dinâmicos**.
 

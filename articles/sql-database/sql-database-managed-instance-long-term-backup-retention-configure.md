@@ -1,6 +1,6 @@
 ---
-title: 'Instância gerenciada: Retenção de backup a longo prazo (PowerShell)'
-description: Aprenda a armazenar e restaurar backups automatizados em contêineres de armazenamento Azure Blob separados para uma instância gerenciada do Azure SQL Database usando o PowerShell.
+title: 'Instância gerenciada: retenção de backup de longo prazo (PowerShell)'
+description: Saiba como armazenar e restaurar backups automatizados em contêineres de armazenamento de BLOBs do Azure separados para uma instância gerenciada do banco de dados SQL do Azure usando o PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,43 +13,43 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/19/2020
 ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677112"
 ---
-# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gerenciar o Banco de Dados Azure SQL gerenciado em instância de retenção de backup a longo prazo (PowerShell)
+# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gerenciar o PowerShell (retenção de backup de longo prazo) da instância gerenciada do banco de dados SQL do Azure
 
-Na instância gerenciada do Azure SQL Database, você pode configurar uma política [de retenção de backup de longo prazo](sql-database-long-term-retention.md#managed-instance-support) (LTR) como um recurso de visualização pública limitada. Isso permite que você retenha automaticamente backups de banco de dados em contêineres de armazenamento Azure Blob separados por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups com o PowerShell.
+Na instância gerenciada do banco de dados SQL do Azure, você pode configurar uma EPD (política de retenção de backup) de [longo prazo](sql-database-long-term-retention.md#managed-instance-support) como um recurso de visualização pública limitada. Isso permite que você mantenha automaticamente os backups de banco de dados em contêineres separados do armazenamento de BLOBs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups com o PowerShell.
 
    > [!IMPORTANT]
-   > A LTR para instâncias gerenciadas está atualmente em pré-visualização limitada e disponível para assinaturas EA e CSP caso a caso. Para solicitar a inscrição, crie um [ticket de suporte do Azure](https://azure.microsoft.com/support/create-ticket/) sob o tópico de suporte **Backup, Restauração e Continuidade de Negócios/Retenção de backup a longo prazo**. 
+   > A EPD para instâncias gerenciadas está atualmente em visualização limitada e disponível para assinaturas EA e CSP caso a caso. Para solicitar o registro, crie um [tíquete de suporte do Azure](https://azure.microsoft.com/support/create-ticket/) no tópico de suporte **backup, restauração e continuidade de negócios/retenção de backup de longo prazo**. 
 
 
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, exibir backups no armazenamento do SQL do Azure e restaurar a partir de um backup no armazenamento do SQL do Azure.
 
 ## <a name="rbac-roles-to-manage-long-term-retention"></a>Funções RBAC para gerenciar retenção de longo prazo
 
-Para **get-AzSqlInstanceDatabaseLongTermRetentionBackup** and **Restore AzSqlInstanceDatabase**, você precisará ter uma das seguintes funções:
+Para **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase**, você precisará ter uma das seguintes funções:
 
-- Função de proprietário de assinatura ou
-- Função de contribuinte de instância gerenciada ou
+- Função de proprietário da assinatura ou
+- Instância Gerenciada função colaborador ou
 - Função personalizada com as seguintes permissões:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-Para **remove-AzSqlInstanceDatabaseLongTermRetentionBackup,** você precisará ter uma das seguintes funções:
+Para **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, você precisará ter uma das seguintes funções:
 
-- Função de proprietário de assinatura ou
+- Função de proprietário da assinatura ou
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
-> A função Contribuinte de instância gerenciada não tem permissão para excluir backups LTR.
+> A função colaborador de Instância Gerenciada não tem permissão para excluir backups EPD.
 
-As permissões RBAC podem ser concedidas no escopo *de assinatura* ou de grupo *de recursos.* No entanto, para acessar backups LTR que pertencem a uma instância descartada, a permissão deve ser concedida no escopo de *assinatura* dessa instância.
+As permissões de RBAC podem ser concedidas em escopo de *assinatura* ou *grupo de recursos* . No entanto, para acessar backups EPD que pertencem a uma instância descartada, a permissão deve ser concedida no escopo da *assinatura* dessa instância.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
@@ -78,7 +78,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-policies"></a>Exibir políticas LTR
 
-Este exemplo mostra como listar as políticas LTR em uma instância
+Este exemplo mostra como listar as políticas EPD dentro de uma instância
 
 ```powershell
 # gets the current version of LTR policy for the database
@@ -97,7 +97,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-backups"></a>Exibir backups LTR
 
-Este exemplo mostra como listar os backups ltr em uma instância.
+Este exemplo mostra como listar os backups EPD dentro de uma instância.
 
 ```powershell
 # get the list of all LTR backups in a specific Azure region
@@ -128,7 +128,7 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Para excluir um backup LTR após a ocorrência ter sido excluída, você deve ter permissão de escopo de assinatura. Você pode configurar notificações sobre cada exclusão no Monitor Do Azure filtrando para a operação 'Exclui um backup de retenção a longo prazo'. O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Para excluir um backup EPD depois que a instância tiver sido excluída, você deverá ter a permissão de escopo da assinatura. Você pode configurar notificações sobre cada exclusão em Azure Monitor filtrando para a operação ' exclui um backup de retenção de longo prazo '. O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
 ## <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
 
@@ -141,7 +141,7 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 ```
 
 > [!IMPORTANT]
-> Para restaurar a partir de um backup LTR após a exclusão da instância, você deve ter permissões escopo para a assinatura da instância e que a assinatura deve estar ativa. Você também deve omitir o parâmetro opcional -ResourceGroupName.
+> Para restaurar de um backup EPD após a instância ter sido excluída, você deve ter permissões com escopo para a assinatura da instância e essa assinatura deve estar ativa. Você também deve omitir o parâmetro opcional-ResourceGroupName.
 
 > [!NOTE]
 > A partir daqui, você pode conectar o banco de dados restaurado usando o SQL Server Management Studio para executar as tarefas necessárias, tais como, extrair um pouco de dados do banco de dados restaurado para copiar para o banco de dados existente ou excluir o banco de dados existente e renomear o banco de dados restaurado com o nome do banco de dados existente. Confira [recuperação pontual](sql-database-recovery-using-backups.md#point-in-time-restore).

@@ -1,6 +1,6 @@
 ---
-title: Consultar dados de um ambiente GA usando o código C# - Azure Time Series Insights | Microsoft Docs
-description: Aprenda a consultar dados de um ambiente Azure Time Series Insights usando um aplicativo personalizado escrito em C#.
+title: Consultar dados de um ambiente GA usando código C#-Azure Time Series Insights | Microsoft Docs
+description: Saiba como consultar dados de um ambiente de Azure Time Series Insights usando um aplicativo personalizado escrito em C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,63 +12,63 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383880"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados do ambiente GA do Azure Time Series Insights usando C #
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados do ambiente Azure Time Series Insights GA usando C #
 
-Este exemplo C# demonstra como usar as [APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) de consulta ga para consultar dados de ambientes GA Insights GA do Azure Time Series.
+Este exemplo de C# demonstra como usar as [APIs de consulta GA](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) para consultar dados de ambientes Azure Time Series insights ga.
 
 > [!TIP]
-> Exibir amostras de código [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)GA C# em .
+> Veja exemplos de código do GA [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)em C# em.
 
 ## <a name="summary"></a>Resumo
 
-O código de amostra abaixo demonstra as seguintes características:
+O código de exemplo a seguir demonstra os seguintes recursos:
 
-* Como adquirir um token de acesso através do Azure Active Directory usando [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Como adquirir um token de acesso por meio de Azure Active Directory usando [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
-* Como passar esse token de `Authorization` acesso adquirido no cabeçalho das solicitações subsequentes da API de Consulta. 
+* Como passar esse token de acesso adquirido no `Authorization` cabeçalho de solicitações de API de consulta subsequentes. 
 
-* A amostra chama cada uma das APIs de consulta ga demonstrando como as solicitações HTTP são feitas para:
-    * [Obtenha a API de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) para devolver os ambientes aos que o usuário tem acesso
-    * [Obtenha API de disponibilidade de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
-    * [Obtenha a API de metadados de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) para recuperar metadados do ambiente
+* O exemplo chama cada uma das APIs de consulta GA demonstrando como as solicitações HTTP são feitas ao:
+    * [Obter a API de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) para retornar os ambientes aos quais o usuário tem acesso
+    * [Obter API de disponibilidade do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
+    * [Obter API de metadados de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) para recuperar metadados de ambiente
     * [Obter API de eventos de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
-    * [Obtenha API agregados de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
+    * [Obter API de agregações de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
     
-* Como interagir com as APIs de consulta ga usando o WSS para enviar a mensagem:
+* Como interagir com as APIs de consulta GA usando o WSS para a mensagem:
 
-   * [Obtenha aAPI de eventos ambientais transmitidos](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
-   * [Obtenha aPI streamed de agregados de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
+   * [Obter API de fluxo de eventos de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
+   * [Obter a API transmitida de agregações de ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
 
 ## <a name="prerequisites-and-setup"></a>Pré-requisitos e configuração
 
 Conclua as etapas a seguir antes de usar compilar e executar o código de exemplo:
 
-1. [Provisão um ambiente GA Azure Time Series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)
-1. Configure o ambiente Azure Time Series Insights para o Azure Active Directory conforme descrito em [Autenticação e autorização](time-series-insights-authentication-and-authorization.md). 
+1. [Provisione um ambiente de Azure Time Series insights GA](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) .
+1. Configure seu ambiente de Azure Time Series Insights para Azure Active Directory conforme descrito em [autenticação e autorização](time-series-insights-authentication-and-authorization.md). 
 1. Instale as dependências de projeto necessárias.
-1. Edite o código de amostra abaixo substituindo cada **#DUMMY#** pelo identificador de ambiente apropriado.
+1. Edite o código de exemplo abaixo substituindo cada **#DUMMY #** pelo identificador de ambiente apropriado.
 1. Execute o código dentro do Visual Studio.
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 
-Recomenda-se que você use a versão mais recente do Visual Studio:
+É recomendável que você use a versão mais recente do Visual Studio:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Versão 16.4.2+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -versão 16.4.2 +
 
-O código amostral tem duas dependências necessárias:
+O código de exemplo tem duas dependências necessárias:
 
-* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) - pacote 3.13.9.
-* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - pacote 9.0.1.
+* Pacote [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -3.13.9.
+* Pacote [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -9.0.1.
 
-Baixe os pacotes no Visual Studio 2019 selecionando a opção **Build** > **Build Solution.**
+Baixe os pacotes no Visual Studio 2019 selecionando a opção **criar** > **solução de compilação** .
 
-Alternativamente, adicione os pacotes usando [NuGet 2.12+](https://www.nuget.org/):
+Como alternativa, adicione os pacotes usando o [NuGet 2.12 +](https://www.nuget.org/):
 
 * `dotnet add package Newtonsoft.Json --version 9.0.1`
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 3.13.9`
@@ -79,6 +79,6 @@ Alternativamente, adicione os pacotes usando [NuGet 2.12+](https://www.nuget.org
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre consulta, leia a [referência da API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Para saber mais sobre consultas, leia a [referência de API de consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Leia como [conectar um aplicativo JavaScript usando o SDK do cliente](https://github.com/microsoft/tsiclient) ao Time Series Insights.
+- Leia como [conectar um aplicativo JavaScript usando o SDK do cliente](https://github.com/microsoft/tsiclient) para Time Series insights.
