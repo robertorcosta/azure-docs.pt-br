@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75468860"
 ---
 O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
-1. <a name="getnet"></a>Obtenha o nome do recurso de rede de cluster.
+1. <a name="getnet"></a>Obtenha o nome do recurso de rede do cluster.
 
     a. Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
 
@@ -23,7 +23,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
    ![Nome da rede de clusters](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Adicione o ponto de acesso do cliente.  
+1. <a name="addcap"></a>Adicione o ponto de acesso para cliente.  
     O ponto de acesso do cliente é o nome da rede que os aplicativos usam para se conectar aos bancos de dados em um grupo de disponibilidade. Crie o ponto de acesso de cliente no Gerenciador de Cluster de Failover.
 
     a. Expanda o nome do cluster e clique em **Funções**.
@@ -39,7 +39,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
 1. Coloque a função de cluster do grupo de disponibilidade offline. Na **Gerenciador de Cluster de Failover**, em **Funções**, clique com o botão direito do mouse na função e selecione **Parar função**.
 
-1. <a name="congroup"></a>Configure o recurso IP para o grupo de disponibilidade.
+1. <a name="congroup"></a>Configure o recurso de IP para o grupo de disponibilidade.
 
     a. Clique na guia **Recursos**e expanda o ponto de acesso para cliente que você acabou de criar.  
     O ponto de acesso para cliente está offline.
@@ -56,7 +56,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Torne o recurso do grupo de disponibilidade do SQL Server dependente do ponto de acesso ao cliente.
+1. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade SQL Server dependente do ponto de acesso para cliente.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade.
 
@@ -68,7 +68,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
     d. Clique em **OK**.
 
-1. <a name="listname"></a>Faça com que o recurso de ponto de acesso do cliente dependa do endereço IP.
+1. <a name="listname"></a>Torne o recurso de ponto de acesso para cliente dependente do endereço IP.
 
     a. No Gerenciador de Cluster de Failover, clique em **Funções** e em seu grupo de disponibilidade. 
 
@@ -76,7 +76,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Clique na guia **Dependências.** Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
+    c. Clique na guia **dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -112,7 +112,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
 Se necessário, repita as etapas acima para definir os parâmetros do cluster para o endereço de IP do cluster WSFC.
 
-1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. No **Failover Cluster Manager** em Cluster Core **Resources,** localize **o nome do servidor**.
+1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. Em **Gerenciador de cluster de failover** em **recursos principais do cluster**, localize **nome do servidor**.
 
 1. Clique com o botão direito do mouse em **Endereço de IP** e escolha **Propriedades**.
 
@@ -140,4 +140,4 @@ Se necessário, repita as etapas acima para definir os parâmetros do cluster pa
    b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
 
 >[!WARNING]
->A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nestes exemplos, a porta do ouvinte é 59999 e a porta de teste de saúde de endereço IP do núcleo de cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.
+>A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nesses exemplos, a porta do ouvinte é 59999 e a porta de investigação de integridade do endereço IP do núcleo do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.
