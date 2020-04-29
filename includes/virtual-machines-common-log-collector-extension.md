@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74085218"
 ---
 O diagnóstico de problemas com um serviço de nuvem do Microsoft Azure exige a coleta dos arquivos de log do serviço em máquinas virtuais à medida que os problemas ocorrem. É possível usar a extensão AzureLogCollector sob demanda para executar uma coleta avulsa de logs de uma ou mais VMs do Serviço de Nuvem (de funções Web e funções de trabalho) e transferir os arquivos coletados para uma conta de armazenamento do Azure – tudo sem precisar fazer logon remotamente em qualquer uma das VMs.
 
 > [!NOTE]
-> Descrições para a maioria das informações registradas podem ser encontradas emhttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> As descrições para a maioria das informações registradas podem ser encontradas emhttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
 Há dois modos de coleta, dependendo dos tipos de arquivos a serem coletados.
 
-* **Logs de agente convidado do Azure somente (GA)**. Esse modo de coleta inclui todos os logs relacionados a agentes convidados do Azure e a outros componentes do Azure.
-* **Todos os registros (completos)**. Esse modo de coleta obtém todos os arquivos do modo GA e:
+* **Somente logs do agente convidado do Azure (GA)**. Esse modo de coleta inclui todos os logs relacionados a agentes convidados do Azure e a outros componentes do Azure.
+* **Todos os logs (completo)**. Esse modo de coleta obtém todos os arquivos do modo GA e:
   
   * logs de eventos do sistema e do aplicativo
   * logs de erros de HTTP
@@ -41,7 +41,7 @@ Em ambos os modos de coleta, é possível especificar pastas de coleta de dados 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Ter uma conta de armazenamento para a extensão salvar os arquivos zip gerados.
-* PowerShell do Azure. Consulte [Install Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
+* PowerShell do Azure. Consulte [instalar Azure PowerShell](/powershell/azure/install-az-ps)] para obter instruções de instalação.
 
 ## <a name="add-the-extension"></a>Adicionar a extensão
 Você pode usar cmdlets do [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou [APIs REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/ee460799.aspx) para adicionar a extensão AzureLogCollector.
@@ -177,7 +177,7 @@ param (
 )
 ```
 
-* **Nome do serviço**: Seu nome de serviço na nuvem.
+* **ServiceName: o**nome do serviço de nuvem.
 * **Roles**: uma lista de funções, como "FunçãoWeb1" ou "FunçãoDeTrabalho1".
 * **Instances**: uma lista de nomes de instâncias de função separados por vírgula -- use a cadeia de caracteres curinga ("*") para todas as instâncias de função.
 * **Slot**: nome do slot. “Produção” ou “Preparo”.
@@ -259,8 +259,8 @@ param (
 )
 ```
 
-* **Nome do serviço**: Seu nome de serviço na nuvem.
-* **VMName**: O nome da VM.
+* **ServiceName: o**nome do serviço de nuvem.
+* **VMName**: o nome da VM.
 * **Mode**: modo de coleta. "Completo" ou "GA".
 * **StorageAccountName**: nome da conta de armazenamento do Azure para armazenar os dados coletados.
 * **StorageAccountKey**: nome da chave de conta de armazenamento do Azure.
