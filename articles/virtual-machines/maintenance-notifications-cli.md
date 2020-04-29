@@ -1,6 +1,6 @@
 ---
-title: Receba notificações de manutenção usando a CLI
-description: Veja notificações de manutenção de máquinas virtuais em execução no Azure e inicie a manutenção de autoatendimento, usando o Cli do Azure.
+title: Obter notificações de manutenção usando a CLI
+description: Exibir notificações de manutenção para máquinas virtuais em execução no Azure e iniciar a manutenção de autoatendimento, usando o CLI do Azure.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920885"
 ---
-# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Manuseio de notificações planejadas de manutenção usando o Azure CLI
+# <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Manipulando notificações de manutenção planejada usando o CLI do Azure
 
 **Este artigo se aplica a máquinas virtuais que executam o Linux e o Windows.**
 
-Você pode usar a CLI para ver quando as VMs estão programadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejadas estão disponíveis a partir [da exibição az vm get-instance](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
+Você pode usar a CLI para ver quando as VMs estão agendadas para [manutenção](maintenance-notifications.md). As informações de manutenção planejada estão disponíveis em [AZ VM Get-Instance-View](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
  
 As informações de manutenção só serão retornadas se houver manutenção planejada. 
 
@@ -28,7 +28,7 @@ az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintena
 
 ## <a name="start-maintenance"></a>Iniciar manutenção
 
-A chamada a seguir iniciará `IsCustomerInitiatedMaintenanceAllowed` a manutenção em uma VM se estiver definida como verdadeira.
+A chamada a seguir iniciará a manutenção em uma `IsCustomerInitiatedMaintenanceAllowed` VM se for definido como true.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 
@@ -60,4 +60,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode lidar com manutenção planejada usando o [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
+Você também pode manipular a manutenção planejada usando o [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md).

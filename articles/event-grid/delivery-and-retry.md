@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: spelluru
 ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921055"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
@@ -22,23 +22,23 @@ A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Cada me
 
 ## <a name="batched-event-delivery"></a>Entrega de eventos em lote
 
-Event Grid não envia cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar event grid para lotes de eventos para entrega para melhor desempenho HTTP em cenários de alto rendimento.
+A grade de eventos usa como padrão o envio de cada evento individualmente aos assinantes. O assinante recebe uma matriz com um único evento. Você pode configurar a grade de eventos para eventos em lote para entrega para melhorar o desempenho de HTTP em cenários de alta taxa de transferência.
 
 A entrega em lote tem duas configurações:
 
-* **Eventos máximos por lote** - O número máximo de eventos que a Event Grid entregará por lote. Esse número nunca será ultrapassado, porém menos eventos podem ser entregues se nenhum outro evento estiver disponível no momento da publicação. Event Grid não atrasa eventos para criar um lote se houver menos eventos disponíveis. Deve estar entre 1 e 5.000.
-* **Tamanho do lote preferido em kilobytes** - Teto alvo para tamanho de lote em kilobytes. Semelhante aos eventos máximos, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho do lote preferido *se* um único evento for maior do que o tamanho preferido. Por exemplo, se o tamanho preferido for de 4 KB e um evento de 10 KB for empurrado para event grid, o evento de 10 KB ainda será entregue em seu próprio lote em vez de ser descartado.
+* **Máximo de eventos por lote** – número máximo de eventos que a grade de eventos fornecerá por lote. Esse número nunca será excedido, mas menos eventos poderão ser entregues se nenhum outro evento estiver disponível no momento da publicação. A grade de eventos não atrasa eventos para criar um lote se menos eventos estiverem disponíveis. Deve estar entre 1 e 5.000.
+* **Tamanho de lote preferencial em kilobytes** -teto de destino para o tamanho do lote em kilobytes. Semelhante a Max Events, o tamanho do lote pode ser menor se mais eventos não estiverem disponíveis no momento da publicação. É possível que um lote seja maior do que o tamanho de lote preferencial *se* um único evento for maior do que o tamanho preferencial. Por exemplo, se o tamanho preferencial for de 4 KB e um evento de 10 KB for enviado para a grade de eventos, o evento de 10 KB ainda será entregue em seu próprio lote, em vez de ser Descartado.
 
-Entrega em lote configurada por assinatura por evento através do portal, CLI, PowerShell ou SDKs.
+Entrega em lote em configurada por assinatura por evento por meio do portal, da CLI, do PowerShell ou de SDKs.
 
 ### <a name="azure-portal"></a>Portal do Azure: 
-![Configurações de entrega em lote](./media/delivery-and-retry/batch-settings.png)
+![Configurações de entrega em lotes](./media/delivery-and-retry/batch-settings.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 Ao criar uma assinatura de evento, use os seguintes parâmetros: 
 
-- **max-eventos por lote** - Número máximo de eventos em um lote. Deve ser um número entre 1 e 5000.
-- **tamanho preferencial-lote-em-kilobytes** - Tamanho de lote preferido em kilobytes. Deve ser um número entre 1 e 1024.
+- **Max – eventos por lote** – número máximo de eventos em um lote. Deve ser um número entre 1 e 5000.
+- **preferencial-tamanho do lote-em quilobytes** -tamanho de lote preferido em kilobytes. Deve ser um número entre 1 e 1024.
 
 ```azurecli
 storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -52,11 +52,11 @@ az eventgrid event-subscription create \
   --preferred-batch-size-in-kilobytes 512
 ```
 
-Para obter mais informações sobre como usar o Azure CLI com event grid, consulte [eventos de armazenamento de rota para o ponto final da Web com o Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
+Para obter mais informações sobre como usar CLI do Azure com a grade de eventos, consulte [rotear eventos de armazenamento para o ponto de extremidade da Web com CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## <a name="retry-schedule-and-duration"></a>Agendamento de nova tentativa e duração
 
-Event Grid espera 30 segundos por uma resposta após entregar uma mensagem. Após 30 segundos, se o ponto final não tiver respondido, a mensagem será enfileirada para nova tentativa. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. Event Grid tenta a entrega no seguinte cronograma em uma base de esforço melhor:
+A grade de eventos aguarda 30 segundos por uma resposta depois de entregar uma mensagem. Após 30 segundos, se o ponto de extremidade não tiver respondido, a mensagem será enfileirada para tentar novamente. A Grade de Eventos usa uma política de repetição de retirada exponencial para a entrega de eventos. A grade de eventos repete a entrega na seguinte agenda com base no melhor esforço:
 
 - 10 segundos
 - 30 segundos
@@ -67,19 +67,19 @@ Event Grid espera 30 segundos por uma resposta após entregar uma mensagem. Apó
 - 1 hora
 - Por hora por até 24 horas
 
-Se o ponto final responder dentro de 3 minutos, event grid tentará remover o evento da fila de retentativa em uma base de esforço melhor, mas as duplicatas ainda podem ser recebidas.
+Se o ponto de extremidade responder em 3 minutos, a grade de eventos tentará remover o evento da fila de repetição em uma base de melhor esforço, mas as duplicatas ainda poderão ser recebidas.
 
-Event Grid adiciona uma pequena randomização a todas as etapas de repetição e pode pular oportunicamente certas repetições se um ponto final for consistentemente insalubre, para baixo por um longo período, ou parece estar sobrecarregado.
+A grade de eventos adiciona uma pequena aleatoriedade a todas as etapas de repetição e pode ignorar oportunamente determinadas tentativas se um ponto de extremidade estiver consistentemente não íntegro, inativo por um longo período ou parecer sobrecarregado.
 
-Para comportamento determinístico, defina o tempo de evento para viver e max as tentativas de entrega nas [políticas de repetição de assinatura](manage-event-delivery.md).
+Para comportamento determinístico, defina a vida útil do evento e as tentativas de entrega máxima nas [políticas de repetição de assinatura](manage-event-delivery.md).
 
 Por padrão, a Grade de Eventos expira todos os eventos que não são entregues em 24 horas. Você pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Forneça o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é 1440 minutos).
 
 ## <a name="delayed-delivery"></a>Entrega atrasada
 
-Como um ponto final experimenta falhas de entrega, event grid começará a atrasar a entrega e a repetição de eventos para esse ponto final. Por exemplo, se os primeiros 10 eventos publicados para um ponto final falharem, event grid assumirá que o ponto final está enfrentando problemas e atrasará todas as repetições subseqüentes *e novas* entregas por algum tempo - em alguns casos até várias horas.
+Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos começará a atrasar a entrega e a repetição de eventos para esse ponto de extremidade. Por exemplo, se os 10 primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novos* entregas por algum tempo, em alguns casos, até várias horas.
 
-O objetivo funcional da entrega atrasada é proteger pontos finais insalubres, bem como o sistema Event Grid. Sem o back-off e o atraso na entrega para pontos finais insalubres, a política de retentativa e os recursos de volume da Event Grid podem facilmente sobrecarregar um sistema.
+A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 
@@ -101,28 +101,28 @@ A Grade de Eventos usa códigos de resposta HTTP para confirmar o recebimento de
 
 ### <a name="success-codes"></a>Códigos de êxito
 
-A Event Grid considera **apenas** os seguintes códigos de resposta HTTP como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas falhadas e serão julgados ou cancelados conforme apropriado. Ao receber um código de status bem-sucedido, event grid considera a entrega concluída.
+A grade de eventos considera **apenas** os seguintes códigos de resposta http como entregas bem-sucedidas. Todos os outros códigos de status são considerados entregas com falha e serão repetidos ou mortodos conforme apropriado. Após receber um código de status bem-sucedido, a grade de eventos considera a entrega concluída.
 
 - 200 OK
 - 201 Criado
 - 202 Aceito
-- 203 Informações Não Autorizadas
+- 203 informações não autoritativas
 - 204 Sem Conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão julgados novamente. Alguns têm políticas específicas de repetição ligadas a eles descritas abaixo, todas as outras seguem o modelo padrão exponencial de retrocesso. É importante ter em mente que, devido à natureza altamente paraleleda da arquitetura da Event Grid, o comportamento de repetição não é determinista. 
+Todos os outros códigos que não estão no conjunto acima (200-204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas ligadas a eles descritos abaixo, todos os outros seguem o modelo de retirada exponencial padrão. É importante ter em mente que, devido à natureza altamente paralelizada da arquitetura da grade de eventos, o comportamento de repetição é não determinístico. 
 
 | Código de status | Tentar comportamento novamente |
 | ------------|----------------|
-| 400 Solicitação Inválida | Tente novamente após 5 minutos ou mais (Deadletter imediatamente se deadletter configuração) |
+| 400 Solicitação Inválida | Tente novamente após 5 minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
 | 401 Não Autorizado | Tente novamente após 5 minutos ou mais |
 | 403 Proibido | Tente novamente após 5 minutos ou mais |
 | 404 Não Encontrado | Tente novamente após 5 minutos ou mais |
-| 408 Tempo Limite da Solicitação | Tente novamente após 2 minutos ou mais |
-| Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (Deadletter imediatamente se deadletter configuração) |
-| 503 Serviço Indisponível | Tente novamente após 30 segundos ou mais |
-| Todos os outros | Tente novamente após 10 segundos ou mais |
+| 408 Tempo Limite da Solicitação | Tentar novamente após 2 minutos ou mais |
+| Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
+| Todos os outros | Tentar novamente após 10 segundos ou mais |
 
 
 ## <a name="next-steps"></a>Próximas etapas

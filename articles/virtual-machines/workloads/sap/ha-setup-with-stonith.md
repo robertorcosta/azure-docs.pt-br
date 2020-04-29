@@ -14,16 +14,16 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4060dbe936af8ff1f9dd8c958f64834cb06525de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77615077"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
 
-**Isenção de responsabilidade:** *Este guia é derivado do teste da configuração no ambiente Microsoft HANA Large Instances, que funciona com sucesso. Como a equipe de gerenciamento de serviços da Microsoft para hana instâncias grandes não suporta sistema operacional, você pode precisar entrar em contato com a SUSE para qualquer outra solução de problemas ou esclarecimento sobre a camada do sistema operacional. A equipe de gerenciamento de serviços da Microsoft configura o dispositivo STONITH e suporta totalmente e pode estar envolvida para a solução de problemas para problemas de dispositivos STONITH.*
+**Isenção de responsabilidade:** *este guia é derivado testando a configuração no ambiente de instâncias grandes do Microsoft Hana, que funciona com êxito. Como a equipe de gerenciamento de serviços da Microsoft para instâncias grandes do HANA não oferece suporte ao sistema operacional, talvez seja necessário entrar em contato com o SUSE para obter mais informações ou esclarecimentos sobre a camada do sistema operacional. A equipe de gerenciamento de serviços da Microsoft configura o dispositivo STONITH e oferece suporte total e pode ser envolvida para solução de problemas de STONITH dispositivos.*
 ## <a name="overview"></a>Visão geral
 Para configurar a Alta disponibilidade usando o clustering SUSE, é necessário atender aos pré-requisitos a seguir.
 ### <a name="pre-requisites"></a>Pré-requisitos
@@ -63,7 +63,7 @@ Para configurar a HA de ponta a ponta usando o STONITH, é necessário seguir as
 7.  Configurar os recursos para o cluster
 8.  Testar o processo de failover
 
-## <a name="1---identify-the-sbd-device"></a>1. Identifique o dispositivo SBD
+## <a name="1---identify-the-sbd-device"></a>1. identificar o dispositivo SBD
 Esta seção descreve como determinar o dispositivo SBD para sua configuração depois que a equipe de Gerenciamento de Serviços da Microsoft configurar o STONITH. **Esta seção aplica-se somente a clientes existentes**. Para novos clientes, a equipe de Gerenciamento de Serviços da Microsoft fornecerá o nome do dispositivo SBD para você e esta seção poderá ser ignorada.
 
 1.1 Modifique */etc/iscsi/initiatorname.isci* para 
@@ -85,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 Executar o comando para fazer logon no dispositivo iSCSI; ele mostra quatro sessões. Executá-lo em **ambos** os nós.
+1.4 Executar o comando para fazer logon no dispositivo iSCSI; ele mostra quatro sessões. Execute-o em **ambos** os nós.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Execute o script de rescada: *rescan-scsi-bus.sh*.  Este script mostra os novos discos criados para você.  Execute-o em ambos os nós. Você deve ver um número LUN maior que zero (por exemplo: 1, 2, etc.)
+1,5 execute o script de nova verificação: *Rescan-SCSI-Bus.sh*.  Esse script mostra os novos discos criados para você.  Execute-o em ambos os nós. Você deve ver um número LUN maior que zero (por exemplo: 1, 2, etc.)
 
 ```
 rescan-scsi-bus.sh
@@ -122,7 +122,7 @@ sbd -d <SBD Device Name> create
 sbd -d <SBD Device Name> dump
 ```
 
-## <a name="3---configuring-the-cluster"></a>3. Configuração do cluster
+## <a name="3---configuring-the-cluster"></a>3. Configurando o cluster
 Esta seção descreve as etapas para configurar o cluster de HA SUSE.
 ### <a name="31-package-installation"></a>3.1 Instalação do pacote
 3.1.1 Verificar se os padrões ha_sles e SAPHanaSR-doc estão instalados. Se não estiver instalado, instale-os. Instale-o em **ambos** os nós.
@@ -143,10 +143,10 @@ Clique em **cancelar**, pois o pacote halk2 já está instalado.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-Clique **em Continuar**
+Clique em **continuar**
 
-Valor ![esperado=Número de nomes de nó implantados (neste caso 2)](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) yast-Cluster-Security.png Clique Em **seguida**
-![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) Adicionar nomes de nó e, em seguida, clique em "Adicionar arquivos sugeridos"
+Valor esperado = número de nós implantados (nesse caso, ![2) YaST-cluster-Security](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) . **Next**
+![png clique em Avançar](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) YaST-cluster-configure-csync2. png adicionar nomes de nó e clique em "adicionar arquivos sugeridos"
 
 Clique em “Ligar csync2”
 
@@ -154,19 +154,19 @@ Clique em “Gerar chaves pré-compartilhadas”. Elas aparecem abaixo do pop-up
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Clique em **OK**.
+Clique em **OK**
 
 A autenticação é realizada usando os endereços IP e as chaves pré-compartilhadas em Csync2. O arquivo de chave é gerado com csync2 -k /etc/csync2/key_hagroup. O arquivo key_hagroup deve ser copiado para todos os membros do cluster manualmente depois de criado. **Não deixe de copiar o arquivo do node1 para o node2**.
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-Clique **em Next**
-![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+Clique em **Avançar**
+![YaST-Cluster-Service. png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 Na opção padrão, a Inicialização estava desativada. Altere-a para “ativada” para que o Pacemaker seja iniciado junto com a inicialização. Você pode fazer a escolha de acordo com os requisitos de instalação.
 Clique em **Avançar** para concluir a configuração do cluster.
 
-## <a name="4---setting-up-the-softdog-watchdog"></a>4. Configurando o Cão de Guarda Softdog
+## <a name="4---setting-up-the-softdog-watchdog"></a>4. Configurando o Watchdog do SoftDog
 Esta seção descreve a configuração do watchdog (softdog).
 
 4.1 Adicionar a seguinte linha a */etc/init.d/boot.local* em **ambos** os nós.
@@ -233,7 +233,7 @@ systemctl start pacemaker
 
 Se o serviço Pacemaker *falhar*, consulte o *Cenário 5: falha do serviço Pacemaker*
 
-## <a name="5---joining-the-cluster"></a>5. Juntando-se ao cluster
+## <a name="5---joining-the-cluster"></a>5. ingressando no cluster
 Esta seção descreve como adicionar o nó ao cluster.
 
 ### <a name="51-add-the-node"></a>5.1 Adicionar o nó
@@ -243,7 +243,7 @@ ha-cluster-join
 ```
 Se você receber um *erro* durante a associação do cluster, consulte *Cenário 6: não é possível associar o Node2 ao cluster*.
 
-## <a name="6---validating-the-cluster"></a>6. Validação do cluster
+## <a name="6---validating-the-cluster"></a>6. Validando o cluster
 
 ### <a name="61-start-the-cluster-service"></a>6.1 Iniciar o serviço de cluster
 Para verificar e, opcionalmente, iniciar o cluster pela primeira vez em **ambos** os nós.
@@ -257,9 +257,9 @@ Execute o comando *crm_mon* para fazer com que **ambos** os nós fiquem online. 
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) Você também pode fazer login no hawk para verificar o status do cluster *https://\<nó IP>:7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
+![CRM-Mon. png](media/HowToHLI/HASetupWithStonith/crm-mon.png) você também pode fazer logon no Hawk para verificar o status do *cluster\<https://IP do nó>:7630*. O usuário padrão é hacluster e a senha é linux. Se necessário, você pode alterar a senha usando o comando *passwd*.
 
-## <a name="7-configure-cluster-properties-and-resources"></a>7. Configure propriedades e recursos do cluster 
+## <a name="7-configure-cluster-properties-and-resources"></a>7. configurar as propriedades e os recursos do cluster 
 Esta seção descreve as etapas para configurar os recursos do cluster.
 Neste exemplo, configure o recurso a seguir. O restante poderá ser configurado (se necessário), consultando o guia HA do SUSE. Execute esta configuração somente em **um dos nós**. Faça isso no nó primário.
 
@@ -322,11 +322,11 @@ crm configure load update crm-vip.txt
 Quando você executa o comando *crm_mon*, pode ver os dois recursos.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Além disso, você pode ver o status em *https://\<endereço IP do nó>:7630/cib/live/state*
+Além disso, você pode ver o status *no\<endereço IP do nó https://>:7630/CIB/Live/State*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
-## <a name="8-testing-the-failover-process"></a>8. Testando o processo de failover
+## <a name="8-testing-the-failover-process"></a>8. testando o processo de failover
 Para testar o processo de failover, pare o serviço Pacemaker no node1 e o failover dos recursos para o node2.
 ```
 Service pacemaker stop
@@ -334,14 +334,14 @@ Service pacemaker stop
 Agora, interrompa o serviço Pacemaker no **node2** e os recursos com failover para o **node1**
 
 **Antes do failover**  
-![Antes do failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Before-failover. png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
-**Após failover**  
-![pós-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+**Após o failover**  
+![After-failover. png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![CRM-Mon-After-failover. png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
-## <a name="9-troubleshooting"></a>9. Solução de problemas
+## <a name="9-troubleshooting"></a>9. solução de problemas
 Esta seção descreve alguns cenários de falha que podem ocorrer durante a instalação. Você pode não enfrentar esses problemas necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Cenário 1: o nó do cluster não está online
@@ -375,7 +375,7 @@ A tela gráfica do yast2 é usada para configurar o cluster de alta disponibilid
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
-**Saída Esperada**
+**Saída esperada**
 
 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
@@ -436,11 +436,11 @@ Selecione os padrões
 ![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-Clique em **Aceitar**
+Clique em **aceitar**
 
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-Clique **em Continuar**
+Clique em **continuar**
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
@@ -533,7 +533,7 @@ Após a correção anterior, o node2 deve ser adicionado ao cluster
 
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
-## <a name="10-general-documentation"></a>10. Documentação Geral
+## <a name="10-general-documentation"></a>10. Documentação geral
 Você pode encontrar mais informações sobre a configuração de HA do SUSE nos seguintes artigos: 
 
 - [Cenário otimizado para desempenho da SR SAP HANA](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )

@@ -1,21 +1,21 @@
 ---
 title: Exibir logs de kubelet no AKS (Serviço de Kubernetes do Azure)
-description: Saiba como visualizar informações de solução de problemas nos logs kubelet dos áldenos do Azure Kubernetes Service (AKS)
+description: Saiba como exibir informações de solução de problemas nos logs do kubelet dos nós do AKS (serviço kubernetes do Azure)
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77595375"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obter logs de Kubelet dos nós de cluster do AKS (Serviço de Kubernetes do Azure)
 
-Como parte da operação de um cluster AKS, talvez seja necessário revisar os registros para solucionar um problema. Incorporada ao portal Azure é a capacidade de visualizar logs para os [componentes ou contêineres mestres aks][aks-master-logs] [em um cluster AKS][azure-container-logs]. Ocasionalmente, você pode precisar obter logs *kubelet* de um nó AKS para fins de solução de problemas.
+Como parte da operação de um cluster AKS, talvez seja necessário examinar os logs para solucionar um problema. Interno ao portal do Azure é a capacidade de exibir logs para os componentes ou contêineres [mestres][aks-master-logs] do AKS [em um cluster AKs][azure-container-logs]. Ocasionalmente, talvez seja necessário obter logs do *kubelet* de um nó AKs para fins de solução de problemas.
 
-Este artigo mostra como `journalctl` você pode usar para visualizar os logs *kubelet* em um nó AKS.
+Este artigo mostra como você pode usar `journalctl` o para exibir os logs do *kubelet* em um nó AKs.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -27,7 +27,7 @@ Primeiro, crie uma conexão SSH com o nó no qual você precisa exibir os logs d
 
 ## <a name="get-kubelet-logs"></a>Obter logs de kubelet
 
-Depois de conectado ao nó, execute o seguinte comando para puxar os logs *kubelet:*
+Depois de se conectar ao nó, execute o seguinte comando para efetuar pull dos logs do *kubelet* :
 
 ```console
 sudo journalctl -u kubelet -o cat

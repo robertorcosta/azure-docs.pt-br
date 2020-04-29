@@ -1,82 +1,82 @@
 ---
-title: Visão geral do Cônsul
-description: Obtenha uma visão geral do Cônsul
+title: Visão geral do Consul
+description: Obtenha uma visão geral do Consul
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: c518985b360fa3264bd5ac1e3fe76d61b2810b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594202"
 ---
-# <a name="consul"></a>Cônsul
+# <a name="consul"></a>Consul
 
 ## <a name="overview"></a>Visão geral
 
-[O Cônsul][consul] é uma solução de rede de serviços de reconhecimento de vários data centers para conectar e proteger serviços em plataformas de tempo de execução. [Connect][consul-features] é o componente que fornece recursos de malha de serviço.
+[Consul][consul] é uma solução de rede de serviço com reconhecimento de vários data center para se conectar e proteger serviços em plataformas de tempo de execução. [Connect][consul-features] é o componente que fornece recursos de malha de serviço.
 
 ## <a name="architecture"></a>Arquitetura
 
-O Cônsul fornece um plano de dados que é composto por [sidecars baseados][consul-sidecar] em [Envoy][envoy-proxy]por padrão. O cônsul tem uma arquitetura proxy plugável. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho.
+O Consul fornece um plano de dados composto de [sidecars][consul-sidecar] baseados em [Envoy][envoy-proxy]por padrão. Consul tem uma arquitetura de proxy conectável. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho em malha.
 
-O plano de controle gerencia a configuração e a diretiva através dos [seguintes componentes:][consul-architecture]
+O plano de controle gerencia a configuração e a política por meio dos seguintes [componentes][consul-architecture]:
 
-- **Servidor** - Um agente cônsul em execução no modo Servidor que mantém o estado de cluster do Cônsul.
+- **Servidor** -um agente Consul em execução no modo de servidor que mantém o estado do cluster Consul.
 
-- **Cliente** - Um agente cônsul em execução no modo cliente leve. Cada nó de computação deve ter um agente cliente funcionando. Este cliente intermedia configuração e política entre as cargas de trabalho e a configuração do Cônsul. 
+- **Cliente** – um agente Consul em execução no modo de cliente leve. Cada nó de computação deve ter um agente cliente em execução. Essa configuração de agentes de cliente e a política entre as cargas de trabalho e a configuração Consul. 
 
-O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e plano de controle interagem.
+O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e do plano de controle interagem.
 
-![Visão geral dos componentes e arquitetura do Cônsul.](media/servicemesh/consul/about-architecture.png)
+![Visão geral dos componentes e da arquitetura do Consul.](media/servicemesh/consul/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar o Cônsul para suas cargas de trabalho:
+É importante entender e considerar as seguintes áreas ao avaliar Consul para suas cargas de trabalho:
 
-- [Princípios cônsul](#consul-principles)
+- [Princípios de Consul](#consul-principles)
 - [Funcionalidades](#capabilities)
 - [Cenários](#scenarios)
 
 
-### <a name="consul-principles"></a>Princípios cônsul
+### <a name="consul-principles"></a>Princípios de Consul
 
-Os seguintes princípios [orientam][consul-principles] o projeto cônsul:
+Os princípios a seguir [guiam][consul-principles] o projeto Consul:
 
-- **API-Driven** - Codificar toda a configuração e política.
+- **Controlado por API** -codificar todas as configurações e políticas.
 
-- **Executar e conectar em qualquer lugar** - Conecte cargas de trabalho em plataformas de tempo de execução (Kubernetes, VMs, Serverless).
+- **Execute e conecte** -se a cargas de trabalho de conexão em qualquer lugar em plataformas de tempo de execução (kubernetes, VMS, sem servidor).
 
-- **Estender e integrar** - conecte com segurança cargas de trabalho em infra-estrutura.
+- **Estender e integrar** – Conecte cargas de trabalho com segurança na infraestrutura.
 
 
 ### <a name="capabilities"></a>Funcionalidades
 
-O Cônsul fornece o seguinte conjunto de capacidades:
+O Consul fornece o seguinte conjunto de recursos:
 
-- **Malha** – gateway (multi data center), máquinas virtuais (fora dos nós de cluster), sincronização de serviço, opção de depuração incorporada
+- **Malha** – gateway (vários data center), máquinas virtuais (fora dos nós de cluster), sincronização de serviço, opção de depuração interna
 
-- **Proxies** – Proxy embutido, proxy pluggável, l4 disponível para cargas de trabalho do Windows
+- **Proxies** – Envoy, proxy interno, conectável, proxy L4 disponíveis para cargas de trabalho do Windows
 
-- **Gerenciamento de Tráfego** – roteamento, divisão, resolução
+- **Gerenciamento de tráfego** – roteamento, divisão, resolução
 
 - **Política** – intenções, ACLs
 
-- **Segurança** – autorização, autenticação, criptografia, identidades baseadas em SPIFFE, CA externa (Vault), gerenciamento de certificados e rotação
+- **Segurança** – autorização, autenticação, criptografia, identidades baseadas em SPIFFE, AC externa (cofre), gerenciamento de certificados e rotação
 
-- **Observabilidade** – métricas, painel de ui, prometeu, grafana
+- **Observação** – métricas, painel de interface do usuário, Prometheus, grafana
 
 
 ### <a name="scenarios"></a>Cenários
 
-O Cônsul é adequado e sugerido para os seguintes cenários:
+O Consul é adequado e sugerido para os seguintes cenários:
 
-- Ampliação das cargas de trabalho conectadas do Cônsul existentes
+- Estendendo cargas de trabalho conectadas Consul existentes
 
-- Requisitos de conformidade em torno do gerenciamento de certificados
+- Requisitos de conformidade em relação ao gerenciamento de certificados
 
 - Malha de serviço de vários clusters
 
@@ -86,16 +86,16 @@ O Cônsul é adequado e sugerido para os seguintes cenários:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A documentação a seguir descreve como você pode instalar o Cônsul no Azure Kubernetes Service (AKS):
+A documentação a seguir descreve como você pode instalar o Consul no AKS (serviço kubernetes do Azure):
 
 > [!div class="nextstepaction"]
-> [Instale cônsul no Azure Kubernetes Service (AKS)][consul-install]
+> [Instalar o Consul no serviço kubernetes do Azure (AKS)][consul-install]
 
-Você também pode explorar ainda mais os recursos e arquitetura do Cônsul:
+Você também pode explorar ainda mais os recursos e a arquitetura do Consul:
 
-- [Características do Cônsul][consul-features]
-- [Arquitetura Cônsul][consul-architecture]
-- [Cônsul - Como funciona o Connect][consul-how-connect-works]
+- [Recursos do Consul][consul-features]
+- [Arquitetura do Consul][consul-architecture]
+- [Consul-como o Connect funciona][consul-how-connect-works]
 
 <!-- LINKS - external -->
 [consul]: https://www.consul.io/mesh.html

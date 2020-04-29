@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617014"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
@@ -32,9 +32,9 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 
 **Conectividade de rede**
 
-- ExpressRoute entre local para Azure: para conectar o data center local ao Azure, certifique-se de solicitar pelo menos uma conexão de 1 Gbps do ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, você, como cliente, não encontra custos adicionais além do seu link ExpressRoute entre o local e o Azure.
+- ExpressRoute entre local para Azure: para conectar o data center local ao Azure, certifique-se de solicitar pelo menos uma conexão de 1 Gbps do ISP. A conectividade entre unidades de instância grande do HANA e o Azure também está usando a tecnologia do ExpressRoute. Essa conexão ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os encargos de entrada e saída de dados desse circuito específico do ExpressRoute. Portanto, você como cliente não encontra custos adicionais além do link do ExpressRoute entre o local e o Azure.
 
-**Sistema Operacional**
+**Sistema operacional**
 
 - Licenças para SUSE Linux Enterprise Server 12 para aplicativos SAP.
 
@@ -61,7 +61,7 @@ Para a matriz de compatibilidade do sistema operacional e as versões de firmwar
 > Para unidades do tipo II, somente a versão SLES 12 SP2 do sistema operacional tem suporte atualmente. 
 
 
-**Database**
+**Backup de banco de dados**
 
 - As licenças e os componentes de instalação de software para SAP HANA (plataforma ou enterprise edition).
 

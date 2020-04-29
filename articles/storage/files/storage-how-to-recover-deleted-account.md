@@ -11,35 +11,35 @@ ms.subservice: files
 services: storage
 tags: ''
 ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252627"
 ---
 # <a name="how-to-recover-a-deleted-storage-account"></a>Como recuperar uma conta de armazenamento excluída
 
-O Azure Storage fornece resiliência de dados através de réplicas automatizadas, mas não impede que usuários ou códigos de aplicativos corrompam dados, seja acidentalmente ou maliciosamente. Manter a fidelidade de dados durante as instâncias de erro do aplicativo ou do usuário requer técnicas mais avançadas, como copiar os dados para um local de armazenamento secundário com um registro de auditoria.
+O armazenamento do Azure fornece resiliência de dados por meio de réplicas automatizadas, mas não impede que os usuários ou o código do aplicativo corrompam dados, seja acidentalmente ou intencionalmente. Manter a fidelidade de dados durante instâncias de erro de aplicativo ou de usuário requer técnicas mais avançadas, como copiar os dados para um local de armazenamento secundário com um log de auditoria.
 
 A tabela a seguir fornece uma visão geral do escopo da recuperação da conta de armazenamento, dependendo da estratégia de replicação.
 
-| |LRS|ZRS|GRS|RA - GRS|
+| |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|Gerenciador de recursos do Azure conta de armazenamento|Sim|Sim|Sim|Sim|
-|Clássico da conta de armazenamento|Sim|Sim|Sim|Sim|
+|Azure Resource Manager da conta de armazenamento|Sim|Sim|Sim|Sim|
+|Conta de armazenamento clássica|Sim|Sim|Sim|Sim|
 
-Reúna as seguintes informações e faça uma solicitação de suporte com o Suporte do Microsoft:
+Reúna as informações a seguir e arquivo uma solicitação de suporte com Suporte da Microsoft:
 
 * Nome da conta de armazenamento
 * Data de exclusão
 * Região da conta de armazenamento
 * Como a conta de armazenamento foi excluída?
-* Que método excluiu a conta de armazenamento? (Portal, PowerShell, etc.)
+* Qual método excluiu a conta de armazenamento? (Portal, PowerShell, etc.)
 
-Pontos Importantes
+Pontos importantes
 
-* Geralmente, pode levar até 15 dias a partir do momento da exclusão para que o serviço de armazenamento realize a coleta de lixo, de modo que a recuperação das contas de armazenamento pode não ser recuperada com um SLA.
-* O Suporte microsoft tentará recuperar o Contêiner/Conta com o melhor esforço e não pode garantir a recuperação.
+* Em geral, pode levar até 15 dias a partir do momento da exclusão do serviço de armazenamento para executar a coleta de lixo, portanto, a recuperação das contas de armazenamento pode não ser recuperada com um SLA.
+* Suporte da Microsoft tentará recuperar o contêiner/conta em uma base de melhor esforço e não poderá garantir a recuperação.
 
 > [!NOTE]
-> A recuperação pode não ser bem sucedida se a conta tiver sido recriada. Se você já recriou a conta, você deve excluí-la primeiro antes que a recuperação possa ser tentada.
+> A recuperação poderá não ser bem-sucedida se a conta tiver sido recriada. Se você já criou a conta novamente, deverá excluí-la primeiro antes que a recuperação possa ser tentada.

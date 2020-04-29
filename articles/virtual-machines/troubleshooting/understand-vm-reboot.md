@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919406"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
@@ -30,11 +30,11 @@ A melhor maneira de proteger um aplicativo em execução no Azure contra reinici
 
 Para oferecer esse nível de redundância ao seu aplicativo, recomendamos que agrupe uma ou mais VMs em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma VM estará disponível e atenderá os 99,95% de [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Para obter mais informações sobre conjuntos de disponibilidade, consulte [Gerenciar a disponibilidade de VMs](../windows/manage-availability.md)
+Para obter mais informações sobre conjuntos de disponibilidade, consulte [gerenciar a disponibilidade de VMs](../windows/manage-availability.md)
 
 ## <a name="resource-health-information"></a>Informações do Resource Health
 
-O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos de infraestrutura, a meta do Resource Health é reduzir o tempo gasto com solução de problemas. O objetivo é, especificamente, reduzir o tempo gasto determinando se a causa do problema está no aplicativo ou em um evento da plataforma Azure. Para obter mais informações, consulte [Entender e usar a Resource Health](../../resource-health/resource-health-overview.md).
+O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos de infraestrutura, a meta do Resource Health é reduzir o tempo gasto com solução de problemas. O objetivo é, especificamente, reduzir o tempo gasto determinando se a causa do problema está no aplicativo ou em um evento da plataforma Azure. Para obter mais informações, consulte [entender e usar Resource Health](../../resource-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Ações e eventos que podem fazer a VM reiniciar
 
@@ -47,7 +47,7 @@ No entanto, algumas atualizações requerem uma reinicialização. Nesses casos,
 Para compreender o que é a manutenção planejada do Azure e como ela pode afetar a disponibilidade de suas VMs Linux, confira os artigos listados aqui. Os artigos fornecem informações detalhadas sobre o processo de manutenção planejada do Azure e como agendar a manutenção planejada para reduzir ainda mais o impacto.
 
 - [Manutenção planejada para VMs no Azure](../windows/planned-maintenance.md)
-- [Como agendar manutenção planejada em VMs do Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Como agendar a manutenção planejada em VMs do Azure](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>Atualizações que preservam a memória
 
@@ -64,7 +64,7 @@ Atualizações de múltiplas instâncias (para VMs em um conjunto de disponibili
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinicialização ou desligamento iniciado pelo usuário
 
-Se você executar uma reinicialização do portal Azure, Azure PowerShell, interface de linha de comando ou API REST, você poderá encontrar o evento no [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md).
+Se você executar uma reinicialização do portal do Azure, Azure PowerShell, interface de linha de comando ou API REST, poderá encontrar o evento no [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Se você executar a ação do sistema operacional da VM, poderá encontrar o evento nos logs do sistema.
 
@@ -86,7 +86,7 @@ A máquina virtual está hospedada em um servidor físico que está em execuçã
 
 As falhas de servidor normalmente são causadas por falha de hardware, como falha de um disco rígido ou de uma unidade de estado sólido. O Azure monitora essas ocorrências continuamente, identifica os bugs subjacentes e distribui atualizações depois que a mitigação é implantada e testada.
 
-Como algumas falhas de servidor host podem ser específicas desse servidor, uma situação de reinicialização VM repetida pode ser melhorada com a reimplantação manual da VM em outro servidor host. Esta operação pode ser desencadeada usando a opção **de reimplantação** na página de detalhes da VM, ou parando e reiniciando a VM no portal Azure.
+Como algumas falhas de servidor host podem ser específicas desse servidor, uma situação de reinicialização VM repetida pode ser melhorada com a reimplantação manual da VM em outro servidor host. Essa operação pode ser disparada usando a opção **reimplantação** na página de detalhes da VM ou interrompendo e reiniciando a VM no portal do Azure.
 
 ### <a name="auto-recovery"></a>Recuperação automática
 
@@ -115,7 +115,7 @@ A duração do desligamento pode demorar mais de cinco minutos, mas também pode
 
 **Ultrapassando limites de E/S**
 
-As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento padrão em disco é limitado a 500 IOPS.) Para mitigar esse problema, use o striping de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+As VMs podem ser desligadas temporariamente quando as solicitações de E/S são limitadas consistentemente porque o volume de operações de IOPS (E/S por segundo) excede os limites de E/S do disco. (O armazenamento em disco padrão é limitado a 500 IOPS.) Para atenuar esse problema, use a distribuição de disco ou configure o espaço de armazenamento dentro da VM convidada, dependendo da carga de trabalho. Para obter detalhes, consulte [Configurando VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Outros incidentes
 

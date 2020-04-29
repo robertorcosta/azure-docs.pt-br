@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623340"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
@@ -82,7 +82,7 @@ Supondo que você tem 10 coleções S1, 1 GB de armazenamento para cada uma, na 
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>E se eu precisar de mais de 20 GB de armazenamento?
 
-Se você tem uma coleção com o nível de desempenho S1, S2 ou S3, ou tem uma única coleção de partição, todas com 20 GB de armazenamento disponível, você pode usar a ferramenta de migração de dados do Azure Cosmos DB para migrar seus dados para uma coleção particionada com virtualmente armazenamento ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e escala no Azure Cosmos DB](sql-api-partition-data.md). 
+Se você tiver uma coleção com o nível de desempenho S1, S2 ou S3 ou se tiver uma coleção de partição única, todas as quais têm 20 GB de armazenamento disponível, você poderá usar a ferramenta de migração de dados Azure Cosmos DB para migrar seus dados para uma coleção particionada com armazenamento praticamente ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e escala no Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

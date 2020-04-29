@@ -13,72 +13,72 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: bb32350597059209e5baf01d53b0c59fdc2344f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255250"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de backup para SAP HANA em Máquinas Virtuais do Azure
 
 ## <a name="getting-started"></a>Introdução
 
-O guia de backup do SAP HANA em execução em máquinas virtuais do Azure descrevem apenas tópicos específicos do Azure. Para obter itens relacionados ao backup geral do SAP HANA, verifique a documentação do SAP HANA. Esperamos que você esteja familiarizado com as principais estratégias de backup do banco de dados, as razões e motivações para ter uma estratégia de backup sólida e válida, e está ciente dos requisitos que sua empresa tem para o procedimento de backup, período de retenção de backups e restauração Procedimento.
+O guia de backup do SAP HANA em execução em máquinas virtuais do Azure descrevem apenas tópicos específicos do Azure. Para obter SAP HANA de itens relacionados ao backup geral, consulte a documentação do SAP HANA. Esperamos que você esteja familiarizado com as estratégias de backup de banco de dados, os motivos e as motivações para ter um som e uma estratégia de backup válida e esteja ciente dos requisitos que sua empresa tem para o procedimento de backup, o período de retenção de backups e o procedimento de restauração.
 
-O SAP HANA é compatível oficialmente com vários tipos de VM do Azure, como a série M do Azure. Para obter uma lista completa das unidades Azure VMs e HANA Large Instance certificadas pela SAP HANA, confira [As plataformas IaaS certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)da SAP HANA. O Microsoft Azure oferece uma série de unidades onde o SAP HANA é executado não virtualizado em servidores físicos. Este serviço é chamado [HANA Large Instances](hana-overview-architecture.md). Este guia não abrangerá processos de backup e ferramentas para hana instâncias grandes. Mas vai se limitar às máquinas virtuais do Azure. Para obter detalhes sobre processos de backup/restauração com instâncias grandes do HANA, leia o artigo [HLI Backup and Restore](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore).
+O SAP HANA é compatível oficialmente com vários tipos de VM do Azure, como a série M do Azure. Para obter uma lista completa de VMs do Azure certificadas SAP HANA e unidades de instância grande do HANA, confira [Localizar plataformas de IaaS certificadas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O Microsoft Azure oferece várias unidades em que SAP HANA é executado não virtualizado em servidores físicos. Esse serviço é chamado de [instâncias grandes Hana](hana-overview-architecture.md). Este guia não abordará os processos de backup e as ferramentas para instâncias grandes do HANA. Mas vai ser limitado às máquinas virtuais do Azure. Para obter detalhes sobre processos de backup/restauração com instâncias grandes do HANA, leia o artigo [backup e restauração do HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore).
 
-O foco deste artigo está em três possibilidades de backup para SAP HANA em máquinas virtuais Azure:
+O foco deste artigo é de três possibilidades de backup para SAP HANA em máquinas virtuais do Azure:
 
-- Backup hana através [dos serviços de backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview) 
+- Backup do HANA por meio [dos serviços de backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview) 
 - Backup do HANA para o sistema de arquivos em uma Máquina Virtual do Linux Azure (consulte [Backup do Azure do SAP HANA para arquivo](sap-hana-backup-file-level.md))
-- Backup HANA baseado em instantâneos de armazenamento usando o recurso de snapshot blob de armazenamento Do Zure manualmente ou serviço de backup do Azure
+- Backup do HANA com base em instantâneos de armazenamento usando o recurso de instantâneo do Azure Storage blob manualmente ou o serviço de backup do Azure
 
 
-O SAP HANA oferece uma API de backup, que permite que as ferramentas de backup de terceiros sejam integradas diretamente no SAP HANA. Produtos como o serviço de backup do Azure ou [o Commvault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) estão usando essa interface proprietária para ativar o banco de dados SAP HANA ou refazer backups de log. 
+O SAP HANA oferece uma API de backup, que permite que as ferramentas de backup de terceiros sejam integradas diretamente no SAP HANA. Produtos como o serviço de backup do Azure ou [CommVault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) estão usando essa interface proprietária para disparar SAP Hana banco de dados ou backups de log redo. 
 
 
-Informações sobre como você pode encontrar o software SAP suportado no Azure podem ser encontradas no artigo [Qual software SAP é suportado para implantações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure).
+Informações sobre como você pode encontrar o software SAP com suporte no Azure podem ser encontradas no artigo [que software SAP tem suporte para implantações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure).
 
 ## <a name="azure-backup-service"></a>Serviço de Backup do Azure
 
-O primeiro cenário mostrado é um cenário em que o Azure Backup Service está usando a interface SAP HANA `backint` para executar um backup de streaming com um banco de dados SAP HANA. Ou você usa um recurso mais genérico do serviço de backup do Azure para criar um snapshot de disco consistente do aplicativo e ter esse transferido para o serviço de backup do Azure.
+O primeiro cenário mostrado é um cenário em que o serviço de backup do Azure está `backint` usando a interface SAP Hana para executar um backup de streaming com um banco de dados SAP Hana. Ou você usa um recurso mais genérico do serviço de backup do Azure para criar um instantâneo de disco consistente com o aplicativo e fazer com que ele seja transferido para o serviço de backup do Azure.
 
-O Azure Backup integra e é certificado como solução de backup para SAP HANA usando a interface proprietária SAP HANA chamada [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para obter mais detalhes sobre a solução, suas capacidades e as regiões do Azure onde ela está disponível, leia a matriz de suporte do artigo [para backup de bancos de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Para obter detalhes e princípios sobre o serviço de backup do Azure para HANA, leia o artigo Sobre o [backup do banco de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
+O backup do Azure integra-se e é certificado como solução de backup para SAP HANA usando a interface SAP HANA proprietária chamada [BACKINT](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Para obter mais detalhes sobre a solução, seus recursos e as regiões do Azure onde estão disponíveis, leia o artigo [matriz de suporte para backup de bancos de dados SAP Hana em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). Para obter detalhes e princípios sobre o serviço de backup do Azure para HANA, leia o artigo [sobre SAP Hana backup de banco de dados em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
 
-A segunda possibilidade de aproveitar o serviço de backup do Azure é criar um backup consistente usando instantâneos de disco do Azure Premium Storage. Outros armazenamentos azure certificados pela HANA, como [o disco Azure Ultra](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) e o [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) não estão suportando esse tipo de instantâneo através do serviço de backup do Azure. Lendo estes artigos:
+A segunda possibilidade de aproveitar o serviço de backup do Azure é criar um backup consistente com o aplicativo usando instantâneos de disco do armazenamento Premium do Azure. Outros armazenamentos do Azure certificados pelo HANA, como o [Azure ultra Disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) e o [Azure NetApp files](https://azure.microsoft.com/services/netapp/) não dão suporte a esse tipo de instantâneo por meio do serviço de backup do Azure. Lendo estes artigos:
 
 - [Planejar sua infraestrutura de backup de VM no Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 - [Backup consistente de aplicativos de VMs Linux do Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 
 
-esta seqüência de atividade emerge:
+Essa sequência de atividade surge:
 
-- O Azure Backup precisa executar um script pré-instantâneo que coloca o aplicativo, neste caso, o SAP HANA, em um estado consistente
-- À medida que este estado consistente for confirmado, o Azure Backup executará os instantâneos de disco
-- Depois de terminar os instantâneos, o Azure Backup desfará a atividade que fez no script pré-snapshot
-- Após a execução bem-sucedida, o Azure Backup transmitirá os dados para o cofre de backup
+- O backup do Azure precisa executar um script de pré-instantâneo que coloca o aplicativo, neste caso SAP HANA, em um estado consistente
+- Como esse estado consistente é confirmado, o backup do Azure executará os instantâneos de disco
+- Depois de concluir os instantâneos, o backup do Azure desfará a atividade que fez no script de pré-instantâneo
+- Após a execução bem-sucedida, o backup do Azure transmitirá os dados para o cofre de backup
 
-No caso do SAP HANA, a maioria dos clientes está usando o Azure Write Accelerator para os volumes que contêm o registro de refazer SAP HANA. O serviço de backup do Azure excluirá automaticamente esses volumes dos instantâneos. Esta exclusão não prejudica a capacidade de restauração do HANA. Embora bloqueie a capacidade de restaurar com quase todos os outros DBMS suportados pela SAP.
+No caso de SAP HANA, a maioria dos clientes está usando o Acelerador de Gravação do Azure para os volumes que contêm o log de refazer SAP HANA. O serviço de backup do Azure excluirá automaticamente esses volumes dos instantâneos. Essa exclusão não prejudica a capacidade do HANA de restaurar. Embora ele bloqueie a capacidade de restaurar com quase todos os outros DBMS com suporte do SAP.
 
-A desvantagem dessa possibilidade é o fato de que você precisa desenvolver seu próprio script pré e pós-instantâneo. O script pré-instantâneo precisa criar um instantâneo HANA e lidar com eventuais casos de exceção. Considerando que o script pós-instantâneo precisa excluir o instantâneo HANA novamente. Para obter mais detalhes sobre a lógica necessária, comece com a [nota de suporte sap #2039883](https://launchpad.support.sap.com/#/notes/2039883). As considerações da seção 'Consistência de dados SAP HANA ao tirar instantâneos de armazenamento' neste artigo se aplicam totalmente a esse tipo de backup.
+A desvantagem dessa possibilidade é o fato de que você precisa desenvolver seu próprio script pré e pós-instantâneo. O script de pré-instantâneo precisa criar um instantâneo do HANA e lidar com casos de exceção eventual. Enquanto o script de pós-instantâneo precisa excluir o instantâneo do HANA novamente. Para obter mais detalhes sobre a lógica necessária, comece com a [Observação de suporte do SAP #2039883](https://launchpad.support.sap.com/#/notes/2039883). As considerações da seção "SAP HANA consistência de dados ao fazer instantâneos de armazenamento" neste artigo se aplicam totalmente a esse tipo de backup.
 
 > [!NOTE]
-> Backups baseados em snapshot de disco para SAP HANA em implantações onde vários contêineres de banco de dados são usados, exigem uma liberação mínima de HANA 2.0 SP04
+> Backups baseados em instantâneo de disco para SAP HANA em implantações em que vários contêineres de banco de dados são usados, requer uma versão mínima do HANA 2,0 SP04
 > 
 
-Veja detalhes sobre instantâneos de armazenamento mais tarde neste documento.
+Veja detalhes sobre instantâneos de armazenamento mais adiante neste documento.
 
 ![Esta figura mostra duas possibilidades para salvar o estado atual da VM](media/sap-hana-backup-guide/azure-backup-service-for-hana.png)
 
-## <a name="other-hana-backup-methods"></a>Outros métodos de backup hana
-Existem três outros métodos de backup ou caminhos que podem ser considerados:
+## <a name="other-hana-backup-methods"></a>Outros métodos de backup do HANA
+Há três outros métodos ou caminhos de backup que podem ser considerados:
 
-- Fazendo backup de um compartilhamento de NFS que é baseado em AnF (Azure NetApp Files). O ANF novamente tem a capacidade de criar instantâneos desses volumes em que você armazena backups. Dado o throughput que você eventualmente precisa para escrever os backups, esta solução pode se tornar um método caro. Embora seja fácil de estabelecer, uma vez que o HANA pode escrever os backups diretamente no compartilhamento nativo do Azure NFS
-- Executando o backup HANA contra discos bloqueados vm de SSD padrão ou Armazenamento Premium Azure. Como próximo passo, você pode copiar esses arquivos de backup no armazenamento Azure Blob. Esta estratégia pode ser atraente para o preço
-- Executando o backup HANA contra discos bloqueados vm de SSD padrão ou Armazenamento Premium Azure. À medida que o próximo passo, o disco é instantâneo regularmente. Após o primeiro instantâneo, instantâneos incrementais podem ser usados para reduzir custos
+- Fazendo backup em um compartilhamento NFS baseado em Azure NetApp Files (seja). O seja novamente tem a capacidade de criar instantâneos desses volumes nos quais você armazena os backups. Dada a taxa de transferência que você eventualmente precisa para gravar os backups, essa solução pode se tornar um método caro. Embora seja fácil de estabelecer, uma vez que o HANA pode gravar os backups diretamente no compartilhamento NFS nativo do Azure
+- Executar o backup do HANA em discos anexados à VM de SSD Standard ou armazenamento Premium do Azure. Como a próxima etapa, você pode copiar esses arquivos de backup no armazenamento de BLOBs do Azure. Essa estratégia pode ser atraente em termos de preço
+- Executar o backup do HANA em discos anexados à VM de SSD Standard ou armazenamento Premium do Azure. Como a próxima etapa, o disco é instantâneo regularmente. Após o primeiro instantâneo, instantâneos incrementais podem ser usados para reduzir os custos
 
 ![Esta figura mostra opções para colocar um backup de arquivo do SAP HANA dentro da VM](media/sap-hana-backup-guide/other-hana-backup-paths.png)
 
-Esta figura mostra opções para fazer um backup de arquivo do SAP HANA dentro da VM e, em seguida, armazenando os arquivos de backup do SAP HANA em outro lugar usando ferramentas diferentes. No entanto, todas as soluções que não envolvem um serviço de backup de terceiros ou serviço de backup do Azure têm vários obstáculos em comum. Alguns deles podem ser listados, como administração de retenção, processo de restauração automática e fornecimento de recuperação automática de point-in-time como serviço de backup do Azure ou outros suítes e serviços de backup especializados de terceiros. Muitos desses serviços de terceiros podem ser executados no Azure. 
+Esta figura mostra opções para fazer um backup de arquivo do SAP HANA dentro da VM e, em seguida, armazenando os arquivos de backup do SAP HANA em outro lugar usando ferramentas diferentes. No entanto, todas as soluções que não envolvem um serviço de backup de terceiros ou o serviço de backup do Azure têm vários obstáculos em comum. Alguns deles podem ser listados, como administração de retenção, processo de restauração automática e fornecimento automático de recuperação pontual como serviço de backup do Azure ou outros pacotes de backup e serviços de terceiros especializados fornecidos. Muitos desses serviços de terceiros que podem ser executados no Azure. 
 
 
 ## <a name="sap-resources-for-hana-backup"></a>Recursos do SAP para backup HANA
@@ -94,7 +94,7 @@ Esta figura mostra opções para fazer um backup de arquivo do SAP HANA dentro d
 - Sistemas de arquivos de rede inadequados para backup e recuperação em [Observação 1820529 do SAP](https://launchpad.support.sap.com/#/notes/1820529)
 
 ### <a name="how-to-verify-correctness-of-sap-hana-backup"></a>Como verificar a exatidão do backup do SAP HANA
-Independente do seu método de backup, executar uma restauração de teste contra um sistema diferente é uma necessidade absoluta. Essa abordagem fornece uma maneira de garantir que um backup está correto e os processos internos para backup e restauração funcionam conforme o esperado. Embora a restauração de backups possa ser um obstáculo no local devido à sua necessidade de infra-estrutura, é muito mais fácil de realizar na nuvem, fornecendo recursos necessários temporariamente para este fim. É correto que existam ferramentas fornecidas com HANA que podem verificar arquivos de backup sobre a capacidade de restauração. No entanto, o objetivo dos exercícios de restauração frequentes é testar o processo de restauração de um banco de dados e treinar esse processo com a equipe de operações.
+Independentemente do seu método de backup, a execução de um teste de restauração em um sistema diferente é uma necessidade absoluta. Essa abordagem fornece uma maneira de garantir que um backup está correto e os processos internos para backup e restauração funcionam conforme o esperado. Embora a restauração de backups possa ser um obstáculo local devido ao seu requisito de infraestrutura, é muito mais fácil realizar na nuvem fornecendo os recursos necessários temporariamente para essa finalidade. Está certo de que há ferramentas fornecidas com o HANA que podem verificar os arquivos de backup na capacidade de restaurar. No entanto, a finalidade dos exercícios de restauração frequentes é testar o processo de uma restauração de banco de dados e treinar esse processo com a equipe de operações.
 
 Tenha em mente que fazer uma restauração simples e verificar se o HANA está ativo e em execução não são o suficiente. Você deve executar uma verificação de consistência de tabela para ter certeza de que o banco de dados restaurado está bem. O SAP HANA oferece vários tipos de verificações de consistência descritos [Observação 1977584 do SAP](https://launchpad.support.sap.com/#/notes/1977584).
 
@@ -104,46 +104,46 @@ Informações sobre a verificação de consistência da tabela também podem ser
 
 O SAP não dá preferência para fazer backup do HANA ou instantâneo de armazenamento. Ele lista seus prós e contras, portanto, é possível determinar qual deles usar dependendo da situação e tecnologia de armazenamento disponível (consulte [Planejando sua estratégia de backup e recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-No Azure, esteja ciente do fato de que o recurso de snapshot blob do Azure não&#39;fornecer consistência do sistema de arquivos em vários discos (consulte [Usando instantâneos blob com PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
+No Azure, esteja ciente do fato de que o recurso de instantâneo de blob do Azure não&#39;a fornecer consistência do sistema de arquivos em vários discos (consulte [usando instantâneos de blob com o PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
 
 Além disso, é preciso entender as implicações de cobranças ao trabalhar com instantâneos de blob com frequência conforme descrito neste artigo: [Noções básicas sobre como instantâneos acumulam cobranças](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— não é tão óbvio quanto usar discos virtuais do Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Consistência de dados do SAP HANA ao realizar instantâneos de armazenamento
 
-Como documentado anteriormente, descrever os recursos de backup instantâneo do Azure Backup, sistema de arquivos e consistência do aplicativo é obrigatório ao tirar instantâneos de armazenamento. A maneira mais fácil de evitar problemas seria desligando o SAP HANA ou, talvez, até mesmo a máquina virtual inteira. Algo que não é viável para uma instância de produção.
+Conforme documentado anteriormente, descrevendo os recursos de backup de instantâneo do backup do Azure, a consistência do sistema de arquivos e do aplicativo é obrigatória ao tirar instantâneos de armazenamento. A maneira mais fácil de evitar problemas seria desligando o SAP HANA ou, talvez, até mesmo a máquina virtual inteira. Algo que não é viável para uma instância de produção.
 
 > [!NOTE]
-> Backups baseados em snapshot de disco para SAP HANA em implantações onde vários contêineres de banco de dados são usados, exigem uma liberação mínima de HANA 2.0 SP04
+> Backups baseados em instantâneo de disco para SAP HANA em implantações em que vários contêineres de banco de dados são usados, requer uma versão mínima do HANA 2,0 SP04
 > 
 
-O armazenamento do Azure não fornece consistência do sistema de arquivos em vários discos ou volumes que são anexados a uma VM durante o processo de snapshot. Isso significa que a consistência do aplicativo durante o snapshot precisa ser entregue pelo aplicativo, neste caso o próprio SAP HANA. [O SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre backups SAP HANA por snapshots de armazenamento. Por exemplo, com os sistemas de arquivos XFS, é necessário executar **o xfs\_freeze** antes de iniciar um snapshot de armazenamento para fornecer consistência de aplicativo [(ver xfs\_freeze(8) - página man Linux](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre **xfs\_freeze**).
+O armazenamento do Azure, não fornece consistência do sistema de arquivos em vários discos ou volumes anexados a uma VM durante o processo de instantâneo. Isso significa que a consistência do aplicativo durante o instantâneo precisa ser entregue pelo aplicativo, neste caso SAP HANA ela mesma. A [Observação do SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883) tem informações importantes sobre backups de SAP Hana por instantâneos de armazenamento. Por exemplo, com os sistemas de arquivos XFS, é necessário executar **o\_XFS Freeze** antes de iniciar um instantâneo de armazenamento para fornecer consistência de aplicativo (consulte [xfs\_congelar (8)-página do manual do Linux](https://linux.die.net/man/8/xfs_freeze) para obter detalhes sobre o **xfs\_Freeze**).
 
 Supondo que haja um sistema de arquivos XFS abrangendo quatro discos virtuais do Azure, as seguintes etapas fornecem um instantâneo consistente que representa a área de dados do HANA:
 
-1. Criar instantâneo de dados HANA preparar
-1. Congelar os sistemas de arquivos de todos os discos/volumes (por exemplo, usar **xfs\_freeze)**
+1. Criar preparação de instantâneo de dados do HANA
+1. Congelar os sistemas de arquivos de todos os discos/volumes (por exemplo, usar **xfs\_Freeze**)
 1. Crie todos os instantâneos de blob necessários no Azure
 1. Descongele o sistema de arquivos
-1. Confirme o instantâneo de dados HANA (excluirá o instantâneo)
+1. Confirmar o instantâneo de dados do HANA (excluirá o instantâneo)
 
-Ao usar a capacidade do Azure Backup para executar backups de instantâneoconsistentes do aplicativo, as etapas #1 precisam ser codificadas/roteirizadas por você para o script pré-snapshot. O serviço de backup do Azure executará etapas #2 e #3. As etapas #4 e #5 precisam ser novamente fornecidas pelo seu código no script pós-instantâneo. Se você não estiver usando o serviço de backup do Azure, você também precisa #2 passo de código/script e #3 por conta própria.
-Mais informações sobre a criação de instantâneos de dados HANA podem ser encontradas nestes artigos:
+Ao usar a capacidade do backup do Azure para executar backups de instantâneo consistente com o aplicativo, as etapas #1 precisam ser codificadas/inseridas em script por você no para o script de pré-instantâneo. O serviço de backup do Azure executará as etapas #2 e #3. As etapas #4 e #5 precisam ser fornecidas novamente pelo seu código no script de pós-instantâneo. Se você não estiver usando o serviço de backup do Azure, também precisará codificar/gerar script da etapa #2 e #3 por conta própria.
+Mais informações sobre a criação de instantâneos de dados do HANA podem ser encontradas nestes artigos:
 
-- [Instantâneos de dados HANA] (https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/ac114d4b34d542b99bc390b34f8ef375.html
-- Mais detalhes para executar a etapa #1 podem ser encontrados no artigo [Criar um Snapshot de dados (SQL nativo)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
-- Detalhes para confirmar/excluir instantâneos de dados HANA conforme a necessidade na etapa #5 pode ser encontrado no artigo [Criar um Snapshot de dados (SQL nativo)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
+- [Instantâneos de dados do HANA] (https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/ac114d4b34d542b99bc390b34f8ef375.html
+- Mais detalhes para executar a etapa #1 podem ser encontrados no artigo [criar um instantâneo de dados (Native SQL)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
+- Detalhes para confirmar/excluir instantâneos de dados do HANA conforme necessário na etapa #5 podem ser encontrados no artigo [criar um instantâneo de dados (SQL nativo)](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.04/en-US/9fd1c8bb3b60455caa93b7491ae6d830.html) 
 
 É importante confirmar o instantâneo do HANA. Devido à &quot;Cópia em gravação,&quot; o SAP HANA pode não precisar de espaço em disco adicional enquanto estiver no modo de preparação do instantâneo. Também não é possível iniciar novos backups até que o instantâneo do SAP HANA seja confirmado.
 
 
 ### <a name="sap-hana-backup-scheduling-strategy"></a>Estratégia de agendamento de backup do SAP HANA
 
-O artigo SAP HANA [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) estabelece um plano básico para fazer backups. Conte com a documentação SAP em torno do HANA e suas experiências com outros DBMS na definição da estratégia de backup/restauração e processo para o SAP HANA. A seqüência de diferentes tipos de backups e o período de retenção são altamente dependentes dos SLAs que você precisa fornecer.
+O artigo SAP HANA [planejamento de sua estratégia de backup e recuperação](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) informa um plano básico para fazer backups. Conte com a documentação do SAP sobre o HANA e suas experiências com outros DBMS para definir a estratégia de backup/restauração e o processo para SAP HANA. A sequência de diferentes tipos de backups e o período de retenção são altamente dependentes dos SLAs que você precisa fornecer.
 
 
 ### <a name="sap-hana-backup-encryption"></a>Criptografia de backup do SAP HANA
 
-O SAP HANA oferece criptografia de dados e de log. Se os dados e log do SAP HANA não forem criptografados, os backups não serão criptografados por padrão. No entanto, o SAP HANA oferece uma criptografia de backup separada conforme documentado no [SAP HANA Backup Encryption](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/5f837a57ce5e468d9db21c8683bc84da.html). Se você estiver executando versões mais antigas do SAP HANA, talvez seja necessário verificar se a criptografia de backup já fazia parte da funcionalidade fornecida.  
+O SAP HANA oferece criptografia de dados e de log. Se SAP HANA dados e o log não forem criptografados, os backups não serão criptografados por padrão. No entanto, o SAP HANA oferece uma criptografia de backup separada, conforme documentado em [SAP Hana criptografia de backup](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/5f837a57ce5e468d9db21c8683bc84da.html). Se você estiver executando versões mais antigas do SAP HANA, talvez seja necessário verificar se a criptografia de backup ainda faz parte da funcionalidade fornecida.  
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,30 +1,30 @@
 ---
-title: Migrar contêineres Azure Cosmos não particionados para contêineres particionados
-description: Saiba como migrar todos os contêineres não particionados existentes em contêineres particionados.
+title: Migrar contêineres de Cosmos do Azure não particionados para contêineres particionados
+description: Saiba como migrar todos os contêineres não particionados existentes para contêineres particionados.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77623360"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contêineres não particionados para contêineres particionados
 
-O Azure Cosmos DB suporta a criação de contêineres sem uma chave de partição. Atualmente você pode criar contêineres não particionados usando Azure CLI e Azure Cosmos DB SDKs (.Net, Java, NodeJs) que têm uma versão menor ou igual a 2.x. Não é possível criar recipientes não particionados usando o portal Azure. No entanto, tais recipientes não particionados não são elásticos e têm capacidade de armazenamento fixo de 20 GB e limite de throughput de 10K RU/s.
+Azure Cosmos DB dá suporte à criação de contêineres sem uma chave de partição. No momento, você pode criar contêineres não particionados usando CLI do Azure e Azure Cosmos DB SDKs (.net, Java, NodeJs) que têm uma versão menor ou igual a 2. x. Você não pode criar contêineres não particionados usando o portal do Azure. No entanto, esses contêineres não particionados não são elásticos e têm capacidade de armazenamento fixa de 20 GB e limite de taxa de transferência de 10K RU/s.
 
-Os contêineres não particionados são legados e você deve migrar seus contêineres não particionados existentes para contêineres particionados para dimensionar o armazenamento e o throughput. O Azure Cosmos DB fornece um mecanismo definido pelo sistema para migrar seus contêineres não particionados para contêineres particionados. Este documento explica como todos os contêineres não particionados existentes são migrados automaticamente para contêineres particionados. Você só pode aproveitar o recurso de migração automática se estiver usando a versão V3 dos SDKs em todos os idiomas.
+Os contêineres não particionados são herdados e você deve migrar seus contêineres não particionados existentes para contêineres particionados para dimensionar o armazenamento e a taxa de transferência. Azure Cosmos DB fornece um mecanismo definido pelo sistema para migrar seus contêineres não particionados para contêineres particionados. Este documento explica como todos os contêineres não particionados existentes são migrados automaticamente para os contêineres particionados. Você poderá aproveitar o recurso de migração automática somente se estiver usando a versão v3 de SDKs em todos os idiomas.
 
 > [!NOTE]
-> Atualmente, você não pode migrar contas acs
+> No momento, não é possível migrar Azure Cosmos DB contas de API do MongoDB e do Gremlin usando as etapas descritas neste documento.
 
-## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrar contêiner usando a chave de partição definida pelo sistema
+## <a name="migrate-container-using-the-system-defined-partition-key"></a>Migrar o contêiner usando a chave de partição definida pelo sistema
 
-Para suportar a migração, o Azure Cosmos `/_partitionkey` DB fornece uma chave de partição definida pelo sistema nomeada em todos os contêineres que não possuem uma chave de partição. Não é possível alterar a definição da chave de partição depois que os contêineres forem migrados. Por exemplo, a definição de um contêiner que é migrado para um contêiner particionado será a seguinte:
+Para dar suporte à migração, o Azure Cosmos DB fornece uma chave de partição `/_partitionkey` definida pelo sistema chamada em todos os contêineres que não têm uma chave de partição. Você não pode alterar a definição de chave de partição depois que os contêineres são migrados. Por exemplo, a definição de um contêiner que é migrado para um contêiner particionado será a seguinte:
 
 ```json
 {
@@ -38,16 +38,16 @@ Para suportar a migração, o Azure Cosmos `/_partitionkey` DB fornece uma chave
 }
 ```
 
-Depois que o contêiner é migrado, você `_partitionKey` pode criar documentos povoando a propriedade junto com as outras propriedades do documento. A `_partitionKey` propriedade representa a chave de partição de seus documentos.
+Depois que o contêiner é migrado, você pode criar documentos preenchendo a `_partitionKey` Propriedade junto com as outras propriedades do documento. A `_partitionKey` propriedade representa a chave de partição de seus documentos.
 
-Escolher a chave de partição certa é importante para utilizar o throughput provisionado de forma ideal. Para obter mais informações, veja [como escolher um artigo-chave de partição.](partitioning-overview.md)
+A escolha da chave de partição correta é importante para utilizar a taxa de transferência provisionada de forma ideal. Para obter mais informações, consulte [o artigo como escolher uma chave de partição](partitioning-overview.md) .
 
 > [!NOTE]
-> Você pode aproveitar a chave de partição definida pelo sistema somente se estiver usando a versão mais recente/V3 dos SDKs em todos os idiomas.
+> Você só poderá aproveitar a chave de partição definida pelo sistema se estiver usando a versão mais recente/v3 dos SDKs em todos os idiomas.
 
 O exemplo a seguir mostra um código de exemplo para criar um documento com a chave de partição definida pelo sistema e ler esse documento:
 
-**Representação json do documento**
+**Representação JSON do documento**
 
 ```csharp
 DeviceInformationItem = new DeviceInformationItem
@@ -91,15 +91,15 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Para obter a amostra completa, consulte o repositório [.Net amostras][1] GitHub.
+Para obter o exemplo completo, consulte o repositório GitHub de [exemplos do .net][1] .
                       
 ## <a name="migrate-the-documents"></a>Migrar os documentos
 
-Embora a definição do contêiner seja aprimorada com uma propriedade de chave de partição, os documentos dentro do contêiner não são migrados automaticamente. O que significa que `/_partitionKey` o caminho de propriedade da chave de partição do sistema não é automaticamente adicionado aos documentos existentes. Você precisa reparticionar os documentos existentes lendo os documentos que foram criados sem uma chave de partição e reescrevê-los de volta com `_partitionKey` a propriedade nos documentos.
+Embora a definição de contêiner seja aprimorada com uma propriedade de chave de partição, os documentos dentro do contêiner não são migrados automaticamente. Isso significa que o caminho da propriedade `/_partitionKey` de chave de partição do sistema não é adicionado automaticamente aos documentos existentes. Você precisa reparticionar os documentos existentes lendo os documentos que foram criados sem uma chave de partição e regravá-los novamente `_partitionKey` com a propriedade nos documentos.
 
-## <a name="access-documents-that-dont-have-a-partition-key"></a>Acesse documentos que não têm uma chave de partição
+## <a name="access-documents-that-dont-have-a-partition-key"></a>Acessar documentos que não têm uma chave de partição
 
-Os aplicativos podem acessar os documentos existentes que não possuem uma chave de partição usando a propriedade especial do sistema chamada "PartitionKey.None", este é o valor dos documentos não migrados. Você pode usar esta propriedade em todas as operações crud e consulta. O exemplo a seguir mostra uma amostra para ler um único documento da NonePartitionKey. 
+Os aplicativos podem acessar os documentos existentes que não têm uma chave de partição usando a propriedade especial do sistema chamada "PartitionKey. None", esse é o valor dos documentos não migrados. Você pode usar essa propriedade em todas as operações CRUD e de consulta. O exemplo a seguir mostra um exemplo para ler um único documento do NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
@@ -110,27 +110,27 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Para obter a amostra completa sobre como reparticionar os documentos, consulte o repositório [.Net amostras][1] GitHub. 
+Para obter o exemplo completo sobre como reparticionar os documentos, consulte o repositório GitHub de [exemplos do .net][1] . 
 
 ## <a name="compatibility-with-sdks"></a>Compatibilidade com SDKs
 
-A versão mais antiga dos SDKs Azure Cosmos DB como V2.x.x e V1.x.x não suportam a propriedade de chave de partição definida pelo sistema. Então, quando você lê a definição de contêiner de um SDK mais antigo, ele não contém nenhuma definição de chave de partição e esses recipientes se comportarão exatamente como antes. Os aplicativos que são construídos com a versão mais antiga dos SDKs continuam a funcionar com não partições como é sem alterações. 
+A versão mais antiga dos SDKs de Azure Cosmos DB como v2. x. x e v1. x. x não oferece suporte à propriedade de chave de partição definida pelo sistema. Portanto, quando você lê a definição de contêiner de um SDK mais antigo, ele não contém nenhuma definição de chave de partição e esses contêineres se comportarão exatamente como antes. Os aplicativos que são criados com a versão mais antiga dos SDKs continuam a funcionar com não particionados, sem nenhuma alteração. 
 
-Se um contêiner migrado for consumido pela versão mais recente/V3 do SDK e você começar a preencher a chave de partição definida pelo sistema dentro dos novos documentos, você não poderá mais acessar (ler, atualizar, excluir, consultar) esses documentos dos SDKs mais antigos.
+Se um contêiner migrado for consumido pela versão mais recente/V3 do SDK e você começar a popular a chave de partição definida pelo sistema nos novos documentos, você não poderá mais acessar (ler, atualizar, excluir, consultar) esses documentos a partir dos SDKs mais antigos.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-**A consulta para a contagem de itens que foram inseridos sem uma chave de partição usando o V3 SDK pode envolver maior consumo de throughput**
+**Consultar a contagem de itens que foram inseridos sem uma chave de partição usando o SDK v3 pode envolver um consumo de taxa de transferência maior**
 
-Se você consultar o V3 SDK para os itens inseridos usando o V2 SDK ou os itens inseridos `PartitionKey.None` usando o V3 SDK com parâmetro, `PartitionKey.None` a consulta de contagem pode consumir mais RU/s se o parâmetro for fornecido nas Opções de Alimentação. Recomendamos que você não `PartitionKey.None` forneça o parâmetro se nenhum outro item for inserido com uma chave de partição.
+Se você consultar o SDK V3 para os itens que são inseridos usando o SDK v2 ou os itens inseridos usando o SDK v3 com `PartitionKey.None` o parâmetro, a consulta de contagem poderá consumir mais ru/s se `PartitionKey.None` o parâmetro for fornecido no feedoptions. É recomendável que você não forneça `PartitionKey.None` o parâmetro se nenhum outro item for inserido com uma chave de partição.
 
-Se novos itens forem inseridos com valores diferentes para a chave de partição, a consulta para tais contagens de itens, passando a chave apropriada, não `FeedOptions` terá problemas. Depois de inserir novos documentos com a chave de partição, se você precisar consultar apenas a contagem de documentos sem o valor da chave de partição, essa consulta pode novamente incorrer em RU/s mais altos semelhante às coleções partições regulares.
+Se novos itens forem inseridos com valores diferentes para a chave de partição, a consulta para essas contagens de itens passando a chave `FeedOptions` apropriada no não terá nenhum problema. Depois de inserir novos documentos com a chave de partição, se você precisar consultar apenas a contagem de documentos sem o valor de chave de partição, essa consulta poderá, novamente, ocorrer mais de RU/s semelhante às coleções particionadas regulares.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
 * [Unidades de solicitação no Azure Cosmos DB](request-units.md)
-* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Aprovisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Como trabalhar com a conta do Azure Cosmos](account-overview.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

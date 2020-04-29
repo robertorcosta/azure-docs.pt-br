@@ -1,31 +1,31 @@
 ---
-title: Backup e restauração - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Saiba mais sobre backups automáticos e restauração do banco de dados Azure para servidor PostgreSQL - Servidor Único.
+title: Backup e restauração-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba mais sobre backups automáticos e como restaurar seu banco de dados do Azure para servidor PostgreSQL-servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 3e6dfd5882e49ad903e8cff6f0ec7f3d6bd4a8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77619619"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no Banco de Dados Azure para PostgreSQL - Servidor Único
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
 O Banco de Dados do Azure para PostgreSQL cria backups de servidor automaticamente e os armazena no armazenamento com redundância geográfica ou local configurado pelo usuário. Os backups podem ser usados para restaurar o servidor pontualmente. Os recursos de backup e restauração são uma parte essencial de qualquer estratégia de continuidade dos negócios, pois eles protegem seus dados contra exclusão ou corrupção acidentais.
 
 ## <a name="backups"></a>Backups
 
-O Banco de Dados Do Azure para PostgreSQL faz backups dos arquivos de dados e do registro de transações. Dependendo do tamanho máximo de armazenamento suportado, fazemos backups completos e diferenciais (servidores de armazenamento máximo de 4 TB) ou backups de snapshot (servidores de armazenamento máximo de até 16 TB). Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Você pode, opcionalmente, configurá-lo para até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
+O banco de dados do Azure para PostgreSQL faz backups dos arquivos de data e do log de transações. Dependendo do tamanho máximo de armazenamento com suporte, pegamos backups totais e diferenciais (servidores de armazenamento máximo de 4 TB) ou backups de instantâneo (até 16 TB de servidores de armazenamento máximo). Esses backups permitem que você restaure um servidor pontualmente dentro de seu período de retenção de backup configurado. O período de retenção de backup padrão é de sete dias. Você pode, opcionalmente, configurá-lo para até 35 dias. Todos os backups são criptografados usando a criptografia AES de 256 bits.
 
-Esses arquivos de backup não podem ser exportados. Os backups só podem ser usados para restaurar operações no Banco de Dados Azure para PostgreSQL. Você pode usar [pg_dump](howto-migrate-using-dump-and-restore.md) para copiar um banco de dados.
+Esses arquivos de backup não podem ser exportados. Os backups só podem ser usados para operações de restauração no banco de dados do Azure para PostgreSQL. Você pode usar [pg_dump](howto-migrate-using-dump-and-restore.md) para copiar um banco de dados.
 
 ### <a name="backup-frequency"></a>Frequência de backup
 
-Geralmente, backups completos ocorrem semanalmente, backups diferenciais ocorrem duas vezes ao dia para servidores com um armazenamento máximo suportado de 4 TB. Os backups de instantâneo acontecem pelo menos uma vez por dia no caso de servidores compatíveis com até 16 TB de armazenamento. Os backups de log de transações em ambos os casos ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um grande servidor restaurado. O ponto mais anterior para o qual um novo servidor pode ser restaurado é o momento da conclusão do backup completo inicial. Como os instantâneos são instantâneos, servidores com suporte de até 16 TB de armazenamento podem ser restaurados até o momento da criação.
+Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia para servidores com um armazenamento máximo com suporte de 4 TB. Os backups de instantâneo acontecem pelo menos uma vez por dia no caso de servidores compatíveis com até 16 TB de armazenamento. Os backups de log de transações em ambos os casos ocorrem a cada cinco minutos. O primeiro instantâneo do backup completo é agendado imediatamente após a criação de um servidor. O backup completo inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais anterior para o qual um novo servidor pode ser restaurado é o momento da conclusão do backup completo inicial. Como os instantâneos são instantâneos, os servidores com suporte para até 16 TB de armazenamento podem ser restaurados até o momento da criação.
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
@@ -64,7 +64,7 @@ Talvez seja necessário aguardar a execução do próximo backup de log de trans
 
 ### <a name="geo-restore"></a>Restauração geográfica
 
-É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. Os servidores que suportam até 4 TB de armazenamento podem ser restaurados para a região geopareada ou para qualquer região que suporte até 16 TB de armazenamento. Para servidores que suportam até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que suporte a servidores de 16 TB também. Revise [o Banco de Dados Do Azure para os níveis de preços do PostgeSQL](concepts-pricing-tiers.md) para a lista de regiões suportadas.
+É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. Os servidores que dão suporte a até 4 TB de armazenamento podem ser restaurados para a região emparelhada geograficamente ou para qualquer região que ofereça suporte a até 16 TB de armazenamento. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que dê suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para PostgeSQL](concepts-pricing-tiers.md) para a lista de regiões com suporte.
 
 A restauração geográfica é a opção de recuperação padrão quando o servidor não está disponível devido a um incidente na região em que ele está hospedado. Se um incidente de grande escala em uma região resultar na indisponibilidade do seu aplicativo de banco de dados, você poderá restaurar um servidor do backup com redundância geográfica para um servidor em qualquer outra região. Há um atraso entre quando um backup é feito e quando ele é replicado em uma região diferente. Esse atraso pode ser de até uma hora, então, em caso de desastre pode haver perda de dados de até uma hora.
 
@@ -75,12 +75,12 @@ Durante a restauração geográfica, as configurações de servidor que podem se
 Após uma restauração de um dos mecanismos de recuperação, você deve executar as seguintes tarefas para colocar os usuários e os aplicativos novamente em execução:
 
 - Se o novo servidor é usado para substituir o servidor original, redirecione clientes e aplicativos de cliente para o novo servidor
-- Certifique-se de que as regras apropriadas de firewall e VNet no nível do servidor estejam em vigor para que os usuários se conectem. Essas regras não são copiadas do servidor original.
+- Garanta que as regras de rede virtual e de firewall no nível de servidor apropriadas estejam em vigor para que os usuários se conectem. Essas regras não são copiadas do servidor original.
 - Verifique se as permissões e os logons adequados no nível do banco de dados estão em vigor
 - Configurar os alertas, conforme apropriado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como restaurar usando [o portal Azure](howto-restore-server-portal.md).
-- Saiba como restaurar usando [o Azure CLI](howto-restore-server-cli.md).
+- Saiba como restaurar usando [o portal do Azure](howto-restore-server-portal.md).
+- Saiba como restaurar usando [o CLI do Azure](howto-restore-server-cli.md).
 - Para saber mais sobre continuidade dos negócios, confira a  [visão geral de continuidade dos negócios](concepts-business-continuity.md).

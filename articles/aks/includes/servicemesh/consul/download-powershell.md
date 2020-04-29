@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8931ba97cf72891c78e20389be10178dd2c0317a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594223"
 ---
-Em um shell baseado em PowerShell no Windows, use `Invoke-WebRequest` para baixar `Expand-Archive` a versão do gráfico Do Cônsul Helm e, em seguida, extrair com o seguinte:
+Em um shell baseado no PowerShell no Windows, use `Invoke-WebRequest` para baixar a versão do gráfico Consul Helm e, em `Expand-Archive` seguida, extrair com como a seguir:
 
 ```powershell
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

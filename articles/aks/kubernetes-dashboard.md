@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 15fcf765be0a754575713eebcdaa7d68e1c299b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77595341"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acessar o painel da Web do Kubernetes no AKS (Serviço de Kubernetes do Azure)
@@ -67,7 +67,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > [!IMPORTANT]
 > Se o cluster do AKS usa RBAC, um *ClusterRoleBinding* deve ser criado antes de poder acessar o painel corretamente. Por padrão, o painel do Kubernetes é implantado com um mínimo de acesso de leitura e exibe os erros de acesso do RBAC. O painel do Kubernetes não oferece suporte a credenciais fornecidas pelo usuário para determinar o nível de acesso, em vez disso, ele usa as funções concedidas à conta de serviço. Um administrador de cluster pode optar por conceder acesso adicional para o *painel do kubernetes* conta de serviço, no entanto, isso pode ser um vetor para elevação de privilégios. Você também pode integrar a autenticação do Active Directory para fornecer um nível mais granular de acesso.
 > 
-> Para criar uma vinculação, use o comando [kubectl create clusterrolebinding.][kubectl-create-clusterrolebinding] O exemplo a seguir mostra como criar uma vinculação de amostra, no entanto, esta vinculação de amostra não aplica nenhum componente de autenticação adicional e pode levar a um uso inseguro. O painel do Kubernetes está aberto para qualquer pessoa com acesso à URL. Não expor publicamente o painel do Kubernetes.
+> Para criar uma associação, use o comando [kubectl Create clusterrolebinding][kubectl-create-clusterrolebinding] . O exemplo a seguir mostra como criar uma associação de exemplo, no entanto, essa associação de exemplo não aplica nenhum componente de autenticação adicional e pode levar ao uso inseguro. O painel do Kubernetes está aberto para qualquer pessoa com acesso à URL. Não expor publicamente o painel do Kubernetes.
 >
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

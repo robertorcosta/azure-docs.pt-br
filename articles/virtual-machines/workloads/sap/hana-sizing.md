@@ -14,10 +14,10 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616901"
 ---
 # <a name="sizing"></a>Dimensionamento
@@ -26,9 +26,9 @@ O dimensionamento do HANA em Instâncias Grandes não é diferente do dimensiona
 
 - [SAP Note nº 1793345 - dimensionamento do SAP Suite no HANA](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP Note nº 1872170 - relatório de dimensionamento do Suite no HANA e S/4 HANA](https://launchpad.support.sap.com/#/notes/1872170)
-- [Nota SAP #2121330 - FAQ: SAP BW no relatório de dimensionamento HANA](https://launchpad.support.sap.com/#/notes/2121330)
-- [Nota SAP #1736976 - Relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [Nota SAP #2296290 - Novo relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [Observação SAP #2121330-perguntas frequentes: SAP BW no relatório de dimensionamento do HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP Note #1736976 relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP Note #2296290-novo relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
 Para implementações de campo verde Sizer rápida SAP está disponível para calcular os requisitos de memória da implementação de software SAP sobre HANA.
 

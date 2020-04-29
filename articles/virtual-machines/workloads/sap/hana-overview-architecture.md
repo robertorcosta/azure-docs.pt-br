@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616962"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA no Azure (Instâncias Grandes)?
@@ -34,10 +34,10 @@ O isolamento do cliente dentro do carimbo de infraestrutura é executado em loca
 
 Essas unidades de servidor bare-metal têm suporte para executar apenas o SAP HANA. A camada de aplicativo do SAP ou a camada de middleware de carga de trabalho executa em máquinas virtuais. Os carimbos de infraestrutura que executam o SAP HANA em unidades do Azure (Instâncias Grandes) são conectados aos backbones de serviços de rede do Azure. Dessa maneira, é fornecida uma conectividade de baixa latência entre as unidades do SAP HANA do Azure (Instâncias Grandes) e as máquinas virtuais.
 
-A partir de julho de 2019, diferenciamos entre duas revisões diferentes de selos HANA Large Instance e localização de implantações:
+A partir de julho de 2019, diferenciamos entre duas revisões diferentes de carimbos de instância grande do HANA e localização de implantações:
 
-- "Revisão 3" (Rev 3): São os selos que foram disponibilizados para o cliente ser implantado antes de julho de 2019
-- "Revisão 4" (Rev 4): Novo design de selo que é implantado próximo aos hosts Azure VM e que até agora são lançados nas regiões azure de:
+- "Revisão 3" (Rev. 3): os carimbos que foram disponibilizados para que o cliente seja implantado antes de julho de 2019
+- "Revisão 4" (Rev 4): novo design de carimbo que é implantado em proximidade com hosts de VM do Azure e que até o momento são lançados nas regiões do Azure de:
     -  Oeste dos EUA 2 
     -  Leste dos EUA 
     -  Europa Ocidental
@@ -49,13 +49,13 @@ Este documento é um dos vários documentos que cobrem o SAP HANA do Azure (Inst
 
 Os diferentes documentos de diretrizes de Instância grande do HANA abordam as seguintes áreas:
 
-- [Visão geral e arquitetura sap hana (instâncias grandes) no Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infra-estrutura e conectividade SAP HANA (Grandes Instâncias) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infraestrutura e conectividade do SAP HANA (instâncias grandes) no Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Instalar e configurar o SAP HANA (Instâncias Grandes) do Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Alta disponibilidade e recuperação de desastres do SAP HANA (grandes instâncias) no Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Solução de problemas e monitoramento do SAP HANA (Instâncias Grandes) do Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Configuração de alta disponibilidade no SUSE usando STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup e restauração do Sistema Operacional para SKUs tipo II de selos de Revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Próximas etapas**
 - Veja [Conhecer os termos](hana-know-terms.md)

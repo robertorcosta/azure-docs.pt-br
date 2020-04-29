@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617070"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoramento e solução de problemas no lado do HANA
@@ -35,7 +35,7 @@ Perguntas frequentes aplicáveis relacionadas ao desempenho do SAP HANA podem se
 
 ## <a name="sap-hana-alerts"></a>Alertas do SAP HANA
 
-Como uma primeira etapa, verifique os logs de alerta atuais do SAP HANA. No SAP HANA Studio, vá para **Administration Console: Alertes: Show: todos os alertas**. Esta guia mostrará todos os alertas do SAP HANA para valores específicos (memória física livre, utilização de CPU etc.) que estão fora dos limites mínimo e máximo definidos. Por padrão, as verificações são atualizados automaticamente a cada 15 minutos.
+Como uma primeira etapa, verifique os logs de alerta atuais do SAP HANA. No SAP HANA Studio, acesse **console de administração: alertas: mostrar: todos os alertas**. Esta guia mostrará todos os alertas do SAP HANA para valores específicos (memória física livre, utilização de CPU etc.) que estão fora dos limites mínimo e máximo definidos. Por padrão, as verificações são atualizados automaticamente a cada 15 minutos.
 
 ![No SAP HANA Studio, acesse Console de Administração: Alertas: Mostrar: todos os alertas](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
@@ -62,7 +62,7 @@ O grafo de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterio
 
 ![O grafo de Carregamento pode mostrar alto consumo de CPU ou alto consumo anterior](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Um alerta acionado devido à alta utilização da CPU pode ser causado por várias razões, incluindo, mas não se limitando a: execução de determinadas transações, carregamento de dados, trabalhos que não estão respondendo, declarações SQL de longa duração e desempenho de consulta ruim (por exemplo, com BW em cubos HANA).
+Um alerta disparado devido à alta utilização da CPU pode ser causado por vários motivos, incluindo, mas não se limitando a: execução de determinadas transações, carregamento de dados, trabalhos que não estão respondendo, instruções SQL de longa execução e desempenho de consulta inadequado (por exemplo, com BW em cubos HANA).
 
 Consulte o site [Solução de problemas do SAP HANA: causas e soluções relacionadas à CPU](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para obter etapas de solução de problemas detalhadas.
 
@@ -93,10 +93,10 @@ Consulte o site [Solução de problemas do SAP HANA: problemas de memória](http
 Consulte a [Nota SAP nº 2081065 – Solução de problemas de rede do SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e execute as etapas de solução de problemas de rede desta Nota SAP.
 
 1. Análise do tempo de ida e volta entre o cliente e servidor.
-  a. Execute o script SQL [_HANA\_Rede\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Execute o script SQL [_HANA\_Rede\_Clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Análise da comunicação entre nós.
-  a. Execute o script SQL [_HANA\_Rede\_Serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  A. Execute o script SQL [_HANA\_Rede\_Serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Execute o comando Linux **ifconfig** (a saída mostrará se ocorre quaisquer perdas de pacote).
 4. Execute o comando Linux **tcpdump**.
@@ -107,7 +107,7 @@ Consulte o site [Solução de problemas do SAP HANA: problemas de desempenho e c
 
 ## <a name="storage"></a>Armazenamento
 
-Do ponto de vista do usuário final, um aplicativo (ou o sistema como um todo) é executado lentamente, não responde ou pode até mesmo parar de responder se houver problemas com o desempenho de I/O. Na guia **Volumes** no SAP HANA Studio, você pode ver os volumes conectados e quais volumes são usados por cada serviço.
+Do ponto de vista do usuário final, um aplicativo (ou o sistema como um todo) é executado de forma lenta, não responde ou pode até mesmo parecer parar de responder se houver problemas com O desempenho de e/s. Na guia **Volumes** no SAP HANA Studio, você pode ver os volumes conectados e quais volumes são usados por cada serviço.
 
 ![Na guia Volumes no SAP HANA Studio, você pode ver os volumes conectados e quais volumes são usados por cada serviço](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -123,7 +123,7 @@ Execute uma Verificação de Integridade do SAP HANA por meio do HANA\_Configura
 
 Consulte [Nota SAP nº1969700 – Coleta de instrução SQL para SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) e baixe o arquivo SQL Statements.zip anexado à nota. Armazene esse arquivo .zip no disco rígido local.
 
-No SAP HANA Studio, na guia Informações do **sistema,** clique com o botão direito do mouse na coluna **Nome** e selecione **Importar Instruções SQL**.
+No SAP HANA Studio, na guia **informações do sistema** , clique com o botão direito do mouse na coluna **nome** e selecione **importar instruções SQL**.
 
 ![No SAP HANA Studio, na guia Informações do Sistema, clique com o botão direito na coluna Nome e selecione Importar Instruções SQL](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
@@ -135,7 +135,7 @@ A instrução SQL completa é aberta, permitindo que os parâmetros de entrada (
 
 ![A instrução SQL completa é aberta, permitindo que os parâmetros de entrada (seção de modificação) sejam alterados e, em seguida, executados](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Outro exemplo é clicar com o botão direito nas instruções em **Replicação: visão geral**. Selecione **Executar** no menu de contexto:
+Outro exemplo é clicar com o botão direito nas instruções em **Replicação: visão geral**. Selecione **executar** no menu de contexto:
 
 ![Outro exemplo é clicar com o botão direito nas instruções em Replicação: visão geral. Selecione Executar no menu de contexto](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
@@ -163,7 +163,7 @@ Exemplos de saída:
 
 ![HANA\_Configuration\_Overview\_Rev110+ para informações gerais sobre a instância do SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**Parâmetros\_\_\_de configuração HANA Rev70+** para verificar os parâmetros SAP HANA.
+**Hana\_Configuration\_\_parameters Rev70 +** para verificar parâmetros de SAP Hana.
 
 ![HANA\_Configuration\_Parameters\_Rev70+ para verificar parâmetros do SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: b310de560f9791e1fc49d54dfbf0789c38d37f57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593913"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixe e instale o binário do cliente Istio istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl
 
-Em um shell baseado em bash no Linux `curl` ou [Windows Subsystem para Linux,][install-wsl]use para baixar a versão istio e, em seguida, extrair com `tar` os seguintes:
+Em um shell baseado em bash no [subsistema Linux ou Windows para Linux][install-wsl], use `curl` para baixar a versão İSTİO e, em seguida `tar` , extrair com da seguinte maneira:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -21,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
 
-O `istioctl` binário do cliente é executado na sua máquina cliente e permite que você interaja com a malha de serviço istio. Use os seguintes comandos para instalar o binário de cliente do Istio `istioctl` em um shell baseado em bash no Linux ou [Subsistema do Windows para Linux][install-wsl]. Esses comandos copiam o `istioctl` binário de cliente para o local do programa do usuário padrão no `PATH`.
+O `istioctl` binário do cliente é executado no computador cliente e permite que você interaja com a malha do serviço İSTİO. Use os seguintes comandos para instalar o binário de cliente do Istio `istioctl` em um shell baseado em bash no Linux ou [Subsistema do Windows para Linux][install-wsl]. Esses comandos copiam o `istioctl` binário de cliente para o local do programa do usuário padrão no `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION

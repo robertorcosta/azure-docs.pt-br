@@ -1,15 +1,15 @@
 ---
-title: Depurar sua aplicação no Visual Studio
+title: Depurar seu aplicativo no Visual Studio
 description: Melhore a confiabilidade e o desempenho dos seus serviços desenvolvendo e depurando-os no Visual Studio em um cluster de desenvolvimento local.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77624133"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo do Service Fabric usando o Visual Studio
@@ -39,7 +39,7 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
    
     ![Abrir a janela de eventos de diagnóstico][viewdiagnosticevents]
    
-    Se você quiser filtrar seus rastreamentos para um serviço ou aplicativo específico, habilite rastreamentos nesse serviço ou aplicativo específico.
+    Se você quiser filtrar os rastreamentos para um serviço ou aplicativo específico, habilite os rastreamentos de streaming nesse serviço ou aplicativo específico.
 6. Os eventos de diagnóstico podem ser vistos no arquivo **ServiceEventSource.cs** gerado automaticamente e são chamados do código do aplicativo.
    
     ```csharp
@@ -48,21 +48,21 @@ Você pode economizar tempo e dinheiro implantando e depurando seu aplicativo do
 7. A janela **Eventos de Diagnóstico** permite filtragem, pausa e eventos de inspeção em tempo real.  O filtro é uma pesquisa simples de cadeia de caracteres da mensagem do evento, incluindo seu conteúdo.
    
     ![Filtrar, pausar e retomar ou inspecionar eventos em tempo real][diagnosticeventsactions]
-8. A depuração de serviços é semelhante à depuração de qualquer outro aplicativo. Você normalmente definirá Breakpoints através do Visual Studio para facilitar a depuração. Embora as Reliable Collections sejam replicadas em vários nós, elas ainda implementam IEnumerable. Essa implementação significa que você pode usar a exibição de resultados no Visual Studio enquanto você depura para ver o que você guardou dentro. Para isso, defina um ponto de ruptura em qualquer lugar do seu código.
+8. A depuração de serviços é semelhante à depuração de qualquer outro aplicativo. Normalmente, você definirá pontos de interrupção por meio do Visual Studio para fácil depuração. Embora as Reliable Collections sejam replicadas em vários nós, elas ainda implementam IEnumerable. Essa implementação significa que você pode usar a exibição de resultados no Visual Studio enquanto depura para ver o que você armazenou dentro. Para fazer isso, defina um ponto de interrupção em qualquer lugar no seu código.
    
     ![Iniciar depuração de um aplicativo][breakpoint]
 
 
 ### <a name="running-a-script-as-part-of-debugging"></a>Executando um script como parte da depuração
-Em certos cenários, você pode precisar executar um script como parte de iniciar uma sessão de depuração (por exemplo, quando não estiver usando Serviços Padrão).
+Em determinados cenários, talvez seja necessário executar um script como parte do início de uma sessão de depuração (por exemplo, quando não estiver usando serviços padrão).
 
-No Visual Studio, você pode adicionar um arquivo chamado **Start-Service.ps1** na pasta **Scripts** do projeto Service Fabric Application (.sfproj). Este script será invocado após a criação do aplicativo no cluster local.
+No Visual Studio, você pode adicionar um arquivo chamado **Start-Service. ps1** na pasta **scripts** do projeto de aplicativo Service Fabric (. sfproj). Esse script será invocado depois que o aplicativo tiver sido criado no cluster local.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## <a name="debug-a-remote-service-fabric-application"></a>Depurar um aplicativo remoto do Service Fabric
-Se os aplicativos do Service Fabric estiverem sendo executados em um cluster Service Fabric no Azure, você poderá depurar remotamente esses aplicativos, diretamente do Visual Studio.
+Se seus aplicativos Service Fabric estiverem em execução em um Cluster Service Fabric no Azure, você poderá depurar esses aplicativos remotamente, diretamente do Visual Studio.
 
 > [!NOTE]
 > O recurso requer [SDK do Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [SDK do Azure para .NET 2.9](https://azure.microsoft.com/downloads/).    
@@ -71,11 +71,11 @@ Se os aplicativos do Service Fabric estiverem sendo executados em um cluster Ser
 > [!WARNING]
 > A depuração remota é destinada a cenários de desenvolvimento/teste e não para uso em ambientes de produção, devido ao impacto nos aplicativos em execução.
 
-1. Navegue até o seu cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **Ativar depuração**
+1. Navegue até o cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **Habilitar depuração**
    
     ![Habilitar depuração remota][enableremotedebugging]
    
-    Essa ação iniciará o processo de habilitação da extensão de depuração remota em seus nós de cluster e configurações de rede necessárias.
+    Essa ação iniciará o processo de habilitar a extensão de depuração remota em seus nós de cluster e as configurações de rede necessárias.
 2. Clique com o botão direito do mouse no nó de cluster em **Gerenciador de Nuvem** e escolha **Anexar Depurador**
    
     ![Anexar Depurador][attachdebugger]
@@ -87,9 +87,9 @@ Se os aplicativos do Service Fabric estiverem sendo executados em um cluster Ser
    
     O depurador vai anexar a todos os nós que estão executando o processo.
    
-   * No caso em que você está depurando um serviço apátrida, todas as instâncias do serviço em todos os nós fazem parte da sessão de depuração.
-   * Se você estiver depurando um serviço de estado, apenas a réplica primária de qualquer partição estará ativa e, portanto, capturada pelo depurador. Se a réplica primária for movida durante a sessão de depuração, o processamento de tal réplica ainda fará parte da sessão de depuração.
-   * Para capturar apenas partições relevantes ou instâncias de um determinado serviço, você pode usar pontos de interrupção condicional para apenas quebrar uma partição ou instância específica.
+   * No caso em que você está depurando um serviço sem estado, todas as instâncias do serviço em todos os nós fazem parte da sessão de depuração.
+   * Se você estiver depurando um serviço com estado, somente a réplica primária de qualquer partição estará ativa e, portanto, capturada pelo depurador. Se a réplica primária for movida durante a sessão de depuração, o processamento de tal réplica ainda fará parte da sessão de depuração.
+   * Para capturar apenas as partições ou instâncias relevantes de um determinado serviço, você pode usar pontos de interrupção condicionais para interromper apenas uma partição ou instância específica.
      
      ![Ponto de interrupção condicional][conditionalbreakpoint]
      
@@ -102,7 +102,7 @@ Se os aplicativos do Service Fabric estiverem sendo executados em um cluster Ser
     ![Desabilitar depuração remota][disableremotedebugging]
 
 ## <a name="streaming-traces-from-a-remote-cluster-node"></a>Transmitindo rastreamentos de um nó de cluster remoto
-Você também é capaz de transmitir traços diretamente de um nó de cluster remoto para o Visual Studio. Esse recurso permite transmitir eventos de rastreamento ETW gerados em um nó de cluster do Service Fabric.
+Você também é capaz de transmitir rastreamentos diretamente de um nó de cluster remoto para o Visual Studio. Esse recurso permite transmitir eventos de rastreamento ETW gerados em um nó de cluster do Service Fabric.
 
 > [!NOTE]
 > O recurso requer o [SDK do Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e o [SDK do Azure para .NET 2.9](https://azure.microsoft.com/downloads/).
@@ -115,11 +115,11 @@ Você também é capaz de transmitir traços diretamente de um nó de cluster re
 > A transmissão de rastreamentos destina-se a cenários de desenvolvimento/teste e não ao uso em ambientes de produção, devido ao impacto nos aplicativos em execução.
 > Em um cenário de produção, você deve confiar nos eventos de encaminhamento usando o Diagnóstico do Azure.
 
-1. Navegue até o seu cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **Habilitar rastreamentos de streaming**
+1. Navegue até o cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **habilitar rastreamentos de streaming**
    
     ![Habilitar transmissão remota de rastreamentos][enablestreamingtraces]
    
-    Essa ação iniciará o processo de habilitação da extensão de rastreamentos de streaming em seus nós de cluster, bem como as configurações de rede necessárias.
+    Essa ação iniciará o processo de habilitar a extensão de rastreamentos de streaming em seus nós de cluster, bem como as configurações de rede necessárias.
 2. Expanda o elemento **Nós** no **Gerenciador de Nuvem**, clique com o botão direito do mouse no nó do qual deseja transmitir rastreamentos e escolha **Exibir Transmissão de Rastreamentos**
    
     ![Exibir transmissão remota de rastreamentos][viewremotestreamingtraces]

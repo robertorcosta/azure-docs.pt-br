@@ -1,6 +1,6 @@
 ---
 title: Guia de solução de problemas de desempenho de arquivos do Azure
-description: Problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure e soluçãos alternativas associadas.
+description: Problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure e soluções alternativas associadas.
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
@@ -8,201 +8,201 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598078"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho do Azure Files
+# <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
-Este artigo lista alguns problemas comuns relacionados com as partes de arquivos do Azure. Ele fornece possíveis causas e soluções quando esses problemas são encontrados.
+Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de arquivos do Azure. Ele fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, baixo rendimento e problemas gerais de desempenho
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, baixa taxa de transferência e problemas gerais de desempenho
 
-### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Compartilhar experimentando estrangulamento
+### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: compartilhamento com limitação
 
-A cota padrão em uma ação premium é de 100 GiB, que fornece 100 IOPS de linha de base (com potencial para estourar até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte a seção [de ações provisionadas](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) do guia de planejamento.
+A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de linha de base 100 (com um potencial de disparo de até 300 por uma hora). Para obter mais informações sobre o provisionamento e sua relação com o IOPS, consulte a seção [compartilhamentos provisionados](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) do guia de planejamento.
 
-Para confirmar se sua parte está sendo estrangulada, você pode aproveitar o Azure Metrics no portal.
+Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no Portal.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **Todos os serviços** e, em seguida, procure **métricas**.
+1. Selecione **todos os serviços** e, em seguida, pesquise **métricas**.
 
-1. Selecione **Métricas**.
+1. Selecione **métricas**.
 
 1. Selecione sua conta de armazenamento como o recurso.
 
-1. Selecione **Arquivo** como o espaço de nome métrico.
+1. Selecione **arquivo** como o namespace de métrica.
 
-1. Selecione **Transações** como métrica.
+1. Selecione **Transações** como a métrica.
 
-1. Adicione um filtro para **ResponseType** e verifique se alguma solicitação tem um código de resposta de **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
+1. Adicione um filtro para **ResponseType** e verifique se alguma solicitação tem um código de resposta de **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
 
-![Opções de métricas para compartilhamentos de arquivos premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![Opções de métricas para compartilhamentos de filepremium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 > [!NOTE]
-> Para receber um alerta se um compartilhamento de arquivos for estrangulado, consulte [Como criar um alerta se um compartilhamento de arquivos for estrangulado](#how-to-create-an-alert-if-a-file-share-is-throttled).
+> Para receber um alerta se um compartilhamento de arquivos for limitado, consulte [como criar um alerta se um compartilhamento de arquivos for limitado](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Solução
 
-- Aumente a capacidade provisionada de ações especificando uma cota maior em sua participação.
+- Aumente a capacidade de compartilhamento provisionada especificando uma cota maior em seu compartilhamento.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: Carga de trabalho pesada metadados/namespace
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>Causa 2: carga de trabalho pesada de metadados/namespace
 
-Se a maioria das suas solicitações for centrada em metadados (como criar arquivo/abrir/fechar arquivo/queryinfo/querydirectory) a latência será pior quando comparada às operações de leitura/gravação.
+Se a maioria de suas solicitações for centrada em metadados, (como CreateFile/OpenFile/CloseFile/QueryInfo/querydirectory), a latência será pior quando comparada com as operações de leitura/gravação.
 
-Para confirmar se a maioria de suas solicitações são centradas em metadados, você pode usar os mesmos passos acima. Exceto em vez de adicionar um filtro para **ResponseType,** adicione um filtro para **Nome de API**.
+Para confirmar se a maioria das suas solicitações são centradas em metadados, você pode usar as mesmas etapas acima. Exceto em vez de adicionar um filtro para **ResponseType**, adicione um filtro para o **nome da API**.
 
-![Filtro para nome de API em suas métricas](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![Filtrar o nome da API em suas métricas](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>Solução alternativa
 
 - Verifique se o aplicativo pode ser modificado para reduzir o número de operações de metadados.
-- Adicione um VHD no compartilhamento de arquivos e monte VHD sobre SMB do cliente para executar operações de arquivos contra os dados. Essa abordagem funciona para cenários de um único escritor e vários leitores e permite que as operações de metadados sejam locais, oferecendo desempenho semelhante a um armazenamento conectado diretamente local.
+- Adicione um VHD no compartilhamento de arquivos e monte o VHD sobre SMB do cliente para executar operações de arquivos nos dados. Essa abordagem funciona para cenários de gravador único e vários leitores e permite que as operações de metadados sejam locais, oferecendo desempenho semelhante a um armazenamento de conexão direta local.
 
-### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicativo de rosca única
+### <a name="cause-3-single-threaded-application"></a>Causa 3: aplicativo de thread único
 
-Se o aplicativo que está sendo usado pelo cliente for de um thread único, isso pode resultar em IOPS/throughput significativamente menor do que o máximo possível com base no tamanho do seu compartilhamento provisionado.
-
-### <a name="solution"></a>Solução
-
-- Aumente o paralelismo da aplicação aumentando o número de threads.
-- Mude para aplicativos onde o paralelismo é possível. Por exemplo, para operações de cópia, os clientes podem usar o AzCopy ou o RoboCopy de clientes do Windows ou o comando **paralelo** em clientes Linux.
-
-## <a name="very-high-latency-for-requests"></a>Latência muito alta para pedidos
-
-### <a name="cause"></a>Causa
-
-A VM do cliente poderia estar localizada em uma região diferente do compartilhamento de arquivos.
+Se o aplicativo que está sendo usado pelo cliente for de thread único, isso poderá resultar em IOPS/taxa de transferência significativamente menor do que o máximo possível com base no tamanho do compartilhamento provisionado.
 
 ### <a name="solution"></a>Solução
 
-- Execute o aplicativo de uma VM localizada na mesma região que o compartilhamento de arquivos.
+- Aumente o paralelismo do aplicativo aumentando o número de threads.
+- Alterne para aplicativos onde o paralelismo é possível. Por exemplo, para operações de cópia, os clientes podem usar o AzCopy ou o RoboCopy de clientes Windows ou o comando **paralelo** em clientes Linux.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Cliente incapaz de alcançar o máximo de throughput suportado pela rede
-
-Uma das causas potenciais disso é a falta de suporte multicanal fo SMB. Atualmente, os compartilhamentos de arquivos do Azure suportam apenas um único canal, então há apenas uma conexão da VM do cliente com o servidor. Esta única conexão é atrelada a um único núcleo na VM do cliente, de modo que o throughput máximo alcançável de uma VM é vinculado por um único núcleo.
-
-### <a name="workaround"></a>Solução alternativa
-
-- A obtenção de uma VM com um núcleo maior pode ajudar a melhorar o throughput.
-- A execução do aplicativo cliente de várias VMs aumentará o throughput.
-
-- Use APIs REST sempre que possível.
-
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>O throughput em clientes Linux é significativamente menor quando comparado com clientes Windows.
+## <a name="very-high-latency-for-requests"></a>Latência muito alta para solicitações
 
 ### <a name="cause"></a>Causa
 
-Este é um problema conhecido com a implementação do cliente SMB no Linux.
+A VM do cliente pode estar localizada em uma região diferente do compartilhamento de arquivos.
+
+### <a name="solution"></a>Solução
+
+- Execute o aplicativo de uma VM que está localizada na mesma região que o compartilhamento de arquivos.
+
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>O cliente não consegue obter a taxa de transferência máxima com suporte pela rede
+
+Uma causa potencial disso é a falta de suporte a vários canais SMB. Atualmente, os compartilhamentos de arquivos do Azure dão suporte apenas a um único canal, portanto, há apenas uma conexão da VM do cliente com o servidor. Essa conexão única é vinculada a um único núcleo na VM do cliente, portanto, a taxa de transferência máxima Obtida de uma VM é associada a um único núcleo.
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Espalhe a carga em várias VMs.
-- Na mesma VM, use vários pontos de montagem com opção **nosharesock** e espalhe a carga por esses pontos de montagem.
-- No Linux, tente montar com a opção **nostrictsync** para evitar forçar o flush do SMB em cada chamada **fsync.** Para arquivos Azure, essa opção não interfere na consistência dos dados, mas pode resultar em metadados de arquivo obsoletos na listagem do diretório (comando**ls -l).** Consultando diretamente metadados de arquivo (comando**stat)** retornará os metadados de arquivo mais atualizados.
+- A obtenção de uma VM com um núcleo maior pode ajudar a melhorar a taxa de transferência.
+- A execução do aplicativo cliente de várias VMs aumentará a taxa de transferência.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências para cargas de trabalho pesadas de metadados envolvendo operações extensas de abertura/fechamento.
+- Use as APIs REST sempre que possível.
+
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>A taxa de transferência em clientes Linux é significativamente menor quando comparada aos clientes Windows.
 
 ### <a name="cause"></a>Causa
 
-Falta de apoio para arrendamentos de diretórios.
+Esse é um problema conhecido com a implementação do cliente SMB no Linux.
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Se possível, evite a alça de abertura/fechamento excessiva no mesmo diretório em um curto período de tempo.
-- Para VMs Linux, aumente o tempo limite de cache de entrada do diretório especificando **actimeo=\<seg>** como uma opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
-- Para VMs Linux, atualize o kernel para 4.20 ou mais.
+- Espalhe a carga entre várias VMs.
+- Na mesma VM, use vários pontos de montagem com a opção **nosharesock** e espalhe a carga entre esses pontos de montagem.
+- No Linux, tente montar com a opção **nostrictsync** para evitar forçar a liberação SMB em cada chamada **fsync** . Para arquivos do Azure, essa opção não interfere na consistência dos dados, mas pode resultar em metadados de arquivo obsoletos na listagem de diretório (comando**ls-l** ). Consultar diretamente os metadados do arquivo (comando**stat** ) retornará os metadados de arquivo mais atualizados.
+
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências de metadados cargas de trabalho pesadas envolvendo operações de abertura/fechamento extensivas.
+
+### <a name="cause"></a>Causa
+
+Falta de suporte para concessões de diretório.
+
+### <a name="workaround"></a>Solução alternativa
+
+- Se possível, evite um excesso de identificadores de abertura/fechamento no mesmo diretório em um curto período de tempo.
+- Para VMs do Linux, aumente o tempo limite do cache de entrada de diretório especificando **actimeo =\<SEC>** como uma opção de montagem. Por padrão, é um segundo, portanto, um valor maior, como três ou cinco, pode ajudar.
+- Para VMs do Linux, atualize o kernel para 4,20 ou superior.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixo no CentOS/RHEL
 
 ### <a name="cause"></a>Causa
 
-A profundidade de IO maior que uma não é suportada no CentOS/RHEL.
+A profundidade de e/s maior que uma não tem suporte no CentOS/RHEL.
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Upgrade para CentOS 8 / RHEL 8.
-- Mude para Ubuntu.
+- Atualize para o CentOS 8/RHEL 8.
+- Altere para Ubuntu.
 
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Linux
 
-Se você estiver experimentando cópia lenta de arquivos de e para arquivos Do Azure, dê uma olhada na [cópia de arquivo lento para e de Arquivos Azure na](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) seção Linux no guia de solução de problemas do Linux.
+Se estiver experimentando uma cópia de arquivos lenta de e para arquivos do Azure, confira a seção [cópia de arquivo lento de e para arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) no guia de solução de problemas do Linux.
 
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Padrão nervoso/dente de serra para IOPS
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>Tremulação/padrão de serra-Tooth para IOPS
 
 ### <a name="cause"></a>Causa
 
-O aplicativo cliente excede consistentemente o IOPS de linha de base. Atualmente, não há suavização do lado de serviço da carga de solicitação, portanto, se o cliente exceder o IOPS de linha de base, ele será estrangulado pelo serviço. Esse estrangulamento pode resultar em um padrão IOPS nervoso/dente-de-serra. Neste caso, o IOPS médio alcançado pelo cliente pode ser menor que o IOPS de linha de base.
+O aplicativo cliente excede consistentemente o IOPS de linha de base. Atualmente, não há nenhuma suavização do lado do serviço da carga da solicitação; portanto, se o cliente exceder o IOPS de linha de base, ele será limitado pelo serviço. Essa limitação pode resultar no cliente com um padrão de IOPS de tremulação/Serra-Tooth. Nesse caso, o IOPS médio obtido pelo cliente pode ser menor do que o IOPS de linha de base.
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Reduza a carga de solicitação do aplicativo cliente, para que a ação não seja estrangulada.
-- Aumente a cota da ação para que a ação não seja estrangulada.
+- Reduza a carga de solicitação do aplicativo cliente, para que o compartilhamento não seja limitado.
+- Aumente a cota do compartilhamento para que o compartilhamento não seja limitado.
 
-## <a name="excessive-directoryopendirectoryclose-calls"></a>Diretório excessivoAbrir/diretórioFechar chamadas
+## <a name="excessive-directoryopendirectoryclose-calls"></a>Chamadas excessivas de DirectoryOpen/DirectoryClose
 
 ### <a name="cause"></a>Causa
 
-Se o número de chamadas DirectoryOpen/DirectoryClose estiver entre as principais chamadas de API e você não esperar que o cliente esteja fazendo tantas chamadas, pode ser um problema com o antivírus instalado na VM cliente do Azure.
+Se o número de chamadas DirectoryOpen/DirectoryClose estiver entre as principais chamadas de API e você não espera que o cliente esteja fazendo essa quantidade de chamadas, pode ser um problema com o antivírus instalado na VM do cliente do Azure.
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Uma correção para este problema está disponível na [Atualização da Plataforma de Abril para Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- Uma correção para esse problema está disponível na [atualização da plataforma de abril para Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
 
-## <a name="file-creation-is-slower-than-expected"></a>A criação de arquivos é mais lenta do que o esperado
+## <a name="file-creation-is-slower-than-expected"></a>A criação do arquivo é mais lenta do que o esperado
 
 ### <a name="cause"></a>Causa
 
-As cargas de trabalho que dependem da criação de um grande número de arquivos não verão uma diferença substancial entre o desempenho de compartilhamentos de arquivos premium e compartilhamentos de arquivos padrão.
+As cargas de trabalho que dependem da criação de um grande número de arquivos não verão uma diferença significativa entre o desempenho de compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão.
 
 ### <a name="workaround"></a>Solução alternativa
 
 - Nenhum.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou Server 2012 R2
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 
 ### <a name="cause"></a>Causa
 
-Latência maior do que o esperado acessando arquivos Azure para cargas de trabalho intensivas em IO.
+Maior que a latência esperada Acessando arquivos do Azure para cargas de trabalho com uso intensivo de e
 
 ### <a name="workaround"></a>Solução alternativa
 
-- Instale o [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponível .
+- Instale o [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponível.
 
-## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for estrangulado
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for limitado
 
-1. No [portal Azure,](https://portal.azure.com)clique em **Monitor**. 
+1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. 
 
-2. Clique **em Alertas** e clique **em + Nova regra de alerta**.
+2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 
-3. Clique **em Selecionar** para selecionar o recurso de **conta/arquivo** de armazenamento que contém o compartilhamento de arquivos que você deseja alertar e, em seguida, clique em **Feito**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/file.
+3. Clique em **selecionar** para selecionar o recurso de **conta de armazenamento/arquivo** que contém o compartilhamento de arquivos no qual você deseja alertar e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
 
-4. Clique **em Adicionar** para adicionar uma condição.
+4. Clique em **Adicionar** para adicionar uma condição.
 
-5. Você verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **Transações.**
+5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
 
-6. Na **lâmina lógica de sinal Configurar,** vá para a dimensão **tipo resposta,** clique na **dimensão de valores** parabaixo e selecione **SuccessWithThrottling** (for SMB) ou **ClientThrottlingError** (para REST). 
-
-  > [!NOTE]
-  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significa que o recurso não foi estrangulado.  Para adicionar o valor **+** da dimensão, clique no lado da **dimensão valores** de saque, digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #6.
-
-7. Vá para a dimensão **Compartilhamento de arquivos,** clique na **dimensão de valores** de sibilamento e selecione os compartilhamentos de arquivos que deseja alertar. 
+6. Na folha **Configurar lógica de sinal** , vá para a **dimensão tipo de resposta** , clique na lista suspensa valores de **dimensão** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST). 
 
   > [!NOTE]
-  > Se o compartilhamento de arquivos for um compartilhamento padrão de arquivos, os valores de dimensão serão em branco porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de estrangulamento para compartilhamentos de arquivos padrão serão acionados se qualquer compartilhamento de arquivo dentro da conta de armazenamento for estrangulado e o alerta não identificar qual compartilhamento de arquivo foi estrangulado. Uma vez que as métricas por ação não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivo por conta de armazenamento. 
+  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado.  Para adicionar o valor de dimensão, clique **+** na lista suspensa ao lado dos **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #6.
 
-8. Defina os **parâmetros de alerta** (limiar, operador, granularidade e frequência da agregação) que são usados para avaliar a regra de alerta métrica e clique **em Feito**.
+7. Vá para a dimensão de **compartilhamento de arquivos** , clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar. 
+
+  > [!NOTE]
+  > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a lista suspensa valores de dimensão ficará em branco porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento. 
+
+8. Defina os **parâmetros de alerta** (limite, operador, granularidade de agregação e frequência) que são usados para avaliar a regra de alerta de métrica e clique em **concluído**.
 
   > [!TIP]
-  > Se você estiver usando um limiar estático, o gráfico métrico pode ajudar a determinar um limite razoável se o compartilhamento de arquivos estiver sendo estrangulado no momento. Se você estiver usando um limiar dinâmico, o gráfico métrico exibirá os limiares calculados com base em dados recentes.
+  > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
-9. Adicione um **grupo de ação** (e-mail, SMS, etc.) ao alerta selecionando um grupo de ação existente ou criando um novo grupo de ação.
+9. Adicione um **grupo de ação** (email, SMS, etc.) ao alerta selecionando um grupo de ação existente ou criando um novo grupo de ação.
 
-10. Preencha os **detalhes** do Alerta como **nome da regra Alerta,** **Descrição** e **Gravidade**.
+10. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 
-11. Clique **em Criar regra de alerta** para criar o alerta.
+11. Clique em **criar regra de alerta** para criar o alerta.
 
-Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [Visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

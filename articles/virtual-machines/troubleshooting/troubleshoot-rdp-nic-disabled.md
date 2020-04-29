@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
 ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918233"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível conectar área de trabalho remota em uma VM porque o adaptador de rede está desabilitado
@@ -37,7 +37,7 @@ Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o a
 ### <a name="use-serial-control"></a>Usar o Controle serial
 
 1. Conecte-se ao [Console Serial e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se o Console Serial não estiver habilitado em sua VM, consulte [a interface de rede redefinida](#reset-network-interface).
+). Se o console serial não estiver habilitado em sua VM, consulte [Redefinir interface de rede](#reset-network-interface).
 2. Verifique o estado do adaptador de rede:
 
         netsh interface show interface

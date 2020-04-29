@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77911731"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
@@ -79,7 +79,7 @@ O Azure Data Box reúne e exibe informações pessoais nas seguintes instâncias
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Número de telefone
+  - Número do telefone
   - Email
   - Endereço
   - City

@@ -1,5 +1,5 @@
 ---
-title: Crie vários gatilhos independentes do Azure para o Cosmos DB
+title: Criar vários gatilhos de Azure Functions independentes para Cosmos DB
 description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77604947"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
@@ -31,8 +31,8 @@ Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos
 
 Aqui você tem duas opções:
 
-* Criar **um contêiner de locação por função**: Essa abordagem pode se traduzir em custos adicionais, a menos que você esteja usando um banco de dados de [throughput compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
-* Tenha **um contêiner de locação e compartilhe-o** para todas as suas funções: Esta segunda opção faz melhor uso das Unidades de Solicitação provisionadas no contêiner, pois permite que várias funções do Azure compartilhem e usem o mesmo throughput provisionado.
+* Criar **um contêiner de concessões por função**: essa abordagem pode ser traduzida em custos adicionais, a menos que você esteja usando um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
+* Ter **um contêiner de concessão e compartilhá-lo** para todas as suas funções: essa segunda opção faz uso melhor das unidades de solicitação provisionadas no contêiner, pois permite que vários Azure Functions compartilhem e usem a mesma taxa de transferência provisionada.
 
 A meta deste artigo é orientá-lo para realizar a segunda opção.
 

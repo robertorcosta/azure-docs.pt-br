@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77596310"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
@@ -37,7 +37,7 @@ Como um operador de cluster, trabalhe junto com os proprietários e desenvolvedo
 * [Práticas recomendadas para atualizações e segurança de cluster](operator-best-practices-cluster-security.md)
     * Inclui a proteção de acesso ao servidor de API, limitando o acesso do contêiner e o gerenciamento de atualizações e reinicializações de nó.
 * [Práticas recomendadas para gerenciamento e segurança de imagens de contêiner](operator-best-practices-container-image-management.md).
-    * Inclui proteger a imagem e os tempos de execução e compilações automatizadas em atualizações de imagem base.
+    * Inclui proteger a imagem e os tempos de execução e compilações automatizadas em atualizações de imagem de base.
 * [Práticas recomendadas para segurança do pod](developer-best-practices-pod-security.md)
     * Inclui acesso seguro aos recursos, limitando a exposição de credencial e usando as identidades de pod e cofres de chaves digitais.
 

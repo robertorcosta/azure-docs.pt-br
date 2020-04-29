@@ -1,5 +1,5 @@
 ---
-title: GlusterFS em VMs Azure em RHEL para SAP NetWeaver | Microsoft Docs
+title: GlusterFS em VMs do Azure no RHEL for SAP NetWeaver | Microsoft Docs
 description: GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77591907"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
@@ -62,7 +62,7 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação do Azure Virtual Machines para SAP no Linux (este artigo)][deployment-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
 * [Documentação do produto do Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentação geral do RHEL
@@ -86,7 +86,7 @@ Você pode usar um modelo do Azure do github para implantar todos os recursos ne
 ### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do Modelo do Azure
 
 O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode usar para implantar novas máquinas virtuais.
-Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o conjunto de disponibilidade, etc. Siga estas etapas para implantar o modelo:
 
 1. Abra o [modelo de servidor de arquivo do SAP][template-file-server] no Portal do Azure
 1. Defina os seguintes parâmetros
@@ -98,11 +98,11 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    4. Chave de Admin Username, a senha de administrador ou SSH  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    5. ID da Sub-rede  
-      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. O ID geralmente se parece com /assinaturas/**&lt;&gt;ID de assinatura**/resourceGroups/**&lt;nome&gt;do grupo de recursos**/provedores/Microsoft.Network/virtualNetworks/**&lt;nome&gt;de rede virtual**/sub-redes /**&lt;nome&gt; de sub-rede**
+      Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente se parece com**&lt;a ID&gt;da assinatura**/subscriptions//resourceGroups/**&lt;nome&gt;do grupo de recursos**,/Providers/Microsoft.Network/virtualNetworks/**&lt;&gt; ** **&lt;nome da rede&gt;virtual**/Subnets/nome da sub-rede
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio do portal do Azure
 
-Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomendamos [o balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriormente, você pode cria um balanceador de carga e usar as máquinas virtuais nos pools de back-end. Recomendamos o [balanceador de carga padrão](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Criar um grupo de recursos
 1. Criar uma rede virtual

@@ -1,16 +1,16 @@
 ---
-title: Restaurar aplicativo a partir de um instantâneo
-description: Saiba como restaurar seu aplicativo a partir de um instantâneo. Recupere-se de uma perda inesperada de dados no nível Premium com as cópias automáticas de sombra.
+title: Restaurar aplicativo de um instantâneo
+description: Saiba como restaurar seu aplicativo a partir de um instantâneo. Recupere-se da perda de dados inesperada na camada Premium com as cópias de sombra automáticas.
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255144"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar um aplicativo no Azure a partir de um instantâneo
@@ -35,7 +35,7 @@ A restauração usando instantâneos está disponível para aplicativos que são
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Restaurar um aplicativo usando um instantâneo
 
-1. Na página **Configurações** do seu aplicativo no [portal Azure,](https://portal.azure.com)clique em **Backups** para exibir a página **Backups.** Em seguida, clique em **Restaurar** na seção **Instantâneo (Versão prévia)**.
+1. Na página **configurações** do seu aplicativo no [portal do Azure](https://portal.azure.com), clique em **backups** para exibir a página **backups** . Em seguida, clique em **Restaurar** na seção **Instantâneo (Versão prévia)**.
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico | Microsoft Docs
-description: O processador de mídia Azure Media Moderator ajuda a detectar potenciais conteúdos adultos e picantes em vídeos.
+description: O processador de mídia do Azure Media Content Moderator ajuda a detectar possíveis conteúdos de conteúdo adulto e erótico em vídeos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77914306"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
 > [!NOTE]
-> O processador de mídia **Azure Media Content Moderator** será aposentado. Para a data de aposentadoria, consulte o tópico [componentes legados.](legacy-components.md)
+> O processador de mídia **do Content moderator de mídia do Azure** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
 
 ## <a name="overview"></a>Visão geral
-O processador de mídia **Azure Media Content Moderator** (MP) permite que você use moderação assistida por máquina para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
+O MP (processador de mídia) do **Azure media Content moderator** permite que você use a moderação assistida por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
 
 O MP do **Azure Media Content Moderator** está atualmente em fase de Visualização.
 
@@ -49,7 +49,7 @@ O JSON de saída contém os seguintes elementos:
 
 | Elemento | Descrição |
 | --- | --- |
-| version |A versão do Content Moderator. |
+| Versão |A versão do Content Moderator. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |A diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor sempre será 0. Esse valor pode ser alterado no futuro. |
 | taxa de quadros |Quadros por segundo do vídeo. |
@@ -65,7 +65,7 @@ O JSON de saída contém os seguintes elementos:
 | start |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
-| [Eventos](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
+| [LostFocus](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
 
@@ -75,7 +75,7 @@ O JSON de saída contém os seguintes elementos:
 | adultScore | Pontuação de confiança para o possível conteúdo adulto, em uma escala de 0,00 a 0,99. |
 | racyScore | Pontuação de confiança para o possível conteúdo erótico, em uma escala de 0,00 a 0,99. |
 | índice | Índice do quadro em uma escala desde o primeiro quadro do índice até o último quadro do índice. |
-|  timestamp | O local do quadro, em "tiques". |
+| timestamp | O local do quadro, em "tiques". |
 | shotIndex | O índice da captura pai. |
 
 
@@ -223,7 +223,7 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

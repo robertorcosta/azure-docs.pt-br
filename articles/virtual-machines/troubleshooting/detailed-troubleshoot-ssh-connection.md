@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ee6d437915f6c87ce9ef5f9c711d90793a96048c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920120"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Etapas detalhadas de solução de problemas de SSH para problemas ao se conectar a uma VM do Linux no Azure
@@ -105,7 +105,7 @@ Se não houver outra VM na mesma rede virtual, você poderá criar facilmente um
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique as seguintes áreas:
 
-* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.**  A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Verifique o número da porta SSH TCP no portal Azure selecionando os pontos**finais***do nome* > VM**das máquinas** >  **Virtual machines** > virtuais .
+* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.**  A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Verifique o número da porta SSH TCP no portal do Azure selecionando **máquinas** > *nome* > da VM**configurações** > **pontos de extremidade**.
 * **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.**  Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](../../virtual-network/virtual-networks-acl.md).
 
 Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

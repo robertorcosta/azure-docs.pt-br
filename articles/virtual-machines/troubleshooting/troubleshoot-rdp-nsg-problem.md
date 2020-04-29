@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918165"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível conectar-se remotamente a uma VM porque a porta RDP não está habilitada no NSG
@@ -33,14 +33,14 @@ Você não pode fazer uma conexão de RDP a uma VM no Azure porque a porta RDP n
 Quando você cria uma nova VM, todo o tráfego da Internet é bloqueado por padrão. 
 
 Para habilitar a porta RDP em um NSG, siga essas etapas:
-1. Faça login [no portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Em **Máquinas virtuais**, selecione a VM que tem o problema. 
 3. Em **Configurações**, selecione **Rede**. 
 4. Nas **regras de porta de entrada**, verifique se a porta do RDP está configurada corretamente. Veja a seguir um exemplo da configuração: 
 
     **Prioridade**: 300 </br>
     **Nome**: Port_3389 </br>
-    **Porto (Destino)**: 3389 </br>
+    **Porta (destino)**: 3389 </br>
     **Protocolo**: TCP </br>
     **Origem**: qualquer uma </br>
     **Destinos**: qualquer um </br>

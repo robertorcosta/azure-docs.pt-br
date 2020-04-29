@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616700"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
@@ -72,7 +72,7 @@ Depois de entrar na SAP CAL, a primeira página geralmente leva você para a pá
 
     ![Confirmação dos serviços de nuvem do Internet Explorer](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic5a.PNG)
 
-1. Clique **em Aceitar**. Se a autorização for bem-sucedido, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização foi bem-sucedido.
+1. Clique em **Aceitar**. Se a autorização for bem-sucedido, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização foi bem-sucedido.
 
 1. Para atribuir a conta da CAL SAP recém-criada ao seu usuário, insira sua **ID de usuário** na caixa de texto à direita e clique em **Adicionar**. 
 

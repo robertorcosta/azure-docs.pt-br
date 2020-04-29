@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de implantação de máquina virtual do Windows no Azure | Microsoft Docs
-description: Solucionar problemas de implantação de problemas de máquina virtual do Windows no modelo de implantação do Azure Resource Manager.
+description: Solucionar problemas de implantação de máquina virtual do Windows no modelo de implantação Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,23 +15,23 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921404"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Windows no Azure
 
 Para solucionar problemas de implantação de máquina virtual (VM) no Azure, examine os [principais problemas](#top-issues) para falhas e resoluções comuns.
 
-Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.
+Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
 
 ## <a name="top-issues"></a>Principais problemas
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>O cluster não dá suporte ao tamanho de VM solicitado
-\<suporte de propriedadesTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Repita a solicitação com um tamanho de VM menor.
 - Se o tamanho da VM solicitada não puder ser alterado:
     - Pare todas as VMs no conjunto de disponibilidade. Clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
@@ -40,7 +40,7 @@ Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>O cluster não tem recursos livres
-\<suporte de propriedadesTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<Properties supportTopicIds = "123456789" resourceTags = "Windows" productPesIds = "1234, 5678"/>
 - Tente fazer novamente a solicitação.
 - Se a nova VM puder ser parte de um conjunto de disponibilidade diferente
     - Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
@@ -64,11 +64,11 @@ Para o Enterprise Agreement:
 
 Para saber mais, consulte os recursos a seguir:
 
- - [Visão geral do benefício do uso híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Visão geral do benefício de uso híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Perguntas frequentes para download](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Benefício de uso híbrido do Azure para o Windows Server e o Windows Client](../windows/hybrid-use-benefit-licensing.md).
+ - [Benefício de uso híbrido do Azure para Windows Server e Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
  - [Como usar o Benefício de Uso Híbrido no Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
@@ -123,4 +123,4 @@ Sim. Você pode adicionar uma VM clássica existente para um Conjunto de Disponi
 ## <a name="next-steps"></a>Próximas etapas
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.
+Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

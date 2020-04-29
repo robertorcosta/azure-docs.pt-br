@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919457"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
@@ -34,13 +34,13 @@ Ao tentar conectar uma VM, você enfrenta os seguintes cenários:
 
 - Você visualiza remotamente os logs de eventos na VM usando o Visualizador de Eventos. Você vê que os Serviços de Área de Trabalho Remota, TermService, não estão sendo iniciados ou não são iniciados. O log a seguir está um exemplo:
 
-    **Nome do registro**: Sistema </br>
-    **Fonte**: Gerente de Controle de Serviços </br>
+    **Nome do log**: sistema </br>
+    **Fonte**: Gerenciador de controle de serviço </br>
     **Data**: 12/16/2017 11:19:36 AM</br>
     **ID do evento**: 7022</br>
     **Categoria de tarefa**: nenhum</br>
-    **Nível**: Erro</br>
-    **Palavras-chave**: Clássico</br>
+    **Nível**: erro</br>
+    **Palavras-chave**: clássico</br>
     **Usuário**: N/A</br>
     **Computador**: vm.contoso.com</br>
     **Descrição**: serviço The Remote Desktop Services parou ao iniciar. 
@@ -54,8 +54,8 @@ Ao tentar conectar uma VM, você enfrenta os seguintes cenários:
 Esse problema ocorre porque os Serviços de Área de Trabalho Remota não estão sendo executados na VM. A causa pode depender de cenários a seguir: 
 
 - O serviço TermService é definido como **desabilitado**. 
-- O serviço TermService está falhando ou não respondendo. 
-- O TermService não está começando por causa de uma configuração incorreta.
+- O serviço do TermService está falhando ou não respondendo. 
+- O TermService não está iniciando devido a uma configuração incorreta.
 
 ## <a name="solution"></a>Solução
 
@@ -94,7 +94,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    ```
 8. Se o serviço não for iniciado, execute a solução baseada no erro recebido:
 
-    |  Erro |  Sugestão |
+    |  Erro do |  Sugestão |
     |---|---|
     |5 - ACESSO NEGADO |Consulte o [Serviço TermService está parado devido a um erro de Acesso Negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Veja [Serviço TermService está desabilitado](#termservice-service-is-disabled).  |  
@@ -139,16 +139,16 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
    procmon /Terminate 
    ```
 
-5. Coletar o arquivo **c:\temp\ProcMonTrace.PML**:
+5. Colete o arquivo **c:\temp\ProcMonTrace.PML**:
 
     1. [Anexar um disco de dados à VM](../windows/attach-managed-disk-portal.md
 ).
     2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado.
     3. Desanexe a unidade de dados e conecte-a em uma VM funcional que tenha o ubstakke do Process Monitor instalado.
 
-6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, o filtro por **resultado é ACCESS NEGADO,** conforme mostrado na captura de tela a seguir:
+6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, filtrar por **resultado é acesso negado**, conforme mostrado na seguinte captura de tela:
 
-    ![Filtrar por resultado no Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtrar por resultado no monitor de processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Corrigir as chaves do registro, pastas ou arquivos que estão na saída. Normalmente, esse problema é causado quando a conta de login usada no serviço não tem permissão da ACL para acessar esses objetos. Para saber a permissão correta da ACL para a conta de entrada, você pode verificar uma VM saudável. 
@@ -201,9 +201,9 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
-3. Abra uma instância de prompt de comando elevada **(Execute como administrador).** Em seguida, execute o script a seguir. Assumimos que a letra de unidade atribuída ao disco do sistema operacional conectado é **F**. Substitua-o pelo valor apropriado em sua VM. 
+3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Supomos que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua-o pelo valor apropriado em sua VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

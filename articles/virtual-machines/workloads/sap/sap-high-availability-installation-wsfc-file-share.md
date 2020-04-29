@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617324"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
@@ -210,8 +210,8 @@ Antes de iniciar a instalação, revise os seguintes artigos:
 * [Alta disponibilidade do SAP NetWeaver em VMs do Azure][high-availability-guide]
 
 Você precisa dos seguintes executáveis e DLLs do SAP:
-* SAP Software Provisioning Manager (SWPM) versão da ferramenta de instalação SPS25 ou posterior.
-* Kernel SAP 7.49 ou posterior
+* Ferramenta de instalação do SWPM (Gerenciador de provisionamento de software) SAP versão SPS25 ou posterior.
+* Kernel SAP 7,49 ou posterior
 
 > [!IMPORTANT]
 > Clustering de instâncias SAP ASCS/SCS com compartilhamento de arquivos tem suporte para produtos SAP NetWeaver 7.40 (e superior) com SAP Kernel 7.49 (e superior).
@@ -231,7 +231,7 @@ Não existem considerações especiais quando vários serviços DBMS interagem c
 
 Crie o seguinte volume e compartilhamento de arquivos no cluster SOFS:
 
-* Estrutura de arquivos `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST no CSV (SOFS cluster cluster compartilhado volume compartilhado)
+* Estrutura de arquivos `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST no volume compartilhado do cluster do SOFS (CSV)
 
 * Compartilhamento de arquivos SAPMNT
 
@@ -293,28 +293,28 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 Crie um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]**) conforme descrito em [Criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
-## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instale as instâncias ASCS/SCS e ERS no cluster
+## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instalar instâncias ASCS/SCS e ERS no cluster
 
-### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
+### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instalar uma instância do ASCS/SCS no primeiro nó do cluster ASCS/SCS
 
-Instale uma ocorrência SAP ASCS/SCS no primeiro nó de cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
+Instale uma instância do SAP ASCS/SCS no primeiro nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Produto>**  >  ** \<DBMS>**  >  **Servidor** > **de instalação ABAP** (ou **Java)**> instância > **ASCS/SCS** **do sistema** > de alta disponibilidade Primeiro nó de**cluster**.
+**\<O produto>**  >  ** \<DBMS>**  >  **a instalação** > **do servidor de aplicativos ABAP** (ou **Java**) > instância > do sistema > **ASCS/SCS**do**primeiro nó de cluster** **de alta disponibilidade**.
 
 ### <a name="add-a-probe-port"></a>Adicionar uma porta de investigação
 
 Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS, conforme descrito [nesse artigo][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no segundo nó de cluster ASCS/SCS
+### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalar uma instância do ASCS/SCS no segundo nó do cluster ASCS/SCS
 
-Instale uma ocorrência SAP ASCS/SCS no segundo nó de cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
+Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Produto>**  >  ** \<DBMS>**  >  **Servidor** > **de instalação ABAP** (ou **Java)**> instância > do **sistema** > de alta disponibilidade**ASCS/SCS.****Additional cluster node**
+**\<O produto>**  >  ** \<DBMS>**  >  **instalação** > **do servidor de aplicativos ABAP** (ou **Java**) > instância > do sistema > do**ASCS/SCS** **de alta disponibilidade**no**nó de cluster adicional**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS
 
-Atualize os parâmetros no perfil \<de ocorrência SAP ASCS/SCS SID>_ASCS/SCS\<Nr>_ \<Host>.
+Atualize os parâmetros no SID do perfil \<da instância do SAP ASCS/SCS>_ASCS/SCS\<NR>_ \<host>.
 
 
 | Nome do parâmetro | Valor de parâmetro |
@@ -323,7 +323,7 @@ Atualize os parâmetros no perfil \<de ocorrência SAP ASCS/SCS SID>_ASCS/SCS\<N
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Reinicie a ocorrência SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster SAP ASCS/SCS seguem as instruções para [Definir entradas de registro nos nós de cluster da instância SAP ASCS/SCS][high-availability-guide]. 
+Reinicie a instância do SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de registro nos nós de cluster da instância do SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalar instância DBMS e servidores de aplicativos SAP
 
@@ -336,8 +336,8 @@ Finalize a instalação do sistema SAP instalando:
 
 * [Instalar uma instância do ASCS/SCS em um cluster de failover sem discos compartilhados: diretrizes SAP oficiais para compartilhamento de arquivo de alta disponibilidade][sap-official-ha-file-share-document]
 
-* [Espaços de armazenamento direto no Windows Server 2016][s2d-in-win-2016]
+* [Espaços de Armazenamento Diretos no Windows Server 2016][s2d-in-win-2016]
 
-* [Servidor de arquivos de saída de escala para visão geral de dados de aplicativos][sofs-overview]
+* [Visão geral de Servidor de Arquivos de Escalabilidade Horizontal para dados de aplicativo][sofs-overview]
 
 * [O que há de novo no Armazenamento no Windows Server 2016][new-in-win-2016-storage]

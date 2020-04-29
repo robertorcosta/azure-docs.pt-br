@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921480"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>O Windows mostra "verificando o sistema de arquivos" ao inicializar uma VM do Azure
@@ -39,7 +39,7 @@ Se um erro NTFS for encontrado no sistema de arquivos, o Windows irá verificar 
 
 O Windows inicializará normalmente depois que o processo Verificar Disco for concluído. Se a VM estiver paralisada no processo Verificar Disco, tente executar Verificar Disco na VM offline:
 1.  Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2.  [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).  
+2.  [Anexe o disco do sistema operacional a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).  
 3.  Na VM de recuperação, execute Verificar Disco no disco de SO anexado. No exemplo a seguir, a letra da unidade do disco de SO anexado é E: 
         
         chkdsk E: /f

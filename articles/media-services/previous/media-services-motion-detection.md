@@ -15,16 +15,16 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77912997"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
 
 > [!NOTE]
-> O processador de mídia **Azure Media Motion Detector** será aposentado. Para a data de aposentadoria, consulte o tópico [componentes legados.](legacy-components.md)
+> O processador de mídia **Azure Media Motion detector** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
  
 ## <a name="overview"></a>Visão geral
 
@@ -45,7 +45,7 @@ Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá esp
 ### <a name="parameters"></a>Parâmetros
 Você pode usar os seguintes parâmetros:
 
-| Nome | Opções | Descrição | Padrão |
+| Name | Opções | Descrição | Padrão |
 | --- | --- | --- | --- |
 | sensitivityLevel |Cadeia de caracteres: 'low', 'medium', 'high' |Define o nível de sensibilidade ao qual os movimentos são relatados. Ajuste para ajustar o número de falsos positivos. |'medium' |
 | frameSamplingValue |Número inteiro positivo |Define a frequência na qual o algoritmo é executado. 1 é igual a cada quadro, 2 significa cada segundo quadro, e assim por diante. |1 |
@@ -100,7 +100,7 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída:
 
 | Elemento | Descrição |
 | --- | --- |
-| version |Refere-se à versão da API de Vídeo. A versão atual é 2. |
+| Versão |Refere-se à versão da API de Vídeo. A versão atual é 2. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |A diferença de horário para carimbos de data/hora em "tiques." Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado. |
 | taxa de quadros |Quadros por segundo do vídeo. |
@@ -113,7 +113,7 @@ A tabela a seguir descreve os elementos do arquivo JSON de saída:
 | regionId |Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras. |
 | regions |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/>  Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
 | fragmentos |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração. |
-| suportes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
+| colchetes [] |Cada colchete representa um intervalo no evento. Colchetes vazios para esse intervalo significam que nenhum movimento foi detectado. |
 | Locais |Essa nova entrada em eventos lista o local onde ocorreu o movimento. Isso é mais específico do que as zonas de detecção. |
 
 O seguinte exemplo JSON mostra a saída:
@@ -208,7 +208,7 @@ O programa a seguir mostra como:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app. config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -384,7 +384,7 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Links relacionados

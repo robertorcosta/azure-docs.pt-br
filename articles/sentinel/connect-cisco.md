@@ -1,6 +1,6 @@
 ---
-title: Conecte os dados da Cisco ao Azure Sentinel| Microsoft Docs
-description: Saiba como conectar dados cisco ao Azure Sentinel.
+title: Conectar dados Cisco ao Azure Sentinel | Microsoft Docs
+description: Saiba como conectar dados Cisco ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,39 +16,39 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588392"
 ---
-# <a name="connect-cisco-asa-to-azure-sentinel"></a>Conecte o Cisco ASA ao Azure Sentinel
+# <a name="connect-cisco-asa-to-azure-sentinel"></a>Conectar o Cisco ASA ao Azure Sentinel
 
 
 
-Este artigo explica como conectar seu aparelho Cisco ASA ao Azure Sentinel. O conector de dados Cisco ASA permite conectar facilmente seus logs Cisco ASA com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. O uso do Cisco ASA no Azure Sentinel fornecerá mais informações sobre o uso da Internet da sua organização e melhorará seus recursos de operação de segurança. 
+Este artigo explica como conectar seu dispositivo Cisco ASA ao Azure Sentinel. O Cisco ASA data Connector permite que você conecte facilmente seus logs do Cisco ASA com o Azure Sentinel, exiba painéis, crie alertas personalizados e melhore a investigação. Usar o Cisco ASA no Azure Sentinel fornecerá mais informações sobre o uso da Internet da sua organização e aprimorará seus recursos de operação de segurança. 
 
 
 
-## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Avançar registros Cisco ASA para o agente Syslog
+## <a name="forward-cisco-asa-logs-to-the-syslog-agent"></a>Encaminhe os logs do Cisco ASA para o agente de syslog
 
-O Cisco ASA não suporta cef, então os logs são enviados como Syslog e o agente do Azure Sentinel sabe como analisá-los como se fossem logs do CEF. Configure o Cisco ASA para encaminhar mensagens Syslog para o seu espaço de trabalho do Azure através do agente Syslog:
+O Cisco ASA não dá suporte a CEF, portanto, os logs são enviados como syslog e o agente do Azure Sentinel sabe como analisá-los como se fossem logs de CEF. Configure o Cisco ASA para encaminhar mensagens de syslog para seu espaço de trabalho do Azure por meio do agente de syslog:
 
-1. Vá para [Enviar mensagens syslog para um servidor Syslog externo](https://aka.ms/asi-syslog-cisco-forwarding)e siga as instruções para configurar a conexão. Use esses parâmetros quando solicitado:
-    - Defina a **porta** para 514 ou a porta que você definiu no agente.
-    - Defina **syslog_ip** no endereço IP do agente.
+1. Vá para [enviar mensagens do syslog para um servidor syslog externo](https://aka.ms/asi-syslog-cisco-forwarding)e siga as instruções para configurar a conexão. Use estes parâmetros quando solicitado:
+    - Defina **porta** como 514 ou a porta que você definiu no agente.
+    - Defina **syslog_ip** para o endereço IP do agente.
 
-1. Para usar o esquema relevante no Log Analytics para `CommonSecurityLog`os eventos cisco, procure .
+1. Para usar o esquema relevante no Log Analytics para os eventos Cisco, procure `CommonSecurityLog`.
 
-1. Continue até [o PASSO 3: Valide a conectividade](connect-cef-verify.md).
+1. Continue na [etapa 3: validar a conectividade](connect-cef-verify.md).
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu como conectar os aparelhos Cisco ASA ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu a conectar os appliances Cisco ASA ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use as cadernetas](tutorial-monitor-your-data.md) para monitorar seus dados.
+- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
 
 

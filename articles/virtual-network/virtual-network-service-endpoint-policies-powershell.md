@@ -1,6 +1,6 @@
 ---
-title: Restringir a exfiltração de dados ao Armazenamento Azure - Azure PowerShell
-description: Neste artigo, você aprende como limitar e restringir a exfiltração de dados de rede virtual aos recursos do Azure Storage com políticas de ponto final de serviço de rede virtual usando o Azure PowerShell.
+title: Restringir vazamento de dados ao armazenamento do Azure-Azure PowerShell
+description: Neste artigo, você aprenderá a limitar e restringir vazamento de dados de rede virtual a recursos de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: RDhillon
@@ -18,26 +18,26 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 673431e2ddfc9a641bb1c640891daac79350cb3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78253020"
 ---
-# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerencie a exfiltração de dados para contas de armazenamento do Azure com políticas de ponto final de serviço de rede virtual usando o Azure PowerShell
+# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gerenciar vazamento de dados para contas de armazenamento do Azure com políticas de ponto de extremidade de serviço de rede virtual usando Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-As políticas de ponto final de serviço de rede virtual permitem que você aplique controle de acesso em contas do Azure Storage a partir de uma rede virtual sobre pontos finais de serviço. Esta é uma chave para proteger suas cargas de trabalho, gerenciar quais contas de armazenamento são permitidas e onde a exfiltração de dados é permitida.
+As políticas de ponto de extremidade de serviço de rede virtual permitem que você aplique o controle de acesso nas contas de armazenamento do Azure de dentro de uma rede virtual em pontos de extremidade de serviço. Essa é uma chave para proteger suas cargas de trabalho, gerenciar quais contas de armazenamento são permitidas e onde os dados vazamento são permitidos.
 Neste artigo, você aprenderá como:
 
 * Crie uma rede virtual.
-* Adicione uma sub-rede e habilite o ponto final de serviço para o Armazenamento Azure.
-* Crie duas contas de armazenamento do Azure e permita o acesso da rede a ela a partir da sub-rede criada acima.
-* Crie uma política de ponto final de serviço para permitir o acesso apenas a uma das contas de armazenamento.
+* Adicione uma sub-rede e habilite o ponto de extremidade de serviço para o armazenamento do Azure.
+* Crie duas contas de armazenamento do Azure e permita o acesso à rede por meio da sub-rede criada acima.
+* Crie uma política de ponto de extremidade de serviço para permitir o acesso somente a uma das contas de armazenamento.
 * Implante uma máquina virtual (VM) na sub-rede.
-* Confirme o acesso à conta de armazenamento permitida a partir da sub-rede.
-* Confirmar o acesso é negado à conta de armazenamento não permitida da sub-rede.
+* Confirme o acesso à conta de armazenamento permitida da sub-rede.
+* Confirme se o acesso foi negado à conta de armazenamento não permitida da sub-rede.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -81,7 +81,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-the-subnet"></a>Restringir o acesso à rede para a sub-rede
 
-Crie regras de segurança de grupo de segurança de rede com [new-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). A seguinte regra permite o acesso de saída para os endereços IP públicos atribuídos ao serviço de Armazenamento do Microsoft Azure: 
+Crie regras de segurança de grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). A seguinte regra permite o acesso de saída para os endereços IP públicos atribuídos ao serviço de Armazenamento do Microsoft Azure: 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -134,7 +134,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-Associe o grupo de segurança da rede à sub-rede *Privada* com [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e, em seguida, escreva a configuração da sub-rede na rede virtual. O exemplo a seguir associa o grupo de segurança de rede *myNsgPrivate* à sub-rede *Privada*:
+Associe o grupo de segurança de rede à sub-rede *privada* com [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e, em seguida, grave a configuração de sub-rede na rede virtual. O exemplo a seguir associa o grupo de segurança de rede *myNsgPrivate* à sub-rede *Privada*:
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -147,13 +147,13 @@ Set-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-azure-storage-accounts"></a>Restringir o acesso à rede às contas do Azure Storage
+## <a name="restrict-network-access-to-azure-storage-accounts"></a>Restringir o acesso à rede para contas de armazenamento do Azure
 
 As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure, como exemplo.
 
-### <a name="create-two-storage-accounts"></a>Crie duas contas de armazenamento
+### <a name="create-two-storage-accounts"></a>Criar duas contas de armazenamento
 
-Crie uma conta de armazenamento Azure com [new-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+Crie uma conta de armazenamento do Azure com [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
 ```azurepowershell-interactive
 $storageAcctName1 = 'allowedaccount'
@@ -174,7 +174,7 @@ $storageAcctKey1 = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -
 
 A chave é usada para criar um compartilhamento de arquivos em uma etapa posterior. Insira `$storageAcctKey` e observe o valor, já que você também precisará inseri-lo manualmente em uma etapa posterior ao mapear o compartilhamento de arquivos para uma unidade em uma VM.
 
-Agora repita as etapas acima para criar uma segunda conta de armazenamento.
+Agora, repita as etapas acima para criar uma segunda conta de armazenamento.
 
 ```azurepowershell-interactive
 $storageAcctName2 = 'notallowedaccount'
@@ -187,15 +187,15 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Também recupere a chave da conta de armazenamento desta conta para usar mais tarde para criar um compartilhamento de arquivos.
+Também recupere a chave da conta de armazenamento desta conta para usar o mais tarde para criar um compartilhamento de arquivos.
 
 ```azurepowershell-interactive
 $storageAcctKey2 = (Get-AzStorageAccountKey -ResourceGroupName myResourceGroup -AccountName $storageAcctName2).Value[0]
 ```
 
-### <a name="create-a-file-share-in-each-of-the-storage-account"></a>Crie um compartilhamento de arquivos em cada uma das contas de armazenamento
+### <a name="create-a-file-share-in-each-of-the-storage-account"></a>Criar um compartilhamento de arquivos em cada conta de armazenamento
 
-Crie um contexto para sua conta de armazenamento e chave com [o New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). O contexto encapsula o nome da conta de armazenamento e a chave da conta:
+Crie um contexto para sua conta de armazenamento e a chave com [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). O contexto encapsula o nome da conta de armazenamento e a chave da conta:
 
 ```azurepowershell-interactive
 $storageContext1 = New-AzStorageContext $storageAcctName1 $storageAcctKey1
@@ -203,7 +203,7 @@ $storageContext1 = New-AzStorageContext $storageAcctName1 $storageAcctKey1
 $storageContext2 = New-AzStorageContext $storageAcctName2 $storageAcctKey2
 ```
 
-Crie um compartilhamento de arquivos com [o New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+Crie um compartilhamento de arquivos com [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 ```azurepowershell-interactive
 $share1 = New-AzStorageShare my-file-share -Context $storageContext1
@@ -211,9 +211,9 @@ $share1 = New-AzStorageShare my-file-share -Context $storageContext1
 $share2 = New-AzStorageShare my-file-share -Context $storageContext2
 ```
 
-### <a name="deny-all-network-access-to-a-storage-accounts"></a>Negar todo o acesso da rede a uma conta de armazenamento
+### <a name="deny-all-network-access-to-a-storage-accounts"></a>Negar todo acesso à rede para contas de armazenamento
 
-Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Para limitar o acesso às redes selecionadas, altere a ação padrão para *Negar* com [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Depois que o acesso à rede for negado, a conta de armazenamento não estará acessível em nenhuma rede.
+Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Para limitar o acesso às redes selecionadas, altere a ação padrão para *negar* com [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Depois que o acesso à rede for negado, a conta de armazenamento não estará acessível em nenhuma rede.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet `
@@ -227,9 +227,9 @@ Update-AzStorageAccountNetworkRuleSet  `
   -DefaultAction Deny
 ```
 
-### <a name="enable-network-access-only-from-the-vnet-subnet"></a>Habilite o acesso à rede somente a partir da sub-rede VNet
+### <a name="enable-network-access-only-from-the-vnet-subnet"></a>Habilitar o acesso à rede somente da sub-rede VNet
 
-Recupere a rede virtual criada com [get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) e, em seguida, recupere o objeto de sub-rede privada em uma variável com [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+Recupere a rede virtual criada com [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) e, em seguida, recupere o objeto de sub-rede privada em uma variável com [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -238,7 +238,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   | Get-AzVirtualNetworkSubnetConfig -Name Private
 ```
 
-Permitir acesso de rede à conta de armazenamento da sub-rede *Privada* com [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+Permita o acesso à rede para a conta de armazenamento da sub-rede *privada* com [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -252,21 +252,21 @@ Add-AzStorageAccountNetworkRule `
   -VirtualNetworkResourceId $privateSubnet.Id
 ```
 
-## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Aplicar política para permitir o acesso à conta de armazenamento válida
+## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Aplicar política para permitir o acesso a uma conta de armazenamento válida
 
-Para garantir que os usuários da rede virtual só possam acessar as contas do Azure Storage que são seguras e permitidas, você pode criar uma política de ponto final do Serviço com a lista de contas de armazenamento permitidas na definição. Essa política é então aplicada à sub-rede virtual que está conectada ao armazenamento através de pontos finais de serviço.
+Para garantir que os usuários na rede virtual possam acessar somente as contas de armazenamento do Azure que são seguras e permitidas, você pode criar uma política de ponto de extremidade de serviço com a lista de contas de armazenamento permitidas na definição. Essa política é aplicada à sub-rede da rede virtual que está conectada ao armazenamento por meio de pontos de extremidade de serviço.
 
 ### <a name="create-a-service-endpoint-policy"></a>Criar uma política de ponto de extremidade de serviço
 
-Esta seção cria a definição de política com a lista de recursos permitidos para acesso sobre ponto final de serviço
+Esta seção cria a definição de política com a lista de recursos permitidos para acessar o ponto de extremidade de serviço
 
-Recupere o ID de recurso para a primeira conta de armazenamento (permitida) 
+Recuperar a ID de recurso para a primeira conta de armazenamento (permitido) 
 
 ```azurepowershell-interactive
 $resourceId = (Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name $storageAcctName1).id
 ```
 
-Crie a definição de política para permitir o recurso acima
+Criar a definição de política para permitir o recurso acima
 
 ```azurepowershell-interactive
 $policyDefinition = New-AzServiceEndpointPolicyDefinition -Name mypolicydefinition `
@@ -275,7 +275,7 @@ $policyDefinition = New-AzServiceEndpointPolicyDefinition -Name mypolicydefiniti
   -ServiceResource $resourceId
 ```
 
-Crie a política de ponto final de serviço usando a definição de política criada acima
+Criar a política de ponto de extremidade de serviço usando a definição de política criada acima
 
 ```azurepowershell-interactive
 $sepolicy = New-AzServiceEndpointPolicy -ResourceGroupName myresourcegroup `
@@ -283,9 +283,9 @@ $sepolicy = New-AzServiceEndpointPolicy -ResourceGroupName myresourcegroup `
   -ServiceEndpointPolicyDefinition $policyDefinition
 ```
 
-### <a name="associate-the-service-endpoint-policy-to-the-virtual-network-subnet"></a>Associar a política de ponto final de serviço à sub-rede virtual
+### <a name="associate-the-service-endpoint-policy-to-the-virtual-network-subnet"></a>Associar a política de ponto de extremidade de serviço à sub-rede da rede virtual
 
-Depois de criar a diretiva de ponto final de serviço, você a associará à sub-rede de destino com a configuração de ponto final de serviço para o Azure Storage.
+Depois de criar a política de ponto de extremidade de serviço, você a associará à sub-rede de destino com a configuração de ponto de extremidade de serviço para o armazenamento do Azure.
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $VirtualNetwork `
@@ -297,13 +297,13 @@ Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $VirtualNetwork `
 
 $virtualNetwork | Set-AzVirtualNetwork
 ```
-## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Validar a restrição de acesso às contas do Azure Storage
+## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Validar a restrição de acesso às contas de armazenamento do Azure
 
 ### <a name="deploy-the-virtual-machine"></a>Implantar a máquina virtual
 
-Para testar o acesso da rede a uma conta de armazenamento, implante uma VM na sub-rede.
+Para testar o acesso à rede para uma conta de armazenamento, implante uma VM na sub-rede.
 
-Crie uma máquina virtual na sub-rede *Private* com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar o comando a seguir, as credenciais serão solicitadas. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM. A opção `-AsJob` cria a VM em segundo plano para que você possa prosseguir para a próxima etapa.
+Crie uma máquina virtual na sub-rede *privada* com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar o comando a seguir, as credenciais serão solicitadas. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM. A opção `-AsJob` cria a VM em segundo plano para que você possa prosseguir para a próxima etapa.
 
 ```azurepowershell-interactive
 New-AzVm -ResourceGroupName myresourcegroup `
@@ -340,7 +340,7 @@ mstsc /v:<publicIpAddress>
 
 Um arquivo .rdp (Remote Desktop Protocol) é criado e baixado para o computador. Abra o arquivo rdp baixado. Se solicitado, selecione **Conectar**. Insira o nome de usuário e senha que você especificou ao criar a VM. Talvez seja necessário selecionar **Mais escolhas** e, em seguida, **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM. Selecione **OK**. Você pode receber um aviso do certificado durante o processo de logon. Se você receber o aviso, selecione **Sim** ou **Continuar**, para prosseguir com a conexão.
 
-No *myVmPrivate* VM, mapeie o compartilhamento de arquivos Azure da conta de armazenamento permitida para dirigir Z usando o PowerShell. 
+Na VM *myVmPrivate* , mapeie o compartilhamento de arquivos do Azure da conta de armazenamento permitida para a unidade Z usando o PowerShell. 
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String $storageAcctKey1 -AsPlainText -Force
@@ -360,9 +360,9 @@ O compartilhamento de arquivos do Azure foi mapeado com êxito para a unidade Z.
 
 Feche a sessão da área de trabalho remota para a VM *myVmPrivate*.
 
-### <a name="confirm-access-is-denied-to-non-allowed-storage-account"></a>Confirmar o acesso é negado à conta de armazenamento *não permitida*
+### <a name="confirm-access-is-denied-to-non-allowed-storage-account"></a>Confirmar acesso negado à conta *de armazenamento não permitida*
 
-No mesmo *myVmPrivate* VM, tente mapear o compartilhamento de arquivos do Azure para dirigir X. 
+Na mesma VM *myVmPrivate* , tente mapear o compartilhamento de arquivos do Azure para a unidade X. 
 
 ```powershell
 $acctKey = ConvertTo-SecureString -String $storageAcctKey1 -AsPlainText -Force
@@ -370,11 +370,11 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name X -PSProvider FileSystem -Root "\\notallowedaccount.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-O acesso ao compartilhamento é negado, e você recebe um erro `New-PSDrive : Access is denied`. O acesso é negado porque a conta de armazenamento *não permitida* conta não está na lista de recursos permitidos na diretiva de ponto final do serviço. 
+O acesso ao compartilhamento é negado, e você recebe um erro `New-PSDrive : Access is denied`. Acesso negado porque a conta de armazenamento *notallowedaccount* não está na lista de recursos permitidos na política de ponto de extremidade de serviço. 
 
 Feche a sessão da área de trabalho remota para a VM *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 
@@ -384,4 +384,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aplicou uma política de ponto final de serviço sobre um ponto final de serviço de rede virtual do Azure para o Azure Storage. Você criou contas de armazenamento Azure e acesso limitado à rede a apenas certas contas de armazenamento (e, portanto, negou outras) a partir de uma sub-rede virtual. Para saber mais sobre as políticas de ponto final de serviço, consulte [visão geral das políticas de pontos finais do Serviço](virtual-network-service-endpoint-policies-overview.md).
+Neste artigo, você aplicou uma política de ponto de extremidade de serviço em um ponto de extremidade de serviço de rede virtual do Azure para o armazenamento do Azure. Você criou contas de armazenamento do Azure e acesso limitado à rede a apenas determinadas contas de armazenamento (e, assim, negadas a outras) de uma sub-rede de rede virtual. Para saber mais sobre as políticas de ponto de extremidade de serviço, consulte [visão geral das políticas de pontos de extremidades de serviço](virtual-network-service-endpoint-policies-overview.md).

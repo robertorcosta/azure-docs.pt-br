@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598775"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
@@ -26,7 +26,7 @@ Este artigo pressupõe que você tenha completado as seguintes etapas:
 - Criado um compartilhamento de arquivos do Azure com sua cota desejada na sua conta de armazenamento. Consulte [Criar um compartilhamento de arquivos](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar um compartilhamento de arquivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferir dados para Arquivos do Azure
-Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados para um compartilhamento de arquivos do Azure através de vários métodos populares detalhados do guia de [planejamento](storage-files-planning.md#migration)
+Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados para um compartilhamento de arquivos do Azure por meio de vários métodos populares detalhados no [Guia de planejamento](storage-files-planning.md#migration)
 
 ### <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -149,5 +149,5 @@ done
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
-- [Solucionar problemas dos Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Solucionar problemas dos Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Solucionar Problemas dos Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Solucionar Problemas dos Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
